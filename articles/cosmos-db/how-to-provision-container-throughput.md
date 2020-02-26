@@ -6,26 +6,26 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.openlocfilehash: bfd18a009ed9ab5edffafcd0327b1d846cae02d8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 6d163609d505516514f078e5d5374c20b5a24e89
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75643856"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585591"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Etablera dataflöde i en Azure Cosmos-container
 
 Den här artikeln beskriver hur du etablerar data flöde i en behållare (samling, Graf eller tabell) i Azure Cosmos DB. Du kan etablera data flöde på en enskild behållare eller [etablera data flöde på en databas](how-to-provision-database-throughput.md) och dela den mellan behållarna i databasen. Du kan etablera data flöde på en behållare med hjälp av Azure Portal, Azure CLI eller Azure Cosmos DB SDK: er.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure-portalen
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-sql-api-dotnet.md#create-account)eller Välj ett befintligt Azure Cosmos-konto.
 
 1. Öppna fönsterrutan **Data Explorer** och välj **Ny samling**. Ange därefter följande information:
 
-   * Ange om du skapar en ny databas eller använder en befintlig.
+   * Ange huruvida du skapar en ny databas eller använder en befintlig.
    * Ange ett ID för behållare (eller tabell eller graf).
    * Ange ett partitionsnyckelvärde (till exempel `/userid`).
    * Ange ett data flöde som du vill etablera (till exempel 1000 ru: er).
@@ -64,7 +64,8 @@ await client.CreateDocumentCollectionAsync(
 ```
 
 ### <a name="net-v3-sdk"></a>.Net V3 SDK
-[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
+
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs" id="ContainerCreateWithThroughput":::
 
 ## <a name="javascript-sdk"></a>JavaScript SDK
 
@@ -95,7 +96,7 @@ offer.content.offerThroughput = 2000;
 await client.offer(offer.id).replace(offer);
 ```
 
-### <a id="dotnet-cassandra"></a>API för Cassandra
+### <a id="dotnet-cassandra"></a>Cassandra-API
 
 Liknande kommandon kan utfärdas via alla CQL-kompatibla driv rutiner.
 

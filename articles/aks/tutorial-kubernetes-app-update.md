@@ -2,20 +2,17 @@
 title: Självstudie om Kubernetes i Azure – Uppdatera ett program
 description: I den här självstudien om Azure Kubernetes Service (AKS) lär du dig hur du uppdaterar en befintlig programdistribution till AKS med en ny version av programkoden.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b645fc9f67229d087a5d1655f733e2f3e50d4471
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d5457d790cd3c95bb23ec0c517097b443a2389ed
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614383"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593384"
 ---
-# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Självstudier: Uppdatera ett program i Azure Kubernetes Service (AKS)
+# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Självstudie: Uppdatera ett program i Azure Kubernetes Service (AKS)
 
 När ett program har distribuerats i Kubernetes kan du uppdatera det genom att ange en ny containeravbildning eller avbildningsversion. En uppdatering mellanlagras så att bara en del av distributionen uppdateras samtidigt. Den här mellanlagrade uppdateringen gör att programmet kan fortsätta att köras under uppdateringen. Det ger också en mekanism för återställning om ett distributionsfel inträffar.
 
@@ -31,9 +28,9 @@ I den här självstudien, som är del sex av sju, uppdateras Azure Vote-exempela
 
 I tidigare självstudier paketerades en app i en containeravbildning. Den här avbildningen laddades upp till Azure Container Registry, och du skapade ett AKS-kluster. Appen distribuerades sedan till AKS-klustret.
 
-En programlagringsplats klonades också som inkluderar programmets källkod och en färdig Docker Compose-fil som används i den här självstudien. Verifiera att du har skapat en klon av lagringsplatsen och har ändrat kataloger i den klonade katalogen. Om du inte har slutfört dessa steg och vill följa med, börjar du med [självstudie 1 – Skapa behållaravbildningar][aks-tutorial-prepare-app].
+En programlagringsplats klonades också som inkluderar programmets källkod och en färdig Docker Compose-fil som används i den här självstudien. Verifiera att du har skapat en klon av lagringsplatsen och har ändrat kataloger i den klonade katalogen. Om du inte har slutfört dessa steg och vill följa med, börjar du med [självstudie 1 – Skapa behållar avbildningar][aks-tutorial-prepare-app].
 
-Den här självstudien kräver att du kör Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+I den här självstudien måste du köra Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="update-an-application"></a>Uppdatera ett program
 
@@ -57,7 +54,7 @@ Spara och stäng filen. I `vi` använder du `:wq`.
 
 ## <a name="update-the-container-image"></a>Uppdatera containeravbildningen
 
-För att skapa klientdelsavbildningen igen och testa det uppdaterade programmet, använda [docker-compose][docker-compose]. Argumentet `--build` används till att instruera Docker Compose att återskapa programavbildningen:
+Om du vill skapa en ny klient dels avbildning och testa det uppdaterade programmet använder du [Docker-sammanställning][docker-compose]. Argumentet `--build` används till att instruera Docker Compose att återskapa programavbildningen:
 
 ```console
 docker-compose up --build -d
@@ -85,10 +82,10 @@ Använd [docker tag][docker-tag] till att tagga avbildningen. Ersätt `<acrLogin
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Nu använda [docker push][docker-push] att ladda upp avbildningen till registret. Ersätt `<acrLoginServer>` med namnet på din ACR-inloggningsserver.
+Nu ska du använda [Docker push][docker-push] för att ladda upp avbildningen till registret. Ersätt `<acrLoginServer>` med namnet på din ACR-inloggningsserver.
 
 > [!NOTE]
-> Om du får problem med push-överföring till ACR-registret, se till att du fortfarande är inloggad. Kör den [docker login][az-acr-login] kommando med hjälp av namnet på ditt Azure-Behållarregister som du skapade i den [skapa ett Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) steg. Till exempel `az acr login --name <azure container registry name>`.
+> Om du får problem med att skicka till ACR-registret kontrollerar du att du fortfarande är inloggad. Kör kommandot [AZ ACR login][az-acr-login] med namnet på din Azure Container Registry som du skapade i steget [skapa ett Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) . Till exempel `az acr login --name <azure container registry name>`.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -96,7 +93,7 @@ docker push <acrLoginServer>/azure-vote-front:v2
 
 ## <a name="deploy-the-updated-application"></a>Distribuera det uppdaterade programmet
 
-Du får minimala störningar om flera instanser av programpodden körs. Kontrollera antalet körda klientdelsinstanserna med den [kubectl hämta poddar][kubectl-get] kommando:
+Du får minimala störningar om flera instanser av programpodden körs. Verifiera antalet klient dels instanser som körs med kommandot [kubectl get poddar][kubectl-get] :
 
 ```
 $ kubectl get pods

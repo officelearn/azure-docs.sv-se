@@ -8,17 +8,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: b0da9f2f2d14c0487e61c1927b5456d09052cff3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6af5f4c3ab028f8f0c6945eba86ec79dd6027680
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444934"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587472"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Självstudie: utveckla ett ASP.NET Core MVC-webbprogram med Azure Cosmos DB med hjälp av .NET SDK
 
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-dotnet-application.md)
+> * [NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)
@@ -110,7 +110,7 @@ Nu ska vi lägga till modeller, vyer och styrenheter för det här MVC-programme
 
 1. Ersätt innehållet i *Item.cs* -klassen med följande kod:
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs":::
 
 Azure Cosmos DB använder JSON för att flytta och lagra data. Du kan använda attributet `JsonProperty` för att kontrol lera hur JSON serialiserar och deserialiserar objekt. Klassen `Item` visar attributet `JsonProperty`. Den här koden styr formatet på egenskaps namnet som går till JSON. Det byter också namn på .NET-egenskapen `Completed`.
 
@@ -183,7 +183,7 @@ När du har slutfört de här stegen stänger du alla *cshtml* -dokument i Visua
 
 1. Ersätt innehållet i *ItemController.cs* med följande kod:
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs":::
 
 Attributet **ValidateAntiForgeryToken** används här för att skydda programmet mot attacker med förfalskning av begäran mellan webbplatser. Dina vyer bör fungera med den här antismidta token. Mer information och exempel finns i [förhindra förfalskning av CSRF-attacker (Cross-Site Request) i ASP.NET MVC-program][Preventing Cross-Site Request Forgery]. Källkoden på [GitHub][GitHub] har detta fullständigt implementerat.
 
@@ -203,11 +203,11 @@ Först lägger vi till en klass som innehåller logiken för att ansluta till oc
 
 1. Ersätt innehållet i *CosmosDBService.cs* med följande kod:
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
 
 1. Upprepa föregående två steg, men den här gången använder du namnet *ICosmosDBService*och använder följande kod:
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
 1. I **ConfigureServices** -hanteraren lägger du till följande rad:
 
@@ -219,7 +219,7 @@ Först lägger vi till en klass som innehåller logiken för att ansluta till oc
 
 1. I samma fil lägger du till följande metod **InitializeCosmosClientInstanceAsync**, som läser konfigurationen och initierar klienten.
 
-    [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)]
+    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync":::
 
 1. Definiera konfigurationen i projektets *appSettings. JSON* -fil. Öppna filen och Lägg till ett avsnitt som heter **CosmosDb**:
 

@@ -3,7 +3,7 @@ title: Anslut en identitet som skyddar till Azure Sentinel | Microsoft Docs
 description: Lär dig hur du ansluter en identitet som skyddar till Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: cabailey
-ms.openlocfilehash: 7e33580c253c98279644e10305557a7e60701c90
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 849087cbbe91be799c51929353b9f020859c85b8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610513"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588152"
 ---
 # <a name="connect-one-identity-safeguard"></a>Anslut en identitets skydds åtgärd
 Den enda identiteten för identitets skydd förbättrar den vanliga CEF-anslutaren (common Event format) med skydd för behöriga sessioner. Använd den här anslutningen för att enkelt börja använda de händelser som genereras av enheten för visualisering, aviseringar, undersökningar och mycket annat.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Läs-och skriv behörigheter till Azure Sentinel-arbetsytan.
 

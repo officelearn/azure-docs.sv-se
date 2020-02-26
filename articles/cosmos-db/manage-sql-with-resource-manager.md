@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: ce9ca202ee57fe9c42906ebeb62a44c724bd1a52
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 72a87c3b23e0eed6cfbf1614388702443f4e99d0
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978734"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588795"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>Hantera Azure Cosmos DB SQL (Core) API-resurser med Azure Resource Manager mallar
 
-I den här artikeln får du lära dig hur du använder Azure Resource Manager mallar för att automatisera hanteringen av dina Azure Cosmos DB-konton, databaser och behållare.
+I den här artikeln får du lära dig hur du använder Azure Resource Manager-mallar för att automatisera hanteringen av dina Azure Cosmos DB-konton, databaser och containrar.
 
 Den här artikeln innehåller bara exempel på Azure Resource Manager mallar för SQL API-konton. Du kan också hitta mall exempel för API: er för [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md)och [Table](manage-table-with-resource-manager.md) .
 
@@ -39,7 +39,7 @@ Om du vill skapa Azure Cosmos DB resurser kopierar du följande exempel mall och
 > * Konto namn är begränsade till 44 tecken, alla gemener.
 > * Om du vill ändra data flödes värden skickar du mallen igen med uppdaterade RU/s.
 
-[!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
 > [!NOTE]
 > Om du vill skapa en behållare med en stor partitionsnyckel ändrar du den tidigare mallen så att den inkluderar egenskapen `"version":2` i `partitionKey`-objektet.
@@ -136,7 +136,7 @@ Kopiera följande exempel mall och distribuera den enligt beskrivningen, antinge
 * Du kan också gå till [Azure snabb starts galleriet](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) och distribuera mallen från Azure Portal.
 * Du kan också hämta mallen till den lokala datorn eller skapa en ny mall och ange den lokala sökvägen med parametern `--template-file`.
 
-[!code-json[create-cosmosdb-sql-sprocs](~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json":::
 
 ### <a name="deploy-with-powershell"></a>Distribuera med PowerShell
 

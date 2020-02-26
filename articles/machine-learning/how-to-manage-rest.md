@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.openlocfilehash: e1e19f985c9aa02759c6fff3c634c216c7ef42ef
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 419dbd998abc5cbd2da64a990e13d46f3fb2efbe
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525557"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580636"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Skapa, köra och ta bort Azure ML-resurser med REST
 
@@ -54,7 +54,7 @@ Hämta en token:
 1. Öppna ett terminalfönster
 1. Ange följande kod på kommando raden
 1. Ersätt dina egna värden för `{your-tenant-id}`, `{your-client-id}`och `{your-client-secret}`. I den här artikeln är strängar som omges av klammerparenteser variabler som du måste ersätta med dina egna värden.
-1. Kör kommandot
+1. Köra kommandot
 
 ```bash
 curl -X POST https://login.microsoftonline.com/{your-tenant-id}/oauth2/token \
@@ -401,6 +401,23 @@ providers/Microsoft.Storage/storageAccounts/{your-storage-account-name}"
 ```
 
 Du bör få ett `202 Accepted` svar och, i de returnerade rubrikerna, en `Location`-URI. Du kan hämta den här URI: n för information om distributionen, inklusive användbar fel söknings information om det uppstår problem med en av dina beroende resurser (till exempel om du har glömt att aktivera administratörs åtkomst i behållar registret). 
+
+## <a name="troubleshooting"></a>Felsökning
+
+### <a name="resource-provider-errors"></a>Resurs leverantörs fel
+
+[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
+### <a name="moving-the-workspace"></a>Flytta arbets ytan
+
+> [!WARNING]
+> Det finns inte stöd för att flytta Azure Machine Learning arbets ytan till en annan prenumeration eller flytta den ägande prenumerationen till en ny klient. Detta kan orsaka fel.
+
+### <a name="deleting-the-azure-container-registry"></a>Tar bort Azure Container Registry
+
+I arbets ytan Azure Machine Learning används Azure Container Registry (ACR) för vissa åtgärder. En ACR-instans skapas automatiskt när den först behöver en.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

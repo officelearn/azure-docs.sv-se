@@ -3,12 +3,12 @@ title: Data modell för Azure Backup Diagnostics-händelser
 description: Den här data modellen refererar till det resursbaserade läget för att skicka diagnostiska händelser till Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: d38c9dedba7111923fa4f823d348d0783ac36681
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 267753ee1647739e36d92b64f50d8a8be87537d9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500627"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583392"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Data modell för Azure Backup Diagnostics-händelser
 
@@ -220,5 +220,5 @@ Den här tabellen innehåller information om Storage-relaterade fält.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lär dig hur du skickar diagnostikdata till Log Analytics](https://aka.ms/AzureBackupDiagnosticsDocs)
+- [Lär dig hur du skickar diagnostikdata till Log Analytics](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events)
 - [Lär dig hur du skriver frågor för resursbaserade tabeller](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries)

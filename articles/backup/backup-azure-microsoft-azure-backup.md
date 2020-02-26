@@ -3,12 +3,12 @@ title: Använda Azure Backup Server för att säkerhetskopiera arbets belastning
 description: I den här artikeln lär du dig hur du förbereder din miljö för att skydda och säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: efa54eac2e3e134fb285d38242ca1b59727c2c86
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: e601328a09ece54eb1c678310f76c7999c69f24c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425195"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586435"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -45,7 +45,7 @@ Det första steget för att få Azure Backup Server igång är att konfigurera e
 
 När du väljer en server för att köra Azure Backup Server rekommenderar vi att du börjar med en galleri bild av Windows Server 2016 Data Center eller Windows Server 2019 Data Center. Artikeln [skapar din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)och innehåller en självstudie för att komma igång med den rekommenderade virtuella datorn i Azure, även om du aldrig har använt Azure tidigare. De rekommenderade minimi kraven för virtuell Server-dator (VM) ska vara: Standard_A4_v2 med fyra kärnor och 8 GB RAM.
 
-Att skydda arbets belastningar med Azure Backup Server har många olika delarna. Artikeln [Installera DPM som en virtuell Azure-dator, vilket](https://technet.microsoft.com/library/jj852163.aspx)hjälper dig att förklara dessa olika delarna. Innan du distribuerar datorn kan du läsa den här artikeln helt och hållet.
+Att skydda arbets belastningar med Azure Backup Server har många olika delarna. Artikeln [Installera DPM som en virtuell Azure-dator, vilket](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12))hjälper dig att förklara dessa olika delarna. Innan du distribuerar datorn kan du läsa den här artikeln helt och hållet.
 
 ### <a name="using-an-on-premises-server"></a>Använda en lokal server
 
@@ -56,7 +56,7 @@ Om du inte vill köra bas servern i Azure kan du köra servern på en virtuell H
 | Windows Server 2019 |64-bitars |Standard, Datacenter, Essentials |
 | Windows Server 2016 och senaste SPs |64-bitars |Standard, Datacenter, Essentials  |
 
-Du kan deduplicera DPM-lagringen med Windows Server-deduplicering. Lär dig mer om hur [DPM och deduplicering](https://technet.microsoft.com/library/dn891438.aspx) fungerar tillsammans när de distribueras i virtuella Hyper-V-datorer.
+Du kan deduplicera DPM-lagringen med Windows Server-deduplicering. Lär dig mer om hur [DPM och deduplicering](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn891438(v=sc.12)) fungerar tillsammans när de distribueras i virtuella Hyper-V-datorer.
 
 > [!NOTE]
 > Azure Backup Server är utformad för att köras på en dedikerad server med ett enda syfte. Du kan inte installera Azure Backup Server på:
@@ -92,7 +92,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
 ### <a name="downloading-the-software-package"></a>Laddar ned programpaketet
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Om du redan har ett Recovery Services-valv öppet går du vidare till steg 3. Om du inte har ett Recovery Services-valv öppet, men är i Azure Portal klickar du på **Bläddra**i huvud menyn.
 
    * I listan över resurser skriver du **Recovery Services**.
@@ -196,7 +196,7 @@ När extraherings processen har slutförts markerar du kryss rutan för att star
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    Arbets platsen är ett krav för säkerhets kopiering till Azure. Se till att arbets platsen är minst 5% av de data som planeras att säkerhets kopie ras till molnet. För disk skydd måste separata diskar konfigureras när installationen är klar. Mer information om lagringspooler finns i Konfigurera lagringspooler [och disk lagring](https://technet.microsoft.com/library/hh758075.aspx).
+    Arbets platsen är ett krav för säkerhets kopiering till Azure. Se till att arbets platsen är minst 5% av de data som planeras att säkerhets kopie ras till molnet. För disk skydd måste separata diskar konfigureras när installationen är klar. Mer information om lagringspooler finns i Konfigurera lagringspooler [och disk lagring](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
 5. Ange ett starkt lösen ord för begränsade lokala användar konton och klicka på **Nästa**.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/security-screen.png)
@@ -305,6 +305,14 @@ Om du har en brand vägg eller en proxy som förhindrar åtkomst till Azure mås
 * \*.microsoftonline.com
 * \*.windows.net
 
+Om du använder ExpressRoute Microsoft-peering väljer du följande tjänster/regioner:
+
+* Azure Active Directory (12076:5060)
+* Microsoft Azure region (enligt platsen för ditt Recovery Services-valv)
+* Azure Storage (enligt platsen för ditt Recovery Services-valv)
+
+Mer information finns i [krav för ExpressRoute-routning](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
 När anslutningen till Azure har återställts till den Azure Backup Server datorn, bestäms de åtgärder som kan utföras av Azures prenumerations tillstånd. Tabellen ovan innehåller information om de åtgärder som tillåts när datorn är ansluten.
 
 ### <a name="handling-subscription-states"></a>Hantera prenumerations tillstånd
@@ -351,7 +359,7 @@ Du kan också läsa [Azure Backup relaterade vanliga frågor och svar](backup-az
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan få detaljerad information om hur du [förbereder din miljö för DPM](https://technet.microsoft.com/library/hh758176.aspx) på Microsoft TechNet-webbplatsen. Den innehåller också information om vilka konfigurationer som stöds där Azure Backup Server kan distribueras och användas. Du kan använda en serie [PowerShell-cmdlet](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016) för att utföra olika åtgärder.
+Du kan få detaljerad information här om hur [du förbereder din miljö för DPM](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758176(v=sc.12)). Den innehåller också information om vilka konfigurationer som stöds där Azure Backup Server kan distribueras och användas. Du kan använda en serie [PowerShell-cmdlet](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016) för att utföra olika åtgärder.
 
 Du kan använda de här artiklarna för att få en djupare förståelse för arbets belastnings skyddet med hjälp av Microsoft Azure Backup Server.
 

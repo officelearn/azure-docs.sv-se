@@ -3,12 +3,12 @@ title: Installera Azure Backup Server på Azure Stack
 description: I den här artikeln lär du dig hur du använder Azure Backup Server för att skydda eller säkerhetskopiera arbets belastningar i Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 396621b43db2500ca9107979fca9d4d2c0646e6d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b78e5a662bdcf23ad38cb33292658d4d2455e579
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172400"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583443"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installera Azure Backup Server på Azure Stack
 
@@ -91,7 +91,7 @@ Den Azure Backup Server virtuella datorn måste vara ansluten till en domän. En
 
 När du väljer en server för Azure Backup Server börjar du med en Windows Server 2012 R2 Data Center-eller Windows Server 2016 Data Center Gallery-avbildning. Artikeln [skapar din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)och innehåller en själv studie kurs för att komma igång med den rekommenderade virtuella datorn. De rekommenderade minimi kraven för virtuell Server-dator (VM) ska vara: a2 standard med två kärnor och 3,5 GB RAM.
 
-Att skydda arbets belastningar med Azure Backup Server har många olika delarna. Artikeln [Installera DPM som en virtuell Azure-dator, vilket](https://technet.microsoft.com/library/jj852163.aspx)hjälper dig att förklara dessa olika delarna. Innan du distribuerar datorn kan du läsa den här artikeln helt och hållet.
+Att skydda arbets belastningar med Azure Backup Server har många olika delarna. Artikeln [Installera DPM som en virtuell Azure-dator, vilket](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12))hjälper dig att förklara dessa olika delarna. Innan du distribuerar datorn kan du läsa den här artikeln helt och hållet.
 
 > [!NOTE]
 > Azure Backup Server är utformad för att köras på en dedikerad virtuell dator med ett enda syfte. Du kan inte installera Azure Backup Server på:
@@ -217,7 +217,7 @@ Azure Backup Server delar kod med Data Protection Manager. Referenser till Data 
 
     ![Azure Backup Server-Välkommen och krav kontroll](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    Om din miljö har de nödvändiga förutsättningarna visas ett meddelande som anger att datorn uppfyller kraven. Klicka på **Nästa**.  
+    Om din miljö har de nödvändiga förutsättningarna visas ett meddelande som anger att datorn uppfyller kraven. Klicka på **Next**.  
 
     ![Azure Backup Server-krav kontroll godkändes](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 
@@ -243,7 +243,7 @@ Azure Backup Server delar kod med Data Protection Manager. Referenser till Data 
 
     ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    Det krävs en arbets plats för att säkerhetskopiera till Azure. Se till att den virtuella platsens storlek motsvarar minst 5% av de data som planeras att säkerhets kopie ras till Azure. För disk skydd måste separata diskar konfigureras när installationen är klar. Mer information om lagringspooler finns i Konfigurera lagringspooler [och disk lagring](https://technet.microsoft.com/library/hh758075.aspx).
+    Det krävs en arbets plats för att säkerhetskopiera till Azure. Se till att den virtuella platsens storlek motsvarar minst 5% av de data som planeras att säkerhets kopie ras till Azure. För disk skydd måste separata diskar konfigureras när installationen är klar. Mer information om lagringspooler finns i Konfigurera lagringspooler [och disk lagring](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
 
 6. På sidan **säkerhets inställningar** anger du ett starkt lösen ord för begränsade lokala användar konton och klickar på **Nästa**.
 

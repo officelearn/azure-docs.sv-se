@@ -3,12 +3,12 @@ title: Support mat ris för MARS-agenten
 description: I den här artikeln sammanfattas Azure Backup support när du säkerhetskopierar datorer som kör Microsoft Azure Recovery Services-agenten (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8f5ce33b5057b11caa33c0ae80cf72e1b13da5d0
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: ef57688dd7b5ccee4e71ac0a54138ac567320aa2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425025"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582644"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -66,6 +66,29 @@ Och till följande IP-adresser:
 - 40.126.0.0/18
 
 Åtkomst till alla webb adresser och IP-adresser som anges ovan använder HTTPS-protokollet på port 443.
+
+### <a name="azure-expressroute-support"></a>Stöd för Azure ExpressRoute
+
+Du kan säkerhetskopiera dina data via Azure ExpressRoute med offentlig peering (tillgänglig för gamla kretsar) och Microsoft-peering. Säkerhets kopiering över privat peering stöds inte.
+
+Med offentlig peering: säkerställa åtkomst till följande domäner/adresser:
+
+- `http://www.msftncsi.com/ncsi.txt`
+- `microsoft.com`
+- `.WindowsAzure.com`
+- `.microsoftonline.com`
+- `.windows.net`
+
+Med Microsoft-peering väljer du följande tjänster/regioner och relevanta community-värden:
+
+- Azure Active Directory (12076:5060)
+- Microsoft Azure region (enligt platsen för ditt Recovery Services-valv)
+- Azure Storage (enligt platsen för ditt Recovery Services-valv)
+
+Mer information finns i krav för [ExpressRoute-routning](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
+>[!NOTE]
+>Offentlig peering är föråldrad för nya kretsar.
 
 ### <a name="throttling-support"></a>Stöd för begränsning
 
@@ -126,13 +149,13 @@ Krypterade| Stöds.
 Komprimerade | Stöds.
 Utspridda | Stöds.
 Komprimerad och sparse |Stöds.
-Hårda länkar| Stöds inte. Hoppades.
-Referens punkt| Stöds inte. Hoppades.
-Krypterad och sparse |Stöds inte. Hoppades.
-Komprimerad ström| Stöds inte. Hoppades.
-Utspridd ström| Stöds inte. Hoppades.
-OneDrive (synkroniserade filer är sparse-strömmar)| Stöds inte.
-Mappar med DFS Replication aktiverat | Stöds inte.
+Hårda länkar| Stöds ej. Hoppades.
+Referens punkt| Stöds ej. Hoppades.
+Krypterad och sparse |Stöds ej. Hoppades.
+Komprimerad ström| Stöds ej. Hoppades.
+Utspridd ström| Stöds ej. Hoppades.
+OneDrive (synkroniserade filer är sparse-strömmar)| Stöds ej.
+Mappar med DFS Replication aktiverat | Stöds ej.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Enheter eller volymer som stöds för säkerhets kopiering
 

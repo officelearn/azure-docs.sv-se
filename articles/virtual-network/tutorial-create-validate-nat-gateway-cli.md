@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: bc815281a005f750072176015a937547ff6d4670
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 26a427baddc99fa702b638c36b5378750364c849
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429665"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587030"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Självstudie: skapa en NAT-gateway med Azure CLI och testa NAT-tjänsten
 
@@ -34,8 +34,6 @@ Du kan slutföra den här självstudien med Azure Cloud Shell eller köra respek
 
 Om du väljer att köra dessa kommandon lokalt måste du installera CLI.  I den här självstudien krävs att du kör en version av Azure CLI-versionen 2.0.71 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
-> [!IMPORTANT]
-> När Virtual Network NAT- [förhands granskning har Aktiver ATS](./nat-overview.md#enable-preview) för din prenumeration använder du https://aka.ms/natportal för att få åtkomst till portalen.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

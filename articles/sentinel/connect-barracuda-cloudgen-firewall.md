@@ -3,7 +3,7 @@ title: Anslut Barracuda CloudGen-brandväggen till Azure Sentinel | Microsoft Do
 description: Lär dig hur du ansluter Barracuda CloudGen-brandväggen till Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: cabailey
-ms.openlocfilehash: f7d5531c8aba3e2e7abb56d82342bfda79dbc71b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: aaedbfdd3b1bbbc653756d74ee86fc277b21caec
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610734"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588509"
 ---
 # <a name="connect-barracuda-cloudgen-firewall"></a>Ansluta Barracuda CloudGen-brandväggen
 
@@ -28,7 +28,7 @@ Med CGFW-anslutningsprogrammet (Barracuda CloudGen Firewall) kan du enkelt anslu
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Läs-och skriv behörigheter till Azure Sentinel-arbetsytan.
 

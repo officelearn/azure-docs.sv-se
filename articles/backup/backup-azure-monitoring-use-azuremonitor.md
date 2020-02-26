@@ -4,12 +4,12 @@ description: Övervaka Azure Backup arbets belastningar och skapa anpassade avis
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: acdd7ae870334fe3a77a37505fac5e02b3af360d
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 0673291ac6bd1692c6ebe07540e05077e3025d55
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500672"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583884"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Övervaka i skala med hjälp av Azure Monitor
 
@@ -29,11 +29,11 @@ I Azure Monitor kan du skapa egna aviseringar i en Log Analytics arbets yta. I a
 > [!IMPORTANT]
 > Information om kostnaden för att skapa den här frågan finns [Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/).
 
-Välj något av diagrammen för att öppna avsnittet **loggar** i arbets ytan Log Analytics. I avsnittet **loggar** redigerar du frågorna och skapar aviseringar på dem.
+Öppna avsnittet **loggar** i arbets ytan Log Analytics och skriv en fråga till dina egna loggar. När du väljer **ny varnings regel**öppnas sidan Azure Monitor aviserings skapande som visas i följande bild.
 
-![Skapa en avisering i en Log Analytics arbets yta](media/backup-azure-monitoring-laworkspace/la-azurebackup-customalerts.png)
+![Skapa en avisering i en Log Analytics arbets yta](media/backup-azure-monitoring-laworkspace/custom-alert.png)
 
-När du väljer **ny varnings regel**öppnas sidan Azure Monitor aviserings skapande som visas i följande bild. Här är resursen redan markerad som Log Analytics arbets yta och integration av åtgärds gruppen.
+Här är resursen redan markerad som Log Analytics arbets yta och integration av åtgärds gruppen.
 
 ![Sidan Log Analytics aviserings skapande](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
 
@@ -122,6 +122,26 @@ Standard diagrammen ger dig Kusto frågor om grundläggande scenarier som du kan
     )
     on BackupItemUniqueId
     ````
+
+- Säkerhets kopiering förbrukad lagring per säkerhets kopierings objekt
+
+    ````Kusto
+    CoreAzureBackup
+    //Get all Backup Items
+    | where OperationName == "BackupItem"
+    //Get distinct Backup Items
+    | distinct BackupItemUniqueId, BackupItemFriendlyName
+    | join kind=leftouter
+    (AddonAzureBackupStorage
+    | where OperationName == "StorageAssociation"
+    //Get latest record for each Backup Item
+    | summarize arg_max(TimeGenerated, *) by BackupItemUniqueId 
+    | project BackupItemUniqueId , StorageConsumedInMBs)
+    on BackupItemUniqueId
+    | project BackupItemUniqueId , BackupItemFriendlyName , StorageConsumedInMBs 
+    | sort by StorageConsumedInMBs desc
+    ````
+
 
 ### <a name="diagnostic-data-update-frequency"></a>Uppdaterings frekvens för diagnostikdata
 

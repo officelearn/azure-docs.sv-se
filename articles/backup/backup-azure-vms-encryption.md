@@ -3,12 +3,12 @@ title: Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 description: Beskriver hur du säkerhetskopierar och återställer krypterade virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 754a0899d25f2672c6a66eeafe5013f98b7a8f4d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3719f26211677a1b726d3c3dc1d217fb58db1fb2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513787"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583182"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 
@@ -28,9 +28,9 @@ Azure Backup kan säkerhetskopiera och återställa virtuella Azure-datorer med 
 **Typ av virtuell datordisk** | **ADE (BEK/dm-crypt)** | **ADE och KEK**
 --- | --- | ---
 **Ohanterade** | Ja | Ja
-**Hanterade**  | Ja | Ja
+**Leda**  | Ja | Ja
 
-- Lär dig mer om [ade](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md)och [KeyExchange](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/).
+- Lär dig mer om [ade](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md)och [KeyExchange](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek/).
 - Läs [vanliga frågor och svar](../security/azure-security-disk-encryption-faq.md) om Azure VM Disk Encryption.
 
 ### <a name="limitations"></a>Begränsningar
@@ -66,7 +66,7 @@ Dessutom finns det några saker som du kan behöva göra i vissa fall:
 
       ![Bladet scenario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-5. I **säkerhets kopierings policy** > **väljer du säkerhets kopierings princip**väljer du den princip som du vill associera med valvet. Klicka på **OK**.
+5. I **säkerhets kopierings policy** > **väljer du säkerhets kopierings princip**väljer du den princip som du vill associera med valvet. Klicka sedan på **OK**.
     - En säkerhets kopierings princip anger när säkerhets kopieringar görs och hur länge de lagras.
     - Information om standardprincipen visas under den nedrullningsbara menyn.
 
@@ -98,7 +98,7 @@ Den första säkerhets kopieringen kommer att köras enligt schemat, men du kan 
 2. I **säkerhets kopierings objekt**klickar du på **virtuell Azure-dator**.
 3. I listan **säkerhets kopierings objekt** klickar du på ellipserna (...).
 4. Klicka på **Säkerhetskopiera nu**.
-5. I **Säkerhetskopiera nu**använder du kalender kontrollen för att välja den sista dagen som återställnings punkten ska behållas. Klicka på **OK**.
+5. I **Säkerhetskopiera nu**använder du kalender kontrollen för att välja den sista dagen som återställnings punkten ska behållas. Klicka sedan på **OK**.
 6. Övervaka Portal meddelanden. Du kan övervaka jobb förloppet i valv instrument panelen > **säkerhets kopierings jobb** > **pågår**. Beroende på den virtuella datorns storlek kan det ta en stund att skapa den första säkerhetskopian.
 
 ## <a name="provide-permissions"></a>Ange behörigheter
@@ -124,7 +124,7 @@ Ange behörigheter:
 
     ![Val av Azure Backup](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-7. Klicka på **OK**. **Säkerhets kopierings hanterings tjänsten** har lagts till i **åtkomst principer**.
+7. Klicka på **OK** **Säkerhets kopierings hanterings tjänsten** har lagts till i **åtkomst principer**.
 
     ![Åtkomstprinciper](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 

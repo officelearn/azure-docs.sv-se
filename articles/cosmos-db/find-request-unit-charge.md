@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: c5699bb851bd0a818a987228155c62683e93f51a
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 86e9854cb5a522a56cca09a6e1ea155fd8a62f14
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240788"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585908"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Hitta enhets avgiften för begäran i Azure Cosmos DB
 
 I den här artikeln beskrivs de olika sätt som du kan hitta för att köra den [begärda enheten](request-units.md) (ru) för alla åtgärder som utförs mot en behållare i Azure Cosmos dB. För närvarande kan du endast mäta den här förbrukningen genom att använda Azure Portal eller genom att granska svaret som skickats tillbaka från Azure Cosmos DB via en av SDK: erna.
 
-## <a name="sql-core-api"></a>SQL (Core) API
+## <a name="sql-core-api"></a>SQL-API (Core)
 
 Om du använder SQL-API: et har du flera alternativ för att hitta RU-förbrukningen för en åtgärd mot en Azure Cosmos-behållare.
 
@@ -25,7 +25,7 @@ Om du använder SQL-API: et har du flera alternativ för att hitta RU-förbrukni
 
 För närvarande kan du bara hitta begär ande avgiften i Azure Portal för en SQL-fråga.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-sql-api-dotnet.md#create-account) och mata in det med data, eller Välj ett befintligt Azure Cosmos-konto som redan innehåller data.
 
@@ -42,7 +42,7 @@ För närvarande kan du bara hitta begär ande avgiften i Azure Portal för en S
 ### <a name="use-the-net-sdk"></a>Använda .NET SDK
 ### <a name="net-v2-sdk"></a>.Net V2 SDK
 
-Objekt som returneras från [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) exponerar en `RequestCharge` egenskap:
+Objekt som returneras från [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) exponerar en `RequestCharge`-egenskap:
 
 ```csharp
 ResourceResponse<Document> fetchDocumentResponse = await client.ReadDocumentAsync(
@@ -77,11 +77,11 @@ while (query.HasMoreResults)
 
 ### <a name="net-v3-sdk"></a>.Net V3 SDK
 
-Objekt som returneras från [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) exponerar en `RequestCharge` egenskap:
+Objekt som returneras från [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) exponerar en `RequestCharge`-egenskap:
 
-[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs?name=GetRequestCharge)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs" id="GetRequestCharge":::
 
-Mer information finns i [ Snabbstart: Bygg en .NET-webbapp genom att använda ett SQL API-konto](create-sql-api-dotnet.md)i Azure Cosmos dB.
+Mer information finns i [snabb start: bygga en .NET-webbapp genom att använda ett SQL API-konto i Azure Cosmos DB](create-sql-api-dotnet.md).
 
 ### <a name="use-the-java-sdk"></a>Använda Java SDK
 
@@ -111,11 +111,11 @@ feedResponse.forEach(result -> {
 });
 ```
 
-Mer information finns i [ Snabbstart: Bygg ett Java-program med ett Azure Cosmos DB SQL API-](create-sql-api-java.md)konto.
+Mer information finns i [snabb start: bygga ett Java-program med ett Azure Cosmos DB SQL API-konto](create-sql-api-java.md).
 
 ### <a name="use-the-nodejs-sdk"></a>Använd Node. js SDK
 
-Objekt som returneras från [Node. js SDK](https://www.npmjs.com/package/@azure/cosmos) exponerar ett `headers` under objekt som mappar alla huvuden som returneras av det underliggande http-API: et. Begär ande avgiften är tillgänglig under `x-ms-request-charge` nyckeln:
+Objekt som returneras från [Node. js SDK](https://www.npmjs.com/package/@azure/cosmos) exponerar ett `headers` under objekt som mappar alla huvuden som returneras av det underliggande http-API: et. Begär ande avgiften är tillgänglig under `x-ms-request-charge` nyckel:
 
 ```javascript
 const item = await client
@@ -146,11 +146,11 @@ while (query.hasMoreResults()) {
 }
 ```
 
-Mer information finns i [ Snabbstart: Bygg en Node. js-app genom att använda ett Azure Cosmos DB SQL](create-sql-api-nodejs.md)API-konto. 
+Mer information finns i [snabb start: bygga en Node. js-app med hjälp av ett Azure Cosmos DB SQL API-konto](create-sql-api-nodejs.md). 
 
 ### <a name="use-the-python-sdk"></a>Använda python SDK
 
-Objektet från [python SDK](https://pypi.org/project/azure-cosmos/) visar en `last_response_headers` ord lista som mappar alla huvuden som returneras av det underliggande http-API: t för den senaste åtgärden som utfördes. `CosmosClient` Begär ande avgiften är tillgänglig under `x-ms-request-charge` nyckeln:
+`CosmosClient`-objektet från [python SDK](https://pypi.org/project/azure-cosmos/) visar en `last_response_headers`-ordlista som mappar alla huvuden som returneras av det underliggande http-API: t för den senaste åtgärden som utfördes. Begär ande avgiften är tillgänglig under `x-ms-request-charge` nyckel:
 
 ```python
 response = client.ReadItem(
@@ -162,7 +162,7 @@ response = client.ExecuteStoredProcedure(
 request_charge = client.last_response_headers['x-ms-request-charge']
 ```
 
-Mer information finns i [ Snabbstart: Bygg en python-app med ett Azure Cosmos DB SQL API-](create-sql-api-python.md)konto. 
+Mer information finns i [snabb start: bygga en python-app med ett Azure Cosmos DB SQL API-konto](create-sql-api-python.md). 
 
 ## <a name="azure-cosmos-db-api-for-mongodb"></a>API för Azure Cosmos DB för MongoDB
 
@@ -172,7 +172,7 @@ Avgiften för RU visas med ett anpassat [databas kommando](https://docs.mongodb.
 
 För närvarande kan du bara hitta begär ande avgiften i Azure Portal för en fråga.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-mongodb-dotnet.md#create-a-database-account) och mata in det med data, eller Välj ett befintligt konto som redan innehåller data.
 
@@ -188,7 +188,7 @@ För närvarande kan du bara hitta begär ande avgiften i Azure Portal för en f
 
 ### <a name="use-the-mongodb-net-driver"></a>Använda MongoDB .NET-driv rutinen
 
-När du använder den [officiella MongoDB .net-driv rutinen](https://docs.mongodb.com/ecosystem/drivers/csharp/)kan du köra kommandon genom `RunCommand` att anropa metoden `IMongoDatabase` för ett objekt. Den här metoden kräver en implementering av `Command<>` den abstrakta klassen:
+När du använder den [officiella MongoDB .net-driv rutinen](https://docs.mongodb.com/ecosystem/drivers/csharp/)kan du köra kommandon genom att anropa metoden `RunCommand` på ett `IMongoDatabase`-objekt. Den här metoden kräver en implementering av `Command<>` abstrakt klass:
 
 ```csharp
 class GetLastRequestStatisticsCommand : Command<Dictionary<string, object>>
@@ -203,23 +203,23 @@ Dictionary<string, object> stats = database.RunCommand(new GetLastRequestStatist
 double requestCharge = (double)stats["RequestCharge"];
 ```
 
-Mer information finns i [ Snabbstart: Bygg en .NET-webbapp med hjälp av ett Azure Cosmos DB-API](create-mongodb-dotnet.md)för MongoDB.
+Mer information finns i [snabb start: bygga en .NET-webbapp med hjälp av en Azure Cosmos DB-API för MongoDB](create-mongodb-dotnet.md).
 
 ### <a name="use-the-mongodb-java-driver"></a>Använda Java-drivrutinen MongoDB
 
 
-När du använder den [officiella MongoDB Java-drivrutinen](https://mongodb.github.io/mongo-java-driver/)kan du köra kommandon genom att anropa `runCommand` -metoden på `MongoDatabase` ett objekt:
+När du använder den [officiella MongoDB Java-drivrutinen](https://mongodb.github.io/mongo-java-driver/)kan du köra kommandon genom att anropa metoden `runCommand` på ett `MongoDatabase`-objekt:
 
 ```java
 Document stats = database.runCommand(new Document("getLastRequestStatistics", 1));
 Double requestCharge = stats.getDouble("RequestCharge");
 ```
 
-Mer information finns i [ Snabbstart: Bygg en webbapp med hjälp av Azure Cosmos DB API för MongoDB och Java SDK](create-mongodb-java.md).
+Mer information finns i [snabb start: bygga en webbapp med hjälp av Azure Cosmos DB API för MongoDB och Java SDK](create-mongodb-java.md).
 
 ### <a name="use-the-mongodb-nodejs-driver"></a>Använd MongoDB Node. js-drivrutinen
 
-När du använder den [officiella MongoDB Node. js-drivrutinen](https://mongodb.github.io/node-mongodb-native/)kan du köra kommandon genom att anropa `command` metoden för ett `db` objekt:
+När du använder den [officiella MongoDB Node. js-drivrutinen](https://mongodb.github.io/node-mongodb-native/)kan du köra kommandon genom att anropa metoden `command` på ett `db`-objekt:
 
 ```javascript
 db.command({ getLastRequestStatistics: 1 }, function(err, result) {
@@ -228,33 +228,33 @@ db.command({ getLastRequestStatistics: 1 }, function(err, result) {
 });
 ```
 
-Mer information finns i [ Snabbstart: Migrera en befintlig MongoDB Node. js-webbapp till Azure Cosmos DB](create-mongodb-nodejs.md).
+Mer information finns i [snabb start: Migrera en befintlig MongoDB Node. js-webbapp till Azure Cosmos DB](create-mongodb-nodejs.md).
 
 ## <a name="cassandra-api"></a>Cassandra-API
 
-När du utför åtgärder mot Azure Cosmos DB API för Cassandra returneras RU-avgiften i inkommande nytto last som ett fält med namnet `RequestCharge`. Du har flera alternativ för att hämta avgiften för RU.
+När du utför åtgärder mot Azure Cosmos DB API för Cassandra returneras RU-avgiften i inkommande nytto last som ett fält med namnet `RequestCharge`. Du har flera alternativ för att hämta RU-avgiften.
 
 ### <a name="use-the-net-sdk"></a>Använda .NET SDK
 
-När du använder [.NET SDK](https://www.nuget.org/packages/CassandraCSharpDriver/)kan du hämta inkommande nytto Last under `Info` ett `RowSet` objekts egenskap:
+När du använder [.NET SDK](https://www.nuget.org/packages/CassandraCSharpDriver/)kan du hämta inkommande nytto Last under egenskapen `Info` för ett `RowSet`-objekt:
 
 ```csharp
 RowSet rowSet = session.Execute("SELECT table_name FROM system_schema.tables;");
 double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"].Reverse().ToArray(), 0);
 ```
 
-Mer information finns i [ Snabbstart: Bygg en Cassandra-app med hjälp av .NET SDK och](create-cassandra-dotnet.md)Azure Cosmos dB.
+Mer information finns i [snabb start: bygga en Cassandra-app med hjälp av .NET SDK och Azure Cosmos DB](create-cassandra-dotnet.md).
 
 ### <a name="use-the-java-sdk"></a>Använda Java SDK
 
-När du använder [Java SDK](https://mvnrepository.com/artifact/com.datastax.cassandra/cassandra-driver-core)kan du hämta den inkommande nytto lasten genom att anropa `getExecutionInfo()` metoden på ett `ResultSet` objekt:
+När du använder [Java SDK](https://mvnrepository.com/artifact/com.datastax.cassandra/cassandra-driver-core)kan du hämta den inkommande nytto lasten genom att anropa metoden `getExecutionInfo()` på ett `ResultSet`-objekt:
 
 ```java
 ResultSet resultSet = session.execute("SELECT table_name FROM system_schema.tables;");
 Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("RequestCharge").getDouble();
 ```
 
-Mer information finns i [ Snabbstart: Bygg en Cassandra-app med hjälp av Java SDK och](create-cassandra-java.md)Azure Cosmos dB.
+Mer information finns i [snabb start: bygga en Cassandra-app med hjälp av Java SDK och Azure Cosmos DB](create-cassandra-java.md).
 
 ## <a name="gremlin-api"></a>Gremlin-API
 
@@ -266,29 +266,29 @@ Huvuden som returneras av Gremlin-API: t mappas till anpassade status-attribut, 
 
 ### <a name="use-the-net-sdk"></a>Använda .NET SDK
 
-När du använder [Gremlin.NET SDK](https://www.nuget.org/packages/Gremlin.Net/)är attributet status tillgängligt under `StatusAttributes` `ResultSet<>` objektets egenskap:
+När du använder [GREMLIN.NET SDK](https://www.nuget.org/packages/Gremlin.Net/)är attributet status tillgängligt under egenskapen `StatusAttributes` för `ResultSet<>`-objektet:
 
 ```csharp
 ResultSet<dynamic> results = client.SubmitAsync<dynamic>("g.V().count()").Result;
 double requestCharge = (double)results.StatusAttributes["x-ms-request-charge"];
 ```
 
-Mer information finns i [ Snabbstart: Bygg ett .NET Framework-eller Core-program med ett Azure Cosmos DB Gremlin API](create-graph-dotnet.md)-konto.
+Mer information finns i [snabb start: bygga en .NET Framework eller ett kärn program med hjälp av ett Azure Cosmos DB GREMLIN API-konto](create-graph-dotnet.md).
 
 ### <a name="use-the-java-sdk"></a>Använda Java SDK
 
-När du använder [Gremlin Java SDK](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver)kan du hämta attribut för status genom att anropa `statusAttributes()` -metoden på `ResultSet` objektet:
+När du använder [Gremlin Java SDK](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver)kan du hämta attribut för status genom att anropa metoden `statusAttributes()` på `ResultSet`-objektet:
 
 ```java
 ResultSet results = client.submit("g.V().count()");
 Double requestCharge = (Double)results.statusAttributes().get().get("x-ms-request-charge");
 ```
 
-Mer information finns i [ Snabbstart: Skapa en diagram databas i Azure Cosmos DB med Java SDK](create-graph-java.md).
+Mer information finns i [snabb start: skapa en graf-databas i Azure Cosmos dB med Java SDK](create-graph-java.md).
 
 ## <a name="table-api"></a>Tabell-API
 
-För närvarande är den enda SDK som returnerar RU-avgiften för tabell åtgärder är [.net standard SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table). Objektet visar en `RequestCharge` egenskap som är ifylld av SDK: n när du använder den mot Azure Cosmos DB tabell-API: `TableResult`
+För närvarande är den enda SDK som returnerar RU-avgiften för tabell åtgärder är [.net standard SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table). `TableResult`-objektet exponerar en `RequestCharge`-egenskap som är ifylld av SDK: n när du använder den mot Azure Cosmos DB Tabell-API:
 
 ```csharp
 CloudTable tableReference = client.GetTableReference("table");
@@ -299,16 +299,16 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 }
 ```
 
-Mer information finns i [ Snabbstart: Bygg en Tabell-API-app med hjälp av .NET SDK och](create-table-dotnet.md)Azure Cosmos dB.
+Mer information finns i [snabb start: bygga en tabell-API-app med hjälp av .NET SDK och Azure Cosmos DB](create-table-dotnet.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Information om hur du optimerar din RU-förbrukning finns i följande artiklar:
 
-* [Begärandeenheter och dataflöde i Azure Cosmos DB](request-units.md)
+* [Enheter för programbegäran och dataflöde i Azure Cosmos DB](request-units.md)
 * [Optimera kostnaden för etablerat dataflöde i Azure Cosmos DB](optimize-cost-throughput.md)
-* [Optimera frågans kostnad i Azure Cosmos DB](optimize-cost-queries.md)
+* [Optimera kostnaden för frågor i Azure Cosmos DB](optimize-cost-queries.md)
 * [Globalt skalat allokerat data flöde](scaling-throughput.md)
-* [Etablera data flöde på behållare och databaser](set-throughput.md)
+* [Etablera dataflöde på containrar och databaser](set-throughput.md)
 * [Etablera data flöde för en behållare](how-to-provision-container-throughput.md)
 * [Övervaka och felsöka med mått i Azure Cosmos DB](use-metrics.md)

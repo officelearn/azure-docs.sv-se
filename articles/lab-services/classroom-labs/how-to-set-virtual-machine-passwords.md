@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: c01106bf7288e777e601c06558b1408960f4e49b
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 0af2b5f7d756060d463d2b4f3ef71bdd135710ee
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539441"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591531"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Konfigurera och hantera en pool för virtuella datorer 
 Den här artikeln visar hur du utför följande uppgifter:
@@ -58,6 +58,9 @@ Det andra sättet är att välja en eller flera virtuella datorer i listan och v
 ![Starta valda virtuella datorer](../media/how-to-set-virtual-machine-passwords/start-selected-vms.png)
 
 På samma sätt kan du stoppa en eller flera virtuella datorer genom att växla knappen i kolumnen **tillstånd** eller välja **stoppa** i verktygsfältet. 
+
+> [!NOTE]
+> När en lärare aktive ras på en elev-VM påverkas inte kvoten för studenten. Kvoten för en användare anger antalet Labb timmar som är tillgängliga för användaren utanför den schemalagda klass tiden. Mer information om kvoter finns i [Ange kvoter för användare](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="reset-vms"></a>Återställ virtuella datorer
 Om du vill återställa en eller flera virtuella datorer markerar du dem i listan och väljer sedan **Återställ** i verktygsfältet. 

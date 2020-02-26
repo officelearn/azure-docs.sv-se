@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: d734553dd8eaf51d42cc31304f6a42c9cad5bbcd
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: bb75631beed73a6ebd9d1cf2c00c375726fed387
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429672"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586996"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-powershell-and-test-the-nat-service"></a>Självstudie: skapa en NAT-gateway med Azure PowerShell och testa NAT-tjänsten
 
@@ -35,8 +35,6 @@ Du kan slutföra den här självstudien med Azure Cloud Shell eller köra respek
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-> [!IMPORTANT]
-> När Virtual Network NAT- [förhands granskning har Aktiver ATS](./nat-overview.md#enable-preview) för din prenumeration använder du https://aka.ms/natportal för att få åtkomst till portalen.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

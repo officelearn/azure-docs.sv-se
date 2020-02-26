@@ -3,7 +3,7 @@ title: Visualisera dina data med hjälp av instrument paneler baserade på Azure
 description: I den här självstudien får du lära dig hur du visualiserar dina data med hjälp av instrument paneler baserade på arbets böcker i Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/01/2020
-ms.author: rkarlin
-ms.openlocfilehash: 7baf8cf2e954d773376b7c3c989bce01f60ae0a6
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: b4461ac43e9356536914b345ef28f5de62fc9f82
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610462"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585228"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Självstudie: visualisera och övervaka dina data
 
@@ -33,7 +33,7 @@ Den här självstudien hjälper dig att visualisera dina data i Azure Sentinel.
 > * Använda inbyggda arbets böcker
 > * Skapa nya arbets böcker
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha minst behörigheter för arbets boks läsare eller arbets bok deltagare för resurs gruppen i Azure Sentinel-arbetsytan.
 

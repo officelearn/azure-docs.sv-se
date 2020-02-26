@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2019
 ms.author: damendo
-ms.openlocfilehash: 6898bed0645146af9c0131307459e31bad661329
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6d535bcc2e0831baae658796f76c8087d74c6a85
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036298"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587217"
 ---
 # <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Ta bort nätverks säkerhets grupp flöde logg Storage blobbar i Network Watcher
 
@@ -125,9 +125,9 @@ Write-Output ('Retention policy for all NSGs evaluated and completed successfull
 ```
 
 1. Ange följande parametrar i skriptet efter behov:
-   - **SubscriptionId** [Obligatoriskt]: Prenumerations-ID: t från den plats där du vill ta bort NSG Flow-loggfiler.
-   - **Plats** [Obligatoriskt]: _Plats strängen_ för den region i NSG: er som du vill ta bort NSG flödes logg blobbar för. Du kan visa den här informationen på Azure Portal eller på [GitHub](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23).
-   - **Bekräfta** [Valfritt]: Skicka bekräftelse flaggan om du vill bekräfta borttagningen av varje lagrings-BLOB manuellt.
+   - **SubscriptionId** [obligatoriskt]: det prenumerations-ID som du vill ta bort NSG Flow-logaritmen från.
+   - **Plats** [obligatoriskt]: _plats strängen_ för den region i NSG: er som du vill ta bort NSG flödes logg blobbar för. Du kan visa den här informationen på Azure Portal eller på [GitHub](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23).
+   - **Bekräfta** [valfritt]: skicka bekräftelse flaggan om du vill bekräfta borttagningen av varje lagrings-BLOB manuellt.
 
 1. Kör det sparade skriptet som visas i följande exempel, där skript filen sparades som **Delete-NsgFlowLogsBlobs. ps1**:
    ```
@@ -135,6 +135,6 @@ Write-Output ('Retention policy for all NSGs evaluated and completed successfull
    ```
     
 ## <a name="next-steps"></a>Nästa steg
-- Kunder kan automatisera körningen av skriptet med [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) eller [Azure Automation](https://azure.microsoft.com/services/automation/)
+- Kunder kan automatisera körningen av skriptet genom att använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md) eller [Azure Automation](https://azure.microsoft.com/services/automation/)
 - Läs mer om NSG-loggning i [Azure Monitor loggar för nätverks säkerhets grupper (NSG: er)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 

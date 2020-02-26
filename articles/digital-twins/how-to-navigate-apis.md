@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2019
-ms.openlocfilehash: 86ade45cd00e82e8787a117c23003d2a74750cf0
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.date: 02/24/2020
+ms.openlocfilehash: e9cdfd40a9672d19ef32dede0baadcdd56266bab
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552176"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589104"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Använda Azure Digitals hanterings-API: er
 
@@ -37,7 +37,7 @@ I följande lista visas komponenterna i de digitala dubbla API: erna.
 
 * [/propertyKeys](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/PropertyKeys): du kan använda dessa API: er för att skapa anpassade egenskaper för dina *Spaces*, *enheter*, *användare*och *sensorer*. De här egenskaperna skapas som nyckel/värde-par. Du kan definiera data typen för dessa egenskaper genom att ange deras *PrimitiveDataType*. Du kan till exempel definiera en egenskap med namnet *BasicTemperatureDeltaProcessingRefreshTime* av typen *uint* för sensorer och sedan tilldela ett värde för den här egenskapen för var och en av dina sensorer. Du kan också lägga till begränsningar för dessa värden när du skapar egenskapen, till exempel *minsta* och *högsta* intervall, samt tillåtna värden som *ValidationData*.
 
-* [/matchers](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Matchers): dessa API: er låter dig ange de villkor som du vill utvärdera från dina inkommande enhets data. Mer information finns i [den här artikeln](concepts-user-defined-functions.md#matchers). 
+* [/matchers](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Matchers): dessa API: er låter dig ange de villkor som du vill utvärdera från dina inkommande enhets data. Mer information finns i [den här artikeln](concepts-user-defined-functions.md#matchers) . 
 
 * [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions): dessa API: er gör att du kan skapa, ta bort eller uppdatera en anpassad funktion som ska köras när villkoren som definieras av *matchningarna* sker, för att bearbeta data som kommer från din installation. Se [den här artikeln](concepts-user-defined-functions.md#user-defined-functions) för mer information om dessa anpassade funktioner, även kallade *användardefinierade funktioner*. 
 

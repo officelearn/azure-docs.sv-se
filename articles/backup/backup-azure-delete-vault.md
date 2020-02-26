@@ -3,12 +3,12 @@ title: Ta bort ett Microsoft Azure Recovery Services-valv
 description: I den här artikeln lär du dig hur du tar bort beroenden och sedan tar bort ett Microsoft Azure Backup Recovery Services (MARS)-valv.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 23e0d2874229616037c44800639411f66bc4d1b6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 172c632ae27c789f96e2e5cc1bdef492ef09f667
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173178"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586469"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Ta bort ett Azure Backup Recovery Services-valv
 
@@ -28,7 +28,7 @@ Du kan inte ta bort ett Recovery Services-valv som har beroenden, till exempel s
 
   ![Ta bort det skyddade Server felet.](./media/backup-azure-delete-vault/error-message.jpg)
 
-- Om säkerhets kopierings objekt är i tyst borttaget läge nedan visas varnings meddelandet och du måste vänta tills de tas bort permanent. Mer information finns i den här [artikeln](https://aka.ms/SoftDeleteCloudWorkloads).
+- Om säkerhets kopierings objekt är i tyst borttaget läge nedan visas varnings meddelandet och du måste vänta tills de tas bort permanent. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
 
    ![Ta bort valvet-felet.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
   
@@ -50,7 +50,7 @@ Utför följande steg för att stoppa skyddet och ta bort säkerhetskopierade da
 
 1. Gå till **Recovery Services valv**från portalen och gå sedan till **säkerhets kopierings objekt**. Välj sedan de skyddade objekten i molnet (till exempel Azure Virtual Machines Azure Storage [tjänsten Azure Files] eller SQL Server på Azure Virtual Machines).
 
-    ![Välj typ av säkerhets kopiering.](./media/backup-azure-delete-vault/azure-storage-selected.png)
+    ![Välj säkerhetskopieringstyp.](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
 2. Högerklicka för att välja säkerhets kopierings objekt. Beroende på om objektet för säkerhets kopian är skyddat eller inte, visar menyn antingen rutan **stoppa säkerhets kopiering** eller fönstret **ta bort säkerhets kopierings data** .
 
@@ -134,7 +134,7 @@ Det finns två metoder som du kan använda för att ta bort säkerhets kopiering
 Gör så här om du vill stoppa skyddet och ta bort säkerhetskopierade data:
 
 1. Öppna DPM-administratörskonsol och välj sedan **skydd** i navigerings fältet.
-2. I visningsfönstret väljer du den skydds grupps medlem som du vill ta bort. Högerklicka för att markera alternativet **sluta skydda grupp medlemmar** .
+2. I visningsfönstret väljer du den skyddsgruppsmedlem du vill ta bort. Högerklicka för att markera alternativet **sluta skydda grupp medlemmar** .
 3. I dialog rutan **stoppa skydd** väljer du **ta bort skyddade data**och markerar sedan kryss rutan **ta bort lagring online** . Välj sedan **stoppa skydd**.
 
     ![Välj Ta bort skyddade data från fönstret sluta skydda.](./media/backup-azure-delete-vault/delete-storage-online.png)

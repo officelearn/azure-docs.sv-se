@@ -5,18 +5,18 @@ author: Christina-Kang
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: db271d479fd84e5338d53cc25ecc0122d856c442
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 7d361d44c349bc7a6e3c041f78d00ad66182fa15
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610241"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589155"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Hantera ett Azure Service Fabric-program med hjälp av Azure Service Fabric CLI (sfctl)
 
 Lär dig hur du skapar och tar bort program som körs i ett Azure Service Fabric-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Installera Service Fabric CLI. Välj sedan ditt Service Fabric-kluster. Mer information finns i [Kom igång med Service Fabric CLI](service-fabric-cli.md).
 
@@ -47,7 +47,7 @@ Innan du skapar ett program laddar du upp programpaketet till avbildnings lagrin
 
 Om ditt programpaket till exempel finns i `app_package_dir`-katalogen använder du följande kommandon för att ladda upp katalogen:
 
-```azurecli
+```shell
 sfctl application upload --path ~/app_package_dir
 ```
 
@@ -57,7 +57,7 @@ För stora programpaket kan du ange `--show-progress` alternativ för att visa f
 
 När uppladdningen är färdig etablerar du programmet. Använd följande kommando för att etablera programmet:
 
-```azurecli
+```shell
 sfctl application provision --application-type-build-path app_package_dir
 ```
 
@@ -69,7 +69,7 @@ Vi rekommenderar att du tar bort applikations paketet när programmet har regist
 
 Om du vill ta bort programpaketet från avbildnings arkivet använder du följande kommando:
 
-```azurecli
+```shell
 sfctl store delete --content-path app_package_dir
 ```
 
@@ -79,7 +79,7 @@ sfctl store delete --content-path app_package_dir
 
 När du har etablerat programmet använder du följande kommando för att namnge och skapa ditt program:
 
-```azurecli
+```shell
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
@@ -91,7 +91,7 @@ Program namnet måste börja med prefixet `fabric:/`.
 
 När du har skapat ett program skapar du tjänster från programmet. I följande exempel skapar vi en ny tillstånds lös tjänst från vårt program. De tjänster som du kan skapa från ett program definieras i ett tjänst manifest i det tidigare etablerade programpaketet.
 
-```azurecli
+```shell
 sfctl service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-type TestServiceType \
 --stateless --instance-count 1 --singleton-scheme
 ```
@@ -100,14 +100,14 @@ sfctl service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-t
 
 Använd följande hälso kommandon för att kontrol lera att allt är felfritt:
 
-```azurecli
+```shell
 sfctl application list
 sfctl service list --application-id TestApp
 ```
 
 Kontrol lera att tjänsten är felfri genom att använda liknande kommandon för att hämta hälso tillståndet för både tjänsten och programmet:
 
-```azurecli
+```shell
 sfctl application health --application-id TestApp
 sfctl service health --service-id TestApp/TestSvc
 ```
@@ -122,7 +122,7 @@ Om du vill ta bort ett program utför du följande aktiviteter:
 
 Om du vill ta bort programmet använder du följande kommando:
 
-```azurecli
+```shell
 sfctl application delete --application-id TestEdApp
 ```
 
@@ -130,7 +130,7 @@ sfctl application delete --application-id TestEdApp
 
 När du har tagit bort programmet kan du avetablera program typen om du inte längre behöver den. Om du vill avetablera program typen använder du följande kommando:
 
-```azurecli
+```shell
 sfctl application unprovision --application-type-name TestAppType --application-type-version 1.0
 ```
 
@@ -142,7 +142,7 @@ När du har skapat programmet kan du upprepa samma uppsättning steg för att et
 
 För att utföra en uppgradering måste du först etablera nästa version av programmet med samma kommandon som innan:
 
-```azurecli
+```shell
 sfctl application upload --path ~/app_package_dir_2
 sfctl application provision --application-type-build-path app_package_dir_2
 sfctl store delete --content-path app_package_dir_2
@@ -150,7 +150,7 @@ sfctl store delete --content-path app_package_dir_2
 
 Vi rekommenderar att du utför en övervakad automatisk uppgradering och startar uppgraderingen genom att köra följande kommando:
 
-```azurecli
+```shell
 sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"test\":\"value\"}" --mode Monitored
 ```
 

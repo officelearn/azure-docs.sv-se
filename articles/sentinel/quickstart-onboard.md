@@ -2,19 +2,19 @@
 title: 'Snabb start: publicera i Azure Sentinel'
 description: Lär dig hur du samlar in data i Azure Sentinel genom att följa det här snabb starts dokumentet.
 services: sentinel
-author: rkarlin
-ms.author: rkarlin
+author: yelevin
+ms.author: yelevin
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 12/05/2019
-ms.openlocfilehash: 925bc229aecc848032ab8847088b7d6ff377a137
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 11fecd875385d8ba044cbe44e2270eed11d61ce1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278283"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581557"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Snabb start: fordonsbaserad Azure Sentinel
 
@@ -45,13 +45,13 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
 
 1. Sök efter och välj **Azure Sentinel**.
 
-   ![söka](./media/quickstart-onboard/search-product.png)
+   ![Sök](./media/quickstart-onboard/search-product.png)
 
 1. Välj **Lägg till**.
 
 1. Välj den arbets yta som du vill använda eller skapa en ny. Du kan köra Azure Sentinel på fler än en arbets yta, men data isoleras till en enda arbets yta.
 
-   ![söka](./media/quickstart-onboard/choose-workspace.png)
+   ![Sök](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - Standard arbets ytor som skapats av Azure Security Center visas inte i listan. Du kan inte installera Azure Sentinel på dem.

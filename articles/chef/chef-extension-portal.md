@@ -2,19 +2,19 @@
 title: Installera chefs klienten från Azure Portal
 description: Lär dig hur du distribuerar och konfigurerar din chefs klient från Azure Portal
 keywords: Azure, chef, DevOps, klient, installation, Portal
-ms.date: 05/15/2018
+ms.date: 02/22/2020
 ms.topic: article
-ms.openlocfilehash: f8707c2fe39fb794381af298c24d27704b1ec255
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6e46133c598c44b314077f2d020852416d3d2745
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158270"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586367"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installera chefs klienten från Azure Portal
 Du kan lägga till chefs klient tillägget direkt på en Linux-eller Windows-dator från Azure Portal. Den här artikeln vägleder dig genom processen med en ny virtuell Linux-dator.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
@@ -79,24 +79,24 @@ I det här avsnittet ska du först använda Azure Portal för att skapa en Linux
 1. På fliken **installations tillägg** anger du följande värden och väljer sedan **OK**.
 
     - **Chefs server-URL** – ange chefs serverns URL som innehåller organisations namnet, till exempel *https://api.chef.io/organization/mycompany* .
-    - **Chefens nodnamn** – ange namnet på chefens nod. Detta kan vara vilket värde som helst.
-    - **Kör lista** – ange chefs körnings listan som har lagts till i datorn. Detta kan lämnas tomt.
-    - **Verifierings klient namn** – ange klient namnet chefs verifiering. till exempel *Tarcher-validator*.
+    - **Chefens nodnamn** – ange namnet på chefens nod.
+    - **Kör lista** – ange chefs körnings listan som har lagts till i datorn. Det här värdet kan lämnas tomt.
+    - **Verifierings klient namn** – ange klient namnet chefs verifiering. Till exempel `tarcher-validator`.
     - **Validerings nyckel** – Välj en fil som innehåller den verifierings nyckel som används för att starta datorerna.
-    - **Klient konfigurations fil** – Välj en konfigurations fil för chef-klient. Detta kan lämnas tomt.
-    - **Chefs klient version** – ange den version av chefs klienten som ska installeras. Detta kan lämnas tomt. Ett tomt värde installerar den senaste versionen.
+    - **Klient konfigurations fil** – Välj en konfigurations fil för chef-klient. Det här värdet kan lämnas tomt.
+    - **Chefs klient version** – ange den version av chefs klienten som ska installeras. Det här värdet kan lämnas tomt, vilket installerar den senaste versionen.
     - **SSL-verifierings läge** – Välj antingen **ingen** eller **peer**. *Ingen* har valts för demonstrationen.
-    - **Chefs miljö** – ange chefs miljön som den här noden ska vara medlem i. Detta kan lämnas tomt.
-    - **Krypterad Databag-hemlighet** – Välj en fil som innehåller hemligheten för den krypterade Databag som datorn ska ha åtkomst till. Detta kan lämnas tomt.
-    - **Chefs Server SSL-certifikat** – Välj det SSL-certifikat som har tilldelats din chefs Server. Detta kan lämnas tomt.
+    - **Chefs miljö** – ange chefs miljön som den här noden ska vara medlem i. Det här värdet kan lämnas tomt.
+    - **Hemlighet för krypterade data väskor** – Välj en fil som innehåller hemligheten för den krypterade data uppsättningen som den här datorn behöver åtkomst till. Det här värdet kan lämnas tomt.
+    - **Chefs Server SSL-certifikat** – Välj det SSL-certifikat som har tilldelats din chefs Server. Det här värdet kan lämnas tomt.
 
       ![Installera chefs servern på en virtuell Linux-dator](./media/chef-extension-portal/install-extension.png)
 
-1. När du återvänder till fliken **tillägg** väljer du **OK**.
+1. När fliken **tillägg** visas väljer du **OK**.
 
-1. När du återvänder till fliken **Inställningar** väljer du **OK**.
+1. När fliken **Inställningar** visas väljer du **OK**.
 
-1. När du återgår till fliken **skapa** (Detta representerar en sammanfattning av de alternativ som du har valt och angett) kontrollerar du informationen samt **användningsvillkor**och väljer **skapa**.
+1. När fliken **skapa** visas visas en sammanfattning av de alternativ som du har valt och angett. Verifiera informationen och **användningsvillkor**och välj **skapa**.
 
 När processen för att skapa och distribuera den virtuella datorn med chefs tillägget är klar visar ett meddelande om att åtgärden lyckades eller misslyckades. Dessutom öppnas resurs sidan för den nya virtuella datorn automatiskt i Azure Portal när den har skapats.
 
@@ -104,4 +104,5 @@ När processen för att skapa och distribuera den virtuella datorn med chefs til
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en virtuell Windows-dator på Azure med chef](/azure/virtual-machines/windows/chef-automation)
+> [!div class="nextstepaction"] 
+> [Skapa en virtuell Windows-dator på Azure med chef](chef-automation.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8b64d933057b3ddb07f5f99889c7d7c23c74f545
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 6b7ceca196831484e8f49482b8a18ac8648cac6e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873666"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585483"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Etablera data flöde för en databas i Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Den här artikeln beskriver hur du etablerar data flöde på en databas i Azure 
 
    * Ange ett databas-ID.
    * Välj **Etablera dataflöde**.
-   * Ange ett dataflöde (till exempel 1000 RU:er).
+   * Ange ett dataflöde (till exempel 1000 RU).
    * Välj **OK**.
 
     ![Skärmbild av dialogrutan Ny databas](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
@@ -65,9 +65,9 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 ### <a name="net-v3-sdk"></a>.Net V3 SDK
 
-[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs" id="DatabaseCreateWithThroughput":::
 
-### <a id="dotnet-cassandra"></a>API för Cassandra
+### <a id="dotnet-cassandra"></a>Cassandra-API
 Liknande kommando kan köras via valfri CQL-kompatibel driv rutin. 
 ```csharp
 // Create a Cassandra keyspace and provision throughput of 400 RU/s
@@ -81,4 +81,4 @@ I följande artiklar finns information om etablerade data flöden i Azure Cosmos
 * [Globalt skalat allokerat data flöde](scaling-throughput.md)
 * [Etablera dataflöde på containrar och databaser](set-throughput.md)
 * [Etablera dataflöde för en container](how-to-provision-container-throughput.md)
-* [Begärandeenheter och dataflöde i Azure Cosmos DB](request-units.md)
+* [Enheter för programbegäran och dataflöde i Azure Cosmos DB](request-units.md)

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 20c30a77201c4f728013bdd204eef81294eefb73
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: d32ce79d0c8b26e0e78e2bae0f0335315c1a3a40
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545168"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587336"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights att använda AI för att övervaka och felsöka databas prestanda (för hands version)
 
@@ -48,9 +48,9 @@ Måtten som används för att mäta och identifiera problem med databas prestand
 
 Identifierade SQL Database prestanda försämringar registreras i Diagnostic-loggen med intelligenta poster som består av följande egenskaper:
 
-| Egenskap             | Information              |
+| Egenskap             | Detaljer              |
 | :------------------- | ------------------- |
-| Databas information | Metadata om en databas där insikter upptäcktes, till exempel en resurs-URI. |
+| databas information | Metadata om en databas där insikter upptäcktes, till exempel en resurs-URI. |
 | Observerat tidsintervall | Start-och slut tid för den identifierade insikten. |
 | Påverkade mått | Mått som gjorde att en insikt genererades: <ul><li>Ökning av frågans varaktighet [sekunder].</li><li>Överdriven väntan [sekunder].</li><li>Timeout-begär Anden [procent].</li><li>Misslyckade begär Anden [procent].</li></ul>|
 | Effekt värde | Värde för uppmätt mått. |
@@ -113,7 +113,7 @@ Om du vill använda Event Hubs för att konfigurera anpassad övervakning och av
 
 ### <a name="set-up-with-azure-storage"></a>Konfigurera med Azure Storage
 
-Om du vill använda Intelligent Insights med lagring konfigurerar du Intelligent Insights loggdata som ska strömmas till lagring, se [strömma till Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage).
+Om du vill använda Intelligent Insights med lagring konfigurerar du Intelligent Insights loggdata som ska strömmas till lagring, se [strömma till Azure Storage](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage).
 
 ### <a name="custom-integrations-of-intelligent-insights-log"></a>Anpassad integrering av Intelligent Insights logg
 
@@ -164,7 +164,7 @@ Den förstora vänte tids modellen övervakar enskilda databas frågor. Den iden
 - Når resurs gränser för elastisk pool
 - Högt antal arbets-eller sessions trådar
 - Överdriven databas låsning
-- Minnesbelastning
+- Minnes belastning
 - Annan wait-statistik
 
 Att nå resurs gränser eller resurs gränser för elastisk pool anger att förbrukningen av tillgängliga resurser i en prenumeration eller i den elastiska poolen överskrider absoluta tröskelvärden. Den här statistiken indikerar försämring av arbets belastnings prestanda. Ett högt antal arbets trådar eller sessionsnycklar anger ett villkor där antalet arbets trådar eller sessioner initieras över absoluta tröskelvärden. Den här statistiken indikerar försämring av arbets belastnings prestanda.

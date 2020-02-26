@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 98757677eae6d21b02d6b0b2a3abade453b5dfed
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: c1e740fbfa4bf1e8a77a2d9d6060ab39dba7ae7b
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552788"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587404"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>Vad är SQL Database instance Pools (för hands version)?
 
@@ -126,7 +126,7 @@ Om du har problem som rör distribution av instans-pool (skapa eller ta bort) sk
 
 Om det uppstår problem som rör enskilda instanser eller databaser i en pool bör du skapa ett vanligt support ärende för Azure SQL Database hanterade instanser.
 
-Om du vill skapa större distributioner av hanterade instanser (med eller utan instans-pooler) kan du behöva skaffa en större regional kvot. Använd [standard proceduren för hanterad instans för att begära en större kvot](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance), men Observera att om du använder instans pooler, jämför distributions logiken total vCore-förbrukning *på Poolnivå* mot kvoten för att avgöra om du har tillåtelse att skapa nya resurser utan att öka kvoten.
+Om du vill skapa större distributioner av hanterade instanser (med eller utan instans-pooler) kan du behöva skaffa en större regional kvot. Mer information finns i [begäran om kvot ökning för Azure SQL Database](quota-increase-request.md). Observera att om du använder instans pooler, jämför distributions logiken total vCore-förbrukning *på Poolnivå* mot kvoten för att avgöra om du får skapa nya resurser utan att ytterligare öka din kvot.
 
 ## <a name="instance-pool-billing"></a>Fakturering av instans pool
 

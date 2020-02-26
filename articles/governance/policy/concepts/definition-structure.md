@@ -3,12 +3,12 @@ title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: d30097badd3ab9ee5a328f17d0e3e91254a89185
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 1e90009a0c34bf166a18659a19988ea5a0c9ab07
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462010"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587132"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -328,7 +328,7 @@ Villkor kan även skapas med hjälp av **värde**. **värde** kontrollerar villk
 **värdet** kombineras med alla [villkor](#conditions)som stöds.
 
 > [!WARNING]
-> Om resultatet av en _mall_ är ett fel, Miss lyckas princip utvärderingen. En misslyckad utvärdering är en implicit **nekande**. Mer information finns i [undvika mall-haverier](#avoiding-template-failures).
+> Om resultatet av en _mall_ är ett fel, Miss lyckas princip utvärderingen. En misslyckad utvärdering är en implicit **nekande**. Mer information finns i [undvika mall-haverier](#avoiding-template-failures). Använd [enforcementMode](./assignment-structure.md#enforcement-mode) av **DoNotEnforce** för att förhindra påverkan av en misslyckad utvärdering på nya eller uppdaterade resurser vid testning och validering av en ny princip definition.
 
 #### <a name="value-examples"></a>Värde exempel
 
@@ -580,13 +580,22 @@ Alla [funktioner i Resource Manager-mallar](../../../azure-resource-manager/temp
 
 Följande funktioner är tillgängliga för användning i en princip regel, men skiljer sig från användningen i en Azure Resource Manager-mall:
 
-- addDays (dateTime, numberOfDaysToAdd)
+- `addDays(dateTime, numberOfDaysToAdd)`
   - **datetime**: [required] sträng sträng i Universal ISO 8601 datetime-formatet ' ÅÅÅÅ-MM-ddTHH: mm: SS. fffffffZ '
   - **numberOfDaysToAdd**: [required] heltal-antal dagar som ska läggas till
-- utcNow () – till skillnad från en Resource Manager-mall kan detta användas utanför defaultValue.
+- `utcNow()` – till skillnad från en Resource Manager-mall kan detta användas utanför defaultValue.
   - Returnerar en sträng som har angetts till aktuellt datum och aktuell tid i universellt ISO 8601 DateTime-format ' ÅÅÅÅ-MM-ddTHH: mm: SS. fffffffZ '
 
-Dessutom är funktionen `field` tillgänglig för princip regler. `field` används främst med **AuditIfNotExists** och **DeployIfNotExists** för att referera till fält på den resurs som utvärderas. Ett exempel på den här användningen kan visas i [DeployIfNotExists-exemplet](effects.md#deployifnotexists-example).
+Följande funktioner är endast tillgängliga i princip regler:
+
+- `field(fieldName)`
+  - **FieldName**: [required] sträng-namnet på det [fält](#fields) som ska hämtas
+  - Returnerar värdet för det fältet från den resurs som utvärderas av IF-villkoret
+  - `field` används främst med **AuditIfNotExists** och **DeployIfNotExists** för att referera till fält på den resurs som utvärderas. Ett exempel på den här användningen kan visas i [DeployIfNotExists-exemplet](effects.md#deployifnotexists-example).
+- `requestContext().apiVersion`
+  - Returnerar API-versionen för den begäran som utlöste princip utvärderingen (exempel: `2019-09-01`). Detta är den API-version som användes i begäran om att skicka/korrigera för utvärderingar av att skapa eller uppdatera resurser. Den senaste API-versionen används alltid vid utvärdering av efterlevnad på befintliga resurser.
+  
+
 
 #### <a name="policy-function-example"></a>Exempel på princip funktion
 
@@ -669,7 +678,7 @@ Lista över alla alias växer. Använd någon av följande metoder för att hitt
 
 ### <a name="understanding-the--alias"></a>Förstå alias [*]
 
-Flera av de tillgängliga aliasen har en version som visas som ett "normal"-namn och en annan som har **\[\*\]** kopplade till den. Exempel:
+Flera av de tillgängliga aliasen har en version som visas som ett "normal"-namn och en annan som har **\[\*\]** kopplade till den. Några exempel:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

@@ -3,22 +3,22 @@ title: Konfigurera inställningar för valv diagnostik i skala
 description: Konfigurera inställningar för Log Analytics diagnostik för alla valv i ett angivet omfång med Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: bdc3dd1da9d3ddc966b664f8bec479f5a8ff10f2
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: c92957cab3e1ed745e7031e3c6f32e7ecda550a5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77501087"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584531"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Konfigurera inställningar för valv diagnostik i skala
 
-Den rapporterings lösning som tillhandahålls av Azure Backup utnyttjar Log Analytics (LA). För att data för ett angivet valv ska skickas till LA måste en [diagnostisk inställning](https://aka.ms/AzureBackupDiagnosticsDocs) skapas för det valvet.
+Den rapporterings lösning som tillhandahålls av Azure Backup utnyttjar Log Analytics (LA). För att data för ett angivet valv ska skickas till LA måste en [diagnostisk inställning](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events) skapas för det valvet.
 
 Ofta kan det vara en besvärlig uppgift att lägga till en diagnostisk inställning manuellt per valv. Dessutom måste alla nya valv som skapats också ha aktiverade diagnostikinställningar för att kunna visa rapporter för det här valvet. 
 
 För att förenkla skapandet av diagnostikinställningar i skala (med LA som mål) är Azure Backup en inbyggd [Azure policy](https://docs.microsoft.com/azure/governance/policy/). Den här principen lägger till en LA-diagnostiktest till alla valv i en specifik prenumeration eller resurs grupp. I följande avsnitt finns anvisningar om hur du använder den här principen.
 
-## <a name="supported-scenarios"></a>Scenarier som stöds 
+## <a name="supported-scenarios"></a>Scenarier som stöds
 
 * Du kan tillämpa principen på en gång för alla Recovery Services valv i en viss prenumeration (eller till en resurs grupp i prenumerationen). Användaren som tilldelar principen måste ha ägar åtkomst till den prenumeration som principen är tilldelad till.
 
@@ -49,6 +49,7 @@ Följ stegen nedan om du vill tilldela principen för valv i det begärda omfån
 ![Grundläggande princip tilldelning](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
 7. Under **parametrar**anger du följande information:
+
 * **Profil namn** – namnet som ska tilldelas till diagnostikinställningar som skapats av principen.
 * **Log Analytics arbets yta** – Log Analytics arbets ytan som diagnostikinställningar ska associeras med. Diagnostikdata för alla valv i omfånget för princip tilldelningen flyttas till den angivna LA-arbetsytan.
 
@@ -69,7 +70,7 @@ Reparations uppgiften tillämpas på valv som inte är kompatibla enligt definit
 * Det finns ingen diagnostik-inställning för valvet.
 * Det finns diagnostikinställningar för valvet, men ingen av inställningarna har **alla** resursbaserade händelser aktiverade med La som mål och **resurs** som marker ATS i växlingen. 
 
-Så även om en användare har ett valv med AzureBackupReport-händelsen aktive rad i AzureDiagnostics-läge (som stöds av säkerhets kopierings rapporter), kommer reparations aktiviteten fortfarande att gälla för det här valvet, eftersom resursens speciella läge är det rekommenderade sättet att skapa diagnostikinställningar, [gå vidare](https://aka.ms/AzureBackupDiagnosticsDocs#legacy-event). 
+Så även om en användare har ett valv med AzureBackupReport-händelsen aktive rad i AzureDiagnostics-läge (som stöds av säkerhets kopierings rapporter), kommer reparations aktiviteten fortfarande att gälla för det här valvet, eftersom resursens speciella läge är det rekommenderade sättet att skapa diagnostikinställningar, [gå vidare](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event).
 
 Om en användare har ett valv med endast en delmängd av de sex resursbaserade händelser som Aktiver ATS, kommer reparations uppgiften att gälla för valvet, eftersom säkerhets kopierings rapporter fungerar som förväntat endast om alla sex resurs speciella händelser är aktiverade.
 
@@ -82,6 +83,7 @@ Om en användare har ett valv med endast en delmängd av de sex resursbaserade h
 > Observera att reparations aktiviteten **inte** Miss fungerar om den befintliga diagnostik inställningen bara är AzureBackupReport aktive rad med arbets ytan X som mål, eftersom det i detta fall inte överlappar de händelser som Aktiver ATS av den befintliga inställningen och de händelser som aktive ras av den inställning som skapats av reparations aktiviteten.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Lär dig hur du använder säkerhets kopierings rapporter](https://aka.ms/AzureBackupReportDocs)
-- [Läs mer om Azure Policy](https://docs.microsoft.com/azure/governance/policy/)
-- [Använd Azure Policy för att automatiskt aktivera säkerhets kopiering för alla virtuella datorer i ett prioriterat område](https://docs.microsoft.com/azure/backup/backup-azure-auto-enable-backup)
+
+* [Lär dig hur du använder säkerhets kopierings rapporter](https://docs.microsoft.com/azure/backup/configure-reports)
+* [Läs mer om Azure Policy](https://docs.microsoft.com/azure/governance/policy/)
+* [Använd Azure Policy för att automatiskt aktivera säkerhets kopiering för alla virtuella datorer i ett prioriterat område](https://docs.microsoft.com/azure/backup/backup-azure-auto-enable-backup)

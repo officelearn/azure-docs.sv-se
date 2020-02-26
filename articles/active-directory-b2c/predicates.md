@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/28/2019
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a09478bd2e32a1ab484b85fec33ae03878ebb10c
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 8e38f422189ce001063276ddc7c7f82b2acb5929
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951028"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585772"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predikat och PredicateValidations
 
@@ -46,12 +46,13 @@ I följande diagram visas relationen mellan elementen:
 | --------- | -------- | ----------- |
 | Id | Ja | En identifierare som används för predikatet. Andra element kan använda den här identifieraren i principen. |
 | Metod | Ja | Den typ av metod som ska användas för verifiering. Möjliga värden: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters**eller **IsDateRange**. Värdet **IsLengthRange** kontrollerar om längden på ett sträng anspråks värde ligger inom intervallet för lägsta och högsta angivna parametrar. Värdet **MatchesRegex** kontrollerar om ett sträng anspråks värde matchar ett reguljärt uttryck. Värdet **IncludesCharacters** kontrollerar om ett sträng anspråks värde innehåller en teckenuppsättning. Värdet **IsDateRange** kontrollerar om ett datum anspråks värde är mellan ett intervall av minsta och högsta angivna parametrar. |
+| HelpText | Nej | Ett fel meddelande för användare om kontrollen Miss lyckas. Den här strängen kan lokaliseras med hjälp av [språk anpassning](localization.md) |
 
 **Predikatet predikat** innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| UserHelpText | 1:1 | Ett fel meddelande för användare om kontrollen Miss lyckas. Den här strängen kan lokaliseras med hjälp av [språk anpassning](localization.md) |
+| UserHelpText | 0:1 | Föråldrad Ett fel meddelande för användare om kontrollen Miss lyckas. |
 | Parametrar | 1:1 | Parametrarna för metod typen för sträng validering. |
 
 Elementet **Parameters** innehåller följande element:
@@ -69,11 +70,10 @@ Elementet **Parameters** innehåller följande element:
 I följande exempel visas en `IsLengthRange`-metod med parametrarna `Minimum` och `Maximum` som anger längd intervallet för strängen:
 
 ```XML
-<Predicate Id="IsLengthBetween8And64" Method="IsLengthRange">
-  <UserHelpText>The password must be between 8 and 64 characters.</UserHelpText>
-    <Parameters>
-      <Parameter Id="Minimum">8</Parameter>
-      <Parameter Id="Maximum">64</Parameter>
+<Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
+  <Parameters>
+    <Parameter Id="Minimum">8</Parameter>
+    <Parameter Id="Maximum">64</Parameter>
   </Parameters>
 </Predicate>
 ```
@@ -81,8 +81,7 @@ I följande exempel visas en `IsLengthRange`-metod med parametrarna `Minimum` oc
 I följande exempel visas en `MatchesRegex`-metod med parametern `RegularExpression` som anger ett reguljärt uttryck:
 
 ```XML
-<Predicate Id="PIN" Method="MatchesRegex">
-  <UserHelpText>The password must be numbers only.</UserHelpText>
+<Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be numbers only.">
   <Parameters>
     <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
   </Parameters>
@@ -92,8 +91,7 @@ I följande exempel visas en `MatchesRegex`-metod med parametern `RegularExpress
 I följande exempel visas en `IncludesCharacters`-metod med parametern `CharacterSet` som anger en uppsättning tecken:
 
 ```XML
-<Predicate Id="Lowercase" Method="IncludesCharacters">
-  <UserHelpText>a lowercase letter</UserHelpText>
+<Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
   <Parameters>
     <Parameter Id="CharacterSet">a-z</Parameter>
   </Parameters>
@@ -169,14 +167,14 @@ I följande exempel visas en `IsDateRange`-metod med parametrarna `Minimum` och 
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| UserHelpText | 1:1 |  En beskrivning av predikatet som kan vara till hjälp för användare att veta vilket värde de ska skriva. |
+| UserHelpText | 0:1 |  En beskrivning av predikatet som kan vara till hjälp för användare att veta vilket värde de ska skriva. |
 | PredicateReferences | 1: n | En lista över predika-referenser. |
 
 **PredicateReferences** -elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| MatchAtLeast | Nej | Anger att värdet måste matcha minst det antal predikat som ska godkännas. |
+| MatchAtLeast | Nej | Anger att värdet måste matcha minst det antal predikat som ska godkännas. Om inget värde anges måste värdet matcha alla predikat-definitioner. |
 
 **PredicateReferences** -elementet innehåller följande element:
 
@@ -206,58 +204,50 @@ Med **predikat** och **PredicateValidationsInput** kan du kontrol lera komplexit
 
 ```XML
 <Predicates>
-  <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange">
-    <UserHelpText>The password must be between 8 and 64 characters.</UserHelpText>
+  <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
     <Parameters>
       <Parameter Id="Minimum">8</Parameter>
       <Parameter Id="Maximum">64</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="Lowercase" Method="IncludesCharacters">
-    <UserHelpText>a lowercase letter</UserHelpText>
+  <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
     <Parameters>
       <Parameter Id="CharacterSet">a-z</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="Uppercase" Method="IncludesCharacters">
-    <UserHelpText>an uppercase letter</UserHelpText>
+  <Predicate Id="Uppercase" Method="IncludesCharacters" HelpText="an uppercase letter">
     <Parameters>
       <Parameter Id="CharacterSet">A-Z</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="Number" Method="IncludesCharacters">
-    <UserHelpText>a digit</UserHelpText>
+  <Predicate Id="Number" Method="IncludesCharacters" HelpText="a digit">
     <Parameters>
       <Parameter Id="CharacterSet">0-9</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="Symbol" Method="IncludesCharacters">
-    <UserHelpText>a symbol</UserHelpText>
+  <Predicate Id="Symbol" Method="IncludesCharacters" HelpText="a symbol">
     <Parameters>
       <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="PIN" Method="MatchesRegex">
-    <UserHelpText>The password must be numbers only.</UserHelpText>
+  <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be numbers only.">
     <Parameters>
       <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="AllowedAADCharacters" Method="MatchesRegex">
-    <UserHelpText>An invalid character was provided.</UserHelpText>
+  <Predicate Id="AllowedAADCharacters" Method="MatchesRegex" HelpText="An invalid character was provided.">
     <Parameters>
       <Parameter Id="RegularExpression">(^([0-9A-Za-z\d@#$%^&amp;*\-_+=[\]{}|\\:',?/`~"();! ]|(\.(?!@)))+$)|(^$)</Parameter>
     </Parameters>
   </Predicate>
 
-  <Predicate Id="DisallowedWhitespace" Method="MatchesRegex">
-    <UserHelpText>The password must not begin or end with a whitespace character.</UserHelpText>
+  <Predicate Id="DisallowedWhitespace" Method="MatchesRegex" HelpText="The password must not begin or end with a whitespace character.">
     <Parameters>
       <Parameter Id="RegularExpression">(^\S.*\S$)|(^\S+$)|(^$)</Parameter>
     </Parameters>
@@ -361,8 +351,7 @@ Med **predikat** och **PredicateValidations** -element kan du styra de lägsta o
 
 ```XML
 <Predicates>
-  <Predicate Id="DateRange" Method="IsDateRange">
-    <UserHelpText>The date must be between 01-01-1980 and today.</UserHelpText>
+  <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1980 and today.">
     <Parameters>
       <Parameter Id="Minimum">1980-01-01</Parameter>
       <Parameter Id="Maximum">Today</Parameter>

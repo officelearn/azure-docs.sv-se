@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: b-juche
-ms.openlocfilehash: c65da771dd483b3a79785d4bec2b89cbeefca5c4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 7affd408ce2471f34a8362ba32101b639aafc514
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049892"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586621"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -45,7 +45,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
     |    AD-webbtjänster    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    Ej tillämpligt       |    Eko svar    |
+    |    ICMPv4             |    Saknas       |    Eko svar    |
     |    Paket           |    464       |    TCP           |
     |    Paket           |    464       |    UDP           |
     |    Paket           |    88        |    TCP           |
@@ -70,7 +70,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
 
 * Det Azure NetApp Files delegerade under nätet måste kunna komma åt alla Active Directory Domain Services (lägger till) domänkontrollanter i domänen, inklusive alla lokala domänkontrollanter och fjärranslutna domänkontrollanter. I annat fall kan tjänst avbrott uppstå.  
 
-    Om du har domänkontrollanter som inte kan kommas åt via Azure NetApp Files delegerade under nätet kan du skicka en support förfrågan för Azure för att ändra omfånget från **Global** (standard) till **plats**.  Azure NetApp Files behöver endast kommunicera med domänkontrollanter på platsen där Azure NetApp Files-adress utrymmet för det delegerade under nätet finns.
+    Om du har domänkontrollanter som inte kan kommas åt via Azure NetApp Files delegerade under nätet kan du ange en Active Directory plats när du skapar Active Directory anslutningen.  Azure NetApp Files behöver endast kommunicera med domänkontrollanter på platsen där Azure NetApp Files-adress utrymmet för det delegerade under nätet finns.
 
     Se [utforma platstopologi](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) om AD-platser och-tjänster. 
     
@@ -88,8 +88,10 @@ Se Azure NetApp Files [FAQ (FAQ](https://docs.microsoft.com/azure/azure-netapp-f
         Detta är den DNS som krävs för åtgärderna för att Active Directory domän anslutning och SMB-autentisering. 
     * **Sekundär DNS-**    
         Det här är den sekundära DNS-servern för att säkerställa redundanta namn tjänster. 
-    * **Domänsuffix**  
+    * **AD DNS-domännamn**  
         Detta är domän namnet för din Active Directory Domain Services som du vill ansluta till.
+    * **AD-platsens namn**  
+        Detta är webbplats namnet som identifieringen av domänkontrollanten ska begränsas till.
     * **Prefix för SMB-server (dator konto)**  
         Detta är namngivnings prefixet för dator kontot i Active Directory som Azure NetApp Files används för att skapa nya konton.
 

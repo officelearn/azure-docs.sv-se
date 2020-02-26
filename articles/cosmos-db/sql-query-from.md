@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 4f6d7580ea7ff0e8968c0c3ce4b3ca6111c86ac8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3939594064b63c567720378b9d316acca64d3266
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873377"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587693"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>FROM-sats i Azure Cosmos DB
 
@@ -49,19 +49,19 @@ FROM <from_specification>
   
 - `<from_source>`  
   
-  Anger en datakälla, med eller utan ett alias. Om alias inte har angetts, kommer den härledas från den `<container_expression>` med hjälp av följande regler:  
+  Anger en datakälla, med eller utan ett alias. Om alias inte anges kommer det att härledas från `<container_expression>` med hjälp av följande regler:  
   
   -  Om uttrycket är en container_name, kommer container_name att användas som ett alias.  
   
-  -  Om uttrycket är `<container_expression>`, %{Property_Name/ och %{Property_Name/ används som ett alias. Om uttrycket är en container_name, kommer container_name att användas som ett alias.  
+  -  Om uttrycket är `<container_expression>`, sedan property_name, kommer property_name att användas som ett alias. Om uttrycket är en container_name, kommer container_name att användas som ett alias.  
   
-- PRECIS SOM `input_alias`  
+- SOM `input_alias`  
   
-  Anger att den `input_alias` är en uppsättning värden som returneras av det underliggande container-uttrycket.  
+  Anger att `input_alias` är en uppsättning värden som returneras av det underliggande behållar uttrycket.  
  
-- `input_alias` INDIEN  
+- `input_alias` i  
   
-  Anger att den `input_alias` bör representerar uppsättningen med värden som hämtas av iterera över alla matriselement av varje matrisen som returneras av det underliggande container-uttrycket. Ett värde som returneras av underliggande container-uttryck som inte är en matris ignoreras.  
+  Anger att `input_alias` ska representera den uppsättning värden som erhålls genom att iterera över alla mat ris element i varje matris som returneras av det underliggande behållar uttrycket. Ett värde som returneras av underliggande container-uttryck som inte är en matris ignoreras.  
   
 - `<container_expression>`  
   
@@ -79,17 +79,17 @@ FROM <from_specification>
   
   Anger det dokumentet ska hämtas från den källa som definieras av det angivna aliaset.  
   
-- `<container_expression> '.' property_`  
+- `<container_expression> '.' property_name`  
   
-  Anger det dokumentet ska hämtas genom att öppna den `property_name` egenskap eller array_index matriselement för alla dokument som hämtas av angivna behållaren uttryck.  
+  Anger att dokumentet ska hämtas genom att komma åt `property_name`-egenskapen.  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   
-  Anger det dokumentet ska hämtas genom att öppna den `property_name` egenskap eller array_index matriselement för alla dokument som hämtas av angivna behållaren uttryck.  
+  Anger att dokumentet ska hämtas genom att komma åt `property_name` egenskap eller array_index mat ris element för alla dokument som hämtats av angivet container uttryck.  
   
 ## <a name="remarks"></a>Kommentarer
   
-Alla alias har angetts eller härledd i den `<from_source>(`s) måste vara unikt. Syntaxen `<container_expression>.`%{Property_Name/ är samma som `<container_expression>' ['"property_name"']'`. Denna syntax kan dock användas om ett egenskapsnamn innehåller ett icke-ID-tecken.  
+Alla alias som anges eller är härledda i `<from_source>(`s) måste vara unika. Syntaxen `<container_expression>.`property_name är samma som `<container_expression>' ['"property_name"']'`. Denna syntax kan dock användas om ett egenskapsnamn innehåller ett icke-ID-tecken.  
   
 ### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>hantera saknade egenskaper, matriselement och odefinierad värden som saknas
   
@@ -99,9 +99,9 @@ Om ett uttryck för behållaren har åtkomst till egenskaper eller matriselement
   
 Ett uttryck för behållare kan vara behållare omfattar eller dokumentet omfattar:  
   
--   Ett uttryck är container-omfattande, om den underliggande källan för container-uttryck är antingen ROTEN eller `container_name`. Sådana ett uttryck representerar en uppsättning dokument som hämtas från behållaren direkt och är inte beroende av bearbetning av andra behållare-uttryck.  
+-   Ett uttryck är container-scopet, om den underliggande källan för behållar uttrycket är antingen ROOT eller `container_name`. Sådana ett uttryck representerar en uppsättning dokument som hämtas från behållaren direkt och är inte beroende av bearbetning av andra behållare-uttryck.  
   
--   Ett uttryck är dokumentet-omfattande, om den underliggande källan för container-uttryck är `input_alias` introducerade tidigare i frågan. Sådana ett uttryck representerar en uppsättning dokument som hämtas av utvärderingen av behållaren uttryck i omfånget för varje dokument som hör till den uppsättning som är associerade med ett alias-behållaren.  Den resulterande uppsättningen blir en union av uppsättningar som erhålls av utvärderingen av container-uttryck för varje dokument i den underliggande uppsättningen. 
+-   Ett uttryck är dokument-omfattning, om den underliggande källan för behållar uttrycket är `input_alias` introducerades tidigare i frågan. Sådana ett uttryck representerar en uppsättning dokument som hämtas av utvärderingen av behållaren uttryck i omfånget för varje dokument som hör till den uppsättning som är associerade med ett alias-behållaren.  Den resulterande uppsättningen blir en union av uppsättningar som erhålls av utvärderingen av container-uttryck för varje dokument i den underliggande uppsättningen. 
 
 ## <a name="examples"></a>Exempel
 
@@ -114,7 +114,7 @@ FROM-satsen kan minska källan till en mindre delmängd. Om du bara vill räkna 
     FROM Families.children
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [
@@ -154,7 +154,7 @@ Föregående fråga använde en matris som källa, men du kan också använda et
     FROM Families.address.state
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [
@@ -166,5 +166,5 @@ Resultatet är:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Komma igång](sql-query-getting-started.md)
-- [SELECT-satsen](sql-query-select.md)
-- [WHERE-satsen](sql-query-where.md)
+- [SELECT-sats](sql-query-select.md)
+- [WHERE-sats](sql-query-where.md)

@@ -3,7 +3,7 @@ title: Undersök incidenter med Azure Sentinel | Microsoft Docs
 description: Använd den här självstudien för att lära dig att undersöka incidenter med Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: fbab3eff3d7f742c2542e4264ef1b2124c5f15e5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.author: yelevin
+ms.openlocfilehash: ecd8c508d05bfeb541a6cb5efbcdf2fffd3c78d3
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024619"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587200"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Självstudie: undersöka incidenter med Azure Sentinel
 
@@ -39,7 +39,7 @@ Den här artikeln beskriver:
 
 En incident kan innehålla flera aviseringar. Det är en agg regering av alla relevanta bevis för en speciell undersökning. En incident skapas baserat på analys regler som du skapade på sidan **analys** . Egenskaperna som rör aviseringarna, till exempel allvarlighets grad och status, anges på incident nivå. När du har informerat Azure Sentinel vet vilka typer av hot du letar efter och hur du hittar dem kan du övervaka identifierade hot genom att undersöka incidenter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du kommer bara att kunna undersöka incidenten om du använde enhets mappnings fälten när du konfigurerade din analys regel. Undersöknings diagrammet kräver att den ursprungliga incidenten innehåller entiteter.
 
 ## <a name="how-to-investigate-incidents"></a>Så här undersöker du incidenter
@@ -54,7 +54,7 @@ Du kommer bara att kunna undersöka incidenten om du använde enhets mappnings f
 
 1. Om du vill visa mer information om aviseringar och entiteter i incidenten väljer du **Visa fullständig information** på sidan incident och granskar de relevanta flikarna som sammanfattar incident informationen. På fliken **aviseringar** granskar du själva aviseringen. Du kan se all relevant information om aviseringen – frågan som utlöste aviseringen, antalet resultat som returneras per fråga och möjligheten att köra spel böcker på aviseringarna. Om du vill öka detalj nivån ytterligare i incidenten väljer du antalet **händelser**. Detta öppnar frågan som skapade resultaten och de händelser som utlöste aviseringen i Log Analytics. På fliken **entiteter** kan du se alla entiteter som du har mappat som en del av varnings regel definitionen.
 
-    ![Visa aviserings information](media/tutorial-investigate-cases/alert-details.png)
+    ![Visa uppgifter om varning](media/tutorial-investigate-cases/alert-details.png)
 
 1. Om du aktivt undersöker en incident, är det en bra idé att ställa in incidentens status på **pågående** tills du stänger den.
 

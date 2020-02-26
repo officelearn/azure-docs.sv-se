@@ -3,7 +3,7 @@ title: Ansluta Trend Micro djup säkerhet till Azure Sentinel | Microsoft Docs
 description: Lär dig hur du ansluter Trend Micro djupgående säkerhet till Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: cabailey
-ms.openlocfilehash: ba5b560f068d453f07e2dbbfdf5140ca1f4ac2b8
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: a25d76b4b8a6f516de70604146bd1b236ba3ca1e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610445"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588033"
 ---
 # <a name="connect-trend-micro-deep-security"></a>Ansluta Trend Micro djup säkerhet
 
 Med Trend Micro djupgående Security Connector kan du enkelt ansluta dina djupgående säkerhets loggar med Azure Sentinel, för att visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Detta ger dig mer information om din organisations nätverk och system och förbättrar dina säkerhets åtgärder.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Läs-och skriv behörigheter till Azure Sentinel-arbetsytan.
 

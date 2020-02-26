@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 2/17/2020
+ms.date: 2/24/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: f402effe40042740e74220d177c54963f6c45916
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 2f2940496682372b0d00d2b419aa941dcedd533c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444017"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586537"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en metrisk varning med en Resource Manager-mall
 
@@ -1251,7 +1251,7 @@ Du kan använda följande mall för att skapa en mer avancerad varnings regel f�
 
 Mer information om anpassade mått i Azure Monitor finns i [anpassade mått i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
 
-När du skapar en varnings regel för ett anpassat mått måste du ange både måttets namn och mått namn området.
+När du skapar en varnings regel för ett anpassat mått måste du ange både måttets namn och mått namn området. Du bör också se till att det anpassade måttet redan rapporteras, eftersom du inte kan skapa en aviserings regel för ett anpassat mått som ännu inte finns.
 
 Spara JSON-filen nedan som customstaticmetricalert. JSON för den här genom gången.
 

@@ -3,7 +3,7 @@ title: Anslut Azure ATP-data till Azure Sentinel | Microsoft Docs
 description: Lär dig hur du ansluter Azure ATP-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 6f099a0eb6501b6576c4560e0b397d3105bb15f0
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 387d04cbbb125006efcc4efc53a02015fe3f5919
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610717"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588594"
 ---
 # <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Anslut data från Azure Advanced Threat Protection (ATP)
 
@@ -29,7 +29,7 @@ ms.locfileid: "75610717"
 
 Du kan strömma loggar från [Azure Advanced Threat Protection](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) till Azure Sentinel med ett enda klick.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Användare med behörighet som global administratör eller säkerhets administratör
 - Du måste vara en förhands gransknings kund för Azure ATP och aktivera integrering mellan Azure ATP och Microsoft Cloud App Security. Mer information finns i [Azure Advanced Protection integration](https://docs.microsoft.com/cloud-app-security/aatp-integration).
@@ -46,7 +46,7 @@ Om Azure ATP distribueras och data matas in kan de misstänkta aviseringarna enk
 
 1. Du kan välja om du vill att aviseringarna från Azure ATP automatiskt ska generera incidenter i Azure Sentinel automatiskt. Under **skapa incidenter** väljer du **Aktivera** för att aktivera den standard analys regel som skapar incidenter automatiskt från aviseringar som genereras i den anslutna säkerhets tjänsten. Du kan sedan redigera den här regeln under **analys** och sedan **aktiva regler**.
 
-1. Klicka på **anslut**.
+1. Klicka på **Anslut**.
 
 1. Om du vill använda det relevanta schemat i Log Analytics för Azure ATP-aviseringar söker du efter **SecurityAlert**.
 

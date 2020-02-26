@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 02/12/2020
-ms.openlocfilehash: be187e34e3232c0755e2613ffffe0647da70079c
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/24/2020
+ms.openlocfilehash: 811e3bc206b4d98106bdbb1ce2655cd69c8585a2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201670"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589257"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Ta bort ett transparent datakryptering-skydd (TDE) med PowerShell
 
@@ -26,14 +26,14 @@ ms.locfileid: "77201670"
 - Du måste ha Azure PowerShell installerat och igång.
 - Den här instruktions guiden förutsätter att du redan använder en nyckel från Azure Key Vault som TDE-skydd för en Azure SQL Database eller ett informations lager. Se [Transparent datakryptering med BYOK support](transparent-data-encryption-byok-azure-sql.md) för mer information.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
  Instruktioner för installation av Az-modulen finns i [Installera Azure PowerShell](/powershell/azure/install-az-ps). För vissa cmdlets, se [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
 
 > [!IMPORTANT]
 > PowerShell-modulen Azure Resource Manager (RM) stöds fortfarande av Azure SQL Database, men all framtida utveckling är för AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020.  Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Information om installation finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
@@ -43,11 +43,11 @@ Information om installation finns i [Installera Azure CLI](/cli/azure/install-az
 
 Den här instruktions guiden beskriver hur du svarar på ett potentiellt komprometterat TDE-skydd för en Azure SQL Database eller ett informations lager som använder TDE med Kundhanterade nycklar i Azure Key Vault-Bring Your Own Key (BYOK) support. Mer information om BYOK-stöd för TDE finns på [sidan Översikt](transparent-data-encryption-byok-azure-sql.md).
 
-Följande procedurer bör endast göras i extrema fall eller i test miljöer. Gå igenom instruktions guiden noggrant, som att ta bort aktivt använda TDE-skydd från Azure Key Vault kan leda till **data förlust**.
+Följande procedurer bör endast göras i extrema fall eller i test miljöer. Gå igenom instruktions guiden noggrant, som att ta bort aktivt använda TDE-skydd från Azure Key Vault resulterar i att databasen inte är **tillgänglig**.
 
 Om en nyckel någonsin misstänks vara komprometterad, så att en tjänst eller användare har obehörig åtkomst till nyckeln, är det bäst att ta bort nyckeln.
 
-Tänk på att när TDE-skyddet har tagits bort i Key Vault **blockeras alla anslutningar till de krypterade databaserna under servern och dessa databaser går offline och tas bort inom 24 timmar**. Gamla säkerhets kopior som krypteras med den komprometterade nyckeln är inte längre tillgängliga.
+Tänk på att när TDE-skyddet tas bort i Key Vault, i upp till 10 minuter, kommer alla krypterade databaser att börja neka alla anslutningar med motsvarande fel meddelande och ändra dess tillstånd till [otillgängligt](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql#inaccessible-tde-protector).
 
 Följande steg beskriver hur du kontrollerar TDE-skydds tumavtrycken som fortfarande används av virtuella loggfiler (VLF) för en specifik databas.
 Tumavtrycket för det aktuella TDE-skyddet för databasen och databas-ID: t kan hittas genom att köra:
@@ -66,11 +66,11 @@ Följande fråga returnerar VLFs och Krypteraren respektive tumavtrycken som anv
 SELECT * FROM sys.dm_db_log_info (database_id)
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell-kommandot **Get-AzureRmSqlServerKeyVaultKey** ger tumavtrycket för det TDE-skydd som används i frågan, så att du kan se vilka nycklar som ska behållas och vilka nycklar som ska tas bort i akv. Endast nycklar som inte längre används av databasen kan tas bort på ett säkert sätt från Azure Key Vault.
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 PowerShell-kommandot **AZ SQL Server Key show** ger tumavtrycket för det TDE-skydd som används i frågan, så att du kan se vilka nycklar som ska behållas och vilka nycklar som ska tas bort i akv. Endast nycklar som inte längre används av databasen kan tas bort på ett säkert sätt från Azure Key Vault.
 
@@ -83,7 +83,7 @@ Den här instruktions guiden går över två metoder beroende på önskat result
 
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>För att hålla de krypterade resurserna tillgängliga
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Skapa en [ny nyckel i Key Vault](/powershell/module/az.keyvault/add-azkeyvaultkey). Se till att den nya nyckeln skapas i ett separat nyckel valv från det potentiellt komprometterade TDE-skyddet, eftersom åtkomst kontroll har tillhandahållits på en valv nivå.
 
@@ -126,7 +126,7 @@ Den här instruktions guiden går över två metoder beroende på önskat result
    Restore-AzKeyVaultKey -VaultName <KeyVaultName> -InputFile <BackupFilePath>
    ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 För kommando referensen, se [Azure CLI-nyckel valvet](/cli/azure/keyvault/key).
 

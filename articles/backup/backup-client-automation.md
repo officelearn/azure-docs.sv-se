@@ -3,12 +3,12 @@ title: Använd PowerShell för att säkerhetskopiera Windows Server till Azure
 description: I den här artikeln lär du dig hur du använder PowerShell för att konfigurera Azure Backup på Windows Server eller en Windows-klient och hur du hanterar säkerhets kopiering och återställning.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 25ea84ba00648e2f515f96885cfdb5bb662c8575
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: ff723eb2ebe48a7019fecec9106c1618a636b94c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483150"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583150"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för Windows Server/Windows-klient med hjälp av PowerShell
 
@@ -101,7 +101,7 @@ Om du vill se listan över installerade program går du till **kontroll panelen*
 
 ![Agent installerad](./media/backup-client-automation/installed-agent-listing.png)
 
-### <a name="installation-options"></a>Installations alternativ
+### <a name="installation-options"></a>Installationsalternativ
 
 Om du vill se alla tillgängliga alternativ via kommando raden använder du följande kommando:
 
@@ -111,7 +111,7 @@ MARSAgentInstaller.exe /?
 
 De tillgängliga alternativen är:
 
-| Alternativ | Detaljer | Default |
+| Alternativ | Detaljer | Standard |
 | --- | --- | --- |
 | /q |Tyst installation |- |
 | /p: "plats" |Sökväg till installationsmappen för Azure Backup agenten. |C:\Program\Microsoft Azure Recovery Services agent |
@@ -147,7 +147,7 @@ $certficate = [convert]::ToBase64String($cert.Export([System.Security.Cryptograp
 $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -Path $CredsPath -Certificate $certficate
 ```
 
-På Windows Server-eller Windows-klientdatorn kör du cmdleten [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) för att registrera datorn med valvet.
+På Windows Server-eller Windows-klientdatorn kör du cmdleten [Start-OBRegistration](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obregistration?view=winserver2012-ps) för att registrera datorn med valvet.
 Detta, och andra cmdletar som används för säkerhets kopiering, kommer från MSONLINE-modulen, vilken mars-AgentInstaller har lagts till som en del av installations processen.
 
 Installations programmet för agenten uppdaterar inte $Env:P SModulePath-variabeln. Det innebär att automatisk inläsning av modulen Miss lyckas. Du kan lösa detta genom att göra följande:
@@ -187,7 +187,7 @@ När anslutningen till Windows-datorn till Internet är via en proxyserver, kan 
 
 Bandbredds användningen kan också styras med alternativen för `work hour bandwidth` och `non-work hour bandwidth` för en specifik uppsättning dagar i veckan.
 
-Att ange proxy-och bandbredds information görs med cmdleten [set-OBMachineSetting](https://technet.microsoft.com/library/hh770409%28v=wps.630%29.aspx) :
+Att ange proxy-och bandbredds information görs med cmdleten [set-OBMachineSetting](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obmachinesetting?view=winserver2012-ps) :
 
 ```powershell
 Set-OBMachineSetting -NoProxy
@@ -233,7 +233,7 @@ Alla säkerhets kopior från Windows-servrar och-klienter till Azure Backup regl
 2. Ett **bevarande schema** som anger hur länge återställnings punkterna i Azure ska bevaras.
 3. En **specifikation för fil inkludering/undantag** som avgör vad som ska säkerhets kopie ras.
 
-I det här dokumentet, eftersom vi automatiserar säkerhets kopieringen, förutsätter vi att inget har kon figurer ATS. Vi börjar med att skapa en ny säkerhets kopierings princip med cmdleten [New-OBPolicy](https://technet.microsoft.com/library/hh770416.aspx) .
+I det här dokumentet, eftersom vi automatiserar säkerhets kopieringen, förutsätter vi att inget har kon figurer ATS. Vi börjar med att skapa en ny säkerhets kopierings princip med cmdleten [New-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obpolicy?view=winserver2012-ps) .
 
 ```powershell
 $NewPolicy = New-OBPolicy
@@ -243,7 +243,7 @@ Vid det här tillfället är principen Tom och andra cmdletar behövs för att d
 
 ### <a name="configuring-the-backup-schedule"></a>Konfigurera schema för säkerhets kopiering
 
-Den första av de tre delarna i en princip är schema för säkerhets kopiering, som skapas med cmdleten [New-OBSchedule](https://technet.microsoft.com/library/hh770401) . Säkerhets kopierings schemat definierar när säkerhets kopieringar måste göras. När du skapar ett schema måste du ange två indataparametrar:
+Den första av de tre delarna i en princip är schema för säkerhets kopiering, som skapas med cmdleten [New-OBSchedule](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obschedule?view=winserver2012-ps) . Säkerhets kopierings schemat definierar när säkerhets kopieringar måste göras. När du skapar ett schema måste du ange två indataparametrar:
 
 * **Vecko dagar** som säkerhets kopieringen ska köras. Du kan köra säkerhets kopierings jobbet på bara en dag eller varje dag i veckan, eller en kombination av mellan.
 * **Tidpunkter på dagen** då säkerhets kopieringen ska köras. Du kan definiera upp till tre olika tidpunkter på dagen då säkerhets kopieringen ska utlösas.
@@ -254,7 +254,7 @@ Du kan till exempel konfigurera en säkerhets kopierings princip som körs vid 4
 $Schedule = New-OBSchedule -DaysOfWeek Saturday, Sunday -TimesOfDay 16:00
 ```
 
-Schemat för säkerhets kopiering måste vara associerat med en princip och detta kan åstadkommas med hjälp av cmdleten [set-OBSchedule](https://technet.microsoft.com/library/hh770407) .
+Schemat för säkerhets kopiering måste vara associerat med en princip och detta kan åstadkommas med hjälp av cmdleten [set-OBSchedule](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obschedule?view=winserver2012-ps) .
 
 ```powershell
 Set-OBSchedule -Policy $NewPolicy -Schedule $Schedule
@@ -266,13 +266,13 @@ BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName :
 
 ### <a name="configuring-a-retention-policy"></a>Konfigurera en bevarande princip
 
-Bevarande principen definierar hur länge återställnings punkter som skapas från säkerhets kopierings jobb ska behållas. När du skapar en ny bevarande princip med cmdleten [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) kan du ange antalet dagar som säkerhets kopierings punkterna måste behållas med Azure Backup. I exemplet nedan anges en bevarande princip på sju dagar.
+Bevarande principen definierar hur länge återställnings punkter som skapas från säkerhets kopierings jobb ska behållas. När du skapar en ny bevarande princip med cmdleten [New-OBRetentionPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obretentionpolicy?view=winserver2012-ps) kan du ange antalet dagar som säkerhets kopierings punkterna måste behållas med Azure Backup. I exemplet nedan anges en bevarande princip på sju dagar.
 
 ```powershell
 $RetentionPolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
 
-Bevarande principen måste vara kopplad till huvud principen med cmdleten [set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405):
+Bevarande principen måste vara kopplad till huvud principen med cmdleten [set-OBRetentionPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obretentionpolicy?view=winserver2012-ps):
 
 ```powershell
 Set-OBRetentionPolicy -Policy $NewPolicy -RetentionPolicy $RetentionPolicy
@@ -309,7 +309,7 @@ Ett `OBFileSpec`-objekt definierar de filer som ska inkluderas och exkluderas i 
 
 Den senare uppnås med hjälp av flaggan-NonRecursive i kommandot New-OBFileSpec.
 
-I exemplet nedan säkerhetskopierar vi volym C: och D: och utesluter binärfilerna för operativ systemet i Windows-mappen och eventuella temporära mappar. För att göra det skapar vi två filspecifikationer med cmdleten [New-OBFileSpec](https://technet.microsoft.com/library/hh770408) , en för inkludering och en för undantag. När fil specifikationen har skapats är de kopplade till principen med cmdleten [Add-OBFileSpec](https://technet.microsoft.com/library/hh770424) .
+I exemplet nedan säkerhetskopierar vi volym C: och D: och utesluter binärfilerna för operativ systemet i Windows-mappen och eventuella temporära mappar. För att göra det skapar vi två filspecifikationer med cmdleten [New-OBFileSpec](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obfilespec?view=winserver2012-ps) , en för inkludering och en för undantag. När fil specifikationen har skapats är de kopplade till principen med cmdleten [Add-OBFileSpec](https://docs.microsoft.com/powershell/module/msonlinebackup/add-obfilespec?view=winserver2012-ps) .
 
 ```powershell
 $Inclusions = New-OBFileSpec -FileSpec @("C:\", "D:\")
@@ -433,7 +433,7 @@ Get-OBSystemStatePolicy
 
 ### <a name="applying-the-policy"></a>Tillämpar principen
 
-Objektet är nu komplett och har ett associerat schema för säkerhets kopiering, bevarande princip och en lista över undantagna filer. Den här principen kan nu bekräftas för Azure Backup att använda. Innan du tillämpar den nyligen skapade principen kontrollerar du att det inte finns några befintliga säkerhets kopierings principer kopplade till servern med hjälp av cmdleten [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) . Om du tar bort principen uppmanas du att bekräfta. Om du vill hoppa över bekräftelsen använder du flaggan `-Confirm:$false` med cmdleten.
+Objektet är nu komplett och har ett associerat schema för säkerhets kopiering, bevarande princip och en lista över undantagna filer. Den här principen kan nu bekräftas för Azure Backup att använda. Innan du tillämpar den nyligen skapade principen kontrollerar du att det inte finns några befintliga säkerhets kopierings principer kopplade till servern med hjälp av cmdleten [Remove-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/remove-obpolicy?view=winserver2012-ps) . Om du tar bort principen uppmanas du att bekräfta. Om du vill hoppa över bekräftelsen använder du flaggan `-Confirm:$false` med cmdleten.
 
 ```powershell
 Get-OBPolicy | Remove-OBPolicy
@@ -443,7 +443,7 @@ Get-OBPolicy | Remove-OBPolicy
 Microsoft Azure Backup Are you sure you want to remove this backup policy? This will delete all the backed up data. [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 ```
 
-Bekräfta att principobjektet görs med cmdleten [set-OBPolicy](https://technet.microsoft.com/library/hh770421) . Detta kommer också att be om bekräftelse. Om du vill hoppa över bekräftelsen använder du flaggan `-Confirm:$false` med cmdleten.
+Bekräfta att principobjektet görs med cmdleten [set-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obpolicy?view=winserver2012-ps) . Detta kommer också att be om bekräftelse. Om du vill hoppa över bekräftelsen använder du flaggan `-Confirm:$false` med cmdleten.
 
 ```powershell
 Set-OBPolicy -Policy $NewPolicy
@@ -491,7 +491,7 @@ RetentionPolicy : Retention Days : 7
 State : Existing PolicyState : Valid
 ```
 
-Du kan visa information om den befintliga säkerhets kopierings principen med hjälp av cmdleten [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) . Du kan öka detalj nivån ytterligare med cmdleten [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) för säkerhets kopierings schema och [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) -cmdlet: en för bevarande principerna
+Du kan visa information om den befintliga säkerhets kopierings principen med hjälp av cmdleten [Get-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obpolicy?view=winserver2012-ps) . Du kan öka detalj nivån ytterligare med cmdleten [Get-OBSchedule](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obschedule?view=winserver2012-ps) för säkerhets kopierings schema och [Get-OBRetentionPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obretentionpolicy?view=winserver2012-ps) -cmdlet: en för bevarande principerna
 
 ```powershell
 Get-OBPolicy | Get-OBSchedule
@@ -546,7 +546,7 @@ IsRecursive : True
 
 ### <a name="performing-an-on-demand-backup"></a>Utföra en säkerhets kopiering på begäran
 
-När en säkerhets kopierings princip har angetts sker säkerhets kopieringarna enligt schemat. Det går också att utlösa en säkerhets kopiering på begäran med cmdleten [Start-OBBackup](https://technet.microsoft.com/library/hh770426) :
+När en säkerhets kopierings princip har angetts sker säkerhets kopieringarna enligt schemat. Det går också att utlösa en säkerhets kopiering på begäran med cmdleten [Start-OBBackup](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obbackup?view=winserver2012-ps) :
 
 ```powershell
 Get-OBPolicy | Start-OBBackup
@@ -576,7 +576,7 @@ Det här avsnittet vägleder dig genom stegen för att automatisera återställn
 
 ### <a name="picking-the-source-volume"></a>Plocka käll volymen
 
-För att kunna återställa ett objekt från Azure Backup måste du först identifiera källan för objektet. Eftersom vi kör kommandona i kontexten för en Windows Server eller en Windows-klient har datorn redan identifierats. Nästa steg när du identifierar källan är att identifiera den volym som innehåller den. En lista över volymer eller källor som säkerhets kopie ras från den här datorn kan hämtas genom att köra cmdleten [Get-OBRecoverableSource](https://technet.microsoft.com/library/hh770410) . Det här kommandot returnerar en matris med alla källor som säkerhets kopie ras från den här servern/klienten.
+För att kunna återställa ett objekt från Azure Backup måste du först identifiera källan för objektet. Eftersom vi kör kommandona i kontexten för en Windows Server eller en Windows-klient har datorn redan identifierats. Nästa steg när du identifierar källan är att identifiera den volym som innehåller den. En lista över volymer eller källor som säkerhets kopie ras från den här datorn kan hämtas genom att köra cmdleten [Get-OBRecoverableSource](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obrecoverablesource?view=winserver2012-ps) . Det här kommandot returnerar en matris med alla källor som säkerhets kopie ras från den här servern/klienten.
 
 ```powershell
 $Source = Get-OBRecoverableSource
@@ -595,7 +595,7 @@ ServerName : myserver.microsoft.com
 
 ### <a name="choosing-a-backup-point-from-which-to-restore"></a>Välja en säkerhets kopierings punkt som du vill återställa från
 
-Du hämtar en lista över säkerhets kopierings punkter genom att köra cmdleten [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) med lämpliga parametrar. I vårt exempel väljer vi den senaste säkerhets kopierings punkten för käll volymen *C:* och använder den för att återställa en viss fil.
+Du hämtar en lista över säkerhets kopierings punkter genom att köra cmdleten [Get-OBRecoverableItem](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obrecoverableitem?view=winserver2012-ps) med lämpliga parametrar. I vårt exempel väljer vi den senaste säkerhets kopierings punkten för käll volymen *C:* och använder den för att återställa en viss fil.
 
 ```powershell
 $Rps = Get-OBRecoverableItem $Source[0]
@@ -654,13 +654,13 @@ ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
 
 ### <a name="triggering-the-restore-process"></a>Utlösa återställnings processen
 
-För att utlösa återställnings processen måste du först ange återställnings alternativen. Detta kan göras med hjälp av cmdleten [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) . För det här exemplet antar vi att vi vill återställa filerna till *C:\Temp*. Vi antar också att vi vill hoppa över filer som redan finns i målmappen *C:\Temp*. Använd följande kommando för att skapa ett sådant återställnings alternativ:
+För att utlösa återställnings processen måste du först ange återställnings alternativen. Detta kan göras med hjälp av cmdleten [New-OBRecoveryOption](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obrecoveryoption?view=winserver2012-ps) . För det här exemplet antar vi att vi vill återställa filerna till *C:\Temp*. Vi antar också att vi vill hoppa över filer som redan finns i målmappen *C:\Temp*. Använd följande kommando för att skapa ett sådant återställnings alternativ:
 
 ```powershell
 $RecoveryOption = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
 ```
 
-Utlös nu återställnings processen med kommandot [Start-OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) på den valda `$Item` från utdata från `Get-OBRecoverableItem`-cmdlet:
+Utlös nu återställnings processen med kommandot [Start-OBRecovery](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obrecovery?view=winserver2012-ps) på den valda `$Item` från utdata från `Get-OBRecoverableItem`-cmdlet:
 
 ```powershell
 Start-OBRecovery -RecoverableItem $Item -RecoveryOption $RecoveryOption

@@ -11,28 +11,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: spelluru
-ms.openlocfilehash: 4ca17bece33107de756eb221e14eaab851660a99
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fbac5a2fab91cdac8ebf626e324f12f209cfade5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76992240"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588713"
 ---
 # <a name="security-alerts-for-environments-in-azure-devtest-labs"></a>Säkerhets aviseringar för miljöer i Azure DevTest Labs
-Den här artikeln visar hur du visar säkerhets aviseringar för miljöer i Azure DevTest Labs. 
+Som labb användare kan du nu Visa Azure Security Center aviseringar för dina labb miljöer. Security Center samlar automatiskt in, analyserar och integrerar loggdata från Azure-resurser, nätverket och anslutna partnerlösningar som brandväggs- och slutpunktsskyddslösningar för att identifiera verkliga hot och minimera antalet falska positiva identifieringar. En lista över prioriterade säkerhetsvarningar visas i Security Center tillsammans med den information som du behöver för att snabbt undersöka problemet, samt rekommendationer för hur du åtgärdar ett angrepp. [Lär dig mer om säkerhets aviseringar i Azure Security Center](../security-center//security-center-alerts-overview.md).  
 
-## <a name="prerequisites"></a>Krav
-För närvarande kan du bara Visa säkerhets aviseringar för miljöer som distribuerats i labbet. Om du vill testa eller använda den här funktionen distribuerar du en miljö i labbet. 
+
+## <a name="prerequisites"></a>Förutsättningar
+För närvarande kan du bara Visa säkerhets aviseringar för PaaS-miljöer (Platform as a Service) som distribueras i labbet. Om du vill testa eller använda den här funktionen [distribuerar du en miljö i labbet](devtest-lab-create-environment-from-arm.md). 
 
 ## <a name="view-security-alerts-for-an-environment"></a>Visa säkerhets aviseringar för en miljö
 
-1. På Start sidan för ditt labb väljer du **säkerhets aviseringar** på den vänstra menyn. Du bör se antalet säkerhets aviseringar (hög, medel och låg).
+1. På Start sidan för ditt labb väljer du **säkerhets aviseringar** på den vänstra menyn. Du bör se antalet säkerhets aviseringar (hög, medel och låg). Läs mer om [hur aviseringar klassificeras](../security-center/security-center-alerts-overview.md#how-are-alerts-classified).
 
     ![Säkerhets aviseringar – översikt](./media/environment-security-alerts/security-alerts-overview-page.png)
 2. Högerklicka på tre punkter (...) i den sista kolumnen och välj **Visa säkerhets aviseringar**. 
 
     ![Visa säkerhetsaviseringar](./media/environment-security-alerts/view-security-alerts-menu.png)
-3. Du hittar mer information om rekommendationerna för aviseringar och rådgivare. 
+    
+3. Du hittar mer information om rekommendationerna för aviseringar och rådgivare. Lär dig mer om [att hantera och svara på säkerhets aviseringar i Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md).
 
     ![Visa säkerhetsaviseringar](./media/environment-security-alerts/advisor-recommendations.png)
 

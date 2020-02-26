@@ -4,12 +4,12 @@ description: Använd Azure som värd för en Jenkins-automationsserver för vers
 keywords: jenkins, azure, devops, översikt
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 84d9a62c432208893ac5ff960a5f7aec743680d1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 5991505dac0cf6f7ff2cac5dfabd06f4c90dc20f
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479351"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605692"
 ---
 # <a name="azure-and-jenkins"></a>Azure och Jenkins
 
@@ -22,7 +22,7 @@ Den här artikeln är en introduktion till Azure med Jenkins och beskriver de vi
 Med Azure som värd för dina Jenkins-servrar kan du centralisera versionsautomatiseringen och skala distributionen i takt med att behoven för dina programvaruprojekt ökar. Du kan distribuera Jenkins i Azure med hjälp av:
  
 - [Jenkins-lösningsmallen](install-jenkins-solution-template.md) på Azure Marketplace.
-- [Virtuella Azure-datorer](/azure/virtual-machines/linux/overview). Anvisningar som beskriver hur du skapar en Jenkins-instans på en virtuell dator finns i vår [självstudie](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd).
+- [Virtuella Azure-datorer](/azure/virtual-machines/linux/overview). Anvisningar som beskriver hur du skapar en Jenkins-instans på en virtuell dator finns i vår [självstudie](tutorial-jenkins-github-docker-cicd.md).
 - Läs vår [instruktionsartikel](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough) som beskriver ett Kubernetes-kluster som körs i [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
 Övervaka och hantera din Azure Jenkins-distribution med hjälp av [Azure Monitor loggar](/azure/log-analytics/log-analytics-overview) och [Azure CLI](/cli/azure).

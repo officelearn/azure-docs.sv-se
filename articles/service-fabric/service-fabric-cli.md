@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: conceptual
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b4ddc5bb52aeef622a33ace7b3ffad4694d7c072
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 46c5e1ed0a1d0db100c3415c40f59d46f62b21f9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904831"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587625"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -18,7 +18,7 @@ Azure Service Fabric-kommandoradsgränssnittet (CLI) är ett kommandoradsverktyg
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera att din miljö har både Python och pip installerade före installationen. Mer information finns i [snabbstartdokumentationen för pip](https://pip.pypa.io/en/latest/quickstart/) och den officiella [dokumentationen för installation av Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
@@ -39,9 +39,9 @@ Service Fabric CLI är tänkt att stödja den senaste runtime-versionen av Servi
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
-Alternativt kan du ange en målversion av CLI för installation genom att ange suffixet `==<version>` för kommandot `pip install`. Till exempel skulle syntaxen för version 1.1.0 vara:
+Alternativt kan du ange en målversion av CLI för installation genom att ange suffixet `pip install` för kommandot `==<version>`. Till exempel skulle syntaxen för version 1.1.0 vara:
 
-```
+```shell
 pip install -I sfctl==1.1.0
 ```
 
@@ -67,14 +67,14 @@ I Windows 10, Windows Server 2016 och Windows Server 2012 R2 använder du de off
 
 Nu kan du öppna ett nytt kommandofönster och hämta versionen för Python och pip.
 
-```bat
+```shell
 python --version
 pip --version
 ```
 
 Kör sedan följande kommando för att installera Azure Service Fabric CLI (sfctl) och Visa hjälp sidan för CLI:
 
-```bat
+```shell
 pip install sfctl
 sfctl -h
 ```
@@ -103,7 +103,7 @@ Kontrollera att `~/.local/bin` är åtkomligt från `$PATH`:
 
 ```bash
 export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+echo "export PATH=$PATH:~/.local/bin" >> .shellrc
 ```
 
 Om installationen på Windows-undersystemet för Linux misslyckas med felaktiga mappbehörigheter kan du behöva försöka igen med förhöjda behörigheter:
@@ -112,7 +112,7 @@ Om installationen på Windows-undersystemet för Linux misslyckas med felaktiga 
 sudo pip3 install sfctl
 ```
 
-### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (stöd för förhandsversion av Service Fabric)
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (support för förhandsversion av Service Fabric)
 
 Kör följande kommandon för att installera Service Fabric CLI i Red Hat:
 
@@ -148,7 +148,7 @@ Kommandon inleds alltid med prefixet `sfctl`. För allmän information om alla k
 
 Kommandon följer en upprepningsbar struktur, där kommandots mål står före verbet eller åtgärden.
 
-```azurecli
+```shell
 sfctl <object> <action>
 ```
 
@@ -161,7 +161,7 @@ Innan du kan utföra några åtgärder måste du välja ett kluster att ansluta 
 > [!WARNING]
 > Använd inte oskyddade Service Fabric-kluster i produktionsmiljöer.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint http://testcluster.com:19080
 ```
 
@@ -169,7 +169,7 @@ Klusterslutpunkten måste föregås av `http` eller `https`. Det måste innehål
 
 För kluster som skyddas med ett certifikat kan du ange ett PEM-kodat certifikat. Certifikatet kan anges som en enda fil eller ett par med certifikat och nyckel. Om det är ett självsignerat certifikat som inte är signerat av en certifikatutfärdare kan du använda alternativet `--no-verify` för att kringgå verifiering av certifikatutfärdare.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
@@ -181,7 +181,7 @@ Klustrets anslutningsinformation bevaras mellan olika Service Fabric CLI-session
 
 Om du till exempel vill se hälsotillståndet för Service Fabric-klustret kör du följande kommando:
 
-```azurecli
+```shell
 sfctl cluster health
 ```
 
@@ -218,13 +218,13 @@ Här följer några förslag och tips för lösning av vanliga problem.
 
 Service Fabric CLI har stöd för certifikat på klientsidan i form av PEM-filer (.pem-filtillägg). Om du använder PFX-filer från Windows måste du konvertera dessa certifikat till PEM-format. Om du vill konvertera en PFX-fil till en PEM-fil använder du följande kommando:
 
-```bash
+```shell
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
 Om du ska konvertera från en PEM-fil till en PFX-fil kan du på samma sätt använda följande kommando (inga lösenord anges här):
 
-```bash
+```shell
 openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
 ```
 
@@ -246,13 +246,13 @@ Detaljerade loggar är ofta användbara när du felsöker eller rapporterar prob
 
 Om du vill ha hjälp med ett visst kommando eller en grupp med kommandon, använder du flaggan `-h`.
 
-```azurecli
+```shell
 sfctl application -h
 ```
 
 Här är ett annat exempel:
 
-```azurecli
+```shell
 sfctl application create -h
 ```
 
@@ -260,7 +260,7 @@ sfctl application create -h
 
 Om du vill uppdatera Service Fabric CLI kör du följande kommandon (ersätt `pip` med `pip3` beroende på vad du valde under den ursprungliga installationen):
 
-```bash
+```shell
 pip uninstall sfctl
 pip install sfctl
 ```

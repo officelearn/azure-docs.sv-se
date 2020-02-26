@@ -3,7 +3,7 @@ title: Undersök aviseringar med Azure Sentinel | Microsoft Docs
 description: Använd den här självstudien för att lära dig att undersöka aviseringar med Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: 6d61b94a50716966ac0b3c75551ddd9d8e291965
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.author: yelevin
+ms.openlocfilehash: df855aa768fdeb279482b8407259be1a644322d9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024453"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585211"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Självstudie: identifiera hot färdiga
 

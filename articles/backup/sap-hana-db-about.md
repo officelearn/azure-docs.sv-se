@@ -3,18 +3,18 @@ title: Om SAP HANA Database Backup i virtuella Azure-datorer
 description: I den här artikeln lär du dig hur du säkerhetskopierar SAP HANA databaser som körs på virtuella Azure-datorer.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: aad9e7e89c54100f460a7f348702d0a59e88f519
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a1be572d6462ed8f8a86db0f5cbfeaaa37c219ab
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479467"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586571"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Om SAP HANA Database Backup i virtuella Azure-datorer
 
 SAP HANA-databaser är verksamhets kritiska arbets belastningar som kräver återställnings punkt mål och ett snabbt återställnings tids mål (RTO). Nu kan du [säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) med [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
 
-Azure Backup är [Backint certifierat](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) av SAP, för att tillhandahålla ursprungligt stöd för säkerhets kopiering genom att använda SAP HANA inbyggda API: er. Detta erbjudande från Azure Backup justeras med Azure Backups Mantra av **noll-infrastruktur** -säkerhetskopieringar, vilket eliminerar behovet av att distribuera och hantera infrastruktur för säkerhets kopiering. Nu kan du sömlöst säkerhetskopiera och återställa SAP HANA databaser som körs på virtuella Azure-datorer ([M-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#m-series) , som också stöds nu!) och utnyttja företags hanterings funktioner som Azure Backup tillhandahåller.
+Azure Backup är [Backint certifierat](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) av SAP, för att tillhandahålla ursprungligt stöd för säkerhets kopiering genom att använda SAP HANA inbyggda API: er. Detta erbjudande från Azure Backup justeras med Azure Backups Mantra av **noll-infrastruktur** -säkerhetskopieringar, vilket eliminerar behovet av att distribuera och hantera infrastruktur för säkerhets kopiering. Nu kan du sömlöst säkerhetskopiera och återställa SAP HANA databaser som körs på virtuella Azure-datorer ([M-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory) , som också stöds nu!) och utnyttja företags hanterings funktioner som Azure Backup tillhandahåller.
 
 ## <a name="added-value"></a>Tillagt värde
 

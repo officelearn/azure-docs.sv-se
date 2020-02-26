@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: f87dbedb1428b5884e20a9f7daabea792387fe88
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 2e48b47967e29a421a96bb09dd17b2cdcdbaff3c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543315"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580563"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Träna med data uppsättningar i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,9 +27,9 @@ I den här artikeln får du lära dig de två sätt som du kan använda för att
 
 - Alternativ 2: om du har ostrukturerade data skapar du en FileDataset och monterar eller laddar ned filer till en fjärrberäkning för utbildning.
 
-Azure Machine Learning data uppsättningar ger en sömlös integrering med Azure Machine Learning utbildnings produkter som [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) och [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py).
+Azure Machine Learning data uppsättningar ger en sömlös integrering med Azure Machine Learning utbildnings produkter som [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [uppskattare](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py), [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py) och [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att skapa och träna med data uppsättningar behöver du:
 
@@ -100,11 +100,12 @@ experiment_run = experiment.submit(est)
 experiment_run.wait_for_completion(show_output=True)
 ```
 
+
 ## <a name="option-2--mount-files-to-a-remote-compute-target"></a>Alternativ 2: montera filer till ett fjärran sluten beräknings mål
 
 Om du vill göra dina datafiler tillgängliga på Compute-målet för träning använder du [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) för att montera eller ladda ned filer som det hänvisas till.
 
-### <a name="mount-vs-download"></a>Montera v.s. Ladda ned
+### <a name="mount-vs-download"></a>Montering jämfört med nedladdning
 När du monterar en data uppsättning bifogar du filerna som data uppsättningen refererar till i en katalog (monterings punkt) och gör den tillgänglig på beräknings målet. Montering stöds för Linux-baserade beräkningar, inklusive Azure Machine Learning Compute, Virtual Machines och HDInsight. Om data storleken överskrider beräknings disk storleken eller om du bara läser in en del av data uppsättningen i skriptet rekommenderas montering. Eftersom nedladdning av en data mängd som är större än disk storleken Miss Miss kan och monteringen bara läser in den del av data som används av skriptet vid tidpunkten för bearbetningen. 
 
 När du hämtar en data uppsättning laddas alla filer som refereras till av data uppsättningen ned till beräknings målet. Hämtning stöds för alla beräknings typer. Om skriptet bearbetar alla filer som refereras till av data uppsättningen och din beräknings disk får plats i din fullständiga data uppsättning, rekommenderas nedladdning för att undvika att strömma data strömmas från lagrings tjänsterna.
@@ -199,4 +200,4 @@ y_test = load_data(y_test, True).reshape(-1)
 
 * [Träna bild klassificerings modeller](https://aka.ms/filedataset-samplenotebook) med FileDatasets
 
-* [Skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md)
+* [Träna med data uppsättningar med pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb)

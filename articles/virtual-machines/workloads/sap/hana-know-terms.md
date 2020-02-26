@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/03/2019
+ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ea6a8963d0905036f759fbab792492cc63d551c
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e9719f1a081da688501e6dbea0fc1b865168077c
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806753"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591225"
 ---
 # <a name="know-the-terms"></a>Förstå villkoren
 
@@ -38,7 +38,7 @@ Flera vanliga definitioner används ofta i arkitektur-och teknisk distributions 
    Domän användare av den lokala domänen kan komma åt servrarna och köra tjänster på de virtuella datorerna (till exempel DBMS-tjänster). Kommunikation och namn matchning mellan virtuella datorer som distribuerats lokalt och Azure-distribuerade virtuella datorer är möjligt. Det här scenariot är vanligt för det sätt på vilket de flesta SAP-till gångar distribueras. Mer information finns i [Azure VPN gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) och [skapa ett virtuellt nätverk med en plats-till-plats-anslutning med hjälp av Azure Portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - **Klient organisation**: en kund som distribueras i Hana stor instans-stämpel isoleras till en *klient.* En klient är isolerad i nätverk, lagring och beräknings lager från andra klienter. Lagrings-och beräknings enheter tilldelade till olika klienter kan inte se varandra eller kommunicera med varandra på nivån HANA-stor instans stämpel. En kund kan välja att distribuera olika klienter. Även om det inte finns någon kommunikation mellan klienter på nivån HANA stor instans stämpel.
 - **SKU-kategori**: för en stor instans av Hana erbjuds följande två kategorier av SKU: er:
-    - **Typ I-klass**: S72, S72m, S96, S144, S144m, S192, S192m, S192xm och S224
+    - **Typ I-klass**: S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224 och S224m
     - **Typ II-klass**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm och S960m
 - **Stamp**: definierar den interna distributions storleken på Hana för stora instanser i Microsoft. Innan HANA-stora instans enheter kan distribueras, består en stor instans av HANA som består av beräknings-, nätverks-och lagrings rack som måste distribueras på en plats i data centret. En sådan distribution kallas för en HANA-stor instans eller från revision 4 (se nedan) på vi använder det alternativa villkoret för **stor instans rad**
 - **Revision**: det finns två olika stämplar revisioner för Hana-stora instans stämplar. Dessa skiljer sig från arkitekturen och närhet till Azures värdar för virtuella datorer

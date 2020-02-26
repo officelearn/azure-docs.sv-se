@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb36b81d1b2a343da334d63d9c0555ed537ef122
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c4ff3ebf6239f9b62409ff0885f23115711e33cb
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024661"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584549"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd
 
@@ -37,10 +37,10 @@ Funktions stödet ingår i följande två kategorier:
 
 Följande tabell visar den aktuella support nivån för de tre värd planerna, när de körs på antingen Windows eller Linux:
 
-| | Förbrukningsplan | Premium-plan | Dedikerad plan |
+| | Förbrukningsplan | Premiumplan | Dedikerad plan |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | Allmänt tillgänglig | Allmänt tillgänglig | Allmänt tillgänglig |
-| Linux | Allmänt tillgänglig | Allmänt tillgänglig | Allmänt tillgänglig |
+| Windows | Allmän tillgänglighet (GA) | Allmän tillgänglighet (GA) | Allmän tillgänglighet (GA) |
+| Linux | Allmän tillgänglighet (GA) | Allmän tillgänglighet (GA) | Allmän tillgänglighet (GA) |
 
 ## <a name="consumption-plan"></a>Förbrukningsplan
 
@@ -158,7 +158,7 @@ Skalning kan variera beroende på ett antal faktorer och skala på olika sätt b
 
 Olika utlösare kan också ha olika skalnings gränser samt dokumenterade nedan:
 
-* [Händelsehubb](functions-bindings-event-hubs.md#trigger---scaling)
+* [Händelsehubb](functions-bindings-event-hubs-trigger.md#scaling)
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Metod tips och mönster för skalbara appar
 

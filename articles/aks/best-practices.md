@@ -1,81 +1,78 @@
 ---
-title: Metodtips för Azure Kubernetes Service (AKS)
-description: Insamling av klustret operatorn och utvecklare metodtipsen för att skapa och hantera program i Azure Kubernetes Service (AKS)
+title: Metod tips för Azure Kubernetes service (AKS)
+description: Samling av kluster operatör och bästa metoder för utvecklare för att bygga och hantera program i Azure Kubernetes service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.author: mlearned
-ms.openlocfilehash: 7127894b364ac8f0fe1d87e13150d5522f5473e2
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 627eeffd18a479486e5a682da06bf89cd5f8f0e1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615967"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596325"
 ---
-# <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Metodtips för kluster-operatorn och utvecklare att bygga och hantera program på Azure Kubernetes Service (AKS)
+# <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Kluster operatör och bästa metoder för utvecklare för att bygga och hantera program i Azure Kubernetes service (AKS)
 
-Om du vill skapa och köra program har i Azure Kubernetes Service (AKS), finns det några viktiga saker att förstå och implementera. Dessa områden är flera innehavare och scheduler funktioner, kluster och pod säkerhet eller affärskontinuitet och katastrofåterställning. Följande metodtips grupperas för att hjälpa operatörer att klustret och utvecklare förstå överväganden för var och en av dessa områden och implementera lämpliga funktioner.
+För att kunna skapa och köra program i Azure Kubernetes service (AKS) finns det några viktiga aspekter att förstå och implementera. Dessa områden omfattar funktioner för flera innehavare och Scheduler, kluster-och Pod säkerhet, eller verksamhets kontinuitet och haveri beredskap. Följande metod tips är grupperade för att hjälpa kluster operatörer och utvecklare att förstå överväganden för var och en av dessa områden och implementera lämpliga funktioner.
 
-Dessa metodtips och konceptuella artiklar har skrivits tillsammans med AKS-produktgruppen, tekniska team och fältet team, inklusive globala svart bälten (GBBs).
+Dessa metod tips och konceptuella artiklar har skrivits tillsammans med AKS produkt grupp, teknik team och fält team, inklusive globala svarta remmar (GBBs).
 
-## <a name="cluster-operator-best-practices"></a>Metodtips för kluster-operator
+## <a name="cluster-operator-best-practices"></a>Metod tips för kluster operator
 
-Arbeta tillsammans med programägare och utvecklare för att förstå deras behov som ansvarig för klustret. Du kan sedan använda följande metoder för att konfigurera dina AKS-kluster efter behov.
+Som kluster operatör arbetar tillsammans med program ägare och utvecklare för att förstå deras behov. Du kan sedan använda följande metod tips för att konfigurera AKS-kluster efter behov.
 
 **Flera innehavare**
 
 * [Metodtips för isolering av kluster](operator-best-practices-cluster-isolation.md)
-    * Innehåller flera innehavare kärnkomponenter och logisk isolering med namnområden.
+    * Innehåller kärn komponenter för flera innehavare och logisk isolering med namn områden.
 * [Metodtips för grundläggande schemaläggningsfunktioner](operator-best-practices-scheduler.md)
-    * Innehåller med resurskvoter och pod avbrott budgetar.
+    * Inkluderar användning av resurs kvoter och Pod-avbrott i budgetar.
 * [Metodtips för avancerade schemaläggningsfunktioner](operator-best-practices-advanced-scheduler.md)
-    * Innehåller med taints och tolerations, noden väljare och tillhörighet, och kommunikation mellan pod tillhörighet och anti-tillhörighet.
+    * Inkluderar användning av utsmakar och tolererar, Node Selector och tillhörighet och Pod tillhörighet och skydds tilldelning.
 * [Metodtips för autentisering och auktorisering](operator-best-practices-identity.md)
-    * Innefattar integrering med Azure Active Directory, med hjälp av rollbaserad åtkomstkontroll (RBAC) och pod-identiteter.
+    * Inkluderar integrering med Azure Active Directory, med hjälp av rollbaserad åtkomst kontroll (RBAC) och Pod identiteter.
 
 **Säkerhet**
 
 * [Metodtips för klustersäkerhet och uppgraderingar](operator-best-practices-cluster-security.md)
-    * Innehåller skydda åtkomst till API-servern, begränsa åtkomst till behållare och hantera uppgraderingar och omstarter av noden.
-* [Metodtips för hantering av behållare avbildningen och säkerhet](operator-best-practices-container-image-management.md)
-    * Innehåller skydda avbildningen och körningar och automatiserade versioner basavbildningen uppdateringar.
-* [Metodtips för pod-säkerhet](developer-best-practices-pod-security.md)
-    * Omfattar att skydda åtkomsten till resurser, begränsa exponering av autentiseringsuppgifter och använder pod identiteter och digital nyckelvalv.
+    * Innehåller skydd av åtkomst till API-servern, begränsning av behållar åtkomst och hantering av uppgraderingar och omstarter av noder.
+* [Metod tips för hantering och säkerhet för behållar avbildningar](operator-best-practices-container-image-management.md)
+    * I ingår att skydda avbildningen och körningarna och automatiserade versioner av bas avbildnings uppdateringar.
+* [Metod tips för Pod-säkerhet](developer-best-practices-pod-security.md)
+    * Innefattar att skydda åtkomsten till resurser, begränsa exponeringen av autentiseringsuppgifter och använda Pod-identiteter och digitala nyckel valv.
 
 **Nätverk och lagring**
 
-* [Metodtips för nätverksanslutning](operator-best-practices-network.md)
-    * Innehåller olika nätverk modeller, med hjälp av in- och web brandväggar för webbprogram (WAF) och skydda noden SSH-åtkomst.
+* [Metod tips för nätverks anslutning](operator-best-practices-network.md)
+    * Innehåller olika nätverks modeller, med ingångs-och WAF-brandväggar (Web Application Firewall) och skyddar SSH-åtkomsten för noden.
 * [Metodtips för lagring och säkerhetskopiering](operator-best-practices-storage.md)
-    * Innehåller välja rätt typ och noden lagringsstorleken, dynamiskt etablera volymer och säkerhetskopior.
+    * Inkluderar att välja lämplig lagrings typ och Node-storlek, dynamiskt konfigurera volymer och säkerhets kopior av data.
 
-**Arbetsbelastningar för företag**
+**Köra företags klara arbets belastningar**
 
-* [Metodtips för affärskontinuitet och haveriberedskap](operator-best-practices-multi-region.md)
-    * Innehåller med regionpar, flera kluster med Azure Traffic Manager och geo-replikering för behållaravbildningar.
+* [Metod tips för verksamhets kontinuitet och haveri beredskap](operator-best-practices-multi-region.md)
+    * Inkluderar användning av region par, flera kluster med Azure Traffic Manager och geo-replikering av behållar avbildningar.
 
-## <a name="developer-best-practices"></a>Metodtips för utvecklare
+## <a name="developer-best-practices"></a>Metod tips för utvecklare
 
-Som utvecklare eller programmets ägare, du kan förenkla din utvecklingsupplevelse och definiera kräver prestanda programbehov.
+Som utvecklare eller program ägare kan du förenkla utvecklings upplevelsen och definiera behovet av program prestanda.
 
 * [Metodtips för programutvecklare för resurshantering](developer-best-practices-resource-management.md)
-    * Innehåller definiera pod resursbegäranden och gränser, konfigurerar utvecklingsverktyg och söker efter programfel.
-* [Metodtips för pod-säkerhet](developer-best-practices-pod-security.md)
-    * Omfattar att skydda åtkomsten till resurser, begränsa exponering av autentiseringsuppgifter och använder pod identiteter och digital nyckelvalv.
+    * Innefattar att definiera Pod resurs begär Anden och begränsningar, konfigurera utvecklingsverktyg och söka efter program problem.
+* [Metod tips för Pod-säkerhet](developer-best-practices-pod-security.md)
+    * Innefattar att skydda åtkomsten till resurser, begränsa exponeringen av autentiseringsuppgifter och använda Pod-identiteter och digitala nyckel valv.
 
-## <a name="kubernetes--aks-concepts"></a>Kubernetes / AKS-begrepp
+## <a name="kubernetes--aks-concepts"></a>Kubernetes/AKS-koncept
 
-För att förstå några av funktionerna och komponenter i dessa metodtips, kan du också se följande konceptuella artiklar för kluster i Azure Kubernetes Service (AKS):
+För att hjälpa till att förstå några av funktionerna och komponenterna i dessa bästa metoder kan du även se följande konceptuella artiklar för kluster i Azure Kubernetes service (AKS):
 
-* [Grundläggande begrepp som Kubernetes](concepts-clusters-workloads.md)
+* [Kubernetes Core-koncept](concepts-clusters-workloads.md)
 * [Åtkomst och identitet](concepts-identity.md)
-* [Säkerhetskoncept](concepts-security.md)
-* [Network-koncept](concepts-network.md)
+* [Säkerhets begrepp](concepts-security.md)
+* [Nätverks koncept](concepts-network.md)
 * [Lagringsalternativ](concepts-storage.md)
-* [Skalningsalternativ](concepts-scale.md)
+* [Skalnings alternativ](concepts-scale.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill komma igång med AKS följer du någon av Snabbstart för att distribuera ett Azure Kubernetes Service (AKS) med den [Azure CLI](kubernetes-walkthrough.md) eller [Azure-portalen](kubernetes-walkthrough-portal.md).
+Om du behöver komma igång med AKS följer du en av snabb starterna för att distribuera ett Azure Kubernetes service-kluster (AKS) med hjälp av [Azure CLI](kubernetes-walkthrough.md) eller [Azure Portal](kubernetes-walkthrough-portal.md).

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: memildin
-ms.openlocfilehash: b2ab769fc2595af9fd1ea41f1ef492944cb5e7fa
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: a600b17ce25a467b788671e12e3c2425ad20b809
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75665776"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604074"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Hantera säkerhets incidenter i Azure Security Center
 
@@ -57,11 +57,10 @@ I följande avsnitt förklaras hur Security Center använder olika telemetri som
 * [Aviseringar för service nivå](security-center-alerts-service-layer.md)
 * [Hot identifiering för Azure WAF och Azure DDoS Protection](security-center-alerts-integration.md)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 I det här dokumentet har du fått lära dig hur du använder säkerhetsincidentfunktionen i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
 
 * [Säkerhets aviseringar i Azure Security Center](security-center-alerts-overview.md).
 * [Hantera säkerhetsaviseringar](security-center-managing-and-responding-alerts.md)
 * [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md)
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md): Här finns vanliga frågor om tjänsten.
 * [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

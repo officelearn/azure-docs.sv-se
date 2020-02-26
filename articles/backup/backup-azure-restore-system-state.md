@@ -4,12 +4,12 @@ description: Steg för steg-förklaringar för återställning av Windows Server
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.openlocfilehash: 8e256fbac0651b4c237c540151b3377927989d36
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 6d46a091a4e620e26d05735f12a201009663e65d
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172812"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602464"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Återställa system tillstånd till Windows Server
 
@@ -89,7 +89,7 @@ Den terminologi som används i dessa steg omfattar:
 6. I fönstret Välj säkerhets kopierings server väljer du *käll datorn* i listan med datorer som visas.
 7. I fönstret Välj återställnings läge väljer du **system tillstånd** och klickar på **Nästa**.
 
-    ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Söka](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. I kalendern i fönstret **Välj volym och datum** väljer du en återställnings punkt. Du kan återställa från vilken återställnings punkt som helst. Datum i **fetstil** anger tillgänglighet för minst en återställnings punkt. När du har valt ett datum, om det finns flera återställnings punkter, väljer du den aktuella återställnings punkten från den nedrullningsbara menyn **tid** .
 
@@ -159,7 +159,7 @@ När du har återställt system tillstånd som filer med Azure Recovery Services
 Säkerhets kopiering av system tillstånd omfattar Active Directory data. Använd följande steg för att återställa Active Directory-domän tjänsten (AD DS) från det aktuella läget till ett tidigare tillstånd.
 
 1. Starta om domänkontrollanten i återställnings läge för katalog tjänster (DSRM).
-2. Följ stegen [här](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) för att använda Windows Server Backup cmdlets för att återställa AD DS.
+2. Följ stegen [här](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) för att använda Windows Server Backup cmdlets för att återställa AD DS.
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Felsöka misslyckad återställning av system tillstånd
 

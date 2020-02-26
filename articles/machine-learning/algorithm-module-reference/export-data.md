@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 11f5bd7f01e142273509ae59ddc19a2557464bde
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 40d8e298237b6110fee04aefbb7b79c5f3bac6f0
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152320"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598620"
 ---
 # <a name="export-data-module"></a>Exportera datamodul
 
 I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
-Använd den här modulen för att spara resultat, mellanliggande data och arbeta data från dina pipelines till moln lagrings mål utanför Azure Machine Learning. 
+Använd den här modulen för att spara resultat, mellanliggande data och arbeta data från dina pipelines till moln lagrings mål. 
 
 Den här modulen stöder export av data till följande moln data tjänster:
 
@@ -29,7 +29,7 @@ Den här modulen stöder export av data till följande moln data tjänster:
 - Azure Data Lake
 - Azure Data Lake Gen2
 
-Innan du exporterar dina data måste du först registrera ett data lager i din Azure Machine Learning-arbetsyta. Mer information finns i [få åtkomst till data i Azure Storage-tjänster](../how-to-access-data.md).
+Innan du exporterar dina data måste du först registrera ett data lager på din Azure Machine Learning-arbetsyta. Mer information finns i [få åtkomst till data i Azure Storage-tjänster](../how-to-access-data.md).
 
 ## <a name="how-to-configure-export-data"></a>Så här konfigurerar du export data
 
@@ -41,7 +41,13 @@ Innan du exporterar dina data måste du först registrera ett data lager i din A
 
 1. För **data lager**väljer du ett befintligt data lager i list rutan. Du kan också skapa ett nytt data lager. Se hur du [använder åtkomst data i Azure Storage-tjänster](../how-to-access-data.md).
 
-1. Definiera sökvägen i data lagret som data ska skrivas till. 
+1. Kryss rutan **skapa utdata**igen, bestämmer om modulen ska köras för att återskapa utdata vid körning. 
+
+    Den är som standard omarkerad, vilket innebär att om modulen har körts med samma parametrar tidigare kommer systemet att återanvända utdata från senaste körning för att minska körnings tiden. 
+
+    Om den är markerad kommer systemet att köra modulen igen för att återskapa utdata.
+
+1. Definiera sökvägen i data lagret där datan finns. Sökvägen är en relativ sökväg. Tomma sökvägar eller URL-sökvägar är inte tillåtna.
 
 
 1. I **fil format**väljer du det format som data ska lagras i.

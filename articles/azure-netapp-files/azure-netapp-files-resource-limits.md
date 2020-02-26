@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 02/25/2020
 ms.author: b-juche
-ms.openlocfilehash: 6fcea0aaecb860e07c2066877494c05b51f43ca4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7637d18017f5bdc76c8a271198a88f21a59a6aac
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976255"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604974"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Resursbegränsningar för Azure NetApp Files
 
@@ -36,7 +36,7 @@ I följande tabell beskrivs resurs gränser för Azure NetApp Files:
 |  Antal volymer per kapacitets grupp     |    500   |    Ja     |
 |  Antal ögonblicks bilder per volym       |    255     |    Nej        |
 |  Antal undernät som har delegerats till Azure NetApp Files (Microsoft. NetApp/Volumes) per Azure-Virtual Network    |   1   |    Nej    |
-|  Antal IP-adresser i ett VNet (inklusive peer-virtuella nätverk) som har åtkomst till Azure NetApp Files   |    1 000   |    Ja   |
+|  Antal använda IP-adresser i ett VNet (inklusive direkt peer-virtuella nätverk) med Azure NetApp Files   |    1000   |    Ja   |
 |  Minsta storlek på en pool med enskild kapacitet   |  4 TiB     |    Nej  |
 |  Maximal storlek för en pool med enskild kapacitet    |  500 TiB   |   Nej   |
 |  Minsta storlek på en enskild volym    |    100 GiB    |    Nej    |

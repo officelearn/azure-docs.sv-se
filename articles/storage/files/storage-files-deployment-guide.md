@@ -7,33 +7,33 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3ce754a67643f4506fa825f0780969dc4a06f826
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 38339defc9d06f3e809bc24f957ebbb30abb46d3
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299580"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598790"
 ---
 # <a name="how-to-deploy-azure-files"></a>Så här distribuerar du Azure Files
-[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet som är branschstandard. I den här artikeln får du se hur du praktiskt taget distribuerar Azure Files i din organisation.
+[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via SMB-protokollet enligt bransch standard. I den här artikeln får du se hur du praktiskt taget distribuerar Azure Files i din organisation.
 
 Vi rekommenderar starkt att du [planerar att läsa en Azure Files distribution](storage-files-planning.md) innan du följer stegen i den här artikeln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du redan har slutfört följande steg:
 
 - Skapade ett Azure Storage-konto med önskade återhämtnings-och krypterings alternativ i den region som du vill använda. Se [skapa ett lagrings konto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för steg-för-steg-instruktioner om hur du skapar ett lagrings konto.
 - Skapade en Azure-filresurs med önskad kvot i ditt lagrings konto. Se [skapa en fil resurs](storage-how-to-create-file-share.md) för steg-för-steg-instruktioner om hur du skapar en fil resurs.
 
 ## <a name="transfer-data-into-azure-files"></a>Överför data till Azure Files
-Du kanske vill migrera befintliga fil resurser, till exempel de som lagras lokalt, till din nya Azure-filresurs. I det här avsnittet visas hur du flyttar data till en Azure-filresurs via flera populära metoder som beskrivs i [planerings guiden](storage-files-planning.md#data-transfer-method)
+Du kanske vill migrera befintliga fil resurser, till exempel de som lagras lokalt, till din nya Azure-filresurs. I det här avsnittet visas hur du flyttar data till en Azure-filresurs via flera populära metoder som beskrivs i [planerings guiden](storage-files-planning.md#migration)
 
 ### <a name="azure-file-sync"></a>Azure File Sync
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
 
 Azure File Sync kan användas för att migrera data till en Azure-filresurs, även om metoden för synkronisering inte behövs för långsiktig användning. Mer information om hur du använder Azure File Sync för att överföra data till Azure-filresurs finns i [Planera för en Azure File Sync distribution](storage-sync-files-planning.md) och [hur du distribuerar Azure File Sync](storage-sync-files-deployment-guide.md).
 
-### <a name="azure-importexport"></a>Import/export i Azure
+### <a name="azure-importexport"></a>Importera/exportera Azure
 Med tjänsten Azure import/export kan du på ett säkert sätt överföra stora mängder data till en Azure-filresurs genom att leverera hård diskar till ett Azure-datacenter. Se [använda tjänsten Microsoft Azure import/export för att överföra data till Azure Storage](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för en mer detaljerad översikt över tjänsten.
 
 > [!Note]  

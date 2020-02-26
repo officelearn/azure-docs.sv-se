@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/27/2020
-ms.openlocfilehash: 233edabed345cd9586647e5f430e6d3dc6a87192
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 837174b3ccc08a74583587cb9efd34f8f720aec5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505707"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589461"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Självstudie: köra Azure Functions från Azure Stream Analytics-jobb 
 
@@ -190,6 +190,9 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
 ## <a name="error-handling-and-retries"></a>Felhantering och återförsök
 
 Om det uppstår ett fel när du skickar händelser till Azure Functions, Stream Analytics försöker de flesta åtgärder. Alla http-undantag provas igen tills det lyckades med undantaget HTTP-fel 413 (enheten är för stor). En entitet för ett stort fel behandlas som ett data fel som omfattas av [återförsöket eller drop-principen](stream-analytics-output-error-policy.md).
+
+> [!NOTE]
+> Tids gränsen för HTTP-begäranden från Stream Analytics till Azure Functions har angetts till 100 sekunder. Om din Azure Functions app tar över 100 sekunder att bearbeta en batch, Stream Analytics fel.
 
 ## <a name="known-issues"></a>Kända problem
 

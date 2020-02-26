@@ -2,17 +2,16 @@
 title: Intelligent Routning och Kanarie-versioner med Istio i Azure Kubernetes service (AKS)
 description: Lär dig hur du använder Istio för att tillhandahålla intelligent Routning och distribuera Kanarie-versioner i ett Azure Kubernetes service-kluster (AKS)
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 48daf2be4a05922982479a86e6574f3aa85d2130
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 4c29658473aaa50168175c76234dfca34fcdad83
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530295"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594171"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Använda intelligent Routning och Kanarie-versioner med Istio i Azure Kubernetes service (AKS)
 
@@ -351,9 +350,9 @@ voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS     
 
 ## <a name="roll-out-a-canary-release-of-the-application"></a>Distribuera en Kanarie-version av programmet
 
-Nu ska vi distribuera en ny version `2.0` av `voting-app`, `voting-analytics` och `voting-storage` komponenter. Den nya `voting-storage`-komponenten använder MySQL i stället för Redis, och `voting-app`-och `voting-analytics`s komponenter uppdateras så att de kan använda den nya `voting-storage`-komponenten.
+Nu ska vi distribuera en ny version `2.0` av `voting-app`, `voting-analytics`och `voting-storage` komponenter. Den nya `voting-storage`-komponenten använder MySQL i stället för Redis, och `voting-app`-och `voting-analytics`s komponenter uppdateras så att de kan använda den nya `voting-storage`-komponenten.
 
-@No__t_0-komponenten stöder nu funktioner för funktions flagga. Med den här funktions flaggan kan du testa funktionen för Istio för en delmängd av användarna.
+`voting-app`-komponenten stöder nu funktioner för funktions flagga. Med den här funktions flaggan kan du testa funktionen för Istio för en delmängd av användarna.
 
 Följande diagram visar vad du kommer att ha i slutet av det här avsnittet.
 

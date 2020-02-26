@@ -5,16 +5,16 @@ services: logic-apps
 ms.suite: integration
 author: preetikr
 ms.author: preetikr
-ms.reviewer: klam, estfan, logicappspm
+ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
-ms.date: 12/12/2019
+ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: f9aa88934d67d98fce43763c6c8fac7c384d765d
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: b4f51b192d1a7c0ee14a769321793753e8217dea
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313803"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598841"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Förbättra hot skyddet genom att integrera säkerhets åtgärder med Microsoft Graph säkerhets & Azure Logic Apps
 
@@ -32,23 +32,23 @@ Din Logic Apps-arbetsflöde kan använda åtgärder som får svar från Microsof
 
 Mer information om Microsoft Graph säkerhet finns i [Översikt över Microsoft Graph Security API](https://aka.ms/graphsecuritydocs). Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md). Om du letar efter Microsoft Flow eller PowerApps, se [Vad är Flow?](https://flow.microsoft.com/) eller [Vad är PowerApps?](https://powerapps.microsoft.com/)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
-* Om du vill använda anslutningsappen för Microsoft Graph-säkerhet måste du ha *uttryckligt medgivande* från innehavaradministratören för Azure Active Directory (AD), vilket är ett av [autentiseringskraven för Microsoft Graph-säkerhet](https://aka.ms/graphsecurityauth). Detta medgivande kräver Microsoft Graph Security Connectors program-ID och namn, som du även hittar i [Azure Portal](https://portal.azure.com):
+* Om du vill använda Microsoft Graph-säkerhetsanslutningen måste du *uttryckligen* angett Azure Active Directory (AD) klient administratörs medgivande, som är en del av [kraven för Microsoft Graph säkerhets autentisering](https://aka.ms/graphsecurityauth). Detta medgivande kräver Microsoft Graph Security Connectors program-ID och namn, som du även hittar i [Azure Portal](https://portal.azure.com):
 
   | Egenskap | Värde |
   |----------|-------|
-  | **Programnamn** | `MicrosoftGraphSecurityConnector` |
+  | **Program namn** | `MicrosoftGraphSecurityConnector` |
   | **Program-ID** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
   |||
 
   För att bevilja medgivande för anslutningen kan din Azure AD-innehavaradministratör följa de här stegen:
 
-  * [Ge innehavaradministratörens medgivande för Azure AD-program](../active-directory/develop/v2-permissions-and-consent.md).
+  * [Bevilja klient organisationens administratörs medgivande för Azure AD-program](../active-directory/develop/v2-permissions-and-consent.md).
 
-  * Under den första körningen av din logikapp kan appen begära godkännande från Azure AD-innehavaradministratören via [funktionen för programmedgivande](../active-directory/develop/application-consent-experience.md).
+  * Under den första körningen av din Logic Apps kan din app begära medgivande från din Azure AD-innehavaradministratör genom [programmets medgivande upplevelse](../active-directory/develop/application-consent-experience.md).
    
 * Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -94,9 +94,9 @@ Det här exemplet visar hur du kan starta ett Logic app-arbetsflöde när nya av
    | Egenskap | Egenskap (JSON) | Krävs | Typ | Beskrivning |
    |----------|-----------------|----------|------|-------------|
    | **Intervall** | `interval` | Ja | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p><p>– Månad: 1-16 månader <br>– Dag: 1-500 dagar <br>– Timme: 1 – 12000 timmar <br>-Minute: 1 – 72000 minuter <br>-Sekund: 1 – 9999999 sekunder <p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
-   | **Frekvens** | `frequency` | Ja | String | Tidsenhet för upprepning: **sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** |
-   | **Tidszon** | `timeZone` | Inga | String | Gäller endast när du anger en start tid eftersom den här utlösaren inte accepterar [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. |
-   | **Starttid** | `startTime` | Inga | String | Ange start datum och-tid i följande format: <p><p>ÅÅÅÅ-MM-DDThh: mm: SS om du väljer en tidszon <p>ELLER <p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte väljer en tidszon <p>Om du till exempel vill att 18 september 2017 på 2:00 PM anger du "2017-09-18T14:00:00" och väljer en tidszon som Pacific, normal tid. Eller ange "2017-09-18T14:00:00Z" utan en tidszon. <p>**Obs:** Den här start tiden har högst 49 år i framtiden och måste följa [8601 ISO-tiden för datum/tid](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman är start tiden den första förekomsten, medan utlösaren i komplexa scheman inte utlöses tidigare än start tiden. [*Hur kan jag använda start datum och-tid?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Frekvens** | `frequency` | Ja | Sträng | Tidsenhet för upprepning: **sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** |
+   | **Tidszon** | `timeZone` | Nej | Sträng | Gäller endast när du anger en start tid eftersom den här utlösaren inte accepterar [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. |
+   | **Starttid** | `startTime` | Nej | Sträng | Ange start datum och-tid i följande format: <p><p>ÅÅÅÅ-MM-DDThh: mm: SS om du väljer en tidszon <p>ELLER <p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte väljer en tidszon <p>Om du till exempel vill att 18 september 2017 på 2:00 PM anger du "2017-09-18T14:00:00" och väljer en tidszon som Pacific, normal tid. Eller ange "2017-09-18T14:00:00Z" utan en tidszon. <p>**Obs:** Den här start tiden har högst 49 år i framtiden och måste följa [8601 ISO-tiden för datum/tid](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman är start tiden den första förekomsten, medan utlösaren i komplexa scheman inte utlöses tidigare än start tiden. [*Hur kan jag använda start datum och-tid?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
 1.  När du är klar väljer du **Spara**i verktygsfältet designer.
@@ -117,9 +117,9 @@ Mer information om frågor som du kan använda med den här anslutnings tjänste
 
 | Åtgärd | Beskrivning |
 |--------|-------------|
-| **Hämta aviseringar** | Hämta aviseringar som filtrerats baserat på en eller flera [aviserings egenskaper](https://docs.microsoft.com/graph/api/resources/alert), till exempel: <p>`Provider eq 'Azure Security Center' or 'Palo Alto Networks'` | 
+| **Hämta aviseringar** | Hämta aviseringar som filtrerats baserat på en eller flera [aviserings egenskaper](https://docs.microsoft.com/graph/api/resources/alert), till exempel `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`. | 
 | **Hämta avisering efter ID** | Få en speciell avisering baserat på aviserings-ID: t. | 
-| **Uppdateringsavisering** | Uppdatera en speciell avisering baserat på aviserings-ID: t. <p>För att se till att du överför de nödvändiga och redigerbara egenskaperna i din begäran, se de [redigerbara egenskaperna för aviseringar](https://docs.microsoft.com/graph/api/alert-update). Om du till exempel vill tilldela en avisering till en säkerhetsanalytiker så att de kan undersöka, kan du uppdatera aviseringens **tilldelade** egenskap. |
+| **Uppdatera avisering** | Uppdatera en speciell avisering baserat på aviserings-ID: t. För att se till att du överför de nödvändiga och redigerbara egenskaperna i din begäran, se de [redigerbara egenskaperna för aviseringar](https://docs.microsoft.com/graph/api/alert-update). Om du till exempel vill tilldela en avisering till en säkerhetsanalytiker så att de kan undersöka, kan du uppdatera aviseringens **tilldelade** egenskap. |
 |||
 
 ### <a name="manage-alert-subscriptions"></a>Hantera aviserings prenumerationer
@@ -135,6 +135,27 @@ Microsoft Graph stöder [*prenumerationer*](https://docs.microsoft.com/graph/api
 | **Uppdatera prenumeration** | [Uppdatera en prenumeration](https://docs.microsoft.com/graph/api/subscription-update) genom att ange prenumerations-ID: t. Om du till exempel vill utöka din prenumeration kan du uppdatera prenumerationens `expirationDateTime`-egenskap. | 
 | **Ta bort prenumeration** | [Ta bort en prenumeration](https://docs.microsoft.com/graph/api/subscription-delete) genom att ange prenumerations-ID: t. | 
 ||| 
+
+### <a name="manage-threat-intelligence-indicators"></a>Hantera hot informations indikatorer
+
+Om du vill filtrera, sortera eller få de senaste resultaten anger du *bara* [OData-frågeparametrar som stöds av Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Ange inte* den fullständiga bas-URL: en eller http-åtgärden, till exempel `https://graph.microsoft.com/beta/security/tiIndicators`eller åtgärden `GET` eller `PATCH`. Här är ett speciellt exempel som visar parametrarna för en **Get tiIndicators** -åtgärd när du vill ha en lista med typen `DDoS` hot:
+
+`Filter threat intelligence indicator value as threatType eq 'DDoS'`
+
+Mer information om de frågor som du kan använda med den här anslutnings tjänsten finns [i "valfria frågeparametrar" i referens dokumentationen för Microsoft Graph Security Threat Intelligence-indikator](https://docs.microsoft.com/graph/api/tiindicators-list?view=graph-rest-beta&tabs=http). Om du vill bygga förbättrade upplevelser med den här anslutningen kan du läsa mer om den [schema egenskaper Hot information-indikator](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta) som stöds av Connector.
+
+| Åtgärd | Beskrivning |
+|--------|-------------|
+| **Hämta hot informations indikatorer** | Hämta tiIndicators som filtrerats baserat på en eller flera [tiIndicator-egenskaper](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta), till exempel `threatType eq 'MaliciousUrl' or 'DDoS'` |
+| **Hämta Hot information-indikator efter ID** | Hämta en speciell tiIndicator baserat på tiIndicator-ID: t. | 
+| **Skapa hot informations indikator** | Skapa en ny tiIndicator genom att publicera i tiIndicators-samlingen. För att se till att du skickar de nödvändiga egenskaperna i din begäran, se de [egenskaper som krävs för att skapa tiIndicator](https://docs.microsoft.com/graph/api/tiindicators-post?view=graph-rest-beta&tabs=http). |
+| **Skicka flera hot informations indikatorer** | Skapa flera nya tiIndicators genom att publicera en tiIndicators-samling. För att se till att du skickar de nödvändiga egenskaperna i din begäran, se de [egenskaper som krävs för att skicka flera tiIndicators](https://docs.microsoft.com/graph/api/tiindicator-submittiindicators?view=graph-rest-beta&tabs=http). |
+| **Uppdatera hot informations indikator** | Uppdatera en speciell tiIndicator baserat på tiIndicator-ID: t. För att se till att du överför de nödvändiga och redigerbara egenskaperna i din begäran, se de [redigerbara egenskaperna för tiIndicator](https://docs.microsoft.com/graph/api/tiindicator-update?view=graph-rest-beta&tabs=http). Om du till exempel vill uppdatera åtgärden som ska tillämpas om indikatorn matchas från säkerhets verktyget targetProduct, kan du uppdatera tiIndicator- **åtgärdens** egenskap. |
+| **Uppdatera flera hot informations indikatorer** | Uppdatera flera tiIndicators. För att se till att du överför de nödvändiga egenskaperna i din begäran, se de [obligatoriska egenskaperna för att uppdatera flera tiIndicators](https://docs.microsoft.com/graph/api/tiindicator-updatetiindicators?view=graph-rest-beta&tabs=http). |
+| **Ta bort hot informations indikator efter ID** | Ta bort en speciell tiIndicator baserat på tiIndicator-ID: t. |
+| **Ta bort flera hot informations indikatorer utifrån ID: n** | Ta bort flera tiIndicators med deras ID. För att se till att du skickar de nödvändiga egenskaperna i din begäran, se de [obligatoriska egenskaperna för att ta bort flera tiIndicators med ID: n](https://docs.microsoft.com/graph/api/tiindicator-deletetiindicators?view=graph-rest-beta&tabs=http). |
+| **Ta bort flera hot informations indikatorer med externa ID: n** | Ta bort flera tiIndicators med de externa ID: na. För att se till att du skickar de nödvändiga egenskaperna i din begäran, se de [obligatoriska egenskaperna för att ta bort flera tiIndicators med externa ID: n](https://docs.microsoft.com/graph/api/tiindicator-deletetiindicatorsbyexternalid?view=graph-rest-beta&tabs=http). |
+|||
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 

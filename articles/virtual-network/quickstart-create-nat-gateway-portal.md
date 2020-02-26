@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 8913c956554fa7bf1d0362b44dc6f8031ffd74f9
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 429c221609005136663d5e64a1b8650027cba411
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429707"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588747"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Snabb start: skapa en NAT-gateway med hjälp av Azure Portal
 
@@ -30,11 +30,7 @@ Den här snabb starten visar hur du använder Azure Virtual Network NAT-tjänste
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-> [!IMPORTANT]
-> När Virtual Network NAT- [förhands granskning har Aktiver ATS](./nat-overview.md#enable-preview) för din prenumeration använder du https://aka.ms/natportal för att få åtkomst till portalen.
-
-Logga in på [Azure Portal](https://aka.ms/natportal).
-
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
@@ -51,7 +47,7 @@ Innan du distribuerar en virtuell dator och kan använda din NAT-gateway måste 
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj Skapa New- **myResourceGroupNAT**. |
     | plats. | Välj **USA, östra 2**.|
-    | Undernät – Namn | Ange **undernät**. |
+    | Undernät – namn | Ange **undernät**. |
     | Undernät – adressintervall | Ange **192.168.0.0/24**. |
 
 3. Lämna resten av standardinställningarna och välj **Skapa**.

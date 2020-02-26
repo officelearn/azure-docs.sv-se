@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 02/18/2020
-ms.openlocfilehash: 6e6d4ea6c96949a60677bcf3bf40a53ec3a251c7
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.date: 02/25/2020
+ms.openlocfilehash: 12d457d8d5e57dc4db16d9a191c7795a5f013574
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526866"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605006"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 
@@ -74,7 +74,7 @@ Den hanterade instansen har två tjänst nivåer: [generell användning](sql-dat
 | Maximalt antal databasfiler per instans | Upp till 280, om inte instansens lagrings storlek eller [Azure Premium disk](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) utrymmes gräns har nåtts. | 32 767 filer per databas, om inte storleks gränsen för instans lagring har uppnåtts. |
 | Maximal data fil storlek | Begränsad till tillgänglig instans lagrings storlek (högst 2 TB-8 TB) och [lagrings utrymme för Azure Premium-disk](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Begränsad till tillfället tillgänglig instans lagrings storlek (upp till 1 TB-4 TB). |
 | Största logg fils storlek | Begränsad till 2 TB och tillgänglig instans lagrings storlek för närvarande. | Begränsad till 2 TB och tillgänglig instans lagrings storlek för närvarande. |
-| Data/logga IOPS (ungefärligt) | Upp till 30-40 kB IOPS per instans *, 500-7500 per fil<br/>\*[öka fil storleken för att få mer IOPS](#file-io-characteristics-in-general-purpose-tier)| 5,5 k-110 K (1375 IOPS/vCore)<br/>Lägg till fler virtuella kärnor för att få bättre IO-prestanda. |
+| Data/logga IOPS (ungefärligt) | Upp till 30-40 kB IOPS per instans *, 500-7500 per fil<br/>\*[öka fil storleken för att få mer IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 k – 200 KB (2500 IOPS/vCore)<br/>Lägg till fler virtuella kärnor för att få bättre IO-prestanda. |
 | Logg Skriv data flödes gräns (per instans) | 3 MB/s per vCore<br/>Högst 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
 | Data flöde (ungefärligt) | 100-250 MB/s per fil<br/>\*[öka fil storleken för att få bättre IO-prestanda](#file-io-characteristics-in-general-purpose-tier) | Inte begränsat. |
 | IO-latens för lagring (ungefärligt) | 5-10 MS | 1-2 MS |
@@ -107,7 +107,7 @@ Det finns även gränser på instans nivå som maximalt logg skrivnings data fl�
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Hanterade instanser kan bara skapas i [regioner som stöds](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Om du vill skapa en hanterad instans i en region som för närvarande inte stöds kan du [skicka en supportbegäran via Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance).
+Hanterade instanser kan bara skapas i [regioner som stöds](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Om du vill skapa en hanterad instans i en region som för närvarande inte stöds kan du [skicka en supportbegäran via Azure Portal](quota-increase-request.md).
 
 ## <a name="supported-subscription-types"></a>Prenumerationstyper som stöds
 
@@ -122,13 +122,13 @@ Den hanterade instansen stöder för närvarande endast distribution av följand
 
 ## <a name="regional-resource-limitations"></a>Begränsningar för regionala resurser
 
-Prenumerations typer som stöds kan innehålla ett begränsat antal resurser per region. Den hanterade instansen har två standard gränser per Azure-region (som kan ökas på begäran genom att en särskild [supportbegäran skapas i Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance)) beroende på typ av prenumerations typ:
+Prenumerations typer som stöds kan innehålla ett begränsat antal resurser per region. Den hanterade instansen har två standard gränser per Azure-region (som kan ökas på begäran genom att en särskild [supportbegäran skapas i Azure Portal](quota-increase-request.md) beroende på typ av prenumerations typ:
 
 - **Under näts gräns**: det maximala antalet undernät där hanterade instanser distribueras i en enda region.
 - **vCore-enhets gräns**: det maximala antalet vCore-enheter som kan distribueras över alla instanser i en enda region. En GP-vCore använder en vCore-enhet och en BC-vCore tar 4 vCore-enheter. Det totala antalet instanser är inte begränsat så länge det ligger inom gränsen för vCore-enheten.
 
 > [!Note]
-> Dessa gränser är standardinställningar och inte tekniska begränsningar. Gränserna kan ökas på begäran genom att en särskild [supportbegäran skapas i Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance) om du behöver fler hanterade instanser i den aktuella regionen. Alternativt kan du skapa nya hanterade instanser i en annan Azure-region utan att skicka support förfrågningar.
+> Dessa gränser är standardinställningar och inte tekniska begränsningar. Gränserna kan ökas på begäran genom att en särskild [supportbegäran skapas i Azure Portal](quota-increase-request.md) om du behöver fler hanterade instanser i den aktuella regionen. Alternativt kan du skapa nya hanterade instanser i en annan Azure-region utan att skicka support förfrågningar.
 
 Följande tabell visar de **regionala standard gränserna** för prenumerations typer som stöds (standard gränser kan utökas med hjälp av en support förfrågan som beskrivs nedan):
 
@@ -146,39 +146,9 @@ Följande tabell visar de **regionala standard gränserna** för prenumerations 
 
 \*\* större undernät och vCore-gränser är tillgängliga i följande regioner: östra Australien, östra USA, östra USA 2, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Västeuropa, västra USA 2.
 
-## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Hämta en större kvot för SQL-hanterad instans
+## <a name="request-a-quota-increase-for-sql-managed-instance"></a>Begär en kvot ökning för SQL-hanterad instans
 
-Om du behöver fler hanterade instanser i dina aktuella regioner skickar du en supportbegäran för att utöka kvoten med hjälp av Azure Portal.
-Initiera processen för att erhålla en större kvot:
-
-1. Öppna **Hjälp + Support**och klicka på **nytt support ärende**.
-
-   ![Hjälp och support](media/sql-database-managed-instance-resource-limits/help-and-support.png)
-2. På fliken grundläggande för den nya support förfrågan:
-   - För **typ av problem**väljer du **begränsningar för tjänsten och prenumerationen (kvoter)** .
-   - I fältet **Prenumeration** väljer du din prenumeration.
-   - För **typ av kvot**väljer du **SQL Database Hanterad instans**.
-   - Välj ditt support avtal för **support avtalet**.
-
-     ![Typ kvot för utfärdande](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
-
-3. Klicka på **Nästa**.
-4. På **fliken problem** för den nya support förfrågan:
-   - För **allvarlighets grad**väljer du problemets allvarlighets grad.
-   - Om **du vill ha mer information anger**du ytterligare information om problemet, inklusive fel meddelanden.
-   - Bifoga en fil med mer information (upp till 4 MB) för **fil uppladdning**.
-
-     ![Probleminformation](media/sql-database-managed-instance-resource-limits/problem-details.png)
-
-     > [!IMPORTANT]
-     > En giltig begäran bör innehålla:
-     > - Region där prenumerations gränsen behöver ökas.
-     > - Antalet virtuella kärnor per tjänst nivå som krävs i befintliga undernät efter kvot ökningen (om något av de befintliga under näten måste expanderas.
-     > - Antalet nya undernät och det totala antalet virtuella kärnor per tjänst nivå inom de nya under näten (om du behöver distribuera hanterade instanser i nya undernät).
-
-5. Klicka på **Nästa**.
-6. På fliken kontakt information för den nya support förfrågan anger du önskad kontakt metod (e-post eller telefon) och kontakt uppgifter.
-7. Klicka på **Skapa**.
+Om du behöver fler hanterade instanser i dina aktuella regioner skickar du en supportbegäran för att utöka kvoten med hjälp av Azure Portal. Mer information finns i [begäran om kvot ökning för Azure SQL Database](quota-increase-request.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: cfa767a42800ceaf78fe007a8468fe9113a2d412
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 4d65ca8d97e1cca81886259d4f15cc880e45be9c
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558790"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604283"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av fil integritet i Azure Security Center
 Lär dig hur du konfigurerar FIM (File Integrity Monitoring) i Azure Security Center att använda den här genom gången.
@@ -134,7 +134,7 @@ Fliken **ändringar** (visas nedan) listar alla ändringar för arbets ytan unde
 
    **Arbets ytans konfiguration** öppnas och visar tre flikar: **Windows-registret**, **Windows-filer**och **Linux-filer**. Varje flik visar de entiteter som du kan redigera i den kategorin. Security Center identifierar om FIM är aktiverat (sant) eller inte aktiverat (falskt) för varje entitet i listan.  Genom att redigera entiteten kan du aktivera eller inaktivera FIM.
 
-   ![Konfiguration av arbets yta][12]
+   ![Arbetsytekonfiguration][12]
 
 2. Välj ett identitets skydd. I det här exemplet valde vi ett objekt under Windows-registret. **Redigera för ändringsspårning** öppnas.
 
@@ -206,7 +206,6 @@ I den här artikeln har du lärt dig att använda FIM (File Integrity Monitoring
 * [Övervakning av säkerhets hälsa](security-center-monitoring.md)– lär dig hur du övervakar hälso tillståndet för dina Azure-resurser.
 * [Hantera och reagera på säkerhets aviseringar](security-center-managing-and-responding-alerts.md)– lär dig hur du hanterar och åtgärdar säkerhets aviseringar.
 * [Övervaka partner lösningar](security-center-partner-solutions.md) – lär dig hur du övervakar dina partner lösningars hälso status.
-* [Security Center vanliga](security-center-faq.md)frågor och svar – hitta vanliga frågor om att använda tjänsten.
 * [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – Här kan du hitta de senaste nyheterna och aktuell information om säkerheten i Azure .
 
 <!--Image references-->

@@ -1,10 +1,10 @@
 ---
-title: Förbered Azure-infrastrukturen för SAP HA med ett Windows-redundanskluster och en delad disk för SAP ASCS/SCS | Microsoft Docs
+title: Azure-infrastruktur för SAP ASCS/SCS med WSFC & delad disk | Microsoft Docs
 description: Lär dig hur du förbereder Azure-infrastrukturen för SAP HA med hjälp av ett Windows-redundanskluster och en delad disk för en SAP ASCS/SCS-instans.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4de954d55725f36d48d09ac46ef3700787d937b
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 8a49bc979923bf52d099e30615910c5bdb0601b6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647653"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591939"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Förbered Azure-infrastrukturen för SAP-HA med hjälp av ett Windows-redundanskluster och en delad disk för SAP ASCS/SCS
 
@@ -164,7 +164,7 @@ ms.locfileid: "75647653"
 
 Den här artikeln beskriver de steg som du vidtar för att förbereda Azure-infrastrukturen för att installera och konfigurera ett SAP-system med hög tillgänglighet på ett Windows-redundanskluster med hjälp av en *klusterdelad disk* som ett alternativ för att klustra en SAP ASCS-instans.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Läs igenom den här artikeln innan du påbörjar installationen:
 
@@ -223,7 +223,7 @@ _**Bild 1:** Ange Azure Resource Manager parametrar för hög tillgänglighet f�
 >
 
 ## <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a>Distribuera virtuella datorer med företags nätverks anslutning (mellan platser) som ska användas i produktion
-För produktion av SAP-system distribuerar du virtuella Azure-datorer med [företags nätverks anslutning (mellan platser)][planning-guide-2.2] med hjälp av Azure VPN gateway eller Azure ExpressRoute.
+För produktion av SAP-system distribuerar du virtuella Azure-datorer med företags nätverks anslutning med hjälp av Azure VPN Gateway eller Azure ExpressRoute.
 
 > [!NOTE]
 > Du kan använda Azure Virtual Network-instansen. Det virtuella nätverket och under nätet har redan skapats och för beretts.
@@ -373,7 +373,7 @@ Utför följande steg för att ange de DNS-IP-adresser som krävs:
 
 1. I rutan **DNS-servrar** i Azure Portal kontrollerar du att alternativet **DNS-servrar** för virtuella nätverk är inställt på **anpassad DNS**.
 2. Välj inställningar baserat på vilken typ av nätverk du har. Mer information finns i följande resurser:
-   * [Anslutning till företags nätverk (mellan platser)][planning-guide-2.2]: Lägg till IP-adresserna för lokala DNS-servrar.  
+   * Lägg till IP-adresserna för lokala DNS-servrar.  
    Du kan utöka lokala DNS-servrar till de virtuella datorer som körs i Azure. I det scenariot kan du lägga till IP-adresserna för de virtuella Azure-datorer som du kör DNS-tjänsten på.
    * För VM-distributioner som är isolerade i Azure: distribuera ytterligare en virtuell dator i samma Virtual Network instans som fungerar som en DNS-server. Lägg till IP-adresserna för de virtuella Azure-datorer som du har konfigurerat för att köra DNS-tjänsten.
 
@@ -506,7 +506,7 @@ Skapa sedan de här slut punkterna för belastnings utjämning för SAP NetWeave
 | Köa replikering/ *Lbrule50116* |5\<InstanceNumber\>16 |50116 |
 | SAP Start Service ERS HTTP *Lbrule51113* |5\<InstanceNumber\>13 |51113 |
 | SAP Start Service ERS HTTP *Lbrule51114* |5\<InstanceNumber\>14 |51114 |
-| WinRM *Lbrule5985* | |5985 |
+| WinRM- *Lbrule5985* | |5985 |
 | *Lbrule445* för fil resurs | |445 |
 
 **Tabell 2:** Port nummer för SAP NetWeaver Java SCS-instanserna

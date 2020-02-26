@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 816dc9c4460792b56a7dbf0c5d77f92afd257e73
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: df1e363f31aa8c88be54454c9dc060f4ed6b7ca1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429721"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588917"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-azure-cli"></a>Snabb start: skapa en NAT-gateway med Azure CLI
 
@@ -33,8 +33,6 @@ Den här snabb starten visar hur du använder Azure Virtual Network NAT-tjänste
 Du kan slutföra den här självstudien med Azure Cloud Shell eller köra respektive kommandon lokalt.  Om du aldrig har använt Azure Cloud Shell loggar du in [nu](https://shell.azure.com) för att gå igenom den första installationen.
 Om du väljer att köra dessa kommandon lokalt måste du installera CLI.  I den här självstudien krävs att du kör en version av Azure CLI-versionen 2.0.71 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
-> [!IMPORTANT]
-> När Virtual Network NAT- [förhands granskning har Aktiver ATS](./nat-overview.md#enable-preview) för din prenumeration använder du https://aka.ms/natportal för att få åtkomst till portalen.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

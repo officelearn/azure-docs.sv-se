@@ -6,14 +6,14 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6d75e48443fd8622ca2ae7ff05fe81184c4b2b16
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 14c120af69a94331586f9264a12f5d2333a5d87d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472442"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586758"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introduktion till AI i Azure Kognitiv sökning
 
@@ -110,7 +110,7 @@ Index genereras från ett index schema som definierar fält, attribut och andra 
 | Extrahering av data | Omfattar ett brett utbud av bearbetning, men som hör till AI-anrikning, används vanligt vis Recognition-kunskaper för att extrahera data (en entitet) från en källa som inte tillhandahåller den informationen internt. | Se kunskap om [enhets igenkänning](cognitive-search-skill-entity-recognition.md) och [dokument extrahering (för hands version)](cognitive-search-skill-document-extraction.md)| 
 | Bearbetning av avbildning | Härleder text från en bild, till exempel möjlighet att identifiera ett landmärke eller extrahera text från en bild. Vanliga exempel är OCR för att lyfta tecken från en JPEG-fil (scannad dokument) eller som identifierar ett gatu namn i ett fotografi som innehåller ett gatu tecken. | Se [bild analys kunskaper](cognitive-search-skill-image-analysis.md) eller [OCR-kunskaper](cognitive-search-skill-ocr.md)
 | Bearbetning av naturligt språk | Text bearbetning för insikter och information om text inmatningar. Språk identifiering, sentiment analys och extrahering av nyckel fraser är kunskaper som omfattas av bearbetning av naturligt språk.  | Se [extrahering av diskussionsämne kunskaper](cognitive-search-skill-keyphrases.md), [språkidentifiering skicklighet](cognitive-search-skill-language-detection.md), [Text översättnings kunskap](cognitive-search-skill-text-translation.md), [Attitydanalys kunskaper](cognitive-search-skill-sentiment.md), [identifierings kunskaper för PII (för hands version)](cognitive-search-skill-pii-detection.md) |
-| Dokument sprickor | Processen att extrahera eller skapa text innehåll från icke-text källor under indexering. Optisk tecken läsning (OCR) är ett exempel, men vanligt vis refererar det till funktioner för kärn funktioner som indexeraren extraherar innehåll från programfiler. Data källan som tillhandahåller käll fils platsen och index definitions definitionen som tillhandahåller fält mappningar är båda viktiga faktorer i dokument sprickor. | Se [Översikt över indexerare](search-indexer-overview.md) |
+| dokument sprickor | Processen att extrahera eller skapa text innehåll från icke-text källor under indexering. Optisk tecken läsning (OCR) är ett exempel, men vanligt vis refererar det till funktioner för kärn funktioner som indexeraren extraherar innehåll från programfiler. Data källan som tillhandahåller käll fils platsen och index definitions definitionen som tillhandahåller fält mappningar är båda viktiga faktorer i dokument sprickor. | Se [Översikt över indexerare](search-indexer-overview.md) |
 | Givning | Konsolidera text fragment i en större struktur eller dela upp större text segment i en hanterbar storlek för ytterligare bearbetning i följd. | Se [formaren skicklighet](cognitive-search-skill-shaper.md), [text fusions](cognitive-search-skill-textmerger.md)kompetens, [text delnings kunskaper](cognitive-search-skill-textsplit.md) |
 | Omfattande dokument | En intern överförings struktur, som genereras under bearbetningen, med slutliga utdata som avspeglas i ett sökindex. En färdigheter bestämmer vilka-anrikningar som utförs. Fält mappningar avgör vilka data element som läggs till i indexet. Du kan också skapa ett kunskaps lager för att hålla kvar och utforska omfattande dokument med verktyg som Storage Explorer, Power BI eller andra verktyg som ansluter till Azure Blob Storage. | Se [Knowledge Store (för hands version)](knowledge-store-concept-intro.md) |
 | Indexer |  En Crawler som extraherar sökbara data och metadata från en extern data källa och fyller i ett index baserat på fält-till-fält-mappningar mellan indexet och data källan för dokument sprickor. För AI-anrikninger anropar indexeraren en färdigheter och innehåller fält mappningarna som kopplar anriknings utdata till mål fält i indexet. Index definitions definitionen innehåller alla instruktioner och referenser för pipeline-åtgärder och pipelinen anropas när du kör indexeraren. Med ytterligare konfiguration kan du återanvända befintligt bearbetat innehåll och endast köra de steg och färdigheter som har ändrats. | Se [indexerare](search-indexer-overview.md) och [stegvis berikning (för hands version)](cognitive-search-incremental-indexing-conceptual.md). |

@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 02/05/2020
-ms.openlocfilehash: eff751465c7b64429968b0305e6ad483943c374b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.date: 02/24/2020
+ms.openlocfilehash: 0cb33f55acacfd3635d19719265a46b566765a64
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048191"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592110"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Azure Monitor kundhanterad nyckel konfiguration 
 
@@ -86,8 +86,8 @@ För Application Insights CMK-konfiguration följer du tillägget för innehåll
 1. Prenumerations-vit listning – detta krävs för den här funktionen för tidig åtkomst
 2. Skapa Azure Key Vault och lagra nyckel
 3. Skapa en *kluster* resurs
-4. Bevilja behörighet till din Key Vault
-5. Etablering av Azure Monitor data lager (ADX-kluster)
+4. Etablering av Azure Monitor data lager (ADX-kluster)
+5. Bevilja behörighet till din Key Vault
 6. Association för Log Analytics arbets ytor
 
 Proceduren stöds för närvarande inte i användar gränssnittet och etablerings processen utförs via REST API.
@@ -95,7 +95,7 @@ Proceduren stöds för närvarande inte i användar gränssnittet och etablering
 > [!IMPORTANT]
 > Alla API-förfrågningar måste innehålla en token Authorization-token i begär ande huvudet.
 
-Exempel:
+Några exempel:
 
 ```rst
 GET
@@ -135,7 +135,7 @@ De här inställningarna är tillgängliga via CLI och PowerShell:
 
 ### <a name="create-cluster-resource"></a>Skapa *kluster* resurs
 
-Den här resursen används som mellanliggande identitets anslutning mellan din Key Vault och dina arbets ytor. När du har fått en bekräftelse på att dina prenumerationer har vit listas skapar du en Log Analytics *kluster* resurs i den region där dina arbets ytor finns. Application Insights och Log Analytics kräver separata kluster resurser. Kluster resursens typ definieras när du skapar den genom att ange egenskapen "clusterType" till antingen "LogAnalytics" eller "ApplicationInsights". Det går inte att ändra kluster resurs typen.
+Den här resursen används som mellanliggande identitets anslutning mellan din Key Vault och dina arbets ytor. När du har fått en bekräftelse på att dina prenumerationer har vit listas skapar du en Log Analytics *kluster* resurs i den region där dina arbets ytor finns. Application Insights och Log Analytics kräver separata kluster resurser. *Kluster* resursens typ definieras när du skapar den genom att ange egenskapen "clusterType" till antingen "LogAnalytics" eller "ApplicationInsights". Det går inte att ändra kluster resurs typen.
 
 För Application Insights CMK-konfiguration följer du tillägget för det här steget.
 
@@ -156,67 +156,79 @@ Content-type: application/json
    }
 }
 ```
+Identiteten tilldelas till *kluster* resursen vid skapande tillfället.
 värdet "clusterType" är "ApplicationInsights" för Application Insights CMK.
 
 **Svar**
 
-Identiteten tilldelas till *kluster* resursen vid skapande tillfället.
+202 accepterad. Detta är ett standard Resource Manager-svar för asynkrona åtgärder.
 
-```json
-{
-  "identity": {
-    "type": "SystemAssigned",
-    "tenantId": "tenant-id",
-    "principalId": "principle-id"
-  },
-  "properties": {
-    "provisioningState": "Succeeded",
-    "clusterType": "LogAnalytics", 
-    "clusterId": "cluster-id"
-  },
-  "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",    //The cluster resource Id
-  "name": "cluster-name",
-  "type": "Microsoft.OperationalInsights/clusters",
-  "location": "region-name"
-}
-
-```
-"principalId" är ett GUID som genereras av den hanterade identitets tjänsten för *kluster* resursen.
-
-> [!IMPORTANT]
-> Kopiera och behåll värdet "Cluster-ID" eftersom du kommer att behöva det i nästa steg.
-
-Om du vill ta bort *kluster* resursen av någon anledning, till exempel skapa den med ett annat namn eller clusterType, använder du följande API-anrop:
+Om du vill ta bort *kluster* resursen av någon anledning, till exempel skapa den med ett annat namn eller clusterType, använder du följande REST API:
 
 ```rst
 DELETE
 https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
 ```
 
-### <a name="grant-key-vault-permissions"></a>Bevilja Key Vault behörigheter
+### <a name="azure-monitor-data-store-adx-cluster-provisioning"></a>Etablering av Azure Monitor data lager (ADX-kluster)
 
-Uppdatera Key Vault och Lägg till åtkomst princip för kluster resursen. Behörigheter till Key Vault sprids sedan till den underplacerande Azure Monitor lagring som ska användas för data kryptering.
+Under den tidigaste åtkomst perioden för funktionen, allokeras ADX-klustret manuellt av produkt teamet när föregående steg har slutförts. Använd den kanal du har med Microsoft för att tillhandahålla information om *kluster* resursen. JSON-svaret kan hämtas med GET REST API:
+
+```rst
+GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+Authorization: Bearer <token>
+```
+
+**Svar**
+```json
+{
+  "identity": {
+    "type": "SystemAssigned",
+    "tenantId": "tenant-id",
+    "principalId": "principal-Id"
+    },
+  "properties": {
+    "provisioningState": "Succeeded",
+    "clusterType": "LogAnalytics", 
+    "clusterId": "cluster-id"
+    },
+  "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
+  "name": "cluster-name",
+  "type": "Microsoft.OperationalInsights/clusters",
+  "location": "region-name"
+  }
+```
+
+"principalId" är ett GUID som genereras av den hanterade identitets tjänsten för *kluster* resursen.
+
+> [!IMPORTANT]
+> Kopiera och behåll värdet "Cluster-ID" eftersom du kommer att behöva det i nästa steg.
+
+
+### <a name="grant-key-vault-permissions"></a>bevilja Key Vault behörigheter
+
+> [!IMPORTANT]
+> Det här steget bör utföras efter att du har fått bekräftelse från produkt gruppen via din Microsoft-kanal att etableringen av Azure Monitor data Store (ADX-kluster) uppfylldes. Det går inte att uppdatera Key Vault åtkomst principen före denna etablering.
+
+Uppdatera din Key Vault med en ny åtkomst princip som beviljar behörigheter till *kluster* resursen. Dessa behörigheter används av underläggningen Azure Monitor Storage för data kryptering.
 Öppna din Key Vault i Azure Portal och klicka på "åtkomst principer" och sedan "+ Lägg till åtkomst princip" för att skapa en ny princip med följande inställningar:
 
 - Nyckel behörigheter: Välj get-, wrap-och unwrap Key-behörigheter.
+- Välj huvud namn: Ange det kluster-ID-värde som returnerades i svaret i föregående steg.
 
-- Välj huvud namn: Ange kluster-ID, vilket är "clusterId"-värdet i svaret på föregående steg.
-
-![Bevilja Key Vault behörigheter](media/customer-managed-keys/grant-key-vault-permissions.png)
+![bevilja Key Vault behörigheter](media/customer-managed-keys/grant-key-vault-permissions.png)
 
 Get-behörighet krävs för att verifiera att Key Vault har kon figurer ATS för att kunna *återskapas* för att skydda din nyckel och till gång till dina Azure Monitor data.
 
-Det tar några minuter innan *kluster* resursen har spridits i Azure Resource Manager. När du konfigurerar den här åtkomst principen direkt efter att *kluster* resursen har skapats kan det uppstå ett tillfälligt fel. I det här fallet, försök igen om några minuter.
-
 ### <a name="update-cluster-resource-with-key-identifier-details"></a>Uppdatera kluster resurs med information om nyckel identifierare
 
-Det här steget gäller följande viktiga versions uppdateringar i din Key Vault. Uppdatera *kluster* resursen med Key Vault information om *nyckel identifierare* för att tillåta Azure Monitor lagring att använda den nya nyckel versionen. Välj den aktuella versionen av nyckeln i Azure Key Vault för att hämta information om nyckel identifieraren.
+Det här steget gäller för framtida viktiga versions uppdateringar i din Key Vault. Uppdatera *kluster* resursen med Key Vault information om *nyckel identifierare* för att tillåta Azure Monitor lagring att använda den nya nyckel versionen. Välj den aktuella versionen av nyckeln i Azure Key Vault för att hämta information om nyckel identifieraren.
 
-![Bevilja Key Vault behörigheter](media/customer-managed-keys/key-identifier-8bit.png)
+![bevilja Key Vault behörigheter](media/customer-managed-keys/key-identifier-8bit.png)
 
 Uppdatera *kluster* resursens KeyVaultProperties med information om nyckel identifierare.
 
-**Uppdatering**
+**Uppdatera**
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
@@ -225,16 +237,16 @@ Content-type: application/json
 
 {
    "properties": {
-       "KeyVaultProperties": {
-            KeyVaultUri: "https://<key-vault-name>.vault.azure.net",
-            KeyName: "<key-name>",
-            KeyVersion: "<current-version>"
-            },
+     "KeyVaultProperties": {
+       KeyVaultUri: "https://<key-vault-name>.vault.azure.net",
+       KeyName: "<key-name>",
+       KeyVersion: "<current-version>"
+       },
    },
    "location":"<region-name>",
    "identity": { 
-        "type": "systemAssigned" 
-        }
+     "type": "systemAssigned" 
+     }
 }
 ```
 "KeyVaultProperties" innehåller information om Key Vault-nyckel-ID.
@@ -264,44 +276,6 @@ Content-type: application/json
   "location": "region-name"
 }
 ```
-
-### <a name="azure-monitor-data-store-adx-cluster-provisioning"></a>Etablering av Azure Monitor data lager (ADX-kluster)
-
-Under den tidigaste åtkomst perioden för funktionen, allokeras ADX-klustret manuellt av produkt teamet när föregående steg har slutförts. Använd den kanal du har med Microsoft för att ange följande information:
-
-- Bekräfta att stegen ovan har slutförts.
-
-- JSON-svaret från föregående steg. Den kan hämtas när som helst med hjälp av ett Get API-anrop:
-
-   ```rst
-   GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
-   Authorization: Bearer <token>
-   ```
-
-   **Svar**
-   ```json
-   {
-     "identity": {
-       "type": "SystemAssigned",
-       "tenantId": "tenant-id",
-       "principalId": "principal-Id"
-     },
-     "properties": {
-          "KeyVaultProperties": {
-               KeyVaultUri: "https://key-vault-name.vault.azure.net",
-               KeyName: "key-name",
-               KeyVersion: "current-version"
-               },
-       "provisioningState": "Succeeded",
-       "clusterType": "LogAnalytics", 
-       "clusterId": "cluster-id"
-     },
-     "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
-     "name": "cluster-name",
-     "type": "Microsoft.OperationalInsights/clusters",
-     "location": "region-name"
-   }
-   ```
 
 ### <a name="workspace-association-to-cluster-resource"></a>Arbets ytans koppling till *kluster* resurs
 
@@ -560,7 +534,7 @@ Identiteten tilldelas till *kluster* resursen vid skapande tillfället.
 > [!IMPORTANT]
 > Kopiera och behåll värdet "Cluster-ID" eftersom du kommer att behöva det i nästa steg.
 
-### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-updatehttpsdocsmicrosoftcomrestapiapplication-insightscomponentscreateorupdate-api"></a>Associera en komponent till en *kluster* resurs med hjälp av [komponenter – skapa eller uppdatera](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
+### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>Associera en komponent till en *kluster* resurs med hjälp av [komponenter – skapa eller uppdatera](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Insights/components/<component-name>?api-version=2015-05-01

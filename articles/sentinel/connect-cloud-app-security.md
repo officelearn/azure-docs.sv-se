@@ -3,7 +3,7 @@ title: Anslut Cloud App Security data till Azure Sentinel | Microsoft Docs
 description: Lär dig hur du ansluter Cloud App Security data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: 32e7e79465b68caca9a636019f65b9f08284fc72
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.author: yelevin
+ms.openlocfilehash: 348576fbbdd1037f9e2e792218b96bbbecf36668
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928219"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588373"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Anslut data från Microsoft Cloud App Security 
 
@@ -27,7 +27,7 @@ ms.locfileid: "73928219"
 
 Du kan strömma loggar från [Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) till Azure Sentinel med ett enda klick. Med den här anslutningen kan du strömma aviseringarna från Cloud App Security till Azure Sentinel. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Användare med behörighet som global administratör eller säkerhets administratör
 - Om du vill strömma Cloud Discovery loggar till Azure Sentinel [aktiverar du Azure Sentinel som Siem i Microsoft Cloud App Security](https://aka.ms/AzureSentinelMCAS).
@@ -47,7 +47,7 @@ Om Cloud App Security distribueras och matas in med dina data kan aviserings inf
 
 1. Välj vilka loggar du vill strömma till i Azure Sentinel, du kan välja **aviseringar** och **Cloud Discovery loggar** (för hands version). 
 
-1. Klicka på **anslut**.
+1. Klicka på **Anslut**.
 
 1. Om du vill använda det relevanta schemat i Log Analytics för Cloud App Security aviseringar söker du efter **SecurityAlert**.
 

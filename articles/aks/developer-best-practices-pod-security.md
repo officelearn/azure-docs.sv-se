@@ -3,16 +3,15 @@ title: Metodtips för Developer - Pod säkerhet i Azure Kubernetes Services (AKS
 description: Läs metodtipsen för utvecklare om hur du skyddar poddar i Azure Kubernetes Service (AKS)
 services: container-service
 author: zr-msft
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: 17f281aeb2ef3f1f32f3e13fe66fe8b74b1d9116
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: eaeb81d7f93124f1f3dedf9676314b1b786d8571
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547684"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595849"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Metodtips för pod säkerhet i Azure Kubernetes Service (AKS)
 
@@ -29,22 +28,22 @@ Du kan också läsa metod tips för [kluster säkerhet][best-practices-cluster-s
 
 ## <a name="secure-pod-access-to-resources"></a>Säker pod åtkomst till resurser
 
-**Bästa praxis riktlinjer** – om du vill köra som en annan användare eller grupp och begränsa åtkomst till den underliggande noden processer och tjänster, definiera pod säkerhetsinställningar för kontexten. Tilldela minsta möjliga antal behörigheter som krävs.
+**Rekommendationer om bästa praxis** – att köra som en annan användare eller grupp och begränsa åtkomsten till de underliggande nodernas processer och tjänster, definiera Pod säkerhets kontext inställningar. Tilldela minsta möjliga antal behörigheter som krävs.
 
-För dina program kan köras korrekt, poddar ska köras som en definierad användare eller grupp och inte som *rot*. Den `securityContext` för en pod eller behållare kan du definiera inställningar som *användare* eller *fsGroup* kan de behörigheter som krävs. Endast tilldela nödvändiga användare eller gruppbehörigheter och Använd inte säkerhetskontexten som ett sätt att skaffa sig fler behörigheter. *RunAsUser*, behörighets eskalering och andra inställningar för Linux-funktioner är bara tillgängliga på Linux-noder och poddar.
+För att dina program ska kunna köras korrekt ska poddar köras som en definierad användare eller grupp och inte som *rot*. Med `securityContext` för en POD eller container kan du definiera inställningar som *runAsUser* eller *fsGroup* för att anta lämpliga behörigheter. Endast tilldela nödvändiga användare eller gruppbehörigheter och Använd inte säkerhetskontexten som ett sätt att skaffa sig fler behörigheter. *RunAsUser*, behörighets eskalering och andra inställningar för Linux-funktioner är bara tillgängliga på Linux-noder och poddar.
 
 När du kör som en rotanvändare behållare kan inte bindas till Privilegierade portar under 1024. I det här scenariot, kan Kubernetes-tjänster användas för att dölja det faktum att en app körs på en viss port.
 
 En pod-säkerhetskontext kan också definiera ytterligare funktioner eller behörigheter för att komma åt processer och tjänster. Följande vanliga security kontext definitioner kan ställas in:
 
-* **allowPrivilegeEscalation** definierar om poden kan anta *rot* privilegier. Utforma dina program så att den här inställningen har alltid värdet *FALSKT*.
-* **Linux-funktioner** låta pod åtkomst till underliggande noden processer. Var noga med att tilldela dessa funktioner. Tilldela minsta möjliga antal behörigheten som krävs. Mer information finns i [Linux-funktioner][linux-capabilities].
-* **SELinux etiketter** är en Linux-kernel security-modul som kan du definiera åtkomstprinciper för åtkomst till tjänster, processer och filsystem. Igen, tilldela minsta möjliga antal behörigheten som krävs. Mer information finns i [SELinux-alternativ i Kubernetes][selinux-labels]
+* **allowPrivilegeEscalation** definierar om Pod kan anta *rot* privilegier. Utforma dina program så att den här inställningen alltid är inställd på *falskt*.
+* **Linux-funktioner** låter Pod komma åt underliggande noder. Var noga med att tilldela dessa funktioner. Tilldela minsta möjliga antal behörigheten som krävs. Mer information finns i [Linux-funktioner][linux-capabilities].
+* **SELinux-etiketter** är en Linux-modul för kernel-säkerhet som gör att du kan definiera åtkomst principer för tjänster, processer och fil åtkomst program. Igen, tilldela minsta möjliga antal behörigheten som krävs. Mer information finns i [SELinux-alternativ i Kubernetes][selinux-labels]
 
 Följande exempel pod YAML manifestet anger säkerhet för att definiera:
 
-* Pod körs som användar-ID *1000* och en del av grupp-ID *2000*
-* Det går inte att skaffa sig fler behörigheter för att använda `root`
+* Pod körs som användar-ID *1000* och del av grupp-ID *2000*
+* Det går inte att eskalera privilegier att använda `root`
 * Tillåter Linux-funktionerna för nätverksgränssnitt och värdens i realtid (maskinvara) klockan
 
 ```yaml
@@ -68,7 +67,7 @@ Arbeta med din kluster-operator för att avgöra vilka säkerhetsinställningar 
 
 ## <a name="limit-credential-exposure"></a>Begränsa exponeringen av autentiseringsuppgifter
 
-**Bästa praxis riktlinjer** -inte definiera autentiseringsuppgifter i programkoden. Använda hanterade identiteter för Azure-resurser så att din pod begära åtkomst till andra resurser. En digital valvet, till exempel Azure Key Vault, bör också användas för att lagra och hämta digitala nycklar och autentiseringsuppgifter. Pod-hanterade identiteter är endast avsedd för användning med Linux-poddar och behållar avbildningar.
+**Vägledning för bästa praxis** – definiera inte autentiseringsuppgifter i program koden. Använda hanterade identiteter för Azure-resurser så att din pod begära åtkomst till andra resurser. En digital valvet, till exempel Azure Key Vault, bör också användas för att lagra och hämta digitala nycklar och autentiseringsuppgifter. Pod-hanterade identiteter är endast avsedd för användning med Linux-poddar och behållar avbildningar.
 
 Undvik att fasta eller delade autentiseringsuppgifter används för att begränsa risken för autentiseringsuppgifter som exponeras i programkoden. Autentiseringsuppgifter eller nycklar bör inte inkluderas direkt i din kod. Om autentiseringsuppgifterna exponeras måste programmet uppdateras och omdistribueras. En bättre metod är att ge poddar sina egna identitets- och sätt att autentisera sig eller automatiskt hämta autentiseringsuppgifter från ett digitala valv.
 

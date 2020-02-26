@@ -11,15 +11,15 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 02/17/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 7103daa4a943edfd8d05333f413245cebaf8f4af
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: d9f6f015c210592d5d8053b1b34d5357bb357629
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524264"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586792"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Kör jobb förberedelse-och jobb publicerings aktiviteter i batch Compute-noder
 
@@ -54,20 +54,23 @@ Du kanske vill behålla en kopia av loggfiler som aktiviteterna genererar, eller
 
 > [!TIP]
 > Ett annat sätt att spara loggar och andra jobb-och Uppgiftsutdata är att använda biblioteket för [Azure batch fil konventioner](batch-task-output.md) .
-> 
-> 
+>
+>
 
 ## <a name="job-preparation-task"></a>Uppgift för jobb förberedelse
-Innan du utför ett jobbs aktiviteter kör batch jobb förberedelse aktiviteten på varje Compute-nod som är schemalagd för att köra en aktivitet. Batch-tjänsten väntar som standard på att jobb förberedelse aktiviteten ska slutföras innan aktiviteter som är schemalagda att köras på noden körs. Du kan dock konfigurera tjänsten att inte vänta. Om noden startas om körs jobb förberedelse åtgärden igen, men du kan också inaktivera det här beteendet. Om du har ett jobb med en jobb förberedelse aktivitet och en Job Manager-aktivitet har kon figurer ATS, körs jobb förberedelse aktiviteten innan jobb hanterarens aktivitet, precis som för alla andra aktiviteter. Jobb förberedelse aktiviteten körs alltid först.
+
+
+Innan du utför ett jobbs aktiviteter kör batch jobb förberedelse aktiviteten på varje beräknings nod som schemalagts för att köra en aktivitet. Som standard väntar batch för jobb förberedelse aktiviteten så att den slutförs innan aktiviteter som är schemalagda att köras på noden körs. Du kan dock konfigurera tjänsten att inte vänta. Om noden startas om körs jobb förberedelse åtgärden igen. Du kan också inaktivera det här beteendet. Om du har ett jobb med en jobb förberedelse aktivitet och en Job Manager-aktivitet har kon figurer ATS, körs jobb förberedelse aktiviteten innan jobb hanterarens aktivitet, precis som för alla andra aktiviteter. Jobb förberedelse aktiviteten körs alltid först.
 
 Jobb förberedelse aktiviteten körs bara på noder som är schemalagda att köra en aktivitet. Detta förhindrar onödig körning av en förberedande uppgift om en nod inte är tilldelad en aktivitet. Detta kan inträffa när antalet aktiviteter för ett jobb är mindre än antalet noder i en pool. Den gäller även när [samtidiga uppgifts körningar](batch-parallel-node-tasks.md) är aktiverat, vilket innebär att vissa noder är inaktiva om antalet aktiviteter är lägre än de totala möjliga samtidiga aktiviteterna. Genom att inte köra jobb förberedelse aktiviteten på inaktiva noder kan du spendera mindre pengar på avgifterna för data överföring.
 
 > [!NOTE]
 > [Aktivitets typerna jobpreparationtask][net_job_prep_cloudjob] skiljer sig från [CloudPool. StartTask][pool_starttask] i som aktivitets typerna jobpreparationtask körs i början av varje jobb, medan StartTask körs endast när en Compute Node först ansluter en pool eller startar om.
-> 
-> 
+>
 
-## <a name="job-release-task"></a>Jobb publicerings aktivitet
+
+>## <a name="job-release-task"></a>Jobb publicerings aktivitet
+
 När ett jobb har marker ATS som slutfört körs jobb publicerings aktiviteten på varje nod i poolen som utförde minst en aktivitet. Du markerar ett jobb som slutfört genom att utfärda en avslutnings förfrågan. Batch-tjänsten ställer sedan in jobbets tillstånd till att *Avsluta*, avslutar alla aktiva eller pågående aktiviteter som är kopplade till jobbet och Kör jobb publicerings aktiviteten. Jobbet flyttas sedan till *slutfört* tillstånd.
 
 > [!NOTE]

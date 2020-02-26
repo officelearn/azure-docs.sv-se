@@ -2,17 +2,14 @@
 title: Koncept – grundläggande information om Kubernetes för Azure Kubernetes Services (AKS)
 description: Lär dig mer om de grundläggande kluster-och arbets belastnings komponenterna i Kubernetes och hur de relaterar till funktioner i Azure Kubernetes service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: mlearned
-ms.openlocfilehash: 9efd053bde11a29c37e3ff6afb7c6fc4492338db
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bcf56aa89a42d65fdb7bf03696faad13c64cbc8a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967560"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596240"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes Core-koncept för Azure Kubernetes service (AKS)
 
@@ -106,7 +103,7 @@ För att upprätthålla prestanda och funktioner för noden reserveras resurser 
     - 6% av nästa 112 GB minne (upp till 128 GB)
     - 2% av ett minne över 128 GB
 
-Reglerna ovan för minne och PROCESSORALLOKERING används för att se till att agent-noderna är felfria, en del värd system poddar kritiskt för kluster hälsa. Dessa allokeringsregler ger också noden att rapportera mindre allocatable minne och CPU än om den inte var en del av ett Kubernetes-kluster. Det går inte att ändra resurs reservationerna ovan.
+Reglerna ovan för minne och PROCESSORALLOKERING används för att hålla agent-noderna felfria, inklusive vissa värd system poddar som är viktiga för kluster hälsan. Dessa allokeringsregler ger också noden att rapportera mindre allocatable minne och CPU än om den inte var en del av ett Kubernetes-kluster. Det går inte att ändra resurs reservationerna ovan.
 
 Om en nod till exempel erbjuder 7 GB, kommer den att rapportera 34% av minnet som inte allocatable ovanpå 750Mi.
 
@@ -224,7 +221,7 @@ Det finns två Kubernetes-resurser som låter dig hantera följande typer av pro
 
 ### <a name="statefulsets"></a>StatefulSets
 
-Modern program utveckling syftar ofta till tillstånds lösa program, men *StatefulSets* kan användas för tillstånds känsliga program, till exempel program som innehåller databas komponenter. En StatefulSet liknar en distribution i som en eller flera identiska poddar skapas och hanteras. Repliker i en StatefulSet följer en korrekt, sekventiell metod för distribution, skalning, uppgraderingar och avslutning. Med en StatefulSet kommer namngivnings konventionen, nätverks namnen och lagringen att vara kvar som repliker omplaneras.
+Modern program utveckling syftar ofta till tillstånds lösa program, men *StatefulSets* kan användas för tillstånds känsliga program, till exempel program som innehåller databas komponenter. En StatefulSet liknar en distribution i som en eller flera identiska poddar skapas och hanteras. Repliker i en StatefulSet följer en korrekt, sekventiell metod för distribution, skalning, uppgraderingar och avslutning. Med en StatefulSet (som repliker omplaneras) namngivnings konventionen, nätverks namn och lagrings utrymme.
 
 Du definierar programmet i YAML-format med hjälp av `kind: StatefulSet`och StatefulSet-kontrollanten hanterar sedan distributionen och hanteringen av de nödvändiga replikerna. Data skrivs till beständig lagring, som tillhandahålls av Azure Managed Disks eller Azure Files. Med StatefulSets förblir den underliggande beständiga lagringen även om StatefulSet tas bort.
 

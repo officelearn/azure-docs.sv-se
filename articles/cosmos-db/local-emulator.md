@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
-ms.date: 07/26/2019
-ms.openlocfilehash: ea4abada259c929f387b1477c127824ac6269319
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.date: 01/31/2020
+ms.openlocfilehash: 287933de6403d680c5aa5b6c78df49abe5f2ac56
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939173"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591378"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -147,7 +147,7 @@ table.CreateIfNotExists();
 table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowKey")));
 ```
 
-### <a name="cassandra-api"></a>API för Cassandra
+### <a name="cassandra-api"></a>Cassandra-API
 
 Starta emulatorn från en administratörs kommando tolk med "/EnableCassandraEndpoint". Du kan också ställa in miljövariabeln `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`.
 
@@ -312,7 +312,7 @@ Här följer en sammanfattning av kommandon för att styra emulatorn från Power
 
 ### `Get-CosmosDbEmulatorStatus`
 
-**Syntax**
+**Uttryck**
 
 `Get-CosmosDbEmulatorStatus`
 
@@ -322,7 +322,7 @@ Returnerar någon av dessa ServiceControllerStatus-värden: ServiceControllerSta
 
 ### `Start-CosmosDbEmulator`
 
-**Syntax**
+**Uttryck**
 
 `Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>] [<CommonParameters>]`
 
@@ -332,7 +332,7 @@ Startar emulatorn. Som standard väntar kommandot till emulatorn är redo att ta
 
 ### `Stop-CosmosDbEmulator`
 
-**Syntax**
+**Uttryck**
 
  `Stop-CosmosDbEmulator [-NoWait]`
 
@@ -342,7 +342,7 @@ Stoppar emulatorn. Som standard väntar kommandot tills emulatorn är helt avst�
 
 ### `Uninstall-CosmosDbEmulator`
 
-**Syntax**
+**Uttryck**
 
 `Uninstall-CosmosDbEmulator [-RemoveData]`
 
@@ -485,7 +485,7 @@ Använd följande steg om du arbetar med Mac:
 
 Efter följande åtgärder kommer din miljö att lita på certifikatet som används av emulatorn vid anslutning till IP-adressen som exponeras med `/AllowNetworkAccess`.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Använd följande tips för att felsöka problem som kan uppstå med Azure Cosmos-emulatorn:
 

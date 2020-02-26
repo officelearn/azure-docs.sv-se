@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 7174003485d51cf582c798c4b18404b1b72de0fb
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 23a00c766dbb38853c57c91e7f59ec364390c44b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530960"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603807"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
@@ -82,7 +82,7 @@ Status för en partner lösning kan vara:
    - **Ta bort lösning**.
    - **Konfigurera**.
 
-   ![Information om partnerlösning](./media/security-center-partner-solutions/partner-solutions-detail.png)
+   ![Partnerlösningsinformation](./media/security-center-partner-solutions/partner-solutions-detail.png)
 
 ### <a name="discovered-solutions"></a>Identifierade lösningar
 
@@ -129,13 +129,13 @@ Innan du börjar [skapar du en Event Hubs namnrymd](../event-hubs/event-hubs-cre
 
 #### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Strömma Azure-aktivitets loggen till Event Hubs
 
-Se följande artikel [Ströms aktivitets logg för att Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+Se följande artikel [Ströms aktivitets logg för att Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md).
 
 #### <a name="install-a-partner-siem-connector"></a>Installera en partner SIEM-anslutning 
 
 Genom att vidarebefordra dina övervaknings data till en Event Hub med Azure Monitor kan du enkelt integrera med partner SIEM och övervaknings verktyg.
 
-I följande artikel finns en lista över [Siem som stöds](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-platform-logs-sent-to-an-event-hub)
+I följande artikel finns en lista över [Siem som stöds](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
 ### <a name="example-for-querying-data"></a>Exempel för att fråga efter data 
 
@@ -150,8 +150,6 @@ Här följer några Splunk-frågor som du kan använda för att hämta avisering
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln berättade om hur man integrerar partnerlösningar i Security Center. I följande artiklar kan du lära dig mer om Security Center:
+Den här artikeln berättade om hur man integrerar partnerlösningar i Security Center. Mer information om Security Center finns i följande artikel:
 
 * [Övervakning av säkerhetshälsa i Security Center](security-center-monitoring.md). Lär dig att övervaka hälsotillståndet för dina Azure-resurser.
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md). Få svar på vanliga frågor om användningen av Security Center.
-* [Azure säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

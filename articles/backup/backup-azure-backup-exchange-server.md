@@ -4,12 +4,12 @@ description: Lär dig hur du säkerhetskopierar en Exchange-Server till Azure Ba
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: b2231fcadc3e0cb591302ba47572627ae3a17e58
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 813a13739020bed839cc389897704395c77a322d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173283"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586503"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Säkerhetskopiera en Exchange-server till Azure Backup med System Center 2012 R2 DPM
 
@@ -24,7 +24,7 @@ För att kunna registrera DPM-servern med Azure Backup måste du installera den 
 >
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du fortsätter bör du kontrol lera att alla [krav](backup-azure-dpm-introduction.md#prerequisites-and-limitations) för att använda Microsoft Azure Backup för att skydda arbets belastningar har uppfyllts. Följande krav är uppfyllda:
 
@@ -38,8 +38,8 @@ Innan du fortsätter bör du kontrol lera att alla [krav](backup-azure-dpm-intro
 
 Följ dessa steg om du vill installera DPM-skyddsagenten på Exchange-servern:
 
-1. Kontrol lera att brand väggarna är korrekt konfigurerade. Se [Konfigurera brand Väggs undantag för agenten](https://technet.microsoft.com/library/Hh758204.aspx).
-2. Installera agenten på Exchange-servern genom att klicka på **hantering > agenter > installera** i DPM-administratörskonsol. Se [Installera DPM-skyddsagenten](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396) för detaljerade anvisningar.
+1. Kontrol lera att brand väggarna är korrekt konfigurerade. Se [Konfigurera brand Väggs undantag för agenten](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758204(v=sc.12)).
+2. Installera agenten på Exchange-servern genom att klicka på **hantering > agenter > installera** i DPM-administratörskonsol. Se [Installera DPM-skyddsagenten](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758186(v=sc.12)) för detaljerade anvisningar.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Skapa en skydds grupp för Exchange-servern
 
@@ -49,7 +49,7 @@ Följ dessa steg om du vill installera DPM-skyddsagenten på Exchange-servern:
 4. Välj den Exchange Server-databas som du vill skydda och klicka på **Nästa**.
 
    > [!NOTE]
-   > Om du skyddar Exchange 2013 kontrollerar du kraven för [exchange 2013](https://technet.microsoft.com/library/dn751029.aspx).
+   > Om du skyddar Exchange 2013 kontrollerar du kraven för [exchange 2013](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn751029(v=sc.12)).
    >
    >
 
@@ -62,7 +62,7 @@ Följ dessa steg om du vill installera DPM-skyddsagenten på Exchange-servern:
 
    * Jag vill ha kortvarigt skydd med disk.
    * Jag vill ha onlineskydd.
-6. Klicka på **Nästa**.
+6. Klicka på **Next**.
 7. Markera alternativet **Kör Eseutil för att kontrol lera data integriteten** om du vill kontrol lera integriteten för Exchange Server-databaserna.
 
     När du har valt det här alternativet körs konsekvens kontroll av säkerhets kopiering på DPM-servern för att undvika den I/O-trafik som genereras genom att köra **eseutil** -kommandot på Exchange-servern.
@@ -72,7 +72,7 @@ Följ dessa steg om du vill installera DPM-skyddsagenten på Exchange-servern:
    > ![eseutil-fel](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Klicka på **Nästa**.
+8. Klicka på **Next**.
 9. Välj databasen för kopiering av **säkerhets kopia**och klicka sedan på **Nästa**.
 
    > [!NOTE]
@@ -83,10 +83,10 @@ Följ dessa steg om du vill installera DPM-skyddsagenten på Exchange-servern:
 11. Granska det tillgängliga disk utrymmet och klicka sedan på **Nästa**.
 12. Välj den tid då DPM-servern ska skapa den inledande replikeringen och klicka sedan på **Nästa**.
 13. Välj alternativ för konsekvens kontroll och klicka sedan på **Nästa**.
-14. Välj den databas som du vill säkerhetskopiera till Azure och klicka sedan på **Nästa**. Exempel:
+14. Välj den databas som du vill säkerhetskopiera till Azure och klicka sedan på **Nästa**. Några exempel:
 
     ![Ange skydds data online](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Definiera schemat för **Azure Backup**och klicka sedan på **Nästa**. Exempel:
+15. Definiera schemat för **Azure Backup**och klicka sedan på **Nästa**. Några exempel:
 
     ![Ange schemat för onlinesäkerhetskopiering](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

@@ -3,12 +3,12 @@ title: Använda diagnostikinställningar för Recovery Services valv
 description: En artikel som beskriver hur du använder de gamla och nya diagnostikloggar för Azure Backup
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 875adb82aeeb56b378a84ca01e716c7189abc64f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7abf8873aafeb996476d818376057bfd8732d906
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74281108"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583953"
 ---
 # <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Använda diagnostikinställningar för Recovery Services-valv
 
@@ -21,14 +21,15 @@ Du kan konfigurera diagnostikinställningar för ett Recovery Services valv via 
 ## <a name="diagnostics-events-available-for-azure-backup-users"></a>Diagnostiska händelser som är tillgängliga för Azure Backup användare
 
 Azure Backup innehåller följande diagnostiska händelser, som innehåller detaljerade data om en speciell uppsättning säkerhetsrelaterade artefakter:
+
 * CoreAzureBackup
 * AddonAzureBackupAlerts
 * AddonAzureBackupProtectedInstance
 * AddonAzureBackupJobs
 * AddonAzureBackupPolicy
-* AddonAzureBackupStorage 
+* AddonAzureBackupStorage
 
-[Data modell för Azure Backup Diagnostics-händelser](https://aka.ms/diagnosticsdatamodel)
+[Data modell för Azure Backup Diagnostics-händelser](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
 
 Data för dessa händelser kan skickas till antingen ett lagrings konto, en LA-arbets yta eller en Event Hub. Om du skickar dessa data till en LA-arbets yta, måste du välja den **resurs information** som ska växlas på skärmen **diagnostik inställning** (mer information finns i avsnitten nedan).
 
@@ -37,6 +38,7 @@ Data för dessa händelser kan skickas till antingen ett lagrings konto, en LA-a
 Genom att justera med Azure Log Analytics-översikten Azure Backup nu kan du skicka valv diagnostikdata till dedikerade LA tabeller för säkerhets kopiering. Dessa kallas för [resursbaserade tabeller](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#resource-specific).
 
 Skicka dina valv diagnostikdata till LA:
+
 1.  Navigera till valvet och klicka på **diagnostiska inställningar**. Klicka på **+ Lägg till diagnostisk inställning**.
 2.  Ange ett namn på den diagnostiska inställningen.
 3.  Markera kryss rutan **Skicka till Log Analytics** och välj en Log Analytics arbets yta.
@@ -84,4 +86,4 @@ Bilden nedan visar ett exempel på en användare som har tre diagnostikinställn
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig mer om Log Analytics data modell för diagnostiska händelser](https://aka.ms/diagnosticsdatamodel)
+[Lär dig mer om Log Analytics data modell för diagnostiska händelser](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)

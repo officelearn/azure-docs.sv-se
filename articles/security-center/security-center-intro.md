@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 759cc3f22d8b57036bad48326ffec1d6fca42696
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 884f5ab6fa57b201e1a9105729bf96e10931dca1
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939439"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604061"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
@@ -81,9 +81,9 @@ Ett av de mest kraftfulla verktygen Security Center ger en kontinuerlig övervak
 
 ![Security Center-nätverkskarta](media/security-center-intro/sc-net-map.png)
 
-Security Center minimerar dina säkerhets varningar ett steg enklare genom att lägga till en **säker Poäng**. Säkerhetspoängen är nu kopplade till varje enskild rekommendation som du tar emot, så att du enklare ska förstå hur viktigt den enskilda rekommendationen är för den övergripande säkerheten. Detta är viktigt för att du ska kunna **prioritera ditt säkerhets arbete**.
+Security Center minimerar dina säkerhets varningar ett steg enklare genom att lägga till en **säker Poäng**. De säkra poängen är nu kopplade till varje rekommendation som du får för att hjälpa dig att förstå hur viktiga varje rekommendation är för den övergripande säkerhets position. Detta är viktigt för att du ska kunna **prioritera ditt säkerhets arbete**.
 
-![Security Center-säkerhetspoäng](media/security-center-intro/sc-secure-score.png)
+![Security Center säkra Poäng](media/security-center-intro/sc-secure-score.png)
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Optimera och förbättra säkerheten genom att konfigurera rekommenderas kontroller
 
@@ -145,7 +145,7 @@ Omfattande logginsamling som innebär att loggar från både Windows och Linux b
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att komma igång med Security Center måste du ha en prenumeration på Microsoft Azure. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/free/).
+- För att komma igång med Security Center måste du ha en prenumeration på Microsoft Azure. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
 - Security Centers kostnadsfria prisnivå aktiveras med Azure-prenumerationen. Om du vill använda avancerad säkerhetshantering och hotidentifiering måste du uppgradera till prisnivån Standard. Du kan prova Standard-nivån kostnadsfritt. På [prissättningssidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/) finns det mer information.
 - Om du är redo att aktivera Security Center Standard kan du använda [Snabbstart: Registrera Azure-prenumerationen för Security Center Standard](security-center-get-started.md) som en vägledning.
 

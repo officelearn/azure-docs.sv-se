@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: da8c194b7911d2eeda8e0c903cb7412186aacfcb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: fa41649e002bd4845b95e787c1d0589ed1987588
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638263"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587251"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>SQL Database resurs gränser och resurs styrning
 
@@ -37,14 +37,14 @@ Den här artikeln innehåller en översikt över SQL Database resurs gränser f�
 | Högsta antal pooler per server | Begränsas av antalet DTU: er eller virtuella kärnor. Om varje pool till exempel är 1000 DTU: er, kan en server stödja 54-pooler.|
 |||
 
-> [!NOTE]
-> För att få mer DTU/eDTU-kvot, vCore kvot eller fler servrar än standard beloppet kan en ny supportbegäran skickas i Azure Portal för prenumerationen med ärende typen "kvot". Kvoten DTU/eDTU och databas begränsning per server begränsar antalet elastiska pooler per server.
-
 > [!IMPORTANT]
 > När antalet databaser närmar sig gränsen per SQL Database Server kan följande inträffa:
 >
 > - Ökande svars tid för att köra frågor mot huvud databasen.  Detta inkluderar vyer av statistik över resursutnyttjande, till exempel sys. resource_stats.
 > - Ökande svars tid i hanterings åtgärder och åter givning av Portal synvinklar som innefattar att räkna upp databaser på servern.
+
+> [!NOTE]
+> För att få mer DTU/eDTU-kvot, vCore kvot eller fler servrar än standard beloppet skickar du en ny supportbegäran i Azure Portal. Mer information finns i [begäran om kvot ökning för Azure SQL Database](quota-increase-request.md).
 
 ### <a name="storage-size"></a>Lagrings storlek
 
@@ -60,7 +60,7 @@ När du räknar med hög beräknings användning är följande alternativ för m
 - Öka beräknings storleken för databasen eller den elastiska poolen för att tillhandahålla databasen med fler beräknings resurser. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastiska pooler](sql-database-elastic-pool-scale.md).
 - Optimera frågor för att minska resursutnyttjande för varje fråga. Mer information finns i [fråga om justering/tips](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Lagring
+### <a name="storage"></a>Storage
 
 När databas utrymmet som används når den maximala storleks gränsen, infogas och uppdateras databasen som ökar data storleken och klienterna får ett [fel meddelande](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md). SELECT-och DELETE-instruktioner fortsätter att fungera.
 

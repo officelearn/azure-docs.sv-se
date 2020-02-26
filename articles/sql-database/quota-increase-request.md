@@ -8,12 +8,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 02/04/2020
-ms.openlocfilehash: fb576b81adeec99e4080c744749097390d1add1d
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: ff2be6972bb4e8af266d0aa8a56d1879bc1b8b78
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77111103"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586163"
 ---
 # <a name="request-quota-increases-for-azure-sql-database"></a>Begär ande kvoten ökar för Azure SQL Database
 
@@ -90,7 +90,7 @@ Använd följande steg för att begära en ökning av antalet servrar per prenum
 
 Mer information finns i [SQL Database resurs gränser och resurs styrning](sql-database-resource-limits-database-server.md).
 
-### <a name="enable-subscription-access-to-a-region"></a>Aktivera prenumerations åtkomst till en region
+### <a id="other"></a>Aktivera prenumerations åtkomst till en region
 
 Vissa erbjudande typer är inte tillgängliga i varje region. Du kan se ett fel meddelande, till exempel följande:
 

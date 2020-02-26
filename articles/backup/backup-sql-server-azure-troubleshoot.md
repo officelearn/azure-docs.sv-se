@@ -3,12 +3,12 @@ title: Felsöka SQL Server säkerhets kopiering av databasen
 description: Felsöknings information för att säkerhetskopiera SQL Server databaser som körs på virtuella Azure-datorer med Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 57630749b53224032c763481d12e33366274f13f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 69cae196e7fad70d75fb12709e5bf0d618bbc81c
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978776"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602317"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Felsöka SQL Server säkerhets kopiering av databasen med Azure Backup
 
@@ -23,7 +23,7 @@ Om du vill konfigurera skydd för en SQL Server-databas på en virtuell dator m�
 ## <a name="troubleshoot-discover-and-configure-issues"></a>Felsöka identifierings-och konfigurations problem
 När du har skapat och konfigurerat ett Recovery Services-valv, är det en två stegs process att identifiera databaser och konfigurera säkerhets kopiering.<br>
 
-![sql](./media/backup-azure-sql-database/sql.png)
+![SQL](./media/backup-azure-sql-database/sql.png)
 
 Om den virtuella SQL-datorn och dess instanser inte visas i **identifierings-databaser i virtuella datorer** och **Konfigurera säkerhets kopiering** (se avbildningen ovan) i säkerhets kopierings konfigurationen kontrollerar du att:
 
@@ -43,7 +43,7 @@ Om den virtuella SQL-datorn måste registreras i det nya valvet måste den avreg
 
 ### <a name="backup-type-unsupported"></a>Säkerhets kopierings typen stöds inte
 
-| Allvarsgrad | Beskrivning | Möjliga orsaker | Rekommenderad åtgärd |
+| Severity | Beskrivning | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|---|
 | Varning | De aktuella inställningarna för den här databasen stöder inte vissa säkerhets kopierings typer som finns i den tillhör ande principen. | <li>Endast en fullständig databas säkerhets kopierings åtgärd kan utföras på huvud databasen. Varken differentiell säkerhets kopiering eller säkerhets kopiering av transaktions logg är möjlig. </li> <li>Alla databaser i den enkla återställnings modellen tillåter inte säkerhets kopiering av transaktions loggar.</li> | Ändra databas inställningarna så att alla säkerhets kopierings typer i principen stöds. Du kan också ändra den aktuella principen så att den bara innehåller de säkerhets kopierings typer som stöds. Annars kommer de säkerhets kopierings typer som inte stöds att hoppas över under schemalagd säkerhets kopiering, eller så kommer säkerhets kopieringen inte att kunna utföra säkerhets kopiering på begäran.
 
@@ -70,7 +70,7 @@ Om den virtuella SQL-datorn måste registreras i det nya valvet måste den avreg
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
-| Azure Backup kan inte ansluta till SQL-instansen. | Azure Backup kan inte ansluta till SQL Server-instansen. | Använd den ytterligare informationen på menyn Azure Portal fel för att begränsa rotor saken. Åtgärda problemet genom att läsa fel [sökning av SQL-säkerhetskopiering](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) .<br/><ul><li>Om standard-SQL-inställningarna inte tillåter fjärr anslutningar ändrar du inställningarna. I följande artiklar finns information om hur du ändrar inställningarna:<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Om det finns inloggnings problem kan du använda dessa länkar för att åtgärda dem:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| Azure Backup kan inte ansluta till SQL-instansen. | Azure Backup kan inte ansluta till SQL Server-instansen. | Använd den ytterligare informationen på menyn Azure Portal fel för att begränsa rotor saken. Åtgärda problemet genom att läsa fel [sökning av SQL-säkerhetskopiering](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) .<br/><ul><li>Om standard-SQL-inställningarna inte tillåter fjärr anslutningar ändrar du inställningarna. I följande artiklar finns information om hur du ändrar inställningarna:<ul><li>[MSSQLSERVER_-1](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-1-database-engine-error?view=sql-server-ver15)</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Om det finns inloggnings problem kan du använda dessa länkar för att åtgärda dem:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 
@@ -106,7 +106,7 @@ Om den virtuella SQL-datorn måste registreras i det nya valvet måste den avreg
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
-| Loggsäkerhetskopian för återställning innehåller massloggade ändringar. De kan inte användas för att stoppa vid en godtycklig tidpunkt enligt SQL-riktlinjerna. | När en databas är i bulk-loggat återställnings läge går det inte att återställa data mellan en bulk-loggad transaktion och nästa logg transaktion. | Välj en annan tidpunkt för återställning. [Läs mer](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105)).
+| Loggsäkerhetskopian för återställning innehåller massloggade ändringar. De kan inte användas för att stoppa vid en godtycklig tidpunkt enligt SQL-riktlinjerna. | När en databas är i bulk-loggat återställnings läge går det inte att återställa data mellan en bulk-loggad transaktion och nästa logg transaktion. | Välj en annan tidpunkt för återställning. [Läs mer](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 

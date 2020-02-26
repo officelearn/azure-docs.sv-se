@@ -1,6 +1,6 @@
 ---
-title: Alternativ för Azure IoT Hub-enhet till moln | Microsoft Docs
-description: Utvecklarguide – riktlinjer för när du ska använda meddelanden från enheten till molnet, rapporterade egenskaper eller ladda upp filer för meddelanden från moln till enhet.
+title: Alternativ för Azure IoT Hub från enhet till moln | Microsoft Docs
+description: Guide för utvecklare – vägledning om när du ska använda enhets-till-moln-meddelanden, rapporterade egenskaper eller fil uppladdning för kommunikation från moln till enhet.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -8,38 +8,38 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: fffa064b912a96b05feb901d1d2d44533c4681b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02dc1b55d85b7137a5c1f57999cc3b7e9b1efe29
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60885524"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591344"
 ---
-# <a name="device-to-cloud-communications-guidance"></a>Enhet-till-molnet kommunikation
+# <a name="device-to-cloud-communications-guidance"></a>Vägledning för kommunikation från enhet till moln
 
-Skicka information från app för enheter till lösningens backend-server, IoT Hub exponerar när tre alternativ:
+När du skickar information från Device-appen till lösningens Server del, visar IoT Hub tre alternativ:
 
-* [Meddelanden från enheten till molnet](iot-hub-devguide-messages-d2c.md) för time series telemetri och aviseringar.
+* [Enhets-till-moln-meddelanden](iot-hub-devguide-messages-d2c.md) för Time Series-telemetri och-aviseringar.
 
-* [Enhetstvillingen är rapporterade egenskaper](iot-hub-devguide-device-twins.md) för rapportering information om enhetstillstånd som tillgängliga funktioner, villkor eller tillståndet för långvariga arbetsflöden. Konfiguration och programuppdateringar.
+* [Enhetens dubbla rapporter egenskaper](iot-hub-devguide-device-twins.md) för rapportering av enhets tillståndsinformation, till exempel tillgängliga funktioner, villkor eller tillstånd för långvariga arbets flöden. Till exempel konfigurations-och program uppdateringar.
 
-* [Filen uppladdningar](iot-hub-devguide-file-upload.md) för medier filer och stora telemetri batchar har laddats upp av periodvis anslutna enheter eller komprimeras för att spara bandbredd.
+* [Fil överföringar](iot-hub-devguide-file-upload.md) för mediefiler och stora telemetri-batchar laddas upp av tillfälligt anslutna enheter eller komprimerade för att spara bandbredd.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Här är en detaljerad jämförelse av de olika kommunikationsalternativen för enhet-till-molnet.
+Här är en detaljerad jämförelse av de olika alternativen för kommunikation mellan enheter och moln.
 
-|  | Meddelanden från enheten till molnet | Enhetstvillingens rapporterade egenskaper | Filöverföringar |
+|  | Meddelanden från enheten till molnet | Enhetens dubbla egenskaper för rapporter | Filöverföringar |
 | ---- | ------- | ---------- | ---- |
-| Scenario | Tidsserier för telemetri och aviseringar. Exempel: 256 KB sensor databatchar skickas var femte minut. | Tillgänglig kapacitet och villkor. Till exempel aktuell enhet anslutningsläget, till exempel mobilnät eller Wi-Fi. Synkronisera långvariga arbetsflöden, till exempel konfiguration och programuppdateringar. | Mediefiler. Stor (vanligtvis komprimerade) telemetri batchar. |
-| Lagring och hämtning | Lagras temporärt i IoT Hub, upp till 7 dagar. Sekventiell läsning. | Lagras av IoT Hub i enhetstvillingen. Hämtningsbar med hjälp av den [IoT Hub-frågespråk](iot-hub-devguide-query-language.md). | Lagras i Azure Storage-konto för användaren. |
-| Storlek | Upp till 256 KB meddelanden. | Maximal rapporterade egenskaper är 8 KB. | Maximal filstorlek som stöds av Azure Blob Storage. |
-| Frekvens | Hög. Mer information finns i [IoT Hub begränsar](iot-hub-devguide-quotas-throttling.md). | Medel. Mer information finns i [IoT Hub begränsar](iot-hub-devguide-quotas-throttling.md). | Låg. Mer information finns i [IoT Hub begränsar](iot-hub-devguide-quotas-throttling.md). |
-| Protocol | Tillgänglig på alla protokoll. | Tillgängligt med hjälp av MQTT eller AMQP. | Tillgängliga när du använder alla protokoll, men kräver HTTPS på enheten. |
+| Scenario | Tids serier och aviseringar för telemetri. Till exempel är 256 KB-sensor data-batchar skickade var 5: e minut. | Tillgängliga funktioner och villkor. Till exempel det aktuella anslutnings läget för enhet, till exempel mobil nät eller WiFi. Synkronisering av tids krävande arbets flöden, till exempel konfigurations-och program uppdateringar. | Mediafiler. Stora (vanligt vis komprimerade) telemetri-batchar. |
+| Lagring och hämtning | Lagras tillfälligt med IoT Hub, upp till 7 dagar. Endast sekventiell läsning. | Lagras av IoT Hub i enheten. Hämtnings bara med [IoT Hub frågespråk](iot-hub-devguide-query-language.md). | Lagrat i Azure Storage konto för användare. |
+| Storlek | Upp till 256 KB-meddelanden. | Maximalt antal rapporterade egenskaper är 32 KB. | Maximal fil storlek som stöds av Azure Blob Storage. |
+| Frequency | Hög. Mer information finns i [IoT Hub gränser](iot-hub-devguide-quotas-throttling.md). | Medel. Mer information finns i [IoT Hub gränser](iot-hub-devguide-quotas-throttling.md). | Låg. Mer information finns i [IoT Hub gränser](iot-hub-devguide-quotas-throttling.md). |
+| Protokoll | Tillgängligt på alla protokoll. | Tillgängligt med MQTT eller AMQP. | Tillgängligt när du använder valfritt protokoll, men kräver HTTPS på enheten. |
 
-Ett program kan behöva skicka information om både som en telemetri tidsserier eller varning och gör den tillgänglig i enhetstvillingen. I det här scenariot kan du välja något av följande alternativ:
+Ett program kan behöva skicka information både som en tids serie för telemetri eller en avisering och göra den tillgänglig på enheten. I det här scenariot kan du välja något av följande alternativ:
 
-* Enhetsappen skickar ett meddelande på enheten till molnet och rapporterar en egenskap som har ändrats.
-* Lösningens backend-server kan lagra informationen i den enhetstvilling-taggar när den tar emot meddelandet.
+* Enhets appen skickar ett meddelande från enhet till molnet och rapporterar en egenskaps ändring.
+* Server delen i lösningen kan lagra informationen i enhetens dubbla Taggar när den tar emot meddelandet.
 
-Eftersom meddelanden från enheten till molnet aktiverar en mycket högre genomströmning än uppdateringar för enhetstvilling kan vara det önskvärt att undvika att uppdatera enhetstvillingen för varje enhet till moln-meddelande.
+Eftersom meddelanden från enhet till molnet möjliggör mycket högre data flöde än enhets dubbla uppdateringar, är det ibland önskvärt att undvika att uppdatera enheten för varje meddelande från enhet till moln.

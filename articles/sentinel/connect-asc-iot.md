@@ -3,7 +3,7 @@ title: Anslut Azure Security Center för IoT till Azure Sentinel | Microsoft Doc
 description: Lär dig hur du ansluter Azure Security Center för IoT-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2020
-ms.author: rkarlin
-ms.openlocfilehash: b68745f04a49565090b0f9b14331036f76e5f132
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.author: yelevin
+ms.openlocfilehash: 3af51110a4c4604444573f62be65077c786db606
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77501295"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588645"
 ---
 # <a name="connect-your-data-from-azure-security-center-for-iot-to-azure-sentinel"></a>Anslut dina data från Azure Security Center för IoT till Azure Sentinel 
 

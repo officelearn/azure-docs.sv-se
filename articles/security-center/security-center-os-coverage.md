@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 6ec818ff77664fcc038412f79fffc1e3e05b82f0
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 089fcc89f330e47a09187b5338176bf23fd801bb
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294260"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603762"
 ---
 # <a name="supported-platforms"></a>Plattformar som stöds 
 
@@ -41,7 +41,7 @@ I följande avsnitt listas de serveroperativ system som stöds och som [Log Anal
 
 ### Windows Server-operativsystem<a name="os-windows"></a>
 
-|OS|Stöds av Azure Security Center|Stöd för integrering med Microsoft Defender ATP|
+|Operativsystem|Stöds av Azure Security Center|Stöd för integrering med Microsoft Defender ATP|
 |:---|:-:|:-:|
 |Windows Server 2019|✔|X|
 |Windows Server 2016|✔|✔|
@@ -97,7 +97,7 @@ Följande Azure PaaS-resurser stöds av Azure Security Center:
 * Lagringskonto
 * Apptjänst
 * Funktion
-* Molntjänst
+* Moln tjänst
 * VNet
 * Undernät
 * NIC
@@ -105,15 +105,15 @@ Följande Azure PaaS-resurser stöds av Azure Security Center:
 * Batch-konto
 * Service Fabric-konto
 * Automation-konto
-* Load Balancer
-* Sök
+* Lastbalanserare
+* Söka
 * service bus namnrymd
 * Stream analytics
 * Namnområde för händelsehubb
-* Logikappar
+* Logic Apps
 * Redis
 * Data Lake Analytics
-* Datasjölagring
+* Data Lake Store
 * Nyckelvalv
 
 Mer information om vilka funktioner som stöds för ovanstående lista över PaaS-resurser finns i [PaaS Services-funktioner som stöds](security-center-services.md#paas-services).
@@ -127,5 +127,3 @@ Skydd för Virtual Machines som finns i Azure Stack stöds också. Mer informati
 - Lär dig att [planera och förstå design överväganden för att anta Azure Security Center](security-center-planning-and-operations-guide.md).
 - Lär dig mer om [funktioner som är tillgängliga för de olika moln miljöerna](security-center-services.md).
 - Lär dig mer om [hot identifiering för virtuella datorer & servrar i Azure Security Center](security-center-alerts-iaas.md).
-- Hitta [vanliga frågor om hur du använder Azure Security Center](security-center-faq.md).
-- Hitta [blogg inlägg om säkerhet och efterlevnad i Azure](https://blogs.msdn.com/b/azuresecurity/).

@@ -11,16 +11,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 9ed2cc8bfb10d916218417a7dd27010638d2a927
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8272867f5b6144b92dbffcf96cc539eb82f75801
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810274"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587359"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Använd loggen Intelligent Insights Azure SQL Database prestanda diagnostik
 
-Den här sidan innehåller information om hur du använder den Azure SQL Database loggen för prestandadiagnostik som genereras av [intelligent Insights](sql-database-intelligent-insights.md), dess format och de data som den innehåller för dina anpassade utvecklings behov. Du kan skicka den här Diagnostic-loggen till [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage)eller en lösning från tredje part för anpassade DevOps-aviseringar och rapporterings funktioner.
+Den här sidan innehåller information om hur du använder den Azure SQL Database loggen för prestandadiagnostik som genereras av [intelligent Insights](sql-database-intelligent-insights.md), dess format och de data som den innehåller för dina anpassade utvecklings behov. Du kan skicka den här Diagnostic-loggen till [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage)eller en lösning från tredje part för anpassade DevOps-aviseringar och rapporterings funktioner.
 
 ## <a name="log-header"></a>Logg huvud
 
@@ -75,11 +75,11 @@ Kategorin kategori (kategori) beskriver kategorin med identifierade prestanda m�
 
 Beroende på det identifierade prestanda problemet skiljer sig detaljerna i den diagnostiska logg filen på lämpligt sätt.
 
-| Identifierade prestanda mönster | Information som returneras |
+| Identifierbara prestandamönster | Information som returneras |
 | :------------------- | ------------------- |
 | Når resurs gränser | <li>Resurser som påverkas</li><li>Fråga hashar</li><li>Resurs förbrukning i procent</li> |
 | Ökad arbets belastning | <li>Antal frågor vars körning har ökat</li><li>Fråga hashar av frågor med störst bidrag till arbets belastnings ökningen</li> |
-| Minnes belastning | <li>Minnes ansvarig</li> |
+| Minnestryck | <li>Minnes ansvarig</li> |
 | Spärr | <li>Frågans hashar som påverkas</li><li>Blockerar frågans hash-värden</li> |
 | Ökad MAXDOP | <li>Fråga hashar</li><li>CXP vänte tider</li><li>Vänte tider</li> |
 | PAGELATCH-konkurrens | <li>Fråga hashar för frågor som orsakar konkurrens</li> |

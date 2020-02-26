@@ -5,12 +5,12 @@ author: markfussell
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: mfussell
-ms.openlocfilehash: 755e3c1eb649bc6c8ecc084d18e9904cc90b1282
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 876980bd6a59bace9ab4e490358964d19fa52c7e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551853"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586095"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Metod tips för Azure Service Fabric program design
 
@@ -30,7 +30,7 @@ Bekanta dig med den [allmänna arkitekturen](https://docs.microsoft.com/azure/ar
 Använd en API Gateway-tjänst som kommunicerar med Server dels tjänster som sedan kan skalas ut. De vanligaste API Gateway-tjänsterna som används är:
 
 - [Azure API Management](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview), som är [integrerat med Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management).
-- [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) eller [Azure-Event Hubs](https://docs.microsoft.com/azure/event-hubs/), med hjälp av [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) för att läsa från Event Hub-partitioner.
+- [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) eller [Azure-Event Hubs](https://docs.microsoft.com/azure/event-hubs/), med hjälp av [ServiceFabricProcessor](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs.ServiceFabricProcessor) för att läsa från Event Hub-partitioner.
 - [Træfik omvänd proxy](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/)med [Azure Service Fabric-providern](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/).
 - [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/).
 

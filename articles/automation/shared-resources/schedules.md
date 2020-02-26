@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8daa87eca74570f5b1fdf1537b83dae60d292128
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c4898ba62abdc42d95b77b9a77387bfe71fb4771
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849470"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592211"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Schemaläggning av en Runbook i Azure Automation
 
@@ -27,15 +27,15 @@ Om du vill schemalägga en Runbook i Azure Automation starta vid en viss tid lä
 
 Cmdletarna i följande tabell används för att skapa och hantera scheman med PowerShell i Azure Automation. De levereras som en del av [Azure PowerShell-modulen](/powershell/azure/overview).
 
-| Cmdlet: ar | Beskrivning |
+| Cmdletar | Beskrivning |
 |:--- |:--- |
 | [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |Hämtar ett schema. |
 | [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Skapar ett nytt schema. |
 | [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) |Tar bort ett schema. |
 | [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) |Anger egenskaperna för ett befintligt schema. |
 | [Get-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/get-azurermautomationscheduledrunbook) |Hämtar schemalagda Runbooks. |
-| [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |Associerar en Runbook med ett schema. |
-| [Unregister-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |Kopplar bort en Runbook från ett schema. |
+| [Registrera – AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |Associerar en Runbook med ett schema. |
+| [Avregistrera-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |Kopplar bort en Runbook från ett schema. |
 
 ## <a name="creating-a-schedule"></a>Skapa ett schema
 
@@ -120,7 +120,7 @@ En runbook kan länkas till flera scheman och ett schema kan vara kopplat till f
 ### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>Länka ett schema till en Runbook med Azure Portal
 
 1. I Azure Portal, från ditt Automation-konto, väljer du **Runbooks** under avsnittet **process automatisering** till vänster.
-2. Klicka på namnet på den runbook som ska schemaläggas.
+2. Klicka på namnet på den Runbook som ska schemaläggas.
 3. Om runbooken inte är länkad till ett schema, kan du välja att skapa ett nytt schema eller länka till ett befintligt schema.
 4. Om runbook har parametrar, kan du välja alternativet **ändra körnings inställningar (standard: Azure)** och **parameter** fönstret visas där du kan ange informationen.
 
@@ -143,7 +143,7 @@ Register-AzureRmAutomationScheduledRunbook –AutomationAccountName $automationA
 
 Det vanligaste intervallet som ett schema i Azure Automation kan konfigureras för är en timme. Om du behöver schemalägga körning oftare än så finns det två alternativ:
 
-* Skapa en [webhook](../automation-webhooks.md) för runbooken och Använd [Azure Scheduler](../../scheduler/scheduler-get-started-portal.md) för att anropa webhooken. Azure Scheduler ger mer detaljerade granularitet när du definierar ett schema.
+* Skapa en [webhook](../automation-webhooks.md) för runbooken och Använd [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) för att anropa webhooken. Azure Logic Apps ger mer detaljerade granularitet när du definierar ett schema.
 
 * Skapa fyra scheman som börjar inom 15 minuter från varandra och som körs en gång i timmen. Det här scenariot gör att runbooken kan köras var 15: e minut med olika scheman.
 

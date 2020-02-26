@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 0435198af09b087e1449541df078b47758148d42
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6ab54e56368e7e26e807e4d1dc0592536dc9374a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980572"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588767"
 ---
 # <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>Hantera Azure Cosmos DB Tabell-API resurser med Azure Resource Manager mallar
 
@@ -25,7 +25,7 @@ Skapa Azure Cosmos DB-resurser med en Azure Resource Manager-mall. Den här mall
 > Konto namn måste bestå av gemener och 44 eller färre tecken.
 > Om du vill uppdatera RU/s skickar du om mallen med uppdaterade egenskaper för data flödes värden.
 
-[!code-json[create-cosmos-table](~/quickstart-templates/101-cosmosdb-table/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-table/azuredeploy.json":::
 
 ### <a name="deploy-via-powershell"></a>Distribuera via PowerShell
 

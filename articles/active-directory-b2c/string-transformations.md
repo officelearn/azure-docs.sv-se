@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: df0bd87fffba8ed70c60da358b38079d3d017c76
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: e220009ec04ce732d99a53432077d681707e28d1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505639"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585738"
 ---
 # <a name="string-claims-transformations"></a>Transformeringar av sträng anspråk
 
@@ -127,7 +127,7 @@ Skapar ett sträng anspråk från den angivna Indataparametern i omvandlingen.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | värde | sträng | Strängen som ska anges |
+| InputParameter | värde | sträng | Strängen som ska anges. Den här Indataparametern stöder [omvandlings uttryck för sträng anspråk](string-transformations.md#string-claim-transformations-expressions). |
 | OutputClaim | createdClaim | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats, med det angivna värdet i indataparametern. |
 
 Använd den här anspråks omvandlingen för att ange ett sträng värde för ClaimType.
@@ -159,8 +159,8 @@ Avgör om ett sträng anspråk är lika med ett annat. Resultatet är en ny bool
 | InputClaim | inputClaim1 | sträng | Första anspråks typen, som ska jämföras. |
 | InputClaim | inputClaim2 | sträng | Andra anspråks typen, som ska jämföras. |
 | InputParameter | operator | sträng | Möjliga värden: `EQUAL` eller `NOT EQUAL`. |
-| InputParameter | ignoreCase | boolean | Anger om jämförelsen ska ignorera Skift läget för strängarna som jämförs. |
-| OutputClaim | outputClaim | boolean | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
+| InputParameter | ignoreCase | boolesk | Anger om jämförelsen ska ignorera Skift läget för strängarna som jämförs. |
+| OutputClaim | outputClaim | boolesk | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
 
 Använd den här anspråks omvandlingen för att kontrol lera om ett anspråk är lika med ett annat anspråk. Till exempel kontrollerar följande anspråksbaserad omvandling om värdet för **e-** postanspråket är lika med det **verifierade. e-** postanspråket.
 
@@ -200,8 +200,8 @@ Anger om ett anspråks värde är lika med värdet för indataparametern.
 | InputClaim | inputClaim1 | sträng | Anspråkets typ, som ska jämföras. |
 | InputParameter | operator | sträng | Möjliga värden: `EQUAL` eller `NOT EQUAL`. |
 | InputParameter | compareTo | sträng | sträng jämförelse, ett av värdena: ordinal, OrdinalIgnoreCase. |
-| InputParameter | ignoreCase | boolean | Anger om jämförelsen ska ignorera Skift läget för strängarna som jämförs. |
-| OutputClaim | outputClaim | boolean | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
+| InputParameter | ignoreCase | boolesk | Anger om jämförelsen ska ignorera Skift läget för strängarna som jämförs. |
+| OutputClaim | outputClaim | boolesk | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
 
 Du kan använda den här anspråks omvandlingen för att kontrol lera om ett anspråk motsvarar ett värde som du har angett. Till exempel kontrollerar följande anspråksbaserad omvandling om värdet för **termsOfUseConsentVersion** -anspråket är lika med `v1`.
 
@@ -239,7 +239,7 @@ Skapar en slumpmässig sträng med slump tals generatorn. Om slump tals generato
 | ---- | ----------------------- | --------- | ----- |
 | InputParameter | randomGeneratorType | sträng | Anger det slumpmässiga värde som ska genereras, `GUID` (globalt unikt ID) eller `INTEGER` (ett tal). |
 | InputParameter | stringFormat | sträng | Valfritt Formatera det slumpmässiga värdet. |
-| InputParameter | Base64 | boolean | Valfritt Omvandla det slumpmässiga värdet till base64. Om sträng format används kodas värdet efter sträng format till base64. |
+| InputParameter | Base64 | boolesk | Valfritt Omvandla det slumpmässiga värdet till base64. Om sträng format används kodas värdet efter sträng format till base64. |
 | InputParameter | maximumNumber | int | Valfritt Endast för `INTEGER` randomGeneratorType. Ange det maximala antalet. |
 | InputParameter | dirigeringsrouter  | int | Valfritt Endast för `INTEGER` randomGeneratorType. Ange start värde för det slumpmässiga värdet. Obs! samma utsäde ger samma sekvens med slumpmässiga tal. |
 | OutputClaim | outputClaim | sträng | Den ClaimTypes som ska skapas efter att den här anspråks omvandlingen har anropats. Det slumpmässiga värdet. |
@@ -297,7 +297,7 @@ Formatera ett anspråk enligt den angivna format strängen. Den här omvandlinge
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |sträng |ClaimType som fungerar som sträng format {0} parameter. |
-| InputParameter | stringFormat | sträng | Sträng formatet, inklusive parametern {0}. |
+| InputParameter | stringFormat | sträng | Sträng formatet, inklusive parametern {0}. Den här Indataparametern stöder [omvandlings uttryck för sträng anspråk](string-transformations.md#string-claim-transformations-expressions).  |
 | OutputClaim | outputClaim | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
 
 Använd den här anspråks omvandlingen för att formatera en sträng med en parameter {0}. I följande exempel skapas ett **userPrincipalName**. Alla tekniska profiler för sociala identiteter, till exempel `Facebook-OAUTH` anropar **CreateUserPrincipalName** för att generera ett **userPrincipalName**.
@@ -333,7 +333,7 @@ Formatera två anspråk enligt den angivna format strängen. Den här omvandling
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |sträng | ClaimType som fungerar som sträng format {0} parameter. |
 | InputClaim | inputClaim | sträng | ClaimType som fungerar som sträng format {1} parameter. |
-| InputParameter | stringFormat | sträng | Sträng formatet, inklusive parametrarna {0} och {1}. |
+| InputParameter | stringFormat | sträng | Sträng formatet, inklusive parametrarna {0} och {1}. Den här Indataparametern stöder [omvandlings uttryck för sträng anspråk](string-transformations.md#string-claim-transformations-expressions).   |
 | OutputClaim | outputClaim | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
 
 Använd den här anspråks omvandlingen för att formatera en sträng med två parametrar, {0} och {1}. I följande exempel skapas ett **DisplayName** med det angivna formatet:
@@ -484,7 +484,7 @@ Leta upp ett anspråks värde från en lista med värden baserat på värdet fö
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputParameterId | sträng | Det anspråk som innehåller uppslags värdet |
 | InputParameter | |sträng | Insamling av indataparametrar. |
-| InputParameter | errorOnFailedLookup | boolean | Kontrollerar om ett fel returneras när det inte finns någon matchande sökning. |
+| InputParameter | errorOnFailedLookup | boolesk | Kontrollerar om ett fel returneras när det inte finns någon matchande sökning. |
 | OutputClaim | inputParameterId | sträng | Den ClaimTypes som ska skapas efter att den här anspråks omvandlingen har anropats. Värdet för den matchande `Id`. |
 
 I följande exempel söker du efter domän namnet i en av indataparametrar-samlingarna. Omvandlingen av anspråk söker upp domän namnet i identifieraren och returnerar dess värde (ett program-ID).
@@ -616,7 +616,7 @@ Kontrollerar att ett sträng anspråks `claimToMatch`-och `matchTo` indataparame
 | InputParameter | matchTo | sträng | Det reguljära uttrycket som ska matchas. |
 | InputParameter | outputClaimIfMatched | sträng | Värdet som ska anges om strängarna är lika. |
 | OutputClaim | outputClaim | sträng | Om reguljärt uttryck matchar, innehåller det här utgående anspråket värdet för `outputClaimIfMatched` indataparameter. Eller null, om ingen matchning. |
-| OutputClaim | regexCompareResultClaim | boolean | Den reguljära uttrycks typen för resultat av utgående anspråk, som ska anges som `true` eller `false` baserat på resultatet av matchning. |
+| OutputClaim | regexCompareResultClaim | boolesk | Den reguljära uttrycks typen för resultat av utgående anspråk, som ska anges som `true` eller `false` baserat på resultatet av matchning. |
 
 Kontrollerar till exempel om det angivna telefonnumret är giltigt, baserat på vanligt uttrycks mönster för telefonnummer.  
 
@@ -660,7 +660,7 @@ Kontrollerar att en sträng anspråks-och `matchTo` indataparameter är lika, oc
 | InputParameter | stringMatchMsgCode | sträng | Det andra värdet som ska anges om strängarna är lika. |
 | OutputClaim | outputClaim1 | sträng | Om strängarna är lika med, innehåller det här utgående anspråket värdet för `stringMatchMsg` indataparameter. |
 | OutputClaim | outputClaim2 | sträng | Om strängarna är lika med, innehåller det här utgående anspråket värdet för `stringMatchMsgCode` indataparameter. |
-| OutputClaim | stringCompareResultClaim | boolean | Anspråks typen jämför resultat, som ska anges som `true` eller `false` baserat på jämförelse resultatet. |
+| OutputClaim | stringCompareResultClaim | boolesk | Anspråks typen jämför resultat, som ska anges som `true` eller `false` baserat på jämförelse resultatet. |
 
 Du kan använda den här anspråks omvandlingen för att kontrol lera om ett anspråk motsvarar det värde som du har angett. Till exempel kontrollerar följande anspråksbaserad omvandling om värdet för **termsOfUseConsentVersion** -anspråket är lika med `v1`. Om ja, ändra värdet till `v2`.
 
@@ -707,7 +707,7 @@ Kontrollerar att en sträng anspråks-och `matchTo` indataparameter är lika, oc
 | InputParameter | stringComparison | sträng | Möjliga värden: `Ordinal` eller `OrdinalIgnoreCase`. |
 | InputParameter | outputClaimIfMatched | sträng | Värdet som ska anges om strängarna är lika. |
 | OutputClaim | outputClaim | sträng | Om strängarna är lika med, innehåller det här utgående anspråket värdet för `outputClaimIfMatched` indataparameter. Eller null, om strängarna inte matchar. |
-| OutputClaim | stringCompareResultClaim | boolean | Anspråks typen jämför resultat, som ska anges som `true` eller `false` baserat på jämförelse resultatet. |
+| OutputClaim | stringCompareResultClaim | boolesk | Anspråks typen jämför resultat, som ska anges som `true` eller `false` baserat på jämförelse resultatet. |
 
 Till exempel kontrollerar följande anspråksbaserad omvandling om värdet för **ageGroup** -anspråk är lika med `Minor`. Om ja, returnera värdet till `B2C_V1_90001`.
 
@@ -788,7 +788,7 @@ Extraherar delar av en sträng anspråks typ, med början vid tecknet vid den an
 | InputClaim | inputClaim | sträng | Anspråks typen, som innehåller strängen. |
 | InputParameter | startIndex | int | Den nollbaserade start tecken positionen för en under sträng i den här instansen. |
 | InputParameter | length | int | Antalet tecken i under strängen. |
-| OutputClaim | outputClaim | boolean | En sträng som motsvarar den del sträng som börjar vid start index i denna instans, eller tom om start index är lika med längden på den här instansen och längden är noll. |
+| OutputClaim | outputClaim | boolesk | En sträng som motsvarar den del sträng som börjar vid start index i denna instans, eller tom om start index är lika med längden på den här instansen och längden är noll. |
 
 Hämta till exempel telefonnumret till Country.  
 
@@ -826,7 +826,7 @@ Söker efter en anspråks typ sträng för ett angivet värde och returnerar en 
 | InputClaim | inputClaim | sträng | Anspråks typen, som innehåller strängen. |
 | InputParameter | Gammalt | sträng | Strängen som ska genomsökas. |
 | InputParameter | newValue | sträng | Strängen som ska ersätta alla förekomster av `oldValue` |
-| OutputClaim | outputClaim | boolean | En sträng som motsvarar den aktuella strängen, förutom att alla instanser av oldValue ersätts med newValue. Om oldValue inte hittas i den aktuella instansen returnerar metoden den aktuella instansen oförändrad. |
+| OutputClaim | outputClaim | boolesk | En sträng som motsvarar den aktuella strängen, förutom att alla instanser av oldValue ersätts med newValue. Om oldValue inte hittas i den aktuella instansen returnerar metoden den aktuella instansen oförändrad. |
 
 Du kan till exempel normalisera ett telefonnummer genom att ta bort `-` tecken  
 
@@ -925,3 +925,12 @@ I följande exempel används en kommaavgränsad sträng för användar roller oc
   - **avgränsare**: ","
 - Utgående anspråk:
   - **outputClaim**: ["admin", "författare", "läsare"]
+  
+## <a name="string-claim-transformations-expressions"></a>Uttryck för omvandling av sträng anspråk
+Anspråk omvandlings uttryck i Azure AD B2C anpassade principer ger Sammanhangs information om klient-ID och ID för teknisk profil.
+
+  | Uttryck | Beskrivning | Exempel |
+ | ----- | ----------- | --------|
+ | `{TechnicalProfileId}` | Det tekniska profil-namnet. | Facebook – OAUTH |
+ | `{RelyingPartyTenantId}` | Klient-ID för den förlitande part principen. | your-tenant.onmicrosoft.com |
+ | `{TrustFrameworkTenantId}` | Klient-ID för förtroende ramverket. | your-tenant.onmicrosoft.com |

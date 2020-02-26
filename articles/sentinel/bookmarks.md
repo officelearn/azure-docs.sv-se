@@ -1,8 +1,8 @@
 ---
 title: Använd jakt bok märken för data utredningar i Azure Sentinel
 description: Den här artikeln beskriver hur du använder bok märkes bok för Azure Sentinel för att hålla reda på data.
-author: cabailey
-ms.author: cabailey
+author: yelevin
+ms.author: yelevin
 manager: rkarlin
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: azure-sentinel
@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
-ms.openlocfilehash: 457898e257aa7a347ff99d0987c5ad594637b5f4
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: eacc104bf7157732f91507f631bcda2cd166bfb3
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563742"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588696"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Håll koll på data under jakt med Azure Sentinel
 
@@ -23,7 +23,7 @@ Hot jakt kräver vanligt vis en granskande av berg av loggdata som letar efter b
 
 Med bok märken i Azure Sentinel kan du göra detta genom att bevara frågorna som du körde i **Azure Sentinel-loggar**, tillsammans med frågeresultaten som du anser är relevanta. Du kan också registrera dina sammanhangsbaserade observationer och referera till dina resultat genom att lägga till anteckningar och taggar. Bok märkes data är synliga för dig och dina samarbets kamrater för att förenkla samarbetet.
 
-Du kan när som helst gå tillbaka till bok märkes data på fliken **bok märken** i **jakt** fönstret. Du kan använda filtrerings-och sökalternativ för att snabbt hitta vissa data för din aktuella undersökning. Du kan också visa dina data bok märken direkt i **HuntingBookmark** -tabellen i din Log Analytics-arbetsyta. Ett exempel:
+Du kan när som helst gå tillbaka till bok märkes data på fliken **bok märken** i **jakt** fönstret. Du kan använda filtrerings-och sökalternativ för att snabbt hitta vissa data för din aktuella undersökning. Du kan också visa dina data bok märken direkt i **HuntingBookmark** -tabellen i din Log Analytics-arbetsyta. Några exempel:
 
 > [!div class="mx-imgBorder"]
 > ![Visa HuntingBookmark Table](./media/bookmarks/bookmark-table.png)
@@ -34,13 +34,13 @@ Om du hittar något som brådskande måste åtgärdas under för hands versionen
 
 I för hands versionen kan du också visualisera dina data bok märken genom att klicka på **Undersök** från bok märkes information. Detta startar en undersökning i vilken du kan visa, undersöka och visuellt förmedla dina resultat med ett interaktivt diagram och en tids linje.
 
-## <a name="add-a-bookmark"></a>Lägga till ett bokmärke
+## <a name="add-a-bookmark"></a>Lägg till ett bok märke
 
 1. I Azure Portal navigerar du till **kontroll** > **Threat Management** > **jakt** för att köra frågor om misstänkt och avvikande beteende.
 
 2. Välj en av jakt frågorna och till höger, i frågor om jakt, väljer du **Kör fråga**. 
 
-3. Välj **Visa frågeresultat**. Ett exempel:
+3. Välj **Visa frågeresultat**. Några exempel:
     
     > [!div class="mx-imgBorder"]
     > ![Visa frågeresultat från Azure Sentinel-jakten](./media/bookmarks/new-processes-observed-example.png)
@@ -56,7 +56,7 @@ I för hands versionen kan du också visualisera dina data bok märken genom att
 
 6. Till höger, i fönstret **Lägg till bok märke** , kan du också uppdatera bok märkes namnet, lägga till taggar och kommentarer som hjälper dig att identifiera vad som var intressant för objektet.
 
-7. I avsnittet **information om frågor** använder du List rutorna för att extrahera information från frågeresultaten för entitetstyper för **konto**, **värd**och **IP-adress** . Den här åtgärden mappar den valda entitetstypen till en viss kolumn från frågeresultatet. Ett exempel:
+7. I avsnittet **information om frågor** använder du List rutorna för att extrahera information från frågeresultaten för entitetstyper för **konto**, **värd**och **IP-adress** . Den här åtgärden mappar den valda entitetstypen till en viss kolumn från frågeresultatet. Några exempel:
     
     > [!div class="mx-imgBorder"]
     > ![mappar enhets typer för jakt bok märken](./media/bookmarks/map-entity-types-bookmark.png)

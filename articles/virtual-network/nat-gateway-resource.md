@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/20/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 3ae1e3e595e9be9709e8a3d4808100d7f0e48eb8
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 9d9033689472fbc462eefd3d31c2b36a19add81a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526373"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589478"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Utforma virtuella nätverk med NAT-gateway-resurser (offentlig för hands version)
 
@@ -35,9 +35,6 @@ NAT-gateway-resurser ingår i [Virtual Network NAT](nat-overview.md) och tillhan
 
 >[!NOTE] 
 >Virtual Network NAT är tillgängligt som offentlig för hands version för tillfället. För närvarande är det bara tillgängligt i en begränsad uppsättning [regioner](nat-overview.md#region-availability). Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.comsupport/legal/preview-supplemental-terms).
-
-> [!IMPORTANT]
-> När Virtual Network NAT- [förhands granskning har Aktiver ATS](./nat-overview.md#enable-preview) för din prenumeration använder du https://aka.ms/natportal för att få åtkomst till portalen.
 
 ## <a name="how-to-deploy-nat"></a>Så här distribuerar du NAT
 
@@ -356,7 +353,7 @@ Vi vill veta hur vi kan förbättra tjänsten. Dela din [feedback om den offentl
 - Självstudie för att verifiera NAT-gateway
   * [Azure CLI](tutorial-create-validate-nat-gateway-cli.md),
   * [PowerShell](tutorial-create-validate-nat-gateway-cli.md),
-  * [Portal](tutorial-create-validate-nat-gateway-cli.md)
+  * [Portalen](tutorial-create-validate-nat-gateway-cli.md)
 - Snabb start för distribution av en NAT-gateway-resurs
   * [Azure CLI](./quickstart-create-nat-gateway-cli.md),
   * [PowerShell](./quickstart-create-nat-gateway-powershell.md),

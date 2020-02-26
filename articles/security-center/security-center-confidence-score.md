@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: ca2afaa9f4e01ac56657681ce71e32e3c5375fdf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8aa17f473c550c99d91862754e6a746575aca202
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355632"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604380"
 ---
 # <a name="alert-confidence-score-preview"></a>Resultat av aviserings säkerhet (för hands version)
 
@@ -47,14 +47,6 @@ Så här visar du de data som bidragit till Security Center förtroende i en avi
   ![Misstänkt förtroende Poäng][2]
 
 Använd Security Center säkerhets Poäng för att prioritera aviserings prioritering i din miljö. Förtroende poängen sparar tid och ansträngning genom att automatiskt undersöka aviseringar, tillämpa bransch bästa praxis och intelligenta algoritmer och agera som en virtuell analytiker för att avgöra vilka hot som är verkliga och var du behöver fokusera på din uppmärksamhet.
-
-
-## <a name="next-steps"></a>Nästa steg
-Den här artikeln förklaras hur du använder säkerhets poängen för att prioritera aviserings undersökningen. I följande avsnitt kan du lära dig mer om Security Center:
-
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md): Här finns vanliga frågor om tjänsten.
-* [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Här kan du läsa om hur du övervakar dina Azure-resursers hälsa.
-
 
 
 <!--Image references-->

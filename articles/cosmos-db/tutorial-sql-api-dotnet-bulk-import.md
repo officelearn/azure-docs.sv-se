@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 40dd7066d959b56f4554ea9d0390e8b1eb41e77f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896281"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587574"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Mass import av data till Azure Cosmos DB SQL API-konto med hjälp av .NET SDK
 
@@ -27,7 +27,7 @@ Den här självstudiekursen omfattar:
 > * Ansluta till ett Azure Cosmos-konto med Mass stöd aktiverat
 > * Utföra en data import via samtidiga skapande åtgärder
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande resurser innan du följer anvisningarna i den här artikeln:
 
@@ -120,13 +120,13 @@ Vi börjar med att skriva över standard `Main` metoden och definiera globala va
 
 I `Main`-metoden lägger du till följande kod för att initiera CosmosClient-objektet:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=CreateClient)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="CreateClient":::
 
 När Mass körning har Aktiver ATS grupperas CosmosClient internt i enskilda tjänst anrop. På så sätt optimeras data flödes användningen genom att tjänste anropen distribueras mellan partitioner, och slutligen tilldelas individuella resultat till de ursprungliga anroparna.
 
 Du kan sedan skapa en behållare för att lagra alla våra objekt.  Definiera `/pk` som partitionsnyckel, 50000 RU/s som ett tillhandahållet data flöde och en anpassad indexerings princip som kommer att undanta alla fält för att optimera Skriv data flödet. Lägg till följande kod efter CosmosClient-initierings instruktionen:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Initialize)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Initialize":::
 
 ## <a name="step-6-populate-a-list-of-concurrent-tasks"></a>Steg 6: Fyll i en lista över samtidiga aktiviteter
 
@@ -141,22 +141,22 @@ Lägg först till det falsk-paketet i lösningen med kommandot dotNet Lägg till
 
 Definiera definitionen av de objekt som du vill spara. Du måste definiera klassen `Item` i `Program.cs`-filen:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Model)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Model":::
 
 Skapa sedan en hjälp funktion i `Program`-klassen. Den här hjälp funktionen kommer att hämta antalet objekt som du har definierat för att infoga och generera slumpmässiga data:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Bogus)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Bogus":::
 
 Läs objekten och serialisera dem till Stream-instanser med hjälp av klassen `System.Text.Json`. På grund av vilken typ av data som genereras automatiskt serialiseras data som strömmar. Du kan också använda objekt instansen direkt, men genom att konvertera dem till strömmar kan du utnyttja prestanda för Stream-API: er i CosmosClient. Normalt kan du använda data direkt så länge du känner till partitionsnyckel. 
 
 
 För att konvertera data till Stream-instanser, i `Main`-metoden, lägger du till följande kod direkt efter att behållaren har skapats:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Operations)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Operations":::
 
 Använd sedan data strömmar för att skapa samtidiga aktiviteter och fylla i uppgifts listan för att infoga objekten i behållaren. För att utföra den här åtgärden lägger du till följande kod i `Program`-klassen:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=ConcurrentTasks)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="ConcurrentTasks":::
 
 Alla dessa samtidiga punkt åtgärder utförs tillsammans (i bulk) enligt beskrivningen i introduktions avsnittet.
 

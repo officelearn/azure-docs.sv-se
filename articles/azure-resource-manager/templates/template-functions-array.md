@@ -3,12 +3,12 @@ title: Mall-funktioner – matriser och objekt
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med matriser och objekt.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: a38ab0fb2ddb15c3e853ae1b249df9a8364c6910
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 1359951c00ba04e641ae84636459a8836924c729
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207374"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591191"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Matris-och objekt funktioner för Azure Resource Manager mallar
 
@@ -1067,7 +1067,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ## <a name="range"></a>intervall
 
-`range(startingInteger, numberOfElements)`
+`range(startIndex, count)`
 
 Skapar en matris med heltal från ett start-heltal och innehåller ett antal objekt.
 
@@ -1075,8 +1075,8 @@ Skapar en matris med heltal från ett start-heltal och innehåller ett antal obj
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Ja |int |Det första heltalet i matrisen. |
-| numberofElements |Ja |int |Antalet heltal i matrisen. |
+| startIndex |Ja |int |Det första heltalet i matrisen. Summan av start index och Count får inte vara större än 2147483647. |
+| count |Ja |int |Antalet heltal i matrisen. Måste vara ett icke-negativt heltal upp till 10000. |
 
 ### <a name="return-value"></a>Returvärde
 

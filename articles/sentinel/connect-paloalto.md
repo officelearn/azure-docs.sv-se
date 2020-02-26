@@ -3,7 +3,7 @@ title: Anslut Palo-nätverks data till Azure Sentinel | Microsoft Docs
 description: Lär dig hur du ansluter Palo-nätverks data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: a4b21d67-1a72-40ec-bfce-d79a8707b4e1
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: bfdf961906626b485f07ddd29da9b8509dc53cc0
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: a79b7a1448e1decb377aa0072261df068c366567
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610530"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588135"
 ---
 # <a name="connect-palo-alto-networks-to-azure-sentinel"></a>Anslut Palo-nätverk till Azure Sentinel
 

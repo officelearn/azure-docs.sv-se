@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 01/25/2020
-ms.openlocfilehash: ff128d148abb87959894aee94d257ae71a3ca65e
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 02/24/2020
+ms.openlocfilehash: 9236fab332758308ceb8bde1f83a9f3ac8ee6789
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773853"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587591"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
@@ -35,8 +35,8 @@ När du skapar mappnings data flöden kan du Unit testa varje omvandling genom a
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Ökande beräknings storlek i Azure Integration Runtime
 
 En Integration Runtime med fler kärnor ökar antalet noder i beräknings miljöerna för Spark och ger mer processor kraft för att läsa, skriva och transformera dina data.
-* Prova ett **Compute-optimerat** kluster om du vill att din bearbetnings takt ska vara högre än din ingående hastighet
-* Försök med **ett minnesoptimerade** kluster om du vill cachelagra mer data i minnet.
+* Prova ett **Compute-optimerat** kluster om du vill att din bearbetnings takt ska vara högre än din takt.
+* Försök med **ett minnesoptimerade** kluster om du vill cachelagra mer data i minnet. Minnesoptimerade har en högre pris nivå per kärna än beräkning optimerad, men kommer troligen att resultera i snabbare omvandlings hastigheter.
 
 ![Ny IR](media/data-flow/ir-new.png "Ny IR")
 
@@ -73,7 +73,7 @@ Under **käll alternativ** i käll omvandlingen kan följande inställningar på
 
 Om du vill undvika rad-för-rad-bearbetning av dina data flöden ställer du in **batchstorleken** på fliken Inställningar för Azure SQL DB och Azure SQL DW-mottagare. Om batchstorleken anges, bearbetar ADF databas skrivningar i batchar baserat på den storlek som angetts.
 
-![mottagare](media/data-flow/sink4.png "Kanalmottagare")
+![Sjönk](media/data-flow/sink4.png "Kanalmottagare")
 
 ### <a name="partitioning-on-sink"></a>Partitionering på handfat
 
@@ -87,17 +87,24 @@ I din pipeline lägger du till en [lagrad procedur aktivitet](transform-data-usi
 
 Schemalägg en storleks ändring för din källa och mottagar Azure SQL DB och DW innan din pipeline kör för att öka data flödet och minimera Azure-begränsningen när du når DTU-gränser. När din pipeline-körning har slutförts ändrar du storlek på databaserna till normal körnings frekvens.
 
-### <a name="azure-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Endast Azure SQL DW] Använd mellanlagring för att läsa in data i bulk via PolyBase
+* SQL DB-källdokument med 887k-rader och 74-kolumner till en SQL DB-tabell med en enda härledd kolumn-omvandling tar cirka tre minuter från slut punkt till slut punkt med minnesoptimerade 80-Core fel sökning Azure IRs.
+
+### <a name="azure-synapse-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Endast Azure Synapse SQL DW] Använd mellanlagring för att läsa in data i bulk via PolyBase
 
 Om du vill undvika rad-för-rad-infogningar i din DW kontrollerar du **Aktivera mellanlagring** i mottagar inställningarna så att ADF kan använda [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide). PolyBase gör att ADF kan läsa in data i bulk.
 * När du kör data flödes aktiviteten från en pipeline måste du välja en BLOB eller ADLS Gen2 lagrings plats för att mellanlagra dina data under Mass inläsning.
 
+* Fil källan för 421Mb-filen med 74 kolumner till en Synapse-tabell och en enda härledd kolumn-omvandling tar cirka 4 minuter från slut punkt till slut punkt med minnesoptimerade 80-Core-felsökning Azure IRs.
+
 ## <a name="optimizing-for-files"></a>Optimera för filer
 
-Vid varje omvandling kan du ange det partitionerings schema som du vill att Data Factory ska använda på fliken optimera.
+Vid varje omvandling kan du ange det partitionerings schema som du vill att Data Factory ska använda på fliken optimera. Det är en bra idé att först testa filbaserade Sinks och behålla standardpartitionering och optimering.
+
 * För mindre filer kan det hända att du kan välja *en enskild partition* ibland fungerar bättre och snabbare än att be Spark att partitionera dina små filer.
 * Om du inte har tillräckligt med information om dina källdata väljer du *resursallokering* partitionering och anger antalet partitioner.
 * Om dina data innehåller kolumner som kan vara användbara hash-nycklar väljer du *hash-partitionering*.
+
+* Fil källan med filsink för en 421Mb-fil med 74 kolumner och en enda härledd kolumn-omvandling tar cirka 2 minuter från slut punkt till slut punkt med minnesoptimerade 80-Core-felsökning Azure IRs.
 
 Vid fel sökning i data förhands granskning och fel sökning av pipelinen gäller gräns-och samplings storlekarna för filbaserade käll data uppsättningar endast för det antal rader som returneras, inte antalet rader som läses. Detta kan påverka prestandan för dina fel söknings körningar och möjligen orsaka att flödet slutar fungera.
 * Fel söknings kluster är små kluster med en nod som standard och vi rekommenderar att du använder små exempel filer för fel sökning. Gå till fel söknings inställningar och peka på en liten delmängd av dina data med en temporär fil.

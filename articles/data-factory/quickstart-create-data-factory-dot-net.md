@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 71a256b0350742f0e7a7b95519fafff5bc32f58b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a2b775afcd9e603a11b560bb7c42d6cf76be9b34
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928791"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597923"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Snabb start: skapa en data fabrik och pipeline med .NET SDK
 
@@ -48,7 +48,7 @@ Från avsnitten i *How to: Använd portalen för att skapa ett Azure AD-program 
 1. Skapa ett program i [skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)som representerar det .NET-program som du skapar i den här självstudien. För inloggnings-URL kan du ange en låtsas-URL enligt artikeln (`https://contoso.org/exampleapp`).
 2. I [Hämta värden för att logga in](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in), hämtar du **program-ID** och **klient-ID**och noterar de här värdena som du använder senare i den här självstudien. 
 3. I [certifikat och hemligheter](../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets), Hämta **autentiseringsnyckel**och anteckna det här värdet som du använder senare i den här självstudien.
-4. I [tilldela programmet till en roll](../active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role)tilldelar du programmet rollen **deltagare** på prenumerations nivå så att programmet kan skapa data fabriker i prenumerationen.
+4. I [tilldela programmet till en roll](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)tilldelar du programmet rollen **deltagare** på prenumerations nivå så att programmet kan skapa data fabriker i prenumerationen.
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
@@ -61,7 +61,7 @@ Skapa sedan ett C# .net-konsol program i Visual Studio:
 
 ## <a name="install-nuget-packages"></a>Installera NuGet-paket
 
-1. Välj **Verktyg** > **NuGet-pakethanteraren** > **Pakethanterarkonsolen**.
+1. Välj **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**.
 2. I fönstret **Package Manager-konsol** kör du följande kommandon för att installera paket. Mer information finns i [Microsoft. Azure. Management. DataFactory NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```powershell
@@ -256,7 +256,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(pipeline, client.Serialization
 
 ## <a name="create-a-pipeline-run"></a>Skapa en pipelinekörning
 
-Lägg till följande kod i **Main**-metoden för att **utlösa en pipelinekörning**.
+Lägg till följande kod i **Main**-metoden som **utlöser en pipelinekörning**.
 
 Den här koden anger också värden för parametrarna **inputPath** och **outputPath** som anges i pipelinen med de faktiska värdena för käll-och mottagar-BLOB-sökvägar.
 

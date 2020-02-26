@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: bb8cfae73d84135858733899e6441f564106e9d1
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 456f379e2b3c2ff411b196d45aef4663fddb0fe6
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997232"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604340"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Dra tillbaka Security Center funktioner (2019 juli)
 
@@ -105,7 +105,7 @@ Vi har tagit bort knappen **gå till säkerhets händelse mappning** och instrum
 
 När du väljer **mappnings knappen gå till säkerhets händelser** öppnas den (nu drog) instrument panel för hot information.
 
-![Instrumentpanelen för hotinformation][11]
+![Instrumentpanelen Hotinformation][11]
 
 När du väljer en arbets yta för att visa instrument panelen för hot information öppnar du skärmen (nu drog tillbaka) säkerhets aviserings mappning (för hands version) i Log Analytics.
 
@@ -156,7 +156,7 @@ Security Center kan aktivera [integrerade säkerhetslösningar i Azure](https://
 
 - [Nästa generations brand vägg och lösningar för webb program brand väggar](https://docs.microsoft.com/azure/sentinel/connect-data-sources)
 - [Integrering av säkerhetslösningar som stöder common Event format (CEF)](https://docs.microsoft.com/azure/sentinel/connect-common-event-format)
-- [Microsoft Advanced Threat Analytics](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
+- [Microsofts avancerade hotanalys](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/sentinel/connect-azure-ad-identity-protection)
 
 Efter pensionering kan du inte lägga till eller ändra någon av de lösnings typer som anges i föregående lista, antingen från användar gränssnittet eller API: et. Azure Security Center kommer inte längre att upptäcka några nya instanser av dessa partner lösningar.

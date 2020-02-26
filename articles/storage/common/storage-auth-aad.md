@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 2/23/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 820e7187332b02993d3d8bcba9c01958cfbdd61d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b8a42723a9b56665160e660c0ea1451253c3d185
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965821"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588985"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Ge åtkomst till blobbar och köer med hjälp av Azure Active Directory
 
@@ -27,7 +27,7 @@ Auktorisering med Azure AD är tillgängligt för alla generella och Blob Storag
 
 Blob Storage har dessutom stöd för att skapa signaturer för delad åtkomst (SAS) som är signerade med autentiseringsuppgifter för Azure AD. Mer information finns i [ge begränsad åtkomst till data med signaturer för delad åtkomst](storage-sas-overview.md).
 
-Azure Files stöder endast auktorisering med Azure AD över SMB för domänanslutna virtuella datorer. Information om hur du använder Azure AD över SMB för Azure Files finns i [Översikt över Azure Active Directory auktorisering över SMB för Azure Files](../files/storage-files-active-directory-overview.md).
+Azure Files stöder auktorisering med AD (för hands version) eller Azure AD DS (GA) över SMB för domänanslutna virtuella datorer. Information om hur du använder AD (för hands version) eller Azure AD DS (GA) över SMB för Azure Files finns i [översikt Azure Files över stöd för identitetsbaserade autentiseringar för SMB-åtkomst](../files/storage-files-active-directory-overview.md).
 
 Auktorisering med Azure AD stöds inte för Azure Table Storage. Använd delad nyckel för att auktorisera begär anden till Table Storage.
 

@@ -9,27 +9,36 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 11/22/2019
+ms.date: 02/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: e53db645875646b1e021cc0d3d760677e1128c0c
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 11a6a668b1028ba1640ef076606d4aeb4c3aae6e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486384"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589376"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: modell hantering, distribution och övervakning med Azure Machine Learning
 
 I den här artikeln får du lära dig hur du använder Azure Machine Learning för att hantera livs cykeln för dina modeller. Azure Machine Learning använder en metod för Machine Learning åtgärder (MLOps). MLOps förbättrar kvaliteten och konsekvensen för dina Machine Learning-lösningar. 
 
+## <a name="what-is-mlops"></a>Vad är MLOps?
+
+Machine Learning åtgärder (MLOps) baseras på [DevOps](https://azure.microsoft.com/overview/what-is-devops/) principer och metoder som ökar effektiviteten i arbets flöden. Till exempel kontinuerlig integrering, leverans och distribution. MLOps tillämpar dessa huvud objekt i Machine Learning-processen, med målet att:
+
+* Snabbare experimentering och utveckling av modeller
+* Snabbare distribution av modeller till produktion
+* Kvalitets garanti
+
 Azure Machine Learning tillhandahåller följande MLOps-funktioner:
 
-- **Skapa reproducerade ml-pipeliner**. Med pipelines kan du definiera upprepnings bara och återanvändbara steg för bearbetning av data, utbildning och poäng.
-- **Registrera, paketera och distribuera modeller var som helst** och spåra associerade metadata som krävs för att använda modellen.
-- **Fånga de styrnings data som krävs för att samla in den slutliga ml-livs cykeln**, inklusive vem som publicerar modeller, varför ändringar görs och när modeller har distribuerats eller använts i produktionen.
-- **Meddela och Avisera händelser i ml-livscykel** , t. ex. experimentering, modell registrering, modell distribution och data avkänning.
+- **Skapa reproducerade ml-pipeliner**. Med Machine Learning pipelines kan du definiera upprepnings bara och återanvändbara steg för förberedelse av data, utbildnings-och bedömnings processer.
+- **Skapa åter användnings bara program miljöer** för utbildning och distribution av modeller.
+- **Registrera, paketera och distribuera modeller var som helst**. Du kan också spåra associerade metadata som krävs för att använda modellen.
+- **Fånga in styrnings data för slut punkt till slut punkt i ml-livscykeln**. Den loggade informationen kan inkludera vem som publicerar modeller, varför ändringar gjorts och när modeller distribuerades eller användes i produktionen.
+- **Meddela och Avisera händelser i ml-livscykel**. Till exempel experimentering, modell registrering, modell distribution och data avkänning.
 - **Övervaka ml-program för operativa och ml-relaterade problem**. Jämför modell inmatningar mellan utbildning och härledning, utforska modellbaserade mått och tillhandahålla övervakning och aviseringar på din ML-infrastruktur.
-- **Automatisera den slutliga ml-livscykeln med Azure Machine Learning och Azure-DevOps** för att ofta uppdatera modeller, testa nya modeller och kontinuerligt distribuera nya ml-modeller tillsammans med andra program och tjänster.
+- **Automatisera livs cykeln från slut punkt till slut punkt med Azure Machine Learning och Azure-pipeliner**. Med hjälp av pipeliner kan du ofta uppdatera modeller, testa nya modeller och kontinuerligt distribuera nya ML-modeller tillsammans med andra program och tjänster.
 
 ## <a name="create-reproducible-ml-pipelines"></a>Skapa reproducerade ML-pipeliner
 
@@ -38,6 +47,12 @@ Använd ML-pipelines från Azure Machine Learning för att sammanfoga alla steg 
 En ML-pipeline kan innehålla steg från förberedelse av data till funktions extrahering för att justera en modell utvärdering. Mer information finns i [ml pipelines](concept-ml-pipelines.md).
 
 Om du använder [designern](concept-designer.md) för att skapa en ml-pipeline kan du när som helst klicka på **"..."** längst upp till höger på design sidan och sedan välja **klona**. Genom att klona din pipeline kan du iterera din pipeline-design utan att förlora dina gamla versioner.  
+
+## <a name="create-reusable-software-environments"></a>Skapa åter användnings bara program miljöer
+
+Med Azure Machine Learning miljöer kan du spåra och återskapa dina projekts program varu beroenden när de utvecklas. Med miljöer kan du se till att build-versioner kan reproduceras utan manuella program varu konfigurationer.
+
+Miljöer beskriver pip-och Conda-beroenden för dina projekt och kan användas för både utbildning och distribution av modeller. Mer information finns i [Vad är Azure Machine Learning miljöer](concept-environments.md).
 
 ## <a name="register-package-and-deploy-models-from-anywhere"></a>Registrera, paketera och distribuera modeller var som helst
 
@@ -82,7 +97,7 @@ När du använder en modell som en webb tjänst eller IoT Edge enhet kan du ange
 
 * Den eller de modeller som används för att räkna upp data som skickas till tjänsten/enheten.
 * Ett Entry-skript. Det här skriptet accepterar begär Anden, använder modeller för att räkna data och returnera ett svar.
-* En Conda miljö fil som beskriver de beroenden som krävs av modell (er) och registrerings skriptet.
+* En Azure Machine Learning miljö som beskriver pip-och Conda-beroenden som krävs av modell (er) och Entry-skript.
 * Ytterligare till gångar, till exempel text, data osv. som krävs av modell (er) och registrerings skript.
 
 Du anger också konfigurationen för mål distributions plattformen. Till exempel typ av VM-familj, tillgängligt minne och antal kärnor vid distribution till Azure Kubernetes-tjänsten.
@@ -124,7 +139,7 @@ Azure ML ger dig möjlighet att spåra gransknings historiken från slut punkt t
 
 - Azure ML [integreras med git](how-to-set-up-training-targets.md#gitintegration) för att spåra information om vilken lagrings plats/Branch/bekräfta din kod kommer från.
 - Med [Azure ml-datauppsättningar](how-to-create-register-datasets.md) kan du spåra, profilera och versions data. 
-- I Azure ML-körnings historik lagras en ögonblicks bild av koden, data och beräkningen som används för att träna en modell.
+- I Azure ML-körnings historik lagras en ögonblicks bild av koden, data och beräkningarna som används för att träna en modell.
 - Azure ML Model-registret fångar alla metadata som är associerade med din modell (vilket experiment tränade den, där den distribueras, om distributionerna är felfria).
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Meddela, automatisera och Avisera händelser i ML-livscykel
@@ -162,6 +177,8 @@ Med [Azure Machine Learning-tillägget](https://marketplace.visualstudio.com/ite
 * Gör att lanserings pipelines kan utlösas av utbildade modeller som skapats i en utbildnings pipeline.
 
 Mer information om hur du använder Azure-pipeliner med Azure Machine Learning finns i artikeln [kontinuerlig integrering och distribution av ml-modeller med Azure pipelines](/azure/devops/pipelines/targets/azure-machine-learning) och [Azure Machine Learning MLOps](https://aka.ms/mlops) -lagringsplatsen.
+
+Du kan också använda Azure Data Factory för att skapa en pipeline för data inmatning som förbereder data för användning med träning. Mer information finns i [pipeline för data inmatning](how-to-cicd-data-ingestion.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

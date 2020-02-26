@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2019
 ms.author: memildin
-ms.openlocfilehash: 1a66ea200082f60a3a763c6a4e2bdea62ec473d8
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 15029c3e0bd3959000786af484a42691f00bb704
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920987"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603560"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Ange säkerhets kontakt uppgifter i Azure Security Center
-Azure Security Center rekommenderar att du anger säkerhets kontakt information för din Azure-prenumeration om du inte redan har gjort det. Den här informationen används av Microsoft för att kontakta dig om Microsoft Security Response Center (MRSC) upptäcker att en obehörig part har kommit åt dina kunddata. MSRC utför utvald säkerhetsövervakning av Azure-nätverket och infrastrukturen och tar emot hotinformation samt klagomål om missbruk från tredje part.
+Azure Security Center rekommenderar att du anger säkerhets kontakt information för din Azure-prenumeration om du inte redan har gjort det. Den här informationen används av Microsoft för att kontakta dig om Microsoft Security Response Center (MRSC) upptäcker att en obehörig part har kommit åt dina kunddata. MSRC utför en urvals säkerhets övervakning av Azure-nätverket och-infrastrukturen och tar emot Hot information och klagomål från missbruk från tredje part.
 
 Ett e-postmeddelande skickas på den första dagliga förekomsten av en avisering och endast för varningar med hög angelägenhetsgrad. E-postinställningar kan bara konfigureras för prenumerationsprinciper. Resursgrupper inom en prenumeration ärver inställningarna. Aviseringar är bara tillgängliga på standard-nivån för Azure Security Center.
 
@@ -40,7 +40,7 @@ Till exempel om ett e-postmeddelande redan har skickats för att meddela dig om 
 
 1. Välj **pris & inställningar**i portalen.
 1. Klicka på prenumerationen.
-1. Klicka på **E-postmeddelanden**.
+1. Klicka på **e-postaviseringar**.
 
 > [!NOTE]
 > Om du implementerar en rekommendation väljer du **Ange säkerhets kontakt information**under **rekommendationer**, väljer den Azure-prenumeration som du vill ge kontakt information på. Detta öppnar **e-postaviseringar**.
@@ -53,7 +53,7 @@ Till exempel om ett e-postmeddelande redan har skickats för att meddela dig om 
    * Du har möjlighet att skicka e-postmeddelanden till prenumerations ägare (klassisk tjänst administratör och medadministratörer, plus rollen RBAC-ägare i prenumerations omfånget).
    * Välj **Spara** om du vill använda säkerhets kontakt informationen för din prenumeration.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 I följande avsnitt kan du lära dig mer om Security Center:
 
 * [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
@@ -61,8 +61,6 @@ I följande avsnitt kan du lära dig mer om Security Center:
 * [Övervakning av säkerhets hälsa i Azure Security Center](security-center-monitoring.md) – lär dig hur du övervakar Azure-resursernas hälsa.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Här får du lära dig hur övervakar dina partnerlösningars hälsostatus.
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhets blogg](https://blogs.msdn.com/b/azuresecurity/) – hämta de senaste nyheterna och informationen om Azure-säkerhet.
 
 <!--Image references-->
 [1]: ./media/security-center-provide-security-contacts/provide-contacts.png

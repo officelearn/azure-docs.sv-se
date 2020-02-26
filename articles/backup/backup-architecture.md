@@ -3,12 +3,12 @@ title: Arkitektur översikt
 description: Innehåller en översikt över arkitekturen, komponenterna och processerna som används av Azure Backups tjänsten.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: f311f6d49a776a49080675f3c1ccc28a7a27cb92
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: b093c6702bb26fe537622727fe1b623141bf4160
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963945"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584395"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup arkitektur och komponenter
 
@@ -57,7 +57,7 @@ Azure Backup tillhandahåller olika säkerhets kopierings agenter, beroende på 
 **MARS-agent** | <ul><li>Körs på enskilda lokala Windows Server-datorer för att säkerhetskopiera filer, mappar och system tillstånd.</li> <li>Körs på virtuella Azure-datorer för att säkerhetskopiera filer, mappar och system tillstånd.</li> <li>Körs på DPM/MABS-servrar för att säkerhetskopiera den lokala lagrings disken för DPM/MABS till Azure.</li></ul>
 **Azure VM-tillägg** | Körs på virtuella Azure-datorer för att säkerhetskopiera dem till ett valv.
 
-## <a name="backup-types"></a>Säkerhets kopierings typer
+## <a name="backup-types"></a>Typer av säkerhetskopiering
 
 I följande tabell förklaras de olika typerna av säkerhets kopieringar och när de används:
 
@@ -135,7 +135,7 @@ Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast 
     - Ögonblicks bild data kan inte kopieras direkt till valvet. Vid hög belastnings tider kan säkerhets kopieringen ta några timmar. Den totala säkerhets kopierings tiden för en virtuell dator kommer att vara mindre än 24 timmar för dagliga säkerhets kopierings principer.
 1. När data har skickats till valvet skapas en återställnings punkt. Som standard behålls ögonblicks bilder i två dagar innan de tas bort. Den här funktionen tillåter återställnings åtgärder från dessa ögonblicks bilder, vilket minskar återställnings tiderna. Det minskar den tid som krävs för att transformera och kopiera data tillbaka från valvet. Se [Azure Backup omedelbar återställnings funktion](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
 
-Virtuella Azure-datorer behöver Internet åtkomst för kontroll kommandon. Om du säkerhetskopierar arbets belastningar i den virtuella datorn (t. ex. SQL Server databas säkerhets kopior) behöver backend-data även Internet åtkomst.
+Du behöver inte uttryckligen tillåta Internet anslutning att säkerhetskopiera virtuella Azure-datorer.
 
 ![Säkerhets kopiering av virtuella Azure-datorer](./media/backup-architecture/architecture-azure-vm.png)
 

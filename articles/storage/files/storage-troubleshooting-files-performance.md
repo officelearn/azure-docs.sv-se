@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 00187051eec27ee7b6b2d4927510a2ab9dee442e
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 09e55abcd97317b87f8a272afa51c6b4ace572e8
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708265"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598093"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Felsöka Azure Files prestanda problem
 
@@ -22,7 +22,7 @@ Den här artikeln innehåller några vanliga problem som rör Azure-filresurser.
 
 ### <a name="cause-1-share-experiencing-throttling"></a>Orsak 1: resurs begränsning
 
-Standard kvoten på en Premium-resurs är 100 GiB, vilket ger 100 bas linje IOPS (med möjlighet att överföra upp till 300 per timme). Mer information om etablering och dess relation till IOPS finns i avsnittet [etablerade resurser](storage-files-planning.md#provisioned-shares) i planerings guiden.
+Standard kvoten på en Premium-resurs är 100 GiB, vilket ger 100 bas linje IOPS (med möjlighet att överföra upp till 300 per timme). Mer information om etablering och dess relation till IOPS finns i avsnittet [etablerade resurser](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) i planerings guiden.
 
 Du kan använda Azures mått i portalen för att kontrol lera om din resurs är begränsad.
 
@@ -102,7 +102,7 @@ Detta är ett känt problem med implementeringen av SMB-klienten på Linux.
 
 - Sprida belastningen över flera virtuella datorer.
 - Använd flera monterings punkter med alternativet **nosharesock** på samma virtuella dator och sprid belastningen över dessa monterings punkter.
-- På Linux kan du prova att montera med alternativet **nostrictsync** för att undvika att framtvinga SMB-tömning på varje fsync-anrop. För Azure Files stör inte det här alternativet data consistentcy, men kan resultera i inaktuella fil-metadata på katalog listan (**ls-l-** kommando). Om du direkt frågar efter metadata för filen (**stat** -kommandot) returneras de senaste metadata som är aktuella för filen.
+- På Linux kan du prova att montera med alternativet **nostrictsync** för att undvika att framtvinga SMB-tömning på varje **fsync** -anrop. För Azure Files stör inte det här alternativet data konsekvens, men kan resultera i inaktuella fil-metadata på katalog listan (**ls-l-** kommando). Om du direkt frågar efter metadata för filen (**stat** -kommandot) returneras de senaste metadata som är aktuella för filen.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Hög latens för Metadatas tungt arbets belastningar som involverar omfattande öppna/stäng-åtgärder.
 
@@ -160,7 +160,7 @@ Arbets belastningar som förlitar sig på att skapa ett stort antal filer kommer
 
 ### <a name="workaround"></a>Lösning
 
-- Inget.
+- Ingen.
 
 ## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Långsamma prestanda från Windows 8,1 eller Server 2012 R2
 
@@ -194,7 +194,7 @@ Högre än förväntad fördröjning vid åtkomst till Azure Files för i/o-inte
   > [!NOTE]
   > Om fil resursen är en standard fil resurs är List rutan dimensions värden tom eftersom det inte finns några mått per delnings statistik för standard fil resurser. Begränsnings varningar för standard fil resurser utlöses om någon fil resurs på lagrings kontot är begränsad och aviseringen inte kommer att identifiera vilken fil resurs som har begränsats. Eftersom per resurs-mått inte är tillgängliga för standard fil resurser, är rekommendationen att ha en fil resurs per lagrings konto. 
 
-8. Definiera **aviserings parametrar** (tröskelvärde, Operator, aggregration granularitet och frekvens) som används för att utvärdera måttet för mått och klicka på **Slutför**.
+8. Definiera **aviserings parametrar** (tröskelvärde, Operator, sammansättnings precision och frekvens) som används för att utvärdera varnings regeln för mått och klicka på **Slutför**.
 
   > [!TIP]
   > Om du använder ett statiskt tröskelvärde kan mått diagrammet hjälpa till att fastställa ett rimligt tröskelvärde om fil resursen för närvarande begränsas. Om du använder ett dynamiskt tröskelvärde visar mått diagrammet de beräknade tröskelvärdena baserat på aktuella data.

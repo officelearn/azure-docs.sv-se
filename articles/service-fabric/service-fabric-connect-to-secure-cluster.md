@@ -3,14 +3,14 @@ title: Ansluta säkert till ett Azure Service Fabric-kluster
 description: Beskriver hur du autentiserar klient åtkomst till ett Service Fabric kluster och hur du skyddar kommunikationen mellan klienter och ett kluster.
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 89d9f67ba1a202b3830df7a5b960c6ef01091bf2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a1f4abbabe428a09492efefca4a8da9801b9f68d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458265"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587064"
 ---
-# <a name="connect-to-a-secure-cluster"></a>Anslut till ett säkert kluster
+# <a name="connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster
 
 När en klient ansluter till en Service Fabric klusternod kan klienten autentiseras och säkra kommunikationen som etableras med hjälp av certifikat säkerhet eller Azure Active Directory (AAD). Den här autentiseringen säkerställer att endast behöriga användare kan komma åt klustret och distribuerade program och utföra hanterings uppgifter.  Certifikat-eller AAD-säkerhet måste ha Aktiver ATS tidigare på klustret när klustret skapades.  Mer information om kluster säkerhets scenarier finns i [kluster säkerhet](service-fabric-cluster-security.md). Om du ansluter till ett kluster som är skyddat med certifikat [konfigurerar du klient certifikatet](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) på den dator som ansluter till klustret. 
 
@@ -24,15 +24,15 @@ Du kan ansluta till ett kluster med hjälp av kommandot `sfctl cluster select`.
 
 Klient certifikat kan anges på två olika sätt, antingen som ett certifikat och nyckel par, eller som en enda PFX-fil. För lösenordsskyddade PEM-filer uppmanas du att ange lösen ordet automatiskt. Om du har fått klient certifikatet som en PFX-fil måste du först konvertera PFX-filen till en PEM-fil med hjälp av följande kommando. 
 
-```bash
+```shell
 openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
 ```
 
 Om PFX-filen inte är lösenordsskyddad använder du-Passin pass: för den sista parametern.
 
-Om du vill ange klient certifikatet som en PEM-fil anger du fil Sök vägen i argumentet `--pem`. Ett exempel:
+Om du vill ange klient certifikatet som en PEM-fil anger du fil Sök vägen i argumentet `--pem`. Några exempel:
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
@@ -40,22 +40,22 @@ Lösenordsskyddade PEM-filer kommer att uppmanas att ange lösen ord innan komma
 
 Om du vill ange ett certifikat använder nyckel paret `--cert` och `--key` argument för att ange sökvägar till varje respektive fil.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Ibland kan certifikat som används för att skydda test-eller dev-kluster inte verifiera certifikat. Om du vill kringgå certifikat verifieringen anger du alternativet `--no-verify`. Ett exempel:
+Ibland kan certifikat som används för att skydda test-eller dev-kluster inte verifiera certifikat. Om du vill kringgå certifikat verifieringen anger du alternativet `--no-verify`. Några exempel:
 
 > [!WARNING]
 > Använd inte alternativet `no-verify` när du ansluter till produktions Service Fabric kluster.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-Dessutom kan du ange sökvägar till kataloger för betrodda CA-certifikat eller enskilda certifikat. Använd argumentet `--ca` om du vill ange dessa sökvägar. Ett exempel:
+Dessutom kan du ange sökvägar till kataloger för betrodda CA-certifikat eller enskilda certifikat. Använd argumentet `--ca` om du vill ange dessa sökvägar. Några exempel:
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
 ```
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4046aac5e8362bf315eca11d9cd96a6e862e2c55
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 5c5a8bc06c676121c20f6e1f83a26dd9343e6847
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034612"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605518"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Självstudier: Övervaka virtuella Linux-datorer i Azure Security Center
 
@@ -134,5 +134,5 @@ I den här självstudiekursen har du konfigurerat Azure Security Center och gran
 Gå vidare till nästa självstudiekurs om vill veta mer om hur du skapar en CI/CD-pipeline med Jenkins, GitHub och Docker.
 
 > [!div class="nextstepaction"]
-> [Skapa CI/CD-infrastruktur med Jenkins, GitHub och Docker](tutorial-jenkins-github-docker-cicd.md)
+> [Skapa CI/CD-infrastruktur med Jenkins, GitHub och Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
 

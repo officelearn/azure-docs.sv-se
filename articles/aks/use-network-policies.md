@@ -2,17 +2,14 @@
 title: Skydda poddar med nätverks principer i Azure Kubernetes service (AKS)
 description: Lär dig hur du skyddar trafik som flödar in och ut ur poddar med Kubernetes-nätverks principer i Azure Kubernetes service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: mlearned
-ms.openlocfilehash: 350e553563aa152c61c922727fb87937bedd14b5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 92e726529f2c81b169dc5ad485148ad8118bbc81
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928501"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592874"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Skydda trafik mellan poddar med hjälp av nätverks principer i Azure Kubernetes service (AKS)
 
@@ -52,12 +49,12 @@ Båda implementeringarna använder Linux- *program varan iptables* för att geno
 
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Skillnader mellan Azure och Calico-principer och deras funktioner
 
-| Kapacitet                               | Azure                      | Calico                      |
+| Funktion                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
 | Plattformar som stöds                      | Linux                      | Linux                       |
-| Nätverks alternativ som stöds             | Azure-CNI                  | Azure-CNI och Kubernetes       |
+| Nätverks alternativ som stöds             | Azure CNI                  | Azure-CNI och Kubernetes       |
 | Efterlevnad med Kubernetes-specifikation | Alla princip typer som stöds |  Alla princip typer som stöds |
-| Ytterligare funktioner                      | Inget                       | Utökad princip modell bestående av global nätverks princip, global nätverks uppsättning och värd slut punkt. Mer information om hur du använder `calicoctl` CLI för att hantera dessa utökade funktioner finns i [calicoctl User Reference][calicoctl]. |
+| Ytterligare funktioner                      | Ingen                       | Utökad princip modell bestående av global nätverks princip, global nätverks uppsättning och värd slut punkt. Mer information om hur du använder `calicoctl` CLI för att hantera dessa utökade funktioner finns i [calicoctl User Reference][calicoctl]. |
 | Support                                  | Stöds av support-och teknik teamet för Azure | Calico community-support. Mer information om ytterligare avgiftsbelagd support finns i [Support alternativ för Project Calico][calico-support]. |
 | Loggning                                  | Regler som läggs till/tas bort i program varan iptables loggas på varje värd under */var/log/Azure-NPM.log* | Mer information finns i [Calico-komponent loggar][calico-logs] |
 
@@ -83,9 +80,9 @@ Följande exempel skript:
 * Skapar ett tjänst huvud namn för Azure Active Directory (Azure AD) för användning med AKS-klustret.
 * Tilldelar *deltagar* behörighet för AKS-kluster tjänstens huvud namn i det virtuella nätverket.
 * Skapar ett AKS-kluster i det definierade virtuella nätverket och aktiverar nätverks principen.
-    * Alternativet *Azure* Network Policy används. Använd parametern `--network-policy calico` om du vill använda Calico som alternativ för nätverks principer i stället. Obs: Calico kan användas med antingen `--network-plugin azure` eller `--network-plugin kubenet`.
+    * Alternativet *Azure* Network Policy används. Om du vill använda Calico som nätverks princip alternativ använder du parametern `--network-policy calico`. Obs: Calico kan användas med antingen `--network-plugin azure` eller `--network-plugin kubenet`.
 
-Ange en egen säker *SP_PASSWORD*. Du kan ersätta variablerna *RESOURCE_GROUP_NAME* och *CLUSTER_NAME* :
+Ange dina egna säkra *SP_PASSWORD*. Du kan ersätta *RESOURCE_GROUP_NAME* och *CLUSTER_NAME* variabler:
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup-NP
@@ -138,7 +135,7 @@ az aks create \
     --network-policy azure
 ```
 
-Det tar några minuter att skapa klustret. När klustret är klart konfigurerar du `kubectl` för att ansluta till ditt Kubernetes-kluster med hjälp av kommandot [AZ AKS get-credentials][az-aks-get-credentials] . Detta kommando hämtar autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem:
+Det tar några minuter att skapa klustret. När klustret är klart konfigurerar du `kubectl` att ansluta till ditt Kubernetes-kluster med hjälp av kommandot [AZ AKS get-credentials][az-aks-get-credentials] . Detta kommando hämtar autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -277,7 +274,7 @@ Schemalägg en pod som är märkt som *app = webapp, Role = frontend* och koppla
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-I Shell-prompten använder du `wget` för att se om du kan komma åt standard webb sidan för NGINX:
+I Shell-prompten använder `wget` för att se om du kan komma åt standard webb sidan för NGINX:
 
 ```console
 wget -qO- http://backend
@@ -402,7 +399,7 @@ Schemalägg en annan Pod i *produktions* namn rymden och koppla en terminalserve
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-I Shell-prompten använder du `wget` för att se att nätverks principen nu nekar trafik:
+I Shell-prompten använder `wget` för att se att nätverks principen nu nekar trafik:
 
 ```console
 $ wget -qO- --timeout=2 http://backend.development
@@ -422,7 +419,7 @@ När trafik nekas från namn området för *produktion* , Schemalägg en test-Po
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-I Shell-prompten använder du `wget` för att se att nätverks principen tillåter trafiken:
+I Shell-prompten använder `wget` för att se att nätverks principen tillåter trafiken:
 
 ```console
 wget -qO- http://backend

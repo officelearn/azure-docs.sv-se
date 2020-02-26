@@ -3,18 +3,18 @@ title: Om Säkerhetskopiering av virtuella Azure-datorer
 description: I den här artikeln lär du dig hur tjänsten Azure Backup säkerhetskopierar virtuella Azure-datorer och hur du följer bästa praxis.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: b38c61adaf334eacb7d85292d4174189d6fddc46
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8ffbf0d0164cbf6f085518d57566b0befde6e124
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75391902"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597260"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>En översikt över säkerhets kopiering av virtuella Azure-datorer
 
 Den här artikeln beskriver hur [tjänsten Azure Backup](backup-introduction-to-azure-backup.md) säkerhetskopierar virtuella datorer i Azure.
 
-## <a name="backup-process"></a>Säkerhetskopieringsprocessen
+## <a name="backup-process"></a>Säkerhets kopierings process
 
 Så här gör Azure Backup slutföra en säkerhets kopiering för virtuella Azure-datorer:
 
@@ -58,12 +58,7 @@ BEKs säkerhets kopie ras också. Så om BEKs förloras kan behöriga användare
 
 Azure Backup tar ögonblicks bilder enligt schema för säkerhets kopiering.
 
-- **Virtuella Windows-datorer:** För virtuella Windows-datorer koordineras tjänsten för säkerhets kopiering med VSS för att ta en programkonsekvent ögonblicks bild av de virtuella dator diskarna.
-
-  - Som standard tar Azure Backup fullständiga VSS-säkerhetskopieringar. [Läs mer](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
-  - Om du vill ändra inställningen så att Azure Backup tar säkerhets kopior av VSS-kopiering anger du följande register nyckel från en kommando tolk:
-
-    **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent"/v USEVSSCOPYBACKUP/t REG_SZ/d TRUE/f**
+- **Virtuella Windows-datorer:** För virtuella Windows-datorer koordineras tjänsten för säkerhets kopiering med VSS för att ta en programkonsekvent ögonblicks bild av de virtuella dator diskarna.  Azure Backup tar som standard en fullständig VSS-säkerhetskopiering (den trunkerar loggarna för programmet som SQL Server vid tidpunkten för säkerhets kopieringen för att få en konsekvent säkerhets kopiering på program nivå).  Om du använder en SQL Server-databas på Azure VM Backup kan du ändra inställningen för att göra en säkerhets kopia av VSS (för att bevara loggar). Mer information finns i [den här artikeln](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#troubleshoot-vm-snapshot-issues).
 
 - **Virtuella Linux-datorer:** Om du vill göra programkonsekventa ögonblicks bilder av virtuella Linux-datorer använder du ramverket för för skript och efter skript för att skriva egna anpassade skript för att säkerställa konsekvens.
 
@@ -86,7 +81,7 @@ I följande tabell förklaras de olika typerna av ögonblicks bilds konsekvens:
 **Övervägande** | **Detaljer**
 --- | ---
 **Disk** | Säkerhets kopiering av virtuella dator diskar är parallell. Om till exempel en virtuell dator har fyra diskar, försöker säkerhets kopierings tjänsten säkerhetskopiera alla fyra diskarna parallellt. Backup är stegvis (endast ändrade data).
-**Schemaläggning** |  Du kan minska säkerhets kopierings trafiken genom att säkerhetskopiera olika virtuella datorer vid olika tidpunkter på dagen och se till att tiderna inte överlappar varandra. När du säkerhetskopierar virtuella datorer samtidigt orsakar det att trafiken fastnar.
+**Tids** |  Du kan minska säkerhets kopierings trafiken genom att säkerhetskopiera olika virtuella datorer vid olika tidpunkter på dagen och se till att tiderna inte överlappar varandra. När du säkerhetskopierar virtuella datorer samtidigt orsakar det att trafiken fastnar.
 **Förbereder säkerhets kopiering** | Tänk på den tid som krävs för att förbereda säkerhets kopieringen. Förberedelse tiden omfattar att installera eller uppdatera säkerhets kopierings tillägget och utlösa en ögonblicks bild enligt schemat för säkerhets kopieringen.
 **Dataöverföring** | Ta reda på hur lång tid det tar för Azure Backup att identifiera de stegvisa ändringarna från den tidigare säkerhets kopian.<br/><br/> I en stegvis säkerhets kopia bestämmer Azure Backup ändringarna genom att beräkna blockets kontroll summa. Om ett block ändras är det markerat för överföring till valvet. Tjänsten analyserar de identifierade blocken för att försöka ytterligare minimera mängden data som ska överföras. När du har utvärderat alla ändrade block överför Azure Backup ändringarna till valvet.<br/><br/> Det kan finnas en fördröjning mellan att ta ögonblicks bilden och kopiera den till valvet.<br/><br/> Vid hög belastnings tider kan det ta upp till åtta timmar innan säkerhets kopieringarna bearbetas. Säkerhets kopierings tiden för en virtuell dator kommer att vara mindre än 24 timmar för den dagliga säkerhets kopieringen.
 **Första säkerhets kopiering** | Även om den totala säkerhets kopierings tiden för stegvisa säkerhets kopieringar är mindre än 24 timmar, kan det hända att det inte är fallet för den första säkerhets kopieringen. Tiden som krävs för den första säkerhets kopieringen beror på storleken på data och när säkerhets kopieringen bearbetas.
@@ -102,7 +97,7 @@ Dessa vanliga scenarier kan påverka den totala säkerhets kopierings tiden:
 - **Disk omsättning:** Om skyddade diskar som genomgår en stegvis säkerhets kopiering har en daglig omsättning på över 200 GB, kan säkerhets kopieringen ta lång tid (mer än åtta timmar) att slutföra.
 - **Säkerhets kopierings versioner:** Den senaste versionen av backup (kallas snabb återställnings version) använder en mer optimerad process än jämförelse av kontroll summa för att identifiera ändringar. Men om du använder omedelbar återställning och har tagit bort en ögonblicks bild av säkerhets kopia växlar säkerhets kopian till jämförelse av kontroll summa. I det här fallet kommer säkerhets kopieringen att överskrida 24 timmar (eller misslyckande).
 
-## <a name="best-practices"></a>Bästa metoder
+## <a name="best-practices"></a>Bästa praxis
 
 När du konfigurerar VM-säkerhetskopieringar föreslår vi följande metoder:
 
@@ -129,7 +124,7 @@ Ta till exempel en a2-standard virtuell dator som har två ytterligare data disk
 --- | --- | ---
 OS-disk | 32 TB | 17 GB
 Lokal/tillfällig disk | 135 GB | 5 GB (ingår inte i säkerhets kopian)
-Datadisk 1 | 32 TB| 30 GB
+Data disk 1 | 32 TB| 30 GB
 Data disk 2 | 32 TB | 0 GB
 
 Den faktiska storleken på den virtuella datorn i det här fallet är 17 GB + 30 GB + 0 GB = 47 GB. Den här skyddade instans storleken (47 GB) utgör grunden för månads fakturan. När mängden data i den virtuella datorn växer ökar den skyddade instans storleken som används för fakturerings ändringar som ska matchas.

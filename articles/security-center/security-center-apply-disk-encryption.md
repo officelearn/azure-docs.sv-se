@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: aa4e8f165320327788255605470bda789047c347
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d0f96fe758966a435f8fb8e448e75cbb18b85122
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592501"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604520"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Använd disk kryptering i Azure Security Center
 Azure Security Center rekommenderar att du använder disk kryptering om du har virtuella Windows-eller Linux-diskar som inte är krypterade med Azure Disk Encryption. Med disk kryptering kan du kryptera dina virtuella Windows-och Linux IaaS-diskar.  Kryptering rekommenderas både för OS- och datavolymer på den virtuella datorn.
@@ -47,7 +47,7 @@ För att kryptera Azure-Virtual Machines som har identifierats av Security Cente
 
 Det finns många metoder som kan användas för Azure Virtual Machines. Om du redan känner till Azure PowerShell eller Azure CLI väl kanske du hellre vill använda alternativa metoder. Läs mer om de här andra metoderna i [Azure Disk Encryption](../security/fundamentals/encryption-overview.md).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 Det här dokumentet visar hur du implementerar Security Center rekommendation "Använd disk kryptering". Mer information om disk kryptering finns i följande avsnitt:
 
 * [Kryptering och nyckel hantering med Azure Key Vault](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (video, 36 min 39 SEK)--Lär dig hur du använder disk kryptering för virtuella datorer och Azure Key Vault för att skydda dina data.
@@ -59,7 +59,6 @@ I följande avsnitt kan du lära dig mer om Security Center:
 * [Övervakning av säkerhets hälsa i Azure Security Center](security-center-monitoring.md) – lär dig hur du övervakar Azure-resursernas hälsa.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Hantera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md) – lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
 * [Azures säkerhets blogg](https://blogs.msdn.com/b/azuresecurity/) – hitta blogg inlägg om säkerhet och efterlevnad i Azure.
 
 <!--Image references-->

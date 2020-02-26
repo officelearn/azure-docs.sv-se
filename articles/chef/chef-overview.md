@@ -2,14 +2,14 @@
 title: Använda chef med Azure
 description: Introduktion till att använda chef för att konfigurera och testa din Azure-infrastruktur
 keywords: Azure, chef, DevOps, virtuella datorer, översikt, automatisera
-ms.date: 05/15/2018
+ms.date: 02/22/2020
 ms.topic: article
-ms.openlocfilehash: 4ad8b79b42c9d8d7942f391223c052f63579b11b
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: c22faa69bf8f42111d328a9c156dc1a2432731b2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158005"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586350"
 ---
 # <a name="using-chef-with-azure"></a>Använda chef med Azure
 [Chef](https://www.chef.io) är en kraftfull Automation-plattform som transformerar infrastrukturen för virtuella datorer på Azure till kod. Chef automatiserar hur infrastrukturen konfigureras, distribueras och hanteras i nätverket, oavsett storlek.
@@ -17,7 +17,7 @@ ms.locfileid: "74158005"
 I den här artikeln beskrivs fördelarna med att använda chef för att hantera Azure-infrastruktur.
 
 ## <a name="chef-extension-on-azure"></a>Chefs tillägg på Azure
-Etablera en virtuell dator med chef-klienten som körs som en bakgrunds tjänst med [chefs tillägget](https://docs.microsoft.com/azure/chef/chef-extension-portal) på Azure-portalen. När de har allokerats är de här virtuella datorerna klara att hanteras av en chefs Server.
+Etablera en virtuell dator med chef-klienten som körs som en bakgrunds tjänst med [chefs tillägget](https://docs.microsoft.com/azure/chef/chef-extension-portal) på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040). När de har allokerats är de här virtuella datorerna klara att hanteras av en chefs Server.
 
 ## <a name="chef-cloud-shell"></a>Chefs Cloud Shell
 Använd chefs arbets station direkt i Azure Cloud Shell! Kör alla chefs verktyg och INSPEC direkt från Cloud Shell. Du kan använda chefs kommandon från:
@@ -27,8 +27,7 @@ Använd chefs arbets station direkt i Azure Cloud Shell! Kör alla chefs verktyg
 * [INSPEC](https://www.inspec.io/docs/reference/cli/)
 * [kniv](https://docs.chef.io/knife.html)
 * [cookstyle](https://docs.chef.io/cookstyle.html)
-* [foodcritic](https://docs.chef.io/foodcritic.html)
-* [chef-run](https://www.chef.sh/docs/chef-workstation/getting-started/)
+* [chef-kör](https://www.chef.sh/docs/chef-workstation/getting-started/)
 
 Kombinera våra kommando verktyg med andra verktyg som är tillgängliga i Cloud Shell, till exempel `git`, `az-cli`och `terraform`, och skriv infrastrukturen och efterlevnaden av automatiseringen från webbläsaren.
 
@@ -40,4 +39,4 @@ Chef som stöds av chef kan du [Automatisera Azure Marketplace-lösningen](https
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa en virtuell Windows-dator på Azure med chef](/azure/virtual-machines/windows/chef-automation)
+* [Skapa en virtuell Windows-dator på Azure med chef](chef-automation.md)

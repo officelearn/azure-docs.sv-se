@@ -7,12 +7,12 @@ ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 55f3e42687c90936c33208684b58792b3e2b9f85
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5fda51e6d2f62b9cbef0fcac22d5bb2ea0df905b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905786"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605216"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>IoT Plug and Play Preview Modeling Developer Guide
 
@@ -182,26 +182,26 @@ result = DigitalTwin_DeviceClient_RegisterInterfacesAsync(
 
 Med IoT-Plug and Play kan du använda enheter som har registrerat sina funktioner med IoT Hub. Du kan till exempel komma åt egenskaperna och kommandona för en enhet direkt.
 
-Om du vill använda en IoT Plug and Play-enhet som är ansluten till din IoT-hubb använder du antingen IoT Hub REST API eller någon av IoT-språksdk: erna. I följande exempel används IoT Hub REST API.
+Om du vill använda en IoT Plug and Play-enhet som är ansluten till din IoT-hubb använder du antingen IoT Hub REST API eller någon av IoT-språksdk: erna. I följande exempel används IoT Hub REST API. Den aktuella versionen av API: et är `2019-07-01-preview`. Lägg till `?api-version=2019-07-01-preview` i dina REST PI-anrop.
 
 Om du vill hämta värdet för en enhets egenskap, t. ex. den inbyggda program varan (`fwVersion`) i `DeviceInformation`-gränssnittet i termostat, använder du de digitala dubbla REST API.
 
-Om din termostat-enhet kallas `t-123`får du alla egenskaper som implementeras av enheten med ett REST API GET-anrop:
+Om din termostat-enhet kallas `t-123`får du alla egenskaper för alla gränssnitt som implementerats av enheten med ett REST API GET-anrop:
 
 ```REST
 GET /digitalTwins/t-123/interfaces
 ```
 
-I allmänhet är alla egenskaper tillgängliga med den här REST API-mallen där `{device-id}` är identifieraren för enheten:
+I allmänhet används alla egenskaper i alla gränssnitt med denna REST API-mall där `{device-id}` är identifieraren för enheten:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces
 ```
 
-Om du känner till namnet på gränssnittet och vill hämta egenskaper för det just det gränssnittet, kan du ange en definition av begäran till ett särskilt gränssnitt efter namn:
+Om du känner till namnet på gränssnittet, t. ex. `deviceInformation`, och vill hämta egenskaper för det här gränssnittet, kan du ange en definition av begäran till ett särskilt gränssnitt efter namn:
 
 ```REST
-GET /digitalTwins/t-123/interfaces/info
+GET /digitalTwins/t-123/interfaces/deviceInformation
 ```
 
 I allmänhet kan egenskaper för ett särskilt gränssnitt nås via den här REST API-mallen där `device-id` är identifieraren för enheten och `{interface-name}` är namnet på gränssnittet:

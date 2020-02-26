@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7d8a7881c00427023e5f174461b3d8b24d83444
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 22576be8dec021f0f18a6e2dda16891ce70d4f13
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121443"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603218"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets ytan efter Facebook för automatisk användar etablering
 
@@ -51,7 +51,7 @@ Vi har låst avsnittet admin credentials för befintliga arbets plats kunder. N�
 
  
 #### <a name="when-will-these-changes-happen"></a>När sker dessa ändringar?
-Alla nya instanser av arbets platsen använder redan den nya integrerings-/autentiseringsmetoden. Befintliga integreringar migreras gradvis i februari. Migreringen kommer att utföras för alla klienter i slutet av månaden. 
+Alla nya instanser av arbets platsen använder redan den nya integrerings-/autentiseringsmetoden. Befintliga integrationer kommer att migreras gradvis av maj. Arbets grupps teamet har angett ett tillägg på tids gränsen från Feb-28 till maj-1. 
 
 ## <a name="capabilities-supported"></a>Funktioner som stöds
 > [!div class="checklist"]

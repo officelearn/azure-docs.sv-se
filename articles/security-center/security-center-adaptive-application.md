@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/23/2019
 ms.author: memildin
-ms.openlocfilehash: 862fb4f8a9dcd357148f73a729ffc7e92ba0083a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1dc94c5ec08cc27fb1819ccc16fd766c62aad796
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353445"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604670"
 ---
 # <a name="adaptive-application-controls"></a>Anpassningsbara programkontroller
 Lär dig att konfigurera programkontroll i Azure Security Center med den här genomgången.
@@ -65,7 +65,7 @@ Avsnittet **Grupper av virtuella datorer** innehåller tre flikar:
 
 1. Välj fliken **rekommenderas** för en lista med grupper med rekommendationer för program kontroll:
 
-   ![Rekommenderad](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
+   ![Rekommenderas](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
    Listan innehåller:
 
@@ -180,5 +180,4 @@ I det här dokumentet har du lärt dig hur du använder anpassningsbar program k
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md). Lär dig att övervaka hälsotillståndet för dina Azure-resurser.
 * [Förstå säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Läs mer om de olika typerna av säkerhetsaviseringar.
 * [Felsökningsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Lär dig hur du felsöker vanliga problem i Security Center.
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md). Här finns vanliga frågor om att använda tjänsten.
 * [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

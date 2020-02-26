@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: memildin
-ms.openlocfilehash: 96efe5271b91f87e30ba26aabe69a0de76e1a791
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b8b8b05f703a3eb05936ca95e2047a13650914cf
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202394"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604262"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Förstå rekommendationer för Azure Security Center container
 
@@ -35,7 +35,7 @@ Azure Security Center tillhandahåller följande funktioner som hjälper dig att
 
     ![fliken container](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
-- **Hot identifiering för behållare i real tid**<br> Security Center tillhandahåller hot identifiering i real tid för dina behållare på Linux-datorer med granskad komponent. Aviseringarna identifierar flera misstänkta Docker-aktiviteter, till exempel skapandet av en privilegie rad behållare på värden, en indikation på SSH-servern (Secure Shell) som körs i en Docker-behållare eller användning av kryptografiska gruv arbetare. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina behållare.
+- **Hot identifiering för behållare i real tid**<br> Security Center tillhandahåller hot identifiering i real tid för dina behållare på Linux-datorer med granskad komponent. Aviseringarna identifierar flera misstänkta Docker-aktiviteter, till exempel skapandet av en privilegie rad behållare på värden, en indikation på SSH-servern (Secure Shell) som körs i en Docker-behållare eller användning av kryptografiska gruv arbetare. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina containrar.
 
     ![fliken container](./media/security-center-container-recommendations/docker-threat-detection.png)
 
@@ -44,7 +44,7 @@ Använd tabellerna nedan som referens för att hjälpa dig att förstå de tillg
 
 | Rekommendation | Beskrivning | Åtgärd |
 | --- | --- | --- |
-|Åtgärda sårbarheter i säkerhets konfigurationerna för behållare |Åtgärda sårbarheter i säkerhets konfigurationerna för behållare baserat på rekommenderade konfigurations metoder.| Så här åtgärdar du säkerhets risker i säkerhets konfigurationerna för behållare:<br>1. Granska listan över misslyckade regler.<br>2. Korrigera varje regel enligt de instruktioner som anges.|
+|Åtgärda sårbarheter i säkerhets konfigurationerna för behållare |Åtgärda sårbarheter i säkerhets konfigurationerna för behållare baserat på rekommenderade konfigurations metoder.| Så här åtgärdar du säkerhets risker i säkerhets konfigurationerna för behållare:<br>1. Granska listan över misslyckade regler.<br>2. korrigera varje regel enligt de instruktioner som anges.|
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -59,5 +59,3 @@ I följande avsnitt kan du lära dig mer om Security Center:
 * [Skydda datorer och program i Azure Security Center](security-center-virtual-machine-protection.md)
 * [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-

@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella Hyper-V-datorer med MABS
 description: Den här artikeln innehåller procedurer för att säkerhetskopiera och återställa virtuella datorer med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 69e415b5aef179c2b64bb04e933593010c8b47d3
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: e23a3a5ad57e07f95958d8a21e091d663a5c1185
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444068"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586520"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Säkerhetskopiera virtuella Hyper-V-datorer med Azure Backup Server
 
@@ -145,7 +145,7 @@ Konfigurera skydd för direktmigrering:
 
 3. Tilldela MABSMachineName $-kontot som ett skrivskyddat administratörs konto på VMM-hanteringsservern.
 
-4. Anslut alla Hyper-V-värdstyrenheter till alla MABS-servrar med PowerShell-cmdleten `Set-DPMGlobalProperty`. Cmdleten accepterar flera MABS-Server namn. Använd formatet: `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Mer information finns i [Set-DPMGlobalProperty](https://technet.microsoft.com/library/hh881752.aspx).
+4. Anslut alla Hyper-V-värdstyrenheter till alla MABS-servrar med PowerShell-cmdleten `Set-DPMGlobalProperty`. Cmdleten accepterar flera MABS-Server namn. Använd formatet: `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Mer information finns i [Set-DPMGlobalProperty](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmglobalproperty?view=systemcenter-ps-2019).
 
 5. När alla virtuella datorer som körs på Hyper-V-värdar i VMM-molnet har identifierats i VMM skapar du en skydds grupp och lägger till de virtuella datorer som du vill skydda. Automatiska konsekvens kontroller bör vara aktiverat på skydds grupps nivå för skydd under scenarier med virtuella datorer.
 

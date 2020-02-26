@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 226611bde6024f98ce6d3660fe18e66dba9a420c
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b10433190ccc7703938bed2a75a5d816f073295e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493701"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587268"
 ---
 # <a name="lsv2-series"></a>Lsv2-serien
 
@@ -23,7 +23,7 @@ Lsv2-serien har högt data flöde, låg latens, direkt mappad lokal NVMe-lagring
 >
 > Det höga genom strömningen och IOPs av den lokala disken gör Lsv2-seriens virtuella datorer perfekt för NoSQL-butiker som Apache Cassandra och MongoDB som replikerar data över flera virtuella datorer för att få beständighet i händelse av att en enskild virtuell dator Miss lyckas.
 >
-> Läs mer i [optimera prestanda på virtuella datorer i Lsv2-serien](/linux/storage-performance.md).  
+> Läs mer i optimera prestanda på virtuella datorer i Lsv2-serien för [Windows](../virtual-machines/windows/storage-performance.md) eller [Linux](../virtual-machines/linux/storage-performance.md).  
 
 ACU: 150-175
 

@@ -6,14 +6,14 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e73e69f90b1228154d7f209c54c6b52cc03d5eb4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9f8a14c348f4f8eddcd60c6946c831c90262757b
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837798"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589002"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Dokumentations resurser för AI-anrikning i Azure Kognitiv sökning
 
@@ -40,30 +40,30 @@ Följande artiklar är den fullständiga dokumentationen för AI-berikning.
 
 + [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
   + [Microsoft. färdigheter. text. KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md)
-  + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
-  + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
-  + [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md)
+  + [Microsoft. färdigheter. text. LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
+  + [Microsoft. färdigheter. text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
+  + [Microsoft. färdigheter. text. MergeSkill](cognitive-search-skill-textmerger.md)
   + [Microsoft. färdigheter. text. PIIDetectionSkill](cognitive-search-skill-pii-detection.md)
-  + [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md)
-  + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
+  + [Microsoft. färdigheter. text. SplitSkill](cognitive-search-skill-textsplit.md)
+  + [Microsoft. färdigheter. text. SentimentSkill](cognitive-search-skill-sentiment.md)
   + [Microsoft. färdigheter. text. TranslationSkill](cognitive-search-skill-text-translation.md)
-  + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
-  + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
+  + [Microsoft. färdigheter. vision. ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
+  + [Microsoft. färdigheter. vision. OcrSkill](cognitive-search-skill-ocr.md)
   + [Microsoft. färdigheter. util. ConditionalSkill](cognitive-search-skill-conditional.md)
   + [Microsoft. färdigheter. util. DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)
-  + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
+  + [Microsoft. färdigheter. util. ShaperSkill](cognitive-search-skill-shaper.md)
 
 + Anpassade färdigheter
-  + [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md)
+  + [Microsoft. färdigheter. Custom. WebApiSkill](cognitive-search-custom-skill-web-api.md)
 
 + [Föråldrade kunskaper](cognitive-search-skill-deprecated.md)
-  + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
+  + [Microsoft. färdigheter. text. NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
 
 + [REST-API](https://docs.microsoft.com/rest/api/searchservice/)
   + [Skapa färdigheter (API-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
   + [Skapa indexerare (API-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 + [Azure Kognitiv sökning REST API](https://docs.microsoft.com/rest/api/searchservice/)
 + [Indexerare i Azure Cognitive Search](search-indexer-overview.md)

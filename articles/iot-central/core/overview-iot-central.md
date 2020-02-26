@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: a16ed6ac942dd4a9fa521cc813a92e6767a98328
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 71d595ecb3a6900da3df79651ee2dddda594b9de
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024134"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589426"
 ---
 # <a name="what-is-azure-iot-central"></a>Vad är Azure IoT Central?
 
@@ -39,8 +39,12 @@ Den här artikeln beskriver IoT Central:
 - Jobb stöder inte komplexa typer.
 - Mat ris schema typer stöds inte.
 - Endast C-enhetens SDK och Node. js-enhet och tjänst-SDK: er stöds.
-- Den är endast tillgänglig på platser med USA och Europa.
+- Det är bara tillgängligt på platserna USA, Europa, Asien och stillahavsområdet och Australien.
 - Enhets kapacitets modeller måste ha alla gränssnitt definierade infogade i samma fil.
+- Stöd för [IoT plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) är i för hands version och endast stöds i valda regioner.
+
+    > [!NOTE]
+    > Kontakta teknisk support för att få åtkomst till att skapa ett för hands program med stöd för IoT Plug and Play-enheter.
 
 ## <a name="personas"></a>Profiler
 
@@ -74,7 +78,7 @@ Den här enhets mal len innehåller:
 - Anpassningar, instrument paneler och formulär som är en del av ditt IoT Central-program.
 
 
-### <a name="pricing"></a>Prissättning
+### <a name="pricing"></a>Priser
 
 Du kan skapa IoT Central program med en kostnads fri utvärderings version på 7 dagar eller använda en standard pris plan.
 
@@ -102,7 +106,7 @@ Som Solution Builder kan du också anpassa IoT Central programmets användar gr�
 - konfigurera anpassade instrumentpaneler som hjälper operatörerna att få insikter och lösa problem snabbare
 - konfigurera anpassad analys för att kunna utforska tidsseriedata från anslutna enheter.
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Du kan skapa IoT Central program med en kostnads fri utvärderings version på 7 dagar eller använda en standard pris plan.
 
@@ -136,7 +140,7 @@ Enheter som har skapats med [Azure IoT-SDK](https://github.com/Azure/azure-iot-s
 
 Mer information finns i [Azure IoT Edge enheter och IoT Central](concepts-architecture.md#azure-iot-edge-devices).
 
-## <a name="stay-connected"></a>Håll dig uppkopplad
+## <a name="stay-connected"></a>Fortsätt vara uppkopplad
 
 IoT Central program är helt värdar för Microsoft, vilket minskar administrations kostnaderna för att hantera dina program.
 

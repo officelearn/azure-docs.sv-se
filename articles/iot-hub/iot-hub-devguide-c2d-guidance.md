@@ -1,6 +1,6 @@
 ---
-title: Alternativ för Azure IoT Hub-moln till enhet | Microsoft Docs
-description: Developer guide – riktlinjer för när du ska använda direkta metoder, enhetstvillingens önskade egenskaper eller meddelanden från moln till enhet för meddelanden från moln till enhet.
+title: Alternativ för moln-till-enhet i Azure IoT Hub | Microsoft Docs
+description: Guide för utvecklare – vägledning om när du ska använda direkta metoder, enhetens inbyggda egenskaper eller meddelanden från moln till enhet för kommunikation från moln till enhet.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -8,38 +8,38 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 4b738f34ae75478c0120832e7ad2b6a6a83dbf69
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a2ca9a167d50619ed2963b13515c0a772d712570
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61224786"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591276"
 ---
-# <a name="cloud-to-device-communications-guidance"></a>Moln-till-enhet-kommunikation
+# <a name="cloud-to-device-communications-guidance"></a>Vägledning för kommunikation mellan moln och enhet
 
-IoT Hub tillhandahåller tre alternativ för enhetsappar att exponera funktioner till en backend-app:
+IoT Hub innehåller tre alternativ för enhets appar för att exponera funktioner till en backend-app:
 
-* [Direkta metoder](iot-hub-devguide-direct-methods.md) för kommunikation som kräver omedelbar bekräftelse på resultatet. Direkta metoder används ofta för interaktiva kontroll över enheter, till exempel aktivera en fläkt.
+* [Direkta metoder](iot-hub-devguide-direct-methods.md) för kommunikation som kräver omedelbar bekräftelse av resultatet. Direkta metoder används ofta för interaktiv kontroll av enheter, t. ex. aktivering av en fläkt.
 
-* [Önskade egenskaper för Twin](iot-hub-devguide-device-twins.md) för tidskrävande kommandon som är avsedd att placera enheten i ett visst önskat tillstånd. Till exempel skicka telemetriintervall till 30 minuter.
+* [De två önskade egenskaperna](iot-hub-devguide-device-twins.md) för långvariga kommandon som är avsedda att försätta enheten i ett visst önskat tillstånd. Ange till exempel intervallet för att skicka telemetri till 30 minuter.
 
-* [Meddelanden från moln till enhet](iot-hub-devguide-messages-c2d.md) för enkelriktade meddelanden i enhetsappen.
+* [Meddelanden från moln till enhet](iot-hub-devguide-messages-c2d.md) för enkelriktade meddelanden till Device-appen.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Här är en detaljerad jämförelse av de olika alternativ för kommunikation från moln till enhet.
+Här är en detaljerad jämförelse av de olika kommunikations alternativen från moln till enhet.
 
-|  | Direkta metoder | Önskad tvillingegenskaper | Meddelanden från moln till enhet |
+|  | Direkta metoder | Dubbla önskade egenskaper | Meddelanden från moln till enhet |
 | ---- | ------- | ---------- | ---- |
-| Scenario | Kommandon som kräver omedelbar bekräftelse, till exempel aktivera en fläkt. | Långvariga kommandon ska placera enheten i ett visst önskat tillstånd. Till exempel skicka telemetriintervall till 30 minuter. | Enkelriktade meddelanden i enhetsappen. |
-| Dataflöde | Dubbelriktad. Enhetsappen kan svara på metoden direkt. Lösningens backend-server tar emot resultatet sammanhangsmässigt att begäran. | Enkelriktad. App för enheter tar emot ett meddelande med egenskapsändringen. | Enkelriktad. App för enheter tar emot meddelandet
-| Hållbarhet | Frånkopplade enheter kontaktas inte. Lösningens backend-server är ett meddelande om att enheten inte är ansluten. | Egenskapsvärden bevaras i enhetstvillingen. Enheten kommer att läsa det vid nästa återanslutning. Egenskapsvärden är hämtningsbara med den [IoT Hub-frågespråk](iot-hub-devguide-query-language.md). | Meddelanden sparas av IoT Hub i upp till 48 timmar. |
-| Mål | Enskild enhet med hjälp av **deviceId**, eller flera enheter med hjälp av [jobb](iot-hub-devguide-jobs.md). | Enskild enhet med hjälp av **deviceId**, eller flera enheter med hjälp av [jobb](iot-hub-devguide-jobs.md). | Enskild enhet genom att **deviceId**. |
-| Storlek | Maximal direkt metod Nyttolaststorlek är 128 KB. | Maximalt önskade egenskaper är 8 KB. | Upp till 64 KB-meddelanden. |
-| Frekvens | Hög. Mer information finns i [IoT Hub begränsar](iot-hub-devguide-quotas-throttling.md). | Medel. Mer information finns i [IoT Hub begränsar](iot-hub-devguide-quotas-throttling.md). | Låg. Mer information finns i [IoT Hub begränsar](iot-hub-devguide-quotas-throttling.md). |
-| Protocol | Tillgängligt med hjälp av MQTT eller AMQP. | Tillgängligt med hjälp av MQTT eller AMQP. | Tillgänglig på alla protokoll. Enheten måste avsöka när du använder HTTPS. |
+| Scenario | Kommandon som kräver omedelbar bekräftelse, till exempel att aktivera en fläkt. | Tids krävande kommandon som är avsedda att försätta enheten i ett visst önskat tillstånd. Ange till exempel intervallet för att skicka telemetri till 30 minuter. | Enkelriktade meddelanden till Device-appen. |
+| Dataflöde | Dubbelriktat. Device-appen kan svara på-metoden direkt. Lösningens Server del tar emot resultatet i sammanhang till begäran. | Enkelriktat. Enhetens app tar emot ett meddelande med egenskaps ändringen. | Enkelriktat. Enhets appen tar emot meddelandet
+| Hållbarhet | Frånkopplade enheter kontaktas inte. Server delen av lösningen meddelas om att enheten inte är ansluten. | Egenskaps värden bevaras i enheten med dubbla. Enheten kommer att läsa den vid nästa åter anslutning. Egenskaps värden kan hämtas med [IoT Hub frågespråk](iot-hub-devguide-query-language.md). | Meddelanden kan behållas genom IoT Hub i upp till 48 timmar. |
+| Mål | En enhet som använder **deviceId**eller flera enheter som använder- [jobb](iot-hub-devguide-jobs.md). | En enhet som använder **deviceId**eller flera enheter som använder- [jobb](iot-hub-devguide-jobs.md). | En enhet per **deviceId**. |
+| Storlek | Maximal nytto Last storlek för direkt metod är 128 KB. | Maximal önskad egenskaps storlek är 32 KB. | Upp till 64 KB-meddelanden. |
+| Frequency | Hög. Mer information finns i [IoT Hub gränser](iot-hub-devguide-quotas-throttling.md). | Medel. Mer information finns i [IoT Hub gränser](iot-hub-devguide-quotas-throttling.md). | Låg. Mer information finns i [IoT Hub gränser](iot-hub-devguide-quotas-throttling.md). |
+| Protokoll | Tillgängligt med MQTT eller AMQP. | Tillgängligt med MQTT eller AMQP. | Tillgängligt på alla protokoll. Enheten måste avsöka när HTTPS används. |
 
-Lär dig hur du använder direkta metoder, egenskaper och meddelanden från molnet till enheten i följande Självstudier:
+Lär dig hur du använder direkta metoder, önskade egenskaper och meddelanden från molnet till enheten i följande Självstudier:
 
 * [Använd direkta metoder](quickstart-control-device-node.md)
 * [Använd önskade egenskaper för att konfigurera enheter](tutorial-device-twins.md) 

@@ -7,19 +7,17 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9bbeda33f25aec15124bacb605513a3c52c3f07e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2656716560b981481273c3032fc0c7b1a06be8a2
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699274"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597651"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Hantera registrerade servrar med Azure File Sync
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
 
 Följande artikel visar hur du registrerar och hanterar en server med en tjänst för synkronisering av lagring. Information om hur du distribuerar Azure File Sync slut punkt till slut punkt finns i [distribuera Azure File Sync](storage-sync-files-deployment-guide.md) .
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Registrera/avregistrera en server med tjänsten Storage Sync
 När du registrerar en server med Azure File Sync upprättas en förtroende relation mellan Windows Server och Azure. Den här relationen kan sedan användas för att skapa *Server slut punkter* på servern som representerar vissa mappar som ska synkroniseras med en Azure-filresurs (kallas även för en *moln slut punkt*). 
@@ -27,7 +25,7 @@ När du registrerar en server med Azure File Sync upprättas en förtroende rela
 ### <a name="prerequisites"></a>Förutsättningar
 Om du vill registrera en server med en lagrings tjänst för synkronisering måste du först förbereda servern med nödvändiga komponenter:
 
-* Servern måste köra en version av Windows Server som stöds. Mer information finns i [Azure File Sync system krav och interoperabilitet](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
+* Servern måste köra en version av Windows Server som stöds. Mer information finns i [Azure File Sync system krav och interoperabilitet](storage-sync-files-planning.md#windows-file-server-considerations).
 * Se till att en tjänst för synkronisering av lagring har distribuerats. Mer information om hur du distribuerar en tjänst för synkronisering av lagring finns i [så här distribuerar du Azure File Sync](storage-sync-files-deployment-guide.md).
 * Kontrol lera att servern är ansluten till Internet och att Azure är tillgängligt.
 * Inaktivera Förbättrad säkerhets konfiguration i IE för administratörer med Serverhanteraren användar gränssnitt.
@@ -37,7 +35,7 @@ Om du vill registrera en server med en lagrings tjänst för synkronisering mås
 * Se till att Azure PowerShell-modulen är installerad på servern. Om din server är medlem i ett redundanskluster kräver varje nod i klustret AZ-modulen. Mer information om hur du installerar AZ-modulen finns på sidan [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
     > [!Note]  
-    > Vi rekommenderar att du använder den senaste versionen av AZ PowerShell-modulen för att registrera/avregistrera en server. Om AZ-paketet redan har installerats på den här servern (och PowerShell-versionen på den här servern är 5. * eller högre) kan du använda `Update-Module` cmdleten för att uppdatera det här paketet. 
+    > Vi rekommenderar att du använder den senaste versionen av AZ PowerShell-modulen för att registrera/avregistrera en server. Om AZ-paketet redan har installerats på den här servern (och PowerShell-versionen på den här servern är 5. * eller högre) kan du använda cmdleten `Update-Module` för att uppdatera det här paketet. 
 * Om du använder en nätverks-proxyserver i din miljö konfigurerar du proxyinställningar på servern så att den synkroniserade agenten kan använda den.
     1. Ta reda på din IP-adress och port nummer för proxyservern
     2. Redigera dessa två filer:
@@ -81,7 +79,7 @@ Innan en server kan användas som en *Server slut punkt* i en Azure File Sync *S
 > [!Important]  
 > Prenumerationer på moln lösnings leverantörer (CSP) kan inte använda Server registrerings gränssnittet. Använd i stället PowerShell (under det här avsnittet).
 
-1. Om användar gränssnittet för Server registrering inte startade direkt efter att installationen av Azure File Sync-agenten har slutförts kan du starta den manuellt genom att `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`köra.
+1. Om användar gränssnittet för Server registrering inte startade direkt efter att installationen av Azure File Sync-agenten har slutförts kan du starta den manuellt genom att köra `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`.
 2. Klicka på *Logga in* för att få åtkomst till din Azure-prenumeration. 
 
     ![Öppnar dialog rutan för Server registrerings gränssnittet](media/storage-sync-files-server-registration/server-registration-ui-1.png)
@@ -119,7 +117,7 @@ Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
 > [!Warning]  
-> Om den lokala volym som är värd för Server slut punkten inte har tillräckligt med ledigt utrymme för att återkalla alla data `Invoke-StorageSyncFileRecall` på nivån, kommer cmdleten att Miss bete.  
+> Om den lokala volym som är värd för Server slut punkten inte har tillräckligt med ledigt utrymme för att återkalla alla data på nivån, Miss `Invoke-StorageSyncFileRecall` cmdleten.  
 
 #### <a name="remove-the-server-from-all-sync-groups"></a>Ta bort servern från alla Sync-grupper
 Innan du avregistrerar servern på synkroniseringstjänsten måste alla Server slut punkter på servern tas bort. Detta kan göras via Azure Portal:
@@ -151,7 +149,7 @@ Nu när alla data har återkallats och servern har tagits bort från alla Sync-g
 1. I Azure Portal navigerar du till avsnittet *registrerade servrar* i tjänsten för synkronisering av lagring.
 2. Högerklicka på den server som du vill avregistrera och klicka på "avregistrera servern".
 
-    ![Avregistrera server](media/storage-sync-files-server-registration/unregister-server-1.png)
+    ![Avregistrera Server](media/storage-sync-files-server-registration/unregister-server-1.png)
 
 ## <a name="ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter"></a>Att säkerställa Azure File Sync är en lämplig granne i ditt data Center 
 Eftersom Azure File Sync sällan är den enda tjänst som körs i ditt data Center, kanske du vill begränsa nätverks-och lagrings användningen för Azure File Sync.
@@ -160,7 +158,7 @@ Eftersom Azure File Sync sällan är den enda tjänst som körs i ditt data Cent
 > Om du ställer in gränser för låg påverkas prestandan för Azure File Sync synkronisering och återkallande.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Ange Azure File Sync nätverks gränser
-Du kan begränsa nätverks användningen för Azure File Sync med hjälp `StorageSyncNetworkLimit` av cmdletarna.
+Du kan begränsa nätverks användningen för Azure File Sync med hjälp av `StorageSyncNetworkLimit`-cmdletar.
 
 > [!Note]  
 > Nätverks gränser gäller inte när en fil med flera nivåer nås eller cmdleten Invoke-StorageSyncFileRecall används.
@@ -178,7 +176,7 @@ Du kan se din gräns med hjälp av följande cmdlet:
 Get-StorageSyncNetworkLimit # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 
-Använd `Remove-StorageSyncNetworkLimit`om du vill ta bort nätverks begränsningar. Följande kommando tar till exempel bort alla nätverks gränser:
+Använd `Remove-StorageSyncNetworkLimit`för att ta bort nätverks begränsningar. Följande kommando tar till exempel bort alla nätverks gränser:
 
 ```powershell
 Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -Id $_.Id } # assumes StorageSync.Management.ServerCmdlets.dll is imported
@@ -187,7 +185,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ### <a name="use-windows-server-storage-qos"></a>Använd Windows Server Storage QoS 
 När Azure File Sync finns på en virtuell dator som körs på en Windows Server-Virtualiseringsvärd, kan du använda QoS för lagring (tjänst kvalitet för lagring) för att reglera lagring i/o-förbrukning. QoS-principen för lagring kan anges antingen som en högsta (eller begränsas, t. ex. hur StorageSyncNetwork-gränsen tillämpas ovan) eller som ett minimum (eller reservation). Om du ställer in ett minimum i stället för maximalt kan Azure File Sync till burst använda tillgänglig lagrings bandbredd om andra arbets belastningar inte använder den. Mer information finns i [tjänst kvalitet för lagring](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 - [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)
 - [Distribuera Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Övervaka Azure File Sync](storage-sync-files-monitoring.md)

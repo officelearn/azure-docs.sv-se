@@ -14,16 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: a54e1c9cbc9a80139d71a89f86ac51ecf5ce9902
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: a53a27a92b393c38d1f49efbd50d91fa1a2e9657
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190503"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597702"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux guld-avbildningar för prenumerationer i Azure
 
 Red Hat Enterprise Linux-avbildningar (RHEL) är tillgängliga i Azure via en PAYG (pay-on-go) eller med en egen prenumerations modell (Red Hat Gold image). Det här dokumentet ger en översikt över de Red Hat Gold-avbildningarna i Azure.
+
+>[!NOTE]
+> RHEL BYOS guld-avbildningar är tillgängliga i Azure Public (kommersiell) och i Azure Government moln. De är inte tillgängliga i Azure Kina-eller Azure Blackforest-moln.
 
 ## <a name="important-points-to-consider"></a>Viktiga saker att tänka på
 

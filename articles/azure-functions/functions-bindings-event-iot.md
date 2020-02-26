@@ -1,41 +1,32 @@
 ---
 title: Azure IoT Hub-bindningar för Azure Functions
-description: Lär dig hur du använder IoT Hub-bindningar i Azure Functions.
+description: Lär dig att använda IoT Hub utlösare och bindning i Azure Functions.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 03/05/2019
+ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 2940f9e2adff82c100ed347431e8c1d27c30202e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1c25543b16c3486a8f6a445427346382faaaa09a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924425"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586145"
 ---
 # <a name="azure-iot-hub-bindings-for-azure-functions"></a>Azure IoT Hub-bindningar för Azure Functions
 
-Den här artikeln förklarar hur du arbetar med Azure Functions-bindningar för IoT Hub. IoT Hub-stödet baseras på [Azure Event Hubs-bindningen](functions-bindings-event-hubs.md).
-
-[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
-
-## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
-
-För Azure Functions version 1. x finns IoT Hub bindningarna i [Microsoft. Azure. WebJobs. Service Bus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet-paketet, version 2. x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) GitHub-lagringsplatsen.
-
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
-
-## <a name="packages---functions-2x-and-higher"></a>Paket-funktioner 2. x och högre
-
-För funktioner 2. x och högre, använder du [Microsoft. Azure. WebJobs. Extensions. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) -paketet, version 3. x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs) GitHub-lagringsplatsen.
-
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+I den här uppsättningen artiklar förklaras hur du arbetar med Azure Functions-bindningar för IoT Hub. IoT Hub-stödet baseras på [Azure Event Hubs-bindningen](functions-bindings-event-hubs.md).
 
 > [!IMPORTANT]
 > I följande kod exempel används Event Hub API, men den aktuella syntaxen gäller för IoT Hub functions.
+
+| Åtgärd | Typ |
+|--------|------|
+| Svara på händelser som skickats till en händelse ström i IoT Hub. | [Utlösare](./functions-bindings-event-iot-trigger.md) |
+| Skriv händelser till en IoT-händelselogg | [Utgående bindning](./functions-bindings-event-iot-output.md) |
 
 [!INCLUDE [functions-bindings-event-hubs](../../includes/functions-bindings-event-hubs.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
+- [Svara på händelser som skickats till händelse strömmen i Event Hub (utlösare)](./functions-bindings-event-iot-trigger.md)
+- [Skriv händelser till en händelse ström (utgående bindning)](./functions-bindings-event-iot-output.md)

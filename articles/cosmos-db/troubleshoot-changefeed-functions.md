@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f3af350c96d1dd9eaf4773db503acb10d8a08a8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f382406d164aa7378631753c2cfc85bc69003a4f
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441125"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605088"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnostisera och Felsök problem när du använder Azure Functions utlösare för Cosmos DB
 
@@ -66,7 +66,7 @@ Det här scenariot kan ha flera orsaker och alla bör kontrol leras:
 
 1. Distribueras din Azure-funktion i samma region som ditt Azure Cosmos-konto? För optimal nätverksfördröjning bör både Azure-funktionen och ditt Azure Cosmos-konto vara i samma Azure-region.
 2. Sker ändringarna i din Azure Cosmos-container kontinuerligt eller sporadiskt?
-Om de sker sporadiskt kan det uppstå en fördröjning mellan det att ändringarna sparas och Azure-funktionen hämtar dem. Detta beror på att när utlösaren söker efter ändringar i Azure Cosmos-containern och inte hittar någon som väntar på att läsas hamnar den i viloläge en viss tid (fem sekunder som standard) innan den söker efter nya ändringar (för att undvika hög RU-förbrukning). Du kan ändra vilotiden med inställningen `FeedPollDelay/feedPollDelay` i [konfigurationen](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) för utlösaren (värdet förväntas anges i millisekunder).
+Om de sker sporadiskt kan det uppstå en fördröjning mellan det att ändringarna sparas och Azure-funktionen hämtar dem. Detta beror på att när utlösaren söker efter ändringar i Azure Cosmos-containern och inte hittar någon som väntar på att läsas hamnar den i viloläge en viss tid (fem sekunder som standard) innan den söker efter nya ändringar (för att undvika hög RU-förbrukning). Du kan ändra vilotiden med inställningen `FeedPollDelay/feedPollDelay` i [konfigurationen](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) för utlösaren (värdet förväntas anges i millisekunder).
 3. Din Azure Cosmos-behållare kan vara [begränsad till hastighet](./request-units.md).
 4. Du kan använda `PreferredLocations`-attributet i utlösaren för att ange en kommaavgränsad lista med Azure-regioner för att definiera en anpassad prioriterad anslutnings ordning.
 
@@ -93,10 +93,10 @@ Ett enkelt sätt att lösa den här situationen är att använda en `LeaseCollec
 För att bearbeta alla objekt i en behållare på nytt från början:
 1. Stoppa din Azure-funktion om den körs. 
 1. Ta bort dokumenten i låne samlingen (eller ta bort och återskapa låne samlingen så att den är tom)
-1. Ange attributet [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) CosmosDBTrigger i din funktion till true. 
+1. Ange attributet [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) CosmosDBTrigger i din funktion till true. 
 1. Starta om Azure-funktionen. Nu kommer den att läsa och bearbeta alla ändringar från början. 
 
-Om du anger [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) till True kommer Azure-funktionen att börja läsa ändringar från början av samlingens historik i stället för den aktuella tiden. Detta fungerar bara när det inte redan skapas lån (d.v.s. dokument i insamlingen lån). Om du anger den här egenskapen till sant, har redan skapade lån ingen påverkan. När en funktion stoppas och startas om i det här scenariot börjar den att läsa från den senaste kontroll punkten, enligt definitionen i samlingen lån. Följ stegen ovan 1-4 om du vill göra en ny process från början.  
+Om du anger [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) till True kommer Azure-funktionen att börja läsa ändringar från början av samlingens historik i stället för den aktuella tiden. Detta fungerar bara när det inte redan skapas lån (d.v.s. dokument i insamlingen lån). Om du anger den här egenskapen till sant, har redan skapade lån ingen påverkan. När en funktion stoppas och startas om i det här scenariot börjar den att läsa från den senaste kontroll punkten, enligt definitionen i samlingen lån. Följ stegen ovan 1-4 om du vill göra en ny process från början.  
 
 ### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Bindning kan bara göras med IReadOnlyList\<Document > eller JArray
 
@@ -106,7 +106,7 @@ Lös problemet genom att ta bort den manuella NuGet-referensen som lades till oc
 
 ### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>Ändra avsöknings intervall för Azure Function för att identifiera ändringar
 
-Som förklarat tidigare för [mina ändringar tar](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received)det för lång tid att ta emot, Azure-funktionen försätts i vilo läge under en konfigurerbar tids period (5 sekunder som standard) innan du söker efter nya ändringar (för att undvika hög ru-förbrukning). Du kan ändra vilotiden med inställningen `FeedPollDelay/feedPollDelay` i [konfigurationen](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) för utlösaren (värdet förväntas anges i millisekunder).
+Som förklarat tidigare för [mina ändringar tar](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received)det för lång tid att ta emot, Azure-funktionen försätts i vilo läge under en konfigurerbar tids period (5 sekunder som standard) innan du söker efter nya ändringar (för att undvika hög ru-förbrukning). Du kan ändra vilotiden med inställningen `FeedPollDelay/feedPollDelay` i [konfigurationen](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) för utlösaren (värdet förväntas anges i millisekunder).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,12 +12,12 @@ ms.date: 09/27/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f9ff446bae0a010b12e84172d5af60c6ca81c0e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 72b3e37a423442194b81e3d10ecc7157201ff8be
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896901"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586061"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Slut användar upplevelse för program i Azure Active Directory
 
@@ -32,7 +32,7 @@ Vilken metod (er) du väljer att distribuera i din organisation är ditt eget go
 
 ## <a name="azure-ad-access-panel"></a>Åtkomst panel för Azure AD
 
-Åtkomst panelen på https://myapps.microsoft.com är en webbaserad portal som gör det möjligt för slutanvändare med ett organisations konto i Azure Active Directory att visa och starta molnbaserade program som de har beviljats åtkomst till av Azure AD-administratören. Om du är en slutanvändare med [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/)kan du även använda funktioner för grupp hantering via självbetjäning via åtkomst panelen.
+Åtkomst panelen på https://myapps.microsoft.com är en webbaserad portal som gör det möjligt för slutanvändare med ett organisations konto i Azure Active Directory att visa och starta program som de har beviljats åtkomst till av Azure AD-administratören. Om du är en slutanvändare med [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/)kan du även använda funktioner för grupp hantering via självbetjäning via åtkomst panelen.
 
 ![Skärm bild som visar Azure AD Access panel-portalen](media/what-is-single-sign-on/azure-ad-access-panel.png)
 

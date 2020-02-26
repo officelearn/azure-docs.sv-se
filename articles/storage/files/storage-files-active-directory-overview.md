@@ -6,19 +6,19 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/21/2020
 ms.author: rogarana
-ms.openlocfilehash: 3a9a2a903bd9979cd0f9a09b7589edc6d4fd8962
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 673bf3be59d72b2cc62b9f92af353fee235c5ddc
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565100"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598824"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-support-for-smb-access"></a>Översikt över stöd för Azure Files Identity-baserad autentisering för SMB-åtkomst
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-Information om hur du aktiverar AD-autentisering för Azure-filresurser finns i [aktivera Active Directory autentisering över SMB för Azure-filresurser](storage-files-active-directory-domain-services-enable.md).
+Information om hur du aktiverar AD-autentisering för Azure-filresurser finns i [aktivera Active Directory autentisering över SMB för Azure-filresurser](storage-files-identity-auth-active-directory-enable.md).
 
-Information om hur du aktiverar Azure AD DS-autentisering för Azure-filresurser finns i [aktivera Azure Active Directory Domain Service-autentisering över SMB för Azure Files](storage-files-active-directory-enable.md).
+Information om hur du aktiverar Azure AD DS-autentisering för Azure-filresurser finns i [aktivera Azure Active Directory Domain Services autentisering på Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md).
 
 ## <a name="glossary"></a>Ordlista 
 Det är bra att förstå vissa viktiga villkor som rör Azure AD Domain Service-autentisering över SMB för Azure-filresurser:
@@ -98,7 +98,7 @@ När en identitet som är kopplad till ett program som körs på en virtuell dat
 
 ### <a name="enable-identity-based-authentication"></a>Aktivera identitets baserad autentisering
 
-Du kan aktivera Identity-baserad autentisering med antingen Azure AD DS (GA) eller AD (för hands version) för Azure-filresurser på dina nya och befintliga lagrings konton. Det går bara att använda en domän tjänst för autentisering av fil åtkomst på lagrings kontot, som gäller för alla fil resurser i kontot. Detaljerade anvisningar om hur du konfigurerar fil resurser för autentisering med Azure AD DS (GA) i vår artikel [aktivera Azure Active Directory Domain Services autentisering över SMB för Azure Files](storage-files-active-directory-enable.md) och vägledning för AD (för hands version) i vår andra artikel aktiverar du [Active Directory över SMB för Azure-filresurser](storage-files-active-directory-domain-services-enable.md).
+Du kan aktivera Identity-baserad autentisering med antingen Azure AD DS (GA) eller AD (för hands version) för Azure-filresurser på dina nya och befintliga lagrings konton. Det går bara att använda en domän tjänst för autentisering av fil åtkomst på lagrings kontot, som gäller för alla fil resurser i kontot. Detaljerade anvisningar om hur du konfigurerar fil resurser för autentisering med Azure AD DS (GA) i vår artikel [aktivera Azure Active Directory Domain Services autentisering på Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) och rikt linjer för AD (för hands version) i vår andra artikel [aktiverar du Active Directory autentisering över SMB för Azure-filresurser](storage-files-identity-auth-active-directory-enable.md).
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Konfigurera behörigheter på resurs nivå för Azure Files
 
@@ -126,6 +126,6 @@ Det finns ingen ytterligare service avgift för att aktivera identitets baserad 
 Mer information om Azure Files-och identitets-baserad autentisering över SMB finns i följande resurser:
 
 - [Planera för en Azure Files-distribution](storage-files-planning.md)
-- [Aktivera Active Directory autentisering över SMB för Azure-filresurser](storage-files-active-directory-domain-services-enable.md)
-- [Aktivera Azure Active Directory Domain Services autentisering på Azure Files](storage-files-active-directory-enable.md)
+- [Aktivera Active Directory autentisering över SMB för Azure-filresurser](storage-files-identity-auth-active-directory-enable.md)
+- [Aktivera Azure Active Directory Domain Services autentisering på Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md)
 - [VANLIGA FRÅGOR OCH SVAR](storage-files-faq.md)

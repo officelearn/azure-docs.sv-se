@@ -1,10 +1,10 @@
 ---
-title: Förberedelse av Azure-infrastruktur för SAP med hög tillgänglighet med ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser | Microsoft Docs
+title: Azure-infrastruktur för SAP ASCS/SCS HA med WSFC-& fil resurs | Microsoft Docs
 description: Förberedelse av Azure-infrastruktur för SAP med hög tillgänglighet med ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cc2295f6151b3cde81c27c8ed1116013e1a3f9a9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 4abae94ded92aca075fcb41a7cd42491e92d41d6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647551"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591548"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Förbered Azure-infrastrukturen för SAP med hög tillgänglighet genom att använda ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser
 
@@ -222,8 +222,8 @@ Läs följande artikel innan du påbörjar installationen:
 | --- | --- | --- | --- |
 | Första klusternoden ASCS/SCS-kluster | ASCs-1 | 10.0.6.4 | ascs-as |
 | Andra klusternoden ASCS/SCS-kluster | ASCs-2 | 10.0.6.5 | ascs-as |
-| Kluster nätverks namn |ASCs-cl | 10.0.6.6 | Ej tillämpligt |
-| SAP PR1 ASCS-kluster nätverks namn |PR1 – ASCs | 10.0.6.7 | Ej tillämpligt |
+| Kluster nätverks namn |ASCs-cl | 10.0.6.6 | Saknas |
+| SAP PR1 ASCS-kluster nätverks namn |PR1 – ASCs | 10.0.6.7 | Saknas |
 
 
 **Tabell 1**: ASCS/SCS-kluster
@@ -240,8 +240,8 @@ Läs följande artikel innan du påbörjar installationen:
 | Första klusternoden | SOFS-1 | 10.0.6.10 | sofs-as |
 | Andra klusternoden | SOFS-2 | 10.0.6.11 | sofs-as |
 | Tredje klusternoden | SOFS-3 | 10.0.6.12 | sofs-as |
-| Kluster nätverks namn | sofs-cl | 10.0.6.13 | Ej tillämpligt |
-| Globalt värd namn för SAP | sapglobal | Använd IP-adresser för alla klusternoder | Ej tillämpligt |
+| Kluster nätverks namn | sofs-cl | 10.0.6.13 | Saknas |
+| Globalt värd namn för SAP | sapglobal | Använd IP-adresser för alla klusternoder | Saknas |
 
 **Tabell 3**: skalbar filserver kluster
 
@@ -316,7 +316,7 @@ Du kan också automatisera distributionen av Skalbar filserver genom att använd
 > Skalbar filserver i användar gränssnittet för Resource Manager-mallen måste du ange antalet virtuella datorer.
 >
 
-### <a name="use-managed-disks"></a>Använd hanterade diskar
+### <a name="use-managed-disks"></a>Använd Managed disks
 
 Azure Resource Manager-mallen för att distribuera Skalbar filserver med Lagringsdirigering och Azure Managed Disks finns på [GitHub][arm-sofs-s2d-managed-disks].
 
@@ -332,7 +332,7 @@ Gör följande i mallen:
 3. I rutan **SOFS Name (namn** ) anger du den globala SAP-värdens nätverks namn, **sapglobalhost**.
 4. I rutan **resurs namn** anger du fil resursens namn, **sapmnt**.
 
-### <a name="use-unmanaged-disks"></a>Använda ohanterade diskar
+### <a name="use-unmanaged-disks"></a>Använd ohanterade diskar
 
 Azure Resource Manager-mallen för att distribuera Skalbar filserver med Lagringsdirigering och ohanterade Azure-diskar finns på [GitHub][arm-sofs-s2d-non-managed-disks].
 

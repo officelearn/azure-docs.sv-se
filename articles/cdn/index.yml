@@ -1,78 +1,68 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure CDN
+summary: Azure Content Delivery Network (CDN) är en global CDN-lösning för att leverera innehåll med hög bandbredd. Den kan köras i Azure eller på någon annan plats. Med Azure CDN kan du cachelagra statiska objekt som läses in från Azure Blob Storage, en webbapp, eller valfri offentligt tillgänglig webbserver genom att använda den närmaste POP-servern. Azure CDN möjliggör också snabbare dynamiskt innehåll, som inte kan cachelagras, genom att utnyttja olika nätverks- och routningsoptimeringar.
 metadata:
-  title: 'Dokumentation om Azure CDN – Självstudier, API-referens | Microsoft Docs'
-  description: 'Azure Content Delivery Network (CDN) är en global CDN-lösning för att leverera innehåll med hög bandbredd. Den kan köras i Azure eller på någon annan plats. Med Azure CDN kan du cachelagra statiska objekt som läses in från Azure Blob Storage, en webbapp, eller valfri offentligt tillgänglig webbserver genom att använda den närmaste POP-servern. Azure CDN möjliggör också snabbare dynamiskt innehåll, som inte kan cachelagras, genom att utnyttja olika nätverks- och routningsoptimeringar.'
-  services: cdn
-  author: twooley
-  manager: twooley
+  title: Dokumentation om Azure CDN – självstudier, API-referens
+  description: Azure Content Delivery Network (CDN) är en global CDN-lösning för att leverera innehåll med hög bandbredd. Den kan köras i Azure eller på någon annan plats. Med Azure CDN kan du cachelagra statiska objekt som läses in från Azure Blob Storage, en webbapp, eller valfri offentligt tillgänglig webbserver genom att använda den närmaste POP-servern. Azure CDN möjliggör också snabbare dynamiskt innehåll, som inte kan cachelagras, genom att utnyttja olika nätverks- och routningsoptimeringar.
   ms.service: azure-cdn
   ms.topic: landing-page
-  ms.date: 06/08/2018
-  ms.author: twooley
-abstract:
-  description: 'Azure Content Delivery Network (CDN) är en global CDN-lösning för att leverera innehåll med hög bandbredd. Den kan köras i Azure eller på någon annan plats. Med Azure CDN kan du cachelagra statiska objekt som läses in från Azure Blob Storage, en webbapp, eller valfri offentligt tillgänglig webbserver genom att använda den närmaste POP-servern. Azure CDN möjliggör också snabbare dynamiskt innehåll, som inte kan cachelagras, genom att utnyttja olika nätverks- och routningsoptimeringar.'
-sections:
-  - title: null
-    items:
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/cdn.svg
-            text: Läs mer om Azure CDN
-            href: /azure/cdn/cdn-overview
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: Lär dig hur du aktiverar Azure CDN genom att skapa en CDN-profil och en CDN-slutpunkt.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/get-started.svg
-            text: Komma igång med Azure CDN
-            href: /azure/cdn/cdn-create-new-endpoint
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: Lär dig hur du konfigurerar Azure CDN för dina behov.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/cdn/cdn-map-content-to-custom-domain">Lägga till en anpassad domän i CDN-slutpunkten</a>
-          - html: <a href="/azure/cdn/cdn-custom-ssl">Konfigurera HTTPS på en anpassad domän</a>
-          - html: <a href="/azure/cdn/cdn-caching-rules-tutorial">Ange cachelagringsregler</a>
-  - title: Videoklipp
-    items:
-      - type: paragraph
-        text: Titta på videor som visar hur Azure CDN fungerar.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/video-library.svg
-            text: Azure CDN-videobibliotek
-            href: 'https://azure.microsoft.com/documentation/videos/index/?services=cdn'
-  - title: Exempel
-    items:
-      - type: paragraph
-        text: Hitta skript för att hantera vanliga uppgifter.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://azure.microsoft.com/resources/samples/?service=cdn">Kodexempel</a>'
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/powershell/module/az.cdn">PowerShell</a></p>
-          - title: Språk
-            html: <p><a href="/dotnet/api/microsoft.azure.management.cdn">NET</a></p><p><a href="/java/api/com.microsoft.azure.management.cdn">Java</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/cdn/">REST API-referens</a></p>
+  author: asudbring
+  ms.author: allensu
+  ms.date: 02/24/2020
+  ms.openlocfilehash: 7244b5f70468735a0dcced4d9cc9e71c1194350e
+  ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 02/25/2020
+  ms.locfileid: "77582576"
+landingContent:
+- title: Om Azure CDN
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är CDN på Azure?
+      url: cdn-overview.md
+  - linkListType: video
+    links:
+    - text: Azure CDN-videobibliotek
+      url: https://azure.microsoft.com/documentation/videos/index/?services=cdn
+- title: Kom igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en Azure CDN-profil och en CDN-slutpunkt
+      url: cdn-create-new-endpoint.md
+    - text: Integrera ett Azure Storage-konto med Azure CDN
+      url: cdn-create-a-storage-account-with-cdn.md
+  - linkListType: tutorial
+    links:
+    - text: Lägga till en anpassad domän i din Azure CDN-slutpunkt
+      url: cdn-map-content-to-custom-domain.md
+    - text: Konfigurera HTTPS på en anpassad Azure CDN-domän
+      url: cdn-custom-ssl.md
+    - text: Lägga till Azure CDN i en Azure App Service-webbapp
+      url: cdn-add-to-web-app.md
+  - linkListType: learn
+    links:
+    - text: Skapa ett Content Delivery Network för din webbplats med Azure CDN och Blob Services
+      url: https://docs.microsoft.com/learn/modules/create-cdn-static-resources-blob-storage/
+- title: Övervakning
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Övervaka hälsotillståndet för dina Azure CDN-resurser
+      url: cdn-resource-health.md
+    - text: Azure-diagnostikloggar – Azure CDN
+      url: cdn-azure-diagnostic-logs.md
+- title: Rapportering
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Analysera användningsmönster för Azure CDN
+      url: cdn-log-analysis.md
+    - text: Core-rapporter från Verizon
+      url: cdn-analyze-usage-patterns.md
+    - text: Anpassade rapporter från Verizon
+      url: cdn-verizon-custom-reports.md
+    - text: Analysera förbrukningsstatistik med avancerade HTTP-rapporter i Azure CDN
+      url: cdn-advanced-http-reports.md

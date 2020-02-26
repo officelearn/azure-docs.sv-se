@@ -28,3 +28,15 @@
       href: security-control-incident-response.md
     - name: Intrångstester och Red Team-övningar (rött lag)
       href: security-control-penetration-tests-red-team-exercises.md
+- name: Säkerhetsbaslinjer
+  items:
+    - name: Översikt över Azure-säkerhetsbaslinjer
+      href: security-baselines-overview.md
+    - name: Säkerhetsbaslinje för Batch
+      href: ../../batch/security-baseline.md
+    - name: Säkerhetsbaslinje för Key Vault
+      href: ../../key-vault/security-baseline.md
+    - name: Säkerhetsbaslinje för HDInsight
+      href: ../../hdinsight/security-baseline.md
+    - name: Säkerhetsöversikt för SQL Database
+      href: ../../sql-database/security-baseline.md

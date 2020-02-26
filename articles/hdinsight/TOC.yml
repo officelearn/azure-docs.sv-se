@@ -810,6 +810,8 @@
           href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
     - name: Begrepp
       items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
         - name: Allmän vägledning för företagssäkerhet
           href: ./domain-joined/general-guidelines.md
         - name: Planera för ESP-kluster

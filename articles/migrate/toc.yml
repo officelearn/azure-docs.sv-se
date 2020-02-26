@@ -104,9 +104,9 @@
       href: how-to-assess.md
     - name: Gruppera datorer för utvärdering
       href: how-to-create-a-group.md
-    - name: Gruppera datorer med hjälp av beroendevisualisering
+    - name: Analysera datorberoenden (agentbaserade)
       href: how-to-create-group-machine-dependencies.md
-    - name: Gruppera datorer med hjälp av agentlös beroendevisualisering
+    - name: Analysera datorberoenden (agentlösa)
       href: how-to-create-group-machine-dependencies-agentless.md
     - name: Skapa en utvärdering
       href: how-to-create-assessment.md

@@ -122,6 +122,8 @@
       maintainContext: true
 - name: Anvisningar
   items:
+    - name: 'Migrera från API:er för Azure Service Manager (klassisk) till API:er för Resource Manager'
+      href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fevent-hubs%2ftoc.json
     - name: Utveckla
       items:
         - name: Hämta Event Hubs-anslutningssträng

@@ -18,7 +18,7 @@
     - name: 2. Konfigurera
       items:
         - name: Skala med Azure Container Instances
-          href: /azure/container-instances/container-instances-jenkins
+          href: container-instances-jenkins.md
           maintainContext: true
         - name: Skala med Azure VM-agenter
           href: jenkins-azure-vm-agents.md

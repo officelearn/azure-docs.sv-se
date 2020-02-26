@@ -148,6 +148,8 @@
           href: live-event-states-billing.md
         - name: Svarstid
           href: live-event-latency.md
+        - name: Felkoder för livehändelser
+          href: live-event-error-codes.md
     - name: Övervakning
       items:
         - name: Händelser med Event Grid
@@ -175,6 +177,8 @@
           items:
             - name: Felkoder för slutpunkter för direktuppspelning
               href: streaming-endpoint-error-codes.md
+            - name: Felkoder för livehändelser
+              href: live-event-error-codes.md
             - name: Jobbfelkoder
               href: job-error-codes.md
     - name: Vägledning för migrering från v2 till v3
@@ -325,6 +329,8 @@
       items:
         - name: Felkoder för slutpunkter för direktuppspelning
           href: streaming-endpoint-error-codes.md
+        - name: Felkoder för livehändelser
+          href: live-event-error-codes.md
         - name: Jobbfelkoder
           href: job-error-codes.md
 - name: Resurser

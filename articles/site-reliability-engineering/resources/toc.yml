@@ -1,0 +1,11 @@
+- name: Dokumentation om SRE (Site Reliability Engineering)
+  href: ../index.yml
+- name: Resurser
+  expanded: true
+  items:
+    - name: Böcker om SRE
+      href: books.md
+    - name: SRE-evenemang
+      href: events.md
+    - name: SRE-länksamlingar och sammandrag
+      href: links.md

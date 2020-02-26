@@ -120,6 +120,11 @@
       href: sap-deployment-checklist.md
     - name: Planera och implementera SAP NetWeaver på Azure
       href: planning-guide.md
+      items:
+        - name: SAP-arbetsbelastning på en virtuell Azure-dator – scenarier som stöds
+          href: sap-planning-supported-configurations.md
+        - name: Vilken SAP-programvara stöds för Azure-distributioner
+          href: sap-supported-product-on-azure.md
     - name: Distributionsguide för SAP NetWeaver
       href: deployment-guide.md
     - name: DBMS-distributionsguider för SAP-arbetsbelastning

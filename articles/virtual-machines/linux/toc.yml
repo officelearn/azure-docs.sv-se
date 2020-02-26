@@ -42,9 +42,9 @@
     - name: 13 – Hantera VM-säkerhet
       href: tutorial-azure-security.md
     - name: 14a – Skapa med Jenkins
-      href: tutorial-jenkins-github-docker-cicd.md
+      href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md
     - name: 14b – Integrera Jenkins med Azure DevOps
-      href: tutorial-build-deploy-jenkins.md
+      href: ../../jenkins/tutorial-build-deploy-jenkins.md
     - name: 15a – DevOps för IaaS och PaaS på Azure
       href: tutorial-devops-azure-pipelines-classic.md
     - name: 15b – CI/CD med Azure Pipelines (YAML)
@@ -91,8 +91,8 @@
               href: ../av2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Anpassningsbara B-serien
               href: ../sizes-b-series-burstable.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-            - name: DC-serien
-              href: ../dc-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: DCv2-serien
+              href: ../dcv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Dv2- och DSv2-serien
               href: ../dv2-dsv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Dv3- och Dsv3-serien

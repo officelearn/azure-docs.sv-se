@@ -109,6 +109,8 @@
           href: search-capacity-planning.md
         - name: Skala för prestanda
           href: search-performance-optimization.md
+        - name: Flytta en tjänst mellan regioner
+          href: search-howto-move-across-regions.md
         - name: Arkitektur för flera innehavare
           href: search-modeling-multitenant-saas-applications.md
     - name: Säkerhet

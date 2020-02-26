@@ -181,6 +181,20 @@
   items:
     - name: 'REST API:er'
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: Vanliga frågor och svar för Azure Security Center
+      items:
+        - name: Allmänna frågor
+          href: faq-general.md
+        - name: Frågor om fakturering
+          href: faq-billing.md
+        - name: Frågor om behörigheter
+          href: faq-permissions.md
+        - name: Frågor om datainsamling och agenter
+          href: faq-data-collection-agents.md
+        - name: Frågor om virtuella datorer
+          href: faq-vms.md
+        - name: Befintliga Azure Log Analytics-användare
+          href: faq-azure-monitor-logs.md
     - name: Viktig information
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Tillbakadragande av funktioner och API (juli 2019)
@@ -195,8 +209,6 @@
       href: security-center-privacy.md
     - name: Dokumentation om Azure Security Center for IoT
       href: 'https://docs.microsoft.com/azure/asc-for-iot/'
-    - name: VANLIGA FRÅGOR OCH SVAR
-      href: security-center-faq.md
     - name: Dokumentation om Azure-säkerhet
       href: /azure/security/
     - name: Azure-uppdateringar

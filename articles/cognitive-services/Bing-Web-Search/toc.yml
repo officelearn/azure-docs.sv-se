@@ -27,14 +27,8 @@
           href: quickstarts/ruby.md
     - name: 'SDK:er'
       items:
-        - name: 'C#'
-          href: web-search-sdk-quickstart.md
-        - name: Java
-          href: web-sdk-java-quickstart.md
-        - name: Node.js
-          href: web-search-sdk-node-quickstart.md
-        - name: Python
-          href: web-sdk-python-quickstart.md
+        - name: Klientbibliotek för webbsökning i Bing
+          href: ./quickstarts/client-libraries.md
 - name: Självstudier
   items:
     - name: Skapa en enkelsidig webbapp
@@ -45,7 +39,7 @@
       href: 'https://github.com/Azure-Samples/cognitive-services-REST-api-samples'
     - name: SDK-exempel
       href: sdk-samples.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Filtrera svar
       href: filter-answers.md

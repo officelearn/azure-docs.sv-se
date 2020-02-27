@@ -8,9 +8,9 @@
   items:
     - name: Planera det aggregerade namnområdet
       href: hpc-cache-namespace.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
-    - name: Nödvändiga komponenter
+    - name: Krav
       href: hpc-cache-prereqs.md
     - name: Skapa cachen
       href: hpc-cache-create.md
@@ -42,6 +42,8 @@
       href: hpc-cache-support-ticket.md
     - name: Gå runt brandväggsinställningar för bloblagringskonto
       href: hpc-cache-blob-firewall-fix.md
+    - name: Felsöka skapande av NFS-lagringsmål
+      href: troubleshoot-nas.md
     - name: Återställa från ett regionalt avbrott
       href: hpc-region-recovery.md
     - name: Använda Azure NetApp Files med Azure HPC Cache

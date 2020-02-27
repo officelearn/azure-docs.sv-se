@@ -10,12 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 11/04/2019
-ms.openlocfilehash: 0da5fe56bd56d360cd8052976bdde0cdc910c9a5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 49ee00d43820d5aeb50e44cff1b6c5a448b4ce81
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904279"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623919"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>Skapa händelse drivna Machine Learning-arbetsflöden (för hands version)
 
@@ -25,15 +25,15 @@ Mer information finns i [Azure Machine Learning integration med event Grid](conc
 
 Använd Event Grid för att aktivera vanliga scenarier som:
 
-* Utlösa pipelines för omskolning
+* Skicka e-postmeddelanden vid slut för ande
+* Använd en Azure-funktion när en modell har registrerats
 * Strömma händelser från Azure Machine Learning till olika slut punkter
+* Utlös en ML-pipeline när en avvikelse identifieras
 
-## <a name="prerequisites"></a>Krav
-
+## <a name="prerequisites"></a>Förutsättningar
 * Deltagar-eller ägar åtkomst till Azure Machine Learning arbets ytan du skapar händelser för.
-* Välj en händelse hanterarens slut punkt, till exempel en webhook eller Event Hub. Mer information finns i [händelse hanterare](https://docs.microsoft.com/azure/event-grid/event-handlers). 
 
-## <a name="configure-machine-learning-events-using-the-azure-portal"></a>Konfigurera maskin inlärnings händelser med hjälp av Azure Portal
+### <a name="configure-eventgrid-using-the-azure-portal"></a>Konfigurera EventGrid med hjälp av Azure Portal
 
 1. Öppna [Azure Portal](https://portal.azure.com) och gå till arbets ytan Azure Machine Learning.
 
@@ -51,7 +51,7 @@ Använd Event Grid för att aktivera vanliga scenarier som:
 
 När du har bekräftat ditt val klickar du på __skapa__. Efter konfigurationen skickas de här händelserna till din slut punkt.
 
-## <a name="set-up-azure-event-grid-using-cli"></a>Konfigurera Azure Event Grid med CLI
+### <a name="configure-eventgrid-using-the-cli"></a>Konfigurera EventGrid med CLI
 
 Du kan antingen installera den senaste versionen av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)eller använda Azure Cloud Shell som tillhandahålls som en del av din Azure-prenumeration.
 
@@ -61,7 +61,7 @@ Om du vill installera Event Grid-tillägget använder du följande kommando frå
 az add extension --name eventgrid
 ```
 
-Följande exempel visar hur du väljer en Azure-prenumeration och sedan skapar en ny händelse prenumeration för Azure Machine Learning:
+Följande exempel visar hur du väljer en Azure-prenumeration och skapar en ny händelse prenumeration för Azure Machine Learning:
 
 ```azurecli-interactive
 # Select the Azure subscription that contains the workspace
@@ -76,7 +76,13 @@ az eventgrid event-subscription create \
   --subject-begins-with "models/mymodelname"
 ```
 
-## <a name="sample-scenarios"></a>Exempelscenarier
+## <a name="sample-scenarios"></a>Exempel scenarier
+
+### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Använd Azure Functions för att distribuera en modell som baseras på Taggar
+
+Ett Azure Machine Learning Model-objekt innehåller parametrar som du kan pivotera distributioner på, till exempel modell namn, version, tagg och egenskap. Modell registrerings händelsen kan utlösa en slut punkt och du kan använda en Azure-funktion för att distribuera en modell baserat på värdet för dessa parametrar.
+
+Ett exempel finns i [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) -lagringsplatsen och följa stegen i **README** -filen.
 
 ### <a name="use-a-logic-app-to-send-email-alerts"></a>Använda en Logic app för att skicka e-postaviseringar
 
@@ -158,12 +164,6 @@ Nu utlöses Data Factory-pipelinen när en avvikelse inträffar. Visa informatio
 
 ![Visa-in-arbetsyte](./media/how-to-use-event-grid/view-in-workspace.png)
 
-
-### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Använd Azure Functions för att distribuera en modell som baseras på Taggar
-
-Ett Azure Machine Learning Model-objekt innehåller parametrar som du kan pivotera distributioner på, till exempel modell namn, version, tagg och egenskap. Modell registrerings händelsen kan utlösa en slut punkt och du kan använda en Azure-funktion för att distribuera en modell baserat på värdet för dessa parametrar.
-
-Ett exempel finns i [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) -lagringsplatsen och följa stegen i **README** -filen.
 
 ## <a name="next-steps"></a>Nästa steg
 

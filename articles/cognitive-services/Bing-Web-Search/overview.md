@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 12/05/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 6615f166ced4a93115f9cbaae1c6ce5b57cf57bc
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: a7b2627b5837a124ebbcd76783bb49679cbe6313
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892999"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650290"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Vad är API för webbsökning i Bing?
 
@@ -30,7 +30,7 @@ Vill du se hur det fungerar? Prova vår demo med [API för webbsökning i Bing](
 
 Webbsökning i Bing ger dig bara till gång till snabb svar. Den innehåller också ytterligare funktioner som gör att du kan anpassa Sök Resultat för dina användare.
 
-| Funktion | Beskrivning |
+| Funktion | Description |
 |---------|-------------|
 | [Föreslå söktermer i realtid](../bing-autosuggest/get-suggested-search-terms.md) | Förbättra programupplevelsen API för automatiska förslag i Bing. Föreslagna sökord visas medan användaren skriver. |
 | [Filtrera och begränsa resultat efter innehållstyp](filter-answers.md) | Anpassa och förfina sökresultaten med filter och frågeparametrar för webbsidor, bilder, video, säker sökning med mera. |
@@ -40,7 +40,7 @@ Webbsökning i Bing ger dig bara till gång till snabb svar. Den innehåller ock
 
 ## <a name="workflow"></a>Arbetsflöde
 
-API:et för webbsökning i Bing är enkelt att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och tolka JSON-svaren. Tjänsten är tillgänglig med hjälp av [REST-API:et](quickstarts/python.md) och [SDK:erna för Bing-webbsökning](web-sdk-python-quickstart.md).
+API:et för webbsökning i Bing är enkelt att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och tolka JSON-svaren. Tjänsten kan nås via [REST API](quickstarts/python.md) eller [webbsökning i Bing klient bibliotek](./quickstarts/client-libraries.md).
 
 1. [Skapa en Azure-resurs](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  
 2. Skicka en [begäran till API:et för webbsökning i Bing](quickstarts/python.md).
@@ -48,7 +48,7 @@ API:et för webbsökning i Bing är enkelt att anropa från alla programmeringss
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Använd vår [Python-snabbstart](quickstarts/python.md) och gör ditt första anrop till API:et för webbsökning i Bing.  
+* Använd vår [Python-snabbstart](./quickstarts/client-libraries.md?pivots=programming-language-python) och gör ditt första anrop till API:et för webbsökning i Bing.  
 * [Skapa en enkelsidig webbapp](tutorial-bing-web-search-single-page-app.md).
 * Granska dokumentationen om [v7-referensen för API:et för webbsökning](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).  
 * Läs mer om [kraven för användning och visning](UseAndDisplayRequirements.md) för webbsökning i Bing.  

@@ -2,21 +2,21 @@
 title: Matris för Azure Database Migration Service verktyg
 description: Lär dig mer om tjänsterna och verktygen som är tillgängliga för att migrera databaser och stöd för olika faser av migreringsprocessen.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/10/2020
-ms.openlocfilehash: 6259f365edeb3c3d94646a4b2ae019d0776dcc23
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 02/20/2020
+ms.openlocfilehash: c64e9392173f2f329f6c95d4cf9f40614060066e
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75860851"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651006"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>Tillgängliga tjänster och verktyg för datamigreringsscenarier
 
@@ -29,9 +29,9 @@ Följande tabeller identifierar de tjänster och verktyg som du kan använda fö
 
 ## <a name="business-justification-phase"></a>Affärs justerings fas
 
-| Källa | Målinrikta | Undersöka<br/>Inventering | Mål och SKU<br/>rekommenderade | TCO/ROI och<br/>Företagscase |
+| Källa | Mål | Undersöka<br/>Inventering | Mål och SKU<br/>rekommenderade | TCO/ROI och<br/>Affärs ärende |
 | --- | --- | --- | --- | --- |
-| SQL Server | Azure SQL DB | [Kart verktyg](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Azure Migrate](https://azure.microsoft.com/services/azure-migrate/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Molnbaserad Atlas *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [TCO-kalkylator](https://azure.microsoft.com/pricing/tco/calculator/) |
+| SQL Server | Azure SQL-databas | [Kart verktyg](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Azure Migrate](https://azure.microsoft.com/services/azure-migrate/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Molnbaserad Atlas *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [TCO-kalkylator](https://azure.microsoft.com/pricing/tco/calculator/) |
  SQL Server | Azure SQL DB MI | [Kart verktyg](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Azure Migrate](https://azure.microsoft.com/services/azure-migrate/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Molnbaserad Atlas *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [TCO-kalkylator](https://azure.microsoft.com/pricing/tco/calculator/) |
 | SQL Server | Virtuell Azure SQL-dator | [Kart verktyg](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Azure Migrate](https://azure.microsoft.com/services/azure-migrate/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [Molnbaserad Atlas *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [TCO-kalkylator](https://azure.microsoft.com/pricing/tco/calculator/) |
 | SQL Server | SQL DW | [Kart verktyg](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Azure Migrate](https://azure.microsoft.com/services/azure-migrate/)<br/>[Cloudamize*](https://www.cloudamize.com/) |  | [TCO-kalkylator](https://azure.microsoft.com/pricing/tco/calculator/) |
@@ -47,16 +47,16 @@ Följande tabeller identifierar de tjänster och verktyg som du kan använda fö
 | PostgreSQL | Azure DB för PostgreSQL –<br/>Enskild server | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) |  | [TCO-kalkylator](https://azure.microsoft.com/pricing/tco/calculator/) |
 | RDS-PostgreSQL | Azure DB för PostgreSQL –<br/>Enskild server |  |  | [TCO-kalkylator](https://azure.microsoft.com/pricing/tco/calculator/) |
 | DB2 | Azure SQL DB, MI, VM | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
-| Åtkomst | Azure SQL DB, MI, VM | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
+| Access | Azure SQL DB, MI, VM | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase-SAP-ASE | Azure SQL DB, MI, VM | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase-SAP-SWEETIQ | Azure SQL DB, MI, VM |  |  |  |
 | | | | | |
 
 ## <a name="pre-migration-phase"></a>Fas för migrering
 
-| Källa | Målinrikta | Åtkomst till AppData<br/>Skikt utvärdering | Databas<br/>Utvärdering | Prestanda<br/>Utvärdering |
+| Källa | Mål | Åtkomst till AppData<br/>Skikt utvärdering | Databas<br/>Utvärdering | Prestanda<br/>Utvärdering |
 | --- | --- | --- | --- | --- |
-| SQL Server | Azure SQL DB | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) / [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Molnbaserad Atlas *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DIETANOLAMIN](https://www.microsoft.com/download/details.aspx?id=54090)<br/>[Cloudamize*](https://www.cloudamize.com/) |
+| SQL Server | Azure SQL-databas | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) / [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Molnbaserad Atlas *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DIETANOLAMIN](https://www.microsoft.com/download/details.aspx?id=54090)<br/>[Cloudamize*](https://www.cloudamize.com/) |
 | SQL Server | Azure SQL DB MI | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) / [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Molnbaserad Atlas *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DIETANOLAMIN](https://www.microsoft.com/download/details.aspx?id=54090)<br/>[Cloudamize*](https://www.cloudamize.com/) |
 | SQL Server | Virtuell Azure SQL-dator | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) / [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Molnbaserad Atlas *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DIETANOLAMIN](https://www.microsoft.com/download/details.aspx?id=54090)<br/>[Cloudamize*](https://www.cloudamize.com/) |
 | SQL Server | SQL DW | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) |  |  |
@@ -72,16 +72,16 @@ Följande tabeller identifierar de tjänster och verktyg som du kan använda fö
 | PostgreSQL | Azure DB för PostgreSQL –<br/>Enskild server |  |  |  |
 | RDS-PostgreSQL | Azure DB för PostgreSQL –<br/>Enskild server |  |  |  |
 | DB2 | Azure SQL DB, MI, VM | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) / [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
-| Åtkomst | Azure SQL DB, MI, VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
+| Access | Azure SQL DB, MI, VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase-SAP-ASE | Azure SQL DB, MI, VM | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) / [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase-SAP-SWEETIQ | Azure SQL DB, MI, VM |  | |  |
 | | | | | |
 
 ## <a name="migration-phase"></a>Migrerings fas
 
-| Källa | Målinrikta | Schema | Data<br/>Anslutningen | Data<br/>Onlinemallar |
+| Källa | Mål | Schema | Data<br/>Anslutningen | Data<br/>Onlinemallar |
 | --- | --- | --- | --- | --- |
-| SQL Server | Azure SQL DB | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striims](https://www.striim.com/partners/striim-for-microsoft-azure/) |
+| SQL Server | Azure SQL-databas | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striims](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | SQL Server | Azure SQL DB MI | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striims](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | SQL Server | Virtuell Azure SQL-dator | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[DMS](https://azure.microsoft.com/services/database-migration/)<br>[Cloudamize*](https://www.cloudamize.com/) | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[DMS](https://azure.microsoft.com/services/database-migration/)<br>[Cloudamize*](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striims](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | SQL Server | SQL DW |  |  |  |
@@ -97,16 +97,16 @@ Följande tabeller identifierar de tjänster och verktyg som du kan använda fö
 | PostgreSQL | Azure DB för PostgreSQL –<br/>Enskild server | [Dumpning av PG *](https://www.postgresql.org/docs/11/static/app-pgdump.html) |  | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striims](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | RDS-PostgreSQL | Azure DB för PostgreSQL –<br/>Enskild server | [Dumpning av PG *](https://www.postgresql.org/docs/11/static/app-pgdump.html) |  | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity](https://www.attunity.com/products/replicate/)<br/>[Striims](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | DB2 | Azure SQL DB, MI, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [Attunity](https://www.attunity.com/products/replicate/)<br/>[Striims](https://www.striim.com/partners/striim-for-microsoft-azure/) |
-| Åtkomst | Azure SQL DB, MI, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |
+| Access | Azure SQL DB, MI, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |
 | Sybase-SAP-ASE | Azure SQL DB, MI, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [Attunity](https://www.attunity.com/products/replicate/)<br/>[Striims](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | Sybase-SAP-SWEETIQ | Azure SQL DB, MI, VM | [Inspirer](http://www.ispirer.com/solutions/migration-to-the-microsoft-technology-stack) | [Inspirer](http://www.ispirer.com/solutions/migration-to-the-microsoft-technology-stack) | |
 | | | | | |
 
 ## <a name="post-migration-phase"></a>Fasen efter migreringen
 
-| Källa | Målinrikta | Optimera |
+| Källa | Mål | Optimera |
 | --- | --- | --- |
-| SQL Server | Azure SQL DB | [Molnbaserad Atlas *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) |
+| SQL Server | Azure SQL-databas | [Molnbaserad Atlas *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) |
 | SQL Server | Azure SQL DB MI | [Molnbaserad Atlas *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) |
 | SQL Server | Virtuell Azure SQL-dator | [Molnbaserad Atlas *](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) |
 | SQL Server | SQL DW |  |
@@ -122,7 +122,7 @@ Följande tabeller identifierar de tjänster och verktyg som du kan använda fö
 | PostgreSQL | Azure DB för PostgreSQL –<br/>Enskild server |  |
 | RDS-PostgreSQL | Azure DB för PostgreSQL –<br/>Enskild server |  |
 | DB2 | Azure SQL DB, MI, VM |  |
-| Åtkomst | Azure SQL DB, MI, VM |  |
+| Access | Azure SQL DB, MI, VM |  |
 | Sybase-SAP-ASE | Azure SQL DB, MI, VM |  |
 | Sybase-SAP-SWEETIQ | Azure SQL DB, MI, VM |  |
 | | | |

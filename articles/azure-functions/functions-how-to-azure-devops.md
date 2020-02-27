@@ -1,16 +1,16 @@
 ---
 title: Uppdatera funktionens app-kod kontinuerligt med Azure DevOps
 description: Lär dig hur du konfigurerar en Azure DevOps-pipeline som är riktad mot Azure Functions.
-author: ahmedelnably
+author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/18/2019
-ms.author: aelnably
-ms.openlocfilehash: e6ea7edb16aa28428754cbe920e1d350aded0cff
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.author: cshoe
+ms.openlocfilehash: 1d627329a6d5f4c283a4480c1b0b1077a8e856cf
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834029"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649950"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Kontinuerlig leverans med hjälp av Azure-DevOps
 
@@ -29,7 +29,7 @@ Skapa en YAML-baserad pipeline genom att först skapa din app och sedan distribu
 
 Hur du skapar din app i Azure-pipeliner beror på appens programmeringsspråk. Varje språk har specifika build-steg som skapar en distributions artefakt. En distributions artefakt används för att distribuera din Function-app i Azure.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Du kan använda följande exempel för att skapa en YAML-fil för att skapa en .NET-app:
 
@@ -60,7 +60,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Du kan använda följande exempel för att skapa en YAML-fil för att skapa en JavaScript-app:
 
@@ -88,7 +88,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Du kan använda något av följande exempel för att skapa en YAML-fil för att skapa en app för en speciell python-version. Python stöds bara för Function-appar som körs på Linux.
 
@@ -150,7 +150,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Du kan använda följande exempel för att skapa en YAML-fil för att paketera en PowerShell-app. PowerShell stöds endast för Windows-Azure Functions.
 

@@ -2,14 +2,14 @@
 title: Fel sökning – Personanpassare
 description: Den här artikeln innehåller svar på vanliga fel söknings frågor om Personanpassare.
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/26/2020
 ms.author: diberry
-ms.openlocfilehash: fec403da7f54098dbf197d14f3b16afd30bf5efc
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 432b33243bdb38cf359d4fea1a336500eb244464
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77469552"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650528"
 ---
 # <a name="personalizer-troubleshooting"></a>Fel sökning av personanpassa
 
@@ -32,6 +32,19 @@ Den här artikeln innehåller svar på vanliga fel söknings frågor om Personan
 </details>
 
 ## <a name="learning-loop"></a>Inlärnings slinga
+
+<details>
+<summary>
+<b>Inlärnings slingan inte uppnår en 100%-matchning till systemet utan någon personligt tillverkare. Hur gör jag för att åtgärda detta?</b></summary>
+
+**Svar**: anledningen till att du inte uppnår ditt mål med inlärnings slingan:
+* Inte tillräckligt med funktioner som skickas med rang-API-anrop
+* Buggar i de funktioner som skickas – till exempel skicka icke-aggregerade funktions data, till exempel tidsstämplar till Range-API
+* Buggar med loop-bearbetning – till exempel att inte skicka belönings data till belönings-API för händelser
+
+För att åtgärda detta måste du ändra bearbetningen genom att antingen ändra de funktioner som skickats till slingan, eller se till att belöningen är en korrekt utvärdering av kvaliteten på rangens svar.
+
+</details>
 
 <details>
 <summary>
@@ -91,7 +104,7 @@ När den nya uppdaterings perioden börjar används den uppdaterade modellen och
 <details>
 <summary><b>Hur gör jag för att importera en utbildnings princip?</b></summary>
 
-**Svar**: Lär dig mer om [begrepp för inlärnings principer](concept-active-learning.md#understand-learning-policy-settings) och [hur du använder](how-to-learning-policy.md) en ny utbildnings princip. Om du inte vill välja en utbildnings princip kan du använda [offline-utvärderingen](how-to-offline-evaluation.md) för att föreslå en utbildnings princip baserat på dina aktuella händelser.
+**Svar**: Lär dig mer om [begrepp för inlärnings principer](concept-active-learning.md#understand-learning-policy-settings) och [hur du använder](how-to-manage-model.md) en ny utbildnings princip. Om du inte vill välja en utbildnings princip kan du använda [offline-utvärderingen](how-to-offline-evaluation.md) för att föreslå en utbildnings princip baserat på dina aktuella händelser.
 
 </details>
 

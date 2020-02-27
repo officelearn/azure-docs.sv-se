@@ -4,12 +4,12 @@ description: Lär dig hur du skapar ett privat Azure Kubernetes service-kluster 
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: e59dccbcc7514f12e148bfb2f771593a53e85dc5
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4b4ba130d9ff63291abdd46617b0692e844a60bf
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594574"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649515"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Skapa ett privat Azure Kubernetes service-kluster (för hands version)
 
@@ -29,32 +29,44 @@ Kontroll planet eller API-servern finns i en Azure Kubernetes service (AKS)-hant
 
 ## <a name="currently-supported-regions"></a>Regioner som stöds för närvarande
 
-* Australien, östra
-* Australien, sydöstra
-* Brasilien, södra
-* Kanada, centrala
-* Kanada, östra
+* Östra Australien
+* Sydöstra Australien
+* Södra Brasilien
+* Centrala Kanada
+* Östra Kanada
 * Cenral oss
-* Asien, östra
-* USA, östra
+* Östasien
+* Östra USA
 * USA, östra 2
 * USA, östra 2 EUAP
 * Frankrike, centrala
 * Tyskland, norra
-* Japan, östra
-* Japan, västra
+* Östra Japan
+* Västra Japan
 * Sydkorea, centrala
 * Sydkorea, södra
-* USA, norra centrala
-* Europa, norra
-* Europa, norra
-* USA, södra centrala
+* Norra centrala USA
+* Norra Europa
+* Norra Europa
+* Södra centrala USA
 * Storbritannien, södra
-* Europa, västra
-* USA, västra
-* USA, västra 2
+* Västra Europa
+* Västra USA
+* Västra USA 2
 * USA, östra 2
 
+## <a name="currently-supported-availability-zones"></a>Tillgänglighetszoner som stöds för närvarande
+
+* Centrala USA
+* Östra USA
+* USA, östra 2
+* Frankrike, centrala
+* Östra Japan
+* Norra Europa
+* Sydostasien
+* Storbritannien, södra
+* Västra Europa
+* Västra USA 2
 
 ## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Installera det senaste för hands tillägget för Azure CLI-AKS
 
@@ -115,6 +127,7 @@ Where *--Enable-Private-Cluster* är en obligatorisk flagga för ett privat klus
 > Om Docker-bryggan Address CIDR (172.17.0.1/16) står i konflikt med under nätets CIDR, ändra Docker-bryggans adress på lämpligt sätt.
 
 ## <a name="connect-to-the-private-cluster"></a>Anslut till det privata klustret
+
 API-serverns slut punkt har ingen offentlig IP-adress. Därför måste du skapa en virtuell Azure-dator (VM) i ett virtuellt nätverk och ansluta till API-servern. Gör så här:
 
 1. Hämta autentiseringsuppgifter för att ansluta till klustret.
@@ -148,7 +161,8 @@ API-serverns slut punkt har ingen offentlig IP-adress. Därför måste du skapa 
 * Om du vill använda en anpassad DNS-Server distribuerar du en AD-server med DNS för att vidarebefordra till den här IP-168.63.129.16
 
 ## <a name="limitations"></a>Begränsningar 
-* Tillgänglighetszoner stöds för närvarande endast för regionerna USA, östra 2 och västra USA 2
+* Det går inte att använda IP-auktoriserade intervall för den privata API-serverns slut punkt, de gäller bara för den offentliga API-servern
+* Tillgänglighetszoner stöds för närvarande för vissa regioner, se början av det här dokumentet 
 * [Begränsningar för Azure Private Link service][private-link-service] gäller för privata kluster, Azures privata slut punkter och virtuella nätverks tjänst slut punkter som för närvarande inte stöds i samma virtuella nätverk.
 * Inget stöd för virtuella noder i ett privat kluster för att snurra privat Azure Container Instances (ACI) i ett privat virtuellt Azure-nätverk
 * Inget stöd för integrering av Azure DevOps-integreringen med privata kluster

@@ -3,21 +3,21 @@ title: 'Kända problem: online-migreringar till SQL Database'
 titleSuffix: Azure Database Migration Service
 description: Läs om kända problem/begränsningar för migrering med online-migreringar för att Azure SQL Database med hjälp av Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 07/27/2019
-ms.openlocfilehash: bf747b6deb4b3c25df74364143ac48c59eb48ae1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: e7efdb7244e2c7e4651a4507b538123f8d320c1e
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437833"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650783"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Kända problem/migrerings begränsningar med online-migreringar till Azure SQL Database
 
@@ -28,7 +28,7 @@ Kända problem och begränsningar som är kopplade till online-migrering från S
 
 ### <a name="migration-of-temporal-tables-not-supported"></a>Migrering av temporala tabeller stöds inte
 
-**Symtom**
+**Aktuellt**
 
 Om din käll databas består av en eller flera temporala tabeller, Miss lyckas migreringen av databasen under åtgärden "fullständig data inläsning" och du kan se följande meddelande:
 
@@ -40,7 +40,7 @@ Om din käll databas består av en eller flera temporala tabeller, Miss lyckas m
 
 **Lösning**
 
-Följ stegen nedan.
+Använd följande steg.
 
 1. Hitta de temporala tabellerna i ditt käll schema med hjälp av frågan nedan.
 
@@ -58,7 +58,7 @@ Mer information finns i artikel [temporala tabeller](https://docs.microsoft.com/
 
 ### <a name="migration-of-tables-includes-one-or-more-columns-with-the-hierarchyid-data-type"></a>Migrering av tabeller innehåller en eller flera kolumner med data typen hierarchyid
 
-**Symtom**
+**Aktuellt**
 
 Du kan se ett SQL-undantag som föreslår att "ntext är inkompatibelt med hierarchyid" under åtgärden "fullständig data inläsning":
 
@@ -66,7 +66,7 @@ Du kan se ett SQL-undantag som föreslår att "ntext är inkompatibelt med hiera
 
 **Lösning**
 
-Följ stegen nedan.
+Använd följande steg.
 
 1. Hitta de användar tabeller som innehåller kolumner med data typen hierarchyid med hjälp av frågan nedan.
 
@@ -82,7 +82,7 @@ Följ stegen nedan.
 
 **Lösning**
 
-Följ stegen nedan.
+Använd följande steg.
 
 1. Hitta de utlösare som för närvarande är aktiva i käll databasen med hjälp av frågan nedan:
 
@@ -96,7 +96,7 @@ Följ stegen nedan.
 
 ### <a name="support-for-lob-data-types"></a>Stöd för LOB-datatyper
 
-**Symtom**
+**Aktuellt**
 
 Om längden på den stora objekt kolumnen (LOB) är större än 32 KB, kan data bli trunkerade på målet. Du kan kontrol lera längden på LOB-kolumnen med frågan nedan:
 
@@ -110,7 +110,7 @@ Om du har en LOB-kolumn som är större än 32 KB kan du kontakta teknik teamet 
 
 ### <a name="issues-with-timestamp-columns"></a>Problem med Timestamp-kolumner
 
-**Symtom**
+**Aktuellt**
 
 Azure Database Migration Service migrerar inte källans tidsstämpel-värde. i stället genererar Azure Database Migration Service ett nytt tidsstämpel-värde i mål tabellen.
 
@@ -120,7 +120,7 @@ Om du behöver Azure Database Migration Service att migrera det exakta tidsstäm
 
 ### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>Fel vid datamigrering innehåller inte ytterligare information på bladet databas detaljerat läge
 
-**Symtom**
+**Aktuellt**
 
 När du kommer över migreringsåtgärder i vyn databas information visas inte länken **datamigrerings fel** i det övre menyfliksområdet. det kan inte finnas ytterligare information som är speciell för migrerings felen.
 
@@ -138,7 +138,7 @@ Använd följande steg för att få detaljerad information om felen.
 
 ### <a name="geography-datatype-not-supported-in-sqldb-online-migration"></a>Geografi data typen stöds inte i SQLDB online-migrering
 
-**Symtom**
+**Aktuellt**
 
 Migreringen Miss lyckas med ett fel meddelande som innehåller följande text:
 
@@ -150,7 +150,7 @@ Migreringen Miss lyckas med ett fel meddelande som innehåller följande text:
 
 ### <a name="supported-editions"></a>Versioner som stöds
 
-**Symtom**
+**Aktuellt**
 
 Migreringen Miss lyckas med ett fel meddelande som innehåller följande text:
 

@@ -11,15 +11,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
+ms.date: 02/24/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: ab4569860d24a397816aa2e6c92f2e90f9a14ed1
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 0fbe27fb5ed61cc187c679f9cb7420f0b444aa60
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526555"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615940"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure-instansens metadatatjänst
 
@@ -110,7 +110,7 @@ API | Standard data format | Andra format
 /scheduledevents | json | ingen
 /attested | json | ingen
 
-Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Exempel:
+Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Några exempel:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -126,7 +126,7 @@ Begär Anden måste också innehålla ett `Metadata: true` rubrik för att säke
 
 ### <a name="error"></a>Fel
 
-Om det inte går att hitta ett data element eller en felaktig begäran, returnerar Instance Metadata Service vanliga HTTP-fel. Exempel:
+Om det inte går att hitta ett data element eller en felaktig begäran, returnerar Instance Metadata Service vanliga HTTP-fel. Några exempel:
 
 HTTP-statuskod | Orsak
 ----------------|-------
@@ -134,6 +134,7 @@ HTTP-statuskod | Orsak
 400 Felaktig begäran | `Metadata: true` rubrik saknas eller så saknas formatet vid förfrågan till en lövnod
 404 hittades inte | Det begärda elementet finns inte
 metoden 405 tillåts inte | Endast `GET` begär Anden stöds
+410 borta | Försök igen om en stund i högst 70 sekunder
 429 för många begär Anden | API: et stöder för närvarande högst 5 frågor per sekund
 500-tjänst fel     | Försök igen om en stund
 
@@ -457,7 +458,7 @@ identity | Hanterade identiteter för Azure-resurser. Se [Hämta en åtkomsttoke
 instans | Se [instans-API](#instance-api) | 2017-04-02
 scheduledevents | Se [schemalagda händelser](scheduled-events.md) | 2017-08-01
 
-#### <a name="instance-api"></a>Instans-API
+### <a name="instance-api"></a>Instans-API
 
 Följande beräknings kategorier är tillgängliga via instans-API: et:
 
@@ -570,7 +571,6 @@ Nonce är en valfri sträng med 10 siffror. Om den inte anges, returnerar IMDS d
 
 Signatur-bloben är en [PKCS7](https://aka.ms/pkcs7) -signerad version av dokumentet. Det innehåller det certifikat som används för att signera tillsammans med den virtuella dator informationen som vmId, SKU, nonce, subscriptionId, timeStamp för att skapa och upphör ande av dokumentet och plan informationen om avbildningen. Plan informationen är bara ifylld för Azures avbildningar på marknaden. Certifikatet kan extraheras från svaret och används för att verifiera att svaret är giltigt och kommer från Azure.
 
-
 ## <a name="example-scenarios-for-usage"></a>Exempel scenarier för användning  
 
 ### <a name="tracking-vm-running-on-azure"></a>Spåra virtuell dator som körs i Azure
@@ -589,7 +589,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 5c08b38e-4d57-4c23-ac45-aca61037f084
 ```
 
-### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Placering av containrar, datapartitionsbaserad feldomän/uppdateringsdomän 
+### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Placering av containrar, datapartitionsbaserad feldomän/uppdateringsdomän
 
 För vissa scenarier är placeringen av olika data repliker av primär betydelse. Till exempel, [HDFS-replik placering](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) eller container placering via en [Orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) kan du behöva känna till `platformFaultDomain` och `platformUpdateDomain` den virtuella datorn körs på.
 Du kan också använda [Tillgänglighetszoner](../../availability-zones/az-overview.md) för instanserna för att fatta beslut.
@@ -609,7 +609,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 
 ### <a name="getting-more-information-about-the-vm-during-support-case"></a>Hämta mer information om den virtuella datorn under supportbegäran
 
-Som tjänst leverantör kan du få ett support samtal där du vill ha mer information om den virtuella datorn. Att be kunden att dela dina beräknings-metadata kan ge grundläggande information om support teknikern för att veta om vilken typ av virtuell dator som finns i Azure. 
+Som tjänst leverantör kan du få ett support samtal där du vill ha mer information om den virtuella datorn. Att be kunden att dela dina beräknings-metadata kan ge grundläggande information om support teknikern för att veta om vilken typ av virtuell dator som finns i Azure.
 
 **Förfrågan**
 
@@ -839,10 +839,12 @@ När du har hämtat signaturen ovan kan du kontrol lera att signaturen är från
 
  Moln | Certifikat
 ---------|-----------------
-[Alla allmänt tillgängliga globala Azure-regioner](https://azure.microsoft.com/regions/)     | metadata.azure.com
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure Kina 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | metadata.azure.cn
-[Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
+[Alla allmänt tillgängliga globala Azure-regioner](https://azure.microsoft.com/regions/)     | *. metadata.azure.com
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | *. metadata.azure.us
+[Azure Kina 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | *. metadata.azure.cn
+[Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/)                    | *. metadata.microsoftazure.de
+
+Det finns ett känt problem runt certifikatet som används för signering. Certifikaten kanske inte har en exakt matchning av `metadata.azure.com` för det offentliga molnet. Certifierings valideringen bör därför tillåta ett eget namn från alla `.metadata.azure.com` under domäner.
 
 ```bash
 
@@ -1026,7 +1028,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageP
 Språk | Exempel
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Kör  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs

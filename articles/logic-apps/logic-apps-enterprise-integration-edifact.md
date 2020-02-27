@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/26/2016
-ms.openlocfilehash: b6a6ee21774ba931d9982d82b99008f312d19736
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 3ada12a0cde122fb78815a1d3241d8acb9da2580
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793018"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651465"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Exchange EDIFACT-meddelanden för B2B Enterprise-integration i Azure Logic Apps med Enterprise-integrationspaket
 
@@ -36,7 +36,7 @@ När du har [skapat ett integrations konto](../logic-apps/logic-apps-enterprise-
 
 ## <a name="create-an-edifact-agreement"></a>Skapa ett EDIFACT-avtal 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com "Azure portal"). 
+1. Logga in på [Azure-portalen](https://portal.azure.com "Azure Portal"). 
 
 2. På huvud menyn i Azure väljer du **alla tjänster**. I rutan Sök anger du "integration" och väljer sedan **integrations konton**.
 
@@ -61,9 +61,9 @@ När du har [skapat ett integrations konto](../logic-apps/logic-apps-enterprise-
 
    ![Ange avtals information](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-   | Egenskap | Beskrivning |
+   | Egenskap | Description |
    | --- | --- |
-   | Namn |Avtalets namn |
+   | Name |Avtalets namn |
    | Avtals typ | Ska vara EDIFACT |
    | Värd partner |Ett avtal måste både vara värd-och gäst partner. Värd partnern representerar den organisation som konfigurerar avtalet. |
    | Värd identitet |En identifierare för värd partnern |
@@ -90,21 +90,21 @@ Nu är ditt avtal redo att hantera inkommande meddelanden som överensstämmer m
 
 ### <a name="identifiers"></a>Identifierare
 
-| Egenskap | Beskrivning |
+| Egenskap | Description |
 | --- | --- |
 | UNB 6.1 (referens lösen ord för mottagare) |Ange ett alfanumeriskt värde mellan 1 och 14 tecken. |
 | UNB 6.2 (kvalificerare för mottagar referens) |Ange ett alfanumeriskt värde med minst ett tecken och högst två tecken. |
 
 ### <a name="acknowledgments"></a>Bekräftelser
 
-| Egenskap | Beskrivning |
+| Egenskap | Description |
 | --- | --- |
 | Mottagning av meddelandet (CONTRL) |Markera den här kryss rutan om du vill returnera en teknisk (CONTRL) bekräftelse till Interchange-avsändaren. Bekräftelsen skickas till Interchange-avsändaren baserat på sändnings inställningarna för avtalet. |
 | Bekräftelse (CONTRL) |Markera den här kryss rutan om du vill returnera en funktionell (CONTRL) bekräftelse till Interchange-avsändaren skickas bekräftelsen till Interchange-avsändaren baserat på sändnings inställningarna för avtalet. |
 
 ### <a name="schemas"></a>Scheman
 
-| Egenskap | Beskrivning |
+| Egenskap | Description |
 | --- | --- |
 | UNH 2.1 (TYP) |Välj en transaktions uppsättnings typ. |
 | UNH 2.2 (VERSION) |Ange versions numret för meddelandet. (Minst ett tecken, högst tre tecken). |
@@ -115,7 +115,8 @@ Nu är ditt avtal redo att hantera inkommande meddelanden som överensstämmer m
 | SCHEMA |Välj det tidigare laddade schemat som du vill använda från det associerade integrations kontot. |
 
 ### <a name="control-numbers"></a>Kontroll nummer
-| Egenskap | Beskrivning |
+
+| Egenskap | Description |
 | --- | --- |
 | Tillåt inte dubbletter av utbytes kontroll nummer |Om du vill blockera dubbla ändringar väljer du den här egenskapen. Om det här alternativet markeras kontrollerar EDIFACT avkoda att Interchange Control Number (UNB5) för mottagen Interchange inte matchar ett tidigare bearbetat utbytes kontroll nummer. Om en matchning identifieras bearbetas inte växlingen. |
 | Sök efter dubbletter av UNB5 var (dagar) |Om du väljer att inte tillåta dubbla utbytes kontroll nummer kan du ange antalet dagar när du vill utföra kontrollen genom att ange lämpligt värde för den här inställningen. |
@@ -123,13 +124,13 @@ Nu är ditt avtal redo att hantera inkommande meddelanden som överensstämmer m
 | Tillåt inte dubbletter av transaktions uppsättnings nummer |Om du vill blockera ändringar med dubbletter av transaktions uppsättnings nummer (UNH1) väljer du den här egenskapen. |
 | Kontroll nummer för EDIFACT-bekräftelse |Ange ett värde för prefixet, ett intervall med referens nummer och ett suffix för att ange transaktions referens numren som ska användas i en bekräftelse. |
 
-### <a name="validations"></a>Verifieringar
+### <a name="validation"></a>Validering
 
 När du Slutför varje validerings rad läggs en ny automatiskt till. Om du inte anger några regler använder valideringen raden "standard".
 
-| Egenskap | Beskrivning |
+| Egenskap | Description |
 | --- | --- |
-| Meddelande typ |Välj typ av EDI-meddelande. |
+| Meddelandetyp |Välj typ av EDI-meddelande. |
 | EDI-verifiering |Utföra EDI-verifiering på data typer som definieras av schemats EDI-egenskaper, längd begränsningar, tomma data element och avslutande avgränsare. |
 | Utökad verifiering |Om data typen inte är EDI, är verifiering av data elementets krav och tillåten upprepning, uppräkningar och verifiering av data element längd (min/max). |
 | Tillåt inledande/avslutande nollor |Behåll eventuella ytterligare inledande eller avslutande noll och blank stegs tecken. Ta inte bort de här tecknen. |
@@ -138,7 +139,7 @@ När du Slutför varje validerings rad läggs en ny automatiskt till. Om du inte
 
 ### <a name="internal-settings"></a>Interna inställningar
 
-| Egenskap | Beskrivning |
+| Egenskap | Description |
 | --- | --- |
 | Skapa tomma XML-taggar om avslutande avgränsare tillåts |Markera den här kryss rutan om du vill att Interchange Sender ska innehålla tomma XML-taggar för efterföljande avgränsare. |
 | Dela upp utbyte som transaktions uppsättningar – inaktivera transaktions uppsättningar vid fel|Parsar varje transaktion som angetts i ett utbyte till ett separat XML-dokument genom att använda lämpligt kuvert i transaktions uppsättningen. Pausa bara de transaktions uppsättningar som inte har verifierats. |
@@ -163,7 +164,7 @@ Nu är ditt avtal redo att hantera utgående meddelanden som överensstämmer me
 
 ### <a name="identifiers"></a>Identifierare
 
-| Egenskap | Beskrivning |
+| Egenskap | Description |
 | --- | --- |
 | UNB 1.2 (syntax-version) |Välj ett värde mellan **1** och **4**. |
 | UNB 2.3 (avsändarens adress för omvänd routning) |Ange ett alfanumeriskt värde med minst ett tecken och högst 14 tecken. |
@@ -173,14 +174,16 @@ Nu är ditt avtal redo att hantera utgående meddelanden som överensstämmer me
 | UNB7 (program referens-ID) |Ange ett alfanumeriskt värde med minst ett tecken och högst 14 tecken |
 
 ### <a name="acknowledgment"></a>Godkänd
-| Egenskap | Beskrivning |
+
+| Egenskap | Description |
 | --- | --- |
 | Mottagning av meddelandet (CONTRL) |Markera den här kryss rutan om den värdbaserade partnern förväntar sig att ta emot en teknisk (CONTRL) bekräftelse. Den här inställningen anger att den värd partner som skickar meddelandet, begär en bekräftelse från gäst partnern. |
 | Bekräftelse (CONTRL) |Markera den här kryss rutan om en värd partner förväntar sig att ta emot en fungerande (CONTRL) bekräftelse. Den här inställningen anger att den värd partner som skickar meddelandet, begär en bekräftelse från gäst partnern. |
 | Generera SG1/SG4-slinga för godkända transaktions uppsättningar |Om du väljer att begära en funktionell bekräftelse markerar du den här kryss rutan om du vill framtvinga generering av SG1/SG4-slingor i funktionella CONTRL-bekräftelser för godkända transaktions uppsättningar. |
 
 ### <a name="schemas"></a>Scheman
-| Egenskap | Beskrivning |
+
+| Egenskap | Description |
 | --- | --- |
 | UNH 2.1 (TYP) |Välj en transaktions uppsättnings typ. |
 | UNH 2.2 (VERSION) |Ange versions numret för meddelandet. |
@@ -188,7 +191,8 @@ Nu är ditt avtal redo att hantera utgående meddelanden som överensstämmer me
 | SCHEMA |Välj det schema som ska användas. Scheman finns i integrations kontot. För att få åtkomst till dina scheman länkar du först ditt integrations konto till din Logic app. |
 
 ### <a name="envelopes"></a>Kuvert
-| Egenskap | Beskrivning |
+
+| Egenskap | Description |
 | --- | --- |
 | UNB8 (bearbetar prioritets kod) |Ange ett alfabetiskt värde som inte är längre än ett tecken. |
 | UNB10 (kommunikations avtal) |Ange ett alfanumeriskt värde med minst ett tecken och högst 40 tecken. |
@@ -200,7 +204,7 @@ Nu är ditt avtal redo att hantera utgående meddelanden som överensstämmer me
 
 Förutom teckenuppsättningen kan du ange en annan uppsättning avgränsare som ska användas för varje meddelande typ. Om ingen teckenuppsättning har angetts för ett visst meddelande schema används standard teckenuppsättningen.
 
-| Egenskap | Beskrivning |
+| Egenskap | Description |
 | --- | --- |
 | UNB 1.1 (system identifierare) |Välj den EDIFACT som ska tillämpas på utgående Interchange. |
 | Schema |Välj ett schema från den nedrullningsbara listan. När du har slutfört varje rad läggs en ny rad till automatiskt. För det valda schemat väljer du de avgränsnings uppsättningar som du vill använda, baserat på avgräns beskrivningarna nedan. |
@@ -211,19 +215,20 @@ Förutom teckenuppsättningen kan du ange en annan uppsättning avgränsare som 
 | Huvudnamnssuffix |Välj det tangent som används med segment identifieraren. Om du anger ett suffix, kan data elementet för segment begränsas vara tomt. Om avgränsarna för segment lämnas tomma måste du ange ett suffix. |
 
 ### <a name="control-numbers"></a>Kontroll nummer
-| Egenskap | Beskrivning |
+
+| Egenskap | Description |
 | --- | --- |
 | UNB5 (Interchange kontroll nummer) |Ange ett prefix, ett värde intervall för utbytes kontroll numret och ett suffix. Dessa värden används för att generera ett utgående utbyte. Prefixet och suffixet är valfritt, medan kontroll numret måste anges. Kontroll numret ökar för varje nytt meddelande. prefixet och suffixet är oförändrat. |
 | UNG5 (grupp kontroll nummer) |Ange ett prefix, ett värde intervall för utbytes kontroll numret och ett suffix. Dessa värden används för att generera grupp kontroll numret. Prefixet och suffixet är valfritt, medan kontroll numret måste anges. Kontroll numret ökar för varje nytt meddelande tills det maximala värdet har uppnåtts. prefixet och suffixet är oförändrat. |
 | UNH1 (referens nummer för meddelande rubrik) |Ange ett prefix, ett värde intervall för utbytes kontroll numret och ett suffix. Dessa värden används för att generera referens numret för meddelande rubriken. Prefixet och suffixet är valfritt, medan referens numret är obligatoriskt. Referens numret ökar för varje nytt meddelande. prefixet och suffixet är oförändrat. |
 
-### <a name="validations"></a>Verifieringar
+### <a name="validation"></a>Validering
 
 När du Slutför varje validerings rad läggs en ny automatiskt till. Om du inte anger några regler använder valideringen raden "standard".
 
-| Egenskap | Beskrivning |
+| Egenskap | Description |
 | --- | --- |
-| Meddelande typ |Välj typ av EDI-meddelande. |
+| Meddelandetyp |Välj typ av EDI-meddelande. |
 | EDI-verifiering |Utföra EDI-verifiering på data typer som definieras av EDI-egenskaperna i schemat, med längd begränsningar, tomma data element och avslutande avgränsare. |
 | Utökad verifiering |Om data typen inte är EDI, är verifiering av data elementets krav och tillåten upprepning, uppräkningar och verifiering av data element längd (min/max). |
 | Tillåt inledande/avslutande nollor |Behåll eventuella ytterligare inledande eller avslutande noll och blank stegs tecken. Ta inte bort de här tecknen. |
@@ -240,9 +245,13 @@ När du Slutför varje validerings rad läggs en ny automatiskt till. Om du inte
 
     ![Välj avtals panelen](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
-## <a name="view-swagger-file"></a>Visa Swagger-fil
-Information om hur du visar Swagger-information för EDIFACT-anslutningen finns i [EDIFACT](/connectors/edifact/).
+## <a name="connector-reference"></a>Referens för anslutningsapp
 
-## <a name="learn-more"></a>Läs mer
-* [Läs mer om Enterprise-integrationspaket](logic-apps-enterprise-integration-overview.md "Läs mer om Enterprise-integrationspaket")  
+Mer teknisk information om den här anslutningen, till exempel åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil, finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/edifact/).
 
+> [!NOTE]
+> För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
+
+## <a name="next-steps"></a>Nästa steg
+
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

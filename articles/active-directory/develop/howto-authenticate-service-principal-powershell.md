@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: c6c07c48bf94b50d46a50a47f57857fdd15a0e8e
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 8e428732fb49d27e3991071b87abee53b6e375b2
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697259"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648456"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Gör så här: använda Azure PowerShell för att skapa ett huvud namn för tjänsten med ett certifikat
 
@@ -44,13 +44,13 @@ För att slutföra den här artikeln måste du ha tillräcklig behörighet i bå
 Det enklaste sättet att kontrollera om kontot har tillräcklig behörighet är via portalen. Se [Kontrollera behörighet som krävs](howto-create-service-principal-portal.md#required-permissions).
 
 ## <a name="assign-the-application-to-a-role"></a>Tilldela programmet till en roll
-Du måste tilldela programmet till en roll för att få åtkomst till resurser i din prenumeration. Bestäm vilken roll som har rätt behörigheter för programmet. Läs om tillgängliga roller i [RBAC: inbyggda roller](/azure/role-based-access-control/built-in-roles).
+Du måste tilldela programmet till en roll för att få åtkomst till resurser i din prenumeration. Bestäm vilken roll som har rätt behörigheter för programmet. Mer information om tillgängliga roller finns i [RBAC: inbyggda roller](/azure/role-based-access-control/built-in-roles).
 
 Du kan ange omfång på nivån för prenumerationen, resurs gruppen eller resursen. Behörigheter ärvs till lägre nivåer av omfång. Om du till exempel lägger till ett program till rollen *läsare* för en resurs grupp innebär det att den kan läsa resurs gruppen och alla resurser som den innehåller. Om du vill tillåta att programmet kör åtgärder som starta om, starta och stoppa instanser väljer du *deltagar* rollen.
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Skapa huvudnamn för tjänsten med självsignerade certifikat
 
-Följande exempel visar ett enkelt scenario. Den använder [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) för att skapa ett huvud namn för tjänsten med ett självsignerat certifikat och använder [New-AzureRmRoleAssignment](/powershell/module/az.resources/new-azroleassignment) för att tilldela rollen [läsare](/azure/role-based-access-control/built-in-roles#reader) rollen som tjänstens huvud namn. Rolltilldelningen är begränsad till den valda Azure-prenumerationen. Om du vill välja en annan prenumeration använder du [set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
+Följande exempel visar ett enkelt scenario. Den använder [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) för att skapa ett huvud namn för tjänsten med ett självsignerat certifikat och använder [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) för att tilldela rollen [läsare](/azure/role-based-access-control/built-in-roles#reader) rollen som tjänstens huvud namn. Rolltilldelningen är begränsad till den valda Azure-prenumerationen. Om du vill välja en annan prenumeration använder du [set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
 
 > [!NOTE]
 > Cmdleten New-SelfSignedCertificate och PKI-modulen stöds för närvarande inte i PowerShell Core. 

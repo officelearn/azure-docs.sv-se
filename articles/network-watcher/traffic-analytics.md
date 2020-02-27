@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: e53bd3deae5ccd7339c7a6d491dc4ff0da44a277
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 47d9508c891d2b4fe74b42114783b02c58e8c91f
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426234"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620011"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -201,7 +201,7 @@ Du kan också konfigurera trafik analys med hjälp av [set-AzNetworkWatcherConfi
 
 ## <a name="view-traffic-analytics"></a>Visa trafik analys
 
-Välj **alla tjänster**på vänster sida av portalen och ange sedan *Monitor* i **filter** rutan. När **övervakaren** visas i Sök resultaten väljer du den. Om du vill börja utforska trafik analys och dess funktioner väljer du **Network Watcher**och **trafikanalys**.
+Om du vill visa Trafikanalys söker du efter **Network Watcher** i portalens Sök fält. När du är i Network Watcher kan du utforska trafik analyser och dess funktioner genom att välja **trafikanalys** på den vänstra menyn. 
 
 ![Komma åt Trafikanalys-instrumentpanelen](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 

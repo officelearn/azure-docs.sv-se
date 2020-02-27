@@ -7,18 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: fb501a158c839e6d4d71fc2af5ae50e48c248466
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 60acd128495176cd0a90418c61edf53bdcd88e5a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789162"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647584"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Skicka e-post från ditt SMTP-konto med Azure Logic Apps
 
 Med Azure Logic Apps och Simple Mail Transfer Protocol-anslutningen (SMTP) kan du skapa automatiserade uppgifter och arbets flöden som skickar e-post från ditt SMTP-konto. Du kan också använda andra åtgärder för att använda utdata från SMTP-åtgärder. När din SMTP till exempel skickar ett e-postmeddelande kan du meddela ditt team i slack med slack-kopplingen. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
@@ -49,7 +49,7 @@ Med Azure Logic Apps och Simple Mail Transfer Protocol-anslutningen (SMTP) kan d
 
 1. När du uppmanas att ange den här anslutnings informationen:
 
-   | Egenskap | Krävs | Beskrivning |
+   | Egenskap | Krävs | Description |
    |----------|----------|-------------|
    | **Anslutningsnamn** | Ja | Ett namn på anslutningen till SMTP-servern | 
    | **SMTP-serveradress** | Ja | Adressen till SMTP-servern | 
@@ -65,12 +65,10 @@ Med Azure Logic Apps och Simple Mail Transfer Protocol-anslutningen (SMTP) kan d
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](/connectors/smtpconnector/).
+Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/smtpconnector/).
 
-## <a name="get-support"></a>Få support
-
-* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
+> [!NOTE]
+> För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,31 +1,32 @@
 ---
-title: Integrera med Azure Managed Identities
-description: Lär dig hur du använder Azure Managed Identities för att autentisera med och få till gång till Azure App konfiguration
+title: Autentisera med hjälp av Azure Managed Identities
+titleSuffix: Azure App Configuration
+description: Autentisera till Azure App konfiguration med hjälp av Azure Managed Identities
 ms.service: azure-app-configuration
 author: lisaguthrie
 ms.topic: conceptual
-ms.date: 12/29/2019
+ms.date: 2/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 2cdeb0d513230cac5d03f85f2189f15c818798fd
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 66bf27c1b1e8349c1a0e822c457412fdfca58e82
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500394"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619454"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integrera med hanterade Azure-identiteter
 
-Azure Active Directory [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) bidrar till att förenkla hanteringen av hemligheter för ditt moln program. Med en hanterad identitet kan din kod använda det tjänst huvud namn som skapades för den Azure-tjänst som den körs på. Du använder en hanterad identitet i stället för en separat autentiseringsuppgift som lagras i Azure Key Vault eller en lokal anslutnings sträng. 
+Azure Active Directory [hanterade identiteter](../active-directory/managed-identities-azure-resources/overview.md) fören klar hemligheter-hanteringen för ditt moln program. Med en hanterad identitet kan din kod använda tjänstens huvud namn som skapats för den Azure-tjänst som den körs på. Du använder en hanterad identitet i stället för en separat autentiseringsuppgift som lagras i Azure Key Vault eller en lokal anslutnings sträng. 
 
-Azure App konfiguration och dess .NET Core-, .NET Framework-och Java våren-klient bibliotek har hanterat identitets stöd inbyggt i dem. Även om du inte behöver använda den, eliminerar den hanterade identiteten behovet av en åtkomsttoken som innehåller hemligheter. Din kod kan komma åt appens konfigurations Arkiv enbart med tjänstens slut punkt. Du kan bädda in den här URL: en i koden direkt utan att oroa dig för att exponera någon hemlighet.
+Azure App konfiguration och dess .NET Core-, .NET Framework-och Java våren-klient bibliotek har hanterat identitets stöd inbyggt i dem. Även om du inte behöver använda den, eliminerar den hanterade identiteten behovet av en åtkomsttoken som innehåller hemligheter. Din kod kan komma åt appens konfigurations Arkiv enbart med tjänstens slut punkt. Du kan bädda in den här URL: en i koden direkt utan att exponera någon hemlighet.
 
-Den här självstudien visar hur du kan dra nytta av den hanterade identiteten för att komma åt appens konfiguration. Den bygger på den webbapp som introducerades i snabbstarterna. Innan du fortsätter måste du först [skapa en ASP.net Core-app med app-konfigurationen](./quickstart-aspnet-core-app.md) .
+Den här artikeln visar hur du kan dra nytta av den hanterade identiteten för att komma åt appens konfiguration. Den bygger på den webbapp som introducerades i snabbstarterna. Innan du fortsätter skapar du först [en ASP.net Core-app med app-konfigurationen](./quickstart-aspnet-core-app.md) .
 
-I den här kursen visas även hur du kan använda den hanterade identiteten tillsammans med app-konfigurationens Key Vault referenser. Med en enda hanterad identitet kan du sömlöst komma åt båda hemligheterna från Key Vault och konfigurations värden från App-konfigurationen. Om du vill utforska den här funktionen kan du avsluta [använda Key Vault referenser med ASP.net Core](./use-key-vault-references-dotnet-core.md) först.
+Den här artikeln visar också hur du kan använda den hanterade identiteten tillsammans med appens konfigurations Key Vault referenser. Med en enda hanterad identitet kan du sömlöst komma åt båda hemligheterna från Key Vault och konfigurations värden från App-konfigurationen. Om du vill utforska den här funktionen kan du avsluta [använda Key Vault referenser med ASP.net Core](./use-key-vault-references-dotnet-core.md) först.
 
 Du kan använda valfri kod redigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgängligt på Windows-, MacOS-och Linux-plattformarna.
 
-I den här guiden får du lära dig att:
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Bevilja en hanterad identitets åtkomst till app-konfigurationen.

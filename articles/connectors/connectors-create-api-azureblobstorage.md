@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 2e2fea90f125cae6de44afbc82dd749a421ff3e2
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566020"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650869"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Skapa och hantera blobbar i Azure Blob Storage med Azure Logic Apps
 
@@ -121,7 +121,7 @@ I det här exemplet hämtas endast innehållet för en blob. Om du vill visa inn
 
 1. När du uppmanas att skapa anslutningen anger du den här informationen:
 
-   | Egenskap | Obligatoriskt | Värde | Beskrivning |
+   | Egenskap | Krävs | Värde | Description |
    |----------|----------|-------|-------------|
    | **Anslutningsnamn** | Ja | <*anslutnings namn*> | Namnet som ska skapas för anslutningen |
    | **Lagringskonto** | Ja | <*Storage – account*> | Välj ditt lagrings konto i listan. |
@@ -137,7 +137,10 @@ I det här exemplet hämtas endast innehållet för en blob. Om du vill visa inn
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information, till exempel utlösare, åtgärder och gränser, som beskrivs i anslutnings programmets öppna API-fil (tidigare Swagger), finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/azureblobconnector/).
+Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/azureblobconnector/).
+
+> [!NOTE]
+> För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
 
 <a name="storage-firewalls"></a>
 

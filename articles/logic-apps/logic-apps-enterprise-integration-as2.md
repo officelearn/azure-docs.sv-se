@@ -7,15 +7,18 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 08/22/2019
-ms.openlocfilehash: 9f72edecc07c34a0f176e52f6b70644f9ceb16e0
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.date: 02/27/2020
+ms.openlocfilehash: 0ce813e91750db3cdfa1e651a68fbb82d593eb32
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666711"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650578"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Exchange AS2-meddelanden för B2B Enterprise-integration i Azure Logic Apps med Enterprise-integrationspaket
+
+> [!IMPORTANT]
+> Den ursprungliga AS2-anslutningen är inaktuell, så se till att du använder **AS2-anslutningsprogrammet (v2)** i stället. Den här versionen innehåller samma funktioner som den ursprungliga versionen, är inbyggd i Logic Apps Runtime och ger betydande prestanda förbättringar vad gäller data flöde och meddelande storlek. Dessutom kräver inte den inbyggda v2-anslutaren att du skapar en anslutning till ditt integrations konto. I stället bör du, enligt beskrivningen i kraven, se till att du länkar ditt integrations konto till den Logic-app där du planerar att använda anslutnings tjänsten.
 
 Om du vill arbeta med AS2-meddelanden i Azure Logic Apps kan du använda AS2-anslutningen, som innehåller utlösare och åtgärder för att hantera AS2-kommunikation. Om du till exempel vill skapa säkerhet och tillförlitlighet när du skickar meddelanden kan du använda följande åtgärder:
 
@@ -46,10 +49,7 @@ Om du vill arbeta med AS2-meddelanden i Azure Logic Apps kan du använda AS2-ans
 
 Den här artikeln visar hur du lägger till AS2-kodning och avkodnings åtgärder i en befintlig Logic app.
 
-> [!IMPORTANT]
-> Den ursprungliga AS2-anslutningen kommer att bli inaktuell, så se till att du använder **AS2-anslutningsprogrammet (v2)** i stället. Den här versionen innehåller samma funktioner som den ursprungliga versionen, är inbyggd i Logic Apps Runtime och ger betydande prestanda förbättringar vad gäller data flöde och meddelande storlek. Dessutom kräver inte den inbyggda v2-anslutaren att du skapar en anslutning till ditt integrations konto. I stället bör du, enligt beskrivningen i kraven, se till att du länkar ditt integrations konto till den Logic-app där du planerar att använda anslutnings tjänsten.
-
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration ännu kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -63,9 +63,9 @@ Den här artikeln visar hur du lägger till AS2-kodning och avkodnings åtgärde
 
 * Om du använder [Azure Key Vault](../key-vault/key-vault-overview.md) för certifikat hantering kontrollerar du att dina valv nycklar tillåter åtgärder för att **kryptera** och **dekryptera** . Annars fungerar inte kodnings-och avkodnings åtgärderna.
 
-  I Azure Portal går du till ditt nyckel valv, visar din valv nyckels **tillåtna åtgärder**och bekräftar att åtgärderna **kryptera** och **dekryptera** är markerade.
+  I Azure Portal går du till nyckeln i ditt nyckel valv, granskar nyckelns **tillåtna åtgärder**och bekräftar att åtgärderna **kryptera** och **dekryptera** är markerade, till exempel:
 
-  ![Kontrol lera valv nyckel åtgärder](media/logic-apps-enterprise-integration-as2/vault-key-permitted-operations.png)
+  ![Kontrol lera valv nyckel åtgärder](media/logic-apps-enterprise-integration-as2/key-vault-permitted-operations.png)
 
 <a name="encode"></a>
 
@@ -81,16 +81,19 @@ Den här artikeln visar hur du lägger till AS2-kodning och avkodnings åtgärde
 
 1. Ange nu information för dessa egenskaper:
 
-   | Egenskap | Beskrivning |
+   | Egenskap | Description |
    |----------|-------------|
    | **Meddelande att koda** | Meddelandets nytto Last |
    | **AS2 från** | ID för meddelande avsändaren som anges i ditt AS2-avtal |
    | **AS2 till** | Identifieraren för meddelande mottagaren som anges i ditt AS2-avtal |
    |||
 
-   Ett exempel:
+   Exempel:
 
    ![Egenskaper för meddelande kodning](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
+
+> [!TIP]
+> Om du får problem när du skickar signerade eller krypterade meddelanden kan du prova med olika SHA256. AS2-specifikationen ger inte någon information om SHA256-format, så varje provider använder sin egen implementering eller sitt eget format.
 
 <a name="decode"></a>
 
@@ -116,8 +119,11 @@ Om du vill prova att distribuera en fullständigt fungerande Logic app och exemp
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information, till exempel utlösare, åtgärder och gränser, som beskrivs i filens OpenAPI-fil (tidigare Swagger), finns på [kopplingens referens sida](/connectors/as2/).
+Mer teknisk information om den här anslutningen, till exempel åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil, finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/as2/). 
+
+> [!NOTE]
+> För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ursprungliga ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [Enterprise-integrationspaket](logic-apps-enterprise-integration-overview.md)
+* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)

@@ -4,12 +4,12 @@ description: Läs om kända begränsningar när du kör Windows Server-nodkonfig
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 6d951652e3522b7ff926b72a3916bffe97575054
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 157f890c65efd0de9fa7d8d7aa5cb43b4a902dfa
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592501"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615648"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Aktuella begränsningar för Windows Server-nodkonfigurationer och program arbets belastningar i Azure Kubernetes service (AKS)
 
@@ -51,9 +51,9 @@ Huvudnoderna (kontroll planet) i ett AKS-kluster är värd för AKS-tjänsten, m
 
 AKS-kluster med Windows-noder måste använda nätverks modellen Azure CNI (avancerat). Kubernetes-nätverk (Basic) stöds inte. Mer information om skillnaderna i nätverks modeller finns i [nätverks koncept för program i AKS][azure-network-models]. – Nätverks modellen för Azure CNI kräver ytterligare planering och överväganden för hantering av IP-adresser. Mer information om hur du planerar och implementerar Azure-CNI finns i [Konfigurera Azure cni Networking i AKS][configure-azure-cni].
 
-## <a name="can-i-change-the-min--of-pods-per-node"></a>Kan jag ändra min. # för poddar per nod?
+## <a name="can-i-change-the-max--of-pods-per-node"></a>Kan jag ändra max. antal poddar per nod?
 
-För närvarande är det nödvändigt att ställa in minst 30 poddar för att säkerställa tillförlitligheten i klustren.
+För närvarande är det nödvändigt att ställa in högst 30 poddar för att säkerställa tillförlitligheten i klustren.
 
 ## <a name="how-do-patch-my-windows-nodes"></a>Hur gör jag för att korrigera mina Windows-noder?
 

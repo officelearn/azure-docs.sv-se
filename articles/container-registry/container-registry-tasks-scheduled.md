@@ -3,12 +3,12 @@ title: Självstudie – Schemalägg en ACR-uppgift
 description: I den här självstudien får du lära dig hur du kör en Azure Container Registry aktivitet enligt ett definierat schema genom att ange en eller flera timer-utlösare
 ms.topic: article
 ms.date: 06/27/2019
-ms.openlocfilehash: 37247289ef11873ac37dc78ad56548994220f894
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 4c0962a38cca73e4a03a7417baaa595cf0d97009
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454669"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617447"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Kör en ACR-uppgift enligt ett definierat schema
 
@@ -197,6 +197,14 @@ Varje fält kan ha en av följande typer av värden:
 |`"30 9 * * 1-5"`|vid 9:30 UTC varje vardag|
 |`"30 9 * Jan Mon"`|vid 9:30 UTC varje måndag i januari|
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+För att ta bort alla resurser som du har skapat i den här själv studie serien, inklusive behållar registret eller register, behållar instansen, nyckel valvet och tjänstens huvud namn, utfärdar du följande kommandon:
+
+```azurecli-interactive
+az group delete --resource-group $RES_GROUP
+az ad sp delete --id http://$ACR_NAME-pull
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

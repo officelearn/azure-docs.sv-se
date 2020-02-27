@@ -3,14 +3,14 @@ author: mmacy
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 02/12/2020
+ms.date: 02/26/2020
 ms.author: marsma
-ms.openlocfilehash: 9612abbe078ab8d9e8c10c2da923a9a9b233d094
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 4cf8eba9632c51ce9b5bcc42feae2446348890c2
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77373106"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77651505"
 ---
 ## <a name="use-custom-page-content"></a>Använd anpassat sid innehåll
 
@@ -46,7 +46,7 @@ I stället för att skapa ett anpassat sid innehåll från grunden kan du anpass
 
 I följande tabell visas standard sid innehållet som tillhandahålls av Azure AD B2C. Hämta filerna och Använd dem som utgångs punkt för att skapa egna anpassade sidor.
 
-| Standard sida | Beskrivning | ID för innehålls definition<br/>(endast anpassad princip) |
+| Standard sida | Description | ID för innehålls definition<br/>(endast anpassad princip) |
 |:-----------------------|:--------|-------------|
 | [exception. html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Felsida**. Den här sidan visas när ett undantag eller ett fel påträffas. | *API. error* |
 | [selfasserted. html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Själv kontrollerad sida**. Använd den här filen som ett anpassat sid innehåll för registrerings sidan för ett socialt konto, en registrerings sida för lokalt konto, en inloggnings sida för lokalt konto, lösen ords återställning med mera. Formuläret kan innehålla olika inmatnings kontroller, t. ex. en text inmatnings ruta, en ruta för lösen ords inmatning, en alternativ knapp, en listruta med flera val och kryss rutor med flera val. | *API. localaccountsignin*, *API. localaccountsignup* , *API. localaccountpasswordreset*, *API. selfasserted* |
@@ -61,7 +61,7 @@ När du använder egna HTML-och CSS-filer för att anpassa användar gränssnitt
 ## <a name="guidelines-for-using-custom-page-content"></a>Rikt linjer för att använda anpassat sid innehåll
 
 - Använd en absolut URL när du inkluderar externa resurser som media, CSS och JavaScript-filer i HTML-filen.
-- Lägg till attributet `data-preload="true"` i dina HTML-taggar för att kontrol lera inläsnings ordningen för CSS och Java Script. Med `data-preload=true`konstrueras sidan innan den visas för användaren. Det här attributet förhindrar sidan från att flimra genom att i förväg läsa in CSS-filen utan att den icke-formaterade HTML-koden visas för användaren. Följande HTML-kodfragment visar hur du använder `data-preload`-taggen.
+- Med hjälp av 1.2.0 [och senare kan](../articles/active-directory-b2c/page-layout.md) du lägga till attributet `data-preload="true"` i dina HTML-taggar för att kontrol lera inläsnings ordningen för CSS och Java Script. Med `data-preload=true`konstrueras sidan innan den visas för användaren. Det här attributet förhindrar sidan från att flimra genom att i förväg läsa in CSS-filen utan att den icke-formaterade HTML-koden visas för användaren. Följande HTML-kodfragment visar hur du använder `data-preload`-taggen.
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
@@ -113,7 +113,7 @@ I den här artikeln använder vi Azure Blob Storage för att vara värd för vå
 
 Utför följande steg för att vara värd för HTML-innehåll i Blob Storage:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. På menyn **hubb** väljer du **ny** > **lagring** > **lagrings konto**.
 1. Välj en **prenumeration** för ditt lagrings konto.
 1. Skapa en **resurs grupp** eller Välj en befintlig.

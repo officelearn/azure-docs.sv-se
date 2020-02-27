@@ -8,12 +8,12 @@ ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
-ms.openlocfilehash: 54a1d1183ac16f5ec3db5477cda75c6e1a776b3d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 3370eea8909f30563babcf2a84f727ba51f67e29
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786900"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647643"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av SSH och Azure Logic Apps
 
@@ -57,7 +57,7 @@ Här följer några andra viktiga skillnader mellan SFTP-SSH-anslutningen och SF
 
 * Cachelagrar anslutningen till SFTP-servern *i upp till 1 timme*, vilket förbättrar prestandan och minskar antalet försök att ansluta till servern. Om du vill ställa in varaktigheten för den här funktionen för cachelagring redigerar du egenskapen [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) i SSH-konfigurationen på din SFTP-server.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -112,7 +112,7 @@ Om den privata nyckeln är i formatet SparaTillFil, som använder fil namns till
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
-### <a name="windows-os"></a>Windows operativsystem
+### <a name="windows-os"></a>Windows-operativsystem
 
 1. Om du inte redan har gjort det kan du [Hämta det senaste verktyget SparaTillFil-generatorn (PuTTYgen. exe)](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)och sedan starta verktyget.
 
@@ -182,7 +182,10 @@ Den här åtgärden hämtar innehållet från en fil på en SFTP-server. Du kan 
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](/connectors/sftpconnector/).
+Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/sftpwithssh/).
+
+> [!NOTE]
+> För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
 
 ## <a name="next-steps"></a>Nästa steg
 

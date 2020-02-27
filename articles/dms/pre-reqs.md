@@ -2,21 +2,21 @@
 title: Krav för Azure Database Migration Service
 description: Läs om en översikt över kraven för att använda Azure Database Migration Service för att utföra migrering av databasen.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: 7ba317da9524c322d47fe57a866d429ff8f7e952
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/25/2020
+ms.openlocfilehash: 89cb63630e3dbe953ed3f4fd8796d01ba0d36067
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748734"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651499"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Översikt över krav för att använda Azure Database Migration Service
 
@@ -35,18 +35,25 @@ Azure Database Migration Service förutsättningar som är gemensamma för alla 
 * Aktivera TCP/IP-protokollet, som är inaktiverat som standard under SQL Server Express-installation, genom att följa instruktionerna i artikeln om att [aktivera eller inaktivera ett servernätverksprotokoll](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 
     > [!IMPORTANT]
-    > Att skapa en instans av Azure Database Migration Service kräver åtkomst till virtuella networt-inställningar som normalt inte ingår i samma resurs grupp. Det innebär att användaren som skapar en instans av DMS kräver behörighet på prenumerations nivå. Om du vill skapa de nödvändiga rollerna, som du kan tilldela vid behov, kör du följande skript:
+    > Att skapa en instans av Azure Database Migration Service kräver åtkomst till inställningarna för virtuella nätverk som normalt inte ingår i samma resurs grupp. Det innebär att användaren som skapar en instans av DMS kräver behörighet på prenumerations nivå. Om du vill skapa de nödvändiga rollerna, som du kan tilldela vid behov, kör du följande skript:
     >
     > ```
     >
     > $readerActions = `
-    > "Microsoft.DataMigration/services/*/read", `
-    > "Microsoft.Network/networkInterfaces/ipConfigurations/read"
+    > "Microsoft.Network/networkInterfaces/ipConfigurations/read", `
+    > "Microsoft.DataMigration/*/read", `
+    > "Microsoft.Resources/subscriptions/resourceGroups/read"
     >
     > $writerActions = `
     > "Microsoft.DataMigration/services/*/write", `
     > "Microsoft.DataMigration/services/*/delete", `
-    > "Microsoft.DataMigration/services/*/action"
+    > "Microsoft.DataMigration/services/*/action", `
+    > "Microsoft.Network/virtualNetworks/subnets/join/action", `
+    > "Microsoft.Network/virtualNetworks/write", `
+    > "Microsoft.Network/virtualNetworks/read", `
+    > "Microsoft.Resources/deployments/validate/action", `
+    > "Microsoft.Resources/deployments/*/read", `
+    > "Microsoft.Resources/deployments/*/write"
     >
     > $writerActions += $readerActions
     >
@@ -106,7 +113,7 @@ Förutom att Azure Database Migration Service krav som är gemensamma för alla 
 
 När du använder Azure Database Migration Service för att utföra SQL Server till Azure SQL Database migreringar, förutom de krav som är gemensamma för alla migreringsåtgärder, måste du ta itu med följande ytterligare krav:
 
-* Skapa en instans av Azure SQL Database-instansen, som du gör genom att följa informationen i artikeln C skapa[en Azure SQL-databas i Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+* Skapa en Azure SQL Database-instans, vilket du kan göra genom att följa informationen i artikeln om att [skapa Azure SQL Database i Azure-portalen](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 * Ladda ned och installera [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) version 3.3 eller senare.
 * Öppna Windows-brandväggen så att Azure Database Migration Service kommer åt käll-SQL Server, som har standardinställningen TCP-port 1433.
 * Om du kör flera namngivna SQL Server-instanser med dynamiska portar kan du vilja aktivera SQL Browser Service och tillåta åtkomst till UDP-port 1434 via dina brandväggar så att Azure Database Migration Service kan ansluta till en namngiven instans på källservern.
@@ -116,7 +123,7 @@ När du använder Azure Database Migration Service för att utföra SQL Server t
 
    > [!NOTE]
    > En fullständig lista över de krav som krävs för att använda Azure Database Migration Service för att utföra migreringar från SQL Server till Azure SQL Database finns i självstudien [migrera SQL Server till Azure SQL Database](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql).
-   > 
+   >
 
 ## <a name="prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance"></a>Krav för migrering av SQL Server till en Azure SQL Database Hanterad instans
 

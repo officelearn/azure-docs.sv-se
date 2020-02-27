@@ -1,16 +1,16 @@
 ---
 title: Använd GitHub-åtgärder för att göra kod uppdateringar i Azure Functions
 description: Lär dig hur du använder GitHub-åtgärder för att definiera ett arbets flöde för att skapa och Distribuera Azure Functions-projekt i GitHub.
-author: ahmedelnably
+author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: aelnably
-ms.openlocfilehash: c34847577b7e83228fafad431f541497be9a21ae
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.author: cshoe
+ms.openlocfilehash: dd74fd5c38e5a8800d2092afc1db1b412b126861
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769157"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649916"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Kontinuerlig leverans med hjälp av GitHub-åtgärd
 
@@ -22,7 +22,7 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 För ett Azure Functions-arbetsflöde har filen tre delar: 
 
-| Section | Aktiviteter |
+| Section | Uppgifter |
 | ------- | ----- |
 | **Autentisering** | <ol><li>Definiera ett huvud namn för tjänsten.</li><li>Ladda ned publicerings profil.</li><li>Skapa en GitHub-hemlighet.</li></ol>|
 | **Konstruktion** | <ol><li>Konfigurera miljön.</li><li>Bygg in Function-appen.</li></ol> |
@@ -48,7 +48,7 @@ I det här exemplet ersätter du plats hållarna i resursen med ditt prenumerati
 
 Du kan ladda ned publicerings profilen för din Function-app genom att gå till sidan **Översikt** i appen och klicka på **Hämta publicerings profil**.
 
-   ![Hämta publiceringsprofil](media/functions-how-to-github-actions/get-publish-profile.png)
+   ![Ladda ned publicerings profil](media/functions-how-to-github-actions/get-publish-profile.png)
 
 Kopiera innehållet i filen.
 
@@ -69,7 +69,7 @@ GitHub kan nu autentisera till din Function-app i Azure.
 
 Konfigurationen av miljön görs med hjälp av en språkspecifik publicerings konfigurations åtgärd.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 I följande exempel visas den del av arbets flödet som använder åtgärden `actions/setup-node` för att konfigurera miljön:
 
@@ -84,7 +84,7 @@ I följande exempel visas den del av arbets flödet som använder åtgärden `ac
         node-version: '10.x'
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 I följande exempel visas den del av arbets flödet som använder åtgärden `actions/setup-python` för att konfigurera miljön:
 
@@ -99,7 +99,7 @@ I följande exempel visas den del av arbets flödet som använder åtgärden `ac
         python-version: 3.6
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 I följande exempel visas den del av arbets flödet som använder åtgärden `actions/setup-dotnet` för att konfigurera miljön:
 
@@ -114,7 +114,7 @@ I följande exempel visas den del av arbets flödet som använder åtgärden `ac
         dotnet-version: '2.2.300'
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 I följande exempel visas den del av arbets flödet som använder åtgärden `actions/setup-java` för att konfigurera miljön:
 
@@ -138,7 +138,7 @@ Detta beror på språket och för språk som stöds av Azure Functions, bör det
 
 I följande exempel visas den del av arbets flödet som bygger på Function-appen, vilket är språkspecifikt:
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```yaml
     - name: 'Run npm'
@@ -153,7 +153,7 @@ I följande exempel visas den del av arbets flödet som bygger på Function-appe
         popd
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```yaml
     - name: 'Run pip'
@@ -167,7 +167,7 @@ I följande exempel visas den del av arbets flödet som bygger på Function-appe
         popd
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'
@@ -180,7 +180,7 @@ I följande exempel visas den del av arbets flödet som bygger på Function-appe
         popd
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```yaml
     - name: 'Run mvn'

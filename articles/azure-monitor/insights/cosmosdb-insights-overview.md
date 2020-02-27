@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/27/2019
-ms.openlocfilehash: 8e265b592bebfc506ae0116c955403dd1070ad3f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: dece5b0bb0508e2d83ee184e71ef0b4364d25ac8
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73166413"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622987"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Utforska Azure Monitor för Azure Cosmos DB (förhands granskning)
 
@@ -35,8 +35,35 @@ Den här funktionen kräver inte att du aktiverar eller konfigurerar något, des
 >[!NOTE]
 >Det kostar inget att få åtkomst till den här funktionen och du debiteras bara för Azure Monitor viktiga funktioner som du konfigurerar eller aktiverar, enligt beskrivningen på sidan [pris information för Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) .
 
+## <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Visa mått på åtgärds nivå för Azure Cosmos DB
 
-## <a name="accessing-azure-monitor-for-azure-cosmos-db"></a>Åtkomst till Azure Monitor för Azure Cosmos DB
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+
+1. Välj **övervaka** i det vänstra navigerings fältet och välj **mått**.
+
+   ![Mått fönstret i Azure Monitor](./media/cosmosdb-insights-overview/monitor-metrics-blade.png)
+
+1. I fönstret **mått** > väljer du **en resurs** > väljer den nödvändiga **prenumerationen**och **resurs gruppen**. För **resurs typen**väljer du **Azure Cosmos DB konton**, väljer något av dina befintliga Azure Cosmos-konton och väljer **Använd**.
+
+   ![Välj ett Cosmos DB konto om du vill visa mått](./media/cosmosdb-insights-overview/select-cosmosdb-account.png)
+
+1. Sedan kan du välja ett mått i listan över tillgängliga mått. Du kan välja mått som är speciella för att begära enheter, lagring, svars tid, tillgänglighet, Cassandra och andra. Mer information om alla tillgängliga mått i den här listan finns i artikeln [mått per kategori](../../cosmos-db/monitor-cosmos-db-reference.md) . I det här exemplet ska vi välja **enheter för programbegäran** och **AVG** som agg regerings värde.
+
+   Förutom dessa uppgifter kan du också välja **tidsintervallet** och **tids kornig het** för måtten. Som Max kan du visa mått för de senaste 30 dagarna.  När du har tillämpat filtret visas ett diagram baserat på ditt filter. Du kan se det genomsnittliga antalet förbrukade enheter för programbegäran per minut för den valda perioden.  
+
+   ![Välj ett mått från Azure Portal](./media/cosmosdb-insights-overview/metric-types.png)
+
+### <a name="add-filters-to-metrics"></a>Lägg till filter till mått
+
+Du kan också filtrera mått och diagrammet som visas av en speciell **samlings**-, **databasename**-, **OperationType**-, **region**-och **StatusCode**-värde. Om du vill filtrera måtten väljer du **Lägg till filter** och väljer önskad egenskap som **OperationType** och väljer ett värde, till exempel **fråga**. Diagrammet visar sedan de enheter för programbegäran som för bruk ATS för den valda perioden. De åtgärder som utförs via den lagrade proceduren loggas inte, så de är inte tillgängliga i OperationType-måttet.
+
+![Lägg till ett filter för att välja mått kornig het](./media/cosmosdb-insights-overview/add-metrics-filter.png)
+
+Du kan gruppera mått med hjälp av alternativet **Använd delning** . Du kan till exempel gruppera enheter för programbegäran per åtgärds typ och Visa grafen för alla åtgärder samtidigt som visas i följande bild:
+
+![Lägg till Använd delnings filter](./media/cosmosdb-insights-overview/apply-metrics-splitting.png)
+
+## <a name="view-utilization-and-performance-metrics-for-azure-cosmos-db"></a>Visa användnings-och prestanda mått för Azure Cosmos DB
 
 Utför följande steg för att visa användning och prestanda för dina lagrings konton i alla dina prenumerationer.
 
@@ -74,7 +101,7 @@ Välj **felen** överst på sidan och **felen** i arbets bokens mall öppnas. De
 
 ![Skärm bild av problem med nedbrytning efter HTTP-begäran](./media/cosmosdb-insights-overview/failures.png)
 
-| Programmera      |  Beskrivning       | 
+| Kod      |  Beskrivning       | 
 |-----------|:--------------------|
 | `200 OK`  | En av följande REST-åtgärder lyckades: </br>– Hämta på en resurs. </br> – PUBLICERA på en resurs. </br> – PUBLICERA på en resurs. </br> – PUBLICERA på en lagrad procedur resurs för att köra den lagrade proceduren.|
 | `201 Created` | En POST-åtgärd för att skapa en resurs har slutförts. |
@@ -90,7 +117,7 @@ Välj **kapacitet** överst på sidan och **kapacitets** delen i arbets boks mal
 
 Precis som med översikts arbets boken kan du välja den nedrullningsbara List rutan bredvid en Azure Cosmos DB-resurs i kolumnen **prenumeration** för att visa en uppdelning av de enskilda behållare som utgör databasen.
 
-### <a name="operations"></a>Operations 
+### <a name="operations"></a>Åtgärder 
 
 Välj **åtgärder** överst på sidan och **drift** delen av arbets bokens mall öppnas. Det ger dig möjlighet att se dina begär Anden uppdelade efter den typ av förfrågningar som görs. 
 

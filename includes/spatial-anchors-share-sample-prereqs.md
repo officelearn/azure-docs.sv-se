@@ -4,12 +4,12 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 0e81a9b6a91d2a9ed1af922dbbc53720022ff598
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 574122d3683f3de483950e2d098e890ab33dcb25
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657882"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615484"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -23,11 +23,11 @@ För att kunna följa den här självstudien måste du ha:
 * [.NET Core 2.2 SDK](https://dotnet.microsoft.com/download).
 * En eller flera enheter (iOS eller Android) som du använder för att distribuera och köra en app.
   * Om du använder Android måste du ha:
-    * <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3,3</a> eller senare, <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019,1</a> eller senare och <a href="https://git-scm.com/download/win" target="_blank">git för Windows</a> installerat på Windows-datorn.
+    * <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3,3</a> eller senare, <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019,1 eller 2019,2</a>och <a href="https://git-scm.com/download/win" target="_blank">git för Windows</a> installerat på Windows-datorn.
     * En <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">utvecklare som är aktive rad</a> och <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore-kompatibel Android-</a> enhet.
   * Om du använder iOS måste du ha:
-    * En macOS-dator där <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a> eller senare, <a href="https://cocoapods.org" target="_blank">CocoaPods</a>och <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019,1</a> eller senare är installerade.
+    * En macOS-dator där <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a> eller senare, <a href="https://cocoapods.org" target="_blank">CocoaPods</a>och <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019,1 eller 2019,2</a> installeras.
     * En <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit-kompatibel iOS-</a> enhet som är kompatibel med en utvecklare.
-    * Git installerat via homebrew. Ange följande kommando på en enskild rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`Kör `brew install git`sedan.
+    * Git installerat via homebrew. Ange följande kommando på en enskild rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` kör `brew install git`.
 
 

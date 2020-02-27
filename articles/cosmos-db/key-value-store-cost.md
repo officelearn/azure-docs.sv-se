@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3a79db11ff05bcc9d18619c7f508a9864c17c3b8
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 5b2ee8b5bf19f16d7f7f04e9515fe591db7132f1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012798"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647511"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB som ett nyckel värdes lager – kostnads översikt
 
@@ -22,11 +22,11 @@ Den här artikeln beskriver kostnaden för Azure Cosmos DB för skrivning enkla 
 
 ## <a name="why-we-use-request-units-rus"></a>Varför vi använder programbegäran (ru: er)
 
-Azure Cosmos DB prestanda baseras på mängden allokerat data flöde som uttrycks i [enheter](request-units.md) för programbegäran (ru/s). Etableringen är i en andra kornig het och köps in i RU/s (ska[inte förväxlas med fakturerings tiden per timme](https://azure.microsoft.com/pricing/details/cosmos-db/)). Ru: er bör betraktas som en logisk abstraktion (en valuta) som fören klar etableringen av nödvändigt data flöde för programmet. Användarna behöver inte tänka på att skilja mellan Läs-och Skriv data flöden. Den enda valuta modellen med enheter för programbegäran skapar effektivitet om du vill dela etablerad kapacitet mellan läsningar och skrivningar. Den här etablerade kapacitets modellen gör det möjligt för tjänsten att tillhandahålla ett **förutsägbart och konsekvent data flöde, garanterad låg latens och hög tillgänglighet**. Slutligen, medan RU-modellen används för att illustrera data flödet, har varje etablerad RU också en definierad mängd resurser (t. ex. minne, kärnor/processor och IOPS).
+Azure Cosmos DB prestanda baseras på mängden allokerat data flöde som uttrycks i [enheter för programbegäran](request-units.md) (ru/s). Etableringen är i en andra kornig het och köps in i RU/s (ska[inte förväxlas med fakturerings tiden per timme](https://azure.microsoft.com/pricing/details/cosmos-db/)). Ru: er bör betraktas som en logisk abstraktion (en valuta) som fören klar etableringen av nödvändigt data flöde för programmet. Användarna behöver inte tänka på att skilja mellan Läs-och Skriv data flöden. Den enda valuta modellen med enheter för programbegäran skapar effektivitet om du vill dela etablerad kapacitet mellan läsningar och skrivningar. Den här etablerade kapacitets modellen gör det möjligt för tjänsten att tillhandahålla ett **förutsägbart och konsekvent data flöde, garanterad låg latens och hög tillgänglighet**. Slutligen, medan RU-modellen används för att illustrera data flödet, har varje etablerad RU också en definierad mängd resurser (t. ex. minne, kärnor/processor och IOPS).
 
-Som ett globalt distribuerat databas system är Cosmos DB den enda Azure-tjänst som tillhandahåller en omfattande service avtal som täcker svars tid, data flöde, konsekvens och hög tillgänglighet. Det data flöde som du etablerar tillämpas på var och en av de regioner som är kopplade till ditt Cosmos-konto. För läsningar, Cosmos DB erbjuder flera väldefinierade [konsekvensnivåer](consistency-levels.md) där du kan välja från. 
+Som ett globalt distribuerat databas system är Cosmos DB den enda Azure-tjänst som tillhandahåller en omfattande service avtal som täcker svars tid, data flöde, konsekvens och hög tillgänglighet. Det data flöde som du etablerar tillämpas på var och en av de regioner som är kopplade till ditt Cosmos-konto. För läsningar erbjuder Cosmos DB flera, väldefinierade [konsekvens nivåer](consistency-levels.md) som du kan välja bland. 
 
-I följande tabell visas antalet ru: er som krävs för att utföra Läs-och skriv åtgärder baserat på ett data objekt av storlek 1 KB och 100 kB.
+I följande tabell visas antalet ru: er som krävs för att utföra Läs-och skriv åtgärder baserat på ett data objekt av storlek 1 KB och 100 kB med automatisk indexering inaktive rad. 
 
 |Objektets storlek|1 Läs|1 skrivning|
 |-------------|------|-------|
@@ -47,5 +47,5 @@ De flesta av grundläggande blob eller objektet lagrar tjänster kostnad $0,40 p
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Använd [ru](https://cosmos.azure.com/capacitycalculator/) -Kalkylatorn för att beräkna data flödet för dina arbets belastningar.
+* Använd [ru-kalkylatorn](https://cosmos.azure.com/capacitycalculator/) för att beräkna data flödet för dina arbets belastningar.
 

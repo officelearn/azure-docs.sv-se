@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f0029fcf8e9efdea529212a7cca49cc8660c623f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3b377f87bdba40c90cb3af6caef2c089d7b7de49
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276966"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615470"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Självstudie: dela Azure spatiala ankare mellan sessioner och enheter
 
@@ -21,7 +21,7 @@ I den här självstudien får du lära dig hur du använder [Azures spatiala ank
 
 ![Bevarande](./media/persistence.gif)
 
-Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa upplevelser med mixad verklighet med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en app som kan distribueras till två eller fler enheter. Azure Spatial Anchors som skapats av en instans kan delas till de andra.
+Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa Mixed Reality-upplevelser med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en app som kan distribueras till två eller fler enheter. Azure Spatial Anchors som skapats av en instans kan delas till de andra.
 
 Du lär dig följande:
 
@@ -44,13 +44,13 @@ Det är värt att nämna att även om du använder Unity och en ASP.NET Core-web
 
 ## <a name="deploy-your-sharing-anchors-service"></a>Distribuera tjänsten för delningsfästpunkter
 
-## <a name="visual-studiotabvs"></a>[Visual Studio](#tab/VS)
+## <a name="visual-studio"></a>[Visual Studio](#tab/VS)
 
 Öppna Visual Studio och öppna projektet i mappen `Sharing\SharingServiceSample`.
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
-## <a name="visual-studio-codetabvsc"></a>[Visual Studio Code](#tab/VSC)
+## <a name="visual-studio-code"></a>[Visual Studio Code](#tab/VSC)
 
 Du måste skapa en resurs grupp och en App Service plan innan du distribuerar tjänsten i VS Code.
 
@@ -74,11 +74,11 @@ Bredvid **Värdplan** väljer du **Ny**.
 
 Använd de här inställningarna i dialog rutan **Konfigurera värd plan** :
 
-| Inställning | Föreslaget värde | Beskrivning |
+| Inställning | Föreslaget värde | Description |
 |-|-|-|
 |App Service-plan| MySharingServicePlan | Namnet på App Service-planen. |
-| Plats | USA, västra | Datacenter som är värd för webbappen. |
-| Storlek | Kostnadsfri | Den [pris nivå](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) som avgör värd funktionerna. |
+| Plats | Västra USA | Datacenter som är värd för webbappen. |
+| Storlek | Lediga | Den [pris nivå](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) som avgör värd funktionerna. |
 
 Välj **OK**.
 
@@ -89,6 +89,12 @@ Välj **OK**.
 ## <a name="deploy-the-sample-app"></a>Distribuera exempel appen
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
+
+## <a name="troubleshooting"></a>Felsökning
+
+### <a name="unity-20193"></a>Unity 2019,3
+
+På grund av avbrytande ändringar stöds inte Unity 2019,3 för närvarande. Använd Unity 2019,1 eller 2019,2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

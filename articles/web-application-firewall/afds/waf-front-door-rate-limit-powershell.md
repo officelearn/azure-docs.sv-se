@@ -5,18 +5,18 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 08/21/2019
+ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 831d0876c67aa36248a54f3935e5ce7884c736ef
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: b034159c3d12927f6425b3dc3c5b5609af9b0b76
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186627"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649372"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Konfigurera en regel för brand Väggs begränsning för webb program med hjälp av Azure PowerShell
-Hastighets begränsnings regeln för Azure Web Application Firewall (WAF) för Azure-frontend styr antalet begär Anden som tillåts från en enda klient-IP under en minuts varaktighet.
-Den här artikeln visar hur du konfigurerar en WAF Rate Limit-regel som styr antalet begär Anden som tillåts från en enskild klient till ett webb program som innehåller */promo* i URL: en med hjälp av Azure PowerShell.
+Hastighets begränsnings regeln för Azure Web Application Firewall (WAF) för Azure-frontend styr antalet begär Anden som tillåts från klienter under en varaktighet på en minut.
+Den här artikeln visar hur du konfigurerar en WAF Rate Limit-regel som styr antalet begär Anden som tillåts från klienter till ett webb program som innehåller */promo* i URL: en med hjälp av Azure PowerShell.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -32,7 +32,7 @@ Du kan installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure
 Connect-AzAccount
 
 ```
-Se till att du har installerat den senaste versionen av PowerShellGet, innan du installerar Front Door-modulen. Kör kommandot nedan och öppna PowerShell igen.
+Kontrol lera att den aktuella versionen av PowerShellGet är installerad innan du installerar en frontend-modul. Kör följande kommando och öppna PowerShell igen.
 
 ```
 Install-Module PowerShellGet -Force -AllowClobber

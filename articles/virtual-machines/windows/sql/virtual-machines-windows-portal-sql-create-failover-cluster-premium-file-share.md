@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 57dc7bb98bf4c2f733be0f2c94e17481a429be6d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b2d49eeadf068cbaacaa5e147f38025c55f33ff4
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906795"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651369"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Konfigurera en SQL Server-redundanskluster med Premium-filresurs på virtuella Azure-datorer
 
@@ -71,7 +71,7 @@ Fullständig information om licens SQL Server finns i [prissättning](https://ww
 
 FILESTREAM stöds inte för ett redundanskluster med en Premium-filresurs. Om du vill använda FILESTREAM distribuerar du klustret med hjälp av [Lagringsdirigering](virtual-machines-windows-portal-sql-create-failover-cluster.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du slutför stegen i den här artikeln bör du redan ha:
 
@@ -149,7 +149,7 @@ Med dessa krav på plats kan du börja skapa ett redundanskluster. Det första s
 
    1. Välj **Nästa**och välj sedan **ta bort**.
 
-1. <a name="ports"></a>Öppna brand Väggs portarna.
+1. <span id="ports"></span> Öppna brand Väggs portarna.  
 
    Öppna dessa portar i Windows-brandväggen på varje virtuell dator:
 
@@ -369,7 +369,7 @@ Så här skapar du belastningsutjämnaren:
 
 1. Välj **Lägg till**.
 
-1. <a name="probe"> </a>Ange följande parametrar för hälso avsökning på bladet **Lägg till hälso avsökning** .
+1. <span id="probe"></span> Ange följande parametrar för hälso avsökning på bladet **Lägg till hälso avsökning** .
 
    - **Namn**: ett namn för hälso avsökningen.
    - **Protokoll**: TCP.

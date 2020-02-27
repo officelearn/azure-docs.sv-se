@@ -8,45 +8,61 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: e814d9be4a0db2852bd9e21f3d3c1d54a45bd268
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 99a2f32c3f76d7fec475c9b299f7208b4db29cfe
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368638"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650931"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Formhändelser med förhandsversionen av Azure Time Series Insights
 
-Den här artikeln hjälper dig att forma din JSON-fil för inmatning och för att maximera effektiviteten hos dina Azure Time Series Insights för hands versioner.
+Den här artikeln definierar bästa metoder för att forma dina JSON-nyttolaster för inmatning i Azure Time Series Insights och för att maximera effektiviteten hos dina förhands gransknings frågor.
 
 ## <a name="best-practices"></a>Bästa praxis
 
-Tänk på hur du skickar händelser till Time Series Insights för hands versionen. Nämligen, bör du alltid:
+Det är bäst att noggrant överväga hur du skickar händelser till din Time Series Insights Preview-miljö. 
+
+Allmänna metod tips är:
 
 * Skicka data via nätverket så effektivt som möjligt.
 * Store dina data på ett sätt som hjälper dig att samla mer lämpligt för ditt scenario.
 
-För bästa prestanda för frågor gör du följande:
+För bästa prestanda för frågor följer du följande regler för tummen:
 
-* Skicka inte onödiga egenskaper. Time Series Insights Preview debiteras du på din användning. Det är bäst att lagra och bearbeta data som får du fråga.
-* Använd instans fälten för statiska data. Den här metoden kan du undvika att skicka statiska data över nätverket. Instans fält, en komponent i tids serie modellen, fungerar som referens data i Time Series Insights tjänst som är allmänt tillgänglig. Läs [tids serie modell](./time-series-insights-update-tsm.md)för mer information om instans fält.
+* Skicka inte onödiga egenskaper. Time Series Insights för hands versions fakturor per användning. Det är bäst att lagra och bearbeta data som du kommer att fråga.
+* Använd instans fälten för statiska data. Den här metoden hjälper till att undvika att skicka statiska data över nätverket. Instans fält, en komponent i tids serie modellen, fungerar som referens data i Time Series Insights tjänst som är allmänt tillgänglig. Läs [tids serie modell](./time-series-insights-update-tsm.md)för mer information om instans fält.
 * Dela dimensionsegenskaper mellan två eller flera händelser. Den här metoden kan du skicka data mer effektivt över nätverket.
 * Använd inte djupgående matris kapsling. Time Series Insights för hands versionen stöder upp till två nivåer av kapslade matriser som innehåller objekt. Time Series Insights Preview plattar ut matriser i meddelanden till flera händelser med egenskapsvärdepar.
 * Om bara det finns några åtgärder för alla eller de flesta händelser, är det bättre att skicka dessa åtgärder som separata egenskaper inom samma objekt. Att skicka dem separat minskar antalet händelser och kan förbättra frågans prestanda eftersom färre händelser behöver bearbetas.
 
-Under inmatningen kommer nytto laster som innehåller kapsling att förenklas, så att kolumn namnet är ett enda värde med en avgränsare. I Time Series Insights för hands versionen används under streck för destrykning. Observera att detta är en förändring från den GA versionen av produkten som använde perioder. Under för hands versionen finns det en genom gång av en genom gång, som illustreras i det andra exemplet nedan.
+## <a name="column-flattening"></a>Kolumn förenkling
 
-## <a name="examples"></a>Exempel
+Under inmatningen kommer nytto laster som innehåller kapslade objekt att förenklas så att kolumn namnet är ett enda värde med en avgränsare.
 
-I följande exempel baseras på ett scenario där två eller flera enheter skicka mätning av faktisk användning eller signaler. Mätningarna eller signalerna kan vara *flödes takt*, *motor olje tryck*, *temperatur*och *fuktighet*.
+* Till exempel följande kapslade JSON:
 
-I exemplet finns det ett enda Azure IoT Hub-meddelande där den yttre matrisen innehåller ett delat avsnitt av vanliga dimensions värden. Yttre matrisen använder Time Series instansdata för att öka effektiviteten för meddelandet. 
+   ```JSON
+   "data": {
+        "flow": 1.0172575712203979,
+   },
+   ```
 
-Time Series-instansen innehåller metadata för enheten. Dessa metadata ändras inte med varje händelse, men den innehåller användbara egenskaper för data analys. Om du vill spara på byte som skickats över kabeln och göra meddelandet mer effektivt, kan du överväga att gruppera vanliga dimensions värden och använda Time Series instance metadata.
+   Blir: `data_flow` när de förenklas.
 
-### <a name="example-1"></a>Exempel 1:
+> [!IMPORTANT]
+> * Azure Time Series Insights för hands versionen använder under streck (`_`) för kolumn destreckning.
+> * Observera skillnaden från allmän tillgänglighet som använder punkter (`.`) i stället.
+
+Mer komplexa scenarier illustreras nedan.
+
+#### <a name="example-1"></a>Exempel 1:
+
+I följande scenario finns två (eller fler) enheter som skickar mätningarna (signaler): *flödes frekvens*, *motor olje tryck*, *temperatur*och *fuktighet*.
+
+Det finns ett enda Azure IoT Hub-meddelande som skickas där den yttre matrisen innehåller ett delat avsnitt av vanliga dimensions värden (Observera de två enhets posterna som finns i meddelandet).
 
 ```JSON
 [
@@ -77,10 +93,23 @@ Time Series-instansen innehåller metadata för enheten. Dessa metadata ändras 
 ]
 ```
 
-### <a name="time-series-instance"></a>Time Series-instans 
+**Takeaways:**
+
+* JSON-exemplet har en yttre matris som använder [instans data i Time Series](./time-series-insights-update-tsm.md#time-series-model-instances) för att öka effektiviteten för meddelandet. Även om Time Series-instanser av enhetens metadata troligen inte ändras, ger den ofta användbara egenskaper för data analys.
+
+* JSON kombinerar två eller flera meddelanden (ett från varje enhet) till en enda nytto last som sparar på bandbredd över tid.
+
+* Enskilda serie data punkter för varje enhet kombineras till ett enda **serie** -attribut som minskar behovet av att kontinuerligt strömma uppdateringar för varje enhet.
+
+> [!TIP]
+> Om du vill minska antalet meddelanden som krävs för att skicka data och göra telemetri mer effektivt, bör du överväga att gruppera vanliga dimensions värden och Time Series instance metadata i en enda JSON-nyttolast.
+
+#### <a name="time-series-instance"></a>Time Series-instans 
+
+Låt oss ta en närmare titt på hur du använder [Time Series-instansen](./time-series-insights-update-tsm.md#time-series-model-instances) för att forma JSON mer optimalt. 
 
 > [!NOTE]
-> Time Series-ID: t är *deviceId*.
+> [Time Series-ID: na](./time-series-insights-update-how-to-id.md) nedan är *deviceIds*.
 
 ```JSON
 [
@@ -115,26 +144,28 @@ Time Series-instansen innehåller metadata för enheten. Dessa metadata ändras 
 ]
 ```
 
-Förhandsversionen av Time Series Insights ansluter till en tabell (efter att förenkla) under fråga körs. Tabellen innehåller ytterligare kolumner, till exempel **typ**. Följande exempel visar hur du kan [forma](./time-series-insights-send-events.md#supported-json-shapes) dina telemetridata.
+Förhandsversionen av Time Series Insights ansluter till en tabell (efter att förenkla) under fråga körs. Tabellen innehåller ytterligare kolumner, till exempel **typ**.
 
-| deviceId  | Typ | L1 | L2 | tidsstämpel | series_Flow Rate ft3/s | series_Engine Oil press psi |
+| deviceId  | Typ | L1 | L2 | timestamp | series_Flow Rate ft3/s | series_Engine Oil press psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | SIMULATOR | Batteri System | 2018-01-17T01:17:00Z |   1.0172575712203979 |    34.7 |
 | `FXXX` | Default_Type | SIMULATOR |   Batteri System |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |
 | `FYYY` | VANLIGA LINE_DATA | SIMULATOR |    Batteri System |    2018-01-17T01:18:00Z | 0.58015072345733643 |    22.2 |
 
-Observera följande punkter i föregående exempel:
+> [!NOTE]
+>  Föregående tabell representerar frågevyn i [tids serie förhands gransknings Utforskaren](./time-series-insights-update-explorer.md).
 
-* Statiska egenskaper lagras i Time Series Insights Preview att optimera data som skickas över nätverket.
+**Takeaways:**
+
+* I föregående exempel lagras statiska egenskaper i Time Series Insights för hands versionen för att optimera data som skickas över nätverket.
 * Time Series Insights för hands versions data kopplas vid tid med hjälp av Time Series-ID: t som definieras i instansen.
 * Två kapslings nivåer används. Det här talet är det mest som Time Series Insights för hands versionen stöder. Det är viktigt att undvika djupt kapslade matriser.
 * Eftersom det inte finns några mått, skickas de som separata egenskaper inom samma objekt. I exemplet **Series_Flow Rate PSI**, **series_Engine Oil press PSI**och **series_Flow Rate ft3/s** är unika kolumner.
 
 >[!IMPORTANT]
 > Instans fält lagras inte med telemetri. De lagras med metadata i tids serie modellen.
-> I föregående tabell representerar frågevyn.
 
-### <a name="example-2"></a>Exempel 2:
+#### <a name="example-2"></a>Exempel 2:
 
 Överväg följande JSON:
 
@@ -148,12 +179,20 @@ Observera följande punkter i föregående exempel:
   "data_flow" : 1.76435072345733643
 }
 ```
-I exemplet ovan skulle den sammanslagna `data_flow`-egenskapen ge en namn konflikt med egenskapen `data_flow`. I det här fallet skulle det *senaste* egenskap svärdet skriva över det tidigare. Om det här beteendet utgör en utmaning för dina affärs scenarier kan du kontakta TSD-teamet.
+
+I exemplet ovan skulle den sammanslagna `data["flow"]`-egenskapen ge en namn konflikt med egenskapen `data_flow`.
+
+I det här fallet skulle det *senaste* egenskap svärdet skriva över det tidigare. 
+
+> [!TIP]
+> Kontakta Time Series Insights-teamet om du behöver mer hjälp!
 
 > [!WARNING] 
-> I de fall där dubbla egenskaper finns i samma händelse nytto last på grund av förenkling eller någon annan mekanism, lagras det senaste egenskap svärdet, overwritting alla tidigare värden.
-
+> * I de fall där duplicerade egenskaper finns i samma (en enda) händelse nytto last på grund av förenkling eller en annan mekanism, lagras det senaste > egenskap svärdet och skriver över alla tidigare värden.
+> * Serier med kombinerade händelser åsidosätter inte varandra.
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att kunna använda dessa rikt linjer i övningen läser du [Azure Time Series Insights förhandsgranska frågesyntax](./time-series-insights-query-data-csharp.md). Du lär dig mer om frågesyntaxen för Time Series Insights för hands versionen REST API för data åtkomst.
+* För att kunna använda dessa rikt linjer i övningen läser du [Azure Time Series Insights förhandsgranska frågesyntax](./time-series-insights-query-data-csharp.md). Du lär dig mer om frågesyntaxen för Time Series Insights för [hands versionen REST API](https://docs.microsoft.com/rest/api/time-series-insights/preview) för data åtkomst.
+
+* Kombinera metod tips för JSON med [tids serie modellen](./time-series-insights-update-how-to-tsm.md).

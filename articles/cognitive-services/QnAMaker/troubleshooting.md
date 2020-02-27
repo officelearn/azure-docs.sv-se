@@ -1,22 +1,15 @@
 ---
 title: Fel sökning – QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Den granskade listan med de vanligaste frågorna om QnA Maker tjänsten hjälper dig att komma igång med tjänsten snabbare och med bättre resultat.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/21/2020
 ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: 18d7e02689cc9c5fe9282a6a2456b8b1574ec85e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9032f2cdc134289fef6c0cbc2e874198aefa90ee
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901650"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650392"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Fel sökning för QnA Maker
 
@@ -24,11 +17,12 @@ Den granskade listan med de vanligaste frågorna om QnA Maker tjänsten hjälper
 
 <a name="how-to-get-the-qnamaker-service-hostname"></a>
 
-## <a name="how-to-get-the-qnamaker-service-endpoint"></a>Så här hämtar du QnAMaker-tjänstens slut punkt
+<details>
+<summary><b>Så här hämtar du QnAMaker-tjänstens slut punkt</b></summary>
 
-QnAMaker-tjänstens slut punkt är användbar för fel sökning när du kontaktar QnAMaker-support eller UserVoice. Slut punkten är en URL i det här formuläret: https://your-resource-name.azurewebsites.net.
+**Svar**: QnAMaker-tjänstens slut punkt är användbart för fel sökning när du kontaktar QnAMaker-support eller UserVoice. Slut punkten är en URL i det här formuläret: https://your-resource-name.azurewebsites.net.
 
-1. Gå till QnAMaker-tjänsten (resursgrupp) den [Azure-portalen](https://portal.azure.com)
+1. Gå till din QnAMaker-tjänst (resurs grupp) i [Azure Portal](https://portal.azure.com)
 
     ![QnAMaker Azure-resursgrupp i Azure-portalen](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
 
@@ -40,61 +34,97 @@ QnAMaker-tjänstens slut punkt är användbar för fel sökning när du kontakta
 
     ![QnAMaker-slutpunkt](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
 
+</details>
+
 ## <a name="manage-the-knowledge-base"></a>Hantera kunskapsbasen
 
-### <a name="i-accidentally-deleted-a-part-of-my-qna-maker-what-should-i-do"></a>Jag råkade ta bort en del av mitt QnA Maker, vad ska jag göra?
+<details>
+<summary><b>Jag har råkat ta bort en del av mitt QnA Maker, vad ska jag göra?</b></summary>
 
-Ta inte bort någon av de Azure-tjänster som skapats tillsammans med QnA Maker-resursen, till exempel search eller Web App. Detta är nödvändigt för att QnA Maker ska fungera om du tar bort ett QnA Maker slutar fungera korrekt.
+**Svar**: ta inte bort någon av de Azure-tjänster som skapats tillsammans med QNA Maker-resursen, till exempel search eller Web App. Detta är nödvändigt för att QnA Maker ska fungera om du tar bort ett QnA Maker slutar fungera korrekt.
 
-Alla borttagningar är permanent, inklusive frågor och svar-par, filer, URL: er, anpassade frågor och svar, kunskapsbaser eller Azure-resurser. Kontrollera att du exporterar kunskapsbasen från den **inställningar** sidan innan du tar bort någon del av kunskapsbasen.
+Alla borttagningar är permanent, inklusive frågor och svar-par, filer, URL: er, anpassade frågor och svar, kunskapsbaser eller Azure-resurser. Se till att exportera din kunskaps bas från sidan **Inställningar** innan du tar bort någon del av kunskaps basen.
 
-### <a name="why-is-my-urlsfiles-not-extracting-question-answer-pairs"></a>Varför är min URL: er / filerna inte extrahering frågor svar par?
+</details>
 
-Det är möjligt att QnA Maker inte kan automatiskt extrahera frågor och svar (frågor och svar) innehåll från giltiga URL: er med vanliga frågor och svar. I sådana fall kan du klistra in frågor och svar om innehållet i en txt-fil och se om verktyget kan mata in den. Alternativt kan du redigeringsmässigt lägga till innehåll kunskapsbasen via den [QnA Maker portal](https://qnamaker.ai).
+<details>
+<summary><b>Varför extraherar mina URL: er inte svars par för frågor?</b></summary>
 
-### <a name="how-large-a-knowledge-base-can-i-create"></a>Hur stor kunskapsbas kan jag skapa?
+**Svar**: det är möjligt att QNA Maker inte kan automatiskt extrahera en del frågor och svar (QNA) från giltiga URL: er för vanliga frågor och svar. I sådana fall kan du klistra in frågor och svar om innehållet i en txt-fil och se om verktyget kan mata in den. Alternativt kan du lägga till innehåll i kunskaps basen på [QNA Maker portalen](https://qnamaker.ai).
 
-Storleken på kunskapsbasen beror på den SKU för Azure search som du väljer när du skapar QnA Maker-tjänsten. Läs [här](./Tutorials/choosing-capacity-qnamaker-deployment.md) för mer information.
+</details>
 
-### <a name="why-cant-i-see-anything-in-the-drop-down-when-i-try-to-create-a-new-knowledge-base"></a>Varför kan jag inte se vad som helst i listrutan när jag försöker skapa en ny kunskapsbas?
+<details>
+<summary><b>Hur stor en kunskaps bas kan jag skapa?</b></summary>
 
-Du har inte skapat några QnA Maker-tjänster i Azure ännu. Läs [här](./How-To/set-up-qnamaker-service-azure.md) att lära dig hur du gör.
+**Svar**: kunskaps bas storleken beror på vilken SKU av Azure Search du väljer när du skapar tjänsten QNA Maker. Läs [här](./Tutorials/choosing-capacity-qnamaker-deployment.md) om du vill ha mer information.
 
-### <a name="how-do-i-share-a-knowledge-base-with-others"></a>Hur gör jag för att dela en kunskapsbas med andra?
+</details>
 
-Delning fungerar på nivån för QnA Maker-tjänsten, det vill säga kommer alla kunskapsbaser i tjänsten att delas. Läs [här](./How-To/collaborate-knowledge-base.md) så samarbeta med en kunskapsbas.
+<details>
+<summary><b>Varför kan jag inte se något i list rutan när jag försöker skapa en ny kunskaps bas?</b></summary>
 
-### <a name="can-you-share-a-knowledge-base-with-a-contributor-that-is-not-in-the-same-aad-tenant-to-modify-a-knowledge-base"></a>Kan du dela en kunskapsbas med deltagare som inte är i samma AAD-klientorganisation, att ändra en kunskapsbas?
+**Svar**: du har inte skapat några QNA Maker tjänster i Azure än. Läs [här](./How-To/set-up-qnamaker-service-azure.md) för att lära dig hur du gör det.
 
-Dela baseras på Azure rollbaserad åtkomstkontroll (RBAC). Om du kan dela _alla_ resurs i Azure med en annan användare, kan du också dela QnA Maker.
+</details>
 
-### <a name="if-you-have-an-app-service-plan-with-5-qnamaker-knowledge-bases-can-you-assign-readwrite-rights-to-5-different-users-so-each-of-them-can-access-only-1-qnamaker-knowledge-base"></a>Om du har en App Service-Plan med 5 QnAMaker kunskapsbaser. Kan du tilldela Läs/Skriv-behörighet till 5 olika användare så att var och en av dem kan komma åt endast 1 QnAMaker kunskapsbas?
+<details>
+<summary><b>Hur gör jag för att dela en kunskaps bas med andra?</b></summary>
 
-Du kan dela hela QnAMaker tjänsten, inte för enskilda kunskapsbaser.
+**Svar**: delningen fungerar på samma nivå som en QNA Maker tjänst, det vill säga att alla kunskaps banker i tjänsten delas. Läs mer [här](./How-To/collaborate-knowledge-base.md) om hur du samarbetar i en kunskaps bas.
 
-### <a name="how-can-i-change-the-default-message-when-no-good-match-is-found"></a>Hur kan jag ändra standardmeddelandet när ingen bra matchning hittas?
+</details>
 
-Standardmeddelandet är en del av inställningarna i din App service.
+<details>
+<summary><b>Kan du dela en kunskaps bas med en deltagare som inte tillhör samma AAD-klient, för att ändra en kunskaps bas?</b></summary>
+
+**Svar**: delning baseras på rollbaserad åtkomst kontroll (RBAC) i Azure. Om du kan dela _en_ resurs i Azure med en annan användare kan du också dela QNA Maker.
+
+</details>
+
+<details>
+<summary><b>Om du har en App Service-plan med 5 QnAMaker kunskaps Bases. Kan du tilldela läs-och Skriv behörighet till 5 olika användare så att var och en av dem bara har åtkomst till 1 QnAMaker kunskaps bas?</b></summary>
+
+**Svar**: du kan dela en hel QnAMaker-tjänst, inte enskilda kunskaps baser.
+
+</details>
+
+<details>
+<summary><b>Hur kan jag ändra standard meddelandet när ingen lämplig matchning hittas?</b></summary>
+
+**Svar**: standard meddelandet är en del av inställningarna i App Service.
 - Gå till din App service-resurs i Azure portal
 
 ![appservice qnamaker](./media/qnamaker-faq/qnamaker-resource-list-appservice.png)
-- Klicka på den **inställningar** alternativet
+- Klicka på **inställnings** alternativet
 
 ![qnamaker appservice-inställningar](./media/qnamaker-faq/qnamaker-appservice-settings.png)
-- Ändra värdet för den **DefaultAnswer** inställningen
+- Ändra värdet för **DefaultAnswer** -inställningen
 - Starta om App service
 
 ![qnamaker appservice-omstart](./media/qnamaker-faq/qnamaker-appservice-restart.png)
 
-### <a name="why-is-my-sharepoint-link-not-getting-extracted"></a>Varför är min SharePoint-länken inte komma extrahera?
 
-Se [datakällans platser](./Concepts/knowledge-base.md#data-source-locations) för mer information.
+</details>
 
-### <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>Uppdateringar som jag gjorde på min kunskapsbas inte visas publicera. Varför inte?
+<details>
+<summary><b>Varför hämtas inte min SharePoint-länk?</b></summary>
 
-Varje redigeringsåtgärden måste i uppdatera tabell-, test- eller inställningen, sparas innan de kan publiceras. Se till att klicka på knappen **Spara och träna** efter varje redigerings åtgärd.
+**Svar**: se [platser för data källor](./Concepts/knowledge-base.md#data-source-locations) för mer information.
 
-### <a name="does-the-knowledge-base-support-rich-data-or-multimedia"></a>Har kunskapsbasen stöd för formaterade data eller multimedia?
+</details>
+
+<details>
+<summary><b>Uppdateringarna som jag gjorde i min kunskaps bas avspeglas inte vid publicering. Varför inte?</b></summary>
+
+**Svar**: varje redigerings åtgärd, om i en tabell uppdatering, testning eller inställning, måste sparas innan den kan publiceras. Se till att klicka på knappen **Spara och träna** efter varje redigerings åtgärd.
+
+</details>
+
+<details>
+<summary><b>Stöder kunskaps basen omfattande data eller Multimedia?</b></summary>
+
+**Svar**:
 
 #### <a name="multimedia-auto-extraction-for-files-and-urls"></a>Automatisk extrahering av multimedia för filer och URL: er
 
@@ -104,41 +134,66 @@ Varje redigeringsåtgärden måste i uppdatera tabell-, test- eller inställning
 #### <a name="answer-text-in-markdown"></a>Svars text i markdown
 När QnA-uppsättningar finns i kunskaps basen kan du redigera svarets markdown-text för att inkludera länkar till mediet som är tillgängliga från offentliga URL: er.
 
-### <a name="does-qna-maker-support-non-english-languages"></a>Kan QnA Maker användas med andra språk än engelska?
 
-Läs mer om [språk som stöds](./Overview/languages-supported.md).
+</details>
 
-Om du har innehåll från olika språk måste du skapa en separat tjänst för varje språk.
+<details>
+<summary><b>Stöder QnA Maker andra språk än engelska?</b></summary>
+
+**Svar**: se mer information om [vilka språk som stöds](./Overview/languages-supported.md).
+
+Om du har innehåll från flera språk, måste du skapa en separat tjänst för varje språk.
+
+</details>
 
 ## <a name="manage-service"></a>Hantera tjänst
 
-### <a name="when-should-i-restart-my-app-service"></a>När bör jag startar om min app service?
+<details>
+<summary><b>När ska jag starta om min app service?</b></summary>
 
-Uppdatera din app service när på varningsikonen är bredvid versionsvärdet för kunskapsbasen i den **Endpoint nycklar** tabellen på den **användarinställningar** [sidan](https://www.qnamaker.ai/UserSettings).
+**Svar**: uppdatera App Service när varnings ikonen är bredvid version svärdet för kunskaps basen i tabellen **slut punkts nycklar** på [sidan](https://www.qnamaker.ai/UserSettings) **användar inställningar** .
 
-### <a name="i-deleted-my-existing-search-service-how-can-i-fix-this"></a>Jag har tagit bort min befintliga search-tjänst. Hur kan jag åtgärda detta?
+</details>
 
-Om du tar bort ett Azure Kognitiv sökning-index är åtgärden slutgiltig och indexet kan inte återställas.
+<details>
+<summary><b>Jag har tagit bort min befintliga search-tjänst. Hur kan jag åtgärda detta?</b></summary>
 
-### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>Jag har tagit bort mitt `testkb`-index i min search-tjänst. Hur kan jag åtgärda detta?
+**Svar**: om du tar bort ett Azure kognitiv sökning-index är åtgärden slutgiltig och indexet kan inte återställas.
 
-Dina gamla data kan inte återställas. Skapa en ny QnA Maker resurs och skapa din kunskaps bas igen.
+</details>
 
-### <a name="when-should-i-refresh-my-endpoint-keys"></a>När bör jag uppdatera Mina endpoint-nycklar?
+<details>
+<summary><b>Jag har tagit bort mitt `testkb`-index i min search-tjänst. Hur kan jag åtgärda detta?</b></summary>
 
-Uppdatera dina endpoint-nycklar om du misstänker att de har komprometterats.
+**Svar**: dina gamla data kan inte återställas. Skapa en ny QnA Maker resurs och skapa din kunskaps bas igen.
 
-### <a name="can-i-use-the-same-azure-cognitive-search-resource-for-knowledge-bases-using-multiple-languages"></a>Kan jag använda samma Azure Kognitiv sökning-resurs för kunskaps banker med flera språk?
+</details>
 
-Om du vill använda flera språk och flera kunskapsbaser, har användaren att skapa en QnA Maker-resurs för varje språk. Då skapas en separat Azure Search-tjänst per språk. Blanda kunskapsbaser för olika språk i en enda Azure search-tjänst resulterar i degraderat relevans med resultat.
+<details>
+<summary><b>När ska jag uppdatera mina slut punkts nycklar?</b></summary>
 
-### <a name="how-can-i-change-the-name-of-the-azure-cognitive-search-resource-used-by-qna-maker"></a>Hur kan jag ändra namnet på den Azure Kognitiv sökning-resurs som används av QnA Maker?
+**Svar**: uppdatera dina slut punkts nycklar om du misstänker att de har komprometterats.
 
-Namnet på Azure Kognitiv sökning-resursen är QnA Maker resurs namnet med vissa slumpmässiga bokstäver sist i slutet. På så sätt blir det svårt att skilja mellan flera Sök efter resurser för QnA Maker. Skapa en separat Sök tjänst (namnge den på det sätt som du vill) och Anslut den till din QnA-tjänst. Stegen liknar de steg du behöver utföra för att [uppgradera en Azure-sökning](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service).
+</details>
 
-### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>När QnA Maker returnerar `Runtime core is not initialized,` Hur åtgärdar jag det?
+<details>
+<summary><b>Kan jag använda samma Azure Kognitiv sökning-resurs för kunskaps banker med flera språk?</b></summary>
 
-Disk utrymmet för App Service kan vara fullt. Steg för att åtgärda disk utrymmet:
+**Svar**: användaren måste skapa en QNA Maker resurs för varje språk för att kunna använda flera språk och flera kunskaps baser. Då skapas en separat Azure Search-tjänst per språk. Blanda kunskapsbaser för olika språk i en enda Azure search-tjänst resulterar i degraderat relevans med resultat.
+
+</details>
+
+<details>
+<summary><b>Hur kan jag ändra namnet på den Azure Kognitiv sökning-resurs som används av QnA Maker?</b></summary>
+
+**Svar**: namnet på Azure kognitiv sökning-resursen är QNA Maker resurs namnet med vissa slumpmässiga bokstäver sist i slutet. På så sätt blir det svårt att skilja mellan flera Sök efter resurser för QnA Maker. Skapa en separat Sök tjänst (namnge den på det sätt som du vill) och Anslut den till din QnA-tjänst. Stegen liknar de steg du behöver utföra för att [uppgradera en Azure-sökning](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service).
+
+</details>
+
+<details>
+<summary><b>När QnA Maker returnerar `Runtime core is not initialized,` Hur åtgärdar jag det?</b></summary>
+
+**Svar**: disk utrymmet för App Service kan vara fullt. Steg för att åtgärda disk utrymmet:
 
 1. I [Azure Portal](https://portal.azure.com)väljer du QNA Maker app service och stoppar sedan tjänsten.
 1. När du fortfarande är i App Service väljer du **utvecklingsverktyg**, sedan **Avancerade verktyg**och sedan **gå**. Då öppnas ett nytt fönster i webbläsaren.
@@ -155,20 +210,28 @@ Disk utrymmet för App Service kan vara fullt. Steg för att åtgärda disk utry
 1. Starta App Service.
 1. Kom åt din kunskaps bas för att kontrol lera att den fungerar nu.
 
+</details>
 
 ## <a name="integrate-with-other-services-including-bots"></a>Integrera med andra tjänster som exempel robotar
 
-### <a name="do-i-need-to-use-bot-framework-in-order-to-use-qna-maker"></a>Måste jag använda Bot Framework för att kunna använda QnA Maker?
+<details>
+<summary><b>Behöver jag använda bot Framework för att kunna använda QnA Maker?</b></summary>
 
-Nej, du behöver inte använda [bot Framework](https://github.com/Microsoft/botbuilder-dotnet) med QNA Maker. QnA Maker erbjuds dock som en av flera mallar i [Azure bot service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). Bot Service erbjuder snabb, intelligent bot-utveckling via Microsoft Bot Framework och det körs i en miljö utan server.
+**Svar**: Nej, du behöver inte använda [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) med QNA Maker. QnA Maker erbjuds dock som en av flera mallar i [Azure bot service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). Bot Service erbjuder snabb, intelligent bot-utveckling via Microsoft Bot Framework och det körs i en miljö utan server.
 
-### <a name="how-can-i-create-a-new-bot-with-qna-maker"></a>Hur gör jag för att skapa en ny robot med QnA Maker?
+</details>
 
-Följ instruktionerna i [detta](./Tutorials/create-qna-bot.md) dokumentationen för att skapa din robot med Azure Bot Service.
+<details>
+<summary><b>Hur gör jag för att skapa en ny robot med QnA Maker?</b></summary>
 
-### <a name="how-do-i-use-a-different-knowledge-base-with-an-existing-azure-bot-service"></a>Hur gör jag för att använda en annan kunskaps bas med en befintlig Azure bot-tjänst?
+**Svar**: Följ anvisningarna i [den här](./Tutorials/create-qna-bot.md) dokumentationen för att skapa din robot med Azure bot service.
 
-Du måste ha följande information om din kunskaps bas:
+</details>
+
+<details>
+<summary><b>Hur gör jag för att använda en annan kunskaps bas med en befintlig Azure bot-tjänst?</b></summary>
+
+**Svar**: du måste ha följande information om din kunskaps bas:
 
 * Kunskaps bas-ID.
 * Det anpassade under domän namnet för den publicerade slut punkten i kunskaps basen, som kallas `host`, hittades på sidan **Inställningar** när du har publicerat.
@@ -178,19 +241,32 @@ Med den här informationen går du till appens robots App Service i Azure Portal
 
 Kunskaps basens slut punkts nyckel är märkt `QnAAuthkey` i ABS-tjänsten.
 
-### <a name="can-two-or-more-client-applications-share-a-knowledge-base"></a>Kan två eller flera klient program dela en kunskaps bas?
+</details>
 
-Ja, kunskaps basen kan frågas från valfritt antal klienter. Om svaret från kunskaps basen verkar vara långsamt eller tids gräns, bör du överväga att uppgradera tjänst nivån för App Service som är associerad med kunskaps basen.
+<details>
+<summary><b>Kan två eller flera klient program dela en kunskaps bas?</b></summary>
 
-### <a name="how-do-i-embed-the-qna-maker-service-in-my-website"></a>Hur bäddar jag in QnA Maker-tjänsten på min webbplats?
+**Svar**: Ja, kunskaps basen kan frågas från valfritt antal klienter. Om svaret från kunskaps basen verkar vara långsamt eller tids gräns, bör du överväga att uppgradera tjänst nivån för App Service som är associerad med kunskaps basen.
 
-Följ stegen nedan för att bädda in QnA Maker-tjänsten som en webbchatten-kontroll på din webbplats:
+</details>
 
-1. Skapa din vanliga frågor och svar-robot genom att följa anvisningarna [här](./Tutorials/create-qna-bot.md).
-2. Aktivera webbchatt genom att följa stegen [här](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat)
+<details>
+<summary><b>Hur gör jag för att du bädda in QnA Makers tjänsten på min webbplats?</b></summary>
+
+**Svar**: Följ de här stegen för att bädda in QNA Maker tjänsten som en webb chatt kontroll på din webbplats:
+
+1. Skapa din vanliga bot-robot genom att följa anvisningarna [här](./Tutorials/create-qna-bot.md).
+2. Aktivera webbchatten genom att följa stegen [här](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat)
+
+</details>
 
 ## <a name="data-storage"></a>Datalagring
 
-### <a name="what-data-is-stored-and-where-is-it-stored"></a>Vilka data lagras och där lagras det?
+<details>
+<summary><b>Vilka data lagras och var lagras de?</b></summary>
+
+**Svar**:
 
 När du skapar din QnA Maker-tjänsten, du har valt en Azure-region. Dina kunskapsbaser och loggfilerna lagras i den här regionen.
+
+</details>

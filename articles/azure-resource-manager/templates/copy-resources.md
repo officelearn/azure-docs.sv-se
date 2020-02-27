@@ -3,18 +3,18 @@ title: Distribuera flera instanser av resurser
 description: Använd kopierings åtgärd och matriser i en Azure Resource Manager mall för att distribuera resurs typen flera gånger.
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 38b5bcd38e0dc8ba8c758e9aa8371857541ba55e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e90673504ceaccdc25a477e856defa77eed37d86
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210832"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620227"
 ---
 # <a name="resource-iteration-in-azure-resource-manager-templates"></a>Resurs iteration i Azure Resource Manager mallar
 
 Den här artikeln visar hur du skapar fler än en instans av en resurs i din Azure Resource Manager-mall. Genom att lägga till elementet **Kopiera** i avsnittet resurser i mallen kan du dynamiskt ange antalet resurser som ska distribueras. Du behöver inte heller upprepa syntaxen för mallar.
 
-Du kan också använda kopiera med [Egenskaper](copy-properties.md) och [variabler](copy-variables.md).
+Du kan också använda kopiera med [Egenskaper](copy-properties.md), [variabler](copy-variables.md) och [utdata](copy-outputs.md).
 
 Om du behöver ange om en resurs har distribuerats alls, se [villkors element](conditional-resource-deployment.md).
 
@@ -130,6 +130,8 @@ I följande exempel skapas ett lagrings konto för varje namn som anges i parame
   "outputs": {}
 }
 ```
+
+Om du vill returnera värden från de distribuerade resurserna kan du använda [Kopiera i avsnittet utdata](copy-outputs.md).
 
 ## <a name="serial-or-parallel"></a>Serie eller parallell
 
@@ -279,7 +281,10 @@ I följande exempel visas vanliga scenarier för att skapa mer än en instans av
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om hur du går igenom självstudierna finns i [Självstudier: skapa flera resurs instanser med Resource Manager-mallar](template-tutorial-create-multiple-instances.md).
-* För andra användnings områden av elementet Copy, se [egenskaps iteration i Azure Resource Manager mallar](copy-properties.md) och [variabel iteration i Azure Resource Manager mallar](copy-variables.md).
+* För andra användnings områden av elementet Copy, se:
+  * [Egenskaps iteration i Azure Resource Manager mallar](copy-properties.md)
+  * [Variabel iteration i Azure Resource Manager mallar](copy-variables.md)
+  * [Utdata iteration i Azure Resource Manager mallar](copy-outputs.md)
 * Information om hur du använder kopiera med kapslade mallar finns i [använda kopiera](linked-templates.md#using-copy).
 * Om du vill lära dig mer om avsnitten i en mall, se [redigera Azure Resource Manager mallar](template-syntax.md).
 * Information om hur du distribuerar din mall finns i [distribuera ett program med Azure Resource Manager-mall](deploy-powershell.md).

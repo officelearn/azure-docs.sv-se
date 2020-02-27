@@ -6,25 +6,25 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/24/2019
-ms.openlocfilehash: 32eee22aa8e9b707d404cb85db6b7fae90d11987
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
-ms.translationtype: MT
+ms.date: 02/25/2019
+ms.openlocfilehash: cd48f29d1f3866a4cd6893746dc44999b8aba24b
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589849"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622915"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimera logg frågor i Azure Monitor
-Azure Monitor loggar använder [Azure datautforskaren (ADX)](/azure/data-explorer/) för att lagra och hantera dina loggar och frågor. Den skapar, hanterar och underhåller ADX-kluster åt dig, och optimerar dem för din logg analys arbets belastning. När du kör en fråga optimeras den och dirigeras till lämpligt ADX-kluster som lagrar arbets ytan. Både Azure Monitor loggar och Azure Datautforskaren använder många automatiska metoder för optimering av frågor. Även om automatiska optimeringar ger betydande ökning, finns det i vissa fall där du kan förbättra dina frågeresultat dramatiskt. Den här artikeln beskriver prestanda överväganden och flera tekniker för att åtgärda dem.
+Azure Monitor loggar använder [Azure datautforskaren (ADX)](/azure/data-explorer/) för att lagra loggdata och köra frågor för att analysera data. Den skapar, hanterar och underhåller ADX-kluster åt dig, och optimerar dem för din logg analys arbets belastning. När du kör en fråga optimeras den och dirigeras till lämpligt ADX-kluster som lagrar arbets ytans data. Både Azure Monitor loggar och Azure Datautforskaren använder många automatiska metoder för optimering av frågor. Även om automatiska optimeringar ger betydande ökning, finns det i vissa fall där du kan förbättra dina frågeresultat dramatiskt. Den här artikeln beskriver prestanda överväganden och flera tekniker för att åtgärda dem.
 
-De flesta av metoderna är vanliga för frågor som körs direkt på Azure Datautforskaren och Azure Monitor loggar, men det finns flera unika Azure Monitor loggar som beskrivs här. Mer information om optimerings tips för Azure Datautforskaren finns i [metod tips för frågor](/azure/kusto/query/best-practices).
+De flesta metoder är vanliga för frågor som körs direkt på Azure Datautforskaren och Azure Monitor loggar, men det finns flera unika Azure Monitor loggar som beskrivs här. Mer information om optimerings tips för Azure Datautforskaren finns i [metod tips för frågor](/azure/kusto/query/best-practices).
 
 Optimerade frågor kommer att:
 
 - Kör snabbare, minska den totala tiden för frågekörningen.
 - Få mindre chans att bli begränsad eller avvisad.
 
-Du bör ha särskild uppmärksamhet på frågor som används för återkommande och burst-användning, till exempel instrument paneler och Power BI. Effekten av en ineffektiv fråga i dessa fall är väsentlig.
+Du bör ha särskild uppmärksamhet på frågor som används för återkommande och burst-användning, till exempel instrument paneler, aviseringar, Logic Apps och Power BI. Effekten av en ineffektiv fråga i dessa fall är väsentlig.
 
 ## <a name="query-performance-pane"></a>Fönstret fråga prestanda
 När du har kört en fråga i Log Analytics klickar du på nedpilen ovanför frågeresultaten för att visa fönstret frågeresultat som visar resultatet av flera prestanda indikatorer för frågan. Dessa prestanda indikatorer beskrivs i följande avsnitt.
@@ -38,11 +38,11 @@ Följande prestanda indikatorer för frågor är tillgängliga för alla frågor
 
 - [Total processor](#total-cpu): övergripande beräkning som används för att bearbeta frågan över alla Compute-noder. Den representerar tiden som används för data behandling, parsning och data hämtning. 
 
-- [Data som används för bearbetad fråga](#data-used-for-query-processing): övergripande data som har använts för att bearbeta frågan. Påverkas av storleken på mål tabellen, tids rymden som används, filter tillämpas och antalet kolumner som refereras.
+- [Data volym](#data-volume): övergripande data som har öppnats för att bearbeta frågan. Påverkas av storleken på mål tabellen, tids rymden som används, filter tillämpas och antalet kolumner som refereras.
 
-- [Tidsintervallet för den bearbetade frågan](#time-range-of-the-data-processed): avståndet mellan de senaste och äldsta data som användes för att bearbeta frågan. Påverkas av frågans explicita tidsintervall och filter tillämpas. Det kan vara större än den explicita tids rymden på grund av data partitionering.
+- [Tidsintervall](#time-range): avståndet mellan de senaste och äldsta data som användes för att bearbeta frågan. Påverkas av det explicita tidsintervallet som anges för frågan.
 
-- [Ålder på bearbetade data](#age-of-the-oldest-data-used): mellanrummet mellan nu och de äldsta data som har öppnats för att bearbeta frågan. Det påverkar starkt effektiviteten för data hämtning.
+- [Data ålder](#age-of-data): mellanrummet mellan nu och de äldsta data som användes för att bearbeta frågan. Det påverkar starkt effektiviteten för data hämtning.
 
 - [Antal arbets ytor](#number-of-workspaces): hur många arbets ytor som användes under bearbetningen av frågan på grund av implicit eller explicit val.
 
@@ -123,7 +123,7 @@ Perf
 by CounterPath
 ```
 
-CPU-förbrukning kan också påverkas av WHERE-villkor eller utökade kolumner som kräver intensiv data bearbetning. Alla enkla sträng jämförelser, t. ex. [Equal = =](/azure/kusto/query/datatypes-string-operators) och [StartsWith](/azure/kusto/query/datatypes-string-operators) , har ungefär samma CPU-effekt medan avancerad text matchning har större påverkan. Mer specifikt är operatorn är mer effektiv än operatorn contains. På grund av sträng hanterings tekniker är det mer effektivt att söka efter strängar som är längre än fyra tecken än korta strängar.
+CPU-förbrukning kan också påverkas av WHERE-villkor eller utökade kolumner som kräver intensiv data bearbetning. Alla enkla sträng jämförelser, t. ex. [Equal = =](/azure/kusto/query/datatypes-string-operators) och [StartsWith](/azure/kusto/query/datatypes-string-operators) , har ungefär samma CPU-effekt medan avancerade text träffar har större påverkan. Mer specifikt är [operatorn är mer](/azure/kusto/query/datatypes-string-operators) effektiv än operatorn [contains](/azure/kusto/query/datatypes-string-operators) . På grund av sträng hanterings tekniker är det mer effektivt att söka efter strängar som är längre än fyra tecken än korta strängar.
 
 Följande frågor ger till exempel liknande resultat, beroende på dator namngivnings princip, men den andra är mer effektiv:
 
@@ -151,7 +151,7 @@ Heartbeat
 > Den här indikatorn visar bara CPU från det omedelbara klustret. I frågor med flera regioner representerar den bara en av regionerna. I frågor med flera arbets ytor kan det hända att den inte innehåller alla arbets ytor.
 
 
-## <a name="data-used-for-query-processing"></a>Data som används för bearbetning av frågor
+## <a name="data-volume"></a>Datavolym
 
 En kritisk faktor vid bearbetningen av frågan är den data volym som genomsöks och används för bearbetningen av frågan. Azure Datautforskaren använder aggressiva optimeringar som dramatiskt minskar data volymen jämfört med andra data plattformar. Det finns fortfarande kritiska faktorer i frågan som kan påverka den data volym som används.
 I Azure Monitor loggar används kolumnen **TimeGenerated** som ett sätt att indexera data. Genom att begränsa **TimeGenerated** -värdena till så smala ett intervall som möjligt kommer att göra en betydande förbättring av frågans prestanda genom att avsevärt begränsa mängden data som ska bearbetas.
@@ -209,7 +209,7 @@ SecurityEvent
 | summarize count(), dcount(EventID), avg(Level) by Computer  
 ```
 
-## <a name="time-range-of-the-data-processed"></a>Tidsintervallet för bearbetade data
+## <a name="time-range"></a>Tidsintervall
 
 Alla loggar i Azure Monitor loggar partitioneras enligt kolumnen **TimeGenerated** . Antalet partitioner som nås är direkt relaterat till tidsintervallet. Att minska tidsintervallet är det mest effektiva sättet att säkerställa en fråga om att köra frågor.
 
@@ -259,14 +259,10 @@ by Computer
 ) on Computer
 ```
 
-Måttet är alltid större än den faktiska tiden som angetts. Om filtret i frågan till exempel är 7 dagar kan systemet Skanna 7,5 eller 8,1 dagar. Detta beror på att systemet partitionerar data i segment i varierande storlek. För att säkerställa att alla relevanta poster genomsöks, genomsöks hela partitionen som kan se flera timmar och ännu mer än en dag.
+> [!IMPORTANT]
+> Den här indikatorn är inte tillgänglig för frågor över flera regioner.
 
-Det finns flera fall där systemet inte kan tillhandahålla en korrekt mätning av tidsintervallet. Detta händer i de flesta fall där frågans intervall är mindre än en dag eller i frågor med flera arbets ytor.
-
-> [!NOTE]
-> Den här indikatorn visar endast data som bearbetas i det omedelbara klustret. I frågor med flera regioner representerar den bara en av regionerna. I frågor med flera arbets ytor kan det hända att den inte innehåller alla arbets ytor.
-
-## <a name="age-of-the-oldest-data-used"></a>Ålder för de äldsta data som använts
+## <a name="age-of-data"></a>Data ålder
 Azure Datautforskaren använder flera lagrings nivåer: minnes intern, lokal SSD-diskar och mycket långsammare Azure-blobbar. Ju högre data, desto högre är chansen att den lagras på en mer presterande nivå med mindre latens, vilket minskar frågans varaktighet och CPU. Förutom själva data, innehåller systemet också en cache för metadata. De äldre data, som är mindre chansen att cachelagra metadata.
 
 Även om vissa frågor kräver användning av gamla data finns det fall där gamla data används av misstag. Detta händer när frågor körs utan att tillhandahålla tidsintervall i sina meta-data och inte alla tabell referenser inkluderar filter i kolumnen **TimeGenerated** . I dessa fall kommer systemet att söka igenom alla data som lagras i tabellen. När data kvarhållning är lång kan det avse långa tidsintervall och därmed är data som är så gamla som data lagrings perioden.
@@ -289,7 +285,7 @@ Fråga om flera regioner kräver att systemet serialiseras och överförs i Serv
 Om det inte finns någon verklig anledning att söka igenom alla dessa regioner bör du justera omfattningen så att den täcker färre regioner. Om resurs omfånget är minimerat men fortfarande många regioner används kan det bero på en felaktig konfiguration. Till exempel skickas gransknings loggar och diagnostikinställningar till olika arbets ytor i olika regioner eller så finns det flera konfigurationer för diagnostiska inställningar. 
 
 > [!IMPORTANT]
-> När en fråga körs i flera regioner är processor-och data mätningarna inte korrekta och kommer endast att representera måttet på en av regionerna.
+> Den här indikatorn är inte tillgänglig för frågor över flera regioner.
 
 ## <a name="number-of-workspaces"></a>Antal arbets ytor
 Arbets ytor är logiska behållare som används för att särskilja och administrera loggar data. Server delen optimerar arbets ytans placeringar på fysiska kluster i den valda regionen.
@@ -305,7 +301,7 @@ Körning av frågor mellan regioner och flera kluster kräver att systemet kan s
 > I vissa scenarier med flera arbets ytor är processor-och data mätningarna inte korrekta och kommer endast att representera mätningarna till några av arbets ytorna.
 
 ## <a name="parallelism"></a>Parallellitet
-Azure Monitor loggar använder stora kluster av Azure-Datautforskaren för att köra frågorna. Dessa kluster varierar i skala, vilket kan få upp till 140 Compute-noder. Systemet skalar automatiskt klustret enligt logik och kapacitet för arbets ytan.
+Azure Monitor loggar använder stora kluster av Azure Datautforskaren för att köra frågor och dessa kluster varierar i skala. Systemet skalar automatiskt klustret enligt logik och kapacitet för arbets ytan.
 
 För att effektivt köra en fråga är den partitionerad och distribuerad till Compute-noder baserat på de data som krävs för bearbetningen. Det finns vissa situationer där systemet inte kan göra detta effektivt. Detta kan leda till att frågan tar lång tid. 
 

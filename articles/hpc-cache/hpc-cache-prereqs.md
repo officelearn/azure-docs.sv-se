@@ -4,14 +4,14 @@ description: Krav för att använda Azure HPC cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/20/2020
 ms.author: rohogue
-ms.openlocfilehash: 135c231f84d95ea2418fab4647d715473378e41c
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 40d282ad30a800a5e5a36a8d2211ec8da7ce63ec
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251965"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651074"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Krav för Azure HPC-cache
 
@@ -95,7 +95,9 @@ Om du använder ett NFS-filsystem (till exempel ett lokalt maskinvaru-NAS-system
 > [!NOTE]
 > Det gick inte att skapa lagrings mål om cachen har otillräcklig åtkomst till NFS-lagrings systemet.
 
-* **Nätverks anslutning:** Azure HPC-cachen behöver nätverks åtkomst med hög bandbredd mellan cache-undernät och NFS-systemets Data Center. [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) eller liknande åtkomst rekommenderas. Om du använder en VPN-anslutning kan du behöva konfigurera den till dessutom foga ihop TCP MSS på 1350 för att se till att stora paket inte blockeras.
+Mer information finns i [Felsöka problem med NAS-konfiguration och NFS-lagring](troubleshoot-nas.md).
+
+* **Nätverks anslutning:** Azure HPC-cachen behöver nätverks åtkomst med hög bandbredd mellan cache-undernät och NFS-systemets Data Center. [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) eller liknande åtkomst rekommenderas. Om du använder en VPN-anslutning kan du behöva konfigurera den till dessutom foga ihop TCP MSS på 1350 för att se till att stora paket inte blockeras. Läs [storleks begränsningar för VPN-paket](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) för ytterligare hjälp vid fel sökning av VPN-inställningar.
 
 * **Port åtkomst:** Cachen behöver åtkomst till vissa TCP/UDP-portar på lagrings systemet. Olika typer av lagrings enheter har olika port krav.
 
@@ -109,9 +111,11 @@ Om du använder ett NFS-filsystem (till exempel ett lokalt maskinvaru-NAS-system
     rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+tcp|100024\s+1\s+tcp|100021\s+4\s+tcp"| awk '{print $4 "/" $3 " " $5}'|column -t
     ```
 
+  Kontrol lera att alla portar som returneras av ``rpcinfo``s frågan tillåter obegränsad trafik från Azure HPC-cachens undernät.
+
   * Förutom portarna som returneras av `rpcinfo` kommandot, se till att dessa ofta använda portar tillåter inkommande och utgående trafik:
 
-    | Protokoll | Port  | Tjänst  |
+    | Protocol | Port  | Tjänst  |
     |----------|-------|----------|
     | TCP/UDP  | 111   | rpcbind  |
     | TCP/UDP  | 2049  | NFS      |
@@ -121,16 +125,20 @@ Om du använder ett NFS-filsystem (till exempel ett lokalt maskinvaru-NAS-system
 
   * Kontrol lera brand Väggs inställningarna så att de tillåter trafik på alla de portar som krävs. Se till att kontrol lera brand väggar som används i Azure samt lokala brand väggar i ditt data Center.
 
-* **Katalog åtkomst:** Aktivera `showmount` kommandot på lagrings systemet. Azure HPC cache använder det här kommandot för att kontrol lera att din lagrings mål konfiguration pekar på en giltig export, och också för att se till att flera monteringar inte kommer åt samma under kataloger (som riskerar fil kollisioner).
+* **Katalog åtkomst:** Aktivera `showmount` kommandot på lagrings systemet. Azure HPC cache använder det här kommandot för att kontrol lera att din lagrings mål konfiguration pekar på en giltig export, och också för att se till att flera monteringar inte har åtkomst till samma under kataloger (en risk för fil kollision).
 
   > [!NOTE]
   > Om ditt NFS Storage-System använder NetApp ONTAP 9,2-operativ system ska **du inte aktivera `showmount`** . [Kontakta Microsofts tjänst och support](hpc-cache-support-ticket.md) om du behöver hjälp.
+
+  Läs mer om åtkomst till katalog listor i [fel söknings artikeln](troubleshoot-nas.md#enable-export-listing)för NFS-lagrings målet.
 
 * **Rot åtkomst:** Cachen ansluter till Server dels systemet som användar-ID 0. Kontrol lera inställningarna på ditt lagrings system:
   
   * Aktivera `no_root_squash`. Med det här alternativet ser du till att fjärranslutna rot användare kan komma åt filer som ägs av roten.
 
   * Kontrol lera export principerna för att se till att de inte innehåller begränsningar för rot åtkomst från cachens undernät.
+
+  * Om lagrings platsen har en export som är under kataloger till en annan export, se till att cachen har rot åtkomst till det lägsta segmentet i sökvägen. Läs [rot åtkomst för katalog Sök vägar](troubleshoot-nas.md#allow-root-access-on-directory-paths) i fel söknings artikeln NFS-lagrings mål för mer information.
 
 * NFS-backend-lagring måste vara en kompatibel maskin-/program varu plattform. Kontakta Azure HPC-teamet för mer information.
 

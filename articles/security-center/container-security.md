@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: c18751d315af6da1a4b2f06aaca28c84746b7be5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 62728f5b66825eb6698e37bb7ad3adbad831b465
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470776"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615336"
 ---
 # <a name="container-security-in-security-center"></a>Behållar säkerhet i Security Center
 
@@ -65,7 +65,7 @@ Mer information om relevanta Security Center rekommendationer som kan visas för
 
 Security Center tillhandahåller hot identifiering i real tid för dina behållares miljöer och genererar aviseringar för misstänkta aktiviteter. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina containrar.
 
-Vi identifierar hot på kluster nivån värd och AKS. Fullständig information finns i [hot identifiering för Azure-behållare](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
+Vi identifierar hot på kluster nivån värd och AKS. Fullständig information finns i [hot skydd för Azure-behållare](threat-protection.md#azure-containers).
 
 
 ## <a name="container-security-faq"></a>Vanliga frågor om container säkerhet

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 56c48e9a64ec1fd000f98a20d5005305f522ff41
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: a6b0ebf811d662046d1a9a89fb75a0ab137569c3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500657"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616553"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -34,7 +34,7 @@ Azure använder käll Network Address Translation (SNAT) för att utföra den h�
 Det finns flera [utgående scenarier](#scenarios). Du kan kombinera dessa scenarier efter behov. Granska dem noggrant för att förstå funktionerna, begränsningarna och mönstren som de gäller för distributions modellen och program scenariot. Läs igenom rikt linjerna för att [hantera dessa scenarier](#snatexhaust).
 
 >[!IMPORTANT] 
->Standard Load Balancer och allmän standard-IP ger nya möjligheter och olika beteenden för utgående anslutning.  De är inte samma som för grundläggande SKU: er.  Om du vill använda utgående anslutningar när du arbetar med standard-SKU: er måste du uttryckligen definiera det antingen med offentliga IP-adresser eller offentliga standard Load Balancer.  Detta inkluderar att skapa utgående anslutningar när du använder en intern Standard Load Balancer.  Vi rekommenderar att du alltid använder utgående regler på en offentlig standard Load Balancer.  [Scenario 3](#defaultsnat) är inte tillgängligt med standard-SKU.  Det innebär att när en intern Standard Load Balancer används, måste du vidta åtgärder för att skapa utgående anslutningar för de virtuella datorerna i backend-poolen om den utgående anslutningen önskas.  I kontexten för utgående anslutning, en enda fristående virtuell dator, alla virtuella datorer i en tillgänglighets uppsättning, fungerar alla instanser i en VMSS som en grupp. Det innebär att om en enskild virtuell dator i en tillgänglighets uppsättning är associerad med en standard-SKU fungerar alla VM-instanser i den här tillgänglighets uppsättningen med samma regler som om de är associerade med standard-SKU: n, även om en enskild instans inte är direkt kopplad till den.  Läs noggrant igenom hela dokumentet för att förstå de övergripande begreppen, granska [standard Load Balancer](load-balancer-standard-overview.md) för skillnader mellan SKU: er och granska [utgående regler](load-balancer-outbound-rules-overview.md).  Med hjälp av utgående regler kan du få en detaljerad kontroll över alla aspekter av utgående anslutningar.
+>Standard Load Balancer och allmän standard-IP ger nya möjligheter och olika beteenden för utgående anslutning.  De är inte samma som för grundläggande SKU: er.  Om du vill använda utgående anslutningar när du arbetar med standard-SKU: er måste du uttryckligen definiera det antingen med offentliga IP-adresser eller offentliga standard Load Balancer.  Detta inkluderar att skapa utgående anslutningar när du använder en intern Standard Load Balancer.  Vi rekommenderar att du alltid använder utgående regler på en offentlig standard Load Balancer.  [Scenario 3](#defaultsnat) är inte tillgängligt med standard-SKU.  Det innebär att när en intern Standard Load Balancer används, måste du vidta åtgärder för att skapa utgående anslutningar för de virtuella datorerna i backend-poolen om den utgående anslutningen önskas.  I kontexten för utgående anslutning, en enda fristående virtuell dator, alla virtuella datorer i en tillgänglighets uppsättning, fungerar alla instanser i en VMSS som en grupp. Det innebär att om en enskild virtuell dator i en tillgänglighets uppsättning är associerad med en standard-SKU fungerar alla VM-instanser i den här tillgänglighets uppsättningen med samma regler som om de är associerade med standard-SKU: n, även om en enskild instans inte är direkt kopplad till den. Det här beteendet observeras även när det gäller en fristående virtuell dator med flera nätverkskort kopplade till en belastningsutjämnare. Om ett nätverkskort läggs till som fristående har det samma beteende. Läs noggrant igenom hela dokumentet för att förstå de övergripande begreppen, granska [standard Load Balancer](load-balancer-standard-overview.md) för skillnader mellan SKU: er och granska [utgående regler](load-balancer-outbound-rules-overview.md).  Med hjälp av utgående regler kan du få en detaljerad kontroll över alla aspekter av utgående anslutningar.
 
 ## <a name="scenarios"></a>Scenario översikt
 

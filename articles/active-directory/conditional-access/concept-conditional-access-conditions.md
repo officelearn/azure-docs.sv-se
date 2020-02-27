@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fe24e4a2b25b1ef3f0da2b1a5e1c0f29251df1
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: dff80d849268c770e4227ff8c99b8f4d133c4d78
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192238"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620734"
 ---
 # <a name="conditional-access-conditions"></a>Villkorlig åtkomst: villkor
 
@@ -52,7 +52,9 @@ När du konfigurerar plats som ett villkor kan organisationer välja att ta med 
 
 När du inkluderar **valfri plats**inkluderar det här alternativet alla IP-adresser på Internet som inte precis har konfigurerat namngivna platser. När du väljer **en plats**kan administratörer välja att undanta **alla betrodda** eller **valda platser**.
 
-Vissa organisationer kan till exempel välja att inte kräva Multi-Factor Authentication när deras användare är anslutna till nätverket på en betrodd plats, till exempel deras fysiska huvud kontor. Administratörer kan skapa en princip som inkluderar vilken plats som helst, men undantar de valda platserna för sina huvud kontors nätverk
+Vissa organisationer kan till exempel välja att inte kräva Multi-Factor Authentication när deras användare är anslutna till nätverket på en betrodd plats, till exempel deras fysiska huvud kontor. Administratörer kan skapa en princip som inkluderar vilken plats som helst, men undantar de valda platserna för sina huvud kontors nätverk.
+
+Mer information om platser hittar du i artikeln, [vilket är plats villkoret i Azure Active Directory villkorlig åtkomst](location-condition.md).
 
 ## <a name="client-apps-preview"></a>Klient program (för hands version)
 
@@ -64,9 +66,21 @@ Principer för villkorlig åtkomst gäller som standard för webbläsarbaserade 
    - Moderna autentiserade klienter
       - Det här alternativet omfattar program som Office Desktop och Phone-program.
    - Exchange ActiveSync-klienter
+      - Som standard inkluderar all användning av protokollet Exchange ActiveSync (EAS). Att välja **tillämpa princip enbart på plattformar som stöds** begränsar till plattformar som stöds, t. ex. iOS, Android och Windows.
       - När principen blockerar användningen av Exchange ActiveSync får den berörda användaren ett enda karantän-e-postmeddelande. Det här e-postmeddelandet med innehåller information om varför de blockeras och ta med reparations instruktioner om det går.
    - Övriga klienter
-      - Det här alternativet omfattar klienter som använder grundläggande/äldre autentiseringsprotokoll, inklusive IMAP-, MAPI-, POP-, SMTP-och äldre Office-program som inte stöder modern autentisering.
+      - Det här alternativet omfattar klienter som använder grundläggande/äldre autentiseringsprotokoll som inte stöder modern autentisering.
+         - Autentiserad SMTP – används av POP-och IMAP-klienten för att skicka e-postmeddelanden.
+         - Identifiera automatiskt – används av Outlook-och EAS-klienter för att hitta och ansluta till post lådor i Exchange Online.
+         - Exchange Online PowerShell – används för att ansluta till Exchange Online med fjärr-PowerShell. Om du blockerar grundläggande autentisering för Exchange Online PowerShell måste du använda Exchange Online PowerShell-modulen för att ansluta. Mer information finns i [ansluta till Exchange Online PowerShell med Multi-Factor Authentication](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+         - Exchange Web Services (EWS) – ett programmerings gränssnitt som används av Outlook, Outlook för Mac och appar från tredje part.
+         - IMAP4 – används av IMAP e-postklienter.
+         - MAPI över HTTP (MAPI/HTTP) – används av Outlook 2010 och senare.
+         - Offlineadressbok (OAB) – en kopia av adress list samlingar som hämtas och används av Outlook.
+         - Outlook överallt (RPC över HTTP) – används av Outlook 2016 och tidigare.
+         - Outlook service – används av appen e-post och kalender för Windows 10.
+         - POP3 – används av POP-e-postklienter.
+         - Repor ting Web Services – används för att hämta rapport data i Exchange Online.
 
 Dessa villkor används ofta när du kräver en hanterad enhet, blockerar äldre autentisering och blockerar webb program, men tillåter mobilappar eller skrivbordsappar.
 
@@ -139,7 +153,7 @@ Den här inställningen påverkar åtkomst försök som görs från följande mo
 | Outlook 2016, Outlook 2013 (med modern autentisering), Skype för företag (med modern autentisering) | Office 365 Exchange Online | Windows 8,1, Windows 7 |
 | Outlook Mobile-App | Office 365 Exchange Online | Android, iOS |
 | Power BI app | Power BI-tjänst | Windows 10, Windows 8,1, Windows 7, Android och iOS |
-| Skype för företag | Office 365 Exchange Online| Android, IOS |
+| Skype för företag | Office 365 Exchange Online| Android, iOS |
 | Visual Studio Team Services-app | Visual Studio Team Services | Windows 10, Windows 8,1, Windows 7, iOS och Android |
 
 ### <a name="exchange-activesync-clients"></a>Exchange ActiveSync-klienter

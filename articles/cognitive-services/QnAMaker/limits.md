@@ -3,12 +3,12 @@ title: Begränsningar och gränser – QnA Maker
 description: QnA Maker har meta-gränser för delar av knowledge base och tjänsten. Det är viktigt att hålla din kunskapsbas inom de här gränserna för att testa och publicera.
 ms.topic: article
 ms.date: 02/14/2020
-ms.openlocfilehash: 7fdf45a4a22f6d9ffe123f5998592739402be55f
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: ba53513f21cfc2a4f16fe17decdf0df41570201c
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252016"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650375"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker kunskapsbas begränsningar och gränser
 
@@ -55,7 +55,7 @@ Det maximala antalet djup länkar som kan crawlas för extrahering av kring frå
 
 ## <a name="metadata-limits"></a>Metadata-gränser
 
-Metadata lagras och jämförs i gemener.
+Metadata visas som en textbaserad nyckel: värde par, t. ex. `product:windows 10`. Den lagras och jämförs med gemener.
 
 ### <a name="by-azure-cognitive-search-pricing-tier"></a>Av Azure Kognitiv sökning pris nivå
 
@@ -71,8 +71,8 @@ Längden på och godkända tecken för namn och värde för metadata visas i fö
 
 |Objekt|Tillåtna tecken|Matchning av regex-mönster|Max tecken|
 |--|--|--|--|
-|Namn|Innebär<br>alfanumeriskt (bokstäver och siffror)<br>`_` (under streck)|`^[a-zA-Z0-9_]+$`|100|
-|Värde|Tillåter allt utom<br>`:` (kolon)<br>`|` (lodrät pipe)|`^[^:|]+$`|500|
+|Namn (nyckel)|Innebär<br>alfanumeriskt (bokstäver och siffror)<br>`_` (under streck)<br> Får inte innehålla blank steg.|`^[a-zA-Z0-9_]+$`|100|
+|Värde|Tillåter allt utom<br>`:` (kolon)<br>`|` (lodrät pipe)<br>Endast ett värde tillåts.|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>Gränser för kunskapsbas
@@ -103,4 +103,4 @@ Dessa representerar gränserna för varje uppdaterings åtgärd. Det gör du gen
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig när och hur du ändrar [pris nivåer för tjänster](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker).
+Lär dig när och hur du ändrar [pris nivåer för tjänster](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku).

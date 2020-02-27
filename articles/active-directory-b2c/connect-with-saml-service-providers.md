@@ -12,12 +12,12 @@ ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7ccc5fe314d49ea65aaa8750937170ab79a8c04f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 5ec83857ebabc92bf86f9f84a43746a0e561218a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77581471"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647589"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrera ett SAML-program i Azure AD B2C
 
@@ -276,7 +276,6 @@ Din anpassade princip och Azure AD B2C klient är nu klara. Skapa sedan en progr
 1. Ange ett **namn** för programmet. Till exempel *SAMLApp1*.
 1. Under **konto typer som stöds**väljer du **konton endast i den här organisations katalogen**
 1. Under **omdirigerings-URI**väljer du **webb**och anger sedan `https://localhost`. Du ändrar det här värdet senare i program registreringens manifest.
-1. Välj **bevilja administratörs medgivande till OpenID och offline_access behörigheter**.
 1. Välj **Registrera**.
 
 ### <a name="42-update-the-app-manifest"></a>4,2 uppdatera app-manifestet
@@ -338,7 +337,7 @@ Det sista steget är att aktivera Azure AD B2C som en SAML-IdP i ditt SAML-förl
 En eller flera av följande är vanligt vis obligatoriska:
 
 * **Metadata**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Utfärdare**: `https://tenant-name.onmicrosoft.com/policy-name`
+* **Utfärdare**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name`
 * **Inloggnings webb adress/SAML-slut punkt/SAML-URL**: kontrol lera värdet i metadatafilen
 * **Certifikat**: det här är *B2C_1A_SamlIdpCert*, men utan den privata nyckeln. Så här hämtar du den offentliga nyckeln för certifikatet:
 

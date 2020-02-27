@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: b19c23c7adb8dce84530b8f3f8d994f4e32869cc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b8b3dbf515aa3bcc9075a748b9d717cfa36b6ab0
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988948"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648929"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure Maps routnings täckning
 
@@ -37,7 +37,7 @@ Följande tabell innehåller information om disponering för Azure Maps routning
 <br>  
 
 
-## <a name="africa"></a>Afrika
+## <a name="africa"></a>Centralafrika
 
 | Land/region                 | Routning         | Routning med trafik | Truck-routning |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
@@ -48,7 +48,7 @@ Följande tabell innehåller information om disponering för Azure Maps routning
 | Burkina Faso                   |        ✓       |                       |             |
 | Burundi                        |        ✓       |                       |             |
 | Kamerun                       |        ✓       |                       |             |
-| Cabo Verde                     |        ✓       |                       |             |
+| Kap Verde                     |        ✓       |                       |             |
 | Republiken Kongo-Brazzaville kongolesiska    |        ✓       |                       |             |
 | Republiken Kongo-kongolesiska                |        ✓       |                       |             |
 | Côte d’Ivoire                  |        ✓       |                       |             |
@@ -138,7 +138,7 @@ Följande tabell innehåller information om disponering för Azure Maps routning
 | Hongkong SAR                  |        ✓       |         ✓            |             |
 | Indien                          |        ✓       |         ✓            |             |
 | Indonesien                      |        ✓       |         ✓            |             |
-| Kazakstan                |        ✓       |                     |             |
+| Kazakhstan                |        ✓       |                     |             |
 | Korea                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
 | Macao SAR                      |        ✓       |         ✓            |             |
@@ -206,7 +206,6 @@ Följande tabell innehåller information om disponering för Azure Maps routning
 | Rumänien                        |        ✓       |         ✓            |     ✓      | 
 | Ryska federationen             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
-| +Sint Maarten                  |        ✓       |                      |             |
 | Serbien                         |        ✓       |                      |     ✓      | 
 | Slovakien                       |        ✓       |         ✓            |     ✓      | 
 | Slovenien                       |        ✓       |         ✓            |     ✓      |
@@ -224,7 +223,7 @@ Följande tabell innehåller information om disponering för Azure Maps routning
 | +Montserrat                    |        ✓       |                      |             |
 | \+ Turks-och Caicos-öarna      |        ✓       |                      |             |
 | Vatikanstaten                   |        ✓       |         ✓            |             |
-| Isle of Man                    |        ✓       |                      |             |
+| Isle of man                    |        ✓       |                      |             |
 
 
 ## <a name="middle-east"></a>Mellanöstern

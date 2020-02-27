@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 02/25/2020
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 86224508b9f24906abce157b92a77c0a2f24d882
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 13d12bfbf64af9e19b66e63c88c9d7e0534571f3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605728"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617283"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Språk-och region stöd för tal tjänsten
 
@@ -37,8 +37,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
  Nationell inställning | Språk | Stöds | Anpassningar
 ------|------------|-----------|-------------
 `ar-AE` | Arabiska (Förenade Arabemiraten) | Ja | Nej
-`ar-BH` | Arabiska (Bahrain) | Ja | Språk modell
-`ar-EG` | Arabiska (Egypten), moderna standard | Ja | Språk modell
+`ar-BH` | Arabiska (Bahrain), modern standard | Ja | Språk modell
+`ar-EG` | Arabiska (Egypten) | Ja | Språk modell
 `ar-KW` | Arabiska (Kuwait) | Ja | Nej
 `ar-QA` | Arabiska (Qatar) | Ja | Nej
 `ar-SA` | Arabiska (Saudiarabien) | Ja | Nej
@@ -95,8 +95,8 @@ Mer information om regional tillgänglighet finns i [regioner](regions.md#standa
 Nationell inställning | Språk | Kön | Fullständig tjänst namns mappning | Kort röst namn
 --------|----------|--------|---------|------------
 `de-DE` | Tyska (Tyskland) | Kvinna | "Microsoft Server Speech Text till tal Voice (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
-`en-US` | English (US) | Kvinna | "Microsoft Server Speech Text till tal Voice (en-US, JessaNeural)" | "en-US-JessaNeural"
-`en-US` | English (US) | Man | "Microsoft Server Speech Text till tal Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
+`en-US` | Engelska (USA) | Kvinna | "Microsoft Server Speech Text till tal Voice (en-US, JessaNeural)" | "en-US-JessaNeural"
+`en-US` | Engelska (USA) | Man | "Microsoft Server Speech Text till tal Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
 `it-IT` | Italienska (Italien) | Kvinna |"Microsoft Server Speech Text till tal Voice (IT-IT, ElsaNeural)" | "IT-ElsaNeural"
 `pt-BR` | Portugisiska (Brasilien) | Kvinna | "Microsoft Server Speech Text till tal Voice (pt-BR, FranciscaNeural)" | "pt-BR-FranciscaNeural"
 `zh-CN` | Kinesiska (fastlandet) | Kvinna | "Microsoft Server Speech Text till tal Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
@@ -128,14 +128,14 @@ Nationell inställning | Språk | Kön | Fullständig tjänst namns mappning | K
 | | | Kvinna | ”Microsoft Server tal Text till tal-röst (en AU, HayleyRUS)” | "en-AU-HayleyRUS"
 `en-CA` | Engelska (Kanada) | Kvinna | ”Microsoft Server tal Text till tal-röst (en CA, Johan)” | "en-CA-Linda"
 | | | Kvinna | ”Microsoft Server tal Text till tal-röst (en CA, HeatherRUS)” | "en-CA-HeatherRUS"
-`en-GB` | English (UK) | Kvinna | ”Microsoft Server tal Text till tal-röst (en-GB, Susan, Apollo)” | "en-GB-Susan-Apollo"
+`en-GB` | Engelska (Storbritannien) | Kvinna | ”Microsoft Server tal Text till tal-röst (en-GB, Susan, Apollo)” | "en-GB-Susan-Apollo"
 | | | Kvinna | ”Microsoft Server tal Text till tal-röst (en-GB, HazelRUS)” | "en-GB-HazelRUS"
 | | | Man | ”Microsoft Server tal Text till tal-röst (en-GB, George, Apollo)” | "en-GB-George-Apollo"
 `en-IE` | Engelska (Irland) | Man | ”Microsoft Server tal Text till tal-röst (en IE, Stefan)” | "en-IE-Stefan"
 `en-IN` | English (India) | Kvinna | ”Microsoft Server tal Text till tal-röst (en-IN-, Heera, Apollo)” | "en-IN-Heera-Apollo"
 | | | Kvinna | ”Microsoft Server tal Text till tal-röst (en-IN-, PriyaRUS)” | "en-IN-PriyaRUS"
 | | | Man | ”Microsoft Server tal Text till tal-röst (en-IN-, Ravi, Apollo)” | "en-IN-Ravi-Apollo"
-`en-US` | English (US) | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, ZiraRUS)” | "en-US-ZiraRUS"
+`en-US` | Engelska (USA) | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, ZiraRUS)” | "en-US-ZiraRUS"
 | | | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, JessaRUS)” | "en-US-JessaRUS"
 | | | Man | ”Microsoft Server tal Text till tal-röst (en-US, BenjaminRUS)” | "en-US-BenjaminRUS"
 | | | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, Jessa24kRUS)” | "en-US-Jessa24kRUS"
@@ -181,7 +181,7 @@ Nationell inställning | Språk | Kön | Fullständig tjänst namns mappning | K
 `sv-SE` | Svenska | Kvinna | ”Microsoft Server tal Text till tal-röst (sv-SE, HedvigRUS)” | "sv-SE-HedvigRUS"
 `ta-IN` | Tamil (Indien) | Man | ”Microsoft Server tal Text till tal-röst (ta-IN-, Valluvar)” | "ta-IN-Valluvar"
 `te-IN` | Telugu (Indien) | Kvinna | ”Microsoft Server tal Text till tal-röst (te-IN-, Chitra)” | "te-IN-Chitra"
-`th-TH` | Thai | Man | ”Microsoft Server tal Text till tal röst (th-TH, Pattara)” | "th-TH-Pattara"
+`th-TH` | Thailändska | Man | ”Microsoft Server tal Text till tal röst (th-TH, Pattara)” | "th-TH-Pattara"
 `tr-TR` | Turkiska (Turkiet) | Kvinna | ”Microsoft Server tal Text till tal röst (tr-TR, SedaRUS)” | "tr-TR-SedaRUS"
 `vi-VN` | Vietnamesiska | Man | ”Microsoft Server tal Text till tal röst (vi VN ett)” | "vi-VN-An"
 `zh-CN` | Kinesiska (fastlandet) | Kvinna | ”Microsoft Server tal Text till tal-röst (zh-CN, HuihuiRUS)” | "zh-CN-HuihuiRUS"
@@ -222,7 +222,7 @@ API: et för **tal översättning** stöder olika språk för översättning av 
 | Kantonesiska (traditionell)      | `yue`          |
 | Katalanska      | `ca`          |
 | Kinesiska, förenklad      | `zh-Hans`          |
-| Kinesiska, traditionell      | `zh-Hant`          |
+| Traditionell kinesisk      | `zh-Hant`          |
 | Kroatiska      | `hr`          |
 | Tjeckiska      | `cs`          |
 | Danska      | `da`          |
@@ -274,7 +274,7 @@ API: et för **tal översättning** stöder olika språk för översättning av 
 | Tahitian      | `ty`          |
 | Tamilska      | `ta`          |
 | Telugu      | `te`          |
-| Thai      | `th`          |
+| Thailändska      | `th`          |
 | Tongan      | `to`          |
 | Turkiska      | `tr`          |
 | Ukrainska      | `uk`          |

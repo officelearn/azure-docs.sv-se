@@ -3,12 +3,12 @@ title: Använda Azure Backup Server för att säkerhetskopiera arbets belastning
 description: I den här artikeln lär du dig hur du förbereder din miljö för att skydda och säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: e601328a09ece54eb1c678310f76c7999c69f24c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: dd506668f9d75523ff7494bccb2979bf0785990d
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586435"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617617"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -56,7 +56,7 @@ Om du inte vill köra bas servern i Azure kan du köra servern på en virtuell H
 | Windows Server 2019 |64-bitars |Standard, Datacenter, Essentials |
 | Windows Server 2016 och senaste SPs |64-bitars |Standard, Datacenter, Essentials  |
 
-Du kan deduplicera DPM-lagringen med Windows Server-deduplicering. Lär dig mer om hur [DPM och deduplicering](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn891438(v=sc.12)) fungerar tillsammans när de distribueras i virtuella Hyper-V-datorer.
+Du kan deduplicera DPM-lagringen med Windows Server-deduplicering. Lär dig mer om hur [DPM och deduplicering](https://docs.microsoft.com/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) fungerar tillsammans när de distribueras i virtuella Hyper-V-datorer.
 
 > [!NOTE]
 > Azure Backup Server är utformad för att köras på en dedikerad server med ett enda syfte. Du kan inte installera Azure Backup Server på:
@@ -359,7 +359,7 @@ Du kan också läsa [Azure Backup relaterade vanliga frågor och svar](backup-az
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan få detaljerad information här om hur [du förbereder din miljö för DPM](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758176(v=sc.12)). Den innehåller också information om vilka konfigurationer som stöds där Azure Backup Server kan distribueras och användas. Du kan använda en serie [PowerShell-cmdlet](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016) för att utföra olika åtgärder.
+Du kan få detaljerad information här om hur [du förbereder din miljö för DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019). Den innehåller också information om vilka konfigurationer som stöds där Azure Backup Server kan distribueras och användas. Du kan använda en serie [PowerShell-cmdlet](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016) för att utföra olika åtgärder.
 
 Du kan använda de här artiklarna för att få en djupare förståelse för arbets belastnings skyddet med hjälp av Microsoft Azure Backup Server.
 

@@ -2,21 +2,21 @@
 title: Övervaka migrering av aktivitet – Azure Database Migration Service
 description: Lär dig att använda Azure Database Migration Service för att övervaka migreringen.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: b3ba634ddb084b5637d0a0c97c0ac4ff72193c1d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437939"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648520"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Övervaka migrering av aktiviteter med hjälp av Azure Database Migration Service
 I den här artikeln får du lära dig hur du övervakar förloppet för en migrering på både en databas nivå och en tabell nivå.
@@ -34,7 +34,7 @@ I följande tabell visas fälten på bladet på databas nivå och en beskrivning
 <table id='overview' class='overview'>
   <thead>
     <tr>
-      <th class="x-hidden-focus"><strong>Fält namn</strong></th>
+      <th class="x-hidden-focus"><strong>Fältnamn</strong></th>
       <th><strong>Fält under status</strong></th>
       <th><strong>Beskrivning</strong></th>
     </tr>
@@ -63,11 +63,11 @@ I följande tabell visas fälten på bladet på databas nivå och en beskrivning
       <td>DMS-pipeline kör och utför migrering.</td>
     </tr>
     <tr>
-      <td>Komplett</td>
+      <td>Slutför</td>
       <td>Migreringen har slutförts.</td>
     </tr>
     <tr>
-      <td>Misslyckad</td>
+      <td>Misslyckades</td>
       <td>Migreringen misslyckades. Klicka på information om migrering för att se migrerings fel.</td>
     </tr>
     <tr>
@@ -93,7 +93,7 @@ I följande tabell visas fälten på bladet på databas nivå och en beskrivning
     </tr>
     <tr>
       <td rowspan="1" class="duration"><strong>Giltighet</strong></td>
-      <td>Gäller inte</td>
+      <td>E.t.</td>
       <td>Total tid från migrerings aktivitet som initieras för migrering slutförd eller migrering misslyckades.</td>
     </tr>
      </tbody>
@@ -108,7 +108,7 @@ Den nedre delen av bladet listar tabellerna och visar en snabb sammanfattning av
 
 I följande tabell beskrivs fälten som visas i informationen på tabell nivå.
 
-| Fältnamn        | Beskrivning       |
+| Fältnamn        | Description       |
 | ------------- | ------------- |
 | **Fullständig inläsning slutförd**      | Antal tabeller slutförd fullständig data inläsning. |
 | **Fullständig belastning i kö**      | Antal tabeller som ställts i kö för fullständig belastning.      |
@@ -129,11 +129,11 @@ Det finns två flikar som visar migreringens förlopp vid fullständig belastnin
 
 I följande tabell beskrivs fälten som visas i migreringen av tabell nivå.
 
-| Fältnamn        | Beskrivning       |
+| Fältnamn        | Description       |
 | ------------- | ------------- |
 | **Status-synkronisering**      | Kontinuerlig synkronisering körs. |
 | **Matning**      | Antal CDC-infogningar i rader som tillämpas på målet.      |
-| **Uppdatering** | Antal CDC-uppdateringar i rader som tillämpas på målet.      |
+| **Uppdatera** | Antal CDC-uppdateringar i rader som tillämpas på målet.      |
 | **Ta bort**      | Antal CDC-borttagningar i rader som tillämpas på målet. |
 | **Totalt antal tillämpade**      | Totalt antal CDC-uppdateringar, infogningar och borttagningar i rader som tillämpas på målet. |
 | **Data fel** | Antalet data fel som har inträffat i den här tabellen. Några exempel på fel är *511: det går inte att skapa en rad med storleken% d, vilket är större än den maximalt tillåtna rad storleken på% d, 8114: det gick inte att konvertera data typen% LS till% ls.*  Kunden ska fråga från dms_apply_exceptions-tabellen i Azure Target för att se fel informationen.    |

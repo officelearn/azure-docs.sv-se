@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: a6d2e2d912f176a88dc993803d750e37cff1acb6
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 9f3e06f66996be4a2b43b64e6100c62a2fa41381
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443672"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649967"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows-Hybrid Runbook Worker
 
@@ -19,6 +19,9 @@ Du kan använda Hybrid Runbook Worker funktionen i Azure Automation för att kö
 När du har distribuerat en Runbook Worker granskar du [Kör Runbooks på en hybrid Runbook Worker](automation-hrw-run-runbooks.md) för att lära dig hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala data Center eller annan moln miljö.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+>[!NOTE]
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="windows-hybrid-runbook-worker-installation-and-configuration"></a>Installation och konfiguration av Windows Hybrid Runbook Worker
 
@@ -50,8 +53,9 @@ Information om hur du får fler nätverks krav för Hybrid Runbook Worker finns 
 
 ### <a name="server-onboarding-for-management-with-automation-dsc"></a>Server onboarding för hantering med Automation DSC
 
-Mer information om onboarding-servrar för hantering med DSC finns i [onboarding Machines for Management by Azure Automation DSC](automation-dsc-onboarding.md).
-Om du aktiverar [uppdateringshantering-lösningen](../operations-management-suite/oms-solution-update-management.md)konfigureras en Windows-dator som är ansluten till din Log Analytics-arbetsyta automatiskt som en hybrid Runbook Worker för att stödja Runbooks som ingår i den här lösningen. Den har dock inte registrerats med några Hybrid Worker grupper som redan har definierats i ditt Automation-konto. 
+Information om onboarding-servrar för hantering med DSC finns i [onboarding Machines for Management by Azure Automation DSC](automation-dsc-onboarding.md).
+
+Om du aktiverar [uppdateringshantering-lösningen](../operations-management-suite/oms-solution-update-management.md)konfigureras en Windows-dator som är ansluten till din Log Analytics-arbetsyta automatiskt som en hybrid Runbook Worker för att stödja Runbooks som ingår i den här lösningen. Den har dock inte registrerats med några Hybrid Worker grupper som redan har definierats i ditt Automation-konto.
 
 ### <a name="adding-the-computer-to-a-hybrid-runbook-worker-group"></a>Lägga till datorn i en Hybrid Runbook Worker grupp
 
@@ -65,19 +69,17 @@ Utför följande steg på mål datorn för att automatisera installationen och k
 
 Hämta skriptet New-OnPremiseHybridWorker. ps1 från [PowerShell-galleriet](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker) direkt från datorn som kör hybrid Runbook Worker-rollen eller från en annan dator i din miljö. Kopiera skriptet till arbetaren. Skriptet New-OnPremiseHybridWorker. ps1 kräver följande parametrar under körningen:
 
-   * *AAResourceGroupName* (obligatorisk): namnet på den resurs grupp som är kopplad till ditt Automation-konto.
-   * *OMSResourceGroupName* (valfritt): namnet på resurs gruppen för Log Analytics arbets ytan. Om den här resurs gruppen inte anges används *AAResourceGroupName* .
-   * *SubscriptionID* (obligatoriskt): ID för Azure-prenumerationen som ditt Automation-konto finns i.
-   * *TenantID* (valfritt): identifieraren för den klient organisation som är kopplad till ditt Automation-konto.
-   * *WorkspaceName* (valfritt): namnet på den Log Analytics arbets ytan. Om du inte har en Log Analytics arbets yta, skapar skriptet och konfigurerar ett.
-   * *AutomationAccountName* (obligatorisk): namnet på ditt Automation-konto.
-   * *HybridGroupName* (obligatorisk): namnet på en hybrid Runbook Worker grupp som du anger som mål för de Runbooks som har stöd för det här scenariot.
-   * *Autentiseringsuppgift* (valfritt): de autentiseringsuppgifter som ska användas när du loggar in i Azure-miljön.
+* *AAResourceGroupName* (obligatorisk): namnet på den resurs grupp som är kopplad till ditt Automation-konto.
+* *OMSResourceGroupName* (valfritt): namnet på resurs gruppen för Log Analytics arbets ytan. Om den här resurs gruppen inte anges används *AAResourceGroupName* .
+* *SubscriptionID* (obligatoriskt): ID för Azure-prenumerationen som ditt Automation-konto finns i.
+* *TenantID* (valfritt): identifieraren för den klient organisation som är kopplad till ditt Automation-konto.
+* *WorkspaceName* (valfritt): namnet på den Log Analytics arbets ytan. Om du inte har en Log Analytics arbets yta, skapar skriptet och konfigurerar ett.
+* *AutomationAccountName* (obligatorisk): namnet på ditt Automation-konto.
+* *HybridGroupName* (obligatorisk): namnet på en hybrid Runbook Worker grupp som du anger som mål för de Runbooks som har stöd för det här scenariot.
+* *Autentiseringsuppgift* (valfritt): de autentiseringsuppgifter som ska användas när du loggar in i Azure-miljön.
   
-   > [!NOTE]
-   > När du aktiverar lösningar går det endast att länka en Log Analytics-arbetsyta och ett Automation-konto i vissa regioner.
-   >
-   > En lista över mappnings par som stöds finns i [region mappning för Automation-konto och Log Analytics-arbetsyta](how-to/region-mappings.md).
+> [!NOTE]
+> När du aktiverar lösningar stöds endast vissa regioner för att länka en Log Analytics-arbetsyta och ett Automation-konto. En lista över mappnings par som stöds finns i [region mappning för Automation-konto och Log Analytics-arbetsyta](how-to/region-mappings.md).
 
 ### <a name="2-open-windows-powershell-command-line-shell"></a>2. Öppna kommando rads gränssnittet för Windows PowerShell
 

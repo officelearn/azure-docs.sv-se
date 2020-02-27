@@ -9,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: 309cf59c4b27c2a5906acfc519edd5306dece2d5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a9d3d0287e7839d6396553d532ba6f293fb19b68
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789247"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647673"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrera 3270-skärm drivna appar i IBM-stordatorer med Azure med hjälp av Azure Logic Apps och IBM 3270-anslutning
 
@@ -39,7 +39,7 @@ För att utöka de här scenarierna fungerar IBM 3270-anslutaren i Azure Logic A
 
 När du har genererat metadatafilen från design verktyget lägger du till filen i ett integrations konto i Azure. På så sätt kan din Logic app komma åt appens metadata när du lägger till en 3270 kopplings åtgärd. Anslutningen läser metadatafilen från ditt integrations konto, hanterar navigering via 3270-skärmarna och dynamiskt visar parametrarna för åtgärden 3270 koppling. Du kan sedan tillhandahålla data till värd programmet och kopplingen returnerar resultatet till din Logic app. På så sätt kan du integrera dina äldre appar med Azure, Microsoft och andra appar, tjänster och system som Azure Logic Apps stöder.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -182,7 +182,7 @@ I det här läget definierar du flödet eller stegen för att navigera genom din
 
 1. Under **Välj nytt plan namn**anger du ett namn för din plan. I listan **typ** väljer du typ av prenumeration:
 
-   | Typ av plan | Beskrivning |
+   | Typ av plan | Description |
    |-----------|-------------|
    | **Uppgraderingen** | För fristående eller kombinerade planer |
    | **Anslut** | För Connect-planer |
@@ -358,7 +358,7 @@ När du har slutfört alla dessa steg kan du använda den åtgärd som du skapar
 
 1. Om det inte finns någon anslutning ännu, anger du nödvändig information för anslutningen och väljer **skapa**.
 
-   | Egenskap | Krävs | Värde | Beskrivning |
+   | Egenskap | Krävs | Värde | Description |
    |----------|----------|-------|-------------|
    | **Anslutningsnamn** | Ja | <*anslutnings namn*> | Namnet på anslutningen |
    | **Integrations konto-ID** | Ja | <*integration – konto namn*> | Integrations kontots namn |
@@ -378,7 +378,7 @@ När du har slutfört alla dessa steg kan du använda den åtgärd som du skapar
 
 1. Ange nödvändig information för åtgärden:
 
-   | Egenskap | Krävs | Värde | Beskrivning |
+   | Egenskap | Krävs | Värde | Description |
    |----------|----------|-------|-------------|
    | **HIDX namn** | Ja | <*HIDX-filnamn*> | Välj den 3270 HIDX-fil som du vill använda. |
    | **Metod namn** | Ja | <*metod namn*> | Välj metoden i den HIDX-fil som du vill använda. När du har valt en metod visas listan **Lägg till ny parameter** så att du kan välja parametrar som ska användas med den metoden. |
@@ -409,7 +409,10 @@ När du har slutfört alla dessa steg kan du använda den åtgärd som du skapar
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i [kopplingens referens sida](/connectors/si3270/).
+Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/si3270/).
+
+> [!NOTE]
+> För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
 
 ## <a name="next-steps"></a>Nästa steg
 

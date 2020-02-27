@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: bdb00bfbadec68fa110f747858d264a2c34f8bd1
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 5ea9749c07aadc7037e753160e9b053992bebae2
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120877"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619327"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Snabb start: Lägg till funktions flaggor i en .NET Framework app
 
@@ -27,15 +27,22 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
 
 Biblioteken för .NET-funktions hantering utökar ramverket med omfattande stöd för funktions flaggor. Dessa bibliotek skapas ovanpå .NET-konfigurations systemet. De integreras sömlöst med app-konfigurationen via sin .NET-Konfigurationsprovider.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
+- [.NET Framework 4,8](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Välj **funktions hanteraren** >  **+ Lägg** till för att lägga till en funktions flagga som kallas `Beta`.
+
+    > [!div class="mx-imgBorder"]
+    > ![aktivera funktions flagga med namnet beta](media/add-beta-feature-flag.png)
+
+    Lämna `label` odefinierat för tillfället.
 
 ## <a name="create-a-net-console-app"></a>Skapa en .NET-konsolapp
 
@@ -43,7 +50,7 @@ Biblioteken för .NET-funktions hantering utökar ramverket med omfattande stöd
 
 1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)** . Klicka på **Next**.
 
-1. Ange ett projekt namn i **Konfigurera ditt nya projekt**. Under **ramverk**väljer du **.NET Framework 4.7.1** eller högre. Klicka på **Skapa**.
+1. Ange ett projekt namn i **Konfigurera ditt nya projekt**. Under **ramverk**väljer du **.NET Framework 4,8** eller högre. Klicka på **Skapa**.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 
@@ -67,13 +74,8 @@ Biblioteken för .NET-funktions hantering utökar ramverket med omfattande stöd
 1. Uppdatera `Main`-metoden för att ansluta till app-konfigurationen, och ange alternativet `UseFeatureFlags` så att funktions flaggor hämtas. Visa sedan ett meddelande om funktions flaggan `Beta` är aktive rad.
 
     ```csharp
-        public static void Main(string[] args)
-        {
-            AsyncMain().Wait();
-        }
-
-        private static async Task AsyncMain()
-        {
+        public static async Task Main(string[] args)
+        {         
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .AddAzureAppConfiguration(options =>
                 {

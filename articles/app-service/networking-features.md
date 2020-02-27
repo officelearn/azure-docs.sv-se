@@ -4,15 +4,15 @@ description: Lär dig mer om nätverksfunktionerna i Azure App Service och vilka
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 02/27/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 208bf37bfcdf0f86fad11611279d1b4e642fb18a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0fd904b15a830e2b261057a11d1a8f3a4d584fe1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971765"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649234"
 ---
 # <a name="app-service-networking-features"></a>App Service nätverksfunktioner
 
@@ -27,8 +27,8 @@ Azure App Service är ett distribuerat system. Rollerna som hanterar inkommande 
 | Inkommande funktioner | Utgående funktioner |
 |---------------------|-------------------|
 | App-tilldelad adress | Hybridanslutningar |
-| Åtkomstbegränsningar | Gateway krävs VNet-integrering |
-| Serviceslutpunkter | VNet-integrering (för hands version) |
+| Åtkomst begränsningar | Gateway krävs VNet-integrering |
+| Tjänst slut punkter | VNET-integration |
 
 Om inget annat anges kan alla funktioner användas tillsammans. Du kan blanda funktionerna för att lösa de olika problemen.
 
@@ -38,13 +38,13 @@ För alla typer av användnings fall kan det finnas några sätt att lösa probl
  
 | Inkommande användnings fall | Funktion |
 |---------------------|-------------------|
-| Stöd för IP-baserade SSL-behov för din app | app-tilldelad adress |
-| Inte delad, dedikerad inkommande adress för din app | app-tilldelad adress |
-| Begränsa åtkomsten till din app från en uppsättning väldefinierade adresser | Åtkomstbegränsningar |
-| Exponera min app på privata IP-adresser i mitt VNet | ILB ASE </br> Application Gateway med tjänst slut punkter |
-| Begränsa åtkomsten till min app från resurser i ett virtuellt nätverk | Serviceslutpunkter </br> ILB ASE |
+| Stöd för IP-baserade SSL-behov för din app | App-tilldelad adress |
+| Inte delad, dedikerad inkommande adress för din app | App-tilldelad adress |
+| Begränsa åtkomsten till din app från en uppsättning väldefinierade adresser | Åtkomst begränsningar |
+| Exponera min app på privata IP-adresser i mitt VNet | ILB ASE </br> Application Gateway med tjänstslutpunkter |
+| Begränsa åtkomsten till min app från resurser i ett virtuellt nätverk | Tjänst slut punkter </br> ILB ASE |
 | Exponera min app på en privat IP-adress i mitt VNet | ILB ASE </br> privat IP för inkommande på en Application Gateway med tjänst slut punkter |
-| Skydda min app med en WAF | Application Gateway + ILB ASE </br> Application Gateway med tjänst slut punkter </br> Azures frontend-dörr med åtkomst begränsningar |
+| Skydda min app med en WAF | Application Gateway + ILB ASE </br> Application Gateway med tjänstslutpunkter </br> Azures frontend-dörr med åtkomst begränsningar |
 | Belastnings Utjämnings trafik till Mina appar i olika regioner | Azures frontend-dörr med åtkomst begränsningar | 
 | Belastnings Utjämnings trafik i samma region | [Application Gateway med tjänst slut punkter][appgwserviceendpoints] | 
 
@@ -56,7 +56,9 @@ I följande fall av utgående användning föreslås hur du använder App Servic
 | Få åtkomst till resurser i ett Azure-Virtual Network i en annan region | Gateway krävs VNet-integrering </br> ASE och VNet-peering |
 | Åtkomst till resurser som skyddas med tjänst slut punkter | VNET-integration </br> ASE |
 | Åtkomst till resurser i ett privat nätverk som inte är anslutna till Azure | Hybridanslutningar |
-| Få åtkomst till resurser över ExpressRoute-kretsar | VNet-integrering (begränsat till RFC 1918-adresser för tillfället) </br> ASE | 
+| Få åtkomst till resurser över ExpressRoute-kretsar | VNET-integration </br> ASE | 
+| Säker utgående trafik från din webbapp | VNet-integrering och nätverks säkerhets grupper </br> ASE | 
+| Dirigera utgående trafik från din webbapp | VNet-integrering och routningstabeller </br> ASE | 
 
 
 ### <a name="default-networking-behavior"></a>Standard nätverks beteende
@@ -82,11 +84,11 @@ När du använder en app-tilldelad adress, går trafiken fortfarande genom samma
 
 Du kan lära dig hur du anger en adress i din app med själv studie kursen om hur du [konfigurerar IP-baserad SSL][appassignedaddress]. 
 
-### <a name="access-restrictions"></a>Åtkomstbegränsningar 
+### <a name="access-restrictions"></a>Åtkomst begränsningar 
 
 Med funktionen åtkomst begränsningar kan du filtrera **inkommande** begär Anden baserat på den ursprungliga IP-adressen. Filtrerings åtgärden utförs på de frontend-roller som är överordnade från arbets rollerna där dina appar körs. Eftersom front-end-rollerna är överordnade från arbets tagarna kan funktionen åtkomst begränsningar betraktas som skydd på nätverks nivå för dina appar. Med funktionen kan du bygga en lista över tillåtna och neka-adressblock som utvärderas i prioritetsordning. Det liknar funktionen nätverks säkerhets grupp (NSG) som finns i Azure-nätverk.  Du kan använda den här funktionen i en ASE eller i tjänsten flera innehavare. När det används med en ILB-ASE kan du begränsa åtkomsten från privata adress block.
 
-![Åtkomstbegränsningar](media/networking-features/access-restrictions.png)
+![Åtkomst begränsningar](media/networking-features/access-restrictions.png)
 
 Funktionen åtkomst begränsningar hjälper dig i scenarier där du vill begränsa vilka IP-adresser som kan användas för att nå din app. Bland användnings exemplen för den här funktionen är:
 
@@ -146,17 +148,19 @@ När den här funktionen är aktive rad använder appen den DNS-server som måle
 
 ### <a name="vnet-integration"></a>VNET-integration
 
-Den gateway som krävs för VNet-integrering är mycket användbar men matchar fortfarande inte åtkomst till resurser i ExpressRoute. Om du behöver komma åt över ExpressRoute-anslutningar finns det ett behov av att appar kan ringa till tjänstens slut punkts säkra tjänster. För att lösa båda de ytterligare behoven har en annan VNet-integrerings funktion lagts till. Med den nya funktionen för VNet-integrering kan du placera appens Server del i ett undernät i ett Resource Manager VNet i samma region. Den här funktionen är inte tillgänglig från en App Service-miljön, som redan finns i ett VNet. Den här funktionen gör det möjligt att:
+Den gateway som krävs för VNet-integrering är mycket användbar men matchar fortfarande inte åtkomst till resurser i ExpressRoute. Om du behöver komma åt över ExpressRoute-anslutningar finns det ett behov av att appar kan ringa till tjänstens slut punkts säkra tjänster. För att lösa båda de ytterligare behoven har en annan VNet-integrerings funktion lagts till. Med den nya funktionen för VNet-integrering kan du placera appens Server del i ett undernät i ett Resource Manager VNet i samma region. Den här funktionen är inte tillgänglig från en App Service-miljön, som redan finns i ett VNet. Den här funktionen aktiverar:
 
 * Åtkomst till resurser i Resource Manager-virtuella nätverk i samma region
 * Åtkomst till resurser som skyddas med tjänst slut punkter 
 * Åtkomst till resurser som är tillgängliga via ExpressRoute eller VPN-anslutningar
+* Skydda all utgående trafik 
+* Tvinga tunnel trafik all utgående trafik. 
 
 ![VNET-integration](media/networking-features/vnet-integration.png)
 
-Den här funktionen är i för hands version och bör inte användas för produktions arbets belastningar. Läs mer om den här funktionen i dokumenten på [App Service VNet-integrering][vnetintegration].
+Läs mer om den här funktionen i dokumenten på [App Service VNet-integrering][vnetintegration].
 
-## <a name="app-service-environment"></a>Miljö för App Service 
+## <a name="app-service-environment"></a>App Service Environment 
 
 En App Service-miljön (ASE) är en enda klient distribution av Azure App Service som körs i ditt VNet. ASE möjliggör användnings fall som:
 

@@ -8,16 +8,16 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: bc2067dbde1e99619fb6e384be4e70f606c8518d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2a00405a2100c3e565ca4f8ea4149540a5199b43
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792784"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651414"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ansluta till lokala fil system med Azure Logic Apps
 
-Med fil Systems anslutningen och Azure Logic Apps kan du skapa automatiserade uppgifter och arbets flöden som skapar och hanterar filer på en lokal fil resurs, till exempel:  
+Med Azure Logic Apps och fil system anslutningen kan du skapa automatiserade uppgifter och arbets flöden som skapar och hanterar filer på en lokal fil resurs, till exempel:
 
 - Skapa, Hämta, lägga till, uppdatera och ta bort filer.
 - Visa filer i mappar eller rotmappar.
@@ -25,7 +25,7 @@ Med fil Systems anslutningen och Azure Logic Apps kan du skapa automatiserade up
 
 Den här artikeln visar hur du kan ansluta till ett lokalt fil system enligt beskrivningen i det här exempel scenariot: kopiera en fil som laddas upp till Dropbox till en fil resurs och skicka sedan ett e-postmeddelande. För att på ett säkert sätt ansluta och komma åt lokala system använder Logic Apps den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md). Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md). Information om anslutningsspecifika teknisk information finns i referens för [fil system anslutning](/connectors/filesystem/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -65,7 +65,7 @@ Den här artikeln visar hur du kan ansluta till ett lokalt fil system enligt bes
 
    ![Skapa anslutning](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | Egenskap | Krävs | Värde | Beskrivning |
+   | Egenskap | Krävs | Värde | Description |
    | -------- | -------- | ----- | ----------- |
    | **Anslutningsnamn** | Ja | <*anslutnings namn*> | Det namn som du vill använda för anslutningen |
    | **Rotmapp** | Ja | <*rot-mapp-namn*> | Rotmappen för ditt fil system, till exempel om du har installerat din lokala datagateway, till exempel en lokal mapp på datorn där den lokala datagatewayen är installerad, eller mappen för en nätverks resurs som datorn har åtkomst till. <p>Exempel: `\\PublicShare\\DropboxFiles` <p>Rotmappen är den överordnade huvudmappen som används för relativa sökvägar för alla filrelaterade åtgärder. |
@@ -93,7 +93,10 @@ Den här artikeln visar hur du kan ansluta till ett lokalt fil system enligt bes
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](/connectors/fileconnector/).
+Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/fileconnector/).
+
+> [!NOTE]
+> För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
 
 ## <a name="next-steps"></a>Nästa steg
 

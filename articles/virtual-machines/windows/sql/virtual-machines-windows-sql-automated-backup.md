@@ -1,5 +1,5 @@
 ---
-title: Automatisk säkerhets kopiering för SQL Server 2014 Azure Virtual Machines | Microsoft Docs
+title: Automatisk säkerhets kopiering för SQL Server 2014 Azure Virtual Machines
 description: Förklarar den automatiska säkerhets kopierings funktionen för SQL Server 2014-datorer som körs i Azure. Den här artikeln är speciell för virtuella datorer som använder Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fdb7d9ed5164171407443596de256df02cb7e8de
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c7dea85d8de17a0f65e6e73b5b5fbe619d464d3d
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790597"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650356"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Automatisk säkerhets kopiering för SQL Server 2014 Virtual Machines (Resource Manager)
 
@@ -31,7 +31,7 @@ Automatisk säkerhets kopiering konfigurerar automatiskt [hanterad säkerhets ko
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill använda automatisk säkerhets kopiering bör du tänka på följande:
 
 **Operativ system**:
@@ -60,7 +60,7 @@ Om du vill använda automatisk säkerhets kopiering bör du tänka på följande
 
 I följande tabell beskrivs de alternativ som kan konfigureras för automatisk säkerhets kopiering. De faktiska konfigurations stegen varierar beroende på om du använder Azure Portal-eller Azure Windows PowerShell-kommandon.
 
-| Inställning | Intervall (standard) | Beskrivning |
+| Inställning | Intervall (standard) | Description |
 | --- | --- | --- |
 | **Automatisk säkerhetskopiering** | Aktivera/inaktivera (inaktive rad) | Aktiverar eller inaktiverar automatisk säkerhets kopiering för en virtuell Azure-dator som kör SQL Server 2014 Standard eller Enterprise. |
 | **Kvarhållningsperiod** | 1-30 dagar (30 dagar) | Antalet dagar som säkerhets kopian ska sparas. |
@@ -68,15 +68,12 @@ I följande tabell beskrivs de alternativ som kan konfigureras för automatisk s
 | **Kryptering** | Aktivera/inaktivera (inaktive rad) | Aktiverar eller inaktiverar kryptering. När kryptering är aktiverat finns de certifikat som används för att återställa säkerhets kopian i det angivna lagrings kontot i samma `automaticbackup` behållare med samma namngivnings konvention. Om lösen ordet ändras genereras ett nytt certifikat med det lösen ordet, men det gamla certifikatet kvarstår för att återställa tidigare säkerhets kopior. |
 | **Lösenord** | Lösen ords text | Ett lösen ord för krypterings nycklar. Detta krävs endast om kryptering har Aktiver ATS. För att kunna återställa en krypterad säkerhets kopia måste du ha rätt lösen ord och relaterat certifikat som användes när säkerhets kopieringen gjordes. |
 
-## <a name="configure-in-the-portal"></a>Konfigurera i portalen
-
-Du kan använda Azure Portal för att konfigurera automatisk säkerhets kopiering under etablering eller för befintliga virtuella SQL Server 2014-datorer.
 
 ## <a name="configure-new-vms"></a>Konfigurera nya virtuella datorer
 
 Använd Azure Portal för att konfigurera automatisk säkerhets kopiering när du skapar en ny SQL Server 2014-virtuell dator i distributions modellen för Resource Manager.
 
-Rulla ned till **Automatisk säkerhets kopiering** på fliken **SQL Server inställningar** och välj **Aktivera**. Du kan också ange kvarhållningsperioden och lagrings konto, samt aktivera kryptering, säkerhetskopiera system databaser och konfigurera ett schema för säkerhets kopiering.  Följande Azure Portal skärm bild visar inställningarna för **Automatisk säkerhets kopiering i SQL** .
+Rulla ned till **Automatisk säkerhets kopiering** på fliken **SQL Server inställningar** och välj **Aktivera**. Följande Azure Portal skärm bild visar inställningarna för **Automatisk säkerhets kopiering i SQL** .
 
 ![Konfiguration av automatiserad SQL-säkerhetskopiering i Azure Portal](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
@@ -84,13 +81,15 @@ Rulla ned till **Automatisk säkerhets kopiering** på fliken **SQL Server inst�
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-För befintliga SQL Server virtuella datorer går du till [resursen för virtuella datorer i SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) och väljer sedan **säkerhets kopiering**. 
+För befintliga SQL Server virtuella datorer kan du aktivera och inaktivera automatiserade säkerhets kopieringar, ändra kvarhållningsperioden, ange lagrings kontot och aktivera kryptering från Azure Portal. 
+
+Gå till [resursen för virtuella SQL-datorer](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) för din SQL Server 2014-dator och välj sedan **säkerhets kopieringar**. 
 
 ![Automatisk SQL-säkerhetskopiering för befintliga virtuella datorer](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
 
 När du är färdig väljer du knappen **tillämpa** längst ned på sidan **säkerhets kopior** för att spara ändringarna.
 
-Om du aktiverar automatisk säkerhets kopiering för första gången konfigurerar Azure SQL Server IaaS-agenten i bakgrunden. Under den här tiden kanske Azure Portal inte visar att automatisk säkerhets kopiering har kon figurer ATS. Vänta några minuter på att agenten ska installeras, konfigureras. När Azure Portal kommer att återspegla de nya inställningarna.
+Om du aktiverar automatisk säkerhets kopiering för första gången konfigurerar Azure SQL Server IaaS-agenten i bakgrunden. Under den här tiden kanske Azure Portal inte visar att automatisk säkerhets kopiering har kon figurer ATS. Vänta några minuter tills agenten har installerats och kon figurer ATS. Efter det kommer Azure Portal att återspegla de nya inställningarna.
 
 > [!NOTE]
 > Du kan också konfigurera automatisk säkerhets kopiering med en mall. Mer information finns i [Azure snabb starts mal len för automatisk säkerhets kopiering](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update).
@@ -100,7 +99,7 @@ Om du aktiverar automatisk säkerhets kopiering för första gången konfigurera
 Du kan använda PowerShell för att konfigurera automatisk säkerhets kopiering. Innan du börjar måste du:
 
 - [Hämta och installera den senaste Azure PowerShell](https://aka.ms/webpi-azps).
-- Öppna Windows PowerShell och associera det med ditt konto med kommandot **Connect-AzAccount** .
+- Öppna Windows PowerShell och associera det med ditt konto med kommandot **Connect-AzAccount** . 
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 

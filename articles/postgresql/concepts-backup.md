@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: be6b9c30fe462b0754ae5e5c1a7eeac242af00f1
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 02/25/2020
+ms.openlocfilehash: 3e6dfd5882e49ad903e8cff6f0ec7f3d6bd4a8b7
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769871"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619630"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Säkerhets kopiering och återställning i Azure Database for PostgreSQL-enskild server
 
@@ -21,9 +21,11 @@ Azure Database for PostgreSQL skapar automatiskt Server säkerhets kopior och la
 
 Azure Database for PostgreSQL säkerhetskopierar datafilerna och transaktions loggen. Beroende på den maximala lagrings storleken som stöds tar vi antingen fullständig och differentiell säkerhets kopiering (4 TB max lagrings servrar) eller säkerhets kopior av ögonblicks bilder (upp till 16 TB max lagrings servrar). Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan också konfigurera det upp till 35 dagar. Alla säkerhets kopior krypteras med AES 256-bitars kryptering.
 
+Det går inte att exportera de här säkerhetskopierade filerna. Säkerhets kopieringarna kan bara användas för återställnings åtgärder i Azure Database for PostgreSQL. Du kan använda [pg_dump](howto-migrate-using-dump-and-restore.md) för att kopiera en databas.
+
 ### <a name="backup-frequency"></a>Säkerhetskopieringsfrekvens
 
-I allmänhet sker fullständiga säkerhets kopieringar varje vecka, differentiella säkerhets kopieringar sker två gånger per dag för servrar med en högsta lagring på 4 TB som stöds. Säkerhetskopiering av ögonblicksbilder görs minst en gång per dag för servrar som har stöd för upp till 16 TB lagringsutrymme. I båda fallen säkerhetskopieras transaktionsloggar var femte minut. Den första ögonblicks bilden av fullständig säkerhets kopiering schemaläggs direkt efter att en server har skapats. Den första fullständiga säkerhets kopieringen kan ta längre tid på en stor återställd Server. Den tidigaste tidpunkt som en ny server kan återställas till är den tid då den första fullständiga säkerhets kopieringen är klar. När ögonblicks bilder tas i gång kan servrar med stöd för upp till 16 TB lagrings utrymme återställas till skapande tiden igen.
+I allmänhet sker fullständiga säkerhets kopieringar varje vecka, differentiella säkerhets kopieringar sker två gånger per dag för servrar med en högsta lagring på 4 TB som stöds. Säkerhetskopieringar av ögonblicksbilder sker minst en gång per dag för servrar som har stöd för upp till 16 TB lagringsutrymme. I båda fallen säkerhetskopieras transaktionsloggar var femte minut. Den första ögonblicks bilden av fullständig säkerhets kopiering schemaläggs direkt efter att en server har skapats. Den första fullständiga säkerhets kopieringen kan ta längre tid på en stor återställd Server. Den tidigaste tidpunkt som en ny server kan återställas till är den tid då den första fullständiga säkerhets kopieringen är klar. När ögonblicks bilder tas i gång kan servrar med stöd för upp till 16 TB lagrings utrymme återställas till skapande tiden igen.
 
 ### <a name="backup-redundancy-options"></a>Alternativ för redundans för säkerhets kopiering
 
@@ -52,7 +54,7 @@ Den uppskattade återställnings tiden beror på flera faktorer, till exempel da
 > [!IMPORTANT]
 > **Det går inte** att återställa borttagna servrar. Om du tar bort servern tas även alla databaser som tillhör servern bort och kan inte återställas. För att skydda server resurser, efter distribution, från oavsiktlig borttagning eller oväntade ändringar, kan administratörer utnyttja [hanterings lås](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
-### <a name="point-in-time-restore"></a>Återställning av lagring vid olika tidpunkter
+### <a name="point-in-time-restore"></a>Återställning från tidpunkt
 
 Oberoende av ditt alternativ för säkerhets kopiering kan du utföra en återställning till vilken tidpunkt som helst inom lagrings perioden för säkerhets kopiorna. En ny server skapas i samma Azure-region som den ursprungliga servern. Den skapas med den ursprungliga serverns konfiguration för pris nivån, beräknings generering, antalet virtuella kärnor, lagrings storlek, kvarhållning av säkerhets kopior och alternativet för redundans.
 
@@ -73,7 +75,7 @@ Vid geo-återställning kan de serverkonfigurationer som kan ändras omfatta ber
 Efter en återställning från återställnings metoden bör du utföra följande uppgifter för att få dina användare och program att säkerhetskopiera och köra dem:
 
 - Om den nya servern är avsedd att ersätta den ursprungliga servern omdirigerar du klienter och klient program till den nya servern
-- Se till att det finns lämpliga brand Väggs regler på server nivå för att användare ska kunna ansluta
+- Se till att det finns tillräckligt med brand Väggs-och VNet-regler på server nivå för att användarna ska kunna ansluta. De här reglerna kopieras inte från den ursprungliga servern.
 - Se till att lämpliga inloggningar och behörigheter på databas nivå är på plats
 - Konfigurera aviseringar efter behov
 

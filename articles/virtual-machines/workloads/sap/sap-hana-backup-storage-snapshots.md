@@ -4,22 +4,22 @@ description: Det finns två huvudsakliga säkerhets kopierings möjligheter för
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
-ms.author: rclaus
-ms.openlocfilehash: 8bcfdefa2ea9de12ca6029839a41c91111a5c61c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: hermannd
+ms.openlocfilehash: c977bc7db5608e5718e98a26ed594e5ebf2be998
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078604"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617420"
 ---
-# <a name="sap-hana-backup-based-on-storage-snapshots"></a>SAP HANA-säkerhetskopia baserat på ögonblicksbilder av lagring
+# <a name="sap-hana-backup-based-on-storage-snapshots"></a>SAP HANA säkerhets kopiering baserat på lagrings ögonblicks bilder
 
 ## <a name="introduction"></a>Introduktion
 
@@ -51,10 +51,10 @@ På disk visas ögonblicks bilden i SAP HANA data katalog.
 
 En måste säkerställa att fil systemets konsekvens också garanteras innan du kör ögonblicks bilden av lagringen medan SAP HANA är i förberedelse läget för ögonblicks bild. Se _SAP HANA data konsekvens när du tar lagrings ögonblicks bilder_ i den relaterade artikeln [säkerhets kopierings guide för SAP HANA på Azure-Virtual Machines](sap-hana-backup-guide.md).
 
-När ögonblicks bilden av lagringen är färdig är det viktigt att bekräfta SAP HANA ögonblicks bilden. Det finns en motsvarande SQL-instruktion att köra: ÖGONBLICKs bild av säkerhets kopierings DATA (se [säkerhetskopiera data Stäng ögonblicks bilds instruktioner (säkerhets kopiering och återställning)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm)).
+När ögonblicks bilden av lagringen är färdig är det viktigt att bekräfta SAP HANA ögonblicks bilden. Det finns en motsvarande SQL-instruktion att köra: ÖGONBLICKs bild av säkerhets kopierings DATA (se [säkerhets kopierings data Stäng ögonblicks bilds instruktioner](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm)).
 
 > [!IMPORTANT]
-> Bekräfta HANA-ögonblicksbilden. På grund av&quot;kopieringvid skrivning kan SAP HANA kräva ytterligare disk utrymme i ögonblicks bilds läge och det går inte att starta nya säkerhets kopior förrän SAP HANA ögonblicks bilden har bekräftats. &quot;
+> Bekräfta HANA-ögonblicksbilden. På grund av &quot;kopiering vid skrivning kan&quot; SAP HANA kräva ytterligare disk utrymme i ögonblicks bilds förberedelse läge och det går inte att starta nya säkerhets kopior förrän SAP HANA ögonblicks bilden har bekräftats.
 
 ## <a name="hana-vm-backup-via-azure-backup-service"></a>HANA VM-säkerhetskopiering via Azure Backup-tjänsten
 
@@ -66,15 +66,15 @@ Tjänsten Azure Backup erbjuder ett alternativ för att säkerhetskopiera och å
 
 Det finns två viktiga överväganden enligt artikeln:
 
-_&quot;För virtuella Linux-datorer är bara filkonsekventa säkerhets kopieringar möjliga eftersom Linux inte har en motsvarande plattform för VSS.&quot;_
+_&quot;för virtuella Linux-datorer är det möjligt att bara filkonsekventa säkerhets kopieringar, eftersom Linux inte har en motsvarande plattform till VSS.&quot;_
 
-_&quot;Program måste implementera sin egen &quot;&quot; metod för att lösa problemet på återställda data.&quot;_
+_&quot;-program måste implementera egna &quot;-lösningar för att lösa in de återställda data&quot; mekanismen.&quot;_
 
 Därför måste en vara säker på att SAP HANA är i ett konsekvent tillstånd på disken när säkerhets kopieringen startar. Se _SAP HANA ögonblicks bilder_ som beskrivs tidigare i dokumentet. Men det finns ett möjligt problem när SAP HANA stannar kvar i det här läget för ögonblicks bilds förberedelse. Mer information finns i [skapa en ögonblicks bild av lagring (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm) .
 
 Artikel staterna:
 
-_&quot;Vi rekommenderar starkt att du bekräftar eller överger en lagrings ögonblicks bild så snart som möjligt när den har skapats. Medan ögonblicks bilden förbereds eller skapas, är den ögonblicks bild som är relevant att frysa. Även om ögonblicks bilden av relevanta data förblir frusen kan ändringar fortfarande göras i databasen. Sådana ändringar kommer inte att orsaka att ögonblicks bilder som är relevanta för ögonblicks bilder ändras. I stället skrivs ändringarna till positioner i data områden som är åtskilda från ögonblicks bilden av lagringen. Ändringar skrivs också till loggen. Men längre den ögonblicks bild som relevanta data hålls låsta, desto mer data volym kan växa.&quot;_
+_&quot;rekommenderas starkt att bekräfta eller överge en lagrings ögonblicks bild så snart som möjligt efter att den har skapats. Medan ögonblicks bilden förbereds eller skapas, är den ögonblicks bild som är relevant att frysa. Även om ögonblicks bilden av relevanta data förblir frusen kan ändringar fortfarande göras i databasen. Sådana ändringar kommer inte att orsaka att ögonblicks bilder som är relevanta för ögonblicks bilder ändras. I stället skrivs ändringarna till positioner i data områden som är åtskilda från ögonblicks bilden av lagringen. Ändringar skrivs också till loggen. Men längre den ögonblicks bild som relevanta data hålls låsta, desto mer data volym kan växa.&quot;_
 
 Azure Backup sköter fil systemets konsekvens via Azure VM-tillägg. Dessa tillägg är inte tillgängliga fristående och fungerar bara i kombination med Azure Backup-tjänst. Dock är det fortfarande nödvändigt att tillhandahålla skript för att skapa och ta bort en SAP HANA ögonblicks bild för att garantera att appen är konsekvent.
 
@@ -105,7 +105,7 @@ Vid den här tidpunkten har Microsoft inte publicerat förberedelse skript och s
 
 ## <a name="hana-license-key-and-vm-restore-via-azure-backup-service"></a>HANA-licens nyckel och VM-återställning via Azure Backup-tjänsten
 
-Azure Backups tjänsten är utformad för att skapa en ny virtuell dator under återställningen. Det finns ingen plan just nu för att göra &quot;en återställning på&quot; plats av en befintlig virtuell Azure-dator.
+Azure Backups tjänsten är utformad för att skapa en ny virtuell dator under återställningen. Det finns ingen plan just nu för att göra en &quot;på plats&quot; återställning av en befintlig virtuell Azure-dator.
 
 ![Den här bilden visar alternativet för återställning av Azure-tjänsten i Azure Portal](media/sap-hana-backup-storage-snapshots/image019.png)
 

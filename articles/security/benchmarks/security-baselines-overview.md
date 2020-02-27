@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: 2114d9ecff5ee49c63d737cf13278fe45f1f9f73
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: c16d7247b781fea04cfa2d53b8854cff14e039c7
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589966"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616452"
 ---
 # <a name="overview-of-azure-security-baselines"></a>Översikt över Azures säkerhets bas linjer
 
@@ -25,7 +25,7 @@ Varje rekommendation innehåller följande information:
 - **Azure-ID**: det ID för Azure-säkerhetsbenchmark som motsvarar rekommendationen.
 - **Rekommendation**: följer direkt efter Azure-ID: t ger rekommendationen en övergripande beskrivning av kontrollen.
 - **Vägledning**: motiveringen till rekommendationen och länkar till vägledning om hur du implementerar den. Om rekommendationen stöds av Azure Security Center, visas även den informationen.
-- **Ansvar**: vem som ansvarar för att implementera kontrollen. Möjliga scenarier är kund ansvar, Microsoft-ansvar eller aktie ansvar.
+- **Ansvar**: vem som ansvarar för att implementera kontrollen. Möjliga scenarier är kund ansvar, Microsoft-ansvar eller delade ansvar.
 - **Azure Security Center övervakning**: om kontrollen övervakas av Azure Security Center, med länk till referens.
 
 Alla rekommendationer, inklusive rekommendationer som inte gäller för den här tjänsten, ingår i bas linjen för att ge dig en fullständig bild av hur Azures säkerhets benchmark relaterar till varje tjänst. Det kan ibland finnas kontroller som inte är tillämpliga av olika anledningar, t. ex. IaaS/Compute-inriktade kontroller (till exempel kontroller som är speciella för konfigurations hantering av operativ system) kanske inte kan tillämpas på PaaS-tjänster.

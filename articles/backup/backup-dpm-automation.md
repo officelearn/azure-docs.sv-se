@@ -3,12 +3,12 @@ title: Använda PowerShell för att säkerhetskopiera DPM-arbetsbelastningar
 description: Lär dig hur du distribuerar och hanterar Azure Backup för Data Protection Manager (DPM) med PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: cd735406a19ca1e03f520f75a7d2f39322725b8d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 06c138a4015a0b730369e091fc57a34d2190051d
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583184"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616740"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för DPM-servrar (Data Protection Manager) med PowerShell
 
@@ -234,7 +234,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 
 I det här avsnittet lägger du till en produktions server i DPM och skyddar sedan data till den lokala DPM-lagringen och Azure Backup. I exemplen visar vi hur du säkerhetskopierar filer och mappar. Det går lätt att utöka logiken för att säkerhetskopiera alla data källor som stöds av DPM. Alla säkerhets kopior av DPM styrs av en skydds grupp (PG) med fyra delar:
 
-1. **Grupp medlemmar** är en lista över alla skydds bara objekt (även kallade *data källor* i DPM) som du vill skydda i samma skydds grupp. Du kanske till exempel vill skydda virtuella produktions datorer i en skydds grupp och SQL Server databaser i en annan skydds grupp eftersom de kan ha olika säkerhets kopierings krav. Innan du kan säkerhetskopiera alla data källor på en produktions server måste du kontrol lera att DPM-agenten är installerad på servern och hanteras av DPM. Följ stegen för [att installera DPM-agenten](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2007/bb870935(v=technet.10)) och länka den till rätt DPM-server.
+1. **Grupp medlemmar** är en lista över alla skydds bara objekt (även kallade *data källor* i DPM) som du vill skydda i samma skydds grupp. Du kanske till exempel vill skydda virtuella produktions datorer i en skydds grupp och SQL Server databaser i en annan skydds grupp eftersom de kan ha olika säkerhets kopierings krav. Innan du kan säkerhetskopiera alla data källor på en produktions server måste du kontrol lera att DPM-agenten är installerad på servern och hanteras av DPM. Följ stegen för [att installera DPM-agenten](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) och länka den till rätt DPM-server.
 2. **Data skydds metod** anger mål platser för säkerhets kopiering – band, disk och moln. I vårt exempel kommer vi att skydda data på den lokala disken och i molnet.
 3. Ett **schema för säkerhets kopiering** som anger när säkerhets kopieringar måste utföras och hur ofta data ska synkroniseras mellan DPM-servern och produktions servern.
 4. Ett **bevarande schema** som anger hur länge återställnings punkterna i Azure ska bevaras.

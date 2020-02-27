@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 9d6c823b5dc85676b15188c8f1783e50e5ed441b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: cb76c7d7804a7d39e8a18c7a4cf41e9b4e0a7593
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717811"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623643"
 ---
 # <a name="reuse-environments-for-training-and-deployment-by-using-azure-machine-learning"></a>Återanvänd miljöer för utbildning och distribution med hjälp av Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -231,7 +231,7 @@ build.wait_for_completion(show_output=True)
 
  [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) av klassen Azure Machine Learning `Environment` låter dig finjustera och kontrol lera gäst operativ systemet som du kör din utbildning på.
 
-När du `enable` Docker skapar tjänsten en Docker-avbildning. Det skapar också en python-miljö som använder dina specifikationer i den Docker-behållaren. Den här funktionen ger ytterligare isolering och reproducerbarhet för din utbildning.
+När du aktiverar Docker skapar tjänsten en Docker-avbildning. Det skapar också en python-miljö som använder dina specifikationer i den Docker-behållaren. Den här funktionen ger ytterligare isolering och reproducerbarhet för din utbildning.
 
 ```python
 # Creates the environment inside a Docker container.

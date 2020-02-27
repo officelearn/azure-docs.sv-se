@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: jgao
-ms.openlocfilehash: 19ef5a08b66b8d1a09ddf9a6b73a3856f745485d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: e881cde36bc56c175004e8d6adb9b7b85e9b5454
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586714"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616303"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Använda distributions skript i mallar (förhands granskning)
 
@@ -77,7 +77,7 @@ Fördelarna med distributions skript:
 
 - **Azure PowerShell version 3.0.0, 2.8.0 eller 2.7.0** eller **Azure CLI version 2.0.80, 2.0.79, 2.0.78 eller 2.0.77**. Du behöver inte dessa versioner för att distribuera mallar. Men de här versionerna behövs för att testa distributions skript lokalt. Se [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Du kan använda en förkonfigurerad Docker-avbildning.  Se [Konfigurera utvecklings miljö](#configure-development-environment).
 
-## <a name="sample-template"></a>Exempelmall
+## <a name="sample-templates"></a>Exempelmallar
 
 Följande JSON är ett exempel.  Du hittar det senaste mallnamnet [här](/azure/templates/microsoft.resources/deploymentscripts).
 
@@ -130,6 +130,15 @@ Information om egenskaps värde:
 - **cleanupPreference**. Ange inställningen för att rensa distributions resurser när skript körningen blir i ett Terminal-tillstånd. Standardinställningen är **Always**, vilket innebär att resurserna tas bort trots att terminalens tillstånd (lyckades, misslyckades, avbröts). Mer information finns i [Rensa distribution skript resurser](#clean-up-deployment-script-resources).
 - **retentionInterval**: Ange intervallet som tjänsten behåller distributions skript resurserna efter när distributions skript körningen har nått ett terminalfönster. Distributions skript resurserna tas bort när denna varaktighet upphör att gälla. Varaktigheten baseras på [ISO 8601-mönstret](https://en.wikipedia.org/wiki/ISO_8601). Standardvärdet är **P1D**, vilket betyder sju dagar. Den här egenskapen används när cleanupPreference är inställt på *OnExpiration*. Egenskapen *OnExpiration* har inte Aktiver ATS för närvarande. Mer information finns i [Rensa distribution skript resurser](#clean-up-deployment-script-resources).
 
+### <a name="additional-samples"></a>Ytterligare exempel
+
+- [Skapa och tilldela ett certifikat till ett nyckel valv](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json)
+
+- [skapa och tilldela en användardefinierad hanterad identitet till en resurs grupp och kör ett distributions skript](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json).
+
+> [!NOTE]
+> Vi rekommenderar att du skapar en användardefinierad identitet och beviljar behörigheter i förväg. Du kan få inloggnings-och behörighets relaterade fel om du skapar identiteten och beviljar behörigheter i samma mall där du kör distributions skript. Det tar lite tid innan behörigheterna börjar gälla.
+
 ## <a name="use-inline-scripts"></a>Använd infogade skript
 
 Följande mall har en resurs definierad med `Microsoft.Resources/deploymentScripts` typen.
@@ -139,7 +148,7 @@ Följande mall har en resurs definierad med `Microsoft.Resources/deploymentScrip
 > [!NOTE]
 > Eftersom de infogade distributions skripten omges av dubbla citat tecken måste strängarna inuti distributions skripten omges av enkla citat tecken i stället. Escape-tecken för PowerShell är **&#92;** . Du kan också överväga att använda sträng ersättning som det visas i föregående JSON-exempel. Se standardvärdet för name-parametern.
 
-Skriptet tar en parameter och matar ut parametervärdet. **DeploymentScriptOutputs** används för att lagra utdata.  I avsnittet utdata visar **värde** raden hur du kommer åt de lagrade värdena. `Write-Output` används för fel söknings syfte. Information om hur du kommer åt utdatafilen finns i [fel sökning av distributions skript](#debug-deployment-scripts).  För egenskaps beskrivningar, se [exempel mall](#sample-template).
+Skriptet tar en parameter och matar ut parametervärdet. **DeploymentScriptOutputs** används för att lagra utdata.  I avsnittet utdata visar **värde** raden hur du kommer åt de lagrade värdena. `Write-Output` används för fel söknings syfte. Information om hur du kommer åt utdatafilen finns i [fel sökning av distributions skript](#debug-deployment-scripts).  För egenskaps beskrivningar, se [exempel-mallar](#sample-templates).
 
 Om du vill köra skriptet väljer du **prova** att öppna Azure Cloud Shell och klistrar sedan in följande kod i rutan Shell.
 
@@ -217,7 +226,6 @@ Utdata för distributions skript måste sparas på AZ_SCRIPTS_OUTPUT_PATH plats 
 
 Du kan styra hur PowerShell svarar på icke-avslutande fel med hjälp av [ **$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
 ) -variabeln i distributions skriptet. Distributions skript motorn anger/ändrar inte värdet.  Trots det värde som du angav för $ErrorActionPreference anger distributions skriptet resurs etablerings statusen till *misslyckades* när skriptet påträffar ett fel.
-
 
 ## <a name="debug-deployment-scripts"></a>Felsöka distributions skript
 

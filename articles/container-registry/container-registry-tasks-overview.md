@@ -2,13 +2,13 @@
 title: Översikt över ACR-uppgifter
 description: En introduktion till ACR-aktiviteter, en uppsättning funktioner i Azure Container Registry som tillhandahåller säker, automatiserad version av behållar avbildning, hantering och korrigeringar i molnet.
 ms.topic: article
-ms.date: 09/05/2019
-ms.openlocfilehash: f8ab3c3bd259f83a61d0b030a49e158ccd6e2a69
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.date: 01/22/2020
+ms.openlocfilehash: cb5f0a71c31c26d679efd8a17b360dab2ad0862b
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938880"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615956"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatisera behållar avbildnings versioner och underhåll med ACR-uppgifter
 
@@ -56,10 +56,10 @@ Utlös en behållar avbildnings version eller flera stegs aktivitet när koden h
 
 ACR-aktiviteter stöder följande utlösare när du anger en git-lagrings platsen som aktivitetens kontext:
 
-| Utlösare | Aktive rad som standard |
+| Utlösare | Aktiverad som standard |
 | ------- | ------------------ |
 | Checka in | Ja |
-| Pull-begäran | Inga |
+| Pull-begäran | Nej |
 
 Om du vill konfigurera en uppdaterings utlösare för käll koden måste du ange uppgiften en personlig åtkomsttoken (PAT) för att ställa in webhooken i den offentliga eller privata GitHub eller Azure DevOps lagrings platsen.
 
@@ -70,26 +70,12 @@ Lär dig hur du utlöser versioner av käll kods bekräftelse i självstudien f�
 
 ## <a name="automate-os-and-framework-patching"></a>Automatisera korrigering av OS och ramverk
 
-Kraften i ACR-aktiviteter för att verkligen förbättra arbets flödet för behållar bygget kommer från möjligheten att identifiera en uppdatering av en bas avbildning. När den uppdaterade bas avbildningen skickas till ditt register, eller om en bas avbildning uppdateras i en offentlig lagrings platsen, t. ex. i Docker Hub, kan ACR-aktiviteter automatiskt bygga program avbildningar baserat på den.
+Kraften i ACR-aktiviteter för att verkligen förbättra arbets flödet för behållar bygget kommer från möjligheten att identifiera en uppdatering av en *bas avbildning*. En funktion i de flesta behållar avbildningar är en bas avbildning som är en överordnad avbildning som en eller flera program avbildningar baseras på. Bas avbildningar innehåller vanligt vis operativ systemet och ibland program ramverk. 
 
-Behållar avbildningar kan delas i stor kategorisering i *bas* avbildningar och *program* avbildningar. Dina bas avbildningar omfattar vanligt vis de operativ system och program ramverk som ditt program bygger på, tillsammans med andra anpassningar. De här bas avbildningarna är vanligt vis baserade på offentliga överordnade avbildningar, till exempel: [Alpine Linux][base-alpine], [Windows][base-windows], [.net][base-dotnet]eller [Node. js][base-node]. Flera av dina program avbildningar kan dela en vanlig bas avbildning.
+Du kan ställa in en ACR-uppgift för att spåra ett beroende på en bas avbildning när den skapar en program avbildning. När den uppdaterade bas avbildningen skickas till ditt register, eller om en bas avbildning uppdateras i en offentlig lagrings platsen, t. ex. i Docker Hub, kan ACR-aktiviteter automatiskt bygga program avbildningar baserat på den.
+Med den här automatiska identifieringen och återuppbyggnaden sparar ACR-uppgifter den tid och ansträngning som normalt krävs för att manuellt spåra och uppdatera varje program avbildning som refererar till den uppdaterade bas avbildningen.
 
-När en operativ system-eller app Framework-avbildning uppdateras av den överordnade behållaren, till exempel med en kritisk säkerhets korrigering för operativ system, måste du också uppdatera dina bas avbildningar för att inkludera den kritiska korrigeringen. Varje program avbildning måste sedan återskapas för att inkludera dessa uppströms korrigeringar som nu ingår i bas avbildningen.
-
-Eftersom ACR-aktiviteter identifierar bas avbildnings beroenden dynamiskt när en behållar avbildning skapas, kan den identifiera när en program avbildnings bas avbildning uppdateras. Med en förkonfigurerad [build-uppgift](container-registry-tutorial-base-image-update.md#create-a-task) **återbyggs ACR-aktiviteter automatiskt varje program avbildning** åt dig. Med den här automatiska identifieringen och återuppbyggnaden sparar ACR-uppgifter den tid och ansträngning som normalt krävs för att manuellt spåra och uppdatera varje program avbildning som refererar till den uppdaterade bas avbildningen.
-
-För avbildningar som bygger på en Dockerfile, spårar en ACR-uppgift en bas avbildnings uppdatering när bas avbildningen finns på någon av följande platser:
-
-* Samma Azure Container Registry där aktiviteten körs
-* Ett annat Azure Container Registry i samma region 
-* En offentlig lagrings platsen i Docker Hub
-* En offentlig lagrings platsen i Microsoft Container Registry
-
-> [!NOTE]
-> * Uppdaterings utlösaren för bas avbildning är aktive rad som standard i en ACR-aktivitet. 
-> * För närvarande spårar ACR-uppgifter bara bas avbildnings uppdateringar för program (*runtime*)-avbildningar. ACR-aktiviteter spårar inte bas avbildnings uppdateringar för mellanliggande (*buildtime*) avbildningar som används i multi-Stage-Dockerfiles. 
-
-Lär dig mer om uppdatering av operativ system och ramverk i självstudien för tredje ACR-aktiviteter, [Automatisera avbildningen med en bas avbildnings uppdatering med Azure Container Registry uppgifter](container-registry-tutorial-base-image-update.md).
+Lär dig mer om [uppdaterings utlösare för bas avbildningar](container-registry-tasks-base-images.md) för ACR-uppgifter. Och lär dig hur du utlöser en avbildnings version när en bas avbildning skickas till ett behållar register i guiden [Automatisera behållar avbildning som skapas när en bas avbildning uppdateras i ett Azure Container Registry](container-registry-tutorial-base-image-update.md)
 
 ## <a name="schedule-a-task"></a>Schemalägga en aktivitet
 
@@ -133,7 +119,7 @@ I följande tabell visas några exempel på kontext platser som stöds för ACR-
 
 Som standard skapar ACR-uppgifter avbildningar för Linux OS och amd64-arkitekturen. Ange `--platform`-taggen för att bygga Windows-avbildningar eller Linux-avbildningar för andra arkitekturer. Ange operativ systemet och eventuellt en arkitektur som stöds i OS/Architecture-format (till exempel `--platform Linux/arm`). För ARM-arkitekturer kan du välja att ange en variant i formatet OS/Architecture/variant (till exempel `--platform Linux/arm64/v8`):
 
-| OS | Arkitektur|
+| Operativsystem | Arkitektur|
 | --- | ------- | 
 | Linux | amd64<br/>koppling<br/>arm64<br/>386 |
 | Windows | amd64 |

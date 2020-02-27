@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 5c820b7e11c06f2d785da036f5174298caf56da6
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d5e2813c71e9d6941eea7d11fb6565fb84fd0789
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960612"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651346"
 ---
 #    <a name="custom-entity-lookup-cognitive-skill-preview"></a>Anpassad enhets sökning av kognitiva kunskaper (för hands version)
 
@@ -36,7 +36,7 @@ Microsoft. färdigheter. text. CustomEntityLookupSkill
 
 Parametrar är Skift läges känsliga.
 
-| Parameternamn     | Beskrivning |
+| Parameternamn     | Description |
 |--------------------|-------------|
 | entitiesDefinitionUri | Sökväg till en JSON-eller CSV-fil som innehåller all mål text som ska matchas mot. Den här definitionen av entiteten läses i början av en indexerare-körning. alla uppdateringar av filen Mid-Run kommer inte att realiseras förrän efterföljande körningar. Den här konfigurationen måste vara tillgänglig via HTTPS. Se formatet för [anpassad definition av entitet](#custom-entity-definition-format) "nedan för förväntat CSV-eller JSON-schema.|
 |inlineEntitiesDefinition | Definitioner av infogade JSON-enheter. Den här parametern ersätter parametern entitiesDefinitionUri om den finns. Högst 10 KB konfiguration kan anges infogas. Se [definitionen av anpassade entiteter](#custom-entity-definition-format) nedan för förväntat JSON-schema. |
@@ -45,7 +45,7 @@ Parametrar är Skift läges känsliga.
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
 
-| Inmatat namn      | Beskrivning                   |
+| Inmatat namn      | Description                   |
 |---------------|-------------------------------|
 | text          | Den text som ska analyseras.          |
 | languageCode  | Valfri. Standardvärdet är `"en"`.  |
@@ -54,7 +54,7 @@ Parametrar är Skift läges känsliga.
 ## <a name="skill-outputs"></a>Kunskaps utmatningar
 
 
-| Namn på utdata     | Beskrivning                   |
+| Namn på utdata     | Description                   |
 |---------------|-------------------------------|
 | poster | En matris med objekt som innehåller information om de matchningar som hittades, och relaterade metadata. Varje entitet som identifieras kan innehålla följande fält:  <ul> <li> *namn*: entiteten på den översta nivån har identifierats. Entiteten representerar "normaliserad" form. </li> <li> *ID*: en unik identifierare för entiteten som definieras av användaren i definitions formatet för den anpassade entiteten.</li> <li> *Beskrivning*: Beskrivning av entitet som definieras av användaren i definitions formatet för den anpassade entiteten. </li> <li> *Typ:* Entitetstyp som definieras av användaren i definitions formatet för den anpassade entiteten.</li> <li> *undertyp:* Undertyp för entitet som definieras av användaren i definitions formatet för den anpassade entiteten.</li>  <li> *matchar*: samling som beskriver var och en av matchningarna för den entiteten i käll texten. Varje matchning kommer att ha följande medlemmar: </li> <ul> <li> *text*: den obehandlade text matchningen från käll dokumentet. </li> <li> *offset*: den plats där matchningen påträffades i texten. </li> <li> *längd*: den matchade textens längd. </li> <li> *matchDistance*: antalet tecken som skiljer matchningen från det ursprungliga enhets namnet eller aliaset.  </li> </ul> </ul>
   |
@@ -63,7 +63,7 @@ Parametrar är Skift läges känsliga.
 
 Det finns tre olika sätt att tillhandahålla listan över anpassade entiteter till den anpassade Sök kompetensen för entiteten. Du kan ange listan i en. CSV-fil, a. JSON-fil eller som en infogad definition som en del av kunskaps definitionen.  
 
-Om definitions filen är en. CSV eller. JSON-fil måste sökvägen till filen anges som en del av parametern *entitiesDefitionUri* . I det här fallet hämtas filen en gång i början av varje indexerare-körning. Filen måste vara tillgänglig så länge indexeraren är avsedd att köras.
+Om definitions filen är en. CSV eller. JSON-fil måste sökvägen till filen anges som en del av parametern *entitiesDefitionUri* . I det här fallet hämtas filen en gång i början av varje indexerare-körning. Filen måste vara tillgänglig så länge indexeraren är avsedd att köras. Dessutom måste filen kodas UTF-8.
 
 Om definitionen anges som infogad, ska den anges som infogad som innehåll i *inlineEntitiesDefinition* -färdighets parametern. 
 
@@ -143,11 +143,11 @@ Ett mer avancerat exempel på en JSON-definition kan alternativt ange ID, beskri
 
 Tabellerna nedan beskriver de olika konfigurations parametrar som du kan ange när du definierar de entiteter som ska matchas i mer information:
 
-|  Fältnamn  |        Beskrivning  |
+|  Fältnamn  |        Description  |
 |--------------|----------------------|
-| namn | Enhets beskrivningen på den översta nivån. Matchningar i färdighets utmatningen grupperas efter det här namnet och ska motsvara "normaliserad" form för den text som hittas.  |
-| description  | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
-| typ | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
+| name | Enhets beskrivningen på den översta nivån. Matchningar i färdighets utmatningen grupperas efter det här namnet och ska motsvara "normaliserad" form för den text som hittas.  |
+| beskrivning  | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
+| type | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
 | undertyp | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
 | id | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
 | caseSensitive | Valfritt Standardvärdet är false. Booleskt värde som anger om jämförelser med entitetsnamnet ska vara känslig för Skift läge. Exempel på SKIFT läges okänsliga matchningar av "Microsoft" kan vara: Microsoft, microSoft, MICROSOFT |
@@ -156,7 +156,7 @@ Tabellerna nedan beskriver de olika konfigurations parametrar som du kan ange n�
 | defaultFuzzyEditDistance | Valfritt Ändrar standardvärdet för fuzzy Edit för den här entiteten. Det kan användas för att ändra standardvärdet för alla alias fuzzyEditDistance-värden. |
 | alias | Valfritt En matris med komplexa objekt som kan användas för att ange alternativa stavningar eller synonymer till rot enhetens namn. |
 
-| Egenskaper för alias | Beskrivning |
+| Egenskaper för alias | Description |
 |------------------|-------------|
 | text  | Den alternativa stavningen eller representationen av ett visst mål enhets namn.  |
 | caseSensitive | Valfritt Fungerar på samma sätt som rot entiteten "caseSensitive" ovan, men gäller endast detta alias. |

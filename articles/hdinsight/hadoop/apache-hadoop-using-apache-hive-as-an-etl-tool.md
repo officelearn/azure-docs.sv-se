@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 025a31c08ac97783ddf1a608c2899eadd9b89725
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: be331f36a6305b05ce83a2b2d5fdfb73a154ce3d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561759"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623121"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Använd Apache Hive som ett ETL-verktyg (Extract, Transform och Load)
 
@@ -81,7 +81,7 @@ ETL-modellen används vanligt vis när du vill:
 
 * Läs in strömmande data eller stora volymer av halv strukturerade eller ostrukturerade data från externa källor till ett befintligt databas-eller informations system.
 * Rensa, transformera och verifiera data innan du läser in dem, kanske genom att använda mer än ett omvandlings pass genom klustret.
-* Generera rapporter och visualiseringar som uppdateras regelbundet.  Om rapporten till exempel tar för lång tid att generera under dagen kan du schemalägga rapporten så att den körs på natten.  Du kan använda Azure Scheduler och PowerShell för att automatiskt köra en Hive-fråga.
+* Generera rapporter och visualiseringar som uppdateras regelbundet. Om rapporten till exempel tar för lång tid att generera under dagen kan du schemalägga rapporten så att den körs på natten. Om du vill köra en Hive-fråga automatiskt kan du använda [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) och PowerShell.
 
 Om målet för data inte är en databas kan du skapa en fil i rätt format i frågan, till exempel en CSV. Den här filen kan sedan importeras till Excel eller Power BI.
 

@@ -5,64 +5,67 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: db14ee3d7e28ba7896b7558a7d01cbe77ad4496b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dec715ec6741f4429d8b1d4f620ef3cb82d4c1d3
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421019"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649984"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Felhantering i Azure Automation grafiska runbooks
 
-En princip för runbook-design som är viktig att ta hänsyn är att identifiera de olika problem som kan uppstå i en runbook. De här problemen kan omfatta lyckade åtgärder, förväntade feltillstånd och oväntade feltillstånd.
+En viktig design princip för din Azure Automation grafiska Runbook är identifieringen av problem som kan uppstå under körningen av runbooken. De här problemen kan omfatta lyckade åtgärder, förväntade feltillstånd och oväntade feltillstånd.
 
-Runbooks bör inkludera felhantering. Om du vill validera utdata för en aktivitet eller hantera ett fel på lämpligt sätt med grafiska runbooks kan du använda en Windows PowerShell-kodaktivitet, definiera villkorslogik på utdatalänken för aktiviteten eller tillämpa en annan metod.          
+Ofta, om det finns ett icke-avslutande fel som inträffar med en Runbook-aktivitet, hanterar Windows PowerShell aktiviteten genom att bearbeta alla aktiviteter som följer, oavsett fel. Det är troligt att felet genererar ett undantag, men nästa aktivitet kan fortfarande få köras.
 
-Om det finns ett icke-avslutande fel som uppstår i en runbook-aktivitet, bearbetas en aktivitet som följer oavsett felet. Det är troligt att felet genererar ett undantag, men nästa aktivitet kan fortfarande få köras. Så här har PowerShell utformats för att hantera fel.    
+Din grafiska Runbook ska innehålla fel hanterings kod för att hantera körnings problem. Om du vill verifiera utdata för en aktivitet eller hantera ett fel kan du använda en PowerShell-kod aktivitet, definiera villkorlig logik för aktivitetens utgående länk eller tillämpa en annan metod.
 
-De typer av PowerShell-fel som kan uppstå under körning är avslutande eller icke-avslutande. Skillnaderna mellan avslutande och icke avslutande fel är följande:
+Azure Automation grafiska runbooks har förbättrats med möjligheten att inkludera fel hantering. Du kan nu omvandla undantag till icke-avslutande fel och skapa fellänkar mellan aktiviteter. Den förbättrade processen gör det möjligt för din Runbook att fånga fel och hantera realiserade eller oväntade villkor. 
 
-* **Avslutande fel**: Ett allvarligt fel vid körning som stoppar kommandot (eller skriptkörningen) helt. Exempel på detta är obefintliga cmdlet:ar, syntaxfel som förhindrar att en cmdlet körs eller andra allvarliga fel.
+>[!NOTE]
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
-* **Icke-avslutande fel**: Ett icke-allvarligt fel som gör att körningen kan fortsätta trots felet. Exempel på detta är operativa fel som att en fil inte gick att hitta och behörighetsproblem.
+## <a name="powershell-error-types"></a>PowerShell-feltyper
 
-Azure Automation grafiska runbooks har förbättrats med möjligheten att inkludera fel hantering. Du kan nu omvandla undantag till icke-avslutande fel och skapa fellänkar mellan aktiviteter. Med den här processen kan en Runbook-författare fånga fel och hantera realiserade eller oväntade villkor.  
+De typer av PowerShell-fel som kan uppstå under Runbook-körningen är: avslutar fel och icke-avslutande fel.
+ 
+### <a name="terminating-error"></a>Avslutar fel
+
+Ett avslutande fel är ett allvarligt fel under körningen som avbryter ett kommando-eller skript körning helt. Exempel inkluderar obefintliga cmdlets, syntaxfel som förhindrar att en cmdlet körs och andra allvarliga fel.
+
+### <a name="non-terminating-error"></a>Icke-avslutande fel
+
+Ett icke-avslutande fel är ett icke-allvarligt fel som gör att körningen kan fortsätta trots fel tillståndet. Exempel på detta är drift fel, t. ex. att filen inte hittades fel-och behörighets problem.
 
 ## <a name="when-to-use-error-handling"></a>När du ska använda felhantering
 
-När det finns en kritisk aktivitet som genererar ett fel eller ett undantag är det viktigt att förhindra att nästa aktivitet i din runbook behandlas samt att hantera felet på rätt sätt. Detta är särskilt viktigt när runbooks stöder en företags- eller tjänståtgärdsprocess.
+Använd fel hantering i din Runbook när en kritisk aktivitet genererar ett fel eller ett undantag. Det är viktigt att förhindra nästa aktivitet i runbooken från att bearbeta och hantera felet på lämpligt sätt. Att hantera felet är särskilt viktigt när dina runbooks stöder en affärs-eller tjänst åtgärds process.
 
-För varje aktivitet som kan producera ett fel kan runbook-redigeraren lägga till en fellänk som pekar till andra aktiviteter. Målaktiviteten kan vara av valfri typ: kodaktivitet, anrop av en cmdlet, anrop av en annan runbook och så vidare.
+För varje aktivitet som kan producera ett fel kan du lägga till en fellänk som pekar på någon annan aktivitet. Mål aktiviteten kan vara av valfri typ, inklusive kod aktivitet, anrop av en cmdlet, anrop av en annan Runbook och så vidare. Mål aktiviteten kan också ha utgående länkar, antingen vanliga eller fel länkar. Länkarna tillåter att runbooken implementerar komplex fel hanterings logik utan att behöva använda en kod aktivitet.
 
-Målaktiviteten kan dessutom ha utgående länkar. Dessa länkar kan vara vanliga länkar eller fellänkar. Det innebär att runbook-författaren kan implementera komplex felhanteringslogik utan att behöva använda en kodaktivitet. Den rekommenderade metoden är att skapa en särskild runbook för felhantering med gemensamma funktioner, men detta är inte obligatoriskt. Felhanteringslogiken i en PowerShell-kodaktivitet är inte det enda alternativet.  
+Den rekommenderade metoden är att skapa en dedikerad fel hanterings-Runbook med vanliga funktioner, men den här metoden är inte obligatorisk. Överväg till exempel en Runbook som försöker starta en virtuell dator och installera ett program på den. Om den virtuella datorn inte startar på rätt sätt:
 
-Anta exempelvis att en runbook försöker starta en virtuell dator och installera ett program på den. Om den virtuella datorn inte startar på rätt sätt utför den två åtgärder:
+1. Skickar ett meddelande om det här problemet.
+2. Startar en annan Runbook som automatiskt etablerar en ny virtuell dator i stället.
 
-1. Den skickar ett meddelande om det här problemet.
-2. Den startar en annan runbook som automatiskt etablerar en ny virtuell dator i stället.
+En lösning är att ha en fellänk i Runbook som pekar på en aktivitet som hanterar steg ett. Runbooken kan till exempel ansluta **Skriv varnings-** cmdlet: en till en aktivitet för steg två, till exempel cmdleten [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) .
 
-En lösning är att ha en fellänk som hänvisar till en aktivitet som hanterar steg ett. Du kan till exempel ansluta cmdleten **Write-Warning** till en aktivitet för steg två, exempelvis cmdleten **Start-AzureRmAutomationRunbook**.
-
-Du kan också generalisera detta beteende för användning i många runbooks genom att placera dessa två aktiviteter i en separat felhanterings-runbook och följa de riktlinjer som har föreslagits tidigare. Innan du anropar denna felhanterings-runbook kan du skapa ett anpassat meddelande från data i den ursprungliga runbooken och därefter skicka detta som en parameter till felhanterings-runbooken.
+Du kan också generalisera detta beteende för användning i många runbooks genom att placera dessa två aktiviteter i en separat fel hanterings-Runbook genom att följa rikt linjerna som föreslås tidigare. Innan den ursprungliga runbooken anropar den här fel hanterings runbooken kan den skapa ett anpassat meddelande från dess data och sedan skicka det som en parameter till den fel hanterings-runbooken.
 
 ## <a name="how-to-use-error-handling"></a>Hur du använder felhantering
 
-Varje aktivitet har en konfigurationsinställning som omvandlar undantag till icke-avslutande fel. Som standard är denna inställning inaktiverad. Du bör du aktivera den här inställningen för varje aktivitet där du vill hantera fel.  
+Varje aktivitet i din Runbook har en konfigurations inställning som inaktiverar undantag till icke-avslutande fel. Som standard är denna inställning inaktiverad. Vi rekommenderar att du aktiverar den här inställningen för alla aktiviteter där Runbook hanterar fel. Genom att aktivera den här konfigurationen ser du till att Runbook hanterar både avslutande och icke-avslutande fel i aktiviteten som icke-avslutande fel, med hjälp av en fellänk.  
 
-Genom att aktivera denna konfiguration kan du säkerställa att både avslutande och icke-avslutande fel i aktiviteten hanteras som icke-avslutande fel, och de kan sedan hanteras med en fellänk.  
+När du har aktiverat konfigurations inställningen måste din Runbook skapa en aktivitet som hanterar felet. Om aktiviteten genererar ett fel följs länkarna för utgående fel. De vanliga länkarna följs inte, även om aktiviteten även genererar vanliga utdata.<br><br> ![Fellänksexempel för Automation Runbook](media/automation-runbook-graphical-error-handling/error-link-example.png)
 
-När du har konfigurerat den här inställningen skapar du en aktivitet som hanterar felet. Om en aktivitet producerar ett fel kommer de utgående fellänkarna att följas och de vanliga länkarna följs inte, även om aktiviteten även producerar reguljära utdata.<br><br> ![Fellänksexempel för Automation Runbook](media/automation-runbook-graphical-error-handling/error-link-example.png)
+I följande exempel hämtar en Runbook en variabel som innehåller dator namnet på en virtuell dator. Den försöker sedan starta den virtuella datorn med nästa aktivitet.<br><br> ![Exempel på fel hantering av Automation-Runbook](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-I följande exempel hämtar en runbook en variabel som innehåller datornamnet på en virtuell dator. Den försöker sedan starta den virtuella datorn med nästa aktivitet.<br><br> ![Felhanteringsexempel för Automation Runbook](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
+**Get-AutomationVariable** -aktiviteten och cmdleten [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) har kon figurer ATS för att konvertera undantag till fel. Om det uppstår problem med att hämta variabeln eller att starta den virtuella datorn genererar koden fel.<br><br> ![Automation Runbook Error-hantering aktivitets inställningar](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png).
 
-Aktiviteten **Get-AutomationVariable** och **Start AzureRmVm** har konfigurerats för att konvertera undantag till fel. Om det är problem med att hämta variabeln eller att starta den virtuella datorn genereras fel.<br><br> ![Felhantering i Automation Runbook, aktivitetsinställningar](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
-
-Fellänkar flödar från dessa aktiviteter till en enda **felhanteringsaktivitet** (en kodaktivitet). Den här aktiviteten konfigureras med ett enkelt PowerShell-uttryck med hjälp av nyckelordet *Throw* för att stoppa bearbetningen tillsammans med *$Error.Exception.Message* för att hämta det meddelande som beskriver det aktuella undantaget.<br><br> ![Automation Runbook-felhantering, kodexempel](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
-
+Fel länkar flödar från dessa aktiviteter till en enskild **fel hanterings** kod aktivitet. Den här aktiviteten har kon figurer ATS med ett enkelt PowerShell-uttryck som använder nyckelordet *Throw* för att stoppa bearbetningen, tillsammans med `$Error.Exception.Message` för att hämta meddelandet som beskriver det aktuella undantaget.<br><br> ![Automation Runbook fel hanterings kod exempel](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Om du vill veta mer om länkar och länktyper i grafiska runbooks kan du läsa [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow) (Grafisk redigering i Azure Automation).
 
-* Läs mer om att köra runbook, hur du övervakar runbook-jobb och andra tekniska detaljer i [Spåra ett runbook-jobb](automation-runbook-execution.md).
-
+* Om du vill veta mer om Runbook-körning, övervakning av Runbook-jobb och annan teknisk information, se [Runbook-körning i Azure Automation](automation-runbook-execution.md).

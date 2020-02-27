@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 598fdd5e3682226253ef8f2611ede2bbeba596f7
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: afa3b0f3ed345ccc7f4c627ec485351838ab2bee
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190428"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649286"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om konfiguration och hantering för Web Apps i Azure
 
@@ -199,7 +199,7 @@ För närvarande kan du inte ha punkt-till-plats-VPN-anslutningar till ett virtu
 
 För närvarande stöds inte att ansluta en App Service webbapp till ett virtuellt nätverk som har en statisk routning (principbaserad) Gateway. Om det virtuella mål nätverket redan finns måste det ha punkt-till-plats-VPN aktiverat, med en dynamisk routning-Gateway, innan den kan anslutas till en app. Om din gateway är inställd på statisk routning kan du inte aktivera en punkt-till-plats-VPN. 
 
-Mer information finns i [integrera en app med ett virtuellt Azure-nätverk](web-sites-integrate-with-vnet.md#getting-started).
+Mer information finns i [integrera en app med ett virtuellt Azure-nätverk](web-sites-integrate-with-vnet.md).
 
 ## <a name="in-my-app-service-environment-why-can-i-create-only-one-app-service-plan-even-though-i-have-two-workers-available"></a>Varför kan jag bara skapa en App Service plan i mina App Service-miljön, trots att jag har två tillgängliga arbetare?
 

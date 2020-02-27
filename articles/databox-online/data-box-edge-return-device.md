@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 02/26/2020
 ms.author: alkohli
-ms.openlocfilehash: a5fee604a529e9ca6153f6c189f199577ae65426
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 521277b2eed7edfba016f6a80e8f877decfb0ac5
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356160"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651108"
 ---
 # <a name="return-or-replace-your-azure-data-box-edge-device"></a>Returnera eller Ersätt din Azure Data Box Edge-enhet
 
@@ -39,7 +39,7 @@ Utför följande steg för att återställa enheten med det lokala webb gränssn
 1. I det lokala webb gränssnittet går du till **underhåll > enhets återställning**.
 2. Välj **Återställ enhet**.
 
-    ![Återställ enhet](media/data-box-edge-return-device/device-reset-1.png)
+    ![Återställa enhet](media/data-box-edge-return-device/device-reset-1.png)
 
 3. När du uppmanas att bekräfta kontrollerar du varningen och väljer **Ja** för att fortsätta.
 
@@ -47,7 +47,7 @@ Utför följande steg för att återställa enheten med det lokala webb gränssn
 
 Vid återställning raderas data från enhetens data diskar. Den här processen tar cirka 30-40 minuter beroende på hur mycket data som finns på enheten.
 
-Du kan också ansluta till PowerShell-gränssnittet på enheten och använda `Reset-HcsAppliance` cmdleten för att radera data från data diskarna. Mer information finns i [återställa din enhet](data-box-edge-connect-powershell-interface.md#reset-your-device).
+Du kan också ansluta till PowerShell-gränssnittet på enheten och använda `Reset-HcsAppliance` cmdlet för att radera data från data diskarna. Mer information finns i [återställa din enhet](data-box-edge-connect-powershell-interface.md#reset-your-device).
 
 > [!NOTE]
 > - Om du utbyter eller uppgraderar till en ny enhet rekommenderar vi att du återställer enheten först när du har fått den nya enheten.
@@ -59,7 +59,7 @@ Utför följande steg för att påbörja retur processen.
 
 1. Öppna ett support ärende med Microsoft Support som anger att du vill returnera enheten. Välj problem typen som **data Box Edge maskin vara**.
 
-    ![Öppna support ärende](media/data-box-edge-return-device/open-support-ticket-1.png)  
+    ![Öppna supportbegäran](media/data-box-edge-return-device/open-support-ticket-1.png)  
 
 2. En Microsoft Support-tekniker kommer att kontakta dig. Ange leverans information.
 3. Om du behöver en retur frakt Box kan du begära den. Svara **Ja** på frågan **behöver en tom ruta för att returnera**.
@@ -72,7 +72,7 @@ Utför följande steg för att påbörja retur processen.
 3. Koppla bort ström kablar och ta bort alla nätverks kablar från enheten.
 4. Förbered försändelse paketet genom att använda din egen ruta eller den tomma box som du fick från Azure. Placera enheten och de ström sladdar som levererades med enheten i rutan.
 5. Fäst frakt sedeln som du fick från Azure på paketet.
-6. Schemalägg en upphämtning med din regionala operatör. Om du returnerar enheten i USA är operatören UPS-enhet. Så här schemalägger du en upphämtning:
+6. Schemalägg en upphämtning med ditt regionala transportföretag. Om du returnerar enheten i USA, kan operatören vara UPS-eller FedEx. Så här schemalägger du en upphämtning med UPS:
 
     1. Ring den lokala UPS-enheten (landsspecifika avgiftsfritt nummer).
     2. I ditt samtal offerterar du det omvända försändelse spårnings numret som det visas på den utskrivna etiketten.

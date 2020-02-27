@@ -3,12 +3,12 @@ title: Registrera en kund för Azure-delegerad resurshantering
 description: Lär dig att publicera en kund till Azure-delegerad resurs hantering, så att deras resurser kan nås och hanteras via din egen klient.
 ms.date: 01/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 34c6173211a9125cace59d77ea942d301919aa26
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 33cf880098e174c2c230a3d78e125ad8df7d894a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526220"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649797"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Registrera en kund för Azure-delegerad resurshantering
 
@@ -16,7 +16,7 @@ Den här artikeln förklarar hur du, som en tjänst leverantör, kan publicera e
 
 Du kan upprepa den här processen om du hanterar resurser för flera kunder. Sedan, när en behörig användare loggar in till din klient, kan den användaren auktoriseras mellan kundens hyres omfång för att utföra hanterings åtgärder utan att behöva logga in på varje enskild kund klient.
 
-Om du vill spåra din påverkan på kund engagemang och få igenkänning kan du associera ditt Microsoft Partner Network (MPN) ID med dina inbyggda prenumerationer. Mer information finns i [Länka ett partner-ID till dina Azure-konton](../../billing/billing-partner-admin-link-started.md). Observera att du måste utföra den här associationen i din tjänst leverantörs klient.
+Om du vill spåra din påverkan på kund engagemang och få erkännande, associerar du ditt Microsoft Partner Network (MPN) ID med minst ett användar konto som har åtkomst till var och en av dina inbyggda prenumerationer. Observera att du måste utföra den här associationen i din tjänst leverantörs klient. För enkelhetens skull rekommenderar vi att du skapar ett tjänst huvud namns konto i din klient som är associerat med ditt MPN-ID och ger åtkomst till den till alla kunder du registrerar. Mer information finns i [Länka ett partner-ID till dina Azure-konton](../../billing/billing-partner-admin-link-started.md). 
 
 > [!NOTE]
 > Kunder kan också registreras när de köper ett erbjudande för hanterade tjänster (offentligt eller privat) som du har publicerat på Azure Marketplace. Mer information finns i [publicera Managed Services-erbjudanden på Azure Marketplace](publish-managed-services-offers.md). Du kan också använda onboarding-processen som beskrivs här tillsammans med ett erbjudande som publicerats på Azure Marketplace.
@@ -39,7 +39,7 @@ För att kunna publicera en kunds klient måste den ha en aktiv Azure-prenumerat
 
 Om du inte redan har dessa ID-värden kan du hämta dem på något av följande sätt. Se till att du använder de här exakta värdena i distributionen.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Du kan se ditt klient-ID genom att hovra över ditt konto namn längst upp till höger i Azure Portal, eller genom att välja **Växla katalog**. Om du vill välja och kopiera ditt klient-ID söker du efter "Azure Active Directory" i portalen och väljer sedan **Egenskaper** och kopierar värdet som visas i fältet **katalog-ID** . Om du vill hitta ID: t för en prenumeration i kund klienten söker du efter "prenumerationer" och väljer sedan lämpligt prenumerations-ID.
 
@@ -113,7 +113,7 @@ az role definition list --name "<roleName>" | grep name
 
 För att publicera kunden måste du skapa en [Azure Resource Manager](../../azure-resource-manager/index.yml) mall för ditt erbjudande med följande information. Värdena för **mspOfferName** och **mspOfferDescription** visas för kunden när du visar erbjudande information på [sidan tjänst leverantörer](view-manage-service-providers.md) i Azure Portal.
 
-|Field  |Definition  |
+|Fält  |Definition  |
 |---------|---------|
 |**mspOfferName**     |Ett namn som beskriver den här definitionen. Det här värdet visas för kunden som titeln på erbjudandet.         |
 |**mspOfferDescription**     |En kort beskrivning av ditt erbjudande (till exempel "contoso VM Management-erbjudande").      |
@@ -244,7 +244,7 @@ az deployment create --name <deploymentName> \
 
 När en kund prenumeration har publicerats till Azure-delegerad resurs hantering kommer användare i tjänste leverantörens klient organisation att kunna se prenumerationen och dess resurser (om de har beviljats åtkomst till den genom processen ovan, antingen individuellt eller som medlem i en Azure AD-grupp med rätt behörigheter). Bekräfta detta genom att kontrol lera att prenumerationen visas på något av följande sätt.  
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 I tjänst leverantörens klient organisation:
 
@@ -300,7 +300,7 @@ Exemplet nedan visar en tilldelning som beviljar **borttagnings rollen för hant
 
 En användare med den här behörigheten kan ta bort en delegering på något av följande sätt.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 1. Gå till [sidan mina kunder](view-manage-customers.md).
 2. Välj **delegeringar**.

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: b28d228dd950796265c5412be30e5d7777cf94c6
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 4792c0bce7d9119f5198490d62f49f000e1567d3
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526520"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621966"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandvägg
 
@@ -50,11 +50,11 @@ Det finns tre typer av regel samlingar:
 
 * *Program regler*: Konfigurera fullständigt kvalificerade domän namn (FQDN) som kan nås från ett undernät.
 * *Nätverks regler*: Konfigurera regler som innehåller käll adresser, protokoll, mål portar och mål adresser.
-* *NAT-regler*: Konfigurera DNAt-regler för att tillåta inkommande anslutningar.
+* *NAT-regler*: Konfigurera DNAt-regler för att tillåta inkommande Internet anslutningar.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Stöder Azure-brandväggen inkommande trafik filtrering?
 
-Azure-brandväggen stöder inkommande och utgående filtrering. Inkommande skydd används vanligt vis för protokoll som inte är HTTP/S. Till exempel RDP-, SSH-och FTP-protokoll. För bästa inkommande HTTP/S-skydd använder du en brand vägg för webbaserade program, till exempel en [brand vägg för Azure Web Application på Azure Application Gateway](../web-application-firewall/ag/ag-overview.md).
+Azure-brandväggen stöder inkommande och utgående filtrering. Inkommande skydd används vanligt vis för protokoll som inte är HTTP/S. Till exempel RDP-, SSH-och FTP-protokoll. För bästa inkommande HTTP/S-skydd använder du en brand vägg för webbaserade program, till exempel [Azure Web Application Firewall (WAF)](../web-application-firewall/overview.md).
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Vilka loggnings-och analys tjänster stöds av Azure-brandväggen?
 
@@ -88,7 +88,7 @@ Se [priser för Azure-brandvägg](https://azure.microsoft.com/pricing/details/az
 
 Du kan använda Azure PowerShell *frigör* och *allokera* metoder.
 
-Exempel:
+Några exempel:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -139,7 +139,7 @@ Om konfigurationen kräver Tvingad tunnel trafik till ett lokalt nätverk och du
 
 Ja. Brand väggen, VNet och den offentliga IP-adressen måste finnas i samma resurs grupp.
 
-## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>När du konfigurerar DNAT för inkommande nätverks trafik måste du också konfigurera en motsvarande nätverks regel för att tillåta trafiken?
+## <a name="when-configuring-dnat-for-inbound-internet-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>När du konfigurerar DNAT för inkommande Internet nätverks trafik måste jag också konfigurera en motsvarande nätverks regel för att tillåta trafiken?
 
 Nej. NAT-regler lägger implicit till en motsvarande nätverks regel för att tillåta översatta trafik. Du kan åsidosätta det här beteendet genom att uttryckligen lägga till en nätverksregelsamling med neka-regler som matchar den översatta trafiken. Mer information om regelbearbetningslogik för Azure Firewall finns i [Regelbearbetningslogik för Azure Firewall](rule-processing.md).
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 02/02/2020
-ms.openlocfilehash: 13c064701a5ecae2090a99980249f5daaa8d5395
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/26/2020
+ms.openlocfilehash: 9c801f5c039996ac36c4f4479318d64cccdd204d
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198964"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650001"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Vilka Apache Hadoops komponenter och versioner är tillgängliga med HDInsight?
 
@@ -57,11 +57,17 @@ Komponent versioner som är associerade med HDInsight-kluster versioner visas i 
 
 De Hadoop-eko systemets komponent versioner som är associerade med HDInsight-kluster versioner kan ändras med uppdateringar till HDInsight. Om du vill kontrol lera Hadoop-komponenterna och kontrol lera vilka versioner som används för ett kluster använder du Ambari-REST API. **GetComponentInformation** -kommandot hämtar information om tjänst komponenter. Mer information finns i [Apache Ambari-dokumentationen](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-### <a name="release-notes"></a>Versionsanmärkningar
+### <a name="release-notes"></a>Viktig information
 
 Mer information om de senaste versionerna av HDInsight finns i avsnittet om [versions information för HDInsight](hdinsight-release-notes.md) .
 
 ## <a name="supported-hdinsight-versions"></a>HDInsight-versioner som stöds
+
+### <a name="support-expiration-and-retirement-for-hdinsight-versions"></a>Stöd för förfallo datum och pensionering för HDInsight-versioner
+
+**Support upphör** ande innebär att Microsoft inte längre har stöd för den angivna HDInsight-versionen och att den inte längre kommer att tillgänglig via Azure Portal för skapande av kluster. Dessa versioner kan dock fortfarande skapas med hjälp av Azure CLI eller de olika SDK: erna. 
+
+När en HDInsight-version dras **tillbaka** kommer befintliga kluster fortsätta att köras i befintligt skick. Nya kluster i den här versionen kan dock inte skapas på något sätt (inklusive CLI och SDK: er). Andra kontroll Plans funktioner (t. ex. manuell skalning och autoskalning) kanske inte heller fungerar när versionen upphör att fungera. Support är inte tillgängligt för återkallade versioner.
 
 I följande tabeller visas versioner av HDInsight. Datumen för support och upphör ande anges också när de är kända.
 

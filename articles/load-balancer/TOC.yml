@@ -12,8 +12,9 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Mall
+    - name: Azure Resource Manager-mall
       href: quickstart-load-balancer-standard-public-template.md
+      displayName: ARM
 - name: Självstudier
   items:
     - name: Belastningsutjämna Internettrafik till virtuella datorer
@@ -84,16 +85,18 @@
           href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli'
         - name: Azure PowerShell
           href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell'
-        - name: Mall
+        - name: Azure Resource Manager-mall
           href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
+          displayName: ARM
     - name: Konfigurera intern Load Balancer
       items:
         - name: Azure CLI
           href: load-balancer-get-started-ilb-arm-cli.md
         - name: Azure PowerShell
           href: load-balancer-get-started-ilb-arm-ps.md
-        - name: Mall
+        - name: Azure Resource Manager-mall
           href: load-balancer-get-started-ilb-arm-template.md
+          displayName: ARM
     - name: Konfigurera TCP-tidsgräns vid inaktivitet för lastbalanserare
       href: load-balancer-tcp-idle-timeout.md
     - name: Konfigurera distributionsläge för Load Balancer
@@ -141,6 +144,9 @@
       href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations'
     - name: REST
       href: 'https://msdn.microsoft.com/library/azure/mt163651.aspx'
+    - name: Resource Manager-mall
+      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers'
+      displayName: ARM
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn

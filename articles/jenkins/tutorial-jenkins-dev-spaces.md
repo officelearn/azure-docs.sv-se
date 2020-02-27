@@ -3,12 +3,12 @@ title: Använda Azure dev Spaces-plugin-programmet för Jenkins med Azure Kubern
 description: Lär dig hur du använder plugin-programmet för Azure dev Spaces i en pipeline för kontinuerlig integrering.
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: 9dba0307db8ebbf07422fd770ea336b2abc031bd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 10dfbdb7d89d6f3870ec3b9dbd87d4d315360815
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209670"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619985"
 ---
 # <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>Självstudie: använda Azure dev Spaces-plugin-programmet för Jenkins med Azure Kubernetes-tjänsten 
 
@@ -409,16 +409,5 @@ az group delete -y --no-wait -n MyResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du använder plugin-programmet för Azure dev Spaces för Jenkins och plugin-programmet Azure Container Registry för att bygga kod och distribuera till ett dev-utrymme.
-
-I följande lista över resurser finns mer information om Azure dev Spaces, ACR tasks och CI/CD med Jenkins.
-
-Azure dev-utrymmen:
-* [Hur Azure Dev Spaces fungerar och är konfigurerade](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works)
-
-ACR-uppgifter:
-* [Automatisera korrigering av operativsystem och ramverk med ACR Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
-* [Automatisk generering vid kod genomförande](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
-
-CI/CD med Jenkins på Azure:
-* [Jenkins kontinuerlig distribution](https://docs.microsoft.com/azure/aks/jenkins-continuous-deployment)
+> [!div class="nextstepaction"]
+> [CI/CD med Jenkins på Azure](jenkins-continuous-deployment.md)

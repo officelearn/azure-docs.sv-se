@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/14/2019
 ms.custom: mvc
-ms.openlocfilehash: 5335cd2931fee98bb5fa59f0c2bb642a01c296f6
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 7db80e9bf0bd864762a88680132d77a3c5d21f19
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77593248"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621097"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Självstudie: Skala program i Azure Kubernetes Service (AKS)
 
@@ -54,7 +54,7 @@ kubectl scale --replicas=5 deployment/azure-vote-front
 Kör [kubectl get poddar][kubectl-get] igen för att verifiera att AKS skapar ytterligare poddar. Efter någon minut finns de nya poddarna i klustret:
 
 ```console
-$ kubectl get pods
+kubectl get pods
 
                                     READY     STATUS    RESTARTS   AGE
 azure-vote-back-2606967446-nmpcf    1/1       Running   0          15m
@@ -131,13 +131,13 @@ spec:
 Använd `kubectl apply` för att tillämpa autoskalning som definierats i `azure-vote-hpa.yaml` manifest filen.
 
 ```
-$ kubectl apply -f azure-vote-hpa.yaml
+kubectl apply -f azure-vote-hpa.yaml
 ```
 
 Om du vill visa statusen för autoskalningen använder du `kubectl get hpa`-kommandot på följande sätt:
 
 ```
-$ kubectl get hpa
+kubectl get hpa
 
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m

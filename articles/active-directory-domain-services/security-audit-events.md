@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 42ab32e80ef0a1a7f3c02d8a8eedbb8ab13c4b88
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 89fa2297c50b6f28045f6f934092de3fd5d6c879
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132254"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613068"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Aktivera säkerhets granskningar för Azure Active Directory Domain Services
 
@@ -84,7 +84,7 @@ Slutför följande steg för att aktivera Azure AD DS-säkerhetsgransknings hän
 > Granskningar av Azure AD DS-säkerhet är inte retroaktivt. Du kan inte hämta eller spela upp händelser tidigare. Azure AD DS kan bara skicka händelser som inträffar när säkerhets granskning har Aktiver ATS.
 
 1. Logga in på Azure Portal på https://portal.azure.com.
-1. Sök efter och välj **Azure AD Domain Services**överst i Azure Portal. Välj din hanterade domän, till exempel *aadds.contoso.com*.
+1. Sök efter och välj **Azure AD Domain Services**överst i Azure Portal. Välj din hanterade domän, till exempel *aaddscontoso.com*.
 1. I fönstret Azure AD DS väljer du **diagnostikinställningar** på vänster sida.
 1. Ingen diagnostik konfigureras som standard. Kom igång genom att välja **Lägg till diagnostisk inställning**.
 

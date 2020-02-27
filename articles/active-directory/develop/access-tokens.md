@@ -12,12 +12,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 7d596292a823b4d912204f5cfbe8623ab7429fa3
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 06a3ef7677d52ebb0d835dfed2f47fc66870f0ec
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161400"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620888"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Åtkomsttoken för Microsoft Identity Platform
 
@@ -178,7 +178,7 @@ Vi tillhandahåller bibliotek och kod exempel som visar hur du enkelt hanterar v
 
 En JWT innehåller tre segment, som avgränsas med `.`-tecknen. Det första segmentet kallas **sidhuvud**, det andra som **bröd texten**och det tredje som **signaturen**. Du kan använda signatur segmentet för att verifiera tokens äkthet så att den kan vara betrodd av din app.
 
-Token som utfärdas av Azure AD är signerade med algoritmer för asymmetrisk kryptering i bransch standard, till exempel RSA 256. Huvud-i-JWT-filen innehåller information om nyckeln och krypterings metoden som används för att signera token:
+Token som utfärdas av Azure AD är signerade med algoritmer för asymmetrisk kryptering i bransch standard, till exempel RS256. Huvud-i-JWT-filen innehåller information om nyckeln och krypterings metoden som används för att signera token:
 
 ```json
 {

@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 57bf9c9752cf2203ffcac08c213373fd71a79148
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 71b3027d86400d6921895f86e257ddff2961f91f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276883"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615156"
 ---
 # <a name="tutorial-sharing-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Självstudie: dela Azure spatiala ankare mellan sessioner och enheter med en Azure Cosmos DB server del
 
@@ -42,6 +42,12 @@ Leta upp `#define INMEMORY_DEMO` överst i filen och kommentera raden. Spara fil
 Leta upp egenskapen `StorageConnectionString` och Ställ in värdet på samma sätt som det `Connection String` värdet som du kopierade i [steget Skapa ett databas konto](#create-a-database-account). Spara filen.
 
 Du kan publicera delnings tjänsten igen och köra exempel appen.
+
+## <a name="troubleshooting"></a>Felsökning
+
+### <a name="unity-20193"></a>Unity 2019,3
+
+På grund av avbrytande ändringar stöds inte Unity 2019,3 för närvarande. Använd Unity 2019,1 eller 2019,2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

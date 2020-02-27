@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: aae11facd2fea5413b2996b3088cb2edc23f0dc1
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 0dd3cb12c52e23a0a8acd57bf401ba68acfb9925
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424940"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623696"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Felsök problem med frågor när du använder Azure Cosmos DB
 
@@ -22,6 +22,20 @@ Den här artikeln vägleder dig genom en allmänt rekommenderad metod för fel s
 Du kan i stort sett kategorisera optimeringar av frågor i Azure Cosmos DB: optimeringar som minskar priset för begär ande enhet (RU) för den fråga och de optimeringar som bara minskar svars tiden. Genom att minska antalet RU-kostnader för en fråga kommer du snart att minska svars tiden.
 
 I det här dokumentet används exempel som kan återskapas med hjälp av [närings](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data uppsättningen.
+
+## <a name="important"></a>Viktigt
+
+- För bästa prestanda bör du följa [prestanda tipsen](performance-tips.md).
+    > [!NOTE] 
+    > Windows 64-bitars värd bearbetning rekommenderas för bättre prestanda. SQL-SDK: n innehåller en inbyggd ServiceInterop. dll för att parsa och optimera frågor lokalt och stöds bara på Windows x64-plattformen. För Linux och andra plattformar som inte stöds, där ServiceInterop. dll inte är tillgänglig, kommer det ytterligare ett nätverks anrop till gatewayen att hämta den optimerade frågan. 
+- Cosmos DB fråga stöder inte ett minsta antal objekt.
+    - Koden ska hantera en sid storlek från 0 till maximalt antal objekt
+    - Antalet objekt på en sida kan och kommer att ändras utan föregående meddelande.
+- Tomma sidor förväntas för frågor och kan visas när som helst. 
+    - Anledningen till att tomma sidor exponeras i SDK: er är att fler möjligheter kan avbryta frågan. Det gör det också klart att SDK: n utför flera nätverks anrop.
+    - Tomma sidor kan visas i befintliga arbets belastningar eftersom en fysisk partition delas i Cosmos DB. Den första partitionen har nu 0 resultat, vilket leder till den tomma sidan.
+    - Tomma sidor orsakas av backend-preempting för frågan eftersom frågan tar mer än en fast tids period på Server delen för att hämta dokumenten. Om Cosmos DB blockerar en fråga returneras en fortsättnings-token som gör att frågan kan fortsätta. 
+- Se till att tömma frågan helt. Titta på SDK-exemplen och Använd en while-slinga på `FeedIterator.HasMoreResults` för att tömma hela frågan.
 
 ### <a name="obtaining-query-metrics"></a>Hämta frågans mått:
 
@@ -144,7 +158,7 @@ Indexerings princip:
 }
 ```
 
-**Ru-avgift:** 409,51 ru ' s
+**Avgift för ru:** 409,51 ru: er
 
 ### <a name="optimized"></a>Optimerad
 
@@ -163,7 +177,7 @@ Indexerings princip har uppdaterats:
 }
 ```
 
-**Ru-avgift:** 2,98 ru ' s
+**Avgift för ru:** 2,98 ru: er
 
 Du kan när som helst lägga till ytterligare egenskaper till indexerings principen, utan påverkan på Skriv tillgänglighet eller prestanda. Om du lägger till en ny egenskap i indexet används omedelbart det nya tillgängliga indexet i frågor som använder den här egenskapen. Frågan kommer att använda det nya indexet när den skapas. Resultatet blir att frågeresultaten kan vara inkonsekventa när index återställningen pågår. Om en ny egenskap är indexerad, påverkas inte frågor som bara använder befintliga index när indexet skapas på nytt. Du kan [spåra förloppet för index omvandling](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
 
@@ -217,7 +231,7 @@ Indexerings princip:
 }
 ```
 
-**Ru-avgift:** 44,28 ru ' s
+**Avgift för ru:** 44,28 ru: er
 
 ### <a name="optimized"></a>Optimerad
 
@@ -257,7 +271,7 @@ Indexerings princip har uppdaterats:
 
 ```
 
-**Ru-avgift:** 8,86 ru ' s
+**Avgift för ru:** 8,86 ru: er
 
 ## <a name="optimize-join-expressions-by-using-a-subquery"></a>Optimera KOPPLINGs uttryck med hjälp av en under fråga
 Under frågor med flera värden kan optimera `JOIN` uttryck genom att push-överföra predikat efter varje Select-many-uttryck i stället för efter alla kors kopplingar i `WHERE`-satsen.
@@ -274,7 +288,7 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-**Ru-avgift:** 167,62 ru ' s
+**Avgift för ru:** 167,62 ru: er
 
 I den här frågan matchar indexet alla dokument som har en tagg med namnet "mode/mode-formel", nutritionValue som är större än 0 och betjänar större belopp än 1. `JOIN`-uttrycket här utför kors produkten av alla objekt i taggar, näringsämnen och betjänar matriser för varje matchande dokument innan något filter tillämpas. `WHERE` satsen tillämpar sedan filtervärdet på varje `<c, t, n, s>` tupel.
 
@@ -290,7 +304,7 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-**Ru-avgift:** 22,17 ru ' s
+**Avgift för ru:** 22,17 ru: er
 
 Anta att endast ett objekt i matrisen taggar matchar filtret och det finns fem objekt för båda näringsämnena och som betjänar matriser. `JOIN`-uttryck expanderas sedan till 1 x 1 x 5 x 5 = 25 objekt, i stället för 1 000 objekt i den första frågan.
 

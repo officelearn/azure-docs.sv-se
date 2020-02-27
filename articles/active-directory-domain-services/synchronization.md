@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: b2a1bcedcc459a21bbc8a461ba9c8d9a8d65aebe
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 7e0e904b182a57a51b5d76f0acebc13bce5902b2
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132209"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612933"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Hur objekt och autentiseringsuppgifter synkroniseras i en Azure AD Domain Services hanterad domän
 
@@ -47,9 +47,9 @@ I följande tabell visas några vanliga attribut och hur de synkroniseras till A
 | SID-historik för användare och grupper | Lokal primär användare och grupp-SID | Attributet *SidHistory* för användare och grupper i Azure AD DS är inställt på att matcha motsvarande primära användare eller grupp-sid i en lokal AD DS-miljö. Den här funktionen gör det lättare att lyfta och byta lokala program till Azure AD DS eftersom du inte behöver göra en ny ACL-resurs. |
 
 > [!TIP]
-> **Logga in på den hanterade domänen med UPN-formatet** Attributet *sAMAccountName* , till exempel `CONTOSO\driley`, kan genereras automatiskt för vissa användar konton i en Azure AD DS-hanterad domän. Användarens automatiskt genererade *sAMAccountName* kan skilja sig från sina UPN-prefix, så det är inte alltid ett tillförlitligt sätt att logga in.
+> **Logga in på den hanterade domänen med UPN-formatet** Attributet *sAMAccountName* , till exempel `AADDSCONTOSO\driley`, kan genereras automatiskt för vissa användar konton i en Azure AD DS-hanterad domän. Användarens automatiskt genererade *sAMAccountName* kan skilja sig från sina UPN-prefix, så det är inte alltid ett tillförlitligt sätt att logga in.
 >
-> Om t. ex. flera användare har samma *smek namn* -attribut eller om användarna har över långa UPN-prefix, kan *sAMAccountName* för dessa användare genereras automatiskt. Använd UPN-formatet, till exempel `driley@contoso.com`, för att logga in på en Azure AD DS-hanterad domän på ett tillförlitligt sätt.
+> Om t. ex. flera användare har samma *smek namn* -attribut eller om användarna har över långa UPN-prefix, kan *sAMAccountName* för dessa användare genereras automatiskt. Använd UPN-formatet, till exempel `driley@aaddscontoso.com`, för att logga in på en Azure AD DS-hanterad domän på ett tillförlitligt sätt.
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Mappning av attribut för användar konton
 

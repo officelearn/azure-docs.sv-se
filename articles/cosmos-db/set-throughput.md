@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 39eacbb9a87fa18cc6ef92e319fbfbd3e415337b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 236ae017832d5d613d0bf9fc948d16a7218d2269
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525523"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621946"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Etablera dataflöde på containrar och databaser
 
@@ -108,7 +108,7 @@ Du kan skala det etablerade data flödet för en behållare eller en databas nä
 |Ru: er tilldelad eller tillgänglig för en speciell behållare|Inga garantier. Ru: er som tilldelas en specifik behållare beror på egenskaperna. Egenskaper kan vara valet av partitionsnyckel för behållare som delar data flödet, distributionen av arbets belastningen och antalet behållare. |Alla ru: er som har konfigurerats på behållaren är enbart för behållaren.|
 |Maximalt lagringsutrymme för en behållare|Många.|Många.|
 |Högsta dataflöde per logisk partition för en behållare|10K ru: er|10K ru: er|
-|Maximalt lagringsutrymme (data + index) per logisk partition för en behållare|10 GB|10 GB|
+|Maximalt lagringsutrymme (data + index) per logisk partition för en behållare|20 GB|20 GB|
 
 ## <a name="next-steps"></a>Nästa steg
 

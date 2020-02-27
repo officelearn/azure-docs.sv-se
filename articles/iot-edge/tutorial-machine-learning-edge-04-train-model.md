@@ -8,12 +8,12 @@ ms.date: 2/10/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5f576d28d30907f3834600d0a6a5c152025cf912
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: a5c754373ba9437c631e62acbb5d6d246db4c862
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133453"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650766"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Självstudie: träna och distribuera en Azure Machine Learning modell
 
@@ -83,7 +83,7 @@ Vi går igenom filerna som du laddade upp i Azure Notebooks-projektet. Aktivitet
 * **01-turbofan\_regression. ipynb:** Den här Notebook använder arbets ytan Machine Learning tjänst för att skapa och köra ett Machine Learning-experiment. I stort sett gör antecknings boken följande steg:
 
   1. Hämtar data från det Azure Storage konto som genererades av enhets nätet.
-  1. Utforskar och förbereder data för utbildning och klassificerare AD-modellen.
+  1. Utforskar och förbereder data och använder sedan data för att träna klassificerings modellen.
   1. Utvärdera modellen från experimentet med hjälp av en test data uppsättning (test\_FD003. txt).
   1. Publicerar den bästa klassificerings modellen till arbets ytan för Machine Learnings tjänsten.
 
@@ -155,7 +155,7 @@ Kontrol lera att antecknings böckerna har slutförts genom att kontrol lera att
 
 1. Kontrol lera att följande filer har skapats:
 
-    | Fil | Beskrivning |
+    | Fil | Description |
     | --- | --- |
     | ./aml_config/.azureml/config.JSON | Konfigurations fil som används för att skapa Azure Machine Learning-arbetsyta. |
     | ./aml_config/model_config. JSON | Konfigurations fil som vi behöver för att distribuera modellen i **turbofanDemo** Machine Learning-arbetsytan i Azure. |

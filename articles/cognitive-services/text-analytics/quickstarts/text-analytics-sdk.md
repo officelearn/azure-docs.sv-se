@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 01/23/2020
+ms.date: 02/24/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 79dd6160b65469d6a44167913adb7e319f0f583a
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: c6883b9b79adfc4f91af354147d45ea27d806d78
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525353"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614466"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Snabb start: Använd Textanalys klient bibliotek
 
@@ -82,7 +82,7 @@ Om du har klickat på den här fliken ser du förmodligen ingen snabb start på 
 | Språk | Tillgänglig version | 
 |----------|------------------------|
 | Ruby     | [Version 2,1](ruby-sdk.md) | 
-| Kör       | [Version 2,1](go-sdk.md) | 
+| Go       | [Version 2,1](go-sdk.md) | 
 
 ::: zone-end
 
@@ -90,7 +90,7 @@ Om du har klickat på den här fliken ser du förmodligen ingen snabb start på 
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/29/2019
+ms.date: 02/25/2020
 ms.author: aahi
-ms.openlocfilehash: 19df2cfc58f0653b09600b43e5859753781d7151
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 560f34d21a68cecc4950db5dcceb9c8ef7b05a49
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560804"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614439"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exempel på användar scenarier för API för textanalys
 
@@ -44,6 +44,12 @@ Använd Extrahering av diskussionsämne och enhets igenkänning för att bearbet
 Övervaka feedback från användarnas produkter på din produkts Twitter-eller Facebook-sida. Använd data för att analysera kund sentiment mot nya produkter, extrahera viktiga fraser om funktioner och funktions förfrågningar, eller ta itu med kund klagomål när de sker. Se exemplet [Microsoft Flow Template](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/).
 
 ![En bild som beskriver hur du övervakar din produkt och företagets feedback på sociala medier med extrahering av nyckel fraser](media/use-cases/social-feed.svg)
+
+## <a name="classify-and-redact-documents-that-have-sensitive-information"></a>Klassificera och bortredigering-dokument med känslig information
+
+Använd namngiven enhets igenkänning för att identifiera personlig och känslig information i dokument. Använd data för att klassificera dokument eller redigera dem så att de kan delas på ett säkert sätt.
+
+![En bild som beskriver hur du använder NER för att identifiera personlig information och klassificera och bortredigering dokument](media/use-cases/sensitive-docs.jpg)
 
 ## <a name="next-steps"></a>Nästa steg
 

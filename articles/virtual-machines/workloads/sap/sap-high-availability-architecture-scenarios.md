@@ -1,10 +1,10 @@
 ---
-title: Azure Virtual Machines arkitektur med hög tillgänglighet och scenarier för SAP-NetWeaver | Microsoft Docs
+title: Azure VM HA arkitektur och scenarier för SAP NetWeaver | Microsoft Docs
 description: Arkitektur och scenarier med hög tillgänglighet för SAP NetWeaver på Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/21/2019
-ms.author: rclaus
+ms.date: 02/25/2020
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c04726bf3b4166255ada7c9f1252be0471dcc761
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: b974869d1462f449e8a241a5925ef345170b493a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291489"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623865"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arkitektur och scenarier med hög tillgänglighet för SAP NetWeaver
 
@@ -249,7 +249,7 @@ SAP hög tillgänglighet i Azure kan delas upp i tre typer:
 
 * **Hög tillgänglighet för SAP-program**: 
 
-    För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Ett exempel:
+    För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Några exempel:
     * Redundanta SAP-programservrar.
     * Unika komponenter. Ett exempel kan vara en enskild felpunkt (SPOF) komponent, till exempel en SAP ASCS/SCS-instans eller ett databas hanterings system (DBMS).
 
@@ -267,7 +267,7 @@ Basen för beräkningen är 30 dagar per månad eller 43 200 minuter. En drift t
 
 (Tillgänglighets tjänst #1/100) * (tillgänglighets tjänst #2/100) * (tillgänglighets tjänst #3/100) \*...
 
-Ett exempel:
+Några exempel:
 
 (99,95/100) * (99,9/100) * (99,9/100) = 0,9975 eller en övergripande tillgänglighet på 99,75%.
 
@@ -288,7 +288,7 @@ En tillgänglighets uppsättning används för att uppnå hög tillgänglighet f
 * Kluster med två eller flera noder (t. ex. virtuella datorer) som skyddar SPOFs, till exempel en SAP-ASCS/SCS-instans eller ett DBMS.
 
 
-### <a name="azure-availability-zones"></a>Tillgänglighetszoner i Azure
+### <a name="azure-availability-zones"></a>Azure-tillgänglighetszoner
 Azure håller på att genomföra ett koncept i [Azure-tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview) i olika Azure- [regioner](https://azure.microsoft.com/global-infrastructure/regions/). I Azure-regioner där Tillgänglighetszoner erbjuds, har Azure-regionerna flera data Center som är oberoende av utbudet av ström källor, kylning och nätverk. Orsak till att erbjuda olika zoner inom en enda Azure-region är att du ska kunna distribuera program över två eller tre Tillgänglighetszoner som erbjuds. Om du antar att problem i ström källor och/eller nätverk påverkar endast en infrastruktur för tillgänglighets zoner är program distributionen i en Azure-region fortfarande fullt fungerande. Till slut, med minskad kapacitet eftersom vissa virtuella datorer i en zon kan gå förlorade. Men virtuella datorer i de andra två zonerna är fortfarande igång. Azure-regionerna som erbjuder zoner visas i [Azure-tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 Det finns några saker att tänka på när du använder Tillgänglighetszoner. Övervägande listan, t. ex.:
@@ -334,7 +334,7 @@ Mer information om den här metoden finns i [använda Azure Infrastructure VM re
 
 ## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a>Hög tillgänglighet för SAP-program i Azure IaaS
 
-För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Ett exempel:
+För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Några exempel:
   * Redundanta SAP-programservrar.
   * Unika komponenter. Ett exempel kan vara en enskild felpunkt (SPOF) komponent, till exempel en SAP ASCS/SCS-instans eller ett databas hanterings system (DBMS).
 
@@ -391,6 +391,8 @@ Du kan använda en WSFC-lösning för att skydda SAP ASCS/SCS-instansen. Lösnin
 
 * **Klustra SAP ASCS/SCS-instansen med hjälp av fil resurs**: Mer information om den här arkitekturen finns i [kluster en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av fil resurs][sap-high-availability-guide-wsfc-file-share].
 
+* **Klustra SAP ASCS/SCS-instansen med hjälp av ANF SMB-resurs**: Mer information om den här arkitekturen finns i kluster [kluster en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av ANF SMB-filresurs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
+
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Hög tillgänglighets arkitektur för en SAP ASCS/SCS-instans på Linux
 
 > ![Linux][Logo_Linux] Linux
@@ -404,13 +406,20 @@ Mer information om hur du klustrar SAP ASCS/SCS-instansen med hjälp av Red Hat 
 
 > ![Windows][Logo_Windows] Windows
 > 
-> För närvarande stöds inte Multi-SID med WSFC. Multi-SID stöds med fil resurs och delad disk.
+> Multi-SID stöds med WSFC, med fil resurs och delad disk.
 > 
-> Mer information om arkitektur med hög tillgänglighet för flera SID finns i:
+> Mer information om arkitektur med hög tillgänglighet för flera SID i Windows finns i:
 
 * [SAP ASCS/SCS-instans multi-SID hög tillgänglighet för kluster för växling vid fel i Windows Server och fil resurs][sap-ascs-ha-multi-sid-wsfc-file-share]
 
 * [SAP ASCS/SCS-instans multi-SID hög tillgänglighet för Windows Server-redundanskluster och delad disk][sap-ascs-ha-multi-sid-wsfc-shared-disk]
+
+> ![Linux][Logo_Linux] Linux
+> 
+> Multi-SID-klustring stöds på Linux pacemaker-kluster för SAP ASCS/ERS, begränsat till **fem** SAP-sid i samma kluster.
+> Mer information om arkitektur med hög tillgänglighet för flera SID i Linux finns i:
+
+* [HA för SAP NW på virtuella Azure-datorer på SLES för SAP-program med flera SID-guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
 
 ### <a name="high-availability-dbms-instance"></a>DBMS-instans med hög tillgänglighet
 

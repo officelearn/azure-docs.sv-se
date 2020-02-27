@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f4e8450593b8ff0f73c09f236f17eb4ef09334c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e4581ab89f74425682f569425f62714ead2c27c5
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549511"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620939"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Installera agenten för Azure AD Connect-molnetablering
 Det här dokumentet vägleder dig genom installations processen för den Azure Active Directory (Azure AD) Connect-programetablerings agenten och hur du konfigurerar den för första gången i Azure Portal.
@@ -67,7 +67,7 @@ Följ dessa steg om du vill kontrol lera att agenten visas av Azure.
 1. Logga in på Azure Portal.
 1. Välj **Azure Active Directory** > **Azure AD Connect**till vänster. I mitten väljer du **Hantera etablering (för hands version)** .
 
-   ![Azure portal](media/how-to-install/install6.png)</br>
+   ![Azure-portalen](media/how-to-install/install6.png)</br>
 
 1.  På skärmen **Azure AD Provisioning (för hands version)** väljer du **Granska alla agenter**.
 
@@ -96,7 +96,7 @@ Kontrol lera att agenten körs genom att följa dessa steg.
     ![Sidan tjänster](media/how-to-troubleshoot/troubleshoot1.png)
 
 >[!IMPORTANT]
->Agenten har installerats men måste konfigureras och aktive ras innan den kommer att starta synkronisering av användare. Information om hur du konfigurerar en ny agent finns i [Azure AD Connect Cloud etableringen New agent Configuration](how-to-configure.md).
+>Agenten har installerats men måste konfigureras och aktive ras innan den kommer att starta synkronisering av användare. Information om hur du konfigurerar en ny agent finns i [skapa en ny konfiguration för Azure AD Connect molnbaserad etablering](how-to-configure.md).
 
 
 

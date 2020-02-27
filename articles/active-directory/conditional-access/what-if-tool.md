@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 02/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeb2e98ad9bbd35f3ec507e36e958c5ce6ad2198
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: dc87b434664ba12cefeb233972e749f631d8a2b4
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185873"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620689"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Felsöka med hjälp av What If-verktyget i villkorlig åtkomst
 
@@ -98,7 +98,7 @@ Du startar en utvärdering genom att klicka på **What If**. Utvärderings resul
 
 Om det finns [klassiska principer](policy-migration.md#classic-policies) för de valda molnappar visas en indikator för dig. Genom att klicka på indikatorn omdirigeras du till sidan klassiska principer. På sidan klassiska principer kan du migrera en klassisk princip eller bara inaktivera den. Du kan återgå till utvärderings resultatet genom att stänga den här sidan.
 
-I listan över principer som gäller för din valda användare kan du också hitta en lista över de [kontroll](controls.md#grant-controls) -och [sessionsnycklar](controls.md#session-controls) som användaren måste uppfylla.
+I listan över principer som gäller för din valda användare kan du också hitta en lista över de [kontroll](concept-conditional-access-grant.md) -och [sessionsnycklar](concept-conditional-access-session.md) som användaren måste uppfylla.
 
 I listan över principer som inte gäller för din användare kan du även se varför dessa principer inte tillämpas. För varje listad princip representerar orsaken det första villkoret som inte uppfylldes. En möjlig orsak till en princip som inte tillämpas är en inaktive rad princip eftersom de inte utvärderas ytterligare.   
 

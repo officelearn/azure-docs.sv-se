@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0ca9ed8781a13f9ab5e949e0e5f019a851dc75f4
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 1404854e054c8fc4967ba863486969b8a87db526
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057489"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621518"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Insight4GRC för automatisk användar etablering
 
@@ -74,7 +74,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-insight4grc-in-azure-ad"></a>Konfigurera automatisk användar etablering för Insight4GRC i Azure AD:
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -90,7 +90,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** måste du skriva in dina autentiseringsuppgifter och användar namn för Insight4GRC-administratören. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Insight4GRC. Om anslutningen Miss lyckas kontrollerar du att Insight4GRC-kontot har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** måste du skriva in URL-adressen för scim-slutpunkt i **klient-URL**: en. URL: en för webb adressen ska vara i formatet `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 ` där **Insight4GRC domän namn** är det värde som hämtades i föregående steg. Mata in värdet för Bearer-token som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Insight4GRC. Om anslutningen Miss lyckas kontrollerar du att Insight4GRC-kontot har administratörs behörighet och försöker igen.
 
     ![etablerings](./media/insight4grc-provisioning-tutorial/provisioning.png)
 
@@ -106,14 +106,14 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
    |Attribut|Typ|
    |---|---|
-   |userName|String|
-   |externalId|String|
-   |aktiv|Boolean|
-   |title|String|
-   |name.givenName|String|
-   |name.familyName|String|
-   |e-postmeddelanden [typ eq ”arbete pågår”] .value|String|
-   |phoneNumbers [typ eq ”arbete pågår”] .value|String|
+   |userName|Sträng|
+   |externalId|Sträng|
+   |aktiv|Boolesk|
+   |title|Sträng|
+   |name.givenName|Sträng|
+   |name.familyName|Sträng|
+   |e-postmeddelanden [typ eq ”arbete pågår”] .value|Sträng|
+   |phoneNumbers [typ eq ”arbete pågår”] .value|Sträng|
 
 10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till Insight4GRC**.
 
@@ -121,8 +121,8 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
       |Attribut|Typ|
       |---|---|
-      |displayName|String|
-      |externalId|String|
+      |displayName|Sträng|
+      |externalId|Sträng|
       |medlemmar|Referens|
 
 10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

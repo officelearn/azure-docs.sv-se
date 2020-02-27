@@ -1,21 +1,21 @@
 ---
-title: 'Självstudie: övervaka Key Vault med Azure Event Grid'
-description: 'Självstudie: använda Azure Event Grid för att prenumerera på Key Vault händelser'
-services: media-services
+title: Övervaka Key Vault med Azure Event Grid
+description: Använda Azure Event Grid för att prenumerera på Key Vault händelser
+services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5771af365b763d2152eea4ef4f662e08769b378c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 2424fbac3c95c1c60e6ef61cba53e481f4bb478a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133345"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650749"
 ---
-# <a name="tutorial-monitoring-key-vault-with-azure-event-grid-preview"></a>Självstudie: övervaka Key Vault med Azure Event Grid (förhands granskning)
+# <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Övervaka Key Vault med Azure Event Grid (förhands granskning)
 
 Key Vault integration med Event Grid är för närvarande en för hands version. Det gör det möjligt för användare att meddelas när statusen för en hemlighet som lagras i Key Vault har ändrats. En status ändring definieras som en hemlighet som håller på att gå ut (inom 30 dagar efter förfallo datum), en hemlighet som har upphört att gälla eller en hemlighet med en ny version som är tillgänglig. Aviseringar för alla tre hemliga typer (nyckel, certifikat och hemlighet) stöds.
 
@@ -27,10 +27,10 @@ Event Grid använder [händelse prenumerationer](../event-grid/concepts.md#event
 
 Mer information finns i [händelse schema för Key Vault](../event-grid/event-schema-key-vault.md).
 
-> [!NOTE]
-> Händelser aktive ras endast för hemliga versioner (alla tre typer) som skapats efter att prenumerationen har angetts.
->
-> För befintliga hemligheter måste du generera nya versioner.
+> [!WARNING]
+> Meddelande händelser utlöses bara på nya versioner av hemligheter, nycklar och certifikat, och du måste först prenumerera på händelsen i nyckel valvet för att kunna ta emot dessa meddelanden.
+> 
+> Du får bara meddelande händelser för certifikat när certifikatet förnyas automatiskt enligt principen som du har angett för ditt certifikat.
 
 ## <a name="practices-for-consuming-events"></a>Metoder för att konsumera händelser
 

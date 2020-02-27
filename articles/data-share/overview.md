@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: d1bfad64175ad5b29e4ec158ebe8d8e982b8b100
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 363feda1409d2bb54e60d1b2168cba38f2a8a41c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964455"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621858"
 ---
 # <a name="what-is-azure-data-share"></a>Vad är Azure Data Share?
 
@@ -23,7 +23,7 @@ Azure Data Share gör det möjligt för organisationer att enkelt och säkert de
 
 En DataProvider kan hålla kontrollen över hur deras data hanteras genom att ange användnings villkoren för data resursen. Datakonsumenten måste acceptera dessa villkor innan de kan ta emot data. Dataleverantörer kan ange hur ofta datakonsumenter får uppdateringar. Åtkomsten till nya uppdateringar kan när som helst återkallas av dataleverantören. 
 
-Azure Data Share hjälper till att förbättra insikter genom att göra det enkelt att kombinera data från tredje part för att utöka analys-och AI-scenarier. Använd enkelt Azure Analytics-verktyg i Power of för att förbereda, bearbeta och analysera data som delas med Azure Data Share. 
+Azure Data Share hjälper till att förbättra insikter genom att göra det enkelt att kombinera data från tredje part för att utöka analys-och AI-scenarier. Du kan enkelt använda kraften i Azure Analytics-verktyg för att förbereda, bearbeta och analysera data som delas med Azure Data Share. 
 
 Både data leverantören och data konsumenten måste ha en Azure-prenumeration för att kunna dela och ta emot data. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
@@ -35,7 +35,7 @@ Azure Data Share kan också användas för att upprätta en data Marketplace fö
 
 Ett annat användnings fall för Azure Data Share är att upprätta ett data konsortium. Ett antal olika forsknings institutioner kan till exempel dela data med ett enda betrott innehåll. Data analyseras, aggregeras eller bearbetas med hjälp av Azure Analytics-verktyg och delas sedan med berörda parter. 
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
 Azure data sharing erbjuder för närvarande ögonblicks bilds delning och delning på plats. 
 

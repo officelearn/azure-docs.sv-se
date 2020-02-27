@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: aa03e388019bf696324ea7af6062ec98386df5fa
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 0585ced3bc53f216ab203b4686b5800b5e14bbbd
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827055"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612744"
 ---
 # <a name="troubleshoot-account-sign-in-problems-with-an-azure-ad-domain-services-managed-domain"></a>Felsöka konto inloggnings problem med en Azure AD Domain Services hanterad domän
 
@@ -32,7 +32,7 @@ De vanligaste orsakerna till ett användar konto som inte kan logga in på en ha
 
 Beroende på katalogens storlek kan det ta en stund innan användar konton och inloggnings-hashar är tillgängliga i Azure AD DS. För stora kataloger kan den här inledande enkelriktade synkroniseringen från Azure AD ta några timmar och upp till en dag eller två. Se till att du väntar tillräckligt länge innan du försöker autentisera igen.
 
-Se till att du kör den senaste versionen av Azure AD Connect och att du har [konfigurerat Azure AD Connect för att utföra en fullständig synkronisering när du har aktiverat Azure för Hybrid miljöer som användaren Azure AD Connect att synkronisera lokala katalog data till Azure AD AD DS][azure-ad-connect-phs]. Om du inaktiverar Azure AD DS och sedan aktiverar igen måste du följa de här stegen igen.
+Se till att du kör den senaste versionen av Azure AD Connect och har [konfigurerat Azure AD Connect för att utföra en fullständig synkronisering när du har aktiverat Azure AD DS][azure-ad-connect-phs]för Hybrid miljöer som användar Azure AD Connect synkronisera lokala katalog data i Azure AD. Om du inaktiverar Azure AD DS och sedan aktiverar igen måste du följa de här stegen igen.
 
 Om du fortsätter att ha problem med konton som inte synkroniseras via Azure AD Connect startar du om Azure AD Sync tjänsten. Från datorn med Azure AD Connect installerat öppnar du ett kommando tolks fönster och kör följande kommandon:
 
@@ -59,7 +59,7 @@ Azure AD DS-hanterade domäner utan lokal synkronisering, det är bara konton i 
     * [Ändra lösen ordet för kontot][enable-user-accounts] för att generera nödvändiga lösen ords-hashar och vänta sedan i 15 minuter innan du försöker logga in igen.
     * Om du inaktiverar Azure AD DS och sedan aktiverar igen måste varje konto följa stegen igen för att ändra lösen ordet och generera nödvändiga lösen ords-hashar.
 * **Ja, lösen ordet har ändrats.**
-    * Försök att logga in med *UPN* -formatet, till exempel `driley@contoso.com`, i stället för *sAMAccountName* -formatet som `CONTOSO\deeriley`.
+    * Försök att logga in med *UPN* -formatet, till exempel `driley@aaddscontoso.com`, i stället för *sAMAccountName* -formatet som `AADDSCONTOSO\deeriley`.
     * *SAMAccountName* kan genereras automatiskt för användare vars UPN-prefix är över långt eller samma som en annan användare på den hanterade domänen. *UPN* -formatet garanterar att det är unikt i en Azure AD-klient.
 
 ## <a name="the-account-is-locked-out"></a>Kontot är utelåst

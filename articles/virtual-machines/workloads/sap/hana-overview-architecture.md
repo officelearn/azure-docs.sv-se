@@ -3,8 +3,8 @@ title: Översikt över SAP HANA på Azure (stora instanser) | Microsoft Docs
 description: Översikt över hur du distribuerar SAP HANA på Azure (stora instanser).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea337101a5fe44e42ce85c17fec32028c75d3b85
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 39fcf5d0fe2273c4debd3ae5ebe5fd1190ddc959
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101173"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616958"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>Vad är SAP HANA på stora Azure-instanser?
 
@@ -26,9 +26,9 @@ SAP HANA på Azure (stora instanser) är en unik lösning till Azure. Förutom a
 
 Kund isolering inom infrastrukturens stämpel utförs i klient organisationer, som ser ut så här:
 
-- **Nätverk**: Isolering av kunder inom infrastrukturs stacken via virtuella nätverk per kund tilldelad klient. En klient tilldelas till en enskild kund. En kund kan ha flera klienter. Nätverks isoleringen av klienter förbjuder nätverkskommunikation mellan klienter på infrastrukturens stampnivå, även om klienterna tillhör samma kund.
-- **Lagrings komponenter**: Isolering genom virtuella lagrings datorer som har tilldelade lagrings volymer. Lagrings volymer kan endast tilldelas till en virtuell lagrings dator. En virtuell lagrings dator tilldelas exklusivt till en enda innehavare i stacken SAP HANA TDI-certifierad infrastruktur. Det innebär att lagrings volymer som tilldelas till en virtuell lagrings dator kan nås i en enda enskild och relaterad klient. De är inte synliga mellan de olika distribuerade klient organisationerna.
-- **Server eller värd**: En server eller en värd enhet delas inte mellan kunder eller klienter. En server eller värd som har distribuerats till en kund är en atomisk dator som är tilldelad en enda klient. *Ingen* maskinvarubaserad partitionering eller mjuk partitionering används som kan leda till att du delar en värd eller en server med en annan kund. Lagrings volymer som är kopplade till den virtuella lagrings datorn för den angivna klienten monteras på en sådan server. En klient kan ha en till många Server enheter med olika SKU: er som tilldelats exklusivt.
+- **Nätverk**: isolering av kunder i infrastruktur stack via virtuella nätverk per kundtilldelad klient. En klient tilldelas till en enskild kund. En kund kan ha flera klienter. Nätverks isoleringen av klienter förbjuder nätverkskommunikation mellan klienter på infrastrukturens stampnivå, även om klienterna tillhör samma kund.
+- **Lagrings komponenter**: isolering genom virtuella lagrings datorer som har tilldelade lagrings volymer. Lagrings volymer kan endast tilldelas till en virtuell lagrings dator. En virtuell lagrings dator tilldelas exklusivt till en enda innehavare i stacken SAP HANA TDI-certifierad infrastruktur. Det innebär att lagrings volymer som tilldelas till en virtuell lagrings dator kan nås i en enda enskild och relaterad klient. De är inte synliga mellan de olika distribuerade klient organisationerna.
+- **Server eller värd**: en server eller en värd enhet delas inte mellan kunder eller klienter. En server eller värd som har distribuerats till en kund är en atomisk dator som är tilldelad en enda klient. *Ingen* maskinvarubaserad partitionering eller mjuk partitionering används som kan leda till att du delar en värd eller en server med en annan kund. Lagrings volymer som är kopplade till den virtuella lagrings datorn för den angivna klienten monteras på en sådan server. En klient kan ha en till många Server enheter med olika SKU: er som tilldelats exklusivt.
 - I en SAP HANA på en Azure-dator (stor instans) är många olika klienter distribuerade och isolerade mot varandra via klient koncepten för nätverk, lagring och beräknings nivåer. 
 
 
@@ -36,12 +36,12 @@ Dessa servrar för Bare Metal-enheter stöds endast för att köra SAP HANA. Lag
 
 Från och med juli 2019 skiljer vi mellan två olika revisioner av HANA-stora instanser och distributions platser:
 
-- "Revision 3" (rev 3): Är de stämplar som har gjorts tillgängliga för kunden att distribuera före 2019 juli
-- "Revision 4" (rev 4): Ny stämpel design som distribueras i nära närhet till Azure VM-värdar och som hittills är frigjord i Azure-regionerna av:
+- "Revision 3" (rev 3): är de stämplar som har gjorts tillgängliga för kunden att distribuera före 2019 juli
+- "Revision 4" (rev 4): ny stämpel-design som distribueras i nära närhet till Azure VM-värdar och som hittills är frigjord i Azure-regionerna av:
     -  USA, västra 2 
-    -  East US 
-    -  Västra Europa
-    -  Norra Europa
+    -  USA, östra 
+    -  Europa, västra
+    -  Europa, norra
 
 
 Det här dokumentet är ett av flera dokument som behandlar SAP HANA på Azure (stora instanser). Det här dokumentet innehåller en introduktion till den grundläggande arkitekturen, ansvars områden och tjänster som tillhandahålls av lösningen. Hög nivå funktioner i lösningen diskuteras också. För de flesta andra områden, t. ex. nätverk och anslutning, innehåller fyra andra dokument information och detaljerad information. Dokumentationen för SAP HANA på Azure (stora instanser) tar inte upp aspekter av SAP NetWeaver-installationen eller distributionerna av SAP NetWeaver på virtuella datorer. SAP NetWeaver på Azure beskrivs i separata dokument som finns i samma Azure-dokumentations behållare. 

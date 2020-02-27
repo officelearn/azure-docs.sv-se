@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: bd20bb008c52b7d99416aed7a0599a6e78d2acf2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 114a460b3db67af278f813de2e7a18d571cf3c28
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161655"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613432"
 ---
 # <a name="migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrera Azure AD Domain Services från den klassiska virtuella nätverks modellen till Resource Manager
 
@@ -206,12 +206,12 @@ Slutför följande steg för att förbereda den Azure AD DS-hanterade domänen f
     $creds = Get-Credential
     ```
 
-1. Kör nu `Migrate-Aadds`-cmdlet med *-preping-* parametern. Ange *-ManagedDomainFqdn* för din egen Azure AD DS-hanterade domän, t. ex. *contoso.com*:
+1. Kör nu `Migrate-Aadds`-cmdlet med *-preping-* parametern. Ange *-ManagedDomainFqdn* för din egen Azure AD DS-hanterade domän, t. ex. *aaddscontoso.com*:
 
     ```powershell
     Migrate-Aadds `
         -Prepare `
-        -ManagedDomainFqdn contoso.com `
+        -ManagedDomainFqdn aaddscontoso.com `
         -Credentials $creds
     ```
 
@@ -219,7 +219,7 @@ Slutför följande steg för att förbereda den Azure AD DS-hanterade domänen f
 
 Med den Azure AD DS-hanterade domänen som är beredd och säkerhets kopie rad kan domänen migreras. I det här steget återskapas de virtuella datorerna för Azure AD Domain Services domänkontrollanten med hjälp av distributions modellen för Resource Manager. Det här steget kan ta 1 till 3 timmar att slutföra.
 
-Kör cmdleten `Migrate-Aadds` med parametern *-commit* . Ange *-ManagedDomainFqdn* för din egen Azure AD DS-hanterade domän som förbereds i föregående avsnitt, t. ex. *contoso.com*:
+Kör cmdleten `Migrate-Aadds` med parametern *-commit* . Ange *-ManagedDomainFqdn* för din egen Azure AD DS-hanterade domän som förbereds i föregående avsnitt, t. ex. *aaddscontoso.com*:
 
 Ange mål resurs gruppen som innehåller det virtuella nätverk som du vill migrera Azure AD DS till, till exempel *myResourceGroup*. Ange det virtuella mål nätverket, till exempel *myVnet*och under nätet, till exempel *DomainServices*.
 
@@ -228,7 +228,7 @@ När det här kommandot har körts kan du inte återställa igen:
 ```powershell
 Migrate-Aadds `
     -Commit `
-    -ManagedDomainFqdn contoso.com `
+    -ManagedDomainFqdn aaddscontoso.com `
     -VirtualNetworkResourceGroupName myResourceGroup `
     -VirtualNetworkName myVnet `
     -VirtualSubnetName DomainServices `
@@ -265,7 +265,7 @@ Testa nu den virtuella nätverks anslutningen och namn matchningen. På en virtu
 
 1. Kontrol lera om du kan pinga IP-adressen för en av domän kontrol Lanterna, till exempel `ping 10.1.0.4`
     * IP-adresserna för domän kontrol Lanterna visas på **egenskaps** sidan för den hanterade Azure AD DS-domänen i Azure Portal.
-1. Verifiera namn matchning för den hanterade domänen, till exempel `nslookup contoso.com`
+1. Verifiera namn matchning för den hanterade domänen, till exempel `nslookup aaddscontoso.com`
     * Ange DNS-namnet för din egen Azure AD DS-hanterade domän för att kontrol lera att DNS-inställningarna är korrekta och att de löses.
 
 Den andra domänkontrollanten bör vara tillgänglig 1-2 timmar efter att migrerings-cmdleten har slutförts. Kontrol lera om den andra domänkontrollanten är tillgänglig genom att titta på **egenskaps** sidan för den hanterade Azure AD DS-domänen i Azure Portal. Om två IP-adresser visas är den andra domänkontrollanten klar.
@@ -309,12 +309,12 @@ Upp till en viss tidpunkt i migreringsprocessen kan du välja att återställa e
 
 Om det uppstår ett fel när du kör PowerShell-cmdleten för att förbereda migrering i steg 2 eller för migreringen i steg 3 kan den hanterade Azure AD DS-domänen återställa till den ursprungliga konfigurationen. Det ursprungliga klassiska virtuella nätverket krävs för att återställa den här återställningen. Observera att IP-adresserna kanske fortfarande ändras efter återställningen.
 
-Kör cmdleten `Migrate-Aadds` med parametern *-abort* . Ange *-ManagedDomainFqdn* för din egen Azure AD DS-hanterade domän som förbereds i ett tidigare avsnitt, till exempel *contoso.com*och det klassiska virtuella nätverks namnet, till exempel *myClassicVnet*:
+Kör cmdleten `Migrate-Aadds` med parametern *-abort* . Ange *-ManagedDomainFqdn* för din egen Azure AD DS-hanterade domän som förbereds i ett tidigare avsnitt, till exempel *Aaddscontoso.com*och det klassiska virtuella nätverks namnet, till exempel *myClassicVnet*:
 
 ```powershell
 Migrate-Aadds `
     -Abort `
-    -ManagedDomainFqdn contoso.com `
+    -ManagedDomainFqdn aaddscontoso.com `
     -ClassicVirtualNetworkName myClassicVnet `
     -Credentials $creds
 ```

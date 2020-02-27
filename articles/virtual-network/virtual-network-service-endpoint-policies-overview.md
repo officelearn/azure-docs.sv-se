@@ -3,89 +3,118 @@ title: Principer för tjänstslutpunkter för virtuellt nätverk i Azure | Micro
 description: Lär dig hur du filtrerar virtuell nätverkstrafik till Azure-tjänstresurser med hjälp av tjänstslutpunktsprinciper
 services: virtual-network
 documentationcenter: na
-author: sumeetmittal
+author: RDhillon
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
-ms.author: sumi
-ms.openlocfilehash: 1aa4328a6d5367ef356ce33807289a873c93d90f
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 02/21/2020
+ms.author: rdhillon
+ms.openlocfilehash: 926da07ffaf0c61ca2a7fd02351ef3635ec4d73b
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77056707"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651310"
 ---
-# <a name="virtual-network-service-endpoint-policies-preview"></a>Principer för tjänstslutpunkter för virtuellt nätverk (förhandsversion)
+# <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Slut punkts principer för virtuella nätverks tjänster för Azure Storage
 
-Med principer för tjänstslutpunkter för virtuella nätverk (VNet) kan du filtrera trafik i virtuella nätverk till Azure-tjänster för att endast tillåta specifika Azure-tjänstresurser över tjänstslutpunkter. Slutpunktsprinciper ger detaljerad åtkomstkontroll för trafik i virtuella nätverk till Azure-tjänster.
+Med tjänst slut punkts principerna för Virtual Network (VNet) kan du filtrera utgående virtuell nätverks trafik till Azure Storage konton över tjänstens slut punkt och bara tillåta att data exfiltrering till vissa Azure Storage-konton. Slut punkts principer ger detaljerad åtkomst kontroll för virtuell nätverks trafik till Azure Storage vid anslutning via tjänst slut punkt.
 
-Den här funktionen är tillgänglig i för __hands versionen__ i alla offentliga Azure-regioner för Azure STorage.
+![Skydda utgående trafik för virtuella nätverk till Azure Storage konton](./media/virtual-network-service-endpoint-policies-overview/vnet-service-endpoint-policies-overview.png)
 
-De mest uppdaterade meddelandena för förhandsversionen finns på sidan för [Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
-
-> [!NOTE]  
-> Under förhandsversionen har principerna för tjänstslutpunkt för virtuellt nätverk kanske inte samma tillgänglighet och pålitlighet som funktioner som är allmänt tillgängliga. Mer information finns i [de kompletterande villkoren för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Den här funktionen är allmänt tillgänglig för __Azure Storage__ i __alla globala Azure-regioner__.
 
 ## <a name="key-benefits"></a>Viktiga fördelar
 
 Principer för tjänstslutpunkt för virtuellt nätverk ger följande fördelar:
 
-- __Förbättrad säkerhet för dina virtuella nätverkstrafik till Azure-tjänster__
+- __Förbättrad säkerhet för Virtual Network trafik till Azure Storage__
 
-  [Azure-tjänsttaggar för nätverkssäkerhetsgrupper](https://aka.ms/servicetags) gör att du kan begränsa utgående trafik i virtuella nätverk till specifika Azure-tjänster. Detta tillåter dock bara trafik till resurser från den Azure-tjänsten. 
+  Med [Azure Service-taggar för nätverks säkerhets grupper](https://aka.ms/servicetags) kan du begränsa utgående trafik för virtuella nätverk till vissa Azure Storage regioner. Detta tillåter dock trafik till alla konton inom vald Azure Storage region.
   
-  Med slutpunktsprinciper kan du nu begränsa utgående åtkomst för virtuella nätverk till endast specifika Azure-resurser. Detta ger mycket mer detaljerad säkerhetskontroll för att skydda data som används i ditt virtuella nätverk. 
+  Med slut punkts principer kan du ange de Azure Storage konton som tillåts utgående åtkomst till virtuella nätverk och begränsa åtkomsten till alla andra lagrings konton. Detta ger mycket mer detaljerad säkerhets kontroll för att skydda data exfiltrering från ditt virtuella nätverk.
 
 - __Skalbara principer med hög tillgänglighet för att filtrera Azure-tjänsttrafik__
 
    Slutpunktsprinciperna ger en horisontellt skalbar lösning med hög tillgänglighet för att filtrera Azure-tjänsttrafik från virtuella nätverk över tjänstslutpunkter. Det krävs inget ytterligare arbete för att upprätthålla centrala nätverksinstallationer för den här trafiken i ditt virtuella nätverk.
 
+## <a name="json-object-for-service-endpoint-policies"></a>JSON-objekt för tjänst slut punkts principer
+Låt oss ta en titt på objektet tjänst slut punkts princip.
+
+```json
+"serviceEndpointPolicyDefinitions": [
+    {
+            "description": null,
+            "name": "MySEP-Definition",
+            "resourceGroup": "MySEPDeployment",
+            "service": "Microsoft.Storage",
+            "serviceResources": [ 
+                    "/subscriptions/subscriptionID/resourceGroups/MySEPDeployment/providers/Microsoft.Storage/storageAccounts/mystgacc"
+            ],
+            "type": "Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions"
+    }
+]
+```
+
 ## <a name="configuration"></a>Konfiguration
 
-- Du kan konfigurera slutpunktsprinciper för att begränsa trafik i virtuella nätverk till specifika Azure-tjänstresurser. I förhandsvisningen stöder vi slutpunktsprinciper för Azure Storage. 
-- Slutpunktsprinciper konfigureras i ett undernät i ett virtuellt nätverk. Tjänstslutpunkter ska aktiveras på undernätet för att tillämpa principen för alla Azure-tjänster som anges i principen.
-- Slutpunktsprincipen gör att du kan godkänna specifika Azure-tjänstresurser med hjälp av resourceID–formatet. Du kan begränsa åtkomsten till alla resurser i en prenumeration eller resursgrupp. Du kan även begränsa åtkomsten till specifika resurser. 
-- Om inga principer är kopplade till ett undernät med slutpunkter kan du som standard komma åt alla resurser i tjänsten. När en princip har konfigurerats i undernätet kan endast de resurser som anges i principen nås från beräkningsinstanser i det undernätet. Åtkomst till alla andra resurser för den specifika tjänsten nekas. 
-- Du kan filtrera trafik till Azure-tjänstresurser i de regioner där tjänstslutpunkten har konfigurerats. Åtkomst till tjänstresurser i andra regioner tillåts som standard. 
+-   Du kan konfigurera slut punkts principerna för att begränsa virtuell nätverks trafik till vissa Azure Storage-konton.
+-   Slutpunktsprinciper konfigureras i ett undernät i ett virtuellt nätverk. Tjänst slut punkter för Azure Storage ska vara aktiverade på under nätet för att tillämpa principen.
+-   Med hjälp av slut punkts principen kan du lägga till vissa Azure Storage konton i listan med hjälp av resourceID-formatet. Du kan begränsa åtkomsten till
+    - alla lagrings konton i en prenumeration<br>
+      `E.g. /subscriptions/subscriptionId`
 
-  > [!NOTE]  
-  > Om du vill låsa utgående åtkomst för virtuella nätverk till Azure-resurser i tjänstslutpunktsregioner helt behöver du även regler för nätverkssäkerhetsgrupper konfigurerade för att endast tillåta trafik till tjänstslutpunktsregionerna med hjälp av [tjänsttaggar](security-overview.md#service-tags).
-
-- Du kan tillämpa flera principer på ett undernät. När flera principer är kopplade till undernätet för samma tjänst tillåts trafik i virtuella nätverk till resurser som anges i vilken som helst av dessa principer. Åtkomst till alla andra tjänstresurser som inte specificerats i någon av principerna nekas. 
-
-  > [!NOTE]  
-  > Principen ger endast åtkomst till angivna tjänstresurser från ett virtuellt nätverk. All annan trafik till tjänsten nekas automatiskt när du lägger till specifika resurser till principen. Kontrollera att alla tjänstresursberoenden för ditt program kan identifieras och anges i principen.
-
-  > [!WARNING]  
-  > Azure-tjänster som distribueras till ditt virtuella nätverk, till exempel Azure HDInsight, kommer åt andra Azure-tjänster såsom Azure Storage för infrastrukturkrav. Om slutpunktsprincipen begränsas till specifika resurser kan det stoppa åtkomsten till dessa infrastrukturresurser för tjänster som distribueras i ditt virtuella nätverk. För specifika tjänster kan du läsa [begränsningarna](#limitations). Under förhandsversionen stöds inte tjänstslutpunktsprinciper för hanterade Azure-tjänster som distribueras i det virtuella nätverket.
-
-- För Azure Storage: 
-  -  Du kan begränsa åtkomsten genom att ange Azure Resource Manager *resourceId* för lagringskontot. Detta omfattar trafik till blobar, tabeller, köer, filer och Azure Data Lake Storage Gen2.
-
-     Till exempel kan Azure Storage-konton anges i definitionen för slutpunktsprincipen enligt följande:
-    
-     Så här tillåter du ett specifikt lagringskonto:         
-     `subscriptions/subscriptionId/resourceGroups/resourceGroup/providers/Microsoft.Storage/storageAccounts/storageAccountName`
-      
-     Så här tillåter alla konton i en prenumeration och en resursgrupp: `/subscriptions/subscriptionId/resourceGroups/resourceGroup`
+    - alla lagrings konton i en resurs grupp<br>
+      `E.g. subscriptions/subscriptionId/resourceGroups/resourceGroupName`
      
-     Så här tillåter du alla konton i en prenumeration: `/subscriptions/subscriptionId`
-    
-- Det är bara lagringskonton som använder Azure Resource Model kan anges i slutpunktsprincipen.  
+    - ett enskilt lagrings konto genom att lista motsvarande Azure Resource Manager resourceId. Detta omfattar trafik till blobar, tabeller, köer, filer och Azure Data Lake Storage Gen2. <br>
+    `E.g. /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Storage/storageAccounts/storageAccountName`
+-   Om inga principer är kopplade till ett undernät med slut punkter kan du som standard komma åt alla lagrings konton i tjänsten. När en princip har konfigurerats i undernätet kan endast de resurser som anges i principen nås från beräkningsinstanser i det undernätet. Åtkomst till alla andra lagrings konton kommer att nekas.
+-   När du tillämpar tjänst slut punkts principer på ett undernät, uppgraderas Azure Storage *tjänstens slut punkts omfång* från regional till **Global**. Det innebär att all trafik som Azure Storage skyddas av tjänst slut punkten därefter. Tjänst slut punkts principerna är också tillämpliga globalt, så alla lagrings konton som inte uttryckligen tillåts kommer att nekas åtkomst. 
+-   Du kan tillämpa flera principer på ett undernät. När flera principer är kopplade till under nätet kommer den virtuella nätverks trafiken till resurser som anges i någon av dessa principer att tillåtas. Åtkomst till alla andra tjänstresurser som inte specificerats i någon av principerna nekas.
 
-  > [!NOTE]  
-  > Åtkomst till klassiska lagringskonton blockeras med slutpunktsprinciper.
+    > [!NOTE]  
+    > Principer för tjänst slut punkter är **att tillåta principer**, så utöver de angivna resurserna är alla andra resurser begränsade. Kontrol lera att alla tjänst resurs beroenden för dina program identifieras och visas i principen.
 
-- Den primära platsen för det konto som anges ska vara i geo-parregionerna för tjänstslutpunkten för undernätet. 
+- Det är bara lagringskonton som använder Azure Resource Model kan anges i slutpunktsprincipen. Dina klassiska Azure Storage-konton har inte stöd för tjänst slut punkts principer för Azure.
+- Sekundär RA-GRS-åtkomst tillåts automatiskt om det primära kontot anges.
+- Lagringskonton kan finnas i samma prenumeration, en annan prenumeration eller i Azure Active Directory-klientorganisationen som det virtuella nätverket.
 
-  > [!NOTE]  
-  > Principer tillåter att tjänstresurser från andra regioner specificeras. Åtkomst för virtuellt nätverk till Azure-tjänsterna filtreras endast för geo-parregioner. Om nätverkssäkerhetsgrupper inte är begränsade till geo-parregioner för Azure Storage kan det virtuella nätverket komma åt alla lagringskonton utanför geo-parregionerna.
+## <a name="scenarios"></a>Scenarier
 
-- Sekundär RA-GRS-åtkomst tillåts automatiskt om det primära kontot anges. 
-- Lagringskonton kan finnas i samma prenumeration, en annan prenumeration eller i Azure Active Directory-klientorganisationen som det virtuella nätverket. 
+- **Peer-kopplade, anslutna eller flera virtuella nätverk**: Om du vill filtrera trafik i peer-kopplade virtuella nätverk ska slutpunktsprinciper tillämpas individuellt på dessa virtuella nätverk.
+- **Filtrera Internet trafik med nätverks enheter eller Azure-brandvägg**: filtrera Azure-tjänstetrafik med principer, överanvändnings slut punkter och filtrera rest av Internet-eller Azure-trafik via apparater eller Azure-brandväggen.
+- **Filtrera trafik på Azure-tjänster som distribuerats till virtuella nätverk**: för tillfället stöds inte Azure Service Endpoint-principer för några hanterade Azure-tjänster som distribueras i det virtuella nätverket. 
+- **Filtrera trafik till Azure-tjänster från lokala**: tjänstslutpunktsprinciper tillämpas endast på trafiken från undernät som är associerade med principerna. För att tillåta åtkomst till specifika Azure-tjänstresurser från en lokal plats ska trafik filtreras med hjälp av virtuella nätverksinstallationer eller brandväggar.
+
+## <a name="logging-and-troubleshooting"></a>Loggning och felsökning
+Det finns ingen centraliserad loggning för tjänstslutpunktsprinciper. Se [loggning för tjänstslutpunkter](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting) för diagnostikloggar för tjänsten.
+
+### <a name="troubleshooting-scenarios"></a>Felsökningsscenarier
+- Åtkomst nekad till lagrings konton som fungerade i förhands granskning (inte i Geo-parad region)
+  - Med Azure Storage att uppgradera för att använda globala tjänst taggar, är omfånget för tjänst slut punkten och därmed tjänst slut punkts principerna globalt. Trafik till Azure Storage krypteras via tjänst slut punkter och endast lagrings konton som uttryckligen listas i principen är tillåtna.
+  - Ange uttryckligen alla lagrings konton som krävs för att återställa åtkomsten.  
+  - Kontakta Azure-supporten.
+- Åtkomst nekas för konton som anges i slutpunktsprinciperna
+  - Nätverkssäkerhetsgrupper och brandväggsfiltrering blockerar kanske åtkomst
+  - Om borttagning/återtillämpning av principen leder till anslutningsförlust:
+    - Kontrol lera om Azure-tjänsten är konfigurerad för att tillåta åtkomst från det virtuella nätverket över slut punkter, eller att standard principen för resursen är inställd på *Tillåt alla*.
+    - Verifiera att tjänstdiagnostiken visar trafiken över slutpunkter.
+    - Kontrollera om flödesloggarna för nätverkssäkerhetsgruppen visar åtkomsten och att lagringsloggarna visar åtkomsten som förväntat över tjänstslutpunkter.
+    - Kontakta Azure-supporten.
+- Åtkomst nekas för konton som inte anges i tjänstslutpunktsprinciperna
+  - Verifiera om Azure Storage har kon figurer ATS för att tillåta åtkomst från det virtuella nätverket över slut punkter, eller om standard principen för resursen är inställd på *Tillåt alla*.
+  - Se till att kontona inte är **klassiska lagrings konton** med tjänst slut punkts principer på under nätet.
+- En hanterad Azure-tjänst slutade fungera efter att ha tillämpat en tjänst slut punkts princip över under nätet
+  - Hanterade tjänster stöds inte med tjänst slut punkts principer för tillfället. *Titta på det här utrymmet för uppdateringar*.
+
+## <a name="provisioning"></a>Etablering
+
+Tjänstslutpunktsprinciper kan konfigureras i virtuella nätverk av en användare med skrivbehörighet för ett virtuellt nätverk. Lär dig mer om [inbyggda roller](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i Azure och att tilldela specifika behörigheter till [anpassade roller](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Virtuella nätverk och Azure Storage konton kan vara i samma eller olika prenumerationer eller Azure Active Directory klienter.
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -93,86 +122,12 @@ Principer för tjänstslutpunkt för virtuellt nätverk ger följande fördelar:
 - Virtuella nätverk måste finnas i samma region som tjänstslutpunktsprincipen.
 - Du kan bara använda tjänstslutpunktsprincipen i ett undernät om tjänstslutpunkterna har konfigurerats för de Azure-tjänster som anges i principen.
 - Du kan inte använda tjänstslutpunktsprinciper för trafik från ditt lokala nätverk till Azure-tjänster.
-- Slutpunktsprinciper ska inte tillämpas på undernät med hanterade Azure-tjänster med beroende av Azure-tjänster för infrastrukturkrav. 
+- Azure Managed Services stöder för närvarande inte slut punkts principer. Detta inkluderar hanterade tjänster som distribuerats till delade undernät (t. ex. *Azure HDInsight, Azure Batch, Azure-tillägg, Azure APplication Gateway, Azure VPN-gateway, Azure-brandvägg*) eller till dedikerade undernät (t. ex. *Azure App Service-miljön, Azure Redis Cache, Azure API Management, Azure SQL mi, klassiska hanterade tjänster*).
 
-  > [!WARNING]  
-  > Azure-tjänster som distribueras till ditt virtuella nätverk, till exempel Azure HDInsight, kommer åt andra Azure-tjänster såsom Azure Storage för infrastrukturkrav. Om slutpunktsprincipen begränsas till specifika resurser kan det stoppa åtkomsten till dessa infrastrukturresurser för de Azure-tjänster som distribueras i ditt virtuella nätverk.
-  
-  - Vissa Azure-tjänster kan distribueras i undernät med andra beräkningsinstanser. Se till att slutpunktsprinciperna inte tillämpas på undernätet om de hanterade tjänster som anges nedan distribueras till undernätet.
-   
-    - Azure HDInsight
-    - Azure Batch (Azure Resource Manager)
-    - Azure Active Directory Domain Services (Azure Resource Manager)
-    - Azure Application Gateway (Azure Resource Manager)
-    - Azure VPN Gateway (Azure Resource Manager)
-    - Azure Firewall
+ > [!WARNING]
+ > Azure-tjänster som distribueras till ditt virtuella nätverk, till exempel Azure HDInsight, kommer åt andra Azure-tjänster såsom Azure Storage för infrastrukturkrav. Om slutpunktsprincipen begränsas till specifika resurser kan det stoppa åtkomsten till dessa infrastrukturresurser för de Azure-tjänster som distribueras i ditt virtuella nätverk.
 
-  - Vissa Azure-tjänster distribueras till dedikerade undernät. Slutpunktsprinciper blockeras i alla sådana tjänster som anges nedan under förhandsperioden. 
-
-     - Azure App Service Environment
-     - Azure Rediscache
-     - Azure API Management
-     - Hanterad Azure SQL-instans
-     - Azure Active Directory Domain Services
-     - Azure Application Gateway (Classic)
-     - Azure VPN Gateway (Classic)
-
-- Azure Storage: klassiska lagringskonton stöds inte i slutpunktsprinciper. Principer nekar åtkomst till alla klassiska lagringskonton som standard. Om ditt program behöver åtkomst till Azure Resource Manager och klassiska lagringskonton bör slutpunktsprinciper inte användas för den här trafiken. 
-
-## <a name="nsgs-with-service-endpoint-policies"></a>NSG:er med tjänstslutpunktsprinciper
-- Som standard tillåter NSG:er utgående Internettrafik, inklusive trafik i virtuella nätverk, till Azure-tjänster.
-- Om du vill neka all utgående Internettrafik och endast tillåta trafik till specifika Azure-tjänstresurser: 
-
-  Steg 1: Konfigurera NSG:er för att endast tillåta utgående trafik till Azure-tjänster i slutpunktsregioner med hjälp av *Azure-tjänsttaggar*. Mer information finns i [tjänsttaggar för NSG:er](https://aka.ms/servicetags)
-      
-  Till exempel ser regler för nätverkssäkerhetsgrupper som begränsar åtkomsten till endast slutpunktsregioner ut som i följande exempel:
-
-  ```
-  Allow AzureStorage.WestUS2,
-  Allow AzureStorage.WestCentralUS,
-  Deny all
-  ```
-
-  Steg 2: Tillämpa tjänstslutpunktsprincipen med åtkomst till endast specifika Azure-tjänstresurser.
-
-  > [!WARNING]  
-  > Om nätverkssäkerhetsgruppen inte är konfigurerad för att begränsa ett virtuellt nätverks Azure-tjänståtkomst till slutpunktsregioner kan du komma åt tjänstresurser i andra regioner även om tjänstslutpunktsprincipen tillämpas.
-
-## <a name="scenarios"></a>Scenarier
-
-- **Peer-kopplade, anslutna eller flera virtuella nätverk**: Om du vill filtrera trafik i peer-kopplade virtuella nätverk ska slutpunktsprinciper tillämpas individuellt på dessa virtuella nätverk.
-- **Filtrering av Internettrafik med nätverksutrustning eller Azure Firewall**: filtrera Azure-tjänsttrafik med principer över slutpunkter och filtrera resten av Internet- eller Azure-trafiken via utrustning eller Azure Firewall. 
-- **Filtrera trafik på Azure-tjänster som distribueras till virtuella nätverk**: under förhandsversionen stöds inte tjänstslutpunktsprinciper för hanterade Azure-tjänster som distribueras i det virtuella nätverket. 
- Se [begränsningar](#limitations) för specifika tjänster.
-- **Filtrera trafik till Azure-tjänster från lokala**: tjänstslutpunktsprinciper tillämpas endast på trafiken från undernät som är associerade med principerna. För att tillåta åtkomst till specifika Azure-tjänstresurser från en lokal plats ska trafik filtreras med hjälp av virtuella nätverksinstallationer eller brandväggar.
-
-## <a name="logging-and-troubleshooting"></a>Loggning och felsökning
-Det finns ingen centraliserad loggning för tjänstslutpunktsprinciper. Se [loggning för tjänstslutpunkter](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting) för diagnostikloggar för tjänsten.
-
-### <a name="troubleshooting-scenarios"></a>Felsökningsscenarier
-- Åtkomst tillåts till lagringskonton som inte anges i slutpunktsprinciperna
-  - Nätverkssäkerhetsgrupper kan tillåta åtkomst till Internet eller Azure Storage-konton i andra regioner.
-  - Nätverkssäkerhetsgrupper bör konfigureras för att neka all utgående Internettrafik och endast tillåta trafik till specifika Azure Storage-regioner. Mer information finns i Nätverkssäkerhetsgrupper.
-- Åtkomst nekas för konton som anges i slutpunktsprinciperna
-  - Nätverkssäkerhetsgrupper och brandväggsfiltrering blockerar kanske åtkomst
-  - Om borttagning/återtillämpning av principen leder till anslutningsförlust:
-    - Kontrollera huruvida Azure-tjänsten är konfigurerad för att tillåta åtkomst från det virtuella nätverket över slutpunkter eller om standardprincipen för resursen är inställd på *Tillåt alla*.
-      > [!NOTE]      
-      > Tjänstresurser behöver inte säkras mot virtuella nätverk för att få åtkomst via slutpunktsprinciper. Som bästa praxis för säkerhet rekommenderar vi dock att tjänstresurser säkras mot dina betrodda nätverk, till exempel dina virtuella Azure-nätverk, via tjänstslutpunkter, och körs lokalt via en IP-brandvägg.
-  
-    - Verifiera att tjänstdiagnostiken visar trafiken över slutpunkter.
-    - Kontrollera om flödesloggarna för nätverkssäkerhetsgruppen visar åtkomsten och att lagringsloggarna visar åtkomsten som förväntat över tjänstslutpunkter.
-    - Kontakta Azure-supporten.
-- Åtkomst nekas för konton som inte anges i tjänstslutpunktsprinciperna
-  - Nätverkssäkerhetsgrupper och brandväggsfiltrering blockerar kanske åtkomst. Se till att *Azure Storage*-tjänsttaggen tillåts för slutpunktsregionerna. Se [begränsningarna](#limitations) för principbegränsningar.
-  Till exempel nekas klassiska lagringskonton åtkomst om en princip tillämpas.
-  - Kontrollera huruvida Azure-tjänsten är konfigurerad för att tillåta åtkomst från det virtuella nätverket över slutpunkter eller om standardprincipen för resursen är inställd på *Tillåt alla*.
-
-## <a name="provisioning"></a>Etablering
-
-Tjänstslutpunktsprinciper kan konfigureras i virtuella nätverk av en användare med skrivbehörighet för ett virtuellt nätverk. Lär dig mer om [inbyggda roller](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i Azure och att tilldela specifika behörigheter till [anpassade roller](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-Virtuella nätverk och Azure-tjänstresurser kan finnas i samma eller olika prenumerationer eller Azure Active Directory-klientorganisationer. 
+- Klassiska lagringskonton stöds inte i slutpunktsprinciper. Principer nekar åtkomst till alla klassiska lagringskonton som standard. Om ditt program behöver åtkomst till Azure Resource Manager och klassiska lagringskonton bör slutpunktsprinciper inte användas för den här trafiken.
 
 ## <a name="pricing-and-limits"></a>Priser och begränsningar
 
@@ -180,7 +135,7 @@ Det tillkommer inga extra avgifter för att använda tjänstslutpunktsprinciper.
 
 Följande begränsningar tillämpas på tjänstslutpunktsprinciper: 
 
- |Resurs | Standardgräns |
+ |Resource | Standardgräns |
  |---------|---------------|
  |ServiceEndpointPoliciesPerSubscription |500 |
  |ServiceEndpintPoliciesPerSubnet|100 |
@@ -190,4 +145,3 @@ Följande begränsningar tillämpas på tjänstslutpunktsprinciper:
 
 - Lär dig [hur du konfigurerar principer för tjänstslutpunkt för virtuellt nätverk](virtual-network-service-endpoint-policies-portal.md)
 - Läs mer om [tjänstslutpunkter för virtuellt nätverk](virtual-network-service-endpoints-overview.md)
-

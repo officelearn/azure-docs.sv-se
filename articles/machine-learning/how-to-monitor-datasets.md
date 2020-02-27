@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: 4efdc47e65f0f29f74f1477b02efdc6b8767ffb2
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 401019c537cb0eb51fa6002637e170a79210f7d2
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264771"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617637"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Identifiera data avvikelser (för hands version) på data uppsättningar
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Mått och insikter är tillgängliga via den [Azure Application Insights](https:
 > [!Important]
 > Observera att övervakning av data med SDK är tillgängligt i alla versioner, samtidigt som du övervakar data genom att använda Studio på webben bara Enterprise Edition.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill skapa och arbeta med data uppsättnings övervakare behöver du:
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
@@ -131,10 +131,10 @@ Den här tabellen innehåller grundläggande inställningar som används för da
 
 | Inställning | Beskrivning | Tips | Föränderlig | 
 | ------- | ----------- | ---- | ------- | 
-| Namn | Namnet på data uppsättnings övervakaren. | | Inga |
-| Bas linje data uppsättning | Tabell data uppsättning som ska användas som bas linje för jämförelse av mål data uppsättningen över tid. | Bas linjens data uppsättning måste ha funktioner som är gemensamma för mål data uppsättningen. I allmänhet bör bas linjen anges till en modells utbildnings data uppsättning eller en sektor av mål data uppsättningen. | Inga |
-| Mål data uppsättning | Tabell data uppsättning med en tidsstämpel-kolumn som ska analyseras för data avvikelser. | Mål data uppsättningen måste ha funktioner gemensamt med bas linje data uppsättningen och måste vara en `timeseries` data uppsättning som nya data läggs till i. Historiska data i mål data uppsättningen kan analyseras eller också kan nya data övervakas. | Inga | 
-| Frequency | Den frekvens som används för att schemalägga pipeline-jobbet och analysera historiska data om en hel fyllning körs. Alternativen omfattar varje dag, varje vecka eller varje månad. | Justera den här inställningen för att inkludera en jämförbar data storlek till bas linjen. | Inga | 
+| Namn | Namnet på data uppsättnings övervakaren. | | Nej |
+| Bas linje data uppsättning | Tabell data uppsättning som ska användas som bas linje för jämförelse av mål data uppsättningen över tid. | Bas linjens data uppsättning måste ha funktioner som är gemensamma för mål data uppsättningen. I allmänhet bör bas linjen anges till en modells utbildnings data uppsättning eller en sektor av mål data uppsättningen. | Nej |
+| Mål data uppsättning | Tabell data uppsättning med en tidsstämpel-kolumn som ska analyseras för data avvikelser. | Mål data uppsättningen måste ha funktioner gemensamt med bas linje data uppsättningen och måste vara en `timeseries` data uppsättning som nya data läggs till i. Historiska data i mål data uppsättningen kan analyseras eller också kan nya data övervakas. | Nej | 
+| Frequency | Den frekvens som används för att schemalägga pipeline-jobbet och analysera historiska data om en hel fyllning körs. Alternativen omfattar varje dag, varje vecka eller varje månad. | Justera den här inställningen för att inkludera en jämförbar data storlek till bas linjen. | Nej | 
 | Funktioner | Lista över funktioner som kommer att analyseras för data drift över tid. | Ställ in till en modells utmatnings funktion (er) för att mäta begrepps avvikelsen. Inkludera inte funktioner som används naturligt över tid (månad, år, index osv.). Du kan fylla på och befintlig data riktnings övervakning när du har justerat listan med funktioner. | Ja | 
 | Beräkningsmål | Azure Machine Learning Compute Target för att köra data uppsättnings övervaknings jobben. | | Ja | 
 
@@ -145,7 +145,7 @@ De här inställningarna gäller för den schemalagda data behandlings övervaka
 | Inställning | Beskrivning | Tips | Föränderlig | 
 | ------- | ----------- | ---- | ------- |
 | Aktivera | Aktivera eller inaktivera schemat i pipelinen för data uppsättnings övervakaren | Inaktivera schemat för att analysera historiska data med den egna fyllnings inställningen. Den kan aktive ras när data uppsättnings övervakaren har skapats. | Ja | 
-| Svarstid | Tid i timmar tar det för data att komma in i data uppsättningen. Till exempel, om det tar tre dagar innan data tas emot i SQL DB-datauppsättningen inkapslade, ställer du in svars tiden på 72. | Kan inte ändras efter att data uppsättnings övervakaren har skapats | Inga | 
+| Svarstid | Tid i timmar tar det för data att komma in i data uppsättningen. Till exempel, om det tar tre dagar innan data tas emot i SQL DB-datauppsättningen inkapslade, ställer du in svars tiden på 72. | Kan inte ändras efter att data uppsättnings övervakaren har skapats | Nej | 
 | E-postadresser | E-postadresser för aviseringar baserat på överträdelse av tröskelvärdet för data avvikelse i procent. | E-postmeddelanden skickas via Azure Monitor. | Ja | 
 | Tröskelvärde | Tröskelvärde för data avvikelse i procent för e-postavisering. | Ytterligare aviseringar och händelser kan anges för många andra mått i arbets ytans associerade Application Insights-resurs. | Ja | 
 
@@ -233,7 +233,7 @@ Ett komplett exempel på hur du konfigurerar en `timeseries` data uppsättning o
 
 Data övervakaren producerar två resultat grupper: avvikelse översikt och funktions information. Följande animering visar tillgängliga riktnings övervaknings diagram baserat på vald funktion och mått. 
 
-![Demonstrationsvideo](./media/how-to-monitor-datasets/video.gif)
+![Demo video](./media/how-to-monitor-datasets/video.gif)
 
 ### <a name="drift-overview"></a>Avvikelse översikt
 
@@ -266,8 +266,8 @@ Numeriska funktioner profilerade i varje data uppsättnings övervakare körs. F
 | ------ | ----------- |  
 | Wasserstein avstånd | Minsta arbets mängd för att transformera bas linje distribution till mål distributionen. |
 | Genomsnitts värde | Genomsnittligt värde för funktionen. |
-| Minvärde | Det minsta värdet för funktionen. |
-| Maxvärde | Det maximala värdet för funktionen. |
+| Minsta värde | Det minsta värdet för funktionen. |
+| Max värde | Det maximala värdet för funktionen. |
 
 ![Funktions information numerisk](./media/how-to-monitor-datasets/feature-details.png)
 
@@ -301,13 +301,13 @@ Data uppsättnings övervaknings måtten lagras som `customMetrics`. Du kan skri
 
 När du har identifierat mått för att ställa in aviserings regler skapar du en ny aviserings regel:
 
-![Ny varningsregel](./media/how-to-monitor-datasets/alert-rule.png)
+![Ny varnings regel](./media/how-to-monitor-datasets/alert-rule.png)
 
 Du kan använda en befintlig åtgärds grupp eller skapa en ny för att definiera vilken åtgärd som ska vidtas när angivna villkor uppfylls:
 
 ![Ny åtgärds grupp](./media/how-to-monitor-datasets/action-group.png)
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Begränsningar och kända problem:
 
@@ -319,13 +319,13 @@ Begränsningar och kända problem:
 
 Kolumner eller funktioner i data uppsättningen klassificeras som kategoriska eller numeriska baserat på villkoren i följande tabell. Om funktionen inte uppfyller dessa villkor, t. ex. en kolumn av typen String med > 100 unika värden, släpps funktionen från vår algoritm för data avvikelser, men är fortfarande profilerad. 
 
-| Funktions typ | Datatyp | Villkor | Begränsningar | 
+| Funktions typ | Datatyp | Tillstånd | Begränsningar | 
 | ------------ | --------- | --------- | ----------- |
 | Kategoriska | sträng, bool, int, Float | Antalet unika värden i funktionen är mindre än 100 och mindre än 5% av antalet rader. | Null behandlas som sin egen kategori. | 
 | Numeriskt | int, Float | Värdena i funktionen är av en numerisk datatyp och uppfyller inte villkoret för en kategoriska-funktion. | Funktionen utelämnas om > 15% av värdena är null. | 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Gå till [Azure Machine Learning Studio](https://ml.azure.com) eller [python Notebook](https://aka.ms/datadrift-notebook) för att ställa in en data uppsättnings övervakare.
+* Gå till [Azure Machine Learning Studio](https://ml.azure.com) eller [python Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb) för att ställa in en data uppsättnings övervakare.
 * Se hur du konfigurerar data drift på [modeller som har distribuerats till Azure Kubernetes-tjänsten](how-to-monitor-data-drift.md).
 * Konfigurera data uppsättnings riktnings övervakare med [Event Grid](how-to-use-event-grid.md). 

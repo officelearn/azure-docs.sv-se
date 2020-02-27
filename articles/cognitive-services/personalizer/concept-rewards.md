@@ -1,27 +1,22 @@
 ---
 title: Belönings Poäng – Personanpassare
-titleSuffix: Azure Cognitive Services
 description: Belönings poängen anger hur bra det RewardActionID som har gjort det, för användaren. Värdet för belönings poängen bestäms av affärs logiken, baserat på observationer av användar beteende. Personanpassa tågens maskin inlärnings modeller genom att utvärdera belöningarna.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.date: 02/20/2020
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.author: diberry
-ms.openlocfilehash: a47d6014e51dce81c9caf82f8624896c439f050d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 734e4d0fdcec25884f8535ec61ccd10569fa8890
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490880"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623782"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Belönings Poäng visar att anpassningen lyckades
 
 Belönings poängen anger hur bra det [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/rank/rank#response)som har gjort det, för användaren. Värdet för belönings poängen bestäms av affärs logiken, baserat på observationer av användar beteende.
 
-Personanpassa tågens maskin inlärnings modeller genom att utvärdera belöningarna. 
+Personanpassa tågens maskin inlärnings modeller genom att utvärdera belöningarna.
+
+Lär dig [hur du](how-to-settings.md#configure-rewards-for-the-feedback-loop) konfigurerar standard belönings poängen i Azure Portal för din personanpassa resurs.
 
 ## <a name="use-reward-api-to-send-reward-score-to-personalizer"></a>Använd belönings-API: et för att skicka belönings poängen till Personanpassaren
 
@@ -47,16 +42,16 @@ Ta hänsyn till dessa signaler och beteenden för belönings poängen:
 
 En belönings Poäng måste beräknas i affärs logiken. Poängen kan representeras som:
 
-* Ett enda nummer skickas en gång 
+* Ett enda nummer skickas en gång
 * En poäng som skickas omedelbart (till exempel 0,8) och ytterligare poäng som skickas senare (vanligt vis 0,2).
 
 ## <a name="default-rewards"></a>Standard förmåner
 
 Om ingen belöning tas emot inom svarets [vänte tid](#reward-wait-time), varaktigheten sedan ranknings anropet, tillämpar den här klassificeringen implicit **standard belöningen** för denna rang-händelse.
 
-## <a name="building-up-rewards-with-multiple-factors"></a>Skapa fördelar med flera faktorer  
+## <a name="building-up-rewards-with-multiple-factors"></a>Skapa fördelar med flera faktorer
 
-För effektiv anpassning kan du skapa belönings poängen baserat på flera faktorer. 
+För effektiv anpassning kan du skapa belönings poängen baserat på flera faktorer.
 
 Du kan till exempel använda dessa regler för att anpassa en lista med video innehåll:
 
@@ -93,10 +88,10 @@ Genom att lägga till belönings resultat kan din slutliga belöning vara utanf�
 * **Ta hänsyn till oönskade konsekvenser**: skapa belönings funktioner som leder till ansvariga resultat med [etik och ansvarig användning](ethics-responsible-use.md).
 
 * **Använd ökande belöningar**: genom att lägga till del förmåner för mindre användar beteende kan du göra det lättare för användare att uppnå bättre fördelar. Den här stegvisa belöningen gör det möjligt för algoritmen att veta att den kommer närmare att engagera användaren i det slutliga önskade beteendet.
-    * Om du visar en lista över filmer, om användaren hovrar över den första för ett tag för att se mer information, kan du fastställa att vissa användar engagemang har inträffat. Beteendet kan räknas med en belönings poäng på 0,1. 
-    * Om användaren öppnade sidan och sedan avslutas, kan belönings poängen vara 0,2. 
+    * Om du visar en lista över filmer, om användaren hovrar över den första för ett tag för att se mer information, kan du fastställa att vissa användar engagemang har inträffat. Beteendet kan räknas med en belönings poäng på 0,1.
+    * Om användaren öppnade sidan och sedan avslutas, kan belönings poängen vara 0,2.
 
-## <a name="reward-wait-time"></a>vänte tid för belöning
+## <a name="reward-wait-time"></a>Vänte tid för belöning
 
 En personanpassare korrelerar informationen om ett rang samtal med de fördelar som skickas i belönings anrop för att träna modellen. De kan komma att uppstå vid olika tidpunkter. Personanpassaren väntar en begränsad tid och startar när rang anropet skedde, även om rang anropet gjordes som en inaktiv händelse och aktive ras senare.
 
@@ -106,12 +101,12 @@ Om **belöningens vänte tid** upphör att gälla, och det inte finns någon bel
 
 Följ dessa rekommendationer för bättre resultat.
 
-* Gör belönings vänte tiden så kort som möjligt, samtidigt som du lämnar tillräckligt med tid för att få feedback från användaren. 
+* Gör belönings vänte tiden så kort som möjligt, samtidigt som du lämnar tillräckligt med tid för att få feedback från användaren.
 
 * Välj inte en varaktighet som är kortare än den tid som krävs för att få feedback. Om några av dina förmåner till exempel har tittat på 1 minut i en video bör experiment längden vara minst dubbel.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Förstärka inlärning](concepts-reinforcement-learning.md) 
+* [Förstärka inlärning](concepts-reinforcement-learning.md)
 * [Testa rang-API: et](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank/console)
 * [Testa belönings-API: et](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward)

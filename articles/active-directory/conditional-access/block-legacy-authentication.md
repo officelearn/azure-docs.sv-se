@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a65145fe9752a90e3328c308ce603c8626d8708
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7f7f6f31c4d2f67660fef507ce101b2d15897d51
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380867"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620858"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Gör så här: blockera äldre autentisering till Azure AD med villkorlig åtkomst   
 
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) stöder en mängd olika autentiseringsprotokol
 
 Om din miljö är redo att blockera äldre autentisering för att förbättra din klients skydd kan du uppnå det här målet med villkorlig åtkomst. Den här artikeln förklarar hur du kan konfigurera principer för villkorlig åtkomst som blockerar äldre autentisering för din klient.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du är bekant med: 
 
@@ -48,13 +48,30 @@ Principer för villkorlig åtkomst tillämpas när den första faktorn har slutf
 
 I det här avsnittet beskrivs hur du konfigurerar en princip för villkorlig åtkomst för att blockera äldre autentisering. 
 
+### <a name="legacy-authentication-protocols"></a>Bakåtkompatibla autentiseringsprotokoll
+
+Följande alternativ anses vara bakåtkompatibla autentiseringsprotokoll
+
+- Autentiserad SMTP – används av POP-och IMAP-klienten för att skicka e-postmeddelanden.
+- Identifiera automatiskt – används av Outlook-och EAS-klienter för att hitta och ansluta till post lådor i Exchange Online.
+- Exchange Online PowerShell – används för att ansluta till Exchange Online med fjärr-PowerShell. Om du blockerar grundläggande autentisering för Exchange Online PowerShell måste du använda Exchange Online PowerShell-modulen för att ansluta. Mer information finns i [ansluta till Exchange Online PowerShell med Multi-Factor Authentication](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+- Exchange Web Services (EWS) – ett programmerings gränssnitt som används av Outlook, Outlook för Mac och appar från tredje part.
+- IMAP4 – används av IMAP e-postklienter.
+- MAPI över HTTP (MAPI/HTTP) – används av Outlook 2010 och senare.
+- Offlineadressbok (OAB) – en kopia av adress list samlingar som hämtas och används av Outlook.
+- Outlook överallt (RPC över HTTP) – används av Outlook 2016 och tidigare.
+- Outlook service – används av appen e-post och kalender för Windows 10.
+- POP3 – används av POP-e-postklienter.
+- Repor ting Web Services – används för att hämta rapport data i Exchange Online.
+- Andra klienter – andra protokoll som identifieras som användning av äldre autentisering.
+
 ### <a name="identify-legacy-authentication-use"></a>Identifiera användning av äldre autentisering
 
 Innan du kan blockera äldre autentisering i din katalog måste du först förstå om dina användare har appar som använder äldre autentisering och hur de påverkar den övergripande katalogen. Inloggnings loggar för Azure AD kan användas för att förstå om du använder äldre autentisering.
 
 1. Gå till **Azure Portal** > **Azure Active Directory** > **inloggningar**.
 1. Lägg till kolumnen klient program om den inte visas genom att klicka på **kolumner** > - **klient program**.
-1. **Lägg till filter** > **klient program** > Välj alla alternativ för **andra klienter** och klicka på **Använd**.
+1. **Lägg till filter** > **klient program** > Markera alla bakåtkompatibla autentiseringsprotokoll och klicka på **Använd**.
 
 Vid filtrering visas bara inloggnings försök som gjorts av äldre autentiseringsprotokoll. Om du klickar på varje enskilt inloggnings försök visas ytterligare information. Fältet **klient app** på fliken **grundläggande information** visar vilket äldre autentiseringsprotokoll som användes.
 
@@ -90,7 +107,7 @@ Säkerhets funktionen är nödvändig eftersom *Blockera alla användare och all
 
 Du kan utföra den här säkerhetsfunktionen genom att utesluta en användare från principen. Vi rekommenderar att du definierar några [administrativa konton för nöd administration i Azure AD](../users-groups-roles/directory-emergency-access.md) och exkluderar dem från principen.
 
-## <a name="policy-deployment"></a>Princip distribution
+## <a name="policy-deployment"></a>Distribution av princip
 
 Innan du försätter din princip i produktion bör du ta hand om följande:
  

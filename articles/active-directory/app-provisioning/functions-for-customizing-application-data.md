@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd78c78a711b64c58290f09eb2ee52263375002f
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: cc41a18063202bfefb9ddf7238de17fc691984af
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522517"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612138"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappningar i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappningar som du kan ange mappningen för en uttryck. För dessa, måste du skriva ett skript-liknande uttryck som hjälper dig att omvandla dina användares data till format som kan användas mer för SaaS-program.
@@ -29,7 +29,7 @@ Syntaxen för uttryck för attributmappningar är påminner om Visual Basic för
 
 * Hela uttrycket måste definieras när det gäller funktioner, som består av ett namn följt av argument inom parentes: <br>
   *FunctionName (`<<argument 1>>`,`<<argument N>>`)*
-* Du kan kapsla funktioner i varandra. Exempel: <br> *FunctionOne (FunctionTwo (`<<argument1>>`))*
+* Du kan kapsla funktioner i varandra. Några exempel: <br> *FunctionOne (FunctionTwo (`<<argument1>>`))*
 * Du kan skicka tre olika typer av argument funktioner:
   
   1. Attribut måste omges av hakparenteser. Till exempel: [attributeName]
@@ -38,7 +38,7 @@ Syntaxen för uttryck för attributmappningar är påminner om Visual Basic för
 * För strängkonstanter, om du behöver ett omvänt snedstreck (\) eller citattecken (”) i strängen är måste den föregås symbolen omvänt snedstreck (\). Exempel: "företags namn: \\" contoso\\""
 
 ## <a name="list-of-functions"></a>Lista över funktioner
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp;[RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### <a name="append"></a>Lägg till
@@ -50,8 +50,8 @@ Syntaxen för uttryck för attributmappningar är påminner om Visual Basic för
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **källicensservern** |Obligatoriskt |String |Vanligtvis namnet på attributet från källobjektet. |
-| **huvudnamnssuffix** |Obligatoriskt |String |Den sträng som du vill lägga till i slutet av värdet för datakällan. |
+| **källicensservern** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
+| **huvudnamnssuffix** |Krävs |Sträng |Den sträng som du vill lägga till i slutet av värdet för datakällan. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -68,8 +68,8 @@ Med andra ord returneras 0 i samtliga fall, förutom när motsvarande bitar i b�
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **value1** |Obligatoriskt |NUM |Numeriskt värde som ska AND'ed med värde2|
-| **värde2** |Obligatoriskt |NUM |Numeriskt värde som ska AND'ed med värde1|
+| **value1** |Krävs |NUM |Numeriskt värde som ska AND'ed med värde2|
+| **värde2** |Krävs |NUM |Numeriskt värde som ska AND'ed med värde1|
 
 **Exempel:**<br>
 BitAnd (& HF, & HF7)                                                                                
@@ -85,7 +85,7 @@ BitAnd (& HF, & HF7)
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **uttryck** |Obligatoriskt | expression | Ett giltigt uttryck |
+| **uttryck** |Krävs | expression | Ett giltigt uttryck |
 
 **Exempel:**<br>
 CBool ([Attribute1] = [Attribute2])                                                                    
@@ -101,8 +101,8 @@ Returnerar true om båda attributen har samma värde.
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **source1 ... Källa** | Obligatoriskt | String |Obligatoriskt, variabel antal gånger. Vanligtvis namnet på attributet från källobjektet. |
-| **Standar** | Valfri | String | Standardvärdet som ska användas när alla käll värden är NULL. Kan vara tom sträng (””).
+| **source1 ... Källa** | Krävs | Sträng |Obligatoriskt, variabel antal gånger. Vanligtvis namnet på attributet från källobjektet. |
+| **Standar** | Valfri | Sträng | Standardvärdet som ska användas när alla käll värden är NULL. Kan vara tom sträng (””).
 
 ---
 ### <a name="converttobase64"></a>ConvertToBase64
@@ -114,7 +114,7 @@ Returnerar true om båda attributen har samma värde.
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **källicensservern** |Obligatoriskt |String |Sträng som ska konverteras till bas 64|
+| **källicensservern** |Krävs |Sträng |Sträng som ska konverteras till bas 64|
 
 **Exempel:**<br>
 ConvertToBase64 ("Hello World!")                                                                                                        
@@ -130,7 +130,7 @@ Returnerar "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **källicensservern** |Obligatoriskt |String |Sträng som ska konverteras till UTF8 hex|
+| **källicensservern** |Krävs |Sträng |Sträng som ska konverteras till UTF8 hex|
 
 **Exempel:**<br>
 ConvertToUTF8Hex ("Hello World!")                                                                                                         
@@ -146,7 +146,7 @@ Returnerar 48656C6C6F20776F726C6421
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **basattributet** |Obligatoriskt |basattributet |Ett flervärdesattribut som innehåller element som räknas|
+| **basattributet** |Krävs |basattributet |Ett flervärdesattribut som innehåller element som räknas|
 
 ---
 ### <a name="cstr"></a>CStr
@@ -158,7 +158,7 @@ Returnerar 48656C6C6F20776F726C6421
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **värde** |Obligatoriskt | numerisk, referens eller boolesk | Kan vara ett numeriskt värde, ett referens-eller Boolean-attribut. |
+| **värde** |Krävs | numerisk, referens eller boolesk | Kan vara ett numeriskt värde, ett referens-eller Boolean-attribut. |
 
 **Exempel:**<br>
 CStr ([DN])                                                            
@@ -174,7 +174,7 @@ Returnerar "CN = Johan, DC = contoso, DC = com"
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **värde** |Obligatoriskt | Datum | AD-datum som ska konverteras till DateTime-typ |
+| **värde** |Krävs | Date | AD-datum som ska konverteras till DateTime-typ |
 
 **Exempel:**<br>
 DateFromNum([lastLogonTimestamp])                                                                                                   
@@ -191,15 +191,32 @@ Returnerar en DateTime som representerar 2012-01-01 23:00:00
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **källicensservern** |Obligatoriskt |String |Vanligtvis namnet på attributet från källobjektet. |
-| **inputFormat** |Obligatoriskt |String |Förväntade format för värdet för datakällan. För format som stöds, se [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Obligatoriskt |String |Formatet för Utdatadatum. |
+| **källicensservern** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
+| **inputFormat** |Krävs |Sträng |Förväntade format för värdet för datakällan. För format som stöds, se [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **outputFormat** |Krävs |Sträng |Formatet för Utdatadatum. |
 
 ---
 ### <a name="guid"></a>Guid
 **Funktioner**<br> GUID ()
 
 **Beteckning**<br> Funktions-GUID genererar ett nytt slumpmässigt GUID
+
+---
+### <a name="iif"></a>IIF
+**Funktioner**<br> IIF (Condition, valueIfTrue, valueIfFalse)
+
+**Beteckning**<br> Funktionen IIF returnerar en uppsättning möjliga värden baserat på ett angivet villkor.
+
+**Komponentparametrar**<br> 
+
+| Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
+| --- | --- | --- | --- |
+| **moduletype** |Krävs |Variabel eller uttryck |Ett värde eller uttryck som kan utvärderas till true eller false. |
+| **valueIfTrue** |Krävs |Variabel eller sträng | Om villkoret utvärderas till sant returneras det returnerade värdet. |
+| **valueIfFalse** |Krävs |Variabel eller sträng |Om villkoret utvärderas till false returneras det returnerade värdet.|
+
+**Exempel:**<br>
+IIF ([land] = "USA", [land], [avdelning])
 
 ---
 ### <a name="instr"></a>InStr
@@ -211,9 +228,9 @@ Returnerar en DateTime som representerar 2012-01-01 23:00:00
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **value1** |Obligatoriskt |String |Sträng som ska genomsökas |
-| **värde2** |Obligatoriskt |String |Sträng som ska hittas |
-| **start** |Valfri |Heltal |Start position för att hitta del strängen|
+| **value1** |Krävs |Sträng |Sträng som ska genomsökas |
+| **värde2** |Krävs |Sträng |Sträng som ska hittas |
+| **start** |Valfri |Integer |Start position för att hitta del strängen|
 | **compareType** |Valfri |Enum |Kan vara vbTextCompare eller vbBinaryCompare |
 
 **Exempel:**<br>
@@ -233,7 +250,7 @@ Utvärderas till 7
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **uttryck** |Obligatoriskt |expression |Uttryck som ska utvärderas |
+| **uttryck** |Krävs |expression |Uttryck som ska utvärderas |
 
 **Exempel:**<br>
 IsNull ([displayName])                                                                                                
@@ -250,7 +267,7 @@ Inversen till den här funktionen heter IsPresent.
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **uttryck** |Obligatoriskt |expression |Uttryck som ska utvärderas |
+| **uttryck** |Krävs |expression |Uttryck som ska utvärderas |
 
 **Exempel:**<br>
 IsNullOrEmpty ([displayName])                                               
@@ -266,7 +283,7 @@ Returnerar sant om attributet inte finns eller är en tom sträng
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **uttryck** |Obligatoriskt |expression |Uttryck som ska utvärderas |
+| **uttryck** |Krävs |expression |Uttryck som ska utvärderas |
 
 **Exempel:**<br>
 Switch (IsPresent ([directManager]), [directManager], IsPresent ([skiplevelManager]), [skiplevelManager], IsPresent ([Director]), [Director])
@@ -281,7 +298,7 @@ Switch (IsPresent ([directManager]), [directManager], IsPresent ([skiplevelManag
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **uttryck** |Obligatoriskt |expression |Uttryck som ska utvärderas |
+| **uttryck** |Krävs |expression |Uttryck som ska utvärderas |
 
 ---
 ### <a name="item"></a>Objekt
@@ -293,8 +310,8 @@ Switch (IsPresent ([directManager]), [directManager], IsPresent ([skiplevelManag
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **basattributet** |Obligatoriskt |Attribut |Multi-Value-attribut som ska genomsökas |
-| **Tabbindex** |Obligatoriskt |Heltal | Index till ett objekt i en multi-Value-sträng|
+| **basattributet** |Krävs |Attribut |Multi-Value-attribut som ska genomsökas |
+| **Tabbindex** |Krävs |Integer | Index till ett objekt i en multi-Value-sträng|
 
 **Exempel:**<br>
 Objekt ([proxyAddresses], 1)
@@ -311,8 +328,8 @@ Om ett av käll värdena är ett flervärdesattribut, kopplas alla värden i det
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **brytning** |Obligatoriskt |String |Strängen används för att avgränsa källvärdena när de sammanfogas till en sträng. Kan vara ”” om det krävs ingen avgränsare. |
-| **source1 ... Källa** |Krävs, variabeln antal gånger |String |Sträng värden kopplas. |
+| **brytning** |Krävs |Sträng |Strängen används för att avgränsa källvärdena när de sammanfogas till en sträng. Kan vara ”” om det krävs ingen avgränsare. |
+| **source1 ... Källa** |Krävs, variabeln antal gånger |Sträng |Sträng värden kopplas. |
 
 ---
 ### <a name="left"></a>Från
@@ -327,8 +344,8 @@ Om strängen innehåller färre tecken än det tal som anges i numChars returner
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **Sträng** |Obligatoriskt |Attribut | Strängen att returnera tecken från |
-| **NumChars** |Obligatoriskt |Heltal | Ett tal som identifierar antalet tecken som ska returneras från början (vänster) av sträng|
+| **Sträng** |Krävs |Attribut | Strängen att returnera tecken från |
+| **NumChars** |Krävs |Integer | Ett tal som identifierar antalet tecken som ska returneras från början (vänster) av sträng|
 
 **Exempel:**<br>
 Left ("John berg", 3)                                                            
@@ -344,9 +361,9 @@ Returnerar "Joh"
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **källicensservern** |Obligatoriskt |String |Vanligtvis namnet på attributet. |
-| **start** |Obligatoriskt |heltal |Index i **käll** strängen där under strängen ska starta. Första tecknet i strängen har index 1, andra tecknet ska ha index 2 och så vidare. |
-| **krävande** |Obligatoriskt |heltal |Delsträngens längd. Om längden slutar utanför **käll** strängen returnerar funktionen del sträng från **Start** index till slutet av **käll** strängen. |
+| **källicensservern** |Krävs |Sträng |Vanligtvis namnet på attributet. |
+| **start** |Krävs |heltal |Index i **käll** strängen där under strängen ska starta. Första tecknet i strängen har index 1, andra tecknet ska ha index 2 och så vidare. |
+| **krävande** |Krävs |heltal |Delsträngens längd. Om längden slutar utanför **käll** strängen returnerar funktionen del sträng från **Start** index till slutet av **käll** strängen. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -358,7 +375,7 @@ Returnerar "Joh"
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **källicensservern** |Obligatoriskt |String | Vanligt vis attributet förnamn eller efter namn. |
+| **källicensservern** |Krävs |Sträng | Vanligt vis attributet förnamn eller efter namn. |
 
 ---
 ### <a name="not"></a>Inte
@@ -370,7 +387,7 @@ Returnerar "Joh"
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **källicensservern** |Obligatoriskt |Booleska sträng |Förväntade **käll** värden är "true" eller "false". |
+| **källicensservern** |Krävs |Booleska sträng |Förväntade **käll** värden är "true" eller "false". |
 
 ---
 ### <a name="numfromdate"></a>NumFromDate
@@ -382,7 +399,7 @@ Returnerar "Joh"
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **värde** |Obligatoriskt | String | Datum/tid-sträng i formatet stöds. För format som stöds, se https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
+| **värde** |Krävs | Sträng | Datum/tid-sträng i formatet stöds. För format som stöds, se https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
 
 **Exempel:**<br>
 * Exempel på arbets dagar <br>
@@ -404,7 +421,7 @@ Returnerar "Joh"
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **basattributet** |Obligatoriskt |Multi-Value-attribut |Multi-Value-attribut som ska ha dubbletter borttagna|
+| **basattributet** |Krävs |Multi-Value-attribut |Multi-Value-attribut som ska ha dubbletter borttagna|
 
 **Exempel:**<br>
 RemoveDuplicates ([proxyAddresses])                                                                                                       
@@ -438,13 +455,13 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **källicensservern** |Obligatoriskt |String |Vanligt vis namnet på attributet från **källobjektet** . |
-| **Gammalt** |Valfri |String |Värdet som ska ersättas i **källa** eller **mall**. |
-| **regexPattern** |Valfri |String |Regex-mönster för värdet som ska ersättas i **källan**. Eller, när **replacementPropertyName** används, mönster för att extrahera värdet från **replacementPropertyName**. |
-| **regexGroupName** |Valfri |String |Namnet på gruppen inuti **regexPattern**. Endast när **replacementPropertyName** används kommer vi att extrahera värdet för den här gruppen som **replacementValue** från **replacementPropertyName**. |
-| **replacementValue** |Valfri |String |Nytt värde som ersätter gamla med. |
-| **replacementAttributeName** |Valfri |String |Namnet på attributet som ska användas för ersättnings värde |
-| **webbplatsmall** |Valfri |String |När ett **mallnamn** anges söker vi efter **OldValue** i mallen och ersätter det med **käll** värde. |
+| **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet från **källobjektet** . |
+| **Gammalt** |Valfri |Sträng |Värdet som ska ersättas i **källa** eller **mall**. |
+| **regexPattern** |Valfri |Sträng |Regex-mönster för värdet som ska ersättas i **källan**. Eller, när **replacementPropertyName** används, mönster för att extrahera värdet från **replacementPropertyName**. |
+| **regexGroupName** |Valfri |Sträng |Namnet på gruppen inuti **regexPattern**. Endast när **replacementPropertyName** används kommer vi att extrahera värdet för den här gruppen som **replacementValue** från **replacementPropertyName**. |
+| **replacementValue** |Valfri |Sträng |Nytt värde som ersätter gamla med. |
+| **replacementAttributeName** |Valfri |Sträng |Namnet på attributet som ska användas för ersättnings värde |
+| **webbplatsmall** |Valfri |Sträng |När ett **mallnamn** anges söker vi efter **OldValue** i mallen och ersätter det med **käll** värde. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -463,7 +480,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **uniqueValueRule1 ... uniqueValueRuleN** |Minst är 2 krävs, inte övre gräns |String | Lista med regler för generering av unika värden som ska utvärderas. |
+| **uniqueValueRule1 ... uniqueValueRuleN** |Minst är 2 krävs, inte övre gräns |Sträng | Lista med regler för generering av unika värden som ska utvärderas. |
 
 
 ---
@@ -476,7 +493,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **AppRoleAssignments** |Obligatoriskt |String |**[appRoleAssignments]** -objekt. |
+| **AppRoleAssignments** |Krävs |Sträng |**[appRoleAssignments]** -objekt. |
 
 ---
 ### <a name="split"></a>Dela
@@ -488,8 +505,8 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **källicensservern** |Obligatoriskt |String |**käll** värde att uppdatera. |
-| **avgränsare** |Obligatoriskt |String |Anger det tecken som ska användas för att dela strängen (exempel: ",") |
+| **källicensservern** |Krävs |Sträng |**käll** värde att uppdatera. |
+| **avgränsare** |Krävs |Sträng |Anger det tecken som ska användas för att dela strängen (exempel: ",") |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -501,7 +518,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **källicensservern** |Obligatoriskt |String |**käll** värde att uppdatera. |
+| **källicensservern** |Krävs |Sträng |**käll** värde att uppdatera. |
 
 ---
 ### <a name="switch"></a>Växel
@@ -513,10 +530,10 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **källicensservern** |Obligatoriskt |String |**Käll** värde att uppdatera. |
-| **Standar** |Valfri |String |Standardvärde som ska användas när källan inte matchar några nycklar. Kan vara tom sträng (””). |
-| **nyckel** |Obligatoriskt |String |**Nyckel** att jämföra **käll** värde med. |
-| **värde** |Obligatoriskt |String |Ersättnings värde för den **källa** som matchar nyckeln. |
+| **källicensservern** |Krävs |Sträng |**Käll** värde att uppdatera. |
+| **Standar** |Valfri |Sträng |Standardvärde som ska användas när källan inte matchar några nycklar. Kan vara tom sträng (””). |
+| **nyckel** |Krävs |Sträng |**Nyckel** att jämföra **käll** värde med. |
+| **värde** |Krävs |Sträng |Ersättnings värde för den **källa** som matchar nyckeln. |
 
 ---
 ### <a name="tolower"></a>toLower
@@ -528,8 +545,8 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **källicensservern** |Obligatoriskt |String |Vanligtvis namnet på attributet från källobjektet |
-| **substrat** |Valfri |String |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
+| **källicensservern** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet |
+| **substrat** |Valfri |Sträng |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
 
 ---
 ### <a name="toupper"></a>toUpper
@@ -541,8 +558,8 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **källicensservern** |Obligatoriskt |String |Vanligtvis namnet på attributet från källobjektet. |
-| **substrat** |Valfri |String |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
+| **källicensservern** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
+| **substrat** |Valfri |Sträng |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
 
 ---
 ### <a name="word"></a>Word
@@ -558,9 +575,9 @@ Om strängen innehåller färre än tal ord, eller om strängen inte innehåller
 
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **Sträng** |Obligatoriskt |Multi-Value-attribut |Sträng för att returnera ett ord från.|
-| **WordNumber** |Obligatoriskt | Heltal | Nummer som identifierar vilket ord nummer som ska returneras|
-| **avgränsare** |Obligatoriskt |String| En sträng som representerar de avgränsare som ska användas för att identifiera ord|
+| **Sträng** |Krävs |Multi-Value-attribut |Sträng för att returnera ett ord från.|
+| **WordNumber** |Krävs | Integer | Nummer som identifierar vilket ord nummer som ska returneras|
+| **avgränsare** |Krävs |Sträng| En sträng som representerar de avgränsare som ska användas för att identifiera ord|
 
 **Exempel:**<br>
 Word ("Quick Jansson Fox", 3, "")                                                                                       

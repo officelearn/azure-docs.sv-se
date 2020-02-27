@@ -8,33 +8,33 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e6fbf0e4cbfc44692292c33fc46d9ea0eccec89d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7acff7f0249cdedcebd367fc315be92cafb9ab78
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75370279"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615446"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Snabb start: skapa en enhets-Android-app med avstånds ankare för Azure
 
-Den här snabb starten beskriver hur du skapar en Unity Android-app med hjälp av [Azure spatiala ankare](../overview.md). Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa upplevelser med mixad verklighet med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en ARCore Android-app som skapats med Unity och som kan spara och återkalla en spatial fästpunkt.
+Den här snabb starten beskriver hur du skapar en Unity Android-app med hjälp av [Azure spatiala ankare](../overview.md). Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa Mixed Reality-upplevelser med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en ARCore Android-app som skapats med Unity och som kan spara och återkalla en spatial fästpunkt.
 
 Du lär dig följande:
 
 > [!div class="checklist"]
 > * Skapa ett Spatial Anchors-konto
 > * Förbereda Unity-bygginställningar
-> * Konfigurera konto-ID och kontonyckel för Spatial Anchors
+> * Konfigurera kontoidentifierare och kontonyckel för Spatial Anchors
 > * Exportera Android Studio-projektet
 > * Distribuera och köra på en Android-enhet
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Kontrollera att du har följande så att du kan utföra den här snabbstarten:
+Kontrollera att du har följande för genomföra den här snabbstarten:
 
-- En Windows-eller macOS-dator med <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 +</a> inklusive stöd för Android-build och android SDK & NDK tools.
+- En Windows-eller macOS-dator med enhet <a href="https://unity3d.com/get-unity/download" target="_blank">2019,1 eller 2019,2</a> , inklusive stöd för Android-build och android SDK & NDK tools.
   - Om du kör på Windows, behöver du även <a href="https://git-scm.com/download/win" target="_blank">git för Windows</a> och <a href="https://git-lfs.github.com/">git LF</a>.
   - Om du kör på macOS ska du Hämta git installerat via HomeBrew. Ange följande kommando i en enskild rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Kör sedan `brew install git` och `brew install git-lfs`.
 - En <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">utvecklaraktiverad</a> och <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore-kapabel</a> Android-enhet.
@@ -50,7 +50,7 @@ Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
 [!INCLUDE [Android Unity Build Settings](../../../includes/spatial-anchors-unity-android-build-settings.md)]
 
-## <a name="configure-account-identifier-and-key"></a>Konfigurera konto-ID och -nyckel
+## <a name="configure-account-identifier-and-key"></a>Konfigurera kontoidentifierare och nyckel
 
 I fönstret **Projekt** går du till `Assets/AzureSpatialAnchors.Examples/Scenes` och öppnar scenfilen `AzureSpatialAnchorsBasicDemo.unity`.
 
@@ -66,9 +66,15 @@ Välj enheten i **Kör enhet** och klicka på **skapa och kör**. Du uppmanas at
 
 Följ instruktionerna i appen för att placera och återkalla en fästpunkt.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
+
+### <a name="rendering-issues"></a>Åter givnings problem
 
 Om du inte ser kameran som bakgrund när du kör appen (om du till exempel ser en tom, blå eller annan textur) behöver du förmodligen återimportera tillgångarna i Unity. Stoppa appen. Från den översta menyn i Unity väljer du **Assets -> Reimport all** (Tillgångar -> Återimportera alla). Kör sedan appen igen.
+
+### <a name="unity-20193"></a>Unity 2019,3
+
+På grund av avbrytande ändringar stöds inte Unity 2019,3 för närvarande. Använd Unity 2019,1 eller 2019,2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

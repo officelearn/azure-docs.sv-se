@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: c286efcfad78a8f7acf9974605d53ed3cc06a09e
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 2d81e1a1218add504e1e35015276b6924da0e3e3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604531"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616473"
 ---
 # <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Skydda dina Azure App Service-webbappar och API: er
 
@@ -29,7 +29,7 @@ Om du vill aktivera avancerat skydd för din Azure App Service-plan måste du:
 
 När App Service plan aktive rad bedömer Security Center resurserna som omfattas av din App Service plan och genererar säkerhets rekommendationer baserat på dess resultat. Security Center skyddar den VM-instans där App Service körs och hanterings gränssnittet. Den övervakar också förfrågningar och svar som skickas till och från dina appar som körs i App Service.
 
-Security Center utnyttjar molnets skala och den synlighet som Azure har som moln leverantör, för att övervaka för vanliga attacker från webb program. Security Center kan identifiera attacker på dina program och identifiera nya attacker – även om angripare befinner sig i rekognosering-fasen för att identifiera sårbarheter i flera Azure-värdbaserade program. Som en Azure-Native-tjänst är Security Center också i en unik position för att erbjuda värdbaserade säkerhets analyser som täcker underliggande datornoder för den här PaaS, vilket gör att Security Center kan upptäcka attacker mot webb program som redan utnyttjats. Information om Security Centers aviseringar om hot identifiering från Azure App Service finns i [hot identifiering för molnbaserad data behandling i molnet](security-center-alerts-compute.md#azure-app-service-).
+Security Center utnyttjar molnets skala och den synlighet som Azure har som moln leverantör, för att övervaka för vanliga attacker från webb program. Security Center kan identifiera attacker på dina program och identifiera nya attacker – även om angripare befinner sig i rekognosering-fasen för att identifiera sårbarheter i flera Azure-värdbaserade program. Som en Azure-Native-tjänst är Security Center också i en unik position för att erbjuda värdbaserade säkerhets analyser som täcker underliggande datornoder för den här PaaS, vilket gör att Security Center kan upptäcka attacker mot webb program som redan utnyttjats. Mer information finns i [skydd mot Azure App Service](threat-protection.md#app-services).
 
 
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>Aktivera övervakning och skydd av App Service

@@ -3,12 +3,12 @@ title: Använd PowerShell för att säkerhetskopiera Windows Server till Azure
 description: I den här artikeln lär du dig hur du använder PowerShell för att konfigurera Azure Backup på Windows Server eller en Windows-klient och hur du hanterar säkerhets kopiering och återställning.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: ff723eb2ebe48a7019fecec9106c1618a636b94c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 85006a318864aed537b70a97fb38f89746d2878c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583150"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622815"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för Windows Server/Windows-klient med hjälp av PowerShell
 
@@ -403,34 +403,6 @@ State           : New
 PolicyState     : Valid
 ```
 
-## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>Säkerhetskopiera Windows Server System State i MABS-agenten
-
-I det här avsnittet beskrivs PowerShell-kommandot för att ställa in system tillstånd i MABS-agenten
-
-### <a name="schedule"></a>Schema
-
-```powershell
-$sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
-```
-
-### <a name="retention"></a>Kvarhållning
-
-```powershell
-$rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
-```
-
-### <a name="configuring-schedule-and-retention"></a>Konfigurera schema och kvarhållning
-
-```powershell
-New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
- ```
-
-### <a name="verifying-the-policy"></a>Verifiera principen
-
-```powershell
-Get-OBSystemStatePolicy
- ```
-
 ### <a name="applying-the-policy"></a>Tillämpar principen
 
 Objektet är nu komplett och har ett associerat schema för säkerhets kopiering, bevarande princip och en lista över undantagna filer. Den här principen kan nu bekräftas för Azure Backup att använda. Innan du tillämpar den nyligen skapade principen kontrollerar du att det inte finns några befintliga säkerhets kopierings principer kopplade till servern med hjälp av cmdleten [Remove-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/remove-obpolicy?view=winserver2012-ps) . Om du tar bort principen uppmanas du att bekräfta. Om du vill hoppa över bekräftelsen använder du flaggan `-Confirm:$false` med cmdleten.
@@ -565,6 +537,34 @@ Job completed.
 The backup operation completed successfully.
 ```
 
+## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>Säkerhetskopiera Windows Server System State i MABS-agenten
+
+I det här avsnittet beskrivs PowerShell-kommandot för att ställa in system tillstånd i MABS-agenten
+
+### <a name="schedule"></a>Schema
+
+```powershell
+$sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
+```
+
+### <a name="retention"></a>Kvarhållning
+
+```powershell
+$rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
+```
+
+### <a name="configuring-schedule-and-retention"></a>Konfigurera schema och kvarhållning
+
+```powershell
+New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
+ ```
+
+### <a name="verifying-the-policy"></a>Verifiera principen
+
+```powershell
+Get-OBSystemStatePolicy
+ ```
+
 ## <a name="restore-data-from-azure-backup"></a>Återställa data från Azure Backup
 
 Det här avsnittet vägleder dig genom stegen för att automatisera återställning av data från Azure Backup. Detta omfattar följande steg:
@@ -631,7 +631,7 @@ Objektet `$Rps` är en matris med säkerhets kopierings punkter. Det första ele
 
 ### <a name="specifying-an-item-to-restore"></a>Ange ett objekt som ska återställas
 
-Om du vill återställa en enskild fil anger du fil namnet i förhållande till rot volymen. Om du till exempel vill hämta C:\Test\Cat.job kör du följande kommando. 
+Om du vill återställa en enskild fil anger du fil namnet i förhållande till rot volymen. Om du till exempel vill hämta C:\Test\Cat.job kör du följande kommando.
 
 ```powershell
 $Item = New-OBRecoverableItem $Rps[0] "Test\cat.jpg" $FALSE

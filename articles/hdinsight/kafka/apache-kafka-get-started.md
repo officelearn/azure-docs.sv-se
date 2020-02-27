@@ -5,21 +5,21 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: mvc
 ms.topic: quickstart
-ms.date: 10/01/2019
-ms.openlocfilehash: 76360ec8de645d926daec0db878906c73d0da948
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.custom: mvc
+ms.date: 02/24/2020
+ms.openlocfilehash: 286b16d850b1c1c26069c50cd4045bf7f3dd3c14
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030049"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623515"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Snabb start: skapa Apache Kafka kluster i Azure HDInsight med Azure Portal
 
-Apache Kafka är en distribuerad direktuppspelningsplattform med öppen källkod. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö.
+[Apache Kafka](./apache-kafka-introduction.md) är en distribuerad strömningsplattform med öppen källkod. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö.
 
-I den här snabbstarten lär du dig hur du skapar ett [Apache Kafka](https://kafka.apache.org)-kluster med hjälp av Azure Portal. Du kommer också lära dig hur du kan använda de inkluderade verktygen för att skicka och ta emot meddelanden med Apache Kafka.
+I den här snabb starten får du lära dig hur du skapar ett Apache Kafka kluster med hjälp av Azure Portal. Du kommer också lära dig hur du kan använda de inkluderade verktygen för att skicka och ta emot meddelanden med Apache Kafka. Mer ingående förklaringar av tillgängliga konfigurationer finns i [Konfigurera kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Mer information om hur du använder portalen för att skapa kluster finns i [skapa kluster i portalen](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -33,23 +33,25 @@ En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) m
 
 ## <a name="create-an-apache-kafka-cluster"></a>Skapa ett Apache Kafka-kluster
 
-Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
+Använd följande steg för att skapa ett Apache Kafka kluster i HDInsight:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. På den vänstra menyn navigerar du till **+ skapa en resurs** > **Analytics** > **HDInsight**.
+1. Välj **+ skapa en resurs**på den översta menyn.
 
-    ![Azure Portal skapa resurs-HDInsight](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
+    ![Azure Portal skapa resurs-HDInsight](./media/apache-kafka-get-started/azure-portal-create-resource.png)
 
-1. Under **grunderna**anger eller väljer du följande värden:
+1. Välj **Analytics** > **Azure HDInsight** för att gå till sidan **skapa HDInsight-kluster** .
+
+1. På fliken **grundläggande** anger du följande information:
 
     |Egenskap  |Beskrivning  |
     |---------|---------|
-    |Prenumeration    |  Välj din Azure-prenumeration. |
+    |Prenumeration    |  I list rutan väljer du den Azure-prenumeration som används för klustret. |
     |Resursgrupp     | Skapa en resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en container med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. |
-    |Klusternamn   | Ange ett namn för Hadoop-klustret. Eftersom alla kluster i HDInsight delar samma DNS-namnområde måste namnet vara unikt. Namnet kan bestå av upp till 59 tecken, inklusive bokstäver, siffror och bindestreck. De första och sista tecknen i namnet får inte vara bindestreck. |
-    |plats.    | Välj en Azure-plats där du vill skapa klustret.  Välj en plats närmare så får du bättre prestanda. |
-    |Kluster typ| Välj **Välj kluster typ**. Välj sedan **Kafka** som kluster typ.|
+    |Klusternamn   | Ange ett globalt unikt namn. Namnet kan bestå av upp till 59 tecken, inklusive bokstäver, siffror och bindestreck. De första och sista tecknen i namnet får inte vara bindestreck. |
+    |Region    | Välj en region där klustret skapas i list rutan.  Välj en region närmare för bättre prestanda. |
+    |Kluster typ| Välj **Välj kluster typ** för att öppna en lista. Välj **Kafka** som kluster typ i listan.|
     |Version|Standard versionen för kluster typen anges. Välj i list rutan om du vill ange en annan version.|
     |Användar namn och lösen ord för kluster inloggning    | Standard inloggnings namnet är **admin**. Lösen ordet måste bestå av minst 10 tecken och måste innehålla minst en siffra, en versal och en gemen bokstav, ett icke-alfanumeriskt tecken (förutom tecknen "" "\). Se till att du **inte anger** vanliga lösenord som Pass@word1.|
     |Secure Shell (SSH)-användarnamn | Standardanvändarnamnet är **sshuser**.  Du kan ange ett annat namn som SSH-användarnamn. |
@@ -100,15 +102,13 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 
-1. Anslut till Apache Kafka-klustrets primära huvudnod med följande kommando. Ersätt `sshuser` med SSH-användarnamnet. Ersätt `mykafka` med namnet på Apache Kafka-klustret.
+1. Använd [SSH-kommandot](../hdinsight-hadoop-linux-use-ssh-unix.md) för att ansluta till klustret. Redigera kommandot nedan genom att ersätta kluster namn med namnet på klustret och ange sedan kommandot:
 
-    ```bash
-    ssh sshuser@mykafka-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. När du ansluter till HDInsight första gången kan SSH-klienten visa en varning om att värdens äkthet inte kan fastställas. Skriv __ja__ när du uppmanas till detta och tryck sedan på __Retur__ så läggs värden till i SSH-klientens lista över betrodda servrar.
-
-3. Ange SSH-användarens lösenord när du uppmanas till detta.
+1. Ange SSH-användarens lösenord när du uppmanas till detta.
 
     När du är ansluten visas ett meddelande av följande slag:
 
@@ -155,6 +155,7 @@ I det här avsnittet hämtar du värdinformation från om värden från Apache A
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+
     > [!Note]  
     > Om du utför den här processen utanför klustret finns det en annan procedur för att lagra kluster namnet. Hämta kluster namnet i gemener från Azure Portal. Ersätt sedan kluster namnet för `<clustername>` i följande kommando och kör det: `export clusterName='<clustername>'`.
 
@@ -295,9 +296,7 @@ Ta bort en resursgrupp med Azure Portal:
 3. Välj __Ta bort resursgrupp__ och bekräfta.
 
 > [!WARNING]  
-> Debiteringen för HDInsight-klustret börjar när ett kluster skapas och stoppas när klustret tas bort. Debiteringen görs i förväg per minut, så du ska alltid ta bort ditt kluster när det inte används.
->
-> Om du tar bort en Apache Kafka i ett HDInsight-kluster tas alla data som lagrats i Kafka bort.
+> Om du tar bort ett Apache Kafka kluster i HDInsight tas alla data som lagras i Kafka bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: 234c4b0493a4f03ed89162318090d57621740cb0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6662f109f9a8227ec45d44a730abc91ebcd8dd70
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036693"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650852"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Beräkna benchmark-resultat för virtuella Linux-datorer
 Följande CoreMark benchmark-resultat visar beräknings prestanda för Azures höga prestanda i VM-serien som kör Ubuntu. Beräknings benchmark-resultat är också tillgängliga för [virtuella Windows-datorer](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -52,6 +52,8 @@ Följande CoreMark benchmark-resultat visar beräknings prestanda för Azures h�
 | Standard_A8m_v2 | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 8 | 1 | 62,9 | 49 838 | 633 | 1,27% | 182 |
 | Standard_A8m_v2 | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 8 | 1 | 62,9 | 49 123 | 2 483 | 5,05% | 259 |
 
+Obs: virtuella datorer i AV2-serien kan distribueras på olika typer av maskin vara och processorer (se ovan). De virtuella datorerna i AV2-serien har CPU-prestanda och minnes konfiguration som passar bäst för arbets belastningar som utveckling och testning på Start nivå. Storleken begränsas till att erbjuda relativt konsekvent processor prestanda för den aktiva instansen, oavsett vilken maskin vara den är distribuerad på. program vara som utnyttjar vissa nyare processor optimeringar kan dock se mer betydande variation mellan processor typer.
+
 ## <a name="b---burstable"></a>B – Burstable
 (3/15/2019 12:27:08 AM PBI 3897709)
 
@@ -69,6 +71,10 @@ Följande CoreMark benchmark-resultat visar beräknings prestanda för Azures h�
 | Standard_B4ms | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 4 | 1 | 15,7 | 54 051 | 1 260 | 2,33% | 672 |
 | Standard_B8ms | Intel (R) Xeon (R) CPU E5-2673 v3 @ 2,40 GHz | 8 | 1 | 31,4 | 111 929 | 1 562 | 1,40% | 35 |
 | Standard_B8ms | Intel (R) Xeon (R) CPU E5-2673 v4 @ 2.30 GHz | 8 | 1 | 31,4 | 109 537 | 1 354 | 1,24% | 665 |
+
+Obs! virtuella datorer i B-serien är för arbets belastningar med höga prestanda krav. Virtuella dator instanser ackumulerar krediter när de använder mindre än dess bas linje. När den virtuella datorn har ackumulerat kredit kan den virtuella datorn överföras över bas linjen med upp till 100% för att uppfylla korta CPU burst-krav. Burst-tiden beror på tillgängliga krediter som är en funktion för VM-storlek och-tid.  
+
+CoreMark är ett kort test som vanligt vis är klart inom tillgängliga burst-krediter.  Numren ovan representerar därför vanligt vis burst-prestanda för den virtuella datorn, vilket återspeglar vad som är kort, burst, arbets belastningar (vanligt vis i B-serien) som normalt visas.
 
 ## <a name="dsv3---general-compute--premium-storage"></a>DSv3 – allmän beräkning + Premium Storage
 (3/12/2019 6:52:03 PM PBI 3897709)

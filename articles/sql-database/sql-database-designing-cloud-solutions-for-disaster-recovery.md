@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: 8eb115497427338599db08e8c7bbdd55c5a158fc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 348bd2b92801217a5aea2ef4d1426c020085e4c1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807952"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624155"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Designa globalt tillgängliga tjänster med hjälp av Azure SQL Database
 
@@ -119,7 +119,7 @@ Programmets resurser bör distribueras i varje geografiskt område där du har a
 
 ![Scenario 3. Konfiguration med primär i östra USA.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
 
-I slutet av dagen (till exempel vid 23:00 lokal tid) ska aktiva databaser växlas till nästa region (Europa, norra). Den här uppgiften kan automatiseras helt med hjälp av [Azure Scheduling service](../scheduler/scheduler-intro.md).  Uppgiften omfattar följande steg:
+I slutet av dagen, till exempel vid en lokal tid på 11 PM, ska de aktiva databaserna växlas till nästa region (Europa, norra). Den här uppgiften kan automatiseras helt med hjälp av [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Uppgiften omfattar följande steg:
 
 * Byt primär server i gruppen redundans till norra Europa med vänlig redundans (1)
 * Ta bort gruppen för redundans mellan USA, östra och Europa, norra
@@ -130,7 +130,7 @@ Följande diagram illustrerar den nya konfigurationen efter den planerade redund
 
 ![Scenario 3. Över gång från primär till Nord Europa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
 
-Om ett avbrott inträffar i Nord Europa initieras den automatiska databas växlings filen av gruppen redundans, vilket effektivt leder till att programmet flyttas till nästa region före schemat (1).  I så fall är östra USA den enda återstående sekundära regionen tills norra Europa är online igen. De återstående två regionerna betjänar kunderna i alla tre geografiska områden genom att växla roller. Azure Scheduler måste justeras i enlighet med detta. Eftersom de återstående regionerna får ytterligare användar trafik från Europa, påverkas programmets prestanda inte bara av ytterligare latens, utan också med ett ökat antal slut användar anslutningar. När avbrottet har begränsats i Nord Europa synkroniseras den sekundära databasen omedelbart med den aktuella primära databasen. Följande diagram illustrerar ett avbrott i Nord Europa:
+Om ett avbrott inträffar i Nord Europa initieras den automatiska databas växlings filen av gruppen redundans, vilket effektivt leder till att programmet flyttas till nästa region före schemat (1).  I så fall är östra USA den enda återstående sekundära regionen tills norra Europa är online igen. De återstående två regionerna betjänar kunderna i alla tre geografiska områden genom att växla roller. Azure Logic Apps måste justeras i enlighet med detta. Eftersom de återstående regionerna får ytterligare användar trafik från Europa, påverkas programmets prestanda inte bara av ytterligare latens, utan också med ett ökat antal slut användar anslutningar. När avbrottet har begränsats i Nord Europa synkroniseras den sekundära databasen omedelbart med den aktuella primära databasen. Följande diagram illustrerar ett avbrott i Nord Europa:
 
 ![Scenario 3. Avbrott i Nord Europa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
 

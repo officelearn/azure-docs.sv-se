@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 106cd870a8ba52917ecabe6266bbb2c376296d79
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8a82d2ad3e79633bb930348c6162996e961c4306
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704278"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612962"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Förstå hälso tillstånden och lösa inaktiverade domäner i Azure Active Directory Domain Services
 
@@ -41,7 +41,7 @@ En Azure AD DS-hanterad domän kan vara i något av följande tillstånd:
 
 En Azure AD DS-hanterad domän som är korrekt konfigurerad och körs utan problem är i *körnings* tillstånd. Detta är det önskade läget för en hanterad domän.
 
-### <a name="what-to-expect"></a>Vad du kan förvänta dig
+### <a name="what-to-expect"></a>Vad som ska förväntas
 
 * Azure-plattformen kan regelbundet övervaka hälso tillståndet för den hanterade domänen.
 * Domänkontrollanter för den hanterade domänen korrigeras och uppdateras regelbundet.
@@ -56,7 +56,7 @@ Ett exempel på en avisering är när det finns en begränsande nätverks säker
 
 Mer information finns i [Felsöka aviseringar för en hanterad Azure AD DS-domän][resolve-alerts].
 
-### <a name="what-to-expect"></a>Vad du kan förvänta dig
+### <a name="what-to-expect"></a>Vad som ska förväntas
 
 När en Azure AD DS-hanterad domän är i *krav* kontroll, kanske inte Azure-plattformen kan övervaka, korrigera, uppdatera eller säkerhetskopiera data regelbundet. I vissa fall, t. ex. med en ogiltig nätverks konfiguration, kan det hända att domän kontrol Lanterna för den hanterade domänen inte kan kontaktas.
 
@@ -77,7 +77,7 @@ En Azure AD DS-hanterad domän går in i tillståndet **suspendd** av någon av 
 
 Hanterade domäner pausas när Azure-plattformen inte kan hantera, övervaka, korrigera eller säkerhetskopiera domänen. En hanterad domän förblir i ett *inaktiverat* tillstånd i 15 dagar. För att upprätthålla åtkomsten till den hanterade domänen löser du viktiga aviseringar direkt.
 
-### <a name="what-to-expect"></a>Vad du kan förvänta dig
+### <a name="what-to-expect"></a>Vad som ska förväntas
 
 Följande problem uppstår när en Azure AD DS-hanterad domän är i tillståndet *Suspended* :
 
@@ -96,7 +96,7 @@ Du ser en [avisering][resolve-alerts] på sidan Azure AD DS Health i den Azure P
 Slutför följande steg för att återställa hälso tillståndet för en Azure AD DS-hanterad domän som har tillståndet *Suspended* :
 
 1. Sök efter och välj **domän tjänster**i Azure Portal.
-1. Välj din Azure AD DS-hanterade domän i listan, till exempel *aadds.contoso.com*, och välj sedan **hälsa**.
+1. Välj din Azure AD DS-hanterade domän i listan, till exempel *aaddscontoso.com*, och välj sedan **hälsa**.
 1. Välj aviseringen, till exempel *AADDS503* eller *AADDS504*, beroende på orsaken till SUS pensionen.
 1. Välj den upplösnings länk som anges i aviseringen och följ stegen för att lösa problemet.
 
@@ -108,7 +108,7 @@ När du har löst aviseringar när den hanterade domänen är i *paus* läge [ö
 
 Om en Azure AD DS-hanterad domän förblir i *pausat* tillstånd i 15 dagar tas den bort. Den här processen kan inte återställas.
 
-### <a name="what-to-expect"></a>Vad du kan förvänta dig
+### <a name="what-to-expect"></a>Vad som ska förväntas
 
 När en Azure AD DS-hanterad domän går in i det *borttagna* läget visas följande:
 

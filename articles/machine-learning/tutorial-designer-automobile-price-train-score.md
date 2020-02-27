@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/30/2020
-ms.openlocfilehash: de9ed700363bd6578ac49f0add0c48dc33356692
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 972f0aa1f6d05c3cc65c62c0991fad87ab4676c4
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982627"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623618"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Självstudie: förutsäga Automobile-priset med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -113,7 +113,7 @@ Du kan visualisera data för att förstå den data uppsättning som du kommer at
 
     Varje rad representerar en bil och variablerna som är kopplade till varje bil visas som kolumner. Det finns 205 rader och 26 kolumner i den här data uppsättningen.
 
-## <a name="prepare-data"></a>Förbered data
+## <a name="prepare-data"></a>Förbereda data
 
 Data uppsättningar kräver vanligt vis lite för bearbetning före analys. Du kanske har märkt vissa saknade värden när du kontrollerade data uppsättningen. De värden som saknas måste rengöras så att modellen kan analysera data korrekt.
 
@@ -260,7 +260,7 @@ Använd modulen **utvärdera modell** för att utvärdera hur bra din modell bev
 
 ## <a name="run-the-pipeline"></a>Köra en pipeline
 
-Nu när din pipeline är konfigurerad kan du skicka en pipeline-körning.
+Nu när din pipeline är all konfiguration kan du skicka en pipeline-körning för att träna din Machine Learning-modell. Du kan skicka en pipeline-körning när som helst medan du skapar pipelines i designern. Du kan göra detta för att kontrol lera ditt arbete när du går och kontrol lera att dina pipeline-funktioner fungerar som förväntat.
 
 1. Välj **Kör**längst upp på arbets ytan.
 

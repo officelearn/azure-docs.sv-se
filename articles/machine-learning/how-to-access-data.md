@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 54ad9109a23b0fb25470987c2bc863934864b83f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: b31d0237f04ef535fa6528d5b3a04e5ee7256e22
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77580686"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623682"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Få åtkomst till data i Azure Storage-tjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -84,13 +84,12 @@ Men för Azure Data Lake Storage gen 1-och 2-datalager, sker denna verifiering s
 
 Alla register metoder finns i [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) -klassen och har formuläret `register_azure_*`.
 
-Du hittar den information som du behöver för att fylla i `register()`-metoden med hjälp av [Azure Portal](https://portal.azure.com):
+Du hittar den information som du behöver för att fylla i `register()` metoden på [Azure Portal](https://portal.azure.com).
+Välj **lagrings konton** i den vänstra rutan och välj det lagrings konto som du vill registrera. **Översikts** sidan innehåller information som konto namn, behållare och fil resurs namn. 
 
-1. Välj **lagrings konton** i den vänstra rutan och välj det lagrings konto som du vill registrera. 
-2. Information som konto namn, behållare och fil resurs namn finns på sidan **Översikt** . 
-3. Information om autentisering, som konto nyckel eller SAS-token, finns i **åtkomst nycklar** i fönstret **Inställningar** . 
+* För verifierings objekt, som konto nyckel eller SAS-token, går du till **konto nycklar** i fönstret **Inställningar** . 
 
-4. För tjänstens huvud objekt, t. ex. klient-ID och klient-ID, går du till **översikts** sidan för din **Appregistreringar**. 
+* För tjänstens huvud objekt, t. ex. klient-ID och klient-ID, går du till **Appregistreringar** och väljer vilken app du vill använda. Dess motsvarande **översikts** sida kommer att innehålla dessa objekt.
 
 > [!IMPORTANT]
 > Om ditt lagrings konto finns i ett virtuellt nätverk stöds endast skapande av BLOB, fil resurs, ADLS gen 1-och ADLS gen 2-datalager **via SDK** . Om du vill ge din arbets yta åtkomst till ditt lagrings konto anger du parametern `grant_workspace_access` `True`.
@@ -137,7 +136,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage generation 2
 
-För en Azure Data Lake Storage generation 2 (ADLS gen 2) data lager använder du [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) för att registrera ett data lager för autentiseringsuppgifter som är anslutet till en Azure DataLake gen 2-lagring med [tjänstens huvud namn](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). För att kunna använda tjänstens huvud namn måste du [Registrera ditt program](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). Lär dig mer om [åtkomst kontroll som har kon figurer ATS för ADLS gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+För en Azure Data Lake Storage generation 2 (ADLS gen 2) data lager använder du [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) för att registrera ett data lager för autentiseringsuppgifter som är anslutet till en Azure DataLake gen 2-lagring med [tjänstens huvud namn](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). För att kunna använda tjänstens huvud namn måste du [Registrera ditt program](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) och ange roll tilldelningar för läsare och data åtkomst. Lär dig mer om [åtkomst kontroll som har kon figurer ATS för ADLS gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
 Följande kod skapar och registrerar `adlsgen2_datastore_name` data lagret på arbets ytan `ws`. Detta data lager har åtkomst till fil systemet `test` på `account_name` lagrings konto med hjälp av de angivna autentiseringsuppgifterna för tjänstens huvud namn.
 
@@ -177,7 +176,7 @@ Du kan hitta den information som du behöver för att fylla i formuläret på [A
 
 * För verifierings objekt, som konto nyckel eller SAS-token, går du till **konto nycklar** i fönstret **Inställningar** . 
 
-* För tjänstens huvud objekt, t. ex. klient-ID och klient-ID, går du till **översikts** sidan för din **Appregistreringar**. 
+* För tjänstens huvud objekt, t. ex. klient-ID och klient-ID, går du till **Appregistreringar** och väljer vilken app du vill använda. Dess motsvarande **översikts** sida kommer att innehålla dessa objekt. 
 
 Följande exempel visar hur formuläret ser ut när du skapar ett Azure Blob-datalager: 
     

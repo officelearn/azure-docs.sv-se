@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
-ms.openlocfilehash: 6e5ed996a0f44bae6c37027bc01f30be85d164f9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 979e83c0eeaac4555fc5144bca479f0b5656cd28
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905495"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617529"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: fel vid skapande av kluster
 
@@ -36,7 +36,7 @@ I den här artikeln beskrivs lösningar på fel som du kan stöta på när du sk
 
 HDInsight-tjänsten har inte åtkomst till den skript åtgärds webb adress som du angav som en del av förfrågan om att skapa kluster. Tjänsten tar emot föregående fel meddelande när det försöker få åtkomst till skript åtgärden.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 - För en HTTP-eller HTTPS-URL, verifiera URL: en genom att försöka gå till den från ett Incognito webbläsarfönster.
 - För en WASB-URL, se till att skriptet finns i det lagrings konto som du har angett i begäran. Kontrol lera också att lagrings nyckeln för det här lagrings kontot är korrekt.
@@ -58,7 +58,7 @@ HDInsight-tjänsten har inte åtkomst till den skript åtgärds webb adress som 
 
 HDInsight-tjänsten har inte åtkomst till den skript åtgärds webb adress som du angav som en del av förfrågan om att skapa kluster. Tjänsten tar emot föregående fel meddelande när det försöker få åtkomst till skript åtgärden.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Lägg till motsvarande Azure Data Lake Storage gen 1-konto i klustret. Lägg också till tjänstens huvud namn som ansluter till Data Lake Storage gen 1-konto till klustret.
 
@@ -74,7 +74,7 @@ Den virtuella dator storleken\<CUSTOMER_SPECIFIED_VM_SIZE\>som tillhandahölls i
 
 Den angivna storleken för den virtuella datorn är inte tillåten för rollen. Det här felet kan inträffa eftersom värdet för VM-storlek inte fungerar som förväntat eller inte är lämpligt för dator rollen.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Fel meddelandet visar en lista över giltiga värden för VM-storleken. Välj ett av dessa värden och försök att skapa en kluster förfrågan igen.
 
@@ -90,7 +90,7 @@ Fel meddelandet visar en lista över giltiga värden för VM-storleken. Välj et
 
 Det **VirtualNetworkId** -värde som du angav när klustret skapades har inte rätt format.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Kontrol lera att värdena för **VirtualNetworkId** och under nätet är i rätt format. Så här hämtar du **VirtualNetworkId** -värdet:
 
@@ -114,7 +114,7 @@ Här är ett exempel på ett virtuellt nätverks-ID:
 
 Det anpassade skript som du angav under Create Cluster-begäran körs när klustret har distribuerats. Den här felkoden anger att ett fel uppstod under körningen av det anpassade skriptet med namnet \<SCRIPT_NAME\>.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Eftersom skriptet är ditt anpassade skript rekommenderar vi att du felsöker problemet och kör skriptet igen om det behövs. Om du vill felsöka skript fel granskar du loggarna i mappen/var/lib/Ambari-agent/*. Eller öppna sidan **åtgärder** i AMBARI-användargränssnittet och välj sedan åtgärden **run_customscriptaction** för att visa fel information.
 
@@ -130,7 +130,7 @@ Eftersom skriptet är ditt anpassade skript rekommenderar vi att du felsöker pr
 
 Den anpassade metaarkiv är inte kompatibel med den valda HDInsight-klustrets version. HDInsight 4,0-kluster stöder för närvarande endast Metaarkiv version 3,0 och senare, medan HDInsight 3,6-kluster inte stöder Metaarkiv-version 3,0 och senare.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Använd endast Metaarkiv-versioner som stöds av din HDInsight-kluster version. Om du inte anger en anpassad metaarkiv skapar HDInsight en metaarkiv internt och tar sedan bort den när klustret tas bort.
 
@@ -146,7 +146,7 @@ Använd endast Metaarkiv-versioner som stöds av din HDInsight-kluster version. 
 
 En brand Väggs regel i nätverks säkerhets gruppen (NSG) blockerar kluster kommunikation med kritiska Azure-tjänster för hälso tillstånd och hantering.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Om du planerar att använda nätverks säkerhets grupper för att kontrol lera nätverks trafiken vidtar du följande åtgärder innan du installerar HDInsight:
 
@@ -167,12 +167,12 @@ Om du planerar att använda nätverks säkerhets grupper för att kontrol lera n
 
 Du har inte angett de behörigheter som krävs för att hantera identiteten. Den användardefinierade hanterade identiteten har inte rollen Blob Storage Contributor på Azure Data Lake Storage Gen2 lagrings konto.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 1. Öppna Azure Portal.
 1. Gå till ditt lagringskonto.
 1. Titta under **Access Control (IAM)** .
-1. Se till att rollen Storage BLOB data Contributor eller rollen lagrings-BLOB data ägare har "tilldelad" åtkomst till den användarspecifika hanterade identiteten för prenumerationen.
+1. Se till att användaren har rollen Storage BLOB data Contributor eller rollen som ägare till lagrings-BLOB-data.
 
 Mer information finns i [Konfigurera behörigheter för den hanterade identiteten på data Lake Storage Gen2-kontot](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
@@ -188,7 +188,7 @@ Mer information finns i [Konfigurera behörigheter för den hanterade identitete
 
 Om nätverks säkerhets grupper eller användardefinierade vägar (UDR) kontrollerar inkommande trafik till ditt HDInsight-kluster måste du se till att klustret kan kommunicera med kritiska Azure-tjänster för hälso tillstånd och hantering.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Om du planerar att använda nätverks säkerhets grupper för att kontrol lera nätverks trafiken vidtar du följande åtgärder innan du installerar HDInsight:
 
@@ -208,7 +208,7 @@ Om du planerar att använda nätverks säkerhets grupper för att kontrol lera n
 
 Detta fel uppstår vanligt vis när det uppstår ett tillfälligt problem eller ett Azure-avbrott.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 På sidan [Azure-status](https://status.azure.com) finns några Azure-avbrott som kan påverka kluster distributionen. Försök att distribuera kluster igen om det inte finns några avbrott.
 

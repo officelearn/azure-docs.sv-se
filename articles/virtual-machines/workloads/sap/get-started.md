@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/25/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6efad8160115347469fb387108812ddc9adecc1
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: c9d287d5bfc091fcbbff46095da5458fa08de73d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77601929"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624174"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -34,23 +34,20 @@ Azures unikhet för SAP HANA är ett erbjudande som ställer in Azure. För att 
 Att vara värd för SAP-arbetsbelastnings scenarier i Azure kan också skapa krav på identitets integrering och enkel inloggning. Den här situationen kan inträffa när du använder Azure Active Directory (Azure AD) för att ansluta olika SAP-komponenter och SAP-SaaS (Software-as-a-Service) eller PaaS-erbjudanden (Platform-as-a-Service). En lista över scenarier för integration och enkel inloggning med Azure AD och SAP-entiteter beskrivs och dokumenteras i avsnittet "AAD SAP Identity Integration och enkel inloggning".
 
 ## <a name="changes-to-the-sap-workload-section"></a>Ändringar i avsnittet SAP-arbetsbelastning
-Ändringar av dokument i avsnittet SAP på Azure-arbetsbelastningar visas i slutet av den här artikeln.
+Ändringar av dokument i avsnittet SAP på Azure-arbetsbelastningar visas i slutet av den här artikeln. Posterna i ändrings loggen sparas i cirka 180 dagar.
 
+## <a name="you-want-to-know"></a>Du vill veta
+Om du har vissa frågor ska vi peka dig på vissa dokument eller flöden i det här avsnittet på Start sidan. Du vill veta:
 
+- Det finns stöd för de virtuella Azure-datorer och HANA-instanser som stöds för vilka SAP-program versioner och vilka operativ system versioner som används. Läs dokumentet [vilka SAP-program som stöds för Azure-distribution](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) för svar och processen för att hitta informationen
+- Vilka SAP-distributions scenarier som stöds med virtuella Azure-datorer och HANA-stora instanser. Information om de scenarier som stöds finns i dokumenten:
+    - [SAP-arbetsbelastningar i scenarier med virtuella Azure-datorer som stöds](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations)
+    - [Scenarier som stöds för HANA stor instans](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario)
+
+ 
 ## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA på Azure (stora instanser)
 
-En serie dokument vägleder dig genom SAP HANA på Azure (stora instanser) eller för korta, HANA stora instanser. För information om följande områden i HANA-stora instanser, se:
-
-- [Översikt över SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
-- [Arkitektur för SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-architecture)
-- [Infrastruktur och anslutning till SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity)
-- [Installera SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation)
-- [Hög tillgänglighet och haveri beredskap för SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
-- [Felsöka och övervaka SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
-
-Nästa steg:
-
-- Läs [Översikt och arkitektur för SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+En serie dokument vägleder dig genom SAP HANA på Azure (stora instanser) eller för korta, HANA stora instanser. Information om HANA stora instanser börjar med dokument [Översikt och arkitektur för SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) och går igenom den relaterade dokumentationen i avsnittet Hana stor instans
 
 
 
@@ -120,7 +117,9 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 
 ## <a name="change-log"></a>Ändringslogg
+- 02/25/2020: ändra i [arkitektur och scenarier med hög tillgänglighet för SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) för att lägga till länkar till nya artiklar i ha
 - 02/25/2020: ändring i [hög tillgänglighet för IBM DB2-LUW på virtuella Azure-datorer på SUSE Linux Enterprise Server med pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm) för att peka på dokument som beskriver åtkomst till den offentliga slut punkten med standard Azure Load Balancer
+- 02/21/2020: fullständig revidering av artikeln [SAP ASE Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase)
 - 02/21/2020: ändra i [SAP HANA lagrings konfigurationen för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) för att representera ny rekommendation i stripe-storlek för/Hana/data och lägga till inställningen för i/O Scheduler
 - 02/21/2020: ändringar i HANA-stora instans dokument som representerar nyligen certifierade SKU: er av S224 och S224m
 - 02/21/2020: ändring av de virtuella Azure-datorerna med [hög tillgänglighet för SAP NetWeaver på RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) och [virtuella Azure-datorer med hög tillgänglighet för SAP NetWeaver på RHEL med Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) för att justera kluster begränsningarna för att köa Server replikering 2 Architecture (ENSA2)

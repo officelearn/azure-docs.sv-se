@@ -4,26 +4,26 @@ description: Konfigurera SMT-Server för SAP HANA på Azure (stora instanser).
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
-ms.author: rclaus
+ms.author: hermannd
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d9e86e54a4c94db97b6c89b3ef8799855963020
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 699a8a69621642d07d3547c07bb20c0d32ca7686
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099769"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616981"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Konfigurera SMT-Server för SUSE Linux
 Stora instanser av SAP HANA har ingen direkt anslutning till Internet. Det är inte enkelt att registrera en sådan enhet med operativ system leverantören och att ladda ned och tillämpa uppdateringar. En lösning för SUSE Linux är att konfigurera en SMT-server på en virtuell Azure-dator. Var värd för den virtuella datorn i ett virtuellt Azure-nätverk, som är ansluten till den stora HANA-instansen. Med en sådan SMT-Server kan den stora instans enheten HANA registrera och hämta uppdateringar. 
 
-Mer dokumentation om SUSE finns i prenumerations [hanterings verktyget för SLES 12 SP2](https://www.suse.com/documentation/sles-12/pdfdoc/book_smt/book_smt.pdf). 
+Mer dokumentation om SUSE finns i [prenumerations hanterings verktyget för SLES 12 SP2](https://www.suse.com/documentation/sles-12/pdfdoc/book_smt/book_smt.pdf). 
 
 Krav för att installera en SMT-server som uppfyller uppgiften för HANA-stora instanser är:
 
@@ -34,7 +34,7 @@ Krav för att installera en SMT-server som uppfyller uppgiften för HANA-stora i
 
 Logga först in på [SUSE kund Center](https://scc.suse.com/).
 
-Gå till > organisationens**organisations uppgifter**. I det avsnittet bör du hitta de autentiseringsuppgifter som krävs för att konfigurera SMT-servern.
+Gå till **organisationens** > **organisationens autentiseringsuppgifter**. I det avsnittet bör du hitta de autentiseringsuppgifter som krävs för att konfigurera SMT-servern.
 
 Installera sedan en SUSE Linux-dator i det virtuella Azure-nätverket. Om du vill distribuera den virtuella datorn tar du en SLES 12 SP2 galleri bild av Azure (Välj BYOS SUSE image). I distributions processen definierar du inte ett DNS-namn och använder inte statiska IP-adresser.
 

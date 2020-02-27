@@ -7,23 +7,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 49129bede62e456cf2807cc879b7fc5e1793b65b
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 4a0593ccd6bdf37520e73ba8ed421ec4b10ea52c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424957"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623310"
 ---
 # <a name="streaming-ingestion-preview"></a>Strömnings inmatning (för hands version)
 
 Strömnings inmatning är avsedd för scenarier som kräver låg latens med en inmatnings tid på mindre än 10 sekunder för varierande volym data. Den används för att optimera drift bearbetningen av många tabeller, i en eller flera databaser, där data strömmen i varje tabell är relativt liten (några poster per sekund), men den totala data inmatnings volymen är hög (tusentals poster per sekund).
 
 Använd den klassiska inmatningen (bulk) i stället för strömnings inmatning när mängden data växer till mer än 1 MB per sekund per tabell. Läs [Översikt över data inmatning](/azure/data-explorer/ingest-data-overview) för att lära dig mer om de olika metoderna för inmatning.
-
-> [!NOTE]
-> Streaming-inmatningen har inte stöd för följande funktioner:
-> * [Databas markörer](/azure/kusto/management/databasecursor).
-> * [Data mappning](/azure/kusto/management/mappings). Det finns endast stöd för data mappning som [skapats i förväg](/azure/kusto/management/tables#create-ingestion-mapping) . 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -32,6 +27,9 @@ Använd den klassiska inmatningen (bulk) i stället för strömnings inmatning n
 * Skapa [ett Azure datautforskaren-kluster och-databas](create-cluster-database-portal.md)
 
 ## <a name="enable-streaming-ingestion-on-your-cluster"></a>Aktivera strömnings inmatning i klustret
+
+> [!WARNING]
+> Granska [begränsningarna](#limitations) innan du aktiverar inmatningen av ånga.
 
 1. I Azure Portal går du till ditt Azure Datautforskaren-kluster. I **Inställningar**väljer du **konfigurationer**. 
 1. I fönstret **konfigurationer** väljer du **på** för att aktivera **strömnings**inmatning.
@@ -49,8 +47,9 @@ Använd den klassiska inmatningen (bulk) i stället för strömnings inmatning n
 
 Det finns två typer av streaming-inmatningar som stöds:
 
-* [Händelsehubben](/azure/data-explorer/ingest-data-event-hub) används som data Källa
-* För anpassad inmatning måste du skriva ett program som använder en av Azures Datautforskaren klient bibliotek. Se [exempel på strömnings insamling](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) för ett exempel program.
+
+* [**Händelsehubben**](/azure/data-explorer/ingest-data-event-hub) används som data Källa
+* För **anpassad** inmatning måste du skriva ett program som använder en av Azure datautforskaren-klient biblioteken. Se [exempel på strömnings insamling](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) för ett exempel program.
 
 ### <a name="choose-the-appropriate-streaming-ingestion-type"></a>Välj lämplig typ av strömnings inmatning
 
@@ -78,6 +77,10 @@ Det finns två typer av streaming-inmatningar som stöds:
 * Schema uppdateringar, till exempel skapande och ändring av tabeller och inmatnings mappningar, kan ta upp till 5 minuter för strömnings tjänsten.
 * Att aktivera strömnings inmatning i ett kluster, även när data inte matas in via direkt uppspelning, använder en del av den lokala SSD-disken på kluster datorerna för strömnings inmatnings data och minskar lagrings utrymmet som är tillgängliga för varmt cacheminne.
 * Det går inte att ange [omfattnings etiketter](/azure/kusto/management/extents-overview.md#extent-tagging) för strömnings inmatnings data.
+
+Streaming-inmatningen har inte stöd för följande funktioner:
+* [Databas markörer](/azure/kusto/management/databasecursor).
+* [Data mappning](/azure/kusto/management/mappings). Det finns endast stöd för data mappning som [skapats i förväg](/azure/kusto/management/tables#create-ingestion-mapping) . 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2019
-ms.openlocfilehash: cd48f29d1f3866a4cd6893746dc44999b8aba24b
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
-ms.translationtype: HT
+ms.openlocfilehash: 521fd84e79196439ea220bd7ffa7cc6d0750f045
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622915"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648843"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimera logg frågor i Azure Monitor
 Azure Monitor loggar använder [Azure datautforskaren (ADX)](/azure/data-explorer/) för att lagra loggdata och köra frågor för att analysera data. Den skapar, hanterar och underhåller ADX-kluster åt dig, och optimerar dem för din logg analys arbets belastning. När du kör en fråga optimeras den och dirigeras till lämpligt ADX-kluster som lagrar arbets ytans data. Både Azure Monitor loggar och Azure Datautforskaren använder många automatiska metoder för optimering av frågor. Även om automatiska optimeringar ger betydande ökning, finns det i vissa fall där du kan förbättra dina frågeresultat dramatiskt. Den här artikeln beskriver prestanda överväganden och flera tekniker för att åtgärda dem.
@@ -38,11 +38,11 @@ Följande prestanda indikatorer för frågor är tillgängliga för alla frågor
 
 - [Total processor](#total-cpu): övergripande beräkning som används för att bearbeta frågan över alla Compute-noder. Den representerar tiden som används för data behandling, parsning och data hämtning. 
 
-- [Data volym](#data-volume): övergripande data som har öppnats för att bearbeta frågan. Påverkas av storleken på mål tabellen, tids rymden som används, filter tillämpas och antalet kolumner som refereras.
+- [Data som används för bearbetad fråga](#data-used-for-processed-query): övergripande data som har använts för att bearbeta frågan. Påverkas av storleken på mål tabellen, tids rymden som används, filter tillämpas och antalet kolumner som refereras.
 
-- [Tidsintervall](#time-range): avståndet mellan de senaste och äldsta data som användes för att bearbeta frågan. Påverkas av det explicita tidsintervallet som anges för frågan.
+- [Tidsintervallet för den bearbetade frågan](#time-span-of-the-processed-query): avståndet mellan de senaste och äldsta data som användes för att bearbeta frågan. Påverkas av det explicita tidsintervallet som anges för frågan.
 
-- [Data ålder](#age-of-data): mellanrummet mellan nu och de äldsta data som användes för att bearbeta frågan. Det påverkar starkt effektiviteten för data hämtning.
+- [Ålder på bearbetade data](#age-of-processed-data): mellanrummet mellan nu och de äldsta data som har öppnats för att bearbeta frågan. Det påverkar starkt effektiviteten för data hämtning.
 
 - [Antal arbets ytor](#number-of-workspaces): hur många arbets ytor som användes under bearbetningen av frågan på grund av implicit eller explicit val.
 
@@ -151,7 +151,7 @@ Heartbeat
 > Den här indikatorn visar bara CPU från det omedelbara klustret. I frågor med flera regioner representerar den bara en av regionerna. I frågor med flera arbets ytor kan det hända att den inte innehåller alla arbets ytor.
 
 
-## <a name="data-volume"></a>Datavolym
+## <a name="data-used-for-processed-query"></a>Data som används för bearbetad fråga
 
 En kritisk faktor vid bearbetningen av frågan är den data volym som genomsöks och används för bearbetningen av frågan. Azure Datautforskaren använder aggressiva optimeringar som dramatiskt minskar data volymen jämfört med andra data plattformar. Det finns fortfarande kritiska faktorer i frågan som kan påverka den data volym som används.
 I Azure Monitor loggar används kolumnen **TimeGenerated** som ett sätt att indexera data. Genom att begränsa **TimeGenerated** -värdena till så smala ett intervall som möjligt kommer att göra en betydande förbättring av frågans prestanda genom att avsevärt begränsa mängden data som ska bearbetas.
@@ -209,7 +209,7 @@ SecurityEvent
 | summarize count(), dcount(EventID), avg(Level) by Computer  
 ```
 
-## <a name="time-range"></a>Tidsintervall
+## <a name="time-span-of-the-processed-query"></a>Tidsintervallet för den bearbetade frågan
 
 Alla loggar i Azure Monitor loggar partitioneras enligt kolumnen **TimeGenerated** . Antalet partitioner som nås är direkt relaterat till tidsintervallet. Att minska tidsintervallet är det mest effektiva sättet att säkerställa en fråga om att köra frågor.
 
@@ -231,7 +231,7 @@ Perf
 ) on Computer
 ```
 
-Ett vanligt fall där ett sådant fel inträffar är när [arg_max ()](/azure/kusto/query/arg-max-aggfunction) används för att hitta den senaste förekomsten. Några exempel:
+Ett vanligt fall där ett sådant fel inträffar är när [arg_max ()](/azure/kusto/query/arg-max-aggfunction) används för att hitta den senaste förekomsten. Exempel:
 
 ```Kusto
 Perf
@@ -262,7 +262,7 @@ by Computer
 > [!IMPORTANT]
 > Den här indikatorn är inte tillgänglig för frågor över flera regioner.
 
-## <a name="age-of-data"></a>Data ålder
+## <a name="age-of-processed-data"></a>Ålder på bearbetade data
 Azure Datautforskaren använder flera lagrings nivåer: minnes intern, lokal SSD-diskar och mycket långsammare Azure-blobbar. Ju högre data, desto högre är chansen att den lagras på en mer presterande nivå med mindre latens, vilket minskar frågans varaktighet och CPU. Förutom själva data, innehåller systemet också en cache för metadata. De äldre data, som är mindre chansen att cachelagra metadata.
 
 Även om vissa frågor kräver användning av gamla data finns det fall där gamla data används av misstag. Detta händer när frågor körs utan att tillhandahålla tidsintervall i sina meta-data och inte alla tabell referenser inkluderar filter i kolumnen **TimeGenerated** . I dessa fall kommer systemet att söka igenom alla data som lagras i tabellen. När data kvarhållning är lång kan det avse långa tidsintervall och därmed är data som är så gamla som data lagrings perioden.

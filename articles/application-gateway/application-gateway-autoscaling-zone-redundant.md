@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/09/2019
+ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 8fe38870f593dd57d8e4dad5601ea404e99c3d10
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 39b7e94747f556b61f661968f7126d122156d9cf
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031568"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622003"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
 
@@ -26,8 +26,8 @@ Den nya v2-SKU: n innehåller följande förbättringar:
   Zon redundans är bara tillgängligt där Azure-zoner är tillgängliga. I andra regioner stöds alla andra funktioner. Mer information finns i [Vad är Tillgänglighetszoner i Azure?](../availability-zones/az-overview.md#services-support-by-region)
 - **Statisk VIP**: Application Gateway v2 SKU stöder enbart statisk VIP-typ. Detta säkerställer att den VIP som är associerad med programgatewayen inte ändras för distributionens livs cykel, även efter en omstart.  Det finns ingen statisk VIP i v1, så du måste använda Application Gateway-URL: en i stället för IP-adressen för att routning av domän namn ska kunna App Services via programgatewayen.
 - **Omskrivning av rubrik**: Application Gateway låter dig lägga till, ta bort eller uppdatera http-begäran och svarshuvuden med v2-SKU. Mer information finns i [skriva om HTTP-huvuden med Application Gateway](rewrite-http-headers.md)
-- **Key Vault integration (för hands version)** : Application Gateway v2 stöder integrering med Key Vault (i offentlig för hands version) för Server certifikat som är anslutna till https-aktiverade lyssnare. Mer information finns i [SSL-avslutning med Key Vault certifikat](key-vault-certs.md).
-- Ingångs **styrenhet för Azure Kubernetes service (förhands granskning)** : Application Gateway v2 ingångs styrenheten tillåter att Azure Application Gateway används som ingångs punkt för en Azure Kubernetes service (AKS) som kallas AKS-kluster. Mer information finns på [dokumentations sidan](https://azure.github.io/application-gateway-kubernetes-ingress/).
+- **Key Vault-integrering**: Application Gateway v2 stöder integrering med Key Vault för Server certifikat som är anslutna till https-aktiverade lyssnare. Mer information finns i [SSL-avslutning med Key Vault certifikat](key-vault-certs.md).
+- Ingångs **kontroll av Azure Kubernetes-tjänsten**: Application Gateway v2 ingångs styrenheten tillåter att Azure Application Gateway används som ingångs punkt för en Azure Kubernetes-tjänst (AKS) som kallas AKS-kluster. Mer information finns i [Vad är Application Gateway ingress-kontrollant?](ingress-controller-overview.md).
 - **Prestanda förbättringar**: v2-SKU: n erbjuder upp till fem gånger bättre SSL-avläsnings prestanda jämfört med standard-/WAF SKU: n.
 - **Snabbare distribution och uppdaterings tid** V2-SKU: n ger snabbare distribution och uppdaterings tid jämfört med standard-/WAF SKU. Detta inkluderar även WAF konfigurations ändringar.
 
@@ -167,15 +167,15 @@ I följande tabell jämförs de funktioner som är tillgängliga med varje SKU.
 
 |Avvikelse|Detaljer|
 |--|--|
-|Certifikat för autentisering|Stöds inte.<br>Mer information finns i [Översikt över slutpunkt-till-slutpunkt-SSL med Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
+|Certifikat för autentisering|Stöds ej.<br>Mer information finns i [Översikt över slutpunkt-till-slutpunkt-SSL med Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
 |Mixa Standard_v2 och standard Application Gateway i samma undernät|Stöds inte|
 |Användardefinierad väg (UDR) i Application Gateway undernät|Stöds inte|
 |NSG för inkommande port intervall| – 65200 till 65535 för Standard_v2 SKU<br>– 65503 till 65534 för standard-SKU.<br>Mer information finns i [vanliga frågor och svar](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
-|Prestanda loggar i Azure Diagnostics|Stöds inte.<br>Azure-mått ska användas.|
+|Prestanda loggar i Azure Diagnostics|Stöds ej.<br>Azure-mått ska användas.|
 |Fakturering|Faktureringen är schemalagd för att starta den 1 juli 2019.|
 |FIPS-läge|Dessa stöds inte för närvarande.|
 |Läge för endast ILB|Detta stöds inte för närvarande. Offentliga och ILB läge stöds tillsammans.|
-|NetWatcher-integrering|Stöds inte.|
+|NetWatcher-integrering|Stöds ej.|
 |Azure Security Center-integrering|Inte tillgänglig än
 
 ## <a name="migrate-from-v1-to-v2"></a>Migrera från v1 till v2

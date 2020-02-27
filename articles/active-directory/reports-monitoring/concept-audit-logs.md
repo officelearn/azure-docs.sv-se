@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b49949c1765c3cb1598d728e21479c65037930
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714486"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648433"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
@@ -41,11 +41,11 @@ Den här artikeln ger en översikt över gransknings rapporten.
  
 ## <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 
-* Användare i rollerna **säkerhets administratör**, **säkerhets läsare**, **rapport läsare** eller **Global administratör**
+* Användare i rollerna **säkerhets administratör**, **säkerhets läsare**, **rapport läsare** , **global läsare** eller **Global administratör**
 
 ## <a name="audit-logs"></a>Granskningsloggar
 
-I gransknings loggarna i Azure AD finns register över system aktiviteter för efterlevnad. Välj **gransknings loggar** i avsnittet **aktivitet** i **Azure Active Directory**för att få åtkomst till gransknings rapporten. Observera att gransknings loggar kan ha en fördröjning på upp till en timme, så det kan ta lång tid för gransknings aktivitets data att visas i portalen när du har slutfört uppgiften.
+I gransknings loggarna i Azure AD finns register över system aktiviteter för efterlevnad. Välj **gransknings loggar** i avsnittet **övervakning** i **Azure Active Directory**för att få åtkomst till gransknings rapporten. Observera att gransknings loggar kan ha en fördröjning på upp till en timme, så det kan ta lång tid för gransknings aktivitets data att visas i portalen när du har slutfört uppgiften.
 
 
 
@@ -90,16 +90,20 @@ Du kan filtrera gransknings data i följande fält:
 Med **tjänst** filtret kan du välja från en listruta med följande tjänster:
 
 - Alla
+- AAD-hantering UX
 - Åtkomstgranskningar
-- Kontoetablering 
-- SSO för program
+- Kontoetablering
+- Programproxy
 - Autentiseringsmetoder
 - B2C
 - Villkorlig åtkomst
 - Kärnkatalog
 - Hantering av rättigheter
+- Hybrid autentisering
 - Identity Protection
 - Inbjudna användare
+- MIM-tjänst
+- MyApps
 - PIM
 - Självbetjäning, grupphantering
 - Hantering av lösenord för självbetjäning
@@ -118,7 +122,11 @@ Med filtret **kategori** kan du välja något av följande filter:
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
+- KerberosDomain
+- Hantering av
+- Etikett
 - Annat
+- PermissionGrantPolicy
 - Princip
 - ResourceManagement
 - RoleManagement
@@ -134,14 +142,13 @@ Med **status** filtret kan du filtrera baserat på status för en gransknings å
 - Lyckades
 - Fel
 
-Med **mål** filtret kan du söka efter ett visst mål efter namn eller User Principal Name (UPN). Mål namnet och UPN är Skift läges känsliga. 
+Med **mål** filtret kan du söka efter ett visst mål genom att starta namnet eller User Principal Name (UPN). Mål namnet och UPN är Skift läges känsliga. 
 
-Med filtret **initierad av** kan du definiera en aktörs namn eller ett universellt huvud namn (UPN). Namnet och UPN är Skift läges känsliga.
+Med filtret **initierad av** kan du definiera vad en aktörs namn eller ett universellt huvud namn (UPN) börjar med. Namnet och UPN är Skift läges känsliga.
 
 Med filtret för **datum intervall** kan du definiera en tidsram för de data som returneras.  
 Möjliga värden är:
 
-- 1 månad
 - 7 dagar
 - 24 timmar
 - Anpassat
@@ -179,11 +186,11 @@ Med användar- och gruppbaserade granskningsrapporter kan du få svar på frågo
 
 - Vilka licenser har tilldelats en grupp eller en användare?
 
-Om du bara vill granska gransknings data som är relaterade till användare kan du hitta en filtrerad vy under **gransknings loggar** i avsnittet **aktivitet** på fliken **användare** . Den här start punkten har **UserManagement** som förvalt kategori.
+Om du bara vill granska gransknings data som är relaterade till användare kan du hitta en filtrerad vy under **gransknings loggar** i avsnittet **övervakning** på fliken **användare** . Den här start punkten har **UserManagement** som förvalt kategori.
 
 ![Granskningsloggar](./media/concept-audit-logs/users.png "Granskningsloggar")
 
-Om du bara vill granska gransknings data som är relaterade till grupper kan du hitta en filtrerad vy under **gransknings loggar** i avsnittet **aktivitet** på fliken **grupper** . Den här start punkten har **GroupManagement** som förvalt kategori.
+Om du bara vill granska gransknings data som är relaterade till grupper kan du hitta en filtrerad vy under **gransknings loggar** i avsnittet **övervakning** på fliken **grupper** . Den här start punkten har **GroupManagement** som förvalt kategori.
 
 ![Granskningsloggar](./media/concept-audit-logs/groups.png "Granskningsloggar")
 

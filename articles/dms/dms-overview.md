@@ -3,19 +3,19 @@ title: Vad är Azure Database Migration Service?
 description: Översikt över Azure Database Migration Service, som ger sömlös migrering från många databas källor till Azure-dataplattformar.
 services: database-migration
 author: pochiraju
-ms.author: jtoland
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.topic: article
-ms.date: 06/01/2019
-ms.openlocfilehash: d573378bc5e729eb75b6c3b51d3671492f7f98f1
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/20/2020
+ms.openlocfilehash: 8607f1a687f2979c37c67099874288c6c5ead164
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209383"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647487"
 ---
 # <a name="what-is-azure-database-migration-service"></a>Vad är Azure Database Migration Service?
 
@@ -32,7 +32,7 @@ Azure Database Migration Service integrerar några av funktionerna hos våra bef
 
 Uppdaterad information om regional tillgänglighet för Azure Database Migration Service finns i [produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration).
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Uppdaterad information om Azure Database Migration Service priser finns i [Azure Database migration service prissättning](https://azure.microsoft.com/pricing/details/database-migration/).
 

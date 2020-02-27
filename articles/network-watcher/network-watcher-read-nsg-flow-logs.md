@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
-ms.openlocfilehash: ee44dda7a7ca2f7e1ad386498798191fe792cef0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 47d927f9f17580767526ec6683e819256fc5e994
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840850"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619921"
 ---
 # <a name="read-nsg-flow-logs"></a>Läs NSG-flödesloggar
 
@@ -31,7 +31,7 @@ NSG flödes loggar lagras i ett lagrings konto i [block-blobbar](https://docs.mi
 
 I följande scenario har du en exempel flödes logg som lagras i ett lagrings konto. Du lär dig hur du selektivt läser de senaste händelserna i NSG Flow-loggar. I den här artikeln använder du PowerShell, men begreppen som beskrivs i artikeln är inte begränsade till programmeringsspråket och gäller för alla språk som stöds av Azure Storage API: er.
 
-## <a name="setup"></a>Installation
+## <a name="setup"></a>Konfiguration
 
 Innan du börjar måste du ha nätverks säkerhets gruppens flödes loggning aktiverat på en eller flera nätverks säkerhets grupper i ditt konto. Anvisningar om hur du aktiverar nätverks säkerhets flödes loggar finns i följande artikel: [Introduktion till flödes loggning för nätverks säkerhets grupper](network-watcher-nsg-flow-logging-overview.md).
 
@@ -186,6 +186,9 @@ Det här scenariot är ett exempel på hur du kan läsa poster i NSG Flow-loggar
 
 ## <a name="next-steps"></a>Nästa steg
 
+
 Besök [Använd elastisk stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Använd Grafana](network-watcher-nsg-grafana.md)och [Använd Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) för att lära dig mer om hur du kan visa NSG flödes loggar. En Azure-funktion med öppen källkod som använder blobarna direkt och skickas till olika Log Analytics-konsumenter kan hittas här: [Azure Network WATCHER NSG Flow logs Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
+
+Du kan använda [Azure trafikanalys](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) för att få insikter om dina trafikflöde. Trafikanalys använder [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) för att kunna köra ditt trafikflöde.
 
 Läs mer om Storage blobbar på: [Azure Functions Blob Storage-bindningar](../azure-functions/functions-bindings-storage-blob.md)

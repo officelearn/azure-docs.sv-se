@@ -4,7 +4,7 @@ description: Distribuera SAP S/4HANA eller BW/4HANA på en virtuell Azure-dator
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 2fa68d9dc3052263b5354086ee802cc31fa35ace
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c110a4e0429ba52e01c472097a2241f91d504cf5
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101446"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616213"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Distribuera SAP S/4HANA eller BW/4HANA på Azure
 Den här artikeln beskriver hur du distribuerar S/4HANA på Azure med hjälp av SAP-biblioteket för Cloud Library (SAP CAL) 3,0. Om du vill distribuera andra SAP HANA-baserade lösningar, till exempel BW/4HANA, följer du samma steg.
 
 > [!NOTE]
-> Mer information om SAP CAL finns på webbplatsen för [SAP Cloud Library Library](https://cal.sap.com/) . SAP innehåller också en blogg om [SAP Cloud](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience)-programbiblioteket 3,0.
+> Mer information om SAP CAL finns på webbplatsen för [SAP Cloud Library Library](https://cal.sap.com/) . SAP innehåller också en blogg om [SAP Cloud-Programbiblioteket 3,0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
 > 
 > [!NOTE]
 > Från och med den 29 maj 2017 kan du använda Azure Resource Manager distributions modell utöver den enklare klassiska distributions modellen för att distribuera SAP CAL. Vi rekommenderar att du använder den nya distributions modellen för Resource Manager och ignorerar den klassiska distributions modellen.
@@ -119,7 +119,7 @@ Vi demonstrerar den grundläggande sökvägen till distributionen här.
 
     d. Ange ett huvud **lösen ord** för lösningen med åtta eller nio tecken. Lösen ordet används för administratörerna för de olika komponenterna.
 
-   ![SAP CAL Basic-läge: Skapa instans](./media/cal-s4h/s4h-pic10a.png)
+   ![SAP CAL Basic-läge: skapa instans](./media/cal-s4h/s4h-pic10a.png)
 
 1. Klicka på **skapa**och i meddelande rutan som visas klickar du på **OK**.
 
@@ -129,7 +129,7 @@ Vi demonstrerar den grundläggande sökvägen till distributionen här.
 
    ![Offentlig SAP CAL-nyckel](./media/cal-s4h/s4h-pic10c.png)
 
-1. Läs varnings meddelandet för SAP CAL och klicka på **OK**.
+1. Läs **varnings** meddelandet för SAP CAL och klicka på **OK**.
 
    ![SAP CAL-varning](./media/cal-s4h/s4h-pic10d.png)
 

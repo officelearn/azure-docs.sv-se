@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9ebeb0db14a42f090a629e379d88e00867bda65
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 3dbe5871a78634d2866ec1a3d1455492762ff2aa
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77538183"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619232"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure Active Directory (Azure AD)
 
@@ -966,6 +966,9 @@ För att vara värd för tjänsten inom Internet Information Services skapar en 
 
 Begäranden från Azure Active Directory omfattar en OAuth 2.0-ägartoken.   Alla tjänster som tar emot begäran ska autentisera utfärdaren som Azure Active Directory för den förväntade Azure Active Directory klienten, för åtkomst till Microsoft Graph API-tjänsten.  I token identifieras utfärdaren av ett ISS-anspråk, till exempel "ISS": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  I det här exemplet är bas adressen för anspråks värdet https://sts.windows.net, identifierar Azure Active Directory som utfärdare, medan det relativa adress segmentet cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 är en unik identifierare för den Azure Active Directory klient organisation som token utfärdades för. Mål gruppen för token är programmets mall-ID för appen i galleriet. Programmets mall-ID för alla anpassade appar är 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. Programmets mall-ID för varje app i galleriet varierar. Kontakta ProvisioningFeedback@microsoft.com för att få frågor om Programmall-ID för ett galleri program. Varje program som registreras i en enda klient organisation kan få samma `iss`-anspråk med SCIM-begäranden.
 
+   > [!NOTE]
+   > Vi rekommenderar ***inte*** att du lämnar det här fältet tomt och förlitar sig på en token som genereras av Azure AD. Det här alternativet är i första hand tillgängligt i test syfte.
+
 Utvecklare som använder CLI-biblioteken från Microsoft för att skapa en SCIM-tjänst kan autentisera begär Anden från Azure Active Directory med hjälp av Microsoft. OWIN. Security. ActiveDirectory-paketet genom att följa dessa steg: 
 
 Först i en provider implementerar du egenskapen Microsoft. SystemForCrossDomainIdentityManagement. IProvider. StartupBehavior genom att låta den returnera en metod som anropas när tjänsten startas: 
@@ -1450,6 +1453,8 @@ Följ check listan nedan för att se till att ditt program är inbyggt och att k
 > [!div class="checklist"]
 > * Stöd för en [SCIM 2,0](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) -användare och grupp slut punkt (endast en krävs, men båda rekommenderas)
 > * Stöd minst 25 begär Anden per sekund per klient (krävs)
+> * Upprätta teknisk support och support kontakter som hjälper kunder att publicera gallerier (krävs)
+> * 3 ej utgångna testautentiseringsuppgifter för ditt program (krävs)
 > * Stöd för OAuth-auktoriseringskod eller en lång livs längd enligt beskrivningen nedan (krävs)
 > * Upprätta en teknisk kontakt punkt för att få support för kunder efter Galleri registrering (krävs)
 > * Stöd för uppdatering av flera grupp medlemskap med en enda korrigering (rekommenderas) 

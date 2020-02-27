@@ -4,12 +4,12 @@ description: Lär dig hur du uppgraderar ett Azure Kubernetes service-kluster (A
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 9acf08765ee42401229bc464b4513856127e9f66
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4520297e83f96f95b10ecafd5af52a913dc5f450
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592993"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621981"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uppgradera ett Azure Kubernetes service-kluster (AKS)
 
@@ -22,7 +22,7 @@ Information om AKS-kluster som använder flera Node-pooler eller Windows Server-
 Den här artikeln kräver att du kör Azure CLI-version 2.0.65 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 > [!WARNING]
-> En AKS kluster uppgradering utlöser en Cordon och tömmer dina noder. Om du har en låg beräknings kvot som är tillgänglig kan uppgraderingen Miss lyckas.  Mer information finns i [öka kvoterna](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) .
+> En AKS kluster uppgradering utlöser en Cordon och tömmer dina noder. Om du har en låg beräknings kvot som är tillgänglig kan uppgraderingen Miss lyckas. Mer information finns i [öka kvoterna](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) .
 > Om du kör en egen kluster distribution med autoskalning inaktiverar du den (du kan skala den till noll repliker) under uppgraderingen eftersom det är en chans att det stör uppgraderings processen. Hanterade autoskalning hanterar detta automatiskt. 
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Sök efter tillgängliga AKS-kluster uppgraderingar

@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3fe4de2b8b85e603bc200b27fa15c67f6cc05dd4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 9c414572e1c3b2f046ae9a14139885e9927ab3bb
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595169"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622175"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en standard-SKU-belastningsutjämnare i Azure Kubernetes service (AKS)
 
@@ -39,7 +39,7 @@ Om du har ett befintligt kluster med Basic-SKU Load Balancer, finns det viktiga 
 
 Om du till exempel gör blå/gröna distributioner för att migrera kluster, är en vanlig metod att `load-balancer-sku` typen för ett kluster endast kan definieras i klustrets skapande tid. *Basic SKU* -belastningsutjämnare använder dock *Basic SKU* IP-adresser som inte är kompatibla med *standardsku* : er för SKU: er, eftersom de kräver *standard-SKU* IP-adresser. När du migrerar kluster för att uppgradera Load Balancer SKU: er krävs en ny IP-adress med en kompatibel IP-SKU.
 
-Mer information om hur du migrerar kluster finns i [vår dokumentation om migrering](acs-aks-migration.md) för att se en lista över viktiga ämnen som du bör tänka på när du migrerar. Begränsningarna nedan är också viktiga skillnader när du antecknar när du använder standard-SKU: er i AKS.
+Mer information om hur du migrerar kluster finns i [vår dokumentation om migrering](aks-migration.md) för att se en lista över viktiga ämnen som du bör tänka på när du migrerar. Begränsningarna nedan är också viktiga skillnader när du antecknar när du använder standard-SKU: er i AKS.
 
 ### <a name="limitations"></a>Begränsningar
 

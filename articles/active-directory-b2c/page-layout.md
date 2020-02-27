@@ -1,5 +1,5 @@
 ---
-title: Versioner av sidlayouten
+title: Sidlayoutversioner
 titleSuffix: Azure AD B2C
 description: Versions historik för sidlayouten för UI-anpassning i anpassade principer.
 services: active-directory-b2c
@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 02/26/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2a0a786d3e2135467c7279c76bae273bff0ba2d0
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: b24e8cc5f6bb6213bf021362c5654afd4d5266fb
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149515"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620602"
 ---
-# <a name="page-layout-versions"></a>Versioner av sidlayouten
+# <a name="page-layout-versions"></a>Sidlayoutversioner
 
 Sid inlayout-paket uppdateras regelbundet för att inkludera korrigeringar och förbättringar i sina sid element. Följande ändrings logg anger de ändringar som införs i varje version.
 
@@ -33,13 +33,13 @@ Sid inlayout-paket uppdateras regelbundet för att inkludera korrigeringar och f
 
 - Alla sidor
   - Hjälpmedels korrigeringar
-  - Nu kan du lägga till `data-preload="true"`-attributet i dina HTML-taggar för att kontrol lera inläsnings ordningen för CSS och Java Script.
+  - Nu kan du lägga till `data-preload="true"` [-attributet i dina HTML-taggar](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) för att kontrol lera inläsnings ordningen för CSS och Java Script.
     - Läs in länkade CSS-filer samtidigt som din HTML-mall så att den inte flimrar mellan att läsa in filerna.
     - Styra i vilken ordning som dina `script`-Taggar ska hämtas och köras före sid inläsningen.
   - E-postfältet är nu `type=email` och mobila tangent bord ger rätt förslag
   - Stöd för Chrome-Översättning
 - Enhetliga och självkontrollerade sidor
-  - Fälten användar namn/e-post och lösen ord använder nu `form` HTML-element för att tillåta att Microsoft Edge och Internet Explorer (IE) sparar informationen på rätt sätt.
+  - Fälten användar namn/e-post och lösen ord använder nu `form` HTML-element för att tillåta att Edge och Internet Explorer (IE) sparar informationen på rätt sätt.
 
 ## <a name="110"></a>1.1.0
 

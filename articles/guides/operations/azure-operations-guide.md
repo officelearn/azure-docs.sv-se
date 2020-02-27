@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: e6ef4cc825d40615fa8a6aee7dff8d4542407974
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 4f9da6cbfe8d1e6b92c39148b275de193730c8f1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970850"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623567"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
 
@@ -88,7 +88,7 @@ Tjänster för att vara värd för och köra program arbets belastning:
 
 - Azure Container Service
 
-### <a name="data-services"></a>Datatjänster
+### <a name="data-services"></a>Data tjänster
 
 Tjänster för att lagra och hantera data:
 
@@ -102,7 +102,7 @@ Tjänster för att lagra och hantera data:
 
 - Azure Cache for Redis
 
-### <a name="application-services"></a>Programtjänster
+### <a name="application-services"></a>Program tjänster
 
 Tjänster för skapande och operativ program:
 
@@ -112,7 +112,7 @@ Tjänster för skapande och operativ program:
 
 - Azure HDInsight för bearbetning av Big data
 
-- Azure Scheduler
+- Azure Logic Apps för integrerings-och Dirigerings arbets flöden
 
 - Azure Media Services
 
@@ -122,7 +122,7 @@ Tjänster för nätverk både i Azure och mellan Azure och lokala data Center:
 
 - Azure Virtual Network
 
-- Azure ExpressRoute
+- Azure-ExpressRoute
 
 - Azure-tillhandahållen DNS
 
@@ -140,7 +140,7 @@ Azure är en global moln plattform som är allmänt tillgänglig i många region
 
 En av fördelarna med att använda Azure är att du kan distribuera dina program till olika data center runtom i världen. Den region du väljer kan påverka programmets prestanda. Det är bäst att välja en region som är närmare för de flesta kunder, för att minska svars tiden i nätverks förfrågningar. Du kan också välja en region för att uppfylla de juridiska kraven för att distribuera din app i vissa länder/regioner.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Azure Portal är ett webbaserat program som kan användas för att skapa, hantera och ta bort Azure-resurser och-tjänster. Azure Portal finns på [Portal.Azure.com](https://portal.azure.com). Den innehåller en anpassningsbar instrument panel och verktyg för att hantera Azure-resurser. Den innehåller även information om fakturering och prenumerationer. Mer information finns i [Microsoft Azure-portalen översikt](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) och [Hantera Azure-resurser via portalen](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
@@ -164,11 +164,11 @@ Förutom att skapa, hantera och ta bort resurser med hjälp av Azure Portal kan 
 
 Azure PowerShell är en uppsättning moduler som tillhandahåller cmdlets för att hantera Azure. Du kan använda cmdletarna för att skapa, hantera och ta bort Azure-tjänster. Cmdletarna kan hjälpa dig att få konsekventa, repeterbara och praktiska distributioner. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 
-#### <a name="azure-command-line-interface"></a>Kommandoradsgränssnitt för Azure
+#### <a name="azure-command-line-interface"></a>Azure-kommandoradsgränssnittet
 
 Azures kommando rads gränssnitt är ett verktyg som du kan använda för att skapa, hantera och ta bort Azure-resurser från kommando raden. Azure CLI är tillgängligt för Linux, Mac OS X och Windows. Mer information och teknisk information finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-#### <a name="rest-apis"></a>REST API:er
+#### <a name="rest-apis"></a>REST-API:er
 
 Azure bygger på en uppsättning REST API: er som stöder Azure Portal gränssnittet. De flesta av dessa REST API: er stöds också för att låta dig program mässigt etablera och hantera dina Azure-resurser och appar från valfri enhet med Internet. Mer information finns i [Azure rest SDK-referensen](https://docs.microsoft.com/rest/api/index).
 
@@ -324,7 +324,7 @@ Eftersom Azure Virtual Machines ger fullständig kontroll över konfigurationen,
 
 Du kan distribuera virtuella Azure-datorer med hjälp av Azure Portal med hjälp av Automation med modulen Azure PowerShell eller genom att använda Automation med plattforms oberoende CLI.
 
-#### <a name="portal"></a>Portalen
+#### <a name="portal"></a>Portal
 
 Att distribuera en virtuell dator med hjälp av Azure Portal kräver bara en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan välja många olika operativ system avbildningar med varierande konfigurationer. Alla krav på lagring och nätverk konfigureras under distributionen. Mer information finns i "skapa en virtuell dator i Azure Portal" för [Windows](../../virtual-machines/windows/quick-create-portal.md) och [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
@@ -336,7 +336,7 @@ Genom att distribuera en virtuell Azure-dator med hjälp av PowerShell kan du sl
 
 Förutom att distribuera Azure Compute-resurser individuellt kan du använda Azure PowerShell-modulen för att distribuera en Azure Resource Manager-mall. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
-#### <a name="command-line-interface-cli"></a>Kommandoradsgränssnittet (CLI)
+#### <a name="command-line-interface-cli"></a>Kommando rads gränssnitt (CLI)
 
 Precis som med PowerShell-modulen tillhandahåller Azures kommando rads gränssnitt distributions automatisering och kan användas på Windows-, OS X-eller Linux-system. När du använder kommandot snabb registrering för Azure CLI **virtuell dator** distribueras alla relaterade resurser för virtuella datorer (inklusive lagring och nätverk) och den virtuella datorn. Mer information finns i [skapa en virtuell Linux-dator i Azure med hjälp av CLI](../../virtual-machines/linux/quick-create-cli.md).
 
@@ -366,21 +366,21 @@ Azure Storage-konton kan konfigureras med olika nivåer av redundans:
 
 Varje lagrings typ har ett annat användnings fall.
 
-#### <a name="blob-storage"></a>Blobb-lagring
+#### <a name="blob-storage"></a>Blob Storage
 
 Ordet *BLOB* är en akronym för *Binary Large Object*. Blobbar är ostrukturerade filer som de som du lagrar på din dator. Blob Storage kan lagra alla slags textdata eller binära data, till exempel ett dokument, en mediefil eller ett installationsprogram. Blob Storage kallas även för objektlagring. Azure Blob Storage innehåller också Azure Virtual Machines data diskar.
 
-Azure Storage stöder tre typer av blobar:
+Azure Storage stöder tre typer av blobbar:
 
-- **Block-blobbar** används för att lagra vanliga filer upp till 195 GB i storlek (4 MB × 50 000 block). I första hand används blockblobar för lagring av filer som läses från början till slut, som mediefiler eller bildfiler för webbplatser. De är namngivna block blobbar eftersom filer som är större än 64 MB måste laddas upp som små block. Dessa block sammanställs sedan (eller allokeras) till den slutliga blobben.
+- **Block-blobbar** används för att lagra vanliga filer upp till 195 GB i storlek (4 MB × 50 000 block). Det primära användnings fallet för block-blobbar är lagring av filer som läses från början till slut, till exempel mediefiler eller bildfiler för webbplatser. De är namngivna block blobbar eftersom filer som är större än 64 MB måste laddas upp som små block. Dessa block sammanställs sedan (eller allokeras) till den slutliga blobben.
 
-- **Page blobbar** används för att hålla slumpmässiga åtkomst till filer på upp till 1 TB. Page blobbar används främst som lagring för de virtuella hård diskar som tillhandahåller varaktiga diskar för Azure Virtual Machines, IaaS Compute service i Azure. De kallas för sidblobar eftersom de erbjuder slumpmässig läs-/skrivåtkomst till sidor på 512 bytes.
+- **Page blobbar** används för att hålla slumpmässiga åtkomst till filer på upp till 1 TB. Page blobbar används främst som lagring för de virtuella hård diskar som tillhandahåller varaktiga diskar för Azure Virtual Machines, IaaS Compute service i Azure. De heter Page blobbar eftersom de ger slumpmässig Läs-/skriv åtkomst till sidor på 512 byte.
 
-- **Tillägg av blobbar** består av block som block blobbar, men de är optimerade för att lägga till åtgärder. Dessa används ofta för att logga information från en eller flera källor till samma blob. Du kan till exempel skriva all spårnings loggning till samma tilläggs-BLOB för ett program som körs på flera virtuella datorer. En enda tilläggsblob kan ha upp till 195 GB.
+- **Tillägg av blobbar** består av block som block blobbar, men de är optimerade för att lägga till åtgärder. Dessa används ofta för att logga information från en eller flera källor till samma blob. Du kan till exempel skriva all spårnings loggning till samma tilläggs-BLOB för ett program som körs på flera virtuella datorer. En enda tilläggs-BLOB kan vara upp till 195 GB.
 
 Mer information finns i [Kom igång med Azure Blob Storage med hjälp av .net](../../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
-#### <a name="file-storage"></a>Fillagring
+#### <a name="file-storage"></a>File Storage
 
 Azure File Storage är en tjänst som erbjuder fil resurser i molnet med hjälp av SMB-standardprotokollet (Server Message Block). Tjänsten stöder både SMB 2,1 och SMB 3,0. Med Azure File Storage kan du migrera program som förlitar sig på fil resurser till Azure snabbt och utan kostsamma omskrivningar. Program som körs på virtuella Azure-datorer, i moln tjänster eller från lokala klienter kan montera en fil resurs i molnet. Detta liknar hur ett Skriv bords program monterar en typisk SMB-resurs. Ett obegränsat antal programkomponenter kan sedan montera och komma åt fillagringsresursen samtidigt.
 
@@ -388,7 +388,7 @@ Eftersom en fil lagrings resurs är en vanlig SMB-filresurs kan program som kör
 
 Mer information finns i [komma igång med Azure File Storage i Windows](../../storage/files/storage-how-to-use-files-windows.md) eller [så här använder du Azure File Storage med Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
-#### <a name="table-storage"></a>Tabellagring
+#### <a name="table-storage"></a>Table Storage
 
 Azure Table Storage är en tjänst som lagrar strukturerade NoSQL-data i molnet. Table Storage är ett Arkiv för nyckel/attribut med en schema lös design. Eftersom Table Storage är schema-mindre, är det enkelt att anpassa dina data när dina program behöver utvecklas. Åtkomsten till data är snabb och kostnadseffektiv för alla typer av program. Kostnaden för Table Storage är normalt sett betydligt lägre än för motsvarande volymer med traditionell SQL.
 
@@ -406,7 +406,7 @@ Mer information finns i [Kom igång med Azure Queue Storage](../../storage/queue
 
 Det finns flera alternativ för att distribuera ett lagrings konto.
 
-#### <a name="portal"></a>Portalen
+#### <a name="portal"></a>Portal
 
 Distribution av ett lagrings konto med hjälp av Azure Portal kräver bara en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan distribuera ett nytt lagrings konto till en ny eller befintlig resurs grupp. När du har skapat lagrings kontot kan du skapa en BLOB-behållare eller fil resurs med hjälp av portalen. Du kan skapa lagrings enheter för tabeller och köer program mässigt. Mer information finns i [Skapa ett lagringskonto](../../storage/common/storage-account-create.md).
 
@@ -418,7 +418,7 @@ Genom att distribuera ett Azure Storage-konto med hjälp av PowerShell kan du sl
 
 Förutom att distribuera Azure-resurser individuellt kan du använda Azure PowerShell-modulen för att distribuera en Azure Resource Manager-mall. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
-#### <a name="command-line-interface-cli"></a>Kommandoradsgränssnittet (CLI)
+#### <a name="command-line-interface-cli"></a>Kommando rads gränssnitt (CLI)
 
 Precis som med PowerShell-modulen tillhandahåller Azures kommando rads gränssnitt distributions automatisering och kan användas på Windows-, OS X-eller Linux-system. Du kan skapa ett lagrings konto med hjälp av kommandot **skapa** ett lagrings konto i Azure CLI. Mer information finns i [använda Azure CLI med Azure Storage.](../../storage/common/storage-azure-cli.md)
 

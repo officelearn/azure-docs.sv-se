@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2020
+ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 5453793c7e1bb1ef766939d2e7fdf32a1ac1ec72
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 01397ad078bc741977c4928f67d1834f05e1db8d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77499946"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623958"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Säkerhets aviseringar – en referens guide
 
@@ -33,7 +33,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 ## <a name="alerts-windows"></a>Aviseringar för Windows-datorer
 
-[Mer information och anmärkningar](security-center-alerts-iaas.md#windows-)
+[Mer information och anmärkningar](threat-protection.md#windows-machines)
 
 |Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
@@ -124,7 +124,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 ## <a name="alerts-linux"></a>Aviseringar för Linux-datorer
 
-[Mer information och anmärkningar](security-center-alerts-iaas.md#linux-)
+[Mer information och anmärkningar](threat-protection.md#linux-machines)
 
 |Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
@@ -213,7 +213,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 ## <a name="alerts-azureappserv"></a>Aviseringar för Azure App Service
 
-[Mer information och anmärkningar](security-center-alerts-compute.md#azure-app-service-)
+[Mer information och anmärkningar](threat-protection.md#app-services)
 
 |Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
@@ -238,7 +238,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 ## <a name="alerts-akscluster"></a>Aviseringar för behållare – Azure Kubernetes service-kluster
 
-[Mer information och anmärkningar](security-center-alerts-compute.md#azure-containers-)
+[Mer information och anmärkningar](threat-protection.md#azure-containers)
 
 |Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
@@ -253,7 +253,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 ## <a name="alerts-containerhost"></a>Aviseringar för behållare – värd nivå
 
-[Mer information och anmärkningar](security-center-alerts-compute.md#azure-containers-)
+[Mer information och anmärkningar](threat-protection.md#azure-containers)
 
 |Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
@@ -269,7 +269,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 ## <a name="alerts-sql-db-and-warehouse"></a>Aviseringar för SQL Database och SQL Data Warehouse
 
-[Mer information och anmärkningar](security-center-alerts-data-services.md#sql-database-and-sql-data-warehouse-)
+[Mer information och anmärkningar](threat-protection.md#data-sql)
 
 |Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
@@ -287,7 +287,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 ## <a name="alerts-azurestorage"></a>Aviseringar för Azure Storage
 
-[Mer information och anmärkningar](security-center-alerts-data-services.md#azure-storage-)
+[Mer information och anmärkningar](threat-protection.md#azure-storage)
 
 |Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
@@ -308,7 +308,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 ## <a name="alerts-azurecosmos"></a>Aviseringar för Azure Cosmos DB (för hands version)
 
-[Mer information och anmärkningar](security-center-alerts-data-services.md#azure-cosmos-db)
+[Mer information och anmärkningar](threat-protection.md#cosmos-db)
 
 |Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
@@ -319,7 +319,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 ## <a name="alerts-azurenetlayer"></a>Aviseringar för Azure nätverks lager
 
-[Mer information och anmärkningar](security-center-alerts-service-layer.md#azure-network-layer)
+[Mer information och anmärkningar](threat-protection.md#network-layer)
 
 |Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
@@ -344,7 +344,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 ## <a name="alerts-azureresourceman"></a>Aviseringar för Azure Resource Manager (för hands version)
 
-[Mer information och anmärkningar](security-center-alerts-service-layer.md#azure-management-layer-azure-resource-manager-preview)
+[Mer information och anmärkningar](threat-protection.md#management-layer)
 
 |Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
@@ -363,7 +363,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 ## <a name="alerts-azurekv"></a>Aviseringar för Azure Key Vault (för hands version)
 
-[Mer information och anmärkningar](security-center-alerts-service-layer.md#azure-keyvault)
+[Mer information och anmärkningar](threat-protection.md#azure-keyvault)
 
 |Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
@@ -381,7 +381,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 ## <a name="alerts-azureddos"></a>Aviseringar för Azure DDoS Protection
 
-[Mer information och anmärkningar](security-center-alerts-integration.md#azure-ddos)
+[Mer information och anmärkningar](threat-protection.md#azure-ddos)
 
 |Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
@@ -418,6 +418,7 @@ Security Center som stöds av Kill-kedjeen är baserade på [Mitre att &AMP; CK�
 ## <a name="next-steps"></a>Nästa steg
 Mer information om aviseringar finns i följande avsnitt:
 
+* [Skydd mot hot i Azure Security Center](threat-protection.md)
 * [Säkerhetsaviseringar i Azure Security Center](security-center-alerts-overview.md)
 * [Hantera och besvara säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Exportera säkerhets aviseringar och rekommendationer (för hands version)](continuous-export.md)

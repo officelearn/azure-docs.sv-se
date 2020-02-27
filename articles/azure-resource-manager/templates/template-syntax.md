@@ -2,13 +2,13 @@
 title: Mallens struktur och syntax
 description: Beskriver strukturen och egenskaperna för Azure Resource Manager mallar med deklarativ JSON-syntax.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: 9cd602644ecf803e97254189cfc157d60713cc6c
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/25/2020
+ms.openlocfilehash: 08c688da3e812a4a67070c926cf11512bfc60667
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209468"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622899"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager mallar
 
@@ -260,10 +260,14 @@ I följande exempel visar strukturen för en utdata-definition:
 
 ```json
 "outputs": {
-  "<output-name>" : {
+  "<output-name>": {
     "condition": "<boolean-value-whether-to-output-value>",
-    "type" : "<type-of-output-value>",
-    "value": "<output-value-expression>"
+    "type": "<type-of-output-value>",
+    "value": "<output-value-expression>",
+    "copy": {
+      "count": <number-of-iterations>,
+      "input": <values-for-the-variable>
+    }
   }
 }
 ```
@@ -273,7 +277,8 @@ I följande exempel visar strukturen för en utdata-definition:
 | utmatnings namn |Ja |Namnet på värdet. Måste vara en giltig JavaScript-identifierare. |
 | condition |Nej | Booleskt värde som anger om det här värdet returneras. När `true`tas värdet med i utdata för distributionen. När `false`ignoreras värdet för utdata för den här distributionen. Om inget värde anges `true`standardvärdet. |
 | typ |Ja |Typ av utdatavärde. Utdatavärden stöder samma datatyper som mall indataparametrar. Om du anger **SecureString** för utdatatypen visas inte värdet i distributions historiken och kan inte hämtas från en annan mall. Om du vill använda ett hemligt värde i fler än en mall lagrar du hemligheten i en Key Vault och refererar till hemligheten i parameter filen. Mer information finns i [använda Azure Key Vault för att skicka ett säkert parameter värde under distributionen](key-vault-parameter.md). |
-| värde |Ja |Mallspråksuttrycket som utvärderas och returneras som utdatavärde. |
+| värde |Nej |Mallspråksuttrycket som utvärderas och returneras som utdatavärde. Ange antingen **Value** eller **copy**. |
+| exemplar |Nej | Används för att returnera fler än ett värde för utdata. Ange **värde** eller **Kopiera**. Mer information finns i [utmatnings iteration i Azure Resource Manager mallar](copy-outputs.md). |
 
 Exempel på hur du använder utdata finns [i utdata i Azure Resource Manager mall](template-outputs.md).
 
@@ -379,7 +384,7 @@ Det går inte att lägga till ett metadataobjekt i användardefinierade funktion
 
 ## <a name="multi-line-strings"></a>Strängar med flera rader
 
-Du kan dela upp en sträng i flera rader. Till exempel egenskapen location och en av kommentarerna i följande JSON-exempel.
+Du kan dela upp en sträng i flera rader. Se till exempel egenskapen location och en av kommentarerna i följande JSON-exempel.
 
 ```json
 {

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 02/25/2020
 ms.author: dapine
-ms.openlocfilehash: 6b037ced7acb94340214ce401ffee9d940312de8
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 9112c7070708f3b97d79c1978a9b7204721c3194
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562655"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616639"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Självstudie: röst – aktivera din robot med tal-SDK
 
@@ -155,7 +155,7 @@ Nu när du har skapat några resurser är det dags att skapa en bot. Vi kommer a
 4. När projektet har lästs in trycker du på <kbd>F5</kbd> för att skapa och köra projektet.
 5. En webbläsare ska starta och du ser en skärm som ser ut ungefär så här.
     > [!div class="mx-imgBorder"]
-    > ![Echobot – localhost](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot körs på localhost")
+    > [![Echobot – localhost](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot körs på localhost")](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png#lightbox)
 
 ### <a name="test-the-bot-sample-with-the-bot-framework-emulator"></a>Testa robot-exemplet med bot Framework-emulatorn
 
@@ -164,14 +164,14 @@ Nu när du har skapat några resurser är det dags att skapa en bot. Vi kommer a
 1. Installera [bot Framework-emulatorns](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) version 4.3.0 eller senare
 2. Starta bot Framework-emulatorn och öppna din robot:
    * **Filen** -> **Öppna bot**.
-3. Ange URL: en för din robot. Exempel:
+3. Ange URL: en för din robot. Några exempel:
 
    ```
    http://localhost:3978/api/messages
    ```
    och tryck på "Anslut".
 4. Roboten bör omedelbart vara i hälsning med "Hello och Välkommen!" meddelande. Skriv ett textmeddelande och bekräfta att du får svar från roboten.
-5. Detta är vad ett utbyte av kommunikation med en ECHO bot-instans kan se ut så här: ![bot-Framework-emulator](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework-emulator")
+5. Detta är vad ett utbyte av kommunikation med en ECHO bot-instans kan se ut så här: [ ![bot-Framework-emulator](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework-emulator")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
 
 ## <a name="deploy-your-bot-to-an-azure-app-service"></a>Distribuera din robot till en Azure App Service
 
@@ -188,13 +188,14 @@ Nästa steg är att distribuera eko-roboten till Azure. Det finns några sätt a
 
 1. Högerklicka på projektet **EchoBot** i **Solution Explorer**och välj **publicera...**
 1. Ett nytt fönster med namnet **Välj ett publicerings mål** öppnas.
-1. Välj **App Service** i navigeringen för **Azure-tjänster** , Välj **Skapa ny**och klicka sedan på **publicera**.
+1. Välj **App Service** i navigeringen för **Azure-tjänster** , Välj **Skapa ny**och klicka sedan på **Skapa profil**.
 1. När fönstret **skapa App Service** visas:
    * Klicka på **Lägg till ett konto**och logga in med dina autentiseringsuppgifter för Azure-kontot. Om du redan är inloggad väljer du önskat konto i list rutan.
    * För **namnet på appen**måste du ange ett globalt unikt namn för din robot. Det här namnet används för att skapa en unik bot-URL. Ett standardvärde kommer att fyllas i, inklusive datum och tid (till exempel: "EchoBot20190805125647"). Du kan använda standard namnet för den här självstudien.
    * För **prenumeration**ställer du in den på **kostnads fri utvärderings version**
    * För **resurs grupp**väljer du **SpeechEchoBotTutorial-ResourceGroup**
    * För **värd plan**väljer du **SpeechEchoBotTutorial-AppServicePlan**
+   * För **Application Insights**lämnar du som **none**
 1. Klicka på **Skapa**
 1. Du bör se ett meddelande som visar att det är klart i Visual Studio som ser ut så här:
 
@@ -232,12 +233,9 @@ Nu när du har skapat en Azure App Service som värd för din robot, är nästa 
 > [!NOTE]
 > Om du vill veta mer om hur robotar använder kanaler kan du läsa [Anslut en robot till kanaler](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0).
 
-<!-- https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage -->
 
-1. Det första steget är att skapa en ny resurs för registreringen. Klicka på **skapa en resurs**i [Azure Portal](https://portal.azure.com).
-2. I **robotens**typ av sökning, när resultaten visas, väljer du **robot Channels-registrering**.
-3. Klicka på **Skapa**.
-4. Du uppmanas att ange viss information:
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Skapa en Azure bot Channel-registrering<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+2. Du uppmanas att ange viss information:
    * För **bot-referens**anger du **SpeechEchoBotTutorial-BotRegistration**.
    * För **prenumeration**väljer du **kostnads fri utvärdering**.
    * För **resurs grupp**väljer du **SpeechEchoBotTutorial-ResourceGroup**.
@@ -254,7 +252,7 @@ I det här läget kontrollerar du resurs gruppen **SpeechEchoBotTutorial-Resourc
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | USA, västra |
 | SpeechEchoBotTutorial-AppServicePlan | App Service-plan | USA, västra |
-| SpeechEchoBotTutorial-BotRegistration | Registrering av robot kanaler | Global |
+| SpeechEchoBotTutorial-BotRegistration | Registrering av robot kanaler | EAN |
 | SpeechEchoBotTutorial-tal | Cognitive Services | USA, västra |
 
 > [!IMPORTANT]
@@ -271,7 +269,7 @@ Nu är det dags att registrera din robot med den direkta rad igenkännings kanal
    * Välj den tal resurs som du skapade tidigare (t. ex. **SpeechEchoBotTutorial-tal**) på menyn för att koppla din robot till din tal prenumerations nyckel.
    * Klicka på **Save** (Spara).
 
-1. I navigeringen för **Azure-tjänster** klickar du på **Inställningar**.
+1. Klicka på **Inställningar**i navigeringen för **bot hantering** .
    * Markera kryss rutan **Aktivera direkt uppspelnings slut punkt**. Detta krävs för att aktivera ett kommunikations protokoll som bygger på Web sockets mellan din robot och den direkta rad igenkännings kanalen.
    * Klicka på **Save** (Spara).
 
@@ -310,6 +308,7 @@ Om problemet inte har åtgärd ATS i tabellen, se [röst assistenter: vanliga fr
 Varje robot skickar och tar emot **aktivitets** meddelanden. I **aktivitets logg** fönstret i direkt radnumrering-klienten visas de tidsstämplade loggarna med varje aktivitet som klienten har tagit emot från bot. Du kan också se de aktiviteter som klienten har skickat till bot med hjälp av metoden [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync) . När du väljer ett logg objekt visas information om den associerade aktiviteten som JSON.
 
 Här är ett exempel-JSON för en aktivitet som klienten tar emot:
+
 ```json
 {
     "attachments":[],
@@ -395,7 +394,6 @@ Du kan välja något av de språk som anges i tabellen [tal till text](language-
 1. Öppna klient programmet direkt linje tal, klicka på knappen Inställningar (övre högra kugg hjuls ikonen) och ange `de-de` i fältet språk (detta är det språkvariant-värde som anges i [tal-till-text-](language-support.md#speech-to-text) tabellen). Detta anger det talade språket som ska identifieras och åsidosätter standard `en-us`. Det instruerar också direkt linje tal kanalen att använda en standard-tysk röst för bot-svaret.
 2. Stäng sidan Inställningar och klicka på knappen Återanslut för att upprätta en ny anslutning till din eko-robot.
 3. Klicka på mikrofon knappen och säg en fras på tyska. Den tolkade texten och eko-roboten visas med den tyska standard rösten.
-
 
 ### <a name="change-the-default-bot-voice"></a>Ändra standard röst för bot
 

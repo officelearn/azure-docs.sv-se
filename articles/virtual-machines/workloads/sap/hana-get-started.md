@@ -4,7 +4,7 @@ description: Snabb starts guide för manuell installation av SAP HANA med en ins
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 630f094ffc6c57a0137d1abc46476f5abe64f616
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0090ffe977dee3e493d726c9eb4d151bcbeb503f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750374"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617236"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>Snabb start: manuell installation av en instans SAP HANA på Azure Virtual Machines
 ## <a name="introduction"></a>Introduktion
@@ -29,7 +29,7 @@ Den här guiden hjälper dig att konfigurera en instans SAP HANA på Azure Virtu
 > [!NOTE]
 > I den här guiden beskrivs distributioner av SAP HANA till virtuella Azure-datorer. Information om hur du distribuerar SAP HANA till HANA-stora instanser finns i [använda SAP på Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här guiden förutsätter att du är bekant med IaaS-grunderna (Infrastructure as a Service) som:
  * Distribuera virtuella datorer (VM) eller virtuella nätverk via Azure Portal eller PowerShell.
  * Azures plattforms oberoende kommando rads gränssnitt (CLI), som innehåller alternativet att använda JavaScript Object Notation-mallar (JSON).
@@ -118,7 +118,7 @@ I det här avsnittet listas viktiga steg för en manuell, SAP HANA installation 
 8. Ange de lokala IP-adresserna för de virtuella test datorerna i/etc/hosts-filen.
 9. Ange **nomisslyckande** -parametern i/etc/fstab-filen.
 10. Ange Linux-kernel-parametrar enligt den version av Linux OS som du använder. Mer information finns i SAP-anteckningar som diskuterar HANA och avsnittet "kernel-parametrar" i den här guiden.
-11. Lägg till växlings utrymme.
+11. Lägg till växlingsutrymme.
 12. Du kan också installera ett grafiskt skriv bord på de virtuella test datorerna. Annars använder du en fjärran sluten SAPinst installation.
 13. Hämta SAP-programvaran från SAP-tjänstens marknads plats.
 14. Installera SAP ASCS-instansen på den virtuella App Server-datorn.
@@ -140,7 +140,7 @@ I det här avsnittet listas viktiga steg för en manuell, SAP HANA installation 
 8. Ange de lokala IP-adresserna för de virtuella test datorerna i/etc/hosts-filen.
 9. Ange **nomisslyckande** -parametern i/etc/fstab-filen.
 10. Ange kernel-parametrar enligt den version av Linux OS som du använder. Mer information finns i SAP-anteckningar som diskuterar HANA och avsnittet "kernel-parametrar" i den här guiden.
-11. Lägg till växlings utrymme.
+11. Lägg till växlingsutrymme.
 12. Du kan också installera ett grafiskt skriv bord på de virtuella test datorerna. Annars använder du en fjärran sluten SAPinst installation.
 13. Hämta SAP-programvaran från SAP-tjänstens marknads plats.
 14. Skapa en grupp, sapsys, med grupp-ID 1001, på den virtuella HANA DB-servern.
@@ -176,17 +176,17 @@ Här är ett exempel på hur du söker efter tillgängliga korrigeringsfiler fö
 
 Beroende på typen av problem klassificeras korrigeringarna efter kategori och allvarlighets grad. Ofta använda värden för kategori: 
 - Säkerhet
-- Rekommenderad
-- Valfritt
+- Rekommenderas
+- Valfri
 - Funktion
 - Dokument
-- yast
+- Yast
 
 Ofta använda värden för allvarlighets grad:
 
-- Kritiskt
-- Viktig
-- Mellan
+- Kritisk
+- Viktigt
+- Måttlig
 - Låg
 - Ospecificerad
 
@@ -251,7 +251,7 @@ Följande skärm bild visar hur kernel-inställningarna ändrades i konfiguratio
 
 ![Kernel-inställningarna har ändrats i konfigurations filen och kompilerats med hjälp av grub2-mkconfig](./media/hana-get-started/image006.jpg)
 
-Ett annat alternativ är att ändra inställningarna med hjälp av YaST och **Start Inläsaren**  >  inställningarna för**kernel-parametrar** :
+Ett annat alternativ är att ändra inställningarna med hjälp av YaST och **Start Inläsaren** > inställningarna för **kernel-parametrar** :
 
 ![Fliken Inställningar för kernel-parametrar i YaST Boot Loader](./media/hana-get-started/image007.jpg)
 
@@ -438,7 +438,7 @@ Den här metoden hjälper till att förhindra att rot fil systemet får slut på
 
 Kontrol lera `\<HANA SID\>adm user` informationen i/etc/passwd-katalogen. Leta efter `azdadm`, som du ser i följande skärm bild:
 
-![HANA \<HANA SID \>adm användar information som anges i katalogen/etc/passwd](./media/hana-get-started/image033.jpg)
+![HANA \<HANA SID\>ADM-användar information som anges i/etc/passwd-katalogen](./media/hana-get-started/image033.jpg)
 
 När du har installerat SAP HANA med HDBLCM kan du se fil strukturen i SAP HANA Studio, som du ser i följande skärm bild. SAPABAP1-schemat, som innehåller alla SAP NetWeaver-tabeller, är inte tillgängligt ännu.
 

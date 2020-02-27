@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 18cf43ba137c92fc00d5f8e82e13501d03b4b6a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1c2b79f8d0641b1a1386329a2add14ded766bf5a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445410"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623381"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Globalt distribuerad transaktions-och analys lagring för Azure Cosmos-behållare
 
@@ -29,8 +29,8 @@ Transaktions lagrings motorn backas upp av lokala SSD, medan analys lagringen la
 
 |Funktion  |Transaktions lagring  |Analytisk lagring |
 |---------|---------|---------|
-|Maximalt lagrings utrymme per Azure Cosmos-behållare |   Unlimited      |    Unlimited     |
-|Maximalt lagrings utrymme per logisk partitionsnyckel   |   10 GB      |   Unlimited      |
+|Maximalt lagrings utrymme per Azure Cosmos-behållare |   Obegränsat      |    Obegränsat     |
+|Maximalt lagrings utrymme per logisk partitionsnyckel   |   20 GB      |   Obegränsat      |
 |Lagrings kodning  |   Rad orienterad, med ett internt format.   |   Kolumn-orienterade, med Apache Parquet-format. |
 |Lagrings plats |   Replikerad lagring som backas upp av lokala/intra-Cluster-SSD. |  Replikerad lagring som backas upp av ett billigt fjärr-eller SSD-kluster.       |
 |Hållbarhet  |    99,99999 (7-9 s)     |  99,99999 (7-9 s)       |

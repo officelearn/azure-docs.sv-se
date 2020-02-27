@@ -3,21 +3,21 @@ title: Migrera SSIS-paket till SQL-hanterad instans
 titleSuffix: Azure Database Migration Service
 description: Lär dig hur du migrerar SQL Server Integration Services-paket (SSIS) och projekt till en Azure SQL Database Hanterad instans med hjälp av Azure Database Migration Service eller Data Migration Assistant.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: 22f3e6a0e4c041024e826a7ed724d788ce77da62
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/20/2020
+ms.openlocfilehash: a0669724888f02672d18ef9e8f725eef1c744f90
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751217"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650972"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-database-managed-instance"></a>Migrera SQL Server Integration Services-paket till en Azure SQL Database Hanterad instans
 Om du använder SQL Server Integration Services (SSIS) och vill migrera dina SSIS-projekt/-paket från käll-SSISDB som är värd för SQL Server till målet SSISDB som hanteras av en Azure SQL Database Hanterad instans kan du använda Azure Database Migration Service.
@@ -33,7 +33,7 @@ I den här artikeln kan du se hur du:
 > * Utvärdera käll SSIS projekt/paket.
 > * Migrera SSIS-projekt/-paket till Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra de här stegen:
 
@@ -53,7 +53,7 @@ Du behöver följande för att slutföra de här stegen:
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration
 
-1. Logga in på Azure Portal och välj **Alla tjänster** och sedan **Prenumerationer**.
+1. Logga in på Azure-portalen och välj **Alla tjänster** och sedan **Prenumerationer**.
 
     ![Visa portalprenumerationer](media/how-to-migrate-ssis-packages-mi/portal-select-subscriptions.png)
 
@@ -103,7 +103,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
     ![Leta reda på alla instanser Azure Database Migration Service](media/how-to-migrate-ssis-packages-mi/dms-search.png)
 
-2. På **Azure Database Migration Service-sidan** söker du efter namnet på instansen som du har skapat och väljer sedan instansen.
+2. På sidan för **Azure Database Migration Service** söker du efter namnet för instansen du har skapat och väljer sedan instansen.
 
 3. Välj + **Nytt migreringsprojekt**.
 

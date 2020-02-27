@@ -4,12 +4,12 @@ description: Lär dig hur du skapar och hanterar flera Node-pooler för ett klus
 services: container-service
 ms.topic: article
 ms.date: 02/14/2020
-ms.openlocfilehash: 846425e6d36462636ea1f4e82d6c7233dcb28ac9
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 3e0890a0e8600526da2047cabc0b50af8177ea37
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592891"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615701"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera Node-pooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -29,8 +29,7 @@ Du behöver Azure CLI-versionen 2.0.76 eller senare installerad och konfigurerad
 Följande begränsningar gäller när du skapar och hanterar AKS-kluster som stöder flera Node-pooler:
 
 * Se [kvoter, storleks begränsningar för virtuella datorer och regions tillgänglighet i Azure Kubernetes service (AKS)][quotas-skus-regions].
-* Du kan inte ta bort standard-noden (första).
-* Det går inte att använda Dirigerings tillägget för HTTP-program.
+* Du kan inte ta bort systemets Node-pool som standard den första noden.
 * AKS-klustret måste använda standard-SKU: n för att använda flera noder, och funktionen stöds inte med Basic SKU-belastningsutjämnare.
 * AKS-klustret måste använda skalnings uppsättningar för virtuella datorer för noderna.
 * Namnet på en Node-pool får bara innehålla gemena alfanumeriska tecken och måste börja med en gemen bokstav. För Linux-nodkonfigurationer måste längden vara mellan 1 och 12 tecken, och längden måste vara mellan 1 och 6 tecken för Windows-noder.

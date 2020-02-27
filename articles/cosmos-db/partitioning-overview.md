@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: c781c5e12f3f678ef640c6017a768e7ac14448f9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 551703b5dcca082904197010366ee059998dde4b
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872000"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621872"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Partitionering i Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Mer information om hur Azure Cosmos DB hanterar partitioner finns i [logiska par
 
 Följande är en lämplig vägledning för att välja en partitionsnyckel:
 
-* En enda logisk partition har en övre gräns på 10 GB lagrings utrymme.  
+* En enda logisk partition har en övre gräns på 20 GB lagrings utrymme.  
 
 * Azure Cosmos-behållare har ett lägsta data flöde på 400 enheter för programbegäran per sekund (RU/s). När data flödet har allokerats i en databas är lägsta ru: er per behållare 100 enheter för programbegäran per sekund (RU/s). Begär anden till samma partitionsnyckel får inte överskrida det data flöde som har allokerats till en partition. Om begär Anden överskrider det allokerade data flödet är begär Anden avgiftsbelagda. Det är därför viktigt att välja en partitionsnyckel som inte resulterar i "aktiva punkter" i ditt program.
 

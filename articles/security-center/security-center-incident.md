@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: memildin
-ms.openlocfilehash: a600b17ce25a467b788671e12e3c2425ad20b809
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 1a6dbaeac5355d50edb93a7f215d7f8e88231e98
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604074"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615975"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Hantera säkerhets incidenter i Azure Security Center
 
@@ -48,14 +48,20 @@ För ytterligare information om aviseringar, [Hantera och svara på säkerhets a
 
 Följande avsnitt vägleder dig genom de olika aviseringarna, beroende på resurs typer:
 
-* [Aviseringar om virtuella datorer och servrar i IaaS](security-center-alerts-iaas.md)
-* [Interna beräknings aviseringar](security-center-alerts-compute.md)
-* [Aviseringar för data tjänster](security-center-alerts-data-services.md)
+* [Aviseringar för IaaS Windows-datorer](threat-protection.md#windows-machines)
+* [Aviseringar för IaaS Linux-datorer](threat-protection.md#linux-machines)
+* [Aviseringar för Azure App Service](threat-protection.md#app-services)
+* [Aviseringar för Azure-behållare](threat-protection.md#azure-containers)
+* [Aviseringar för SQL Database och SQL Data Warehouse](threat-protection.md#data-sql)
+* [Aviseringar för Azure Storage](threat-protection.md#azure-storage)
+* [Aviseringar för Cosmos DB](threat-protection.md#cosmos-db)
 
 I följande avsnitt förklaras hur Security Center använder olika telemetri som samlas in från integrering med Azure-infrastrukturen för att kunna använda ytterligare skydds lager för resurser som distribueras i Azure:
 
-* [Aviseringar för service nivå](security-center-alerts-service-layer.md)
-* [Hot identifiering för Azure WAF och Azure DDoS Protection](security-center-alerts-integration.md)
+* [Aviseringar för Azure Management Layer (Azure Resource Manager) (för hands version)](threat-protection.md#management-layer)
+* [Aviseringar för Azure Key Vault (för hands version)](threat-protection.md#azure-keyvault)
+* [Aviseringar för Azure nätverks lager](threat-protection.md#network-layer)
+* [Aviseringar från andra tjänster](threat-protection.md#alerts-other)
 
 ## <a name="see-also"></a>Se även
 I det här dokumentet har du fått lära dig hur du använder säkerhetsincidentfunktionen i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
@@ -63,4 +69,3 @@ I det här dokumentet har du fått lära dig hur du använder säkerhetsincident
 * [Säkerhets aviseringar i Azure Security Center](security-center-alerts-overview.md).
 * [Hantera säkerhetsaviseringar](security-center-managing-and-responding-alerts.md)
 * [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md)
-* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

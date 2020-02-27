@@ -6,24 +6,53 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: sngun
-ms.openlocfilehash: eec5ab6cdf4afd63db2e77046bb19436e600ece6
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: dc9d10a6539c7fc3a7c5c8b3db290cc951c24883
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721004"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623322"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestanda tips för Azure Cosmos DB och .NET
 
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
-> * [.NET](performance-tips.md)
+> * [NET](performance-tips.md)
 > 
 
 Azure Cosmos DB är en snabb och flexibel distribuerad databas som skalar sömlöst med garanterad svars tid och data flöde. Du behöver inte göra större ändringar i arkitekturen eller skriva komplex kod för att skala databasen med Azure Cosmos DB. Att skala upp och ned är lika enkelt som att göra ett enda API-anrop. Mer information finns i [så här etablerar du behållar data flöde](how-to-provision-container-throughput.md) eller [hur du etablerar databas data flöde](how-to-provision-database-throughput.md). Men eftersom Azure Cosmos DB nås via nätverks anrop finns det optimeringar på klient sidan som du kan göra för att uppnå högsta prestanda när du använder [SQL .NET SDK](sql-api-sdk-dotnet-standard.md).
 
 Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg följande alternativ:
+
+## <a name="hosting-recommendations"></a>Värd rekommendationer
+
+1.  **Använd Windows 64-bitars för krävande arbets belastningar i stället för värd bearbetning för Linux eller Windows 32**
+
+    Windows 64-bitars värd bearbetning rekommenderas för bättre prestanda. SQL-SDK: n innehåller en inbyggd ServiceInterop. dll för att parsa och optimera frågor lokalt och stöds bara på Windows x64-plattformen. För Linux och andra plattformar som inte stöds, där ServiceInterop. dll inte är tillgänglig, kommer det ytterligare ett nätverks anrop till gatewayen att hämta den optimerade frågan. Följande typer av program har 32-bitars värd process som standard, så för att ändra till 64-bit följer du dessa steg baserat på typen av program:
+
+    - För körbara program kan du göra detta genom att ange [plattforms målet](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) till **x64** i fönstret **projekt egenskaper** på fliken **skapa** .
+
+    - För VSTest-baserade test projekt kan du göra detta genom att välja test **Inställningar** för **test**->->**standard processor arkitektur som x64**, från meny alternativet **test på Visual Studio** .
+
+    - För lokalt distribuerade ASP.NET-webbappar kan du göra detta genom att kontrol lera att **använda 64-bitars versionen av IIS Express för webbplatser och projekt**, under **verktyg**->**alternativ**->**projekt och lösningar**->**webb projekt**.
+
+    - För ASP.NET webb program som distribueras i Azure kan du göra detta genom att välja **plattformen som 64-bit** i **program inställningarna** på Azure Portal.
+
+    > [!NOTE] 
+    > Visual Studio är standard nya projekt till valfri processor. Vi rekommenderar att du ställer in projektet till x64 för att undvika att byta till x86. Alla CPU-projekt kan enkelt växla till x86 om ett beroende läggs till endast x86.<br/>
+    > ServiceInterop. dll måste finnas i samma mapp som SDK-DLL-filen körs från. Detta bör endast göras för användare som manuellt kopiera-dll: er eller som har anpassade Bygg-/distributions system.
+    
+2. **Aktivera skräp insamling på Server sidan (GC)**
+
+    En minskning av skräp insamlingens frekvens kan i vissa fall hjälpa dig. I .NET anger du [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) till true.
+
+3. **Skala ut din klient arbets belastning**
+
+    Om du testar med höga data flödes nivåer (> 50000 RU/s) kan klient programmet bli Flask halsen på grund av att datorn capping ut på processor-eller nätverks användning. Om du når den här punkten kan du fortsätta att skicka det Azure Cosmos DB kontot ytterligare genom att skala ut dina klient program över flera servrar.
+
+    > [!NOTE] 
+    > Hög CPU-användning kan orsaka ökad latens och begär timeout-undantag.
 
 ## <a name="networking"></a>Nätverk
 <a id="direct-connection"></a>
@@ -46,7 +75,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
      |Anslutnings läge  |Protokoll som stöds  |SDK: er som stöds  |API/tjänst-port  |
      |---------|---------|---------|---------|
-     |Gateway-  |   HTTPS    |  All SDKS    |   SQL (443), Mongo (10250, 10255, 10256), tabell (443), Cassandra (10350), Graf (443)    |
+     |Gateway  |   HTTPS    |  All SDKS    |   SQL (443), Mongo (10250, 10255, 10256), tabell (443), Cassandra (10350), Graf (443)    |
      |Direct    |     TCP    |  .NET SDK    | Portar inom 10 000 – 20000-intervall |
 
      Azure Cosmos DB erbjuder en enkel och öppen RESTful programmerings modell över HTTPS. Dessutom erbjuder den ett effektivt TCP-protokoll, som också RESTful i sin kommunikations modell och är tillgängligt via .NET-klient-SDK: n. TCP-protokollet använder SSL för inledande autentisering och kryptering av trafik. Använd TCP-protokollet när det är möjligt för bästa prestanda.
@@ -96,6 +125,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
     ![illustration av Azure Cosmos DB anslutnings princip](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
+
 4. **Öka antalet trådar/aktiviteter**
 
     Eftersom anrop till Azure Cosmos DB görs över nätverket kan du behöva variera graden av parallellitet för dina begär Anden så att klient programmet ägnar mycket lite tid åt att vänta mellan begär Anden. Om du till exempel använder. NET- [aktivitetens parallella bibliotek](https://msdn.microsoft.com//library/dd460717.aspx), skapa i ordningen 100 uppgifter som läses eller skrivs till Azure Cosmos dB.
@@ -121,9 +151,11 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
     Varje DocumentClient-och CosmosClient-instans är tråd säker och utför effektiv anslutnings hantering och cachelagring av adresser när de körs i direkt läge. För att möjliggöra effektiv anslutnings hantering och bättre prestanda av SDK-klienten rekommenderar vi att du använder en enda instans per AppDomain för programmets livs längd.
 
    <a id="max-connection"></a>
+
 4. **Öka System.Net MaxConnections per värd när du använder Gateway-läge**
 
-    Azure Cosmos DB begär Anden görs via HTTPS/REST vid användning av Gateway-läge och omfattas av standard anslutnings gränsen per värdnamn eller IP-adress. Du kan behöva ange MaxConnections till ett högre värde (100-1000) så att klient biblioteket kan använda flera samtidiga anslutningar till Azure Cosmos DB. I .NET SDK-1.8.0 och senare är standardvärdet för [ServicePointManager. DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) 50 och du kan ändra värdet genom att ange filen [Documents. client. ConnectionPolicy. MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) till ett högre värde.   
+    Azure Cosmos DB begär Anden görs via HTTPS/REST vid användning av Gateway-läge och omfattas av standard anslutnings gränsen per värdnamn eller IP-adress. Du kan behöva ange MaxConnections till ett högre värde (100-1000) så att klient biblioteket kan använda flera samtidiga anslutningar till Azure Cosmos DB. I .NET SDK-1.8.0 och senare är standardvärdet för [ServicePointManager. DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) 50 och du kan ändra värdet genom att ange filen [Documents. client. ConnectionPolicy. MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) till ett högre värde.
+
 5. **Justera parallella frågor för partitionerade samlingar**
 
      SQL .NET SDK-version 1.9.0 och senare stöder parallella frågor, som gör att du kan fråga en partitionerad samling parallellt. Mer information finns i [kod exempel](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) för att arbeta med SDK: er. Parallella frågor är utformade för att förbättra svars tid och data flöde för deras serie motsvarighet. Parallella frågor ger två parametrar som användarna kan justera för att anpassa sig efter deras krav, (a) MaxDegreeOfParallelism: för att kontrol lera det högsta antalet partitioner kan frågas parallellt och (b) MaxBufferedItemCount: för att kontrol lera antalet resultat som redan hämtats.
@@ -135,10 +167,8 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
     (b) ***justering av MaxBufferedItemCount\:*** parallell fråga är utformad för att hämta resultat när den aktuella gruppen med resultat bearbetas av klienten. För hämtning bidrar till den totala tids fördröjnings förbättringen av en fråga. MaxBufferedItemCount är parametern för att begränsa antalet förhämtade resultat. Om du anger MaxBufferedItemCount till det förväntade antalet returnerade resultat (eller ett högre tal) kan frågan ta emot maximal nytta av för hämtning.
 
     För hämtning fungerar på samma sätt oavsett graden av parallellitet och det finns en enda buffert för data från alla partitioner.  
-6. **Aktivera server sidans GC**
 
-    En minskning av skräp insamlingens frekvens kan i vissa fall hjälpa dig. I .NET anger du [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) till true.
-7. **Implementera backoff med RetryAfter-intervall**
+6. **Implementera backoff med RetryAfter-intervall**
 
     Under prestanda testningen bör du öka belastningen tills en låg frekvens av begär Anden blir begränsad. Om detta är begränsat bör klient programmet backoff vid begränsningen för det Server-angivna återförsöksintervallet. Genom att respektera backoff garanterar du att du tillbringar minimal tid på att vänta mellan återförsök. Princip support för återförsök ingår i version 1.8.0 och senare av SQL [.net](sql-api-sdk-dotnet.md) och [Java](sql-api-sdk-java.md), version 1.9.0 och senare av [Node. js](sql-api-sdk-node.md) och [python](sql-api-sdk-python.md), och alla versioner av [.net Core](sql-api-sdk-dotnet-core.md) SDK: er som stöds. Mer information finns i [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
     
@@ -147,16 +177,13 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
     ResourceResponse<Document> readDocument = await this.readClient.ReadDocumentAsync(oldDocuments[i].SelfLink);
     readDocument.RequestDiagnosticsString 
     ```
-    
-8. **Skala ut din klient arbets belastning**
 
-    Om du testar med höga data flödes nivåer (> 50000 RU/s) kan klient programmet bli Flask halsen på grund av att datorn capping ut på processor-eller nätverks användning. Om du når den här punkten kan du fortsätta att skicka det Azure Cosmos DB kontot ytterligare genom att skala ut dina klient program över flera servrar.
-9. **Cachelagra dokument-URI: er för lägre Läs fördröjning**
+7. **Cachelagra dokument-URI: er för lägre Läs fördröjning**
 
-    Cachelagra dokument-URI: er när det är möjligt för bästa möjliga Läs prestanda. Du måste definiera logik för att cachelagra ResourceID när du skapar resursen. ResourceID-baserade sökningar är snabbare än namnbaserade sökningar, så cachelagring av dessa värden förbättrar prestandan. 
+    Cachelagra dokument-URI: er när det är möjligt för bästa möjliga Läs prestanda. Du måste definiera logik för att cachelagra resurs-ID när du skapar resursen. Resurs-ID-baserade sökningar är snabbare än namnbaserade sökningar, så cachelagring av dessa värden förbättrar prestandan. 
 
    <a id="tune-page-size"></a>
-10. **Justera sid storleken för frågor/läsa feeds för bättre prestanda**
+8. **Justera sid storleken för frågor/läsa feeds för bättre prestanda**
 
    När du utför en Mass läsning av dokument med hjälp av funktionen för att läsa feeds (t. ex. ReadDocumentFeedAsync) eller när du utfärdar en SQL-fråga, returneras resultatet i ett segment om resultat mängden är för stor. Som standard returneras resultaten i segment om 100 objekt eller 1 MB, beroende på vilken gräns som nåtts först.
 
@@ -165,7 +192,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
    > [!NOTE] 
    > Egenskapen maxItemCount bör inte användas bara för sid brytnings ändamål. Det är den viktigaste användningen för att förbättra prestanda för frågor genom att minska det maximala antalet objekt som returneras på en enda sida.  
 
-   Du kan också ange sid storlek med hjälp av tillgängliga Azure Cosmos DB SDK: er. Med egenskapen [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) i FeedOptions kan du ange det maximala antalet objekt som ska returneras i uppräknings åtgärden. När `maxItemCount` är inställt på-1 hittar SDK: n automatiskt det optimala värdet beroende på dokument storleken. Exempel:
+   Du kan också ange sid storlek med hjälp av tillgängliga Azure Cosmos DB SDK: er. Med egenskapen [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) i FeedOptions kan du ange det maximala antalet objekt som ska returneras i uppräknings åtgärden. När `maxItemCount` är inställt på-1 hittar SDK: n automatiskt det optimala värdet beroende på dokument storleken. Några exempel:
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
@@ -173,23 +200,11 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
     
    När en fråga körs skickas resulterande data i ett TCP-paket. Om du anger för lågt värde för `maxItemCount`, är antalet resor som krävs för att skicka data i TCP-paketet höga, vilket påverkar prestandan. Om du inte är säker på vilket värde som ska anges för `maxItemCount` egenskap är det bäst att ange det till-1 och låta SDK: n välja standardvärdet. 
 
-11. **Öka antalet trådar/aktiviteter**
+9. **Öka antalet trådar/aktiviteter**
 
     Se [öka antalet trådar/aktiviteter](#increase-threads) i avsnittet nätverk.
 
-12. **Använd 64-bitars värd bearbetning**
-
-    SQL SDK fungerar i en 32-bitars värd process när du använder SQL SDK-version 1.11.4 och senare. Men om du använder kors partitions frågor rekommenderas 64-bitars värd bearbetning för bättre prestanda. Följande typer av program har 32-bitars värd process som standard, så för att ändra till 64-bit följer du dessa steg baserat på typen av program:
-
-    - För körbara program kan du göra detta genom att avmarkera alternativet **hellre 32-bit** i fönstret **projekt egenskaper** på fliken **bygge** .
-
-    - För VSTest-baserade test projekt kan du göra detta genom att välja test **Inställningar** för **test**->->**standard processor arkitektur som x64**, från meny alternativet **test på Visual Studio** .
-
-    - För lokalt distribuerade ASP.NET-webbappar kan du göra detta genom att kontrol lera att **använda 64-bitars versionen av IIS Express för webbplatser och projekt**, under **verktyg**->**alternativ**->**projekt och lösningar**->**webb projekt**.
-
-    - För ASP.NET webb program som distribueras i Azure kan du göra detta genom att välja **plattformen som 64-bit** i **program inställningarna** på Azure Portal.
-
-## <a name="indexing-policy"></a>Indexeringspolicy
+## <a name="indexing-policy"></a>Indexeringsprincip
  
 1. **Utesluta sökvägar som inte används från indexering för att få snabbare skrivning**
 
@@ -247,7 +262,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
     Även om det automatiserade återförsöket hjälper till att förbättra återhämtning och användbarhet för de flesta program, kan det komma på strider när du gör prestanda mått, särskilt när du mäter svars tid.  Den klientbaserade svars tiden kommer att inaktive ras om experimentet träffar Server begränsningen och gör att klient-SDK: n kan försöka tyst igen. För att undvika fördröjningar vid prestanda experiment kan du mäta den avgift som returneras av varje åtgärd och se till att förfrågningarna fungerar under den reserverade begär ande frekvensen. Mer information finns i [enheter för programbegäran](request-units.md).
 3. **Design för mindre dokument för högre data flöde**
 
-    Begär ande avgiften (dvs. bearbetnings kostnad för begäran) för en specifik åtgärd är direkt korrelerad med dokumentets storlek. Åtgärder i stora dokument kostar mer än åtgärder för små dokument.
+    Begär ande avgiften (d.v.s. bearbetnings kostnaden för begäran) för en specifik åtgärd är direkt korrelerad med dokumentets storlek. Åtgärder i stora dokument kostar mer än åtgärder för små dokument.
 
 ## <a name="next-steps"></a>Nästa steg
 Ett exempel program som används för att utvärdera Azure Cosmos DB för scenarier med hög prestanda på ett fåtal klient datorer finns i [prestanda-och skalnings testning med Azure Cosmos DB](performance-testing.md).

@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 940ac7b0a2720283b669fc7ea5a9dbc163ddbe64
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 5681efc202df511745532e4a314e88b319e9880a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460219"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623412"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -26,10 +26,10 @@ När du har skapat ett Azure Cosmos-konto under din prenumeration kan du hantera
 | Maximalt antal ru: er per behållare ([dedikerat data flöde har allokerat läge](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | Maximalt antal ru: er per databas ([delat data flöde har allokerat läge](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | Maximal ru: er per (logisk) partitionsnyckel | 10 000 |
-| Maximalt lagrings utrymme för alla objekt per (logisk) partitionsnyckel| 10 GB |
-| Maximalt antal distinkta (logiska) sessionsnycklar | Unlimited |
-| Maximalt lagrings utrymme per behållare | Unlimited |
-| Maximalt lagrings utrymme per databas | Unlimited |
+| Maximalt lagrings utrymme för alla objekt per (logisk) partitionsnyckel| 20 GB |
+| Maximalt antal distinkta (logiska) sessionsnycklar | Obegränsat |
+| Maximalt lagrings utrymme per behållare | Obegränsat |
+| Maximalt lagrings utrymme per databas | Obegränsat |
 | Maximal storlek på bifogade filer per konto (funktionen bilaga skrivs över) | 2 GB |
 | Lägsta ru: er som krävs per 1 GB | 10 RU/s |
 
@@ -76,7 +76,7 @@ Cosmos DB automatiskt tar säkerhets kopior av dina data med jämna mellanrum. M
 
 | Resurs | Standardgräns |
 | --- | --- |
-| Maximalt antal databaser | Unlimited |
+| Maximalt antal databaser | Obegränsat |
 | Maximalt antal behållare per databas med delat data flöde |25 |
 | Maximalt antal behållare per databas eller konto med dedikerat data flöde  |obegränsat |
 | Maximalt antal regioner | Ingen gräns (alla Azure-regioner) |

@@ -4,12 +4,12 @@ description: Använd Azure som värd för en Jenkins-automationsserver för vers
 keywords: jenkins, azure, devops, översikt
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 5991505dac0cf6f7ff2cac5dfabd06f4c90dc20f
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: a9297ebc116d75cfe1d4f37d4e9ada7d5198beae
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605692"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620170"
 ---
 # <a name="azure-and-jenkins"></a>Azure och Jenkins
 
@@ -33,7 +33,7 @@ Lägg till versionsagenter i din befintliga Jenkins-distribution och skala upp J
 
 När de har konfigurerats med ett [Azure-tjänstobjekt](/azure/azure-resource-manager/resource-group-overview) kan Jenkins-jobb och Jenkins-pipelines använda den här informationen för att:
 
-- Lagra och arkivera Bygg artefakter säkert i [Azure Storage](/azure/storage/common/storage-introduction) med hjälp av [Azure Storage-plugin-programmet](https://plugins.jenkins.io/windows-azure-storage). Mer information finns i [instruktionsartikeln om Jenkins-lagring](/azure/storage/common/storage-java-jenkins-continuous-integration-solution).
+- Lagra och arkivera Bygg artefakter säkert i [Azure Storage](/azure/storage/common/storage-introduction) med hjälp av [Azure Storage-plugin-programmet](https://plugins.jenkins.io/windows-azure-storage). Mer information finns i [instruktionsartikeln om Jenkins-lagring](storage-java-jenkins-continuous-integration-solution.md).
 - Hantera och konfigurera Azure-resurser med [Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline).
 
 ## <a name="deploy-your-code-into-azure-services"></a>Distribuera din kod till Azure-tjänster

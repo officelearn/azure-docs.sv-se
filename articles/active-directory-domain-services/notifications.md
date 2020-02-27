@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 140edb3162d4f76c741a5692faa19325581a3ba7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 5507579338ad0d87bc6223b56283fe7ed46af7d8
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704496"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613296"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Konfigurera e-postaviseringar för problem i Azure Active Directory Domain Services
 
@@ -58,7 +58,7 @@ Du kan också välja att ha alla *globala administratörer* i Azure AD-katalogen
 Utför följande steg för att granska befintliga e-postmottagare eller lägga till ytterligare mottagare:
 
 1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**.
-1. Välj din Azure AD DS-hanterade domän, till exempel *aadds.contoso.com*.
+1. Välj din Azure AD DS-hanterade domän, till exempel *aaddscontoso.com*.
 1. På vänster sida av fönstret Azure AD DS-resurs väljer du **meddelande inställningar**. Befintliga mottagare för e-postaviseringar visas.
 1. Om du vill lägga till en e-postmottagare anger du e-postadressen i tabellen ytterligare mottagare.
 1. När du är färdig väljer du **Spara** i det övre navigerings fältet.
@@ -66,7 +66,7 @@ Utför följande steg för att granska befintliga e-postmottagare eller lägga t
 > [!WARNING]
 > När du ändrar meddelande inställningarna uppdateras meddelande inställningarna för hela den hanterade Azure AD DS-domänen, inte bara dig själv.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>Jag har fått ett e-postmeddelande om en avisering, men när jag är inloggad på Azure Portal finns det ingen avisering. Vad hände?
 

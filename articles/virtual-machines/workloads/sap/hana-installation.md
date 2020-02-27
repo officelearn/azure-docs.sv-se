@@ -4,7 +4,7 @@ description: Så här installerar du SAP HANA på en SAP HANA på Azure (stora i
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c08036f16cd30a1c10963accd8d486d77c9683ee
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: ca59305b22fcf1e81ef518612910731cb6edea5d
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264177"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617097"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Så här installerar och konfigurerar du SAP HANA (stora instanser) i Azure
 
@@ -134,7 +134,7 @@ Det finns vissa detaljer som är värda att nämna om nätverk för de enskilda 
 
 Mer information om Ethernet-information för din arkitektur finns i [scenarier för HLI som stöds](hana-supported-scenario.md).
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 Lagrings layouten för SAP HANA på Azure (stora instanser) konfigureras genom att SAP HANA på Azure `service management` genom de rekommenderade SAP-rikt linjerna. Dessa rikt linjer beskrivs i [SAP HANA lagrings krav](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) White Paper. 
 
@@ -144,7 +144,7 @@ Namngivnings konventionerna för lagrings volymerna visas i följande tabell:
 
 | Lagrings användning | Monterings namn | Volym namn | 
 | --- | --- | ---|
-| HANA-data | /hana/data/SID/mnt0000\<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
+| HANA-data | /hana/data/SID/mnt0000\<m > | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
 | HANA-logg | /hana/log/SID/mnt0000\<m > | Lagrings-IP:/hana_log_SID_mnt00001_tenant_vol |
 | HANA-logg säkerhets kopiering | /hana/log/backups | Lagrings-IP:/hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA delad | /hana/shared/SID | Lagrings-IP:/hana_shared_SID_mnt00001_tenant_vol/Shared |

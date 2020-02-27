@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/6/2019
 ms.author: iainfou
-ms.openlocfilehash: c0fcb8c2c5f9afa7fabe2ffa63a715ec24aa4a26
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c6e4e6a45fbbeab64184d8ae4b0684ba055d7735
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720488"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613980"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-ad-domain-services-managed-domain"></a>Distribuera Azure AD-programproxy för säker åtkomst till interna program i en Azure AD Domain Services hanterad domän
 
@@ -74,7 +74,7 @@ När du har en virtuell dator som är redo att användas som Azure AD-programpro
         > [!NOTE]
         > Det globala administratörs kontot som används för att registrera anslutningen måste tillhöra samma katalog där du aktiverar Application Proxy-tjänsten.
         >
-        > Om till exempel Azure AD-domänen är *contoso.com*ska den globala administratören vara `admin@contoso.com` eller ett annat giltigt alias i domänen.
+        > Om till exempel Azure AD-domänen är *aaddscontoso.com*ska den globala administratören vara `admin@aaddscontoso.com` eller ett annat giltigt alias i domänen.
 
    * Om förbättrad säkerhets konfiguration i Internet Explorer är aktiverat för den virtuella datorn där du installerar anslutningen, kan registrerings skärmen blockeras. Om du vill tillåta åtkomst följer du anvisningarna i fel meddelandet eller stänger av förbättrad säkerhet i Internet Explorer under installationen.
    * Om anslutnings registreringen Miss lyckas, se [Felsöka programproxyn](../active-directory/manage-apps/application-proxy-troubleshoot.md).
@@ -99,16 +99,16 @@ Mer information finns i [Konfigurera Kerberos-begränsad delegering (KCD) i Azur
 
 Använd [Get-ADComputer][Get-ADComputer] för att hämta inställningarna för den dator där Azure AD-programproxy Connector är installerat. Kör följande cmdlets från din domänanslutna hanterings-VM och inloggad som användar konto som är medlem i gruppen *Azure AD DC-administratörer* .
 
-I följande exempel får du information om dator kontot som heter *appproxy.contoso.com*. Ange ett eget dator namn för den virtuella Azure AD-programproxy-datorn som har kon figurer ATS i föregående steg.
+I följande exempel får du information om dator kontot som heter *appproxy.aaddscontoso.com*. Ange ett eget dator namn för den virtuella Azure AD-programproxy-datorn som har kon figurer ATS i föregående steg.
 
 ```powershell
-$ImpersonatingAccount = Get-ADComputer -Identity appproxy.contoso.com
+$ImpersonatingAccount = Get-ADComputer -Identity appproxy.aaddscontoso.com
 ```
 
-För varje program server som kör apparna bakom Azure AD-programproxy använder du PowerShell-cmdleten [set-ADComputer][Set-ADComputer] för att konfigurera resursbaserade KCD. I följande exempel beviljas Azure AD-programproxy-anslutningen behörighet att använda den *appserver.contoso.com* datorn:
+För varje program server som kör apparna bakom Azure AD-programproxy använder du PowerShell-cmdleten [set-ADComputer][Set-ADComputer] för att konfigurera resursbaserade KCD. I följande exempel beviljas Azure AD-programproxy-anslutningen behörighet att använda den *appserver.aaddscontoso.com* datorn:
 
 ```powershell
-Set-ADComputer appserver.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+Set-ADComputer appserver.aaddscontoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
 ```
 
 Om du distribuerar flera Azure AD-programproxy-kopplingar måste du konfigurera resursbaserade KCD för varje anslutnings instans.

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 142974423816b07d754a5425017aedc3195e2f4e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 386af46bbee623d37bc914d2ee9130c914c6c885
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794002"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620876"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>Topologier och scenarier som stöds av Azure AD Connect Cloud-etablering
 I den här artikeln beskrivs olika lokala och Azure Active Directory (Azure AD)-topologier som använder Azure AD Connect moln etablering. Den här artikeln innehåller endast konfigurationer och scenarier som stöds.
@@ -33,12 +33,16 @@ Följande är en lista med information som du bör tänka på när du väljer en
 - Käll fäst punkten för objekt väljs automatiskt.  Den använder MS-DS-ConsistencyGuid om den finns, annars används ObjectGUID.
 - Du kan inte ändra attributet som används för käll ankare.
 
+## <a name="single-forest-single-azure-ad-tenant"></a>En enda skog, en enda Azure AD-klient
+![Topologi för en enskild skog och en enskild klient](media/plan-cloud-provisioning-topologies/single-forest.png)
+
+Den enklaste topologin är en enda lokal skog med en eller flera domäner och en enda Azure AD-klient.  Ett exempel på det här scenariot finns i [Självstudier: en enda skog med en enda Azure AD-klient](tutorial-single-forest.md)
 
 
 ## <a name="multi-forest-single-azure-ad-tenant"></a>Flera skogar, en enda Azure AD-klient
 ![Topologi för en multi-skog och en enskild klient](media/plan-cloud-provisioning-topologies/multi-forest.png)
 
-Den vanligaste topologin är en multipel AD-skog med en eller flera domäner och en enda Azure AD-klient.  
+En vanlig topologi är flera AD-skogar med en eller flera domäner och en enda Azure AD-klient.  
 
 ## <a name="existing-forest-with-azure-ad-connect-new-forest-with-cloud-provisioning"></a>Befintlig skog med Azure AD Connect, ny skog med moln etablering
 ![Topologi för en enskild skog och en enskild klient](media/plan-cloud-provisioning-topologies/existing-forest-new-forest.png)
@@ -50,10 +54,7 @@ Det här scenariot är en topologi som liknar scenariot med flera skogar, men de
 
 Ett exempel på det här scenariot finns i [självstudie: Pilot Azure AD Connect Cloud etableringen i en befintlig synkroniserad AD-skog](tutorial-pilot-aadc-aadccp.md)
 
-## <a name="single-forest-single-azure-ad-tenant"></a>En enda skog, en enda Azure AD-klient
-![Topologi för en enskild skog och en enskild klient](media/plan-cloud-provisioning-topologies/single-forest.png)
 
-Den enklaste topologin är en enda lokal skog med en eller flera domäner och en enda Azure AD-klient.  Ett exempel på det här scenariot finns i [Självstudier: en enda skog med en enda Azure AD-klient](tutorial-single-forest.md)
 
 ## <a name="next-steps"></a>Nästa steg 
 

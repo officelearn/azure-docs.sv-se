@@ -62,10 +62,14 @@
       href: load-balancer-security-controls.md
 - name: Gör så här för att
   items:
-    - name: Uppgradera en grundläggande offentlig lastbalanserare till en standard offentlig lastbalanserare
-      href: upgrade-basic-standard.md
-    - name: Uppgradera en grundläggande intern lastbalanserare till en standard intern lastbalanserare
-      href: upgrade-basicInternal-standard.md
+    - name: Uppgradera en Basic Load Balancer till Standard Load Balancer
+      items:
+        - name: Uppgradera en Basic Public Load Balancer
+          href: upgrade-basic-standard.md
+        - name: Uppgradera en Basic Internal Load Balancer – utan någon utgående anslutning
+          href: upgrade-basicInternal-standard.md
+        - name: Uppgradera en Basic Internal Load Balancer – med en utgående anslutning
+          href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Konfigurera regler för utgående trafik
       items:
         - name: Azure Portal

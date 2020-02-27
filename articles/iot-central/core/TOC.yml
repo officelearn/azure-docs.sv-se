@@ -21,6 +21,8 @@
   items:
     - name: Kom igång med anslutningen
       items:
+        - name: Ansluta en enhet
+          href: tutorial-connect-device.md
         - name: Anslut en Plug and Play-enhet (förhandsversion)
           href: tutorial-connect-pnp-device.md
         - name: Mall för att skapa en gateway-enhet

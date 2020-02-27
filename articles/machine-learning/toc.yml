@@ -329,23 +329,18 @@
           href: how-to-deploy-existing-model.md
         - name: Felsöka
           href: how-to-troubleshoot-deployment.md
-    - name: Konsumera webbtjänster
-      items:
-        - name: Använda i realtid
+        - name: Skapa klienter
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
-        - name: Batch-förutsägelser i Designer
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-          href: how-to-run-batch-predictions-designer.md
-    - name: Övervaka modeller
-      items:
-        - name: Samla in och utvärdera modelldata
-          displayName: track production
-          href: how-to-enable-data-collection.md
-        - name: Identifiera dataavvikelser
-          href: how-to-monitor-data-drift.md
-        - name: Övervaka med Application Insights
-          href: how-to-enable-app-insights.md
+        - name: Övervaka modeller
+          items:
+            - name: Samla in och utvärdera modelldata
+              displayName: track production
+              href: how-to-enable-data-collection.md
+            - name: Identifiera dataavvikelser
+              href: how-to-monitor-data-drift.md
+            - name: Övervaka med Application Insights
+              href: how-to-enable-app-insights.md
     - name: Skapa och använda ML-pipelines
       displayName: pipelines
       items:
@@ -372,6 +367,9 @@
         - name: Felkorrigera och felsöka parallella körningssteg
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
+        - name: Batch-förutsägelser i Designer
+          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+          href: how-to-run-batch-predictions-designer.md
     - name: Hantera resurskvoter
       displayName: limits
       href: how-to-manage-quotas.md

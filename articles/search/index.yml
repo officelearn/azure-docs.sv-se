@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: HeidiSteen
   ms.author: heidist
-  ms.date: 09/20/2019
-  ms.openlocfilehash: 3d011bdf1f0da04efec86adc121326a877532b6f
-  ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+  ms.date: 02/25/2020
+  ms.openlocfilehash: b1df45b155e9c9d1bd4433d7ddc765c126686a07
+  ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 01/24/2020
-  ms.locfileid: "76721072"
+  ms.lasthandoff: 02/26/2020
+  ms.locfileid: "77614961"
 landingContent:
 - title: Om Cognitive Search
   linkLists:
@@ -24,15 +24,29 @@ landingContent:
     links:
     - text: Vad är Azure Cognitive Search?
       url: search-what-is-azure-search.md
-  - linkListType: architecture
-    links:
-    - text: Så här fungerar fulltextsökning i Cognitive Search
-      url: search-lucene-query-architecture.md
+    - text: Vad är AI-berikning?
+      url: cognitive-search-concept-intro.md
+    - text: Vad är en indexerare?
+      url: search-indexer-overview.md
   - linkListType: video
     links:
     - text: Vad är Cognitive Search? (1 min 27 sek)
       url: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
-- title: Kom igång
+- title: Indexera Azure-data
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Indexera från Azure Blob Storage
+      url: search-blob-storage-integration.md
+    - text: Indexera från Azure SQL Database
+      url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+    - text: Indexera från Cosmos DB
+      url: search-howto-index-cosmosdb.md
+  - linkListType: tutorial
+    links:
+    - text: Indexera halvstrukturerade blobdata
+      url: search-semi-structured-data.md
+- title: Snabbstarter på 10 minuter
   linkLists:
   - linkListType: quickstart
     links:
@@ -40,31 +54,11 @@ landingContent:
       url: search-create-service-portal.md
     - text: Skapa ett index
       url: search-get-started-portal.md
-    - text: Skapa en berikningspipeline
-      url: cognitive-search-quickstart-blob.md
-  - linkListType: tutorial
-    links:
     - text: Skapa en app
-      url: tutorial-csharp-create-first-app.md
-  - linkListType: learn
-    links:
-    - text: Introduktion till Azure Cognitive Search
-      url: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
-- title: Använda med Blob-lagring
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Använda AI för att förstå blobdata
-      url: search-blob-ai-integration.md
-    - text: Söka i blobinnehåll
-      url: search-blob-storage-integration.md
-    - text: Lagra AI-berikning
-      url: knowledge-store-concept-intro.md
-  - linkListType: tutorial
-    links:
-    - text: Indexera halvstrukturerade blobdata
-      url: search-semi-structured-data.md
-- title: Indexera dina data
+      url: search-create-app-portal.md
+    - text: Mata in och extrahera rå text och bilder
+      url: cognitive-search-quickstart-blob.md
+- title: Indexera alla data
   linkLists:
   - linkListType: concept
     links:
@@ -72,32 +66,22 @@ landingContent:
       url: search-what-is-an-index.md
     - text: Importera data
       url: search-what-is-data-import.md
-    - text: Använda en indexerare
-      url: search-indexer-overview.md
-  - linkListType: how-to-guide
-    links:
-    - text: Indexera från Azure SQL Database
-      url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-    - text: Indexera från Cosmos DB-data
-      url: search-howto-index-cosmosdb.md
   - linkListType: reference
     links:
     - text: Skapa index (REST)
       url: https://docs.microsoft.com/rest/api/searchservice/create-index
     - text: Skapa indexerare (REST)
       url: https://docs.microsoft.com/rest/api/searchservice/create-indexer
-- title: Utöka dina data
+- title: Berika med AI
   linkLists:
   - linkListType: concept
     links:
-    - text: Pipeline med AI-berikning
-      url: cognitive-search-concept-intro.md
     - text: Kompetensuppsättningar
       url: cognitive-search-defining-skillset.md
     - text: Kunskapslager
       url: knowledge-store-concept-intro.md
     - text: Projektioner
-      url: knowledge-store-projection-overview.md
+      url: knowledge-store-projections-examples.md
   - linkListType: how-to-guide
     links:
     - text: Bifoga Cognitive Services
@@ -110,11 +94,11 @@ landingContent:
     links:
     - text: Inbyggda färdigheter
       url: cognitive-search-predefined-skills.md
-- title: Fråga dina data
+- title: Söka i data
   linkLists:
   - linkListType: concept
     links:
-    - text: Översikt
+    - text: Frågetyper och sammansättning
       url: search-query-overview.md
     - text: Enkel syntax (standard)
       url: query-simple-syntax.md

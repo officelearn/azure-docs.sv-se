@@ -69,7 +69,7 @@
               href: ./hdinsight-hadoop-create-linux-clusters-portal.md
             - name: Skapa kluster med hjälp av mallar
               href: ./hdinsight-hadoop-create-linux-clusters-arm-templates.md
-            - name: Skapa kluster med hjälp av kommandoraden
+            - name: Skapa kluster med hjälp av Azure CLI
               href: ./hdinsight-hadoop-create-linux-clusters-azure-cli.md
             - name: Skapa kluster med hjälp av PowerShell
               href: ./hdinsight-hadoop-create-linux-clusters-azure-powershell.md

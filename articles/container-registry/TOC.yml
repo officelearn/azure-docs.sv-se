@@ -141,15 +141,17 @@
       items:
         - name: Automatisera genereringen av containeravbildningar
           items:
-            - name: Skapa från källkontext
+            - name: 1 – Skapa från källkontext
               href: container-registry-tutorial-quick-task.md
-            - name: Skapa vid kodincheckning
+            - name: 2a – Skapa vid kodincheckning
               href: container-registry-tutorial-build-task.md
-            - name: Flerstegsuppgift vid kodincheckning
+            - name: 2b – Flerstegsuppgift vid kodincheckning
               href: container-registry-tutorial-multistep-task.md
-            - name: Skapa vid uppdatering av basavbildning
+            - name: 3a – Skapa vid uppdatering av basavbildning
               href: container-registry-tutorial-base-image-update.md
-            - name: Schemalägga en aktivitet
+            - name: 3b – Skapa vid privat uppdatering av basavbildning
+              href: container-registry-tutorial-private-base-image-update.md
+            - name: 4 – Skapa enligt schema
               href: container-registry-tasks-scheduled.md
     - name: Exempel
       expanded: false
@@ -160,6 +162,8 @@
       items:
         - name: Uppgifter i flera steg
           href: container-registry-tasks-multi-step.md
+        - name: Uppdateringar av basavbildningar
+          href: container-registry-tasks-base-images.md
     - name: Anvisningar
       expanded: false
       items:

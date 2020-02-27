@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Lär dig hur du felsöker och löser vanliga problem när du aktiverar och använder Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 0c6a712f1dfb4410f3eee0fbd0192c6147618f96
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: b926e651200a4ab23306b0ec2443cb64400b8f7b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539594"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605244"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Fel sökning av Azure dev Spaces
 
@@ -24,7 +24,7 @@ För att felsöka problem på ett effektivare sätt kan det hjälpa att skapa me
 
 För Visual Studio-tillägget anger du `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED`-miljövariabeln till 1. Glöm inte att starta om Visual Studio för miljövariabeln ska börja gälla. När den är aktive rad skrivs detaljerade loggar till din `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` katalog.
 
-I CLI kan du mata ut mer information under kommando körningen med hjälp av växeln `--verbose`. Du kan också söka efter mer detaljerade loggar i `%TEMP%\Azure Dev Spaces`. På en Mac kan du hitta TEMP-katalogen genom att köra `echo $TMPDIR` från ett terminalfönster. På en Linux-dator är TEMP-katalogen vanligt vis `/tmp`.
+I CLI kan du mata ut mer information under kommando körningen med hjälp av växeln `--verbose`. Du kan också söka efter mer detaljerade loggar i `%TEMP%\Azure Dev Spaces`. På en Mac kan du hitta *Temp* -katalogen genom att köra `echo $TMPDIR` från ett terminalfönster. På en Linux-dator är *Temp* -katalogen vanligt vis `/tmp`. Kontrol lera också att loggning är aktiverat i [konfigurations filen för Azure CLI](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
 
 Azure dev Spaces fungerar också bäst vid fel sökning av en enskild instans eller pod. `azds.yaml`-filen innehåller en inställning, *replicaCount*, som anger antalet poddar som Kubernetes körs för tjänsten. Om du ändrar *replicaCount* för att konfigurera programmet så att det kör flera poddar för en specifik tjänst, bifogas fel söknings programmet till de första pod, i alfabetisk ordning. Fel söknings programmet ansluts till en annan Pod när den ursprungliga Pod återanvänds, vilket kan resultera i ett oväntat beteende.
 
@@ -52,13 +52,13 @@ az aks use-dev-spaces -g <resource group name> -n <cluster name>
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Styrenheten kunde inte skapas på grund av kontrollantens namn längd
 
-Ett namn på en Azure dev-enhet får inte vara längre än 31 tecken. Om namnet på din kontrollant överstiger 31 tecken när du aktiverar dev Spaces i ett AKS-kluster eller skapar en kontrollant får du ett fel meddelande. Exempel:
+Ett namn på en Azure dev-enhet får inte vara längre än 31 tecken. Om namnet på din kontrollant överstiger 31 tecken när du aktiverar dev Spaces i ett AKS-kluster eller skapar en kontrollant får du ett fel meddelande. Några exempel:
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-Åtgärda problemet genom att skapa en kontrollant med ett alternativt namn. Exempel:
+Åtgärda problemet genom att skapa en kontrollant med ett alternativt namn. Några exempel:
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -159,7 +159,7 @@ Anta till exempel att du använder ett Helm-kommando för att köra hela program
 
 Azure dev Spaces kan konfigureras så att de pekar på en viss _Dockerfile_ i ditt projekt. Om det verkar som om Azure dev Spaces inte använder den _Dockerfile_ som du förväntar dig att bygga dina behållare, kan du uttryckligen behöva berätta om Azure dev Spaces som Dockerfile ska använda. 
 
-Lös problemet genom att öppna den _azds. yaml_ -fil som Azure dev-utrymmen genererar i projektet. Uppdatera *konfigurationer: utveckla: skapa: Dockerfile* för att peka på den Dockerfile som du vill använda. Exempel:
+Lös problemet genom att öppna den _azds. yaml_ -fil som Azure dev-utrymmen genererar i projektet. Uppdatera *konfigurationer: utveckla: skapa: Dockerfile* för att peka på den Dockerfile som du vill använda. Några exempel:
 
 ```yaml
 ...
@@ -206,7 +206,7 @@ install:
 
 Det här felet kan uppstå när koden för tjänsten inte startar. Orsaken är ofta i användarkod. Om du vill ha mer diagnostikinformation aktiverar du mer detaljerad loggning när du startar tjänsten.
 
-Använd `--verbose` för att aktivera mer detaljerad loggning från kommando raden. Du kan också ange ett format för utdata med `--output`. Exempel:
+Använd `--verbose` för att aktivera mer detaljerad loggning från kommando raden. Du kan också ange ett format för utdata med `--output`. Några exempel:
 
 ```cmd
 azds up --verbose --output json
@@ -335,7 +335,7 @@ Så här åtgärdar du problemet:
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>Auktoriseringsfel "Microsoft. DevSpaces/register/Action"
 
-Du behöver *ägar* -eller *deltagar* åtkomst i din Azure-prenumeration för att kunna hantera Azure dev Spaces. Om du försöker hantera dev Spaces och du inte har *ägare* eller *deltagar* åtkomst till den associerade Azure-prenumerationen kan du se ett auktoriseringsfel. Exempel:
+Du behöver *ägar* -eller *deltagar* åtkomst i din Azure-prenumeration för att kunna hantera Azure dev Spaces. Om du försöker hantera dev Spaces och du inte har *ägare* eller *deltagar* åtkomst till den associerade Azure-prenumerationen kan du se ett auktoriseringsfel. Några exempel:
 
 ```console
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
@@ -474,7 +474,7 @@ Om du vill aktivera Azure dev Spaces i ett AKS-kluster där den utgående trafik
 | cloudflare.docker.com | HTTPS:443 | Hämta Linux Alpine och andra Azure dev Spaces-bilder |
 | gcr.io | HTTP: 443 | Hämta Helm/till-avbildningar|
 | storage.googleapis.com | HTTP: 443 | Hämta Helm/till-avbildningar|
-| azds-<guid>.<location>. azds.io | HTTPS:443 | För att kommunicera med Azure dev Spaces-backend-tjänster för din kontrollant. Du hittar exakt FQDN i "dataplaneFqdn" i% USERPROFILE%\.azds\settings.JSON|
+| azds-<guid>.<location>.azds.io | HTTPS:443 | För att kommunicera med Azure dev Spaces-backend-tjänster för din kontrollant. Du hittar exakt FQDN i "dataplaneFqdn" i% USERPROFILE%\.azds\settings.JSON|
 
 ### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Fel "Det gick inte att hitta kluster \<klustret\> i prenumerationen \<subscriptionId\>"
 

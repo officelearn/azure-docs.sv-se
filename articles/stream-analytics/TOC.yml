@@ -195,6 +195,8 @@
           href: setup-cicd-vs-code.md
         - name: Utforska jobb
           href: visual-studio-code-explore-jobs.md
+        - name: JobConfig.json-fält
+          href: job-config-json.md
     - name: Felsöka
       items:
         - name: Indata

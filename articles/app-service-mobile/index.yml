@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Dokumentation om Azure Mobile Apps
+summary: Lär dig hur du använder Mobile Apps i Azure App Service för att bygga och hantera interna iOS-, Android-, Windows- eller plattformsoberoende appar med hjälp av Xamarin eller Cordova.
+metadata:
+  title: Dokumentation om Azure Mobile Apps
+  description: Lär dig hur du använder Mobile Apps i Azure App Service för att bygga och hantera interna iOS-, Android-, Windows- eller plattformsoberoende appar med hjälp av Xamarin eller Cordova.
+  ms.topic: landing-page
+  ms.service: app-service-mobile
+  author: georgewallace
+  ms.author: gwallace
+  manager: gwallace
+  ms.date: 02/19/2020
+  ms.openlocfilehash: 024d1588a0897a6f312f25fa83c7e58f4e30aec2
+  ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 02/26/2020
+  ms.locfileid: "77617660"
+landingContent:
+- title: Översikt
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vad är Mobile Apps?
+      url: app-service-mobile-value-prop.md
+    - text: App Service-planer
+      url: ../app-service/overview-hosting-plans.md
+    - text: Videobibliotek för Azure App Service
+      url: https://azure.microsoft.com/documentation/videos/index/?services=app-service
+- title: Snabbstarter
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en Android-app
+      url: app-service-mobile-android-get-started.md
+    - text: Skapa en Apache Cordova-app
+      url: app-service-mobile-cordova-get-started.md
+    - text: Skapa en iOS-app
+      url: app-service-mobile-ios-get-started.md
+    - text: Skapa en Windows-app
+      url: app-service-mobile-windows-store-dotnet-get-started.md
+    - text: Skapa en Xamarin.Android-app
+      url: app-service-mobile-xamarin-android-get-started.md
+    - text: Skapa en Xamarin.iOS-app
+      url: app-service-mobile-xamarin-ios-get-started.md
+    - text: Skapa en Xamarin.Forms-app
+      url: app-service-mobile-xamarin-forms-get-started.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: SDK för .NET-serverdel
+      url: /dotnet/api/overview/azure/mobile
+    - text: SDK för Node.js-serverdel
+      url: https://azure.github.io/azure-mobile-apps-node/
+    - text: SDK för Android-klient
+      url: https://azure.github.io/azure-mobile-apps-android-client/
+    - text: SDK för iOS-klient
+      url: https://azure.github.io/azure-mobile-apps-ios-client/
+    - text: SDK för JavaScript-/Cordova-klient
+      url: https://azure.github.io/azure-mobile-apps-js-client/
+    - text: SDK för Windows-/Xamarin-klient
+      url: /dotnet/api/overview/azure/mobileapps/client

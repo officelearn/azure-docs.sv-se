@@ -23,9 +23,11 @@
     - name: Så här fungerar Personanpassning
       href: how-personalizer-works.md
       displayName: 'rank, reward, api, explore, exploit, score, design, research, loop, action, context, feature, JSON, event, inactive, model'
-    - name: Var kan du använda Personanpassning?
+    - name: Var du kan använda Personanpassning
       href: where-can-you-use-personalizer.md
       displayName: 'checklist, considerations, effectiveness, recommendation engine'
+    - name: Terminologi
+      href: terminology.md
     - name: Etik och ansvarig användning
       href: ethics-responsible-use.md
       displayName: 'best practice, design'
@@ -34,9 +36,11 @@
         - name: Funktionerna Åtgärd och Kontext
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set, ID, guid, event id,'
-        - name: Aktiva och inaktiva händelser
+        - name: Utbildningsprincip
           href: concept-active-learning.md
           displayName: 'active, inactive'
+        - name: Aktiva och inaktiva händelser
+          href: concept-active-inactive-events.md
         - name: Fördelar
           href: concept-rewards.md
           displayName: 'reward, wait time, default reward'
@@ -56,15 +60,15 @@
       href: concepts-scalability-performance.md
 - name: Anvisningar
   items:
-    - name: Skapa och konfigurera Personanpassning
+    - name: Skapa resurs för Personanpassning
+      href: how-to-create-resource.md
+    - name: Konfigurera en inlärningsloop
       href: how-to-settings.md
       displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
-    - name: Hantera din inlärningsprincip
-      href: how-to-learning-policy.md
-    - name: Analysera
-      items:
-        - name: Offlineutvärdering
-          href: how-to-offline-evaluation.md
+    - name: Hantera inställningar för modell och inlärning
+      href: how-to-manage-model.md
+    - name: Analysera med en offlineutvärdering
+      href: how-to-offline-evaluation.md
 - name: Referens
   items:
     - name: Exempel

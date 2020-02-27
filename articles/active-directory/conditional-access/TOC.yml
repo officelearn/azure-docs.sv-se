@@ -43,7 +43,7 @@
       href: location-condition.md
     - name: Konsekvensverktyg
       href: what-if-tool.md
-    - name: Kontroller
+    - name: Anpassade kontroller
       href: controls.md
     - name: Klassisk policymigrering
       href: policy-migration.md

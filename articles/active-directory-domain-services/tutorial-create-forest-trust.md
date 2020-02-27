@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 3637a11724c1f0bab049077c5abbd817e168bd44
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 5620d1cdc7dc71bdac17057b9a13a74150b12d5c
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931237"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612512"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Självstudie: skapa en utgående skogs förtroende till en lokal domän i Azure Active Directory Domain Services (för hands version)
 
@@ -23,7 +23,7 @@ I miljöer där du inte kan synkronisera lösen ord, eller om du har användare 
 
 ![Diagram över skogs förtroende från Azure AD DS till lokal AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera DNS i en lokal AD DS-miljö för att stödja Azure AD DS-anslutning
@@ -33,7 +33,7 @@ I den här guiden får du lära dig hur man:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -89,7 +89,7 @@ Om du vill konfigurera inkommande förtroende för den lokala AD DS-domänen utf
    > [!NOTE]
    > Om du inte ser meny alternativet **förtroende** kontrollerar du under **Egenskaper** för *skogs typen*. Endast *resurs* skogar kan skapa förtroenden. Om skogs typen är *användare*kan du inte skapa förtroenden. Det finns för närvarande inget sätt att ändra skogs typen för en hanterad Azure AD DS-domän. Du måste ta bort och återskapa den hanterade domänen som en resurs skog.
 
-1. Ange namn på Azure AD DS-domännamn, till exempel *aadds.contoso.com*, och välj sedan **Nästa**
+1. Ange namn på Azure AD DS-domännamn, till exempel *aaddscontoso.com*, och välj sedan **Nästa**
 1. Välj alternativet för att skapa ett **skogs förtroende**och skapa ett enkelriktat **sätt: inkommande** förtroende.
 1. Välj att endast skapa förtroende för **den här domänen**. I nästa steg skapar du förtroendet i Azure Portal för den hanterade Azure AD DS-domänen.
 1. Välj att använda **autentisering för hela skogen**och ange och bekräfta ett lösen ord för förtroende. Samma lösen ord anges också i Azure Portal i nästa avsnitt.
@@ -102,7 +102,7 @@ När den lokala AD DS-domänen har kon figurer ATS för att matcha den hanterade
 
 Utför följande steg för att skapa utgående förtroende för den hanterade Azure AD DS-domänen i Azure Portal:
 
-1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**och väljer sedan din hanterade domän, till exempel *aadds.contoso.com*
+1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**och väljer sedan din hanterade domän, till exempel *aaddscontoso.com*
 1. På menyn till vänster i den hanterade domänen i Azure AD DS väljer du **förtroenden**och väljer sedan till **+ Lägg till** ett förtroende.
 1. Ange ett visnings namn som identifierar ditt förtroende, sedan DNS-namnet för den lokala betrodda skogen, till exempel *OnPrem.contoso.com*
 1. Ange samma lösen ord för förtroende som användes när du konfigurerade det inkommande skogs förtroendet för den lokala AD DS-domänen i föregående avsnitt.
@@ -194,7 +194,7 @@ Med hjälp av den virtuella Windows Server-datorn som är ansluten till Azure AD
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Verifiera autentisering mellan skogar till en resurs
 
 1. Logga in på en Windows-dator som är ansluten till din lokala Active Directory med ett användar konto från din lokala Active Directory.
-1. Använd **Utforskaren**för att ansluta till den resurs som du skapade med det fullständigt kvalificerade värd namnet och resursen, till exempel `\\fs1.aadds.contoso.com\CrossforestShare`.
+1. Använd **Utforskaren**för att ansluta till den resurs som du skapade med det fullständigt kvalificerade värd namnet och resursen, till exempel `\\fs1.aaddscontoso.com\CrossforestShare`.
 1. Om du vill verifiera Skriv behörigheten högerklickar du i mappen, väljer **nytt**och väljer sedan **text dokument**. Använd standard namnet **nytt text dokument**.
 
     Om Skriv behörigheterna har angetts korrekt skapas ett nytt text dokument. Följande steg kommer sedan att öppna, redigera och ta bort filen efter behov.

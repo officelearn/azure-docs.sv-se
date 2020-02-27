@@ -4,7 +4,7 @@ description: Lär dig hur du distribuerar SAP-program på virtuella Linux-datore
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: sedusch
-ms.openlocfilehash: e7a61cc64ae72adfcbeb347ddd076065ccc3a321
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 19dc9f25cc7355eb540b68f009a77b1ca1e5fb86
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645862"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614904"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
 
@@ -191,7 +191,7 @@ ms.locfileid: "75645862"
 [planning-guide-3.2.2]:planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (Uppgradera domäner)
 [planning-guide-3.2.3]:planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Tillgänglighets uppsättningar i Azure)
 [planning-guide-3.2]:planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (Koncept för Microsoft Azure virtuella datorer)
-[planning-guide-3.3.2]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure Premium Storage)
+[planning-guide-3.3.2]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure-Premium Storage)
 [planning-guide-5.1.1]:planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Flytta en virtuell dator från lokal plats till Azure med en icke-generaliserad disk)
 [planning-guide-5.1.2]:planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (Distribuera en virtuell dator med en kundspecifik avbildning)
 [planning-guide-5.2.1]:planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Förberedelser för att flytta en virtuell dator från en lokal plats till Azure med en icke-generaliserad disk)
@@ -205,7 +205,7 @@ ms.locfileid: "75645862"
 [planning-guide-7.1]:planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 (Enkel virtuell dator med SAP NetWeaver demo/utbildnings scenario)
 [planning-guide-7]:planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Koncept för molnbaserad distribution av SAP-instanser)
 [planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Azure Monitoring-lösning för SAP)
-[planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure Premium Storage)
+[planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure-Premium Storage)
 [planning-guide-managed-disks]:planning-guide.md#c55b2c6e-3ca1-4476-be16-16c81927550f (Managed Disks)
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
@@ -315,7 +315,7 @@ Azure Virtual Machines är lösningen för organisationer som behöver beräknin
 
 I den här artikeln beskriver vi stegen för att distribuera SAP-program på virtuella datorer (VM) i Azure, inklusive alternativa distributions alternativ och fel sökning. Den här artikeln bygger på informationen i [Azure Virtual Machines planering och implementering för SAP NetWeaver][planning-guide]. Det kompletterar även SAP-installations dokumentation och SAP-anteckningar, som är de viktigaste resurserna för att installera och distribuera SAP-program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -420,7 +420,7 @@ Det enklaste sättet att skapa en ny virtuell dator med en avbildning från Azur
 
 Guiden vägleder dig genom att ange de parametrar som krävs för att skapa den virtuella datorn, förutom alla nödvändiga resurser, t. ex. nätverks gränssnitt och lagrings konton. Några av dessa parametrar är:
 
-1. **Grunderna**:
+1. **Grunder**:
    * **Namn**: namnet på resursen (namnet på den virtuella datorn).
    * **Typ av virtuell dator disk**: Välj disk typen för OS-disken. Om du vill använda Premium Storage för dina data diskar rekommenderar vi att du även använder Premium Storage för operativ system disken.
    * **Användar namn och lösen ord** eller **Offentlig SSH-nyckel**: Ange användar namn och lösen ord för den användare som skapas under etableringen. För en virtuell Linux-dator kan du ange den SSH-nyckel (Public Secure Shell) som du använder för att logga in på datorn.
@@ -431,7 +431,7 @@ Guiden vägleder dig genom att ange de parametrar som krävs för att skapa den 
 
      En lista över VM-typer som stöds finns i SAP anmärkning [1928533]. Se till att du väljer rätt VM-typ om du vill använda Azure Premium Storage. Alla typer av virtuella datorer har inte stöd för Premium Storage. Mer information finns i [lagring: Microsoft Azure Storage och data diskar][planning-guide-storage-microsoft-azure-storage-and-data-disks] och [Azure Premium Storage][planning-guide-azure-premium-storage] i [Azure Virtual Machines planera och implementera för SAP NetWeaver][planning-guide].
 
-1. **Inställningar för**:
+1. **Inställningar**:
    * **Lagring**
      * **Disktyp**: Välj disk typen för OS-disken. Om du vill använda Premium Storage för dina data diskar rekommenderar vi att du även använder Premium Storage för operativ system disken.
      * **Använd Managed disks**: om du vill använda Managed disks väljer du Ja. Mer information om Managed Disks finns i kapitel [Managed disks][planning-guide-managed-disks] i planerings guiden.
@@ -471,12 +471,12 @@ Du kan skapa en virtuell dator med hjälp av en av SAP-mallarna som publiceras i
 
 Ange följande parametrar för mallen i Azure Portal:
 
-1. **Grunderna**:
+1. **Grunder**:
    * **Prenumeration**: den prenumeration som ska användas för att distribuera mallen.
    * **Resurs grupp**: resurs gruppen som används för att distribuera mallen. Du kan skapa en ny resurs grupp, eller så kan du välja en befintlig resurs grupp i prenumerationen.
    * **Plats**: var du vill distribuera mallen. Om du har valt en befintlig resurs grupp används platsen för resurs gruppen.
 
-1. **Inställningar för**:
+1. **Inställningar**:
    * **SAP-system-ID**: SAP-system-ID: t (sid).
    * **OS-typ**: det operativ system som du vill distribuera, till exempel Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7,2 (RHEL 7,2) eller Oracle Linux 7,2.
 
@@ -545,7 +545,7 @@ Du kan använda olika steg för att skapa en privat avbildning för Linux än at
 >
 
 ---
-Du kan förbereda och skapa en anpassad avbildning och sedan använda den för att skapa flera nya virtuella datorer. Detta beskrivs i [Azure Virtual Machines planera och implementera för SAP NetWeaver][planning-guide]. Konfigurera ditt databas innehåll genom att använda SAP Software Provisioning Manager för att installera ett nytt SAP-system (återställer en säkerhets kopia av databasen från en disk som är kopplad till den virtuella datorn) eller genom att direkt återställa en databas säkerhets kopia från Azure Storage, om ditt DBMS stöder det. Mer information finns i [DBMS i Azure Virtual Machines-distribution för SAP NetWeaver][dbms-guide]. Om du redan har installerat ett SAP-system på den lokala virtuella datorn (särskilt för två nivåer) kan du anpassa inställningarna för SAP-systemet efter distributionen av den virtuella Azure-datorn med hjälp av metoden system Rename som stöds av SAP Software Provisioning Manager (SAP NOTE [1619720]). Annars kan du installera SAP-programvaran när du har distribuerat den virtuella Azure-datorn.
+Du kan förbereda och skapa en anpassad avbildning och sedan använda den för att skapa flera nya virtuella datorer. Detta beskrivs i [Azure Virtual Machines planera och implementera för SAP NetWeaver][planning-guide]. Konfigurera ditt databas innehåll genom att använda SAP Software Provisioning Manager för att installera ett nytt SAP-system (återställer en säkerhets kopia av databasen från en disk som är kopplad till den virtuella datorn) eller genom att direkt återställa en databas säkerhets kopia från Azure Storage, om ditt DBMS stöder det. Mer information finns i [Azure Virtual Machines DBMS-distribution för SAP NetWeaver][dbms-guide]. Om du redan har installerat ett SAP-system på den lokala virtuella datorn (särskilt för två nivåer) kan du anpassa inställningarna för SAP-systemet efter distributionen av den virtuella Azure-datorn med hjälp av metoden system Rename som stöds av SAP Software Provisioning Manager (SAP NOTE [1619720]). Annars kan du installera SAP-programvaran när du har distribuerat den virtuella Azure-datorn.
 
 Följande flödes schema visar den SAP-anpassade sekvensen av steg för att distribuera en virtuell dator från en anpassad avbildning:
 
@@ -560,7 +560,7 @@ Det enklaste sättet att skapa en ny virtuell dator från en hanterad disk avbil
 
 Guiden vägleder dig genom att ange de parametrar som krävs för att skapa den virtuella datorn, förutom alla nödvändiga resurser, t. ex. nätverks gränssnitt och lagrings konton. Några av dessa parametrar är:
 
-1. **Grunderna**:
+1. **Grunder**:
    * **Namn**: namnet på resursen (namnet på den virtuella datorn).
    * **Typ av virtuell dator disk**: Välj disk typen för OS-disken. Om du vill använda Premium Storage för dina data diskar rekommenderar vi att du även använder Premium Storage för operativ system disken.
    * **Användar namn och lösen ord** eller **Offentlig SSH-nyckel**: Ange användar namn och lösen ord för den användare som skapas under etableringen. För en virtuell Linux-dator kan du ange den SSH-nyckel (Public Secure Shell) som du använder för att logga in på datorn.
@@ -571,7 +571,7 @@ Guiden vägleder dig genom att ange de parametrar som krävs för att skapa den 
 
      En lista över VM-typer som stöds finns i SAP anmärkning [1928533]. Se till att du väljer rätt VM-typ om du vill använda Azure Premium Storage. Alla typer av virtuella datorer har inte stöd för Premium Storage. Mer information finns i [lagring: Microsoft Azure Storage och data diskar][planning-guide-storage-microsoft-azure-storage-and-data-disks] och [Azure Premium Storage][planning-guide-azure-premium-storage] i [Azure Virtual Machines planera och implementera för SAP NetWeaver][planning-guide].
 
-1. **Inställningar för**:
+1. **Inställningar**:
    * **Lagring**
      * **Disktyp**: Välj disk typen för OS-disken. Om du vill använda Premium Storage för dina data diskar rekommenderar vi att du även använder Premium Storage för operativ system disken.
      * **Använd Managed disks**: om du vill använda Managed disks väljer du Ja. Mer information om Managed Disks finns i kapitel [Managed disks][planning-guide-managed-disks] i planerings guiden.
@@ -610,11 +610,11 @@ Om du vill skapa en distribution med hjälp av en privat OS-avbildning från Azu
 
 Ange följande parametrar för mallen i Azure Portal:
 
-1. **Grunderna**:
+1. **Grunder**:
    * **Prenumeration**: den prenumeration som ska användas för att distribuera mallen.
    * **Resurs grupp**: resurs gruppen som används för att distribuera mallen. Du kan skapa en ny resurs grupp eller välja en befintlig resurs grupp i prenumerationen.
    * **Plats**: var du vill distribuera mallen. Om du har valt en befintlig resurs grupp används platsen för resurs gruppen.
-1. **Inställningar för**:
+1. **Inställningar**:
    * **SAP-system-ID**: SAP-system-ID: t.
    * **OS-typ**: den typ av operativ system som du vill distribuera (Windows eller Linux).
    * **SAP-system storlek**: storleken på SAP-systemet.
@@ -705,11 +705,11 @@ Om du vill skapa en distribution med hjälp av en privat OS-disk via Azure Porta
 
 Ange följande parametrar för mallen i Azure Portal:
 
-1. **Grunderna**:
+1. **Grunder**:
    * **Prenumeration**: den prenumeration som ska användas för att distribuera mallen.
    * **Resurs grupp**: resurs gruppen som används för att distribuera mallen. Du kan skapa en ny resurs grupp eller välja en befintlig resurs grupp i prenumerationen.
    * **Plats**: var du vill distribuera mallen. Om du har valt en befintlig resurs grupp används platsen för resurs gruppen.
-1. **Inställningar för**:
+1. **Inställningar**:
    * **SAP-system-ID**: SAP-system-ID: t.
    * **OS-typ**: den typ av operativ system som du vill distribuera (Windows eller Linux).
    * **SAP-system storlek**: storleken på SAP-systemet.
@@ -835,7 +835,7 @@ För virtuella datorer som distribueras från en OS-avbildning som inte är gene
 
 Det här steget krävs inte om du distribuerar en virtuell dator från Azure Marketplace. Avbildningar från Azure Marketplace har redan Azure VM-agenten.
 
-#### <a name="b2db5c9a-a076-42c6-9835-16945868e866"></a>Windows
+#### <a name="b2db5c9a-a076-42c6-9835-16945868e866"></a>Aktivitets
 
 1. Ladda ned Azure VM-agenten:
    1.  Hämta [installations paketet för Azure VM-agenten](https://go.microsoft.com/fwlink/?LinkId=394789).
@@ -912,7 +912,7 @@ Proxyinställningarna i \\osv.\\waagent. conf gäller även för de VM-tillägg 
 
   Du måste också lägga till vägar för IP-adresserna som anges i \\osv\\regionserverclnt. cfg. Följande bild visar ett exempel:
 
-  ![Forcerade tunnlar][deployment-guide-figure-50]
+  ![Tvingad tunneltrafik][deployment-guide-figure-50]
 
 
 * **RHEL**
@@ -947,7 +947,7 @@ Så här installerar du Azure-tillägget för SAP med hjälp av PowerShell:
     Set-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
     ```
 
-När du har angett dina konto data och identifierat den virtuella Azure-datorn distribuerar skriptet de nödvändiga tilläggen och aktiverar de nödvändiga funktionerna. Det kan ta flera minuter.
+När du har angett dina konto data och identifierat den virtuella Azure-datorn distribuerar skriptet de nödvändiga tilläggen och aktiverar de nödvändiga funktionerna. Detta kan ta flera minuter.
 Mer information om `Set-AzVMAEMExtension`finns i [set-AzVMAEMExtension][msdn-set-Azvmaemextension].
 
 ![Lyckad körning av SAP-Specific Azure-cmdlet Set-AzVMAEMExtension][deployment-guide-figure-900]

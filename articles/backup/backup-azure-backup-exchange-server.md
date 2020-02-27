@@ -4,12 +4,12 @@ description: Lär dig hur du säkerhetskopierar en Exchange-Server till Azure Ba
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 813a13739020bed839cc389897704395c77a322d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 389713767409ff49c6fc83a4d6e8dc3c87272fc9
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586503"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614372"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Säkerhetskopiera en Exchange-server till Azure Backup med System Center 2012 R2 DPM
 
@@ -38,8 +38,8 @@ Innan du fortsätter bör du kontrol lera att alla [krav](backup-azure-dpm-intro
 
 Följ dessa steg om du vill installera DPM-skyddsagenten på Exchange-servern:
 
-1. Kontrol lera att brand väggarna är korrekt konfigurerade. Se [Konfigurera brand Väggs undantag för agenten](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758204(v=sc.12)).
-2. Installera agenten på Exchange-servern genom att klicka på **hantering > agenter > installera** i DPM-administratörskonsol. Se [Installera DPM-skyddsagenten](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758186(v=sc.12)) för detaljerade anvisningar.
+1. Kontrol lera att brand väggarna är korrekt konfigurerade. Se [Konfigurera brand Väggs undantag för agenten](https://docs.microsoft.com/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
+2. Installera agenten på Exchange-servern genom att klicka på **hantering > agenter > installera** i DPM-administratörskonsol. Se [Installera DPM-skyddsagenten](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) för detaljerade anvisningar.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Skapa en skydds grupp för Exchange-servern
 

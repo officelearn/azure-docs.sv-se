@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 02/20/2020
 ms.author: diberry
-ms.openlocfilehash: dec6faab0dfc7f073639186429767bbf653ceda1
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f8ceef5e80bf15f0ba52a9c289e617018febfb5c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513617"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623594"
 ---
 # <a name="offline-evaluation"></a>Offlineutvärdering
 
@@ -49,6 +49,16 @@ Följande är viktiga överväganden för utvärdering av representativ offline:
 En personanpassare kan använda processen för offline-utvärdering för att upptäcka en mer optimal inlärnings princip automatiskt.
 
 När du har genomfört offline-utvärderingen kan du se den jämför ande effektiviteten hos Personanpassaren med den nya principen jämfört med den aktuella online-principen. Du kan sedan använda den inlärnings principen för att göra det direkt i Personanpassare, genom att ladda ned den och ladda upp den i modeller och princip panelen. Du kan också ladda ned det för framtida analys eller användning.
+
+Aktuella principer som ingår i utvärderingen:
+
+| Utbildnings inställningar | Syfte|
+|--|--|
+|**Online-princip**| Den aktuella inlärnings principen som används i personanpassa |
+|**Planen**|Programmets standard (som fastställs av den första åtgärden som skickas i rang anrop)|
+|**Slumpmässig princip**|Ett tänkt rangordnings beteende som alltid returnerar slumpmässiga val av åtgärder från de angivna.|
+|**Anpassade principer**|Ytterligare inlärnings principer laddades upp när utvärderingen startades.|
+|**Optimerad princip**|Om utvärderingen startades med alternativet för att identifiera en optimerad princip, kommer den också att jämföras och du kommer att kunna ladda ned den eller göra den till en online Learning-princip som ersätter den aktuella.|
 
 ## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>Förstå relevansen för utvärderings resultat offline
 
@@ -92,7 +102,7 @@ Vi rekommenderar att du tittar på funktions utvärderingar och ber:
 
 * Vilka andra, ytterligare funktioner kan ditt program eller system tillhandahålla längs de rader som är mer effektiva?
 * Vilka funktioner kan tas bort på grund av låg effektivitet? Funktioner för låg effektivitet lägger till _brus_ i Machine Learning.
-* Finns det några funktioner som av misstag ingår? Exempel på dessa är: personligt identifierbar information (PII), dubbla ID: n osv.
+* Finns det några funktioner som av misstag ingår? Exempel på dessa är: identifierbar information om användare, dubbla ID: n osv.
 * Finns det några oönskade funktioner som inte bör användas för att anpassa sig på grund av regler eller ansvar för att tänka på säkerhet? Finns det funktioner som kan proxy (det vill säga är det som är nära spegling eller korrelera med) oönskade funktioner?
 
 

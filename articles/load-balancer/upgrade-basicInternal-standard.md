@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 543227ac9c07207112177dfaccbd00723b61a314
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 8d3f4294a5c8b09a132d56cd72ccb36ce766e0dd
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566405"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616723"
 ---
-# <a name="upgrade-azure-internal-load-balancer-from-basic-sku-to-standard-sku"></a>Uppgradera interna Azure-Load Balancer från Basic SKU till standard-SKU: n
+# <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Uppgradera Azure Internal Load Balancer – ingen utgående anslutning krävs
 [Azure standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet genom zon redundans. Mer information om Load Balancer SKU finns i [jämförelse tabell](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
 Det finns två steg i en uppgradering:
@@ -28,12 +28,12 @@ Den här artikeln beskriver migrering av konfiguration. Att lägga till virtuell
 
 Det finns ett Azure PowerShell-skript tillgängligt som gör följande:
 
-* Skapar ett internt standard-SKU-Load Balancer i resurs gruppen och platsen som du anger.
-* Kopierar sömlöst konfigurationerna av den grundläggande SKU-Load Balancer till det nya interna standard Load Balancer.
+* Skapar ett internt standard-SKU-Load Balancer på den plats som du anger. Observera att ingen [utgående anslutning](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) kommer att tillhandahållas av interna standard Load Balancer.
+* Kopierar sömlöst konfigurationerna av Basic SKU-Load Balancer till det nya Standard Load Balancer.
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
-* Skript stöder endast intern Load Balancer uppgradering. För intern Basic Load Balancer-uppgradering skapar du en intern standard Load Balancer om den utgående anslutningen inte är önskad och skapar en intern standard Load Balancer och standard intern Load Balancer om utgående anslutning krävs.
+* Skript stöder endast intern Load Balancer uppgradering där ingen utgående anslutning krävs. Om du behöver [utgående anslutning](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) för några av dina virtuella datorer kan du gå till den här [sidan](upgrade-InternalBasic-To-PublicStandard.md) för instruktioner. 
 * Standard Load Balancer har nya offentliga adresser. Det är omöjligt att flytta IP-adresserna som är kopplade till den befintliga Basic-Load Balancer sömlöst till Standard Load Balancer eftersom de har olika SKU: er.
 * Om standard belastnings utjämning skapas i en annan region kan du inte associera de virtuella datorerna i den gamla regionen med den nya Standard Load Balancer. Du kan undvika den här begränsningen genom att skapa en ny virtuell dator i den nya regionen.
 * Om din Load Balancer inte har någon IP-konfiguration för klient delen eller en backend-pool, kommer du förmodligen att träffa ett fel som kör skriptet. Kontrol lera att de inte är tomma.

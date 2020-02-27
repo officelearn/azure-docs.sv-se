@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b2a5a66f2801804b354dd8945ea7d8eb565e82cb
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2ba69e6447c686230412c33e74196c4bb594e0de
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702223"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77611821"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Skriv bords app som anropar webb-API: kod konfiguration
 
@@ -40,7 +40,7 @@ Följande Microsoft-MSALs (Authentication Libraries) stöder Skriv bords program
 
 I kodvyn är Skriv bords program offentliga klient program. Konfigurationen är lite annorlunda beroende på om du använder interaktiv autentisering eller inte.
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[NET](#tab/dotnet)
 
 Du behöver bygga och manipulera MSAL.NET-`IPublicClientApplication`.
 
@@ -185,17 +185,17 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
 
 Innan anropet till `.Build()`-metoden kan du åsidosätta konfigurationen med anrop till `.WithXXX` metoder som visas ovan.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Här är klassen som används i MSAL Java-utvecklingsprogram för att konfigurera exemplen: [testdata](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
 
 ```Java
-PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CLIENT_ID)
-        .authority(TestData.AUTHORITY_COMMON)
+PublicClientApplication pca = PublicClientApplication.builder(CLIENT_ID)
+        .authority(AUTHORITY)
         .build();
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```Python
 config = json.load(open(sys.argv[1]))
@@ -208,7 +208,7 @@ app = msal.PublicClientApplication(
     )
 ```
 
-# <a name="macostabmacos"></a>[MacOS](#tab/macOS)
+# <a name="macos"></a>[MacOS](#tab/macOS)
 
 Följande kod instansierar ett offentligt klient program och loggar in användare i det Microsoft Azure offentliga molnet med ett arbets-eller skol konto eller en personlig Microsoft-konto.
 

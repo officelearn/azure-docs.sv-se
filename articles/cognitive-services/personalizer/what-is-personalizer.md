@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: 685e4f841ba077c81f46a27af8040fa6c57c0021
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: bf0710ebef21226d8d8582a920d64027bb015d34
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846208"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622727"
 ---
 # <a name="what-is-personalizer"></a>Vad är Personanpassning?
 
@@ -43,7 +43,7 @@ Den __åtgärd__ som visas för användaren väljs med Machine Learning-modeller
 
 Det finns flera exempel scenarier:
 
-|Innehålls typ|**Åtgärder (med funktioner)**|**Kontext funktioner**|Returnerat åtgärds-ID för belöning<br>(Visa det här innehållet)|
+|Innehållstyp|**Åtgärder (med funktioner)**|**Kontext funktioner**|Returnerat åtgärds-ID för belöning<br>(Visa det här innehållet)|
 |--|--|--|--|
 |Nyhets lista|a. `The president...` (National, politiken, [text])<br>b. `Premier League ...` (global, sport, [text, bild, video])<br> c. `Hurricane in the ...` (regional, väder, [text, bild]|Enhetens Nyheter läses från<br>Månad eller säsong<br>|en `The president...`|
 |Film lista|1. `Star Wars` (1977, [Action, Adventure, fantasi], George Lucas)<br>2. `Hoop Dreams` (1994, [dokument, idrotts], Steve Jonas<br>3. `Casablanca` (1942, [romantik, drama, War], Michael Curtiz)|Enhets filmen bevakas från<br>skärm storlek<br>Typ av användare<br>|3. `Casablanca`|
@@ -63,7 +63,7 @@ Personens **belönings** - [API](https://westus2.dev.cognitive.microsoft.com/doc
 
 Använd Personanpassare när ditt innehåll:
 
-* Har en begränsad uppsättning objekt (max ~ 50) att välja från. Om du har en större lista kan du [använda en rekommendations motor](where-can-you-use-personalizer.md#use-personalizer-with-recommendation-engines) för att minska listan till 50 objekt.
+* Har en begränsad uppsättning objekt (max ~ 50) att välja från. Om du har en större lista kan du [använda en rekommendations motor](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) för att minska listan till 50 objekt.
 * Innehåller information som beskriver det innehåll som du vill rangordna: _åtgärder med funktioner_ och _kontext funktioner_.
 * Har minst ~ 1 – a innehålls relaterade händelser som är relaterade till att personanpassa ska vara effektiva. Om Personanpassaren inte får den lägsta trafik som krävs tar det längre tid för tjänsten att fastställa det enkla innehålls objektet.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 016107248399e84b7a82a656c9d590c3cbe0cdbe
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 7d1a77800093ae01bc4eb1e1269d1e9a60f9ce26
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77466934"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616665"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Fråga Apache Hive genom JDBC-drivrutinen i HDInsight
 
@@ -36,6 +36,18 @@ JDBC-anslutningar till ett HDInsight-kluster på Azure görs via port 443 och tr
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
 Ersätt `CLUSTERNAME` med namnet på HDInsight-klustret.
+
+Du kan också få anslutningen via **AMBARI UI > Hive > config > Avancerat**.
+
+![Hämta JDBC-anslutningssträng via Ambari](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-get-connection-string-through-ambari.png)
+
+### <a name="host-name-in-connection-string"></a>Värd namnet i anslutnings strängen
+
+Värd namnet ' CLUSTERNAME.azurehdinsight.net ' i anslutnings strängen är detsamma som din kluster-URL. Du kan hämta det genom att Azure Portal. 
+
+### <a name="port-in-connection-string"></a>Port i anslutnings sträng
+
+Du kan bara använda **port 443** för att ansluta till klustret från några platser utanför det virtuella Azure-nätverket. HDInsight är en hanterad tjänst, vilket innebär att alla anslutningar till klustret hanteras via en säker gateway. Du kan inte ansluta till HiveServer 2 direkt på portarna 10001 eller 10000 eftersom dessa portar inte exponeras för utsidan. 
 
 ## <a name="authentication"></a>Autentisering
 
@@ -94,7 +106,7 @@ SQuirreL SQL är en JDBC-klient som kan användas för att fjärrköra Hive-frå
     |Drivrutin|Använd List rutan för att välja **Hive** -drivrutinen.|
     |URL|JDBC: hive2://CLUSTERNAME.azurehdinsight.net: 443/default; transportMode = http; SSL = True; httpPath =/hive2. Ersätt **KLUSTERNAMN** med namnet på ditt HDInsight-kluster.|
     |Användarnamn|Kluster inloggnings konto namnet för ditt HDInsight-kluster. Standardvärdet är **admin**.|
-    |lösenord|Lösen ordet för klustrets inloggnings konto.|
+    |Lösenord|Lösen ordet för klustrets inloggnings konto.|
 
     ![dialog rutan Lägg till alias med parametrar](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png)
 
@@ -138,6 +150,15 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 1. Avsluta SQuirreL och gå sedan till den katalog där SQuirreL är installerat på datorn, kanske `C:\Program Files\squirrel-sql-4.0.0\lib`. I katalogen SquirreL, under `lib`-katalogen, ersätter du den befintliga Commons-codec. jar med den som hämtats från HDInsight-klustret.
 
 1. Starta om SQuirreL. Felet bör inte längre uppstå när du ansluter till Hive i HDInsight.
+
+### <a name="connection-disconnected-by-hdinsight"></a>Anslutningen kopplades från HDInsight
+
+**Symptom**: när du försöker hämta enorma mängder data (t. ex. flera GB) via JDBC/ODBC, kopplas anslutningen inte från HDInsight av HDInsight vid hämtning. 
+
+**Orsak**: det här felet orsakas av begränsningen på Gateway-noder. När data hämtas från JDBC/ODBC måste alla data släppas genom Gateway-noden. En gateway är dock inte utformad för att ladda ned en stor mängd data, så anslutningen kan stängas av gatewayen om den inte kan hantera trafiken.
+
+**Lösning**: Undvik att använda JDBC/ODBC-drivrutinen för att hämta stora mängder data. Kopiera data direkt från Blob Storage i stället.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

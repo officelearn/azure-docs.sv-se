@@ -4,12 +4,12 @@ description: Felsöka installation, registrering av Azure Backup Server och säk
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 3a83c496191baaebc30f6fe0aedda790827644cb
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 018a6cee3f00531752684b12f4988cac174d3d26
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605742"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617577"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Felsöka Azure Backup Server
 
@@ -32,7 +32,7 @@ Vi rekommenderar att du utför verifieringen nedan innan du börjar felsöka Mic
 
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-| Registrera till ett valv | Ogiltiga valvautentiseringsuppgifter har angetts. Filen är skadad eller har inte de senaste autentiseringsuppgifterna som är associerade med återställnings tjänsten. | Rekommenderad åtgärd: <br> <ul><li> Hämta den senaste inloggnings filen från valvet och försök igen. <br>ELLER</li> <li> Om föregående åtgärd inte fungerade kan du försöka att hämta autentiseringsuppgifterna till en annan lokal katalog eller skapa ett nytt valv. <br>ELLER</li> <li> Försök att uppdatera datum-och tids inställningarna enligt beskrivningen i [den här bloggen](https://azure.microsoft.com/blog/troubleshooting-common-configuration-issues-with-azure-backup/). <br>ELLER</li> <li> Kontrol lera om c:\Windows\Temp har fler än 65000 filer. Flytta inaktuella filer till en annan plats eller ta bort objekten i Temp-mappen. <br>ELLER</li> <li> Kontrol lera status för certifikat. <br> a. Öppna **Hantera dator certifikat** (på kontroll panelen). <br> b. Expandera den **personliga** noden och dess underordnade Node- **certifikat**.<br> c.  Ta bort certifikatet **Windows Azure-verktyg**. <br> d. Gör om registreringen i Azure Backup-klienten. <br> ELLER </li> <li> Kontrol lera om någon grup princip finns på plats. </li></ul> |
+| Registrera till ett valv | Ogiltiga valvautentiseringsuppgifter har angetts. Filen är skadad eller har inte de senaste autentiseringsuppgifterna som är associerade med återställnings tjänsten. | Rekommenderad åtgärd: <br> <ul><li> Hämta den senaste inloggnings filen från valvet och försök igen. <br>ELLER</li> <li> Om föregående åtgärd inte fungerade kan du försöka att hämta autentiseringsuppgifterna till en annan lokal katalog eller skapa ett nytt valv. <br>ELLER</li> <li> Försök att uppdatera datum-och tids inställningarna enligt beskrivningen i [den här artikeln](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#invalid-vault-credentials-provided). <br>ELLER</li> <li> Kontrol lera om c:\Windows\Temp har fler än 65000 filer. Flytta inaktuella filer till en annan plats eller ta bort objekten i Temp-mappen. <br>ELLER</li> <li> Kontrol lera status för certifikat. <br> a. Öppna **Hantera dator certifikat** (på kontroll panelen). <br> b. Expandera den **personliga** noden och dess underordnade Node- **certifikat**.<br> c.  Ta bort certifikatet **Windows Azure-verktyg**. <br> d. Gör om registreringen i Azure Backup-klienten. <br> ELLER </li> <li> Kontrol lera om någon grup princip finns på plats. </li></ul> |
 
 ## <a name="replica-is-inconsistent"></a>Repliken är inkonsekvent
 
@@ -62,7 +62,7 @@ Vi rekommenderar att du utför verifieringen nedan innan du börjar felsöka Mic
 
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-| Push-överför agent (er) till skyddade servrar | Agent åtgärden misslyckades på grund av ett kommunikations fel med tjänsten DPM-agentkoordinator på \<ServerName >. | **Om den rekommenderade åtgärden som visas i produkten inte fungerar utför du följande steg**: <ul><li> Följ [dessa steg](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757801(v=sc.12))om du kopplar en dator från en obetrodd domän. <br> ELLER </li><li> Om du ansluter en dator från en betrodd domän kan du felsöka med hjälp av stegen som beskrivs i [den här bloggen](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>ELLER</li><li> Försök att inaktivera antivirus som fel söknings steg. Om det löser problemet ändrar du inställningarna för antivirus programmet enligt rekommendationerna i [den här artikeln](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12)).</li></ul> |
+| Push-överför agent (er) till skyddade servrar | Agent åtgärden misslyckades på grund av ett kommunikations fel med tjänsten DPM-agentkoordinator på \<ServerName >. | **Om den rekommenderade åtgärden som visas i produkten inte fungerar utför du följande steg**: <ul><li> Följ [dessa steg](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019)om du kopplar en dator från en obetrodd domän. <br> ELLER </li><li> Om du ansluter en dator från en betrodd domän kan du felsöka med hjälp av stegen som beskrivs i [den här bloggen](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>ELLER</li><li> Försök att inaktivera antivirus som fel söknings steg. Om det löser problemet ändrar du inställningarna för antivirus programmet enligt rekommendationerna i [den här artikeln](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12)).</li></ul> |
 
 ## <a name="setup-could-not-update-registry-metadata"></a>Det gick inte att uppdatera metadata för registret
 
@@ -75,7 +75,7 @@ Vi rekommenderar att du utför verifieringen nedan innan du börjar felsöka Mic
 
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-| Push-överför agent (er) till skyddade servrar | De angivna autentiseringsuppgifterna för servern är ogiltiga. | **Utför följande steg om den rekommenderade åtgärden som visas i produkten inte fungerar**: <br> Försök att installera skydds agenten manuellt på produktions servern enligt vad som anges i [den här artikeln](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758186(v=sc.12)).|
+| Push-överför agent (er) till skyddade servrar | De angivna autentiseringsuppgifterna för servern är ogiltiga. | **Utför följande steg om den rekommenderade åtgärden som visas i produkten inte fungerar**: <br> Försök att installera skydds agenten manuellt på produktions servern enligt vad som anges i [den här artikeln](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019).|
 | Azure Backup-agenten kunde inte ansluta till Azure Backups tjänsten (ID: 100050) | Azure Backup-agenten kunde inte ansluta till Azure Backups tjänsten. | **Utför följande steg om den rekommenderade åtgärden som visas i produkten inte fungerar**: <br>1. Kör följande kommando från en upphöjd prompt: **PsExec-i-s "C:\Program\Internet Explorer\iexplore.exe**. Fönstret Internet Explorer öppnas. <br/> 2. gå till **verktyg** > **Internet alternativ** > **anslutningar** > **LAN-inställningar**. <br/> 3. ändra inställningarna om du vill använda en proxyserver. Ange sedan information om proxyservern.<br/> 4. om datorn har begränsad Internet åtkomst kontrollerar du att brand Väggs inställningarna på datorn eller proxyservern tillåter dessa [URL: er](backup-configure-vault.md#verify-internet-access) och [IP-adress](backup-configure-vault.md#verify-internet-access).|
 | Det gick inte att installera Azure Backup Agent | Det gick inte att installera Microsoft Azure Recovery Services. Alla ändringar som har gjorts i systemet av den Microsoft Azure Recovery Services installationen återställdes. (ID: 4024) | Installera Azure-agenten manuellt.
 

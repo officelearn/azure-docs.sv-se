@@ -1,24 +1,24 @@
 ---
-title: Telefonin loggning och inloggning med anpassade principer
+title: Registrera dig och logga in med anpassade principer (förhands granskning)
 titleSuffix: Azure AD B2C
-description: Lär dig hur du skickar eng ång slö sen ord i textmeddelanden till dina program användares telefoner med anpassade principer i Azure Active Directory B2C.
+description: Skicka eng ång slö sen ord (eng ång slö sen ord) i textmeddelanden till dina program användares telefoner med anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 02/25/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8cb0340d9e04db2bfbf088bce9505351d7588cd9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 50e7d66fef67e2728c95790947393de8d58398c2
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840340"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647535"
 ---
-# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Konfigurera telefonin loggning och inloggning med anpassade principer i Azure AD B2C
+# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c-preview"></a>Konfigurera telefonin loggning och inloggning med anpassade principer i Azure AD B2C (för hands version)
 
 Med telefonin loggning och inloggning i Azure Active Directory B2C (Azure AD B2C) kan användarna registrera sig och logga in på dina program genom att använda eng ång slö sen ord (eng ång slö sen ord) som skickas i ett textmeddelande till sin telefon. Eng ång slö sen ord kan minimera risken för att användarna forgetting eller har sina lösen ord komprometterade.
 
@@ -26,7 +26,13 @@ Följ stegen i den här artikeln för att använda anpassade principer för att 
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="pricing"></a>Prissättning
+
+Eng ång slö sen ord skickas till användarna med SMS-textmeddelanden, och du kan debiteras för varje meddelande som skickas. Information om priser finns i avsnittet **separata avgifter** i [Azure Active Directory B2C prissättning](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Du behöver följande resurser på plats innan du konfigurerar eng ång slö sen ord.
 
 * [Azure AD B2C klient](tutorial-create-tenant.md)
 * [Webb program](tutorial-register-applications.md) som är registrerat i din klient
@@ -69,6 +75,22 @@ När du överför varje fil lägger Azure till prefixet `B2C_1A_`.
 1. För **Välj svars-URL**väljer du `https://jwt.ms`.
 1. Välj **Kör nu** och registrera dig med en e-postadress eller ett telefonnummer.
 1. Välj **Kör nu** en gång och logga in med samma konto för att kontrol lera att du har rätt konfiguration.
+
+## <a name="get-user-account-by-phone-number"></a>Hämta användar konto per telefonnummer
+
+En användare som registrerar sig med ett telefonnummer men som inte anger någon återställnings-e-postadress registreras i din Azure AD B2C katalog med deras telefonnummer som inloggnings namn. Om användaren sedan vill ändra sitt telefonnummer måste supportavdelningen eller support teamet först hitta sitt konto och sedan uppdatera sitt telefonnummer.
+
+Du kan hitta en användare med deras telefonnummer (inloggnings namn) genom att använda [Microsoft Graph](manage-user-accounts-graph-api.md):
+
+```http
+GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
+```
+
+Exempel:
+
+```http
+GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+450334567890' and c/issuer eq 'contosob2c.onmicrosoft.com')
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

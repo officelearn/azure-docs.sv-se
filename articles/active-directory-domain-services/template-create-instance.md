@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: iainfou
-ms.openlocfilehash: e63f330d463be21905467869474527fdf9d6abff
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 2daadb539bc08df37f15c187866b735e45309288
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030203"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612790"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Skapa en Azure Active Directory Domain Services hanterad domän med hjälp av en Azure Resource Manager mall
 
@@ -23,7 +23,7 @@ Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade 
 
 Den här artikeln visar hur du aktiverar Azure AD DS med hjälp av en Azure Resource Manager-mall. Stöd resurser skapas med hjälp av Azure PowerShell.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här artikeln behöver du följande resurser:
 
@@ -45,17 +45,17 @@ När du skapar en Azure AD DS-instans anger du ett DNS-namn. Det finns några sa
 * **Icke-dirigerbart domänsuffix:** Vi rekommenderar vanligt vis att du undviker ett icke-dirigerbart domänsuffix, t. ex. *contoso. local*. *Lokalt* suffix kan inte dirigeras och kan orsaka problem med DNS-matchning.
 
 > [!TIP]
-> Om du skapar ett eget domän namn bör du ta hand om befintliga DNS-namnområden. Vi rekommenderar att du lägger till ett unikt prefix för domän namnet. Om ditt DNS-rotcertifikat till exempel är *contoso.com*skapar du en Azure AD DS-hanterad domän med det anpassade domän namnet *Corp.contoso.com* eller *DS.contoso.com*. I en hybrid miljö med en lokal AD DS-miljö kanske dessa prefix redan används. Använd ett unikt prefix för Azure AD DS.
+> Om du skapar ett eget domän namn bör du ta hand om befintliga DNS-namnområden. Vi rekommenderar att du använder ett domän namn separat från ett befintligt Azure eller lokalt DNS-adressutrymme.
 >
-> Du kan använda rot-DNS-namnet för din Azure AD DS-hanterade domän, men du kan behöva skapa ytterligare DNS-poster för andra tjänster i din miljö. Om du till exempel kör en webb server som är värd för en plats som använder rot-DNS-namnet, kan det finnas namn konflikter som kräver ytterligare DNS-poster.
+> Om du till exempel har ett befintligt DNS-namnområdet *contoso.com*skapar du en Azure AD DS-hanterad domän med det anpassade domän namnet för *aaddscontoso.com*. Om du behöver använda säker LDAP måste du registrera och äga det här anpassade domän namnet för att generera nödvändiga certifikat.
 >
-> I dessa självstudier och instruktions artiklar används den anpassade domänen för *aadds.contoso.com* som ett kort exempel. I alla kommandon anger du ett eget domän namn, som kan innehålla ett unikt prefix.
+> Du kan behöva skapa ytterligare DNS-poster för andra tjänster i din miljö, eller villkorliga DNS-vidarebefordrare mellan befintliga DNS-namn utrymmen i din miljö. Om du till exempel kör en webb server som är värd för en plats som använder rot-DNS-namnet, kan det finnas namn konflikter som kräver ytterligare DNS-poster.
 >
-> Mer information finns i [Välj ett namngivnings prefix för domänen][naming-prefix].
+> I dessa självstudier och instruktions artiklar används den anpassade domänen för *aaddscontoso.com* som ett kort exempel. I alla kommandon anger du ditt eget domän namn.
 
 Följande DNS-namn begränsningar gäller också:
 
-* **Begränsningar för domänautentiseringsuppgifter:** Du kan inte skapa en hanterad domän med ett prefix som är längre än 15 tecken. Prefixet för det angivna domän namnet (t. ex. *contoso* i *contoso.com* -domännamnet) måste innehålla högst 15 tecken.
+* **Begränsningar för domänautentiseringsuppgifter:** Du kan inte skapa en hanterad domän med ett prefix som är längre än 15 tecken. Prefixet för det angivna domän namnet (t. ex. *aaddscontoso* i domän namnet *aaddscontoso.com* ) måste innehålla högst 15 tecken.
 * **Nätverks namns konflikter:** DNS-domännamnet för den hanterade domänen bör inte redan finnas i det virtuella nätverket. Mer specifikt kan du söka efter följande scenarier som leder till en namn konflikt:
     * Om du redan har en Active Directory domän med samma DNS-domännamn i det virtuella Azure-nätverket.
     * Om det virtuella nätverket där du planerar att aktivera den hanterade domänen har en VPN-anslutning till ditt lokala nätverk. I det här scenariot ser du till att du inte har en domän med samma DNS-domännamn i det lokala nätverket.
@@ -88,7 +88,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 Med *Administratörs gruppen för AAD-domänkontrollanten* skapad lägger du till en användare i gruppen med cmdleten [Add-AzureADGroupMember][Add-AzureADGroupMember] . Först får du ett objekt-ID för *AAD DC-administratörer* som använder cmdleten [Get-AzureADGroup][Get-AzureADGroup] och sedan den önskade användarens objekt-ID med hjälp av cmdleten [Get-AzureADUser][Get-AzureADUser] .
 
-I följande exempel är användar objekt-ID: t för kontot med ett UPN-`admin@contoso.onmicrosoft.com`. Ersätt det här användar kontot med UPN för den användare som du vill lägga till i *Administratörs* gruppen för AAD-domänkontrollant:
+I följande exempel är användar objekt-ID: t för kontot med ett UPN-`admin@aaddscontoso.onmicrosoft.com`. Ersätt det här användar kontot med UPN för den användare som du vill lägga till i *Administratörs* gruppen för AAD-domänkontrollant:
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -98,7 +98,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@aaddscontoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -128,12 +128,12 @@ Som en del av resurs definitionen för Resource Manager krävs följande konfigu
 | notificationSettings    | Om det finns aviseringar som genererats i den hanterade domänen i Azure AD DS kan e-postmeddelanden skickas ut. <br />*Globala administratörer* av Azure-klienten och medlemmar i gruppen *AAD DC-administratörer* kan *aktive ras* för dessa aviseringar.<br /> Om du vill kan du lägga till ytterligare mottagare för aviseringar när det finns aviseringar som kräver åtgärder.|
 | domainConfigurationType | Som standard skapas en Azure AD DS-hanterad domän som en *användar* skog. Den här typen av skog synkroniserar alla objekt från Azure AD, inklusive alla användar konton som skapats i en lokal AD DS-miljö. Du behöver inte ange ett *domainConfiguration* -värde för att skapa en användar skog.<br /> En *resurs* skog synkroniserar bara användare och grupper som skapats direkt i Azure AD. Resurs skogar är för närvarande i för hands version. Ställ in värdet på *ResourceTrusting* för att skapa en resurs skog.<br />Mer information om *resurs* skogar, inklusive varför du kan använda en och hur du skapar skogs förtroenden med lokala AD DS-domäner finns i [Översikt över Azure AD DS resurs skogar][resource-forests].|
 
-I följande dekomprimerade Parameters-definition visas hur dessa värden deklareras. En användar skog med namnet *aadds.contoso.com* skapas med alla användare från Azure AD som synkroniseras till den hanterade Azure AD DS-domänen:
+I följande dekomprimerade Parameters-definition visas hur dessa värden deklareras. En användar skog med namnet *aaddscontoso.com* skapas med alla användare från Azure AD som synkroniseras till den hanterade Azure AD DS-domänen:
 
 ```json
 "parameters": {
     "domainName": {
-        "value": "aadds.contoso.com"
+        "value": "aaddscontoso.com"
     },
     "filteredSync": {
         "value": "Disabled"
@@ -176,7 +176,7 @@ Dessa parametrar och resurs typer kan användas som en del av en bredare Resourc
 
 ## <a name="create-a-managed-domain-using-sample-template"></a>Skapa en hanterad domän med hjälp av exempel mall
 
-I följande exempel mall för fullständig Resource Manager skapas en Azure AD DS-hanterad domän och de stödda reglerna för virtuella nätverk, undernät och nätverks säkerhets grupper. Reglerna för nätverks säkerhets grupper krävs för att skydda den hanterade domänen och se till att trafiken kan flöda korrekt. En användar skog med DNS-namnet *aadds.contoso.com* skapas med alla användare som synkroniseras från Azure AD:
+I följande exempel mall för fullständig Resource Manager skapas en Azure AD DS-hanterad domän och de stödda reglerna för virtuella nätverk, undernät och nätverks säkerhets grupper. Reglerna för nätverks säkerhets grupper krävs för att skydda den hanterade domänen och se till att trafiken kan flöda korrekt. En användar skog med DNS-namnet *aaddscontoso.com* skapas med alla användare som synkroniseras från Azure AD:
 
 ```json
 {
@@ -190,7 +190,7 @@ I följande exempel mall för fullständig Resource Manager skapas en Azure AD D
             "value": "FullySynced"
         },
         "domainName": {
-            "value": "aadds.contoso.com"
+            "value": "aaddscontoso.com"
         },
         "filteredSync": {
             "value": "Disabled"

@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bb2371fc7732e8fa6fcfea53bf2822fcf3d7d2fa
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 48d98d6fef896f9288be88824a62fa1c8179217f
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963962"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621059"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resurs distributionen för din Function-app i Azure Functions
 
@@ -29,9 +29,9 @@ En Azure Functions distribution består vanligt vis av följande resurser:
 | Resurs                                                                           | Krav | Syntax och egenskaper-referens                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
 | En Function-app                                                                     | Krävs    | [Microsoft. Web/Sites](/azure/templates/microsoft.web/sites)                             |   |
-| Ett [Azure Storage](../storage/index.yml) konto                                   | Krävs    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| En [Application Insights](../azure-monitor/app/app-insights-overview.md) -komponent | Valfritt    | [Microsoft. Insights/komponenter](/azure/templates/microsoft.insights/components)         |   |
-| En [värd plan](./functions-scale.md)                                             | Valfria<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
+| Ett [Azure Storage](../storage/index.yml) konto                                   | Krävs    | [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
+| En [Application Insights](../azure-monitor/app/app-insights-overview.md) -komponent | Valfri    | [Microsoft. Insights/komponenter](/azure/templates/microsoft.insights/components)         |   |
+| En [värd plan](./functions-scale.md)                                             | Valfria<sup>1</sup>    | [Microsoft. Web/Server grupper](/azure/templates/microsoft.web/serverfarms)                 |   |
 
 <sup>1</sup> En värd plan krävs bara när du väljer att köra din Function-app på en [Premium-plan](./functions-premium-plan.md) (i för hands version) eller på en [App Service plan](../app-service/overview-hosting-plans.md).
 
@@ -309,17 +309,25 @@ Premium-planen ger samma skalning som förbruknings planen men innehåller dedik
 
 ### <a name="create-a-premium-plan"></a>Skapa en Premium-plan
 
-En Premium-plan är en särskild typ av "Server klustret"-resurs. Du kan ange det genom att antingen använda `EP1`, `EP2`eller `EP3` för värdet `sku` egenskap.
+En Premium-plan är en särskild typ av "Server klustret"-resurs. Du kan ange det genom att antingen använda `EP1`, `EP2`eller `EP3` för `Name` egenskap svärdet i `sku` Description- [objektet](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
 
 ```json
 {
     "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2015-04-01",
-    "name": "[variables('hostingPlanName')]",
+    "apiVersion": "2018-02-01",
+    "name": "[parameters('hostingPlanName')]",
     "location": "[resourceGroup().location]",
     "properties": {
-        "name": "[variables('hostingPlanName')]",
-        "sku": "EP1"
+        "name": "[parameters('hostingPlanName')]",
+        "workerSize": "[parameters('workerSize')]",
+        "workerSizeId": "[parameters('workerSizeId')]",
+        "numberOfWorkers": "[parameters('numberOfWorkers')]",
+        "hostingEnvironment": "[parameters('hostingEnvironment')]",
+        "maximumElasticWorkerCount": "20"
+    },
+    "sku": {
+        "Tier": "ElasticPremium",
+        "Name": "EP1"
     }
 }
 ```
@@ -641,8 +649,8 @@ Du kan använda något av följande sätt för att distribuera mallen:
 
 * [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
-* [Azure-portalen](../azure-resource-manager/templates/deploy-portal.md)
-* [REST API](../azure-resource-manager/templates/deploy-rest.md)
+* [Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
+* [REST-API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Knappen distribuera till Azure
 
@@ -660,7 +668,7 @@ Här är ett exempel som använder HTML:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"></a>
 ```
 
-### <a name="deploy-using-powershell"></a>Distribuera med PowerShell
+### <a name="deploy-using-powershell"></a>Distribuera med hjälp av PowerShell
 
 Följande PowerShell-kommandon skapar en resurs grupp och distribuerar en mall som skapar en Function-app med nödvändiga resurser. Om du vill köra lokalt måste du ha [Azure PowerShell](/powershell/azure/install-az-ps) installerat. Kör [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) för att logga in.
 

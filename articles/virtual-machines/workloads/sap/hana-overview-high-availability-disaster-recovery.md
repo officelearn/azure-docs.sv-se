@@ -4,7 +4,7 @@ description: Upprätta hög tillgänglighet och planera för haveri beredskap f�
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d0150aeace3960d075bbf61c1dd0bba4865aaf2b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0585c1251ba18e1390f3eee28a989edee6eb8591
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099713"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616933"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA – stora instanser hög tillgänglighet och haveri beredskap på Azure 
 
@@ -32,18 +32,18 @@ Hög tillgänglighet och haveri beredskap (DR) är viktiga aspekter på att kör
 
 Microsoft stöder vissa SAP HANA funktioner med hög tillgänglighet med HANA-stora instanser. Dessa funktioner är:
 
-- **Storage-replikering**: Lagrings systemets möjlighet att replikera alla data till en annan HANA stor instans stämpel i en annan Azure-region. SAP HANA fungerar oberoende av den här metoden. Den här funktionen är standard mekanismen för haveri beredskap som erbjuds för HANA-stora instanser.
-- **Hana**-systemreplikering: [Replikeringen av alla data i SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) till ett separat SAP HANA system. Tids målet för återställnings tiden minimeras genom datareplikering med jämna mellanrum. SAP HANA stöder asynkrona, synkrona InMemory-och synkrona lägen. Synkront läge används endast för SAP HANA system som är inom samma data Center eller mindre än 100 km. Med den aktuella designen av HANA-instanser med stora instanser kan HANA-systemreplikering endast användas för hög tillgänglighet inom en region. HANA-systemreplikering kräver en omvänd proxy-eller vägvals komponent från tredje part för haveri beredskap i en annan Azure-region. 
-- **Automatisk redundans för värd**: En lokal fel återställnings lösning för SAP HANA som är ett alternativ till HANA-systemreplikering. Om huvudnoden blir otillgänglig, konfigurerar du en eller flera vänte läges SAP HANA noder i skalbart läge och SAP HANA växlar automatiskt över till en nod i vänte läge.
+- **Storage-replikering**: lagrings systemets möjlighet att replikera alla data till en annan Hana stor instans stämpel i en annan Azure-region. SAP HANA fungerar oberoende av den här metoden. Den här funktionen är standard mekanismen för haveri beredskap som erbjuds för HANA-stora instanser.
+- **Hana-systemreplikering**: [replikeringen av alla data i SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) till ett separat SAP HANA system. Tids målet för återställnings tiden minimeras genom datareplikering med jämna mellanrum. SAP HANA stöder asynkrona, synkrona InMemory-och synkrona lägen. Synkront läge används endast för SAP HANA system som är inom samma data Center eller mindre än 100 km. Med den aktuella designen av HANA-instanser med stora instanser kan HANA-systemreplikering endast användas för hög tillgänglighet inom en region. HANA-systemreplikering kräver en omvänd proxy-eller vägvals komponent från tredje part för haveri beredskap i en annan Azure-region. 
+- **Automatisk redundans för värd**: en lokal fel återställnings lösning för SAP HANA som är ett alternativ till Hana-systemreplikering. Om huvudnoden blir otillgänglig, konfigurerar du en eller flera vänte läges SAP HANA noder i skalbart läge och SAP HANA växlar automatiskt över till en nod i vänte läge.
 
 SAP HANA på Azure (stora instanser) erbjuds i två Azure-regioner i fyra politiska områden (USA, Australien, Europa och Japan). Två regioner i ett politiskt område som är värd för HANA-stora instanser är anslutna till separata dedikerade nätverks kretsar. Dessa används för att replikera lagrings ögonblicks bilder för att tillhandahålla metoder för haveri beredskap. Replikeringen är inte upprättad som standard men har kon figurer ATS för kunder som beställer katastrof återställnings funktioner. Storage Replication är beroende av användningen av ögonblicks bilder av lagring för HANA-stora instanser. Det går inte att välja en Azure-region som en DR-region som finns i ett annat politiskt område. 
 
 I följande tabell visas de metoder och kombinationer som stöds för närvarande och haveri beredskap:
 
-| Scenario som stöds i HANA-stora instanser | Alternativ för hög tillgänglighet | Katastrof återställnings alternativ | Kommentar |
+| Scenario som stöds i HANA-stora instanser | Alternativ för hög tillgänglighet | Katastrof återställnings alternativ | Kommentarer |
 | --- | --- | --- | --- |
 | Enkel nod | Inte tillgängligt. | Dedikerad DR-konfiguration.<br /> Konfiguration av multifunktions-DR. | |
-| Automatisk redundans för värd: Skala ut (med eller utan vänte läge)<br /> inklusive 1 + 1 | Möjligt med vänte läge som tar den aktiva rollen.<br /> HANA styr roll växeln. | Dedikerad DR-konfiguration.<br /> Konfiguration av multifunktions-DR.<br /> DR-synkronisering med Storage-replikering. | HANA-volym uppsättningar är anslutna till alla noder.<br /> DR-platsen måste ha samma antal noder. |
+| Automatisk redundans för värd: skala ut (med eller utan vänte läge)<br /> inklusive 1 + 1 | Möjligt med vänte läge som tar den aktiva rollen.<br /> HANA styr roll växeln. | Dedikerad DR-konfiguration.<br /> Konfiguration av multifunktions-DR.<br /> DR-synkronisering med Storage-replikering. | HANA-volym uppsättningar är anslutna till alla noder.<br /> DR-platsen måste ha samma antal noder. |
 | HANA-systemreplikering | Möjligt med primär eller sekundär installation.<br /> Sekundär flyttar till primär roll i ett failover-fall.<br /> HANA-systemreplikering och OS-kontroll av redundans. | Dedikerad DR-konfiguration.<br /> Konfiguration av multifunktions-DR.<br /> DR-synkronisering med Storage-replikering.<br /> DR med hjälp av HANA-systemreplikering är ännu inte möjligt utan komponenter från tredje part. | En separat uppsättning disk volymer är anslutna till varje nod.<br /> Endast disk volymer för sekundär replik på produktions platsen replikeras till DR-platsen.<br /> En uppsättning volymer krävs på DR-platsen. | 
 
 En dedikerad DR-installation är där den stora instans enheten HANA i DR-platsen inte används för att köra andra arbets belastnings-eller icke-produktionssystem. Enheten är passiv och distribueras endast om redundansväxlingen utförs. Den här installationen är dock inte ett önskat val för många kunder.
@@ -51,7 +51,7 @@ En dedikerad DR-installation är där den stora instans enheten HANA i DR-platse
 Se [HLI-scenarier som stöds](hana-supported-scenario.md) för att lära dig mer om lagrings-och Ethernet-information för din arkitektur.
 
 > [!NOTE]
-> [SAP HANA MCOD](https://launchpad.support.sap.com/#/notes/1681092) -distributioner (flera HANA-instanser på en enhet) som överlappande scenarier fungerar med metoderna HA och DR som anges i tabellen. Ett undantag är att använda HANA-systemreplikering med ett automatiskt redundanskluster baserat på pacemaker. Sådana fall stöder bara en HANA-instans per enhet. För [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) -distributioner fungerar endast icke-lagrings ha och Dr-metoder om fler än en klient distribueras. När en klient har distribuerats är alla metoder som anges giltiga.  
+> [SAP HANA MCOD-distributioner](https://launchpad.support.sap.com/#/notes/1681092) (flera Hana-instanser på en enhet) som överlappande scenarier fungerar med metoderna ha och Dr som anges i tabellen. Ett undantag är att använda HANA-systemreplikering med ett automatiskt redundanskluster baserat på pacemaker. Sådana fall stöder bara en HANA-instans per enhet. För [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) -distributioner fungerar endast icke-lagrings ha och Dr-metoder om fler än en klient distribueras. När en klient har distribuerats är alla metoder som anges giltiga.  
 
 Ett konfigurations program för flera ändamål är där den stora instans enheten HANA på DR-platsen kör en arbets belastning som inte är en produktion. Om det är en katastrof stänger du av icke-produktions systemet, monterar lagrings replikerade (ytterligare) volym uppsättningar och startar sedan produktion HANA-instansen. De flesta kunder som använder funktionen HANA stor instansen haveri beredskap använder den här konfigurationen. 
 
@@ -81,7 +81,7 @@ Följande bild illustrerar en elastisk konfiguration för katastrof återställn
 
 Förutom de föregående kraven för en haveri beredskaps installation med HANA-stora instanser måste du:
 
-- Beställ SAP HANA på Azure (stora instanser) SKU: er av samma storlek som dina produktions-SKU: er och distribuera dem i Disaster Recovery-regionen. I de aktuella kund distributionerna används dessa instanser för att köra HANA-instanser som inte är produktion. De här konfigurationerna kallas för konfiguration av multianvändnings *Dr*.   
+- Beställ SAP HANA på Azure (stora instanser) SKU: er av samma storlek som dina produktions-SKU: er och distribuera dem i Disaster Recovery-regionen. I de aktuella kund distributionerna används dessa instanser för att köra HANA-instanser som inte är produktion. De här konfigurationerna kallas för konfiguration av *multianvändnings Dr*.   
 - Beställ ytterligare lagrings utrymme på DR-platsen för var och en av dina SAP HANA på Azure (stora instanser) SKU: er som du vill återställa i haveri beredskaps webbplatsen. Genom att köpa ytterligare lagrings utrymme kan du allokera lagrings volymerna. Du kan allokera de volymer som är målet för lagringsprovidern från din produktions-Azure-region till Azure-regionen haveri beredskap.
 - I fall där du har HSR-installationen på primär och du konfigurerar lagring baserad på DR-platsen måste du köpa ytterligare lagrings utrymme på DR-platsen så att både primära och sekundära Zondata replikeras till DR-platsen.
 

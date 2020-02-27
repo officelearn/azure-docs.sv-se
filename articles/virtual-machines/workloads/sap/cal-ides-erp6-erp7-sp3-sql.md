@@ -4,7 +4,7 @@ description: 'Distribuera SAP IDE: er EHP7 SP3 för SAP ERP 6,0 på Azure'
 services: virtual-machines-windows
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 66921280403027d1723b27f104b42d2c83271213
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3efd92226b7c69590f3960458ffec49b63b8364f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100068"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616692"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Distribuera SAP IDE: er EHP7 SP3 för SAP ERP 6,0 på Azure
 I den här artikeln beskrivs hur du distribuerar ett SAP IDE: er-system som körs med SQL Server och Windows-operativsystemet på Azure via bibliotek för SAP Cloud Library (SAP CAL) 3,0. Skärm bilderna visar steg för steg-processen. Följ samma steg om du vill distribuera en annan lösning.
@@ -95,7 +95,7 @@ Du har skapat ett SAP CAL-konto som kan:
 ### <a name="deploy-a-solution"></a>Distribuera en lösning
 1. När du har konfigurerat ett SAP CAL-konto väljer **du lösningen SAP IDE: er på Windows och SQL Server** lösning. Klicka på **skapa instans**och bekräfta villkoren för användning och villkor. 
 
-1. **I Basic-läge: Sidan skapa** instans måste du:
+1. På sidan **Basic-läge: skapa instans** måste du:
 
     a. Ange ett instans **namn**.
 
@@ -103,7 +103,7 @@ Du har skapat ett SAP CAL-konto som kan:
 
     c.  Ange huvud **lösen ordet** för lösningen som det visas:
 
-    ![SAP CAL Basic-läge: Skapa instans](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
+    ![SAP CAL Basic-läge: skapa instans](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
 1. Klicka på **Skapa**. Efter en stund, beroende på lösningens storlek och komplexitet (SAP CAL tillhandahåller en uppskattning), visas statusen aktive ras och klar för användning: 
 

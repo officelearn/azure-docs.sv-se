@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 46557d802222190c0ed82f6243dd2a9b997ecaa5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 18395f2b839aef88491f71aeed660eb2ce011e2c
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960573"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614240"
 ---
 # <a name="change-the-sku-for-an-existing-azure-ad-domain-services-managed-domain"></a>Ändra SKU: n för en befintlig Azure AD Domain Services hanterad domän
 
@@ -46,7 +46,7 @@ Mer information om dessa begränsningar finns i [funktioner och begränsningar f
 
 Utför följande steg för att ändra SKU: n för en Azure AD DS-hanterad domän med hjälp av Azure Portal:
 
-1. Sök efter och välj **Azure AD Domain Services**överst i Azure Portal. Välj den hanterade domänen i listan, till exempel *aadds.contoso.com*.
+1. Sök efter och välj **Azure AD Domain Services**överst i Azure Portal. Välj den hanterade domänen i listan, till exempel *aaddscontoso.com*.
 1. På menyn till vänster på sidan Azure AD DS väljer du **inställningar > SKU**.
 
     ![Välj meny alternativet SKU för din Azure AD DS-hanterade domän i Azure Portal](media/change-sku/overview-change-sku.png)

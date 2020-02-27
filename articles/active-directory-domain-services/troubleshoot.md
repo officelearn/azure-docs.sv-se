@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 2c6f594b16aac40abf885e0d058c7aba48d32f9c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3cb57fae2b1c67ece321a294e56612f49358405a
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512631"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612728"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Vanliga fel och fel söknings steg för Azure Active Directory Domain Services
 
@@ -28,9 +28,9 @@ Den här artikeln innehåller fel söknings steg för vanliga problem i Azure AD
 
 Om du har problem med att aktivera Azure AD DS kan du läsa följande vanliga fel och steg för att lösa dem:
 
-| **Exempel på fel meddelande** | **Lösning** |
+| **Exempel på fel meddelande** | **Upplösning** |
 | --- |:--- |
-| *Namnet contoso.com används redan i det här nätverket. Ange ett namn som inte används.* |[Domän namns konflikt i det virtuella nätverket](troubleshoot.md#domain-name-conflict) |
+| *Namnet addscontoso.com används redan i det här nätverket. Ange ett namn som inte används.* |[Domän namns konflikt i det virtuella nätverket](troubleshoot.md#domain-name-conflict) |
 | *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Tjänsten har inte tillräcklig behörighet för programmet som heter "Azure AD Domain Services Sync". Ta bort programmet som heter "Azure AD Domain Services Sync" och försök sedan Aktivera domän tjänster för Azure AD-klienten.* |[Domän tjänster har inte tillräcklig behörighet för Azure AD Domain Services Sync-programmet](troubleshoot.md#inadequate-permissions) |
 | *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Domän tjänst programmet i din Azure AD-klient har inte de behörigheter som krävs för att aktivera domän tjänster. Ta bort programmet med program identifieraren d87dcbc6-a371-462e-88e3-28ad15ec4e64 och försök sedan att aktivera Domain Services för din Azure AD-klient.* |[Domän tjänst programmet har inte kon figurer ATS korrekt i din Azure AD-klient](troubleshoot.md#invalid-configuration) |
 | *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Microsoft Azure AD programmet är inaktiverat i din Azure AD-klient. Aktivera programmet med program identifieraren 00000002-0000-0000-C000-000000000000 och försök sedan aktivera Domain Services för din Azure AD-klient.* |[Microsoft Graph programmet är inaktiverat i din Azure AD-klient](troubleshoot.md#microsoft-graph-disabled) |
@@ -39,11 +39,11 @@ Om du har problem med att aktivera Azure AD DS kan du läsa följande vanliga fe
 
 **Fel meddelande**
 
-*Namnet contoso.com används redan i det här nätverket. Ange ett namn som inte används.*
+*Namnet aaddscontoso.com används redan i det här nätverket. Ange ett namn som inte används.*
 
-**Lösning**
+**Upplösning**
 
-Kontrol lera att du inte har en befintlig AD DS-miljö med samma domän namn på samma eller ett peer-kopplat virtuellt nätverk. Du kan till exempel ha en AD DS-domän med namnet *contoso.com* som körs på virtuella Azure-datorer. När du försöker aktivera en Azure AD DS-hanterad domän med samma domän namn *contoso.com* i det virtuella nätverket, Miss lyckas den begärda åtgärden.
+Kontrol lera att du inte har en befintlig AD DS-miljö med samma domän namn på samma eller ett peer-kopplat virtuellt nätverk. Du kan till exempel ha en AD DS-domän med namnet *aaddscontoso.com* som körs på virtuella Azure-datorer. När du försöker aktivera en Azure AD DS-hanterad domän med samma domän namn *aaddscontoso.com* i det virtuella nätverket, Miss lyckas den begärda åtgärden.
 
 Det här felet beror på namn konflikter för domän namnet i det virtuella nätverket. En DNS-sökning kontrollerar om en befintlig AD DS-miljö svarar på det begärda domän namnet. Lös problemet genom att använda ett annat namn för att konfigurera din Azure AD DS-hanterade domän eller avetablera den befintliga AD DS-domänen och försök sedan igen för att aktivera Azure AD DS.
 
@@ -53,7 +53,7 @@ Det här felet beror på namn konflikter för domän namnet i det virtuella nät
 
 *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Tjänsten har inte tillräcklig behörighet för programmet som heter "Azure AD Domain Services Sync". Ta bort programmet som heter "Azure AD Domain Services Sync" och försök sedan Aktivera domän tjänster för Azure AD-klienten.*
 
-**Lösning**
+**Upplösning**
 
 Kontrol lera om det finns ett program med namnet *Azure AD Domain Services Sync* i Azure AD-katalogen. Om det här programmet finns tar du bort det och försöker sedan aktivera Azure AD DS igen. För att söka efter ett befintligt program och ta bort det vid behov, utför följande steg:
 
@@ -68,7 +68,7 @@ Kontrol lera om det finns ett program med namnet *Azure AD Domain Services Sync*
 
 *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Domän tjänst programmet i din Azure AD-klient har inte de behörigheter som krävs för att aktivera domän tjänster. Ta bort programmet med program identifieraren d87dcbc6-a371-462e-88e3-28ad15ec4e64 och försök sedan att aktivera Domain Services för din Azure AD-klient.*
 
-**Lösning**
+**Upplösning**
 
 Kontrol lera att du har ett befintligt program med namnet *AzureActiveDirectoryDomainControllerServices* med ett program-ID för *D87DCBC6-A371-462E-88E3-28AD15EC4E64* i Azure AD-katalogen. Om det här programmet finns tar du bort det och försöker sedan igen för att aktivera Azure AD DS.
 
@@ -112,7 +112,7 @@ if ($sp -ne $null)
 
 *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Microsoft Azure AD programmet är inaktiverat i din Azure AD-klient. Aktivera programmet med program identifieraren 00000002-0000-0000-C000-000000000000 och försök sedan aktivera Domain Services för din Azure AD-klient.*
 
-**Lösning**
+**Upplösning**
 
 Kontrol lera om du har inaktiverat ett program med identifieraren *00000002-0000-0000-C000-000000000000*. Det här programmet är Microsoft Azure AD programmet och ger Graph API åtkomst till din Azure AD-klient. Detta program måste vara aktiverat för att du ska kunna synkronisera din Azure AD-klient.
 
@@ -128,9 +128,9 @@ För att kontrol lera status för det här programmet och aktivera det vid behov
 
 Om en eller flera användare i din Azure AD-klient inte kan logga in på den hanterade domänen i Azure AD DS, slutför du följande fel söknings steg:
 
-* **Format för autentiseringsuppgifter** – försök använda UPN-formatet för att ange autentiseringsuppgifter, till exempel `dee@contoso.onmicrosoft.com`. UPN-formatet är det rekommenderade sättet att ange autentiseringsuppgifter i Azure AD DS. Kontrol lera att detta UPN är korrekt konfigurerat i Azure AD.
+* **Format för autentiseringsuppgifter** – försök använda UPN-formatet för att ange autentiseringsuppgifter, till exempel `dee@aaddscontoso.onmicrosoft.com`. UPN-formatet är det rekommenderade sättet att ange autentiseringsuppgifter i Azure AD DS. Kontrol lera att detta UPN är korrekt konfigurerat i Azure AD.
 
-    *SAMAccountName* för ditt konto, till exempel *CONTOSO\driley* , kan skapas automatiskt om det finns flera användare med samma UPN-prefix i din klient organisation eller om ditt UPN-prefix är för långt. Därför kan *sAMAccountName* -formatet för ditt konto skilja sig från vad du förväntar dig eller använder i din lokala domän.
+    *SAMAccountName* för ditt konto, till exempel *AADDSCONTOSO\driley* , kan skapas automatiskt om det finns flera användare med samma UPN-prefix i din klient organisation eller om ditt UPN-prefix är för långt. Därför kan *sAMAccountName* -formatet för ditt konto skilja sig från vad du förväntar dig eller använder i din lokala domän.
 
 * **Lösenordssynkronisering – kontrol** lera att du har aktiverat Lösenordssynkronisering för [enbart moln användare][cloud-only-passwords] eller för [hybrid miljöer som använder Azure AD Connect][hybrid-phs].
     * **Hybrid-synkroniserade konton:** Om de berörda användar kontona synkroniseras från en lokal katalog kontrollerar du följande områden:

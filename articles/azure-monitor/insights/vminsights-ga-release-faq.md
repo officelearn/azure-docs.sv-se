@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 673cda4005d9c985d8d6ee5ef1d28a3d8c241ac0
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 883f24e529f9479f0c6ee6597c1324a0089ece7b
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482892"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620383"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor for VMs allmänt tillgängliga (GA)
 
@@ -25,8 +25,6 @@ Vi har släppt en ny version av Azure Monitor for VMs. Kunder som aktiverar Azur
 Med den här uppgraderingen lagras Azure Monitor for VMs prestanda data i samma *InsightsMetrics* -tabell som [Azure Monitor för behållare](container-insights-overview.md), vilket gör det enklare för dig att fråga de två data uppsättningarna. Du kan också lagra Mer Diverse data uppsättningar som vi inte kunde lagra i tabellen som användes tidigare. 
 
 Våra prestanda visningar använder nu de data som vi lagrar i *InsightsMetrics* -tabellen.  Om du ännu inte har uppgraderat för att använda den senaste VMInsights-lösningen på arbets ytan visas inte längre information i dina diagram.  Du kan uppgradera från vår **Kom igång** -sida enligt beskrivningen nedan.
-
-Med den här uppgraderingen lagras Azure Monitor for VMs prestanda data i samma *InsightsMetrics* -tabell som [Azure Monitor för behållare](container-insights-overview.md) som gör det enklare för dig att fråga de två data uppsättningarna. Du kan också lagra Mer Diverse data uppsättningar som vi inte kunde lagra i tabellen som användes tidigare. 
 
 Vi inser att vi ber befintliga kunder att uppgradera orsakar avbrott i sitt arbets flöde, vilket är anledningen till att vi har valt att göra detta nu i en offentlig för hands version i stället för senare efter GA.
 

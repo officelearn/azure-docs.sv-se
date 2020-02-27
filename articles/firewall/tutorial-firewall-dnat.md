@@ -1,25 +1,25 @@
 ---
-title: Filtrera inkommande trafik med Azure Firewall DNAT med portalen
+title: Filtrera inkommande Internet trafik med Azure Firewall DNAT med portalen
 description: I den här självstudien får du lära dig att distribuera och konfigurera Azure Firewall DNAT via Azure-portalen.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 02/26/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2f390f3ad540a2a25055dfcc97cc3af1f22c2b73
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 1528087ced54ddcab2e3dd44b65fb3411cae3004
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195726"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621792"
 ---
-# <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Självstudie: Filtrera inkommande trafik med Azure Firewall DNAT med hjälp av Azure-portalen
+# <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Självstudie: filtrera inkommande Internet trafik med Azure Firewall DNAT med hjälp av Azure Portal
 
-Du kan konfigurera Azure Firewall Destination Network Address Translation (DNAT) att översätta och filtrera inkommande trafik till dina undernät. När du konfigurerar DNAT ställs åtgärden för NAT-regelsamling in på **Dnat**. Varje regel i NAT-regelsamlingen kan sedan användas till att översätta brandväggens offentliga IP-adress och port till en privat IP-adress och port. DNAT-regler lägger implicit till en motsvarande nätverksregel för att tillåta den översatta trafiken. Du kan åsidosätta det här beteendet genom att uttryckligen lägga till en nätverksregelsamling med neka-regler som matchar den översatta trafiken. Mer information om regelbearbetningslogik för Azure Firewall finns i [Regelbearbetningslogik för Azure Firewall](rule-processing.md).
+Du kan konfigurera Azure Firewall destination Network Address Translation (DNAT) för att översätta och filtrera inkommande Internet trafik till dina undernät. När du konfigurerar DNAT ställs åtgärden för NAT-regelsamling in på **Dnat**. Varje regel i NAT-regelsamlingen kan sedan användas till att översätta brandväggens offentliga IP-adress och port till en privat IP-adress och port. DNAT-regler lägger implicit till en motsvarande nätverksregel för att tillåta den översatta trafiken. Du kan åsidosätta det här beteendet genom att uttryckligen lägga till en nätverksregelsamling med neka-regler som matchar den översatta trafiken. Mer information om regelbearbetningslogik för Azure Firewall finns i [Regelbearbetningslogik för Azure Firewall](rule-processing.md).
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * konfigurera en testnätverksmiljö
@@ -94,7 +94,7 @@ Peerkoppla nu de två virtuella nätverken.
 3. Klicka på **Lägg till**.
 4. Ange **Peer-HubSpoke** som namn.
 5. Välj **VN-Spoke** för det virtuella nätverket.
-6. Klicka på **OK**.
+6. Klicka på **OK**
 
 #### <a name="spoke-to-hub"></a>Spoke till hub
 
@@ -104,7 +104,7 @@ Peerkoppla nu de två virtuella nätverken.
 4. Ange **Peer-SpokeHub** som namn.
 5. Välj **VN-Hub** för det virtuella nätverket.
 6. Klicka på **Tillåt vidarebefordrad trafik**.
-7. Klicka på **OK**.
+7. Klicka på **OK**
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
@@ -121,7 +121,7 @@ Skapa en virtuell arbetsbelastningsdator och placera den i undernätet **SN-Work
 6. I fältet **Prenumeration** väljer du din prenumeration.
 7. I fältet **Resursgrupp** klickar du på **Använd befintlig** och väljer sedan **RG-DNAT-Test**.
 8. Välj samma plats som tidigare i fältet **Plats**.
-9. Klicka på **OK**.
+9. Klicka på **OK**
 
 **Storlek**
 
@@ -151,7 +151,7 @@ När distributionen är klar antecknar du den privata IP-adressen för den virtu
 
    |Inställning  |Värde  |
    |---------|---------|
-   |Namn     |FW-DNAT-test|
+   |Name     |FW-DNAT-test|
    |Prenumeration     |\<din prenumeration\>|
    |Resursgrupp     |**Använd befintlig**: RG-DNAT-Test |
    |Plats     |Välj samma plats som tidigare|
@@ -181,7 +181,7 @@ För undernätet **SN-Workload** ställer du in att den utgående standardvägen
 10. Klicka på **Undernät** och sedan på **Associera**.
 11. Klicka på **Virtuellt nätverk** och välj sedan **VN-Spoke**.
 12. I fältet **Undernät** klickar du på **SN-Workload**.
-13. Klicka på **OK**.
+13. Klicka på **OK**
 14. Klicka på **Vägar** och sedan på **Lägg till**.
 15. I fältet **Vägnamn** skriver du **FW-DG**.
 16. I fältet **Adressprefix** skriver du **0.0.0.0/0**.
@@ -189,7 +189,7 @@ För undernätet **SN-Workload** ställer du in att den utgående standardvägen
 
     Azure Firewall är egentligen en hanterad tjänst, men en virtuell installation fungerar i det här fallet.
 18. I fältet **Nästa hoppadress** skriver du brandväggens privata IP-adress som du skrev ned tidigare.
-19. Klicka på **OK**.
+19. Klicka på **OK**
 
 ## <a name="configure-a-nat-rule"></a>Konfigurera en NAT-regel
 

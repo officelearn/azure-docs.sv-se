@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d08c0b8817c0008a0ecfbab1a9d38243ec0bea79
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: eacbeca275192e1a68b6682c3036da2d5c09bd54
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705691"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619882"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Vanliga frågor och svar om Video Indexer
 
@@ -59,7 +59,7 @@ Nej, Video Indexer ger en integrering av flera Machine Learning-modeller i en pi
 
 ### <a name="what-media-formats-does-video-indexer-support"></a>Vilka Media format stöder Video Indexer?
 
-Video Indexer stöder de flesta vanliga medieformaten. Mer information finns i listan [Azure Media Encoder standardformat](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) .
+Video Indexer stöder de flesta vanliga medie format. Mer information finns i listan [Azure Media Encoder standardformat](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) .
 
 ### <a name="how-to-do-i-upload-a-media-into-video-indexer"></a>Hur överför jag ett medium till Video Indexer?
 
@@ -76,6 +76,14 @@ Ja, du kan integrera Video Indexer i lösningar utan server som Logic Apps, Flow
 ### <a name="in-which-azure-regions-is-video-indexer-available"></a>I vilka Azure-regioner är video Indexer tillgängliga?
 
 Du kan se vilka Azure-regioner Video Indexer är tillgängliga på sidan [regioner](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all) .
+
+### <a name="can-i-customize-video-indexer-models-for-my-specific-use-case"></a>Kan jag anpassa Video Indexer modeller för mitt speciella användnings fall? 
+
+Ja. I Video Indexer kan du anpassa några av de tillgängliga modellerna så att de passar dina behov bättre. 
+
+Vår person modell stöder till exempel färdiga 1 000 000-ytor med kändis igenkänning, men du kan också träna det för att identifiera andra ansikten som inte finns i databasen. 
+
+Mer information finns i artiklar om att anpassa [personer](customize-person-model-overview.md), [varumärken](customize-brands-model-overview.md)och [språk](customize-language-model-overview.md) modeller. 
 
 ### <a name="what-is-the-sla-for-video-indexer"></a>Vad är service avtalet för Video Indexer?
 
@@ -119,6 +127,21 @@ Video Indexer täcks av [Microsofts sekretess policy](https://privacy.microsoft.
 
 Video Indexer har för närvarande SOC-certifiering. Information om hur du granskar Video Indexers certifiering finns i [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings?product=Azure).
 
+### <a name="what-is-the-difference-between-private-and-public-videos"></a>Vad är skillnaden mellan privata och offentliga videor? 
+
+När videor laddas upp till Video Indexer kan du välja mellan två sekretess inställningar: privata och offentliga. Offentliga videor är tillgängliga för alla, inklusive anonyma och oidentifierade användare. Privata är enbart begränsade till konto medlemmar. 
+
+### <a name="i-tried-to-upload-a-video-as-public-and-it-was-flagged-for-inappropriate-or-offensive-content-what-does-that-mean"></a>Jag försökte ladda upp en video som offentlig och den flaggades för olämpligt eller stötande innehåll, vad innebär det? 
+
+När du laddar upp en video till Video Indexer görs en automatisk innehålls analys av algoritmer och modeller för att säkerställa att inget olämpligt innehåll visas offentligt. Om en video har visat sig vara misstänkt som ett explicit innehåll, går det inte att ange den som offentlig. Konto medlemmar kan dock fortfarande komma åt den som en privat video (Visa den, Hämta insikter och extraherade artefakter och utföra andra åtgärder som är tillgängliga för konto medlemmar).   
+
+För att kunna ställa in videon för offentlig åtkomst kan du antingen: 
+
+* Bygg ditt eget gränssnitts lager (till exempel app eller webbplats) och Använd det för att interagera med tjänsten Video Indexer. På så sätt förblir videon privat i portalen och användarna kan interagera med den via ditt gränssnitt. Du kan till exempel fortfarande få insikter eller tillåta visning av videon i ditt eget gränssnitt. 
+* Begära en mänsklig granskning av innehållet, vilket skulle innebära att det inte går att ta bort begränsningen förutsatt att innehållet inte är explicit. 
+
+    Det här alternativet kan du utforska om Video Indexer webbplats används direkt av användarna som gränssnitts lager och för offentlig (oautentiserad) visning. 
+
 ## <a name="api-questions"></a>API-frågor
 
 ### <a name="what-apis-does-video-indexer-offer"></a>Vilka API: er Video Indexer erbjudandet?
@@ -161,7 +184,7 @@ Video Indexer använder en enkel pris modell enligt principen betala per använd
 
 ### <a name="when-am-i-billed-for-using-video-indexer"></a>När faktureras jag för att använda Video Indexer?
 
-När du skickar en video till indexering definierar användaren om indexeringen ska analysera videon, ljudet eller båda. Detta avgör vilka SKU:er som debiteras. Om ett kritiskt fel inträffar under bearbetningen skickas en felkod. I sådant fall genomförs ingen debitering.  Ett kritiskt fel kan bero på en bugg i koden eller ett kritiskt problem i ett av tjänstens interna beroenden. Fel som felaktiga identifieringar eller insiktsextrahering anses inte vara kritiska, så ett svar returneras. När ett giltigt (ingen felkod) svar returneras genomförs debiteringen.
+När du skickar en video som ska indexeras definierar användaren indexeringen som video analys, ljud analys eller både och. Detta avgör vilka SKU: er som ska debiteras. Om det finns ett allvarligt fel på nivån under bearbetningen returneras en felkod som ett svar. I sådana fall sker ingen fakturering.  Ett allvarligt fel kan orsakas av ett fel i vår kod eller ett allvarligt fel i ett internt beroende som tjänsten har. Fel som felaktig identifiering eller insikts extrahering anses inte vara kritiskt och ett svar returneras. I alla fall där ett giltigt svar (inte felkoder) returneras, sker faktureringen.
  
 ### <a name="does-video-indexer-offer-a-free-trial"></a>Erbjuder Video Indexer en kostnads fri utvärderings version?
 

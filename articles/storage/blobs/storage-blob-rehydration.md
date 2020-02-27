@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 1c06c1d0403e526e1ed58a193cfe9b57bb9fe561
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 0a7012d9daa808933a51ac05862a8a9aa4cfcf77
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780255"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614803"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Dehydratisera BLOB-data från Arkiv lag rings nivå
 
@@ -51,7 +51,7 @@ Blobbar i Arkiv lag rings nivån lagras i minst 180 dagar. Om du tar bort eller 
 ## <a name="quickstart-scenarios"></a>Snabbstartsscenarier
 
 ### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>Dehydratiserar en Arkiv-blob till en onlinenivå
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Sök efter och välj **alla resurser**i Azure Portal.
@@ -70,14 +70,14 @@ Blobbar i Arkiv lag rings nivån lagras i minst 180 dagar. Om du tar bort eller 
 
 ![Ändra lagrings konto nivå](media/storage-tiers/blob-access-tier.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Följande PowerShell-skript kan användas för att ändra BLOB-nivån för en Arkiv-blob. Variabeln `$rgName` måste initieras med resurs gruppens namn. `$accountName` variabeln måste initieras med ditt lagrings konto namn. `$containerName`-variabeln måste initieras med ditt container namn. `$blobName`-variabeln måste initieras med ditt BLOB-namn. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
 $rgName = ""
 $accountName = ""
 $containerName = ""
-$blobName == ""
+$blobName = ""
 
 #Select the storage account and get the context
 $storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
@@ -99,8 +99,8 @@ $rgName = ""
 $accountName = ""
 $srcContainerName = ""
 $destContainerName = ""
-$srcBlobName == ""
-$destBlobName == ""
+$srcBlobName = ""
+$destBlobName = ""
 
 #Select the storage account and get the context
 $storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
@@ -110,7 +110,7 @@ $ctx = $storageAccount.Context
 Start-AzStorageBlobCopy -SrcContainer $srcContainerName -SrcBlob $srcBlobName -DestContainer $destContainerName -DestBlob $destBlobName -StandardBlobTier Hot -RehydratePriority Standard -Context $ctx
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Lär dig mer om Blob Storage nivåer](storage-blob-storage-tiers.md)
 * [Kontrollera priser för frekvent/lågfrekvent lagring och arkivlagring i Blob Storage-/GPv2-konton efter region](https://azure.microsoft.com/pricing/details/storage/)

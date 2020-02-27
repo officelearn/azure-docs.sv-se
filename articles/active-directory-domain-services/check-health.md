@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: f0719542eb693e52f9a7996e28699b7425b0e0fe
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: fa1cba2d791cd40a46f8ad182c123a726143faec
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509146"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614256"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Kontrol lera hälso tillståndet för en Azure Active Directory Domain Services hanterad domän
 
@@ -29,7 +29,7 @@ Den här artikeln visar hur du visar hälso status för Azure AD DS och förstå
 Hälso tillståndet för en hanterad Azure AD DS-domän visas med hjälp av Azure Portal. Information om den senaste säkerhets kopierings tiden och synkroniseringen med Azure AD kan ses, tillsammans med eventuella aviseringar som indikerar ett problem med den hanterade domänens hälsa. Slutför följande steg för att Visa hälso status för en Azure AD DS-hanterad domän:
 
 1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**.
-1. Välj din Azure AD DS-hanterade domän, till exempel *aadds.contoso.com*.
+1. Välj din Azure AD DS-hanterade domän, till exempel *aaddscontoso.com*.
 1. På vänster sida av fönstret Azure AD DS-resurs väljer du **hälso tillstånd**. Följande exempel skärm bild visar en felfria Azure AD DS-hanterad domän och status för den senaste säkerhets kopieringen och Azure AD-synkronisering:
 
     ![Översikt över hälso sidan i Azure Portal som visar Azure Active Directory Domain Services status](./media/check-health/health-page.png)

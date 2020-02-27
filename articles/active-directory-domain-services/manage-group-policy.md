@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 32020341c7ac3bf33082ba365f053a613dcdffc2
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 74d9aa8228e841b17313fb3c15efe459ccd7339a
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705087"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613578"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrera grupprincip i en Azure AD Domain Services hanterad domän
 
@@ -53,7 +53,7 @@ Om du vill skapa och konfigurera grupprincip objekt (GPO) måste du installera g
 1. I fönstret *instrument panel* i fönstret **Serverhanteraren** väljer du **Lägg till roller och funktioner**.
 1. På sidan **innan du börjar** i *guiden Lägg till roller och funktioner*väljer du **Nästa**.
 1. För *installations typen*låter du alternativet för **rollbaserad eller funktions baserad installation** vara markerat och väljer **Nästa**.
-1. På sidan **Server val** väljer du den aktuella virtuella datorn från serverpoolen, till exempel *myvm.aadds.contoso.com*, och väljer sedan **Nästa**.
+1. På sidan **Server val** väljer du den aktuella virtuella datorn från serverpoolen, till exempel *myvm.aaddscontoso.com*, och väljer sedan **Nästa**.
 1. På sidan **Server roller** klickar du på **Nästa**.
 1. På sidan **funktioner** väljer du funktionen **Grupprincip hantering** .
 
@@ -76,7 +76,7 @@ Det finns standard grup princip objekt (GPO) för användare och datorer i en ha
 
 Det finns två inbyggda grupprincip objekt (GPO: er) i en Azure AD DS-hanterad domän – en för behållaren *AADDC Computers* och en för behållaren *AADDC Users* . Du kan anpassa dessa grup princip objekt för att konfigurera grup principen efter behov i din Azure AD DS-hanterade domän.
 
-1. I konsolen **Grupprincip hantering** expanderar du noden **skog: aadds.contoso.com** . Därefter expanderar du noderna **domäner** .
+1. I konsolen **Grupprincip hantering** expanderar du noden **skog: aaddscontoso.com** . Därefter expanderar du noderna **domäner** .
 
     Två inbyggda behållare finns för AADDC- *datorer* och *AADDC-användare*. Var och en av dessa behållare har ett standard grup princip objekt som tillämpas på dem.
 

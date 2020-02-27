@@ -3,21 +3,21 @@ title: 'PowerShell: Migrera SQL Server till SQL Database'
 titleSuffix: Azure Database Migration Service
 description: Lär dig att migrera från lokala SQL Server till Azure SQL Database genom att använda Azure PowerShell med Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: f67572adc3b40115b2c6d4618718867eacf8c95e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/20/2020
+ms.openlocfilehash: f63f79402b457017257f1762c6ddc7e04c0ee1af
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746298"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650698"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migrera SQL Server lokalt för att Azure SQL Database med Azure PowerShell
 
@@ -31,7 +31,7 @@ I den här artikeln kan du se hur du:
 > * Skapa ett migreringsjobb i en Azure Database Migration Service-instans.
 > * Köra migreringen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra de här stegen:
 
@@ -70,7 +70,7 @@ Du kan skapa en ny instans av Azure Database Migration Service med hjälp av `Ne
 * *Namn på Azure-resurs gruppen*. Du kan använda kommandot [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) för att skapa en Azure-resurs grupp som tidigare visas och ange dess namn som en parameter.
 * *Tjänst namn*. Sträng som motsvarar det önskade unika tjänst namnet för Azure Database Migration Service 
 * *Plats*. Anger tjänstens plats. Ange en plats för Azure Data Center, t. ex. USA, västra eller Sydostasien
-* *Sku*. Den här parametern motsvarar DMS SKU-namnet. SKU-namnet som stöds för närvarande är *GeneralPurpose_4vCores*.
+* *SKU*. Den här parametern motsvarar DMS SKU-namnet. SKU-namnet som stöds för närvarande är *GeneralPurpose_4vCores*.
 * *ID för virtuell undernät*. Du kan använda cmdleten [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) för att skapa ett undernät. 
 
 I följande exempel skapas en tjänst med namnet *MyDMS* i resurs gruppen *MyDMSResourceGroup* som finns i regionen *USA, östra* med ett virtuellt nätverk med namnet *MyVNET* och undernät som kallas för *undernät*.

@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 826cc155bae037121ddc303a6e1bf300e2d50a27
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 514de1435519282335124bfd67bac82669240b78
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589308"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616521"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Säkerhetsaviseringar i Azure Security Center
 
@@ -98,14 +98,20 @@ Dessa kombinerade ansträngningar resulterar i nya och förbättrade identifieri
 
 Följande avsnitt vägleder dig genom de olika aviseringarna, beroende på resurs typer:
 
-* [Aviseringar om virtuella datorer och servrar i IaaS](security-center-alerts-iaas.md)
-* [Interna beräknings aviseringar](security-center-alerts-compute.md)
-* [Aviseringar för data tjänster](security-center-alerts-data-services.md)
+* [Aviseringar för IaaS Windows-datorer](threat-protection.md#windows-machines)
+* [Aviseringar för IaaS Linux-datorer](threat-protection.md#linux-machines)
+* [Aviseringar för Azure App Service](threat-protection.md#app-services)
+* [Aviseringar för Azure-behållare](threat-protection.md#azure-containers)
+* [Aviseringar för SQL Database och SQL Data Warehouse](threat-protection.md#data-sql)
+* [Aviseringar för Azure Storage](threat-protection.md#azure-storage)
+* [Aviseringar för Cosmos DB](threat-protection.md#cosmos-db)
 
 I följande avsnitt förklaras hur Security Center använder olika telemetri som samlas in från integrering med Azure-infrastrukturen för att kunna använda ytterligare skydds lager för resurser som distribueras i Azure:
 
-* [Aviseringar för service nivå](security-center-alerts-service-layer.md)
-* [Hot identifiering för Azure WAF och Azure DDoS Protection](security-center-alerts-integration.md)
+* [Aviseringar för Azure Management Layer (Azure Resource Manager) (för hands version)](threat-protection.md#management-layer)
+* [Aviseringar för Azure Key Vault (för hands version)](threat-protection.md#azure-keyvault)
+* [Aviseringar för Azure nätverks lager](threat-protection.md#network-layer)
+* [Aviseringar från andra tjänster](threat-protection.md#alerts-other)
 
 ## <a name="what-are-security-incidents"></a>Vad är säkerhets incidenter?
 

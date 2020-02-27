@@ -1,30 +1,26 @@
 ---
-title: 'Självstudie: Använd Azure App konfiguration för att skicka händelser till en webb slut punkt'
-titleSuffix: Azure App Configuration
-description: I den här självstudien får du lära dig hur du konfigurerar Azure App konfigurations händelse prenumerationer för att skicka ändrings händelser för nyckel värden till en webb slut punkt.
+title: Skicka händelser till en webb slut punkt med hjälp av Azure App konfiguration
+description: Lär dig att använda Azure App konfigurations händelse prenumerationer för att skicka ändrings händelser för nyckel värden till en webb slut punkt
 services: azure-app-configuration
-documentationcenter: ''
-author: jimmyca
-editor: ''
+author: lisaguthrie
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.topic: tutorial
-ms.date: 05/30/2019
+ms.topic: how-to
+ms.date: 02/25/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 2a80f931f2060d421483b9e26940985091c9bb5c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 93700af5e7fb3a4a1253424996ed04532c01f88c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899694"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619596"
 ---
-# <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Snabb start: dirigera Azure App konfigurations händelser till en webb slut punkt med Azure CLI
+# <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Dirigera Azure App konfigurations händelser till en webb slut punkt med Azure CLI
 
-I den här snabb starten får du lära dig hur du konfigurerar Azure App konfigurations händelse prenumerationer för att skicka ändrings händelser för nyckel värden till en webb slut punkt. Azure App konfigurations användare kan prenumerera på händelser som genereras när nyckel värden ändras. Dessa händelser kan utlösa Webhooks, Azure Functions, Azure Storage köer eller andra händelse hanterare som stöds av Azure Event Grid. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
+I den här artikeln får du lära dig hur du konfigurerar Azure App konfigurations händelse prenumerationer för att skicka ändrings händelser för nyckel värden till en webb slut punkt. Azure App konfigurations användare kan prenumerera på händelser som genereras när nyckel värden ändras. Dessa händelser kan utlösa Webhooks, Azure Functions, Azure Storage köer eller andra händelse hanterare som stöds av Azure Event Grid. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/). Du kan också använda Azure Cloud Shell.
 
@@ -46,15 +42,16 @@ I följande exempel skapas en resurs grupp med namnet `<resource_group_name>` p�
 az group create --name <resource_group_name> --location westus
 ```
 
-## <a name="create-an-app-configuration"></a>Skapa en app-konfiguration
+## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
 
-Ersätt `<appconfig_name>` med ett unikt namn för din app-konfiguration och `<resource_group_name>` med resurs gruppen som du skapade tidigare. Namnet måste vara unikt eftersom det används som ett DNS-namn.
+Ersätt `<appconfig_name>` med ett unikt namn för konfigurations lagret och `<resource_group_name>` med resurs gruppen som du skapade tidigare. Namnet måste vara unikt eftersom det används som ett DNS-namn.
 
 ```azurecli-interactive
 az appconfig create \
   --name <appconfig_name> \
   --location westus \
-  --resource-group <resource_group_name>
+  --resource-group <resource_group_name> \
+  --sku free
 ```
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
@@ -78,7 +75,7 @@ Webbplatsen bör visas utan några meddelanden.
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
-## <a name="subscribe-to-your-app-configuration"></a>Prenumerera på din app-konfiguration
+## <a name="subscribe-to-your-app-configuration-store"></a>Prenumerera på appens konfigurations Arkiv
 
 Du prenumererar på ett ämne därför att du vill ange för Event Grid vilka händelser du vill följa och vart du vill skicka händelserna. I följande exempel prenumererar du på den app-konfiguration som du skapade och skickar URL: en från din webbapp som slut punkt för händelse avisering. Ersätt `<event_subscription_name>` med ett namn för din händelseprenumeration. För `<resource_group_name>` och `<appconfig_name>` använder du det värde du skapade tidigare.
 
@@ -122,7 +119,6 @@ Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt
   "dataVersion": "1",
   "metadataVersion": "1"
 }]
-
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f0d6d74271cc4ff0be4a653b389cc70ad5c56ef9
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 130fca4d5894316e7684270ff9d6361e9d9f9dd3
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983086"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620844"
 ---
 # <a name="boolean-claims-transformations"></a>Omvandlingar med booleska anspråk
 
@@ -30,9 +30,9 @@ Utför en och-åtgärd av två booleska inputClaims och anger outputClaim med re
 
 | Objekt  | TransformationClaimType  | Datatyp  | Anteckningar |
 |-------| ------------------------ | ---------- | ----- |
-| InputClaim | inputClaim1 | boolean | Den första ClaimType som ska utvärderas. |
-| InputClaim | inputClaim2  | boolean | Den andra ClaimType som ska utvärderas. |
-|OutputClaim | outputClaim | boolean | Den ClaimTypes som ska skapas efter att den här anspråks omvandlingen har anropats (sant eller falskt). |
+| InputClaim | inputClaim1 | boolesk | Den första ClaimType som ska utvärderas. |
+| InputClaim | inputClaim2  | boolesk | Den andra ClaimType som ska utvärderas. |
+|OutputClaim | outputClaim | boolesk | Den ClaimTypes som ska skapas efter att den här anspråks omvandlingen har anropats (sant eller falskt). |
 
 Följande anspråks omvandling visar hur och två booleska ClaimTypes: `isEmailNotExist`och `isSocialAccount`. Den utgående anspråks `presentEmailSelfAsserted` anges till `true` om värdet för båda indata-anspråk är `true`. I ett Orchestration-steg kan du använda ett villkor för att förinställa en självkontrollerad sida, bara om ett e-postmeddelande om sociala konton är tomt.
 
@@ -63,8 +63,8 @@ Kontrollerar att booleska värden för två anspråk är lika och genererar ett 
 
 | Objekt | TransformationClaimType  | Datatyp  | Anteckningar |
 | ---- | ------------------------ | ---------- | ----- |
-| inputClaim | inputClaim | boolean | Den ClaimType som ska försäkras. |
-| InputParameter |valueToCompareTo | boolean | Värdet som ska jämföras (sant eller falskt). |
+| inputClaim | inputClaim | boolesk | Den ClaimType som ska försäkras. |
+| InputParameter |valueToCompareTo | boolesk | Värdet som ska jämföras (sant eller falskt). |
 
 Omvandlingen av **AssertBooleanClaimIsEqualToValue** -anspråk körs alltid från en [teknisk verifierings profil](validation-technical-profile.md) som anropas av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md). **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** -metadata för självkontrollerad teknisk profil styr det fel meddelande som den tekniska profilen presenterar för användaren.
 
@@ -120,9 +120,9 @@ Kontrollerar att booleskt värde för ett anspråk är lika med `true` eller `fa
 
 | Objekt | TransformationClaimType  | Datatyp  | Anteckningar |
 | ---- | ------------------------ | ---------- | ----- |
-| inputClaim | inputClaim | boolean | Den ClaimType som ska försäkras. |
-| InputParameter |valueToCompareTo | boolean | Värdet som ska jämföras (sant eller falskt). |
-| OutputClaim | inputClaim | boolean | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
+| InputClaim | inputClaim | boolesk | Den ClaimType som ska försäkras. |
+| InputParameter |valueToCompareTo | boolesk | Värdet som ska jämföras (sant eller falskt). |
+| OutputClaim | compareResult | boolesk | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
 
 
 Följande anspråks omvandling visar hur du kontrollerar värdet för en boolesk ClaimType med ett `true`-värde. Om värdet för `IsAgeOver21Years` ClaimType är lika med `true`, returnerar funktionen Claims `true`, annars `false`.
@@ -158,8 +158,8 @@ Utför en not-åtgärd för den booleska inputClaim och ställer in outputClaim 
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | boolean | Det anspråk som ska användas. |
-| OutputClaim | outputClaim | boolean | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats (sant eller falskt). |
+| InputClaim | inputClaim | boolesk | Det anspråk som ska användas. |
+| OutputClaim | outputClaim | boolesk | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats (sant eller falskt). |
 
 Använd den här anspråks omvandlingen för att utföra logisk negation på ett anspråk.
 
@@ -186,9 +186,9 @@ Beräknar en eller två booleska inputClaims och anger outputClaim med resultate
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | boolean | Den första ClaimType som ska utvärderas. |
-| InputClaim | inputClaim2 | boolean | Den andra ClaimType som ska utvärderas. |
-| OutputClaim | outputClaim | boolean | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats (sant eller falskt). |
+| InputClaim | inputClaim1 | boolesk | Den första ClaimType som ska utvärderas. |
+| InputClaim | inputClaim2 | boolesk | Den andra ClaimType som ska utvärderas. |
+| OutputClaim | outputClaim | boolesk | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats (sant eller falskt). |
 
 Följande anspråks omvandling visar hur du `Or` två booleska ClaimTypes. I Orchestration-steget kan du använda ett villkor för att förinställa en självkontrollerad sida om värdet för ett av anspråken är `true`.
 

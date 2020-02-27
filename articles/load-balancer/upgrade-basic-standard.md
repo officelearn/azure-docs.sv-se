@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 179d0ff8143b526e100b89cffbbac0bbc29ca3e1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 83cac961eb3cd700451f16c684c64185b35e9bd3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776669"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616756"
 ---
-# <a name="upgrade-azure-public-load-balancer-from-basic-sku-to-standard-sku"></a>Uppgradera offentliga Azure-Load Balancer från Basic SKU till standard-SKU: n
+# <a name="upgrade-azure-public-load-balancer"></a>Uppgradera offentliga Azure-Load Balancer
 [Azure standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet genom zon redundans. Mer information om Load Balancer SKU finns i [jämförelse tabell](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
 Det finns två steg i en uppgradering:
@@ -28,8 +28,8 @@ Den här artikeln beskriver migrering av konfiguration. Att lägga till virtuell
 
 Det finns ett Azure PowerShell-skript tillgängligt som gör följande:
 
-* Skapar en offentlig standard-SKU Load Balancer i resurs gruppen och platsen som du anger.
-* Kopierar sömlöst konfigurationerna av den grundläggande SKU-Load Balancer till de nya offentliga standard Load Balancer.
+* Skapar en standard-SKU-Load Balancer i resurs gruppen och platsen som du anger.
+* Kopierar sömlöst konfigurationerna av Basic SKU-Load Balancer till det nya Standard Load Balancer.
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
@@ -70,18 +70,9 @@ Kör skriptet så här:
 
 1. Använd `Import-Module Az` för att importera AZ-modulerna.
 
-1. Kör `Get-Help AzureLBUpgrade.ps1` för att undersöka de nödvändiga parametrarna:
+1. Granska de nödvändiga parametrarna:
 
-   ```
-   AzurePublicLBUpgrade.ps1
-    -oldRgName <name of the Resource Group where Basic Load Balancer exists>
-    -oldLBName <name of existing Basic Load Balancer>
-    -newrgName <Name of the Resource Group where the new Standard Load Balancer will be created>
-    -newlocation <Name of the location where the new Standard Load Balancer will be created>
-    -newLBName <Name of the Standard Load Balancer to be created>
-   ```
-   Parametrar för skriptet:
-   * **oldRgName: [sträng]: krävs** – det här är resurs gruppen för din befintliga Basic-Load Balancer som du vill uppgradera. Du hittar strängvärdet genom att gå till Azure Portal, välja din grundläggande Load Balancer källa och klicka på **översikten** för belastningsutjämnaren. Resurs gruppen finns på sidan.
+   * **oldRgName: [sträng]: krävs** – det här är resurs gruppen för din befintliga Basic-Load Balancer som du vill uppgradera. Om du vill hitta strängvärdet navigerar du till Azure Portal, väljer din grundläggande Load Balancer källa och klickar på **översikten** för belastningsutjämnaren. Resurs gruppen finns på sidan.
    * **oldLBName: [sträng]: krävs** – det här är namnet på den befintliga Basic-saldo som du vill uppgradera. 
    * **newrgName: [sträng]: krävs** – det här är resurs gruppen där standard Load Balancer skapas. Det kan vara en ny resurs grupp eller en befintlig. Om du väljer en befintlig resurs grupp, Observera att namnet på Load Balancer måste vara unikt inom resurs gruppen. 
    * **newlocation: [sträng]: krävs** – det här är den plats där standard Load Balancer skapas. Vi rekommenderar att du ärver samma plats för de valda Basic-Load Balancer till Standard Load Balancer för bättre Association med andra befintliga resurser.
@@ -134,4 +125,4 @@ Du kan skicka ett e-postmeddelande till slbupgradesupport@microsoft.com, öppna 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig mer om Standard Load Balancer](load-balancer-overview.md)
+[Läs mer om Standard Load Balancer](load-balancer-overview.md)

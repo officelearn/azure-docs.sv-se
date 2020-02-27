@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 8700421551af227f158abaa38d5f96c8e2987ba3
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 8d905da733ea0573b91b289da43684ed8083c804
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603399"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616372"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Funktioner som stöds i Azure Security Center
 
@@ -39,9 +39,9 @@ I följande avsnitt visas Security Center funktioner som är tillgängliga för 
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 ||**Azure Virtual Machines**|**Azure-Virtual Machine Scale Sets**|**Datorer som inte är Azure-datorer**|**Prissättning**
 |[Microsoft Defender ATP-integrering](security-center-wdatp.md)|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|Standard|
-|[Aviseringar om hot identifiering för virtuella datorer med beteende analys](security-center-alerts-iaas.md)|✔|✔|✔|Rekommendationer (kostnads fri) hot identifiering (standard)|
+|[Aviseringar om hot identifiering för virtuella datorer med beteende analys](threat-protection.md)|✔|✔|✔|Rekommendationer (kostnads fri) hot identifiering (standard)|
 |[Aviseringar om filbaserad hot identifiering](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
-|[Nätverksbaserade hot identifierings aviseringar](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
+|[Nätverksbaserade hot identifierings aviseringar](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-in-Time VM-åtkomst](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Ursprunglig sårbarhets bedömning](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[Övervakning av fil integritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
@@ -67,7 +67,7 @@ I följande avsnitt visas Security Center funktioner som är tillgängliga för 
 |[Microsoft Defender ATP-integrering](security-center-wdatp.md)|-|-|-|Standard|
 |[Aviseringar om hot identifiering för virtuella datorer med beteende analys](security-center-alerts-iaas.md)|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|Rekommendationer (kostnads fri) hot identifiering (standard)|
 |[Aviseringar om filbaserad hot identifiering](alerts-reference.md#alerts-windows)|-|-|-|Standard|
-|[Nätverksbaserade hot identifierings aviseringar](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
+|[Nätverksbaserade hot identifierings aviseringar](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-in-Time VM-åtkomst](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Ursprunglig sårbarhets bedömning](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[Övervakning av fil integritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|

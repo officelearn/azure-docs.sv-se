@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2020
 ms.author: iainfou
-ms.openlocfilehash: c40a3b1352c383b8b70a0b14f59265188b77a86d
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: d15877107e49c57f8f33b8ec41caeb7d48230b91
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523693"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613878"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Självstudie: ansluta en virtuell Windows Server-dator till en hanterad domän
 
@@ -67,10 +67,10 @@ Om du redan har en virtuell dator som du vill ansluta till, kan du gå vidare ti
     | Parameter            | Föreslaget värde   |
     |----------------------|-------------------|
     | Resursgrupp       | Välj eller skapa en resurs grupp, till exempel *myResourceGroup* |
-    | Virtuellt datornamn | Ange ett namn för den virtuella datorn, till exempel *myVM* |
+    | Namn på virtuell dator | Ange ett namn för den virtuella datorn, till exempel *myVM* |
     | Region               | Välj region för att skapa din virtuella dator i, t. ex. *USA, östra* |
     | Användarnamn             | Ange ett användar namn för det lokala administratörs kontot som ska skapas på den virtuella datorn, till exempel *azureuser* |
-    | lösenord             | Ange och bekräfta sedan ett säkert lösen ord för den lokala administratören som ska skapas på den virtuella datorn. Ange inte autentiseringsuppgifter för ett domän användar konto. |
+    | Lösenord             | Ange och bekräfta sedan ett säkert lösen ord för den lokala administratören som ska skapas på den virtuella datorn. Ange inte autentiseringsuppgifter för ett domän användar konto. |
 
 1. Som standard är virtuella datorer som skapats i Azure tillgängliga från Internet via RDP. När RDP är aktiverat, kommer automatiska inloggnings attacker att uppstå, vilket kan inaktivera konton med vanliga namn som *administratör* eller *administratör* på grund av flera misslyckade inloggnings försök.
 
@@ -149,16 +149,16 @@ När den virtuella datorn har skapats och en webbaserad RDP-anslutning har etabl
 
     ![Välj att ändra egenskaper för arbets grupp eller domän](./media/join-windows-vm/change-domain.png)
 
-1. I rutan **domän** anger du namnet på din Azure AD DS-hanterade domän, till exempel *contoso.com*, och väljer sedan **OK**.
+1. I rutan **domän** anger du namnet på din Azure AD DS-hanterade domän, till exempel *aaddscontoso.com*, och väljer sedan **OK**.
 
     ![Ange den Azure AD DS-hanterade domänen som ska anslutas](./media/join-windows-vm/join-domain.png)
 
 1. Ange domänautentiseringsuppgifter för att ansluta till domänen. Använd autentiseringsuppgifterna för en användare som tillhör gruppen *Azure AD DC-administratörer* . Endast medlemmar i den här gruppen har behörighet att ansluta datorer till den hanterade Azure AD DS-domänen. Kontot måste ingå i den Azure AD DS-hanterade domänen eller Azure AD-klient-konton från externa kataloger som är associerade med din Azure AD-klient kan inte autentiseras korrekt under processen för domän anslutning. Kontoautentiseringsuppgifter kan anges på något av följande sätt:
 
-    * **UPN-format** (rekommenderas) – ange suffixet User Principal Name (UPN) för användar kontot, enligt konfigurationen i Azure AD. UPN-suffixet för användar- *contosoadmin* skulle till exempel vara `contosoadmin@contoso.onmicrosoft.com`. Det finns ett par vanliga användnings fall där UPN-formatet kan användas på ett tillförlitligt sätt för att logga in på domänen snarare än *sAMAccountName* -formatet:
+    * **UPN-format** (rekommenderas) – ange suffixet User Principal Name (UPN) för användar kontot, enligt konfigurationen i Azure AD. UPN-suffixet för användar- *contosoadmin* skulle till exempel vara `contosoadmin@aaddscontoso.onmicrosoft.com`. Det finns ett par vanliga användnings fall där UPN-formatet kan användas på ett tillförlitligt sätt för att logga in på domänen snarare än *sAMAccountName* -formatet:
         * Om en användares UPN-prefix är långt, till exempel *deehasareallylongname*, kan *sAMAccountName* skapas automatiskt.
         * Om flera användare har samma UPN-prefix i din Azure AD-klient, till exempel *Dee*, kan deras *sAMAccountName* -format skapas automatiskt.
-    * **SAMAccountName-format** – ange konto namnet i *sAMAccountName* -formatet. *SAMAccountName* för User *contosoadmin* skulle till exempel vara `CONTOSO\contosoadmin`.
+    * **SAMAccountName-format** – ange konto namnet i *sAMAccountName* -formatet. *SAMAccountName* för User *contosoadmin* skulle till exempel vara `AADDSCONTOSO\contosoadmin`.
 
 1. Det tar några sekunder att ansluta till den hanterade domänen i Azure AD DS. När du är klar, välkomnar följande meddelande till domänen:
 
@@ -169,9 +169,9 @@ När den virtuella datorn har skapats och en webbaserad RDP-anslutning har etabl
 1. Om du vill slutföra processen för att ansluta till den hanterade Azure AD DS-domänen startar du om den virtuella datorn.
 
 > [!TIP]
-> Du kan domän ansluta till en virtuell dator med hjälp av PowerShell med cmdleten [Add-Computer][add-computer] . Följande exempel ansluter till *contoso* -domänen och startar sedan om den virtuella datorn. När du uppmanas till det anger du autentiseringsuppgifterna för en användare som tillhör gruppen *Azure AD DC-administratörer* :
+> Du kan domän ansluta till en virtuell dator med hjälp av PowerShell med cmdleten [Add-Computer][add-computer] . Följande exempel ansluter till *AADDSCONTOSO* -domänen och startar sedan om den virtuella datorn. När du uppmanas till det anger du autentiseringsuppgifterna för en användare som tillhör gruppen *Azure AD DC-administratörer* :
 >
-> `Add-Computer -DomainName CONTOSO -Restart`
+> `Add-Computer -DomainName AADDSCONTOSO -Restart`
 >
 > Om du vill ansluta till en virtuell dator utan att ansluta till den och manuellt konfigurera anslutningen kan du använda cmdleten [set-AzVmAdDomainExtension][set-azvmaddomainextension] Azure PowerShell.
 
@@ -207,7 +207,7 @@ Om du inte får en uppmaning om att fråga om autentiseringsuppgifter för att a
 Försök att ansluta den virtuella Windows Server-datorn till den hanterade domänen igen efter att ha försökt med de här fel söknings stegen.
 
 * Kontrol lera att den virtuella datorn är ansluten till samma virtuella nätverk som Azure AD DS är aktiverat i eller har en peer-ansluten nätverks anslutning.
-* Försök att pinga DNS-domännamnet för den hanterade domänen, t. ex. `ping contoso.com`.
+* Försök att pinga DNS-domännamnet för den hanterade domänen, t. ex. `ping aaddscontoso.com`.
     * Om ping-begäran Miss lyckas försöker du pinga IP-adresserna för den hanterade domänen, t. ex. `ping 10.0.0.4`. IP-adressen för din miljö visas på sidan *Egenskaper* när du väljer den hanterade Azure AD DS-domänen från listan över Azure-resurser.
     * Om du kan pinga IP-adressen, men inte domänen, kan DNS vara felaktigt konfigurerat. Bekräfta att IP-adresserna för den hanterade domänen är konfigurerade som DNS-servrar för det virtuella nätverket.
 * Försök att tömma DNS-matcharens cacheminne på den virtuella datorn med kommandot `ipconfig /flushdns`.
@@ -220,7 +220,7 @@ Försök att ansluta den virtuella Windows Server-datorn till den hanterade dom�
 
 * Kontrol lera att det användar konto som du anger tillhör gruppen *AAD DC-administratörer* .
 * Bekräfta att kontot ingår i den hanterade domänen för Azure AD DS eller Azure AD-klienten. Konton från externa kataloger som är associerade med din Azure AD-klient kan inte autentiseras korrekt under processen för domän anslutning.
-* Försök att använda UPN-formatet för att ange autentiseringsuppgifter, till exempel `contosoadmin@contoso.onmicrosoft.com`. Om det finns många användare med samma UPN-prefix i din klient organisation eller om ditt UPN-prefix är för långt, kan *sAMAccountName* för ditt konto skapas automatiskt. I dessa fall kan *sAMAccountName* -formatet för ditt konto skilja sig från vad du förväntar dig eller använder i din lokala domän.
+* Försök att använda UPN-formatet för att ange autentiseringsuppgifter, till exempel `contosoadmin@aaddscontoso.onmicrosoft.com`. Om det finns många användare med samma UPN-prefix i din klient organisation eller om ditt UPN-prefix är för långt, kan *sAMAccountName* för ditt konto skapas automatiskt. I dessa fall kan *sAMAccountName* -formatet för ditt konto skilja sig från vad du förväntar dig eller använder i din lokala domän.
 * Kontrol lera att du har [aktiverat][password-sync] Lösenordssynkronisering till din hanterade domän. Utan det här konfigurations steget finns de nödvändiga lösen ords-hasharna inte i den hanterade Azure AD DS-domänen för att korrekt autentisera ditt inloggnings försök.
 * Vänta tills Lösenordssynkronisering har slutförts. När ett användar kontos lösen ord ändras uppdaterar en automatisk Bakgrundssynkronisering från Azure AD lösen ordet i Azure AD DS. Det tar lite tid för lösen ordet att vara tillgängligt för domän kopplings användning.
 

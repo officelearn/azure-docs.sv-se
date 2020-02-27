@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 01/16/2020
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 1cd7b3db92de339b7614a4271f9e6793cdf8f2ad
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: f0948cb58ba9403a34fbfd61ec43c29bed3440bc
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292917"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621010"
 ---
 # <a name="an-introduction-to-azure-functions"></a>En introduktion till Azure Functions
 
@@ -79,7 +79,7 @@ Azure Functions har tre typer av pris planer. Välj den som passar dina behov b�
 
 Mer information om värdplaner finns i [Azure Functions hosting plan comparison](functions-scale.md) (Jämförelse av värdplaner för Azure Functions). Fullständig prisinformation är tillgänglig på sidan [Prissättning för Functions](https://azure.microsoft.com/pricing/details/functions/).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Skapa din första Azure-funktion](functions-create-first-function-vs-code.md)  
   Kom igång med [Visual Studio Code](functions-create-first-function-vs-code.md), [kommando raden](functions-create-first-azure-function-azure-cli.md)eller Använd [Azure Portal](functions-create-first-azure-function.md).

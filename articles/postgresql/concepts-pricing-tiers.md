@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/08/2019
-ms.openlocfilehash: b5a2d8a812c5b3b0021ad4f74fc705049807cb1b
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.date: 02/25/2020
+ms.openlocfilehash: 9ce88c687df4e329acd2949d0b26033dc10c94ea
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485071"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619474"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Pris nivåer i Azure Database for PostgreSQL-enskild server
 
@@ -85,9 +85,9 @@ Om du till exempel har allokerat 1000 GB lagrings utrymme och den faktiska anvä
 
 Kom ihåg att lagringen bara kan skalas upp, inte nedåt.
 
-## <a name="backup"></a>Säkerhetskopiering
+## <a name="backup"></a>Backup
 
-Tjänsten tar automatiskt säkerhets kopior av servern. Den minsta kvarhållningsperioden för säkerhets kopieringar är sju dagar. Du kan ställa in en kvarhållningsperiod på upp till 35 dagar. Kvarhållning kan justeras när som helst under serverns livstid. Du kan välja mellan lokalt redundanta och geo-redundanta säkerhets kopieringar. Geo-redundanta säkerhets kopieringar lagras också i den [geo-kopplade regionen](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) i den region där servern skapas. Den här redundansen ger en skydds nivå i händelse av en katastrof. Du får också möjlighet att återställa servern till andra Azure-regioner där tjänsten är tillgänglig med geo-redundanta säkerhets kopieringar. Det går inte att ändra mellan de två lagrings alternativen för säkerhets kopiering när servern har skapats.
+Tjänsten tar automatiskt säkerhets kopior av servern. Du kan välja en kvarhållningsperiod från mellan 7 och 35 dagar. Generell användning-och Minnesoptimerade servrar kan välja att ha Geo-redundant lagring för säkerhets kopiering. Läs mer om säkerhets kopieringar i [artikeln begrepp](concepts-backup.md).
 
 ## <a name="scale-resources"></a>Skala resurser
 

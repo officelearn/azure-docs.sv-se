@@ -1,16 +1,16 @@
 ---
 title: Övervaka Azure Functions med Azure Monitor loggar
 description: Lär dig hur du använder Azure Monitor loggar med Azure Functions för att övervaka funktions körningar.
-author: ahmedelnably
+author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.author: aelnably
-ms.openlocfilehash: f4af646569edc8a9274af752e7e4f2a36585ae4d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.author: cshoe
+ms.openlocfilehash: 13c72a1cf8a0dd4a1124e51b9ceee04ae04bf261
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769106"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649882"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Övervaka Azure Functions med Azure Monitor loggar
 
@@ -38,31 +38,31 @@ På sidan **diagnostikinställningar** väljer du **Skicka till Log Analytics**o
 Om du vill skapa anpassade loggar kan du använda den specifika loggnings instruktionen, beroende på ditt språk, här visas exempel på kodfragment:
 
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 log.LogInformation("My app logs here.");
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 context.getLogger().info("My app logs here.");
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 context.log('My app logs here.');
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 Write-Host "My app logs here."
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```python
 logging.info('My app logs here.')

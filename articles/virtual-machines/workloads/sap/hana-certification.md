@@ -3,28 +3,28 @@ title: Certifiering av SAP HANA på Azure (stora instanser) | Microsoft Docs
 description: Certifiering av SAP HANA på Azure (stora instanser).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
-ms.author: saghorpa
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c2c919d6e85a2b708dc247b1642e7e8987df81b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2a02f0e1b05b9de8105126d1c9e4e3f79057285f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099880"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617234"
 ---
 # <a name="certification"></a>Certifiering
 
 Förutom NetWeaver-certifieringen kräver SAP en speciell certifiering för SAP HANA för att stödja SAP HANA på vissa infrastrukturer, till exempel Azure IaaS.
 
-Core SAP-anteckningen på NetWeaver, och till en examen SAP HANA- [certifiering, är SAP Obs #1928533 – SAP-program på Azure: Produkter och typer](https://launchpad.support.sap.com/#/notes/1928533)av virtuella Azure-datorer som stöds.
+Core SAP-anteckningen på NetWeaver, och till en examen SAP HANA-certifiering, är [SAP obs #1928533 – SAP-program på Azure: produkter som stöds och Azure VM-typer](https://launchpad.support.sap.com/#/notes/1928533).
 
 Certifierings posterna för SAP HANA på Azure-enheter (stora instanser) finns på webbplatsen [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) . 
 

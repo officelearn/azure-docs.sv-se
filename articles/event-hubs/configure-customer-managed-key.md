@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 50d12a0aba9018b1ecb30c018249e8f94ebe6d95
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 43e626355feaf1e51fc840f82506c559a1859b84
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903294"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621993"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för kryptering av Azure Event Hubs-data i vila med hjälp av Azure Portal
 Azure Event Hubs tillhandahåller kryptering av data i vila med Azure Storage Service Encryption (Azure SSE). Event Hubs förlitar sig på Azure Storage för att lagra data och som standard krypteras alla data som lagras med Azure Storage med hjälp av Microsoft-hanterade nycklar. 
@@ -144,7 +144,263 @@ Här är ett exempel på loggen för en kundhanterad nyckel:
 }
 ```
 
-## <a name="troubleshoot"></a>Felsökning
+## <a name="use-resource-manager-template-to-enable-encryption"></a>Använd Resource Manager-mall för att aktivera kryptering
+I det här avsnittet visas hur du utför följande uppgifter med hjälp av **Azure Resource Manager mallar**. 
+
+1. Skapa ett **Event Hubs-namnområde** med en hanterad tjänst identitet.
+2. Skapa ett **nyckel valv** och ge tjänst identitets åtkomst till nyckel valvet. 
+3. Uppdatera Event Hubs-namnrymden med nyckel valvs informationen (nyckel/värde). 
+
+
+### <a name="create-an-event-hubs-cluster-and-namespace-with-managed-service-identity"></a>Skapa ett Event Hubs kluster och ett namn område med hanterad tjänst identitet
+I det här avsnittet visas hur du skapar ett Azure Event Hubs-namnområde med hanterad tjänst identitet med hjälp av en Azure Resource Manager mall och PowerShell. 
+
+1. Skapa en Azure Resource Manager-mall för att skapa ett Event Hubs-namnområde med en hanterad tjänst identitet. Ge filen namnet: **CreateEventHubClusterAndNamespace. JSON**: 
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Event Hub cluster."
+             }
+          },
+          "namespaceName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Namespace to be created in cluster."
+             }
+          },
+          "location":{
+             "type":"string",
+             "defaultValue":"[resourceGroup().location]",
+             "metadata":{
+                "description":"Specifies the Azure location for all resources."
+             }
+          }
+       },
+       "resources":[
+          {
+             "type":"Microsoft.EventHub/clusters",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('clusterName')]",
+             "location":"[parameters('location')]",
+             "sku":{
+                "name":"Dedicated",
+                "capacity":1
+             }
+          },
+          {
+             "type":"Microsoft.EventHub/namespaces",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('namespaceName')]",
+             "location":"[parameters('location')]",
+             "identity":{
+                "type":"SystemAssigned"
+             },
+             "sku":{
+                "name":"Standard",
+                "tier":"Standard",
+                "capacity":1
+             },
+             "properties":{
+                "isAutoInflateEnabled":false,
+                "maximumThroughputUnits":0,
+                "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]"
+             },
+             "dependsOn":[
+                "[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]"
+             ]
+          }
+       ],
+       "outputs":{
+          "EventHubNamespaceId":{
+             "type":"string",
+             "value":"[resourceId('Microsoft.EventHub/namespaces',parameters('namespaceName'))]"
+          }
+       }
+    }
+    ```
+2. Skapa en mall med namnet: **CreateEventHubClusterAndNamespaceParams. JSON**. 
+
+    > [!NOTE]
+    > Ersätt följande värden: 
+    > - `<EventHubsClusterName>` namnet på ditt Event Hubs-kluster    
+    > - `<EventHubsNamespaceName>` namn på ditt Event Hubs-namnområde
+    > - `<Location>`-platsen för ditt Event Hubs-namnområde
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "value":"<EventHubsClusterName>"
+          },
+          "namespaceName":{
+             "value":"<EventHubsNamespaceName>"
+          },
+          "location":{
+             "value":"<Location>"
+          }
+       }
+    }
+    
+    ```
+3. Kör följande PowerShell-kommando för att distribuera mallen för att skapa en Event Hubs namnrymd. Hämta sedan ID: t för Event Hubs namn området om du vill använda det senare. Ersätt `{MyRG}` med namnet på resurs gruppen innan du kör kommandot.  
+
+    ```powershell
+    $outputs = New-AzResourceGroupDeployment -Name CreateEventHubClusterAndNamespace -ResourceGroupName {MyRG} -TemplateFile ./CreateEventHubClusterAndNamespace.json -TemplateParameterFile ./CreateEventHubClusterAndNamespaceParams.json
+
+    $EventHubNamespaceId = $outputs.Outputs["eventHubNamespaceId"].value
+    ```
+ 
+### <a name="grant-event-hubs-namespace-identity-access-to-key-vault"></a>Bevilja Event Hubs namn rymds identitets åtkomst till Key Vault
+
+1. Kör följande kommando för att skapa ett nyckel valv med **rensnings skydd** och **mjuk borttagning** aktiverat. 
+
+    ```powershell
+    New-AzureRmKeyVault -Name {keyVaultName} -ResourceGroupName {RGName}  -Location {location} -EnableSoftDelete -EnablePurgeProtection    
+    ```     
+    
+    ELLER    
+    
+    Kör följande kommando för att uppdatera ett **befintligt nyckel valv**. Ange värden för resurs gruppen och nyckel valvs namnen innan du kör kommandot. 
+    
+    ```powershell
+    ($updatedKeyVault = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -ResourceGroupName {RGName} -VaultName {keyVaultName}).ResourceId).Properties| Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"-Force | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true" -Force
+    ``` 
+2. Ange åtkomst principen för nyckel valv så att den hanterade identiteten för Event Hubs namn området kan komma åt nyckel värden i nyckel valvet. Använd ID: t för Event Hubs namn området i föregående avsnitt. 
+
+    ```powershell
+    $identity = (Get-AzureRmResource -ResourceId $EventHubNamespaceId -ExpandProperties).Identity
+    
+    Set-AzureRmKeyVaultAccessPolicy -VaultName {keyVaultName} -ResourceGroupName {RGName} -ObjectId $identity.PrincipalId -PermissionsToKeys get,wrapKey,unwrapKey,list
+    ```
+
+### <a name="encrypt-data-in-event-hubs-namespace-with-customer-managed-key-from-key-vault"></a>Kryptera data i Event Hubs namnrymd med kundhanterad nyckel från Key Vault
+Du har utfört följande steg: 
+
+1. Skapade ett Premium-namnområde med en hanterad identitet.
+2. Skapa ett nyckel valv och bevilja åtkomst till hanterad identitet till nyckel valvet. 
+
+I det här steget ska du uppdatera Event Hubs-namnrymden med Key Vault-information. 
+
+1. Skapa en JSON-fil med namnet **CreateEventHubClusterAndNamespace. JSON** med följande innehåll: 
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Event Hub cluster."
+             }
+          },
+          "namespaceName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Namespace to be created in cluster."
+             }
+          },
+          "location":{
+             "type":"string",
+             "defaultValue":"[resourceGroup().location]",
+             "metadata":{
+                "description":"Specifies the Azure location for all resources."
+             }
+          },
+          "keyVaultUri":{
+             "type":"string",
+             "metadata":{
+                "description":"URI of the KeyVault."
+             }
+          },
+          "keyName":{
+             "type":"string",
+             "metadata":{
+                "description":"KeyName."
+             }
+          }
+       },
+       "resources":[
+          {
+             "type":"Microsoft.EventHub/namespaces",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('namespaceName')]",
+             "location":"[parameters('location')]",
+             "identity":{
+                "type":"SystemAssigned"
+             },
+             "sku":{
+                "name":"Standard",
+                "tier":"Standard",
+                "capacity":1
+             },
+             "properties":{
+                "isAutoInflateEnabled":false,
+                "maximumThroughputUnits":0,
+                "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]",
+                "encryption":{
+                   "keySource":"Microsoft.KeyVault",
+                   "keyVaultProperties":[
+                      {
+                         "keyName":"[parameters('keyName')]",
+                         "keyVaultUri":"[parameters('keyVaultUri')]"
+                      }
+                   ]
+                }
+             }
+          }
+       ]
+    }
+    ``` 
+
+2. Skapa en mallparameter: **UpdateEventHubClusterAndNamespaceParams. JSON**. 
+
+    > [!NOTE]
+    > Ersätt följande värden: 
+    > - `<EventHubsClusterName>` namnet på ditt Event Hubs-kluster.        
+    > - `<EventHubsNamespaceName>` namn på ditt Event Hubs-namnområde
+    > - `<Location>`-platsen för ditt Event Hubs-namnområde
+    > - `<KeyVaultName>` – namnet på ditt nyckel valv
+    > - `<KeyName>` nyckelns namn i nyckel valvet
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "value":"<EventHubsClusterName>"
+          },
+          "namespaceName":{
+             "value":"<EventHubsNamespaceName>"
+          },
+          "location":{
+             "value":"<Location>"
+          },
+          "keyName":{
+             "value":"<KeyName>"
+          },
+          "keyVaultUri":{
+             "value":"https://<KeyVaultName>.vault.azure.net"
+          }
+       }
+    }
+    ```             
+3. Kör följande PowerShell-kommando för att distribuera Resource Manager-mallen. Ersätt `{MyRG}` med namnet på din resurs grupp innan du kör kommandot. 
+
+    ```powershell
+    New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
+    ```
+
+## <a name="troubleshoot"></a>Felsöka
 Vi rekommenderar att du alltid aktiverar loggar som visas i föregående avsnitt. Det hjälper till att spåra aktiviteter när BYOK-kryptering är aktiverat. Det hjälper också att lösa problemen.
 
 Nedan visas vanliga felkoder som du kan titta efter när BYOK-kryptering är aktiverat.
@@ -166,7 +422,7 @@ Nedan visas vanliga felkoder som du kan titta efter när BYOK-kryptering är akt
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
-- [Översikt över Event Hubs](event-hubs-about.md)
+- [Event Hubs-översikt](event-hubs-about.md)
 - [Översikt över Key Vault](../key-vault/key-vault-overview.md)
 
 

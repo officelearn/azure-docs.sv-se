@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: e6645a131766b7ec055ba1c8bb639f054f50c80b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: cc126af67a0d8627d61e595cee56f3df8973340d
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704389"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613039"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Konfigurera omfångst synkronisering från Azure AD till Azure Active Directory Domain Services
 
@@ -42,9 +42,9 @@ Du kan använda Azure Portal eller PowerShell för att konfigurera inställninga
 
 | Åtgärd | | |
 |--|--|--|
-| Skapa en Azure AD DS-hanterad domän och konfigurera omfångs synkronisering | [Azure-portalen](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
-| Ändra omfångs synkronisering | [Azure-portalen](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
-| Inaktivera omfångs synkronisering | [Azure-portalen](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
+| Skapa en Azure AD DS-hanterad domän och konfigurera omfångs synkronisering | [Azure Portal](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
+| Ändra omfångs synkronisering | [Azure Portal](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
+| Inaktivera omfångs synkronisering | [Azure Portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
 > Att ändra omfånget för synkronisering innebär att den Azure AD DS-hanterade domänen synkroniserar om alla data.
@@ -70,7 +70,7 @@ När Azure Portal visar att den hanterade domänen för Azure AD DS har slutför
 
 Om du vill ändra listan över grupper vars användare ska synkroniseras till den hanterade Azure AD DS-domänen utför du följande steg:
 
-1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**. Välj din instans, till exempel *aadds.contoso.com*.
+1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**. Välj din instans, till exempel *aaddscontoso.com*.
 1. Välj **synkronisering** på menyn till vänster.
 1. Om du vill lägga till en grupp väljer du **+ Välj grupper** högst upp och väljer sedan de grupper som ska läggas till.
 1. Om du vill ta bort en grupp från omfånget synkronisering väljer du den i listan över synkroniserade grupper och väljer **ta bort grupper**.
@@ -82,7 +82,7 @@ Att ändra omfånget för synkronisering innebär att den Azure AD DS-hanterade 
 
 Utför följande steg för att inaktivera gruppbaserad omsynkronisering för en Azure AD DS-hanterad domän:
 
-1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**. Välj din instans, till exempel *aadds.contoso.com*.
+1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**. Välj din instans, till exempel *aaddscontoso.com*.
 1. Välj **synkronisering** på menyn till vänster.
 1. Ange omfånget för synkroniseringen från **omfång** till **alla**och välj sedan **Spara omfånget för synkronisering**.
 
@@ -194,11 +194,11 @@ Använd PowerShell för att slutföra den här uppsättningen steg. Läs anvisni
 
 1. Skapa nu den hanterade domänen för Azure AD DS och aktivera gruppbaserad synkronisering av omfattningar. Inkludera *"filteredSync" = "Enabled"* i parametern *-Properties* .
 
-    Ange ditt ID för Azure-prenumerationen och ange sedan ett namn för den hanterade domänen, till exempel *aadds.contoso.com*. Du kan hämta ditt prenumerations-ID med hjälp av cmdleten [Get-AzSubscription][Get-AzSubscription] . Ange resurs gruppens namn, det virtuella nätverks namnet och regionen till de värden som användes i föregående steg för att skapa de stödda Azure-resurserna:
+    Ange ditt ID för Azure-prenumerationen och ange sedan ett namn för den hanterade domänen, till exempel *aaddscontoso.com*. Du kan hämta ditt prenumerations-ID med hjälp av cmdleten [Get-AzSubscription][Get-AzSubscription] . Ange resurs gruppens namn, det virtuella nätverks namnet och regionen till de värden som användes i föregående steg för att skapa de stödda Azure-resurserna:
 
    ```powershell
    $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "aadds.contoso.com"
+   $ManagedDomainName = "aaddscontoso.com"
    $ResourceGroupName = "myResourceGroup"
    $VnetName = "myVnet"
    $AzureLocation = "westus"

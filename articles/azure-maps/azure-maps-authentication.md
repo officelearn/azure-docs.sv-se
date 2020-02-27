@@ -9,16 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ee8b166077c64ae5e0f2cce18ee0bc77e8c996f4
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 171219c001f43137a52f29b282fb1705b3d836aa
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210131"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649831"
 ---
 # <a name="authentication-with-azure-maps"></a>Autentisering med Azure Maps
 
 Azure Maps stöder två sätt att autentisera begär Anden: autentisering med delad nyckel och Azure Active Directory autentisering. I den här artikeln beskrivs dessa autentiseringsmetoder för att hjälpa dig att hjälpa din implementering av Azure Maps tjänster.
+
+> [!NOTE]
+> För att förbättra säker kommunikation med Azure Maps stöder vi nu Transport Layer Security (TLS) 1,2 och vi drar tillbaka support för TLS 1,0 och 1,1. Om du vill undvika avbrott i tjänsten **uppdaterar du dina servrar och program så att de använder TLS 1,2 före 2 April 2020**.  Om du för närvarande använder TLS 1. x kan du utvärdera din TLS 1,2-beredskap och utveckla en migrations plan med de tester som beskrivs i [lösa TLS 1,0-problemet](https://docs.microsoft.com/security/solving-tls1-problem).
 
 ## <a name="shared-key-authentication"></a>Autentisering med delad nyckel
 

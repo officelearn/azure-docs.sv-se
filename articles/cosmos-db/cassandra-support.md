@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 8598be504f62089cf20123918779c310b2fb8ec8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ee8dec821e8cbb4657323c167a463b94b7935ab1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445646"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623423"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API 
 
@@ -44,12 +44,12 @@ Azure Cosmos DB Cassandra-API:et stöder följande CQL-datatyper:
 * ascii  
 * bigint  
 * blob  
-* boolean  
+* boolesk  
 * räknare  
-* date  
+* datum  
 * decimal  
 * double  
-* float  
+* flyt  
 * frusen  
 * inet  
 * int  
@@ -58,7 +58,7 @@ Azure Cosmos DB Cassandra-API:et stöder följande CQL-datatyper:
 * smallint  
 * text  
 * time  
-* timestamp  
+* tidsstämpel  
 * timeuuid  
 * tinyint  
 * tuppel  
@@ -74,7 +74,7 @@ Azure Cosmos DB Cassandra-API:et stöder följande CQL-datatyper:
 Azure Cosmos DB Cassandra-API:et stöder följande CQL-funktioner:
 
 * Token  
-* Mängdfunktioner
+* Mängd funktioner
   * min, Max, genomsnitt, antal
 * Blobkonverteringsfunktioner 
   * typeAsBlob(value)  
@@ -94,9 +94,9 @@ Azure Cosmos DB Cassandra-API:et stöder följande CQL-funktioner:
   
 
 
-## <a name="cassandra-api-limits"></a>API för Cassandra gränser
+## <a name="cassandra-api-limits"></a>Begränsningar i API:et för Cassandra
 
-Det finns inga begränsningar i Azure Cosmos DB Cassandra API för storleken på data som lagras i en tabell. Hundratals terabyte eller petabyte data kan lagras samtidigt om partitionsnyckelgränserna respekteras. På samma sätt har varje entitet eller rad motsvarighet inte några begränsningar för antalet kolumner. Den totala storleken på entiteten bör dock inte överstiga 2 MB. Data per partitionsnyckel får inte överstiga 10 GB som i alla andra API: er.
+Det finns inga begränsningar i Azure Cosmos DB Cassandra API för storleken på data som lagras i en tabell. Hundratals terabyte eller petabyte data kan lagras samtidigt om partitionsnyckelgränserna respekteras. På samma sätt har varje entitet eller rad motsvarighet inte några begränsningar för antalet kolumner. Den totala storleken på entiteten bör dock inte överstiga 2 MB. Data per partitionsnyckel får inte överstiga 20 GB som i alla andra API: er.
 
 ## <a name="tools"></a>Verktyg 
 
@@ -149,7 +149,7 @@ Azure Cosmos DB stöder följande databaskommandon på alla Cassandra API-konton
 * USE 
 * INSERT 
 * VÄLJ 
-* UPPDATERING 
+* UPDATE 
 * BATCH – endast ej loggade kommandon stöds 
 * DELETE
 
@@ -194,7 +194,7 @@ ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 ```
 
 
-## <a name="usage-of-cassandra-retry-connection-policy"></a>Användning av anslutnings princip för Cassandra-försök
+## <a name="usage-of-cassandra-retry-connection-policy"></a>Användning av principen för nytt anslutningsförsök i Cassandra
 
 Azure Cosmos DB är ett resurs styrt system. Det innebär att du kan utföra ett visst antal åtgärder i en viss sekund baserat på de enheter för enheter som används av åtgärderna. Om ett program överskrider den gränsen inom en viss sekund kommer begär Anden att bli avgiftsbelagda och undantag kommer att genereras. API för Cassandra i Azure Cosmos DB översätter dessa undantag till överbelastade fel på det inbyggda Cassandra-protokollet. För att säkerställa att ditt program kan fånga upp och försöka utföra begär anden i fall begränsningen, [Spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) -och [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) -tilläggen tillhandahålls. Om du använder andra SDK: er för att komma åt API för Cassandra i Azure Cosmos DB skapar du en anslutnings princip för att försöka igen med dessa undantag.
 

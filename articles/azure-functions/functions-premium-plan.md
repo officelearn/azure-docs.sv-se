@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 81db0889294360f74cb42d388e5d875de91c1019
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: cf70124f2e310dd62fd32de0e17edb40c047a318
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212463"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615688"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions Premium-plan
 
@@ -107,28 +107,29 @@ Nedan finns de regioner som stöds för varje operativ system.
 |--| -- | -- |
 |Australien, centrala| ✔<sup>1</sup> | |
 |Australien, centrala 2| ✔<sup>1</sup> | |
-|Australien, östra| ✔ | |
+|Australien, östra| ✔ | ✔<sup>1</sup> |
 |Australien, sydöstra | ✔ | ✔<sup>1</sup> |
 |Brasilien, södra| ✔<sup>2</sup> |  |
-|Kanada, centrala| ✔ |  |
+|Kanada, centrala| ✔ | ✔<sup>1</sup> |
 |USA, centrala| ✔ |  |
 |Asien, östra| ✔ |  |
 |USA, östra | ✔ | ✔<sup>1</sup> |
-|USA, östra 2| ✔ |  |
+|USA, östra 2| ✔ | ✔<sup>1</sup> |
 |Frankrike, centrala| ✔ |  |
 |Tyskland, västra centrala| ✔ | |
 |Japan, östra| ✔ | ✔<sup>1</sup> |
-|Japan, västra| ✔ | |
-|Sydkorea, centrala| ✔ |  |
+|Japan, västra| ✔ | ✔<sup>1</sup> |
+|Sydkorea, centrala| ✔ | ✔<sup>1</sup> |
 |USA, norra centrala| ✔ |  |
 |Europa, norra| ✔ | ✔<sup>1</sup> |
 |USA, södra centrala| ✔ | ✔<sup>1</sup> |
 |Indien, södra | ✔ | |
 |Sydostasien| ✔ | ✔<sup>1</sup> |
-|Storbritannien, södra| ✔ | |
+|Storbritannien, södra| ✔ | ✔<sup>1</sup> |
 |Storbritannien, västra| ✔ |  |
 |Europa, västra| ✔ | ✔<sup>1</sup> |
 |Indien, västra| ✔ |  |
+|USA, västra centrala| | ✔<sup>1</sup> |
 |USA, västra| ✔ | ✔<sup>1</sup> |
 |USA, västra 2| ✔ |  |
 

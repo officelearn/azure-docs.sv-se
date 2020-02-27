@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9220d3adb31005551b6358034207f1071065b1a7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: da06112b0990898227191c919b209c8a95d15197
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692395"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616523"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Designa tabeller i Azure SQL Data Warehouse
 
@@ -43,8 +43,8 @@ Om du vill visa organisationens tabell i SQL Data Warehouse kan du använda fakt
 
 | Informations lagret wideworldimportersdw-tabell  | Tabell typ | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
-| Ort | Dimension | WWI. DimCity |
-| Beställa | Fakta | WWI. FactOrder |
+| Ort | Dimension | wwi.DimCity |
+| Beställa | Fakta | wwi.FactOrder |
 
 
 ## <a name="table-persistence"></a>Tabell persistence 
@@ -213,6 +213,7 @@ LEFT OUTER JOIN (select * from sys.pdw_column_distribution_properties where dist
 LEFT OUTER JOIN sys.columns c
     ON cdp.[object_id] = c.[object_id]
     AND cdp.[column_id] = c.[column_id]
+WHERE pn.[type] = 'COMPUTE'
 )
 , size
 AS

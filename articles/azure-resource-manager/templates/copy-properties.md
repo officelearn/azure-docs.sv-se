@@ -3,18 +3,18 @@ title: Definiera flera instanser av en egenskap
 description: Använd kopierings åtgärden i en Azure Resource Manager-mall för att iterera flera gånger när du skapar en egenskap för en resurs.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: b1e31f981f361b4cfbe7e7930f2c70bfce8b8656
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b759389cd1065c399658bd8d0c1ddd263054697c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210871"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622862"
 ---
 # <a name="property-iteration-in-azure-resource-manager-templates"></a>Egenskaps iteration i Azure Resource Manager mallar
 
 Den här artikeln visar hur du skapar fler än en instans av en egenskap i din Azure Resource Manager-mall. Genom att lägga till elementet **Kopiera** i avsnittet Egenskaper i en resurs i mallen kan du dynamiskt ange antalet objekt för en egenskap under distributionen. Du behöver inte heller upprepa syntaxen för mallar.
 
-Du kan också använda kopiera med [resurser](copy-resources.md) och [variabler](copy-variables.md).
+Du kan också använda kopiera med [resurser](copy-resources.md), [variabler](copy-variables.md)och [utdata](copy-outputs.md).
 
 ## <a name="property-iteration"></a>Egenskaps upprepning
 
@@ -192,7 +192,10 @@ I följande exempel visas ett vanligt scenario för att skapa mer än ett värde
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om hur du går igenom självstudierna finns i [Självstudier: skapa flera resurs instanser med Resource Manager-mallar](template-tutorial-create-multiple-instances.md).
-* För annan användning av kopierings elementet, se [resurs upprepning i Azure Resource Manager mallar](copy-resources.md) och [variabel iteration i Azure Resource Manager mallar](copy-variables.md).
+* För andra användnings områden av elementet Copy, se:
+  * [Resurs iteration i Azure Resource Manager mallar](copy-resources.md)
+  * [Variabel iteration i Azure Resource Manager mallar](copy-variables.md)
+  * [Utdata iteration i Azure Resource Manager mallar](copy-outputs.md)
 * Om du vill lära dig mer om avsnitten i en mall, se [redigera Azure Resource Manager mallar](template-syntax.md).
 * Information om hur du distribuerar din mall finns i [distribuera ett program med Azure Resource Manager-mall](deploy-powershell.md).
 

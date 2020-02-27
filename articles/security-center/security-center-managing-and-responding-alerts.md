@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: 203e3718cedca693dc029a4ba20a86ca50ab3e32
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 5c199d074a6655ad14a0c66925e4302f70424970
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603857"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615989"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Hantera och svara på säkerhets aviseringar i Azure Security Center
 
@@ -65,19 +65,27 @@ Security Center samlar automatiskt in, analyserar och integrerar loggdata från 
     > [!NOTE]
     >I vissa fall är käll-IP-adressen inte tillgänglig, vissa säkerhets händelser i Windows-säkerhetshändelser inkluderar inte IP-adressen.
 
-1. De reparations steg som föreslås av Security Center varierar beroende på säkerhets aviseringen. Följ dem för varje avisering. I vissa fall kan du behöva använda andra Azure-kontroller eller-tjänster för att kunna åtgärda en varning om hot identifiering. 
+1. De reparations steg som föreslås av Security Center varierar beroende på säkerhets aviseringen. Följ dem för varje avisering. 
+
+    I vissa fall kan du behöva använda andra Azure-kontroller eller-tjänster för att kunna åtgärda en varning om hot identifiering. 
 
     Följande avsnitt vägleder dig genom de olika aviseringarna, beroende på resurs typer:
     
-    * [Aviseringar om virtuella datorer och servrar i IaaS](security-center-alerts-iaas.md)
-    * [Interna beräknings aviseringar](security-center-alerts-compute.md)
-    * [Aviseringar för data tjänster](security-center-alerts-data-services.md)
-    
+    * [Aviseringar för IaaS Windows-datorer](threat-protection.md#windows-machines)
+    * [Aviseringar för IaaS Linux-datorer](threat-protection.md#linux-machines)
+    * [Aviseringar för Azure App Service](threat-protection.md#app-services)
+    * [Aviseringar för Azure-behållare](threat-protection.md#azure-containers)
+    * [Aviseringar för SQL Database och SQL Data Warehouse](threat-protection.md#data-sql)
+    * [Aviseringar för Azure Storage](threat-protection.md#azure-storage)
+    * [Aviseringar för Cosmos DB](threat-protection.md#cosmos-db)
+
     I följande avsnitt förklaras hur Security Center använder olika telemetri som samlas in från integrering med Azure-infrastrukturen för att kunna använda ytterligare skydds lager för resurser som distribueras i Azure:
     
-    * [Aviseringar för service nivå](security-center-alerts-service-layer.md)
-    * [Hot identifiering för Azure WAF och Azure DDoS Protection](security-center-alerts-integration.md)
-    
+    * [Aviseringar för Azure Management Layer (Azure Resource Manager) (för hands version)](threat-protection.md#management-layer)
+    * [Aviseringar för Azure Key Vault (för hands version)](threat-protection.md#azure-keyvault)
+    * [Aviseringar för Azure nätverks lager](threat-protection.md#network-layer)
+    * [Aviseringar från andra tjänster](threat-protection.md#alerts-other)    
+
 ## <a name="see-also"></a>Se även
 
 I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i Security Center. I följande avsnitt kan du lära dig mer om Security Center:

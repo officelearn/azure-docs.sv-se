@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/26/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c5beef98f03c52ca022a7ab8047d3b392755c0bf
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 34a6d15090cd13a775ad3faa694718ec58738471
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212188"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620635"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definiera anspråks omvandlingar för telefonnummer i Azure AD B2C
 
@@ -26,9 +26,39 @@ Den här artikeln innehåller en referens och exempel på hur du kan använda an
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
+## <a name="convertphonenumberclaimtostring"></a>ConvertPhoneNumberClaimToString
+
+Konverterar en `phoneNumber` data typ till en `string` datatyp.
+
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | phoneNumber | phoneNumber |  ClaimType som ska konverteras till en sträng. |
+| OutputClaim | phoneNumberString | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
+
+I det här exemplet konverteras cellPhoneNumber-anspråket med en värdetyp som värde typ `phoneNumber` till ett mobilt anspråk med en värdetyp `string`.
+
+```XML
+<ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="cellPhoneNumber" TransformationClaimType="phoneNumber" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="cellPhone" TransformationClaimType="phoneNumberString" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exempel
+
+- Inmatade anspråk:
+  - **telefonnummer**: + 11234567890 (telefonnummer)
+- Utgående anspråk:
+  - **phoneNumberString**: + 11234567890 (sträng)
+
+
 ## <a name="convertstringtophonenumberclaim"></a>ConvertStringToPhoneNumberClaim
 
-Detta påstående verifierar formatet för telefonnumret. Om det är i ett giltigt format ändrar du det till ett standardformat som används av Azure AD B2C. Om det angivna telefonnumret inte har ett giltigt format returneras ett fel meddelande.
+Den här anspråks omvandlingen verifierar formatet för telefonnumret. Om det är i ett giltigt format ändrar du det till ett standardformat som används av Azure AD B2C. Om det angivna telefonnumret inte har ett giltigt format returneras ett fel meddelande.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
@@ -68,10 +98,10 @@ Den självkontrollerade tekniska profilen som anropar den tekniska verifierings 
 ### <a name="example-1"></a>Exempel 1
 
 - Inmatade anspråk:
-  - **phoneNumberString**: 045 456-7890
+  - **phoneNumberString**: 033 456-7890
   - **land**: dk
 - Utgående anspråk:
-  - **outputClaim**: + 450546148120
+  - **outputClaim**: + 450334567890
 
 ### <a name="example-2"></a>Exempel 2
 
@@ -79,6 +109,7 @@ Den självkontrollerade tekniska profilen som anropar den tekniska verifierings 
   - **phoneNumberString**: + 1 (123) 456-7890
 - Utgående anspråk: 
   - **outputClaim**: + 11234567890
+
 
 ## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberAndCountryCodeFromPhoneNumberString
 

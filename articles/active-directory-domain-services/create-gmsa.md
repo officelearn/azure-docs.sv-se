@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 9dc7e6341f77fc17ae26f34ea029b3eb5414dcbc
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 58749e4518f6fa73c8641ce38483c101576047aa
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705306"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614083"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-ad-domain-services"></a>Skapa ett grupphanterat tjänst konto (gMSA) i Azure AD Domain Services
 
@@ -65,32 +65,32 @@ Skapa först en anpassad ORGANISATIONSENHET med cmdleten [New-ADOrganizationalUn
 > [!TIP]
 > Om du vill slutföra de här stegen för att skapa en gMSA [använder du den virtuella hanterings datorn][tutorial-create-management-vm]. Den här virtuella hanterings datorn ska redan ha de AD PowerShell-cmdletar som krävs och anslutning till den hanterade domänen.
 
-I följande exempel skapas en anpassad ORGANISATIONSENHET med namnet *myNewOU* i den hanterade Azure AD DS-domänen med namnet *aadds.contoso.com*. Använd din egen ORGANISATIONSENHET och ditt hanterade domän namn:
+I följande exempel skapas en anpassad ORGANISATIONSENHET med namnet *myNewOU* i den hanterade Azure AD DS-domänen med namnet *aaddscontoso.com*. Använd din egen ORGANISATIONSENHET och ditt hanterade domän namn:
 
 ```powershell
-New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=contoso,DC=COM"
+New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=aaddscontoso,DC=COM"
 ```
 
 Skapa nu en gMSA med cmdleten [New-ADServiceAccount][New-ADServiceAccount] . Följande exempel parametrar definieras:
 
 * **-Name** är inställt på *WebFarmSvc*
 * Parametern **-Path** anger den anpassade organisationsenheten för den gMSA som skapades i föregående steg.
-* DNS-poster och tjänst huvud namn har angetts för *WebFarmSvc.aadds.contoso.com*
-* Huvud konton i *contoso-Server $* får hämta lösen ordet Använd identiteten.
+* DNS-poster och tjänst huvud namn har angetts för *WebFarmSvc.aaddscontoso.com*
+* Huvud konton i *AADDSCONTOSO-Server $* får hämta lösen ordet Använd identiteten.
 
 Ange egna namn och domän namn.
 
 ```powershell
 New-ADServiceAccount -Name WebFarmSvc `
-    -DNSHostName WebFarmSvc.aadds.contoso.com `
-    -Path "OU=MYNEWOU,DC=contoso,DC=com" `
+    -DNSHostName WebFarmSvc.aaddscontoso.com `
+    -Path "OU=MYNEWOU,DC=aaddscontoso,DC=com" `
     -KerberosEncryptionType AES128, AES256 `
     -ManagedPasswordIntervalInDays 30 `
-    -ServicePrincipalNames http/WebFarmSvc.aadds.contoso.com/aadds.contoso.com, `
-        http/WebFarmSvc.aadds.contoso.com/contoso, `
-        http/WebFarmSvc/aadds.contoso.com, `
-        http/WebFarmSvc/contoso `
-    -PrincipalsAllowedToRetrieveManagedPassword CONTOSO-SERVER$
+    -ServicePrincipalNames http/WebFarmSvc.aaddscontoso.com/aaddscontoso.com, `
+        http/WebFarmSvc.aaddscontoso.com/aaddscontoso, `
+        http/WebFarmSvc/aaddscontoso.com, `
+        http/WebFarmSvc/aaddscontoso `
+    -PrincipalsAllowedToRetrieveManagedPassword AADDSCONTOSO-SERVER$
 ```
 
 Program och tjänster kan nu konfigureras för att använda gMSA vid behov.

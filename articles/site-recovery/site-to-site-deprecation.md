@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/25/2020
 ms.author: rajanaki
-ms.openlocfilehash: 29a939452d9b90bd8afda7db4e115d10956ee5e5
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 68d975a1b8bb8d47011bb292d3cf897956b31712
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606638"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623601"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Utfasning av haveri beredskap mellan Kundhanterade platser (med VMM) med hjälp av Azure Site Recovery
 
@@ -26,9 +26,9 @@ DR mellan kundägda webbplatser som hanteras av System Center Virtual Machine Ma
 
 ## <a name="what-changes-should-you-expect"></a>Vilka ändringar bör du förvänta dig?
 
-- Med början från november 2019 kommer inga nya användare att vara på plan att tillåtas i dessa scenarier. **Befintliga replikeringar och hanterings åtgärder** , inklusive redundans, testning av redundans, övervakning osv. påverkas **inte**.
+- Från och med mars 2020 får du Azure Portal meddelanden & e-postkommunikation med den kommande utfasningen av plats-till-plats-replikering av virtuella Hyper-V-datorer. Utfasningen planeras för mars 2023.
 
-- Om du har en befintlig konfiguration kommer du inte att kunna registrera nya VMMs.
+- Om du har en befintlig konfiguration påverkas inte konfigurationen.
 
 - När scenarierna är inaktuella, såvida inte kunden följer de alternativa metoderna, kan de befintliga replikeringarna bli störande. Kunder kan inte Visa, hantera eller utföra några DR-relaterade åtgärder via Azure Site Recovery upplevelse i Azure Portal.
  

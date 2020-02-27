@@ -8,31 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 02/25/2020
 ms.author: areddish
-ms.openlocfilehash: 2b3c6fc404e9a5fefc15aa7b7162ff5573c3be5a
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: a0cfa49dfe247a71e5c2d546e2bb7e9d9b2efc18
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166145"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616347"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Snabbstart: Skapa ett bildklassificeringsprojekt med Custom Vision-SDK för Java
 
-Den här artikeln visar hur du kommer igång med Custom Vision Java SDK för att skapa en bild klassificerings modell. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en avbildning programmatiskt. Använd det här exemplet som en mall för att skapa ditt eget Java-program. Om du vill gå igenom processen med att skapa och använda en bildklassificeringsmodell _utan_ kod kan du istället läsa den [webbläsarbaserade vägledningen](getting-started-build-a-classifier.md).
+Den här artikeln visar hur du kommer igång med Custom Vision Java SDK för att skapa en bild klassificerings modell. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en avbildning programmatiskt. Använd det här exemplet som en mall för att skapa en egen Java-app. Om du vill gå igenom processen med att skapa och använda en bildklassificeringsmodell _utan_ kod kan du i stället läsa den [webbläsarbaserade vägledningen](getting-started-build-a-classifier.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En valfri Java IDE
 - [JDK 7 eller 8](https://aka.ms/azure-jdks) installerat.
-- Maven installerat
+- [Maven](https://maven.apache.org/) installerat
 - [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Hämta Custom Vision-SDK:n och exempelkoden
 
 Om du vill skriva ett Java-program som använder Custom Vision behöver du Custom Vision maven-paketen. De här paketen ingår i det exempel projekt som du hämtar, men du kan komma åt dem separat här.
 
-Du kan installera SDK för Custom Vision från maven-centrallager:
+Du hittar Custom Vision SDK i maven Central-lagringsplatsen:
 
 - [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 - [Prediction SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
@@ -43,7 +43,10 @@ Det här projektet i Java skapar ett nytt Custom Vision-projekt för bildklassif
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
-Programmet är konfigurerat för att lagra dina nyckeldata som miljövariabler. Ange dessa variabler genom att navigera till mappen **Vision/CustomVision** i PowerShell. Ange sedan kommandona:
+Programmet är konfigurerat för att referera till dina nyckel data som miljövariabler. Navigera till mappen **vision/CustomVision** och ange följande PowerShell-kommandon för att ställa in miljövariablerna. 
+
+> [!NOTE]
+> Om du använder ett icke-Windows-operativsystem går du till [Konfigurera miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication) för instruktioner.
 
 ```powershell
 $env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
@@ -54,9 +57,9 @@ $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 
 Läs in `Vision/CustomVision`-projektet i din Java IDE och öppna filen _CustomVisionSamples.java_. Hitta **runSample** -metoden och kommentera ut **ObjectDetection_Sample** metod anrop&mdash;den här metoden kör scenariot för objekt identifiering, som inte beskrivs i den här hand boken. Metoden **ImageClassification_Sample** implementerar de primära funktionerna i det här exemplet. Gå till dess definition och granska koden.
 
-### <a name="create-a-custom-vision-service-project"></a>Skapa ett projekt för Custom Vision Service
+### <a name="create-a-custom-vision-service-project"></a>Skapa ett Custom Vision Service-projekt
 
-Den här första delen med kod skapar ett projekt för klassificering av bilder. Det skapade projektet visas på den [Custom Vision-webbplats](https://customvision.ai/) som du besökte tidigare. Se [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) -metoden för att ange andra alternativ när du skapar ditt projekt (förklaras i guiden [skapa en klassificerings](getting-started-build-a-classifier.md) webb Portal).
+Den här första delen med kod skapar ett projekt för klassificering av bilder. Projektet som du har skapat visas på [Custom Vision-webbplatsen](https://customvision.ai/) som du tidigare besökt. Se [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) -metoden för att ange andra alternativ när du skapar ditt projekt (förklaras i guiden [skapa en klassificerings](getting-started-build-a-classifier.md) webb Portal).
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_create)]
 
@@ -88,9 +91,9 @@ Förutsägelseslutpunkten, som representeras av objektet `predictor` här, är d
 
 ## <a name="run-the-application"></a>Köra programmet
 
-För att kompilera och köra lösningen med hjälp av maven kör du följande kommando i projektkatalogen i PowerShell:
+Om du vill kompilera och köra lösningen med hjälp av maven går du till projekt katalogen (**vision/CustomVision**) i en kommando tolk och kör kommandot kör:
 
-```powershell
+```bash
 mvn compile exec:java
 ```
 
@@ -134,7 +137,7 @@ Du kan sedan kontrollera att testbildens förutsägelse (de sista raderna i utda
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du sett hur varje steg i bildklassificeringsprocessen kan göras med kod. Det här exemplet kör en enstaka träningsiteration, men ofta måste du träna och testa modellen flera gånger för att kunna göra den mer exakt.
+Nu har du sett hur varje steg i bildklassificeringsprocessen kan utföras med kod. Det här exemplet kör en enstaka träningsiteration, men ofta måste du träna och testa modellen flera gånger för att kunna göra den mer exakt.
 
 > [!div class="nextstepaction"]
 > [Testa och träna om en modell](test-your-model.md)

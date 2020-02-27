@@ -3,8 +3,8 @@ title: Installera SAP NetWeaver HA på ett Windows-redundanskluster och en delad
 description: Lär dig hur du installerar SAP NetWeaver HA på ett Windows-redundanskluster och en delad disk för en SAP-ASCS/SCS-instans.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfbff1f95eaad41813ee0741a6b133dccdae181d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e50733c843dfd21e35572f00fc6690e1e84aba97
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647534"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617362"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Installera SAP NetWeaver HA på ett Windows-redundanskluster och en delad disk för en SAP ASCS/SCS-instans i Azure
 
@@ -148,7 +148,7 @@ ms.locfileid: "75647534"
 
 Den här artikeln beskriver hur du installerar och konfigurerar ett SAP-system med hög tillgänglighet i Azure med hjälp av ett Windows Server-redundanskluster och en klusterdelad disk för att klustra en SAP ASCS/SCS-instans.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Granska dessa dokument innan du påbörjar installationen:
 

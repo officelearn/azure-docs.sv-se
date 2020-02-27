@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 4db6ad83c44e0c811df0a3b91a473861e4e1ab87
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 7abbdf03e85f425f65a45e6640b82529c2b9c84f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367153"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614073"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Skapa en organisationsenhet (OU) i en Azure AD Domain Services hanterad domän
 
@@ -66,11 +66,11 @@ Om du vill skapa en anpassad ORGANISATIONSENHET använder du Active Directory ad
 1. Logga in på den virtuella hanterings datorn. Anvisningar om hur du ansluter med hjälp av Azure Portal finns i [ansluta till en virtuell Windows Server-dator][connect-windows-server-vm].
 1. Välj **administrations verktyg**på Start skärmen. En lista över tillgängliga hanterings verktyg visas som har installerats i självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
 1. Om du vill skapa och hantera organisationsenheter väljer du **Active Directory Administrationscenter** i listan över administrations verktyg.
-1. I den vänstra rutan väljer du din Azure AD DS-hanterade domän, till exempel *aadds.contoso.com*. En lista över befintliga organisationsenheter och resurser visas:
+1. I den vänstra rutan väljer du din Azure AD DS-hanterade domän, till exempel *aaddscontoso.com*. En lista över befintliga organisationsenheter och resurser visas:
 
     ![Välj din Azure AD DS-hanterade domän i Active Directory Administrationscenter](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
 
-1. Fönstret **uppgifter** visas till höger om Active Directory Administrationscenter. Under domänen, till exempel *aadds.contoso.com*, väljer du **Ny > organisationsenhet**.
+1. Fönstret **uppgifter** visas till höger om Active Directory Administrationscenter. Under domänen, till exempel *aaddscontoso.com*, väljer du **Ny > organisationsenhet**.
 
     ![Välj alternativet för att skapa en ny ORGANISATIONSENHET i Active Directory Administrationscenter](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 

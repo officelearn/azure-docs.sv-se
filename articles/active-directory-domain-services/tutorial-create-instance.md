@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: iainfou
-ms.openlocfilehash: 8905f2a0a306ec4c9c6e19479c6adb96a6ed39ca
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 86097a8706956a768def107dd312c9a20c63c6ff
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931279"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612354"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Självstudie: skapa och konfigurera en Azure Active Directory Domain Services-instans
 
@@ -22,16 +22,16 @@ Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade 
 
 Du kan skapa en hanterad domän med hjälp av standard konfigurations alternativ för nätverk och synkronisering, eller [definiera inställningarna manuellt][tutorial-create-instance-advanced]. Den här självstudien visar hur du använder standard alternativ för att skapa och konfigurera en Azure AD DS-instans med hjälp av Azure Portal.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förstå DNS-krav för en hanterad domän
 > * Skapa en Azure AD DS-instans
-> * Aktivera hashsynkronisering för lösenord
+> * Aktivera synkronisering av lösenordshash
 
 Om du inte har en Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -68,17 +68,17 @@ När du skapar en Azure AD DS-instans anger du ett DNS-namn. Det finns några sa
 * **Icke-dirigerbart domänsuffix:** Vi rekommenderar vanligt vis att du undviker ett icke-dirigerbart domänsuffix, t. ex. *contoso. local*. *Lokalt* suffix kan inte dirigeras och kan orsaka problem med DNS-matchning.
 
 > [!TIP]
-> Om du skapar ett eget domän namn bör du ta hand om befintliga DNS-namnområden. Vi rekommenderar att du lägger till ett unikt prefix för domän namnet. Om ditt DNS-rotcertifikat till exempel är *contoso.com*skapar du en Azure AD DS-hanterad domän med det anpassade domän namnet *Corp.contoso.com* eller *DS.contoso.com*. I en hybrid miljö med en lokal AD DS-miljö kanske dessa prefix redan används. Använd ett unikt prefix för Azure AD DS.
+> Om du skapar ett eget domän namn bör du ta hand om befintliga DNS-namnområden. Vi rekommenderar att du använder ett domän namn separat från ett befintligt Azure eller lokalt DNS-adressutrymme.
 >
-> Du kan använda rot-DNS-namnet för din Azure AD DS-hanterade domän, men du kan behöva skapa ytterligare DNS-poster för andra tjänster i din miljö. Om du till exempel kör en webb server som är värd för en plats som använder rot-DNS-namnet, kan det finnas namn konflikter som kräver ytterligare DNS-poster.
+> Om du till exempel har ett befintligt DNS-namnområdet *contoso.com*skapar du en Azure AD DS-hanterad domän med det anpassade domän namnet för *aaddscontoso.com*. Om du behöver använda säker LDAP måste du registrera och äga det här anpassade domän namnet för att generera nödvändiga certifikat.
 >
-> I dessa självstudier och instruktions artiklar används den anpassade domänen för *aadds.contoso.com* som ett kort exempel. I alla kommandon anger du ett eget domän namn, som kan innehålla ett unikt prefix.
+> Du kan behöva skapa ytterligare DNS-poster för andra tjänster i din miljö, eller villkorliga DNS-vidarebefordrare mellan befintliga DNS-namn utrymmen i din miljö. Om du till exempel kör en webb server som är värd för en plats som använder rot-DNS-namnet, kan det finnas namn konflikter som kräver ytterligare DNS-poster.
 >
-> Mer information finns i [Välj ett namngivnings prefix för domänen][naming-prefix].
+> I dessa självstudier och instruktions artiklar används den anpassade domänen för *aaddscontoso.com* som ett kort exempel. I alla kommandon anger du ditt eget domän namn.
 
 Följande DNS-namn begränsningar gäller också:
 
-* **Begränsningar för domänautentiseringsuppgifter:** Du kan inte skapa en hanterad domän med ett prefix som är längre än 15 tecken. Prefixet för det angivna domän namnet (t. ex. *contoso* i *contoso.com* -domännamnet) måste innehålla högst 15 tecken.
+* **Begränsningar för domänautentiseringsuppgifter:** Du kan inte skapa en hanterad domän med ett prefix som är längre än 15 tecken. Prefixet för det angivna domän namnet (t. ex. *aaddscontoso* i domän namnet *aaddscontoso.com* ) måste innehålla högst 15 tecken.
 * **Nätverks namns konflikter:** DNS-domännamnet för den hanterade domänen bör inte redan finnas i det virtuella nätverket. Mer specifikt kan du söka efter följande scenarier som leder till en namn konflikt:
     * Om du redan har en Active Directory domän med samma DNS-domännamn i det virtuella Azure-nätverket.
     * Om det virtuella nätverket där du planerar att aktivera den hanterade domänen har en VPN-anslutning till ditt lokala nätverk. I det här scenariot ser du till att du inte har en domän med samma DNS-domännamn i det lokala nätverket.
@@ -89,7 +89,7 @@ Fyll i fälten i fönstret *Basics* i Azure Portal för att skapa en Azure AD DS
 1. Ange ett **DNS-domännamn** för din hanterade domän, och ta hänsyn till föregående punkter.
 1. Välj den Azure- **plats** där den hanterade domänen ska skapas. Om du väljer en region som stöder Tillgänglighetszoner fördelas Azure AD DS-resurserna mellan zoner för ytterligare redundans.
 
-    Tillgänglighetszoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner.
+    Tillgänglighetszoner är unika, fysiska platser inom en Azure-region. Varje zon består av en eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverkstjänster. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner.
 
     Det finns inget som du kan konfigurera för att Azure AD DS ska distribueras mellan zoner. Azure-plattformen hanterar automatiskt zon distributionen av resurser. Mer information och mer information om regions tillgänglighet finns i [Vad är Tillgänglighetszoner i Azure?][availability-zones]
 
@@ -120,7 +120,7 @@ Granska konfigurations inställningarna för den hanterade domänen på sidan **
     ![Meddelande i pågående distributions Azure Portal](./media/tutorial-create-instance/deployment-in-progress.png)
 
 1. Sidan kommer att läsas in med uppdateringar i distributions processen, inklusive att skapa nya resurser i katalogen.
-1. Välj din resurs grupp, till exempel *myResourceGroup*, och välj sedan din Azure AD DS-instans i listan över Azure-resurser, till exempel *aadds.contoso.com*. Fliken **Översikt** visar att den hanterade domänen för närvarande *distribuerar*. Du kan inte konfigurera den hanterade domänen förrän den är helt etablerad.
+1. Välj din resurs grupp, till exempel *myResourceGroup*, och välj sedan din Azure AD DS-instans i listan över Azure-resurser, till exempel *aaddscontoso.com*. Fliken **Översikt** visar att den hanterade domänen för närvarande *distribuerar*. Du kan inte konfigurera den hanterade domänen förrän den är helt etablerad.
 
     ![Status för domän tjänster under etablerings tillståndet](./media/tutorial-create-instance/provisioning-in-progress.png)
 

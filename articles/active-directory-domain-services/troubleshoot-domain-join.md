@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 73a76c4442bb8af70168e54a294f2cb100ff653c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 286e2ad460e98cfeceab52a3ac21bcba8da2cc7f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703663"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612799"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Felsök problem med domän anslutning med en Azure AD Domain Services hanterad domän
 
@@ -32,7 +32,7 @@ Om den virtuella datorn inte kan hitta den hanterade Azure AD DS-domänen finns 
 
 1. Se till att den virtuella datorn är ansluten till samma eller ett peer-kopplat virtuellt nätverk som är aktiverat för Azure AD DS. Om inte, kan den virtuella datorn inte hitta och ansluta till domänen för att ansluta.
     * Om den virtuella datorn inte är ansluten till samma virtuella nätverk bekräftar du att den virtuella nätverks-peering eller VPN-anslutningen är *aktiv* eller *ansluten* så att trafiken kan flöda korrekt.
-1. Försök att pinga domänen med domän namnet för den hanterade domänen i Azure AD DS, till exempel `ping aadds.contoso.com`.
+1. Försök att pinga domänen med domän namnet för den hanterade domänen i Azure AD DS, till exempel `ping aaddscontoso.com`.
     * Om ping-svaret Miss lyckas kan du försöka pinga IP-adresserna för domänen som visas på sidan Översikt i portalen för din Azure AD DS-hanterade domän, till exempel `ping 10.0.0.4`.
     * Om du kan pinga IP-adressen, men inte domänen, kan DNS vara felaktigt konfigurerat. Kontrol lera att du har konfigurerat DNS-servrarna för den hanterade domänen i Azure AD DS för det virtuella nätverket.
 1. Försök att tömma DNS-matcharens cacheminne på den virtuella datorn, till exempel `ipconfig /flushdns`.
@@ -53,7 +53,7 @@ Om du får en dialog ruta som frågar efter autentiseringsuppgifter för att ans
 
 Information om hur du felsöker problem med autentiseringsuppgifter finns i följande fel söknings steg:
 
-1. Försök att använda UPN-formatet för att ange autentiseringsuppgifter, till exempel `dee@contoso.onmicrosoft.com`. Kontrol lera att detta UPN är korrekt konfigurerat i Azure AD.
+1. Försök att använda UPN-formatet för att ange autentiseringsuppgifter, till exempel `dee@aaddscontoso.onmicrosoft.com`. Kontrol lera att detta UPN är korrekt konfigurerat i Azure AD.
     * *SAMAccountName* för ditt konto kan skapas automatiskt om det finns flera användare med samma UPN-prefix i din klient eller om ditt UPN-prefix är för långt. Därför kan *sAMAccountName* -formatet för ditt konto skilja sig från vad du förväntar dig eller använder i din lokala domän.
 1. Försök att använda autentiseringsuppgifterna för ett användar konto som tillhör gruppen *AAD DC-administratörer* för att ansluta virtuella datorer till den hanterade Azure AD DS-domänen.
 1. Kontrol lera att du har [aktiverat][enable-password-sync] Lösenordssynkronisering och väntar tillräckligt länge för att den första lösen ords synkroniseringen ska slutföras.

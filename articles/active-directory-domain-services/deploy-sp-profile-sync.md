@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: f51744d79d34b734c9cc24cf72785a076a91a4f5
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 9d983015927d2635f69a327a9c5b168056542519
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509061"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613864"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Konfigurera Azure Active Directory Domain Services som stöder synkronisering av användar profiler för SharePoint Server
 
@@ -62,7 +62,7 @@ Utför följande steg från din Azure AD DS Management VM:
 
 1. Välj **administrations verktyg**på Start skärmen. En lista över tillgängliga hanterings verktyg visas som har installerats i självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
 1. Om du vill hantera grupp medlemskap väljer du **Active Directory Administrationscenter** i listan över administrations verktyg.
-1. I den vänstra rutan väljer du din Azure AD DS-hanterade domän, till exempel *aadds.contoso.com*. En lista över befintliga organisationsenheter och resurser visas.
+1. I den vänstra rutan väljer du din Azure AD DS-hanterade domän, till exempel *aaddscontoso.com*. En lista över befintliga organisationsenheter och resurser visas.
 1. Välj ou för **användare** och välj sedan säkerhets gruppen *AAD DC Service accounts* .
 1. Välj **medlemmar**och välj sedan **Lägg till.** ...
 1. Ange namnet på SharePoint-tjänstkontot och välj sedan **OK**. I följande exempel heter SharePoint-tjänstkontot *SPAdmin*:

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: b08c3854ef330081b4c55331cb410c5925f00dec
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c4402c1ce2f051c8d1911e7c0332d4cac787ce1d
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512767"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613191"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Principer för lösen ords-och konto utelåsning på hanterade domäner
 
@@ -87,7 +87,7 @@ Om du vill skapa en anpassad lösen ords princip använder du Active Directory a
 
 1. Välj **administrations verktyg**på Start skärmen. En lista över tillgängliga hanterings verktyg visas som har installerats i självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
 1. Om du vill skapa och hantera organisationsenheter väljer du **Active Directory Administrationscenter** i listan över administrations verktyg.
-1. I den vänstra rutan väljer du din Azure AD DS-hanterade domän, till exempel *aadds.contoso.com*.
+1. I den vänstra rutan väljer du din Azure AD DS-hanterade domän, till exempel *aaddscontoso.com*.
 1. Öppna **system** behållaren, sedan **Password Settings Container**.
 
     En inbyggd lösen ords princip för den hanterade Azure AD DS-domänen visas. Du kan inte ändra den här inbyggda principen. Skapa i stället en anpassad lösen ords princip som åsidosätter standard principen.
@@ -112,7 +112,7 @@ Om du vill skapa en anpassad lösen ords princip använder du Active Directory a
 
     ![Välj de användare och grupper som lösen ords principen ska tillämpas på](./media/how-to/fgpp-applies-to.png)
 
-1. Lösen ords principer kan bara tillämpas på grupper. I dialog rutan **platser** expanderar du domän namnet, till exempel *aadds.contoso.com*, och väljer sedan en organisationsenhet, till exempel **AADDC-användare**. Om du har en anpassad ORGANISATIONSENHET som innehåller en grupp med användare som du vill tillämpa väljer du den ORGANISATIONSENHETen.
+1. Lösen ords principer kan bara tillämpas på grupper. I dialog rutan **platser** expanderar du domän namnet, till exempel *aaddscontoso.com*, och väljer sedan en organisationsenhet, till exempel **AADDC-användare**. Om du har en anpassad ORGANISATIONSENHET som innehåller en grupp med användare som du vill tillämpa väljer du den ORGANISATIONSENHETen.
 
     ![Välj den ORGANISATIONSENHET som gruppen tillhör](./media/how-to/fgpp-container.png)
 

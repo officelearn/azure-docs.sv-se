@@ -1,18 +1,17 @@
 ---
 title: Använd PowerShell för att skapa och konfigurera en Log Analytics-arbetsyta | Microsoft Docs
 description: Log Analytics arbets ytor i Azure Monitor lagra data från servrar i din lokala infrastruktur eller i molnet. Du kan samla in Maskindata från Azure storage när genereras av Azure-diagnostik.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/19/2019
-ms.openlocfilehash: 68cd0d51c16ecd63a1446c284f81c5dea07b8c06
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6f3f21a7148c59de452d6407fd9a1067b86faae4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363548"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659330"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Hantera Log Analytics arbets yta i Azure Monitor med PowerShell
 
@@ -30,14 +29,14 @@ Du kan använda [Log Analytics PowerShell-cmdletar](https://docs.microsoft.com/p
 * Lägg till log analytics-agenten till en Azure-dator
 * Konfigurera log analytics för att indexera data som samlas in med Azure-diagnostik
 
-Den här artikeln innehåller två kodexempel som illustrerar några av de funktioner som du kan utföra från PowerShell.  Du kan referera till den [Log Analytics PowerShell cmdlet-referens](https://docs.microsoft.com/powershell/module/az.operationalinsights/) för andra funktioner.
+Den här artikeln innehåller två kodexempel som illustrerar några av de funktioner som du kan utföra från PowerShell.  Du kan referera till [referensen Log Analytics PowerShell-cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights/) för andra funktioner.
 
 > [!NOTE]
 > Log Analytics kallades tidigare för Operational Insights, vilket är anledningen till det är det namn som används i cmdlets.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Dessa exempel fungerar med version 1.0.0 eller senare av modulen AZ. OperationalInsights.
 
 
@@ -202,17 +201,17 @@ För övervakning utan Agent för Azure-resurser, måste resurserna som har Azur
 
 | Resurstyp | Loggar | Mått |
 | --- | --- | --- |
-| Application Gateways    | Ja | Ja |
+| Programgateways    | Ja | Ja |
 | Automation-konton     | Ja | |
 | Batch-konton          | Ja | Ja |
-| Data Lake Analytics     | Ja | |
+| Data Lake analytics     | Ja | |
 | Data Lake store         | Ja | |
 | Elastiska SQL-Pool        |     | Ja |
 | Namnområde för händelsehubb     |     | Ja |
 | IoT-hubbar                |     | Ja |
 | Key Vault               | Ja | |
 | Lastbalanserare          | Ja | |
-| Logikappar              | Ja | Ja |
+| Logic Apps              | Ja | Ja |
 | Nätverkssäkerhetsgrupper | Ja | |
 | Azure Cache for Redis             |     | Ja |
 | Söktjänster         | Ja | Ja |
@@ -221,7 +220,7 @@ För övervakning utan Agent för Azure-resurser, måste resurserna som har Azur
 | Webbplatser               |     | Ja |
 | Server webbgrupper        |     | Ja |
 
-Information för tillgängliga mått i [stöds mått med Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
+Information om tillgängliga mått finns i [mått som stöds med Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 
 Mer information om tillgängliga loggar finns i [tjänster och scheman som stöds för resurs loggar](../../azure-monitor/platform/diagnostic-logs-schema.md).
 

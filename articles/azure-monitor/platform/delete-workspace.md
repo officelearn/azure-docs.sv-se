@@ -1,18 +1,17 @@
 ---
 title: Ta bort och återställa Azure Log Analytics-arbetsytan | Microsoft Docs
 description: Lär dig hur du tar bort din Log Analytics arbets yta om du skapade en i en personlig prenumeration eller omstrukturering av arbets ytans modell.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: 038cfe04193b734bd26ed0ffd4dec5ae9b267c22
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6f50450702c9ecdc1c1d910514d94e0a759176b8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901268"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670482"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Ta bort och återställa Azure Log Analytics-arbetsytan
 
@@ -28,7 +27,7 @@ När du tar bort en Log Analytics arbets yta utförs en mjuk borttagnings åtgä
 Du bör vara försiktig när du tar bort en arbets yta eftersom det kan finnas viktiga data och konfiguration som kan påverka din tjänst åtgärd negativt. Granska vilka agenter, lösningar och andra Azure-tjänster och källor som lagrar data i Log Analytics, till exempel:
 
 * Hanteringslösningar
-* Azure Automatisering
+* Azure Automation
 * Agenter som körs på virtuella Windows-och Linux-datorer
 * Agenter som körs på Windows-och Linux-datorer i din miljö
 * System Center Operations Manager
@@ -44,7 +43,7 @@ Borttagnings åtgärden för arbets ytan tar bort resurs hanterarens Resource Ma
 
 Du kan ta bort en arbets yta med [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)eller i [Azure Portal](https://portal.azure.com).
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure-portalen
 
 1. Logga in genom att gå till [Azure Portal](https://portal.azure.com). 
 2. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
@@ -88,7 +87,7 @@ Om du har deltagar behörighet till prenumerationen och resurs gruppen där arbe
 
 Du kan återställa en arbets yta genom att skapa den på nytt med hjälp av följande arbets yta skapa metoder: [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) eller [REST API]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) så länge följande egenskaper är ifyllda med den borttagna arbets ytans information:
 
-* Prenumerations-ID
+* Prenumerations-ID:t
 * Resurs grupps namn
 * Namn på arbets yta
 * Region

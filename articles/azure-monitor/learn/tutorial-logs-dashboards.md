@@ -1,19 +1,18 @@
 ---
 title: Skapa och dela instrumentpaneler med data från Azure Log Analytics | Microsoft Docs
 description: Den här självstudien hjälper dig att förstå hur Log Analytics instrument paneler kan visualisera alla sparade logg frågor, vilket ger dig en enkel lins att visa din miljö.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
 ms.custom: mvc
-ms.openlocfilehash: d06ead285321b780490c816dc3d902dac1b6916f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 76ba79561df4a75004369d24c4c6af82de9b1cfc
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365588"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661540"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Skapa och dela instrumentpaneler för Log Analytics
 
@@ -27,7 +26,7 @@ Log Analytics instrument paneler kan visualisera alla dina sparade logg frågor,
 
 Du måste ha en befintlig virtuell dator [som är ansluten till Log Analytics-arbetsytan](quick-collect-azurevm.md) för att kunna utföra exemplet i självstudien.  
  
-## <a name="sign-in-to-azure-portal"></a>Logga in på Azure Portal
+## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-shared-dashboard"></a>Skapa delade instrumentpaneler

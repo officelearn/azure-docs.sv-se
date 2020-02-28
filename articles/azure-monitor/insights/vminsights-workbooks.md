@@ -1,22 +1,21 @@
 ---
 title: Skapa interaktiva rapporter Azure Monitor for VMs med arbets böcker | Microsoft Docs
 description: Förenkla komplex rapportering med fördefinierade och anpassade parameterstyrda arbets böcker för Azure Monitor for VMs.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: b89e61f0c268df0ed6dd69ae1c6d97f00678fc32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7ec24f1eca0b2cf1d5ea2c171573f7c5e47319af
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365928"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670686"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Skapa interaktiva rapporter Azure Monitor for VMs med arbets böcker
 
-Arbets böcker kombinerar text, [logg frågor](../log-query/query-language.md), mått och parametrar till omfattande interaktiva rapporter. Arbetsböcker kan redigeras av andra teammedlemmar som har åtkomst till samma Azure-resurser.
+Arbets böcker kombinerar text, [logg frågor](../log-query/query-language.md), mått och parametrar till omfattande interaktiva rapporter. Arbets böcker kan redige ras av andra team medlemmar som har åtkomst till samma Azure-resurser.
 
 Arbets böcker är användbara för scenarier som:
 
@@ -27,7 +26,7 @@ Arbets böcker är användbara för scenarier som:
 
 Azure Monitor for VMs innehåller flera arbets böcker som hjälper dig att komma igång och följande tabell sammanfattar dem.
 
-| Arbetsbok | Beskrivning | Omfång |
+| Boken | Beskrivning | Omfång |
 |----------|-------------|-------|
 | Prestanda | Innehåller en anpassningsbar version av vår översta N-lista och diagram-vy i en enda arbets bok som utnyttjar alla Log Analytics prestanda räknare som du har aktiverat.| I skala |
 | Prestandaräknare | En översta N-diagramvy över en stor uppsättning prestanda räknare. | I skala |
@@ -47,11 +46,11 @@ En arbets bok består av avsnitt som består av oberoende redigerbara diagram, t
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Välj **virtuella datorer**.
+2. Välj **Virtual Machines**.
 
 3. Välj en virtuell dator i listan.
 
-4. På sidan virtuell dator i den **övervakning** väljer **Insights (förhandsversion)** .
+4. På sidan virtuell dator i avsnittet **övervakning** väljer du **insikter (för hands version)** .
 
 5. Välj fliken **prestanda** eller **kartor** på sidan VM Insights och välj sedan **Visa arbets böcker** från länken på sidan. 
 

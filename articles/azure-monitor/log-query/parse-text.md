@@ -1,18 +1,17 @@
 ---
 title: Parsa text data i Azure Monitor loggar | Microsoft Docs
 description: Beskriver olika alternativ för att parsa loggdata i Azure Monitor poster när data matas in och när de hämtas i en fråga, jämför de relativa fördelarna för var och en.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
-ms.openlocfilehash: 82ad197a1f64040dfb91aa73d7a6dfd4210f99a1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d7a37d51c411488231205fd036f9a287f5206ce5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365282"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672454"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Parsa text data i Azure Monitor loggar
 Vissa loggdata som samlas in av Azure Monitor innehåller flera informations delar i en enda egenskap. Att parsa dessa data i flera egenskaper gör det enklare att använda i frågor. Ett vanligt exempel är en [anpassad logg](../../log-analytics/log-analytics-data-sources-custom-logs.md) som samlar in en hel logg post med flera värden i en enda egenskap. Genom att skapa separata egenskaper för de olika värdena kan du söka efter och aggregera dem.
@@ -138,8 +137,8 @@ MyCustomCSVLog_CL
 Om dina data är formaterade i en känd struktur kan du kanske använda en av funktionerna i [Kusto-frågespråket](/azure/kusto/query/) för att parsa fördefinierade strukturer:
 
 - [JSON](/azure/kusto/query/parsejsonfunction)
-- [XML](/azure/kusto/query/parse-xmlfunction)
-- [IPv4](/azure/kusto/query/parse-ipv4function)
+- [FIL](/azure/kusto/query/parse-xmlfunction)
+- [IPv6](/azure/kusto/query/parse-ipv4function)
 - [URL](/azure/kusto/query/parseurlfunction)
 - [URL-fråga](/azure/kusto/query/parseurlqueryfunction)
 - [Filsökväg](/azure/kusto/query/parsepathfunction)
@@ -189,4 +188,4 @@ MyCustomCSVLog
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [logga frågor](log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.
+* Lär dig mer om [logg frågor](log-query-overview.md) för att analysera data som samlas in från data källor och lösningar.

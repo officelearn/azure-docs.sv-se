@@ -1,18 +1,17 @@
 ---
 title: Struktur för Azure Monitor loggar | Microsoft Docs
 description: Du behöver en logg fråga för att hämta loggdata från Azure Monitor.  Den här artikeln beskriver hur nya logg frågor används i Azure Monitor och innehåller begrepp som du behöver förstå innan du skapar en.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 6ce8470da6b444cedb7bff1d14bcc6448b52fe94
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1d647ba7e8d4f0e29252dfff95099e39bab87895
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893645"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662084"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struktur för Azure Monitor loggar
 Möjligheten att snabbt få insikter om dina data med hjälp av en [logg fråga](log-query-overview.md) är en kraftfull funktion i Azure Monitor. Om du vill skapa effektiva och användbara frågor bör du förstå några grundläggande begrepp, till exempel var de data du söker finns och hur de struktureras. Den här artikeln innehåller grundläggande begrepp som du behöver för att komma igång.
@@ -59,8 +58,8 @@ Till skillnad från en Log Analytics arbets yta har ett Application Insights-pro
 | browserTimings      | Data om klient prestanda, till exempel hur lång tid det tar att bearbeta inkommande data. |
 | customEvents        | Anpassade händelser som skapats av ditt program. |
 | customMetrics       | Anpassade mått som skapats av ditt program. |
-| beroenden        | Anropar från programmet till externa komponenter. |
-| Undantag          | Undantag som har utlösts av program körningen. |
+| relation        | Anropar från programmet till externa komponenter. |
+| undantag          | Undantag som har utlösts av program körningen. |
 | pageViews           | Data om varje webbplats-vy med webb läsar information. |
 | performanceCounters | Prestanda mått från beräknings resurserna som stöder programmet. |
 | Begäranden            | Information om varje program förfrågan.  |
@@ -76,7 +75,7 @@ Varje tabell i Azure Monitor-loggar har ett eget schema, men det finns standard 
 | Log Analytics-arbetsyta | Application Insights program | Beskrivning |
 |:---|:---|:---|
 | TimeGenerated | tidsstämpel  | Datum och tid då posten skapades. |
-| Typ          | itemType   | Namnet på tabellen som posten hämtades från. |
+| Typ          | ItemType   | Namnet på tabellen som posten hämtades från. |
 | _ResourceId   |            | Unik identifierare för den resurs som posten är kopplad till. |
 | _IsBillable   |            | Anger om inmatade data är fakturerbara. |
 | _BilledSize   |            | Anger storleken i byte på data som ska faktureras. |

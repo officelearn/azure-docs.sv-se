@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 2ae84b59cd70a5b27ad3e501db6cfae110d90fbd
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b0d9437b10bc54aac481eb630f12a2b99d2360a1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209791"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672471"
 ---
 # <a name="building-an-accessible-application"></a>Skapa ett tillgängligt program
 
@@ -32,9 +32,11 @@ Azure Maps Web SDK levereras med många hjälpmedels funktioner, till exempel:
 Fullständig tillgänglighets information för alla Microsoft-produkter hittar du [här](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/). Sök efter "Azure Maps webb" för att hitta det dokument som är specifikt för Azure Maps Web SDK. 
 
 ## <a name="navigating-the-map"></a>Navigera i kartan
+
 Det finns flera olika sätt på vilka kartan kan zoomas, panoreras, roteras och visas. Följande information innehåller alla olika sätt att navigera i kartan.
 
 **Zooma kartan**
+
 - Använd en mus, dubbelklicka på kartan för att zooma in en nivå.
 - Använd en mus, Rulla hjulet för att zooma kartan.
 - Använd en touch-skärm och vidrör kartan med två fingrar och dra ihop för att zooma ut eller sprida fingrarna från varandra för att zooma in.
@@ -45,23 +47,46 @@ Det finns flera olika sätt på vilka kartan kan zoomas, panoreras, roteras och 
 - Tryck på och håll ned knappen `Shift` och tryck på vänster musknapp ned på kartan och dra för att rita ut ett område för att zooma kartan till.
 
 **Panorera kartan**
+
 - Använd en mus, tryck ned med vänster musknapp på kartan och dra i valfri riktning.
 - Använd en touch-skärm och vidrör kartan och dra i valfri riktning.
 - Med kartan fokuserad använder du piltangenterna för att flytta kartan.
 
 **Rotera kartan**
+
 - Använd en mus, tryck ned med höger musknapp på kartan och dra åt vänster eller höger. 
 - Använd en touch-skärm och vidrör kartan med två fingrar och rotera.
 - Med kartan fokuserad använder du Shift-tangenten och vänster-eller högerpilarna.
 - Använd rotations kontrollen med musen, touch eller tangent bord/ange nycklar.
 
 **Bredd på kartan**
+
 - Med musen trycker du ned med höger musknapp på kartan och drar upp eller ned. 
 - Använd en touch-skärm och vidrör kartan med två fingrar och dra dem uppåt eller nedåt.
 - Med den fokuserade kartan använder du Shift-tangenten och tangenterna Uppil eller NEDPIL. 
 - Använd kontrollen mus, touch eller tangent bord/ange nycklar.
 
-**Ändra kart stil** Alla utvecklare vill inte att alla möjliga kart format ska vara tillgängliga i sitt program. Utvecklaren kan ange och ändra kart formatet program mässigt. Om utvecklaren visar kontrollen format väljare för kartan kan användaren ändra kopplings formatet med musen, en touch eller tangent bordet med tabben eller ange nyckel. Utvecklaren kan ange vilka kart format som ska vara tillgängliga i kontrollen kartans stil väljare. 
+## <a name="change-the-map-style"></a>Ändra kart stil
+
+Alla utvecklare vill inte att alla möjliga kart format ska vara tillgängliga i sitt program. Om utvecklaren visar kontrollen format väljare för kartan kan användaren ändra kopplings formatet med musen, en touch eller tangent bordet med tabben eller ange nyckel. Utvecklaren kan ange vilka kart format som ska vara tillgängliga i kontrollen kartans stil väljare. Dessutom kan utvecklaren program mässigt ange och ändra kart formatet.
+
+**Använd hög kontrast**
+
+- När kart kontrollen läses in, kontrollerar den om hög kontrast är aktiverat och webbläsaren stöder det.
+- Kart kontrollen övervakar inte enhetens höga kontrast läge. Om enhets läget ändras, kommer kartan inte att vara det. Det innebär att användaren måste läsa in kartan igen genom att uppdatera sidan.
+- När hög kontrast identifieras växlar kart formatet automatiskt till hög kontrast, och alla inbyggda kontroller använder en hög kontrast stil. Till exempel, ZoomControl, PitchControl, CompassControl, StyleControl och andra inbyggda kontroller, kommer att använda ett högt kontrast format.
+- Det finns två typer av hög kontrast, ljus och mörk. Om typen av hög kontrast kan identifieras av kart kontrollerna, kommer beteendet för kartan att justeras efter behov. Om ljuset, kommer den grayscale_light kart stilen att läsas in. Om typen inte kan identifieras eller är mörk, kommer high_contrast_dark formatet att läsas in.
+- Om du skapar anpassade kontroller är det bra att veta om de inbyggda kontrollerna använder en hög kontrast stil. Utvecklare kan lägga till en CSS-klass på kartan container div för att kontrol lera. De CSS-klasser som ska läggas till är `high-contrast-dark` och `high-contrast-light`. Om du vill kontrol lera med hjälp av Java Script använder du:
+
+```javascript
+map.getMapContainer().classList.contains("high-contrast-dark")
+```
+
+eller Använd:
+
+```javascript
+map.getMapContainer().classList.contains("high-contrast-light")
+```
 
 ## <a name="keyboard-shortcuts"></a>Kortkommandon
 

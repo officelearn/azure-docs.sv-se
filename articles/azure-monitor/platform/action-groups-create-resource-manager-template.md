@@ -1,34 +1,33 @@
 ---
-title: Skapa åtgärdsgrupper med Resource Manager-mallar
-description: Lär dig hur du skapar en grupp med en Azure Resource Manager-mall.
+title: Skapa åtgärds grupper med Resource Manager-mallar
+description: Lär dig hur du skapar en åtgärds grupp med hjälp av en Azure Resource Manager mall.
 author: dkamstra
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 638dd8efba5e86bb7e8abb78a41196bfac9524df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50ad9d57b24fab9ee57c2f9caae8f4c39d2681f0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60709974"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669088"
 ---
-# <a name="create-an-action-group-with-a-resource-manager-template"></a>Skapa en grupp med en Resource Manager-mall
-Den här artikeln visar hur du använder en [Azure Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) konfigurera åtgärdsgrupper. Med hjälp av mallar kan du automatiskt konfigurera åtgärdsgrupper som kan återanvändas i vissa typer av aviseringar. Dessa åtgärdsgrupper se till att rätt parterna får ett meddelande när en avisering utlöses.
+# <a name="create-an-action-group-with-a-resource-manager-template"></a>Skapa en åtgärds grupp med en Resource Manager-mall
+Den här artikeln visar hur du använder en [Azure Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) för att konfigurera åtgärds grupper. Med hjälp av mallar kan du automatiskt konfigurera åtgärds grupper som kan återanvändas i vissa typer av aviseringar. Dessa åtgärds grupper säkerställer att alla rätt parter meddelas när en avisering utlöses.
 
 De grundläggande stegen är:
 
-1. Skapa en mall som en JSON-fil som beskriver hur du skapar åtgärdsgruppen.
+1. Skapa en mall som en JSON-fil som beskriver hur du skapar åtgärds gruppen.
 
-2. Distribuera mallen med hjälp av [alla distributionsmetod](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+2. Distribuera mallen med hjälp av [valfri distributions metod](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
-Först beskrivs hur du skapar en Resource Manager-mall för en grupp där definitionerna för åtgärden är hårdkodad i mallen. Dessutom beskrivs hur du skapar en mall som tar en webhook-konfigurationsinformation som indataparametrar när mallen distribueras.
+Först beskriver vi hur du skapar en Resource Manager-mall för en åtgärds grupp där åtgärds definitionerna är hårdkodade i mallen. För det andra beskriver vi hur du skapar en mall som hämtar konfigurations informationen för webhooken som indataparametrar när mallen distribueras.
 
-## <a name="resource-manager-templates-for-an-action-group"></a>Resource Manager-mallar för en åtgärdsgrupp
+## <a name="resource-manager-templates-for-an-action-group"></a>Resource Manager-mallar för en åtgärds grupp
 
-Om du vill skapa en grupp med en Resource Manager-mall, skapar du en resurs av typen `Microsoft.Insights/actionGroups`. Du fylla i alla relaterade egenskaper. Här följer två exempelmallar som skapar en åtgärdsgrupp.
+Om du vill skapa en åtgärds grupp med hjälp av en Resource Manager-mall skapar du en resurs av typen `Microsoft.Insights/actionGroups`. Fyll sedan i alla relaterade egenskaper. Här följer två exempel på mallar som skapar en åtgärds grupp.
 
 ```json
 {
@@ -164,7 +163,7 @@ Om du vill skapa en grupp med en Resource Manager-mall, skapar du en resurs av t
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md).
-* Läs mer om [aviseringar](alerts-overview.md).
-* Lär dig hur du lägger till [aviseringar med hjälp av Resource Manager-mall](../../azure-monitor/platform/alerts-activity-log.md).
+* Läs mer om [Åtgärds grupper](../../azure-monitor/platform/action-groups.md).
+* Lär dig mer om [aviseringar](alerts-overview.md).
+* Lär dig hur du lägger till [aviseringar med hjälp av en Resource Manager-mall](../../azure-monitor/platform/alerts-activity-log.md).
 

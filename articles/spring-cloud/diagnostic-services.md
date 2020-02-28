@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: fc1f81c616dc6ee664bb5be924f2a1586646d16d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 90ff59bb76bceaacc7b0528ed0461b76832dc7fd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76279164"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662135"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analysera loggar och mått med diagnostikinställningar
 
@@ -25,7 +25,7 @@ Välj den logg kategori och den mått kategori som du vill övervaka.
 
 ## <a name="logs"></a>Loggar
 
-|Logg | Beskrivning |
+|Logga | Beskrivning |
 |----|----|
 | **ApplicationConsole** | Konsol logg för alla kund program. | 
 | **SystemLogs** | För närvarande är endast [vår moln konfigurations Server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) loggar i den här kategorin. |
@@ -114,7 +114,7 @@ Om du vill veta mer om frågespråket som används i Log Analytics, se [Azure Mo
 1. Om du vill granska program loggarna söker du efter en behållare med namnet **Insights-logs-applicationconsole**.
 1. Om du vill granska program mått söker du efter en behållare med namnet **Insights-Metrics-pt1m**.
 
-Mer information om hur du skickar diagnostikinformation till ett lagrings konto finns i [lagra och Visa diagnostikdata i Azure Storage](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-to-storage).
+Mer information om hur du skickar diagnostikinformation till ett lagrings konto finns i [lagra och Visa diagnostikdata i Azure Storage](../storage/common/storage-introduction.md).
 
 ### <a name="use-your-event-hub"></a>Använda händelsehubben
 

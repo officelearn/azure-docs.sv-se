@@ -1,18 +1,14 @@
 ---
 title: Använd PowerShell för att ställa in aviseringar i Application Insights | Microsoft Docs
 description: Automatisera konfigurationen av Application Insights för att få e-postmeddelanden om mått ändringar.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/31/2016
-ms.openlocfilehash: cf03fa0055710dde86a0f74cd58344575494faf1
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c19cb43d08b44b55c786e750e64a83e6f0c67381
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928571"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669853"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Använd PowerShell för att ställa in aviseringar i Application Insights
 
@@ -93,7 +89,7 @@ Jag har ett program där jag använder [TrackMetric ()](../../azure-monitor/app/
 Samma regel kan användas för måttet som rapporteras med hjälp av [mått parametern](../../azure-monitor/app/api-custom-events-metrics.md#properties) för ett annat spårnings anrop, till exempel TrackEvent eller trackPageView.
 
 ## <a name="metric-names"></a>Mått namn
-| Mått namn | Skärm namn | Beskrivning |
+| Måttnamn | Skärm namn | Beskrivning |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Webbläsarundantag |Antal ej fångade undantag som har utlösts i webbläsaren. |
 | `basicExceptionServer.count` |Server undantag |Antal ohanterade undantag som har utlösts av appen |
@@ -112,7 +108,7 @@ Samma regel kan användas för måttet som rapporteras med hjälp av [mått para
 | `performanceCounter.requests_in_application_queue.value` |ASP.NET-begäranden i körnings kön |Längden på program begär ande kön. |
 | `performanceCounter.requests_per_sec.value` |ASP.NET begär ande frekvens |Takten för alla förfrågningar till programmet per sekund från ASP.NET. |
 | `remoteDependencyFailed.durationMetric.count` |Beroende problem |Antal misslyckade anrop gjorda av serverprogrammet till externa resurser. |
-| `request.duration` |Server svars tid |Tiden mellan att ta emot en HTTP-förfrågan och avsluta sändningen av svaret. |
+| `request.duration` |Serversvarstid |Tiden mellan att ta emot en HTTP-förfrågan och avsluta sändningen av svaret. |
 | `request.rate` |Begär ande frekvens |Antal begär anden till programmet per sekund. |
 | `requestFailed.count` |Misslyckade förfrågningar |Antal HTTP-begäranden som resulterade i svars koden > = 400 |
 | `view.count` |Sid visningar |Antal klient användar förfrågningar för en webb sida. Syntetisk trafik filtreras bort. |

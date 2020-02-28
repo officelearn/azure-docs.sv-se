@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: 6b4050918251d35a460d232dddc0c3113f163ec8
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f00f70e674ac0b83b737d6b2a4bf9d20400736fc
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895086"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672029"
 ---
 # <a name="scenario-apache-hive-view-times-out-when-fetching-a-query-result-in-azure-hdinsight"></a>Scenario: Apache Hive Visa tids gränsen vid hämtning av frågeresultat i Azure HDInsight
 
@@ -31,14 +31,14 @@ java.util.concurrent.TimeoutException: deadline passed
 
 Det är inte säkert att standardvärdet för timeout-värdet är lämpligt för den fråga som du kör. Den angivna tids perioden är för kort för att Hive-vyn ska hämta frågeresultatet.
 
-## <a name="resolution"></a>Upplösning
+## <a name="resolution"></a>Lösning
 
 Öka Ambari för vyn för Apache-datahive genom att ange följande egenskaper i `/etc/ambari-server/conf/ambari.properties`.
 
 ```
 views.ambari.request.read.timeout.millis=300000
 views.request.read.timeout.millis=300000
-views.ambari.hive<HIVE_VIEW_INSTANCE_NAME>.result.fetch.timeout=300000
+views.ambari.hive.<HIVE_VIEW_INSTANCE_NAME>.result.fetch.timeout=300000
 ```
 
 Värdet för `HIVE_VIEW_INSTANCE_NAME` är tillgängligt i slutet av URL: en för Hive-vyn.

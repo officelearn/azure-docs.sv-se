@@ -1,18 +1,14 @@
 ---
 title: Översikts instrument panel för Azure Application Insights | Microsoft Docs
 description: Övervaka program med instrument panels funktionerna Azure Application insikter och översikt.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 06/03/2019
-ms.openlocfilehash: 45c04cc32733873061bd6ff44b2e5484b106a893
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e5188972d9058b85a9765c7d33f6209b37245d7e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406642"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669904"
 ---
 # <a name="application-insights-overview-dashboard"></a>Instrument panel för Application Insights översikt
 
@@ -55,7 +51,7 @@ För att gå tillbaka till översikts upplevelsen väljer du bara:
 
 ![Knappen Översikt](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Om du väljer **Konfigurera panel inställningar** och anger ett anpassat tidsintervall som är längre än 31 dagar visas inte instrument panelen längre än 31 dagar med data, även om standard data kvarhållning på 90 dagar. Det finns för närvarande ingen lösning på problemet.
 

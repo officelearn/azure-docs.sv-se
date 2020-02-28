@@ -1,23 +1,22 @@
 ---
 title: Azure Monitor resurs grupps Insights | Microsoft Docs
 description: Förstå hälso tillståndet och prestandan för dina distribuerade program och tjänster på resurs grupps nivå med Azure Monitor
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: fba94a5e723bfbc2719b3b4cf5cd130eda382276
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 6d97e40bf2bf2298fb53609621db8ff2c6f1038f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553985"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663546"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Övervaka resurs grupper med Azure Monitor (för hands version)
 
-Moderna program är ofta komplexa och mycket distribuerade med många diskreta delar som arbetar tillsammans för att leverera en tjänst. Den här komplexiteten är att Azure Monitor ger övervaknings insikter för resurs grupper. Detta gör det enkelt att prioritering och diagnostisera eventuella problem som kan uppstå för enskilda resurser, samtidigt som den erbjuder en kontext för resurs gruppens hälso tillstånd och prestanda &mdash;and ditt program &mdash;as helhet.
+Moderna program är ofta komplexa och mycket distribuerade med många diskreta delar som arbetar tillsammans för att leverera en tjänst. Den här komplexiteten är att Azure Monitor ger övervaknings insikter för resurs grupper. Detta gör det enkelt att prioritering och diagnostisera eventuella problem som kan uppstå för enskilda resurser, samtidigt som den erbjuder kontexten och prestandan för resurs gruppen&mdash;och ditt program&mdash;som helhet.
 
 ## <a name="access-insights-for-resource-groups"></a>Få åtkomst till insikter för resurs grupper
 
@@ -106,7 +105,7 @@ I det här fallet om du väljer Redigera ser du att den här uppsättningen visu
 
  ![Skärm bild av prestanda visning med Azure-mått](./media/resource-group-insights/0012-performance-metrics.png)
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="enabling-access-to-alerts"></a>Aktivera åtkomst till aviseringar
 

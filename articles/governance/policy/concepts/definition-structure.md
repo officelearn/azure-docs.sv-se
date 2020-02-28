@@ -1,14 +1,14 @@
 ---
 title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
-ms.date: 11/26/2019
+ms.date: 02/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1e90009a0c34bf166a18659a19988ea5a0c9ab07
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: ade659637f1be6cc58cebae760c5e1b753f3830f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587132"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670788"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -716,6 +716,9 @@ Mer information finns i avsnittet [om att utvärdera [\*]-aliaset](../how-to/aut
 
 Initiativ kan du gruppera flera relaterade principdefinitioner för att förenkla tilldelningar och hantering eftersom du arbetar med en grupp som ett enskilt objekt. Du kan exempelvis gruppera relaterade taggning principdefinitioner i ett enda initiativ. I stället för att tilldela varje princip individuellt kan använda du initiativ.
 
+> [!NOTE]
+> När ett initiativ har tilldelats kan parametrarna för Initative-nivå inte ändras. På grund av detta är rekommendationen att ange ett **Standardvärde** när du definierar parametern.
+
 I följande exempel visas hur du skapar ett initiativ för att hantera två Taggar: `costCenter` och `productName`. Två inbyggda principer används för att tillämpa taggen standardvärdet.
 
 ```json
@@ -729,13 +732,15 @@ I följande exempel visas hur du skapar ett initiativ för att hantera två Tagg
                 "type": "String",
                 "metadata": {
                     "description": "required value for Cost Center tag"
-                }
+                },
+                "defaultValue": "DefaultCostCenter"
             },
             "productNameValue": {
                 "type": "String",
                 "metadata": {
                     "description": "required value for product Name tag"
-                }
+                },
+                "defaultValue": "DefaultProduct"
             }
         },
         "policyDefinitions": [{

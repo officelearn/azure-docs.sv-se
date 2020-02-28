@@ -1,19 +1,18 @@
 ---
 title: Azure Automation resurser i hanterings lösningar | Microsoft Docs
 description: Hanterings lösningar innehåller vanligt vis Runbooks i Azure Automation för att automatisera processer som insamling och bearbetning av övervaknings data.  I den här artikeln beskrivs hur du inkluderar Runbooks och deras relaterade resurser i en lösning.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d55af7354ea7d78263e55872e257a2814ebe4130
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8ef9f27546e9db95d5a41769e1b5bc7bc0c2f851
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401811"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663070"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Lägga till Azure Automation resurser i en hanterings lösning (för hands version)
 > [!NOTE]
@@ -26,7 +25,7 @@ ms.locfileid: "75401811"
 > I exemplen i den här artikeln används parametrar och variabler som antingen är obligatoriska eller vanliga för hanterings lösningar och som beskrivs i [utforma och skapa en hanterings lösning i Azure]( solutions-creating.md) 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du redan är bekant med följande information.
 
 - Så här [skapar du en hanterings lösning]( solutions-creating.md).
@@ -74,7 +73,7 @@ Egenskaperna för Runbooks beskrivs i följande tabell.
 | runbookType |Anger typerna av Runbook. <br><br> Skript – PowerShell-skript <br>PowerShell – PowerShell-arbetsflöde <br> GraphPowerShell – grafisk PowerShell-skript Runbook <br> GraphPowerShellWorkflow – grafisk PowerShell Workflow-Runbook |
 | logProgress |Anger om [status poster](../../automation/automation-runbook-output-and-messages.md) ska genereras för runbooken. |
 | logVerbose |Anger om [utförliga poster](../../automation/automation-runbook-output-and-messages.md) ska genereras för runbooken. |
-| description |Valfri beskrivning för runbooken. |
+| beskrivning |Valfri beskrivning för runbooken. |
 | publishContentLink |Anger Runbook-innehållet. <br><br>URI-URI till Runbook-innehållet.  Detta är en. ps1-fil för PowerShell-och skript-Runbooks och en exporterad grafisk Runbook-fil för en graf-Runbook.  <br> version – Runbook-versionen för din egen spårning. |
 
 
@@ -107,7 +106,7 @@ Egenskaperna för Automation-jobb beskrivs i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| runbook |Entitet med enskilt namn med namnet på den Runbook som ska startas. |
+| Runbook |Entitet med enskilt namn med namnet på den Runbook som ska startas. |
 | parameters |Entitet för varje parameter värde som krävs av runbooken. |
 
 Jobbet innehåller Runbook-namn och eventuella parameter värden som ska skickas till runbooken.  Jobbet bör [vara beroende]( solutions-solution-file.md#resources) av den Runbook som det startar sedan runbooken måste skapas innan jobbet.  Om du har flera Runbooks som ska startas kan du definiera deras ordning genom att låta ett jobb vara beroende av andra jobb som ska köras först.
@@ -166,7 +165,7 @@ Egenskaperna för resurser för autentiseringsuppgifter beskrivs i följande tab
 | Egenskap | Beskrivning |
 |:--- |:--- |
 | userName |Användar namn för autentiseringsuppgiften. |
-| password |Lösen ord för autentiseringsuppgiften. |
+| lösenord |Lösen ord för autentiseringsuppgiften. |
 
 
 ## <a name="schedules"></a>Scheman
@@ -193,10 +192,10 @@ Egenskaperna för schema resurser beskrivs i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| description |Valfri beskrivning av schemat. |
+| beskrivning |Valfri beskrivning av schemat. |
 | startTime |Anger start tiden för ett schema som ett DateTime-objekt. En sträng kan anges om den kan konverteras till ett giltigt DateTime-värde. |
 | isEnabled |Anger om schemat är aktiverat. |
-| interval |Typ av intervall för schemat.<br><br>dag<br>timme |
+| interval |Typ av intervall för schemat.<br><br>dag<br>timkostnad |
 | frequency |Hur ofta schemat ska utlösas i antal dagar eller timmar. |
 
 Scheman måste ha en start tid med ett värde som är större än den aktuella tiden.  Du kan inte ange det här värdet med en variabel eftersom du inte skulle kunna veta när det ska installeras.
@@ -236,8 +235,8 @@ Egenskaperna för jobb scheman beskrivs i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| schedule name |Enkel **name** entitet med namnet på schemat. |
-| runbook name  |Enkel **name** entitet med namnet på runbooken.  |
+| schedule name |Entitet med enskilt **namn** med namnet på schemat. |
+| runbook name  |Entitet med enskilt **namn** med namnet på runbooken.  |
 
 
 
@@ -263,8 +262,8 @@ Egenskaperna för variabla resurser beskrivs i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| description | Valfri beskrivning för variabeln. |
-| IsEncrypted | Anger om variabeln ska krypteras. |
+| beskrivning | Valfri beskrivning för variabeln. |
+| isEncrypted | Anger om variabeln ska krypteras. |
 | typ | Den här egenskapen har för närvarande ingen påverkan.  Data typen för variabeln bestäms av det initiala värdet. |
 | värde | Värde för variabeln. |
 
@@ -275,9 +274,9 @@ Om du anger det ursprungliga värdet för variabeln måste det konfigureras som 
 
 | Datatyp | Beskrivning | Exempel | Matchar |
 |:--|:--|:--|:--|
-| sträng   | Omge värde med dubbla citat tecken.  | "\"Hello world\"" | "Hello world" |
+| sträng   | Omge värde med dubbla citat tecken.  | "\"Hello World\"" | "Hello world" |
 | numeric  | Numeriskt värde med enkla citat tecken.| "64" | 64 |
-| boolean  | **true** eller **false** inom citattecken.  Observera att det här värdet måste vara gemener. | ”true” | sant |
+| boolesk  | **Sant** eller **falskt** inom citat tecken.  Observera att det här värdet måste vara gemener. | "true" | true |
 | datetime | Serialiserat datum värde.<br>Du kan använda cmdleten ConvertTo-JSON i PowerShell för att generera det här värdet för ett visst datum.<br>Exempel: get-date "5/24/2017 13:14:57" \| ConvertTo-JSON | "\\/Date (1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Moduler

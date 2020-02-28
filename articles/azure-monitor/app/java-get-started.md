@@ -1,18 +1,16 @@
 ---
 title: 'Snabb start: Java Web App Analytics med Azure Application Insights'
 description: 'Övervakning av programprestanda för Java-webbappar med Application Insights. '
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: abc16f8e1fdc6b81634b926eeb287e5d03efdc40
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 484d4e8df8a8fdceed62a65858126a16d028121e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963690"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670091"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Snabb start: kom igång med Application Insights i ett Java-webbprojekt
 
@@ -20,7 +18,7 @@ I den här snabb starten använder du Application Insights för att automatiskt 
 
 Application Insights är en utöknings bar analys tjänst för webbutvecklare som hjälper dig att förstå prestanda och användning av Live-programmet. Application Insights har stöd för Java-appar som körs på Linux, Unix eller Windows.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Ett fungerande Java-program.
@@ -38,7 +36,7 @@ Application Insights är en utöknings bar analys tjänst för webbutvecklare so
 
 *Välj en projekt typ.*
 
-# <a name="maventabmaven"></a>[Maven 3.](#tab/maven)
+# <a name="maven"></a>[Maven 3.](#tab/maven)
 
 Om ditt projekt redan har kon figurer ATS för att använda Maven för build, sammanfogar du följande kod till din *Pom. XML-* fil.
 
@@ -56,7 +54,7 @@ Uppdatera sedan projektberoendena för att få binärfilerna.
     </dependencies>
 ```
 
-# <a name="gradletabgradle"></a>[Gradle](#tab/gradle)
+# <a name="gradle"></a>[Gradle](#tab/gradle)
 
 Om ditt projekt redan har kon figurer ATS för att använda Gradle för build, sammanfogar du följande kod till din *build. Gradle* -fil.
 
@@ -70,13 +68,13 @@ Uppdatera sedan projektberoendena för att få binärfilerna.
     }
 ```
 
-# <a name="other-typestabother"></a>[Andra typer](#tab/other)
+# <a name="other-types"></a>[Andra typer](#tab/other)
 
 Hämta den [senaste versionen](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) och kopiera nödvändiga filer till projektet, så att tidigare versioner ersätts.
 
 ---
 
-### <a name="questions"></a>Frågor
+### <a name="questions"></a>Några
 * *Vad är förhållandet mellan `-web-auto`, `-web` och `-core` komponenter?*
   * `applicationinsights-web-auto` ger dig mått som spårar antalet begär Anden och svars tider för HTTP-servlet genom att automatiskt registrera Application Insights servlet-filtret vid körning.
   * `applicationinsights-web` ger dig också mått som spårar antalet begär Anden och svars tider för HTTP-servlet, men kräver manuell registrering av Application Insights servlet-filtret i ditt program.
@@ -86,7 +84,7 @@ Hämta den [senaste versionen](https://github.com/Microsoft/ApplicationInsights-
   * Om du använder Gradle eller Maven...
     * Uppdatera build-filen för att ange den senaste versionen.
   * Om du hanterar beroenden manuellt...
-    * Ladda ned senaste [Application Insights SDK för Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) och ersätt det gamla. Ändringar beskrivs i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
+    * Ladda ned senaste [Application Insigths SDK för Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) och ersätt det gamla. Ändringar beskrivs i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 ## <a name="add-an-applicationinsightsxml-file"></a>Lägg till en *ApplicationInsights. XML-* fil
 Lägg till *ApplicationInsights. XML* i mappen resurser i projektet eller kontrol lera att den har lagts till i projektets distributions klass Sök väg. Kopiera följande XML-kod till den.
@@ -297,12 +295,12 @@ Nu när du har installerat SDK kan du använda API:et för att skicka din egen t
 * [Spåra anpassade händelser och mått][api] för att lära dig vad användarna gör med ditt program.
 * [Sök efter händelser och loggar][diagnostic] för att diagnostisera problem.
 
-## <a name="availability-web-tests"></a>Programtester för tillgänglighet
+## <a name="availability-web-tests"></a>Webbtester för tillgänglighet
 Application Insights kan testa din webbplats med jämna mellanrum för att kontrollera att tjänsten är tillgänglig och att den svarar.
 
 [Läs mer om hur du konfigurerar webb test för tillgänglighet.][availability]
 
-## <a name="questions-problems"></a>Har du några frågor? Problem?
+## <a name="questions-problems"></a>Frågor? Har du problem?
 [Felsöka Java](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>Nästa steg

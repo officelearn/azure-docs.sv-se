@@ -1,22 +1,20 @@
 ---
 title: Skapa, Visa och hantera aktivitets logg aviseringar i Azure Monitor
 description: Skapa aktivitets logg aviseringar med hjälp av Azure Portal, en Azure Resource Manager mall och Azure PowerShell.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 4835f1034149a015963569a0b1fc5f9195e3cfca
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9791ebaadeb1ee724692a9e1a0d61aff5cbae6a3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969528"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668493"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor  
 
 ## <a name="overview"></a>Översikt
+
 Aktivitets logg aviseringar är de aviseringar som aktive ras när en ny aktivitets logg händelse inträffar som matchar de villkor som anges i aviseringen.
 
 Dessa aviseringar är för Azure-resurser och kan skapas med hjälp av en Azure Resource Manager mall. De kan också skapas, uppdateras eller tas bort i Azure Portal. Normalt skapar du aktivitets logg aviseringar för att ta emot meddelanden när vissa ändringar sker i resurser i din Azure-prenumeration. Aviseringar är ofta begränsade till specifika resurs grupper eller resurser. Du kanske till exempel vill bli meddelad när en virtuell dator i exempel resurs gruppen **myProductionResourceGroup** tas bort. Eller så kanske du vill bli meddelad om eventuella nya roller har tilldelats till en användare i din prenumeration.
@@ -31,8 +29,7 @@ Kontrol lera följande när du skapar varnings regler:
 - Det finns inget "anyOf"-villkor eller kapslade villkor i aviserings konfigurationens JSON. I princip tillåts endast ett "allOf"-villkor utan ytterligare "allOf"-eller "anyOf"-villkor.
 - När kategorin är "administrativ" måste du ange minst ett av de föregående kriterierna i aviseringen. Du får inte skapa en avisering som aktive ras varje gång en händelse skapas i aktivitets loggarna.
 
-
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure-portalen
 
 Du kan använda Azure Portal för att skapa och ändra varnings regler för aktivitets loggen. Upplevelsen är integrerad med en Azure aktivitets logg för att säkerställa sömlös skapande av aviseringar för specifika händelser av intresse.
 
@@ -43,7 +40,7 @@ Använd följande procedur.
 1. I Azure Portal väljer du **övervaka** > **aviseringar**.
 2. Välj **ny varnings regel** i det övre vänstra hörnet i **aviserings** fönstret.
 
-     ![Ny varningsregel](media/alerts-activity-log/AlertsPreviewOption.png)
+     ![Ny varnings regel](media/alerts-activity-log/AlertsPreviewOption.png)
 
      Fönstret **Skapa regel** visas.
 
@@ -92,7 +89,7 @@ Använd följande procedur.
 5. Under **Åtgärds grupp**i den nedrullningsbara menyn anger du den åtgärds grupp som du vill tilldela till den nya varnings regeln. Du kan också [skapa en ny åtgärds grupp](../../azure-monitor/platform/action-groups.md) och tilldela den till den nya regeln. Om du vill skapa en ny grupp väljer du **+ ny grupp**.
 
 6. Om du vill aktivera reglerna efter att du har skapat dem väljer du **Ja** för alternativet **Aktivera regel vid skapande** .
-7. Välj **Skapa aviseringsregel**.
+7. Välj **skapa aviserings regel**.
 
     Den nya varnings regeln för aktivitets loggen skapas och ett bekräftelse meddelande visas i det övre högra hörnet i fönstret.
 
@@ -108,7 +105,7 @@ En enkel analoghet för att förstå villkor för vilka aviserings regler som ka
 
 1. I Azure Portal väljer du **övervaka** > **aviseringar**. Välj **Hantera aviserings regler** i det övre vänstra hörnet i fönstret.
 
-    ![Hantera aviseringsregler](media/alerts-activity-log/manage-alert-rules.png)
+    ![Hantera aviserings regler](media/alerts-activity-log/manage-alert-rules.png)
 
     Listan över tillgängliga regler visas.
 
@@ -124,7 +121,7 @@ En enkel analoghet för att förstå villkor för vilka aviserings regler som ka
 
 3. Välj regeln och dubbelklicka om du vill redigera regel alternativen. Gör de ändringar som krävs och välj sedan **Spara**.
 
-   ![Hantera aviseringsregler](media/alerts-activity-log/activity-log-rule-edit-page.png)
+   ![Hantera aviserings regler](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
 4. Du kan aktivera, inaktivera eller ta bort en regel. Välj lämpligt alternativ överst i fönstret när du har valt regeln enligt beskrivningen i steg 2.
 

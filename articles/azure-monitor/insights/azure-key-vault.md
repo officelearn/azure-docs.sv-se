@@ -1,18 +1,17 @@
 ---
 title: Azure Key Vault lösning i Azure Monitor | Microsoft Docs
 description: Du kan använda Azure Key Vault lösning i Azure Monitor för att granska Azure Key Vault loggar.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 8d9c5f63a00179903c0920912aba642311a354e7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 7a2becf8cb43568383c324bb9f4f5b2e7b844268
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889115"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667151"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Key Vault Analytics-lösning i Azure Monitor
 
@@ -115,7 +114,7 @@ Azure Key Vault-lösningen analyserar poster som har en typ av nyckel **valv** s
 | `ResourceGroup` |Nyckel valvets resurs grupp |
 | `ResourceId` |Azure Resource Manager Resource-ID. För Key Vault loggar är detta Key Vault resurs-ID. |
 | `ResourceProvider` |*Utforskaren. KEYVAULT* |
-| `ResourceType` | *VAULTS* |
+| `ResourceType` | *VALV* |
 | `ResultSignature` |HTTP-status (till exempel *OK*) |
 | `ResultType` |Resultat av REST API begäran (till exempel *lyckad*) |
 | `SubscriptionId` |Prenumerations-ID för Azure som innehåller Key Vault |
@@ -143,7 +142,7 @@ Så här använder du den uppdaterade lösningen:
 
 Data som samlas in innan ändringen visas inte i den nya lösningen. Du kan fortsätta att fråga efter dessa data med hjälp av de gamla typ-och fält namnen.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Nästa steg

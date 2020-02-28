@@ -1,21 +1,17 @@
 ---
 title: Övervaka med webbtester med flera steg – Azure Application insikter
 description: Konfigurera webb program med flera steg för att övervaka dina webb program med Azure Application insikter
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 8e630f324a7a0ebdfcc74941e760b80fabefa8d3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3b8baad127b16a1bd9d071d0c3d4df68da8c3304
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928956"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655948"
 ---
-# <a name="multi-step-web-tests"></a>Flerstegstest för webbplatser
+# <a name="multi-step-web-tests"></a>Webbtester med flera steg
 
 Du kan övervaka en inspelad sekvens av webb adresser och interaktioner med en webbplats via webbtester med flera steg. Den här artikeln vägleder dig genom processen för att skapa ett webb test med flera steg med Visual Studio Enterprise.
 
@@ -113,7 +109,7 @@ I samtliga fall bör du skapa ett konto i ditt program som endast används för 
 | Målgrupps-URI | Målgrupps-URI för SAML-token.  Detta är URI: n för Access Control Service (ACS) – inklusive ACS-namnrymd och värd namn. |
 | Certifikat lösen ord | Lösen ordet för klient certifikatet som ger åtkomst till den inbäddade privata nyckeln. |
 | Klient certifikat  | Klient certifikatets värde med privat nyckel i Base64-kodat format. |
-| Namn-ID | Namn identifieraren för token |
+| Namn identifierare | Namn identifieraren för token |
 | Inte efter | TimeSpan som token ska vara giltigt för.  Standardvärdet är 5 minuter. |
 | Inte före | TimeSpan för vilket en token som skapades tidigare är giltig (för att adressera tids skevar).  Standardvärdet är (negativt) 5 minuter. |
 | Mål kontext parameter namn | Kontext parametern som tar emot den genererade kontrollen. |
@@ -141,7 +137,7 @@ Genom att jämföra olika sessioner identifiera den token som skickas tillbaka f
 Spela in ett webbtest med hjälp av Visual Studio.
 Parameterisera token genom att ange parametern när token returneras från autentiseraren och använda den i frågan till webbplatsen. (Visual Studio försöker parameterisera testet, men kan inte parameterisera token korrekt.)
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Dedikerad [fel söknings artikel](troubleshoot-availability.md).
 

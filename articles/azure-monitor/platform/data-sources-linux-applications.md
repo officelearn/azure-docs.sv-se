@@ -1,25 +1,24 @@
 ---
 title: Samla in Linux-programmets prestanda i Azure Monitor | Microsoft Docs
 description: Den här artikeln innehåller information om hur du konfigurerar Log Analytics agent för Linux för att samla in prestanda räknare för MySQL och Apache HTTP server.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: 75fd0453534e3a656bb1d8e2940b716dadfdf869
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2fd148dbb85a4fd60fe63d4fb73128bf92dea1d8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75395836"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670567"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Samla in prestanda räknare för Linux-program i Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 Den här artikeln innehåller information om hur du konfigurerar [Log Analytics agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) att samla in prestanda räknare för vissa program i Azure Monitor.  Programmen som ingår i den här artikeln är:  
 
 - [MySQL](#mysql)
-- [Apache HTTP Server](#apache-http-server)
+- [Apache HTTP-Server](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
 Om MySQL-servern eller MariaDB-servern identifieras på datorn när Log Analytics-agenten har installerats, installeras en provider för prestanda övervakning för MySQL-servern automatiskt. Den här providern ansluter till den lokala MySQL/MariaDB-servern för att visa prestanda statistik. MySQL-användarautentiseringsuppgifter måste konfigureras så att providern kan komma åt MySQL-servern.
@@ -50,7 +49,7 @@ Posterna i filen i autentiseringen beskrivs i följande tabell.
 | Base64-kodat lösen ord| Lösen ordet för MySQL Monitoring-användaren kodad i base64. |
 | Autoupdater| Anger om du vill söka efter ändringar i filen My. cnf och skriva över MySQL-OMI när MySQL OMI-providern har uppgraderats. |
 
-### <a name="default-instance"></a>Standardinstans
+### <a name="default-instance"></a>Standard instans
 Filen MySQL OMI-autentisering kan definiera en standard instans och port nummer som gör det enklare att hantera flera MySQL-instanser på en Linux-värd.  Standard instansen betecknas av en instans med Port 0. Alla ytterligare instanser ärver egenskaper från standard instansen om de inte anger olika värden. Om t. ex. MySQL-instansen som lyssnar på porten "3308" läggs till, används standard instansens bind-Address, username och base64-kodat lösen ord för att testa och övervaka instansen som lyssnar på 3308. Om instansen på 3308 är bunden till en annan adress och använder samma MySQL-användarnamn och lösen ord, så behövs bara bindnings adressen och de andra egenskaperna kommer att ärvas.
 
 Följande tabell innehåller exempel på instans inställningar 
@@ -76,8 +75,8 @@ Följande tabell innehåller information om syntaxen för att använda mycimprov
 | uppdatera *Falskt eller sant* | mycimprovauth AutoUpdate false | Anger om autentiseringsprocessen ska uppdateras automatiskt vid omstart eller uppdatering. |
 | standard *lösen ord för bind-Address username* | mycimprovauth standard 127.0.0.1 rot-PWD | Ställer in standard instansen i OMI-autentiseringsprocessen för MySQL.<br>Fältet lösen ord ska anges i oformaterad text – lösen ordet i MySQL-OMI är 64 Base64-kodat. |
 | ta bort *standard eller port_num* | mycimprovauth 3308 | Tar bort den angivna instansen antingen via standard eller port nummer. |
-| Hjälp | mycimprov-hjälp | Visar en lista med kommandon som ska användas. |
-| skriva ut | mycimprov utskrift | Skriver ut en enkel att läsa MySQL OMI-autentiseringsprocessen. |
+| hjälp | mycimprov-hjälp | Visar en lista med kommandon som ska användas. |
+| utskriftsvy | mycimprov utskrift | Skriver ut en enkel att läsa MySQL OMI-autentiseringsprocessen. |
 | uppdatera port_num *BIND-Address username Password* | mycimprov uppdatering 3307 127.0.0.1 rot PWD | Uppdaterar den angivna instansen eller lägger till instansen om den inte finns. |
 
 Följande exempel kommandon definierar ett standard användar konto för MySQL-servern på localhost.  Fältet lösen ord ska anges i klartext – lösen ordet i MySQL-OMI-autentiseringsprocessen kommer att vara bas 64-kodat
@@ -162,4 +161,4 @@ När du har konfigurerat Log Analytics-agenten för Linux för att skicka data t
 
 ## <a name="next-steps"></a>Nästa steg
 * [Samla in prestanda räknare](data-sources-performance-counters.md) från Linux-agenter.
-* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar. 
+* Lär dig mer om [logg frågor](../log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar. 

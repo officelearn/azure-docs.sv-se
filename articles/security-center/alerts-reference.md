@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 01397ad078bc741977c4928f67d1834f05e1db8d
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: f83385e1c0a360689569424dbba0c4548751916c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623958"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661967"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Säkerhets aviseringar – en referens guide
 
@@ -399,8 +399,8 @@ Security Center som stöds av Kill-kedjeen är baserade på [Mitre att &AMP; CK�
 
 |Avsikt|Beskrivning|
 |------|-------|
-|**Avsökning**|Probing kan antingen vara ett försök att komma åt en viss resurs oberoende av ett skadligt syfte, eller ett misslyckat försök att få åtkomst till ett mål system för att samla in information innan den utnyttjas. Det här steget identifieras vanligt vis som ett försök, som kommer från utanför nätverket, för att genomsöka mål systemet och identifiera en start punkt.|
-|**Utnyttjande**|Exploatering är den fas där en angripare hanterar en fäste på den attackerade resursen. Den här fasen är relevant för beräknings värdar och resurser, till exempel användar konton, certifikat osv. Hot aktörer kommer ofta att kunna styra resursen efter det här steget.|
+|**För attack**</br>(ersätter avsökningen)|Det kan antingen finnas ett försök att få åtkomst till en viss resurs oberoende av ett skadligt syfte, eller ett misslyckat försök att få åtkomst till ett mål system för att samla in information innan den utnyttjas. Det här steget identifieras vanligt vis som ett försök, som kommer från utanför nätverket, för att genomsöka mål systemet och identifiera en start punkt.</br>Mer information om för inattacks steg kan läsas på [Mitre-sidan](https://attack.mitre.org/matrices/pre/).|
+|**InitialAccess**</br>(ersätter exploatering)|InitialAccess är den fas där en angripare hanterar en fäste på den attackerade resursen. Den här fasen är relevant för beräknings värdar och resurser, till exempel användar konton, certifikat osv. Hot aktörer kommer ofta att kunna styra resursen efter det här steget.|
 |**Ständig**|Persistence är alla åtkomst-, åtgärds-eller konfigurations ändringar i ett system som ger en hot aktör en beständig närvaro på systemet. Hot aktörer behöver ofta ha till gång till system genom avbrott som omstarter av systemet, förlust av autentiseringsuppgifter eller andra problem som skulle kräva ett verktyg för fjärråtkomst för att starta om eller tillhandahålla en alternativ bakdörr för att få åtkomst igen.|
 |**PrivilegeEscalation**|Eskalering av privilegier är resultatet av åtgärder som gör att en angripare får en högre behörighets nivå i ett system eller nätverk. Vissa verktyg eller åtgärder kräver en högre behörighets nivå för att fungera och är förmodligen nödvändiga vid många punkter under en åtgärd. Användar konton med behörighet att komma åt vissa system eller utföra vissa funktioner som krävs för att angripare ska kunna uppnå sitt mål kan också betraktas som en eskalering av privilegier.|
 |**DefenseEvasion**|Skatteflykt-skydd består av tekniker som en angripare kan använda för att undvika identifiering eller undvika andra försvar. De här åtgärderna är ibland desamma som (eller variant av)-teknik i andra kategorier som har den extra fördelen med att under summera ett visst försvar eller en viss minskning.|

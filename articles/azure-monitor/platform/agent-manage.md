@@ -1,18 +1,16 @@
 ---
-title: Hantera Azure Log Analytics-agenten | Microsoft Docs
+title: Hantera Azure Log Analytics-agenten
 description: I den här artikeln beskrivs de olika hanterings aktiviteter som du vanligt vis utför under livs cykeln för den Log Analytics Windows-eller Linux-Agent som distribueras på en dator.
-ms.service: azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
-ms.openlocfilehash: 7e9725c2a33bd63b7ce6751f346da17eb68fe6f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364789"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668697"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Hantera och underhålla Log Analytics agent för Windows och Linux
 
@@ -22,7 +20,7 @@ Efter den första distributionen av Log Analytics Windows-eller Linux-agenten i 
 
 Log Analytics agent för Windows och Linux kan uppgraderas till den senaste versionen manuellt eller automatiskt beroende på distributions scenariot och den miljö där den virtuella datorn körs. Följande metoder kan användas för att uppgradera agenten.
 
-| Miljö | Installationsmetod | Uppgraderings metod |
+| Miljö | Installationsmetod | Uppgraderingsmetod |
 |--------|----------|-------------|
 | Azure VM | Log Analytics agent VM-tillägg för Windows/Linux | Agenten uppgraderas automatiskt som standard om du inte har konfigurerat din Azure Resource Manager-mall för att välja att ange egenskapen *aktiverat autoupgrademinorversion* till **false**. |
 | Anpassade Azure VM-avbildningar | Manuell installation av Log Analytics agent för Windows/Linux | Uppdatering av virtuella datorer till den senaste versionen av agenten måste utföras från kommando raden som kör Windows Installer-paketet eller Linux-paketet för självextraherande och installerbara gränssnitt.|
@@ -36,7 +34,7 @@ Du kan ladda ned den senaste versionen av Windows-agenten från din Log Analytic
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Klicka på **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
+2. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
 
 3. I listan med Log Analytics arbets ytor väljer du arbets ytan.
 
@@ -58,7 +56,7 @@ Du kan ladda ned den senaste versionen av Windows-agenten från din Log Analytic
 
 4. I dialog rutan **installations program för Microsoft Monitoring Agent** klickar **du på jag accepterar** att godkänna licens avtalet.
 
-5. I dialogrutan **Installationsprogram för Microsoft Monitoring Agent** klickar du på **Uppgradera**. På statussidan visas uppgraderingsförloppet.
+5. I dialog rutan **installations program för Microsoft Monitoring Agent** klickar du på **Uppgradera**. Status sidan visar förloppet för uppgraderingen.
 
 6. När **Microsoft Monitoring Agent-konfigurationen har slutförts.** visas klickar du på **Slutför**.
 
@@ -68,7 +66,7 @@ Du kan ladda ned den senaste versionen av Windows-agenten från din Log Analytic
 
 2. Om du vill extrahera installationsfilerna för agenten kör du `MMASetup-<platform>.exe /c` i en upphöjd kommando tolk och du uppmanas att ange sökvägen för att extrahera filer till. Alternativt kan du ange sökvägen genom att skicka argumenten `MMASetup-<platform>.exe /c /t:<Full Path>`.
 
-3. Kör följande kommando, där D:\ är platsen för uppgraderingsloggfilen.
+3. Kör följande kommando, där D:\ är platsen för uppgraderings logg filen.
 
     ```dos
     setup.exe /qn /l*v D:\logs\AgentUpgrade.log AcceptEndUserLicenseAgreement=1

@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/03/2019
-ms.openlocfilehash: 5cc54c95759ba1490f498305f05cc49a4411686d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 02/26/2020
+ms.openlocfilehash: aa71f7d2f3b277ca34e1e5fea76ada6adf93e573
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930322"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655079"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory mappning av data flödes uppslags omvandling
 
@@ -36,9 +36,19 @@ När du har använt lookup-omvandlingen kan du lägga till en villkorlig delning
 
 ## <a name="first-or-last-value"></a>Första eller sista värdet
 
-Om du har flera matchningar från sökningen kanske du vill minska de flera matchade raderna genom att antingen välja den första eller sista matchningen. Du kan göra detta med hjälp av en aggregerad omvandling efter sökningen.
+Uppslags omvandlingen implementeras som en vänster yttre koppling. Om du har flera matchningar från sökningen kanske du vill minska de flera matchade raderna genom att välja den första matchade raden, den sista matchningen eller en slumpmässig rad.
 
-I det här fallet används den sammanställda omvandlingen ```PickFirst``` för att välja det första värdet från söknings matchningarna.
+### <a name="option-1"></a>alternativ 1
+
+![Sökning på enskild rad](media/data-flow/singlerowlookup.png "Sökning på enskild rad")
+
+* Matcha flera rader: lämna det tomt om du vill returnera en enskild rad matchning
+* Matcha på: Välj First, Last eller valfri matchning
+* Sorterings villkor: om du väljer första eller sista kräver ADF att dina data ska beställas så att det finns logik bakom första och sista
+
+### <a name="option-2"></a>Alternativ 2
+
+Du kan också göra detta med hjälp av en aggregerad omvandling efter sökningen. I det här fallet används den sammanställda omvandlingen ```PickFirst``` för att välja det första värdet från söknings matchningarna.
 
 ![Slå samman mängd](media/data-flow/lookup333.png "Slå samman mängd")
 
@@ -48,7 +58,7 @@ I det här fallet används den sammanställda omvandlingen ```PickFirst``` för 
 
 I Data Factory körs data flöden i uppskalade Spark-miljöer. Om din data uppsättning kan anpassas till arbets ytans minnes utrymme kan vi optimera dina uppslags prestanda.
 
-![Sändnings anslutning](media/data-flow/broadcast.png "Sända anslutning")
+![Sändnings anslutning](media/data-flow/broadcast.png "Sändnings anslutning")
 
 ### <a name="broadcast-join"></a>Sändnings anslutning
 

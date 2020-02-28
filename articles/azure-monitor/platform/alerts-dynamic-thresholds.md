@@ -2,18 +2,15 @@
 title: Skapa aviseringar med dynamiska tröskelvärden i Azure Monitor
 description: Skapa aviseringar med maskin inlärnings beroende dynamiska tröskelvärden
 author: yanivlavi
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.author: yalavi
-ms.reviewer: mbullwin
-ms.openlocfilehash: f67dcf7f1f4f39a11eb995995a8d0acc278b5d4a
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 9345138e948d84e0ea3c804dbd7a4b3c21daca2f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77373408"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668153"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Mått aviseringar med dynamiska tröskelvärden i Azure Monitor
 
@@ -64,7 +61,7 @@ Du kan välja vilken avisering som ska utlösas på något av följande tre vill
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>Vad betyder de avancerade inställningarna i dynamiska tröskelvärden?
 
-Om du felsöker **perioder** – dynamiska tröskelvärden gör det också möjligt att konfigurera "antal överträdelser för att utlösa aviseringen", ett minsta antal avvikelser som krävs inom ett visst tidsfönster för att systemet ska kunna generera en avisering (standardvärdet för tids perioden är fyra avvikelser om 20 minuter). Användaren kan konfigurera perioder som inte kan konfigureras och välja vad som ska aviseras om genom att ändra fönstret för misslyckade perioder och tids perioden. Den här funktionen minskar aviserings bruset som genereras av tillfälliga toppar. Exempel:
+Om du felsöker **perioder** – dynamiska tröskelvärden gör det också möjligt att konfigurera "antal överträdelser för att utlösa aviseringen", ett minsta antal avvikelser som krävs inom ett visst tidsfönster för att systemet ska kunna generera en avisering (standardvärdet för tids perioden är fyra avvikelser om 20 minuter). Användaren kan konfigurera perioder som inte kan konfigureras och välja vad som ska aviseras om genom att ändra fönstret för misslyckade perioder och tids perioden. Den här funktionen minskar aviserings bruset som genereras av tillfälliga toppar. Några exempel:
 
 Om du vill utlösa en avisering när problemet är kontinuerligt i 20 minuter, 4 gånger i följd under en viss period grupper på 5 minuter, använder du följande inställningar:
 

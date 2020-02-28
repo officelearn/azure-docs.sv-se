@@ -3,17 +3,16 @@ title: Skapa en diagnostisk inställning för insamling av loggar och mått i Az
 description: Skapa diagnostikinställningar för att vidarebefordra Azure Platform-loggar till Azure Monitor loggar, Azure Storage eller Azure Event Hubs.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 22932121b97c1b0fe91c46b5eea0222a022a4e61
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: fb2f9ff5af68575d9f9d29e9a6aca83d603395b3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751082"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672420"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Skapa en diagnostisk inställning för att samla in plattforms loggar och mått i Azure
 [Plattforms loggar](platform-logs-overview.md) i Azure, inklusive Azure aktivitets logg och resurs loggar, ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av. Den här artikeln innehåller information om hur du skapar och konfigurerar diagnostikinställningar för att skicka plattforms loggar till olika mål.
@@ -23,22 +22,22 @@ ms.locfileid: "75751082"
 
 Varje Azure-resurs kräver en egen diagnostisk inställning som definierar följande:
 
-- Kategorier av loggar och måttdata som skickas till de mål som definierats i inställningen. De tillgängliga kategorierna kan variera för olika resurstyper.
-- En eller flera destinationer att skicka loggarna till. Aktuella destinationer är Log Analytics-arbetsyta, Event Hubs och Azure Storage.
+- Kategorier av loggar och mått data som skickas till de mål som definierats i inställningen. De tillgängliga kategorierna kan variera för olika resurs typer.
+- En eller flera destinationer för att skicka loggarna. Aktuella destinationer är Log Analytics arbets yta, Event Hubs och Azure Storage.
  
-En enda diagnostisk inställning kan definiera högst en av varje mål. Om du vill skicka data till fler än en av en viss typ av mål (till exempel två olika Log Analytics-arbetsytor) skapar du flera inställningar. Varje resurs kan ha upp till fem diagnostiska inställningar.
+En enda diagnostisk inställning kan definiera högst en av varje mål. Om du vill skicka data till fler än en av en viss typ av mål (till exempel två olika Log Analytics arbets ytor) skapar du flera inställningar. Varje resurs kan ha upp till 5 diagnostiska inställningar.
 
 
 > [!NOTE]
 > [Plattforms mått](metrics-supported.md) samlas in automatiskt för att [Azure Monitor mått](data-platform-metrics.md). Diagnostiska inställningar kan användas för att samla in mått för vissa Azure-tjänster i Azure Monitor loggar för analys med andra övervaknings data med hjälp av [logg frågor](../log-query/log-query-overview.md).
 
-## <a name="destinations"></a>Mål 
+## <a name="destinations"></a>Bestämmelser 
 Plattforms loggar kan skickas till målen i följande tabell. Konfigurationen för varje mål utförs med samma process för att skapa diagnostiska inställningar som beskrivs i den här artikeln. Följ varje länk i följande tabell om du vill ha mer information om hur du skickar data till det målet.
 
 | Mål | Beskrivning |
 |:---|:---|
 | [Log Analytics-arbetsyta](resource-logs-collect-workspace.md) | Genom att samla in loggar i en Log Analytics arbets yta kan du analysera dem med andra övervaknings data som samlas in av Azure Monitor med hjälp av kraftfulla logg frågor och även använda andra Azure Monitor funktioner, till exempel aviseringar och visualiseringar. |
-| [Event Hub](resource-logs-stream-event-hubs.md) | Genom att skicka loggar till Event Hubs kan du strömma data till externa system som Siem i tredje part och andra Log Analytics-lösningar. |
+| [Event Hubs](resource-logs-stream-event-hubs.md) | Genom att skicka loggar till Event Hubs kan du strömma data till externa system som Siem i tredje part och andra Log Analytics-lösningar. |
 | [Azure Storage-konto](resource-logs-collect-storage.md) | Arkivering av loggar till ett Azure Storage-konto är användbart för granskning, statisk analys eller säkerhets kopiering. |
 
 ## <a name="create-diagnostic-settings-in-azure-portal"></a>Skapa diagnostikinställningar i Azure Portal
@@ -86,7 +85,7 @@ Du kan konfigurera diagnostikinställningar i Azure Portal antingen från Azure 
    >
    > *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
 
-6. Klicka på **Spara**.
+6. Klicka på **Save** (Spara).
 
 Efter en liten stund visas den nya inställningen i listan med inställningar för den här resursen och loggarna strömmas till de angivna målen när nya händelse data genereras. Observera att det kan finnas upp till femton minuter mellan när en händelse genereras och när den [visas i en Log Analytics-arbetsyta](data-ingestion-time.md).
 

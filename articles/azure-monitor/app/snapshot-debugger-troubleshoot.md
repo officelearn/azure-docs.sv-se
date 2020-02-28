@@ -1,19 +1,16 @@
 ---
 title: Felsöka Azure Application insikter Snapshot Debugger
 description: Den här artikeln innehåller fel söknings steg och information för att hjälpa utvecklare som har problem med att aktivera eller använda Application Insights Snapshot Debugger.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: brahmnes
-ms.author: mbullwin
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4544f42e7c024b21c4ae050d9b11e0f9e2786d57
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 485f35ed249ab7f6bbb987d8c79afe20287cd25a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432333"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671417"
 ---
 # <a id="troubleshooting"></a>Felsöka problem med att aktivera Application Insights Snapshot Debugger eller Visa ögonblicks bilder
 Om du har aktiverat Application Insights Snapshot Debugger för ditt program, men inte ser några ögonblicks bilder för undantag, kan du använda dessa instruktioner för att felsöka. Det kan finnas många olika orsaker till att ögonblicks bilder inte genereras. Du kan köra hälso kontrollen av ögonblicks bilder för att identifiera några av de möjliga vanliga orsakerna.
@@ -45,15 +42,15 @@ Om Snapshot Debugger har Aktiver ATS via [Application Insightss fönstret i port
 
 ## <a name="check-the-uploader-logs"></a>Kontrollera loggarna överförare
 
-När en ögonblicksbild skapas, skapas en minidumpfil (.dmp) på disken. En separat gilgit process skapar minidump filen och överför den, tillsammans med alla associerade PDB-filer, till Application Insights Snapshot Debugger lagring. När minidump har överförts, bort den från disken. Loggfiler för att gilgit sparas på disk. I en App Service-miljö, hittar du de här loggarna i `D:\Home\LogFiles`. Använd Kudu hanteringswebbplats för App Service för att hitta dessa loggfiler.
+När en ögonblicksbild skapas, skapas en minidumpfil (.dmp) på disken. En separat gilgit process skapar minidump filen och överför den, tillsammans med alla associerade PDB-filer, till Application Insights Snapshot Debugger lagring. När minidump har överförts, bort den från disken. Loggfiler för att gilgit sparas på disk. I en App Service-miljö kan du hitta dessa loggar i `D:\Home\LogFiles`. Använd Kudu hanteringswebbplats för App Service för att hitta dessa loggfiler.
 
 1. Öppna App Service-programmet i Azure-portalen.
-2. Klicka på **avancerade verktyg**, eller Sök efter **Kudu**.
-3. Klicka på **Gå**.
-4. I den **Felsökningskonsolen** nedrullningsbara listrutan **CMD**.
-5. Klicka på **LogFiles**.
+2. Klicka på **Avancerade verktyg**eller Sök efter **kudu**.
+3. Klicka på **gå**.
+4. I list rutan **fel söknings konsol** väljer du **cmd**.
+5. Klicka på **loggfiler**.
 
-Du bör se minst en fil med ett namn som börjar med `Uploader_` eller `SnapshotUploader_` och en `.log` tillägget. Klicka på önskad ikon för att hämta alla loggfiler eller öppna dem i en webbläsare.
+Du bör se minst en fil med ett namn som börjar med `Uploader_` eller `SnapshotUploader_` och ett `.log`-tillägg. Klicka på önskad ikon för att hämta alla loggfiler eller öppna dem i en webbläsare.
 Filnamnet innehåller ett unikt suffix som identifierar App Service-instans. Om din App Service-instans finns på flera datorer, finns det separata loggfiler för varje dator. När gilgit upptäcker en ny minidumpfil, registreras den i loggfilen. Här är ett exempel på en lyckad ögonblicksbild och ladda upp:
 
 ```
@@ -82,10 +79,10 @@ SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 ```
 
 > [!NOTE]
-> I exemplet ovan är från version 1.2.0 eller senare av Microsoft.ApplicationInsights.SnapshotCollector NuGet-paketet. I tidigare versioner gilgit kallas `MinidumpUploader.exe` och loggen mindre detaljerad.
+> I exemplet ovan är från version 1.2.0 eller senare av Microsoft.ApplicationInsights.SnapshotCollector NuGet-paketet. I tidigare versioner kallas överförings processen `MinidumpUploader.exe` och loggen är mindre detaljerad.
 
-I exemplet ovan är instrumenteringsnyckeln `c12a605e73c44346a984e00000000000`. Det här värdet måste matcha instrumenteringsnyckeln för programmet.
-Minidump är associerad med en ögonblicksbild med ID: T `139e411a23934dc0b9ea08a626db16c5`. Du kan använda detta ID senare för att hitta den associerade undantagstelemetri i Application Insights Analytics.
+I föregående exempel är Instrumentation-nyckeln `c12a605e73c44346a984e00000000000`. Det här värdet måste matcha instrumenteringsnyckeln för programmet.
+Minidump är associerad med en ögonblicks bild med ID `139e411a23934dc0b9ea08a626db16c5`. Du kan använda detta ID senare för att hitta den associerade undantagstelemetri i Application Insights Analytics.
 
 Gilgit söker efter nya PDB-filer om var 15: e minut. Här är ett exempel:
 
@@ -100,7 +97,7 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
     DateTime=2018-03-09T01:47:19.4614027Z
 ```
 
-För program som _inte_ på App Service gilgit loggarna finns i samma mapp som minidumpar: `%TEMP%\Dumps\<ikey>` (där `<ikey>` är din instrumentationsnyckel).
+För program som _inte_ finns i App Service finns överförings loggarna i samma mapp som minidumpar: `%TEMP%\Dumps\<ikey>` (där `<ikey>` är Instrumentation-nyckeln).
 
 ## <a name="troubleshooting-cloud-services"></a>Felsöka Cloud Services
 För roller i molntjänster kanske tillfälliga standardmappen för liten för att rymma minidumpfiler, vilket leder till förlorad ögonblicksbilder.
@@ -110,14 +107,14 @@ Tillåt för minst två samtidiga ögonblicksbilder.
 Till exempel om programmet använder 1 GB total arbetsminne, bör du se till att det finns minst 2 GB diskutrymme för lagring av ögonblicksbilder.
 Följ dessa steg för att konfigurera din molntjänstroll med en dedikerad lokal resurs för ögonblicksbilder.
 
-1. Lägg till en ny lokal resurs till din molntjänst genom att redigera filen molntjänst tjänstedefinitionsfilen (.csdef). I följande exempel definieras en resurs med namnet `SnapshotStore` med en storlek på 5 GB.
+1. Lägg till en ny lokal resurs till din molntjänst genom att redigera filen molntjänst tjänstedefinitionsfilen (.csdef). I följande exempel definieras en resurs med namnet `SnapshotStore` med storleken 5 GB.
    ```xml
    <LocalResources>
      <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
    </LocalResources>
    ```
 
-2. Ändra din roll Start-koden för att lägga till en miljövariabel som pekar på den `SnapshotStore` lokal resurs. För arbetsroller finns koden ska läggas till din roll `OnStart` metoden:
+2. Ändra din Rolls start kod för att lägga till en miljö variabel som pekar på `SnapshotStore` lokala resursen. För arbets roller ska koden läggas till i rollens `OnStart` metod:
    ```csharp
    public override bool OnStart()
    {
@@ -125,7 +122,7 @@ Följ dessa steg för att konfigurera din molntjänstroll med en dedikerad lokal
        return base.OnStart();
    }
    ```
-   För Web-roller (ASP.NET), kod som ska läggas till ditt webbprogram `Application_Start` metoden:
+   För Web roles (ASP.NET) ska koden läggas till i ditt webb programs `Application_Start`-metod:
    ```csharp
    using Microsoft.WindowsAzure.ServiceRuntime;
    using System;
@@ -143,7 +140,7 @@ Följ dessa steg för att konfigurera din molntjänstroll med en dedikerad lokal
    }
    ```
 
-3. Uppdatera din roll ApplicationInsights.config-filen om du vill åsidosätta den temporära mapp finns som används av `SnapshotCollector`
+3. Uppdatera din Rolls ApplicationInsights. config-fil för att åsidosätta den tillfälliga mapplats som används av `SnapshotCollector`
    ```xml
    <TelemetryProcessors>
     <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
@@ -164,15 +161,15 @@ Snapshot Collector kontrollerar några välkända platser, vilket gör att den h
 - APPDATA
 - TEMP
 
-Om det inte går att hitta en lämplig mapp, Snapshot Collector rapporterar ett fel som säger _”det gick inte att hitta en lämplig shadow copy-mapp”._
+Om det inte går att hitta en lämplig mapp, Snapshot Collector rapportera ett fel som säger att _det inte gick att hitta en lämplig mapp för skugg kopior._
 
-Om kopieringen misslyckas Snapshot Collector rapporterar en `ShadowCopyFailed` fel.
+Om kopieringen Miss lyckas Snapshot Collector rapporter ett `ShadowCopyFailed` fel.
 
-Om överföring inte kan startas, Snapshot Collector rapporterar ett `UploaderCannotStartFromShadowCopy` fel. Brödtexten i meddelandet innehåller ofta `System.UnauthorizedAccessException`. Det här felet beror vanligtvis på att programmet körs under ett konto med minskade behörigheter. Kontot har behörighet att skriva till mappen shadow copy, men den har inte behörighet att köra kod.
+Om det inte går att starta inladdningen kan Snapshot Collector rapportera ett `UploaderCannotStartFromShadowCopy` fel. Bröd texten i meddelandet innehåller ofta `System.UnauthorizedAccessException`. Det här felet beror vanligtvis på att programmet körs under ett konto med minskade behörigheter. Kontot har behörighet att skriva till mappen shadow copy, men den har inte behörighet att köra kod.
 
-Eftersom dessa fel sker vanligtvis under starten, de kommer vanligtvis följas av ett `ExceptionDuringConnect` fel som säger _”Gilgit gick inte att starta”._
+Eftersom dessa fel vanligt vis uppstår under starten, kommer de vanligt vis att följas av ett `ExceptionDuringConnect` fel som säger _att det inte gick att starta uppladdning._
 
-Om du vill undvika dessa fel kan du ange shadow copy-mappen manuellt via den `ShadowCopyFolder` konfigurationsalternativet. Till exempel använder ApplicationInsights.config:
+För att undvika dessa fel kan du ange mappen Shadow Copy manuellt via `ShadowCopyFolder` konfigurations alternativet. Till exempel använder ApplicationInsights.config:
 
    ```xml
    <TelemetryProcessors>
@@ -199,11 +196,11 @@ Eller, om du använder appsettings.json med en .NET Core-program:
 
 ## <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Använd Application Insights-sökning för att hitta undantag med ögonblicksbilder
 
-När en ögonblicksbild skapas, är utlösande undantaget taggade med en ögonblicksbild-ID. Detta ID för ögonblicksbild ingår som en anpassad egenskap när undantagstelemetri som som har rapporterats till Application Insights. Med hjälp av **Search** i Application Insights, hittar du all telemetri med den `ai.snapshot.id` anpassad egenskap.
+När en ögonblicksbild skapas, är utlösande undantaget taggade med en ögonblicksbild-ID. Detta ID för ögonblicksbild ingår som en anpassad egenskap när undantagstelemetri som som har rapporterats till Application Insights. Med hjälp av **Sök** i Application Insights kan du hitta all telemetri med den anpassade egenskapen `ai.snapshot.id`.
 
 1. Bläddra till Application Insights-resursen i Azure-portalen.
 2. Klicka på **Sök**.
-3. Typ `ai.snapshot.id` i sökrutan och tryck på RETUR.
+3. Skriv `ai.snapshot.id` i text rutan Sök och tryck på RETUR.
 
 ![Sök efter telemetri med en ögonblicksbild-ID i portalen](./media/snapshot-debugger/search-snapshot-portal.png)
 
@@ -215,7 +212,7 @@ För att söka efter en specifik ögonblicksbild-ID från Gilgit-loggar, skriver
 
 2. Med tidsstämpel från Gilgit loggen kan justera filtret tidsintervall för sökningen att täcka det tidsintervallet.
 
-Om du fortfarande inte ser ett undantag med detta ögonblicksbild-ID har inte undantagstelemetri rapporterats till Application Insights. Detta kan inträffa om programmet kraschade när det tog ögonblicksbilden men innan det rapporteras undantagstelemetri som. I det här fallet finns i loggarna App Service under `Diagnose and solve problems` att se om det fanns oväntade omstarter eller ohanterade undantag.
+Om du fortfarande inte ser ett undantag med detta ögonblicksbild-ID har inte undantagstelemetri rapporterats till Application Insights. Detta kan inträffa om programmet kraschade när det tog ögonblicksbilden men innan det rapporteras undantagstelemetri som. I det här fallet kontrollerar du App Service loggarna under `Diagnose and solve problems` för att se om det fanns oväntade omstarter eller ohanterade undantag.
 
 ## <a name="edit-network-proxy-or-firewall-rules"></a>Redigera regler för proxy eller brandvägg
 

@@ -1,18 +1,15 @@
 ---
 title: Vanliga aviserings schema för aviseringar i Azure Monitor
 description: Förstå det vanliga aviserings schemat, varför du bör använda det och hur du aktiverar det
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
-ms.author: robb
+ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: ff5c0d96bd4bc87f36a69ca7e8014e118ac7b7bf
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1445e8cf38b2694146fc8749ba5e77f2297de969
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552449"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668187"
 ---
 # <a name="common-alert-schema"></a>Vanligt aviseringsschema
 
@@ -34,7 +31,7 @@ Det innebär att du kan ha färre integrationer, vilket gör att du kan hantera 
 
 Det vanliga aviserings schemat kommer huvudsakligen att manifesta sig själva i aviserings aviseringarna. De förbättringar som du ser visas nedan:
 
-| Åtgärd | Funktioner|
+| Åtgärd | Förbättringar|
 |:---|:---|
 | SMS | En konsekvent SMS-mall för alla aviserings typer. |
 | E-post | En konsekvent och detaljerad e-postmall som gör det enkelt att snabbt diagnostisera problem. Inbäddade djup länkar till aviserings instansen på portalen och den berörda resursen garanterar att du snabbt kan gå vidare till reparations processen. |

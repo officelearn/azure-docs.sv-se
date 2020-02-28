@@ -1,18 +1,17 @@
 ---
 title: Versions historik för konfigurations schema för Windows Azure-diagnostik Extension (WAD)
 description: Relevant för att samla in prestanda räknare i Azure Virtual Machines VM Scale Sets, Service Fabric och Cloud Services.
-ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 20d9cdf264e62bc901c8e821065527a1d067b2db
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 4dd91363cdebf18e6303238816e8269065a6a317
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472549"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672250"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Windows Azure-diagnostik Extension (WAD) konfigurations schema versioner och historik
 Den här artikeln innehåller versions historiken för de [Azure-diagnostik-tillägg för Windows (wad)](diagnostics-extension-overview.md) schema versioner som ingår i Microsoft Azure SDK.  

@@ -1,18 +1,17 @@
 ---
 title: app ()-uttryck i Azure Monitor logg frågor | Microsoft Docs
 description: App-uttrycket används i en Azure Monitor log-fråga för att hämta data från en speciell Application Insights-app i samma resurs grupp, en annan resurs grupp eller en annan prenumeration.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2019
-ms.openlocfilehash: ffef73f88c8679d0b0be81222b1b61c4eaef5098
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5502df1cd119c0f63c65945d73431a17282ebc0c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933082"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670270"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>app ()-uttryck i Azure Monitor fråga
 
@@ -29,11 +28,11 @@ ms.locfileid: "72933082"
 
 - *Identifierare*: identifierar appen med något av formaten i tabellen nedan.
 
-| Beteckning | Beskrivning | Exempel
+| identifierare | Beskrivning | Exempel
 |:---|:---|:---|
 | Resursnamn | Namnet på appens läsliga namn (AKA "komponent namn") | app ("fabrikamapp") |
 | Kvalificerat namn | Appens fullständiga namn i formatet: "subscriptionName/resourceGroup/componentName" | app (' AI-Prototype/Fabrikam/fabrikamapp ') |
-| ID | Appens GUID | app ("988ba129-363e-4415-8fe7-8cbab5447518") |
+| ID | Appens GUID | app("988ba129-363e-4415-8fe7-8cbab5447518") |
 | Resurs-ID för Azure | Identifierare för Azure-resursen |app ("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 
 

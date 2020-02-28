@@ -1,18 +1,14 @@
 ---
 title: Ställa in Application Insights i en Azure med hjälp av PowerShell | Microsoft Docs
 description: Automatisera konfiguration av Azure-diagnostik för att skicka pipe-data till Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 08/06/2019
-ms.openlocfilehash: 0e1fd048b855473c1d7978e2a908c45360a1ed2a
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: da1796c8af5b9463d8223615f4b0629ba65eb3e8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819012"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669811"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>Konfigurera Application Insights för Azure-Cloud Services med hjälp av PowerShell
 
@@ -42,7 +38,7 @@ Om webbappen finns i Azure och du skapar dina resurser med hjälp av en Azure Re
 * `myWebAppName`-webbappens ID
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Aktivera diagnostiktillägget som en del av distributionen av en molntjänst
-`New-AzureDeployment`-cmdleten har en parameter, `ExtensionConfiguration`, som stöder en rad diagnostikkonfigurationer. Dessa kan skapas med hjälp av cmdleten `New-AzureServiceDiagnosticsExtensionConfig`. Exempel:
+`New-AzureDeployment`-cmdleten har en parameter, `ExtensionConfiguration`, som stöder en rad diagnostikkonfigurationer. Dessa kan skapas med hjälp av cmdleten `New-AzureServiceDiagnosticsExtensionConfig`. Några exempel:
 
 ```ps
 
@@ -129,7 +125,7 @@ Så här tar du bort diagnostiktillägget från varje enskild roll:
 ```
 
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 * [Övervaka Azure Cloud Services-appar med Application Insights](../../azure-monitor/app/cloudservices.md)
 * [Skicka Azure Diagnostics-data till Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Automatisera konfigurationen av aviseringar](powershell-alerts.md)

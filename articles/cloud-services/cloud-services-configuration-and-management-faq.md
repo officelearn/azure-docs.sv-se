@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 4ca8c18d448297cc2d2e2249a1dbbe04ecccd092
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 40abd048b047bbece79b7c05d36a1fb189a4f28d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019425"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656933"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurations-och hanterings problem för Azure Cloud Services: vanliga frågor och svar
 
@@ -137,7 +137,7 @@ Du har förbrukat den lokala lagrings kvoten för skrivning till logg katalogen.
 * Öka kvot gränsen för lokala resurser.
 
 Mer information finns i följande dokument:
-* [Lagra och visa diagnostikdata i Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
+* [Lagra och visa diagnostikdata i Azure Storage](/azure/storage/common/storage-introduction)
 * [IIS-loggar slutar att skriva i moln tjänsten](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Hur gör jag för att aktivera loggning av WAD för Cloud Services?
@@ -196,7 +196,7 @@ Windows 10 och Windows Server 2016 levereras med stöd för HTTP/2 på både kli
 5. Starta om servern.
 6. Gå till **standard webbplatsen** och under **bindningar**skapar du en ny TLS-bindning med det självsignerade certifikatet som du nyss skapade. 
 
-Mer information finns här:
+Mer information finns i:
 
 - [HTTP/2 i IIS](https://blogs.iis.net/davidso/http2)
 - [Video: HTTP/2 i Windows 10: webbläsare, appar och webb server](https://channel9.msdn.com/Events/Build/2015/3-88)
@@ -219,7 +219,7 @@ Cloud Services stöder inte RBAC-modellen (rollbaserad åtkomst kontroll) efters
 
 Se [förstå de olika rollerna i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-## <a name="remote-desktop"></a>Fjärr skrivbord
+## <a name="remote-desktop"></a>Fjärrskrivbord
 
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Kan Microsoft Internal Engineers fjärr skrivbord till moln tjänst instanser utan behörighet?
 Microsoft följer en strikt process som inte tillåter interna tekniker att använda fjärr skrivbord i moln tjänsten utan skriftligt tillstånd (e-post eller annan skriftlig kommunikation) från ägaren eller deras utformning.

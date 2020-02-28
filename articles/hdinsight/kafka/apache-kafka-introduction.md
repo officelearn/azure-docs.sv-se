@@ -1,27 +1,27 @@
 ---
 title: En introduktion till Apache Kafka på HDInsight – Azure
 description: 'Lär dig mer om Apache Kafka på HDInsight: vad det är, dess syfte och var du hittar exempel och kommer igång.'
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: overview
-ms.date: 06/13/2019
-ms.openlocfilehash: 543a18ad48384e3502231f85516a092468db2387
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.custom: hdinsightactive
+ms.date: 02/25/2020
+ms.openlocfilehash: 92f56f3b405470bc8ae0e9ebab2450ddc31b3c6a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560107"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672182"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Vad är Apache Kafka i Azure HDInsight
 
-[Apache Kafka](https://kafka.apache.org) är en distribuerad direktuppspelningsplattform med öppen källkod som kan användas för att skapa realtidsuppspelade datapipelines och program. Kafka tillhandahåller även funktionen för asynkron meddelandekö som liknar en meddelandekö där du kan publicera och prenumerera på namngivna dataströmmar. 
+[Apache Kafka](https://kafka.apache.org) är en distribuerad direktuppspelningsplattform med öppen källkod som kan användas för att skapa realtidsuppspelade datapipelines och program. Kafka tillhandahåller även funktionen för asynkron meddelandekö som liknar en meddelandekö där du kan publicera och prenumerera på namngivna dataströmmar.
 
 Följande är kännetecknen för Kafka på HDInsight:
 
-* Det är en hanterad tjänst som tillhandahåller en förenklad konfigurationsprocess. Resultatet är en konfiguration som har testats av och som stöds av Microsoft.
+* Det är en hanterad tjänst som tillhandahåller en förenklad konfigurations process. Resultatet är en konfiguration som har testats av och som stöds av Microsoft.
 
 * Microsoft tillhandahåller ett 99,9 % serviceavtal (SLA) för Kafkas driftstid. Mer information finns i dokumentet [SLA-information för HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
@@ -29,7 +29,7 @@ Följande är kännetecknen för Kafka på HDInsight:
 
     För mer information om hanterade diskar, se [Hanterade Azure-diskar](../../virtual-machines/windows/managed-disks-overview.md).
 
-* Kafka har utformats med en enda dimensionell vy av ett rack. Azure delar ett rack i två dimensioner – uppdateringsdomäner (UD) och feldomäner (FD). Microsoft tillhandahåller verktyg som balanserar om Kafka-partitioner och -repliker mellan uppdateringsdomäner och feldomäner. 
+* Kafka har utformats med en enda dimensionell vy av ett rack. Azure delar ett rack i två dimensioner – uppdateringsdomäner (UD) och feldomäner (FD). Microsoft tillhandahåller verktyg som balanserar om Kafka-partitioner och -repliker mellan uppdateringsdomäner och feldomäner.
 
     Mer information finns i [Hög tillgänglighet med Apache Kafka i HDInsight](apache-kafka-high-availability.md).
 
@@ -41,15 +41,15 @@ Följande är kännetecknen för Kafka på HDInsight:
 
     Mer information finns i [Analysera loggar för Apache Kafka i HDInsight](apache-kafka-log-analytics-operations-management.md).
 
-### <a name="apache-kafka-on-hdinsight-architecture"></a>Apache Kafka på HDInsight-arkitektur
+## <a name="apache-kafka-on-hdinsight-architecture"></a>Apache Kafka på HDInsight-arkitektur
 
 Följande diagram visar en typisk Kafka-konfiguration som använder konsumentgrupper, partitionering och replikering för att erbjuda parallell läsning av händelser med feltolerans:
 
 ![Diagram över Kafka-klusterkonfiguration](./media/apache-kafka-introduction/kafka-cluster-diagram.png)
 
-Apache ZooKeeper hanterar Kafka-klustrets status. Zookeeper är utformat för samtidiga och flexibla transaktioner med kort svarstid. 
+Apache ZooKeeper hanterar Kafka-klustrets status. Zookeeper är utformat för samtidiga och flexibla transaktioner med kort svarstid.
 
-Kafka lagrar poster (data) i **ämnen**. Poster produceras av **producenter**, och används av **konsumenter**. Producenter skickar poster till **asynkrona Kafka-meddelandeköer**. Varje arbetsnod i HDInsight-klustret är en asynkron Kafka-meddelandekö. 
+Kafka lagrar poster (data) i **ämnen**. Poster produceras av **producenter**, och används av **konsumenter**. Producenter skickar poster till **asynkrona Kafka-meddelandeköer**. Varje arbetsnod i HDInsight-klustret är en asynkron Kafka-meddelandekö.
 
 Ämnen delar upp poster över meddelandeköer. När du förbrukar poster, kan du använda en konsument per partition för att uppnå parallell bearbetning av data.
 
@@ -59,35 +59,17 @@ Replikering används för att duplicera partitioner mellan noder, vilket skyddar
 
 Följande är vanliga uppgifter och mönster som kan utföras med hjälp av Kafka på HDInsight:
 
-* **Replikering av Apache Kafka-data**: Kafka innehåller verktyget MirrorMaker, som replikerar data mellan olika Kafka-kluster.
-
-    Information om hur du använder MirrorMaker finns i avsnittet om att [replikera Apache Kafka-ämnen med Apache Kafka i HDInsight](apache-kafka-mirroring.md).
-
-* **Meddelandemönster av typen publicera-prenumerera**: Kafka innehåller ett producent-API för publicering av poster till ett Kafka-ämne. Konsument-API används när det finns en prenumererar på ett ämne.
-
-    Mer information finns i [Kom igång med Apache Kafka i HDInsight](apache-kafka-get-started.md).
-
-* **Dataströmsbearbetning**: Kafka används ofta med Apache Storm eller Spark för bearbetning av dataströmmar i realtid. Kafka 0.10.0.0 (HDInsight version 3.5 och 3.6) införde en strömmande API som gör att du kan skapa direktuppspelade lösningar utan Storm eller Spark.
-
-    Mer information finns i [Kom igång med Apache Kafka i HDInsight](apache-kafka-get-started.md).
-
-* **Vågrät skala**: Kafka partitionerar dataströmmar mellan noderna i HDInsight-klustret. Konsumentprocesser kan associeras med enskilda partitioner för att ge belastningsutjämning när poster används.
-
-    Mer information finns i [Kom igång med Apache Kafka i HDInsight](apache-kafka-get-started.md).
-
-* **Leverans i ordning**: Inom varje partition lagras posterna i strömmen i den ordning som de togs emot. Genom att associera en konsumentprocess per partition bearbetas posterna garanterat i ordning.
-
-    Mer information finns i [Kom igång med Apache Kafka i HDInsight](apache-kafka-get-started.md).
-
-## <a name="use-cases"></a>Användningsfall
-
-* **Meddelanden**: Eftersom den stöder meddelandemönstret publicera-prenumerera används Kafka ofta som en asynkron meddelandekö.
-
-* **Aktivitetsspårning**: Eftersom Kafka innehåller i ordningsbaserad loggning av poster kan den användas för att spåra och återskapa aktiviteter. Till exempel användaråtgärder på en webbplats eller i ett program.
-
-* **Sammanställning**: Med hjälp av strömbearbetning kan du sammanställa information från olika strömmar för att kombinera och centralisera information till användningsdata.
-
-* **Omvandling**: Med dataströmsbearbetning kan du kombinera och utöka data från flera inkommande avsnitt i ett eller flera utdataämnen.
+|Användning |Beskrivning |
+|---|---|
+|Replikering av Apache Kafka data|Kafka innehåller verktyget MirrorMaker som replikerar data mellan olika Kafka-kluster. Information om hur du använder MirrorMaker finns i avsnittet om att [replikera Apache Kafka-ämnen med Apache Kafka i HDInsight](apache-kafka-mirroring.md).|
+|Publicera – prenumerera på meddelande mönster|Kafka innehåller ett producent-API för publicering av poster till ett Kafka-ämne. Konsument-API används när det finns en prenumererar på ett ämne. Mer information finns i [Kom igång med Apache Kafka i HDInsight](apache-kafka-get-started.md).|
+|Strömbearbetning|Kafka används ofta med Apache Storm eller Spark för dataströmsbearbetning i realtid. Kafka 0.10.0.0 (HDInsight version 3.5 och 3.6) införde en strömmande API som gör att du kan skapa direktuppspelade lösningar utan Storm eller Spark. Mer information finns i [Kom igång med Apache Kafka i HDInsight](apache-kafka-get-started.md).|
+|Horisontell skalning|Kafka partitionerar dataströmmar mellan noderna i HDInsight-klustret. Konsumentprocesser kan associeras med enskilda partitioner för att ge belastningsutjämning när poster används. Mer information finns i [Kom igång med Apache Kafka i HDInsight](apache-kafka-get-started.md).|
+|Leverans i ordning|Inom varje partition lagras posterna i strömmen i den ordning som de togs emot. Genom att associera en konsumentprocess per partition bearbetas posterna garanterat i ordning. Mer information finns i [Kom igång med Apache Kafka i HDInsight](apache-kafka-get-started.md).|
+|Meddelandetjänster|Eftersom Kafka stöder meddelandemönstret publicera-prenumerera används det ofta som en asynkron meddelandekö.|
+|Aktivitets spårning|Eftersom Kafka ger ordningsbaserad loggning av poster kan det användas för att spåra och återskapa aktiviteter. Till exempel användaråtgärder på en webbplats eller i ett program.|
+|Sammansättning|Med hjälp av strömbearbetning kan du sammanställa information från olika strömmar för att kombinera och centralisera information till användningsdata.|
+|Vidare|Med dataströmsbearbetning kan du kombinera och utöka data från flera inkommande avsnitt i ett eller flera utdataämnen.|
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,18 +1,14 @@
 ---
 title: Utforska mått i Azure Application Insights | Microsoft Docs
 description: Hur du tolkar diagram i metriska Utforskaren och hur du anpassar ett blad i mått Utforskaren.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/22/2019
-ms.openlocfilehash: b0831ff500ba4cbe71dae6251fd960f6c96c0fe5
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: f85a8fe79e7f4f820d7c0e5b942730305e892095
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820784"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670193"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Utforska mått i Application Insights
 Mått i [Application Insights][start] mäts värden och antalet händelser som skickas i telemetri från ditt program. De hjälper dig att identifiera prestanda problem och se trender i hur ditt program används. Det finns en mängd standard mått och du kan också skapa egna anpassade mått och händelser.
@@ -173,18 +169,18 @@ För att få ett meddelande via e-post om ovanliga värden för alla mått, Läg
 [Lär dig mer om aviseringar][alerts].
 
 
-## <a name="continuous-export"></a>Kontinuerlig export
+## <a name="continuous-export"></a>Löpande export
 Om du vill att data ska exporteras kontinuerligt så att du kan bearbeta dem externt bör du överväga att använda [kontinuerlig export](../../azure-monitor/app/export-telemetry.md).
 
 ### <a name="power-bi"></a>Power BI
 Om du vill ha ännu bättre vyer av dina data kan du [Exportera till Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
-## <a name="analytics"></a>Analyser
+## <a name="analytics"></a>Analytics
 [Analytics](../../azure-monitor/app/analytics.md) är ett mer flexibelt sätt att analysera din telemetri med ett kraftfullt frågespråk. Använd den om du vill kombinera eller beräkna resultat från mått eller utföra en djupgående utforskning av appens senaste prestanda. 
 
 I ett mått diagram kan du klicka på analys ikonen för att komma direkt till motsvarande Analytics-fråga.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 *Jag ser inga data i diagrammet.*
 
 * Filter gäller för alla diagram på bladet. Se till att du inte har angett något filter som utesluter alla data på ett annat, medan du fokuserar på ett diagram.

@@ -1,34 +1,33 @@
 ---
 title: 'Snabb start: övervaka Node. js med Azure Monitor Application Insights'
 description: Innehåller instruktioner för att snabbt konfigurera en Node. js-webbapp för övervakning med Azure Monitor Application Insights
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: a6d6d70336badeaa86c9982dfa977ea389ed5402
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 694d2ae529202223869fcbb2a084e32bccaedbf1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963537"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660231"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Snabb start: börja övervaka Node. js-webbappen med Azure Application insikter
 
 I den här snabb starten lägger du till Application Insights SDK-version 0,22 för Node. js i ett befintligt Node. js-webbprogram.
 
-Med Azure Application Insights kan du enkelt övervaka en webbapp för tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. Med SDK-version 0.20 och framåt kan du övervaka vanliga tredjepartspaket, till exempel MongoDB, MySQL och Redis.
+Med Azure Application Insights kan du enkelt övervaka en webbapp med avseende på tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. Med SDK-version 0.20 och framåt kan du övervaka vanliga tredjepartspaket, till exempel MongoDB, MySQL och Redis.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Ett fungerande Node. js-program.
 
 ## <a name="enable-application-insights"></a>Aktivera Application Insights
 
-Application Insights kan samla in telemetridata från alla Internet-anslutna program, oavsett om de körs lokalt eller i molnet. Gör så här om du vill börja granska dessa data:
+Application Insights kan samla in telemetridata från alla Internet-anslutna program, oavsett om de körs lokalt eller i molnet. Använd följande steg för att börja visa dessa data.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -71,7 +70,7 @@ Application Insights kan samla in telemetridata från alla Internet-anslutna pro
 4. Starta om appen.
 
 > [!NOTE]
-> Det tar 3–5 minuter innan data börjar visas i portalen. Om appen är en testapp för lågtrafik bör du komma ihåg att de flesta måtten endast registreras när det förekommer aktiva begäranden eller åtgärder.
+> Det tar 3-5 minuter innan data börjar visas i portalen. Om appen är en testapp för lågtrafik bör du komma ihåg att de flesta måtten endast registreras när det förekommer aktiva begäranden eller åtgärder.
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Börja övervaka i Azure-portalen
 
@@ -79,7 +78,7 @@ Application Insights kan samla in telemetridata från alla Internet-anslutna pro
 
    ![Application Insights översikts meny](./media/nodejs-quick-start/azure-app-insights-overview-menu.png)
 
-2. Välj **program karta** för en visuell layout av beroende relationerna mellan program komponenterna. Varje komponent visas KPI: er som belastning, prestanda, fel och varningar.
+2. Välj **program karta** för en visuell layout av beroende relationerna mellan program komponenterna. För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
 
    ![Application Insights program karta](./media/nodejs-quick-start/azure-app-insights-application-map.png)
 
@@ -91,7 +90,7 @@ Application Insights kan samla in telemetridata från alla Internet-anslutna pro
 
    ![Tids linje diagram för Application Insights Health-översikt](./media/nodejs-quick-start/azure-app-insights-health-overview.png)
 
-   Om du vill att diagrammet **Inläsningstid för sidvisning** ska fyllas i med **telemetridata på klientsidan** lägger du till det här skriptet på varje sida du vill spåra:
+   Om du vill möjliggör att diagrammet **Inläsningstid för sidvisning** fylls i med data för **telemetri på klientsidan** lägger du till den här skriptet på varje sida som du vill spåra:
 
    ```HTML
    <!-- 

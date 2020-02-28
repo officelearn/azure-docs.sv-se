@@ -1,18 +1,17 @@
 ---
 title: Aktivera Azure Monitor for VMs (för hands version) – Översikt | Microsoft Docs
 description: Lär dig hur du distribuerar och konfigurerar Azure Monitor for VMs. Ta reda på system kraven.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: ce95223e9501ad7bec2bd260a8fe6f1537db5593
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 44422f66f6fc995dcaf96947ea05b183c7131ea3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400620"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669581"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Aktivera Azure Monitor for VMs (för hands version) – Översikt
 
@@ -25,7 +24,7 @@ Så här konfigurerar du Azure Monitor for VMs:
 * Aktivera två eller flera virtuella Azure-datorer eller virtuella datorn skalningsuppsättningar över en viss prenumeration eller resursgrupp med hjälp av PowerShell.
 * Aktivera Azure Monitor for VMs för att övervaka virtuella datorer eller fysiska datorer som finns i företagets nätverk eller i annan moln miljö.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du kontrollera att du förstår informationen i följande avsnitt. 
 
@@ -81,7 +80,7 @@ Använd någon av följande metoder för att konfigurera din arbets yta för sce
 
 I följande tabell visas de Windows-och Linux-operativsystem som Azure Monitor for VMs stöder. Senare i det här avsnittet finns en fullständig lista med information om de viktigaste och lägre Linux OS-versionerna och de kernel-versioner som stöds.
 
-|Operativsystemversion |Prestanda |Kartor |
+|Operativsystemversion |Prestanda |Maps |
 |-----------|------------|-----|
 |Windows Server 2019 | X | X |
 |Windows Server 2016 1803 | X | X |
@@ -99,12 +98,12 @@ I följande tabell visas de Windows-och Linux-operativsystem som Azure Monitor f
 |SUSE Linux Enterprise Server (SLES) 12 | X | X |
 |Debian 9.4, 8 | X<sup>1</sup> | |
 
-<sup>1</sup> the prestanda funktion i Azure Monitor för virtuella datorer är tillgängliga från Azure Monitor. Den är inte tillgänglig direkt från den vänstra rutan i den virtuella Azure-datorn.
+<sup>1</sup> prestanda funktionen i Azure Monitor for VMS är bara tillgänglig från Azure Monitor. Den är inte tillgänglig direkt från den vänstra rutan i den virtuella Azure-datorn.
 
 >[!NOTE]
 >I Linux-operativ systemet:
 > - Endast standardversioner och SMP Linux-kernelversioner stöds.
-> - Avvikande kernel versioner, t.ex. (Physical Address tillägget) och Xen, inte stöds för alla Linux-distribution. Till exempel ett system med release-sträng med *2.6.16.21-0.8-xen* stöds inte.
+> - Avvikande kernel versioner, t.ex. (Physical Address tillägget) och Xen, inte stöds för alla Linux-distribution. Till exempel stöds inte ett system med versions strängen *2.6.16.21-0,8-xen* .
 > - Anpassade kärnor, inklusive omkompileringar av standard kärnor, stöds inte.
 > - CentOSPlus-kärnan stöds.
 > - Linux-kärnan måste korrigeras för SPECTRE-problemet. Kontakta din leverantör av Linux-distribution för mer information.
@@ -113,7 +112,7 @@ I följande tabell visas de Windows-och Linux-operativsystem som Azure Monitor f
 
 | Operativsystemversion | Kernel-version |
 |:--|:--|
-| 7.6 | 3.10.0-957 |
+| 7,6 | 3.10.0-957 |
 | 7.5 | 3.10.0-862 |
 | 7.4 | 3.10.0-693 |
 
@@ -137,7 +136,7 @@ I följande tabell visas de Windows-och Linux-operativsystem som Azure Monitor f
 |:--|:--|
 | 18,04 | 5,0 (inkluderar Azure-justerad kernel)<br>4,18 *<br>4,15* |
 | 16.04.3 | 4,15. * |
-| 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
+| 16.04 | 4,13.\*<br>4,11.\*<br>4,10.\*<br>4,8.\*<br>4,4.\* |
 
 #### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
@@ -170,11 +169,11 @@ I följande tabell beskrivs de anslutna källor som har stöd för funktionen ka
 |:--|:--|:--|
 | Windows-agenter | Ja | Tillsammans med [Log Analytics agent för Windows](../../azure-monitor/platform/log-analytics-agent.md), behöver Windows-agenter beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
 | Linux-agenter | Ja | Tillsammans med [Log Analytics-agenten för Linux](../../azure-monitor/platform/log-analytics-agent.md)behöver Linux-agenterna beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
-| System Center Operations Manager-hanteringsgrupp | Inga | |
+| System Center Operations Manager-hanteringsgrupp | Nej | |
 
 Du kan ladda ned beroende agenten från följande platser:
 
-| Fil | OS | Version | SHA-256 |
+| Fil | Operativsystem | Version | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
@@ -183,7 +182,7 @@ Du kan ladda ned beroende agenten från följande platser:
 
 Om du vill aktivera och komma åt funktionerna i Azure Monitor for VMs måste du ha rollen *Log Analytics deltagare* . Om du vill visa prestanda-, hälso-och kart data måste du ha rollen *övervaknings läsare* för den virtuella Azure-datorn. Log Analytics-arbetsytan måste konfigureras för Azure Monitor för virtuella datorer.
 
-Läs mer om hur du styr åtkomst till en Log Analytics-arbetsyta, [hantera arbetsytor](../../azure-monitor/platform/manage-access.md).
+Mer information om hur du styr åtkomsten till en Log Analytics arbets yta finns i [hantera arbets ytor](../../azure-monitor/platform/manage-access.md).
 
 ## <a name="how-to-enable-azure-monitor-for-vms-preview"></a>Så här aktiverar du Azure Monitor for VMs (för hands version)
 
@@ -207,7 +206,7 @@ Azure Monitor for VMs konfigurerar en Log Analytics arbets yta för att samla in
 
 |Objektnamn |Namn på räknare |
 |------------|-------------|
-|Logisk disk |Ledigt utrymme i procent |
+|Logisk disk |% ledigt utrymme |
 |Logisk disk |Medel s/disk läsning |
 |Logisk disk |Medel s/disk överföring |
 |Logisk disk |Medel s/disk skrivning |
@@ -221,7 +220,7 @@ Azure Monitor for VMs konfigurerar en Log Analytics arbets yta för att samla in
 |Minne |Tillgängliga megabyte |
 |Nätverkskort |Mottagna byte/sek |
 |Nätverkskort |Skickade byte/sek |
-|Processor |Tid i procent för processor |
+|Processor |% processortid |
 
 ### <a name="linux-performance-counters"></a>Prestandaräknare för Linux
 
@@ -238,7 +237,7 @@ Azure Monitor for VMs konfigurerar en Log Analytics arbets yta för att samla in
 |Minne |Tillgängligt minne i megabyte |
 |Nätverk |Totalt antal byte mottaget |
 |Nätverk |Totalt antal överförda byte |
-|Processor |Tid i procent för processor |
+|Processor |% processortid |
 
 ## <a name="management-packs"></a>Hanteringspaket
 
@@ -252,7 +251,7 @@ Microsoft samlar automatiskt in användnings- och data via din användning av Az
 
 För att tillhandahålla exakta och effektiva fel söknings funktioner innehåller kart funktionen information om konfigurationen av program varan. Datan innehåller information, till exempel operativ system och version, IP-adress, DNS-namn och arbets Stations namn. Microsoft samlar inte in namn, adresser eller annan kontaktinformation.
 
-Mer information om insamling och användning finns i den [sekretesspolicyn för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
+Mer information om insamling och användning av data finns i [sekretess policy för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -260,4 +259,4 @@ Nu när du har aktiverat övervakning av den virtuella datorn är övervaknings 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du använder funktionen för prestanda övervakning finns i [visa Azure Monitor for VMS prestanda](vminsights-performance.md). Identifierade programberoenden finns [visa Azure Monitor för virtuella datorer kartan](vminsights-maps.md).
+Information om hur du använder funktionen för prestanda övervakning finns i [visa Azure Monitor for VMS prestanda](vminsights-performance.md). Information om hur du visar identifierade program beroenden finns i [visa Azure Monitor for VMS karta](vminsights-maps.md).

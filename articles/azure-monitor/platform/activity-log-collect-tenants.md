@@ -1,18 +1,17 @@
 ---
 title: Samla in Azures aktivitets loggar i en Log Analytics arbets yta i Azure-klienter | Microsoft Docs
 description: Använd Event Hubs och Logic Apps för att samla in data från Azure aktivitets loggen och skicka dem till en Log Analytics arbets yta i Azure Monitor i en annan klient.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: e3b368f8a59d201f70bfad05125ed59b4b8551c5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 52bf8b955ef4dc9cfae7fd74fbad0df744609196
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530008"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669275"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Samla in Azure-aktivitets loggar i Azure Monitor över Azure Active Directory klienter (äldre)
 
@@ -60,7 +59,7 @@ Nedan visas kraven för de Azure-resurser som används i det här scenariot.
 
    ![bild av dialogrutan skapa händelsehubb](media/collect-activity-logs-subscriptions/create-event-hub1.png)
 
-4. Välj prisnivå (Basic eller Standard), en Azure-prenumeration, en resursgrupp och en plats för den nya resursen.  Klicka på **Skapa** för att skapa namnområdet. Du kan behöva vänta några minuter på att systemet blir klar med att etablera resurserna.
+4. Välj prisnivå (Basic eller Standard), en Azure-prenumeration, en resursgrupp och en plats för den nya resursen.  Klicka på **Skapa** för att skapa namnområdet. Du kan behöva vänta några minuter på att systemet ska bli klart med att etablera resurserna.
 6. Välj det namnområde som du nyss skapade från listan.
 7. Välj **Principer för delad åtkomst** och klicka sedan på **RootManageSharedAccessKey**.
 
@@ -130,7 +129,7 @@ Om du vill hämta händelsehubbens namn och anslutningssträng följer du stegen
    | Namn           | Unikt namn för logikappen. |
    | Prenumeration   | Välj den Azure-prenumeration som ska innehålla logikappen. |
    | Resursgrupp | Välj en befintlig Azure-resursgrupp eller skapa en ny för logikappen. |
-   | Location       | Välj datacenterregion för att distribuera logikappen. |
+   | plats.       | Välj datacenterregion för att distribuera logikappen. |
    | Log Analytics  | Välj om du vill logga status för varje körning av din Logi Kap par på en Log Analytics-arbetsyta.  |
 
     
@@ -273,13 +272,13 @@ Utdatan från händelsehubben innehåller en JSON-nyttolast med en matris med po
 >[!TIP]
 > Du kan hämta ett exempel på en nyttolast genom att klicka på **Kör** och granska dina **råutdata** från händelsehubben.  Du kan sedan använda denna utdata med **Generera schemat genom att använda en exempelnyttolast** i aktiviteten **Parsa JSON** för att skapa schemat.
 
-### <a name="add-compose-action"></a>Lägga till åtgärden Skriv
+### <a name="add-compose-action"></a>Lägg till åtgärden Skriv
 Åtgärden [Skriv](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) tar JSON-utdatan och skapar ett objekt som kan användas av Log Analytics-åtgärden.
 
 1. Klicka på **Nytt steg** > **Lägg till en åtgärd**
 2. Skriv *compose* som filter och välj sedan åtgärden **Dataåtgärder – Skriv**.
 
-    ![Lägga till åtgärden Skriv](media/collect-activity-logs-subscriptions/logic-apps-add-compose-action.png)
+    ![Lägg till åtgärden Skriv](media/collect-activity-logs-subscriptions/logic-apps-add-compose-action.png)
 
 3. Klicka i fältet **Indata** och välj **Brödtext** under aktiviteten **Parsa JSON**.
 

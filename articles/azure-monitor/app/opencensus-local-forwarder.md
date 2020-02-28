@@ -1,19 +1,15 @@
 ---
 title: Azure Application Insights openinsights Local forwarder (för hands version)
 description: Vidarebefordring av fördelade spår i openinsights och sträcker sig från språk som python och gå till Azure Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
-ms.openlocfilehash: 25c6c82fa1179a9173f42c3a5a4e95a371dd49c6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bcf7ba495897eb1c9b40c78f00825e863390b5d1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406612"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669972"
 ---
 # <a name="local-forwarder-preview"></a>Lokal vidarebefordrare (förhands granskning)
 
@@ -30,7 +26,7 @@ Lokal vidarebefordrare är ett [projekt med öppen källkod på GitHub](https://
 Det enklaste sättet att köra lokal vidarebefordrare under Windows är att installera det som en Windows-tjänst. Versionen levereras med Windows-tjänstens körbara fil (*WindowsServiceHost/Microsoft. LocalForwarder. WindowsServiceHost. exe*) som enkelt kan registreras med operativ systemet.
 
 > [!NOTE]
-> Den lokala vidarebefordrings tjänsten kräver minst .NET Framework 4,7. Om du inte har .NET Framework 4,7 kommer tjänsten att installeras, men den startar inte. Åtkomst till den senaste versionen av .NET Framework **[gå till hämtningssidan för .NET Framework](
+> Den lokala vidarebefordrings tjänsten kräver minst .NET Framework 4,7. Om du inte har .NET Framework 4,7 kommer tjänsten att installeras, men den startar inte. Du kommer åt den senaste versionen av .NET Framework **[på hämtnings sidan för .NET Framework](
 https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)** .
 
 1. Hämta LF. WindowsServiceHost. zip-fil från den [lokala vidarebefordrare-sidan](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) på GitHub.
@@ -78,7 +74,7 @@ För vissa användnings fall kan det vara bra att köra lokal vidarebefordrare s
   ```batchfile
   E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
   ```
-* en fristående .NET Core-uppsättning binärfiler för x86-och x64-plattformar. De kräver inte att .NET Core runtime körs. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
+* en fristående .NET Core-uppsättning binärfiler för x86-och x64-plattformar. De kräver inte att .NET Core runtime körs. */ConsoleHost/Win-x86/Publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/Win-x64/Publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
   ```batchfile
   E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
   E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
@@ -93,7 +89,7 @@ Precis som med Windows levereras versionen med följande körbara versioner av k
 dotnet Microsoft.LocalForwarder.ConsoleHost.dll
 ```
 
-* en fristående .NET Core-uppsättning binärfiler för Linux-64. Detta kräver inte att .NET Core runtime körs. */ConsoleHost/linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost*.
+* en fristående .NET Core-uppsättning binärfiler för Linux-64. Detta kräver inte att .NET Core runtime körs. */ConsoleHost/linux-x64/Publish/Microsoft.LocalForwarder.ConsoleHost*.
 
 ```batchfile
 user@machine:~/ConsoleHost/linux-x64/publish$ sudo chmod +x Microsoft.LocalForwarder.ConsoleHost

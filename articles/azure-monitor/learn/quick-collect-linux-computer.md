@@ -7,19 +7,18 @@ author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: ''
-ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: f494702166fc3c018aba9b1356a6806384ae4673
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 0cf171da5f473a0d78fc5f37139c94b0e519bcfb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530025"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660180"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Snabb start: samla in data från en Linux-dator i en hybrid miljö med Azure Monitor
 
@@ -53,7 +52,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 När informationen har verifierats och arbetsytan skapas, kan du spåra förloppet under **Meddelanden** på menyn. 
 
-## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans id och nyckel
+## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans ID och nyckel
 
 Innan du installerar Log Analytics-agenten för Linux behöver du arbetsytans id och nyckel för Log Analytics-arbetsytan. Den här informationen krävs av agent omslutnings skriptet för att konfigurera agenten korrekt och se till att den kan kommunicera med Azure Monitor.
 
@@ -69,7 +68,7 @@ Innan du installerar Log Analytics-agenten för Linux behöver du arbetsytans id
  
 4. Välj **Anslutna källor** och välj sedan **Linux-servrar**.
 
-5. Värdet till höger om **Id för arbetsyta** och **Primär nyckel**. Kopiera och klistra in båda två i det redigeringsprogram du föredrar.
+5. Värdet till höger om **Id för arbetsyta** och **Primär nyckel**. Kopiera och klistra in båda två i ditt favoritredigeringsprogram.
 
 ## <a name="install-the-agent-for-linux"></a>Installera agenten för Linux
 

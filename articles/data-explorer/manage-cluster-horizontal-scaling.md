@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: d0c9fe9ebd040ee59ae8717e95fd1911eaef61be
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: ff7420619cffc2287ab8ff6332df605d56329549
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560464"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664141"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Hantera vågrätt kluster skalning (skala ut) i Azure Datautforskaren för att hantera ändring efter frågan
 
@@ -59,13 +59,14 @@ När klustret närmar sig ett tillstånd för överförbrukning kan du skala ut 
 * Antalet kluster instanser är lägre än det maximala antalet instanser som definierats av användaren.
 * Användningen av cacheminnet är hög i över en timme.
 * PROCESSORN är hög i mer än en timme.
+* Förbrukningen är hög i över en timme.
 
 > [!NOTE]
 > Skala ut-logiken tar för närvarande inte hänsyn till användnings måttet. Om det här måttet är viktigt för ditt användnings fall använder du [anpassad autoskalning](#custom-autoscale).
 
 **Skala i**
 
-När klustret närmar sig ett tillstånd med under användningen kan du skala in till lägre kostnader men upprätthålla prestanda. Flera mått används för att kontrol lera att det är säkert att skala i klustret. Följande regler utvärderas dagligen i 7 dagar innan skalning i utförs:
+När klustret närmar sig ett tillstånd med under användningen kan du skala in till lägre kostnader men upprätthålla prestanda. Flera mått används för att kontrol lera att det är säkert att skala i klustret. Följande regler utvärderas per timme i 6 timmar innan skalning i utförs:
 * Antalet instanser är över 2 och över det minsta antalet definierade instanser.
 * För att säkerställa att det inte finns någon överlagring av resurser måste följande mått verifieras innan skalning i utförs: 
     * Användningen av cacheminnet är inte hög

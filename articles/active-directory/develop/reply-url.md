@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 1367bf32eea58b828c00ee23a59a32a2fec699ab
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8fdc64632be8b5fcb3dca8de2ee833fef25719fe
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983103"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656746"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Restriktioner och begränsningar för omdirigerings-URI/svars-URL
 
@@ -54,7 +54,7 @@ Azure AD-programmodellen stöder inte URI-jokertecken för appar som är konfigu
 > [!NOTE]
 > Med den nya [Appregistreringars](https://go.microsoft.com/fwlink/?linkid=2083908) miljön kan utvecklare inte lägga till jokertecken i användar gränssnittet. Det går bara att lägga till jokertecknet-URI för appar som loggar in på arbets-eller skol konton via appens manifest redigeraren. Nya appar kommer inte att kunna använda jokertecken i omdirigerings-URI: n. Men äldre appar som innehåller jokertecken i omdirigerings-URI: er fortsätter att fungera.
 
-Om ditt scenario kräver fler omdirigerings-URI: er än max gränsen tillåts, i stället för att lägga till en omdirigerings-URI för jokertecken, bör du överväga någon av
+Om ditt scenario kräver fler omdirigerings-URI: er än max gränsen tillåts, i stället för att lägga till en omdirigerings-URI för jokertecken bör du tänka på
 
 ### <a name="use-a-state-parameter"></a>Använda en tillstånds parameter
 
@@ -70,10 +70,6 @@ I den här metoden:
 
 > [!NOTE]
 > Med den här metoden kan en komprometterad klient ändra de ytterligare parametrar som skickas i parametern State, vilket innebär att användaren omdirigeras till en annan URL, vilket är det [Öppna omdirigeraren](https://tools.ietf.org/html/rfc6819#section-4.2.4) som beskrivs i RFC 6819. Därför måste klienten skydda dessa parametrar genom att kryptera statusen eller verifiera den på något annat sätt, till exempel Verifiera domän namn i omdirigerings-URI mot token.
-
-### <a name="add-redirect-uris-to-service-principals"></a>Lägg till omdirigerings-URI till tjänstens huvud namn
-
-En annan metod är att lägga till omdirigerings-URI: er till [tjänstens huvud namn](app-objects-and-service-principals.md#application-and-service-principal-relationship) som representerar din app-registrering i valfri Azure AD-klient. Du kan använda den här metoden om du inte kan använda en tillstånds parameter eller om ditt scenario kräver att du lägger till nya omdirigerings-URI: er i din program registrering för varje ny klient som du stöder. 
 
 ## <a name="next-steps"></a>Nästa steg
 

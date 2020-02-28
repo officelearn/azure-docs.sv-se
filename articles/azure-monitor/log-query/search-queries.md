@@ -1,18 +1,17 @@
 ---
 title: Sök frågor i Azure Monitor loggar | Microsoft Docs
 description: Den här artikeln innehåller en självstudie för att komma igång med sökning i Azure Monitor logg frågor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/06/2018
-ms.openlocfilehash: d92cd42f0fceadee16035b605e8d25c6bc23bc67
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: e13f4abc37e348759e7d0b8a2f7d890c82fe0d15
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933002"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660248"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Sök frågor i Azure Monitor loggar
 Azure Monitors logg frågor kan inledas med antingen ett tabell namn eller ett Sök kommando. I den här självstudien beskrivs sökbaserade frågor. Det finns fördelar med varje metod.
@@ -30,7 +29,7 @@ search "error"
 Även om de är enkla att använda, är det inte effektivt att använda begränsade frågor som de som visades ovan, och de kan förmodligen returnera många irrelevanta resultat. En bättre praxis är att söka i relevant tabell eller till och med en speciell kolumn.
 
 ### <a name="table-scoping"></a>Tabell omfattning
-Om du vill söka i en term i en speciell tabell lägger du till `in (table-name)` strax efter **Sök** operatorn:
+Om du vill söka efter en term i en speciell tabell lägger du till `in (table-name)` strax efter **Sök** operatorn:
 
 ```Kusto
 search in (Event) "error"
@@ -52,7 +51,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Om du använder `==` i stället för `:`, innehåller resultaten poster där *käll* kolumnen har det exakta värdet "Error" och i det här fallet. Om du använder ":" inkluderas poster där *källan* har värden som "Felkod 404" eller "fel".
+> Om du använder `==` i stället för `:`, innehåller resultaten poster där *käll* kolumnen har det exakta värdet "Error" och i detta exakta fall. Om du använder ":" inkluderas poster där *källan* har värden som "Felkod 404" eller "fel".
 
 ## <a name="case-sensitivity"></a>Skift läges känslighet
 Som standard är terms ökning Skift läges känsligt, så sökning efter DNS kan ge resultat som "DNS", "DNS" eller "DNS". Om du vill göra sökningen Skift läges känslig använder du alternativet `kind`:

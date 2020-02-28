@@ -1,18 +1,17 @@
 ---
 title: Skicka Azure-diagnostik data till Application Insights
 description: Uppdatera Azure-diagnostik offentliga konfigurationen för att skicka data till Application Insights.
-ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
-ms.openlocfilehash: b89e7d93113990e032f526d1f32e4e6acddffa75
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 80d971abd248ca8253a374b488c693ea9aa2ea3b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450586"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672335"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Skicka data från moln tjänst, virtuell dator eller Service Fabric diagnostikdata till Application Insights
 Cloud Services, Virtual Machines, Virtual Machine Scale Sets och Service Fabric alla använder Azure-diagnostik-tillägget för att samla in data.  Azure Diagnostics skickar data till Azure Storage tabeller.  Du kan dock också skicka vidare alla eller en delmängd av data till andra platser med Azure-diagnostik-tillägget 1,5 eller senare.
@@ -70,7 +69,7 @@ Exempel på konfiguration av en mottagare för Application Insights:
         - Information
         - Varning
         - Fel
-        - Kritiskt
+        - Kritisk
 
 En kanal fungerar som ett filter och gör att du kan välja specifika logg nivåer som ska skickas till mål mottagaren. Du kan till exempel samla in utförliga loggar och skicka dem till lagring, men endast skicka fel till mottagaren.
 
@@ -213,7 +212,7 @@ I den tidigare konfigurationen har följande rader följande betydelser:
 - **Logg nivån för en kanal får inte överstiga logg nivån för det som samlas in av Azure Diagnostics.** Du kan till exempel inte samla in program logg fel i avsnittet loggar och försöka skicka utförliga loggar till appens Insight-mottagare. Attributet *scheduledTransferLogLevelFilter* måste alltid samla in lika många eller fler loggar än de loggar som du försöker skicka till en mottagare.
 - **Du kan inte skicka BLOB-data som samlas in av Azure Diagnostics-tillägget till Application Insights.** Till exempel vad som anges under noden *kataloger* . För krasch dum par skickas den faktiska krasch dumpningen till Blob Storage och endast ett meddelande om att kraschdumpfilen har genererats skickas till Application Insights.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [visar Azure Diagnostics-information](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices) i Application Insights.
 * Använd [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) för att aktivera Azure Diagnostics-tillägget för ditt program.
 * Använd [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) för att aktivera Azure Diagnostics-tillägget för ditt program

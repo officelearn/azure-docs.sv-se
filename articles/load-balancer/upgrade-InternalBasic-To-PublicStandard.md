@@ -7,21 +7,22 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: f5ff4ca94f9e9c6bd03cde6b948331e42cc6225a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 346fc3d5a4e7b165caafd9847b9797abae0c9113
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77618209"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659993"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Uppgradera intern Azure-Load Balancer-utgående anslutning krävs
 [Azure standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet genom zon redundans. Mer information om Load Balancer SKU finns i [jämförelse tabell](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Eftersom interna standard Load Balancer inte tillhandahåller utgående anslutning tillhandahåller vi en lösning för att skapa en offentlig standard Load Balancer i stället.
 
-Det finns tre steg i en uppgradering:
+Det finns fyra steg i en uppgradering:
 
 1. Migrera konfigurationen till offentliga standard Load Balancer
 2. Lägg till virtuella datorer till backend-pooler för offentliga standard Load Balancer
-3. Konfigurera NSG-regler för undernät/VM-nätverk som ska AVSÄGAS från/till Internet
+3. Skapa en utgående regel på Load Balancer för utgående anslutning
+4. Konfigurera NSG-regler för undernät/VM-nätverk som ska AVSÄGAS från/till Internet
 
 Den här artikeln beskriver migrering av konfiguration. Att lägga till virtuella datorer i backend-pooler kan variera beroende på din speciella miljö. Några [övergripande rekommendationer finns](#add-vms-to-backend-pools-of-standard-load-balancer)dock.
 
@@ -83,7 +84,7 @@ Kör skriptet så här:
     **Exempel**
 
    ```azurepowershell
-   ./AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
 ### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>Lägg till virtuella datorer i backend-pooler för Standard Load Balancer
@@ -109,6 +110,12 @@ Här följer några exempel på hur du lägger till virtuella datorer till backe
 
 * **Skapa nya virtuella datorer som ska läggas till i backend-pooler för den nyligen skapade offentliga Standard Load Balancer**.
     * Du hittar mer information om hur du skapar en virtuell dator och associerar den med Standard Load Balancer [här](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+
+### <a name="create-an-outbound-rule-for-outbound-connection"></a>Skapa en utgående regel för utgående anslutning
+
+Följ [instruktionerna](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) för att skapa en utgående regel så att du kan
+* Definiera utgående NAT från grunden.
+* Skala och finjustera beteendet för befintlig utgående NAT.
 
 ### <a name="create-nsg-rules-for-vms-which-to-refrain-communication-from-or-to-the-internet"></a>Skapa NSG-regler för virtuella datorer som kan undvika kommunikation från eller till Internet
 Om du vill undvika att Internet trafiken når dina virtuella datorer kan du skapa en [NSG-regel](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) för de virtuella datorernas nätverks gränssnitt.

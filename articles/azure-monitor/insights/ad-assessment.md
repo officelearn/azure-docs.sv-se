@@ -1,18 +1,17 @@
 ---
 title: Optimera din Active Directory-miljö med Azure Monitor | Microsoft Docs
 description: Du kan använda en lösning för Active Directory hälso kontroll för att utvärdera miljö risker och hälso tillstånd med jämna mellanrum.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: 1e97ce1655ae35f4986a915a382d456bb8d2ce4b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 57c474c8391168702154b71e0c454253ab921dc1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167838"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667235"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimera din Active Directory miljö med lösningen för Active Directory hälso kontroll i Azure Monitor
 
@@ -34,7 +33,7 @@ När du har lagt till lösningen och en kontroll har slutförts visas sammanfatt
 
 ![bild av kontroll panelen för AD Health-kontroll](./media/ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Active Directory Health Check-lösningen kräver en version av .NET Framework 4.6.2 som stöds eller som är installerad på varje dator som har Log Analytics agent för Windows (kallas även Microsoft Monitoring Agent (MMA)) installerad.  Agenten används av System Center 2016-Operations Manager, Operations Manager 2012 R2 och Azure Monitor.
 * Lösningen stöder domänkontrollanter som kör Windows Server 2008 och 2008 R2, Windows Server 2012 och 2012 R2 och Windows Server 2016.
@@ -60,7 +59,7 @@ Active Directory hälso kontroll samlar in data från följande källor med hjä
 - Register
 - LDAP
 - .NET Framework
-- Händelseloggen
+- Händelse logg
 - ADSI (Active Directory Service Interfaces)
 - Windows PowerShell
 - Fildata
@@ -97,7 +96,7 @@ Viktningen för varje rekommendation uttrycks som en procent andel av det totala
 
 ### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Bör du 100% i varje fokus områden?
 
-Inte nödvändigtvis. Rekommendationerna baseras på den kunskap och de erfarenheter som Microsoft-tekniker har fått på tusentals kund besök. Dock är inte två server infrastrukturer identiska, och vissa rekommendationer kan vara mer eller mindre relevanta för dig. Vissa säkerhets rekommendationer kan till exempel vara mindre relevanta om dina virtuella datorer inte är exponerade för Internet. Vissa tillgänglighets rekommendationer kan vara mindre relevanta för tjänster som tillhandahåller låg prioritet för insamling och rapportering av ad hoc-data. Problem som är viktiga för en vuxen verksamhet kan vara mindre viktiga för en start. Du kanske vill identifiera vilka fokus områden som är dina prioriteringar och titta sedan på hur dina resultat förändras över tid.
+Inte nödvändigt vis. Rekommendationerna baseras på den kunskap och de erfarenheter som Microsoft-tekniker har fått på tusentals kund besök. Dock är inte två server infrastrukturer identiska, och vissa rekommendationer kan vara mer eller mindre relevanta för dig. Vissa säkerhets rekommendationer kan till exempel vara mindre relevanta om dina virtuella datorer inte är exponerade för Internet. Vissa tillgänglighets rekommendationer kan vara mindre relevanta för tjänster som tillhandahåller låg prioritet för insamling och rapportering av ad hoc-data. Problem som är viktiga för en vuxen verksamhet kan vara mindre viktiga för en start. Du kanske vill identifiera vilka fokus områden som är dina prioriteringar och titta sedan på hur dina resultat förändras över tid.
 
 Varje rekommendation innehåller vägledning om varför det är viktigt. Du bör använda den här vägledningen för att utvärdera om implementering av rekommendationen passar dig, baserat på dina IT-tjänsters beskaffenhet och organisationens affärs behov.
 
@@ -184,7 +183,7 @@ Resultaten kan sedan exporteras till Excel för vidare undersökning.
 
 *Finns det något sätt att konfigurera hur ofta hälso kontrollen körs?*
 
-* Nej, inte just nu.
+* Inte just nu.
 
 *Om en annan server för identifieras efter att jag har lagt till en hälso kontroll lösning, kontrol leras den*
 
@@ -204,7 +203,7 @@ Resultaten kan sedan exporteras till Excel för vidare undersökning.
 
 *Finns det något sätt att konfigurera när data samlas in?*
 
-* Nej, inte just nu.
+* Inte just nu.
 
 *Varför ska du bara visa de 10 viktigaste rekommendationerna?*
 

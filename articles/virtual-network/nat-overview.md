@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: b27baed20d8e36bf5790036e2fdc0804a94a4ea1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0e19271b5c69610dd9f44c3121e195b80732279c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589444"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669547"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>Vad är Virtual Network NAT (offentlig för hands version)?
 
@@ -39,7 +39,7 @@ Virtual Network NAT (Network Address Translation) fören klar endast utgående I
 
 
 >[!NOTE] 
->Virtual Network NAT är tillgängligt som offentlig för hands version för tillfället. För närvarande är det bara tillgängligt i en begränsad uppsättning [regioner](#region-availability). Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.comsupport/legal/preview-supplemental-terms).
+>Virtual Network NAT är tillgängligt som offentlig för hands version för tillfället. För närvarande är det bara tillgängligt i en begränsad uppsättning [regioner](#region-availability). Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 ## <a name="static-ip-addresses-for-outbound-only"></a>Statiska IP-adresser för utgående
 
@@ -200,5 +200,5 @@ Vi vill veta hur vi kan förbättra tjänsten. Dela din [feedback om den offentl
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig om [NAT gateway-resurs](./nat-gateway-resource.md).
-- [Berätta för oss vad du ska bygga härnäst i UserVoice](https://aka/natuservoice).
+- [Berätta för oss vad du ska bygga härnäst i UserVoice](https://aka.ms/natuservoice).
 - [Ge feedback om den offentliga för hands versionen](https://aka.ms/natfeedback).

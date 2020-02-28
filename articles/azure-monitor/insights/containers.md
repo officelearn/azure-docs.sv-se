@@ -1,18 +1,17 @@
 ---
 title: Lösning för övervakning av behållare i Azure Monitor | Microsoft Docs
 description: Lösningen för övervakning av behållare i Azure Monitor hjälper dig att visa och hantera dina Docker-och Windows-behållarobjekt på en enda plats.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/22/2019
-ms.openlocfilehash: 7dab80f901304a727b75c7861c5d865fee03bec3
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 171f897f6e110e8f759281c139addab477ecede3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483014"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664702"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Lösning för övervakning av behållare i Azure Monitor
 

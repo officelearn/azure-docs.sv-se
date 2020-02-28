@@ -1,18 +1,17 @@
 ---
 title: Samla in anpassade loggar i Azure Monitor | Microsoft Docs
 description: Azure Monitor kan samla in händelser från textfiler på både Windows-och Linux-datorer.  Den här artikeln beskriver hur du definierar en ny anpassad logg och information om de poster som de skapar i Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 6d85ada428ab448bd8e96545999ca038e532a32b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1e889aaef7cd01cd743e8063a8a1dd5138ba9d0e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450666"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670601"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Anpassade loggar i Azure Monitor
 
@@ -123,7 +122,7 @@ Anpassade logg poster har en typ med logg namnet som du anger och egenskaperna i
 | TimeGenerated |Datum och tid då posten samlades in av Azure Monitor.  Om loggen använder en tidsbaserad avgränsare är detta den tid som samlas in från posten. |
 | SourceSystem |Typ av agent som posten samlades in från. <br> OpsManager – Windows-agent, antingen direkt anslutning eller System Center Operations Manager <br> Linux – alla Linux-agenter |
 | RawData |Fullständig text för den insamlade posten. Du kommer förmodligen att vilja [parsa dessa data till enskilda egenskaper](../log-query/parse-text.md). |
-| ManagementGroupName |Namnet på hanterings gruppen för System Center-åtgärder hantera agenter.  För andra agenter är detta AOI -\<arbetsyte-ID\> |
+| ManagementGroupName |Namnet på hanterings gruppen för System Center-åtgärder hantera agenter.  För andra agenter är detta AOI-\<arbetsyte-ID\> |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Exempel på genom gång av hur du lägger till en anpassad logg
@@ -170,4 +169,4 @@ I de fall där dina data inte kan samlas in med anpassade loggar bör du överv�
 
 ## <a name="next-steps"></a>Nästa steg
 * Se [parsa text data i Azure Monitor](../log-query/parse-text.md) för metoder för att parsa varje importerad loggpost till flera egenskaper.
-* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.
+* Lär dig mer om [logg frågor](../log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar.

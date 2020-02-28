@@ -1,19 +1,17 @@
 ---
 title: Skapa en klassisk måtta avisering i Azure med en Resource Manager-mall
 description: Lär dig hur du använder en Resource Manager-mall för att skapa en klassisk mått avisering för att ta emot aviseringar via e-post eller webhook.
-author: johnkemnetz
-services: azure-monitor
-ms.service: azure-monitor
+author: rboucher
+ms.author: robb
 ms.topic: conceptual
 ms.date: 4/27/2018
-ms.author: johnkem
-ms.subservice: metrics
-ms.openlocfilehash: 7c1cdf912f9a1e4e8ae92baa4381e9705702136f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.subservice: alerts
+ms.openlocfilehash: c25886308b4f9560b336982b87bd4b38b306bcb2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977594"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668051"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Skapa en klassisk måttavisering med en Resource Manager-mall
 Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) för att konfigurera Azure Metric-aviseringar. På så sätt kan du automatiskt konfigurera aviseringar för dina resurser när de skapas för att säkerställa att alla resurser övervakas korrekt.
@@ -401,7 +399,7 @@ En avisering i en Resource Manager-mall är oftast användbar när du skapar en 
 }
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * [Läs mer om aviseringar](alerts-overview.md)
 * [Lägg till diagnostikinställningar](../../azure-monitor/platform/diagnostic-settings-template.md) i Resource Manager-mallen
 * För JSON-syntax och egenskaper, se referens för [Microsoft. Insights/alertrules-](/azure/templates/microsoft.insights/alertrules) mallen.

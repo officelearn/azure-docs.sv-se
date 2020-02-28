@@ -1,152 +1,151 @@
 ---
-title: Avancerade funktionerna i Azure Metrics Explorer
-description: Lär dig mer om de avancerade funktionerna i Azure Monitor Metrics Explorer
+title: Avancerade funktioner i Azure Metrics Explorer
+description: Lär dig mer om avancerade funktioner i Azure Monitor Metrics Explorer
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c754f33ab5f4346413b6603ca2cd404acac5443f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60256823"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662408"
 ---
-# <a name="advanced-features-of-azure-metrics-explorer"></a>Avancerade funktionerna i Azure Metrics Explorer
+# <a name="advanced-features-of-azure-metrics-explorer"></a>Avancerade funktioner i Azure Metrics Explorer
 
 > [!NOTE]
-> Den här artikeln förutsätter att du är bekant med grundläggande funktioner i Metrics Explorer. Om du är nybörjare och vill lära dig hur du skapar din första måttdiagram finns [komma igång med Azure Metrics Explorer](metrics-getting-started.md).
+> Den här artikeln förutsätter att du är bekant med grundläggande funktioner i Metrics Explorer. Om du är en ny användare och vill lära dig hur du skapar ditt första mått diagram, se [komma igång med Azure Metrics Explorer](metrics-getting-started.md).
 
 ## <a name="metrics-in-azure"></a>Mått i Azure
 
-[Mått i Azure Monitor](data-platform-metrics.md) är serie mätvärden och antal som samlas in och lagras över tid. Det finns mått för standard (eller ”plattformen”) och anpassade mått. Standardmått tillhandahålls till dig av själva Azure-plattformen. Standardmått visas statistik för hälsa och användning av dina Azure-resurser. Medan anpassade mått som ska skickas till Azure genom att dina program med den [Application Insights API för anpassade händelser och mått](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [tillägget för Windows Azure Diagnostics SÄKERHETSSPECIFIKA](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), eller genom [Azure Övervaka REST-API](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
+[Mått i Azure Monitor](data-platform-metrics.md) är serien med uppmätta värden och antal som samlas in och lagras över tid. Det finns standard-(eller "Platform") mått och anpassade mått. Standard måtten tillhandahålls av själva Azure-plattformen. Standard måtten återspeglar hälso-och användnings statistik för dina Azure-resurser. Anpassade mått skickas till Azure av dina program med hjälp av [Application Insights API för anpassade händelser och mått](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [Windows Azure-diagnostik (wad)-tillägg](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)eller [Azure Monitor REST API](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Skapa vyer med flera mått och diagram
 
-Du kan skapa diagram som beskriver flera mått rader eller visa flera diagram med mätvärden på samma gång. Den här funktionen kan du:
+Du kan skapa diagram som ritar flera mått linjer eller Visa flera Mät diagram samtidigt. Med den här funktionen kan du:
 
-- korrelera relaterade mått på samma diagram för att se hur ett värde som är relaterad till en annan
-- Visa mått med olika enheter i närheten
-- visuellt sammanställa och jämföra mått från flera resurser
+- korrelera relaterade mått i samma graf för att se hur ett värde är relaterat till ett annat
+- Visa mått med olika mått enheter i nära närhet
+- Sammanställ och jämför mått från flera resurser visuellt
 
-Om du har 5 storage-konton och du vill veta hur mycket diskutrymme som används mellan dem, kan du skapa en (staplat) ytdiagram som visar person och summan av alla värden vid specifika tidpunkter i tid.
+Om du till exempel har 5 lagrings konton och vill veta hur mycket totalt utrymme som förbrukas mellan dem, kan du skapa ett (staplat) ytdiagram som visar den enskilda och summan av alla värden vid specifika tidpunkter.
 
-### <a name="multiple-metrics-on-the-same-chart"></a>Flera mått på samma diagram
+### <a name="multiple-metrics-on-the-same-chart"></a>Flera mått i samma diagram
 
-Först [skapa ett nytt diagram](metrics-getting-started.md#create-your-first-metric-chart). Klicka på **Lägg till måttet** och upprepa stegen för att lägga till ett annat mått på samma diagram.
+Börja med att [skapa ett nytt diagram](metrics-getting-started.md#create-your-first-metric-chart). Klicka på **Lägg till mått** och upprepa stegen för att lägga till ett mått i samma diagram.
 
    > [!NOTE]
-   > Du normalt vill inte ha mått med olika enheter (d.v.s. ”millisekunder” och ”kilobyte”) eller med betydligt olika skala på ett diagram. Överväg istället att använda flera diagram. Klicka på knappen Lägg till diagram för att skapa flera diagram i metrics explorer.
+   > Du vill normalt inte ha mått med olika mått enheter (t. ex. "millisekunder" och "kilobyte") eller med betydligt annorlunda skala i ett diagram. Överväg i stället att använda flera diagram. Klicka på knappen Lägg till diagram för att skapa flera diagram i Metrics Explorer.
 
 ### <a name="multiple-charts"></a>Flera diagram
 
-Klicka på den **Lägg till diagram** och skapa ett annat diagram med ett annat mått.
+Klicka på **Lägg till diagram** och skapa ett annat diagram med ett annat mått.
 
-### <a name="order-or-delete-multiple-charts"></a>Sortera eller ta bort flera diagram
+### <a name="order-or-delete-multiple-charts"></a>Ordna eller ta bort flera diagram
 
-Om du vill sortera eller ta bort flera diagram, klickar du på ellipserna ( **...**  ) symbol att öppna diagram-menyn och väljer lämplig menyalternativet av **Flytta upp**, **Flytta ned**, eller **ta bort**.
+Om du vill ordna eller ta bort flera diagram klickar du på ellipsen ( **...** )-symbolen för att öppna Diagram-menyn och välja lämpligt meny alternativ för **Flytta upp**, **Flytta ned**eller **ta bort**.
 
-## <a name="apply-filters-to-charts"></a>Använda filter diagram
+## <a name="apply-filters-to-charts"></a>Tillämpa filter på diagram
 
-Du kan använda filter på diagram som visar mått med dimensioner. Till exempel om måttet ”Transaktionsantal” har en dimension, ”svarstypen”, som anger om svaret från transaktioner har lyckats eller misslyckats sedan filtrering på den här dimensionen skulle rita en rad för diagram för endast lyckade (eller bara misslyckade) transaktioner. 
+Du kan använda filter för diagram som visar mått med dimensioner. Om till exempel måttet "antal transaktioner" har en dimension, "svarstyp", som anger om svaret från transaktioner lyckades eller inte har misslyckats, skulle filtrering av den här dimensionen rita en diagram rad för endast lyckade (eller endast misslyckade) transaktioner. 
 
-### <a name="to-add-a-filter"></a>Lägg till ett filter
+### <a name="to-add-a-filter"></a>Lägga till ett filter
 
 1. Välj **Lägg till filter** ovanför diagrammet
 
-2. Välj vilken dimension (egenskapen) som du vill filtrera
+2. Välj vilken dimension (egenskap) som du vill filtrera
 
-   ![mått-avbildning](./media/metrics-charts/00006.png)
+   ![bild på mått](./media/metrics-charts/00006.png)
 
-3. Välj vilka dimensionsvärden som du vill inkludera när du gör i diagrammet (det här exemplet visar filtrerar ut lyckad storage-transaktioner):
+3. Välj vilka dimensions värden som du vill ta med när diagrammet ritas (det här exemplet visar filtrering av lyckade lagrings transaktioner):
 
-   ![mått-avbildning](./media/metrics-charts/00007.png)
+   ![bild på mått](./media/metrics-charts/00007.png)
 
-4. Klicka utanför Väljaren Filter att stänga den när du har valt filtervärdena. Diagrammet visar nu hur många lagringstransaktioner har misslyckats:
+4. När du har valt filter värden klickar du på bort från filter väljaren för att stänga den. Nu visar diagrammet hur många lagrings transaktioner som har misslyckats:
 
-   ![mått-avbildning](./media/metrics-charts/00008.png)
+   ![bild på mått](./media/metrics-charts/00008.png)
 
-5. Du kan upprepa steg 1 – 4 använda flera filter i samma diagram.
+5. Du kan upprepa steg 1-4 om du vill tillämpa flera filter på samma diagram.
 
 
 
-## <a name="apply-splitting-to-a-chart"></a>Tillämpa delar upp till ett diagram
+## <a name="apply-splitting-to-a-chart"></a>Använd delning i ett diagram
 
-Du kan dela ett mått med dimensionen att visualisera hur olika segment av mått jämför mot varandra och identifiera öar segmenten i en dimension.
+Du kan dela upp ett mått per dimension för att visualisera hur olika segment i måttet jämförs med varandra och identifiera de yttre segmenten i en dimension.
 
-### <a name="apply-splitting"></a>Tillämpa dela
+### <a name="apply-splitting"></a>Använd delning
 
-1. Klicka på **gäller dela** ovanför diagrammet.
+1. Klicka på **Använd delning** ovanför diagrammet.
  
    > [!NOTE]
-   > Dela kan inte användas med diagram som har flera mått. Du kan också ha flera filter men endast en delande dimension som tillämpas på ett enkelt diagram.
+   > Delning kan inte användas med diagram som har flera mått. Du kan också ha flera filter, men bara en delnings dimension som tillämpas på ett enskilt diagram.
 
-2. Välj en dimension som du vill segmentera diagrammet:
+2. Välj en dimension som du vill segmentera diagrammet på:
 
-   ![mått-avbildning](./media/metrics-charts/00010.png)
+   ![bild på mått](./media/metrics-charts/00010.png)
 
-   Diagrammet visar nu nu flera rader, en för varje segment för dimension:
+   Nu visar diagrammet flera rader, en för varje dimensions segment:
 
-   ![mått-avbildning](./media/metrics-charts/00012.png)
+   ![bild på mått](./media/metrics-charts/00012.png)
 
-3. Klicka på bort från den **gruppering väljare** att Stäng den.
+3. Klicka bort från **grupp väljaren** för att stänga den.
 
    > [!NOTE]
-   > Använd både filtrera och dela på samma dimension för att dölja segment som är inte relevant för ditt scenario och göra det lättare att läsa diagram.
+   > Använd både filtrering och delning på samma dimension för att dölja de segment som är irrelevanta för ditt scenario och göra diagram lättare att läsa.
 
-## <a name="lock-boundaries-of-chart-y-axis"></a>Lås gränserna för y-axeln i diagrammet
+## <a name="lock-boundaries-of-chart-y-axis"></a>Lås gränser i diagrammets y-axel
 
-Låsning intervallet för y-axeln blir viktigt när diagrammet visar mindre variationer av större värden. 
+Att låsa y-axelns intervall blir viktigt när diagrammet visar mindre variationer av större värden. 
 
-När mängden lyckade förfrågningar rullas ned från 99,99% till 99,5%, kan det till exempel representerar en betydande minskning i tjänstkvaliteten. Dock märker en liten numeriskt värde variationerna skulle vara svåra eller omöjliga även från standardinställningar för diagrammet. I det här fallet kan du låsa den lägsta gränsen för diagrammet för att 99 procent, vilket gör den här små släpp tydligare. 
+Om antalet lyckade förfrågningar till exempel sjunker från 99,99% till 99,5% kan det innebära en betydande minskning av tjänst kvaliteten. Märker av små numeriska värden skulle dock vara svårt eller ens omöjligt från standard diagram inställningarna. I det här fallet kan du låsa den lägsta kant linjen i diagrammet till 99%, vilket gör den små minskningen tydligare. 
 
-Ett annat exempel är en variationerna i det tillgängliga minnet och där värdet tekniskt aldrig når 0. Åtgärda intervallet till ett högre värde kan göra släpper i tillgängligt minne lättare att upptäcka. 
+Ett annat exempel är en fluktuation i det tillgängliga minnet, där värdet då tekniskt aldrig når 0. Att korrigera intervallet till ett högre värde kan göra att det tillgängliga minnet blir lättare att hitta. 
 
-Om du vill styra y-axelintervall använder det ”...” Skapa diagram över menyn och välj **redigera diagram** att få åtkomst till avancerade inställningar. Ändra värden i y-axelintervall avsnitt eller Använd **automatisk** knappen för att återgå till standardvärden.
+Om du vill styra y-axelns intervall använder du "..." Diagram-menyn och välj **Redigera diagram** för att få åtkomst till avancerade diagram inställningar. Ändra värdena i avsnittet intervall i Y-axeln eller Använd knappen **Auto** för att återgå till standardvärdena.
 
-![mått-avbildning](./media/metrics-charts/00014-manually-set-granularity.png)
+![bild på mått](./media/metrics-charts/00014-manually-set-granularity.png)
 
 > [!WARNING]
-> Låsa gränserna för y-axeln för diagram som spårar olika antal eller summerar under en viss tid (och därmed antal som används, sum, minimum eller maximum aggregeringar) kräver vanligtvis att ange en fast tidskornighet i stället för att förlita sig på automatisk standardvärdena. Detta är nödvändigt eftersom värden i diagram ändras när tidskornighet automatiskt ändras av användaren ändrar storlek på webbläsarfönster eller kommer från en skärmupplösning till en annan. Den resulterande ändras i tidskornighet effekterna utseendet på diagrammet, ogiltigförklara aktuella valet av y-axelintervall.
+> Att låsa gränserna för y-axeln för de diagram som spårar olika antal eller summor under en tids period (och därför användnings antal, sum, minimal eller maximal agg regeringar) kräver vanligt vis att du anger en fast tids kornig het i stället för att förlita dig på de automatiska standardvärdena. Detta är nödvändigt eftersom värdena i diagram ändras när tids kornig het ändras automatiskt av användarens storleks ändrings fönster eller från en skärmupplösning till en annan. Den resulterande ändringen av tids kornig het påverkar diagrammets utseende, vilket gör att det aktuella valet av y-axelns intervall är ogiltigt.
 
-## <a name="pin-charts-to-dashboards"></a>Fäst diagram på instrumentpaneler
+## <a name="pin-charts-to-dashboards"></a>Fästa diagram på instrument paneler
 
-När du har konfigurerat diagrammen kan du lägga till den i instrumentpaneler så att du kan visa den igen, eventuellt i kontexten av andra övervakning telemetri, eller dela med ditt team.
+När du har konfigurerat diagrammen kanske du vill lägga till det i instrument panelerna så att du kan visa det igen, eventuellt i samband med andra övervakning av telemetri, eller dela med ditt team.
 
-Att fästa ett diagram som är konfigurerade på en instrumentpanel:
+Fästa ett konfigurerat diagram på en instrument panel:
 
-När du har konfigurerat schemat klickar du på den **diagram åtgärder** menyn i högra viktigaste hörnet i diagrammet och klicka på **fäst på instrumentpanelen**.
+När du har konfigurerat diagrammet klickar du på menyn **diagram åtgärder** i diagrammets högra övre hörn och klickar på **Fäst på instrument panelen**.
 
-![mått-avbildning](./media/metrics-charts/00013.png)
+![bild på mått](./media/metrics-charts/00013.png)
 
 ## <a name="create-alert-rules"></a>Skapa aviseringsregler
 
-Du kan använda de kriterier som du har angett för att visualisera dina mått som grund för ett mått baserade varningsregeln. Ny aviseringsregel tas din målresursen, mått, dela och filterdimensioner från ditt diagram. Du kommer att kunna ändra inställningarna senare i fönstret Skapa en aviseringsregel.
+Du kan använda de kriterier som du har angett för att visualisera måtten som grund för en Metric-baserad varnings regel. Den nya varnings regeln innehåller dina mål resurser, mått, delning och filter dimensioner från diagrammet. Du kommer att kunna ändra inställningarna senare i fönstret Skapa aviserings regel.
 
-### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Klicka för att skapa en ny varningsregel **ny aviseringsregel**
+### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Om du vill skapa en ny varnings regel klickar du på **ny aviserings regel**
 
-![Knapp för ny varningsregel markerat i rött](./media/metrics-charts/015.png)
+![Knappen Ny varnings regel markerad i rött](./media/metrics-charts/015.png)
 
-Du kommer att tas till fönstret varningsregel skapas med de underliggande måttet dimensionerna från ditt diagram ifylld i förväg för att göra det enklare att skapa anpassade aviseringsregler.
+Du kommer att gå till fönstret Skapa aviserings regel med de underliggande mått dimensionerna från diagrammet i förväg ifyllda för att göra det enklare att skapa anpassade aviserings regler.
 
-![Skapa aviseringsregel](./media/metrics-charts/016.png)
+![Skapa aviserings regel](./media/metrics-charts/016.png)
 
-Titta i den här [artikeln](alerts-metric.md) mer information om hur du konfigurerar aviseringar för mått.
+Kolla in den här [artikeln](alerts-metric.md) om du vill veta mer om hur du konfigurerar mått aviseringar.
 
 ## <a name="troubleshooting"></a>Felsökning
 
-*Jag ser några data i diagrammet.*
+*Jag ser inga data i diagrammet.*
 
-* Filtren gäller för alla diagram i fönstret. Se till att även om du vill fokusera på ett diagram, ställa in ett filter som inte omfattar alla data på en annan.
+* Filter gäller för alla diagram i fönstret. Se till att du inte har angett något filter som utesluter alla data på ett annat, medan du fokuserar på ett diagram.
 
-* Om du vill definiera olika filter för olika diagram, skapa dem i olika bladen kan du spara dem som separata Favoriter. Om du vill kan fästa du dem på instrumentpanelen så att du kan se dem tillsammans med varandra.
+* Om du vill ange olika filter för olika diagram skapar du dem på olika blad, sparar dem som separata favoriter. Om du vill kan du fästa dem på instrument panelen så att du kan se dem bredvid varandra.
 
-* Om du segmentera ett diagram av en egenskap som inte har definierats för måttet sedan debiteras ingenting i diagrammet. Försök rensa segmentering (dela) eller välj en annan egenskap.
+* Om du segmentera ett diagram med en egenskap som inte har definierats för måttet, kommer det inte att finnas något i diagrammet. Försök att rensa segmenteringen (delning) eller Välj en annan egenskap.
 
 ## <a name="next-steps"></a>Nästa steg
 
-  Läs [skapa anpassade KPI-instrumentpaneler](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) vill veta mer om bästa praxis för att skapa användbara instrumentpaneler med mått.
+  Läs [skapa anpassade KPI-instrumentpaneler](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) för att lära dig mer om metod tips för att skapa åtgärds bara instrument paneler med mått.
 

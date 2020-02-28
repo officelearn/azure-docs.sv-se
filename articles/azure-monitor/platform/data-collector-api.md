@@ -1,18 +1,17 @@
 ---
 title: API för Azure Monitor HTTP-datainsamling | Microsoft Docs
 description: 'Du kan använda API: et Azure Monitor HTTP-datainsamling för att lägga till POST-JSON-data till en Log Analytics arbets yta från vilken klient som helst som kan anropa REST API. Den här artikeln beskriver hur du använder API: et och innehåller exempel på hur du publicerar data med hjälp av olika programmeringsspråk.'
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: 136644dbcfe9e2835f799b284d21263913bc67b4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f12e9e90b99a055945c34398ff5351334c344253
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932598"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666760"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Skicka loggdata till Azure Monitor med API: t för HTTP-datainsamling (offentlig för hands version)
 Den här artikeln visar hur du använder API: t för HTTP-datainsamling för att skicka logg data till Azure Monitor från en REST API-klient.  Här beskrivs hur du formaterar data som samlats in av ditt skript eller program, inkluderar dem i en begäran och har den begäran som auktoriserats av Azure Monitor.  Exempel finns för PowerShell, C#och python.
@@ -35,12 +34,12 @@ Alla data i arbets ytan Log Analytics lagras som en post med en viss post typ.  
 ## <a name="create-a-request"></a>Skapa en begäran
 Om du vill använda API: et för HTTP-datainsamling skapar du en POST-begäran som innehåller de data som ska skickas i JavaScript Object Notation (JSON).  I följande tre tabeller visas de attribut som krävs för varje begäran. Vi beskriver varje attribut mer detaljerat längre fram i artikeln.
 
-### <a name="request-uri"></a>Begärd URI
+### <a name="request-uri"></a>URI för förfrågan
 | Attribut | Egenskap |
 |:--- |:--- |
-| Metod |EFTER |
+| Metod |POST |
 | URI |https://\<CustomerId\>. ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
-| Innehålls typ |application/json |
+| Innehållstyp |application/json |
 
 ### <a name="request-uri-parameters"></a>Begär URI-parametrar
 | Parameter | Beskrivning |
@@ -49,16 +48,16 @@ Om du vill använda API: et för HTTP-datainsamling skapar du en POST-begäran s
 | Resurs |API-resursens namn:/API/logs. |
 | API-version |Den version av API: et som ska användas med den här begäran. För närvarande är det 2016-04-01. |
 
-### <a name="request-headers"></a>Begärandehuvuden
+### <a name="request-headers"></a>Begärandehuvud
 | Huvud | Beskrivning |
 |:--- |:--- |
-| Autentisering |Signaturen för auktorisering. Senare i artikeln kan du läsa om hur du skapar ett HMAC-SHA256-huvud. |
+| Auktorisering |Signaturen för auktorisering. Senare i artikeln kan du läsa om hur du skapar ett HMAC-SHA256-huvud. |
 | Logg typ |Ange post typen för de data som skickas. Får bara innehålla bokstäver, siffror och under streck (_) och får inte överstiga 100 tecken. |
-| x-MS-date |Datumet då begäran bearbetades i RFC 1123-format. |
-| x-MS-AzureResourceId | Resurs-ID för den Azure-resurs som data ska associeras med. Detta fyller i egenskapen [_ResourceId](log-standard-properties.md#_resourceid) och gör att data kan tas med i [resurs kontext](design-logs-deployment.md#access-mode) frågor. Om det här fältet inte anges tas data inte med i resurs kontext frågor. |
-| tidsgenererat-fält | Namnet på ett fält i data som innehåller tidsstämpeln för dataobjektet. Om du anger ett fält används dess innehåll för **TimeGenerated**. Om det här fältet inte anges är standardvärdet för **TimeGenerated** den tidpunkt då meddelandet matas in. Innehållet i meddelande fältet ska följa ISO 8601-formatet ÅÅÅÅ-MM-DDThh: mm: ssZ. |
+| x-ms-date |Datumet då begäran bearbetades i RFC 1123-format. |
+| x-ms-AzureResourceId | Resurs-ID för den Azure-resurs som data ska associeras med. Detta fyller i egenskapen [_ResourceId](log-standard-properties.md#_resourceid) och gör att data kan tas med i [resurs kontext](design-logs-deployment.md#access-mode) frågor. Om det här fältet inte anges tas data inte med i resurs kontext frågor. |
+| time-generated-field | Namnet på ett fält i data som innehåller tidsstämpeln för dataobjektet. Om du anger ett fält används dess innehåll för **TimeGenerated**. Om det här fältet inte anges är standardvärdet för **TimeGenerated** den tidpunkt då meddelandet matas in. Innehållet i meddelande fältet ska följa ISO 8601-formatet ÅÅÅÅ-MM-DDThh: mm: ssZ. |
 
-## <a name="authorization"></a>Autentisering
+## <a name="authorization"></a>Auktorisering
 Alla förfrågningar till API: et för Azure Monitor HTTP-datainsamling måste innehålla ett Authorization-huvud. Om du vill autentisera en begäran måste du signera begäran med antingen den primära eller sekundära nyckeln för arbets ytan som gör begäran. Sedan skickar du signaturen som en del av begäran.   
 
 Här är formatet för Authorization-huvudet:
@@ -137,7 +136,7 @@ Azure Monitor lägger till ett suffix till egenskaps namnet för att identifiera
 |:--- |:--- |
 | Sträng |_s |
 | Boolesk |_b |
-| Dubbelklicka |_d |
+| Double-värde |_d |
 | Datum/tid |_t |
 | GUID (lagras som en sträng) |_g |
 
@@ -158,14 +157,14 @@ Men om du sedan gör nästa överföring skapar Azure Monitor de nya egenskapern
 
 ![Exempel post 3](media/data-collector-api/record-03.png)
 
-Om du sedan skickade följande post innan post typen skapades, skulle Azure Monitor skapa en post med tre egenskaper, **antal_l**, **boolean_s**och **string_s**. I den här posten formateras var och en av de ursprungliga värdena som en sträng:
+Om du sedan skickade följande post innan post typen skapades, skulle Azure Monitor skapa en post med tre egenskaper, **number_s**, **boolean_s**och **string_s**. I den här posten formateras var och en av de ursprungliga värdena som en sträng:
 
 ![Exempel post 4](media/data-collector-api/record-04.png)
 
 ## <a name="reserved-properties"></a>Reserverade egenskaper
 Följande egenskaper är reserverade och ska inte användas i en anpassad posttyp. Du får ett fel meddelande om nytto lasten innehåller något av dessa egenskaps namn.
 
-- innehav
+- tenant
 
 ## <a name="data-limits"></a>Databegränsningar
 Det finns vissa begränsningar kring de data som skickas till API: et för Azure Monitor data insamling.
@@ -181,26 +180,26 @@ HTTP-statuskod 200 innebär att begäran har tagits emot för bearbetning. Detta
 
 Den här tabellen innehåller en fullständig uppsättning status koder som tjänsten kan returnera:
 
-| Programmera | Status | Felkod | Beskrivning |
+| Kod | Status | Felkod | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |Begäran har godkänts. |
-| 400 |Felaktig begäran |InactiveCustomer |Arbets ytan har stängts. |
-| 400 |Felaktig begäran |InvalidApiVersion |Den angivna API-versionen kändes inte igen av tjänsten. |
-| 400 |Felaktig begäran |InvalidCustomerId |Det angivna arbetsyte-ID: t är ogiltigt. |
-| 400 |Felaktig begäran |InvalidDataFormat |Ogiltig JSON skickades. Svars texten kan innehålla mer information om hur du löser problemet. |
-| 400 |Felaktig begäran |InvalidLogType |Logg typen som anges innehåller specialtecken eller siffror. |
-| 400 |Felaktig begäran |MissingApiVersion |Ingen API-version har angetts. |
-| 400 |Felaktig begäran |MissingContentType |Innehålls typen har inte angetts. |
-| 400 |Felaktig begäran |MissingLogType |Den obligatoriska värde logg typen har inte angetts. |
-| 400 |Felaktig begäran |UnsupportedContentType |Innehålls typen har inte ställts in på **Application/JSON**. |
+| 400 |Felaktig förfrågan |InactiveCustomer |Arbets ytan har stängts. |
+| 400 |Felaktig förfrågan |InvalidApiVersion |Den angivna API-versionen kändes inte igen av tjänsten. |
+| 400 |Felaktig förfrågan |InvalidCustomerId |Det angivna arbetsyte-ID: t är ogiltigt. |
+| 400 |Felaktig förfrågan |InvalidDataFormat |Ogiltig JSON skickades. Svars texten kan innehålla mer information om hur du löser problemet. |
+| 400 |Felaktig förfrågan |InvalidLogType |Logg typen som anges innehåller specialtecken eller siffror. |
+| 400 |Felaktig förfrågan |MissingApiVersion |Ingen API-version har angetts. |
+| 400 |Felaktig förfrågan |MissingContentType |Innehålls typen har inte angetts. |
+| 400 |Felaktig förfrågan |MissingLogType |Den obligatoriska värde logg typen har inte angetts. |
+| 400 |Felaktig förfrågan |UnsupportedContentType |Innehålls typen har inte ställts in på **Application/JSON**. |
 | 403 |Förbjudet |InvalidAuthorization |Tjänsten kunde inte autentisera begäran. Kontrol lera att arbetsyte-ID och anslutnings nyckel är giltiga. |
 | 404 |Hittades inte | | Antingen är den angivna URL: en felaktig eller så är begäran för stor. |
-| 429 |För många begär Anden | | Tjänsten har en stor mängd data från ditt konto. Försök att utföra begäran senare. |
+| 429 |För många begäranden | | Tjänsten har en stor mängd data från ditt konto. Försök att utföra begäran senare. |
 | 500 |Internt Server fel |UnspecifiedError |Ett internt fel inträffade i tjänsten. Försök att utföra begäran igen. |
 | 503 |Tjänsten är inte tillgänglig |ServiceUnavailable |Tjänsten är för närvarande inte tillgänglig för att ta emot begär Anden. Försök att utföra begäran igen. |
 
-## <a name="query-data"></a>Söka i data
-Om du vill fråga efter data som skickats av Azure Monitor API för HTTP-datainsamling kan du söka efter poster med en **typ** som är lika med det **LogType** -värde som du angav, sist i **_CL**. Om du till exempel använde **MyCustomLog**returnerar du alla poster med `MyCustomLog_CL`.
+## <a name="query-data"></a>Frågedata
+Om du vill fråga efter data som skickats av Azure Monitor HTTP-API för data insamling söker du efter poster med en **typ** som är lika med det **LogType** -värde som du angav, sist i **_CL**. Om du till exempel använde **MyCustomLog**returnerar du alla poster med `MyCustomLog_CL`.
 
 ## <a name="sample-requests"></a>Exempel förfrågningar
 I nästa avsnitt hittar du exempel på hur du skickar data till API: et för Azure Monitor HTTP-datainsamling genom att använda olika programmeringsspråk.

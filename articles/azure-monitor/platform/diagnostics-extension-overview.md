@@ -1,18 +1,17 @@
 ---
 title: Översikt över Azure-diagnostik-tillägg
 description: Använd Azure Diagnostics för fel sökning, mäta prestanda, övervakning, trafik analys i moln tjänster, virtuella datorer och Service Fabric
-ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: d9db4b4c8e6d82f29d227b9f8afe528e000c651e
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 6cb514312db525ffd2ccf9f7b70968daaa94f322
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468005"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672386"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Översikt över Azure-diagnostik-tillägg
 Azure-diagnostik tillägget är en [agent i Azure Monitor](agents-overview.md) som samlar in övervaknings data från gäst operativ systemet i Azure Compute-resurser, inklusive virtuella datorer. Den här artikeln innehåller en översikt över Azure-diagnostik-tillägget, inklusive de funktioner som stöds och alternativ för installation och konfiguration. 
@@ -86,7 +85,7 @@ LAD skriver data till tabeller i Azure Storage. Det stöder sinkarna i följande
 
 
 ## <a name="installation-and-configuration"></a>Installation och konfiguration
-Diagnostiskt tillägg implementeras som ett [tillägg för virtuella datorer](/virtual-machines/extensions/overview) i Azure, så det stöder samma installations alternativ med Resource Manager-mallar, POWERSHELL och CLI. Se tillägg [för virtuella datorer och funktioner för](/virtual-machines/extensions/features-windows) [tillägg och funktioner för Windows och virtuella datorer för Linux](/virtual-machines/extensions/features-linux) för allmän information om hur du installerar och underhåller tillägg för virtuella datorer.
+Diagnostiskt tillägg implementeras som ett [tillägg för virtuella datorer](../../virtual-machines/extensions/overview.md) i Azure, så det stöder samma installations alternativ med Resource Manager-mallar, POWERSHELL och CLI. Se tillägg [för virtuella datorer och funktioner för](../../virtual-machines/extensions/features-windows.md) [tillägg och funktioner för Windows och virtuella datorer för Linux](../../virtual-machines/extensions/features-linux.md) för allmän information om hur du installerar och underhåller tillägg för virtuella datorer.
 
 Du kan också installera och konfigurera både Windows-och Linux-diagnostik i Azure Portal under **diagnostikinställningar** i avsnittet **övervakning** på menyn på den virtuella datorn.
 

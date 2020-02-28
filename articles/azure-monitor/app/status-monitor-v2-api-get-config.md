@@ -1,18 +1,16 @@
 ---
 title: API-referens för Azure Application Insights-agent
 description: Application Insights Agent-API-referens. Get-ApplicationInsightsMonitoringConfig. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 91e7bcbe79dfde8bbd4011748b40b692015af1c2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 93ab8f613e5634b2eabe7c02189e223d3dfbb0a8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899740"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671281"
 ---
 # <a name="application-insights-agent-api-get-applicationinsightsmonitoringconfig"></a>Application Insights Agent-API: get-ApplicationInsightsMonitoringConfig
 

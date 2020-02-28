@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor logg frågor | Microsoft Docs
 description: Referenser till resurser för att lära dig hur du skriver logg frågor i Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 7c6530416f0eb6b822b6f5f3eb53f59aeae05d53
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: fc943ac3cf82d22a58d0ba3390ad8d9bbee6a4c9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894340"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669395"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure Monitor logg frågor
 Azure Monitor loggar bygger på Azure Datautforskaren och Azure Monitor logg frågor använder en version av samma Kusto. [Dokumentationen för Kusto-frågespråket](/azure/kusto/query) innehåller all information om språket och bör vara din primära resurs för att skriva Azure Monitor logg frågor. Den här sidan innehåller länkar till andra resurser för att lära dig hur du skriver frågor och om skillnader med Azure Monitor implementering av språket.

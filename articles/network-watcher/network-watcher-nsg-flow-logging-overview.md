@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: f231a5339b9c696b2a427b0713118d4b46e30277
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a7f30a5a70f71ff958d9b222d2a9e21d03d85e06
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841003"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670771"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödes loggning för nätverks säkerhets grupper
 
@@ -33,11 +33,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ```
 Du kan analysera flödes loggar och få insikter om din nätverks trafik med hjälp av [trafik analys](traffic-analytics.md).
 
-Samma bevarande principer som visas för andra loggar gäller för flödes loggar. Du kan ställa in logg bevarande princip från 1 dag till 365 dagar. Om en bevarandeprincip inte är inställd bevaras loggarna för evigt.
-
-> [!NOTE] 
-> Om du använder funktionen bevarande princip med NSG flödes loggning kan det leda till en stor mängd lagrings åtgärder och tillhör ande kostnader. Om du inte behöver funktionen bevarande princip rekommenderar vi att du anger värdet till 0.
-
+Samma bevarande principer som visas för andra loggar gäller för flödes loggar. Du kan ställa in logg bevarande princip från 1 dag till 365 dagar. Om ingen bevarande princip anges bibehålls loggarna för alltid.
 
 ## <a name="log-file"></a>Loggfil
 

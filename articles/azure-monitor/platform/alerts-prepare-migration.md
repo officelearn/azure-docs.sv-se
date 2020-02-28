@@ -1,18 +1,17 @@
 ---
 title: Förbered för Azure Monitor klassisk migrering av aviseringar genom att uppdatera dina Logic Apps och Runbooks
-author: yanivlavi
 description: Lär dig hur du ändrar dina Webhooks, Logi Kap par och Runbooks för att förbereda för frivillig migrering.
-ms.service: azure-monitor
+author: yanivlavi
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 58ba95ff60ddccf909578a673110c870caf57376
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9219e105acb98424939030af76b526d475585619
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705572"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665600"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Förbered dina Logi Kap par och Runbooks för migrering av klassiska varnings regler
 
@@ -31,7 +30,7 @@ Följande tabell är en referens till programmerings gränssnitten för både de
 
 |         |Klassiska aviseringar  |Nya mått varningar |
 |---------|---------|---------|
-|REST API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
+|REST-API     | [Microsoft. Insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [Microsoft. Insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |Azure CLI     | [avisering om AZ-övervakaren](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [avisering om AZ Monitor-mått](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Referens](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referens](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Azure Resource Manager-mall | [För klassiska aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[För nya mått varningar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
@@ -44,26 +43,26 @@ Använd följande tabell för att Mappa fälten för webhook-nyttolasten från d
 
 |  |Klassiska aviseringar  |Nya mått varningar |
 |---------|---------|---------|
-|Har aviseringen Aktiver ATS eller lösts?    | **status**       | **data.status** |
-|Sammanhangsbaserad information om aviseringen     | **Edit**        | **data.context**        |
-|Tidstämpeln som aviseringen aktiverades eller löstes i     | **context.timestamp**       | **data.context.timestamp**        |
+|Har aviseringen Aktiver ATS eller lösts?    | **statusfältet**       | **data. status** |
+|Sammanhangsbaserad information om aviseringen     | **Edit**        | **data. context**        |
+|Tidstämpeln som aviseringen aktiverades eller löstes i     | **Context. timestamp**       | **data. context. timestamp**        |
 | Varnings regel-ID | **context.id** | **data.context.id** |
-| Namn på aviseringsregel | **context.name** | **data.context.name** |
-| Beskrivning av aviserings regeln | **context.description** | **data.context.description** |
-| Villkor för varnings regel | **Context. Condition** | **data.context.condition** |
-| Måttnamn | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
+| Namn på varnings regel | **context.name** | **data.context.name** |
+| Beskrivning av aviserings regeln | **Context. Description** | **data. context. Description** |
+| Villkor för varnings regel | **Context. Condition** | **data. context. Condition** |
+| Måttnamn | **Context. condition. metricName** | **data. context. condition. allOf [0]. metricName** |
 | Tids mängd (hur måttet sammanställs över utvärderings perioden)| **Context. condition. timeAggregation** | **Context. condition. timeAggregation** |
 | Utvärderings period | **Context. condition. windowSize** | **data. context. condition. windowSize** |
-| Operator (hur det aggregerade Metric-värdet jämförs mot tröskelvärdet) | **context.condition.operator** | **data.context.condition.operator** |
+| Operator (hur det aggregerade Metric-värdet jämförs mot tröskelvärdet) | **Context. condition. operator** | **data. context. condition. operator** |
 | Tröskelvärde | **Context. condition. Threshold** | **data. context. condition. allOf [0]. tröskel** |
-| Mått värde | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
-| Prenumerations-ID | **context.subscriptionId** | **data.context.subscriptionId** |
-| Resurs grupp för den berörda resursen | **context.resourceGroup** | **data.context.resourceGroup** |
-| Namnet på den berörda resursen | **context.resourceName** | **data.context.resourceName** |
-| Typ av resurs som påverkas | **context.resourceType** | **data.context.resourceType** |
-| Resurs-ID för den berörda resursen | **context.resourceId** | **data.context.resourceId** |
-| Direkt länk till sammanfattnings sidan för Portal resursen | **context.portalLink** | **data.context.portalLink** |
-| Anpassade nytto Last fält som ska skickas till webhooken eller Logic app | **Egenskaper** | **data. Properties** |
+| Mått värde | **Context. condition. metricValue** | **data. context. condition. allOf [0]. metricValue** |
+| Prenumerations-ID:t | **Context. subscriptionId** | **data. context. subscriptionId** |
+| Resurs grupp för den berörda resursen | **Context. resourceGroup** | **data. context. resourceGroup** |
+| Namnet på den berörda resursen | **Context. resourceName** | **data. context. resourceName** |
+| Typ av resurs som påverkas | **Context. resourceType** | **data. context. resourceType** |
+| Resurs-ID för den berörda resursen | **Context. resourceId** | **data. context. resourceId** |
+| Direkt länk till sammanfattnings sidan för Portal resursen | **Context. portalLink** | **data. context. portalLink** |
+| Anpassade nytto Last fält som ska skickas till webhooken eller Logic app | **egenskaperna** | **data. Properties** |
 
 Nytto lasterna är liknande, som du ser. Följande avsnitt innehåller:
 

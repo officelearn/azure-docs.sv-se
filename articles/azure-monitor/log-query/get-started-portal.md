@@ -1,18 +1,17 @@
 ---
 title: Kom igång med Azure Monitor Log Analytics | Microsoft Docs
 description: Den här artikeln innehåller en själv studie kurs om hur du använder Log Analytics i Azure Portal för att skriva frågor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 07/19/2019
-ms.openlocfilehash: 1117ebbb8d2c3b133156c6b63a0ab13185f9f4a5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1cf1695db50e6aee2a5dae24ed5231fdda7c12de
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933056"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670244"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Kom igång med Log Analytics i Azure Monitor
 
@@ -40,11 +39,11 @@ Log Analytics är ett webb verktyg som används för att skriva och köra Azure 
 ## <a name="firewall-requirements"></a>Brand Väggs krav
 Om du vill använda Log Analytics måste webbläsaren ha åtkomst till följande adresser. Om webbläsaren har åtkomst till Azure Portal via en brand vägg måste du aktivera åtkomst till dessa adresser.
 
-| URI | IP | Portar |
+| Uri | IP-adress | Portar |
 |:---|:---|:---|
-| portal.loganalytics.io | Dynamisk | 80 443 |
-| api.loganalytics.io | Dynamisk | 80 443 |
-| docs.loganalytics.io | Dynamisk | 80 443 |
+| portal.loganalytics.io | Dynamisk | 80,443 |
+| api.loganalytics.io | Dynamisk | 80,443 |
+| docs.loganalytics.io | Dynamisk | 80,443 |
 
 ## <a name="basic-queries"></a>Grundläggande frågor
 Frågor kan användas för att söka efter termer, identifiera trender, analysera mönster och tillhandahålla många andra insikter baserade på dina data. Börja med en grundläggande fråga:
@@ -95,7 +94,7 @@ Log Analytics automatiskt omfångs resultat efter:
 Den här frågan är mycket allmän och returnerar för många resultat för att vara användbar. Du kan filtrera resultaten antingen via tabell elementen eller genom att uttryckligen lägga till ett filter i frågan. Filtrering av resultat via tabell elementen gäller för den befintliga resultat uppsättningen, medan ett filter till själva frågan returnerar en ny filtrerad resultat uppsättning och kan därför skapa mer exakta resultat.
 
 ### <a name="add-a-filter-to-the-query"></a>Lägg till ett filter i frågan
-Det finns en pil till vänster om varje post. Klicka på den här pilen för att öppna informationen för en speciell post.
+Det finns en pil till vänster om varje post. Klicka på pilen för att öppna informationen för en viss post.
 
 Hovra ovanför ett kolumn namn för ikonerna "+" och "-" som ska visas. Om du vill lägga till ett filter som bara kommer att returnera poster med samma värde klickar du på tecknet "+". Klicka på "-" om du vill utesluta poster med det här värdet och klicka sedan på **Kör** för att köra frågan igen.
 
@@ -106,7 +105,7 @@ Nu ska vi fokusera på händelser med allvarlighets graden _fel_. Detta anges i 
 
 Klicka på filter ikonen bredvid kolumn rubriken och välj värden som _börjar med_ text _felet_i popup-fönstret:
 
-![Filtrera](media/get-started-portal/filter.png)
+![Filter](media/get-started-portal/filter.png)
 
 
 ## <a name="sort-and-group-results"></a>Sortera och gruppera resultat
@@ -121,7 +120,7 @@ Ett annat sätt att ordna resultaten är av grupper. Om du vill gruppera resulta
 ## <a name="select-columns-to-display"></a>Välj kolumner som ska visas
 Resultat tabellen innehåller ofta många kolumner. Du kanske upptäcker att några av de returnerade kolumnerna inte visas som standard, eller att du vill ta bort några kolumner som visas. Klicka på knappen kolumner om du vill välja kolumner som ska visas:
 
-![Välj kolumner](media/get-started-portal/select-columns.png)
+![Välja kolumner](media/get-started-portal/select-columns.png)
 
 
 ## <a name="select-a-time-range"></a>Välj ett tidsintervall

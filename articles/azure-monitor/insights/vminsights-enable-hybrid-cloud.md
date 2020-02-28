@@ -1,18 +1,17 @@
 ---
 title: Aktivera Azure Monitor (för hands version) för en hybrid miljö | Microsoft Docs
 description: I den här artikeln beskrivs hur du aktiverar Azure Monitor for VMs för en hybrid moln miljö som innehåller en eller flera virtuella datorer.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 0afc67bf6d9e997ef615ecadc6836b36ed73e2ea
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bd44eebf8aceaf7fe32cf8cf1b1152db32acb344
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969686"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669632"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Aktivera Azure Monitor for VMs (för hands version) för en hybrid miljö
 
@@ -20,7 +19,7 @@ ms.locfileid: "75969686"
 
 I den här artikeln förklaras hur du aktiverar Azure Monitor for VMs (för hands version) för virtuella datorer eller fysiska datorer som finns i ditt data Center eller i annan moln miljö. I slutet av den här processen kommer du att ha börjat övervaka dina virtuella datorer i din miljö och lära dig om de har problem med prestanda eller tillgänglighet.
 
-Innan du börjar bör du läsa igenom kraven och kontrol lera att din [prenumeration och dina](vminsights-enable-overview.md) resurser uppfyller kraven. Granska kraven och distributionsmetoder för den [Log Analytics Linux och Windows-agenten](../../log-analytics/log-analytics-agent-overview.md).
+Innan du börjar bör du läsa igenom kraven och kontrol lera att din [prenumeration och dina](vminsights-enable-overview.md) resurser uppfyller kraven. Granska kraven och distributions metoderna för [Log Analytics Linux-och Windows-agenten](../../log-analytics/log-analytics-agent-overview.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -31,7 +30,7 @@ Stegen för att slutföra den här uppgiften sammanfattas på följande sätt:
 
 1. Installera Log Analytics agent för Windows eller Linux. Innan du installerar agenten kan du läsa artikeln [Översikt över Log Analytics agent](../platform/log-analytics-agent.md) för att förstå system krav och distributions metoder.
 
-2. Ladda ned och installera Azure Monitor för virtuella datorer kartan beroendeagenten för [Windows](https://aka.ms/dependencyagentwindows) eller [Linux](https://aka.ms/dependencyagentlinux).
+2. Hämta och installera Azure Monitor for VMs mappa beroende agent för [Windows](https://aka.ms/dependencyagentwindows) eller [Linux](https://aka.ms/dependencyagentlinux).
 
 3. Aktivera insamling av prestandaräknare.
 
@@ -42,10 +41,10 @@ Stegen för att slutföra den här uppgiften sammanfattas på följande sätt:
 
 ## <a name="install-the-dependency-agent-on-windows"></a>Installera beroendeagenten på Windows
 
-Du kan installera beroendeagenten manuellt på Windows-datorer genom att köra `InstallDependencyAgent-Windows.exe`. Om du kör den här körbara filen utan några alternativ, startar en installationsguide som du kan följa för att installera agenten interaktivt.
+Du kan installera beroende agenten manuellt på Windows-datorer genom att köra `InstallDependencyAgent-Windows.exe`. Om du kör den här körbara filen utan några alternativ, startar en installationsguide som du kan följa för att installera agenten interaktivt.
 
 >[!NOTE]
->*Administratören* behörighet krävs för att installera eller avinstallera agenten.
+>*Administratörs* behörighet krävs för att installera eller avinstallera agenten.
 
 Följande tabell visar de parametrar som stöds av installationsprogrammet för agenten från kommandoraden.
 
@@ -56,11 +55,11 @@ Följande tabell visar de parametrar som stöds av installationsprogrammet för 
 
 Om du till exempel vill köra installations programmet med parametern `/?` anger du **InstallDependencyAgent-Windows. exe/?** .
 
-Filer för Windows beroendeagenten installeras i *C:\Program Files\Microsoft Beroendeagenten* som standard. Om beroende agenten inte startar efter att installationen har slutförts, kontrollerar du i loggarna om det finns detaljerad fel information. Loggkatalogen är *%Programfiles%\Microsoft beroende Agent\logs*.
+Filer för Windows beroende Agent installeras i *C:\Program Files\Microsoft Dependency agent* som standard. Om beroende agenten inte startar efter att installationen har slutförts, kontrollerar du i loggarna om det finns detaljerad fel information. Logg katalogen är en *%program%\Microsoft-Agent\logs*.
 
 ## <a name="install-the-dependency-agent-on-linux"></a>Installera beroendeagenten på Linux
 
-Beroende-agenten är installerad på Linux-servrar från *InstallDependencyAgent Linux64.bin*, ett kommandoskript med en självextraherande binärfilen. Du kan köra filen med hjälp av `sh` eller Lägg till körbehörighet till själva filen.
+Beroende agenten är installerad på Linux-servrar från *InstallDependencyAgent-Linux64. bin*, ett gränssnitts skript med en självextraherande binärfil. Du kan köra filen genom att använda `sh` eller lägga till kör behörighet till själva filen.
 
 >[!NOTE]
 > Du måste ha rotbehörighet för att kunna installera eller konfigurera agenten.
@@ -76,11 +75,11 @@ Om du till exempel vill köra installations programmet med parametern `-help` an
 
 Installera Linux-beroende agenten som rot genom att köra kommandot `sh InstallDependencyAgent-Linux64.bin`.
 
-Om det inte går att starta beroendeagenten, kontrollera loggarna för Detaljerad felinformation. På Linux-agenter till loggkatalogen är */var/opt/microsoft/dependency-agent/log*.
+Om det inte går att starta beroendeagenten, kontrollera loggarna för Detaljerad felinformation. I Linux-agenter är logg katalogen */var/opt/Microsoft/Dependency-Agent/log*.
 
 Filer för beroendeagenten placeras i följande kataloger:
 
-| Filer | Location |
+| Filer | plats. |
 |:--|:--|
 | Kärnfiler | /opt/microsoft/dependency-agent |
 | Loggfiler | /var/opt/microsoft/dependency-agent/log |
@@ -146,7 +145,7 @@ configuration ServiceMap {
 ## <a name="enable-performance-counters"></a>Aktivera prestandaräknare
 
 Om Log Analytics-arbetsytan som refereras av lösningen inte redan har konfigurerats för att samla in prestandaräknare som krävs av lösningen, måste du aktivera dem. Det kan du göra på något av två sätt:
-* Manuellt, enligt beskrivningen i [Windows och Linux prestanda datakällor i Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
+* Manuellt, enligt beskrivningen i [prestanda data källor för Windows och Linux i Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
 * Genom att hämta och köra ett PowerShell-skript som är tillgängligt från [Azure PowerShell galleriet](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 ## <a name="deploy-azure-monitor-for-vms"></a>Distribuera Azure Monitor för virtuella datorer
@@ -157,7 +156,7 @@ Om du inte vet hur du distribuerar resurser med hjälp av en mall, se:
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-Om du vill använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.27 eller senare. För att identifiera din version, kör `az --version`. Information om hur du installerar eller uppgraderar Azure CLI finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du vill använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.27 eller senare. Du kan identifiera din version genom att köra `az --version`. Information om hur du installerar eller uppgraderar Azure CLI finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-and-execute-a-template"></a>Skapa och köra en mall
 
@@ -207,9 +206,9 @@ Om du vill använda Azure CLI måste du först installera och använda CLI lokal
     }
     ```
 
-1. Spara filen som *installsolutionsforvminsights.json* till en lokal mapp.
+1. Spara filen som *installsolutionsforvminsights. JSON* i en lokal mapp.
 
-1. Avbilda värdena för *WorkspaceName*, *ResourceGroupName*och *WorkspaceLocation*. Värdet för *WorkspaceName* är namnet på din Log Analytics-arbetsyta. Värdet för *WorkspaceLocation* är den region som arbetsytan är definierad i.
+1. Avbilda värdena för *WorkspaceName*, *ResourceGroupName*och *WorkspaceLocation*. Värdet för *WorkspaceName* är namnet på din Log Analytics-arbetsyta. Värdet för *WorkspaceLocation* är den region som arbets ytan definieras i.
 
 1. Är du redo att distribuera den här mallen med hjälp av följande PowerShell-kommando:
 
@@ -224,7 +223,7 @@ Om du vill använda Azure CLI måste du först installera och använda CLI lokal
     ```
    När du har aktiverat övervakning, kan det ta ungefär 10 minuter innan du kan visa hälsotillstånd och mått för hybrid-dator.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="vm-doesnt-appear-on-the-map"></a>Den virtuella datorn finns inte på kartan
 
@@ -232,9 +231,9 @@ Om beroende Agent installationen lyckades, men du inte ser datorn på kartan, ka
 
 1. Beroendeagenten installeras? Du kan kontrollera detta genom att markera om du vill se om tjänsten är installerad och körs.
 
-    **Windows**: Leta efter tjänsten med namnet ”Microsoft Dependency agent”.
+    **Windows**: Sök efter tjänsten med namnet "Microsoft Dependency agent".
 
-    **Linux**: Sök efter löpande bearbeta ”microsoft-beroende-agent”.
+    **Linux**: Sök efter den process som körs "Microsoft-Dependency-agent".
 
 2. Är du på den [kostnads fria pris nivån av Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? Den kostnads fria planen tillåter upp till fem unika datorer. Eventuella efterföljande datorer visas inte på kartan, även om de fem föregående fem inte längre skickar data.
 
@@ -244,7 +243,7 @@ Om beroende Agent installationen lyckades, men du inte ser datorn på kartan, ka
     Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-    Returnerade du ett eller flera resultat? Är data de senaste? I så fall fungerar din Log Analytics-agenten som den ska och kommunicerar med tjänsten. Om inte, kontrollera agent på servern: [Log Analytics-agenten för felsökning av Windows](../platform/agent-windows-troubleshoot.md) eller [Log Analytics-agenten för Linux-felsökning](../platform/agent-linux-troubleshoot.md).
+    Returnerade du ett eller flera resultat? Är data de senaste? I så fall fungerar din Log Analytics-agenten som den ska och kommunicerar med tjänsten. Om inte, kontrol lera agenten på servern: [Log Analytics agent för Windows fel sökning](../platform/agent-windows-troubleshoot.md) eller [Log Analytics agent för Linux-felsökning](../platform/agent-linux-troubleshoot.md).
 
 #### <a name="computer-appears-on-the-map-but-has-no-processes"></a>Datorn visas på kartan men saknar processer
 
@@ -257,6 +256,6 @@ Kontrollera C:\Program Files\Microsoft beroende Agent\logs\wrapper.log fil (Wind
 
 Nu när övervakning är aktiverat för dina virtuella datorer är den här informationen tillgänglig för analys med Azure Monitor for VMs.
 
-- Identifierade programberoenden finns [visa Azure Monitor för virtuella datorer kartan](vminsights-maps.md).
+- Information om hur du visar identifierade program beroenden finns i [visa Azure Monitor for VMS karta](vminsights-maps.md).
 
 - Information om hur du identifierar Flask halsar och övergripande användning med den virtuella datorns prestanda finns i [Visa prestanda för virtuella Azure-datorer](vminsights-performance.md).

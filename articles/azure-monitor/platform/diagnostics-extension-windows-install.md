@@ -3,22 +3,21 @@ title: Installera och konfigurera Windows Azure Diagnostics-tillägget (WAD)
 description: Lär dig hur du samlar in Azure Diagnostics-data i ett Azure Storage-konto så att du kan visa det med ett av flera tillgängliga verktyg.
 services: azure-monitor
 author: bwren
-ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: 5b3cc4cbaa663b7932609e85c544378a7cca69ef
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 929ab4109eb8d0e90b6c561a2135c0b7dd4205bb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472692"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672267"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Installera och konfigurera Windows Azure Diagnostics-tillägget (WAD)
 Tillägget Azure Diagnostics är en agent i Azure Monitor som samlar in övervaknings data från gäst operativ systemet och arbets belastningar på virtuella Azure-datorer och andra beräknings resurser. Den här artikeln innehåller information om hur du installerar och konfigurerar Windows Diagnostics-tillägget och en beskrivning av hur data lagras i och Azure Storage konto.
 
-Tillägget för diagnostik implementeras som ett [tillägg för virtuella datorer](/virtual-machines/extensions/overview) i Azure, så det stöder samma installations alternativ med Resource Manager-mallar, POWERSHELL och CLI. Se [tillägg och funktioner för virtuella datorer för Windows](/virtual-machines/extensions/features-windows) om du vill ha mer information om hur du installerar och hanterar tillägg för virtuella datorer.
+Tillägget för diagnostik implementeras som ett [tillägg för virtuella datorer](../../virtual-machines/extensions/overview.md) i Azure, så det stöder samma installations alternativ med Resource Manager-mallar, POWERSHELL och CLI. Se [tillägg och funktioner för virtuella datorer för Windows](../../virtual-machines/extensions/features-windows.md) om du vill ha mer information om hur du installerar och hanterar tillägg för virtuella datorer.
 
 ## <a name="install-with-azure-portal"></a>Installera med Azure Portal
 Du kan installera och Konfigurera diagnostik-tillägget på en enskild virtuell dator i Azure Portal, vilket ger dig ett gränssnitt i stället för att arbeta direkt med konfigurationen. När du aktiverar Diagnostics-tillägget använder det automatiskt en standard konfiguration med de vanligaste prestanda räknarna och-händelserna. Du kan ändra den här standard konfigurationen utifrån dina egna krav.
@@ -178,7 +177,7 @@ I följande tabell visas olika typer av data som har samlats in från diagnostik
 | bild | Blob | En anpassad behållare baserat på hur du konfigurerar kataloger som övervakas av diagnostisk övervakare.  Namnet på den här BLOB-behållaren anges i WADDirectoriesTable. |
 
 ## <a name="tools-to-view-diagnostic-data"></a>Verktyg för att Visa diagnostikdata
-Det finns flera verktyg för att visa data när de har överförts till lagring. Exempel:
+Det finns flera verktyg för att visa data när de har överförts till lagring. Några exempel:
 
 * Server Explorer i Visual Studio – om du har installerat Azure-verktygen för Microsoft Visual Studio kan du använda noden Azure Storage i Server Explorer för att visa skrivskyddade blob-och tabell data från dina Azure Storage-konton. Du kan visa data från ditt lokala Storage emulator-konto och även från lagrings konton som du har skapat för Azure. Mer information finns i avsnittet [om att bläddra och hantera lagrings resurser med Server Explorer](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage data på Windows, OSX och Linux.

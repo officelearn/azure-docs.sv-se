@@ -1,18 +1,17 @@
 ---
 title: Exempel på Azure Monitor logg frågor | Microsoft Docs
 description: Exempel på logg frågor i Azure Monitor att använda frågespråket i Kusto.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: 8850aef8b5d45f236385551a1455e6fe7b540340
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 9bfadf55e4f68bb7188b27e4ef5bc03e3955f375
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614447"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662056"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exempel på Azure Monitor logg frågor
 Den här artikeln innehåller olika exempel på [frågor](log-query-overview.md) som använder [Kusto-frågespråket](/azure/kusto/query/) för att hämta olika typer av loggdata från Azure Monitor. Olika metoder används för att konsolidera och analysera data, så att du kan använda dessa exempel för att identifiera olika strategier som du kan använda för dina egna krav.  
@@ -22,7 +21,7 @@ Mer information om de olika nyckelord som används i de här exemplen finns i [s
 ## <a name="events"></a>Händelser
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Sök efter program nivå händelser som beskrivs som "kryptografisk"
-I det här exemplet genomsöks tabellen **Events** efter poster där **EventLog** är _Application_ och **RenderedDescription** innehåller _kryptografiskt_. Inkluderar poster från de senaste 24 timmarna.
+I det här exemplet genomsöks tabellen **Events** efter poster där **EventLog** är _Application_ och **RenderedDescription** innehåller _kryptografiskt_. Poster från de senaste 24 timmarna ingår.
 
 ```Kusto
 Event
@@ -38,7 +37,7 @@ Sök tabell **händelse** -och **SecurityEvents** efter poster som nämner _konv
 search in (Event, SecurityEvent) "unmarshaling"
 ```
 
-## <a name="heartbeat"></a>Tveka
+## <a name="heartbeat"></a>Pulsslag
 
 ### <a name="chart-a-week-over-week-view-of-the-number-of-computers-sending-data"></a>Visa en veckas över-Week-vy över antalet datorer som skickar data
 
@@ -242,7 +241,7 @@ SecurityEvent
 ```
 
 ### <a name="count-security-events-related-to-permissions"></a>Räkna säkerhets händelser relaterade till behörigheter
-I det här exemplet visas antalet **securityEvent** -poster, där **aktivitets** kolumnen innehåller hela term _behörigheterna_. Frågan gäller poster som skapats under de senaste 30 minuterna.
+I det här exemplet visas antalet **securityEvent** -poster, där **aktivitets** kolumnen innehåller hela term _behörigheterna_. Förfrågan gäller för poster som skapats under de senaste 30 minuterna.
 
 ```Kusto
 SecurityEvent

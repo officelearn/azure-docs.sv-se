@@ -7,17 +7,17 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: cfd92546def21972e37781bd8a4b0bfefda9111f
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 76c8ca24882f465bf2a973dc59736745178fc61f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444221"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669530"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>Skapa en IoT Hub data anslutning för Azure Datautforskaren med hjälp av python (för hands version)
 
 > [!div class="op_single_selector"]
-> * [Portal](ingest-data-iot-hub.md)
+> * [Portalen](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
 > * [Azure Resource Manager-mall](data-connection-iot-hub-resource-manager.md)
@@ -30,7 +30,7 @@ I den här artikeln skapar du en IoT Hub data anslutning för Azure Datautforska
 
 * [Python 3.4 +](https://www.python.org/downloads/).
 
-* [Ett kluster och en databas](/create-cluster-database-python.md).
+* [Ett kluster och en databas](create-cluster-database-python.md).
 
 * [Tabell-och kolumn mappning](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
 

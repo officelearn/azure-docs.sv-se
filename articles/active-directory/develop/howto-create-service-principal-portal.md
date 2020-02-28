@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 2283f4f3cf1d31f0d67e01e1a63ee20557ef5633
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: c5f65adfe401f2f6e99234d08b8e8dabeff7d5db
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591582"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656405"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Gör så här: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser
 
@@ -85,7 +85,7 @@ Daemon-program kan använda två typer av autentiseringsuppgifter för att auten
 
 ### <a name="upload-a-certificate"></a>Ladda upp ett certifikat
 
-Du kan använda ett befintligt certifikat om du har ett.  Alternativt kan du skapa ett självsignerat certifikat för test ändamål. Öppna PowerShell och kör [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) med följande parametrar för att skapa ett självsignerat certifikat i användar certifikat arkivet på datorn: 
+Du kan använda ett befintligt certifikat om du har ett.  Alternativt kan du bara skapa ett självsignerat certifikat för *testning*. Öppna PowerShell och kör [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) med följande parametrar för att skapa ett självsignerat certifikat i användar certifikat arkivet på datorn: 
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -93,8 +93,18 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
 
 Exportera det här certifikatet till en fil med hjälp av MMC-snapin-modulen [hantera användar certifikat](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) som är tillgänglig från kontroll panelen i Windows.
 
+1. Välj **Kör** på **Start** -menyn och ange sedan **certmgr. msc**.
+
+   Verktyget Certificate Manager för den aktuella användaren visas.
+
+1. Om du vill visa dina certifikat, under **certifikat – aktuell användare** i det vänstra fönstret, expanderar du den **personliga** katalogen.
+1. Högerklicka på det certifikat som du har skapat, Välj **alla aktiviteter-> exportera**.
+1. Följ guiden Exportera certifikat.  Exportera den privata nyckeln, ange ett lösen ord för certifikat filen och exportera till en fil.
+
 För att ladda upp certifikatet:
 
+1. Välj **Azure Active Directory**.
+1. Välj ditt program från **Appregistreringar** i Azure AD.
 1. Välj **certifikat & hemligheter**.
 1. Välj **överför certifikat** och välj certifikatet (ett befintligt certifikat eller det självsignerade certifikat som du exporterade).
 
@@ -146,15 +156,21 @@ I din Azure-prenumeration måste ditt konto ha `Microsoft.Authorization/*/Write`
 
 Så här kontrollerar du dina prenumerations behörigheter:
 
-1. Välj ditt konto i det övre högra hörnet och välj **...-> mina behörigheter**.
+1. Sök efter och välj **prenumerationer**eller Välj **prenumerationer** på **Start** sidan.
 
-   ![Välj ditt konto och dina användar behörigheter](./media/howto-create-service-principal-portal/select-my-permissions.png)
+   ![Söka](./media/howto-create-service-principal-portal/select-subscription.png)
 
-1. I list rutan väljer du den prenumeration som du vill skapa tjänstens huvud namn i. Välj sedan **Klicka här om du vill visa fullständig åtkomst information för den här prenumerationen**.
+1. Välj den prenumeration som du vill skapa tjänstens huvud namn i.
+
+   ![Välj prenumeration för tilldelning](./media/howto-create-service-principal-portal/select-one-subscription.png)
+
+   Om du inte ser den prenumeration du letar efter väljer du **globala prenumerations filter**. Kontrol lera att den prenumeration du vill använda är vald för portalen.
+
+1. Välj **mina behörigheter**. Välj sedan **Klicka här om du vill visa fullständig åtkomst information för den här prenumerationen**.
 
    ![Välj den prenumeration som du vill skapa tjänstens huvud namn i](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Välj **roll tilldelningar** för att visa dina tilldelade roller och kontrol lera om du har tillräcklig behörighet för att tilldela en roll till en AD-App. Annars ber du prenumerations administratören att lägga till dig i rollen som administratör för användar åtkomst. I följande bild tilldelas användaren rollen ägare, vilket innebär att användaren har tillräcklig behörighet.
+1. Välj **Visa** i **roll tilldelningar** för att visa dina tilldelade roller och kontrol lera om du har tillräcklig behörighet för att tilldela en roll till en AD-App. Annars ber du prenumerations administratören att lägga till dig i rollen som administratör för användar åtkomst. I följande bild tilldelas användaren rollen ägare, vilket innebär att användaren har tillräcklig behörighet.
 
    ![Det här exemplet visar att användaren har tilldelats ägar rollen](./media/howto-create-service-principal-portal/view-user-role.png)
 

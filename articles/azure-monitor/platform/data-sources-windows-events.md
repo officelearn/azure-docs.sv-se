@@ -1,18 +1,17 @@
 ---
 title: Samla in och analysera Windows-händelseloggar i Azure Monitor | Microsoft Docs
 description: Beskriver hur du konfigurerar Windows-händelseloggen med Azure Monitor och information om de poster som de skapar.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: dd8f1e0e79f85c5d91966bcba13052f297422e67
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932412"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670516"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Windows händelse logg data källor i Azure Monitor
 Windows-händelseloggar är en av de vanligaste [data källorna](agent-data-sources.md) för att samla in data med Windows-agenter sedan många program skriver till händelse loggen i Windows.  Du kan samla in händelser från standard loggar som system och program, förutom att ange anpassade loggar som skapats av program som du behöver övervaka.
@@ -47,7 +46,7 @@ Händelse poster i Windows har en typ av **händelse** och har egenskaperna i f�
 | EventCategory |Händelsens kategori. |
 | EventData |Alla händelse data i RAW-format. |
 | EventID |Händelsens nummer. |
-| EventLevel |Händelsens allvarlighets grad i numerisk form. |
+| eventLevel |Händelsens allvarlighets grad i numerisk form. |
 | EventLevelName |Allvarlighets grad för händelsen i text form. |
 | EventLog |Namnet på händelse loggen som händelsen samlades in från. |
 | ParameterXml |Händelse parameter värden i XML-format. |
@@ -56,12 +55,12 @@ Händelse poster i Windows har en typ av **händelse** och har egenskaperna i f�
 | Källa |Händelsens källa. |
 | SourceSystem |Typ av agent som händelsen samlades in från. <br> OpsManager – Windows-agent, antingen direkt anslutning eller Operations Manager hanterat <br> Linux – alla Linux-agenter  <br> AzureStorage – Azure-diagnostik |
 | TimeGenerated |Datum och tid då händelsen skapades i Windows. |
-| Användar |Användar namnet för det konto som loggade händelsen. |
+| UserName |Användar namnet för det konto som loggade händelsen. |
 
 ## <a name="log-queries-with-windows-events"></a>Logga frågor med Windows-händelser
 Följande tabell innehåller olika exempel på logg frågor som hämtar Windows-händelseloggar.
 
-| Söka i data | Beskrivning |
+| Fråga | Beskrivning |
 |:---|:---|
 | Händelse |Alla Windows-händelser. |
 | Händelse &#124; där EventLevelName = = "Error" |Alla Windows-händelser med allvarlighets graden fel. |

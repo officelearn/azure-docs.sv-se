@@ -1,21 +1,19 @@
 ---
-title: Ange aviseringar i Azure Application Insights | Microsoft Docs
+title: Ange aviseringar i Azure Application insikter
 description: Få meddelanden om långsamma svars tider, undantag och andra prestanda-eller användnings ändringar i din webbapp.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/23/2019
 ms.reviewer: lagayhar
-ms.openlocfilehash: a21e2676d1b03472c58e2f95095a1a59d00b16be
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.subservice: alerts
+ms.openlocfilehash: 80759c94d7cc5b60b6e38a34b85fb64c3c18fd2e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678408"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666725"
 ---
 # <a name="set-alerts-in-application-insights"></a>Ange aviseringar i Application Insights
+
 [Azure Application insikter][start] kan varna dig om förändringar i prestanda-eller användnings statistik i din webbapp. 
 
 Application Insights övervakar din Live-app på en mängd [olika plattformar][platforms] för att hjälpa dig att diagnostisera prestanda problem och förstå användnings mönster.
@@ -28,6 +26,7 @@ Det finns flera typer av aviseringar:
 * [**Proaktiv diagnostik**](../../azure-monitor/app/proactive-diagnostics.md) konfigureras automatiskt för att meddela dig om ovanliga prestanda mönster.
 
 ## <a name="set-a-metric-alert"></a>Ange en måtta avisering
+
 Öppna fliken aviserings regler och Använd sedan knappen Lägg till.
 
 ![Välj Lägg till avisering på fliken aviserings regler. Ställ in din app som resurs att mäta, ange ett namn för aviseringen och välj ett mått.](./media/alerts/01-set-metric.png)
@@ -62,7 +61,7 @@ Historiken för tillstånds ändringar finns i aktivitets loggen:
 
 ![På fliken Översikt klickar du på Inställningar, gransknings loggar](./media/alerts/09-alerts.png)
 
-## <a name="how-alerts-work"></a>Så här fungerar aviseringar
+## <a name="how-alerts-work"></a>Så fungerar aviseringar
 * En avisering har tre tillstånd: "aldrig aktiverat", "aktive rad" och "löst". Aktive rad innebär att det villkor du angav var sant, när det senast utvärderades.
 * Ett meddelande skapas när en avisering ändrar tillstånd. (Om aviserings villkoret redan var uppfyllt när du skapade aviseringen kanske du inte får något meddelande förrän villkoret går falskt.)
 * Varje avisering genererar ett e-postmeddelande om du har markerat rutan e-post eller angett e-postadresser. Du kan även titta på list rutan meddelanden.
@@ -175,7 +174,7 @@ Använd aviseringarna nya aviseringar/nästan-real tid om du behöver meddela an
 * [Använd PowerShell för att automatisera konfigurationen av aviseringar](../../azure-monitor/app/powershell-alerts.md)
 * [Använda Webhooks för att automatisera svar på aviseringar](../../azure-monitor/platform/alerts-webhooks.md)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 * [Webb test för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Automatisera konfigurationen av aviseringar](../../azure-monitor/app/powershell-alerts.md)
 * [Proaktiv diagnostik](../../azure-monitor/app/proactive-diagnostics.md) 

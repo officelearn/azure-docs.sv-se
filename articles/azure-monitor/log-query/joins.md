@@ -1,18 +1,17 @@
 ---
 title: Kopplingar i Azure Monitor logg frågor | Microsoft Docs
 description: Den här artikeln innehåller en lektion om hur du använder kopplingar i Azure Monitor logg frågor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: f2880044e48e59d0d5f005f9772cdd0f807f7f29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2dace6968fbbe69f806c27fb7a46e60c63f78b4f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397847"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670210"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Kopplingar i Azure Monitor logg frågor
 
@@ -80,7 +79,7 @@ SecurityEvent
 ## <a name="join-kinds"></a>Kopplings typer
 Ange typ av anslutning med _typ_ argumentet. Varje typ utför en annan matchning mellan posterna i de tabeller som anges i följande tabell.
 
-| Kopplingstyp | Beskrivning |
+| Kopplings typ | Beskrivning |
 |:---|:---|
 | innerunique | Detta är standard läget för koppling. De första värdena i den matchade kolumnen i den vänstra tabellen hittas och dubblettvärden tas bort.  Sedan matchas uppsättningen av unika värden mot den högra tabellen. |
 | innersta | Endast matchande poster i båda tabellerna ingår i resultaten. |
@@ -89,7 +88,7 @@ Ange typ av anslutning med _typ_ argumentet. Varje typ utför en annan matchning
 | leftsemi | Poster från den vänstra sidan som har matchningar från höger ingår i resultaten. Resultat tabellen har bara kolumner från den vänstra tabellen. |
 
 
-## <a name="best-practices"></a>Bästa metoder
+## <a name="best-practices"></a>Bästa praxis
 
 Tänk på följande när du ska uppnå optimala prestanda:
 
@@ -106,4 +105,4 @@ Se andra lektioner för att använda Azure Monitor logg frågor:
 - [Avancerade agg regeringar](advanced-aggregations.md)
 - [JSON och data strukturer](json-data-structures.md)
 - [Avancerad fråge utskrift](advanced-query-writing.md)
-- [Diagram](charts.md)
+- [Hierarkidiagram](charts.md)

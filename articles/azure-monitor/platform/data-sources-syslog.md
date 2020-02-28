@@ -1,24 +1,23 @@
 ---
 title: Samla in och analysera syslog-meddelanden i Azure Monitor | Microsoft Docs
 description: Syslog är ett protokoll för loggning av händelse som är gemensamma för Linux. Den här artikeln beskriver hur du konfigurerar insamling av syslog-meddelanden i Log Analytics och information om de poster som de skapar.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/22/2019
-ms.openlocfilehash: ffc6c48a6b49edded97570fd1ac421933b5f6b72
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8d68a8d6d28d79c50a92cd2d18df2abab26c30ec
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450643"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670499"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Syslog-datakällor i Azure Monitor
 Syslog är ett protokoll för loggning av händelse som är gemensamma för Linux. Program skickar meddelanden som kan lagras på den lokala datorn eller levereras till en Syslog-insamlare. När Log Analytics-agenten för Linux installeras konfigureras den lokala syslog-daemonen för att vidarebefordra meddelanden till agenten. Agenten skickar sedan meddelandet till Azure Monitor där en motsvarande post skapas.  
 
 > [!NOTE]
-> Azure Monitor stöder insamling av meddelanden som skickats av rsyslog eller syslog-ng, där rsyslog är standard-daemon. Standard syslog-daemon på version 5 av Red Hat Enterprise Linux, CentOS och Oracle Linux-version (sysklog) stöds inte för syslog-händelseinsamling. Samla in syslog-data från den här versionen av dessa distributioner kan de [rsyslog-daemon](http://rsyslog.com) ska installeras och konfigureras för att ersätta sysklog.
+> Azure Monitor stöder insamling av meddelanden som skickats av rsyslog eller syslog-ng, där rsyslog är standard-daemon. Standard syslog-daemon på version 5 av Red Hat Enterprise Linux, CentOS och Oracle Linux-version (sysklog) stöds inte för syslog-händelseinsamling. Om du vill samla in syslog-data från den här versionen av dessa distributioner ska [rsyslog daemon](http://rsyslog.com) installeras och konfigureras för att ersätta sysklog.
 >
 >
 
@@ -29,11 +28,11 @@ Följande anläggningar stöds med syslog-insamlaren:
 * kerning
 * Användare
 * e-post
-* Program
+* program
 * Factor
 * syslog
 * LPR
-* news
+* Nya
 * uucp
 * cron
 * authpriv
@@ -63,7 +62,7 @@ När [Log Analytics-agenten är installerad på en Linux-klient](../../azure-mon
 >
 
 #### <a name="rsyslog"></a>rsyslog
-Konfigurationsfilen för rsyslog finns på **/etc/rsyslog.d/95-omsagent.conf**. Standardinnehållet visas nedan. Detta samlar in syslog-meddelanden som skickas från den lokala agenten för alla anläggningar med en nivå med varning eller högre.
+Konfigurations filen för rsyslog finns på **/etc/rsyslog.d/95-omsagent.conf**. Standardinnehållet visas nedan. Detta samlar in syslog-meddelanden som skickas från den lokala agenten för alla anläggningar med en nivå med varning eller högre.
 
     kern.warning       @127.0.0.1:25224
     user.warning       @127.0.0.1:25224
@@ -89,7 +88,7 @@ Du kan ta bort en resurs genom att ta bort delen av konfigurationsfilen. Du kan 
 
 
 #### <a name="syslog-ng"></a>Syslog-ng
-Konfigurationsfilen för syslog-ng är plats **/etc/syslog-ng/syslog-ng.conf**.  Standardinnehållet visas nedan. Detta samlar in syslog-meddelanden som skickas från den lokala agenten för alla anläggningar och alla allvarlighetsgrader.   
+Konfigurations filen för syslog-ng är plats på **/etc/syslog-ng/syslog-ng.conf**.  Standardinnehållet visas nedan. Detta samlar in syslog-meddelanden som skickas från den lokala agenten för alla anläggningar och alla allvarlighetsgrader.   
 
     #
     # Warnings (except iptables) in one file:
@@ -155,7 +154,7 @@ Log Analytics agenten lyssnar efter syslog-meddelanden på den lokala klienten p
 
 Du kan ändra portnumret genom att skapa två konfigurationsfiler: en FluentD-konfigurationsfilen och en rsyslog-eller-syslog-ng-fil beroende på Syslog-daemon som du har installerat.  
 
-* FluentD-konfigurationsfilen ska vara en ny fil som finns på: `/etc/opt/microsoft/omsagent/conf/omsagent.d` och Ersätt värdet i den **port** post med din anpassat portnummer.
+* Konfigurations filen för den här filen bör vara en ny fil som finns i: `/etc/opt/microsoft/omsagent/conf/omsagent.d` och ersätta värdet i **port** posten med det anpassade port numret.
 
         <source>
           type syslog
@@ -168,10 +167,10 @@ Du kan ändra portnumret genom att skapa två konfigurationsfiler: en FluentD-ko
           type filter_syslog
         </filter>
 
-* För rsyslog, bör du skapa en ny konfigurationsfil som finns på: `/etc/rsyslog.d/` och Ersätt värdet % SYSLOG_PORT % med din anpassat portnummer.  
+* För rsyslog bör du skapa en ny konfigurations fil som finns i: `/etc/rsyslog.d/` och ersätta värdet% SYSLOG_PORT% med det anpassade port numret.  
 
     > [!NOTE]
-    > Om du ändrar detta värde i konfigurationsfilen `95-omsagent.conf`, den kommer att skrivas över när agenten gäller en standardkonfiguration.
+    > Om du ändrar det här värdet i konfigurations filen `95-omsagent.conf`kommer det att skrivas över när agenten använder en standard konfiguration.
     >
 
         # OMS Syslog collection for workspace %WORKSPACE_ID%
@@ -180,7 +179,7 @@ Du kan ändra portnumret genom att skapa två konfigurationsfiler: en FluentD-ko
         daemon.warning            @127.0.0.1:%SYSLOG_PORT%
         auth.warning              @127.0.0.1:%SYSLOG_PORT%
 
-* Syslog-ng-config ska ändras genom att kopiera exempelkonfiguration som visas nedan och lägga till anpassade ändrade inställningar i slutet av konfigurationsfilen syslog-ng.conf finns i `/etc/syslog-ng/`. Gör **inte** använda Standardetiketten **% WORKSPACE_ID % _oms** eller **% WORKSPACE_ID_OMS**, definiera en anpassad etikett för att skilja dina ändringar.  
+* Syslog-ng-konfigurationen ska ändras genom att du kopierar exempel konfigurationen som visas nedan och lägger till anpassade ändrade inställningar i slutet av syslog-ng. conf-konfigurationsfilen i `/etc/syslog-ng/`. Använd **inte** standard etiketten **% WORKSPACE_ID% _oms** eller **% WORKSPACE_ID_OMS**och definiera en anpassad etikett som hjälper dig att skilja dina ändringar.  
 
     > [!NOTE]
     > Om du ändrar standardvärdena i konfigurationsfilen, de kommer att skrivas över när agenten gäller en standardkonfiguration.
@@ -193,15 +192,15 @@ Du kan ändra portnumret genom att skapa två konfigurationsfiler: en FluentD-ko
 När ändringarna har slutförts måste syslog och tjänsten Log Analytics agent startas om för att se till att konfigurations ändringarna börjar gälla.   
 
 ## <a name="syslog-record-properties"></a>Egenskaper för Syslog-post
-Syslog-poster har en typ av **Syslog** och har egenskaperna i följande tabell.
+Syslog-poster har en typ av **syslog** och har egenskaperna i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
 | Dator |Datorn där händelsen har samlats in från. |
-| Anläggning |Definierar en del av systemet som genererade meddelandet. |
+| Funktion |Definierar en del av systemet som genererade meddelandet. |
 | HostIP |IP-adressen för det system som meddelandet skickades. |
 | Värdnamn |Namnet på system som meddelandet skickades. |
-| SeverityLevel |Allvarlighetsgrad för händelsen. |
+| Allvarlighetsgrad |Allvarlighetsgrad för händelsen. |
 | SyslogMessage |Meddelandets text. |
 | ProcessID |ID för den process som genererade meddelandet. |
 | eventTime |Datum och tid då händelsen skapades. |
@@ -209,7 +208,7 @@ Syslog-poster har en typ av **Syslog** och har egenskaperna i följande tabell.
 ## <a name="log-queries-with-syslog-records"></a>Loggfrågor med Syslog-poster
 I följande tabell innehåller olika exempel på loggfrågor som hämtar Syslog-poster.
 
-| Söka i data | Beskrivning |
+| Fråga | Beskrivning |
 |:--- |:--- |
 | Syslog |Alla Syslog-poster. |
 | Syslog &#124; där SeverityLevel == ”error” |Alla Syslog-poster med allvarlighetsgrad för fel. |
@@ -217,6 +216,6 @@ I följande tabell innehåller olika exempel på loggfrågor som hämtar Syslog-
 | Syslog &#124; sammanfatta AggregatedValue = antal() efter lokal |Räkna Syslog-poster efter anläggning. |
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [logga frågor](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.
-* Använd [anpassade fält](../../azure-monitor/platform/custom-fields.md) att parsa data från syslog-poster i enskilda fält.
-* [Konfigurera Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) att samla in andra typer av data.
+* Lär dig mer om [logg frågor](../../azure-monitor/log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar.
+* Använd [anpassade fält](../../azure-monitor/platform/custom-fields.md) för att parsa data från syslog-poster i enskilda fält.
+* [Konfigurera Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) för att samla in andra typer av data.

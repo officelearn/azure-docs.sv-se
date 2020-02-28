@@ -11,27 +11,27 @@ ms.date: 11/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 305b17a9118bddac53b19462cb8c3be887395311
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c715b2328f66c58fa744235c8762b31fd0b30d1f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923603"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669497"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Hantera beräkning i Azure SQL Data Warehouse
 Lär dig mer om att hantera beräknings resurser i Azure SQL Data Warehouse. Sänk kostnaderna genom att pausa data lagret eller skala data lagret så att det uppfyller prestanda kraven. 
 
 ## <a name="what-is-compute-management"></a>Vad är beräknings hantering?
-I arkitekturen för SQL Data Warehouse är lagring och beräkningar åtskilda så att du kan skala om båda delarna var för sig. Det gör att du kan skala om beräkningsresurserna för att uppfylla prestandabehoven oberoende av datalagringen. Du kan också pausa och återuppta beräkningsresurser. En naturlig följd av denna arkitektur är att [faktureringen](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) för beräkning och lagring är separat. Om du inte behöver använda ditt informationslager under en tid kan du spara beräkningskostnader genom att pausa databearbetningen. 
+Arkitekturen i SQL Data Warehouse separerar lagring och beräkning, vilket gör att de kan skalas oberoende av varandra. Det innebär att du kan skala beräkning för att uppfylla prestanda krav oberoende av data lagring. Du kan också pausa och återuppta beräknings resurser. En naturlig följd av denna arkitektur är att [faktureringen](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) för beräkning och lagring är separat. Om du inte behöver använda ditt informations lager en stund kan du spara beräknings kostnader genom att pausa beräkningarna. 
 
 ## <a name="scaling-compute"></a>Skala beräkning
-Du kan skala ut eller skala upp beräkningen genom att justera inställningen för [data lager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) för ditt informations lager. Prestanda för inläsning och körning av frågor ökar linjärt när du lägger till fler informationslagerenheter. 
+Du kan skala ut eller skala upp beräkningen genom att justera inställningen för [data lager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) för ditt informations lager. Att läsa in och fråga prestanda kan öka linjärt när du lägger till fler informations lager enheter. 
 
 Instruktioner för att skala ut finns i snabb starterna för [Azure Portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md)eller [T-SQL](quickstart-scale-compute-tsql.md) . Du kan också utföra skalnings åtgärder med en [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
-När du utför en skalningsåtgärd stoppar SQL Data Warehouse först alla inkommande frågor och återställer sedan transaktionerna för att säkerställa att tillståndet är konsekvent. Skalningen utförs först när transaktionerna har återställts. Under skalningsåtgärden kopplar systemet bort lagringsskiktet från beräkningsnoderna, lägger till beräkningsnoderna och kopplar sedan lagringsskiktet till beräkningsskiktet igen. Varje informationslager lagras som 60 distributioner som är jämnt fördelade mellan beräkningsnoderna. Om du lägger till flera beräkningsnoder läggs mer beräkningskraft till. När du ökar antalet beräkningsnoder minskar antalet distributioner per beräkningsnod, vilket ger mer beräkningskapacitet för dina frågor. På samma sätt minskar antalet beräknade data lager enheter antalet datornoder, vilket minskar beräknings resurserna för frågor.
+Om du vill utföra en skalnings åtgärd SQL Data Warehouse du först omsorg alla inkommande frågor och återställer sedan transaktionerna för att säkerställa ett konsekvent tillstånd. Skalning sker bara när transaktions återställningen har slutförts. Vid en skalnings åtgärd kopplar systemet bort lagrings lagret från Compute-noderna, lägger till datornoderna och kopplar sedan om lagrings skiktet till beräknings skiktet. Varje data lager lagras som 60-distributioner, som är jämnt distribuerade till datornoderna. Om du lägger till fler Compute-noder ökar beräknings kraften. Vartefter antalet beräknade noder ökar minskar antalet distributioner per Compute-nod och ger mer data bearbetnings kraft för dina frågor. På samma sätt minskar antalet beräknade data lager enheter antalet datornoder, vilket minskar beräknings resurserna för frågor.
 
-Följande tabell visar hur antalet distributioner per beräknings nod ändras när data lagrets enheter ändras.  DWU6000 tillhandahåller 60 Compute-noder och ger mycket högre frågeresultat än DWU100. 
+Följande tabell visar hur antalet distributioner per beräknings nod ändras när data lagrets enheter ändras.  DW30000c tillhandahåller 60 Compute-noder och ger mycket högre frågeresultat än DW100c. 
 
 | Informationslagerenheter  | \# av datornoder | \# av distributioner per nod |
 | -------- | ---------------- | -------------------------- |

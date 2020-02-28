@@ -1,18 +1,17 @@
 ---
 title: Vanliga frågor och svar – Övervakare av nätverksprestanda lösning i Azure | Microsoft Docs
 description: Den här artikeln innehåller vanliga frågor om Övervakare av nätverksprestanda i Azure. Övervakare av nätverksprestanda (NPM) hjälper dig att övervaka nätverkets prestanda i nära real tid och identifiera och hitta Flask halsar i nätverks prestanda.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 7ee593a8db020134e13ea853f17f097d716f7814
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 0ef50dfd4d9c6eb0066e54b76167b9934fbb9cf0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538190"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654441"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor om Övervakare av nätverksprestanda-lösning
 
@@ -173,7 +172,7 @@ NPM kan övervaka anslutningar till tjänster i valfri del av världen, från en
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Vilka regioner stöds för NPM ExpressRoute-övervakaren?
 NPM kan övervaka dina ExpressRoute-kretsar som finns i valfri Azure-region. Om du vill publicera till NPM måste du ha en Log Analytics arbets yta som måste finnas i någon av de [regioner som stöds](/azure/expressroute/how-to-npm)
 
-## <a name="troubleshoot"></a>Felsökning
+## <a name="troubleshoot"></a>Felsöka
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Varför har vissa hopp marker ATS som oidentifierade i vyn nätverkstopologi?
 NPM använder en modifierad version av traceroute för att identifiera topologin från käll agenten till målet. Ett oidentifierat hopp representerar att nätverks hoppet inte svarade på käll agentens traceroute-begäran. Om tre efterföljande nätverks hopp inte svarar på agentens traceroute, markerar lösningen de svar som inte svarar som oidentifierade och försöker inte identifiera fler hopp.
@@ -258,7 +257,7 @@ Detta kan inträffa om en eller flera är sanna:
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>I tjänst anslutnings övervakarens funktion är svars tiden för tjänsten, men både nätverks förlust och svars tid är giltiga
 Detta kan inträffa om mål tjänsten inte är ett webb program, men testet är konfigurerat som ett webb test. Redigera test konfigurationen och välj test typ som nätverk i stället för webben.
 
-## <a name="miscellaneous"></a>Övrigt
+## <a name="miscellaneous"></a>Allmänna
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>Påverkas prestandan på noden som används för övervakning?
 NPM-processen har kon figurer ATS att stoppa om den använder mer än 5% av värd processor resurserna. Detta är för att säkerställa att du kan fortsätta att använda noderna för sina vanliga arbets belastningar utan att påverka prestandan.

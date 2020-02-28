@@ -1,18 +1,17 @@
 ---
 title: Anslut Windows-datorer till Azure Monitor | Microsoft Docs
 description: Den här artikeln beskriver hur du ansluter Windows-datorer som finns i andra moln eller lokalt för att Azure Monitor med Log Analytics agent för Windows.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 8918c18c9356c583b9ea23138f0d0a0fb4dcd845
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 21efb16cf519d4bcad520af1c7d8818f36a77218
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689983"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668646"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Anslut Windows-datorer till Azure Monitor
 
@@ -35,7 +34,7 @@ Om du behöver konfigurera agenten för att rapportera till fler än en arbets y
 
 Om du vill förstå konfigurationen som stöds, så granska [de Windows-operativsystem som stöds](log-analytics-agent.md#supported-windows-operating-systems) och [nätverkets brandväggskonfiguration](log-analytics-agent.md#network-firewall-requirements).
 
-## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans id och nyckel
+## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans ID och nyckel
 Innan du installerar Log Analytics agent för Windows behöver du arbets ytans ID och nyckel för din Log Analytics-arbetsyta.  Den här informationen krävs under installationen från varje installations metod för att konfigurera agenten korrekt och se till att den kan kommunicera med Azure Monitor i Azures kommersiella och amerikanska myndighets moln. 
 
 1. I Azure Portal söker du efter och väljer **Log Analytics arbets ytor**.
@@ -95,7 +94,7 @@ I följande tabell visas de olika parametrarna som stöds av installations progr
 
 |MMA alternativ                   |Anteckningar         |
 |---------------------------------------|--------------|
-| NOAPM=1                               | Valfri parameter. Installerar agenten utan prestanda övervakning av .NET-program.|   
+| NOAPM = 1                               | Valfri parameter. Installerar agenten utan prestanda övervakning av .NET-program.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = Konfigurera agenten att rapportera till en arbets yta                |
 |OPINSIGHTS_WORKSPACE_ID                | Arbetsyte-ID (GUID) för arbets ytan som ska läggas till                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Arbets ytans nyckel som används för att börja autentisera med arbets ytan |

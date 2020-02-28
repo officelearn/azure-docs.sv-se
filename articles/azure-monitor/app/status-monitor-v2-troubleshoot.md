@@ -1,18 +1,16 @@
 ---
 title: Fel sökning och kända problem med Azure Application Insights-agenten | Microsoft Docs
 description: Kända problem med Application Insights agent och fel söknings exempel. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 30172bf65be52ba1ddd2b9127c3e2b5a284d48dc
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 217629ba5c386557455cc2d2b8bd47f85fa8f84e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899579"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671162"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Felsöka Application Insights agent (tidigare namngiven Statusövervakare v2)
 
@@ -26,8 +24,8 @@ Om du kommer till ett problem som inte finns med i listan här kan du kontakta o
 
 Om någon av dessa DLL-filer finns i bin-katalogen kan övervakningen Miss Miss kan:
 
-- Microsoft. ApplicationInsights. dll
-- Microsoft. ASPNET. TelemetryCorrelation. dll
+- Microsoft.ApplicationInsights.dll
+- Microsoft.AspNet.TelemetryCorrelation.dll
 - System. Diagnostics. DiagnosticSource. dll
 
 Vissa av dessa DLL-filer ingår i standardapparna för Visual Studio, även om din app inte använder dem.
@@ -83,7 +81,7 @@ Vi håller på att spåra det [här problemet.](https://github.com/microsoft/App
 
     
     
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
     
 ### <a name="troubleshooting-powershell"></a>Felsöka PowerShell
 
@@ -113,7 +111,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 ```
 
 #### <a name="determine-the-current-version-of-the-application-insights-agent-module"></a>Ta reda på den aktuella versionen av modulen Application Insights agent
-Kör kommandot `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` om du vill visa följande information om modulen:
+Kör kommandot `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` för att visa följande information om modulen:
    - Version av PowerShell-modul
    - Application Insights SDK-version
    - Fil Sök vägar för PowerShell-modulen

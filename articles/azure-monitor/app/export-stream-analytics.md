@@ -1,18 +1,14 @@
 ---
 title: Exportera med hjälp av Stream Analytics från Azure Application Insights | Microsoft Docs
 description: Stream Analytics kan kontinuerligt omvandla, filtrera och dirigera data som du exporterar från Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/08/2019
-ms.openlocfilehash: 3be1a643cbe942c0b740ae8ebcc2c7f2dda24854
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: b93bc49d005e3e54f1e5db84e6ff1adc49e25a65
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677938"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664022"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Använd Stream Analytics för att bearbeta exporterade data från Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) är det perfekta verktyget för att bearbeta data som [exporter ATS från Application Insights](export-telemetry.md). Stream Analytics kan hämta data från flera olika källor. Den kan transformera och filtrera data och sedan dirigera den till en rad olika mottagare.
@@ -111,7 +107,7 @@ I det här exemplet:
 > 
 
 ## <a name="add-new-output"></a>Lägg till nya utdata
-Välj nu jobbet > **utdata**  > **Lägg till**.
+Välj nu jobbet > **utdata** > **Lägg till**.
 
 ![](./media/export-stream-analytics/SA006.png)
 
@@ -205,7 +201,7 @@ Nu kan du använda den här data uppsättningen i rapporter och instrument panel
 
 ![I Power BI väljer du data uppsättning och fält.](./media/export-stream-analytics/210.png)
 
-## <a name="no-data"></a>Inga data?
+## <a name="no-data"></a>Ser du inga data?
 * Kontrol lera att du [har angett datum formatet](#set-path-prefix-pattern) korrekt till åååå-mm-dd (med streck).
 
 ## <a name="video"></a>Video

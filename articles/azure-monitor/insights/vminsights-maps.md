@@ -1,18 +1,17 @@
 ---
 title: Visa program beroenden med Azure Monitor for VMs (för hands version)
 description: Map är en funktion i Azure Monitor for VMs. Den identifierar automatiskt program komponenter i Windows-och Linux-system och mappar kommunikationen mellan tjänsterna. Den här artikeln innehåller information om hur du använder kart funktionen i olika scenarier.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: d91c4f7c3abdb06bfe0116e0fadf67c5b7a7a394
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cbdcd5cc8fa9475febd338f94f8b6fe1cb2fe406
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450711"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670754"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Använd kart funktionen i Azure Monitor for VMs (för hands version) för att förstå program komponenter
 I Azure Monitor for VMs kan du Visa identifierade program komponenter på virtuella Windows-och Linux-datorer (VM: ar) som körs i Azure eller i din miljö. Du kan titta på de virtuella datorerna på två sätt. Visa en karta direkt från en virtuell dator eller Visa en karta från Azure Monitor för att se komponenterna mellan grupper av virtuella datorer. Den här artikeln hjälper dig att förstå de här två visnings metoderna och hur du använder kart funktionen. 
@@ -121,7 +120,7 @@ Som standard visar kartan de senaste 30 minuterna. Om du vill se hur beroenden s
 
 I Azure Monitor tillhandahåller Map-funktionen en global vy över dina virtuella datorer och deras beroenden. För att få åtkomst till Map-funktionen i Azure Monitor:
 
-1. I Azure-portalen väljer du **övervakaren**. 
+1. I Azure Portal väljer du **övervaka**. 
 2. I avsnittet **insikter** väljer du **Virtual Machines (för hands version)** .
 3. Välj fliken **karta** .
 

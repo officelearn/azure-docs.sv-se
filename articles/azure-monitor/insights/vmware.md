@@ -1,18 +1,17 @@
 ---
 title: VMware-övervakning lösning i Azure Monitor | Microsoft Docs
 description: Läs mer om hur VMware Monitoring-lösningen kan hjälpa hantera loggar och övervaka ESXi-värdar.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: ac735c9131ebe7b7273d93a927cb4d4a8be24508
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c1622ef16155206d779c6d703fc7da568d233e7e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399197"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664787"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>VMware-övervakning (inaktuell) lösning i Azure Monitor
 
@@ -34,38 +33,38 @@ Använd följande information för att installera och konfigurera lösningen.
 vSphere ESXi-värd 5.5, 6.0 och 6.5
 
 #### <a name="prepare-a-linux-server"></a>Förbereda en Linux-server
-Skapa en Linux-operativsystem virtuell dator tar emot alla syslog-data från ESXi-värdar. Den [Log Analytics Linux-agenten](../learn/quick-collect-linux-computer.md) är den samling för alla ESXi-värd syslog-data. Du kan använda flera ESXi-värdar för att vidarebefordra loggar till en enda Linux-server, som i följande exempel.
+Skapa en Linux-operativsystem virtuell dator tar emot alla syslog-data från ESXi-värdar. [Log Analytics Linux-agenten](../learn/quick-collect-linux-computer.md) är samlings platsen för alla ESXi-värden för syslog-data. Du kan använda flera ESXi-värdar för att vidarebefordra loggar till en enda Linux-server, som i följande exempel.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
    ![Syslog-flöde](./media/vmware/diagram.png)
 
 ### <a name="configure-syslog-collection"></a>Konfigurera sysloginsamling
-1. Konfigurera syslog-vidarebefordran för VSphere. Detaljerad information för att konfigurera syslog-vidarebefordran finns i [konfigurera syslog på ESXi 5.0 och senare (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Gå till **ESXi Värdkonfigurationen** > **programvara** > **avancerade inställningar** > **Syslog**.
+1. Konfigurera syslog-vidarebefordran för VSphere. Detaljerad information om hur du konfigurerar syslog-vidarebefordran finns i [Konfigurera syslog på ESXi 5,0 och högre (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Gå till **ESXi värd konfiguration** > **program** > **Avancerade inställningar** > **syslog**.
    ![vsphereconfig](./media/vmware/vsphere1.png)  
-1. I den *Syslog.global.logHost* fältet, lägga till din Linux-server och portnumret *1514*. Till exempel `tcp://hostname:1514` eller `tcp://123.456.789.101:1514`
-1. Öppna brandväggen för ESXi-värden för syslog. **Konfiguration för ESXi-värd** > **programvara** > **säkerhetsprofil** > **brandväggen** och öppna **Egenskaper**.  
+1. I fältet *syslog. global. logHost* lägger du till Linux-servern och port numret *1514*. Till exempel `tcp://hostname:1514` eller `tcp://123.456.789.101:1514`
+1. Öppna brandväggen för ESXi-värden för syslog. **ESXi värd konfiguration** > **program** > **säkerhets profil** > **brand vägg** och öppna **Egenskaper**.  
 
     ![vspherefw](./media/vmware/vsphere2.png)  
 
     ![vspherefwproperties](./media/vmware/vsphere3.png)  
-1. Kontrollera vSphere-konsolen och verifiera den syslog är rätt konfigurerad. Kontrollera att porten på ESXI-värden **1514** har konfigurerats.
-1. Ladda ned och installera Log Analytics-agenten för Linux på Linux-servern. Mer information finns i den [dokumentationen för Log Analytics-agenten för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
-1. När Log Analytics-agenten för Linux är installerad går du till /etc/opt/microsoft/omsagent/sysconf/omsagent.d katalogen och kopiera vmware_esxi.conf filen till katalogen /etc/opt/microsoft/omsagent/conf/omsagent.d och ändringen ägare/grupp och behörigheterna för filen. Ett exempel:
+1. Kontrollera vSphere-konsolen och verifiera den syslog är rätt konfigurerad. Bekräfta att ESXI-värden som port **1514** är konfigurerad på.
+1. Ladda ned och installera Log Analytics-agenten för Linux på Linux-servern. Mer information finns i [dokumentationen för Log Analytics agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
+1. När Log Analytics-agenten för Linux är installerad går du till /etc/opt/microsoft/omsagent/sysconf/omsagent.d katalogen och kopiera vmware_esxi.conf filen till katalogen /etc/opt/microsoft/omsagent/conf/omsagent.d och ändringen ägare/grupp och behörigheterna för filen. Några exempel:
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
-1. Starta om Log Analytics-agenten för Linux genom att köra `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-1. Testa anslutningen mellan Linux-servern och ESXi-värden med hjälp av den `nc` på ESXi-värden. Ett exempel:
+1. Starta om Log Analytics agent för Linux genom att köra `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+1. Testa anslutningen mellan Linux-servern och ESXi-värden med hjälp av kommandot `nc` på ESXi-värden. Några exempel:
 
     ```
     [root@ESXiHost:~] nc -z 123.456.789.101 1514
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-1. I Azure Portal kör du en logg fråga för `VMware_CL`. När Azure Monitor samlar in syslog-data, behåller det syslog-formatet. I portalen vissa specifika fält fångas som *värdnamn* och *ProcessName*.  
+1. I Azure Portal kör du en logg fråga för `VMware_CL`. När Azure Monitor samlar in syslog-data, behåller det syslog-formatet. I portalen samlas vissa fält in, till exempel *hostname* och *processname*.  
 
     ![typ](./media/vmware/type.png)  
 
@@ -82,7 +81,7 @@ I följande tabell visas data samlingsmetoder och annan information om hur data 
 
 I följande tabell visas exempel på datafält som samlas in av VMware Monitoring-lösningen:
 
-| fältnamn | description |
+| fältnamn | beskrivning |
 | --- | --- |
 | Device_s |VMware-lagringsenheter |
 | ESXIFailure_s |typer av fel |
@@ -109,7 +108,7 @@ VMware-panelen visas i Log Analytics-arbetsytan. Det ger en övergripande bild a
 ![kakelsättning](./media/vmware/tile.png)
 
 #### <a name="navigate-the-dashboard-view"></a>Gå en instrumentpanelsvy
-I den **VMware** instrumentpanelsvyn blad är ordnade efter:
+I vyn **VMware** Dashboard organiseras blad efter:
 
 * Felberäkning Status
 * Främsta värden efter händelseantal
@@ -132,7 +131,7 @@ En enda ESXi-värd genererar flera loggar, utifrån sina processer. VMware Monit
 
 Du kan gå vidare genom att klicka på en ESXi-värd eller en händelsetyp.
 
-När du klickar på en ESXi-värdnamnet, kan du visa information från den ESXi-värden. Om du vill begränsa resultaten med händelsetyp, lägger du till `“ProcessName_s=EVENT TYPE”` i en sökfråga. Du kan välja **ProcessName** i sökrutan filtrera. Som begränsar information åt dig.
+När du klickar på en ESXi-värdnamnet, kan du visa information från den ESXi-värden. Om du vill begränsa resultatet med händelse typen lägger du till `“ProcessName_s=EVENT TYPE”` i din Sök fråga. Du kan välja **processname** i Sök filtret. Som begränsar information åt dig.
 
 ![öka detaljnivån](./media/vmware/eventhostdrilldown.png)
 
@@ -152,14 +151,14 @@ Lösningen innehåller andra användbara frågor som kan hjälpa dig att hantera
 
 
 #### <a name="save-queries"></a>Spara frågor
-Att spara logg frågor är en standard funktion i Azure Monitor och kan hjälpa dig att hålla alla frågor som du har hittat användbara. När du skapar en fråga som användbara kan du spara det genom att klicka på den **Favoriter**. En sparad fråga kan du enkelt återanvända det senare i den [min instrumentpanel](../learn/tutorial-logs-dashboards.md) sidan där du kan skapa dina egna anpassade instrumentpaneler.
+Att spara logg frågor är en standard funktion i Azure Monitor och kan hjälpa dig att hålla alla frågor som du har hittat användbara. När du har skapat en fråga som du tycker är användbar sparar du den genom att klicka på **Favoriter**. Med en sparad fråga kan du enkelt återanvända den senare från [min instrument panels](../learn/tutorial-logs-dashboards.md) sida där du kan skapa dina egna anpassade instrument paneler.
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Skapa aviseringar från frågor
-När du har skapat dina frågor, kanske du vill använda frågorna för att meddela dig när specifika händelser äger rum. Se [aviseringar i Log Analytics](../platform/alerts-overview.md) information om hur du skapar aviseringar. Exempel på aviseringar frågor och andra fråga-exempel finns i [övervaka VMware med Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogginlägg.
+När du har skapat dina frågor, kanske du vill använda frågorna för att meddela dig när specifika händelser äger rum. Information om hur du skapar aviseringar finns [i varningar i Log Analytics](../platform/alerts-overview.md) . Exempel på aviserings frågor och andra fråge exempel finns i [Övervaka VMware med Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogg inlägg.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Vad behöver jag göra på ESXi värd inställningen? Vilken effekt det har på min aktuella miljön?
 Lösningen använder inbyggda ESXi-värd Syslog-vidarebefordran mekanism. Du behöver inte några ytterligare Microsoft-programvara på ESXi-värden för att samla in loggarna. Den bör ha ett låga påverkan på din befintliga miljö. Du måste dock ange syslog-vidarebefordran, vilket är en ESXI-funktion.
 
@@ -167,10 +166,10 @@ Lösningen använder inbyggda ESXi-värd Syslog-vidarebefordran mekanism. Du beh
 Nej. Den här processen kräver inte en omstart. Ibland uppdateras vSphere korrekt inte Syslog-enheten. I detta fall är att logga in på ESXi-värden och läsa in Syslog-enheten. Igen, du behöver starta om värden så att den här processen inte är störande för din miljö.
 
 ### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>Kan jag öka eller minska mängden loggdata som skickas till Log Analytics?
-Du kan Ja. Du kan använda inställningar för Loggnivå för ESXi-värden i vSphere. Logginsamling baseras på den *info* nivå. Så om du vill granska virtuell dator skapas eller tas bort måste du behålla den *info* nivå på Hostd. Mer information finns i den [VMware Knowledge Base](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658).
+Du kan Ja. Du kan använda inställningar för Loggnivå för ESXi-värden i vSphere. Logg insamling baseras på *informations* nivån. Så om du vill granska skapandet eller borttagning av virtuella datorer måste du behålla *informations* nivån på värd. Mer information finns i VMware- [kunskaps basen](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658).
 
 ### <a name="why-is-hostd-not-providing-data-to-log-analytics-my-log-setting-is-set-to-info"></a>Varför Hostd inte tillhandahåller data till Log Analytics? Min log är inställningen information.
-Det uppstod en ESXi-värd-bugg för syslog-tidsstämpel. Mer information finns i den [VMware Knowledge Base](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2111202). När du har installerat lösningen ska Hostd fungera normalt.
+Det uppstod en ESXi-värd-bugg för syslog-tidsstämpel. Mer information finns i VMware- [kunskaps basen](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2111202). När du har installerat lösningen ska Hostd fungera normalt.
 
 ### <a name="can-i-have-multiple-esxi-hosts-forwarding-syslog-data-to-a-single-vm-with-omsagent"></a>Kan jag har flera ESXi-värdar som vidarebefordrar syslog-data till en enskild virtuell dator med omsagent?
 Ja. Du kan ha flera ESXi-värdar som vidarebefordrar till en enskild virtuell dator med omsagent.
@@ -180,24 +179,24 @@ Det kan finnas flera anledningar:
 
 * ESXi-värden inte korrekt skicka data till den virtuella datorn som kör omsagent. Om du vill testa, utför du följande steg:
 
-  1. Bekräfta genom att logga in på ESXi-värden med hjälp av ssh och kör följande kommando: `nc -z ipaddressofVM 1514`
+  1. Bekräfta genom att logga in på ESXi-värden med SSH och kör följande kommando: `nc -z ipaddressofVM 1514`
 
-      Om detta inte lyckas, vSphere-inställningarna i avancerade förmodligen inte åtgärda. Se [konfigurera sysloginsamling](#configure-syslog-collection) information om hur du ställer in ESXi-värden för syslog-vidarebefordran.
-  1. Om syslog-portanslutningen har slutförts, men du fortfarande inte ser några data, sedan ladda in syslog på ESXi-värden med ssh och kör följande kommando: `esxcli system syslog reload`
+      Om detta inte lyckas, vSphere-inställningarna i avancerade förmodligen inte åtgärda. Se [Konfigurera syslog-samling](#configure-syslog-collection) för information om hur du konfigurerar ESXi-värden för syslog-vidarebefordran.
+  1. Om syslog-port anslutningen lyckas, men du inte ser några data, laddar du om syslog på ESXi-värden med hjälp av SSH för att köra följande kommando: `esxcli system syslog reload`
 * Den virtuella datorn med Log Analytics-agenten har inte angetts korrekt. Utför följande steg för att testa detta:
 
-  1. Log Analytics lyssnar på port 1514. Kontrollera att den är öppen med följande kommando: `netstat -a | grep 1514`
-  1. Du bör se port `1514/tcp` öppna. Om du inte gör det, kan du kontrollera att omsagent är korrekt installerad. Syslog-porten är inte öppen på den virtuella datorn om du inte ser portinformationen.
+  1. Log Analytics lyssnar på port 1514. Kontrol lera att den är öppen genom att köra följande kommando: `netstat -a | grep 1514`
+  1. Du bör se port `1514/tcp` öppen. Om du inte gör det, kan du kontrollera att omsagent är korrekt installerad. Syslog-porten är inte öppen på den virtuella datorn om du inte ser portinformationen.
 
-    a. Kontrollera att Log Analytics-agenten körs med hjälp av `ps -ef | grep oms`. Om den inte körs, starta den genom att köra kommandot `sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. Verifiera att Log Analytics Agent körs genom att använda `ps -ef | grep oms`. Om den inte körs startar du processen genom att köra kommandot `sudo /opt/microsoft/omsagent/bin/service_control start`
 
      b. Öppna filen `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 
-     c. Kontrollera att rätt användare och grupp-inställning är giltig, vilket liknar: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+     c. Kontrol lera att rätt användar-och grupp inställning är giltig, ungefär så här: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
-     d. Om filen inte finns eller är fel, användare och grupp-inställning vidta åtgärder med [förbereda en Linux-server](#prepare-a-linux-server).
+     d. Om filen inte finns, eller om användar-och grupp inställningen är fel, vidtar du åtgärder genom att [förbereda en Linux-server](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Nästa steg
 * Använd [logg frågor](../log-query/log-query-overview.md) i Log Analytics om du vill visa detaljerade VMware-värdar.
-* [Skapa dina egna instrumentpaneler](../learn/tutorial-logs-dashboards.md) som visar data för VMware-värd.
-* [Skapa aviseringar](../platform/alerts-overview.md) när specifika händelser för VMware-värd inträffar.
+* [Skapa dina egna instrument paneler](../learn/tutorial-logs-dashboards.md) som visar VMware-värd data.
+* [Skapa aviseringar](../platform/alerts-overview.md) när vissa VMware-värd händelser inträffar.

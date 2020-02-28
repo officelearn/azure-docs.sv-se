@@ -1,24 +1,21 @@
 ---
 title: Hantera aviseringar från System Center Operations Manager, zabbix och nagios i Azure Monitor
 description: Hantera aviseringar från System Center Operations Manager, zabbix och nagios i Azure Monitor
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
-ms.author: robb
 ms.date: 09/24/2018
-ms.openlocfilehash: 0e774633542f9b7f8b7de9f8f187821bfbe6b9cf
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.subservice: alerts
+ms.openlocfilehash: 5ef03f522fb91302bfdec985f1e3c5cf8138ae97
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555615"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667456"
 ---
 # <a name="manage-alerts-from-system-center-operations-manager-zabbix-and-nagios-in-azure-monitor"></a>Hantera aviseringar från System Center Operations Manager, zabbix och nagios i Azure Monitor
 
 Nu kan du Visa aviseringarna från nagios, zabbix och System Center Operations Manager i [Azure Monitor](https://aka.ms/azure-alerts-overview). Dessa aviseringar kommer från integreringar med nagios/zabbix-servrar eller System Center Operations Manager till Log Analytics. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Alla poster i Log Analytics-lagringsplatsen med en typ av avisering importeras till Azure Monitor, så du måste utföra den konfiguration som krävs för att samla in dessa poster.
 1. För **nagios** -och **zabbix** -aviseringar [konfigurerar du servrarna](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) för att [skicka aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-alerts-nagios-zabbix?toc=%2Fazure%2Fazure-monitor%2Ftoc.json) till Log Analytics.
 1. För **System Center Operations Manager** aviseringar [ansluter du Operations Manager hanterings gruppen till din Log Analytics-arbetsyta](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Därefter distribuerar du [aviseringshantering](https://docs.microsoft.com/azure/azure-monitor/platform/alert-management-solution) -lösningen från Marketplace för Azure-lösningar. När du är färdig importeras alla aviseringar som skapats i System Center Operations Manager till Log Analytics.

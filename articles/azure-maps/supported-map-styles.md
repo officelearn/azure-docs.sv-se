@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9cdfd0d029057e36e010203b7c35a5aafee4b574
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: a65f20e04603403a1d3a180e364626d5b4440661
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208292"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664543"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Mappnings format som stöds Azure Maps
 Azure Maps stöder flera olika inbyggda kart format enligt beskrivningen nedan.
@@ -52,7 +52,7 @@ De **tomma** och **blank_accessible** kart formaten innehåller en tom arbets yt
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Den här kart stilen är en hybrid av vägar och etiketter som finns ovanpå satellit-och antenn bilder.
 
-![satellite_road_labels kart stil](./media/supported-map-styles/satellite_road_labels.png)
+![satellite_road_labels kart stil](./media/supported-map-styles/satellite-road-labels.png)
 
 **Tillämpliga API: er:**
 * Kart kontroll för webb-SDK
@@ -61,7 +61,7 @@ Den här kart stilen är en hybrid av vägar och etiketter som finns ovanpå sat
 ## <a name="grayscale_dark"></a>grayscale_dark
 **gråskala** är en mörk version av vägens kart stil.
 
-![gray_scale kart stil](./media/supported-map-styles/grayscale_dark.png)
+![gray_scale kart stil](./media/supported-map-styles/grayscale-dark.png)
 
 **Tillämpliga API: er:**
 * [Kart bild](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -73,7 +73,7 @@ Den här kart stilen är en hybrid av vägar och etiketter som finns ovanpå sat
 ## <a name="grayscale_light"></a>grayscale_light
 **grå Skale lampor** är en låg version av vägens kart stil.
 
-![format för grå tons indikator](./media/supported-map-styles/grayscale_light.png)
+![format för grå tons indikator](./media/supported-map-styles/grayscale-light.png)
 
 **Tillämpliga API: er:**
 * Kart kontroll för webb-SDK
@@ -99,6 +99,14 @@ en **nedtonad** avlastning är ett Azure Maps huvud format som har slutförts me
 * Kart kontroll för webb-SDK
 * Kontroll av Android-kartning
 
+## <a name="high_contrast_dark"></a>high_contrast_dark
+
+**high_contrast_dark** är ett mörkt kart format med en högre kontrast än andra format.
+
+![mörkt kart format med hög kontrast](./media/supported-map-styles/high-contrast-dark.png)
+
+**Tillämpliga API: er:**
+* Kart kontroll för webb-SDK
 
 ## <a name="next-steps"></a>Nästa steg
 

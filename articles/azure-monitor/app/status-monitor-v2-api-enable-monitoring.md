@@ -1,18 +1,16 @@
 ---
 title: API-referens för Azure Application Insights-agent
 description: Application Insights Agent-API-referens. Enable-ApplicationInsightsMonitoring. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: dccd7e617174bef4a85cb6293cbcc459542310f9
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 8bbdc96a49fffc91f80d24a9eb0926766f86ee16
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899712"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671315"
 ---
 # <a name="application-insights-agent-api-enable-applicationinsightsmonitoring"></a>Application Insights Agent-API: Enable-ApplicationInsightsMonitoring
 
@@ -48,11 +46,11 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 
 ### <a name="example-with-an-instrumentation-key-map"></a>Exempel med en instrumentande nyckel karta
 I det här exemplet:
-- `MachineFilter` matchar den aktuella datorn genom att använda jokertecknet `'.*'`.
-- `AppFilter='WebAppExclude'` har en `null` Instrumentation-nyckel. Den angivna appen instrumenteras inte.
+- `MachineFilter` matchar den aktuella datorn med hjälp av `'.*'` jokertecken.
+- `AppFilter='WebAppExclude'` tillhandahåller en `null` Instrumentation-nyckel. Den angivna appen instrumenteras inte.
 - `AppFilter='WebAppOne'` tilldelar den angivna appen en unik Instrumentation-nyckel.
 - `AppFilter='WebAppTwo'` tilldelar den angivna appen en unik Instrumentation-nyckel.
-- Slutligen använder `AppFilter` även jokertecknet `'.*'` för att matcha alla webbappar som inte matchar de tidigare reglerna och tilldela en standard Instrumentation-nyckel.
+- Slutligen använder `AppFilter` även jokertecken `'.*'` för att matcha alla webbappar som inte matchar de tidigare reglerna och tilldela en standard Instrumentation-nyckel.
 - Blank steg har lagts till för läsbarhet.
 
 ```powershell

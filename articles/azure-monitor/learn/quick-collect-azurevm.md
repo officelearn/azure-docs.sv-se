@@ -1,19 +1,18 @@
 ---
 title: Samla in data från en virtuell Azure-dator med Azure Monitor | Microsoft Docs
 description: Lär dig hur du aktiverar Log Analytics-agentens tillägg för virtuella datorer och hur du aktiverar insamling av data från virtuella datorer i Azure med Log Analytics.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: cec27a2e16489850824d5b662b6bda4b23b1fa99
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2e63b2ca0ee7246009068e6a2875795a14aeddb3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398925"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660197"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Samla in data från en virtuell Azure-dator med Azure Monitor
 
@@ -21,7 +20,7 @@ ms.locfileid: "75398925"
  
 För den här snabbstarten förutsätts det att du har en befintlig virtuell dator i Azure. Om du inte har det kan du [skapa en virtuell Windows-dator](../../virtual-machines/windows/quick-create-portal.md) eller [skapa en virtuell Linux-dator](../../virtual-machines/linux/quick-create-cli.md) med hjälp av våra snabbstarter för virtuella datorer.
 
-## <a name="sign-in-to-azure-portal"></a>Logga in på Azure Portal
+## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
 
@@ -29,7 +28,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
 
-    ![Azure portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
+    ![Azure-portalen](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Välj **skapa**och välj sedan alternativ för följande objekt:
 

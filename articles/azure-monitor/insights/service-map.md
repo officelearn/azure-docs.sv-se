@@ -1,22 +1,21 @@
 ---
 title: Använda Tjänstkarta lösning i Azure | Microsoft Docs
 description: Tjänstkarta är en lösning i Azure som automatiskt identifierar programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Den här artikeln innehåller information för att distribuera Service Map i din miljö och använder den på en mängd olika scenarier.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 0f2181a388a5329dbc16ce8968da79529b22ea85
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: c177589bea76770f8f72dd3267b856b00d57699c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76168178"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663631"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Använda Tjänstkarta lösning i Azure
 
-Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Tjänstkarta kan du visa dina servrar på samma sätt som du ser på dem: som sammankopplade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer, inkommande och utgående anslutningssvarstid, samt portar i valfri TCP-ansluten arkitektur, utan att det krävs någon konfiguration förutom installationen av en agent.
+Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Tjänstkarta kan du se dina servrar på samma sätt som du tänker på dem, dvs. som sammankopplade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer, inkommande och utgående anslutningssvarstid, samt portar i valfri TCP-ansluten arkitektur, utan att det krävs någon konfiguration förutom installationen av en agent.
 
 I den här artikeln beskrivs hur du onboarding och använder Tjänstkarta. Information om hur du konfigurerar krav för den här lösningen finns i [aktivera Azure Monitor for VMS översikt](vminsights-enable-overview.md#prerequisites). För att sammanfatta behöver du följande:
 
@@ -54,7 +53,7 @@ Tjänstkarta hjälper till att undvika att isolera problem genom att visa hur sy
 
 Genom att använda Tjänstkarta kan du effektivt planera, påskynda och validera Azure-migreringar, vilket hjälper till att se till att inget är kvar bakom och oväntade avbrott sker inte. Du kan identifiera alla beroende system som behöver migreras tillsammans, utvärdera systemets konfiguration och kapacitet och identifiera om ett system som är igång fortfarande betjänar användare eller är en kandidat för avställning i stället för migrering. När flyttningen är klar kan du kontrol lera klient belastning och identitet för att kontrol lera att test system och kunder ansluter. Om under nätets planering och brand Väggs definitioner har problem, misslyckade anslutningar i Tjänstkarta Maps, pekar du på de system som behöver anslutning.
 
-### <a name="business-continuity"></a>Kontinuitet i verksamheten
+### <a name="business-continuity"></a>Verksamhetskontinuitet
 
 Om du använder Azure Site Recovery och behöver hjälp med att definiera återställnings ordningen för din program miljö kan Tjänstkarta automatiskt visa hur systemen förlitar sig på varandra för att säkerställa att din återställnings plan är tillförlitlig. Genom att välja en kritisk Server eller grupp och visa dess klienter kan du identifiera vilka klient dels system som ska återställas efter att servern har återställts och är tillgänglig. Genom att titta på kritiska servrars backend-beroenden kan du identifiera vilka system som ska återställas innan dina fokus system återställs.
 
@@ -158,8 +157,8 @@ Vissa processer har särskilda roller på datorer: webb servrar, program servrar
 | Rollikon | Beskrivning |
 |:--|:--|
 | ![Webbserver](media/service-map/role-web-server.png) | Webbserver |
-| ![Appserver](media/service-map/role-application-server.png) | Program Server |
-| ![Databasserver](media/service-map/role-database.png) | Databasserver |
+| ![App Server](media/service-map/role-application-server.png) | Program Server |
+| ![Databas server](media/service-map/role-database.png) | Databas server |
 | ![LDAP-server](media/service-map/role-ldap.png) | LDAP-server |
 | ![SMB-server](media/service-map/role-smb.png) | SMB-server |
 
@@ -539,7 +538,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 | summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
 ```
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 
 Alla Server-, process-och beroende data i Tjänstkarta är tillgängliga via [Tjänstkarta REST API](https://docs.microsoft.com/rest/api/servicemap/).
 
@@ -547,13 +546,13 @@ Alla Server-, process-och beroende data i Tjänstkarta är tillgängliga via [Tj
 
 Microsoft samlar automatiskt in användnings- och data till din användning av tjänsten Tjänstkarta. Microsoft använder dessa data för att tillhandahålla och förbättra kvaliteten, säkerheten och integriteten för tjänsten Tjänstkarta. För att tillhandahålla korrekta och effektiva fel söknings funktioner innehåller data information om konfigurationen av program varan, till exempel operativ system och version, IP-adress, DNS-namn och arbets Stations namn. Microsoft samlar inte in namn, adresser eller annan kontakt information.
 
-Mer information om insamling och användning finns i den [sekretesspolicyn för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
+Mer information om insamling och användning av data finns i [sekretess policy för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om [loggs ökningar](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics för att hämta data som samlas in av tjänstkarta.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Om du får problem med installeras eller köras Tjänstkarta kan i det här avsnittet hjälpa dig. Kontakta Microsoft Support om du fortfarande inte kan lösa problemet.
 
@@ -572,7 +571,7 @@ Det kan vara praktiskt att installera de [senaste körnings biblioteken](https:/
 
 I följande tabell visas kodnummer och rekommenderade lösningar.
 
-| Programmera | Beskrivning | Upplösning |
+| Kod | Beskrivning | Lösning |
 |:--|:--|:--|
 | 0x17 | Installationsprogrammet biblioteket kräver en Windows-uppdatering som inte är installerad. | Titta i den senaste biblioteket installer-loggen.<br><br>Om en referens till `Windows8.1-KB2999226-x64.msu` följs av en rad `Error 0x80240017: Failed to execute MSU package,` du inte kraven för att installera KB2999226. Följ anvisningarna i avsnittet krav i [Universal C runtime i Windows](https://support.microsoft.com/kb/2999226) -artikeln. Du kan behöva köra Windows Update och starta om flera gånger för att kunna installera nödvändiga komponenter.<br><br>Kör installationsprogrammet för Microsoft Dependency agenten igen. |
 

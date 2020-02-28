@@ -1,18 +1,17 @@
 ---
 title: Anslutningsprogram för hantering av IT-tjänster (ITSM) i Azure Log Analytics | Microsoft Docs
 description: Den här artikeln innehåller en översikt över Anslutningsprogram för hantering av IT-tjänster (ITSM) (ITSMC) och information om hur du använder den här lösningen för att centralt övervaka och hantera ITSM-arbetsobjekten i Azure Log Analytics och lösa eventuella problem snabbt.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 68aff01ea541a24be1f8d526fecbb6a9d2c30086
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 50bab4c26046059b993c19a030a8f840ae336ef2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990682"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672233"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Anslut Azure till ITSM-verktyg med Anslutningsprogram för hantering av IT-tjänster (ITSM)
 
@@ -131,7 +130,7 @@ Följ dessa steg:
 
 6. Välj typ av **arbets objekt** på den nedrullningsbara menyn.
    Välj att använda en befintlig mall eller fyll i fälten som krävs av din ITSM-produkt.
-7. Klicka på **OK**.
+7. Klicka på **OK**
 
 När du skapar/redigerar en regel för Azure-avisering använder du en åtgärds grupp som har en ITSM-åtgärd. När aviseringen utlöses skapas/uppdateras arbets objekt i ITSM-verktyget.
 
@@ -190,7 +189,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Källa
 - Tilldelad till
 - Kategori
-- Titel
+- Rubrik
 - Beskrivning
 - Skapad datum
 - Stängningsdatum
@@ -210,7 +209,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Stängd av
 - Källa
 - Tilldelad till
-- Titel
+- Rubrik
 - Typ
 - Kategori
 - Status
@@ -245,14 +244,14 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ResolvedBy_s | Löst av|
 | ClosedBy_s  | Stängd av |
 | Source_s| Kontakt typ |
-| AssignedTo_s | Tilldelad  |
+| AssignedTo_s | Tilldelad till  |
 | Category_s | Kategori |
 | Title_s|  Kort beskrivning |
 | Description_s|  Anteckningar |
 | CreatedDate_t|  Inleddes |
 | ClosedDate_t| Stängd|
-| ResolvedDate_t|Göras|
-| Dator  | Konfigurations objekt |
+| ResolvedDate_t|Matchat|
+| Dator  | Konfigurationsobjekt |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Utdata för en ServiceNow-ändringsbegäran
 
@@ -261,7 +260,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ServiceDeskId_s| Tal |
 | CreatedBy_s | Begärd av |
 | ClosedBy_s | Stängd av |
-| AssignedTo_s | Tilldelad  |
+| AssignedTo_s | Tilldelad till  |
 | Title_s|  Kort beskrivning |
 | Type_s|  Typ |
 | Category_s|  Kategori |
@@ -271,13 +270,13 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Risk_s| Risk|
 | Impact_s| Påverkan|
 | RequestedDate_t  | Begärd efter datum |
-| ClosedDate_t | Stängnings datum |
+| ClosedDate_t | Stängningsdatum |
 | PlannedStartDate_t  |     Planerat start datum |
 | PlannedEndDate_t  |   Planerat slutdatum |
-| WorkStartDate_t  | Verkligt start datum |
+| WorkStartDate_t  | Verkligt startdatum |
 | WorkEndDate_t | Verkligt slutdatum|
 | Description_s | Beskrivning |
-| Dator  | Konfigurations objekt |
+| Dator  | Konfigurationsobjekt |
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Felsöka ITSM-anslutningar

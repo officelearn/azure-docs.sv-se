@@ -1,18 +1,16 @@
 ---
 title: API-referens för Azure Application Insights-agent
 description: Application Insights Agent-API-referens. Starta spårning. Samla in ETW-loggar från Statusövervakare och Application Insights SDK.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: c97315b3a215f10e5b8f9533bf09fa5ac30ee16f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b9680101f1a22dd6d9c1617c8afc13a10ad1c594
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899659"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671230"
 ---
 # <a name="application-insights-agent-api-start-applicationinsightsmonitoringtrace"></a>Application Insights Agent-API: Start-ApplicationInsightsMonitoringTrace
 
@@ -38,17 +36,17 @@ Normalt skulle vi be dig att samla in händelser för att undersöka varför dit
 Koden för kod bundna bilagor genererar ETW-händelser när IIS startas och när programmet startas.
 
 Så här samlar du in följande händelser:
-1. I en cmd-konsol med administratörs behörighet kör du `iisreset /stop` om du vill stänga av IIS och alla webbappar.
+1. I en cmd-konsol med administratörs behörighet kör `iisreset /stop` för att stänga av IIS och alla webbappar.
 2. Kör denna cmdlet
-3. I en cmd-konsol med administratörs behörighet kör du `iisreset /start` för att starta IIS.
+3. I en cmd-konsol med administratörs behörighet kör `iisreset /start` för att starta IIS.
 4. Försök att bläddra till din app.
-5. När appen har lästs in kan du stoppa den manuellt (`Ctrl + C`) eller vänta tills tids gränsen har passerats.
+5. När appen har lästs in kan du stoppa den manuellt (`Ctrl + C`) eller vänta på timeout.
 
 ### <a name="what-events-to-collect"></a>Vilka händelser som ska samlas in
 
 Du har tre alternativ när du samlar in händelser:
-1. Använd växeln `-CollectSdkEvents` om du vill samla in händelser som har avsänts från Application Insights SDK.
-2. Använd växeln `-CollectRedfieldEvents` om du vill samla in händelser som avsänts av Statusövervakare och Redfield Runtime. Dessa loggar är användbara när du ska diagnostisera IIS och program start.
+1. Använd växeln `-CollectSdkEvents` för att samla in händelser som har avsänts från Application Insights SDK.
+2. Använd växeln `-CollectRedfieldEvents` för att samla in händelser som avsänts av Statusövervakare och Redfield Runtime. Dessa loggar är användbara när du ska diagnostisera IIS och program start.
 3. Använd båda växlar för att samla in båda händelse typerna.
 4. Som standard, om ingen växel har angetts, kommer båda händelse typerna att samlas in.
 

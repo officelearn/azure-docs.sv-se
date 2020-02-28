@@ -3,17 +3,16 @@ title: Felsöka Azure Monitor Metric-diagram
 description: Felsöka problem med att skapa, anpassa eller tolka mått diagram
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 072e62d89e8febc4837c10874398daea3b8114ed
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e1ad4e53596b8228bdef5beb18aa250a9512c49f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974871"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659670"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Felsöka mått diagram
 
@@ -29,7 +28,7 @@ Du klickade på knappen **Välj en resurs**, men ser inte din resurs i resursvä
 
 1. Kontrollera att du har valt rätt resursgrupp.
     > [!WARNING]
-    > För bästa prestanda bör det inte finnas några fördefinierade resurs grupper i list rutan **resurs grupp** för första gången du öppnar Metrics Explorer. Du måste välja minst en grupp innan du kan se några resurser.
+    > För bästa prestanda visas inga förvalda resursgrupper i listrutan **Resursgrupp** när du öppnar Metrics Explorer. Du måste välja minst en grupp innan du kan se några resurser.
 
 ## <a name="chart-shows-no-data"></a>Diagrammet visar inga data
 

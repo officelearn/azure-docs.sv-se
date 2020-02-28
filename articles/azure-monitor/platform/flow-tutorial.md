@@ -1,18 +1,17 @@
 ---
 title: Automatisera Azure Monitor logg processer med Microsoft Flow
 description: Lär dig hur du kan använda Microsoft Flow för att snabbt automatisera upprepade processer med hjälp av Azure Log Analytics-anslutningen.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/29/2017
-ms.openlocfilehash: a6097d38d3335be356ca75f5a9d0eadeed414b03
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 92f0d2916b0f28760f7d028ee3e6dc0be37c32d2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77166938"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672318"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Automatisera Azure Monitor logg processer med anslutnings programmet för Microsoft Flow
 Med [Microsoft Flow](https://ms.flow.microsoft.com) kan du skapa automatiserade arbets flöden med hundratals åtgärder för olika tjänster. Utdata från en åtgärd kan användas som indata till en annan som gör det möjligt att skapa integration mellan olika tjänster.  Med Azure Log Analytics-anslutaren för Microsoft Flow kan du bygga arbets flöden som innehåller data som hämtats av logg frågor från en Log Analytics arbets yta i Azure Monitor.

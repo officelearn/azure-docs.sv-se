@@ -1,18 +1,17 @@
 ---
 title: Så här diagramerar du prestanda med Azure Monitor for VMs (förhands granskning) | Microsoft Docs
 description: Prestanda är en funktion i Azure Monitor for VMs som automatiskt identifierar program komponenter i Windows-och Linux-system och mappar kommunikationen mellan tjänsterna. Den här artikeln innehåller information om hur du använder den i flera olika scenarier.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 0d679675758b736455c66066f3df4cb9ea43fdea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 245d5c0fb0a54a6d129a193deaa9445bc8fefbfb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399282"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670703"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Så här diagramerar du prestanda med Azure Monitor for VMs (för hands version)
 
@@ -22,7 +21,7 @@ Azure Monitor for VMs innehåller en uppsättning prestanda diagram som riktar s
 
 Från Azure Monitor tillhandahåller prestanda funktionen en vy över alla övervakade virtuella datorer som distribuerats mellan arbets grupper i dina prenumerationer eller i din miljö. Utför följande steg för att komma åt från Azure Monitor. 
 
-1. I Azure-portalen väljer du **övervakaren**. 
+1. I Azure Portal väljer du **övervaka**. 
 2. Välj **Virtual Machines (för hands version)** i avsnittet **lösningar** .
 3. Välj fliken **prestanda** .
 

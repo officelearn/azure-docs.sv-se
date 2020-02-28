@@ -3,17 +3,16 @@ title: Händelse schema för Azure aktivitets logg
 description: Beskriver händelse schemat för varje kategori i Azure aktivitets loggen.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: reference
 ms.date: 12/04/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 272b71fe5fddea9299e5d660484fcbb3eb367d58
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: ccbb4175701c3535b790f25c9ed522911dda6707
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749463"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668850"
 ---
 # <a name="azure-activity-log-event-schema"></a>Händelse schema för Azure aktivitets logg
 [Azure aktivitets loggen](platform-logs-overview.md) ger inblick i alla händelser på prenumerations nivå som har inträffat i Azure. I den här artikeln beskrivs händelse schemat för varje kategori. 
@@ -112,14 +111,14 @@ Den här kategorin innehåller posten över alla åtgärder för att skapa, uppd
 ```
 
 ### <a name="property-descriptions"></a>Egenskaps beskrivningar
-| Elementnamn | Beskrivning |
+| Element namn | Beskrivning |
 | --- | --- |
 | authorization |BLOB för RBAC-egenskaper för händelsen. Innehåller vanligt vis egenskaperna "Action", "roll" och "omfattning". |
 | anroparen |E-postadressen till den användare som utförde åtgärden, UPN-anspråk eller SPN-anspråk baserat på tillgänglighet. |
 | kanal |Ett av följande värden: "admin", "åtgärd" |
 | claims |JWT-token som används av Active Directory för att autentisera användaren eller programmet för att utföra den här åtgärden i Resource Manager. |
 | correlationId |Vanligt vis ett GUID i sträng formatet. Händelser som delar ett correlationId tillhör samma Uber-åtgärd. |
-| description |Statisk text Beskrivning av en händelse. |
+| beskrivning |Statisk text Beskrivning av en händelse. |
 | eventDataId |Unikt ID för en händelse. |
 | eventName | Eget namn på den administrativa händelsen. |
 | category | Alltid "administrativ" |
@@ -138,7 +137,7 @@ Den här kategorin innehåller posten över alla åtgärder för att skapa, uppd
 | submissionTimestamp |Tidsstämpel när händelsen blev tillgänglig för frågor. |
 | subscriptionId |ID för Azure-prenumeration. |
 
-## <a name="service-health"></a>Service Health
+## <a name="service-health"></a>Service Health:
 Den här kategorin innehåller posten för eventuella service Health-incidenter som har inträffat i Azure. Ett exempel på vilken typ av händelse som visas i den här kategorin är "SQL Azure i östra USA upplever drift stopp." Tjänste hälso händelser finns i fem sorter: åtgärd krävs, stöd för återställning, incident, underhåll, information eller säkerhet, och endast om du har en resurs i prenumerationen som skulle påverkas av händelsen.
 
 ### <a name="sample-event"></a>Exempel händelse
@@ -198,7 +197,7 @@ Den här kategorin innehåller posten för eventuella service Health-incidenter 
 ```
 Information om värdena i egenskaperna hittar du i artikeln [tjänst hälso aviseringar](./../../azure-monitor/platform/service-notifications.md) .
 
-## <a name="resource-health"></a>Resource Health
+## <a name="resource-health"></a>Resurshälsa
 Den här kategorin innehåller posten för eventuella resurs hälso händelser som har inträffat på dina Azure-resurser. Ett exempel på vilken typ av händelse som visas i den här kategorin är "statusen för den virtuella datorns hälso status har ändrats till ej tillgänglig". Resurs hälso händelser kan representera en av fyra hälso status: tillgänglig, otillgänglig, degraderad och okänd. Dessutom kan resurs hälso händelser kategoriseras som påbörjad som plattform eller initieras av användaren.
 
 ### <a name="sample-event"></a>Exempel händelse
@@ -259,11 +258,11 @@ Den här kategorin innehåller posten för eventuella resurs hälso händelser s
 ```
 
 ### <a name="property-descriptions"></a>Egenskaps beskrivningar
-| Elementnamn | Beskrivning |
+| Element namn | Beskrivning |
 | --- | --- |
 | kanal | Always "admin, operation" |
 | correlationId | Ett GUID i sträng formatet. |
-| description |Statisk text Beskrivning av aviserings händelsen. |
+| beskrivning |Statisk text Beskrivning av aviserings händelsen. |
 | eventDataId |Unikt ID för aviserings händelsen. |
 | category | Always "ResourceHealth" |
 | eventTimestamp |Tidsstämpel när händelsen genererades av Azure-tjänsten som bearbetar begäran som motsvarar händelsen. |
@@ -287,7 +286,7 @@ Den här kategorin innehåller posten för eventuella resurs hälso händelser s
 | egenskaper. orsak | En beskrivning av orsaken till resursens hälso tillstånds händelse. Antingen "UserInitiated" och "PlatformInitiated". |
 
 
-## <a name="alert"></a>Avisering
+## <a name="alert"></a>Varning
 Den här kategorin innehåller posten över alla aktiveringar av Azure-aviseringar. Ett exempel på vilken typ av händelse som visas i den här kategorin är "CPU% på myVM har varit över 80 under de senaste 5 minuterna." En rad olika Azure-system har ett varnings begrepp – du kan definiera en regel för viss sortering och få ett meddelande när villkoren matchar regeln. Varje gång som en Azure-aviserings typ som stöds aktive ras, eller villkoret uppfylls för att generera ett meddelande, skickas även en post över aktiveringen till den här kategorin i aktivitets loggen.
 
 ### <a name="sample-event"></a>Exempel händelse
@@ -352,13 +351,13 @@ Den här kategorin innehåller posten över alla aktiveringar av Azure-avisering
 ```
 
 ### <a name="property-descriptions"></a>Egenskaps beskrivningar
-| Elementnamn | Beskrivning |
+| Element namn | Beskrivning |
 | --- | --- |
 | anroparen | Always Microsoft. Insights/alertRules |
 | kanal | Always "admin, operation" |
 | claims | JSON-BLOB med SPN (tjänstens huvud namn) eller resurs typ för aviserings motorn. |
 | correlationId | Ett GUID i sträng formatet. |
-| description |Statisk text Beskrivning av aviserings händelsen. |
+| beskrivning |Statisk text Beskrivning av aviserings händelsen. |
 | eventDataId |Unikt ID för aviserings händelsen. |
 | category | Alltid "varning" |
 | level |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" och "information" |
@@ -378,7 +377,7 @@ Den här kategorin innehåller posten över alla aktiveringar av Azure-avisering
 Egenskaps fältet innehåller olika värden beroende på källan för aviserings händelsen. Två vanliga aviserings händelse leverantörer är aktivitets logg aviseringar och mått varningar.
 
 #### <a name="properties-for-activity-log-alerts"></a>Egenskaper för aktivitets logg aviseringar
-| Elementnamn | Beskrivning |
+| Element namn | Beskrivning |
 | --- | --- |
 | properties.subscriptionId | Prenumerations-ID: t från aktivitets logg händelsen som gjorde att den här varnings regeln för aktivitets loggen aktiverades. |
 | properties.eventDataId | Händelse data-ID: t från aktivitets logg händelsen som gjorde att den här aviserings regeln för aktivitets loggen aktiverades. |
@@ -389,7 +388,7 @@ Egenskaps fältet innehåller olika värden beroende på källan för aviserings
 | egenskaper. status | Status från aktivitets logg händelsen som gjorde att den här aviserings regeln för aktivitets loggen aktiverades.|
 
 #### <a name="properties-for-metric-alerts"></a>Egenskaper för mått varningar
-| Elementnamn | Beskrivning |
+| Element namn | Beskrivning |
 | --- | --- |
 | properties.RuleUri | Resurs-ID för mått varnings regeln. |
 | properties.RuleName | Namnet på måttets aviserings regel. |
@@ -462,13 +461,13 @@ Den här kategorin innehåller posten för alla händelser som rör driften av a
 ```
 
 ### <a name="property-descriptions"></a>Egenskaps beskrivningar
-| Elementnamn | Beskrivning |
+| Element namn | Beskrivning |
 | --- | --- |
 | anroparen | Always Microsoft. Insights/autoscaleSettings |
 | kanal | Always "admin, operation" |
 | claims | JSON-BLOB med SPN (tjänstens huvud namn) eller resurs typ för den automatiska skalnings motorn. |
 | correlationId | Ett GUID i sträng formatet. |
-| description |Statisk text Beskrivning av händelsen autoskalning. |
+| beskrivning |Statisk text Beskrivning av händelsen autoskalning. |
 | eventDataId |Unikt ID för autoskalning-händelsen. |
 | level |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" och "information" |
 | resourceGroupName |Namnet på resurs gruppen för den automatiska skalnings inställningen. |
@@ -552,11 +551,11 @@ Den här kategorin innehåller de aviseringar som genererats av Azure Security C
 ```
 
 ### <a name="property-descriptions"></a>Egenskaps beskrivningar
-| Elementnamn | Beskrivning |
+| Element namn | Beskrivning |
 | --- | --- |
 | kanal | Always "operation" |
 | correlationId | Ett GUID i sträng formatet. |
-| description |Statisk text Beskrivning av säkerhets händelsen. |
+| beskrivning |Statisk text Beskrivning av säkerhets händelsen. |
 | eventDataId |Unik identifierare för säkerhets händelsen. |
 | eventName |Eget namn på säkerhets händelsen. |
 | category | Alltid "säkerhet" |
@@ -633,11 +632,11 @@ Den här kategorin innehåller posten för eventuella nya rekommendationer som g
 
 ```
 ### <a name="property-descriptions"></a>Egenskaps beskrivningar
-| Elementnamn | Beskrivning |
+| Element namn | Beskrivning |
 | --- | --- |
 | kanal | Always "operation" |
 | correlationId | Ett GUID i sträng formatet. |
-| description |Statisk text Beskrivning av rekommendations händelsen |
+| beskrivning |Statisk text Beskrivning av rekommendations händelsen |
 | eventDataId | Unikt ID för rekommendations händelsen. |
 | category | Alltid "rekommendation" |
 | ID |Unikt resurs-ID för rekommendations händelsen. |
@@ -743,14 +742,14 @@ Den här kategorin innehåller poster med åtgärder som utförs av alla åtgär
 
 ### <a name="policy-event-property-descriptions"></a>Beskrivning av princip händelse egenskaper
 
-| Elementnamn | Beskrivning |
+| Element namn | Beskrivning |
 | --- | --- |
 | authorization | Matris med RBAC-egenskaper för händelsen. För nya resurser är detta åtgärd och omfattning för den begäran som utlöste utvärderingen. För befintliga resurser är åtgärden "Microsoft. Resources/checkPolicyCompliance/Read". |
 | anroparen | För nya resurser är identiteten som initierade en distribution. För befintliga resurser är GUID för Microsoft Azure policyn för insikter RP. |
 | kanal | Princip händelser använder bara kanalen "åtgärd". |
 | claims | JWT-token som används av Active Directory för att autentisera användaren eller programmet för att utföra den här åtgärden i Resource Manager. |
 | correlationId | Vanligt vis ett GUID i sträng formatet. Händelser som delar ett correlationId tillhör samma Uber-åtgärd. |
-| description | Det här fältet är tomt för princip händelser. |
+| beskrivning | Det här fältet är tomt för princip händelser. |
 | eventDataId | Unikt ID för en händelse. |
 | eventName | Antingen "BeginRequest" eller "EndRequest". "BeginRequest" används för fördröjda auditIfNotExists-och deployIfNotExists-utvärderingar och när en deployIfNotExists-påverkan startar en mall-distribution. Alla andra åtgärder returnerar "EndRequest". |
 | category | Deklarerar aktivitets logg händelsen som tillhöra "princip". |
@@ -789,13 +788,13 @@ När du strömmar Azure-aktivitets loggen till ett lagrings konto eller en händ
 | category | Del av åtgärds namn | Grupp av åtgärds typen-"Skriv"/"ta bort"/"åtgärd" |
 | resultType | status. Value | |
 | resultSignature | under status. värde | |
-| resultDescription | description |  |
-| durationMs | Gäller inte | Alltid 0 |
+| resultDescription | beskrivning |  |
+| durationMs | Saknas | Alltid 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
-| identitet | anspråk och egenskaper för auktorisering |  |
+| identity | anspråk och egenskaper för auktorisering |  |
 | Nivå | Nivå |  |
-| location | Gäller inte | Platsen där händelsen bearbetades. *Detta är inte platsen för resursen, utan i stället där händelsen bearbetades. Den här egenskapen tas bort i en framtida uppdatering.* |
+| location | Saknas | Platsen där händelsen bearbetades. *Detta är inte platsen för resursen, utan i stället där händelsen bearbetades. Den här egenskapen tas bort i en framtida uppdatering.* |
 | Egenskaper | properties.eventProperties |  |
 | egenskaper. eventCategory | category | Om Properties. eventCategory inte finns är kategorin "administrativ" |
 | egenskaper. eventName | eventName |  |

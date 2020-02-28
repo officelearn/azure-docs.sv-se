@@ -2,17 +2,16 @@
 title: Samla in Azure aktivitets logg med diagnostikinställningar (för hands version) – Azure Monitor | Microsoft Docs
 description: Använd diagnostikinställningar för att vidarebefordra Azure-aktivitets loggar till Azure Monitor loggar, Azure Storage eller Azure Event Hubs.
 author: bwren
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: fcdcef5d63163b24fe5de0f547dc2dde00cd674f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: fcf7eef269c9fa8b62217fb64ed792aece1fce4e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016263"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670346"
 ---
 # <a name="update-to-azure-activity-log-collection-and-export"></a>Uppdatera till Azure aktivitets logg samling och exportera
 [Azure aktivitets loggen](platform-logs-overview.md) är en [plattforms logg](platform-logs-overview.md) som ger inblick i händelser på prenumerations nivå som har inträffat i Azure. Metoden att skicka aktivitets logg poster till [ett händelsehubben eller ett lagrings konto](activity-log-export.md) eller till en [Log Analytics arbets yta](activity-log-collect.md) har ändrats för att använda [diagnostikinställningar](diagnostic-settings.md). I den här artikeln beskrivs skillnaden mellan metoderna och hur du rensar äldre inställningar i förberedelser för att ändra inställningarna för diagnostik.

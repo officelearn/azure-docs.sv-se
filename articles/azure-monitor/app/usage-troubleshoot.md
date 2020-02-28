@@ -1,19 +1,17 @@
 ---
 title: Felsöka användar analys verktyg – Azure Application insikter
 description: Fel söknings guide – analysera webbplats-och program användning med Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa540cdaef1af3016d87ab93768ceb30802cef0e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8d2e573f34895207a455838b5fc64f95560943d2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432286"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670924"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Felsöka verktyg för användar beteende analys i Application Insights
 Har du frågor om [verktyg för användar beteende analys i Application Insights](usage-overview.md): [användare, sessioner, händelser](usage-segmentation.md), [trattar](usage-funnels.md), [användarflöden](usage-flows.md), [kvarhållning](usage-retention.md)eller kohorter? Här är några svar.
@@ -51,5 +49,5 @@ Om din app skickar för många anpassade händelse namn ändrar du namnet i kode
 * [Översikt över användar beteende analys verktyg](usage-overview.md)
 
 ## <a name="get-help"></a>Få hjälp
-* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Stackspill](https://stackoverflow.com/questions/tagged/ms-application-insights)
 

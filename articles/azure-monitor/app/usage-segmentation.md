@@ -1,19 +1,17 @@
 ---
 title: Användare, session och händelse analys i Azure Application insikter
 description: Demografisk analys av användare i din webbapp.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: dbda6debe2412f1756bc707cf3b587c77f466fdc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 56059304026b060e2215ce73e0e94e3200573a14
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432308"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670992"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Användare, sessioner och händelse analys i Application Insights
 
@@ -21,7 +19,7 @@ Ta reda på när användarna använder din webbapp, vilka sidor de är mest intr
 
 ![Skärm bild av Application Insights användare](./media/usage-segmentation/0001-users.png)
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 Om du ännu inte ser data i bladet användare, sessioner eller händelser i Application Insights-portalen, lär du [dig hur du kommer igång med användnings verktygen](usage-overview.md).
 

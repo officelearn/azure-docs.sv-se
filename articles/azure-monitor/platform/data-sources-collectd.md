@@ -1,18 +1,17 @@
 ---
 title: Samla in data från insamlade Azure Monitor | Microsoft Docs
 description: Insamlad är en Linux-daemon med öppen källkod som regelbundet samlar in data från program och system nivå information.  Den här artikeln innehåller information om att samla in data från insamlade Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: 277e6c9736266b64fd717b719dc740525047ae88
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b8c09d4ac5d0856eb0d448a1cabd9adc567850c4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75395877"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670618"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Samla in data från insamlade på Linux-agenter i Azure Monitor
 [Insamlad](https://collectd.org/) är en Linux-daemon med öppen källkod som regelbundet samlar in prestanda mått från program och information på system nivå. Exempel på program är Java Virtual Machine (JVM), MySQL server och Nginx. Den här artikeln innehåller information om hur du samlar in prestanda data från insamlade Azure Monitor.
@@ -109,14 +108,14 @@ För att upprätthålla en välbekant modell mellan infrastruktur mått som reda
 | Fältet insamlat mått | Azure Monitor fält |
 |:--|:--|
 | `host` | Dator |
-| `plugin` | Inget |
+| `plugin` | Ingen |
 | `plugin_instance` | Instans namn<br>Om **plugin_instance** är *Null* then = " *_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>Om **type_instance** är *Null* är CounterName =**tomt** |
 | `dsnames[]` | CounterName |
-| `dstypes` | Inget |
+| `dstypes` | Ingen |
 | `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar. 
-* Använd [anpassade fält](custom-fields.md) att parsa data från syslog-poster i enskilda fält.
+* Lär dig mer om [logg frågor](../log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar. 
+* Använd [anpassade fält](custom-fields.md) för att parsa data från syslog-poster i enskilda fält.

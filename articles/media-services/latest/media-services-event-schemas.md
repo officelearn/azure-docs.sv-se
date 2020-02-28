@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 01/07/2020
+ms.date: 02/25/2020
 ms.author: juliako
-ms.openlocfilehash: b1c094689c7669f03d5355be7a77b1836c90974c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d4a206bbddedfe9f23a943df27c6ac4b5fe17e8a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750868"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665757"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure Event Grid scheman för Media Services händelser
 
@@ -328,18 +328,7 @@ Data-objektet har följande egenskaper:
 | encoderPort | sträng | Porten för kodaren från vilken strömmen kommer. |
 | resultCode | sträng | Anledningen till att anslutningen avvisades. Resultat koderna visas i följande tabell. |
 
-Resultat koderna är:
-
-| Resultatkod | Beskrivning |
-| ----------- | ----------- |
-| MPE_RTMP_APPID_AUTH_FAILURE | Felaktig hämtnings-URL |
-| MPE_INGEST_ENCODER_CONNECTION_DENIED | Kodarens IP-adress finns inte i listan över tillåtna IP-adresser |
-| MPE_INGEST_RTMP_SETDATAFRAME_NOT_RECEIVED | Kodaren skickade inte metadata om data strömmen. |
-| MPE_INGEST_CODEC_NOT_SUPPORTED | Angiven Codec stöds inte. |
-| MPE_INGEST_DESCRIPTION_INFO_NOT_RECEIVED | Tog emot ett fragment innan det togs emot och rubriken för den data strömmen. |
-| MPE_INGEST_MEDIA_QUALITIES_EXCEEDED | Antalet angivna kvaliteter överskrider den tillåtna Max gränsen. |
-| MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED | Den aggregerade bit hastigheten överskrider max gränsen. |
-| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | Tidsstämpeln för video-eller ljud-FLVTag är ogiltig från RTMP-kodaren. |
+Du hittar fel resultat koderna i [fel koder för Live-händelser](live-event-error-codes.md).
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
@@ -409,18 +398,11 @@ Data-objektet har följande egenskaper:
 | encoderPort | sträng | Porten för kodaren från vilken strömmen kommer. |
 | resultCode | sträng | Orsaken till att kodaren kopplar från. Det kan vara en korrekt koppling eller från ett fel. Resultat koderna visas i följande tabell. |
 
-Fel resultat koderna är:
-
-| Resultatkod | Beskrivning |
-| ----------- | ----------- |
-| MPE_RTMP_SESSION_IDLE_TIMEOUT | RTMP-sessionen nådde tids gränsen efter inaktivitet för tillåten tids gräns. |
-| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | Tidsstämpeln för video-eller ljud-FLVTag är ogiltig från RTMP-kodaren. |
-| MPE_CAPACITY_LIMIT_REACHED | Kodaren skickar data för snabbt. |
-| Okända felkoder | Dessa felkoder kan vara från minnes fel till dubbla poster i hash-mappningen. |
+Du hittar fel resultat koderna i [fel koder för Live-händelser](live-event-error-codes.md).
 
 De korrekt resultat koderna för från koppling är:
 
-| Resultatkod | Beskrivning |
+| Resultat kod | Beskrivning |
 | ----------- | ----------- |
 | S_OK | Kodaren har kopplats från. |
 | MPE_CLIENT_TERMINATED_SESSION | Kodare frånkopplad (RTMP). |
@@ -463,7 +445,7 @@ Data-objektet har följande egenskaper:
 | trackType | sträng | Typ av spår (ljud/video). |
 | trackName | sträng | Spårets namn. |
 | bitrate | heltal | Ljudets bit hastighet. |
-| timestamp | sträng | Data segmentets tidsstämpel har släppts. |
+| tidsstämpel | sträng | Data segmentets tidsstämpel har släppts. |
 | timescale | sträng | Tidsstämpelns tids skala. |
 | resultCode | sträng | Orsak till data segmentets Drop. **FragmentDrop_OverlapTimestamp** eller **FragmentDrop_NonIncreasingTimestamp**. |
 
@@ -506,7 +488,7 @@ Data-objektet har följande egenskaper:
 | ingestUrl | sträng | Inmatnings-URL som tillhandahålls av Live-händelsen. |
 | encoderIp | sträng  | Kodarens IP-adress. |
 | encoderPort | sträng | Porten för kodaren från vilken strömmen kommer. |
-| timestamp | sträng | Första tidsstämpeln för data segmentet togs emot. |
+| tidsstämpel | sträng | Första tidsstämpeln för data segmentet togs emot. |
 | timescale | sträng | Tids skalan där tidsstämpeln representeras. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
@@ -626,9 +608,9 @@ Data-objektet har följande egenskaper:
 | overlapCount | heltal | Antalet data segment hade överlappande tidsstämplar de senaste 20 sekunderna. |
 | discontinuityCount | heltal | Antal discontinuities som observerats under de senaste 20 sekunderna. |
 | nonIncreasingCount | heltal | Antalet data segment med tidsstämplar som tidigare togs emot under de senaste 20 sekunderna. |
-| unexpectedBitrate | bool | Om förväntade och faktiska bit hastigheter skiljer sig mer än den tillåtna gränsen under de senaste 20 sekunderna. Det är sant om och endast om, incomingBitrate > = 2 * bit hastighet eller incomingBitrate < = bit hastighet/2 eller IncomingBitrate = 0. |
+| unexpectedBitrate | booleska | Om förväntade och faktiska bit hastigheter skiljer sig mer än den tillåtna gränsen under de senaste 20 sekunderna. Det är sant om och endast om, incomingBitrate > = 2 * bit hastighet eller incomingBitrate < = bit hastighet/2 eller IncomingBitrate = 0. |
 | state | sträng | Live-händelsens tillstånd. |
-| healthy | bool | Anger om inläsningen är felfri baserat på antal och flaggor. Felfri är sant om overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = falskt. |
+| healthy | booleska | Anger om inläsningen är felfri baserat på antal och flaggor. Felfri är sant om overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = falskt. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -677,18 +659,19 @@ En händelse har följande data på översta nivån:
 | -------- | ---- | ----------- |
 | ämne | sträng | Avsnittet EventGrid. Den här egenskapen har resurs-ID: t för det Media Services kontot. |
 | subject | sträng | Resurs Sök vägen för Media Servicess kanalen under Media Services kontot. Genom att sammanfoga ämnet och ämnet får du resurs-ID för jobbet. |
-| eventType | sträng | En av de registrerade händelsetyperna för den här händelsekällan. Till exempel "Microsoft. Media. JobStateChange". |
+| eventType | sträng | En av de registrerade händelse typerna för den här händelse källan. Till exempel "Microsoft. Media. JobStateChange". |
 | eventTime | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | id | sträng | Unikt ID för händelsen. |
 | data | objekt | Media Services händelse data. |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | sträng | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| dataVersion | sträng | Data objektets schema version. Utgivaren definierar schema versionen. |
+| metadataVersion | sträng | Schema versionen för händelsens metadata. Event Grid definierar schemat för de högsta nivå egenskaperna. Event Grid ger det här värdet. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Registrera för jobb tillstånds ändrings händelser](job-state-events-cli-how-to.md)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [EventGrid .NET SDK som innehåller media service-händelser](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definitioner av Media Services händelser](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+- [Fel koder för Live-händelse](live-event-error-codes.md)

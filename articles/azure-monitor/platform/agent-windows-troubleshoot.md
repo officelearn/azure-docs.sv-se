@@ -1,18 +1,16 @@
 ---
 title: Felsöka problem med Log Analytics agent för Windows
 description: Beskriv symptom, orsaker och lösningar för de vanligaste problemen med Log Analytics agent för Windows i Azure Monitor.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 486c68cb32b5f4c8c8a18b21d1aee139ffda45bf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 78625707bfa296eeb7ad8cc658657f46da1dc495
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397443"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668799"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Så här felsöker du problem med Log Analytics agent för Windows 
 
@@ -20,9 +18,9 @@ Den här artikeln innehåller fel söknings fel som kan uppstå i Log Analytics-
 
 Om ingen av de här stegen fungerar för dig finns också stöd för följande kanaler:
 
-* Kunder med Premier support-förmåner kan öppna en supportbegäran med [Premier](https://premier.microsoft.com/).
-* Kunder med supportavtal för Azure kan öppna en supportbegäran [i Azure-portalen](https://manage.windowsazure.com/?getsupport=true).
-* Gå till sidan för Log Analytics Feedback om du vill granska skickade idéer och buggar [ https://aka.ms/opinsightsfeedback ](https://aka.ms/opinsightsfeedback) eller skicka en ny. 
+* Kunder med Premier Support-förmåner kan öppna en support förfrågan med [Premier](https://premier.microsoft.com/).
+* Kunder med support avtal för Azure kan öppna en support förfrågan [i Azure Portal](https://manage.windowsazure.com/?getsupport=true).
+* Besök sidan Log Analytics feedback och granska skickade idéer och buggar [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) eller skicka en ny fil. 
 
 ## <a name="important-troubleshooting-sources"></a>Viktiga fel söknings källor
 
@@ -62,15 +60,15 @@ Det finns flera sätt som du kan kontrol lera om agenten lyckas kommunicera med 
 
 - Filtrera *Operations Manager* händelse loggen efter **händelse källor** - *Hälsotjänst moduler*, *HealthService*och *service Connector* och filtrera efter **händelse nivå** *Varning* och *fel* för att bekräfta om den har skrivna händelser från följande tabell. Om de är det, granskar du lösnings stegen som ingår för varje möjlig händelse.
 
-    |Händelse-ID |Källa |Beskrivning |Upplösning |
+    |Händelse-ID |Källa |Beskrivning |Lösning |
     |---------|-------|------------|-----------|
     |2133 & 2129 |Hälsotjänst |Det gick inte att ansluta till tjänsten från agenten |Felet kan uppstå om agenten inte kan kommunicera direkt eller via en brand vägg/proxyserver till Azure Monitor tjänsten. Verifiera inställningarna för agent proxy eller att nätverks brand väggen/proxyn tillåter TCP-trafik från datorn till tjänsten.|
     |2138 |Hälsotjänst moduler |Proxy kräver autentisering |Konfigurera agentens proxyinställningar och ange det användar namn/lösen ord som krävs för att autentisera med proxyservern. |
     |2129 |Hälsotjänst moduler |Misslyckad anslutning/misslyckad SSL-förhandling |Kontrol lera inställningarna för TCP/IP för nätverkskortet och agentens proxyinställningar.|
     |2127 |Hälsotjänst moduler |Fel vid sändning av mottagna data felkod |Om det bara inträffar regelbundet under dagen kan det vara en slumpmässig avvikelse som kan ignoreras. Övervaka för att förstå hur ofta det sker. Om det inträffar ofta under dagen kontrollerar du först nätverks konfigurationen och proxyinställningarna. Om beskrivningen inkluderar HTTP-felkod 404 och det är första gången som agenten försöker skicka data till tjänsten, kommer den att innehålla ett 500-fel med en inre 404-felkod. 404 betyder att lagrings området för den nya arbets ytan fortfarande håller på att tillhandahållas. Vid nästa försök kommer data att skrivas till arbets ytan som förväntat. Ett HTTP-fel 403 kan tyda på problem med behörighet eller autentiseringsuppgifter. Det finns mer information i 403-fel som hjälper dig att felsöka problemet.|
-    |4000 |Tjänstanslutning |DNS-namnmatchning misslyckades |Datorn kunde inte matcha Internet adressen som användes när data skickades till tjänsten. Detta kan vara inställningar för DNS-matchare på datorn, felaktiga proxyinställningar eller kanske ett tillfälligt DNS-problem med leverantören. Om det inträffar regelbundet kan det bero på ett tillfälligt nätverksrelaterade problem.|
-    |4001 |Tjänstanslutning |Det gick inte att ansluta till tjänsten. |Felet kan uppstå om agenten inte kan kommunicera direkt eller via en brand vägg/proxyserver till Azure Monitor tjänsten. Verifiera inställningarna för agent proxy eller att nätverks brand väggen/proxyn tillåter TCP-trafik från datorn till tjänsten.|
-    |4002 |Tjänstanslutning |Tjänsten returnerade HTTP-statuskod 403 som svar på en fråga. Kontakta tjänst administratören för hälso tillståndet för tjänsten. Frågan kommer att göras senare. |Det här felet skrivs under agentens inledande registrerings fas och du ser en URL som liknar följande: *https://\<workspaceID >. OMS. OpInsights. Azure. com/AgentService. svc/AgentTopologyRequest*. Felkoden 403 betyder att den är förbjuden och kan orsakas av ett felanget arbetsyte-ID eller nyckel, eller så är data och tid felaktigt på datorn. Om tiden är +/-15 minuter efter den aktuella tiden, misslyckas onboarding. Korrigera detta genom att uppdatera datum och/eller tidszon för Windows-datorn.|
+    |4000 |Service Connector |DNS-namnmatchning misslyckades |Datorn kunde inte matcha Internet adressen som användes när data skickades till tjänsten. Detta kan vara inställningar för DNS-matchare på datorn, felaktiga proxyinställningar eller kanske ett tillfälligt DNS-problem med leverantören. Om det inträffar regelbundet kan det bero på ett tillfälligt nätverksrelaterade problem.|
+    |4001 |Service Connector |Det gick inte att ansluta till tjänsten. |Felet kan uppstå om agenten inte kan kommunicera direkt eller via en brand vägg/proxyserver till Azure Monitor tjänsten. Verifiera inställningarna för agent proxy eller att nätverks brand väggen/proxyn tillåter TCP-trafik från datorn till tjänsten.|
+    |4002 |Service Connector |Tjänsten returnerade HTTP-statuskod 403 som svar på en fråga. Kontakta tjänst administratören för hälso tillståndet för tjänsten. Frågan kommer att göras senare. |Det här felet skrivs under agentens inledande registrerings fas och du ser en URL som liknar följande: *https://\<workspaceID >. OMS. OpInsights. Azure. com/AgentService. svc/AgentTopologyRequest*. Felkoden 403 betyder att den är förbjuden och kan orsakas av ett felanget arbetsyte-ID eller nyckel, eller så är data och tid felaktigt på datorn. Om tiden är +/-15 minuter efter den aktuella tiden, misslyckas onboarding. Korrigera detta genom att uppdatera datum och/eller tidszon för Windows-datorn.|
 
 ## <a name="data-collection-issues"></a>Problem med data insamling
 
@@ -100,7 +98,7 @@ Om frågan returnerar resultat måste du bestämma om en viss datatyp inte samla
 
 3. Om du efter flera minuter inte ser de förväntade data i frågeresultatet eller visualiseringen, beroende på om du visar data från en lösning eller insikter *Operations Manager* , kan du söka efter **händelse källor** i *HealthService* och *Hälsotjänst moduler* och filtrera efter **händelse nivå** *Varning* och *fel* för att kontrol lera om den har skrivna händelser från följande tabell.
 
-    |Händelse-ID |Källa |Beskrivning |Upplösning |
+    |Händelse-ID |Källa |Beskrivning |Lösning |
     |---------|-------|------------|
     |8000 |HealthService |Den här händelsen anger om ett arbets flöde som rör prestanda, händelse eller annan insamlad datatyp inte kan vidarebefordra till tjänsten för inmatning till arbets ytan. | Händelse-ID 2136 från käll-HealthService skrivs tillsammans med den här händelsen och kan tyda på att agenten inte kan kommunicera med tjänsten, eventuellt på grund av felaktig konfiguration av proxy-och autentiseringsinställningar, nätverks avbrott eller nätverks brand vägg/proxy tillåter inte TCP-trafik från datorn till tjänsten.| 
     |10102 och 10103 |Hälsotjänst moduler |Det gick inte att matcha data källan i arbets flödet. |Detta kan inträffa om den angivna prestanda räknaren eller instansen inte finns på datorn eller felaktigt har definierats i data inställningarna för arbets ytan. Om det här är en användardefinierad [prestanda räknare](data-sources-performance-counters.md#configuring-performance-counters)kontrollerar du att den angivna informationen följer rätt format och finns på mål datorerna. |

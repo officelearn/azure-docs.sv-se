@@ -3,18 +3,17 @@ title: Autoskala Azure-resurser automatiskt baserat på prestanda eller ett sche
 description: Skapa en autoskalningsinställning för en App Service-plan med hjälp av mätvärden och ett schema
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: tutorial
 ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 44fecf47ccd1ce07c7e51f7bcf51ef7823f2cf97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85ae76d9dcb0b4a1f95992c2f5da48a81fb12677
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637239"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661660"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Skapa en autoskalningsinställning för Azure-resurser baserat på prestanda eller ett schema
 
@@ -22,7 +21,7 @@ Med autoskalningsinställningar kan du lägga till/ta bort instanser av tjänste
 
 I den här självstudien kommer du att: 
 > [!div class="checklist"]
-> * skapa en webbapp i och en App Service-plan
+> * Skapa en webbapp i och en App Service-plan
 > * konfigurera autoskalningsregler för ut- och inskalning baserat på antalet förfrågningar som en webbapp tar emot
 > * utlösa en utskalningsåtgärd och se antalet förekomster öka
 > * utlösa en inskalningsåtgärd och se antalet förekomster minska

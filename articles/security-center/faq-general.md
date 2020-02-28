@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: b13e5e0000cdd8e33f459400cc4c24d107ccaba3
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: f9043ae1414b63f25583d52100774f3e87754a74
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604787"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661847"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Vanliga frågor och svar – allmänna frågor om Azure Security Center
 
@@ -38,16 +38,17 @@ Azure Security Center övervakar följande Azure-resurser:
 * Virtuella datorer (VM) (inklusive [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 * Skalningsuppsättningar för virtuella datorer
 * Azure Virtual Networks
+* Containrar
 * Azure SQL-tjänst
 * Azure-lagringskonto
 * Azure-Web Apps (i [App Service-miljön](../app-service/environment/intro.md))
 * Partnerlösningar integreras med din Azure-prenumeration, till exempel en brandvägg för webbaserade program på virtuella datorer och på App Service Environment
 
-Dessutom kan icke-Azure-datorer (inklusive lokala) också övervakas av Azure Security Center (både [Windows-datorer](./quick-onboard-windows-computer.md) och [Linux-datorer](./quick-onboard-linux-computer.md) stöds)
+Dessutom kan icke-Azure-datorer (inklusive lokala) också övervakas av Azure Security Center. Både [Windows-datorer](./quick-onboard-windows-computer.md) och [Linux-datorer](./quick-onboard-linux-computer.md) stöds.
 
 
 ## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Hur kan jag se det aktuella säkerhetstillståndet för Mina Azure-resurser?
-På sidan **Security Center översikt** visas den övergripande säkerhets position i miljön, uppdelad efter beräkning, nätverk, lagring & data och program. Varje resurstyp har en indikator som visar om eventuella säkerhetsrisker som har identifierats. Om du klickar på varje panel visas en lista över säkerhetsproblem som identifieras av Security Center tillsammans med en förteckning över resurser i din prenumeration.
+På sidan **Security Center översikt** visas den övergripande säkerhets position i miljön, uppdelad efter beräkning, nätverk, lagring & data och program. Varje resurs typ har en indikator som visar identifierade säkerhets problem. Om du klickar på varje panel visas en lista över säkerhetsproblem som identifieras av Security Center tillsammans med en förteckning över resurser i din prenumeration.
 
 
 

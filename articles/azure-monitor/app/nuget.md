@@ -1,18 +1,14 @@
 ---
 title: Azure Monitor Application Insights NuGet-paket
 description: Azure Monitor Application Insights NuGet-paket listor för ASP.NET, ASP.NET Core, python
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: reference
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/16/2018
-ms.openlocfilehash: 0bac42242bc08fcc07bba12847a4aeb79424dc78
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5675c0fad61f1b75aa7e93db02246eed43967ec2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406573"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670006"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights NuGet-paket
 
@@ -20,7 +16,7 @@ Nedan visas den aktuella listan över stabila release NuGet-paket för Applicati
 
 ## <a name="common-packages-for-aspnet"></a>Vanliga paket för ASP.NET
 
-| Paketnamn | Stabil version | Beskrivning | Ladda ned |
+| Paket namn | Stabil version | Beskrivning | Ladda ned |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights | 2.12.0 | Innehåller grundläggande funktioner för överföring av alla Application Insights Telemetry typer och är ett beroende paket för alla andra Application Insights-paket | [Hämta paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) |
 |Microsoft.ApplicationInsights.Agent.Intercept | 2.4.0 | Aktiverar avlyssning av metod anrop | [Hämta paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent.Intercept/) |
@@ -32,7 +28,7 @@ Nedan visas den aktuella listan över stabila release NuGet-paket för Applicati
 
 ## <a name="common-packages-for-aspnet-core"></a>Vanliga paket för ASP.NET Core
 
-| Paketnamn | Stabil version | Beskrivning | Ladda ned |
+| Paket namn | Stabil version | Beskrivning | Ladda ned |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.AspNetCore | 2.5.0 | Application Insights för ASP.NET Core webb program. | [Hämta paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) |
 | Microsoft.ApplicationInsights | 2.12.0 | Det här paketet innehåller grundläggande funktioner för överföring av alla Application Insights Telemetry typer och är ett beroende paket för alla andra Application Insights-paket | [Hämta paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) |
@@ -42,7 +38,7 @@ Nedan visas den aktuella listan över stabila release NuGet-paket för Applicati
 | Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.12.0 | Tillhandahåller en telemetri-kanal för att Application Insights Windows Server SDK som ska bevara telemetri i offline-scenarier. | [Hämta paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
 
 ## <a name="common-packages-for-python-using-opencensus"></a>Vanliga paket för python med openräkning
-| Paketnamn | Stabil version | Beskrivning | Ladda ned |
+| Paket namn | Stabil version | Beskrivning | Ladda ned |
 |-------------------------------|-----------------------|------------|----|
 | openinventering – ext – Azure | 1.0.0 | Application Insights för python-program under Azure Monitor via openräkning. | [Hämta paket](https://pypi.org/project/opencensus-ext-azure/) |
 | openinventering – ext-Django | 0.7.2 | Det här paketet ger integrering med python [django](https://pypi.org/project/django/) -biblioteket. | [Hämta paket](https://pypi.org/project/opencensus-ext-django/) |
@@ -59,7 +55,7 @@ Nedan visas den aktuella listan över stabila release NuGet-paket för Applicati
 
 ## <a name="listenerscollectorsappenders"></a>Lyssnare/insamlare/tillägg
 
-| Paketnamn | Stabil version | Beskrivning | Ladda ned |
+| Paket namn | Stabil version | Beskrivning | Ladda ned |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.DiagnosticSourceListener | 2.7.2 |  Tillåter vidarebefordran av händelser från DiagnosticSource till Application Insights. | [Hämta paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/) |
 | Microsoft.ApplicationInsights.EventSourceListener | 2.7.2 | Application Insights EventSourceListener gör det möjligt att skicka data från EventSource-händelser till Application Insights. | [Hämta paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/) |
@@ -71,14 +67,14 @@ Nedan visas den aktuella listan över stabila release NuGet-paket för Applicati
 
 ## <a name="service-fabric"></a>Service Fabric
 
-| Paketnamn | Stabil version | Beskrivning | Ladda ned |
+| Paket namn | Stabil version | Beskrivning | Ladda ned |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.ServiceFabric | 2.2.0 | Det här paketet innehåller automatisk dekoration av telemetri med den Service Fabric-kontext som programmet körs i. Använd inte den här NuGet för interna Service Fabric-program. | [Hämta paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.ServiceFabric/) |
 | Microsoft.ApplicationInsights.ServiceFabric.Native | 2.2.0 | Application Insights modul för Service Fabric-program. Använd endast den här NuGet för interna Service Fabric-program. Använd Microsoft. ApplicationInsights. ServiceFabric-paketet för program som körs i behållare. | [Hämta paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.ServiceFabric.Native/) |  
 
 ## <a name="status-monitor"></a>Status övervakare
 
-| Paketnamn | Stabil version | Beskrivning | Ladda ned |
+| Paket namn | Stabil version | Beskrivning | Ladda ned |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Aktiverar körnings data insamling för x64-program | [Hämta paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Aktiverar data insamling för körning av x86-program. | [Hämta paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
@@ -87,7 +83,7 @@ Dessa paket utgör en del av kärn funktionerna i körnings övervakningen i [st
 
 ## <a name="additional-packages"></a>Ytterligare paket
 
-| Paketnamn | Stabil version | Beskrivning | Ladda ned |
+| Paket namn | Stabil version | Beskrivning | Ladda ned |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.AzureWebSites | påverkar | Med det här tillägget kan Application Insights övervakas på en Azure App Service. SDK-version 2.6.1. Anvisningar: Lägg till program inställningar för APPINSIGHTS_INSTRUMENTATIONKEY med din iKey och starta om webapp för att få en verkan.| [Hämta paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AzureWebSites/) |
 | Microsoft.ApplicationInsights.Injector | 2.6.7 | Det här paketet innehåller filer som krävs för att koda Application Insights-injektering | [Hämta paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Injector/) |

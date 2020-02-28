@@ -1,18 +1,17 @@
 ---
 title: Inaktivera övervakning i Azure Monitor for VMs (förhands granskning) | Microsoft Docs
 description: Den här artikeln beskriver hur du stoppar övervakningen av dina virtuella datorer i Azure Monitor for VMs.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/05/2018
-ms.openlocfilehash: b2d58b501429a47c3011fc727f756edeeb7775e6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb4347e610920380792a17bb620e6d97a7d72505
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399313"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669513"
 ---
 # <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms-preview"></a>Inaktivera övervakning av de virtuella datorerna i Azure Monitor for VMs (för hands version)
 

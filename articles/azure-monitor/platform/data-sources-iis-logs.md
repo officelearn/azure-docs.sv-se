@@ -1,18 +1,17 @@
 ---
 title: IIS-loggar i Azure Monitor | Microsoft Docs
 description: Internet Information Services (IIS) lagrar användar aktivitet i loggfiler som kan samlas in av Azure Monitor.  Den här artikeln beskriver hur du konfigurerar insamling av IIS-loggar och information om de poster som de skapar i Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: a865f43585ccbb31569e2ca0987aae62a89a9281
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932491"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670584"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Samla in IIS-loggar i Azure Monitor
 Internet Information Services (IIS) lagrar användar aktivitet i loggfiler som kan samlas in av Azure Monitor och lagras som [loggdata](data-platform.md).
@@ -56,12 +55,12 @@ Poster i IIS-loggen har en typ av **W3CIISLog** och har egenskaperna i följande
 | sPort |Port på den server som klienten är ansluten till. |
 | sSiteName |Namnet på IIS-webbplatsen. |
 | TimeGenerated |Datum och tid då posten loggades. |
-| timeTaken |Tids längd för att bearbeta begäran i millisekunder. |
+| TimeTaken |Tids längd för att bearbeta begäran i millisekunder. |
 
 ## <a name="log-queries-with-iis-logs"></a>Logga frågor med IIS-loggar
 Följande tabell innehåller olika exempel på logg frågor som hämtar poster i IIS-loggen.
 
-| Söka i data | Beskrivning |
+| Fråga | Beskrivning |
 |:--- |:--- |
 | W3CIISLog |Alla logg poster i IIS. |
 | W3CIISLog &#124; där scStatus = = 500 |Alla poster i IIS-loggen med retur status 500. |

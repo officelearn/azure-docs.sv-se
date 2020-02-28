@@ -1,29 +1,23 @@
 ---
-title: Ta bort en nodtyp i Azure Service Fabric
+title: Ta bort en nodtyp i Azure Service Fabric | Microsoft Docs
 description: Lär dig hur du tar bort en nodtyp från ett Service Fabric kluster som körs i Azure.
+author: inputoutputcode
+manager: sridmad
 ms.topic: conceptual
-ms.date: 02/14/2019
-ms.openlocfilehash: f3dc3210fdb436038174bb8d9347424f14d3faa3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/21/2020
+ms.author: chrpap
+ms.openlocfilehash: d8ee2327f65332d32038806f2d2416cac190875b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464503"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661984"
 ---
-# <a name="remove-a-service-fabric-node-type"></a>Ta bort en Service Fabric nodtyp
+# <a name="how-to-remove-a-service-fabric-node-type"></a>Så här tar du bort en Service Fabric Node-typ
 Den här artikeln beskriver hur du skalar ett Azure Service Fabric-kluster genom att ta bort en befintlig nodtyp från ett kluster. Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en nod. Skalnings uppsättningar för virtuella datorer är en Azure Compute-resurs som du använder för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster har [kon figurer ATS som en separat skalnings uppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. När du har skapat ett Service Fabric-kluster kan du skala ett kluster vågrätt genom att ta bort en nodtyp (skalnings uppsättning för virtuell dator) och alla dess noder.  Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.  När klustret skalas, skalas programmen automatiskt.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-Använd [Remove-AzServiceFabricNodeType](https://docs.microsoft.com/powershell/module/az.servicefabric/remove-azservicefabricnodetype) om du vill ta bort en nod av typen Service Fabric.
-
-De tre åtgärderna som inträffar när Remove-AzServiceFabricNodeType anropas är:
-1.  Skalnings uppsättningen för den virtuella datorn bakom nodtypen tas bort.
-2.  Nodtypen tas bort från klustret.
-3.  För varje nod inom den nodtypen tas hela statusen för noden bort från systemet. Om det finns tjänster på den noden flyttas tjänsterna först ut till en annan nod. Om kluster hanteraren inte kan hitta en nod för repliken/tjänsten är åtgärden försenad/blockerad.
-
 > [!WARNING]
-> Att använda Remove-AzServiceFabricNodeType för att ta bort en nodtyp från ett produktions kluster bör inte användas regelbundet. Det är ett farligt kommando eftersom det tar bort den virtuella datorns skalnings uppsättnings resurs bakom nodtypen. 
+> Att använda den här metoden för att ta bort en nodtyp från ett produktions kluster bör inte användas regelbundet. Det är ett farligt kommando eftersom det tar bort den virtuella datorns skalnings uppsättnings resurs bakom nodtypen. 
 
 ## <a name="durability-characteristics"></a>Hållbarhets egenskaper
 Säkerhet prioriteras över hastighet när du använder Remove-AzServiceFabricNodeType. Nodtypen måste vara silver eller Gold- [hållbarhets nivå](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster), eftersom:
@@ -31,43 +25,154 @@ Säkerhet prioriteras över hastighet när du använder Remove-AzServiceFabricNo
 - Silver-och guld tåligheten sväller alla ändringar i skalnings uppsättningen.
 - Guld ger dig också kontroll över Azure updates under skalnings uppsättning.
 
-Service Fabric "dirigerar" underliggande ändringar och uppdateringar så att inga data förloras. Men när du tar bort en nod med brons hållbarhet kan du förlora statusinformation. Om du tar bort en primär nodtyp och ditt program är tillstånds löst, är brons acceptabelt. När du kör tillstånds känsliga arbets belastningar i produktionen bör den lägsta konfigurationen vara silver. På samma sätt bör den primära nodtypen alltid vara silver eller guld för produktions scenarier.
+Service Fabric "dirigerar" underliggande ändringar och uppdateringar så att inga data förloras. Men när du tar bort en nodtyp med brons hållbarhet kan du förlora statusinformation. Om du tar bort en primär nodtyp och ditt program är tillstånds löst, är brons acceptabelt. När du kör tillstånds känsliga arbets belastningar i produktionen bör den lägsta konfigurationen vara silver. På samma sätt bör den primära nodtypen alltid vara silver eller guld för produktions scenarier.
 
 ### <a name="more-about-bronze-durability"></a>Mer om brons-hållbarhet
 
 När du tar bort en nodtyp som är brons går alla noder i nodtypen omedelbart ned. Service Fabric sväller inte alla de virtuella datorerna för skalnings uppsättningar i brons-noder, och därför går alla virtuella datorer omedelbart ned Om du hade något tillstånd för dessa noder försvinner data. Även om du har tillstånds lösa kan alla noder i Service Fabric delta i ringen, vilket innebär att hela nätverket kan gå förlorat, vilket kan göra själva klustret.
 
-## <a name="recommended-node-type-removal-process"></a>Rekommenderad borttagnings process för nodtyp
+## <a name="remove-a-non-primary-node-type"></a>Ta bort en icke-primär nodtyp
 
-Om du vill ta bort nodtypen kör du cmdleten [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) .  Det tar lite tid att slutföra cmdleten.  När alla virtuella datorer är borta (representeras som "nere") visas ett fel tillstånd i Fabric:/system/InfrastructureService/[NodeType Name].
+1. Följ dessa krav innan du startar processen.
 
-```powershell
-$groupname = "mynodetype"
-$nodetype = "nt2vm"
-$clustername = "mytestcluster"
+    - Klustret är felfritt.
+    - Det kommer fortfarande att finnas tillräckligt med kapacitet efter att nodtypen har tagits bort, t. ex. antal noder som krävs för att placera det nödvändiga replik antalet.
 
-Remove-AzServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
+2. Flytta alla tjänster som har placerings begränsningar att använda Node-typen av nodtypen.
 
-Connect-ServiceFabricCluster -ConnectionEndpoint mytestcluster.eastus.cloudapp.azure.com:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint <thumbprint> `
-          -FindType FindByThumbprint -FindValue <thumbprint> `
-          -StoreLocation CurrentUser -StoreName My
-```
+    - Ändra programmet/tjänst manifestet till att inte längre referera till nodtypen.
+    - Distribuera ändringen.
 
-Sedan kan du uppdatera kluster resursen för att ta bort nodtypen. Du kan antingen använda distribution av ARM-mallen eller redigera kluster resursen via [Azure Resource Manager](https://resources.azure.com). Då startas en kluster uppgradering som tar bort tjänsten Fabric:/system/InfrastructureService/[NodeType Name] som är i fel tillstånd.
+    Kontrol lera sedan att:
+    - Alla tjänster som ändras ovan körs inte längre på den nod som tillhör nodtypen.
+    - Alla tjänster är felfria.
 
-Noderna visas fortfarande i Service Fabric Explorer. Kör [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) på varje nod som du vill ta bort.
+3. Avmarkera nod-typen som icke-primär (hoppa över för icke-primära nodtyper)
 
+    - Leta upp den Azure Resource Manager-mall som används för distribution.
+    - Hitta avsnittet som är relaterat till nodtypen i avsnittet Service Fabric.
+    - Ändra egenskapen isPrimary till false. \* * Ta inte bort avsnittet som är relaterat till nodtypen i den här uppgiften.
+    - Distribuera den ändrade Azure Resource Manager-mallen. \* * Beroende på kluster konfigurationen kan det här steget ta en stund.
+    
+    Kontrol lera sedan att:
+    - Service Fabric avsnittet i portalen indikerar att klustret är klart.
+    - Klustret är felfritt.
+    - Ingen av noderna som tillhör nodtypen är markerade som Seed-nod.
 
-```powershell
-$nodes = Get-ServiceFabricNode | Where-Object {$_.NodeType -eq $nodetype} | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending
+4. Inaktivera data för nodtypen.
 
-Foreach($node in $nodes)
-{
-    Remove-ServiceFabricNodeState -NodeName $node.NodeName -TimeoutSec 300 -Force 
-}
-```
+    Anslut till klustret med PowerShell och kör sedan följande steg.
+    
+    ```powershell
+    $nodeType = "" # specify the name of node type
+    $nodes = Get-ServiceFabricNode
+    
+    foreach($node in $nodes)
+    {
+      if ($node.NodeType -eq $nodeType)
+      {
+        $node.NodeName
+     
+        Disable-ServiceFabricNode -Intent RemoveNode -NodeName $node.NodeName -Force
+      }
+    }
+    ```
+
+    - För brons hållbarhet väntar du tills alla noder får inaktiverat tillstånd
+    - För silver-och guld tålighet kommer vissa noder att gå in till inaktiverade och resten kommer att inaktive ras. På fliken information i noderna inaktive ras, om alla har fastnat på att säkerställa kvorum för infrastruktur tjänst partitioner, är det säkert att fortsätta.
+
+5. Stoppa data för nodtypen.
+
+    Anslut till klustret med PowerShell och kör sedan följande steg.
+    
+    ```powershell
+    foreach($node in $nodes)
+    {
+      if ($node.NodeType -eq $nodeType)
+      {
+        $node.NodeName
+     
+        Start-ServiceFabricNodeTransition -Stop -OperationId (New-Guid) -NodeInstanceId $node.NodeInstanceId -NodeName $node.NodeName -StopDurationInSeconds 10000
+      }
+    }
+    ```
+    
+    Vänta till alla noder för nodtypen är markerade.
+    
+6. Ta bort data för nodtypen.
+
+    Anslut till klustret med PowerShell och kör sedan följande steg.
+    
+    ```powershell
+    foreach($node in $nodes)
+    {
+      if ($node.NodeType -eq $nodeType)
+      {
+        $node.NodeName
+     
+        Remove-ServiceFabricNodeState -NodeName $node.NodeName -Force
+      }
+    }
+    ```
+
+    Vänta till alla noder tas bort från klustret. Noderna ska inte visas i SFX.
+
+7. Ta bort nodtypen från Service Fabric-avsnittet.
+
+    - Leta upp den Azure Resource Manager-mall som används för distribution.
+    - Hitta avsnittet som är relaterat till nodtypen i avsnittet Service Fabric.
+    - Ta bort avsnittet som motsvarar nodtypen.
+    - För de silver och högre tåliga klustren uppdaterar du kluster resursen i mallen och konfigurerar hälso principer för att ignorera infrastruktur:/System program hälsa genom att lägga till `applicationDeltaHealthPolicies` enligt ovan. Principen nedan bör ignorera befintliga fel men inte tillåta nya hälso fel. 
+ 
+ 
+     ```json
+    "upgradeDescription":  
+    { 
+      "forceRestart": false, 
+      "upgradeReplicaSetCheckTimeout": "10675199.02:48:05.4775807", 
+      "healthCheckWaitDuration": "00:05:00", 
+      "healthCheckStableDuration": "00:05:00", 
+      "healthCheckRetryTimeout": "00:45:00", 
+      "upgradeTimeout": "12:00:00", 
+      "upgradeDomainTimeout": "02:00:00", 
+      "healthPolicy": { 
+        "maxPercentUnhealthyNodes": 100, 
+        "maxPercentUnhealthyApplications": 100 
+      }, 
+      "deltaHealthPolicy":  
+      { 
+        "maxPercentDeltaUnhealthyNodes": 0, 
+        "maxPercentUpgradeDomainDeltaUnhealthyNodes": 0, 
+        "maxPercentDeltaUnhealthyApplications": 0, 
+        "applicationDeltaHealthPolicies":  
+        { 
+            "fabric:/System":  
+            { 
+                "defaultServiceTypeDeltaHealthPolicy":  
+                { 
+                        "maxPercentDeltaUnhealthyServices": 0 
+                } 
+            } 
+        } 
+      } 
+    },
+    ```
+
+    Distribuera den ändrade Azure Resource Manager-mallen. \* * Detta steg tar en stund, vanligt vis upp till två timmar. Den här uppgraderingen ändrar inställningarna till InfrastructureService, vilket innebär att en omstart av noden krävs. I det här fallet ignoreras `forceRestart`. 
+    Parametern `upgradeReplicaSetCheckTimeout` anger den längsta tid som Service Fabric väntar på att en partition ska vara i ett säkert tillstånd, om den inte redan är i säkert tillstånd. När säkerhets kontrollerna har godkänts för alla partitioner på en nod fortsätter Service Fabric med uppgraderingen på noden.
+    Värdet för parametern `upgradeTimeout` kan minskas till 6 timmar, men för maximal säkerhet 12 timmar bör användas.
+
+    Kontrol lera sedan att:
+    - Service Fabric resursen i portalen är klar.
+
+8. Ta bort alla referenser till resurserna som är relaterade till nodtypen.
+
+    - Leta upp den Azure Resource Manager-mall som används för distribution.
+    - Ta bort den virtuella datorns skalnings uppsättning och andra resurser som är relaterade till nodtypen från mallen.
+    - Distribuera ändringarna.
+
+    Sedan:
+    - Vänta tills distributionen har slutförts.
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om klustrets [hållbarhets egenskaper](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).

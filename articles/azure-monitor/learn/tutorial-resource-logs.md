@@ -1,24 +1,23 @@
 ---
 title: Samla in resurs loggar från en Azure-resurs och analysera med Azure Monitor
 description: Självstudie för att konfigurera diagnostikinställningar för att samla in resurs loggar från en Azure-resurs till en Log Analytics arbets yta där de kan analyseras med en logg fråga.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 90b2a9bc9e3e8aa6297f02a46163717a2bf58a22
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9f88a69e8d24cfa8654ac2bea3344c9adf81c16a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75533561"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670414"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Självstudie: samla in och analysera resurs loggar från en Azure-resurs
 
 Resurs loggar ger insikt i den detaljerade driften av en Azure-resurs och är användbara för övervakning av deras hälsa och tillgänglighet. Azure-resurser genererar resurs loggar automatiskt, men du måste konfigurera var de ska samlas in. Den här självstudien vägleder dig genom processen att skapa en diagnostisk inställning för att samla in resurs loggar för en resurs i din Azure-prenumeration och analysera den med en logg fråga.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en Log Analytics arbets yta i Azure Monitor
@@ -26,7 +25,7 @@ I den här guiden får du lära dig hur man:
 > * Skapa en enkel logg fråga för att analysera loggar
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du en Azure-resurs för att övervaka. Du kan använda vilken resurs som helst i din Azure-prenumeration som stöder diagnostikinställningar. För att avgöra om en resurs stöder diagnostikinställningar går du till dess meny i Azure Portal och kontrollerar att det finns ett **diagnostiskt inställnings** alternativ i avsnittet **övervakning** på menyn.
 

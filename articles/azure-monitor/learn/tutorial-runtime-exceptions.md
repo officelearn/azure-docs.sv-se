@@ -1,19 +1,18 @@
 ---
 title: Diagnostisera körningsundantag med hjälp av Azure Application Insights | Microsoft Docs
 description: Självstudie om att hitta och diagnostisera körningsundantag i dina program med hjälp av Azure Application Insights.
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: d56b81dbe8c78b9b48f122d79f4567d0b0f42e27
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 91a0e4b052571a509ec7122e4440a8eaf58839be
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398539"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670431"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Hitta och diagnostisera körningsundantag med Azure Application Insights
 
@@ -28,9 +27,9 @@ Azure Application Insights samlar in telemetri från ditt program för att ident
 > * skapa ett nytt arbetsobjekt för att åtgärda den felaktiga koden.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 - Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbets belastningar:
     - ASP.NET och webbutveckling
@@ -96,7 +95,7 @@ Alla data som samlas in av Application Insights lagras i Azure Log Analytics, s�
 
 1. Klicka på CodeLens-informationen över koden om du vill visa telemetrin som tillhandahålls av Application Insights.
 
-    ![Programmera](media/tutorial-runtime-exceptions/codelens.png)
+    ![Kod](media/tutorial-runtime-exceptions/codelens.png)
 
 1. Klicka på **Analyze impact** (Analysera påverkan) för att öppna Application Insights Analytics.  Det fylls i med flera frågor som kan ge detaljerad information om misslyckade förfrågningar, till exempel vilka användare, webbläsare och regioner som påverkas.<br><br>![Analys](media/tutorial-runtime-exceptions/analytics.png)<br>
 

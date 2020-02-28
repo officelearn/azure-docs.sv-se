@@ -1,19 +1,15 @@
 ---
 title: Data modell för Metric-telemetri – Azure Application insikter
 description: Application Insights data modell för telemetri av mått
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: f697d7543a8551993640ef8c6d6c98fee35c0d68
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3e4a1fc3de58b8e65ab9c7a288bdf3eb37e7bae0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922223"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671978"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Mått telemetri: Application Insights data modell
 
@@ -53,7 +49,7 @@ Mått vikt för det aggregerade måttet. Ska inte anges för ett mått.
 
 Minsta värde för det aggregerade måttet. Ska inte anges för ett mått.
 
-## <a name="max"></a>Max.
+## <a name="max"></a>Max
 
 Högsta värde för det aggregerade måttet. Ska inte anges för ett mått.
 

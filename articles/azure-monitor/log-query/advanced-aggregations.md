@@ -1,18 +1,17 @@
 ---
 title: Avancerade agg regeringar i Azure Monitor logg frågor | Microsoft Docs
 description: Beskriver några av de mer avancerade agg regerings alternativen som är tillgängliga för Azure Monitor logg frågor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 882582191b5794e3978d955dfa9bded294064037
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e5dc290a40342e0797001dde6cab90e12dd5cf39
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398303"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662186"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Avancerade agg regeringar i Azure Monitor logg frågor
 
@@ -122,7 +121,7 @@ Heartbeat
 | summarize count() by Category, bin(TimeGenerated, 1h)
 ```
 
-| Kategori | TimeGenerated | antal_ |
+| Kategori | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Direkt agent | 2017-06-06T17:00:00Z | 15 |
 | Direkt agent | 2017-06-06T18:00:00Z | 60 |
@@ -138,7 +137,7 @@ Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
 
-| Kategori | antal_ | TimeGenerated |
+| Kategori | count_ | TimeGenerated |
 |---|---|---|
 | Direkt agent | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
 | ... | ... | ... |
@@ -152,7 +151,7 @@ Heartbeat
 | project Category, TimeGenerated, count_
 ```
 
-| Kategori | TimeGenerated | antal_ |
+| Kategori | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Direkt agent | 2017-06-06T17:00:00Z | 15 |
 | Direkt agent | 2017-06-06T18:00:00Z | 60 |
@@ -188,4 +187,4 @@ Se andra lektioner för att använda [Kusto-frågespråket](/azure/kusto/query/)
 - [Avancerade agg regeringar](advanced-aggregations.md)
 - [JSON och data strukturer](json-data-structures.md)
 - [Kopplingar](joins.md)
-- [Diagram](charts.md)
+- [Hierarkidiagram](charts.md)

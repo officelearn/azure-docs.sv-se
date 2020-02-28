@@ -1,21 +1,20 @@
 ---
 title: Logga Analytics-datasäkerhet | Microsoft Docs
 description: Läs mer om hur Log Analytics skyddar din integritet och skyddar dina data.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
-ms.openlocfilehash: 4ad762cc3a7388628b7385afb07b45819ef882b5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0ac169060f7ba0e58aeb3e36e3af1629b6453fc1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363854"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667371"
 ---
 # <a name="log-analytics-data-security"></a>Logga Analytics-datasäkerhet
-Det här dokumentet är avsedd att ge specifik information till Log Analytics, som är en funktion i Azure Monitor för att komplettera informationen på [Azure Trust Center](../../security/fundamentals/trust-center.md).  
+Det här dokumentet är avsett att ge information som är speciell för Log Analytics, som är en funktion i Azure Monitor, för att komplettera informationen på [Azure Säkerhetscenter](../../security/fundamentals/trust-center.md).  
 
 Den här artikeln förklarar hur data samlas in, bearbetas och skyddas av Log Analytics. Du kan använda agenter att ansluta till webbtjänsten bör använda System Center Operations Manager för att samla in användningsdata eller hämta data från Azure-diagnostik för användning av Log Analytics. 
 
@@ -28,13 +27,13 @@ Log Analytics-tjänsten hanterar dina molnbaserade data på ett säkert sätt me
 * Efterlevnad
 * certifieringar av standarder för säkerhet
 
-Kontakta oss med frågor, förslag eller problem om något av följande information, inklusive våra säkerhetsprinciper på [supportalternativ för Azure](https://azure.microsoft.com/support/options/).
+Kontakta oss med frågor, förslag eller frågor om någon av följande uppgifter, inklusive våra säkerhets principer på [Support alternativ för Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="sending-data-securely-using-tls-12"></a>Skicka data på ett säkert sätt med hjälp av TLS 1.2 
 
-Om du vill se till att skydda data under överföringen till Log Analytics, rekommenderar vi starkt att du kan konfigurera att agenten ska du använda minst Transport Layer Security (TLS) 1.2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har påträffats sårbara och de fungerar fortfarande för närvarande för att tillåta bakåtkompatibilitet kompatibilitet, de arbetar **rekommenderas inte**, och branschen snabbt flytta att lämna support äldre protokoll. 
+Om du vill se till att skydda data under överföringen till Log Analytics, rekommenderar vi starkt att du kan konfigurera att agenten ska du använda minst Transport Layer Security (TLS) 1.2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har befunnits vara sårbara och även om de fortfarande arbetar för att tillåta bakåtkompatibilitet, rekommenderas de **inte**och branschen flyttas snabbt till överge support för dessa äldre protokoll. 
 
-Den [PCI Security Standards Council](https://www.pcisecuritystandards.org/) har ställt in en [deadline på den 30 juni 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) att inaktivera äldre versioner av TLS/SSL och uppgraderingen säkrare protokoll. När Azure sjunker bakåtkompatibelt stöd om agenterna inte kan kommunicera över minst TLS 1.2 inte skulle du kunna skicka data till Log Analytics. 
+[PCI Security Standards-rådet](https://www.pcisecuritystandards.org/) har ställt in en [tids gräns på den 30 juni 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) för att inaktivera äldre versioner av TLS/SSL och uppgradera till säkrare protokoll. När Azure sjunker bakåtkompatibelt stöd om agenterna inte kan kommunicera över minst TLS 1.2 inte skulle du kunna skicka data till Log Analytics. 
 
 Vi rekommenderar inte uttryckligen inställningen din agent att bara använda TLS 1.2, såvida inte är absolut nödvändigt, eftersom det kan bryta säkerhet på funktioner som gör det möjligt att automatiskt identifiera och dra nytta av nya säkrare protokoll när de blir tillgängliga, till exempel som TLS 1.3. 
 
@@ -42,25 +41,25 @@ Vi rekommenderar inte uttryckligen inställningen din agent att bara använda TL
 
 |Plattform/språk | Support | Mer information |
 | --- | --- | --- |
-|Linux | Linux-distributioner tenderar att förlita dig på [OpenSSL](https://www.openssl.org) för stöd för TSL 1.2.  | Kontrollera den [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) att bekräfta din version av OpenSSL stöds.|
-| Windows 8.0-10 | Stöds och aktiverat som standard. | Bekräfta att du fortfarande använder den [standardinställningar](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012-2016 | Stöds och aktiverat som standard. | Bekräfta att du fortfarande använder den [standardinställningar](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men inte är aktiverad som standard. | Se den [registerinställningar för Transport Layer Security (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) för information om hur du aktiverar.  |
+|Linux | Linux-distributioner tenderar att förlita sig på [openssl](https://www.openssl.org) för TLS 1,2-stöd.  | Kontrol lera [openssl-ändringsloggen](https://www.openssl.org/news/changelog.html) för att bekräfta att din version av OpenSSL stöds.|
+| Windows 8.0-10 | Stöds och aktiverat som standard. | För att bekräfta att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012-2016 | Stöds och aktiverat som standard. | Bekräfta att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men inte är aktiverad som standard. | På sidan [Transport Layer Security (TLS) register inställningar](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) finns mer information om hur du aktiverar.  |
 
 ## <a name="data-segregation"></a>dataavgränsning
 När dina data matas in av Log Analytics-tjänsten, lagras data logiskt separerade på varje komponent i tjänsten. Alla data taggas per arbetsyta. Den här taggningen finns kvar i informationens hela livscykel och används på varje lager i tjänsten. Dina data lagras i en dedikerad databas i lagringsklustret i den region som du har valt.
 
 ## <a name="data-retention"></a>Datakvarhållning
-Indexerade log search-data lagras och bevaras enligt prisplanen. Mer information finns i [priser för Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+Indexerade log search-data lagras och bevaras enligt prisplanen. Mer information finns i [Log Analytics prissättning](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-Som en del av din [prenumerationsavtalet](https://azure.microsoft.com/support/legal/subscription-agreement/), Microsoft behåller dina data enligt villkoren i avtalet.  När kundinformation tas bort, förstörs inga fysiska enheter.  
+Som en del av ditt [prenumerations avtal](https://azure.microsoft.com/support/legal/subscription-agreement/)behåller Microsoft dina data enligt villkoren i avtalet.  När kundinformation tas bort, förstörs inga fysiska enheter.  
 
 I följande tabell visas några av de tillgängliga lösningarna och innehåller exempel på vilken sorts information som samlas in.
 
 | **Lösning** | **Datatyper** |
 | --- | --- |
 | Kapacitet och prestanda |Prestandadata och metadata |
-| Hantering av uppdateringar |Metadata och tillstånd |
+| Uppdateringshantering |Metadata och tillstånd |
 | Logghantering |Användardefinierade händelseloggar, Windows-händelseloggar och/eller IIS-loggar |
 | Spårning av ändringar |Programvaruinventering, Windows-tjänsten och metadata för Linux-daemon och Windows-/ Linux filens metadata |
 | SQL- och Active Directory-utvärdering |Data från WMI, registret, prestandadata och SQL Server dynamic management visa resultat |
@@ -69,15 +68,15 @@ I följande tabell visas exempel på datatyper:
 
 | **Datatyp** | **Fält** |
 | --- | --- |
-| Avisering |Avisera namn, Aviseringsbeskrivningen, BaseManagedEntityId, Problem-ID, IsMonitorAlert, RuleId, ResolutionState, prioritet, allvarlighetsgrad, kategori, ägare, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
+| Varning |Avisera namn, Aviseringsbeskrivningen, BaseManagedEntityId, Problem-ID, IsMonitorAlert, RuleId, ResolutionState, prioritet, allvarlighetsgrad, kategori, ägare, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
 | Konfiguration |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
-| Händelse |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Obs:** när du skriver händelser med anpassade fält i Windows-händelseloggen, Log Analytics samlar in dem. |
+| Händelse |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Obs:** När du skriver händelser med anpassade fält i till händelse loggen i Windows samlar Log Analytics in dem. |
 | Metadata |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, nätverksnamn, IP-adress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Adress, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, Principalnamnet, OffsetInMinuteFromGreenwichTime |
 | Prestanda |Objektnamn, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
 | Status |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Fysisk säkerhet
-Log Analytics-tjänsten hanteras av Microsoft-Personal och alla aktiviteter loggas och kan granskas. Log Analytics körs som en Azure-tjänst och uppfyller alla krav för Azure-efterlevnad och säkerhet. Du kan visa information om den fysiska säkerheten för Azure-tillgångar på sidan 18 i den [översikt över Microsoft Azure Security](https://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Fysiska åtkomsträttigheter för att skydda områden ändras inom en arbetsdag för alla som inte längre har ansvar för Log Analytics-tjänsten, inklusive överföring och avslut. Du kan läsa om den globala fysiska infrastrukturen som vi använder på [Microsofts Datacenters](https://azure.microsoft.com/global-infrastructure/).
+Log Analytics-tjänsten hanteras av Microsoft-Personal och alla aktiviteter loggas och kan granskas. Log Analytics körs som en Azure-tjänst och uppfyller alla krav för Azure-efterlevnad och säkerhet. Du kan visa information om den fysiska säkerheten för Azure-tillgångar på sidan 18 i [Microsoft Azure säkerhets översikt](https://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Fysiska åtkomsträttigheter för att skydda områden ändras inom en arbetsdag för alla som inte längre har ansvar för Log Analytics-tjänsten, inklusive överföring och avslut. Du kan läsa om den globala fysiska infrastrukturen som vi använder på [Microsoft Data Center](https://azure.microsoft.com/global-infrastructure/).
 
 ## <a name="incident-management"></a>incidenthantering
 Log Analytics har en incidenthanteringsprocess som följer alla Microsoft-tjänster. Sammanfattningsvis, vi:
@@ -101,10 +100,10 @@ Log Analytics har en incidenthanteringsprocess som följer alla Microsoft-tjäns
 
 Om all kundinformation går förlorade, meddelar vi varje kund på en dag. Kunden dataförlust har aldrig uppstått med tjänsten. 
 
-Läs mer om hur Microsoft besvarar säkerhetsincidenter [Microsoft Azure Security Response i molnet](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf).
+Mer information om hur Microsoft reagerar på säkerhets incidenter finns i [Microsoft Azure säkerhets svar i molnet](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf).
 
 ## <a name="compliance"></a>Efterlevnad
-Log Analytics programvara utvecklings- och gruppens information säkerhet och styrning programmet stöder affärskraven och följer lagar och föreskrifter enligt beskrivningen i [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) och [ Microsoft Trust Center efterlevnad](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx). Hur Log Analytics upprättar säkerhetskrav, identifierar säkerhetskontroller, hanterar och övervakar risker beskrivs också det. Årligen, vi granska principer, standarder och procedurer som riktlinjer.
+Den Log Analytics program utvecklings-och tjänst teamets informations säkerhet och styrnings program stöder sina affärs behov och följer lagar och förordningar enligt beskrivningen i [Microsoft Azure säkerhets Center](https://azure.microsoft.com/support/trust-center/) och [Microsoft Trust Center-efterlevnad](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx). Hur Log Analytics upprättar säkerhetskrav, identifierar säkerhetskontroller, hanterar och övervakar risker beskrivs också det. Årligen, vi granska principer, standarder och procedurer som riktlinjer.
 
 Varje medlem i gruppen utveckling får formella säkerhetsutbildning. Vi använder internt, ett versionskontrollsystem för programutveckling. Varje programvaruprojekt skyddas av systemet för versionskontroll.
 
@@ -119,16 +118,16 @@ Azure Log Analytics uppfyller följande krav:
 
 * [ISO/IEC 27001](https://www.iso.org/iso/home/standards/management-standards/iso27001.htm)
 * [ISO/IEC 27018:2014](https://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498)
-* [STANDARDEN ISO 22301](https://azure.microsoft.com/blog/iso22301/)
-* [Säkerhetsstandard för Payment Card Industry (PCI-kompatibel) Data (PCI-DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) av PCI Security Standards Council.
-* [Tjänsten organisation Controls (SOC) 1 typ 1 och SOC 2 typ 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) kompatibla
-* [HIPAA och HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) för företag som har ett HIPAA företag associera avtal
+* [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
+* [Payment Card Industry (PCI-kompatibel) data säkerhets standard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) av PCI Security Standards-rådet.
+* [Service Organization Controls (SOC) 1 typ 1 och SOC 2 typ 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) är kompatibel
+* [HIPAA och HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) för företag som har ett HIPAA affärs associerat avtal
 * Villkor för vanliga tekniker i Windows
 * Microsoft Trustworthy Computing
-* Som en Azure-tjänsten följa de komponenter som Log Analytics använder Azure efterlevnadskrav. Du kan läsa mer på [Microsoft förtroende Center-efterlevnad](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx).
+* Som en Azure-tjänsten följa de komponenter som Log Analytics använder Azure efterlevnadskrav. Du kan läsa mer på [Microsoft Trust Center-kompatibilitet](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx).
 
 > [!NOTE]
-> I vissa certifieringar/attesteringar, Log Analytics finns under dess tidigare namnet på *Operational Insights*.
+> I vissa certifieringar/attesteringar visas Log Analytics under det tidigare namnet på *Operational Insights*.
 >
 >
 
@@ -149,7 +148,7 @@ För Operations Manager upprättar Operations Manager-hanteringsgrupp en anslutn
 
 All kommunikation mellan anslutna system och Log Analytics-tjänsten är krypterad. TLS (HTTPS)-protokollet används för kryptering.  Microsoft SDL-processen följs för att kontrollera Log Analytics är uppdaterade med de senaste utvecklingen av kryptografiska protokoll.
 
-Varje typ av agenten samlar in data för Log Analytics. Vilken typ av data som samlas in beror på vilka typer av lösningar som används. Du kan se en sammanfattning av insamling av data på [lägga till Log Analytics-lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md). Dessutom finns mer detaljerad samlingsinformation för de flesta lösningar. En lösning är ett paket med fördefinierade vyer, loggsökningsfrågor, regler för insamling av data och bearbetning av dataströmmar. Endast administratörer kan använda Log Analytics för att importera en lösning. När lösningen har importerats, flyttas den till Operations Manager-hanteringsservrar (om det används) och sedan till alla eventuella agenter som du har valt. Därefter agenterna samla in data.
+Varje typ av agenten samlar in data för Log Analytics. Vilken typ av data som samlas in beror på vilka typer av lösningar som används. Du kan se en sammanfattning av data insamling i [Lägg till Log Analytics lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md). Dessutom finns mer detaljerad samlingsinformation för de flesta lösningar. En lösning är ett paket med fördefinierade vyer, loggsökningsfrågor, regler för insamling av data och bearbetning av dataströmmar. Endast administratörer kan använda Log Analytics för att importera en lösning. När lösningen har importerats, flyttas den till Operations Manager-hanteringsservrar (om det används) och sedan till alla eventuella agenter som du har valt. Därefter agenterna samla in data.
 
 ## <a name="2-send-data-from-agents"></a>2. skicka data från agenter
 Du registrerar alla typer av agenten med en nyckel som registrering och en säker anslutning har upprättats mellan agenten och tjänsten Log Analytics med hjälp av certifikatbaserad autentisering och SSL med port 443. Log Analytics använder en lagringsplats för hemligheter för att skapa och underhålla nycklar. Privata nycklar roteras var 90: e dag och lagras i Azure och som hanteras av Azure-åtgärder som följer strikta regelverks- och efterlevnadskrav metoder.
@@ -167,13 +166,13 @@ Enligt beskrivningen ovan, skickas data från den hanteringsserver eller direkta
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Log Analytics tjänsten tar emot och bearbetar data
 Log Analytics-tjänsten garanterar att inkommande data är från en betrodd källa genom att verifiera certifikat och dataintegritet med Azure-autentisering. Obearbetade rådata lagras sedan i en Azure-Händelsehubb i regionen kommer så småningom att lagras data i vila. Vilken typ av data som lagras beror på vilka typer av lösningar som har importerats och används för att samla in data. Log Analytics service processer rådata och matar in den i databasen.
 
-Kvarhållningsperioden för insamlade data som lagras i databasen är beroende av den valda prisplanen. För den *kostnadsfri* nivå, insamlade data är tillgängliga i sju dagar. För den *betald* nivå, insamlade data är tillgängliga i 31 dagar som standard, men kan utökas till 730 dagar. Data lagras krypterat i vila i Azure storage, för att säkerställa datasekretess, och data replikeras inom lokala region med hjälp av lokalt redundant lagring (LRS). De senaste två veckorna med data lagras också i SSD-baserad cache och denna cache är krypterad.
+Kvarhållningsperioden för insamlade data som lagras i databasen är beroende av den valda prisplanen. För den *kostnads fria* nivån finns insamlade data tillgängliga i sju dagar. För den *betalda* nivån är insamlade data tillgängliga i 31 dagar som standard, men kan utökas till 730 dagar. Data lagras krypterat i vila i Azure storage, för att säkerställa datasekretess, och data replikeras inom lokala region med hjälp av lokalt redundant lagring (LRS). De senaste två veckorna med data lagras också i SSD-baserad cache och denna cache är krypterad.
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Använd Log Analytics för att komma åt data
 För att få åtkomst till Log Analytics-arbetsytan måste du logga in på Azure-portalen med organisationens konto eller Microsoft-konto som du tidigare har konfigurerat. All trafik mellan portalen och Log Analytics-tjänsten skickas via en säker HTTPS-kanal. När du använder portalen, genereras ett sessions-ID på klienten för användare (webbläsare) och data lagras i ett lokalt cacheminne tills sessionen avslutas. När avslutas, tas cachen bort. Klientsidan cookies, som inte innehåller personligt identifierbar information tas inte bort automatiskt. Sessionscookies är markerad HTTPOnly och skyddas. Efter en förutbestämd inaktiv tid, har Azure portal sessionen avslutats.
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig att samla in data med Log Analytics för dina virtuella Azure-datorer efter den [snabbstarten för Azure virtuella datorer](../../azure-monitor/learn/quick-collect-azurevm.md).  
+* Lär dig hur du samlar in data med Log Analytics för dina virtuella Azure-datorer enligt snabb starten för [Azure VM](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
-*  Om du vill samla in data från fysiska eller virtuella Windows- eller Linux-datorer i din miljö finns i den [Snabbstart för Linux-datorer](../../azure-monitor/learn/quick-collect-linux-computer.md) eller [Snabbstart för Windows-datorer](../../azure-monitor/learn/quick-collect-windows-computer.md)
+*  Om du vill samla in data från fysiska eller virtuella Windows-eller Linux-datorer i din miljö kan du läsa [snabb starten för Linux-datorer](../../azure-monitor/learn/quick-collect-linux-computer.md) eller [snabb start för Windows-datorer](../../azure-monitor/learn/quick-collect-windows-computer.md)
 

@@ -3,17 +3,16 @@ title: Strömma Azure-plattformar loggar till en händelsehubben
 description: Lär dig att strömma Azure-resurshanteraren till en Event Hub för att skicka data till externa system, till exempel Siem från tredje part och andra Log Analytics-lösningar.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 00dcc1c1a1d823ab0f2497e47641916d391ee37b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 72341b6da0068ba4b7e3f53b08e6015cafb70f09
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750351"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658922"
 ---
 # <a name="stream-azure-platform-logs-to-azure-event-hubs"></a>Strömma Azure-plattforms loggar till Azure Event Hubs
 [Plattforms loggar](platform-logs-overview.md) i Azure, inklusive Azure aktivitets logg och resurs loggar, ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av.  I den här artikeln beskrivs strömmande plattforms loggar till Event Hub för att skicka data till externa system, till exempel Siem från tredje part och andra Log Analytics-lösningar.
@@ -40,7 +39,7 @@ Strömma plattforms loggar i Azure till Event Hubs för att tillhandahålla föl
     CROSS APPLY GetArrayElements(e.records) AS records
     ```
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste [skapa en Event Hub](../../event-hubs/event-hubs-create.md) om du inte redan har en. Om du redan har en diagnostisk inställning som använder den här Event Hubs namn rymden kommer den händelsehubben att återanvändas.
 
 Principen för delad åtkomst för namn området definierar de behörigheter som den strömmande mekanismen har. Strömning till Event Hubs kräver behörigheterna hantera, skicka och lyssna. Du kan skapa eller ändra principer för delad åtkomst i Azure Portal under fliken Konfigurera för ditt Event Hubs-namnområde.
@@ -57,7 +56,7 @@ Diagnostikinställningar samlar in resurs loggar för Azure Compute-resurser som
 ## <a name="consuming-log-data-from-event-hubs"></a>Använda loggdata från Event Hub
 Plattforms loggar från Event Hub förbrukas i JSON-format med elementen i följande tabell.
 
-| Elementnamn | Beskrivning |
+| Element namn | Beskrivning |
 | --- | --- |
 | resurspost |En matris med alla logg händelser i denna nytto Last. |
 | time |Tiden då händelsen inträffade. |

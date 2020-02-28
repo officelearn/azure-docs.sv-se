@@ -1,19 +1,15 @@
 ---
 title: Spåra anpassade åtgärder med Azure Application Insights .NET SDK
 description: Spåra anpassade åtgärder med Azure Application Insights .NET SDK
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 7b92a386d691e15975f18de169d7924b82ec5c5f
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 31c1fb366e7b109ea1fa4977d8e2f908e766e0f2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951351"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671825"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Spåra anpassade åtgärder med Application Insights .NET SDK
 
@@ -343,7 +339,7 @@ Se till att du ställer in operation (korrelation)-identifierarna när du tar bo
 
 - Skapa en ny `Activity` när du har ett objekt från kön.
 - Använd `Activity.SetParentId(message.ParentId)` för att korrelera konsument-och producent loggar.
-- Starta `Activity`en.
+- Starta `Activity`.
 - Spåra åtgärder i kö-, process-och borttagnings åtgärder med hjälp av `Start/StopOperation` helpers. Gör det från samma asynkrona kontroll flöde (körnings kontext). På så sätt är de korrelerade korrekt.
 - Stoppa `Activity`.
 - Använd `Start/StopOperation`eller anropa `Track` telemetri manuellt.

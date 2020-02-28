@@ -3,16 +3,15 @@ title: Azure Monitor Visa designer till arbets böcker konvertering av vanliga u
 description: ''
 author: austonli
 ms.author: aul
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 444535f0fcc96685a9562a8f9536c0a2c2998946
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 5559dac916262998d621b40757398088ec613609
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171545"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658752"
 ---
 # <a name="view-designer-to-workbooks-conversion-common-tasks"></a>Visa designer till arbets böcker konvertering av vanliga uppgifter
 [View Designer](view-designer.md) är en funktion i Azure Monitor som gör att du kan skapa anpassade vyer som hjälper dig att visualisera data i arbets ytan Log Analytics, med diagram, listor och tids linjer. De fasas ut och ersätts med arbets böcker som tillhandahåller ytterligare funktioner. Den här artikeln beskriver aktiviteter som är vanliga i att konvertera vyer till arbets böcker.

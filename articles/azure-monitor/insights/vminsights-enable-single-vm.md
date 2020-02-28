@@ -1,18 +1,17 @@
 ---
 title: Aktivera Azure Monitor for VMs (för hands version) för utvärdering | Microsoft Docs
 description: Lär dig hur du utvärderar Azure Monitor for VMs på en virtuell Azure-dator eller på en virtuell dators skalnings uppsättning.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: c77fabf0220ecfcb889ce7cb71fa075fde27226f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b79eaeed420426fe79b2b6caf19ba1d1be61939
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400583"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664619"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-evaluation"></a>Aktivera Azure Monitor for VMs (för hands version) för utvärdering
 
@@ -25,17 +24,17 @@ Så här aktiverar du övervakning av den virtuella Azure-datorn:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Välj **virtuella datorer**.
+1. Välj **Virtual Machines**.
 
 1. Välj en virtuell dator i listan.
 
-1. På sidan virtuell dator i den **övervakning** väljer **Insights (förhandsversion)** .
+1. På sidan virtuell dator i avsnittet **övervakning** väljer du **insikter (för hands version)** .
 
-1. På den **Insights (förhandsversion)** väljer **Prova nu**.
+1. Välj **Testa nu**på sidan **Insights (för hands version)** .
 
     ![Aktivera Azure Monitor för virtuella datorer för en virtuell dator](./media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
-1. På den **Azure Monitor insikter Onboarding** om du har en befintlig Log Analytics-arbetsyta i samma prenumeration, markerar du den i den nedrullningsbara listan.  
+1. Om du har en befintlig Log Analytics arbets yta i samma prenumeration på sidan **Azure Monitor Insights-onboarding** väljer du den i list rutan.  
 
     I listan förväljs standard arbets ytan och den plats där den virtuella datorn distribueras i prenumerationen. 
 

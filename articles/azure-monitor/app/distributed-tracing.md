@@ -1,19 +1,17 @@
 ---
 title: Distribuerad spårning i Azure Application Insights | Microsoft Docs
 description: Innehåller information om Microsofts support för distribuerad spårning via vår lokala vidarebefordrare och partnerskap i projektet för openinventering
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5c07fac0590b833aa19909849271c59d65d42ad6
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 49e61a7677007c52d1a584c4b49ccaadc3a02df3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242454"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669598"
 ---
 # <a name="what-is-distributed-tracing"></a>Vad är distribuerad spårning?
 

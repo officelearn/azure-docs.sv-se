@@ -1,18 +1,17 @@
 ---
 title: Arbeta med datum tids värden i Azure Monitor logg frågor | Microsoft Docs
 description: Beskriver hur du arbetar med datum-och tids data i Azure Monitor logg frågor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: d659be5b817317e7cec5726718f154825674349e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ea7c98a1b5b4059c5fea0cf1e8ea2ff5ef08d9d1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365350"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655386"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Arbeta med datum tids värden i Azure Monitor logg frågor
 
@@ -32,9 +31,9 @@ Tidsintervallen uttrycks som en decimal följt av en tidsenhet:
 |skrift   | tidsenhet    |
 |:---|:---|
 |d           | dag          |
-|h           | timme         |
+|&           | timkostnad         |
 |m           | minut       |
-|S           | sekund       |
+|s           | senare       |
 |ms          | tiden  |
 |latens | latens  |
 |mellanrummet        | nanosekund   |
@@ -128,7 +127,7 @@ Event
 
 Den här frågan ger följande resultat:
 
-|timestamp|antal_|
+|tidsstämpel|count_|
 |--|--|
 |2018-07-28T00:00:00.000|7 136|
 |2018-07-29T00:00:00.000|12 315|
@@ -137,7 +136,7 @@ Den här frågan ger följande resultat:
 |2018-08-01T00:00:00.000|5 416|
 
 
-## <a name="time-zones"></a>Tidszoner
+## <a name="time-zones"></a>Tids zoner
 Eftersom alla datetime-värden uttrycks i UTC är det ofta användbart att konvertera dessa värden till den lokala tids zonen. Använd till exempel den här beräkningen för att konvertera UTC till PST-tider:
 
 ```Kusto
@@ -164,4 +163,4 @@ Se andra lektioner för att använda [Kusto-frågespråket](/azure/kusto/query/)
 - [JSON och data strukturer](json-data-structures.md)
 - [Avancerad fråge utskrift](advanced-query-writing.md)
 - [Kopplingar](joins.md)
-- [Diagram](charts.md)
+- [Hierarkidiagram](charts.md)

@@ -2,13 +2,13 @@
 title: Tagga stöd för resurser
 description: Visar vilka typer av Azure-resurs typer som stöder taggar. Innehåller information om alla Azure-tjänster.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 09dd71ef8c3ac4803a988dffbdca47116c967a0e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/26/2020
+ms.openlocfilehash: 6100c667c7df0b3e1740777565d260af9fa818a3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207935"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657581"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagga stöd för Azure-resurser
 I den här artikeln beskrivs om en resurs typ stöder [taggar](tag-resources.md). Den kolumn som har etiketten **stöder Taggar** anger om resurs typen har en egenskap för taggen. Kolumnen med etiketten **tagg i Cost** visar om den resurs typen skickar taggen till kostnads rapporten. Du kan visa kostnader efter taggar i [Cost Management kostnads analys](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) och Azure- [faktura och användnings data per dag](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -116,8 +116,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. Migrate](#microsoftmigrate)
 > - [Microsoft. MixedReality](#microsoftmixedreality)
 > - [Microsoft. NetApp](#microsoftnetapp)
-> - [Microsoft. Notebook](#microsoftnotebooks)
 > - [Microsoft. Network](#microsoftnetwork)
+> - [Microsoft. Notebook](#microsoftnotebooks)
 > - [Microsoft. NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft. ObjectStore](#microsoftobjectstore)
 > - [Microsoft. OffAzure](#microsoftoffazure)
@@ -136,7 +136,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft. Resources](#microsoftresources)
 > - [Microsoft. SaaS](#microsoftsaas)
-> - [Microsoft. Scheduler](#microsoftscheduler)
 > - [Microsoft. search](#microsoftsearch)
 > - [Microsoft. Security](#microsoftsecurity)
 > - [Microsoft. SecurityGraph](#microsoftsecuritygraph)
@@ -292,6 +291,9 @@ Hoppa till ett namn område för en resurs leverantör:
 > | automationAccounts | Ja | Ja |
 > | automationAccounts/konfigurationer | Ja | Ja |
 > | automationAccounts/jobb | Nej | Nej |
+> | automationAccounts / privateEndpointConnectionProxies | Nej | Nej |
+> | automationAccounts / privateEndpointConnections | Nej | Nej |
+> | automationAccounts / privateLinkResources | Nej | Nej |
 > | automationAccounts/Runbooks | Ja | Ja |
 > | automationAccounts / softwareUpdateConfigurations | Nej | Nej |
 > | automationAccounts/Webhooks | Nej | Nej |
@@ -711,6 +713,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | register/importImage | Nej | Nej |
 > | register/privateEndpointConnectionProxies | Nej | Nej |
 > | register/privateEndpointConnectionProxies/validate | Nej | Nej |
+> | register/privateEndpointConnections | Nej | Nej |
 > | register/privateLinkResources | Nej | Nej |
 > | register/queueBuild | Nej | Nej |
 > | register/regenerateCredential | Nej | Nej |
@@ -750,14 +753,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | Aviseringar | Nej | Nej |
-> | BillingAccounts | Nej | Nej |
+> | billingAccounts | Nej | Nej |
 > | Budgetar | Nej | Nej |
 > | CloudConnectors | Nej | Nej |
 > | Anslutningar | Ja | Ja |
 > | enheten | Nej | Nej |
 > | Dimensioner | Nej | Nej |
 > | EnrollmentAccounts | Nej | Nej |
-> | exporteras | Nej | Nej |
+> | Exporteras | Nej | Nej |
 > | ExternalBillingAccounts | Nej | Nej |
 > | ExternalBillingAccounts/aviseringar | Nej | Nej |
 > | ExternalBillingAccounts/dimensioner | Nej | Nej |
@@ -1052,6 +1055,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | partnerNamespaces/eventChannels | Nej | Nej |
 > | partnerRegistrations | Ja | Ja |
 > | partnerTopics | Ja | Ja |
+> | partnerTopics / eventSubscriptions | Nej | Nej |
 > | systemTopics | Ja | Ja |
 > | systemTopics / eventSubscriptions | Nej | Nej |
 > | avsnitt | Ja | Ja |
@@ -1288,6 +1292,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ----------- |
 > | getEntities | Nej | Nej |
 > | managementGroups | Nej | Nej |
+> | managementGroups/inställningar | Nej | Nej |
 > | resurser | Nej | Nej |
 > | startTenantBackfill | Nej | Nej |
 > | tenantBackfillStatus | Nej | Nej |
@@ -1395,15 +1400,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | netAppAccounts | Ja | Nej |
 > | netAppAccounts / capacityPools | Ja | Nej |
 > | netAppAccounts/capacityPools/Volumes | Ja | Nej |
-> | netAppAccounts/capacityPools/Volumes/mountTargets | Ja | Nej |
-> | netAppAccounts/capacityPools/volym/ögonblicks bilder | Ja | Nej |
-
-## <a name="microsoftnotebooks"></a>Microsoft. Notebook
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
-> | ------------- | ----------- | ----------- |
-> | NotebookProxies | Nej | Nej |
+> | netAppAccounts/capacityPools/volym/ögonblicks bilder | Nej | Nej |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -1495,6 +1492,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > För Azures frontend-tjänst kan du använda taggar när du skapar resursen, men att uppdatera eller lägga till taggar stöds inte för närvarande.
 
 
+## <a name="microsoftnotebooks"></a>Microsoft. Notebook
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
+> | ------------- | ----------- | ----------- |
+> | NotebookProxies | Nej | Nej |
+
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -1556,6 +1560,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | legacyPeerings | Nej | Nej |
 > | peerAsns | Nej | Nej |
 > | peerings | Ja | Ja |
+> | peeringServiceCountries | Nej | Nej |
 > | peeringServiceProviders | Nej | Nej |
 > | peeringServices | Ja | Ja |
 
@@ -1681,13 +1686,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | program | Ja | Ja |
 > | saasresources | Nej | Nej |
 
-## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
-> | ------------- | ----------- | ----------- |
-> | förfrågningsåtgärder | Ja | Ja |
-
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
 > [!div class="mx-tableFixed"]
@@ -1756,7 +1754,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | agg regeringar | Nej | Nej |
 > | alertRules | Nej | Nej |
 > | alertRuleTemplates | Nej | Nej |
-> | dina | Nej | Nej |
+> | Dina | Nej | Nej |
 > | fall | Nej | Nej |
 > | dataConnectors | Nej | Nej |
 > | dataConnectorsCheckRequirements | Nej | Nej |
@@ -2026,6 +2024,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | enheter | Ja | Ja |
+> | registeredSubscriptions | Nej | Nej |
 > | leverantören | Nej | Nej |
 > | leverantörer/SKU: er | Nej | Nej |
 > | leverantörer/vnfs | Nej | Nej |

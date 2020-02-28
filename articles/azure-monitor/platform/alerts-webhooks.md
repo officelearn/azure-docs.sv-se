@@ -2,20 +2,19 @@
 title: Anropa en webhook med en klassisk mått avisering i Azure Monitor
 description: Lär dig hur du omdirigerar Azure Metric-aviseringar till andra icke-Azure-system.
 author: harelbr
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: fd4bf2d404a7152da04e72d323f463c18167f5bf
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 27510871f9a022cb27c6b03b812ce1d37b47312c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705521"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665076"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Anropa en webhook med en klassisk mått avisering i Azure Monitor
+
 Du kan använda Webhooks för att dirigera ett meddelande om Azure-aviseringar till andra system för efter bearbetning eller anpassade åtgärder. Du kan använda en webhook för en avisering för att dirigera den till tjänster som skickar SMS-meddelanden, logga buggar för att meddela ett team via chatt-eller meddelande tjänster eller för olika andra åtgärder. 
 
 Den här artikeln beskriver hur du ställer in en webhook i en Azure Metric-avisering. Det visar också vad nytto lasten för HTTP-inlägget till en webhook ser ut. Information om installationen och schemat för en Azure aktivitets logg avisering (varning om händelser) finns i [anropa en webhook på en Azure aktivitets logg avisering](alerts-log-webhook.md).
@@ -69,17 +68,17 @@ POST-åtgärden innehåller följande JSON-nyttolast och schema för alla Metric
 ```
 
 
-| Field | Obligatorisk | Fast värde uppsättning | Anteckningar |
+| Fält | Obligatorisk | Fast värde uppsättning | Anteckningar |
 |:--- |:--- |:--- |:--- |
 | status |Y |Aktive rad, löst |Status för aviseringen baserat på de villkor du anger. |
 | context |Y | |Aviserings kontexten. |
-| timestamp |Y | |Tiden då aviseringen utlöstes. |
+| tidsstämpel |Y | |Tiden då aviseringen utlöstes. |
 | id |Y | |Varje varnings regel har ett unikt ID. |
 | namn |Y | |Aviseringens namn. |
-| description |Y | |En beskrivning av aviseringen. |
+| beskrivning |Y | |En beskrivning av aviseringen. |
 | conditionType |Y |Mått, händelse |Två typer av aviseringar stöds: Metric och event. Mått varningar baseras på ett mått villkor. Händelse aviseringar baseras på en händelse i aktivitets loggen. Använd det här värdet för att kontrol lera om aviseringen baseras på ett mått eller en händelse. |
 | condition |Y | |De speciella fälten som ska kontrol leras baserat på **conditionType** -värdet. |
-| MetricName |För mått varningar | |Namnet på måttet som definierar vad regeln övervakar. |
+| metricName |För mått varningar | |Namnet på måttet som definierar vad regeln övervakar. |
 | metricUnit |För mått varningar |Byte, BytesPerSecond, antal, CountPerSecond, procent, sekunder |Enheten som tillåts i måttet. Se [tillåtna värden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |För mått varningar | |Det faktiska värdet för det mått som orsakade aviseringen. |
 | threshold |För mått varningar | |Tröskelvärdet då aviseringen aktive ras. |
@@ -93,7 +92,7 @@ POST-åtgärden innehåller följande JSON-nyttolast och schema för alla Metric
 | resourceId |Y | |Resurs-ID för den berörda resursen. |
 | resourceRegion |Y | |Den berörda resursens region eller plats. |
 | portalLink |Y | |En direkt länk till sammanfattnings sidan för Portal resursen. |
-| properties |N |Valfritt |En uppsättning nyckel/värde-par som innehåller information om händelsen. Till exempel `Dictionary<String, String>`. Egenskaps fältet är valfritt. Användare kan ange nyckel/värde-par som kan skickas via nytto lasten i ett anpassat användar gränssnitt eller logiskt app-baserat arbets flöde. Ett annat sätt att skicka anpassade egenskaper tillbaka till webhooken är via webhook-URI: n (som frågeparametrar). |
+| properties |N |Valfri |En uppsättning nyckel/värde-par som innehåller information om händelsen. Till exempel `Dictionary<String, String>`. Egenskaps fältet är valfritt. Användare kan ange nyckel/värde-par som kan skickas via nytto lasten i ett anpassat användar gränssnitt eller logiskt app-baserat arbets flöde. Ett annat sätt att skicka anpassade egenskaper tillbaka till webhooken är via webhook-URI: n (som frågeparametrar). |
 
 > [!NOTE]
 > Du kan bara ange fältet **Egenskaper** genom att använda [Azure Monitor REST API: er](https://msdn.microsoft.com/library/azure/dn933805.aspx).

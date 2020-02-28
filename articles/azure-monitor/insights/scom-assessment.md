@@ -1,18 +1,17 @@
 ---
 title: Optimera din System Center Operations Manager-miljö med Azure Log Analytics | Microsoft Docs
 description: Du kan använda System Center Operations Manager-hälsokontroll-lösningen för att bedöma hälso tillståndet och hälsan för dina miljöer med jämna mellanrum.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 5ec0f181d9d22e9e1183a59a4fbd7d77e658862e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8add2acb8f263c54f6014699f792380d256d9b0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402870"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663478"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimera din miljö med lösningen för System Center Operations Manager-hälsokontroll (för hands version)
 
@@ -57,7 +56,7 @@ System Center Operations Manager-hälsokontroll lösning samlar in data från f�
 
 * Register
 * Windows Management Instrumentation (WMI)
-* Händelseloggen
+* Händelse logg
 * Fildata
 * Direkt från Operations Manager med PowerShell-och SQL-frågor från en hanterings server som du har angett.  
 
@@ -148,7 +147,7 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 I hanterings paketet för System Center Operations Manager-hälsokontrolls lösningen ingår en regel med namnet *Microsoft System Center Operations Manager kör hälso kontrolls regel*. Den här regeln ansvarar för att köra hälso kontrollen. Använd anvisningarna nedan om du vill aktivera regeln och konfigurera frekvensen.
 
-Som standard är Microsoft System Center Operations Manager kör hälso kontroll regeln inaktive rad. Om du vill köra hälso kontrollen måste du aktivera regeln på en-hanterings Server. Följ stegen nedan.
+Som standard är Microsoft System Center Operations Manager kör hälso kontroll regeln inaktive rad. Om du vill köra hälso kontrollen måste du aktivera regeln på en-hanterings Server. Använd följande steg.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Aktivera regeln för en angiven hanterings Server
 
@@ -198,7 +197,7 @@ Viktningen för varje rekommendation uttrycks som en procent andel av det totala
 
 ### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Bör du 100% i varje fokus områden?
 
-Inte nödvändigtvis. Rekommendationerna baseras på den kunskap och de erfarenheter som Microsoft-tekniker har fått på tusentals kund besök. Dock är inte två server infrastrukturer identiska, och vissa rekommendationer kan vara mer eller mindre relevanta för dig. Vissa säkerhets rekommendationer kan till exempel vara mindre relevanta om dina virtuella datorer inte är exponerade för Internet. Vissa tillgänglighets rekommendationer kan vara mindre relevanta för tjänster som tillhandahåller låg prioritet för insamling och rapportering av ad hoc-data. Problem som är viktiga för en vuxen verksamhet kan vara mindre viktiga för en start. Du kanske vill identifiera vilka fokus områden som är dina prioriteringar och titta sedan på hur dina resultat förändras över tid.
+Inte nödvändigt vis. Rekommendationerna baseras på den kunskap och de erfarenheter som Microsoft-tekniker har fått på tusentals kund besök. Dock är inte två server infrastrukturer identiska, och vissa rekommendationer kan vara mer eller mindre relevanta för dig. Vissa säkerhets rekommendationer kan till exempel vara mindre relevanta om dina virtuella datorer inte är exponerade för Internet. Vissa tillgänglighets rekommendationer kan vara mindre relevanta för tjänster som tillhandahåller låg prioritet för insamling och rapportering av ad hoc-data. Problem som är viktiga för en vuxen verksamhet kan vara mindre viktiga för en start. Du kanske vill identifiera vilka fokus områden som är dina prioriteringar och titta sedan på hur dina resultat förändras över tid.
 
 Varje rekommendation innehåller vägledning om varför det är viktigt. Använd den här vägledningen för att utvärdera om implementering av rekommendationen passar dig, baserat på dina IT-tjänsters beskaffenhet och organisationens affärs behov.
 

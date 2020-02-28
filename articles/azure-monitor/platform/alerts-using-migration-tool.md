@@ -2,17 +2,16 @@
 title: Migrera dina klassiska aviseringar i Azure Monitor med hjälp av verktyget för frivillig migrering
 description: Lär dig hur du använder verktyget för frivillig migrering för att migrera dina klassiska aviserings regler.
 author: yanivlavi
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: c4ebb2e9572f1dcc9ade548a55fc44d7441e5a79
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 537d84639523a74cbd9403d4ad25c34a798b7061
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705589"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665110"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Använd verktyget för frivillig migrering för att migrera dina klassiska aviserings regler
 
@@ -77,7 +76,7 @@ Följ dessa steg om du vill utlösa migreringen av dina klassiska varnings regle
 
 1. När migreringen är klar, eller om en åtgärd krävs från dig, får du ett e-postmeddelande till de adresser som du angav tidigare. Du kan också kontrol lera statusen regelbundet på sidan migration vilplan i portalen.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>Varför är min prenumeration listad som ej redo för migrering?
 

@@ -1,14 +1,14 @@
 ---
 title: Översikt över Azure-status | Microsoft Docs
 description: En global vy över Azure-tjänsternas hälsa
-ms.topic: article
+ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 1257476234709380de3452015313e3a3bf71e04d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4f4a0bf09c9256362e71466b9545389f4341ef38
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463984"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654162"
 ---
 # <a name="azure-status-overview"></a>Översikt över Azure-status
 
@@ -22,7 +22,7 @@ Sidan Azure-status uppdateras i real tid när hälso tillståndet för Azure-tj�
 
 ![Uppdatering av Azure-status](./media/azure-status-overview/update.PNG)
 
-## <a name="azure-status-history"></a>Azure-statushistorik
+## <a name="azure-status-history"></a>Status historik för Azure
 
 Sidan Azure-status visar alltid den senaste hälso informationen, du kan visa äldre händelser på [sidan Azure status historik](https://status.azure.com/status/history/).
 
@@ -32,7 +32,7 @@ Du kan se händelser upp till 90 dagar tidigare, inklusive en preliminär orsak,
 
 Azure-status ger också [en RSS-feed](https://status.azure.com/status/feed/) med ändringar av hälso tillståndet för Azure-tjänster som du kan prenumerera på.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du kan få en mer anpassad vy i Azure Health med [service Health](./service-health-overview.md).
 * Lär dig hur du kan få en mer detaljerad översikt över hälso tillståndet för dina Azure-resurser med [Resource Health](./resource-health-overview.md).

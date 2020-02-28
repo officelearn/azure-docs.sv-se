@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/20/2019
-ms.openlocfilehash: 9f25486aba9549855939b06ea5b8dfc14db0af95
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/27/2020
+ms.openlocfilehash: 4adcda6030ed59cb6cc2285eb1c1eea0f768662c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969127"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662888"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Självstudie: automatisera uppgifter för att bearbeta e-postmeddelanden med hjälp av Azure Logic Apps, Azure Functions och Azure Storage
 
 Med Azure Logic Apps lär du dig att automatisera arbetsflöden och integrera data i olika Azure-tjänster, Microsoft-tjänster och andra SaaS-appar (programvara som en tjänst) samt lokala system. I den här självstudien får du lära dig att skapa en [logikapp](../logic-apps/logic-apps-overview.md) som hanterar inkommande e-post och bilagor. Logikappen analyserar e-postinnehållet, sparar det i Azure Storage och skickar meddelanden för granskning av innehållet.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera [Azure Storage](../storage/common/storage-introduction.md) och Storage Explorer så att de kollar sparade e-postmeddelanden och bifogade filer.
@@ -34,7 +34,7 @@ När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 ![Logikapp på hög nivå](./media/tutorial-process-email-attachments-workflow/overview.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -44,9 +44,9 @@ När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 * Ladda ned och installera [kostnadsfria Microsoft Azure Storage Explorer](https://storageexplorer.com/). Med det här verktyget kan du kontrollera att din lagringscontainer är korrekt inställd.
 
-## <a name="sign-in-to-azure-portal"></a>Logga in på Azure Portal
+## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
 
-Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautentiseringsuppgifter.
+Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
 
 ## <a name="set-up-storage-to-save-attachments"></a>Konfigurera lagring för att spara bifogade filer
 
@@ -57,7 +57,7 @@ Du kan spara inkommande e-postmeddelanden och blobar i en [Azure-lagringscontain
    | Inställning | Värde | Beskrivning |
    |---------|-------|-------------|
    | **Prenumeration** | <*Azure-prenumerationsnamn*> | Azure-prenumerationens namn |  
-   | **Resursgrupp** | <*Azure-resource-group*> | Namnet på den [Azure-resursgrupp](../azure-resource-manager/management/overview.md) som används för att organisera och hantera relaterade resurser. I det här exemplet används "LA-självstudie-RG". <p>**Obs!** En resursgrupp finns i en viss region. Trots att objekten i den här självstudien kanske inte är tillgängliga i alla regioner ska du försöka att använda samma region när det är möjligt. |
+   | **Resursgrupp** | <*Azure – resurs grupp*> | Namnet på den [Azure-resursgrupp](../azure-resource-manager/management/overview.md) som används för att organisera och hantera relaterade resurser. I det här exemplet används "LA-självstudie-RG". <p>**Obs!** En resursgrupp finns i en viss region. Trots att objekten i den här självstudien kanske inte är tillgängliga i alla regioner ska du försöka att använda samma region när det är möjligt. |
    | **Lagringskontonamn** | <*Azure-Storage – konto namn*> | Ditt lagrings konto namn, som måste innehålla 3-24 tecken och får bara innehålla gemena bokstäver och siffror. I det här exemplet används "attachmentstorageacct". |
    | **Plats** | <*Azure-region*> | Den region där du vill lagra information om ditt lagrings konto. I det här exemplet används "västra USA". |
    | **Prestanda** | Standard | Den här inställningen anger datatyper som stöds och media för att lagra data. Se [Typer av lagringskonton](../storage/common/storage-introduction.md#types-of-storage-accounts). |
@@ -89,7 +89,7 @@ Du kan spara inkommande e-postmeddelanden och blobar i en [Azure-lagringscontain
 
 1. Skapa en bloblagringscontainer för e-postbilagor.
 
-   1. Navigera till lagringskontots meny. Välj **Översikt**. Under **tjänster**väljer du **behållare**.
+   1. Navigera till lagringskontots meny. Välj **Översikt**. I översikts fönstret väljer du **behållare**.
 
       ![Lägg till bloblagringscontainer](./media/tutorial-process-email-attachments-workflow/create-storage-container.png)
 
@@ -146,7 +146,7 @@ Använd nu kodfragmentet som tillhandahålls via de här stegen för att skapa e
    | **OS** | <*ditt operativ system*> | Välj det operativ system som stöder ditt favorit funktions programmeringsspråk. I det här exemplet väljer du **Windows**. |
    | **Värdplan** | Förbrukningsplan | Den här inställningen avgör hur resurser ska allokeras och skalas, som datorkraft, för att köra din funktionsapp. Se [jämförelse av värdplaner](../azure-functions/functions-scale.md). |
    | **Plats** | USA, västra | Samma region som du tidigare använt |
-   | **Körningsstack** | Önskat språk | Välj en körning som stöder ditt favorit funktions programmeringsspråk. Välj **.net** for C# och F# functions. |
+   | **Körnings stack** | Önskat språk | Välj en körning som stöder ditt favorit funktions programmeringsspråk. Välj **.net** for C# och F# functions. |
    | **Lagring** | cleantextfunctionstorageacct | Skapa ett lagringskonto för din funktionsapp. Använd bara gemena bokstäver och siffror. <p>**Obs:** Det här lagrings kontot innehåller dina funktions program och skiljer sig från ditt tidigare skapade lagrings konto för e-postbilagor. |
    | **Application Insights** | Inaktivera | Aktiverar program övervakning med [Application Insights](../azure-monitor/app/app-insights-overview.md), men i den här självstudien väljer du **inaktivera** > **tillämpa**. |
    ||||
@@ -223,24 +223,24 @@ Skapa din logikapp när du har kontrollerat att funktionen fungerar. Trots att d
 
 ## <a name="create-your-logic-app"></a>Skapa en logikapp
 
-1. På Azures start sida går du till sökrutan och letar upp och väljer **Logic Apps**.
+1. I sökrutan i Azure på översta nivån anger du `logic apps`och väljer **Logic Apps**.
 
    ![Sök efter och välj "Logic Apps"](./media/tutorial-process-email-attachments-workflow/find-select-logic-apps.png)
 
-1. På sidan **Logic Apps** väljer du **Lägg till**.
+1. I fönstret **Logic Apps** väljer du **Lägg till**.
 
-   ![Lägg till ny Logic-app](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
+   ![Lägg till ny Logic-app](./media/tutorial-process-email-attachments-workflow/add-new-logic-app.png)
 
-1. Under **Skapa en logikapp** anger du information om din logikapp som visas här. När du är klar väljer du **skapa**.
+1. I fönstret **Logic app** anger du information om din Logi Kap par som visas här. När du är klar väljer du **Granska + skapa**.
 
    ![Ange information om din logikapp](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
    | Inställning | Värde | Beskrivning |
    | ------- | ----- | ----------- |
-   | **Namn** | LA-ProcessAttachment | Logikappens namn |
    | **Prenumeration** | <*your-Azure-subscription-name*> | Samma Azure-prenumeration som du tidigare använt |
    | **Resursgrupp** | LA-Tutorial-RG | Samma Azure-resursgrupp som du tidigare använt |
-   | **Plats** | USA, västra | Samma region som du tidigare använt |
+   | **Namn på Logic app** | LA-ProcessAttachment | Logikappens namn |
+   | **Välj plats** | USA, västra | Samma region som du tidigare använt |
    | **Log Analytics** | Av | I den här självstudien väljer du inställningen **av** . |
    ||||
 
@@ -258,7 +258,7 @@ Lägg sedan till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. I designern i rutan Sök skriver du `when new email arrives` som ditt filter. Välj den här utlösaren för e-postleverantören: **When a new email arrives - <*your-email-provider*>** (när ett nytt e-postmeddelande kommer - <din-e-postleverantör>).
 
-   Ett exempel:
+   Några exempel:
 
    ![Välj den här utlösaren för e-postleverantör: ”När ett nytt e-postmeddelande kommer”](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
@@ -667,7 +667,15 @@ Grattis! Nu har du skapat en och kört en logikapp som automatiserar uppgifter i
 
 Ta bort resursgruppen som innehåller logikappen och alla relaterade resurser när du inte längre behöver dem.
 
-1. På Azure-huvudmenyn väljer du **Resursgrupper**. I listan resurs grupper väljer du resurs gruppen för den här självstudien. I **översikts** fönstret väljer du **ta bort resurs grupp**.
+1. I rutan Azure Search på översta nivån anger du `resources groups`och väljer **resurs grupper**.
+
+   ![Sök efter och välj "resurs grupper"](./media/tutorial-process-email-attachments-workflow/find-azure-resource-groups.png)
+
+1. I listan **resurs grupper** väljer du resurs gruppen för den här självstudien. 
+
+   ![Hitta resurs gruppen för självstudier](./media/tutorial-process-email-attachments-workflow/find-select-tutorial-resource-group.png)
+
+1. I **översikts** fönstret väljer du **ta bort resurs grupp**.
 
    ![Ta bort resursgrupp för logikapp](./media/tutorial-process-email-attachments-workflow/delete-resource-group.png)
 

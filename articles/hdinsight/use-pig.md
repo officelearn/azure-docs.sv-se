@@ -1,5 +1,5 @@
 ---
-title: Använda Apache gris
+title: Använda Apache Pig
 titleSuffix: Azure HDInsight
 description: Lär dig hur du använder gris med Apache Hadoop i HDInsight.
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 8c9e13a61f5fcb3b7eb170b2b1110195d725c3ce
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: ea960a92aee1c9447bb12d27cffdc42de9fd907a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493168"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672131"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Använda Apache gris med Apache Hadoop på HDInsight
 
@@ -92,9 +92,9 @@ Lär dig mer om Azure Feature Pack för SSIS [här][ssispack].
 Nu när du har lärt dig hur du använder gris med HDInsight kan du använda följande länkar för att utforska andra sätt att arbeta med Azure HDInsight.
 
 * [Ladda upp data till HDInsight](hdinsight-upload-data.md)
-* [Använda Apache Hive med HDInsight](/hadoop/hdinsight-use-hive.md)
+* [Använda Apache Hive med HDInsight](./hadoop/hdinsight-use-hive.md)
 * [Använda Apache Sqoop med HDInsight](hdinsight-use-sqoop.md)
-* [Använda MapReduce-jobb med HDInsight](/hadoop/hdinsight-use-mapreduce.md)
+* [Använda MapReduce-jobb med HDInsight](./hadoop/hdinsight-use-mapreduce.md)
 
 [apachepig-home]: https://pig.apache.org/
 [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html

@@ -1,18 +1,17 @@
 ---
 title: Filter i Azure Monitor vyer | Microsoft Docs
 description: Ett filter i en Azure Monitor-vy låter användare filtrera data i vyn med värdet för en viss egenskap utan att ändra vyn.  I den här artikeln beskrivs hur du använder ett filter och lägger till ett i en anpassad vy.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: 03950c7c87f659c5d1c032b5d3c1f74d136697c7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b4840ed30eb1f6dc8d6e6cef47da17807f9644d5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931973"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658582"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filter i Azure Monitor vyer
 Ett **filter** i en [Azure Monitor-vy](view-designer.md) låter användare filtrera data i vyn med värdet för en viss egenskap utan att ändra vyn.  Du kan till exempel tillåta att användare av vyn filtrerar vyn för data enbart från en viss dator eller uppsättning datorer.  Du kan skapa flera filter i en enskild vy så att användarna kan filtrera efter flera egenskaper.  I den här artikeln beskrivs hur du använder ett filter och lägger till ett i en anpassad vy.
@@ -34,7 +33,7 @@ Om du tar bort alla värden för ett filter kommer filtret inte längre att till
 
 Skapa ett filter från fliken **filter** när du [redigerar en vy](view-designer.md).  Filtret är globalt för vyn och gäller för alla delar i vyn.  
 
-![Filter inställningar](media/view-designer-filters/filters-settings.png)
+![Filterinställningar](media/view-designer-filters/filters-settings.png)
 
 I följande tabell beskrivs inställningarna för ett filter.
 
@@ -42,17 +41,17 @@ I följande tabell beskrivs inställningarna för ett filter.
 |:---|:---|
 | Fältnamn | Namnet på det fält som används för filtrering.  Det här fältet måste matcha det sammanfattande fältet i **fråga efter värden**. |
 | Fråga efter värden | Fråga att köra för att fylla i list rutan filter för användaren.  Frågan måste använda antingen [sammanfatta](/azure/kusto/query/summarizeoperator) eller [distinkt](/azure/kusto/query/distinctoperator) för att tillhandahålla unika värden för ett visst fält och måste matcha **fält namnet**.  Du kan använda [sort](/azure/kusto/query/sortoperator) för att sortera värdena som visas för användaren. |
-| Tagg | Namnet på det fält som används i frågor som stöder filtret och visas också för användaren. |
+| Tagga | Namnet på det fält som används i frågor som stöder filtret och visas också för användaren. |
 
 ### <a name="examples"></a>Exempel
 
 Följande tabell innehåller några exempel på vanliga filter.  
 
-| Fältnamn | Fråga efter värden | Tagg |
+| Fältnamn | Fråga efter värden | Tagga |
 |:--|:--|:--|
 | Dator   | Pulsslags &#124; distinkt &#124; dator sortera efter dator ASC | Datorer |
-| EventLevelName | Event &#124; DISTINCT EventLevelName | Allvarsgrad |
-| SeverityLevel | Syslog &#124; -distinkt SeverityLevel | Allvarsgrad |
+| EventLevelName | Event &#124; DISTINCT EventLevelName | Severity |
+| Allvarlighetsgrad | Syslog &#124; -distinkt SeverityLevel | Severity |
 | SvcChangeType | ConfigurationChange &#124; DISTINCT svcChangeType | Ändrings typs |
 
 

@@ -1,20 +1,18 @@
 ---
 title: Smarta grupper
 description: Smarta grupper är agg regeringar för aviseringar som hjälper dig att minska aviserings bruset
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
-ms.author: robb
+ms.subservice: alerts
 ms.date: 05/15/2018
-ms.openlocfilehash: 83ea68ad92a6c78ccf56483e1f0c2cbcbcd7d22a
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 05b05f8bc079bb3768ac2f1a03593bc9260b41aa
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552361"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665501"
 ---
 # <a name="smart-groups"></a>Smarta grupper
+
 En vanlig utmaning vid hantering av aviseringar är att gå igenom bruset och ta reda på vad som egentligen är viktigt – smarta grupper är avsedda att vara lösningen på det problemet.  
 
 Smarta grupper skapas automatiskt med hjälp av Machine Learning-algoritmer för att kombinera relaterade aviseringar som representerar ett enda problem.  När en avisering skapas lägger algoritmen till den i en ny smart grupp eller en befintlig smart grupp baserat på information som historiska mönster, liknande egenskaper och liknande struktur. Om till exempel% CPU på flera virtuella datorer i en prenumeration samtidigt försätts till många enskilda aviseringar samtidigt, och om sådana aviseringar har inträffat när som helst tidigare, kommer de här aviseringarna troligen att grupperas i en enda smart grupp, vilket föreslår en potentiell allmän rotorsak. Det innebär att för någon fel sökning av aviseringar kan smarta grupper inte bara tillåta att de minskar bruset genom att hantera relaterade aviseringar som en enda sammanställd enhet, men de guidar också dem mot möjliga vanliga Rotors Aker för sina aviseringar.
@@ -24,15 +22,16 @@ För närvarande tar algoritmen bara hänsyn till aviseringar från samma överv
 Du kan visa information om smarta grupper och ange tillstånd på samma sätt som du kan med aviseringar. Varje avisering är medlem i en och endast en smart grupp. 
 
 ## <a name="smart-group-state"></a>Smart Group-tillstånd
+
 Smart Group State är ett liknande koncept som aviserings tillstånd, vilket gör att du kan hantera lösnings processen på nivån i en smart grupp. På liknande sätt som aviserings tillstånd, när en smart grupp skapas, har den det **nya** läget, som kan ändras till antingen **godkänd** eller **stängd**.
 
 Följande Smart Group-tillstånd stöds.
 
 | Status | Beskrivning |
 |:---|:---|
-| Nytt | Problemet har precis identifierats och har ännu inte granskats. |
+| Ny | Problemet har precis identifierats och har ännu inte granskats. |
 | Godkänt | En administratör har granskat den smarta gruppen och börjat arbeta med den. |
-| kopplade | Problemet har åtgärd ATS. När en smart grupp har stängts kan du öppna den igen genom att ändra den till ett annat tillstånd. |
+| Stängd | Problemet har åtgärd ATS. När en smart grupp har stängts kan du öppna den igen genom att ändra den till ett annat tillstånd. |
 
 [Lär dig hur du ändrar status för din smart grupp.](https://aka.ms/managing-alert-smart-group-states)
 

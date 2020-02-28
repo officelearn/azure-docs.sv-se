@@ -1,18 +1,17 @@
 ---
 title: resurs () uttryck i Azure Monitor logg fråga | Microsoft Docs
 description: Resurs uttrycket används i en resurs-inriktad Azure Monitor logg fråga för att hämta data från flera resurser.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
-ms.openlocfilehash: 370b2547c9e726ab4f5ebc4dd732cc0bfa17f760
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2a729caefe698b13833098ba48df9d4bfbd97356
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933018"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665707"
 ---
 # <a name="resource-expression-in-azure-monitor-log-query"></a>resurs () uttryck i Azure Monitor logg fråga
 
@@ -27,7 +26,7 @@ ms.locfileid: "72933018"
 
 - *Identifierare*: resurs-ID för en resurs.
 
-| Beteckning | Beskrivning | Exempel
+| identifierare | Beskrivning | Exempel
 |:---|:---|:---|
 | Resurs | Innehåller data för resursen. | resurs ("/Subscriptions/xxxxxxx-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourcesgroups/myresourcegroup/providers/Microsoft.Compute/virtualmachines/myvm") |
 | Resurs grupp eller prenumeration | Innehåller data för resursen och alla resurser som den innehåller.  | resurs ("/Subscriptions/xxxxxxx-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourcesgroups/myresourcegroup) |

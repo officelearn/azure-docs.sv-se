@@ -1,18 +1,14 @@
 ---
 title: Kontinuerlig övervakning av din DevOps release-pipeline med Azure-pipeline och Azure Application Insights | Microsoft Docs
 description: Innehåller instruktioner för att snabbt konfigurera kontinuerlig övervakning med Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/16/2019
-ms.openlocfilehash: c891cc7564a60dfd665d84d569e266332d255fa9
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: e565101218b975ef2bd29b8a32a4aa1bf4300b6d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677523"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655403"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Lägg till kontinuerlig övervakning i din versions pipeline
 
@@ -24,7 +20,7 @@ Med kontinuerlig övervakning kan lanserings pipelines omfatta övervaknings dat
 
 1. I [Azure DevOps](https://dev.azure.com)väljer du en organisation och ett projekt.
    
-1. På den vänstra menyn på sidan projekt väljer du **pipelines**  > -**versioner**. 
+1. På den vänstra menyn på sidan projekt väljer du **pipelines** > - **versioner**. 
    
 1. Släpp pilen bredvid **ny** och välj **ny versions pipeline**. Eller, om du inte har en pipeline ännu, väljer du **ny pipeline** på sidan som visas.
    
@@ -42,7 +38,7 @@ Med kontinuerlig övervakning kan lanserings pipelines omfatta övervaknings dat
    | ------------- |:-----|
    | **Namn på fas**      | Ange ett stadium namn eller lämna det i **steg 1**. |
    | **Azure-prenumeration** | List rutan och välj den länkade Azure-prenumeration som du vill använda.|
-   | **Typ av app** | List rutan och välj din typ av app. |
+   | **Apptyp** | List rutan och välj din typ av app. |
    | **App Service namn** | Ange namnet på Azure App Service. |
    | **Resurs grupps namn för Application Insights**    | I list rutan och väljer du den resurs grupp som du vill använda. |
    | **Application Insights resurs namn** | List rutan och välj Application Insights resursen för den resurs grupp som du har valt.

@@ -1,18 +1,17 @@
 ---
 title: Så här frågar du efter loggar från Azure Monitor for VMs (för hands version) | Microsoft Docs
 description: Azure Monitor for VMs lösning samlar in Mät värden och loggdata till och den här artikeln beskriver posterna och innehåller exempel frågor.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: 690c7ba04cf849d973295a6ec27eaa38f9b807c3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e679345669d0954008e46f48d986930038a84c10
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399323"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670720"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Så här frågar du efter loggar från Azure Monitor for VMs (för hands version)
 
@@ -116,10 +115,10 @@ Varje RemoteIp-egenskap i *VMConnection* -tabellen kontrol leras mot en uppsätt
 |Beskrivning |Beskrivning av det observerade hotet. |
 |TLPLevel |TLP-nivån (trafik ljus protokoll) är en av de definierade värdena, *vitt*, *grönt*, *gult*, *rött*. |
 |Konfidensbedömning |Värdena är *0 – 100*. |
-|Allvarsgrad |Värdena är *0 – 5*, där *5* är det allvarligaste och *0* inte är allvarligt. Standardvärdet är *3*.  |
+|Severity |Värdena är *0 – 5*, där *5* är det allvarligaste och *0* inte är allvarligt. Standardvärdet är *3*.  |
 |FirstReportedDateTime |Första gången som providern rapporterade indikatorn. |
 |LastReportedDateTime |Den senaste gången indikatorn visades vid ett flöde. |
-|isActive |Anger att indikatorer inaktive ras med värdet *True* eller *false* . |
+|IsActive |Anger att indikatorer inaktive ras med värdet *True* eller *false* . |
 |ReportReferenceLink |Länkar till rapporter som är relaterade till en bestämd som kan observeras. |
 |AdditionalInformation |Innehåller ytterligare information om det observerade hotet. |
 
@@ -165,7 +164,7 @@ Poster med en typ av *VMComputer* har inventerings data för servrar med beroend
 |Dator | Datorns FQDN | 
 |AgentId | Unikt ID för Log Analytics agenten |
 |Dator | Namnet på Azure Resource Manager resursen för den dator som exponeras av ServiceMap. Det har formatet *m-{GUID}* , där *GUID* är samma GUID som AgentId. | 
-|DisplayName | Visningsnamn | 
+|displayName | Visningsnamn | 
 |FullDisplayName | Fullständigt visnings namn | 
 |Värdnamn | Namnet på datorn utan domän namn |
 |BootTime | Datorns start tid (UTC) |
@@ -229,7 +228,7 @@ Poster med en typ av *VMProcess* har inventerings data för TCP-anslutna process
 |Dator | Namnet på Azure Resource Manager resursen för den dator som exponeras av ServiceMap. Det har formatet *m-{GUID}* , där *GUID* är samma GUID som AgentId. | 
 |Process | Den unika identifieraren för den Tjänstkarta processen. Den är i formatet *p-{GUID}* . 
 |ExecutableName | Namnet på den körbara processen | 
-|DisplayName | Processens visnings namn |
+|displayName | Processens visnings namn |
 |Roll | Process roll: *webserver*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
 |Grupp | Namn på process grupp. Processer i samma grupp är logiskt relaterade, t. ex. en del av samma produkt-eller system komponent. |
 |StartTime | Start tid för process bassäng |
@@ -243,7 +242,7 @@ Poster med en typ av *VMProcess* har inventerings data för TCP-anslutna process
 |ExecutablePath |Sökvägen till den körbara filen |
 |Raden | Kommando raden |
 |WorkingDirectory | Arbets katalogen |
-|Services | En matris med tjänster som processen körs under |
+|Tjänster | En matris med tjänster som processen körs under |
 |UserName | Kontot under vilket processen körs |
 |UserDomain | Domänen som processen körs under |
 |_ResourceId | Den unika identifieraren för en process inom arbets ytan |

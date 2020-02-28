@@ -1,18 +1,17 @@
 ---
 title: Flytta en Log Analytics arbets yta i Azure Monitor | Microsoft Docs
 description: Lär dig hur du flyttar din Log Analytics-arbetsyta till en annan prenumeration eller resurs grupp.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: 4baa65ca5dda6b266cd6c739225ebd01d011268c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9213ddf034e725f6e31c9280d47bd13e4703b3f4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980088"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659500"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Flytta en Log Analytics arbets yta till en annan prenumeration eller resurs grupp
 
@@ -34,7 +33,7 @@ Hanterade lösningar som är installerade på arbets ytan flyttas med flytt åtg
 
 Lösningar som måste tas bort innan du kan ta bort länken till ditt Automation-konto:
 
-- Hantering av uppdateringar
+- Uppdateringshantering
 - Spårning av ändringar
 - Starta/stoppa virtuella datorer utanför arbetstid
 
@@ -82,7 +81,7 @@ Använd följande procedur för att ta bort länken till Automation-kontot från
 
 ## <a name="move-your-workspace"></a>Flytta din arbets yta
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure-portalen
 Använd följande procedur för att flytta din arbets yta med Azure Portal:
 
 1. Öppna menyn **Log Analytics arbets ytor** och välj sedan din arbets yta.
@@ -91,7 +90,7 @@ Använd följande procedur för att flytta din arbets yta med Azure Portal:
 4. Välj en mål **prenumeration** och **resurs grupp**. Om du flyttar arbets ytan till en annan resurs grupp i samma prenumeration visas inte **prenumerations** alternativet.
 5. Klicka på **OK** för att flytta arbets ytan och valda resurser.
 
-    ![Portalen](media/move-workspace/portal.png)
+    ![Portal](media/move-workspace/portal.png)
 
 ### <a name="powershell"></a>PowerShell
 Om du vill flytta din arbets yta med PowerShell använder du [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) som i följande exempel:

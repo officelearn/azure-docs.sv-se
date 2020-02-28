@@ -1,18 +1,16 @@
 ---
 title: Översikt över Azure Application Insights-agent | Microsoft Docs
 description: En översikt över Application Insights-agenten. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 61c3721745550b43aea730d0bcd2230b0435ff53
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 4a240bc62816a46bc37108777a8b081b74047738
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899596"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671179"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Distribuera Azure Monitor Application Insights agent för lokala servrar
 
@@ -47,12 +45,12 @@ Application Insights agent finns här: https://www.powershellgallery.com/package
 - [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
 - [Start-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
 
-## <a name="troubleshooting"></a>Felsöka
-- [Troubleshooting](status-monitor-v2-troubleshoot.md) (Felsökning)
+## <a name="troubleshooting"></a>Felsökning
+- [Felsökning](status-monitor-v2-troubleshoot.md)
 - [Kända problem](status-monitor-v2-troubleshoot.md#known-issues)
 
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 - Stöder Application Insights-agenten proxy-installationer?
 

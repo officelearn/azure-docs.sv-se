@@ -1,18 +1,14 @@
 ---
 title: Prestanda övervakning av webbapp – Azure Application insikter
 description: Hur Application Insights passar i devOps-cykeln
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/21/2018
-ms.openlocfilehash: 1396bc86971941fdf8c6559df71a4c47f58a899c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928828"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669700"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Djup diagnostik för webbappar och tjänster med Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Varför behöver jag Application Insights?
@@ -108,10 +104,10 @@ Och låter dig omedelbart inspektera ett exempel på fel eller undantag.
 
 ![Händelser för Live-avbrott](./media/devops/002-live-stream-failures.png)
 
-## <a name="application-map"></a>Programavbildning
+## <a name="application-map"></a>Programkarta
 Program kartan identifierar automatiskt programtopologin, vilket ger prestanda informationen ovanpå, så att du enkelt kan identifiera Flask halsar i prestanda och problematiska flöden i den distribuerade miljön. Det gör att du kan identifiera program beroenden på Azure-tjänster. Du kan prioritering problemet genom att förstå om det är kod relaterat eller beroende relaterat och från en enda plats i detalj i relaterad diagnostik. Ditt program kan till exempel Miss lyckas på grund av prestanda försämring i SQL-nivån. Med program kartan kan du se den direkt och gå in i SQL Index Advisor eller ställa frågor till insikter.
 
-![Programavbildning](./media/devops/0050.png)
+![Programkarta](./media/devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>Application Insights analys
 Med [Analytics](../../azure-monitor/app/analytics.md)kan du skriva godtyckliga frågor på ett kraftfullt SQL-liknande språk.  Att diagnostisera hela app-stacken är enkelt att ansluta till olika perspektiv och du kan ställa rätt frågor för att korrelera tjänst prestanda med affärs mått och kund upplevelse. 

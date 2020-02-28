@@ -1,18 +1,14 @@
 ---
 title: Kontinuerlig export av telemetri från Application Insights | Microsoft Docs
 description: Exportera diagnostik-och användnings data till lagring i Microsoft Azure och ladda ned dem därifrån.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/25/2019
-ms.openlocfilehash: 6504661c2df66bda81af03a6364703b4b10f7485
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 33158919980514b70c3b0e438691427a34eed834
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819547"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663921"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportera telemetri från Application Insights
 Vill du behålla din telemetri längre än standard kvarhållningsperioden? Eller bearbeta den på ett visst sätt? Kontinuerlig export är idealisk för detta. De händelser som visas i Application Insights-portalen kan exporteras till lagring i Microsoft Azure i JSON-format. Därifrån kan du hämta dina data och skriva vilken kod du behöver för att bearbeta den.  
@@ -120,7 +116,7 @@ Tids längden är i Tick, där 10 000 Tick = 1 MS. Dessa värden visar till exem
 [Detaljerad data modell referens för egenskaps typerna och värdena.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>Bearbetar data
-I en liten skala kan du skriva kod för att hämta data, läsa dem i ett kalkyl blad och så vidare. Exempel:
+I en liten skala kan du skriva kod för att hämta data, läsa dem i ett kalkyl blad och så vidare. Några exempel:
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -158,7 +154,7 @@ Den löpande exporten startas om.
 
 På större skalor bör du överväga [HDInsight](https://azure.microsoft.com/services/hdinsight/) -Hadoop-kluster i molnet. HDInsight tillhandahåller en mängd olika tekniker för att hantera och analysera stora data och du kan använda den för att bearbeta data som har exporter ATS från Application Insights.
 
-## <a name="q--a"></a>Frågor och svar
+## <a name="q--a"></a>f & A
 * *Men alla jag vill ha en enstaka hämtning av ett diagram.*  
 
     Ja, du kan göra det. Klicka på **Exportera data**överst på fliken.

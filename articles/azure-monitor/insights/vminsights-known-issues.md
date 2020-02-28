@@ -1,27 +1,26 @@
 ---
 title: Azure Monitor för virtuella datorer (förhandsversion) kända problem | Microsoft Docs
 description: Den här artikeln beskriver kända problem med Azure Monitor for VMs, en lösning i Azure som kombinerar hälsa, identifiering av program beroenden och prestanda övervakning av operativ systemet för virtuella Azure-datorer.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/02/2019
-ms.openlocfilehash: b59e2d1897557b47bcfeafbc17141f869e2f192e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 711b3707d536c4858578817589670edf0f467b64
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450682"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670737"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Kända problem med Azure Monitor för virtuella datorer (förhandsversion)
 
 Den här artikeln beskriver kända problem med Azure Monitor for VMs, en lösning i Azure som kombinerar hälsa, identifiering av program komponenter och prestanda övervakning av operativ systemet för virtuella Azure-datorer. 
 
-## <a name="health"></a>Hälso- och sjukvård 
+## <a name="health"></a>Hälsa 
 Följande är kända problem med den aktuella versionen av hälso funktionen:
 
-- Om en virtuell Azure-dator tas bort eller tas bort visas den i vyn VM-lista för en stund. Även om du klickar på tillståndet för en virtuell dator har tagits bort eller borttagna öppnas den **hälsotillstånd diagnostik** visa och sedan startar en inläsning av slinga. Väljer namnet på den borttagna virtuella datorn öppnas ett fönster med ett meddelande om att den virtuella datorn har tagits bort.
+- Om en virtuell Azure-dator tas bort eller tas bort visas den i vyn VM-lista för en stund. Genom att klicka på tillståndet för en borttagen eller borttagen virtuell dator öppnar du dessutom vyn **hälso diagnos** och initierar sedan en inläsnings slinga. Väljer namnet på den borttagna virtuella datorn öppnas ett fönster med ett meddelande om att den virtuella datorn har tagits bort.
 - Konfigurationsändringar, till exempel att uppdatera ett tröskelvärde ta upp till 30 minuter, även om portalen eller arbetsbelastning övervakaren API kan uppdatera dem omedelbart. 
 - Hälso Diagnoss upplevelsen uppdateras snabbare än andra vyer. Informationen kan vara försenad när du växlar mellan dem. 
 - För virtuella Linux-datorer har titeln på sidan som visar hälso villkoren för en enskild VM-vy hela domän namnet för den virtuella datorn i stället för det användardefinierade virtuella dator namnet. 

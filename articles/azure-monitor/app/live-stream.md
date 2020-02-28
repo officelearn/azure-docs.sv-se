@@ -1,19 +1,15 @@
 ---
 title: Diagnostisera med Live Metrics Stream-Azure Application insikter
 description: Övervaka din webbapp i real tid med anpassade mått och diagnostisera problem med en direkt flöde av fel, spår och händelser.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 00fae22b91b2ad68392a21a29df3c2aec6bf5c5e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ea0d786d0b8b96941d791bcc8e92fad9a869c5f3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406737"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670108"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: övervaka & diagnostisera med en andra svars tid
 
@@ -33,7 +29,7 @@ Med Live Metrics Stream kan du:
 
 Live-mått stöds för närvarande för ASP.NET-, ASP.NET Core-, Azure Functions-, Java-och Node. js-appar.
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 1. Om du ännu inte har [installerat Application Insights](../../azure-monitor/azure-monitor-app-hub.yml) i din webbapp gör du det nu.
 2. Förutom standard Application Insightss paketen [Microsoft. ApplicationInsights. PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) krävs för att aktivera Live Metrics Stream.
@@ -45,7 +41,7 @@ Live-mått stöds för närvarande för ASP.NET-, ASP.NET Core-, Azure Functions
 
 4. [Skydda kontroll kanalen](#secure-the-control-channel) om du kan använda känsliga data som kund namn i dina filter.
 
-### <a name="no-data-check-your-server-firewall"></a>Inga data? Kontrol lera serverns brand vägg
+### <a name="no-data-check-your-server-firewall"></a>Ser du inga data? Kontrol lera serverns brand vägg
 
 Kontrol lera att de [utgående portarna för Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) är öppna i brand väggen för dina servrar.
 
@@ -57,7 +53,7 @@ Kontrol lera att de [utgående portarna för Live Metrics Stream](../../azure-mo
 |Ingen kvarhållning|Data sparas medan de finns i diagrammet och ignoreras sedan|[Data kvarhållna i 90 dagar](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |På begäran|Data strömmas när du öppnar Live-mått|Data skickas när SDK är installerat och aktiverat|
 |Kostnadsfri|Det kostar inget att Live Stream data|Omfattas av [prissättning](../../azure-monitor/app/pricing.md)
-|Sampling|Alla valda mått och räknare överförs. Felen och stack spåren samplas. TelemetryProcessors tillämpas inte.|Händelser kan [samplas](../../azure-monitor/app/api-filtering-sampling.md)|
+|Samling|Alla valda mått och räknare överförs. Felen och stack spåren samplas. TelemetryProcessors tillämpas inte.|Händelser kan [samplas](../../azure-monitor/app/api-filtering-sampling.md)|
 |Kontroll kanal|Filter kontroll signaler skickas till SDK: n. Vi rekommenderar att du skyddar den här kanalen.|Kommunikation är ett sätt, till portalen|
 
 ## <a name="select-and-filter-your-metrics"></a>Välj och filtrera dina mått
@@ -151,7 +147,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ```
 
-### <a name="azure-function-apps"></a>Azure-funktionsappar
+### <a name="azure-function-apps"></a>Azure Function-appar
 
 För Azure Function Apps (v2) kan du skydda kanalen med en API-nyckel med en miljö variabel.
 
@@ -202,9 +198,9 @@ Grundläggande mått inkluderar begäran, beroende och undantags frekvens. Prest
 
 Som standard är Live-måtten inaktiverade i Node. js SDK. Om du vill aktivera Live-mått lägger du till `setSendLiveMetrics(true)` till dina [konfigurations metoder](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) när du initierar SDK: n.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
-Inga data? Om ditt program finns i ett skyddat nätverk: Live Metrics Stream använder andra IP-adresser än andra Application Insights telemetri. Kontrol lera att [de här IP-adresserna](../../azure-monitor/app/ip-addresses.md) är öppna i brand väggen.
+Ser du inga data? Om ditt program finns i ett skyddat nätverk: Live Metrics Stream använder andra IP-adresser än andra Application Insights telemetri. Kontrol lera att [de här IP-adresserna](../../azure-monitor/app/ip-addresses.md) är öppna i brand väggen.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Övervaka användning med Application Insights](../../azure-monitor/app/usage-overview.md)

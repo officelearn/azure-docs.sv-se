@@ -3,18 +3,17 @@ title: Arkivera Azure mått och loggdata med hjälp av Azure Storage
 description: Arkivera logg-och mått data som genererats av Azure-resurser till ett lagrings konto.
 author: johnkemnetz
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 87b05256103790c706f3ba0df7ea72c169b79f16
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3ed00b1c68c41bc392b09c97dd47c9cdb8fa890d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979822"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661733"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arkivera Azure mått och loggdata med hjälp av Azure Storage
 
@@ -40,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Du måste först skapa ett lagringskonto där övervakningsdata arkiveras. För att göra det [följer du de här stegen](../../storage/common/storage-account-create.md).
 
@@ -86,7 +85,7 @@ Nu ska vi konfigurera resurs nivå data (resurs mått och resurs loggar) som ska
 
    ![Avsnittet diagnostikinställningar](media/tutorial-archive-data/diagnostic-settings-home.png)
 
-4. Klicka på knappen **Konfigurera** under **Arkivera till ett lagringskonto** och välj det lagringskonto du skapade i föregående avsnitt. Klicka på **OK**.
+4. Klicka på knappen **Konfigurera** under **Arkivera till ett lagringskonto** och välj det lagringskonto du skapade i föregående avsnitt. Klicka på **OK**
 
    ![Diagnostikinställningar för lagringskonto](media/tutorial-archive-data/diagnostic-settings-storage.png)
 
@@ -96,7 +95,7 @@ Nu ska vi konfigurera resurs nivå data (resurs mått och resurs loggar) som ska
 
 6. Ställ in reglaget **Bevarande (dagar)** till 30. Det här reglaget anger hur många dagar som övervakningsdata behålls på lagringskontot. Azure Monitor avlägsnar automatiskt data som är äldre än det angivna antalet dagar. Om du ställer in noll dagar lagras data utan tidsbegränsning.
 
-7. Klicka på **Spara**.
+7. Klicka på **Save** (Spara).
 
 Nu flödar övervakningsdata från resursen till lagringskontot.
 
@@ -137,7 +136,7 @@ Nu flödar övervakningsdata från resursen till lagringskontot.
 
 9. I avsnittet som visas väljer du det lagringskonto som du skapade i föregående steg i **Skapa ett lagringskonto**.
 
-10. Klicka på **Spara**.
+10. Klicka på **Save** (Spara).
 
 Nu flödar övervakningsdata från de virtuella datorerna till lagringskontot.
 

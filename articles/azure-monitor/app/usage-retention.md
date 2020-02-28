@@ -1,25 +1,23 @@
 ---
 title: Analys av användar kvarhållning för webb program med Azure Application Insights | Microsoft-dokument
 description: Hur många användare kommer tillbaka till din app?
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5f5f6235354adc565815ac2eab0a1c774267102d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 37ae97d5fbc62e507f726c452999a7f6e7c989c6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899421"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670975"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analys av användar kvarhållning för webb program med Application Insights
 
 Med funktionen kvarhållning i [Azure Application insikter](../../azure-monitor/app/app-insights-overview.md) kan du analysera hur många användare som kommer tillbaka till din app och hur ofta de utför specifika uppgifter eller uppnå mål. Om du till exempel kör en spel webbplats kan du jämföra antalet användare som återvänder till webbplatsen efter att ha förlorat ett spel med det antal som returneras efter att ha vunnit. Den här kunskapen kan hjälpa dig att förbättra både din användar upplevelse och din affärs strategi.
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 Om du ännu inte ser data i kvarhållning verktyget i Application Insights Portal, lär du [dig hur du kommer igång med användnings verktygen](usage-overview.md).
 

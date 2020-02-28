@@ -1,18 +1,17 @@
 ---
 title: Samla in och analysera prestanda räknare i Azure Monitor | Microsoft Docs
 description: Prestanda räknare samlas in av Azure Monitor för att analysera prestanda för Windows-och Linux-agenter.  Den här artikeln beskriver hur du konfigurerar insamling av prestanda räknare för både Windows-och Linux-agenter, information om de lagras i arbets ytan och hur du analyserar dem i Azure Portal.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 624996c86423bf486111fde8743117ea888862e7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d1a972a1d89066b961f2dcc28fba830e3a04ebc1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363837"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670550"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Prestanda data källor för Windows och Linux i Azure Monitor
 Prestanda räknare i Windows och Linux ger inblick i prestanda för maskin varu komponenter, operativ system och program.  Azure Monitor kan samla in prestanda räknare med frekventa intervall för analys i nära real tid (NRT), förutom att samla in prestanda data för analys och rapportering på längre sikt.
@@ -87,7 +86,7 @@ I följande tabell visas de objekt och räknare som du kan ange i konfigurations
 | Objektnamn | Räknar namn |
 |:--|:--|
 | Logisk Disk | Kostnads fri noder i procent |
-| Logisk Disk | Ledigt utrymme i procent |
+| Logisk Disk | % ledigt utrymme |
 | Logisk Disk | % Använda noder i procent |
 | Logisk Disk | Använt utrymme i procent |
 | Logisk Disk | Disk – lästa byte/sek |
@@ -125,12 +124,12 @@ I följande tabell visas de objekt och räknare som du kan ange i konfigurations
 | Process | Använt minne i KB |
 | Process | Virtuellt delat minne |
 | Processor | DPC-tid i procent |
-| Processor | Inaktivitetstid i procent |
+| Processor | Ledig tid i procent |
 | Processor | % Avbrotts tid |
 | Processor | % I/o-vänte tid |
 | Processor | % Trevligt tid |
 | Processor | Privilegie rad tid i procent |
-| Processor | Tid i procent för processor |
+| Processor | % processortid |
 | Processor | Användar tid i procent |
 | System | Ledigt fysiskt minne |
 | System | Ledigt utrymme i växlingsfiler |
@@ -200,9 +199,9 @@ Prestanda poster har en typ av **prestanda** och har egenskaperna i följande ta
 ## <a name="log-queries-with-performance-records"></a>Logga frågor med prestanda poster
 Följande tabell innehåller olika exempel på logg frågor som hämtar prestanda poster.
 
-| Söka i data | Beskrivning |
+| Fråga | Beskrivning |
 |:--- |:--- |
-| Perf |Alla prestanda data |
+| Prest |Alla prestanda data |
 | Perf &#124; där dator = = "Min Dator" |Alla prestanda data från en viss dator |
 | Perf &#124; där CounterName = = "Aktuell diskkölängd" |Alla prestanda data för en viss räknare |
 | Perf &#124; WHERE ObjectName = = "processor" och CounterName = = "% processor tid" och instancename = = "_Total" &#124; sammanfatta AVGCPU = AVG (CounterValue) efter dator |Genomsnittlig CPU-belastning på alla datorer |
@@ -219,5 +218,5 @@ Följande tabell innehåller olika exempel på logg frågor som hämtar prestand
 
 ## <a name="next-steps"></a>Nästa steg
 * [Samla in prestanda räknare från Linux-program](data-sources-linux-applications.md) , inklusive MySQL och Apache HTTP server.
-* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.  
+* Lär dig mer om [logg frågor](../log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar.  
 * Exportera insamlade data till [Power BI](powerbi.md) för ytterligare visualiseringar och analyser.

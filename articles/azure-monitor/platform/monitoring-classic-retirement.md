@@ -3,17 +3,16 @@ title: Uppdatering av klassisk avisering & övervakning i Azure Monitor
 description: Beskrivning av indragningen av klassiska övervaknings tjänster och funktioner, tidigare visas i Azure Portal under aviseringar (klassisk).
 author: yanivlavi
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: f4639d46a796924b4fe1dcbb46735abea128388f
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: dec4d6824644cabf8b1872da207b8554fee0b3d3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307096"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659483"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Enhetlig avisering & övervakning i Azure Monitor ersätter klassisk avisering & övervakning
 
@@ -76,14 +75,14 @@ Den här artikeln uppdateras kontinuerligt med länkar & information om de nya f
 
 ## <a name="pricing-for-migrated-alert-rules"></a>Priser för migrerade varnings regler
 
-Vi distribuerar ett Migreringsverktyg för att hjälpa dig att migrera dina Azure Monitor [klassiska aviseringar](../../azure-monitor/platform/alerts-classic.overview.md) till den nya aviserings upplevelsen. Migrerade varningsregler och motsvarande migrerade åtgärdsgrupper (e-post, webhook eller LogicApp) är kostnadsfria även i fortsättningen. De funktioner du haft med klassiska varningar, till exempel möjligheten att redigera tröskel, sammansättningstyp och detaljnivå för sammansättningen, kommer att finnas tillgängliga utan kostnad även med din migrerade varningsregel. Om du däremot redigerar den migrerade varningsregeln för att använda någon av aviseringsplattformens nya funktioner, aviseringar eller åtgärdstyper, tillkommer motsvarande avgift. Mer information om priser för varnings regler och aviseringar finns i [Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/).
+Vi distribuerar ett Migreringsverktyg för att hjälpa dig att migrera dina Azure Monitor [klassiska aviseringar](../../azure-monitor/platform/alerts-classic.overview.md) till den nya aviserings upplevelsen. De migrerade varnings reglerna och motsvarande migrerade åtgärds grupper (e-post, webhook eller LogicApp) är kostnads fria. De funktioner som du har haft med klassiska aviseringar, inklusive möjligheten att redigera tröskeln, sammansättnings typ och agg regerings kornig het, fortsätter att vara tillgängliga kostnads fritt med den migrerade varnings regeln. Men om du redigerar den migrerade varnings regeln för att använda någon av de nya varnings plattforms funktionerna, meddelanden eller åtgärds typer, kommer en motsvarande avgift att gälla. Mer information om priser för varnings regler och aviseringar finns i [Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/).
 
-Följande är exempel på fall där du måste betala en avgift för varningsregeln:
+Följande är exempel på fall där du får en avgift för aviserings regeln:
 
-- Alla nya (icke-migrerade) varningsregler som skapats utanför kostnadsfria enheter på den nya Azure Monitor-plattformen
-- Alla data som matats in och sparats utanför kostnadsfria enheter som omfattas av Azure Monitor
-- Alla multitestbaserade webbtester som körts av Application Insights
-- Alla anpassade mått som lagrats utanför de kostnadsfria enheter som ingår i Azure Monitor
+- Alla nya aviserings regler (ej migrerade) som skapats utanför kostnads fria enheter, på den nya Azure Monitors plattformen
+- Alla data som samlas in och behålls utöver de kostnads fria enheterna som ingår i Azure Monitor
+- Alla webbtester med flera test som körs av Application Insights
+- Alla anpassade mått som lagras bortom kostnads fria enheter som ingår i Azure Monitor
 - Eventuella migrerade varnings regler som redige ras för att använda nya mått, t. ex. frekvens, flera resurser/dimensioner, [dynamiska tröskelvärden](alerts-dynamic-thresholds.md), ändring av resurs/signal och så vidare.
 - Alla migrerade åtgärds grupper som redige ras för att använda nyare meddelanden eller åtgärds typer som SMS, röst samtal och/eller ITSM-integrering.
 

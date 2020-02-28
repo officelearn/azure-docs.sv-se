@@ -1,19 +1,18 @@
 ---
 title: Skapa en hanterings lösnings fil i Azure | Microsoft Docs
 description: Hanterings lösningar tillhandahåller paketlösningar för hantering av paket som kunder kan lägga till i sin Azure-miljö.  Den här artikeln innehåller information om hur du kan skapa hanterings lösningar som ska användas i din egen miljö eller som görs tillgängliga för dina kunder.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d583f47a9c83abb1119262a2a6b70292cfa4ab69
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 999177f821b98adfa015520252bd3323d0892533
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977696"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662545"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Skapa en hanterings lösnings fil i Azure (för hands version)
 > [!NOTE]
@@ -67,7 +66,7 @@ I följande tabell beskrivs attributen för en parameter.
 | typ |Parameterns datatyp. Den inmatnings kontroll som visas för användaren beror på data typen.<br><br>bool-List rutan<br>sträng – text ruta<br>int-text ruta<br>SecureString – lösen ords fält<br> |
 | category |Valfri kategori för parametern.  Parametrar i samma kategori grupperas tillsammans. |
 | control |Ytterligare funktioner för sträng parametrar.<br><br>datetime-datetime-kontrollen visas.<br>GUID-GUID-värdet genereras automatiskt och parametern visas inte. |
-| description |Valfri beskrivning för parametern.  Visas i en informations prat bubbla bredvid parametern. |
+| beskrivning |Valfri beskrivning för parametern.  Visas i en informations prat bubbla bredvid parametern. |
 
 ### <a name="standard-parameters"></a>Standard parametrar
 I följande tabell visas standard parametrarna för alla hanterings lösningar.  Dessa värden fylls i i stället för att fråga efter dem när din lösning installeras från Azure Marketplace eller snabb starts mallar.  Användaren måste ange värden för dem om lösningen installeras med en annan metod.
@@ -79,7 +78,7 @@ I följande tabell visas standard parametrarna för alla hanterings lösningar. 
 
 | Parameter | Typ | Beskrivning |
 |:--- |:--- |:--- |
-| kontonamn |sträng |Azure Automation konto namn. |
+| Konto |sträng |Azure Automation konto namn. |
 | pricingTier |sträng |Pris nivå för både Log Analytics arbets yta och Azure Automation konto. |
 | regionId |sträng |Azure Automation kontots region. |
 | solutionName |sträng |Lösningens namn.  Om du distribuerar din lösning via snabb starts mallar bör du definiera solutionName som en parameter så att du kan definiera en sträng som kräver att användaren anger en sträng. |
@@ -213,7 +212,7 @@ Lösnings resursen har egenskaperna i följande tabell.  Detta inkluderar de res
 
 Exemplet ovan är för en lösning med en Runbook, ett schema och en vy.  Schemat och Runbook-flödet *refereras* till i **Properties** -elementet så att de inte tas bort när lösningen tas bort.  Vyn *finns så att* den tas bort när lösningen tas bort.
 
-### <a name="plan"></a>Plan
+### <a name="plan"></a>Planera
 **Plan** -entiteten för lösnings resursen har egenskaperna i följande tabell.
 
 | Egenskap | Beskrivning |

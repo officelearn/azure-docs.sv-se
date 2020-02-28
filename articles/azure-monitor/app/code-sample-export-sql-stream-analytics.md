@@ -1,18 +1,14 @@
 ---
 title: Exportera till SQL från Azure Application Insights | Microsoft Docs
 description: Exportera Application Insights data kontinuerligt till SQL med Stream Analytics.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/11/2017
-ms.openlocfilehash: 41efcbc7b70395302858638a9f44f3cbba27bf9a
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 3ef0420cdab64f11b699fd4031ed2b0134f18609
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678271"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663699"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Genom gång: exportera till SQL från Application Insights med Stream Analytics
 Den här artikeln visar hur du flyttar dina telemetridata från [Azure Application Insights][start] till en Azure SQL-databas med hjälp av [kontinuerlig export][export] och [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 

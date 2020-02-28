@@ -1,18 +1,16 @@
 ---
 title: Detaljerade instruktioner för Azure Application Insights-agent | Microsoft Docs
 description: Detaljerade anvisningar för att komma igång med Application Insights-agent. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 3b053b7876494a3b2e6f392850c0323b56b1c3ec
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cd5ca5039b537859d5b31c901ed1f93877ecb629
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230268"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671213"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights agent (tidigare namngiven Statusövervakare v2): detaljerade anvisningar
 

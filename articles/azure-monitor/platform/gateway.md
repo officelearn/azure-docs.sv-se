@@ -1,18 +1,17 @@
 ---
 title: Ansluta datorer med hjälp av Log Analytics Gateway | Microsoft Docs
 description: Anslut dina enheter och Operations Manager-övervakade datorer med hjälp av Log Analytics Gateway för att skicka data till Azure Automation och Log Analytics-tjänsten när de inte har till gång till Internet.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 30854382b5a6dfd0faabfc2f59340dc21518d6f2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6c5325a21ffa74f5679a74b991f1c814eadc64ff
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773295"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672301"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Ansluta datorer utan Internet åtkomst med hjälp av Log Analytics gateway i Azure Monitor
 
@@ -70,7 +69,7 @@ Datorer som är avsedda att köra Log Analytics gatewayen måste ha följande ko
 Log Analytics Gateway finns på följande språk:
 
 - Förenklad kinesiska
-- Traditionell kinesiska
+- Kinesiska (traditionell)
 - Tjeckiska
 - Nederländska
 - Svenska
@@ -90,7 +89,7 @@ Log Analytics Gateway finns på följande språk:
 
 Log Analytics Gateway stöder bara Transport Layer Security (TLS) 1,0, 1,1 och 1,2.  Den stöder inte Secure Sockets Layer (SSL).  Konfigurera gatewayen så att den använder minst TLS 1,2 för att säkerställa säkerheten för data som överförs till Log Analytics. Äldre versioner av TLS eller SSL är sårbara. Även om de för närvarande tillåter bakåtkompatibilitet, Undvik att använda dem.  
 
-Mer information [skickar data på ett säkert sätt med hjälp av TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
+Mer information finns i [skicka data på ett säkert sätt med TLS 1,2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Tillåtna antalet agenten anslutningar
 
@@ -99,7 +98,7 @@ Följande tabell visar ungefär hur många agenter som kan kommunicera med en ga
 |Gateway |Agenter som stöds (ungefärligt)|  
 |--------|----------------------------------|  
 |CPU: Intel Xeon-Processor E5-2660 v3 \@ 2,6 GHz 2 kärnor<br> Minne: 4 GB<br> Nätverks bandbredd: 1 Gbit/s| 600|  
-|CPU: Intel Xeon-Processor E5-2660 v3 \@ 2,6 GHz 4 kärnor<br> Minne: 8 GB<br> Nätverks bandbredd: 1 Gbit/s| 1 000|  
+|CPU: Intel Xeon-Processor E5-2660 v3 \@ 2,6 GHz 4 kärnor<br> Minne: 8 GB<br> Nätverks bandbredd: 1 Gbit/s| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Ladda ned Log Analytics-gatewayen
 
@@ -124,13 +123,13 @@ eller
 
 Följ dessa steg om du vill installera en gateway med installations guiden. 
 
-1. Målmappen, dubbelklicka på **Log Analytics gateway.msi**.
+1. I målmappen dubbelklickar du på **Log Analytics Gateway. msi**.
 1. På sidan **Välkommen** klickar du på **Nästa**.
 
    ![Skärm bild av Välkomst sidan i guiden Gateway-installation](./media/gateway/gateway-wizard01.png)
 
 1. På sidan **licens avtal** väljer **du jag accepterar villkoren i licens avtalet** för att godkänna licens villkoren för program vara från Microsoft och väljer sedan **Nästa**.
-1. På den **Port och proxy-adress** sidan:
+1. På sidan **port-och proxyadress** :
 
    a. Ange det TCP-portnummer som ska användas för gatewayen. Installations programmet använder det här port numret för att konfigurera en regel för inkommande trafik i Windows-brandväggen.  Standardvärdet är 8080.
       Det giltiga intervallet för port numret är 1 till 65535. Om indata inte hamnar i det här intervallet, visas ett felmeddelande.
@@ -190,11 +189,11 @@ Du kan konfigurera gatewayen för hög tillgänglighet med utjämning av nätver
 
 ### <a name="microsoft-network-load-balancing"></a>Microsoft NLB (utjämning av nätverks belastning)
 
-Om du vill lära dig att utforma och distribuera en Windows Server 2016 nätverksbelastningsutjämnande kluster, se [Utjämning av nätverksbelastning](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). Följande steg beskriver hur du konfigurerar ett kluster för Utjämning av nätverks belastning i Microsoft.  
+Information om hur du utformar och distribuerar ett kluster för Utjämning av nätverks belastning i Windows Server 2016 finns i [utjämning av nätverks belastning](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). Följande steg beskriver hur du konfigurerar ett kluster för Utjämning av nätverks belastning i Microsoft.  
 
 1. Logga in på den Windows-server som är medlem i NLB-kluster med ett administratörskonto.  
-2. Öppna Hanteraren för Utjämning av nätverksbelastning i Serverhanteraren, klicka på **verktyg**, och klicka sedan på **hanteraren för Utjämning av nätverksbelastning**.
-3. Högerklicka på klustrets IP-adress för att ansluta en Log Analytics gateway-servern med Microsoft Monitoring Agent installerad, och klicka sedan på **Lägg till värddator till klustret**. 
+2. Öppna hanteraren för Utjämning av nätverks belastning i Serverhanteraren, klicka på **verktyg**och klicka sedan på **hanteraren för Utjämning av nätverks belastning**.
+3. Om du vill ansluta en Log Analytics Gateway-server med Microsoft Monitoring Agent installerad högerklickar du på klustrets IP-adress och klickar sedan på **Lägg till värd i kluster**. 
 
     ![Hanteraren för Utjämning av nätverks belastning – Lägg till värd i kluster](./media/gateway/nlb02.png)
  
@@ -283,9 +282,9 @@ För stora och komplexa miljöer kanske du bara vill att vissa servrar (eller gr
 
 Konfigurera vissa servrar eller grupper så att de använder Log Analytics Gateway-servern: 
 
-1. Öppna Operations Manager-konsolen och välj den **redigering** arbetsyta.  
+1. Öppna Operations Manager-konsolen och välj arbets ytan **redigering** .  
 1. I arbets ytan redigering väljer du **regler**. 
-1. I verktygsfältet Operations Manager väljer du knappen **omfattning** . Om den här knappen inte är tillgänglig kontrollerar du att du har valt ett objekt, inte en mapp, i fönstret **övervakning** . Den **omfång för Hanteringspaketobjekt** dialogrutan visar en lista över vanliga riktade klasser, grupper eller objekt. 
+1. I verktygsfältet Operations Manager väljer du knappen **omfattning** . Om den här knappen inte är tillgänglig kontrollerar du att du har valt ett objekt, inte en mapp, i fönstret **övervakning** . Dialog rutan **omfattnings hanterings paket objekt** visar en lista över vanliga riktade klasser, grupper eller objekt. 
 1. I fältet **Sök efter** anger du **Hälsotjänst** och väljer den i listan. Välj **OK**.  
 1. Sök efter **inställnings regel för Advisor**. 
 1. I verktygsfältet Operations Manager väljer du **åsidosättningar** och pekar sedan på **Åsidosätt det Rule\For ett särskilt objekt av klassen: Hälsotjänst** och väljer ett objekt i listan.  Eller skapa en anpassad grupp som innehåller hälso tjänst objekt för de servrar som du vill tillämpa åsidosättningen på. Tillämpa sedan åsidosättningen på den anpassade gruppen.
@@ -307,7 +306,7 @@ Se avsnittet [Konfigurera ditt nätverk](../../automation/automation-hybrid-runb
 Om datorn är registrerad som en Hybrid Runbook Worker automatiskt, till exempel om Uppdateringshantering lösning är aktive rad för en eller flera virtuella datorer, följer du dessa steg:
 
 1. Lägg till Runtime jobbdata tjänstens webbadresser i listan tillåtna värden på Log Analytics-gateway. Exempel: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-1. Starta om gatewaytjänsten Log Analytics med hjälp av följande PowerShell-cmdlet: `Restart-Service OMSGatewayService`
+1. Starta om tjänsten Log Analytics Gateway med hjälp av följande PowerShell-cmdlet: `Restart-Service OMSGatewayService`
 
 Följ dessa steg om datorn är ansluten till Azure Automation med hjälp av Hybrid Runbook Worker registrerings-cmdlet:
 
@@ -328,7 +327,7 @@ Du kan använda cmdlets för att slutföra aktiviteterna för att uppdatera konf
 
 Ett fel i steg 3 innebär att modulen inte har importer ATS. Felet kan inträffa när PowerShell inte hittar modulen. Du hittar modulen i installations Sök vägen för OMS-Gateway: *C:\Program FILES\MICROSOFT OMS Gateway\PowerShell\OmsGateway*.
 
-| **Cmdlet:** | **Parametrar** | **Beskrivning** | **Exempel** |
+| **Kommandon** | **Parametrar** | **Beskrivning** | **Exempel** |
 | --- | --- | --- | --- |  
 | `Get-OMSGatewayConfig` |Nyckel |Hämtar konfigurationen av tjänsten |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Key (krävs) <br> Värde |Ändrar konfigurationen av tjänsten |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
@@ -341,7 +340,7 @@ Ett fel i steg 3 innebär att modulen inte har importer ATS. Felet kan inträffa
 | `Remove-OMSGatewayAllowedClientCertificate` |Ämne (krävs) |Tar bort klienten certifikatets ämne från listan över tillåtna |`Remove-OMSGatewayAllowed` <br> `ClientCertificate` <br> `-Subject mycert` |  
 | `Get-OMSGatewayAllowedClientCertificate` | |Hämtar de för närvarande tillåtna klient certifikats ämnena (endast lokalt konfigurerade tillåtna ämnen, inte automatiskt hämtade tillåtna ämnen) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Om du vill samla in händelser som loggats av gatewayen bör du ha Log Analytics-agenten installerad.
 

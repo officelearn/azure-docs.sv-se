@@ -1,18 +1,14 @@
 ---
 title: Utforska .NET-spårnings loggar i Application Insights
 description: Sök efter loggar som genereras av trace, NLog eller Log4Net.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/08/2019
-ms.openlocfilehash: 33dc415e06b7f49f75697abb05248750444fea7c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 273d5a2f4e1155541e159332312bdaa68aa175d7
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432631"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665994"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Utforska loggarna .NET/.NET Core och python i Application Insights
 
@@ -61,12 +57,12 @@ Använd den här metoden om din projekt typ inte stöds av installations program
 [![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
    - För system. Diagnostics: [Microsoft. ApplicationInsights. TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
 [![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
-   - [Microsoft.ApplicationInsights.DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+   - [Microsoft. ApplicationInsights. DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
 [![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
-   - [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+   - [Microsoft. ApplicationInsights. EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
 [![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
-   - [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
-[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
+   - [Microsoft. ApplicationInsights. EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
+[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
 
 NuGet-paketet installerar nödvändiga sammansättningar och ändrar Web. config eller app. config om det är tillämpligt.
 
@@ -135,14 +131,14 @@ För varje källa kan du ange följande parametrar:
 ## <a name="use-the-trace-api-directly"></a>Använda trace API direkt
 Du kan anropa API: et för Application Insights trace direkt. Loggnings korten använder detta API.
 
-Ett exempel:
+Några exempel:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
 En fördel med TrackTrace är att du kan ställa in relativt långa data i meddelandet. Du kan till exempel koda POST-data där.
 
-Du kan också lägga till en allvarlighets grad i meddelandet. Liksom annan telemetri kan du lägga till egenskaps värden för att filtrera eller söka efter olika uppsättningar med spår. Ett exempel:
+Du kan också lägga till en allvarlighets grad i meddelandet. Liksom annan telemetri kan du lägga till egenskaps värden för att filtrera eller söka efter olika uppsättningar med spår. Några exempel:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -184,7 +180,7 @@ Du kan till exempel:
 >Om ditt program skickar mycket data och du använder Application Insights SDK för ASP.NET-version 2.0.0-beta3 eller senare, kan den *anpassningsbara samplings* funktionen hantera och bara skicka en del av din telemetri. [Läs mer om sampling.](../../azure-monitor/app/sampling.md)
 >
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 ### <a name="how-do-i-do-this-for-java"></a>Hur gör jag för att gör du detta för Java?
 Använd [Java log-nätverkskorten](../../azure-monitor/app/java-trace-logs.md).
 
@@ -214,7 +210,7 @@ Om ditt program skickar Voluminous data mängder och du använder Application In
 * [Diagnostisera fel och undantag i ASP.NET][exceptions]
 * [Läs mer om sökning][diagnostic]
 * [Ställ in tillgänglighets-och svars tider][availability]
-* [Troubleshooting][qna] (Felsökning)
+* [Felsökning][qna]
 
 <!--Link references-->
 

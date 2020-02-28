@@ -2,18 +2,16 @@
 title: Logg aviseringar i Azure Monitor
 description: Utlös e-post, meddelanden, anropa webb adresser för webbplatser (Webhooks) eller automatisering när de analytiska frågevillkor som du anger är uppfyllda för Azure-aviseringar.
 author: yanivlavi
-services: monitoring
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: b8cae9f7c43098b713d0d5d8f74e46cb0386600c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a6abf4665c27771497037da35f85bb540e6e904e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396481"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665229"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Logg aviseringar i Azure Monitor
 
@@ -31,7 +29,7 @@ Loggsökningsregler skapas av Azure-aviseringar för att automatiskt köra angiv
 
 Logg Sök regler definieras av följande information:
 
-- **Logg fråga**.  Den fråga som körs varje gång varningsregeln utlöses.  Posterna som returneras av den här frågan används för att avgöra om en avisering ska utlösas. Analytics-frågan kan vara avsedd för en speciell Log Analytics arbets yta eller Application Insights app och till och med sträcka sig över [flera Log Analytics och Application Insights resurser](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) förutsatt att användaren har åtkomst och behörighet till alla resurser. 
+- **Logg fråga**.  Frågan som körs varje gång varnings regeln utlöses.  Posterna som returneras av den här frågan används för att avgöra om en avisering ska utlösas. Analytics-frågan kan vara avsedd för en speciell Log Analytics arbets yta eller Application Insights app och till och med sträcka sig över [flera Log Analytics och Application Insights resurser](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) förutsatt att användaren har åtkomst och behörighet till alla resurser. 
     > [!IMPORTANT]
     > [frågor om kors resurser](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) i logg aviseringar för Application Insights-och logg aviseringar för [Log Analytics som kon figurer ATS med scheduledQueryRules-API: et](../../azure-monitor/platform/alerts-log-api-switch.md) .
 
@@ -138,7 +136,7 @@ I varje intervall nedan utvärderar Azure-aviseringar villkoret för *contoso-lo
 | ------- | ----------| ----------| ------- 
 | 1:05 PM | 0 poster | 0 är inte > 0 så falskt |  Aviseringen utlöses inte. Inga åtgärder har anropats.
 | 1:10 PM | 2 poster | 2 > 0 så sant  | Aviserings Utlös och åtgärds grupper anropas. Aviserings tillstånd aktivt.
-| 13:15 | 5 poster | 5 > 0 så sant  | Aviserings Utlös och åtgärds grupper anropas. Aviserings tillstånd aktivt.
+| 1:15 PM | 5 poster | 5 > 0 så sant  | Aviserings Utlös och åtgärds grupper anropas. Aviserings tillstånd aktivt.
 | 1:20 PM | 0 poster | 0 är inte > 0 så falskt |  Aviseringen utlöses inte. Inga åtgärder har anropats. Aviserings tillstånd kvar aktivt.
 
 Använd föregående fall som exempel:

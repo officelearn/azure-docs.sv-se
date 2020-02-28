@@ -1,18 +1,14 @@
 ---
 title: Övervaka Azure App Services-prestanda | Microsoft Docs
 description: Övervakning av program prestanda för Azure App Services. Diagrammets inläsnings-och svars tid, beroende information och ange aviseringar för prestanda.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/11/2019
-ms.openlocfilehash: 3ca9cbf2e282e3f67af3c5da470a3d81e6055f98
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 03d332af182f8f40ede634fbd563f7b064751f32
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189591"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655826"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service prestanda
 
@@ -39,7 +35,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 
 ## <a name="enable-agent-based-monitoring"></a>Aktivera agent-baserad övervakning
 
-# <a name="nettabnet"></a>[NET](#tab/net)
+# <a name="net"></a>[NET](#tab/net)
 
 > [!NOTE]
 > Kombinationen av APPINSIGHTS_JAVASCRIPT_ENABLED och urlCompression stöds inte. Mer information finns i förklaringen i [fel söknings avsnittet](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
@@ -75,7 +71,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 
     * Om du vill visa en lista över stödda alternativ för adaptiva typer av telemetri för telemetri, kan du läsa igenom [koden](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) och [tillhör ande dokumentation](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
-# <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
+# <a name="net-core"></a>[.NET Core](#tab/netcore)
 
 Följande versioner av .NET Core stöds: ASP.NET Core 2,0, ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0
 
@@ -96,15 +92,15 @@ Det finns för närvarande **inte stöd** för att rikta in hela ramverket från
 
     ![Välj alternativ per plattform](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 I App Service webbapp under **inställningar** > **väljer du Application Insights** > **Aktivera**. Node. js-agent baserad övervakning är för närvarande en för hands version.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Java-App Service baserade webb program stöder för närvarande inte automatisk agent/tillägg-baserad övervakning. Om du vill aktivera övervakning för ditt Java-program måste du [manuellt instrumentera ditt program](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started).
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python App Service-baserade webb program stöder för närvarande inte automatisk agent/tillägg-baserad övervakning. Om du vill aktivera övervakning för ditt python-program måste du [manuellt instrumentera ditt program](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
 
@@ -112,7 +108,7 @@ Python App Service-baserade webb program stöder för närvarande inte automatis
 
 ## <a name="enable-client-side-monitoring"></a>Aktivera övervakning på klientsidan
 
-# <a name="nettabnet"></a>[NET](#tab/net)
+# <a name="net"></a>[NET](#tab/net)
 
 Övervakning på klient sidan är valbar för ASP.NET. Aktivera övervakning på klient sidan:
 
@@ -129,7 +125,7 @@ Python App Service-baserade webb program stöder för närvarande inte automatis
 
 Om du vill inaktivera övervakning på klient sidan tar du antingen bort det associerade nyckel värdes paret från program inställningarna eller anger värdet till falskt.
 
-# <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
+# <a name="net-core"></a>[.NET Core](#tab/netcore)
 
 Övervakning på klient sidan är **aktiverat som standard** för .net Core-appar med den **rekommenderade samlingen**, oavsett om app-inställningen APPINSIGHTS_JAVASCRIPT_ENABLED finns.
 
@@ -146,15 +142,15 @@ Om du av någon anledning vill inaktivera övervakning på klient sidan:
 
 ![Skärm bild av användar gränssnittet för program inställningar](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Om du vill aktivera övervakning på klient sidan för Node. js-programmet måste du [manuellt lägga till SDK SDK för klient sidan till ditt program](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Om du vill aktivera övervakning på klient sidan för ditt Java-program måste du [manuellt lägga till SDK SDK för klient sidan till ditt program](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Om du vill aktivera övervakning på klient sidan för python-programmet måste du [manuellt lägga till SDK SDK för klient sidan till ditt program](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
@@ -379,7 +375,7 @@ Nedan visas vår stegvisa fel söknings guide för tillägg/agent-baserad överv
 
 Tabellen nedan innehåller en mer detaljerad förklaring av vad dessa värden innebär, deras underliggande orsaker och rekommenderade korrigeringar:
 
-|Problem värde|Förklaring|Fix
+|Problem värde|Förklaring|Snabbkorrigering
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Det här värdet anger att tillägget har identifierat att en aspekt av SDK: n redan finns i programmet och kommer att stängas av. Det kan bero på en referens till `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`eller `Microsoft.ApplicationInsights`  | Ta bort referenserna. Vissa av dessa referenser läggs till som standard från vissa Visual Studio-mallar och äldre versioner av Visual Studio kan lägga till referenser till `Microsoft.ApplicationInsights`.
 |`AppAlreadyInstrumented:true` | Om programmet är riktat mot .NET Core 2,1 eller 2,2, och refererar till [Microsoft. AspNetCore. all](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-paket, kommer det att finnas i Application Insights och tillägget kommer att återställas. | Kunder på .NET Core 2.1, 2.2 [rekommenderar](https://github.com/aspnet/Announcements/issues/287) att du använder Microsoft. AspNetCore. app-meta-paketet i stället.|

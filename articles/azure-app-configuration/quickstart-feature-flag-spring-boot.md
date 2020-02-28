@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/21/2020
 ms.author: lcozzens
-ms.openlocfilehash: 4438851ef7ea015060926075f46822de877b85b3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 4a8d7f50ecf385388b63b9d83525a39737e0d157
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766439"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655760"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Snabb start: Lägg till funktions flaggor i en våren Boot-app
 
@@ -19,11 +19,11 @@ I den här snabb starten inkluderar du Azure App konfiguration i en våren Boot-
 
 Biblioteken våren Boot Feature Management utökar ramverket med omfattande stöd för funktions flaggor. Dessa bibliotek har **inget** beroende av några Azure-bibliotek. De integreras sömlöst med app-konfigurationen via sin våren Boot Configuration Provider.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-- En [Java Development Kit SDK](https://docs.microsoft.com/java/azure/jdk) som stöds med version 8.
-- [Apache maven](https://maven.apache.org/download.cgi) version 3,0 eller senare.
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* En [Java Development Kit SDK](https://docs.microsoft.com/java/azure/jdk) som stöds med version 8.
+* [Apache maven](https://maven.apache.org/download.cgi) version 3,0 eller senare.
 
 ## <a name="create-an-app-configuration-instance"></a>Skapa en app Configuration-instans
 
@@ -42,14 +42,14 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
 1. Bläddra till <https://start.spring.io/>.
 
-2. Ange följande alternativ:
+1. Ange följande alternativ:
 
-   - Generera ett **Maven**-projekt med **Java**.
-   - Ange en **våren Boot** -version som är lika med eller större än 2,0.
-   - Ange namnen för **Group** (Grupp) och **Artifact** (Artefakt) för ditt program.  I den här artikeln används `com.example` och `demo`.
-   - Lägg till **våren-** webbberoendet.
+   * Generera ett **Maven**-projekt med **Java**.
+   * Ange en **våren Boot** -version som är lika med eller större än 2,0.
+   * Ange namnen för **Group** (Grupp) och **Artifact** (Artefakt) för ditt program.  I den här artikeln används `com.example` och `demo`.
+   * Lägg till **våren-** webbberoendet.
 
-3. När du har angett föregående alternativ väljer du **generera projekt**. När du uppmanas att ladda ned projektet till den lokala datorn.
+1. När du har angett föregående alternativ väljer du **generera projekt**. När du uppmanas att ladda ned projektet till den lokala datorn.
 
 ## <a name="add-feature-management"></a>Lägg till funktions hantering
 
@@ -57,20 +57,41 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
 1. Öppna filen *Pom. XML* i en text redigerare och Lägg till följande i listan över `<dependencies>`.:
 
+### <a name="spring-cloud-11x"></a>Våren Cloud 1.1. x
+
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.2.1</version>
+        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <version>1.1.2</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.2.1</version>
+        <version>1.1.2</version>
     </dependency>
     <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    ```
+
+### <a name="spring-cloud-12x"></a>Våren Cloud 1.2. x
+
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <version>1.2.2</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+        <version>1.2.2</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
     ```
 
@@ -108,6 +129,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
         }
     }
     ```
+
 1. Skapa en ny Java-fil med namnet *MessageProperties.java* i appens paketkatalog.
 
     ```java
@@ -131,7 +153,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
     }
     ```
 
-1. Skapa en ny Java-fil med namnet *HelloController.java* i appens paketkatalog. 
+1. Skapa en ny Java-fil med namnet *HelloController.java* i appens paketkatalog.
 
     ```java
     package com.example.demo;
@@ -220,42 +242,42 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
     ```
 
-6. Skapa en ny mapp med namnet CSS under `static` och inuti den som en ny CSS-fil med namnet *main. CSS*.
+1. Skapa en ny mapp med namnet CSS under `static` och inuti den som en ny CSS-fil med namnet *main. CSS*.
 
     ```css
     html {
-    position: relative;
-    min-height: 100%;
+     position: relative;
+     min-height: 100%;
     }
     body {
-    margin-bottom: 60px;
+     margin-bottom: 60px;
     }
     .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    background-color: #f5f5f5;
+     position: absolute;
+     bottom: 0;
+     width: 100%;
+     height: 60px;
+     line-height: 60px;
+     background-color: #f5f5f5;
     }
 
     body > .container {
-    padding: 60px 15px 0;
+     padding: 60px 15px 0;
     }
 
     .footer > .container {
-    padding-right: 15px;
-    padding-left: 15px;
+     padding-right: 15px;
+     padding-left: 15px;
     }
 
     code {
-    font-size: 80%;
+     font-size: 80%;
     }
     ```
 
 ## <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
 
-1. Skapa ditt våren Boot-program med Maven och kör det.
+1. Skapa Spring Boot-appen med Maven och kör den:
 
     ```shell
     mvn clean package
@@ -284,6 +306,6 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
 I den här snabb starten skapade du ett nytt konfigurations Arkiv för appar och använde det för att hantera funktioner i en våren Boot-webbapp via [biblioteken för funktions hantering](https://go.microsoft.com/fwlink/?linkid=2074664).
 
-- Läs mer om [funktions hantering](./concept-feature-management.md).
-- [Hantera funktions flaggor](./manage-feature-flags.md).
-- [Använd funktions flaggor i en webbapp Boot Core-app](./use-feature-flags-spring-boot.md).
+* Läs mer om [funktions hantering](./concept-feature-management.md).
+* [Hantera funktions flaggor](./manage-feature-flags.md).
+* [Använd funktions flaggor i en webbapp Boot Core-app](./use-feature-flags-spring-boot.md).

@@ -1,18 +1,17 @@
 ---
 title: Vyer i hanterings lösningar | Microsoft Docs
 description: 'Hanterings lösningar innehåller vanligt vis en eller flera vyer för att visualisera data.  Den här artikeln beskriver hur du exporterar en vy som skapats av View Designer och inkluderar den i en hanterings lösning. '
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
-ms.openlocfilehash: 473d10bbec6ca056554f7223800a32e9ca93578e
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: a9a1c1718fb95a6ace3700af043134072d582473
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553900"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663053"
 ---
 # <a name="views-in-management-solutions-preview"></a>Vyer i hanterings lösningar (förhands granskning)
 > [!NOTE]
@@ -26,7 +25,7 @@ ms.locfileid: "72553900"
 >
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du redan är bekant med hur du [skapar en hanterings lösning](solutions-creating.md) och strukturen för en lösnings fil.
 
 ## <a name="overview"></a>Översikt
@@ -87,7 +86,7 @@ Alla Log Analytics resurser som definierats i en Resource Manager-mall har en eg
 
  I följande tabell anges Log Analytics API-versioner för vyer i äldre och uppgraderade arbets ytor: 
 
-| Arbetsyte version | API-version | Söka i data |
+| Arbetsyte version | API-version | Fråga |
 |:---|:---|:---|
 | v1 (bakåtkompatibelt)   | 2015-11-01 – för hands version | Äldre format.<br> Exempel: Type = Event EventLevelName = Error  |
 | v2 (uppgraderat) | 2015-11-01 – för hands version | Äldre format.  Konverterat till uppgraderat format vid installation.<br> Exempel: Type = Event EventLevelName = Error<br>Konverterad till: &#124; händelse där EventLevelName = = "Error"  |

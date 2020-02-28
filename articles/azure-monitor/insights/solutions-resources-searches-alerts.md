@@ -1,19 +1,18 @@
 ---
 title: Sparade sökningar i hanterings lösningar | Microsoft Docs
 description: Hanterings lösningar innehåller vanligt vis sparade logg frågor för att analysera data som samlas in av lösningen. I den här artikeln beskrivs hur du definierar Log Analytics sparade sökningar i en Resource Manager-mall.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ff9c45ffb636f53951a763f617c25a2e8c09088
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 61fc64e140af091b5ff3f631398daf901557791b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977729"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663036"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till Log Analytics sparade sökningar och varningar till hanterings lösningen (förhands granskning)
 
@@ -28,7 +27,7 @@ ms.locfileid: "75977729"
 > [!NOTE]
 > I exemplen i den här artikeln används parametrar och variabler som antingen är obligatoriska eller vanliga för hanterings lösningar och som beskrivs i [utforma och skapa en hanterings lösning i Azure](solutions-creating.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du redan är bekant med hur du [skapar en hanterings lösning](solutions-creating.md) och strukturen i en [Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) och lösnings fil.
 
 
@@ -44,7 +43,7 @@ Alla Log Analytics resurser som definierats i en Resource Manager-mall har en eg
 
 I följande tabell visas API-versionen för den resurs som används i det här exemplet.
 
-| Resurstyp | API-version | Söka i data |
+| Resurstyp | API-version | Fråga |
 |:---|:---|:---|
 | savedSearches | 2017-03-15 – för hands version | Händelse &#124; där EventLevelName = = "Error"  |
 
@@ -75,7 +74,7 @@ Varje egenskap i en sparad sökning beskrivs i följande tabell.
 |:--- |:--- |
 | category | Kategorin för den sparade sökningen.  Alla sparade sökningar i samma lösning delar ofta en enda kategori så att de grupperas tillsammans i-konsolen. |
 | displayname (visningsnamn) | Namn som ska visas för den sparade sökningen i portalen. |
-| DocumentDB | Fråga att köra. |
+| query | Fråga att köra. |
 
 > [!NOTE]
 > Du kan behöva använda escape-tecken i frågan om den innehåller tecken som kan tolkas som JSON. Om din fråga exempelvis var **AzureActivity | OperationName: "Microsoft. Compute/virtualMachines/Write"** , den ska vara skriven i lösnings filen som **AzureActivity | OperationName:/\"Microsoft. Compute/virtualMachines/Write\"** .
@@ -168,7 +167,7 @@ Egenskaperna för aviserings åtgärds resurser beskrivs i följande tabeller.
 |:--|:--|:--|
 | `type` | Ja | Typ av åtgärd.  Detta är en **avisering** för aviserings åtgärder. |
 | `name` | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för varnings regeln. |
-| `description` | Inga | Valfri beskrivning av aviseringen. |
+| `description` | Nej | Valfri beskrivning av aviseringen. |
 | `severity` | Ja | Allvarlighets grad för aviserings posten från följande värden:<br><br> **mindre**<br>**honom**<br>**informations**
 
 #### <a name="threshold"></a>Tröskelvärde
@@ -204,8 +203,8 @@ För användare som har utökat sin aviseringar i Azure – bör ett schema nu h
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
 | AzNsNotification | Ja | Resurs-ID för den Azure-åtgärds grupp som ska associeras med avisering för att vidta nödvändiga åtgärder när aviserings villkoret är uppfyllt. |
-| CustomEmailSubject | Inga | Anpassad ämnesrad för e-postmeddelandet som skickas till alla adresser som anges i den associerade åtgärds gruppen. |
-| CustomWebhookPayload | Inga | Anpassad nytto last som ska skickas till alla webhook-slutpunkter som definierats i den associerade åtgärds gruppen. Formatet beror på vad webhook förväntar sig och bör vara en giltig serialiserad JSON. |
+| CustomEmailSubject | Nej | Anpassad ämnesrad för e-postmeddelandet som skickas till alla adresser som anges i den associerade åtgärds gruppen. |
+| CustomWebhookPayload | Nej | Anpassad nytto last som ska skickas till alla webhook-slutpunkter som definierats i den associerade åtgärds gruppen. Formatet beror på vad webhook förväntar sig och bör vara en giltig serialiserad JSON. |
 
 ## <a name="sample"></a>Exempel
 

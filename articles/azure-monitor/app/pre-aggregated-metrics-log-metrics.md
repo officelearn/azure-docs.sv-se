@@ -1,21 +1,19 @@
 ---
 title: Log-baserade och föraggregerade mått i Azure Application Insights | Microsoft Docs
 description: Varför ska man använda loggbaserade och föraggregerade mått i Azure Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 384e3c9032b324ee92762db9156c628a05e5e862
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 65abc9c7153aaf2973d5927400e27467066098f9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406582"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669768"
 ---
-# <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Loggbaserade och föraggregerade mått i Application Insights
+# <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Log-baserade och föraggregerade mått i Application Insights
 
 I den här artikeln förklaras skillnaden mellan "traditionella" Application Insights mått som baseras på loggar och föraggregerade mått som för närvarande finns i en offentlig för hands version. Båda typerna av mått är tillgängliga för användarna av Application Insights och var och en ger ett unikt värde för övervakning av program hälsa, diagnostik och analys. Utvecklare som instrumenterar program kan bestämma vilken typ av mått som passar bäst för ett visst scenario, beroende på programmets storlek, förväntade telemetri och affärs krav för mått precision och avisering.
 
@@ -63,7 +61,7 @@ Insamlingen av anpassade mått dimensioner är inaktive rad som standard efterso
 
 Använd [Azure Monitor Metrics Explorer](../platform/metrics-getting-started.md) för att rita diagram från föraggregerade och loggbaserade mått och för att skapa instrument paneler med diagram. När du har valt önskad Application Insights resurs använder du namn områdes väljaren för att växla mellan standard (för hands version) och loggbaserade mått, eller så väljer du ett anpassat mått namn område:
 
-![Namnområde för mått](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
+![Mått namn område](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

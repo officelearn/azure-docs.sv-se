@@ -1,25 +1,21 @@
 ---
 title: Data modell för Azure Application Insights | Microsoft Docs
 description: Beskriver egenskaper som exporteras från löpande export i JSON och som används som filter.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/08/2019
-ms.openlocfilehash: 8f84e3179a6f949e4a322a2218736fc9ebe60442
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: e4dd2310169476e54c06083fee11b2e4cccecd8d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677913"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663883"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights exportera data modell
 Den här tabellen innehåller egenskaperna för telemetri som skickas från [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDK: er till portalen.
 Du ser dessa egenskaper i data utdata från [kontinuerlig export](export-telemetry.md).
 De visas också i egenskaps filter i [Metric Explorer](../../azure-monitor/app/metrics-explorer.md) och [diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md).
 
-Poäng till Anmärkning:
+Saker att Observera:
 
 * `[0]` i dessa tabeller anger en punkt i sökvägen där du måste infoga ett index. men det är inte alltid 0.
 * Tids längden är i tiondelar av en mikrosekund, så 10000000 = = 1 sekund.
@@ -112,53 +108,53 @@ Alla typer av telemetri åtföljs av ett kontext avsnitt. Alla dessa fält över
 | Sökväg | Typ | Anteckningar |
 | --- | --- | --- |
 | Context. Custom. dimensions [0] |objekt [] |Nyckel/värde-värdepar som anges av parametern anpassade egenskaper. Nyckelns max längd 100, värdenas max längd 1024. Om det finns fler än 100 unika värden kan egenskapen sökas, men kan inte användas för segmentering. Högst 200 nycklar per iKey. |
-| Context. Custom. Metrics [0] |objekt [] |Nyckel/värde-par som anges av anpassade mått parametrar och av TrackMetrics. Nyckelns max längd 100, värdena kan vara numeriska. |
-| Context. data. eventTime |sträng |UTC |
-| Context. data. isSynthetic |boolesk |Förfrågan verkar komma från ett robot-eller webbtest. |
-| Context. data. samplingRate |nummer |Procent andel telemetri som genererats av SDK som skickas till portalen. Intervallet 0,0-100,0. |
-| Context. Device |objekt |Klienten het |
-| kontext. Device. browser |sträng |IE, Chrome,... |
-| Context. Device. browserVersion |sträng |Chrome 48,0,... |
-| Context. Device. deviceModel |sträng | |
-| Context. Device. enhets namn |sträng | |
+| context.custom.metrics [0] |objekt [] |Nyckel/värde-par som anges av anpassade mått parametrar och av TrackMetrics. Nyckelns max längd 100, värdena kan vara numeriska. |
+| context.data.eventTime |sträng |UTC |
+| context.data.isSynthetic |boolesk |Förfrågan verkar komma från ett robot-eller webbtest. |
+| context.data.samplingRate |nummer |Den procentandel av telemetri som genereras av SDK som skickas till portalen. Intervallet 0,0 100,0. |
+| context.device |objekt |Klientenheten |
+| context.device.browser |sträng |IE, Chrome,... |
+| context.device.browserVersion |sträng |Chrome 48,0,... |
+| context.device.deviceModel |sträng | |
+| context.device.deviceName |sträng | |
 | context.device.id |sträng | |
-| Context. Device. locale |sträng |en-GB, de-DE,... |
-| Context. Device. Network |sträng | |
-| Context. Device. oemName |sträng | |
-| Context. Device. OS |sträng | |
-| Context. Device. osVersion |sträng |Värd operativ system |
-| Context. Device. roleInstance |sträng |ID för Server värd |
-| Context. Device. roleName |sträng | |
-| Context. Device. screenResolution |sträng | |
-| Context. Device. Type |sträng |PC, webbläsare,... |
+| context.device.locale |sträng |en-GB, de-DE,... |
+| context.device.network |sträng | |
+| context.device.oemName |sträng | |
+| context.device.os |sträng | |
+| context.device.osVersion |sträng |Värd operativ system |
+| context.device.roleInstance |sträng |ID för server-värd |
+| context.device.roleName |sträng | |
+| context.device.screenResolution |sträng | |
+| context.device.type |sträng |PC, webbläsare,... |
 | kontext. plats |objekt |Härlett från clientip. |
-| kontext. location. ort |sträng |Härlett från clientip, om känd |
-| Context. location. clientip |sträng |Senaste Åttahörning är anonymiserats till 0. |
+| context.location.city |sträng |Härlett från clientip, om känd |
+| context.location.clientip |sträng |Senaste Åttahörning är anonymiserats till 0. |
 | Context. location. kontinent |sträng | |
-| Context. location. Country |sträng | |
-| kontext. location. provins |sträng |Region |
+| context.location.country |sträng | |
+| context.location.province |sträng |Region |
 | context.operation.id |sträng |Objekt som har samma åtgärds-ID visas som relaterade objekt i portalen. Vanligt vis ID för begäran. |
 | context.operation.name |sträng |URL eller namn på begäran |
-| Context. operation. |sträng |Tillåter kapslade relaterade objekt. |
+| context.operation.parentId |sträng |Tillåter kapslade relaterade objekt. |
 | context.session.id |sträng |ID för en grupp med åtgärder från samma källa. En period på 30 minuter utan en åtgärd signalerar slutet av en session. |
-| Context. session. isFirst |boolesk | |
+| context.session.isFirst |boolesk | |
 | Context. user. accountAcquisitionDate |sträng | |
 | Context. user. accountId |sträng | |
-| Context. user. anonAcquisitionDate |sträng | |
-| Context. user. anonId |sträng | |
-| Context. user. authAcquisitionDate |sträng |[Autentiserad användare](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
-| Context. user. authId |sträng | |
+| context.user.anonAcquisitionDate |sträng | |
+| context.user.anonId |sträng | |
+| context.user.authAcquisitionDate |sträng |[Autentiserad användare](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authId |sträng | |
 | Context. user. isAuthenticated |boolesk | |
-| Context. user. storeRegion |sträng | |
-| Internal. data. documentVersion |sträng | |
+| context.user.storeRegion |sträng | |
+| internal.data.documentVersion |sträng | |
 | internal.data.id |sträng | Unikt ID som tilldelas när ett objekt matas in till Application Insights |
 
-## <a name="events"></a>Events
+## <a name="events"></a>Händelser
 Anpassade händelser som genererats av [TrackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 | Sökväg | Typ | Anteckningar |
 | --- | --- | --- |
-| antal händelser [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
+| antal händelser [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 =&gt; 25%. |
 | namn på händelse [0] |sträng |Händelse namn.  Maxlängd 250. |
 | URL för händelse [0] |sträng | |
 | händelse [0] urlData. Base |sträng | |
@@ -170,7 +166,7 @@ Rapporterar [undantag](../../azure-monitor/app/asp-net-exceptions.md) på server
 | Sökväg | Typ | Anteckningar |
 | --- | --- | --- |
 | basicException [0]-sammansättning |sträng | |
-| antal basicException [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
+| antal basicException [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 =&gt; 25%. |
 | basicException [0] exceptionGroup |sträng | |
 | basicException [0] undantag |sträng | |
 | basicException [0] failedUserCodeMethod |sträng | |
@@ -211,7 +207,7 @@ Skickat av TrackDependency. Används för att rapportera prestanda och användni
 | remoteDependency [0] asynkron |boolesk | |
 | remoteDependency [0] baseName |sträng | |
 | remoteDependency [0] commandName |sträng |Till exempel "Start/index" |
-| antal remoteDependency [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
+| antal remoteDependency [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 =&gt; 25%. |
 | remoteDependency [0] dependencyTypeName |sträng |HTTP, SQL,... |
 | remoteDependency [0] durationMetric. Value |nummer |Tid från anrop till slut för ande av svar genom beroende |
 | remoteDependency [0] ID |sträng | |
@@ -229,11 +225,11 @@ Skickat av [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#t
 
 | Sökväg | Typ | Anteckningar |
 | --- | --- | --- |
-| antal begär Anden [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Exempel: 4 = &gt; 25%. |
+| antal begär Anden [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Exempel: 4 =&gt; 25%. |
 | begäran [0] durationMetric. Value |nummer |Tid från begäran som kommer till svar. 1e7 = = 1s |
 | begäran [0] ID |sträng |Åtgärds-ID |
 | begär ande [0] namn |sträng |Hämta/publicera + URL-bas.  Maxlängd 250 |
-| begäran [0] responseCode |heltal |HTTP-svar som skickats till klienten |
+| begäran [0] responseCode |heltal |HTTP-svar som skickas till klienten |
 | begäran [0] lyckades |boolesk |Standard = = (responseCode &lt; 400) |
 | URL för begäran [0] |sträng |Inkluderar inte värd |
 | begäran [0] urlData. Base |sträng | |
@@ -264,7 +260,7 @@ Skickat av trackPageView () eller [stopTrackPage](../../azure-monitor/app/api-cu
 
 | Sökväg | Typ | Anteckningar |
 | --- | --- | --- |
-| Visa [0] antal |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
+| Visa [0] antal |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 =&gt; 25%. |
 | Visa [0] durationMetric. Value |heltal |Värdet kan anges i trackPageView () eller av startTrackPage ()-stopTrackPage (). Inte samma som clientPerformance-värden. |
 | Visa [0] namn |sträng |Sid rubrik.  Maxlängd 250 |
 | Visa [0] URL |sträng | |
@@ -278,8 +274,8 @@ Reports för [webb test för tillgänglighet](../../azure-monitor/app/monitor-we
 | Sökväg | Typ | Anteckningar |
 | --- | --- | --- |
 | tillgänglighet [0] availabilityMetric.name |sträng |availability |
-| tillgänglighet [0] availabilityMetric. Value |nummer |1,0 eller 0,0 |
-| antal tillgänglighets [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
+| tillgänglighet [0] availabilityMetric. Value |nummer |1.0 eller 0,0 |
+| antal tillgänglighets [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 =&gt; 25%. |
 | tillgänglighet [0] dataSizeMetric.name |sträng | |
 | tillgänglighet [0] dataSizeMetric. Value |heltal | |
 | tillgänglighet [0] durationMetric.name |sträng | |
@@ -296,7 +292,7 @@ Genererad av TrackMetric ().
 
 Metric-värdet finns i context. Custom. Metrics [0]
 
-Exempel:
+Några exempel:
 
     {
      "metric": [ ],
@@ -322,7 +318,7 @@ Exempel:
     }
 
 ## <a name="about-metric-values"></a>Om mått värden
-Metriska värden, både i mått rapporter och andra, rapporteras med en standard objekt struktur. Exempel:
+Metriska värden, både i mått rapporter och andra, rapporteras med en standard objekt struktur. Några exempel:
 
       "durationMetric": {
         "name": "contoso.org",
@@ -346,7 +342,7 @@ I stället för att i förväg aggregera mått kan du använda [sampling](../../
 ### <a name="durations"></a>Varaktigheter
 Om inget annat anges visas varaktigheterna i tiondelar av en mikrosekund, så att 10000000,0 betyder 1 sekund.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 * [Löpande export](export-telemetry.md)
 * [Kodexempel](export-telemetry.md#code-samples)

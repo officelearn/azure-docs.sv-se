@@ -1,18 +1,14 @@
 ---
 title: Data kvarhållning och lagring i Azure Application Insights | Microsoft Docs
 description: Policy för kvarhållning och sekretess policy
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/29/2019
-ms.openlocfilehash: ba8a76cd4d3804bcb062ae0554e3fe7002804ed2
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 0b266eb0674f6de7dfb20311bba95bc7f4697f61
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031688"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669666"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Data insamling, kvarhållning och lagring i Application Insights
 
@@ -211,7 +207,7 @@ Vi rekommenderar inte att du uttryckligen anger att ditt program ska använda TL
 | Windows Server 2012-2016 | Stöds och aktiverat som standard. | Bekräfta att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men inte är aktiverad som standard. | På sidan [Transport Layer Security (TLS) register inställningar](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) finns mer information om hur du aktiverar.  |
 | Windows Server 2008 SP2 | Stöd för TLS 1.2 kräver en uppdatering. | Se [Uppdatera för att lägga till stöd för TLS 1,2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) i Windows Server 2008 SP2. |
-|Windows Vista | Stöds inte. | Ej tillämpligt
+|Windows Vista | Stöds inte. | Saknas
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Kontrol lera vilken version av OpenSSL som din Linux-distribution körs på
 
@@ -253,7 +249,7 @@ SDK: erna varierar mellan olika plattformar och det finns flera komponenter som 
 | [Anropa TrackMetric][api] |Numeriska värden<br/>**Egenskaperna** |
 | [Samtals spår *][api] |Händelsenamn<br/>**Egenskaperna** |
 | [Anropa TrackException][api] |**Undantag**<br/>Stackdump<br/>**Egenskaperna** |
-| SDK kan inte samla in data. Exempel: <br/> -Det går inte att komma åt perf-räknare<br/> – undantag i telemetri initierare |SDK-diagnostik |
+| SDK kan inte samla in data. Några exempel: <br/> -Det går inte att komma åt perf-räknare<br/> – undantag i telemetri initierare |SDK-diagnostik |
 
 För [SDK: er för andra plattformar][platforms], se deras dokument.
 
@@ -269,7 +265,7 @@ För [SDK: er för andra plattformar][platforms], se deras dokument.
 | Härleda |Geo-plats från IP-adress, tidsstämpel, OS, webbläsare |
 | Mått |Metric-namn och-värde |
 | Händelser |Händelse namn och-värde |
-| PageViews |URL och sid namn eller skärm namn |
+| pageViews |URL och sid namn eller skärm namn |
 | Klient prestanda |URL/sidnamn, webb läsar inläsnings tid |
 | Ajax |HTTP-anrop från webb sida till Server |
 | Begäranden |URL, varaktighet, svarskod |

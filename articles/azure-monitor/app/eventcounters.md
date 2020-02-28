@@ -1,18 +1,14 @@
 ---
 title: Händelse räknare i Application Insights | Microsoft Docs
 description: Övervaka system och anpassade .NET/.NET Core-EventCounters i Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 5a47f5c2f9c9d4e22e8205853d85214997a2bea7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2094c012e86131073fc66be4f2ac2fb2e81ef4c1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406934"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663597"
 ---
 # <a name="eventcounters-introduction"></a>Introduktion till EventCounters
 
@@ -28,7 +24,7 @@ Application Insights stöder insamlings `EventCounters` med dess `EventCounterCo
 
 För appar som körs i .NET Core 3,0 samlas följande räknare in automatiskt av SDK: n. Namnet på räknarna kommer att ha formatet "kategori | Counter ".
 
-|Kategori | Räknare|
+|Kategori | Medelvärde|
 |---------------|-------|
 |`System.Runtime` | `cpu-usage` |
 |`System.Runtime` | `working-set` |
@@ -130,7 +126,7 @@ Precis som andra telemetri har **customMetrics** också en kolumn `cloud_RoleIns
 ## <a name="alerts"></a>Aviseringar
 Precis som med andra mått kan du [Ange en avisering](../../azure-monitor/app/alerts.md) som varnar dig om en händelse räknare går utanför en gräns som du anger. Öppna fönstret aviseringar och klicka på Lägg till avisering.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ### <a name="can-i-see-eventcounters-in-live-metrics"></a>Kan jag se EventCounters i Live-mått?
 

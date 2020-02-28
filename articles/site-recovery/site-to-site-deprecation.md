@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/25/2020
 ms.author: rajanaki
-ms.openlocfilehash: 68d975a1b8bb8d47011bb292d3cf897956b31712
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 208177d10e9002fafe2495710da229541a11a43e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623601"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661678"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Utfasning av haveri beredskap mellan Kundhanterade platser (med VMM) med hjälp av Azure Site Recovery
 
@@ -36,10 +36,8 @@ DR mellan kundägda webbplatser som hanteras av System Center Virtual Machine Ma
 
 Nedan visas de alternativ som kunden kan välja mellan för att säkerställa att deras DR-strategi inte påverkas när scenariot är föråldrat. 
 
-- Alternativ 1 (rekommenderas): Välj att [börja använda Azure som Dr-mål för virtuella datorer på Hyper-V-värdar](hyper-v-azure-tutorial.md).
+- Alternativ 1 (rekommenderas): Välj att [börja använda Azure som Dr-mål](hyper-v-vmm-azure-tutorial.md).
 
-    > [!IMPORTANT]
-    > Observera att din lokala miljö fortfarande kan ha SCVMMM, men du konfigurerar ASR med referenser enbart till Hyper-V-värdarna.
 
 - Alternativ 2: Välj att fortsätta med plats-till-plats-replikering med den underliggande [lösningen för Hyper-V-replikering](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica), men du kan inte hantera Dr-konfigurationer med Azure Site Recovery i Azure Portal. 
 
@@ -50,15 +48,11 @@ Om du väljer att gå med alternativ 1 ska du köra följande steg:
 
 1. [Inaktivera skyddet av alla virtuella datorer som är kopplade till VMMS](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-secondary-vmm-server-using-the-system-center-vmm-to-vmm-scenario). Använd alternativet **inaktivera replikering och ta bort** eller kör skripten som nämns för att se till att replikeringsinställningarna är rensade. 
 
-2. [Avregistrera alla VMM-servrar](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server)
+2. [Avregistrera alla VMM-servrar](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server) från konfiguration av plats-till-plats-replikering.
 
 3. [Förbered Azure-resurser](tutorial-prepare-azure-for-hyperv.md) för att aktivera replikering av dina virtuella datorer.
 4. [Förbereda lokala Hyper-V-servrar](hyper-v-prepare-on-premises-tutorial.md)
-
-> [!IMPORTANT]
-> Observera att du inte behöver utföra stegen under förbereda VMM.
-
-5. [Konfigurera replikering för de virtuella datorerna](hyper-v-azure-tutorial.md)
+5. [Konfigurera replikering för de virtuella datorerna i VMM-molnet](hyper-v-vmm-azure-tutorial.md)
 6. Valfritt men rekommenderat: [kör en Dr-granskning](tutorial-dr-drill-azure.md)
 
 Om du väljer att gå med alternativ 2 för att använda Hyper-V-replikering utför du följande steg:

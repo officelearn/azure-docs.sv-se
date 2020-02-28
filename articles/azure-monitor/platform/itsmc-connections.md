@@ -1,18 +1,17 @@
 ---
 title: Anslutningar som stöds med Anslutningsprogram för hantering av IT-tjänster (ITSM) i Azure Log Analytics | Microsoft Docs
 description: Den här artikeln innehåller information om hur du ansluter dina ITSM-produkter/-tjänster med Anslutningsprogram för hantering av IT-tjänster (ITSM) (ITSMC) i Azure Monitor för att centralt övervaka och hantera ITSM arbets objekt.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: a4b8e1ca245d90018647577f338ed0833cbaf324
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: c6cad29b6cc392746a2e56323302521302835b2f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990291"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665875"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Anslut ITSM produkter/tjänster med Anslutningsprogram för hantering av IT-tjänster (ITSM)
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/-tjänst och Anslutningsprogram för hantering av IT-tjänster (ITSM) (ITSMC) i Log Analytics för att centralt hantera dina arbets uppgifter. Mer information om ITSMC finns i [Översikt](../../azure-monitor/platform/itsmc-overview.md).
@@ -32,7 +31,7 @@ Följande ITSM-produkter/-tjänster stöds. Välj produkten om du vill visa deta
 
 I följande avsnitt finns information om hur du ansluter System Center Service Manager-produkten till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande krav är uppfyllda:
 
@@ -98,7 +97,7 @@ Kör skriptet genom att ange följande obligatoriska information:
 
 - Information om Azure-prenumeration
 - Namn på resursgrupp
-- Location
+- plats.
 - Service Manager Server information (Server namn, domän, användar namn och lösen ord)
 - Prefix för webbplats namn för din webbapp
 - Service Bus-namnrymd.
@@ -160,7 +159,7 @@ Använd följande procedur för att konfigurera Listener-installationen för Hyb
 
 3. Logga in med dina Azure-autentiseringsuppgifter och välj din prenumeration där hybrid anslutningen skapades.
 
-4. Klicka på **Spara**.
+4. Klicka på **Save** (Spara).
 
 Din hybrid anslutning har upprättats.
 
@@ -177,7 +176,7 @@ Följande exempel bild visar information om en lyckad anslutning:
 
 Följande avsnitt innehåller information om hur du ansluter din ServiceNow-produkt till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Se till att följande krav är uppfyllda:
 - ITSMC installerad. Mer information: [Lägg till anslutningsprogram för hantering av IT-tjänster (ITSM)-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - ServiceNow-versioner som stöds: New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsingfors, Genève.
@@ -283,7 +282,7 @@ När användaren har skapats flyttas statusen för **kontrol lera installations 
 Följande avsnitt innehåller information om hur du ansluter din bestyrkande produkt till ITSMC i Azure.
 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande krav är uppfyllda:
 
@@ -336,7 +335,7 @@ Läs mer: [skapa ITSM arbets objekt från Azure-aviseringar](../../azure-monitor
 
 Följande avsnitt innehåller information om hur du ansluter din Cherwell-produkt till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande krav är uppfyllda:
 

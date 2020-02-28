@@ -1,14 +1,14 @@
 ---
 title: Översikt över Service Health | Microsoft Docs
 description: Anpassad information om hur dina Azure-appar påverkas av aktuella och framtida problem och underhåll av Azure-tjänsten.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 6a06ae22493292e33c94cc83cba1f17361bce45f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: db9d74e2883e755c3e5c3dbbe9d6570f1e78c4a6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451580"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654026"
 ---
 # <a name="service-health-overview"></a>Översikt över Service Health
 

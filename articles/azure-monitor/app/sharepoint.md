@@ -1,18 +1,14 @@
 ---
 title: Övervaka en SharePoint-webbplats med Application Insights
 description: Börja övervaka ett nytt program med en ny instrumentationsnyckel
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/11/2018
-ms.openlocfilehash: 041368d6310aca2183c7acbfe49d57d7e9683765
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048333"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671451"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Övervaka en SharePoint-webbplats med Application Insights
 Azure Application Insights övervakar dina appars tillgänglighet, prestanda och användning. Här lär du dig att ställa in det för en SharePoint-webbplats.
@@ -20,7 +16,7 @@ Azure Application Insights övervakar dina appars tillgänglighet, prestanda och
 ## <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 Skapa en ny Application Insights-resurs på [Azure Portal](https://portal.azure.com). Välj ASP.NET som programtypen.
 
-![Klicka på Egenskaper, markera nyckeln och tryck på CTRL + C.](./media/sharepoint/001.png)
+![Klicka på Egenskaper, markera nyckeln och tryck på CTRL + C](./media/sharepoint/001.png)
 
 Fönstret som öppnas är den plats där du kan se prestanda- och användningsdata om din app. Om du vill komma tillbaka till det nästa gång du loggar in på Azure bör du hitta en panel för det på startskärmen. Du kan också klicka på Bläddra för att hitta det.
 

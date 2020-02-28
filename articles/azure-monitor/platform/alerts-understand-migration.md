@@ -1,18 +1,17 @@
 ---
 title: Förstå hur det frivilliga migrations verktyget fungerar för Azure Monitor aviseringar
 description: Förstå hur Migreringsverktyget för aviseringar fungerar och Felsök problem.
-author: yalavi
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: yalavi
+author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 493fa4ac51bf593b7856b236c5d861ec029769d3
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 8cc77d13567910797cd519ac193b848f3ea434da
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680689"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665280"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Förstå hur migreringsverktyget fungerar
 
@@ -115,7 +114,7 @@ Dessa är klassiska varnings regler för mått som tidigare stöddes men som tid
 |-------------|----------------- |
 | Microsoft. DBforMySQL/servers | compute_consumption_percent, compute_limit |
 | Microsoft.DBforPostgreSQL/servers | compute_consumption_percent, compute_limit |
-| Microsoft.Network/publicIPAddresses | defaultddostriggerrate |
+| Microsoft. Network/publicIPAddresses | defaultddostriggerrate |
 | Microsoft.SQL/servers/databases | service_level_objective, storage_limit, storage_used, begränsning, dtu_consumption_percent, storage_used |
 | Microsoft. Web/hostingEnvironments/multirolepools | averagememoryworkingset |
 | Microsoft. Web/hostingEnvironments/workerpools | BytesReceived, httpqueuelength |
@@ -165,7 +164,7 @@ För lagrings konto tjänster som BLOB, Table, File och Queue mappas följande m
 | Lyckades | Transaktions mått med dimensionerna "ResponseType" = "lyckades" | |
 | TotalBillableRequests| Transaktioner | |
 | TotalEgress | Utgående | |
-| TotalIngress | Ingångshändelser | |
+| Total ingress | Ingress | |
 | TotalRequests | Transaktioner | |
 
 ### <a name="microsoftinsightscomponents"></a>Microsoft. Insights/komponenter
@@ -227,7 +226,7 @@ De klassiska varnings reglerna hade e-post, webhook, Logic app och Runbook-åtg�
 > [!NOTE]
 > Klassiska varningar skickade lokaliserade e-postmeddelanden baserat på de nationella inställningarna för klassisk administratör när de används för att meddela klassiska administratörs roller. Nya e-postaviseringar skickas via åtgärds grupper och finns bara på engelska.
 
-## <a name="rollout-phases"></a>Distributionsfaser
+## <a name="rollout-phases"></a>Distributions faser
 
 Migrations verktyget distribueras i faser till kunder som använder klassiska aviserings regler. Prenumerations ägare får ett e-postmeddelande när prenumerationen är redo att migreras med verktyget.
 

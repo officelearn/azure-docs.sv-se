@@ -3,12 +3,12 @@ title: Återställa filer och mappar från virtuell Azure-säkerhetskopiering
 description: I den här artikeln lär du dig hur du återställer filer och mappar från en återställnings punkt för en virtuell Azure-dator.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 4565929b5475e2348685fbec77b596b65ed73fd6
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: d80fb1060eca766305ecbfffe151d975472f8b3c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114334"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660928"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -206,7 +206,7 @@ Om du kör skriptet på en dator med begränsad åtkomst kontrollerar du att det
   - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (för Azure Kina-21Vianet)
   - <https://pod01-rec2.geo-name.backup.windowsazure.us> (för Azure amerikanska myndigheter)
   - <https://pod01-rec2.geo-name.backup.windowsazure.de> (för Azure Germany)
-- utgående port 3260
+- Utgående portar 53 (DNS), 443, 3260
 
 > [!NOTE]
 >

@@ -1,18 +1,17 @@
 ---
 title: Optimera din SQL Server-miljö med Azure Monitor | Microsoft Docs
 description: Med Azure Monitor kan du använda SQL Health Check-lösningen för att bedöma hälso tillståndet och hälsan för dina miljöer med jämna mellanrum.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/28/2019
-ms.openlocfilehash: 23b1391033713fc8eeccf2d0872c49a4291b8292
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: ceaed0800df01bf2c44fee13d98b01b6e726200d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76168897"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662492"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimera din SQL-miljö med SQL Server Health Check-lösning i Azure Monitor
 
@@ -32,7 +31,7 @@ När du har lagt till lösningen och en utvärdering har slutförts visas samman
 
 ![bild av kontroll panelen för SQL Health-kontroll](./media/sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * SQL Health-kontrollen kräver att en version av .NET Framework 4.6.2 som stöds har installerats på alla datorer där Microsoft Monitoring Agent (MMA) har installerats.  MMA-agenten används av System Center 2016-Operations Manager och Operations Manager 2012 R2 och Azure Monitor.  
 * Lösningen stöder SQL Server version 2012, 2014 och 2016.
@@ -86,7 +85,7 @@ Använd följande information för att ange Operations Manager kör som-konto f�
    > Kör som-kontots typ måste vara Windows. Kör som-kontot måste också vara en del av den lokala administratörs gruppen på alla Windows-servrar som är värdar för SQL Server instanser.
    >
    >
-5. Klicka på **Spara**.
+5. Klicka på **Save** (Spara).
 6. Ändra och kör sedan följande T-SQL-exempel på varje SQL Server instans för att bevilja de lägsta behörigheter som krävs för att kör som-kontot ska utföra hälso kontrollen. Men du behöver inte göra detta om ett Kör som-konto redan är en del av sysadmin-serverrollen på SQL Server instanser.
 
 ```
@@ -146,7 +145,7 @@ Viktningen för varje rekommendation uttrycks som en procent andel av det totala
 **Ändrings-och konfigurations hantering** – det här fokus avsnittet visar rekommendationer för att hjälpa till att skydda den dagliga verksamheten, se till att ändringarna inte påverkar infrastrukturen negativt, etablera ändrings kontroll procedurer och spåra och granska system konfigurationer.
 
 ### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Bör du 100% i varje fokus områden?
-Inte nödvändigtvis. Rekommendationerna baseras på den kunskap och de erfarenheter som Microsoft-tekniker har fått på tusentals kund besök. Dock är inte två server infrastrukturer identiska, och vissa rekommendationer kan vara mer eller mindre relevanta för dig. Vissa säkerhets rekommendationer kan till exempel vara mindre relevanta om dina virtuella datorer inte är exponerade för Internet. Vissa tillgänglighets rekommendationer kan vara mindre relevanta för tjänster som tillhandahåller låg prioritet för insamling och rapportering av ad hoc-data. Problem som är viktiga för en vuxen verksamhet kan vara mindre viktiga för en start. Du kanske vill identifiera vilka fokus områden som är dina prioriteringar och titta sedan på hur dina resultat förändras över tid.
+Inte nödvändigt vis. Rekommendationerna baseras på den kunskap och de erfarenheter som Microsoft-tekniker har fått på tusentals kund besök. Dock är inte två server infrastrukturer identiska, och vissa rekommendationer kan vara mer eller mindre relevanta för dig. Vissa säkerhets rekommendationer kan till exempel vara mindre relevanta om dina virtuella datorer inte är exponerade för Internet. Vissa tillgänglighets rekommendationer kan vara mindre relevanta för tjänster som tillhandahåller låg prioritet för insamling och rapportering av ad hoc-data. Problem som är viktiga för en vuxen verksamhet kan vara mindre viktiga för en start. Du kanske vill identifiera vilka fokus områden som är dina prioriteringar och titta sedan på hur dina resultat förändras över tid.
 
 Varje rekommendation innehåller vägledning om varför det är viktigt. Du bör använda den här vägledningen för att utvärdera om implementering av rekommendationen passar dig, baserat på dina IT-tjänsters beskaffenhet och organisationens affärs behov.
 
@@ -215,7 +214,7 @@ Resultaten kan sedan exporteras till Excel för vidare undersökning.
 
 *Finns det ett sätt att konfigurera hur ofta kontrollen körs?*
 
-* Nej, inte just nu.
+* Inte just nu.
 
 *Kontrollerar du att en annan server identifieras när jag har lagt till hälso kontroll lösningen för SQL?*
 
@@ -243,7 +242,7 @@ Resultaten kan sedan exporteras till Excel för vidare undersökning.
 
 *Finns det något sätt att konfigurera när data samlas in?*
 
-* Nej, inte just nu.
+* Inte just nu.
 
 *Varför måste jag konfigurera ett Kör som-konto?*
 

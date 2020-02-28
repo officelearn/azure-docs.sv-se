@@ -1,18 +1,16 @@
 ---
 title: API-referens för Azure Application Insights-agent
 description: Application Insights Agent-API-referens. Enable-InstrumentationEngine. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 796c2cc669e238499223d233cf4ddcf740af7c95
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b3f298ac31cc584cd16553186359c87f69f27aad
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899726"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671366"
 ---
 # <a name="application-insights-agent-api-enable-instrumentationengine"></a>Application Insights Agent-API: Enable-InstrumentationEngine
 

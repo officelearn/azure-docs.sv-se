@@ -1,18 +1,14 @@
 ---
 title: Smart identifiering i Azure Application Insights | Microsoft Docs
 description: Application Insights utför automatisk djup analys av din app-telemetri och varnar dig om potentiella problem.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 02/07/2019
-ms.openlocfilehash: ae9af5721e53277f6c939840721ca50ea67ca51e
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: e232295f9da2a2ae8f3c6fafdd1dc33a42e92e69
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818813"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671808"
 ---
 # <a name="smart-detection-in-application-insights"></a>Smart identifiering i Application Insights
  Smart identifiering varnar automatiskt om potentiella prestanda problem och fel avvikelser i ditt webb program. Den utför proaktiv analys av Telemetrin som din app skickar till [Application Insights](../../azure-monitor/app/app-insights-overview.md). Om det uppstår plötsliga ökningar i felfrekvenser eller onormala mönster i klient-eller server prestanda får du en avisering. Den här funktionen behöver ingen konfiguration. Det fungerar om ditt program skickar tillräckligt med telemetri.

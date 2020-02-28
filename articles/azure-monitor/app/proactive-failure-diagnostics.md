@@ -1,19 +1,15 @@
 ---
 title: Smart identifiering – fel avvikelser, i Application Insights | Microsoft Docs
 description: Varnar dig om ovanliga ändringar av antalet misslyckade förfrågningar till din webbapp och ger diagnostisk analys. Ingen konfiguration krävs.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: c556f726cd63971abe1e9b6d8b87117bb3e378db
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: e1c07fca3a4eee19e56c313a889e5b86ce2b4c42
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912841"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671757"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Smart identifiering – fel avvikelser
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) automatiskt varna dig i nära real tid om din webbapp upplever en onormal ökning av antalet misslyckade förfrågningar. Den identifierar en ovanlig ökning i frekvensen av HTTP-begäranden eller beroende anrop som rapporteras som misslyckade. För förfrågningar har misslyckade förfrågningar vanligt vis svars koder på 400 eller högre. För att hjälpa dig att prioritering och diagnostisera problemet finns en analys av egenskaperna för fel och relaterade program data i aviserings informationen. Det finns också länkar till Application Insights Portal för ytterligare diagnos. Funktionen behöver inte konfigureras eller konfigureras eftersom den använder Machine Learning-algoritmer för att förutsäga den normala felfrekvensen.
@@ -37,7 +33,7 @@ Aviserings informationen meddelar dig:
 ## <a name="benefits-of-smart-detection"></a>Förmåner för smart identifiering
 Vanliga [mått aviseringar](../../azure-monitor/app/alerts.md) visar att det kan finnas ett problem. Men smart identifiering startar diagnostiskt arbete åt dig, så att du kan utföra mycket analys som du annars skulle behöva göra själv. Du får de resultat som du kan paketera, vilket hjälper dig att snabbt komma till orsaken till problemet.
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 Smart identifiering övervakar de data som tas emot från din app och särskilt fel frekvensen. Den här regeln räknar antalet begär Anden för vilka egenskapen `Successful request` är falsk och antalet beroende anrop som `Successful call`-egenskapen är falsk för. Som standard `Successful request == (resultCode < 400)` (om du inte har skrivit anpassad kod för att [filtrera](../../azure-monitor/app/api-filtering-sampling.md#filtering) eller generera egna [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) -anrop) för förfrågningar. 
 
 Appens prestanda har ett typiskt beteende mönster. Vissa förfrågningar eller beroende anrop är svårare att Miss lyckas än andra. och den övergripande felfrekvensen kan gå upp när belastningen ökar. Smart identifiering använder Machine Learning för att hitta dessa avvikelser.

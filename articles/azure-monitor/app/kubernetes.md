@@ -1,18 +1,16 @@
 ---
 title: Använd Application Insights för att övervaka din Azure Kubernetes service (AKS) eller andra Kubernetes värdbaserade program – Azure Monitor | Microsoft Docs
 description: Azure Monitor använder nät verks teknik, Istio, på ditt Kubernetes-kluster för att tillhandahålla program övervakning för alla Kubernetes värdbaserade program. På så sätt kan du samla in Application Insights telemetri som rör inkommande och utgående begär anden till och från poddar som körs i klustret.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: a7821db85d4218cbccb6c10f12ecbc624f2702fe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 15c75d4add9615df6c42aa6121557659e54354d0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432512"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666794"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Program övervakning utan Instrumentation för Kubernetes-värdbaserade program
 
@@ -26,14 +24,14 @@ Azure Monitor använder nu teknisk teknik för service nät på ditt Kubernetes-
 > [!NOTE]
 > Det här är ett av många sätt att utföra program övervakning på Kubernetes. Du kan också instrumentera alla appar som finns i Kubernetes med hjälp av [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.yml) utan att det behövs något service nät. Om du vill övervaka Kubernetes utan att instrumentera programmet med ett SDK kan du använda metoden nedan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett [Kubernetes-kluster](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads).
 - Konsol åtkomst till klustret för att köra *kubectl*.
 - En [program Insight-resurs](create-new-resource.md)
 - Ha ett tjänst nät. Om klustret inte har Istio distribuerat kan du lära dig hur du [installerar och använder Istio i Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/aks/istio-install).
 
-## <a name="capabilities"></a>Kapacitet
+## <a name="capabilities"></a>Funktioner
 
 Genom att använda program övervakning utan Instrumentation för Kubernetes värdbaserade appar kan du använda:
 
@@ -44,7 +42,7 @@ Genom att använda program övervakning utan Instrumentation för Kubernetes vä
 - [Distribuerad spårning](../../azure-monitor/app/distributed-tracing.md)
 - [Transaktions övervakning från slut punkt till slut punkt](../../azure-monitor/learn/tutorial-performance.md#identify-slow-server-operations)
 
-## <a name="installation-steps"></a>Installations steg
+## <a name="installation-steps"></a>Installationssteg
 
 För att aktivera lösningen utför vi följande steg:
 - Distribuera programmet (om det inte redan har distribuerats).
@@ -98,7 +96,7 @@ Program som körs utanför tjänst nätet påverkas inte.
 - Generera en exempel förfrågan mot ditt program för att bekräfta att övervakningen fungerar korrekt.
 - Inom 3-5 minuter bör du börja se telemetri visas i Azure Portal. Se avsnittet *program karta* i Application Insights resursen i portalen.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Nedan visas fel söknings flödet som används när telemetri inte visas i Azure Portal som förväntat.
 
@@ -129,7 +127,7 @@ Nedan visas fel söknings flödet som används när telemetri inte visas i Azure
    ```
    Sök efter eventuella fel, särskilt för kommunikation med *applicationinsightsadapter* -adaptern.
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 Den senaste informationen om förloppet för det här projektet finns på [Application Insights adapter för GitHub för Istio-mixer](https://github.com/Microsoft/Application-Insights-Istio-Adapter/blob/master/SETUP.md#faq).
 

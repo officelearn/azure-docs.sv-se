@@ -1,19 +1,17 @@
 ---
 title: Korrelation för Azure Application Insights-telemetri | Microsoft Docs
 description: Korrelation för Application Insights telemetri
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: bc73dfb1c4dc77abe0bd135ecf572fa05ddf6322
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 06897fffda490cdfcbb2a9cf6f55c7945e8afda0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951334"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672063"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetri korrelation i Application Insights
 
@@ -47,11 +45,11 @@ Du kan analysera den resulterande Telemetrin genom att köra en fråga:
 
 Observera i resultaten att alla telemetridata delar rot `operation_Id`. När ett AJAX-anrop görs från sidan, tilldelas ett nytt unikt ID (`qJSXU`) till beroende telemetri och ID: t för sid visningar används som `operation_ParentId`. Serverbegäran använder sedan Ajax-ID: t som `operation_ParentId`.
 
-| itemType   | namn                      | ID           | operation_ParentId | operation_Id |
+| ItemType   | namn                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | Sid visningar   | Pappers sida                |              | STYz               | STYz         |
 | beroende | Hämta/Home/Stock           | qJSXU        | STYz               | STYz         |
-| request    | Hämta hem/aktie            | KqKwlrSt9PA= | qJSXU              | STYz         |
+| begäran    | Hämta hem/aktie            | KqKwlrSt9PA= | qJSXU              | STYz         |
 | beroende | Hämta/API/Stock/Value      | bBrf2L7mm2g = | KqKwlrSt9PA=       | STYz         |
 
 När anrops `GET /api/stock/value` görs till en extern tjänst måste du känna till identiteten för servern så att du kan ställa in fältet `dependency.target` på lämpligt sätt. När den externa tjänsten inte har stöd för övervakning har `target` angetts som värd namnet för tjänsten (till exempel `stock-prices-api.com`). Men om tjänsten identifierar sig själv genom att returnera ett fördefinierat HTTP-huvud, `target` innehåller tjänst identiteten som gör att Application Insights kan bygga en distribuerad spårning genom att fråga telemetri från den tjänsten.
@@ -267,7 +265,7 @@ Om du tittar på posten i begäran som skickades till Azure Monitor kan du se f�
 
 `operation_ParentId` fältet har formatet `<trace-id>.<parent-id>`där både `trace-id` och `parent-id` tas från spårnings huvudet som skickades i begäran.
 
-### <a name="log-correlation"></a>Loggkorrelation
+### <a name="log-correlation"></a>Logg korrelation
 
 Med openräkning python kan du korrelera loggar genom att lägga till ett spårnings-ID, ett intervall-ID och en samplings flagga till logg poster. Du lägger till dessa attribut genom att installera [integrering](https://pypi.org/project/opencensus-ext-logging/)av openräknings loggning. Följande attribut kommer att läggas till i python `LogRecord` objekt: `traceId`, `spanId`och `traceSampled`. Observera att detta endast gäller för loggar som skapas efter integrationen.
 

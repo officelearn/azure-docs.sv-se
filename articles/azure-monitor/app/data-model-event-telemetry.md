@@ -1,19 +1,15 @@
 ---
 title: Data modell för Azure Application Insights-telemetri – Event-telemetri | Microsoft Docs
 description: Application Insights data modell för telemetri av händelser
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 620983fb2174fe7f32a61503b0b87e8e7ce0c330
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: bd8b2581f7642f6825aaf0d1b51c8e94d4333d33
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678155"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671893"
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>Event telemetri: Application Insights data modell
 

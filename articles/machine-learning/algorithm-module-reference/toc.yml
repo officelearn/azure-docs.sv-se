@@ -46,6 +46,8 @@
       href: select-columns-transform.md
     - name: Välja kolumner i datauppsättning
       href: select-columns-in-dataset.md
+    - name: Dela data
+      href: split-data.md
 - name: Funktionsexempel
   items:
     - name: Filterbaserat funktionsval
@@ -142,5 +144,11 @@
       href: score-svd-recommender.md
     - name: Träna SVD-rekommenderare
       href: train-svd-recommender.md
+- name: Avvikelseidentifiering
+  items:
+    - name: PCA-baserad avvikelseidentifiering
+      href: pca-based-anomaly-detection.md
+    - name: Träna avvikelseidentifieringsmodell
+      href: train-anomaly-detection-model.md
 - name: Modulfel och felsökning
   href: designer-error-codes.md

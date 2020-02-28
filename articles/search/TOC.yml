@@ -35,7 +35,7 @@
       href: search-get-started-python.md
 - name: Självstudier
   items:
-    - name: 'Skapa din första C#-app'
+    - name: 'Skapa en C#-app'
       items:
         - name: 1 – Grundläggande söksida
           href: tutorial-csharp-create-first-app.md
@@ -47,13 +47,15 @@
           href: tutorial-csharp-facets.md
         - name: 5 – Lägg till resultatordning
           href: tutorial-csharp-orders.md
-    - name: Indexera Azure SQL Database
-      href: search-indexer-tutorial.md
-    - name: Indexera Azure JSON-blobar
-      href: search-semi-structured-data.md
-    - name: Indexera flera Azure-datakällor
-      href: tutorial-multiple-data-sources.md
-    - name: Förbättra med AI (kognitiv sökning)
+    - name: Indexera Azure-data
+      items:
+        - name: Indexera Azure SQL Database
+          href: search-indexer-tutorial.md
+        - name: Indexera Azure JSON-blobar
+          href: search-semi-structured-data.md
+        - name: Indexera flera Azure-datakällor
+          href: tutorial-multiple-data-sources.md
+    - name: Använda AI för att skapa innehåll
       items:
         - name: 'C#'
           href: cognitive-search-tutorial-blob-dotnet.md

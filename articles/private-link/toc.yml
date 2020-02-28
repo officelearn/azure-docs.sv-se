@@ -6,22 +6,18 @@
       href: private-link-overview.md
 - name: Snabbstarter
   items:
-    - name: Skapa en privat slutpunkt
-      items:
-        - name: Azure Portal
-          href: create-private-endpoint-portal.md
-        - name: Azure CLI
-          href: create-private-endpoint-cli.md
-        - name: Azure PowerShell
-          href: create-private-endpoint-powershell.md
-    - name: Skapa en Private Link-tjänst
-      items:
-        - name: Azure Portal
-          href: create-private-link-service-portal.md
-        - name: Azure PowerShell
-          href: create-private-link-service-powershell.md
-        - name: Azure CLI
-          href: create-private-link-service-cli.md
+    - name: Skapa en privat slutpunkt – portalen
+      href: create-private-endpoint-portal.md
+    - name: Skapa en privat slutpunkt – PowerShell
+      href: create-private-endpoint-powershell.md
+    - name: Skapa en privat slutpunkt – Azure CLI
+      href: create-private-endpoint-cli.md
+    - name: Skapa en Private Link-tjänst – portalen
+      href: create-private-link-service-portal.md
+    - name: Skapa en Private Link-tjänst – PowerShell
+      href: create-private-link-service-powershell.md
+    - name: Skapa en Private Link-tjänst – Azure CLI
+      href: create-private-link-service-cli.md
 - name: Begrepp
   items:
     - name: Privat slutpunkt

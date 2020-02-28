@@ -669,12 +669,18 @@
                   href: ../common/storage-solution-periodic-data-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Samtidighet
           href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Åtkomst för flera protokoll
-          href: ../blobs/data-lake-storage-multi-protocol-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Kompatibilitet
+          items:
+            - name: Åtkomst för flera protokoll
+              href: data-lake-storage-multi-protocol-access.md
+            - name: Blob Storage-funktioner som stöds
+              href: data-lake-storage-supported-blob-storage-features.md
+            - name: Azure-tjänster som stöds
+              href: data-lake-storage-supported-azure-services.md
+            - name: Plattformar för öppen källkod som stöds
+              href: data-lake-storage-supported-open-source-platforms.md
         - name: Bearbeta stordata
           href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Integrera med Azure-tjänster
-          href: ../blobs/data-lake-storage-integrate-with-azure-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Drivrutin för Azure Blob-filsystemet för Hadoop
           href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: URI för Azure Blob-filsystemet

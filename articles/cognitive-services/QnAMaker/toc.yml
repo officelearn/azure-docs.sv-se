@@ -88,6 +88,8 @@
         - name: Utvecklingscykel
           href: Concepts/development-lifecycle-knowledge-base.md
           displayName: 'version control, test, index, publish, monitor usage, create'
+        - name: Förbättra med förslag för aktiv inlärning
+          href: Concepts/active-learning-suggestions.md
     - name: Fråga kunskapsbas
       items:
         - name: Få svar

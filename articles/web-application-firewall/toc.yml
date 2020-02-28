@@ -50,6 +50,8 @@
       items:
         - name: Anpassade regler
           href: ./afds/waf-front-door-custom-rules.md
+        - name: Undantagslista
+          href: ./afds/waf-front-door-exclusion.md
         - name: Principinställningar
           href: ./afds/waf-front-door-policy-settings.md
         - name: Geo-filtrering

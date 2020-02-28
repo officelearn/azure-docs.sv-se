@@ -247,11 +247,11 @@
           href: virtual-machine-scale-sets-networking.md
         - name: Automatiska uppgraderingar av operativsystem
           href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: Instansskydd (förhandsversion)
+        - name: Instansskydd
           href: virtual-machine-scale-sets-instance-protection.md
-        - name: Inskalningsprincip (förhandsversion)
+        - name: Nedskalningsprincip
           href: virtual-machine-scale-sets-scale-in-policy.md
-        - name: Avsluta avisering vid borttagning (förhandsversion)
+        - name: Avsluta avisering vid borttagning
           href: virtual-machine-scale-sets-terminate-notification.md
         - name: Delade bildgallerier
           items:

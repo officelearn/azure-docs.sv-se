@@ -4,6 +4,8 @@
   items:
     - name: Vad är Automation?
       href: automation-intro.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: automation-faq.md
 - name: Automation-konto
   items:
     - name: Skapa ett Automation-konto
@@ -136,6 +138,8 @@
       displayName: 'dynamic groups, pre scripts, post scripts, reboot control, first party, pre download, inclusion'
     - name: Publicering
       items:
+        - name: Använda en Resource Manager-mall
+          href: automation-update-management-deploy-template.md
         - name: Publicera flera virtuella datorer från portalen
           href: automation-onboard-solutions-from-browse.md
         - name: Publicera från en virtuell Azure-dator

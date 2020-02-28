@@ -123,6 +123,8 @@
           href: large-number-tasks.md
         - name: Söka efter jobb- och uppgiftsfel
           href: batch-job-task-error-checking.md
+        - name: Identifiera och hantera batch-tjänstens fel
+          href: batch-retry-after-errors.md
     - name: Skapa resursfiler
       href: resource-files.md
     - name: Bevara jobb- och uppgiftsutdata

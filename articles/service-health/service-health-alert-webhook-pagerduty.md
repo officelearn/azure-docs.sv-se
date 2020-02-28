@@ -1,14 +1,14 @@
 ---
 title: Skicka Azure Service Health-aviseringar med PagerDuty
 description: Få personligt anpassade meddelanden om service Health-händelser till din PagerDuty-instans.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 746113622b746949a0fae3fd0d7f1f9c7d170707
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: bb449a5279f3cea55e6aec2f72edfd11fb26227a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551660"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654077"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Skicka Azure Service Health-aviseringar med PagerDuty med webhookar
 

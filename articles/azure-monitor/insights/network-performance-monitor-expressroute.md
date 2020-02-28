@@ -1,18 +1,17 @@
 ---
 title: Övervakare av nätverksprestanda lösning i Azure Log Analytics | Microsoft Docs
 description: Använd ExpressRoute Monitor-funktionen i Övervakare av nätverksprestanda för att övervaka anslutnings möjligheter från slut punkt till slut punkt och prestanda mellan dina avdelnings kontor och Azure, via Azure ExpressRoute.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
-ms.openlocfilehash: 5383402816eddba4c631c240585723b7c7119cef
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6ac610d7dcf9849b6b439741957684867b9d01aa
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898882"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660758"
 ---
 # <a name="expressroute-monitor"></a>Övervakaren ExpressRoute
 
@@ -28,7 +27,7 @@ Du kan använda Azure ExpressRoute Monitor-funktionen i [övervakare av nätverk
 Öppna konfigurationen för Övervakare av nätverksprestanda genom att öppna [övervakare av nätverksprestanda lösning](network-performance-monitor.md) och välja **Konfigurera**.
 
 ### <a name="configure-network-security-group-rules"></a>Konfigurera regler för nätverks säkerhets grupper 
-För de servrar i Azure som används för övervakning via Övervakare av nätverksprestanda konfigurerar du regler för nätverks säkerhets grupper (NSG) för att tillåta TCP-trafik på den port som används av Övervakare av nätverksprestanda för syntetiska transaktioner. Standard porten är 8084. Med den här konfigurationen kan Log Analytics-agenten som är installerad på virtuella Azure-datorer kommunicera med en lokal övervaknings agent. 
+För de servrar i Azure som används för övervakning via Övervakare av nätverksprestanda konfigurerar du regler för nätverks säkerhets grupper (NSG) för att tillåta TCP-trafik på den port som används av Övervakare av nätverksprestanda för syntetiska transaktioner. Standardporten är 8084. Med den här konfigurationen kan Log Analytics-agenten som är installerad på virtuella Azure-datorer kommunicera med en lokal övervaknings agent. 
 
 Mer information om NSG: er finns i [nätverks säkerhets grupper](../../virtual-network/manage-network-security-group.md). 
 
@@ -76,7 +75,7 @@ Instrument panelen Övervakare av nätverksprestanda visar en översikt över h�
 
 ### <a name="circuits-list"></a>Krets lista 
 
-Om du vill se en lista över alla övervakade ExpressRoute-kretsar väljer du panelen ExpressRoute-kretsar. Du kan välja en krets och visa dess hälso tillstånd, trend diagram för paket förlust, bandbredds användning och svars tid. Diagrammen är interaktiva. Du kan välja ett anpassat tids fönster för att rita diagram. Dra musen över ett yta i diagrammet för att zooma in och se detaljerade data punkter. 
+Om du vill se en lista över alla övervakade ExpressRoute-kretsar väljer du panelen ExpressRoute-kretsar. Du kan välja en krets och visa dess hälsotillstånd, trenddiagram för paketförlust, nyttjandet av bandbredd och latens. Diagrammen är interaktiva. Du kan välja ett anpassat tidsintervall för diagrammen. Dra musen över ett yta i diagrammet för att zooma in och se detaljerade data punkter. 
 
 ![Lista med ExpressRoute-kretsar](media/network-performance-monitor-expressroute/expressroute-circuits.png) 
 
@@ -88,7 +87,7 @@ Diagrammets användnings-, latens-och förlust diagram är interaktiva. Du kan z
 
 ### <a name="peerings-list"></a>Peering-lista 
 
-Om du vill visa en lista över alla anslutningar till virtuella nätverk via privat peering väljer du panelen **privata peer** -kopplingar på instrument panelen. Här kan du välja en virtuell nätverks anslutning och visa dess hälso tillstånd, trend diagram för paket förlust, bandbredds användning och svars tid. 
+Om du vill visa en lista över alla anslutningar till virtuella nätverk via privat peering väljer du panelen **privata peer** -kopplingar på instrument panelen. Här kan du kan välja en virtuell nätverksanslutning och visa dess hälsotillstånd, trenddiagram för paketförlust, nyttjandet av bandbredd och latens. 
 
 ![ExpressRoute-peering](media/network-performance-monitor-expressroute/expressroute-peerings.png) 
 

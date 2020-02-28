@@ -1,18 +1,17 @@
 ---
 title: Prestanda övervaknings funktion i Övervakare av nätverksprestanda lösning i Azure Log Analytics | Microsoft Docs
 description: Prestanda övervaknings funktionen i Övervakare av nätverksprestanda hjälper dig att övervaka nätverks anslutningen mellan olika platser i nätverket. Du kan övervaka moln distributioner och lokala platser, flera data Center och avdelnings kontor och verksamhets kritiska program på flera nivåer eller mikrotjänster.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 745ec6ee8e69ad911e42b6360b3408d79d660718
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: dfbc4ea8e168ced95a4239dd100cf7277e0adf7b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898838"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654536"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Övervakare av nätverksprestanda lösning: prestanda övervakning
 

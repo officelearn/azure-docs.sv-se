@@ -1,19 +1,17 @@
 ---
 title: Azure Application Insights-beroende automatisk insamling | Microsoft Docs
 description: Application Insights automatiskt samla in och visualisera beroenden
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: reference
 author: nikmd23
 ms.author: nimolnar
 ms.date: 04/29/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: e774690fae2314b8db6e14f19a67c7ae1ce3a203
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: eaafe19f5112b433d50a34aa551aa84d196726a5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064282"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665824"
 ---
 # <a name="dependency-auto-collection"></a>Automatisk insamling för beroenden
 
@@ -43,7 +41,7 @@ Nedan visas en lista över beroende anrop som identifieras automatiskt som beroe
 | [Jetty](https://www.eclipse.org/jetty/) | 9 |
 | <b>App-ramverk</b> |  |
 | [Spring](https://spring.io/) | 3.0 |
-| [Våren Boot](https://spring.io/projects/spring-boot) | 1.5.9 +<sup>*</sup> |
+| [Spring Boot](https://spring.io/projects/spring-boot) | 1.5.9 +<sup>*</sup> |
 | Java-servlet | 3.1 + |
 | <b>Kommunikations bibliotek</b> |  |
 | [Apache HTTP-klient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3 +<sup>†</sup> |

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
-ms.openlocfilehash: 47e38d79e8aa4656b8164c94b4ef439bf431e01d
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: af5ab05cb772909cd36e2e6bfe1c100a5b83841c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049673"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660044"
 ---
 # <a name="linux-support"></a>Linux-support
 
@@ -21,6 +21,9 @@ Du kan använda Linux SDK för Windows Virtual Desktop för att bygga en fristå
 ## <a name="what-is-the-linux-sdk"></a>Vad är Linux SDK?
 
 Du kan använda SDK-API: er för att hämta resurs flöden, ansluta till Skriv bords-eller fjärranslutna programsessioner och använda många av de omdirigeringar som våra klienter från den första parten har stöd för.
+
+> [!NOTE]
+> SDK är för närvarande under utveckling. Vi kommer att uppdatera det här dokumentet med instruktioner för att få åtkomst till SDK när det är tillgängligt.
 
 ### <a name="supported-linux-distributions"></a>Linux-distributioner som stöds
 
@@ -54,8 +57,6 @@ Innan du kan utveckla en Linux-klient för Windows Virtual Desktop måste du gö
 2. Testa de tillgängliga första parts-klienterna för att bekanta dig med användar upplevelsen av Windows virtuella skriv bord.
 
 ## <a name="next-steps"></a>Nästa steg
-
-SDK är för närvarande under utveckling. Vi kommer att uppdatera det här dokumentet med instruktioner för att få åtkomst till SDK när det är tillgängligt.
 
 Kolla in vår dokumentation för följande klienter:
 

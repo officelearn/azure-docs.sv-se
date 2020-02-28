@@ -1,18 +1,15 @@
 ---
 title: Partner som integrerar med Azure Monitor
 description: Lär dig mer om Azure Monitors partner och hur du kan komma åt dokumentation för integrering med dem.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: e111bcdde9381e8e418e7027d8294aa7dad7e39d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 40ba4c4f0a90d5bca03afea67302a5dbb77de027
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023879"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659466"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor partner integreringar
 
@@ -89,7 +86,7 @@ DynaTrace-OneAgent integreras med virtuella Azure-datorer och App Services via A
 
 [Gå till dokumentationen.][dynatrace-doc]
 
-## <a name="elastic"></a>Flexibilitet
+## <a name="elastic"></a>Elastiska
 
 ![Elastisk logo typ](./media/partners/elastic.png)
 
@@ -247,7 +244,7 @@ Sumo Logic är en säker, molnbaserad, maskin data analys tjänst som levererar 
 
 ![Turbonomic-logotyp](./media/partners/Turbonomic.png)
 
-Turbonomic levererar arbetsbelastningsautomatisering för hybridmoln genom att samtidigt optimera prestanda, kostnad och efterlevnad i realtid. Turbonomic hjälper organisationer att bli elastiska i sin Azure-fastighets genom att kontinuerligt optimera fastigheten för att säkerställa att program ständigt får de resurser som krävs för att leverera sitt service avtal och inget mer för beräkning, lagring och nätverk för IaaS och PaaS Layer. Organisationer kan simulera migreringar, skala arbets belastningar på rätt sätt och dra tillbaka data Center resurser för att ett ansvarsfullt sätt migrera till Azure i tid, inom budgeten, samtidigt som de kan garantera både prestanda och efterlevnad. Turbonomic drivs med hjälp av API och körs som en virtuell dator utan agent i Azure och lokalt.
+Turbonomic levererar arbets belastnings automatisering för Hybrid moln genom att samtidigt optimera prestanda, kostnad och efterlevnad i real tid. Turbonomic hjälper organisationer att bli elastiska i sin Azure-fastighets genom att kontinuerligt optimera fastigheten för att säkerställa att program ständigt får de resurser som krävs för att leverera sitt service avtal och inget mer för beräkning, lagring och nätverk för IaaS och PaaS Layer. Organisationer kan simulera migreringar, skala arbets belastningar på rätt sätt och dra tillbaka data Center resurser för att ett ansvarsfullt sätt migrera till Azure i tid, inom budgeten, samtidigt som de kan garantera både prestanda och efterlevnad. Turbonomic är API driven och körs som en virtuell dator utan agent i Azure och lokalt.
 
 [Läs mer.][turbonomic-doc]
 

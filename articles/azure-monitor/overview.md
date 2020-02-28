@@ -1,22 +1,21 @@
 ---
 title: Översikt över Azure Monitor | Microsoft Docs
 description: Översikt över Microsoft-tjänster och funktioner som bidrar till en fullständig övervakningsstrategi för dina Azure-tjänster och program.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: f5d98ecdac3acacda2b592f88e7db45dc181e8da
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: cec437929e2f7ccd94cf4cf94ec81f87dac2678a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934465"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669173"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
-Azure Monitor maximerar tillgängligheten och prestanda för dina program och tjänster genom att tillhandahålla en heltäckande lösning som samlar in, analyserar och hanterar telemetri från molnet och lokala miljöer. Det hjälper dig att förstå hur dina program fungerar och identifierar proaktivt problem som påverkar dem och de resurser som de är beroende av.
+Azure Monitor maximerar tillgängligheten och prestandan för dina program och tjänster genom att leverera en omfattande lösning för att samla in, analysera och agera på telemetri från molnet och lokala miljöer. Det hjälper dig att förstå hur dina program fungerar och identifierar proaktivt problem som påverkar dem och de resurser som de förlitar sig på.
 
 Några exempel på vad du kan göra med Azure Monitor är:
 
@@ -131,11 +130,11 @@ Med [Azure-instrumentpaneler](../azure-portal/azure-portal-dashboards.md) kan du
 ## <a name="integrate-and-export-data"></a>Integrera och exportera data
 Du har ofta behov av att integrera Azure Monitor med andra system och att bygga anpassade lösningar som använder dina övervaknings data. Andra Azure-tjänster fungerar med Azure Monitor för att tillhandahålla denna integrering.
 
-### <a name="event-hub"></a>Event Hub
+### <a name="event-hub"></a>Händelsehubb
 [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) är en strömmande plattform och händelse inmatnings tjänst som kan transformera och lagra data med hjälp av en analys av real tids analys eller batch-/minnes kort. Använd Event Hubs för att [strömma Azure Monitor data](platform/stream-monitoring-data-event-hubs.md) till partner Siem och övervaknings verktyg.
 
 
-### <a name="logic-apps"></a>Logikappar
+### <a name="logic-apps"></a>Logic Apps
 [Logic Apps](https://azure.microsoft.com/services/logic-apps) är en tjänst som gör att du kan automatisera uppgifter och affärs processer med hjälp av arbets flöden som integreras med olika system och tjänster. Det finns aktiviteter som läser och skriver mått och loggar i Azure Monitor, vilket gör att du kan skapa arbets flöden som integreras med en mängd olika system.
 
 

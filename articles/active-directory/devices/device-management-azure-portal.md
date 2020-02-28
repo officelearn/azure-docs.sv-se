@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c8e94a1b15ad8cd55019f9351c82f58130e472d
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e09de5911ca0946bfcbcb77d1ad4131c8feac9f0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420614"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654672"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Hantera enhets identiteter med hjälp av Azure Portal
 
@@ -29,15 +29,10 @@ Den här artikeln:
 
 ## <a name="manage-device-identities"></a>Hantera enhetsidentiteter
 
-Azure AD-portalen ger dig en central plats för att hantera dina enhets identiteter. Du kan komma åt den här platsen genom att antingen använda en [direkt länk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) eller genom att följa dessa manuella steg:
+Azure AD-portalen ger dig en central plats för att hantera dina enhets identiteter. Du kan komma åt den här platsen genom att antingen använda en [direkt länk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) eller:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-
-2. Sök efter och välj **Azure Active Directory** eller Välj den från **Start** sidan.
-
-3. I avsnittet **Hantera** klickar du på **enheter**.
-
-   ![Konfigurera enhets inställningar](./media/device-management-azure-portal/74.png)
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Bläddra till **Azure Active Directory** > **enheter**.
 
 På sidan **enheter** kan du:
 
@@ -50,13 +45,11 @@ På sidan **enheter** kan du:
 
 Om du vill hantera enhets identiteter med Azure AD-portalen måste enheterna antingen vara [registrerade eller anslutna](overview.md) till Azure AD. Som administratör kan du finjustera processen för att registrera och ansluta enheter genom att konfigurera enhets inställningarna.
 
-![Konfigurera enhets inställningar](./media/device-management-azure-portal/22.png)
-
-På sidan enhets inställningar kan du konfigurera:
+På sidan enhets inställningar kan du konfigurera inställningar som rör enhets identiteter:
 
 ![Hantera en Intune-enhet](./media/device-management-azure-portal/21.png)
 
-- **Användare kan ansluta enheter till Azure AD** – med den här inställningen kan du välja vilka användare som kan registrera sina enheter som Azure AD-anslutna enheter. Standardvärdet är **alla**.
+- **Användare kan ansluta enheter till Azure AD** – med den här inställningen kan du välja vilka användare som kan registrera sina enheter som Azure AD-anslutna enheter. Standardvärdet är **Alla**.
 
 > [!NOTE]
 > **Användare kan ansluta enheter till Azure AD** -inställningen gäller bara för Azure AD Join i Windows 10.
@@ -81,12 +74,7 @@ Det här alternativet är en Premium funktion som är tillgänglig via produkter
 Det finns två alternativ för att hitta registrerade och anslutna enheter:
 
 - **Alla enheter** i avsnittet **Hantera** på sidan **enheter**  
-
-   ![Alla enheter](./media/device-management-azure-portal/41.png)
-
 - **Enheter** i avsnittet **Hantera** på en **användar** sida
-
-   ![Alla enheter](./media/device-management-azure-portal/43.png)
 
 Med båda alternativen kan du komma till en vy som:
 
@@ -193,13 +181,11 @@ Enhets aktiviteter är tillgängliga via aktivitets loggarna. Dessa loggar inneh
 
 Din start punkt till gransknings data är **gransknings loggar** i avsnittet **aktivitet** på sidan **enheter** .
 
-![Granskningsloggar](./media/device-management-azure-portal/61.png)
-
-En granskningslogg har en standardlistvy som visar:
+Gransknings loggen har en Standardlistvy som visar:
 
 - Datum och tid för förekomsten
 - Målen
-- Initieraren/aktören (som) för en aktivitet
+- initieraren/aktören (som) för en aktivitet
 - Aktiviteten (vad)
 
 ![Granskningsloggar](./media/device-management-azure-portal/63.png)

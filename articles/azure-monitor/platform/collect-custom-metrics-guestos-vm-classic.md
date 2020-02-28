@@ -3,17 +3,16 @@ title: Skicka de klassiska Windows-DATORernas mått till Azure Monitor mått dat
 description: Skicka gäst operativ systemets mått till Azure Monitor data lager för en virtuell Windows-dator (klassisk)
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: d911a6b65ba0d63bca09437f6451019addcbc0b3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 65bb1a3915ece384974da12b4e7a1ad0c1e08133
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977627"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655828"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Skicka gäst operativ systemets mått till Azure Monitor Metrics-databasen för en virtuell Windows-dator (klassisk)
 
@@ -27,7 +26,7 @@ Genom att lagra dem på den här platsen kan du komma åt samma åtgärder som d
 
 Processen som beskrivs i den här artikeln fungerar bara på klassiska virtuella datorer som kör Windows operativ system.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste vara [tjänst administratör eller delad administratör](../../cost-management-billing/manage/add-change-subscription-administrator.md) på din Azure-prenumeration. 
 
@@ -60,7 +59,7 @@ Ge den här appen "Monitoring Metrics Publisher" behörigheter till den resurs s
 
 ## <a name="author-diagnostics-extension-configuration"></a>Redigera konfiguration av Diagnostics-tillägg
 
-1. Förbered konfigurations filen för Diagnostics Extension. Den här filen avgör vilka loggar och prestanda räknare som Diagnostics-tillägget ska samla in för den klassiska virtuella datorn. Här är ett exempel:
+1. Förbered konfigurations filen för Diagnostics Extension. Den här filen avgör vilka loggar och prestanda räknare som Diagnostics-tillägget ska samla in för den klassiska virtuella datorn. Följande är ett exempel:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>

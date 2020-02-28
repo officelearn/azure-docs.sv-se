@@ -5,25 +5,25 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 1e6a21e8bf9c284c83af09885aa66b612b52ad7c
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.custom: hdinsightactive
+ms.date: 02/25/2020
+ms.openlocfilehash: 30664d533215cb49fa6f436ec4cf88fa319c3300
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044710"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659874"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planera ett virtuellt nätverk för Azure HDInsight
 
-Den här artikeln innehåller bakgrunds information om hur du använder [virtuella Azure-nätverk](../virtual-network/virtual-networks-overview.md) med Azure HDInsight. Den diskuterar också design-och implementerings beslut som måste göras innan du kan implementera ett virtuellt nätverk för ditt HDInsight-kluster. När planerings fasen är färdig kan du fortsätta med att [skapa virtuella nätverk för Azure HDInsight-kluster](hdinsight-create-virtual-network.md). Mer information om hanterings-IP-adresser för HDInsight som behövs för att konfigurera nätverks säkerhets grupper och användardefinierade vägar finns i [hanterings-IP-adresser för HDInsight](hdinsight-management-ip-addresses.md).
+Den här artikeln innehåller bakgrunds information om hur du använder [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) (virtuella nätverk) med Azure HDInsight. Den diskuterar också design-och implementerings beslut som måste göras innan du kan implementera ett virtuellt nätverk för ditt HDInsight-kluster. När planerings fasen är färdig kan du fortsätta med att [skapa virtuella nätverk för Azure HDInsight-kluster](hdinsight-create-virtual-network.md). Mer information om hanterings-IP-adresser för HDInsight som behövs för att konfigurera nätverks säkerhets grupper (NSG: er) och användardefinierade vägar finns i [hanterings-IP-adresser för HDInsight](hdinsight-management-ip-addresses.md).
 
 Med hjälp av en Azure-Virtual Network kan du använda följande scenarier:
 
 * Ansluta till HDInsight direkt från ett lokalt nätverk.
 * Ansluta HDInsight till data lager i ett virtuellt Azure-nätverk.
-* Direkt åtkomst till [Apache Hadoop](https://hadoop.apache.org/) tjänster som inte är tillgängliga offentligt via Internet. Till exempel [Apache Kafka](https://kafka.apache.org/) API: er eller [Apache HBase](https://hbase.apache.org/) Java API.
+* Direkt åtkomst till Apache Hadoop tjänster som inte är tillgängliga offentligt via Internet. Till exempel Apache Kafka API: er eller Apache HBase Java API.
 
 > [!IMPORTANT]
 > När du skapar ett HDInsight-kluster i ett virtuellt nätverk skapas flera nätverks resurser, t. ex. nätverkskort och belastningsutjämnare. Ta **inte** bort de här nätverks resurserna eftersom de behövs för att klustret ska fungera korrekt med det virtuella nätverket.
@@ -64,19 +64,19 @@ Använd stegen i det här avsnittet för att upptäcka hur du lägger till en ny
 2. Använder du nätverks säkerhets grupper, användardefinierade vägar eller Virtual Network anordningar för att begränsa trafiken till eller från det virtuella nätverket?
 
     Som en hanterad tjänst kräver HDInsight obegränsad åtkomst till flera IP-adresser i Azure Data Center. Om du vill tillåta kommunikation med de här IP-adresserna uppdaterar du alla befintliga nätverks säkerhets grupper eller användardefinierade vägar.
-    
+
     HDInsight är värd för flera tjänster, som använder en mängd olika portar. Blockera inte trafik till dessa portar. En lista över portar som tillåts via brand väggar för virtuella installationer finns i avsnittet säkerhet.
-    
+
     Använd följande Azure PowerShell-eller Azure CLI-kommandon för att hitta din befintliga säkerhets konfiguration:
 
     * Nätverkssäkerhetsgrupper
 
         Ersätt `RESOURCEGROUP` med namnet på den resurs grupp som innehåller det virtuella nätverket och ange sedan kommandot:
-    
+
         ```powershell
         Get-AzNetworkSecurityGroup -ResourceGroupName  "RESOURCEGROUP"
         ```
-    
+
         ```azurecli
         az network nsg list --resource-group RESOURCEGROUP
         ```
@@ -141,7 +141,7 @@ Om du vill aktivera namn matchning mellan det virtuella nätverket och resursern
 4. Konfigurera vidarebefordring mellan DNS-servrarna. Konfigurationen beror på typen av fjärrnätverk.
 
    * Om fjärrnätverket är ett lokalt nätverk konfigurerar du DNS på följande sätt:
-        
+
      * __Anpassad DNS__ (i det virtuella nätverket):
 
          * Vidarebefordra begär Anden för DNS-suffixet för det virtuella nätverket till Azures rekursiva matchare (168.63.129.16). Azure hanterar begär Anden om resurser i det virtuella nätverket
@@ -235,12 +235,12 @@ Mer information om hur du styr utgående trafik från HDInsight-kluster finns i 
 
 #### <a name="forced-tunneling-to-on-premises"></a>Tvingad tunnel trafik till lokalt
 
-Tvingad tunnel trafik är en användardefinierad routningstabell där all trafik från ett undernät tvingas till ett nätverk eller en viss plats, till exempel ditt lokala nätverk. HDInsight har __inte__ stöd för Tvingad tunnel trafik till lokala nätverk. 
+Tvingad tunnel trafik är en användardefinierad routningstabell där all trafik från ett undernät tvingas till ett nätverk eller en viss plats, till exempel ditt lokala nätverk. HDInsight har __inte__ stöd för Tvingad tunnel trafik till lokala nätverk.
 
 ## <a id="hdinsight-ip"></a>IP-adresser som krävs
 
-Om du använder nätverks säkerhets grupper eller användardefinierade vägar för att styra trafiken kan du se [IP-adresser för HDInsight-hantering](hdinsight-management-ip-addresses.md).
-    
+Om du använder nätverks säkerhets grupper eller användardefinierade vägar för att styra trafiken, se [hanterings-IP-adresser för HDInsight](hdinsight-management-ip-addresses.md).
+
 ## <a id="hdinsight-ports"></a>Portar som krävs
 
 Om du planerar att använda en **brand vägg** och komma åt klustret utifrån vissa portar kan du behöva tillåta trafik på de portar som behövs för ditt scenario. Som standard behövs ingen särskild vit listning för portar så länge som den Azure-hanteringsserver som beskrivs i föregående avsnitt kan komma åt klustret på port 443.
@@ -251,13 +251,16 @@ Mer information om brand Väggs regler för virtuella enheter finns i [scenario]
 
 ## <a name="load-balancing"></a>Belastningsutjämning
 
-När du skapar ett HDInsight-kluster skapas även en belastnings utjämning. Den här belastningsutjämnaren är på den [grundläggande SKU-nivån](../load-balancer/concepts-limitations.md#skus) som har vissa begränsningar. Ett av de här begränsningarna är att om du har två virtuella nätverk i olika regioner kan du inte ansluta till grundläggande belastnings utjämning. Mer information finns i [vanliga frågor och svar om virtuella nätverk: begränsningar för global VNet-peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+När du skapar ett HDInsight-kluster skapas även en belastnings utjämning. Den här belastningsutjämnaren är på den [grundläggande SKU-nivån](../load-balancer/concepts-limitations.md#skus), som har vissa begränsningar. Ett av de här begränsningarna är att om du har två virtuella nätverk i olika regioner kan du inte ansluta till grundläggande belastnings utjämning. Mer information finns i [vanliga frågor och svar om virtuella nätverk: begränsningar för global VNet-peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
 ## <a name="transport-layer-security"></a>Transport Layer Security
 
 Anslutningar till klustret via den offentliga kluster slut punkten `https://<clustername>.azurehdinsight.net` är via proxy via klusternoder. Dessa anslutningar skyddas med hjälp av ett protokoll som kallas TLS. Att framtvinga högre versioner av TLS på gateways förbättrar säkerheten för dessa anslutningar. Mer information om varför du bör använda nyare versioner av TLS finns i [lösa problemet med tls 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
 
-Du kan kontrol lera de lägsta TLS-versioner som stöds på Gateway-noderna för ditt HDInsight-kluster med hjälp av egenskapen *minSupportedTlsVersion* i en Resource Manager-mall vid distributions tillfället. En exempel-mall finns i [snabb starts mal len för HDInsight-lägsta TLS 1,2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Den här egenskapen stöder tre värden: "1,0", "1,1" och "1,2", som motsvarar TLS 1.0 +, TLS 1.1 + och TLS 1.2 + respektive. Som standard, utan att ange den här egenskapen, accepterar Azure HDInsight-kluster TLS 1,2-anslutningar på offentliga HTTPS-slutpunkter, samt äldre versioner för bakåtkompatibilitet. Slutligen kommer HDInsight att verkställa TLS 1,2 eller senare på alla gateway-noder.
+Som standard godkänner Azure HDInsight-kluster TLS 1,2-anslutningar på offentliga HTTPS-slutpunkter, samt äldre versioner för bakåtkompatibilitet. Du kan kontrol lera den lägsta TLS-version som stöds på Gateway-noderna när klustret skapas, antingen med hjälp av Azure Portal eller en Resource Manager-mall. För portalen väljer du TLS-versionen från fliken **säkerhet + nätverk** när klustret skapas. Använd egenskapen **minSupportedTlsVersion** för en Resource Manager-mall vid distributions tiden. En exempel-mall finns i [snabb starts mal len för HDInsight-lägsta TLS 1,2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Den här egenskapen stöder tre värden: "1,0", "1,1" och "1,2", som motsvarar TLS 1.0 +, TLS 1.1 + och TLS 1.2 + respektive.
+
+> [!IMPORTANT]
+> Från och med den 30 juni 2020 kommer Azure HDInsight att verkställa TLS 1,2 eller senare versioner för alla HTTPS-anslutningar. Vi rekommenderar att du ser till att alla klienter är redo att hantera TLS 1,2 eller senare versioner. Mer information finns i [Azure HDInsight TLS 1,2 Enforcement](https://azure.microsoft.com/updates/azure-hdinsight-tls-12-enforcement/).
 
 ## <a name="next-steps"></a>Nästa steg
 

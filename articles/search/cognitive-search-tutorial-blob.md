@@ -7,20 +7,20 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 5dffafba0f0dc0dc108bf2c82929c157018d8dbb
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/26/2020
+ms.openlocfilehash: 9d18bea70670acba404b2198e6b06ea2e9200c30
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113670"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667031"
 ---
 # <a name="tutorial-extract-text-and-structure-from-json-blobs-in-azure-using-rest-apis-azure-cognitive-search"></a>Självstudie: Extrahera text och struktur från JSON-blobbar i Azure med hjälp av REST API: er (Azure Kognitiv sökning)
 
-Om du har ostrukturerad text-eller bild innehåll i Azure Blob Storage kan en [AI-pipeline](cognitive-search-concept-intro.md) hjälpa dig att extrahera information och skapa nytt innehåll som är användbart för full texts ökning eller kunskaps utvinnings scenarier. Även om en pipeline kan bearbeta bildfiler (JPG, PNG, TIFF) fokuserar den här självstudien på Word-baserat innehåll, använder språk identifiering och text analys för att skapa nya fält och information som du kan använda i frågor, ansikte och filter.
+Om du har ostrukturerad text eller avbildningar i Azure Blob Storage kan en [AI-pipeline](cognitive-search-concept-intro.md) utvinna information och skapa nytt innehåll som är användbart för full texts ökning eller kunskaps utvinnings scenarier. Även om en pipeline kan bearbeta bilder, fokuserar den här självstudien på text, använder språk identifiering och bearbetning av naturligt språk för att skapa nya fält som du kan använda i frågor, ansikts och filter.
 
 > [!div class="checklist"]
-> * Börja med hela dokument (ostrukturerad text) som PDF, MD, DOCX och PPTX i Azure Blob Storage.
+> * Börja med hela dokument (ostrukturerad text) som PDF, HTML, DOCX och PPTX i Azure Blob Storage.
 > * Definiera en pipeline som extraherar text, identifierar språk, identifierar entiteter och identifierar viktiga fraser.
 > * Definiera ett index för att lagra utdata (RAW-innehåll, plus pipeline-genererade namn-värdepar).
 > * Kör pipelinen för att starta omvandlingar och analys och för att skapa och läsa in indexet.
@@ -38,7 +38,9 @@ Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt kont
 
 ## <a name="1---create-services"></a>1 – skapa tjänster
 
-I den här genom gången används Azure Kognitiv sökning för indexering och frågor, Cognitive Services för AI-anrikning och Azure Blob Storage för att tillhandahålla data. Om möjligt kan du skapa alla tre tjänsterna i samma region och resurs grupp för närhet och hanterbarhet. I praktiken kan ditt Azure Storage-konto finnas i vilken region som helst.
+I den här självstudien används Azure Kognitiv sökning för indexering och frågor, Cognitive Services på Server delen för AI-anrikning och Azure Blob Storage för att tillhandahålla data. Den här självstudien finns kvar under den kostnads fria allokeringen av 20 transaktioner per indexerare per dag på Cognitive Services, så de enda tjänsterna du behöver skapa är Sök och lagring.
+
+Skapa om möjligt både i samma region och resurs grupp för närhet och hanterbarhet. I praktiken kan ditt Azure Storage-konto finnas i vilken region som helst.
 
 ### <a name="start-with-azure-storage"></a>Börja med Azure Storage
 
@@ -90,7 +92,7 @@ AI-berikning backas upp av Cognitive Services, inklusive Textanalys och Visuellt
 
 I den här övningen kan du hoppa över resurs etableringen eftersom Azure Kognitiv sökning kan ansluta till Cognitive Services bakom kulisserna och ge dig 20 kostnads fria transaktioner per indexerare. Eftersom den här självstudien använder 7 transaktioner är den kostnads fria fördelningen tillräckligt. För större projekt bör du planera för etablering Cognitive Services på S0-nivån betala per användning. Mer information finns i [bifoga Cognitive Services](cognitive-search-attach-cognitive-services.md).
 
-### <a name="azure-cognitive-search"></a>Kognitiv sökning i Azure
+### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
 Den tredje komponenten är Azure-Kognitiv sökning, som du kan [skapa i portalen](search-create-service-portal.md). Du kan använda den kostnads fria nivån för att slutföra den här genom gången. 
 
@@ -481,13 +483,13 @@ Dessa frågor illustrerar några av de olika sätten att arbeta med frågesyntax
 
 ## <a name="reset-and-rerun"></a>Återställa och köra igen
 
-I de tidiga experiment faserna av pipeline-utveckling är den mest praktiska metoden för design iterationer att ta bort objekten från Azure Kognitiv sökning och tillåta att koden återskapas. Resursnamn är unika. Om du tar bort ett objekt kan du återskapa det med samma namn.
+I de tidiga utvecklings faserna är det praktiskt att ta bort objekt från Azure Kognitiv sökning och tillåta att koden återskapar dem. Resursnamn är unika. Om du tar bort ett objekt kan du återskapa det med samma namn.
 
-Så här indexerar du dokument med de nya definitionerna:
+Indexera dokumenten på nytt med de nya definitionerna:
 
 1. Ta bort Indexer, index och färdigheter.
-2. Ändra objekt.
-3. Återskapa på tjänsten för att köra pipelinen. 
+2. Ändra objekt definitioner.
+3. Återskapa objekt på din tjänst. Om du återskapar indexeraren körs pipelinen. 
 
 Du kan använda portalen för att ta bort index, indexerare och färdighetsuppsättningar, eller använda **ta bort** och ange URL: er för varje objekt. Följande kommando tar bort en indexerare.
 

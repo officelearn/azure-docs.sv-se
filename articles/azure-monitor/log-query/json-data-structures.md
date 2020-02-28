@@ -1,18 +1,17 @@
 ---
 title: Arbeta med strängar i Azure Monitor logg frågor | Microsoft Docs
 description: Den här artikeln innehåller en själv studie kurs om hur du använder Azure Monitor Log Analytics i Azure Portal för att fråga efter och analysera loggdata i Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 940c82e9ef7016639a3ab334040c408f83996e2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8be4f318149590ff08b73fda719e99a17220ec2e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365316"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670159"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Arbeta med JSON och data strukturer i Azure Monitor logg frågor
 
@@ -133,4 +132,4 @@ Se andra lektioner för att använda logg frågor i Azure Monitor:
 - [Avancerade agg regeringar](advanced-aggregations.md)
 - [Avancerad fråge utskrift](advanced-query-writing.md)
 - [Kopplingar](joins.md)
-- [Diagram](charts.md)
+- [Hierarkidiagram](charts.md)

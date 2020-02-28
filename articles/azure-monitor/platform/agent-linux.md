@@ -1,18 +1,17 @@
 ---
 title: Anslut Linux-datorer till Azure Monitor | Microsoft Docs
 description: Den här artikeln beskriver hur du ansluter Linux-datorer som finns i andra moln eller lokalt för att Azure Monitor med Log Analytics-agenten för Linux.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: 15334f0c58f602a2728e3daa6645b957dfcd7129
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 40c279a4beee9fbebe2de7f272fe51d9039f071c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290333"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668714"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Anslut Linux-datorer till Azure Monitor
 
@@ -52,7 +51,7 @@ När du har installerat Log Analytics agent för Linux-paket tillämpas följand
 
 På en övervakad Linux-dator anges agenten som `omsagent`. `omsconfig` är Log Analytics agent för konfigurations agenten för Linux som söker efter ny portal konfiguration var 5: e minut. Den nya och uppdaterade konfigurationen tillämpas på agentens konfigurationsfiler som finns på `/etc/opt/microsoft/omsagent/conf/omsagent.conf`.
 
-## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans id och nyckel
+## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans ID och nyckel
 
 Innan du installerar Log Analytics-agenten för Linux behöver du arbetsytans id och nyckel för Log Analytics-arbetsytan. Den här informationen krävs under installationen av agenten för att konfigurera den korrekt och se till att den kan kommunicera med Azure Monitor.
 
@@ -68,7 +67,7 @@ Innan du installerar Log Analytics-agenten för Linux behöver du arbetsytans id
  
 4. Välj **Anslutna källor** och välj sedan **Linux-servrar**.
 
-5. Värdet till höger om **Id för arbetsyta** och **Primär nyckel**. Kopiera och klistra in båda två i det redigeringsprogram du föredrar.
+5. Värdet till höger om **Id för arbetsyta** och **Primär nyckel**. Kopiera och klistra in båda två i ditt favoritredigeringsprogram.
 
 ## <a name="install-the-agent-manually"></a>Installera agenten manuellt
 
@@ -94,7 +93,7 @@ Log Analytics agenten för Linux finns i ett självextraherande och installerbar
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    Om autentisering krävs måste du ange användar namn och lösen ord. Ett exempel: 
+    Om autentisering krävs måste du ange användar namn och lösen ord. Några exempel: 
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>

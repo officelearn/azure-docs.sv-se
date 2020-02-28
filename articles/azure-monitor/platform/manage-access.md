@@ -1,18 +1,17 @@
 ---
 title: Hantera Log Analytics arbets ytor i Azure Monitor | Microsoft Docs
 description: Du kan hantera åtkomst till data som lagras i en Log Analytics arbets yta i Azure Monitor med hjälp av behörigheter för resurs, arbets yta eller tabell nivå. Den här artikeln beskriver hur du slutför.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/22/2019
-ms.openlocfilehash: 3a75efc8c73c96bfff0ba94ca3e9753ea536fd53
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 6d99a7fbe60156c84e184fedaa5582162f5a0d2d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289126"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672114"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Hantera åtkomst till logg data och arbets ytor i Azure Monitor
 
@@ -28,7 +27,7 @@ Den här artikeln beskriver hur du hanterar åtkomst till loggar och administrer
 
 Du kan visa åtkomst kontrol läget som kon figurer ATS på en arbets yta från Azure Portal eller med Azure PowerShell.  Du kan ändra den här inställningen med någon av följande metoder som stöds:
 
-* Azure portal
+* Azure-portalen
 
 * Azure PowerShell
 
@@ -293,6 +292,6 @@ Om du vill skapa en roll med enbart åtkomst till tabellen _SecurityBaseline_ sk
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se [översikt över Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md) samla in data från datorer i ditt datacenter eller andra moln.
+* Se [Översikt över Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md) för att samla in data från datorer i ditt data Center eller någon annan moln miljö.
 
 * Se [samla in data om virtuella Azure-datorer](../../azure-monitor/learn/quick-collect-azurevm.md) för att konfigurera data insamling från virtuella Azure-datorer.

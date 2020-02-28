@@ -1,18 +1,15 @@
 ---
 title: Snabb starts exempel för Azure Monitor PowerShell
 description: Använd PowerShell för att få åtkomst till Azure Monitor funktioner som autoskalning, aviseringar, Webhooks och sökning av aktivitets loggar.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 2/14/2018
-ms.openlocfilehash: d1aa4b4e2d72f10ca73616bc7e69b0d02f13a501
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9f039f71954998ef561d1efd1e559318740c86ab
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551849"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659309"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Snabb starts exempel för Azure Monitor PowerShell
 Den här artikeln visar exempel på PowerShell-kommandon som hjälper dig att komma åt Azure Monitor-funktioner.
@@ -117,7 +114,7 @@ Om du vill visa historiken för en speciell aviserings regel kan du använda `Ge
 Get-AzAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/myalert -StartTime 2016-03-1 -Status Activated
 ```
 
-@No__t_0 cmdlet stöder olika parametrar. Mer information finns i [Get-AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx).
+`Get-AzAlertHistory` cmdlet stöder olika parametrar. Mer information finns i [Get-AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx).
 
 ## <a name="retrieve-information-on-alert-rules"></a>Hämta information om aviserings regler
 Alla följande kommandon fungerar på en resurs grupp med namnet "montest".
@@ -155,12 +152,12 @@ I följande tabell beskrivs de parametrar och värden som används för att skap
 | Plats för den här aviserings regeln |USA, östra |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName för den avisering som skapas |\PhysicalDisk (_ total) \ disk skrivningar/s. Se `Get-MetricDefinitions`-cmdleten om hur du hämtar de exakta mått namnen |
-| Operator |GreaterThan |
+| MetricName för den avisering som skapas |\PhysicalDisk (_Total) \ disk skrivningar/s. Se `Get-MetricDefinitions`-cmdleten om hur du hämtar de exakta mått namnen |
+| operator |GreaterThan |
 | Tröskelvärde (antal/SEK i för det här måttet) |1 |
 | WindowSize (hh: mm: SS-format) |00:05:00 |
 | aggregator (statistik för måttet, som använder genomsnitts antal, i det här fallet) |Medel |
-| anpassade e-postmeddelanden (sträng mat ris) |foo@example.com, bar@example.com |
+| anpassade e-postmeddelanden (sträng mat ris) |foo@example.com,bar@example.com |
 | Skicka e-post till ägare, deltagare och läsare |-SendToServiceOwners |
 
 Skapa en e-poståtgärd
@@ -388,7 +385,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-in
 
 ```
 
-Observera att egenskapen WorkspaceId tar arbets ytans *resurs-ID* . Du kan hämta resurs-ID för din Log Analytics-arbetsyta med hjälp av följande kommando:
+Observera att egenskapen WorkspaceId tar arbets ytans *resurs-ID* . Du kan hämta resurs-ID för Log Analytics-arbetsytan med följande kommando:
 
 ```powershell
 (Get-AzOperationalInsightsWorkspace).ResourceId

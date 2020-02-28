@@ -1,23 +1,21 @@
 ---
 title: Skapa interaktiva rapporter med Azure Monitor arbets böcker | Microsoft-dokument
 description: Förenkla komplex rapportering med förbyggda och anpassade parameterstyrda arbets böcker
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8e14b065132e648f9c800655cfe69e5a2ec80c41
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 15543f7f761c707e8eff8e0cc0a0e4532475ddf8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432256"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671009"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Skapa interaktiva rapporter med Azure Monitor arbets böcker
 
-Arbets böcker kombinerar text, [analys frågor](https://docs.microsoft.com/azure/application-insights/app-insights-analytics), Azure-mått och parametrar till omfattande interaktiva rapporter. Arbetsböcker kan redigeras av andra teammedlemmar som har åtkomst till samma Azure-resurser.
+Arbets böcker kombinerar text, [analys frågor](https://docs.microsoft.com/azure/application-insights/app-insights-analytics), Azure-mått och parametrar till omfattande interaktiva rapporter. Arbets böcker kan redige ras av andra team medlemmar som har åtkomst till samma Azure-resurser.
 
 Arbets böcker är användbara för scenarier som:
 

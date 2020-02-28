@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: a6c1e14e332f6081111d2a58a30702093b99a876
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c9d5c2efc14dec5beee0eaf81a4f628421ef3d49
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198249"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657052"
 ---
 # <a name="glossary"></a>Ordlista
 
@@ -47,9 +47,9 @@ I följande lista beskrivs vanliga ord som används med Azure Maps-tjänsterna.
 
 <a name="asynchronous-request"></a>**Asynkron begäran**: en http-begäran som öppnar en anslutning och skickar en begäran till servern som returnerar en identifierare för den asynkrona begäran och stänger sedan anslutningen. Servern fortsätter att bearbeta begäran och användaren kan kontrol lera statusen med hjälp av identifieraren. När begäran har bearbetats kan användaren hämta svaret. Den här typen av begäran används för tids krävande processer.
 
-<a name="autocomplete"></a>**Autoavsluta**: en funktion i ett program förutsäger resten av ett ord som användaren skriver. 
+<a name="autocomplete"></a>**Autoavsluta**: en funktion i ett program som förutsäger resten av ett ord som användaren skriver. 
 
-<a name="autosuggest"></a>**Automatiska förslag**: en funktion i ett program förutsäger de logiska möjligheterna för vad användaren skriver.
+<a name="autosuggest"></a>**Automatiska förslag**: en funktion i ett program som förutsäger logiska möjligheter för vad användaren skriver.
 
 <a name="azure-location-based-services-lbs"></a>**Azure Location Based Services (pund)** : det tidigare namnet på Azure Maps när det fanns i för hands versionen.
 

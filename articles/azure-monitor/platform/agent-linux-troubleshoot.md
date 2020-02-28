@@ -1,18 +1,17 @@
 ---
 title: Felsöka Azure Log Analytics-agenten för Linux | Microsoft Docs
 description: Beskriv symptom, orsaker och lösningar för de vanligaste problemen med Log Analytics-agenten för Linux i Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: b7036b305b4b1041fced3be68024be29d49a4990
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 24aa3462aef4f719e93d17389ff342084f6c7864
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086866"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668765"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Så här felsöker du problem med Log Analytics-agenten för Linux 
 
@@ -28,7 +27,7 @@ Om ingen av de här stegen fungerar för dig finns också stöd för följande k
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>Viktiga loggfilernas placering och Logginsamlaren verktyg
 
- Arkiv | Sökväg
+ Fil | Sökväg
  ---- | -----
  Log Analytics-agenten för Linux-loggfil | `/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
  Log agentkonfigurationsfilen för log Analytics | `/var/opt/microsoft/omsconfig/omsconfig.log`

@@ -1,18 +1,17 @@
 ---
 title: Skapa en Log Analytics-arbetsyta med hjälp av Azure PowerShell | Microsoft Docs
 description: Lär dig hur du skapar en Log Analytics-arbetsyta om du vill aktivera hantering av lösningar och datainsamling från ditt moln och lokala miljöer med Azure PowerShell.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: 87550e7ee3008418fde84596a811d44d02191cee
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a2765aaf36aa5f7e541e0ee7fb3178246d2cca5d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513532"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659908"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Skapa en Log Analytics-arbetsyta med Azure PowerShell
 
@@ -25,11 +24,11 @@ Azure PowerShell-modulen används för att skapa och hantera Azure-resurser frå
  
 Andra källor, till exempel virtuella Azure-datorer och Windows eller Linux-datorer i din miljö finns i följande avsnitt:
 
-* [Samla in data från Azure-datorer](../learn/quick-collect-azurevm.md)
-* [Samla in data från hybrid Linux-dator](../learn/quick-collect-linux-computer.md)
+* [Samla in data från virtuella Azure-datorer](../learn/quick-collect-azurevm.md)
+* [Samla in data från hybrid Linux-datorer](../learn/quick-collect-linux-computer.md)
 * [Samla in data från hybrid Windows-dator](quick-collect-windows-computer.md)
 
-Om du inte har en Azure-prenumeration kan du skapa [ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa [ett kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -48,7 +47,7 @@ Följande parametrar anger ett standardvärde:
 * SKU - som standard den nya Per GB prisnivån som introducerades i den prissättningsmodellen från April 2018
 
 >[!WARNING]
->Skapar eller konfigurerar en Log Analytics-arbetsyta i en prenumeration som har valt att den nya prissättningsmodellen från April 2018, är det enda giltiga Log Analytics prisnivån **PerGB2018**. 
+>Om du skapar eller konfigurerar en Log Analytics arbets yta i en prenumeration som har valt att ha en ny pris modell på april 2018 är den enda giltiga Log Analytics pris nivån **PerGB2018**. 
 >
 
 ### <a name="create-and-deploy-template"></a>Skapa och distribuera mall
@@ -109,8 +108,8 @@ Följande parametrar anger ett standardvärde:
     }
     ```
 
-2. Redigera mallen så att den uppfyller dina krav. Granska [Microsoft.OperationalInsights/workspaces mall](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referens till att lära dig vilka egenskaper och värden som stöds. 
-3. Spara filen som **deploylaworkspacetemplate.json** till en lokal mapp.   
+2. Redigera mallen så att den uppfyller dina krav. Granska [mallen Microsoft. OperationalInsights/arbetsytes](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) för att lära dig vilka egenskaper och värden som stöds. 
+3. Spara filen som **deploylaworkspacetemplate. JSON** i en lokal mapp.   
 4. Nu är det dags att distribuera den här mallen. Använd följande kommandon från mappen som innehåller mallen. När du uppmanas att ange ett namn på arbets ytan anger du ett namn som är globalt unikt för alla Azure-prenumerationer.
 
     ```powershell
@@ -125,6 +124,6 @@ Det kan ta några minuter att slutföra distributionen. När den är klar kan du
 Nu när du har en arbetsyta som är tillgängliga kan du konfigurera insamling av övervakning av telemetri, köra loggsökningar för att analysera dessa data och lägga till en hanteringslösning för att ge ytterligare data och analytisk insikt.  
 
 * Information om hur du aktiverar data insamling från Azure-resurser med Azure-diagnostik eller Azure Storage finns i [samla in Azure Service-loggar och mått för användning i Azure Monitor](../platform/collect-azure-metrics-logs.md).  
-* Lägg till [System Center Operations Manager som en datakälla](../platform/om-agents.md) att samla in data från agenter som rapporterar Operations Manager-hanteringsgrupp och lagra den i Log Analytics-arbetsytan.  
-* Ansluta [Configuration Manager](../platform/collect-sccm.md) att importera datorer som är medlemmar i samlingar i hierarkin.  
+* Lägg till [System Center Operations Manager som en data källa](../platform/om-agents.md) för att samla in data från agenter som rapporterar din Operations Manager hanterings grupp och lagra den i din Log Analytics-arbetsyta.  
+* Anslut [Configuration Manager](../platform/collect-sccm.md) för att importera datorer som är medlemmar i samlingar i hierarkin.  
 * Granska de tillgängliga [övervaknings lösningarna](../insights/solutions.md) och Lägg till eller ta bort en lösning från din arbets yta.

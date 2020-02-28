@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor skillnader i frågespråk för loggen | Microsoft Docs
 description: Referensinformation för Kusto-frågespråket som används av Azure Monitor. Innehåller ytterligare element som är speciella för Azure Monitor och element som inte stöds i Azure Monitor logg frågor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 16a221c0530d65e11589ac272a8e032de0cd3d2b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b4601968a318388086a60ef98e4359ae01f652ed
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933107"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662110"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Skillnader i språk i Azure Monitor logg frågor
 
@@ -31,13 +30,13 @@ I följande avsnitt beskrivs elementen i Kusto-frågespråket som inte stöds av
 ### <a name="functions-not-supported-in-azure-monitor"></a>Funktioner som inte stöds i Azure Monitor
 
 * [kluster ()](/azure/kusto/query/clusterfunction)
-* [cursor_after()](/azure/kusto/query/cursorafterfunction)
-* [cursor_before_or_at()](/azure/kusto/query/cursorbeforeoratfunction)
-* [cursor_current(), current_cursor()](/azure/kusto/query/cursorcurrent)
+* [cursor_after ()](/azure/kusto/query/cursorafterfunction)
+* [cursor_before_or_at ()](/azure/kusto/query/cursorbeforeoratfunction)
+* [cursor_current (), current_cursor ()](/azure/kusto/query/cursorcurrent)
 * [databas ()](/azure/kusto/query/databasefunction)
-* [current_principal()](/azure/kusto/query/current-principalfunction)
-* [extent_id()](/azure/kusto/query/extentidfunction)
-* [extent_tags()](/azure/kusto/query/extenttagsfunction)
+* [current_principal ()](/azure/kusto/query/current-principalfunction)
+* [extent_id ()](/azure/kusto/query/extentidfunction)
+* [extent_tags ()](/azure/kusto/query/extenttagsfunction)
 
 ### <a name="operators-not-supported-in-azure-monitor"></a>Operatorer stöds inte i Azure Monitor
 

@@ -1,18 +1,17 @@
 ---
 title: Aktivera Azure Monitor for VMs med Azure Policy | Microsoft Docs
 description: I den här artikeln beskrivs hur du aktiverar Azure Monitor for VMs för flera virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer med hjälp av Azure Policy.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: d9458230d07c1c40a3eec2d51879f58fac6543b5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 267072b06d936822eae7e7257d62566a020471bb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365826"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656236"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Aktivera Azure Monitor for VMs (för hands version) med Azure Policy
 
@@ -71,7 +70,7 @@ Aktivera Azure Monitor för virtuella datorer med hjälp av Azure Policy i din k
 - Tilldela initiativet till ett omfång: hanterings grupp, prenumeration eller resurs grupp.
 - Granska och åtgärda resultatet av efterlevnaden.
 
-Mer information om hur du tilldelar Azure Policy finns [översikten över Azure Policy](../../governance/policy/overview.md#policy-assignment) och granska de [översikt över hanteringsgrupper](../../governance/management-groups/overview.md) innan du fortsätter.
+Mer information om hur du tilldelar Azure Policy finns [Azure policy översikt](../../governance/policy/overview.md#policy-assignment) och granska [översikten över hanterings grupper](../../governance/management-groups/overview.md) innan du fortsätter.
 
 ### <a name="policies-for-azure-vms"></a>Principer för virtuella Azure-datorer
 
@@ -79,7 +78,7 @@ Princip definitionerna för en virtuell Azure-dator visas i följande tabell.
 
 |Namn |Beskrivning |Typ |
 |-----|------------|-----|
-|\[Förhandsversion av\]: aktivera Azure Monitor för virtuella datorer |Aktivera Azure Monitor för de virtuella datorerna i det angivna omfånget (hanterings grupp, prenumeration eller resurs grupp). Tar Log Analytics-arbetsyta som en parameter. |Initiativ |
+|\[för hands version\]: Aktivera Azure Monitor for VMs |Aktivera Azure Monitor för de virtuella datorerna i det angivna omfånget (hanterings grupp, prenumeration eller resurs grupp). Tar Log Analytics-arbetsyta som en parameter. |Initiativ |
 |\[för hands version\]: Granska beroende agent distribution – VM-avbildning (OS) har inte listats |Rapporterar virtuella datorer som icke-kompatibla om VM-avbildningen (OS) inte är definierad i listan och agenten inte är installerad. |Princip |
 |\[för hands version\]: granska distribution av Log Analytics agent – VM-avbildningen (OS) har inte listats |Rapporterar virtuella datorer som icke-kompatibla om VM-avbildningen (OS) inte är definierad i listan och agenten inte är installerad. |Princip |
 |\[för hands version\]: Distribuera beroende agent för virtuella Linux-datorer |Distribuera beroende agent för virtuella Linux-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |Princip |
@@ -109,13 +108,13 @@ Fristående princip (ingår inte i initiativet) som beskrivs här:
 
 ### <a name="assign-the-azure-monitor-initiative"></a>Tilldela Azure Monitor-initiativ
 
-Följ dessa steg om du vill skapa princip tilldelningen från sidan **Azure Monitor for VMS princip täckning** . Information om hur du utför de här stegen finns i [skapa en principtilldelning från Azure portal](../../governance/policy/assign-policy-portal.md).
+Följ dessa steg om du vill skapa princip tilldelningen från sidan **Azure Monitor for VMS princip täckning** . Information om hur du utför de här stegen finns i [skapa en princip tilldelning från Azure Portal](../../governance/policy/assign-policy-portal.md).
 
 När du tilldelar principen eller initiativet kan omfånget som valts i tilldelningen vara det omfång som listas här eller en delmängd av den. Du kanske till exempel har skapat en tilldelning för prenumerationen (princip omfattning) och inte hanterings gruppen (täcknings område). I det här fallet anger täcknings procenten för de virtuella datorerna i principen eller initiativ omfånget delat av de virtuella datorerna i täcknings omfånget. I ett annat fall kan du ha uteslutit vissa virtuella datorer eller resurs grupper eller en prenumeration från princip omfånget. Om det är tomt anger det att antingen principen eller initiativet inte finns eller eftersom du inte har behörighet. Information finns under **tilldelnings status**.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. I Azure-portalen väljer du **övervakaren**. 
+2. I Azure Portal väljer du **övervaka**. 
 
 3. Välj **Virtual Machines (för hands version)** i avsnittet **insikter** .
  
@@ -126,16 +125,16 @@ När du tilldelar principen eller initiativet kan omfånget som valts i tilldeln
 6. På sidan **Azure policy tilldelning** är den i förväg ifylld med initiativet **Aktivera Azure Monitor for VMS**. 
     Rutan **tilldelnings namn** fylls i automatiskt med initiativ namnet, men du kan ändra det. Du kan också lägga till en valfri beskrivning. Rutan **tilldelad av** fylls i automatiskt baserat på vem som är inloggad. Det här värdet är valfritt.
 
-7. (Valfritt) Om du vill ta bort en eller flera resurser från området, Välj **undantag**.
+7. Valfritt Om du vill ta bort en eller flera resurser från omfattningen väljer du **undantag**.
 
-8. I den **Log Analytics-arbetsyta** nedrullningsbara lista för regionen som stöds, Välj en arbetsyta.
+8. Välj en arbets yta i list rutan **Log Analytics arbets yta** för den region som stöds.
 
    > [!NOTE]
-   > Om arbetsytan som är utanför omfattningen för tilldelningen, bevilja *Log Analytics Contributor* behörigheter till principtilldelningen huvudnamn-ID. Om du inte gör det kan det hända att du ser ett distributions fel som `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...` för att bevilja åtkomst. Läs mer om [hur du konfigurerar den hanterade identiteten manuellt](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
+   > Om arbets ytan överskrider tilldelningens omfattning beviljar du *Log Analytics deltagar* behörighet till princip tilldelningens huvud-ID. Om du inte gör det kan det hända att du ser ett distributions fel som `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...` för att bevilja åtkomst. Läs mer om [hur du konfigurerar den hanterade identiteten manuellt](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
    > 
    >  Kryss rutan **hanterad identitet** är markerad eftersom initiativet som tilldelas innehåller en princip med *deployIfNotExists* -påverkan.
     
-9. I den **hantera identitet plats** listrutan väljer du rätt region.
+9. Välj lämplig region i list rutan **Hantera identitets plats** .
 
 10. Välj **Tilldela**.
 
@@ -145,10 +144,10 @@ Följande matris mappar varje möjligt kompatibilitetstillstånd för initiative
 
 | Kompatibilitetstillstånd | Beskrivning | 
 |------------------|-------------|
-| **Kompatibel** | Alla virtuella datorer i omfånget har de Log Analytics och beroende agenter som distribuerats till dem.|
+| **Kompabilitet** | Alla virtuella datorer i omfånget har de Log Analytics och beroende agenter som distribuerats till dem.|
 | **Inte kompatibel** | Alla virtuella datorer i omfånget har inte de Log Analytics-och beroende agenter som distribuerats till dem och kan kräva reparation.|
 | **Inte startat** | En ny tilldelning har lagts till. |
-| **Lås** | Du har inte tillräcklig behörighet för hanterings gruppen. <sup>1</sup> | 
+| **Skrivlås** | Du har inte tillräcklig behörighet för hanterings gruppen. <sup>1</sup> | 
 | **Tom** | Ingen princip har tilldelats. | 
 
 <sup>1</sup> om du inte har åtkomst till hanterings gruppen ber du en ägare att ge åtkomst. Du kan också visa efterlevnad och hantera tilldelningar via underordnade hanterings grupper eller prenumerationer. 
@@ -158,9 +157,9 @@ I följande tabell mappas varje möjlig tilldelnings status för initiativet.
 | Tilldelnings status | Beskrivning | 
 |------------------|-------------|
 | **Resultatet** | Alla virtuella datorer i omfånget har de Log Analytics och beroende agenter som distribuerats till dem.|
-| **Varning** | Prenumerationen ingår inte i en hanterings grupp.|
+| **Honom** | Prenumerationen ingår inte i en hanterings grupp.|
 | **Inte startat** | En ny tilldelning har lagts till. |
-| **Lås** | Du har inte tillräcklig behörighet för hanterings gruppen. <sup>1</sup> | 
+| **Skrivlås** | Du har inte tillräcklig behörighet för hanterings gruppen. <sup>1</sup> | 
 | **Tom** | Det finns inga virtuella datorer eller så har ingen princip tilldelats. | 
 | **Åtgärd** | Tilldela en princip eller redigera en tilldelning. | 
 
@@ -204,6 +203,6 @@ När som helst efter att du har tilldelat ett initiativ till en hanterings grupp
 
 Nu när övervakning är aktiverat för dina virtuella datorer är den här informationen tillgänglig för analys med Azure Monitor for VMs. 
 
-- Identifierade programberoenden finns [visa Azure Monitor för virtuella datorer kartan](vminsights-maps.md). 
+- Information om hur du visar identifierade program beroenden finns i [visa Azure Monitor for VMS karta](vminsights-maps.md). 
 
 - Information om hur du identifierar Flask halsar och övergripande användning med den virtuella datorns prestanda finns i [Visa prestanda för virtuella Azure-datorer](vminsights-performance.md). 

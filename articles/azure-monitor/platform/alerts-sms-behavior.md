@@ -1,48 +1,48 @@
 ---
-title: Beteende för SMS-aviseringar i åtgärdsgrupper
-description: SMS-meddelandeformat och svara på SMS-meddelanden för att avbryta prenumerationen, återprenumeration eller be om hjälp.
+title: Aviserings beteende i SMS i åtgärds grupper
+description: SMS-meddelande format och svara på SMS-meddelanden för att avbryta prenumerationen, prenumerera på eller be om hjälp.
 author: dkamstra
+ms.author: dukek
 services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 02/16/2018
-ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 74666149824627308b6c5b026e0c9ba7a7750ada
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b75bda626f887f1224c1b0f18a80887983a2367d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60346305"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665314"
 ---
-# <a name="sms-alert-behavior-in-action-groups"></a>SMS-avisering beteende i åtgärdsgrupper
-## <a name="overview"></a>Översikt ##
-Åtgärdsgrupper kan du konfigurera en lista med åtgärder. Dessa grupper används när du definierar aviseringar; Se till att en viss åtgärdsgrupp meddelas när en avisering utlöses. En av de åtgärder som stöds är SMS; SMS-meddelanden stöd för dubbelriktad kommunikation. En användare kan svara på ett SMS till:
+# <a name="sms-alert-behavior-in-action-groups"></a>Aviserings beteende i SMS i åtgärds grupper
 
-- **Slutar prenumerera på aviseringar:** En användare kan avbryta prenumerationen på alla SMS-aviseringar för alla åtgärdsgrupper eller en enskild åtgärdsgrupp.
-- **Återprenumeration aviseringar:** En användare kan prenumerera igen till alla SMS-aviseringar för alla åtgärdsgrupper eller en enskild åtgärdsgrupp.  
-- **Be om hjälp:** En användare kan begära mer information om SMS. Du omdirigeras till den här artikeln.
+## <a name="overview"></a>Översikt 
+Med åtgärds grupper kan du konfigurera en lista med åtgärder. Dessa grupper används när du definierar aviseringar. Se till att en viss åtgärds grupp meddelas när aviseringen utlöses. En av de åtgärder som stöds är SMS; SMS-meddelanden har stöd för dubbelriktad kommunikation. En användare kan svara på ett SMS för att:
 
-Den här artikeln beskriver hur SMS-aviseringar och svarsåtgärder användaren kan utföras baserat på de nationella inställningarna för användaren:
+- **Avbryt prenumeration från aviseringar:** En användare kan avbryta prenumerationen på alla SMS-aviseringar för alla åtgärds grupper eller en enda åtgärds grupp.
+- **Prenumerera på aviseringar igen:** En användare kan prenumerera på alla SMS-aviseringar för alla åtgärds grupper eller en enda åtgärds grupp.  
+- **Hjälp om begäran:** En användare kan be om mer information om SMS. De omdirigeras till den här artikeln.
+
+Den här artikeln beskriver beteendet hos SMS-aviseringar och svars åtgärder som användaren kan utföra baserat på användarens språk:
 
 ## <a name="receiving-an-sms-alert"></a>Ta emot en SMS-avisering
-En SMS-mottagare som konfigurerats som en del av en åtgärdsgrupp tar emot ett SMS när en avisering utlöses. SMS innehåller följande information:
-* Kortnamn för den här aviseringen har skickats till åtgärdsgruppen
-* Aviseringens titel
+En SMS-mottagare som kon figurer ATS som en del av en åtgärds grupp får ett SMS när en avisering utlöses. SMS innehåller följande information:
+* ShortName för den åtgärds grupp som aviseringen skickades till
+* Rubriken på aviseringen
 
-| SVARA | Beskrivning |
+| Svaren | Beskrivning |
 | ----- | ----------- |
-| INAKTIVERA `<Action Group Short name>` | Inaktiverar ytterligare SMS från åtgärdsgruppen |
-| AKTIVERA `<Action Group Short name>` | Återaktiverar SMS från åtgärdsgruppen |
-| STANNA | Inaktiverar ytterligare SMS från alla åtgärdsgrupper |
-| STARTA | Återaktiverar SMS från alla åtgärdsgrupper |
-| HJÄLP | Ett svar skickas till användaren med en länk till den här artikeln. |
+| Inaktivera `<Action Group Short name>` | Inaktiverar ytterligare SMS från åtgärds gruppen |
+| Aktivera `<Action Group Short name>` | Aktiverar SMS från åtgärds gruppen igen |
+| Stanna | Inaktiverar ytterligare SMS från alla åtgärds grupper |
+| HAR | Aktiverar SMS från alla åtgärds grupper igen |
+| Hjälp | Ett svar skickas till användaren med en länk till den här artikeln. |
 
 >[!NOTE]
->Om en användare har avbrutit SMS aviseringar, men läggs sedan till en ny åtgärdsgrupp; de ska ta emot SMS-aviseringar för den nya åtgärdsgruppen, men förblir avbryta prenumerationen på alla föregående åtgärdsgrupper.
+>Om en användare har avbrutit prenumerationen på SMS-aviseringar, men sedan läggs till i en ny åtgärds grupp. de får SMS-aviseringar för den nya åtgärds gruppen, men de är fortfarande avbrutna från alla tidigare åtgärds grupper.
 
 ## <a name="next-steps"></a>Nästa steg
-Hämta en [översikt över aktivitetsloggaviseringar](alerts-overview.md) och lär dig att få varningar om  
-Läs mer om [SMS hastighetsbegränsning](alerts-rate-limiting.md)  
-Läs mer om [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md)
+Få en [Översikt över aktivitets logg aviseringar](alerts-overview.md) och lär dig hur du får aviseringar  
+Läs mer om [begränsning av SMS-hastighet](alerts-rate-limiting.md)  
+Läs mer om [Åtgärds grupper](../../azure-monitor/platform/action-groups.md)
 

@@ -1,18 +1,17 @@
 ---
 title: Övervakare av nätverksprestanda lösning i Azure | Microsoft Docs
 description: Övervakare av nätverksprestanda i Azure hjälper dig att övervaka nätverkets prestanda, i nära real tid, för att identifiera och hitta Flask halsar i nätverks prestanda.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 396652e3f8a0a8d9e18effb94a48a362054dde96
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cb906f6b3cf333e3fb3a24a934e5d9f11fc10cda
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75403150"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654485"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Övervakare av nätverksprestanda lösning i Azure
 
@@ -276,7 +275,7 @@ Varje gång du skapar en avisering skapar NPM en fråga baserad logg aviserings 
 Meddelanden debiteras separat enligt [priset per meddelande på sidan Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/).
 
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Information om priser är tillgänglig [online](network-performance-monitor-pricing-faq.md).
 

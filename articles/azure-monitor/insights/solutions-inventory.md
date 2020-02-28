@@ -1,18 +1,17 @@
 ---
 title: Inventering av övervaknings lösningar i Azure | Microsoft Docs
 description: Övervaknings lösningar i Azure Monitor är en samling logik-, visualiserings-och data hämtnings regler som tillhandahåller mått som pivoteras runt ett visst problemområden.  Den här artikeln innehåller en lista över övervaknings lösningar som är tillgängliga från Microsoft och information om deras metod och frekvens för data insamling.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/26/2018
-ms.openlocfilehash: 9b0140b843d7da1b892463bff7d6014a3f9584ad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7b88d957bce45bf518fc77584f1691de8010459a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402011"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663138"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Inventerings-och data insamlings information för övervakning av lösningar i Azure
 [Övervaknings lösningar](solutions.md) utnyttjar tjänster i Azure för att ge ytterligare insyn i driften av ett visst program eller en viss tjänst. Övervaknings lösningar samlar normalt in loggdata och tillhandahåller frågor och vyer för att analysera insamlade data. Du kan lägga till övervaknings lösningar som Azure Monitor för alla program och tjänster som du använder. De finns vanligtvis på utan kostnad men samla in data som kan anropa avgifter för användning.
@@ -36,22 +35,22 @@ Förklaringarna av kolumnerna är följande:
 
 
 
-| **Övervaknings lösning** | **Plattform** | **Microsoft Monitoring Agent** | **Operations Manager agent** | **Azure Storage** | **Operations Manager krävs.** | **Operations Manager agent data som skickas via hanterings gruppen** | **Samlings frekvens** |
+| **Övervaknings lösning** | **Systemet** | **Microsoft Monitoring Agent** | **Operations Manager agent** | **Azure Storage** | **Operations Manager krävs.** | **Operations Manager agent data som skickas via hanterings gruppen** | **Samlings frekvens** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Aktivitets logg analys](../platform/activity-log-collect.md) | Azure | | | | | | vid meddelande |
 | [AD-bedömning](ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dagar |
-| [AD-replikeringsstatus](ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 dagar |
+| [AD-replikeringsstatus](ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 dagar |
 | [Agenthälsa](solution-agenthealth.md) | Windows och Linux | &#8226; | &#8226; | | | &#8226; | 1 minut |
 | [Aviseringshantering](../platform/alert-management-solution.md) (nagios) |Linux |&#8226; | | | | |vid ankomsten |
 | [Aviseringshantering](../platform/alert-management-solution.md) (zabbix) |Linux |&#8226; | | | | |1 minut |
 | [Aviseringshantering](../platform/alert-management-solution.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 minuter |
-| [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | Ej tillämpligt |
+| [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | Saknas |
 | [Application Insights-anslutningsprogram (inaktuell)](../platform/app-insights-connector.md) | Azure | | | |  |  | vid meddelande |
-| [Automation Hybrid Worker](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | Ej tillämpligt |
-| [Azure Application Gateway Analytics](azure-networking-analytics.md) | Azure |  |  |  |  |  | vid meddelande |
-| **Övervaknings lösning** | **Plattform** | **Microsoft Monitoring Agent** | **Operations Manager agent** | **Azure Storage** | **Operations Manager krävs.** | **Operations Manager agent data som skickas via hanterings gruppen** | **Samlings frekvens** |
+| [Automation Hybrid Worker](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | Saknas |
+| [Azure Application Gateway-analys](azure-networking-analytics.md) | Azure |  |  |  |  |  | vid meddelande |
+| **Övervaknings lösning** | **Systemet** | **Microsoft Monitoring Agent** | **Operations Manager agent** | **Azure Storage** | **Operations Manager krävs.** | **Operations Manager agent data som skickas via hanterings gruppen** | **Samlings frekvens** |
 | [Azure-nätverkssäkerhetsgruppanalys (inaktuell)](azure-networking-analytics.md) | Azure |  |  |  |  |  | vid meddelande |
-| [Azure SQL-analys (förhandsversion)](azure-sql.md) | Windows | | | | | | 1 minut |
+| [Azure SQL-analys (för hands version)](azure-sql.md) | Windows | | | | | | 1 minut |
 | [Säkerhetskopiering](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | vid meddelande |
 | [Kapacitet och prestanda (för hands version)](capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |vid ankomsten |
 | [Spårning av ändringar](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[sig](../../automation/change-tracking.md#change-tracking-data-collection-details) |
@@ -61,7 +60,7 @@ Förklaringarna av kolumnerna är följande:
 | [Utvärdering av skadlig kod](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |per timme |
 | [Övervakning av nätverksprestanda](network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP-handskakning var femte sekund, data skickas var 3: e minut |
 | [Office 365-analys (för hands version)](solution-office-365.md) |Windows | | | | | |vid meddelande |
-| **Övervaknings lösning** | **Plattform** | **Microsoft Monitoring Agent** | **Operations Manager agent** | **Azure Storage** | **Operations Manager krävs.** | **Operations Manager agent data som skickas via hanterings gruppen** | **Samlings frekvens** |
+| **Övervaknings lösning** | **Systemet** | **Microsoft Monitoring Agent** | **Operations Manager agent** | **Azure Storage** | **Operations Manager krävs.** | **Operations Manager agent data som skickas via hanterings gruppen** | **Samlings frekvens** |
 | [Service Fabric-analys](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minuter |
 | [Tjänstkarta](service-map.md) | Windows och Linux | &#8226; | &#8226; |  |  |  | 15 sekunder |
 | [SQL-bedömning](sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dagar |

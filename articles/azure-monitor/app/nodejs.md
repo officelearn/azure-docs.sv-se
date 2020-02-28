@@ -1,18 +1,14 @@
 ---
 title: Övervaka din Node.js-tjänster med Azure Application Insights | Microsoft Docs
 description: Övervaka prestanda- och diagnostiseringsproblem i Node.js-tjänster med Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 81f63380c041ae743a2b38e6ba89558b83e7497a
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 320ec62e642155002e42c59d4656f51673249eb1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820724"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670023"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Övervaka dina Node-js-tjänster och -appar med Application Insights
 
@@ -24,11 +20,11 @@ Node.js-SDK:n kan automatiskt övervaka inkommande och utgående HTTP-begäran, 
 
 Med TelemetryClient API kan du manuellt instrumentera och övervaka ytterligare aspekter av din app och ditt system. Vi beskriver TelemetryClient-API:n mer ingående senare i den här artikeln.
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 Utför följande uppgifter för att konfigurera övervakning för en app eller tjänst.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera att du har en Azure-prenumeration eller [Skaffa en ny kostnads fri][azure-free-offer]. Om din organisation redan har en Azure-prenumeration kan en administratör följa [dessa instruktioner][add-aad-user] för att lägga till dig i den.
 
@@ -88,7 +84,7 @@ Läs mer om din app och felsök problem går du till avsnittet **UNDERSÖK** och
 
 ![Avsnittet Undersök](./media/nodejs/007-investigate-pane.png)
 
-#### <a name="no-data"></a>Inga data?
+#### <a name="no-data"></a>Ser du inga data?
 
 Eftersom SDK:n slår ihop data för sändning kan det uppstå en fördröjning innan objekt visas i portalen. Om du inte ser några data i resursen kan du prova något av följande:
 

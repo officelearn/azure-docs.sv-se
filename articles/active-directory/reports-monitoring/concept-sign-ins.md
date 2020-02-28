@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/09/2019
+ms.date: 02/26/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256194d8b0b5e6b08210e9338d945774603ac328
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ffb2ff87eb78ed4088225f832b6df55726196493
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429777"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656650"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -37,7 +37,7 @@ Rapporterings arkitekturen i Azure Active Directory (Azure AD) består av följa
 
 Den här artikeln ger en översikt över inloggnings rapporten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 
@@ -47,7 +47,7 @@ Den här artikeln ger en översikt över inloggnings rapporten.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Vilken Azure AD-licens behöver du för att komma åt inloggningsaktiviteter?
 
-* Din klient måste ha en associerad Azure AD Premium-licens för att se hela inloggningsrapporten. Se [Kom igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din Azure Active Directory-version. Det tar några dagar för data att visas i rapporterna efter att du har uppgraderat till en Premium-licens utan data aktiviteter före uppgraderingen.
+* Din klient organisation måste ha en Azure AD Premium licens kopplad till sig för att kunna se rapporten all inloggnings aktivitet. Se [Komma igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din version av Azure Active Directory. Det tar några dagar för data att visas i rapporterna efter att du har uppgraderat till en Premium-licens utan data aktiviteter före uppgraderingen.
 
 ## <a name="sign-ins-report"></a>Rapport över inloggningar
 
@@ -101,59 +101,90 @@ Välj ett objekt i listvyn om du vill ha mer detaljerad information.
 
 ## <a name="filter-sign-in-activities"></a>Filtrera inloggningsaktivitet
 
-Först begränsar du de rapporterade data till en nivå som passar dig. Andra, filtrera inloggnings data med hjälp av datum fältet som standard filter. Azure AD ger dig ett brett utbud av ytterligare filter som du kan ange.
+Först begränsar du de rapporterade data till en nivå som passar dig. Andra, filtrera inloggnings data med hjälp av datum fältet som standard filter. Azure AD ger dig ett brett utbud av ytterligare filter som du kan ställa in:
 
 ![Inloggnings aktivitet](./media/concept-sign-ins/04.png "Inloggningsaktivitet")
 
-Med filtret **Användare** kan du ange namn eller användarhuvudnamn (UPN) för den användare som intresserar dig.
+ID för **begäran** : ID för den begäran du bryr dig om.
 
-Med filtret **Program** kan du ange namnet på programmet som intresserar dig.
+**Användare** – namnet eller User Principal Name (UPN) för den användare som du bryr dig om.
 
-Med filtret **Inloggningsstatus** kan du välja något av följande filter:
+**Program** – namnet på mål programmet.
+ 
+**Status** – den inloggnings status du bryr dig om:
 
-- Alla
 - Lyckades
+
 - Fel
 
-Med filtret för **villkorlig åtkomst** kan du välja princip status för certifikat utfärdare för inloggningen:
+- Avbröts
 
-- Alla
-- Används inte
+
+**IP-adress** – IP-adressen för den enhet som används för att ansluta till din klient organisation.
+
+**Plats** – platsen som anslutningen initierades från:
+
+- Ort
+
+- Delstat/provins
+
+- Land/region
+
+
+**Resurs** – namnet på den tjänst som används för inloggningen.
+
+
+**Resurs-ID** – ID för tjänsten som används för inloggningen.
+
+
+**Klient program** – typen av klient program som används för att ansluta till din klient organisation:
+
+![Filter för klient program](./media/concept-sign-ins/client-app-filter.png)
+
+
+|Namn|Modern autentisering|Beskrivning|
+|---|:-:|---|
+|Autentiserad SMTP| |Används av POP-och IMAP-klienten för att skicka e-postmeddelanden.|
+|Tjänsten automatisk upptäckt| |Används av Outlook och EAS-klienter för att hitta och ansluta till post lådor i Exchange Online.|
+|Exchange ActiveSync| |Det här filtret visar alla inloggnings försök där EAS-protokollet har gjorts.|
+|Webbläsare|![Markera](./media/concept-sign-ins/check.png)|Visar alla inloggnings försök från användare som använder webbläsare|
+|Exchange ActiveSync| | Visar alla inloggnings försök från användare med klient program som använder Exchange-ActiceSync för att ansluta till Exchange Online|
+|Exchange Online PowerShell| |Används för att ansluta till Exchange Online med fjärr-PowerShell. Om du blockerar grundläggande autentisering för Exchange Online PowerShell måste du använda Exchange Online PowerShell-modulen för att ansluta. Mer information finns i [ansluta till Exchange Online PowerShell med Multi-Factor Authentication](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|Exchange-webbtjänster| |Ett programmerings gränssnitt som används av Outlook, Outlook för Mac och appar från tredje part.|
+|IMAP| |En äldre e-postklient som använder IMAP för att hämta e-post.|
+|MAPI över HTTP| |Används av Outlook 2010 och senare.|
+|Mobila appar och skrivbordsklienter|![Markera](./media/concept-sign-ins/check.png)|Visar alla inloggnings försök från användare som använder mobilappar och skriv bords klienter.|
+|Offline-adressboken| |En kopia av adress list samlingar som hämtas och används av Outlook.|
+|Outlook överallt (RPC över HTTP)| |Används av Outlook 2016 och tidigare.|
+|Outlook-tjänst| |Används av appen e-post och kalender för Windows 10.|
+|POP3| |En äldre e-postklient som använder POP3 för att hämta e-post.|
+|Rapport webb tjänster| |Används för att hämta rapport data i Exchange Online.|
+|Övriga klienter| |Visar alla inloggnings försök från användare där klient programmet inte är inkluderat eller okänt.|
+
+
+
+**Operativ system** – operativ systemet som körs på enheten som använder inloggning till din klient organisation. 
+
+
+**Enhets läsare** – om anslutningen initierades från en webbläsare kan du använda det här fältet för att filtrera efter namn på webbläsare.
+
+
+**Korrelations-ID** – aktivitetens KORRELATIONS-ID.
+
+
+**Villkorlig åtkomst** – status för tillämpade regler för villkorlig åtkomst
+
+- Används inte 
+
 - Lyckades
+
 - Fel
 
-Med filtret **Datum** kan du definiera en tidsram för de data som returneras.  
-Möjliga värden:
 
-- En månad
-- 7 dagar
-- 24 timmar
-- Anpassat tidsintervall
 
-När du väljer en anpassad tidsram kan du konfigurera en starttid och en sluttid.
 
-Om du lägger till ytterligare fält i inloggningsvyn läggs de automatiskt till i listan med filter. Om du till exempel lägger till fältet **Klientapp** i listan får du även ett annat filteralternativ som gör att du kan ange följande filter:  
-![Inloggnings aktivitet](./media/concept-sign-ins/12.png "Inloggningsaktivitet")
 
-- **Webbläsare**  
-    Det här filtret visar alla händelser där inloggnings försök har gjorts med hjälp av webb läsar flöden.
-- **Exchange ActiveSync (stöds)**  
-    Det här filtret visar alla inloggnings försök där protokollet Exchange ActiveSync (EAS) har gjorts från plattformar som stöds, till exempel iOS, Android och Windows Phone.
-- **Exchange ActiveSync (stöds inte)**  
-    Det här filtret visar alla inloggnings försök där EAS-protokollet har gjorts från plattformar som inte stöds, t. ex. Linux-distributioner.
-- **Mobile Apps-och skriv bords klienter** Filtret visar alla inloggnings försök som inte använder webb läsar flöden. Till exempel mobila appar från vilken plattform som helst med protokoll eller från Skriv bords klient program som Office på Windows eller MacOS.
-  
-- **Andra klienter**
-    - **IMAP**  
-        En äldre e-postklient som använder IMAP för att hämta e-post.
-    - **MAPI**  
-        Office 2013, där ADAL är aktiverat och använder MAPI.
-    - **Gamla Office-klienter**  
-        Office 2013 i standard konfigurationen där ADAL inte är aktiverat och använder MAPI, eller Office 2016 där ADAL har inaktiverats.
-    - **POP**  
-        En äldre e-postklient som använder POP3 för att hämta e-post.
-    - **SMTP**  
-        En äldre e-postklient som använder SMTP för att skicka e-post.
+
 
 ## <a name="download-sign-in-activities"></a>Ladda ned inloggningsaktivitet
 
@@ -197,9 +228,9 @@ När du klickar på ett objekt visas mer information om inloggningen:
 - Program-ID:t
 - Program
 - Client
-- Location
+- plats.
 - IP-adress
-- Datum
+- Date
 - MFA krävs
 - Inloggningsstatus
 

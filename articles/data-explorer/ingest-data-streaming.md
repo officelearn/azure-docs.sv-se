@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 4a0593ccd6bdf37520e73ba8ed421ec4b10ea52c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 89772bea818a0ebb57135990b3a04fcb559e2716
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623310"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664940"
 ---
 # <a name="streaming-ingestion-preview"></a>Strömnings inmatning (för hands version)
 
@@ -76,7 +76,7 @@ Det finns två typer av streaming-inmatningar som stöds:
 * Data storleks begränsningen per inmatnings förfrågan är 4 MB.
 * Schema uppdateringar, till exempel skapande och ändring av tabeller och inmatnings mappningar, kan ta upp till 5 minuter för strömnings tjänsten.
 * Att aktivera strömnings inmatning i ett kluster, även när data inte matas in via direkt uppspelning, använder en del av den lokala SSD-disken på kluster datorerna för strömnings inmatnings data och minskar lagrings utrymmet som är tillgängliga för varmt cacheminne.
-* Det går inte att ange [omfattnings etiketter](/azure/kusto/management/extents-overview.md#extent-tagging) för strömnings inmatnings data.
+* Det går inte att ange [omfattnings etiketter](/azure/kusto/management/extents-overview#extent-tagging) för strömnings inmatnings data.
 
 Streaming-inmatningen har inte stöd för följande funktioner:
 * [Databas markörer](/azure/kusto/management/databasecursor).

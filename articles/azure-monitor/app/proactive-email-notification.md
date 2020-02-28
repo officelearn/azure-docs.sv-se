@@ -1,19 +1,17 @@
 ---
 title: Ändra avisering om Smart identifiering – Azure Application insikter
 description: Ändra till standard mottagare för meddelanden från Smart identifiering. Med Smart identifiering kan du övervaka program spår med Azure Application insikter om ovanliga mönster i trace telemetri.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 493deea89586347d5847895acd5eb73a866f84ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f73e5bbdd8585b3367e529a8fa00630042e56cac
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432457"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671791"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Ändra e-postavisering om Smart identifiering
 
@@ -21,15 +19,15 @@ Baserat på kundfeedback, den 1 april 2019, ändrar vi standard rollerna som tar
 
 ## <a name="what-is-changing"></a>Vad ändras?
 
-För närvarande skickas e-postaviseringar för smart identifiering som standard till rollerna _prenumerations ägare_, _prenumerations deltagare_och _prenumerations läsare_ . De här rollerna omfattar dock ofta användare som inte är aktivt involverade i övervakningen och de har därför inget intresse av dessa meddelanden. För att förbättra den här upplevelsen gör vi en ändring så att e-postaviseringar endast går till rollerna [övervaknings läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) och [övervakning deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) som standard.
+För närvarande skickas e-postaviseringar för smart identifiering som standard till rollerna _prenumerations ägare_, _prenumerations deltagare_och _prenumerations läsare_ . Dessa roller omfattar ofta användare som inte är aktivt inblandad i övervakning, vilket gör att många av dessa användare kan ta emot meddelanden i onödan. För att förbättra den här upplevelsen gör vi en ändring så att e-postaviseringar endast går till rollerna [övervaknings läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) och [övervakning deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) som standard.
 
 ## <a name="scope-of-this-change"></a>Omfånget för den här ändringen
 
-Detta påverkar alla regler för Smart identifiering utom följande:
+Den här ändringen kommer att påverka alla regler för smart identifiering, förutom följande:
 
-* Regler för Smart identifiering som är under förhandsgranskning. Dessa regler för smart identifiering stöder inte e-postaviseringar idag.
+* Regler för smart identifiering markerad som för hands version. Dessa regler för smart identifiering stöder inte e-postaviseringar idag.
 
-* Regeln om felavvikelser. Den här regeln börjar riktas mot de nya standard rollerna när den har migrerats från en klassisk avisering till den enhetliga aviserings plattformen (mer information finns [här](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).)
+* Regel för fel avvikelser. Den här regeln börjar riktas mot de nya standard rollerna när den har migrerats från en klassisk avisering till den enhetliga aviserings plattformen (mer information finns [här](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).)
 
 ## <a name="how-to-prepare-for-this-change"></a>Hur förbereder du för den här ändringen?
 

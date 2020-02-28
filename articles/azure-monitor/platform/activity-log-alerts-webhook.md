@@ -1,18 +1,15 @@
 ---
 title: Förstå det webhook-schema som används i aktivitets logg aviseringar
 description: Lär dig mer om schemat för JSON som publiceras i en webhook-URL när en aktivitets logg avisering aktive ras.
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 03/31/2017
-ms.openlocfilehash: eb43db7a67063622f6a6125178267573cd209471
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.subservice: alerts
+ms.openlocfilehash: c076b8dcea350f9ddd66977e89ce99b81f377b17
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748798"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669054"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhookar för Azure aktivitets logg aviseringar
 Som en del av definitionen av en åtgärds grupp kan du konfigurera webhook-slutpunkter för att ta emot aviseringar om aktivitets logg aviseringar. Med Webhooks kan du dirigera dessa meddelanden till andra system för efter bearbetning eller anpassade åtgärder. Den här artikeln visar vad nytto lasten för HTTP-inlägget till en webhook ser ut.
@@ -265,9 +262,9 @@ Information om en detaljerad schema information om logg aviseringar för tjänst
 | conditionType |Always "event." |
 | namn |Aviserings regelns namn. |
 | id |Resurs-ID för aviseringen. |
-| description |Aviserings beskrivning som anges när aviseringen skapas. |
+| beskrivning |Aviserings beskrivning som anges när aviseringen skapas. |
 | subscriptionId |ID för Azure-prenumeration. |
-| timestamp |Tiden då händelsen genererades av den Azure-tjänst som bearbetade begäran. |
+| tidsstämpel |Tiden då händelsen genererades av den Azure-tjänst som bearbetade begäran. |
 | resourceId |Resurs-ID för den påverkade resursen. |
 | resourceGroupName |Namnet på resurs gruppen för den påverkade resursen. |
 | properties |Uppsättning `<Key, Value>`-par (`Dictionary<String, String>`) som innehåller information om händelsen. |

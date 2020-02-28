@@ -2,13 +2,13 @@
 title: Borttagning i complete-läget
 description: Visar hur resurs typer hanterar fullständig borttagning av läge i Azure Resource Manager mallar.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 80d2ee356e3bc15a178862c453bf7f1ab8d66c77
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/26/2020
+ms.openlocfilehash: 5f797974212636460306c6a17869d6b8380545ab
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207816"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664414"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Borttagning av Azure-resurser för komplett läges distributioner
 
@@ -141,7 +141,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft. Resources](#microsoftresources)
 > - [Microsoft. SaaS](#microsoftsaas)
-> - [Microsoft. Scheduler](#microsoftscheduler)
 > - [Microsoft. search](#microsoftsearch)
 > - [Microsoft. Security](#microsoftsecurity)
 > - [Microsoft. SecurityGraph](#microsoftsecuritygraph)
@@ -297,6 +296,9 @@ Hoppa till ett namn område för en resurs leverantör:
 > | automationAccounts | Ja |
 > | automationAccounts/konfigurationer | Ja |
 > | automationAccounts/jobb | Nej |
+> | automationAccounts / privateEndpointConnectionProxies | Nej |
+> | automationAccounts / privateEndpointConnections | Nej |
+> | automationAccounts / privateLinkResources | Nej |
 > | automationAccounts/Runbooks | Ja |
 > | automationAccounts / softwareUpdateConfigurations | Nej |
 > | automationAccounts/Webhooks | Nej |
@@ -716,6 +718,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | register/importImage | Nej |
 > | register/privateEndpointConnectionProxies | Nej |
 > | register/privateEndpointConnectionProxies/validate | Nej |
+> | register/privateEndpointConnections | Nej |
 > | register/privateLinkResources | Nej |
 > | register/queueBuild | Nej |
 > | register/regenerateCredential | Nej |
@@ -755,14 +758,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | Aviseringar | Nej |
-> | BillingAccounts | Nej |
+> | billingAccounts | Nej |
 > | Budgetar | Nej |
 > | CloudConnectors | Nej |
 > | Anslutningar | Ja |
 > | enheten | Nej |
 > | Dimensioner | Nej |
 > | EnrollmentAccounts | Nej |
-> | exporteras | Nej |
+> | Exporteras | Nej |
 > | ExternalBillingAccounts | Nej |
 > | ExternalBillingAccounts/aviseringar | Nej |
 > | ExternalBillingAccounts/dimensioner | Nej |
@@ -1057,6 +1060,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | partnerNamespaces/eventChannels | Nej |
 > | partnerRegistrations | Ja |
 > | partnerTopics | Ja |
+> | partnerTopics / eventSubscriptions | Nej |
 > | systemTopics | Ja |
 > | systemTopics / eventSubscriptions | Nej |
 > | avsnitt | Ja |
@@ -1293,6 +1297,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | getEntities | Nej |
 > | managementGroups | Nej |
+> | managementGroups/inställningar | Nej |
 > | resurser | Nej |
 > | startTenantBackfill | Nej |
 > | tenantBackfillStatus | Nej |
@@ -1554,6 +1559,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | legacyPeerings | Nej |
 > | peerAsns | Nej |
 > | peerings | Ja |
+> | peeringServiceCountries | Nej |
 > | peeringServiceProviders | Nej |
 > | peeringServices | Ja |
 
@@ -1679,13 +1685,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | program | Ja |
 > | saasresources | Nej |
 
-## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | förfrågningsåtgärder | Ja |
-
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
 > [!div class="mx-tableFixed"]
@@ -1754,7 +1753,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | agg regeringar | Nej |
 > | alertRules | Nej |
 > | alertRuleTemplates | Nej |
-> | dina | Nej |
+> | Dina | Nej |
 > | fall | Nej |
 > | dataConnectors | Nej |
 > | dataConnectorsCheckRequirements | Nej |
@@ -2015,6 +2014,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | enheter | Ja |
+> | registeredSubscriptions | Nej |
 > | leverantören | Nej |
 > | leverantörer/SKU: er | Nej |
 > | leverantörer/vnfs | Nej |

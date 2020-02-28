@@ -1,18 +1,17 @@
 ---
 title: Logg frågans omfång i Azure Monitor Log Analytics | Microsoft Docs
 description: Beskriver omfånget och tidsintervallet för en logg fråga i Azure Monitor Log Analytics.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2019
-ms.openlocfilehash: dec81bfde160cd9913db07bb99629b8fbcc37364
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 897eff62fcbab5996b6b9493bd825ae412aa4c3e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365214"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660317"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Logg frågans omfång och tidsintervall i Azure Monitor Log Analytics
 När du kör en [logg fråga](log-query-overview.md) i [Log Analytics i Azure Portal](get-started-portal.md), beror den uppsättning data som utvärderas av frågan på omfattningen och tidsintervallet som du väljer. I den här artikeln beskrivs omfattning och tidsintervall och hur du kan ställa in dem beroende på dina behov. Det beskriver också beteendet för olika typer av omfång.
@@ -40,8 +39,8 @@ Omfattningen bestäms av den metod som du använder för att starta Log Analytic
 När fråge omfånget är en Log Analytics arbets yta eller ett Application Insights program är alla alternativ i portalen och alla frågor tillgängliga. När den är begränsad till en resurs kan följande alternativ i portalen inte vara tillgängliga eftersom de är kopplade till en enda arbets yta eller ett program:
 
 - Spara
-- Frågeutforskaren
-- Ny varningsregel
+- Query Explorer
+- Ny varnings regel
 
 Du kan inte använda följande kommandon i en fråga som är begränsad till en resurs eftersom fråge omfånget redan innehåller arbets ytor med data för resursen eller en uppsättning resurser:
 
@@ -66,10 +65,10 @@ Frågan kommer att blockeras från att köras om omfattningen omfattar arbets yt
 ## <a name="time-range"></a>Tidsintervall
 Tidsintervallet anger den uppsättning poster som utvärderas för frågan baserat på när posten skapades. Detta definieras av en standard egenskap på varje post i arbets ytan eller programmet som anges i följande tabell.
 
-| Location | Egenskap |
+| plats. | Egenskap |
 |:---|:---|
 | Log Analytics-arbetsyta          | TimeGenerated |
-| Application Insights program | timestamp     |
+| Application Insights program | tidsstämpel     |
 
 Ange tidsintervallet genom att välja det från tids väljaren överst i Log Analyticss fönstret.  Du kan välja en fördefinierad period eller välja **anpassad** om du vill ange ett tidsintervall.
 

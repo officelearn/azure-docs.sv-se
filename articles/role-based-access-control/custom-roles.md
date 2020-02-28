@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2019
+ms.date: 02/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 64161451c0c8b1af7666fcd104d337856e5803c7
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 8c5db13b343783a86dc04b84e09746bc4406186b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821460"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660707"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Anpassade roller för Azure-resurser
 
 Om de [inbyggda rollerna för Azure-resurser](built-in-roles.md) inte uppfyller organisationens specifika krav, kan du skapa egna anpassade roller. Precis som inbyggda roller kan du tilldela anpassade roller till användare, grupper och tjänstens huvud namn vid prenumeration, resurs grupp och resurs omfång.
 
-Anpassade roller kan delas mellan prenumerationer som har förtroende för samma Azure AD-katalog. Det finns en gräns på **5 000** anpassade roller per katalog. (För specialiserade moln, till exempel Azure Government, Azure Tyskland och Azure Kina 21Vianet, är gränsen 2 000 anpassade roller.) Anpassade roller kan skapas med hjälp av Azure PowerShell, Azure CLI eller REST API.
+Anpassade roller kan delas mellan prenumerationer som har förtroende för samma Azure AD-katalog. Det finns en gräns på **5 000** anpassade roller per katalog. (För specialiserade moln, till exempel Azure Government, Azure Tyskland och Azure Kina 21Vianet, är gränsen 2 000 anpassade roller.) Du kan skapa anpassade roller med hjälp av Azure Portal (för hands version), Azure PowerShell, Azure CLI eller REST API.
 
 ## <a name="custom-role-example"></a>Exempel på anpassade roller
 
@@ -70,7 +70,7 @@ När du skapar en anpassad roll visas den i Azure Portal med en orange resurs ik
 
 1. Bestäm hur du vill skapa den anpassade rollen
 
-    Du kan skapa anpassade roller med hjälp av [Azure PowerShell](custom-roles-powershell.md), [Azure CLI](custom-roles-cli.md)eller [REST API](custom-roles-rest.md).
+    Du kan skapa anpassade roller med [Azure Portal](custom-roles-portal.md) (för hands version), [Azure POWERSHELL](custom-roles-powershell.md), [Azure CLI](custom-roles-cli.md)eller [REST API](custom-roles-rest.md).
 
 1. Bestäm vilka behörigheter du behöver
 
@@ -96,11 +96,11 @@ En anpassad roll har följande egenskaper.
 | `Id` | Ja | Sträng | Det unika ID: t för den anpassade rollen. För Azure PowerShell och Azure CLI genereras detta ID automatiskt när du skapar en ny roll. |
 | `IsCustom` | Ja | Sträng | Anger om det här är en anpassad roll. Ange `true` för anpassade roller. |
 | `Description` | Ja | Sträng | Beskrivningen av den anpassade rollen. Kan innehålla bokstäver, siffror, blank steg och specialtecken. Maximalt antal tecken är 1024. |
-| `Actions` | Ja | Sträng [] | En sträng mat ris som anger vilka hanterings åtgärder som rollen kan utföra. Mer information finns i [åtgärder](role-definitions.md#actions). |
-| `NotActions` | Nej | Sträng [] | En sträng mat ris som anger de hanterings åtgärder som är undantagna från tillåtna `Actions`. Mer information finns i [NotActions](role-definitions.md#notactions). |
-| `DataActions` | Nej | Sträng [] | En sträng mat ris som anger de data åtgärder som rollen kan utföra på dina data i objektet. Mer information finns i [DataActions](role-definitions.md#dataactions). |
-| `NotDataActions` | Nej | Sträng [] | En sträng mat ris som anger de data åtgärder som undantas från tillåtna `DataActions`. Mer information finns i [NotDataActions](role-definitions.md#notdataactions). |
-| `AssignableScopes` | Ja | Sträng [] | En sträng mat ris som anger de omfång som den anpassade rollen är tillgänglig för tilldelning. För anpassade roller kan du för närvarande inte ange `AssignableScopes` till rot omfånget (`"/"`) eller ett hanterings grupps omfång. Mer information finns i [AssignableScopes](role-definitions.md#assignablescopes) och [organisera dina resurser med Azures hanterings grupper](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment). |
+| `Actions` | Ja | String[] | En sträng mat ris som anger vilka hanterings åtgärder som rollen kan utföra. Mer information finns i [åtgärder](role-definitions.md#actions). |
+| `NotActions` | Nej | String[] | En sträng mat ris som anger de hanterings åtgärder som är undantagna från tillåtna `Actions`. Mer information finns i [NotActions](role-definitions.md#notactions). |
+| `DataActions` | Nej | String[] | En sträng mat ris som anger de data åtgärder som rollen kan utföra på dina data i objektet. Mer information finns i [DataActions](role-definitions.md#dataactions). |
+| `NotDataActions` | Nej | String[] | En sträng mat ris som anger de data åtgärder som undantas från tillåtna `DataActions`. Mer information finns i [NotDataActions](role-definitions.md#notdataactions). |
+| `AssignableScopes` | Ja | String[] | En sträng mat ris som anger de omfång som den anpassade rollen är tillgänglig för tilldelning. För anpassade roller kan du för närvarande inte ange `AssignableScopes` till rot omfånget (`"/"`) eller ett hanterings grupps omfång. Mer information finns i [AssignableScopes](role-definitions.md#assignablescopes) och [organisera dina resurser med Azures hanterings grupper](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment). |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Vem kan skapa, ta bort, uppdatera eller Visa en anpassad roll
 
@@ -113,7 +113,6 @@ Precis som inbyggda roller anger egenskapen `AssignableScopes` de omfattningar s
 | Visa en anpassad roll | `Microsoft.Authorization/ roleDefinitions/read` | Användare som har tilldelats den här åtgärden i ett omfång kan visa de anpassade roller som är tillgängliga för tilldelning i det aktuella omfånget. Alla inbyggda roller gör att anpassade roller kan vara tillgängliga för tilldelning. |
 
 ## <a name="next-steps"></a>Nästa steg
-- [Skapa anpassade roller för Azure-resurser med Azure PowerShell](custom-roles-powershell.md)
-- [Skapa anpassade roller för Azure-resurser med Azure CLI](custom-roles-cli.md)
+- [Skapa eller uppdatera anpassade Azure-roller med hjälp av Azure Portal (för hands version)](custom-roles-portal.md)
 - [Förstå roll definitioner för Azure-resurser](role-definitions.md)
 - [Felsöka RBAC för Azure-resurser](troubleshooting.md)

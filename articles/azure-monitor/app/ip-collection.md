@@ -1,18 +1,14 @@
 ---
 title: Azure Application Insights IP-webbplatssamling | Microsoft Docs
 description: Förstå hur IP-adresser och geolokalisering hanteras med Azure Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/11/2019
-ms.openlocfilehash: 5a647dda21855f754754f76682e5c00443eaac55
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 969061ec89ddd0f13caa675bc324207c6c5d8843
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432606"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656525"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Hantering av geolokalisering och IP-adresser
 
@@ -59,7 +55,7 @@ För att aktivera IP-insamling och lagring måste `DisableIpMasking` egenskapen 
 }
 ```
 
-### <a name="portal"></a>Portalen 
+### <a name="portal"></a>Portal 
 
 Om du bara behöver ändra beteendet för en enskild Application Insights resurs är det enklaste sättet att göra detta via Azure Portal.  
 
@@ -101,7 +97,7 @@ Om du bara behöver ändra beteendet för en enskild Application Insights resurs
     
     En lista med egenskaper kommer att returneras som ett resultat. En av egenskaperna bör läsa `DisableIpMasking: true`. Om du kör PowerShell innan du distribuerar den nya egenskapen med Azure Resource Manager, finns inte egenskapen.
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>Rest-API
 
 [REST API](https://docs.microsoft.com/rest/api/azure/) -nyttolasten för att göra samma ändringar är följande:
 
@@ -235,7 +231,7 @@ requests
 
 Nyligen insamlade IP-adresser ska visas i kolumnen `customDimensions_client-ip`. Standard `client-ip`s kolumnen har fortfarande alla 4 oktetter, antingen nollställs eller visar bara de tre första oktetterna beroende på hur du har konfigurerat IP-webbplatssamling på komponent nivå. Om du testar lokalt efter att ha implementerat telemetri-initieraren och det värde som du ser för `customDimensions_client-ip` är `::1` detta förväntat beteende. `::1` representerar loopback-adressen i IPv6. Det motsvarar `127.0.01` i IPv4 och är resultatet som visas när du testar från localhost.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om [insamling av personliga data](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) i Application Insights.
 

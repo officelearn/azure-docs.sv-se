@@ -1,15 +1,14 @@
 ---
 title: Få Azure Resource Health-händelser med hjälp av REST API | Microsoft Docs
 description: 'Använd Azure REST-API: erna för att hämta hälso händelser för dina Azure-resurser.'
-ms.custom: REST
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/06/2017
-ms.openlocfilehash: 353bd65b0466902e450e38677a350a177a1d602c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6964a6c4e85c38d532b12e730a02c4df73be76e5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451378"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654009"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Hämta Resource Health med hjälp av REST API 
 
@@ -32,7 +31,7 @@ Följande huvuden krävs:
 |Begärandehuvud|Beskrivning|  
 |--------------------|-----------------|  
 |*Content-Type:*|Krävs. Ange till `application/json`.|  
-|*Auktorisering:*|Krävs. Ange en giltig `Bearer` [åtkomsttoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|*Auktorisering:*|Krävs. Ange till en giltig `Bearer`-[åtkomsttoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ### <a name="uri-parameters"></a>URI-parametrar
 

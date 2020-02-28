@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8f91db91eff3320691a5979d9453bf515ccd59a2
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: e3ce7ff633f41ccfe6faa3cc1dba1020e74459aa
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982304"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656100"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection-anspråk omvandlingar
 
@@ -26,13 +26,13 @@ Den här artikeln innehåller exempel på hur du kan använda anspråks omvandli
 
 ## <a name="additemtostringcollection"></a>AddItemToStringCollection
 
-Lägger till ett sträng anspråk till ett nytt stringCollection-anspråk.
+Lägger till ett sträng anspråk till ett nytt unikt värde stringCollection-anspråk. 
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | sträng | Den ClaimType som ska läggas till i utgående anspråk. |
-| InputClaim | samlingen | stringCollection | Valfritt Om det här alternativet anges kopierar anspråks omvandlingen objekten från den här samlingen och lägger till objektet i slutet av utmatnings samlingens anspråk. |
-| OutputClaim | samlingen | stringCollection | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats. |
+| InputClaim | samling | stringCollection | Valfritt Om det här alternativet anges kopierar anspråks omvandlingen objekten från den här samlingen och lägger till objektet i slutet av utmatnings samlingens anspråk. |
+| OutputClaim | samling | stringCollection | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats, med det värde som anges i indatamängden. |
 
 Använd den här anspråks omvandlingen för att lägga till en sträng till en ny eller befintlig stringCollection. Den används ofta i en **AAD-UserWriteUsingAlternativeSecurityId** teknisk profil. Innan ett nytt socialt konto skapas läser **CreateOtherMailsFromEmail** Claims-omvandlingen claimType och lägger till värdet i **otherMails** -claimType.
 
@@ -60,13 +60,13 @@ Följande påstående-omvandling lägger till **e-** **otherMails** för claimTy
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
-Lägger till en sträng parameter till ett nytt stringCollection-anspråk.
+Lägger till en sträng parameter till ett nytt unikt värde stringCollection-anspråk.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | samlingen | stringCollection | Valfritt Om det här alternativet anges kopierar anspråks omvandlingen objekten från den här samlingen och lägger till objektet i slutet av utmatnings samlingens anspråk. |
+| InputClaim | samling | stringCollection | Valfritt Om det här alternativet anges kopierar anspråks omvandlingen objekten från den här samlingen och lägger till objektet i slutet av utmatnings samlingens anspråk. |
 | InputParameter | item | sträng | Det värde som ska läggas till i utgående anspråk. |
-| OutputClaim | samlingen | stringCollection | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats. |
+| OutputClaim | samling | stringCollection | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats, med det angivna värdet i indataparametern. |
 
 Använd den här anspråks omvandlingen för att lägga till ett sträng värde till en ny eller befintlig stringCollection. I följande exempel läggs en konstant e-postadress (admin@contoso.com) till i **otherMails** -anspråket.
 
@@ -99,7 +99,7 @@ Hämtar det första objektet från den angivna sträng samlingen.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | samlingen | stringCollection | ClaimTypes som används av anspråks omvandlingen för att hämta objektet. |
+| InputClaim | samling | stringCollection | ClaimTypes som används av anspråks omvandlingen för att hämta objektet. |
 | OutputClaim | extractedItem | sträng | ClaimTypes som skapas efter att denna ClaimsTransformation har anropats. Det första objektet i samlingen. |
 
 I följande exempel läses **otherMails** -anspråket och det första objektet returneras till **e-** postanspråket.
@@ -132,7 +132,7 @@ Kontrollerar om en StringCollection-anspråks typ innehåller ett-element
 | InputClaim | inputClaim | stringCollection | Anspråks typen som ska genomsökas. |
 |InputParameter|item|sträng|Det värde som ska genomsökas.|
 |InputParameter|ignoreCase|sträng|Anger om jämförelsen ska ignorera Skift läget för strängarna som jämförs.|
-| OutputClaim | outputClaim | boolean | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. En boolesk indikator om samlingen innehåller en sådan sträng |
+| OutputClaim | outputClaim | boolesk | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. En boolesk indikator om samlingen innehåller en sådan sträng |
 
 Följande exempel kontrollerar om anspråks typen `roles` stringCollection innehåller värdet **administratör**.
 

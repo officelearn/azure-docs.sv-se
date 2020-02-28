@@ -1,18 +1,14 @@
 ---
 title: Använda search i Azure Application Insights | Microsoft Docs
 description: Sök och filtrera RAW-telemetri som skickas av din webbapp.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/30/2019
-ms.openlocfilehash: 77cd0a8d0c1a93e7dc1db931e987a172d31978ef
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677974"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669683"
 ---
 # <a name="using-search-in-application-insights"></a>Använda Sök i Application Insights
 
@@ -60,12 +56,12 @@ Då startas vyn transaktions detaljer från slut punkt till slut punkt.
 
 Händelse typerna är:
 
-* **Spåra**  - [diagnostikloggar](../../azure-monitor/app/asp-net-trace-logs.md) inklusive TrackTrace, Log4Net, NLog och system. Diagnostics. trace-anrop.
+* **Spåra** - [diagnostikloggar](../../azure-monitor/app/asp-net-trace-logs.md) inklusive TrackTrace, Log4Net, NLog och system. Diagnostics. trace-anrop.
 * **Begär** HTTP-förfrågningar som tagits emot av serverprogrammet, inklusive sidor, skript, bilder, formatfiler och data. Dessa händelser används för att skapa översikts diagram över förfrågningar och svar.
-* **Sid visning**  - [telemetri som skickas av webb klienten](../../azure-monitor/app/javascript.md)och som används för att skapa sid visnings rapporter.
+* **Sid visning** - [telemetri som skickas av webb klienten](../../azure-monitor/app/javascript.md)och som används för att skapa sid visnings rapporter.
 * **Anpassad händelse** – om du infogade anrop till TrackEvent () för att kunna [övervaka användningen](../../azure-monitor/app/api-custom-events-metrics.md)kan du söka efter dem här.
 * **Undantag** – ej fångade [undantag på servern](../../azure-monitor/app/asp-net-exceptions.md)och de som du loggar med hjälp av TrackException ().
-* **Beroende**  - [anrop från serverprogram](../../azure-monitor/app/asp-net-dependencies.md) till andra tjänster som REST-API: er eller databaser och AJAX-anrop från din [klient kod](../../azure-monitor/app/javascript.md).
+* **Beroende** - [anrop från serverprogram](../../azure-monitor/app/asp-net-dependencies.md) till andra tjänster som REST-API: er eller databaser och AJAX-anrop från din [klient kod](../../azure-monitor/app/javascript.md).
 * **Tillgänglighet** – resultat av [tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md).
 
 ## <a name="filter-on-property-values"></a>Filtrera efter egenskaps värden
@@ -110,7 +106,7 @@ Här följer de Sök uttryck som du kan använda:
 | `apple OR banana` |Hitta händelser som innehåller något av orden. Använd "eller", not "eller". |
 | `apple NOT banana` |Hitta händelser som innehåller ett ord men inte det andra. |
 
-## <a name="sampling"></a>Sampling
+## <a name="sampling"></a>Samling
 
 Om din app genererar en stor mängd telemetri (och du använder ASP.NET SDK-version 2.0.0-beta3 eller senare), minskar den anpassningsbara samplings-modulen automatiskt volymen som skickas till portalen genom att bara skicka en representativ del av händelserna. Händelser som är relaterade till samma begäran markeras eller avmarkeras som en grupp, så att du kan navigera mellan relaterade händelser.
 
@@ -152,4 +148,4 @@ Vi loggar inte in POST-data automatiskt, men du kan använda [TrackTrace-eller l
 * [Skriv komplexa frågor i analys](../../azure-monitor/log-query/get-started-portal.md)
 * [Skicka loggar och anpassad telemetri till Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Ställ in tillgänglighets-och svars tider](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md) (Felsökning)
+* [Felsökning](../../azure-monitor/app/troubleshoot-faq.md)

@@ -4,18 +4,17 @@ description: Lär dig mer om alla Azure Monitor-arbetsböckers visualiserings ko
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: f3f8f377ac8e65d375f8f78c803db5427fd31007
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d05902f47dff3dd2f8a63ae240c0b8825a5c441f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75394476"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658038"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor arbets bok visualiseringar
 
@@ -41,7 +40,7 @@ Text läggs till via en markdown-kontroll som ger fullständig formatering.
 > [!TIP]
 > Använd det här [markdown lathund-bladet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) för att lära dig om olika formateringsalternativ.
 
-## <a name="charts"></a>Diagram
+## <a name="charts"></a>Hierarkidiagram
 
 Med arbets böcker kan övervaknings data visas som diagram. Diagram typer som stöds innehåller linje, stapel, kategoriska, område, punkt diagram, cirkel och tid. Författare kan välja att anpassa höjden, bredden, färgpaletten, förklaringen, titlar, inga data meddelanden osv.
 
@@ -115,7 +114,7 @@ Exemplet nedan visar ett rutnät som kombinerar ikoner, termiska kartor och Spar
 
 ![Skärm bild av fråga om logg beroende rutnät](./media/workbooks-visualizations/grid-query.png)
 
-## <a name="tiles"></a>Paneler
+## <a name="tiles"></a>Ordnar
 
 Paneler är ett mycket användbart sätt att Visa sammanfattnings data i arbets böcker. I bilden nedan visas ett vanligt användnings fall av sammanfattningar på App-nivå ovanpå ett detaljerat rutnät.
 

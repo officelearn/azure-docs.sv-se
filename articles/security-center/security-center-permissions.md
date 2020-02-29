@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: f52d518d2ed1dfb62eed72cf9c0b839a37b7f856
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 0e60e782fa65cd5868bebe081673f9a158e07799
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201655"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921325"
 ---
 # <a name="permissions-in-azure-security-center"></a>Behörigheter i Azure Security Center
 
@@ -29,8 +29,8 @@ Security Center utvärderar konfigurationen av dina resurser för att identifier
 
 Förutom dessa roller finns två specifika roller i Security Center:
 
-* **Säkerhets läsare**: En användare som tillhör den här rollen har visnings rättigheter för att Security Center. Användaren kan visa rekommendationer, aviseringar, säkerhets principer och säkerhets tillstånd, men kan inte göra ändringar.
-* **Säkerhets administratör**: En användare som tillhör den här rollen har samma rättigheter som säkerhets läsaren och kan också uppdatera säkerhets principen och ignorera aviseringar och rekommendationer.
+* **Säkerhets läsare**: en användare som tillhör den här rollen har visnings rättigheter att Security Center. Användaren kan visa rekommendationer, aviseringar, säkerhets principer och säkerhets tillstånd, men kan inte göra ändringar.
+* **Säkerhets administratör**: en användare som tillhör den här rollen har samma rättigheter som säkerhets läsaren och kan också uppdatera säkerhets principen och ignorera aviseringar och rekommendationer.
 
 > [!NOTE]
 > Säkerhets rollerna, säkerhets läsaren och säkerhets administratören har endast åtkomst i Security Center. Säkerhets rollerna har inte åtkomst till andra tjänst områden i Azure, till exempel lagring, webb & mobil eller Sakernas Internet.
@@ -39,17 +39,17 @@ Förutom dessa roller finns två specifika roller i Security Center:
 
 ## <a name="roles-and-allowed-actions"></a>Roller och tillåtna åtgärder
 
-I följande tabell visas roller och tillåtna åtgärder i Security Center. Ett X visar att åtgärden tillåts för den rollen.
+I följande tabell visas roller och tillåtna åtgärder i Security Center.
 
-| Role | Redigera säkerhets princip | Tillämpa säkerhets rekommendationer för en resurs | Ignorera aviseringar och rekommendationer | Visa aviseringar och rekommendationer |
+| Roll | Redigera säkerhets princip | Tillämpa säkerhets rekommendationer för en resurs</br> (inklusive snabb korrigering!) | Ignorera aviseringar och rekommendationer | Visa aviseringar och rekommendationer |
 |:--- |:---:|:---:|:---:|:---:|
-| Prenumerations ägare | X | X | X | X |
-| Prenumerations deltagare | -- | X | X | X |
-| Resurs grupp ägare | -- | X | -- | X |
-| Resurs grupps deltagare | -- | X | -- | X |
-| Läsare | -- | -- | -- | X |
-| Säkerhetsadministratör | X | -- | X | X |
-| Säkerhetsläsare | -- | -- | -- | X |
+| Prenumerations ägare | ✔ | ✔ | ✔ | ✔ |
+| Prenumerations deltagare | -- | ✔ | ✔ | ✔ |
+| Resurs grupp ägare | -- | ✔ | -- | ✔ |
+| Resurs grupps deltagare | -- | ✔ | -- | ✔ |
+| Läsare | -- | -- | -- | ✔ |
+| Säkerhetsadministratör | ✔ | -- | ✔ | ✔ |
+| Säkerhets läsare | -- | -- | -- | ✔ |
 
 > [!NOTE]
 > Vi rekommenderar att du ger användarna den roll som precis ger dem den behörighet de behöver för att kunna utföra sina arbetsuppgifter. Du kan till exempel tilldela rollen läsare till användare som bara behöver visa information om säkerhets hälso tillståndet för en resurs men inte vidta åtgärder, till exempel att tillämpa rekommendationer eller redigera principer.

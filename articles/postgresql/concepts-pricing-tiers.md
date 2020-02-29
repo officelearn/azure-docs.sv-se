@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 9ce88c687df4e329acd2949d0b26033dc10c94ea
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 635a66f0275d4df4f858bff61be80900dc58c6fb
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77619474"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164482"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Pris nivåer i Azure Database for PostgreSQL-enskild server
 
@@ -67,7 +67,7 @@ Du kan övervaka i/O-förbrukningen i Azure Portal eller genom att använda Azur
 
 ### <a name="reaching-the-storage-limit"></a>Nått lagrings gränsen
 
-Servrar med mindre än 100 GB allokerat lagringsutrymme markeras som skrivskyddade om det lediga lagringsutrymmet är mindre än 512 MB eller 5 % av den allokerade lagringsstorleken. Servrar med mer än 100 GB allokerat lagringsutrymme markeras bara som skrivskyddade när det lediga lagringsutrymmet är mindre än 5 GB.
+Servrar med mindre än lika med 10 GB allokerat lagrings utrymme markeras som skrivskyddade om det lediga lagrings utrymmet är mindre än 512 MB av den allokerade lagrings storleken. Servrar med mindre än lika med 100 GB allokerat lagrings utrymme markeras som skrivskyddade om det lediga lagrings utrymmet är mindre än 5% av den allokerade lagrings storleken. Servrar med mer än 100 GB allokerat lagringsutrymme markeras bara som skrivskyddade när det lediga lagringsutrymmet är mindre än 5 GB.
 
 Om du till exempel har allokerat 110 GB lagrings utrymme och den faktiska användningen går över 105 GB, är servern markerad som skrivskyddad. Alternativt, om du har allokerat 5 GB lagring, markeras servern som skrivskyddad när den kostnads fria lagrings platsen når mindre än 512 MB.
 
@@ -79,7 +79,7 @@ Vi rekommenderar att du aktiverar automatisk storleks ökning för lagring eller
 
 ### <a name="storage-auto-grow"></a>Utöka lagring automatiskt
 
-Med automatisk storleks ökning i arkivet förhindrar du att servern kör lagrings utrymme och blir skrivskyddad. Om lagrings funktionen är aktive rad utökas lagringen automatiskt utan att arbets belastningen påverkas. För servrar med mindre än 100 GB allokerat lagrings utrymme ökas den allokerade lagrings storleken med 5 GB så snart det lediga lagrings utrymmet är lägre än eller lika med 1 GB eller 10% av det allokerade lagrings utrymmet. För servrar som har mer än 100 GB allokerat lagrings utrymme ökas den allokerade lagrings storleken med 5% när det lediga lagrings utrymmet är under 5% av den allokerade lagrings storleken. De maximala lagrings gränserna som anges ovan gäller.
+Med automatisk storleks ökning i arkivet förhindrar du att servern kör lagrings utrymme och blir skrivskyddad. Om lagrings funktionen är aktive rad utökas lagringen automatiskt utan att arbets belastningen påverkas. För servrar med mindre än lika med 100 GB allokerat lagrings utrymme ökas den allokerade lagrings storleken med 5 GB så snart det lediga lagrings utrymmet är lägre än 1 GB eller 10% av det allokerade lagrings utrymmet. För servrar som har mer än 100 GB allokerat lagrings utrymme ökas den allokerade lagrings storleken med 5% när det lediga lagrings utrymmet är lägre än eller lika med 10 GB eller 5% av den allokerade lagrings storleken. De maximala lagrings gränserna som anges ovan gäller.
 
 Om du till exempel har allokerat 1000 GB lagrings utrymme och den faktiska användningen går över 950 GB, ökar server lagrings storleken till 1050 GB. Alternativt, om du har etablerad 10 GB lagrings utrymme, ökar lagrings storleken till 15 GB om mindre än 1 GB lagrings utrymme är kostnads fritt.
 

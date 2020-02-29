@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 01/29/2020
+ms.date: 02/26/2020
 ms.author: aahi
-ms.openlocfilehash: f34d4e50042f0fd05a224ff096c2b472224248f8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 0d4d32a413dd22c55f1b2f01dce3a3df81f5f729
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76992403"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919676"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-ruby"></a>Snabb start: Använd Textanalys klient bibliotek för ruby
 
@@ -23,10 +23,10 @@ Kom igång med Textanalys klient biblioteket. Följ de här stegen för att inst
 
 Använd Textanalys klient bibliotek för att utföra:
 
-* Känsloanalys
-* Språkspårning
+* Attitydanalys
+* Språkidentifiering
 * Enhetsidentifiering
-* Extraktion av nyckelfraser
+* Extrahering av nyckelfraser
 
 > [!NOTE]
 > Den här snabb starten gäller endast Textanalys version 2,1. För närvarande är ett v3-klient bibliotek för ruby inte tillgängligt.
@@ -35,16 +35,15 @@ Använd Textanalys klient bibliotek för att utföra:
 
 <a name="HOLTop"></a>
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Aktuell version av [ruby](https://www.ruby-lang.org/)
+* När du har en Azure-prenumeration kan <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="skapa en Textanalys resurs"  target="_blank">skapa en Textanalys <span class="docon docon-navigate-external x-hidden-focus"></span> resurs</a> i Azure Portal för att hämta din nyckel och slut punkt. 
+    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till API för textanalys. Du kommer att göra detta senare i snabb starten.
+    * Du kan använda den kostnads fria pris nivån för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
 
 ## <a name="setting-up"></a>Konfigurera
-
-### <a name="create-a-text-analytics-azure-resource"></a>Skapa en Textanalys Azure-resurs 
-
-[!INCLUDE [text-analytics-resource-creation](../includes/quickstarts/resource-creation.md)]
 
 ### <a name="create-a-new-ruby-application"></a>Skapa ett nytt ruby-program
 
@@ -113,7 +112,7 @@ Utanför klassen använder du klientens `new()` funktion för att instansiera de
 
 <a name="SentimentAnalysis"></a>
 
-## <a name="sentiment-analysis"></a>Känsloanalys
+## <a name="sentiment-analysis"></a>Attitydanalys
 
 I objektet klient skapar du en funktion som heter `AnalyzeSentiment()` som tar en lista med indatamängds dokument som ska skapas senare. Anropa klientens `sentiment()` funktion och få resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och sentiment poäng. En poäng närmare 0 anger ett negativt sentiment, medan ett resultat närmare 1 anger en positiv sentiment.
 
@@ -141,7 +140,7 @@ Document ID: 4 , Sentiment Score: 1.00
 
 <a name="LanguageDetection"></a>
 
-## <a name="language-detection"></a>Språkspårning
+## <a name="language-detection"></a>Språkidentifiering
 
 I objektet klient skapar du en funktion som heter `DetectLanguage()` som tar en lista med indatamängds dokument som ska skapas senare. Anropa klientens `detect_language()` funktion och få resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och identifierat språk.
 
@@ -226,7 +225,7 @@ Document ID: 2
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="key-phrase-extraction"></a>Extraktion av nyckelfraser
+## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
 
 I objektet klient skapar du en funktion som heter `ExtractKeyPhrases()` som tar en lista med indatamängds dokument som ska skapas senare. Anropa klientens `key_phrases()` funktion och få resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och de extraherade nyckel fraserna.
 

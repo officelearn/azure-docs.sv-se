@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 3f028431fcd4b338d2e610ce1828a02b753c4d32
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b86b1a2d8a49554cc3df99e0a32a2c0ccaacb560
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483708"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920016"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Använd fjärrverktyg för att felsöka problem med Azure VM
 
@@ -60,6 +60,9 @@ Du kan använda funktionen för anpassat skript tillägg för att köra ett anpa
 Ladda upp ditt skript till ett lagrings konto och skapa en egen behållare. Kör sedan följande skript i Azure PowerShell på en dator som har anslutning till den virtuella datorn.
 
 ### <a name="for-classic-deployment-model-vms"></a>För klassiska virtuella datorer för distributions modell
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 
 ```powershell
 #Set up the basic variables.
@@ -200,7 +203,7 @@ Du kan också använda cmdleten Invoke-Command för att köra ett skript på den
 Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 ```
 
-## <a name="remote-registry"></a>Fjär register
+## <a name="remote-registry"></a>Remote Registry
 
 >[!NOTE]
 >TCP-port 135 eller 445 måste vara öppen för att det här alternativet ska kunna användas.

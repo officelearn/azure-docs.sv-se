@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: labrenne
-ms.openlocfilehash: a22117505dff35f9b92e3dd3c91dc8540557b218
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: bdf0b3bfc955d8a2e2ce1b363c8699ca719b957c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023046"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919013"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montera ett virtuellt fil system i en batch-pool
 
@@ -88,9 +88,6 @@ new PoolAddParameter
 Ett annat alternativ är att använda Azure Blob Storage via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Att montera ett BLOB-filsystem kräver en `AccountKey` eller `SasKey` för ditt lagrings konto. Information om hur du hämtar dessa nycklar finns i [Hantera åtkomst nycklar för lagrings konton](../storage/common/storage-account-keys-manage.md)eller [använda signaturer för delad åtkomst (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Mer information om hur du använder blobfuse finns i blobfuse [Felsöka vanliga frågor och svar](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ). Kör uppgiften som **administratör**för att få standard åtkomst till den blobfuse monterade katalogen. Blobfuse monterar katalogen i användar utrymmet och när poolen skapas monteras den som rot. I Linux är alla **Administratörs** aktiviteter rot. Alla alternativ för den säkra modulen beskrivs på [referens sidan för säkring](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
 
 Förutom fel söknings guiden är GitHub-problem i blobfuse-lagringsplatsen ett bra sätt att kontrol lera aktuella blobfuse-problem och lösningar. Mer information finns i [blobfuse-problem](https://github.com/Azure/azure-storage-fuse/issues).
-
-> [!NOTE]
-> Blobfuse stöds för närvarande inte på Debian. Se [SKU: er som stöds](#supported-skus) för mer information.
 
 ```csharp
 new PoolAddParameter
@@ -174,7 +171,8 @@ Om du vill hämta loggfilerna för fel sökning använder du [OutputFiles](batch
 |---|---|---|---|---|---|---|
 | batch | rendering-centos73 | Render | :heavy_check_mark: <br>Obs: kompatibel med CentOS 7,7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canonical | UbuntuServer | 16,04-LTS, 18,04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| credativ | Debian | 8, 9 | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| credativ | Debian | 8| :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| credativ | Debian | 9 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>Obs: kompatibel med CentOS 7,4. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | CentOS-container | 7,6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | CentOS-container-RDMA | 7.4 | :heavy_check_mark: <br>Obs: stöder A_8-eller 9-lagring</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

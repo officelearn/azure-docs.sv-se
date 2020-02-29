@@ -1,23 +1,25 @@
 ---
-title: 'Självstudie: Extrahera text och struktur från JSON-blobbar'
+title: 'Självstudie: REST och AI över Azure-blobbar'
 titleSuffix: Azure Cognitive Search
-description: 'Stega genom ett exempel på text extrahering och naturlig språk bearbetning över innehåll i JSON-blobbar med Postman och Azure Kognitiv sökning REST-API: er.'
+description: 'Stega genom ett exempel på text extrahering och naturlig språk bearbetning över innehåll i blob-lagring med Postman och Azure Kognitiv sökning REST-API: er.'
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/26/2020
-ms.openlocfilehash: 9d18bea70670acba404b2198e6b06ea2e9200c30
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 7db2d89c112c5f874460f5e6955cdce90cc2f9ae
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77667031"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163007"
 ---
-# <a name="tutorial-extract-text-and-structure-from-json-blobs-in-azure-using-rest-apis-azure-cognitive-search"></a>Självstudie: Extrahera text och struktur från JSON-blobbar i Azure med hjälp av REST API: er (Azure Kognitiv sökning)
+# <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Självstudie: Använd REST och AI för att generera sökbart innehåll från Azure-blobbar
 
-Om du har ostrukturerad text eller avbildningar i Azure Blob Storage kan en [AI-pipeline](cognitive-search-concept-intro.md) utvinna information och skapa nytt innehåll som är användbart för full texts ökning eller kunskaps utvinnings scenarier. Även om en pipeline kan bearbeta bilder, fokuserar den här självstudien på text, använder språk identifiering och bearbetning av naturligt språk för att skapa nya fält som du kan använda i frågor, ansikts och filter.
+Om du har ostrukturerad text eller avbildningar i Azure Blob Storage kan en [AI-pipeline](cognitive-search-concept-intro.md) utvinna information och skapa nytt innehåll som är användbart för full texts ökning eller kunskaps utvinnings scenarier. Även om en pipeline kan bearbeta bilder, fokuserar denna REST-guide på text, använder språk identifiering och bearbetning av naturligt språk för att skapa nya fält som du kan använda i frågor, ansikts och filter.
+
+I den här självstudien använder du Postman och [rest](https://docs.microsoft.com/rest/api/searchservice/) för att utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Börja med hela dokument (ostrukturerad text) som PDF, HTML, DOCX och PPTX i Azure Blob Storage.
@@ -26,9 +28,16 @@ Om du har ostrukturerad text eller avbildningar i Azure Blob Storage kan en [AI-
 > * Kör pipelinen för att starta omvandlingar och analys och för att skapa och läsa in indexet.
 > * Utforska resultat med fullständig texts ökning och en omfattande frågesyntax.
 
-Du behöver flera tjänster för att slutföra den här genom gången, plus [appen Postman Desktop](https://www.getpostman.com/) eller något annat webbtest-verktyg för att göra REST API samtal. 
-
 Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+## <a name="prerequisites"></a>Förutsättningar
+
++ [Azure Storage](https://azure.microsoft.com/services/storage/)
++ [Skrivbordsappen Postman](https://www.getpostman.com/)
++ [Skapa](search-create-service-portal.md) eller [hitta en befintlig Sök tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
+
+> [!Note]
+> Du kan använda den kostnads fria tjänsten för den här självstudien. En kostnads fri Sök tjänst begränsar dig till tre index, tre indexerare och tre data källor. I den här kursen skapar du en av varje. Innan du börjar bör du kontrol lera att du har utrymme på tjänsten för att godkänna de nya resurserna.
 
 ## <a name="download-files"></a>Hämta filer
 
@@ -104,9 +113,9 @@ Som med Azure Blob Storage kan du ägna en stund åt att samla in åtkomst nycke
 
 2. I **inställningar** > **nycklar**får du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
-    Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
+   Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
 
-![Hämta tjänstens namn och administratör och fråge nycklar](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Hämta tjänstens namn och administratör och fråge nycklar](media/search-get-started-nodejs/service-name-and-keys.png)
 
 Alla begär Anden kräver en API-nyckel i rubriken för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende per begäran mellan programmet som skickar begäran och tjänsten som hanterar den.
 
@@ -498,8 +507,6 @@ DELETE https://[YOUR-SERVICE-NAME]].search.windows.net/indexers/cog-search-demo-
 ```
 
 Statuskod 204 returneras vid borttagning.
-
-När koden utvecklas kanske du vill begränsa en strategi för återskapning. Läs mer i informationen om hur du [återskapar ett index](search-howto-reindex.md).
 
 ## <a name="takeaways"></a>Lärdomar
 

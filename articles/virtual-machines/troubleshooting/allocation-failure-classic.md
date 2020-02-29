@@ -12,14 +12,16 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: d43176e04337c2faf7be0bea682428056bc4ab46
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 20e64e5225987a8045e406a0e8fcae098c580c61
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059201"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913386"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Fel söknings steg som är speciella för scenarier med allokeringsfel i den klassiska distributions modellen
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 Följande är vanliga tilldelnings scenarier som gör att en tilldelnings förfrågan fästs. Vi kommer att gå vidare till varje scenario längre fram i den här artikeln.
 
@@ -50,7 +52,7 @@ En begäran om att ändra storlek på en virtuell dator eller lägga till en vir
 
 **Lösning**
 
-Om felet är Upgrade_VMSizeNotSupported * försöker du med en annan storlek på den virtuella datorn. Om du inte använder en annan virtuell dator storlek, men om det är acceptabelt att använda en annan virtuell IP-adress (VIP), skapar du en ny moln tjänst som är värd för den nya virtuella datorn och lägger till den nya moln tjänsten i det regionala virtuella nätverket där de befintliga virtuella datorerna körs. Om den befintliga moln tjänsten inte använder ett regionalt virtuellt nätverk kan du fortfarande skapa ett nytt virtuellt nätverk för den nya moln tjänsten och sedan ansluta ditt [befintliga virtuella nätverk till det nya virtuella nätverket](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Se mer information om [regionala virtuella nätverk](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Om felet är Upgrade_VMSizeNotSupported * kan du prova med en annan storlek på den virtuella datorn. Om du inte använder en annan virtuell dator storlek, men om det är acceptabelt att använda en annan virtuell IP-adress (VIP), skapar du en ny moln tjänst som är värd för den nya virtuella datorn och lägger till den nya moln tjänsten i det regionala virtuella nätverket där de befintliga virtuella datorerna körs. Om den befintliga moln tjänsten inte använder ett regionalt virtuellt nätverk kan du fortfarande skapa ett nytt virtuellt nätverk för den nya moln tjänsten och sedan ansluta ditt [befintliga virtuella nätverk till det nya virtuella nätverket](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Se mer information om [regionala virtuella nätverk](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 Om felet är GeneralError * är det troligt att typen av resurs (till exempel en viss VM-storlek) stöds av klustret, men klustret har inte några lediga resurser för tillfället. I likhet med scenariot ovan lägger du till önskad beräknings resurs genom att skapa en ny moln tjänst (Observera att den nya moln tjänsten måste använda en annan VIP) och använda ett regionalt virtuellt nätverk för att ansluta dina moln tjänster.
 
@@ -116,7 +118,7 @@ New_General * eller New_VMSizeNotSupported *
 
 **Orsak till kluster låsning**
 
-Innan du introducerade regionala virtuella nätverk, var du tvungen att koppla ett virtuellt nätverk till en tillhörighets grupp. Därför är beräknings resurser som placeras i en tillhörighets grupp bundna av samma begränsningar som beskrivs i "tilldelnings scenariot: Avsnittet tillhörighets grupp (VM/service närhet) ovan. Beräknings resurserna är kopplade till ett kluster.
+Innan du introducerade regionala virtuella nätverk, var du tvungen att koppla ett virtuellt nätverk till en tillhörighets grupp. Därför är beräknings resurser som placeras i en tillhörighets grupp bundna av samma begränsningar som beskrivs i avsnittet "tilldelnings scenario: tillhörighets grupp (VM/service närhet)" ovan. Beräknings resurserna är kopplade till ett kluster.
 
 **Lösning**
 

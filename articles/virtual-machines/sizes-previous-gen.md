@@ -3,7 +3,7 @@ title: VIRTUELLA Azure Linux-storlekar – tidigare generationer | Microsoft Doc
 description: Visar en lista över tidigare generationer av storlekar som är tillgängliga för virtuella Linux-datorer i Azure. Visar information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för storlekar i den här serien.
 services: virtual-machines-linux
 documentationcenter: ''
-author: jonbeck7
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: 2d54c39577a359499cf6dc3aca84cebc4fa6e206
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 700847c041a5b9111414d6b43ff734d83b1ca49f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598025"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913471"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tidigare generationer av virtuella dator storlekar
 

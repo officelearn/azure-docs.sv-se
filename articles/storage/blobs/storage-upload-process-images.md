@@ -8,24 +8,24 @@ ms.topic: tutorial
 ms.date: 11/16/2019
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.openlocfilehash: 1c06cf12ac3264e77934a71426f9194136074e71
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 68a3784d4625e29865ac3b95627e8e0ebd5d9e27
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132970"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921240"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Självstudie: Ladda upp bilddata i molnet med Azure Storage
 
-Den här självstudien ingår i en serie. I den här självstudien lär du dig att distribuera en webbapp som använder Azure Storage-klientbiblioteket för att ladda upp bilder till ett lagringskonto. När du är klar har du en webbapp som lagrar och visar bilder från Azure Storage.
+Den här självstudien är del ett i en serie. I den här självstudien lär du dig att distribuera en webbapp som använder Azure Storage-klientbiblioteket för att ladda upp bilder till ett lagringskonto. När du är klar har du en webbapp som lagrar och visar bilder från Azure Storage.
 
-# <a name="nettabdotnet"></a>[\..NET](#tab/dotnet)
+# <a name="net"></a>[\..NET](#tab/dotnet)
 ![Bild storleks program i .NET](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
+# <a name="nodejs-v2-sdk"></a>[Node.js V2 SDK](#tab/nodejs)
 ![Bild storleks program i Node. js v2](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
-# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 ![Bild storleks program i Node. js-v10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
@@ -33,14 +33,14 @@ Den här självstudien ingår i en serie. I den här självstudien lär du dig a
 I en del av serien får du lära dig hur du:
 
 > [!div class="checklist"]
-> * Skapa ett lagringskonto
+> * skapar ett lagringskonto
 > * Skapar en container och anger behörigheter
 > * Hämta en åtkomstnyckel
 > * Distribuera en webbapp till Azure
 > * Konfigurera appinställningar
 > * Interagera med webbappen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen. Skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
@@ -59,7 +59,7 @@ az group create --name myResourceGroup --location southeastasia
 
 ```
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Exemplet överför avbildningar till en blobcontainer på ett Azure-lagringskonto. Ett Azure-lagringskonto tillhandahåller en unik namnrymd där du kan lagra och få åtkomst till dina Azure-lagringdataobjekt. Skapa ett lagringskonto i resursgruppen du skapade med hjälp av kommandot [az storage account create](/cli/azure/storage/account).
 
@@ -69,7 +69,7 @@ Exemplet överför avbildningar till en blobcontainer på ett Azure-lagringskont
 I följande kommando ersätter du ditt globalt unika namn för det Blob Storage-konto där platshållaren `<blob_storage_account>` visas.
 
 ```azurecli-interactive
-$blobStorageAccount="<blob_storage_account>"
+blobStorageAccount="<blob_storage_account>"
 
 az storage account create --name $blobStorageAccount --location southeastasia --resource-group myResourceGroup --sku Standard_LRS --kind blobstorage --access-tier hot
 
@@ -84,7 +84,7 @@ Hämta nyckeln till lagringskontot med kommandot [az storage account keys list](
 Offentlig åtkomst för containern *avbildningar* har angetts till `off`. Offentlig åtkomst för containern *miniatyrer* har angetts till `container`. Inställningen för offentlig åtkomst för `container` tillåter att användare som besöker webbplatsen visar miniatyrbilderna.
 
 ```azurecli-interactive
-$blobStorageAccountKey=$(az storage account keys list -g myResourceGroup -n $blobStorageAccount --query [0].value --output tsv)
+blobStorageAccountKey=$(az storage account keys list -g myResourceGroup -n $blobStorageAccount --query "[0].value" --output tsv)
 
 az storage container create -n images --account-name $blobStorageAccount --account-key $blobStorageAccountKey --public-access off
 
@@ -117,7 +117,7 @@ Webbappen tillhandahåller ett värdutrymme för exempelappens kod som distribue
 I följande kommando ersätter du `<web_app>` med ett unikt namn. Giltiga tecken är `a-z`, `0-9` och `-`. Om `<web_app>` inte är unikt får du ett felmeddelande om att _webbplatsen med det angivna namnet `<web_app>` redan finns._ Standardwebbadressen för webbappen är `https://<web_app>.azurewebsites.net`.  
 
 ```azurecli-interactive
-$webapp="<web_app>"
+webapp="<web_app>"
 
 az webapp create --name $webapp --resource-group myResourceGroup --plan myAppServicePlan
 
@@ -125,18 +125,18 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>Distribuera exempelappen från GitHub-lagringsplatsen
 
-# <a name="nettabdotnet"></a>[\..NET](#tab/dotnet)
+# <a name="net"></a>[\..NET](#tab/dotnet)
 
 App Service har stöd för flera olika sätt att distribuera innehåll till en webbapp. I de här självstudierna distribuerar du webbappen från en [offentlig GitHub exempellagringsplats](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Konfigurera lokal Git-distribution till webbappen med kommandot [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source).
 
 Exempelprojektet innehåller en [ASP.NET MVC](https://www.asp.net/mvc)-app. Appen accepterar en bild, sparar den till ett lagringskonto och visar bilder från en container med miniatyrer. Webbappen använder [Microsoft. Azure. Storage](/dotnet/api/overview/azure/storage), [Microsoft. Azure. Storage. blob](/dotnet/api/microsoft.azure.storage.blob)och Microsoft. Azure. Storage. auth-namnrymderna från Azure Storage klient biblioteket för att interagera med Azure Storage.
 
 ```azurecli-interactive
-az webapp deployment source config --name $webapp --resource-group myResourceGroup --branch master --manual-integration --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
+az webapp deployment source config --name nwebapp --resource-group myResourceGroup --branch master --manual-integration --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 
 ```
 
-# <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
+# <a name="nodejs-v2-sdk"></a>[Node.js V2 SDK](#tab/nodejs)
 App Service har stöd för flera olika sätt att distribuera innehåll till en webbapp. I de här självstudierna distribuerar du webbappen från en [offentlig GitHub exempellagringsplats](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node). Konfigurera lokal Git-distribution till webbappen med kommandot [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source). 
 
 ```azurecli-interactive
@@ -144,7 +144,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 ```
 
-# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 App Service har stöd för flera olika sätt att distribuera innehåll till en webbapp. I de här självstudierna distribuerar du webbappen från en [offentlig GitHub exempellagringsplats](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10). Konfigurera lokal Git-distribution till webbappen med kommandot [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source). 
 
 ```azurecli-interactive
@@ -156,7 +156,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 ## <a name="configure-web-app-settings"></a>Konfigurera inställningarna för webbappen
 
-# <a name="nettabdotnet"></a>[\..NET](#tab/dotnet)
+# <a name="net"></a>[\..NET](#tab/dotnet)
 
 Exempelwebbappen använder [Azure Storage-klientbiblioteket](/dotnet/api/overview/azure/storage) för att begära åtkomsttokens som används för att överföra avbildningar. Autentiseringsuppgifterna för lagringskonto som används av Storage SDK ställs in i webbappens programinställningar. Lägg till appinställningar till den distribuerade appen med kommandot [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
 
@@ -165,18 +165,18 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
 
 ```
 
-# <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
+# <a name="nodejs-v2-sdk"></a>[Node.js V2 SDK](#tab/nodejs)
 
 Exempelwebbappen använder [Azure Storage-klientbiblioteket](https://docs.microsoft.com/javascript/api/azure-storage) för att begära åtkomsttokens som används för att överföra avbildningar. Autentiseringsuppgifterna för lagringskonto som används av Storage SDK ställs in i webbappens programinställningar. Lägg till appinställningar till den distribuerade appen med kommandot [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
 
 ```azurecli-interactive
-$storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
+storageConnectionString=$(az storage account show-connection-string --resource-group resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
 
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup --settings AzureStorageConfig__ImageContainer=images AzureStorageConfig__ThumbnailContainer=thumbnails AzureStorageConfig__AccountName=$blobStorageAccount AzureStorageConfig__AccountKey=$blobStorageAccountKey AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
 
 ```
 
-# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
 Exempelwebbappen använder [Azure Storage-klientbiblioteket](https://github.com/Azure/azure-storage-js) för att begära åtkomsttokens som används för att överföra avbildningar. Autentiseringsuppgifterna för lagringskonto som används av Storage SDK ställs in i webbappens programinställningar. Lägg till appinställningar till den distribuerade appen med kommandot [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
 
@@ -193,7 +193,7 @@ När du har distribuerat och konfigurerat webbappen kan du testa funktionen för
 
 Om du vill testa webbappen bläddrar du till URL-adressen till din publicerade app. Standardwebbadressen för webbappen är `https://<web_app>.azurewebsites.net`.
 
-# <a name="nettabdotnet"></a>[\..NET](#tab/dotnet)
+# <a name="net"></a>[\..NET](#tab/dotnet)
 
 Välj regionen för **Ladda upp foton** och välj och ladda upp en fil eller dra en fil till regionen. Bilden försvinner om överföringen lyckas. Avsnittet **Genererade miniatyrer** förblir tomt tills vi testar det senare i det här ämnet.
 
@@ -236,7 +236,7 @@ Följande klasser och metoder som används i den föregående aktiviteten:
 |[CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer)    | [GetBlockBlobReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getblockblobreference)        |
 |[CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob)     | [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.file.cloudfile.uploadfromstreamasync)        |
 
-# <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
+# <a name="nodejs-v2-sdk"></a>[Node.js V2 SDK](#tab/nodejs)
 
 Välj **Välj fil** för att välja en fil, och klicka sedan på **Ladda upp bild**. Avsnittet **Genererade miniatyrer** förblir tomt tills vi testar det senare i det här ämnet. 
 
@@ -300,7 +300,7 @@ router.post('/', uploadStrategy, (req, res) => {
 });
 ```
 
-# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
 Välj **Välj fil** för att välja en fil, och klicka sedan på **Ladda upp bild**. Avsnittet **Genererade miniatyrer** förblir tomt tills vi testar det senare i det här ämnet. 
 
@@ -398,13 +398,13 @@ Välj en fil med filväljaren och välj **Ladda upp**.
 
 Gå tillbaka till din app för att kontrollera att avbildningen som har överförts till containern **Miniatyrer** syns.
 
-# <a name="nettabdotnet"></a>[\..NET](#tab/dotnet)
+# <a name="net"></a>[\..NET](#tab/dotnet)
 ![.NET Image höjder-appen med ny bild visas](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
+# <a name="nodejs-v2-sdk"></a>[Node.js V2 SDK](#tab/nodejs)
 ![Node. js v2, bild storleks program med ny bild som visas](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
-# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 ![Node. js-v10 bild storleks program med ny bild som visas](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---

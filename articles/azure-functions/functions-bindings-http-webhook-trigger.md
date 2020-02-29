@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: a2adf59a542f695b7845e1a871c0b297b0790fec
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 045f3ccdc8dc09bf657ab39ce15a0d0524c73fcb
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672165"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162970"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions HTTP-utlösare
 
@@ -749,7 +749,7 @@ Den autentiserade användaren är tillgänglig via [http-huvuden](../app-service
 
 ## <a name="authorization-keys"></a>Auktoriseringsarkiv
 
-Med funktioner kan du använda nycklar för att göra det svårare att komma åt HTTP-funktionerna under utvecklingen.  En standard-HTTP-utlösare kan kräva att en sådan API-nyckel finns i begäran. 
+Med funktioner kan du använda nycklar för att göra det svårare att komma åt HTTP-funktionerna under utvecklingen.  Om inte HTTP-hälsonivån på en HTTP-utlöst funktion har angetts till `anonymous`måste begär Anden innehålla en API-nyckel i begäran. 
 
 > [!IMPORTANT]
 > Även om nycklar kan hjälpa dig att obfuscate dina HTTP-slutpunkter under utvecklingen, är de inte avsedda som ett sätt att skydda en HTTP-utlösare i produktion. Mer information finns i [skydda en HTTP-slutpunkt i produktion](#secure-an-http-endpoint-in-production).
@@ -757,14 +757,19 @@ Med funktioner kan du använda nycklar för att göra det svårare att komma åt
 > [!NOTE]
 > I funktionerna 1. x runtime kan webhook-providers använda nycklar för att auktorisera begär Anden på olika sätt, beroende på vad providern stöder. Detta beskrivs i [Webhooks och Keys](#webhooks-and-keys). Functions-körningen i version 2. x och högre inkluderar inte inbyggt stöd för webhook-providrar.
 
-Det finns två typer av nycklar:
+#### <a name="authorization-scopes-function-level"></a>Authorization-omfattningar (funktions nivå)
 
-* **Värd nycklar**: de här nycklarna delas av alla funktioner i Function-appen. När den används som en API-nyckel tillåter dessa åtkomst till alla funktioner i Function-appen.
-* **Funktions tangenter**: dessa nycklar gäller endast för de funktioner som de är definierade under. När den används som en API-nyckel tillåter dessa endast åtkomst till den funktionen.
+Det finns två Authorization-omfattningar för nycklar på funktions nivå:
+
+* **Funktion**: dessa nycklar gäller endast för de funktioner som de är definierade under. När den används som en API-nyckel tillåter dessa endast åtkomst till den funktionen.
+
+* **Värd**: nycklar med ett värd omfång kan användas för att få åtkomst till alla funktioner i Function-appen. När den används som en API-nyckel tillåter dessa åtkomst till alla funktioner i Function-appen. 
 
 Varje nyckel namnges som referens och det finns en standard nyckel (med namnet "standard") på funktion-och värdnivå. Funktions tangenter prioriteras framför värd nycklar. När två nycklar definieras med samma namn används alltid funktions nyckeln.
 
-Varje Function-app har också en särskild **huvud nyckel**. Den här nyckeln är en värd nyckel med namnet `_master`, som ger administrativ åtkomst till körnings-API: erna. Den här nyckeln kan inte återkallas. När du ställer in en autentiseringsnivå för `admin`måste begär Anden använda huvud nyckeln. andra viktiga resultat vid auktoriseringsfel.
+#### <a name="master-key-admin-level"></a>Huvud nyckel (admin-nivå) 
+
+Varje Function-app har också en värd nyckel på administratörs nivå med namnet `_master`. Förutom att tillhandahålla åtkomst på värdnivå till alla funktioner i appen, ger huvud nyckeln även administrativ åtkomst till REST-API: erna för körning. Den här nyckeln kan inte återkallas. När du ställer in en autentiseringsnivå för `admin`måste begär Anden använda huvud nyckeln. andra viktiga resultat vid auktoriseringsfel.
 
 > [!CAUTION]  
 > På grund av de utökade behörigheterna i din Function-app som beviljats av huvud nyckeln bör du inte dela den här nyckeln med tredje part eller distribuera den i interna klient program. Var försiktig när du väljer administratörens autentiseringsnivå.

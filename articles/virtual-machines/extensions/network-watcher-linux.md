@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: c04b27ab4a8ea53e09ca3a133d6aef6457fe1526
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 69d2bfe4576a9350e905fc10f3d7617619e6284a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073037"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915494"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Network Watcher virtuell agent för virtuella datorer för Linux
 
@@ -29,7 +29,7 @@ ms.locfileid: "74073037"
 
 Den här artikeln beskriver de plattformar och distributions alternativ som stöds för det virtuella Network Watcher agent-tillägget för Linux. Installationen av agenten störs inte eller kräver en omstart av den virtuella datorn. Du kan distribuera tillägget till virtuella datorer som du distribuerar. Om den virtuella datorn distribueras av en Azure-tjänst kan du läsa dokumentationen för tjänsten för att avgöra om den tillåter att installera tillägg på den virtuella datorn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -88,6 +88,8 @@ Du kan distribuera virtuella Azure-tillägg med en Azure Resource Manager-mall. 
 
 ## <a name="azure-classic-cli-deployment"></a>Klassisk Azure-CLI-distribution
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 I följande exempel distribueras det virtuella Network Watcher agent-tillägget till en befintlig virtuell dator som distribueras via den klassiska distributions modellen:
 
 ```azurecli
@@ -103,23 +105,11 @@ I följande exempel distribueras Network Watcher-agentens VM-tillägg till en be
 az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name NetworkWatcherAgentLinux --publisher Microsoft.Azure.NetworkWatcher --version 1.4
 ```
 
-## <a name="troubleshooting-and-support"></a>Felsökning och support
+## <a name="troubleshooting-and-support"></a>Fel sökning och support
 
 ### <a name="troubleshooting"></a>Felsökning
 
 Du kan hämta data om statusen för tillägg distributioner med antingen Azure Portal eller Azure CLI.
-
-I följande exempel visas distributions statusen för tillägg för en virtuell dator som distribueras via den klassiska distributions modellen med hjälp av den klassiska Azure-CLI:
-
-```azurecli
-azure config mode asm
-azure vm extension get myVM1
-```
-Utökning av utdata loggas till filer som finns i följande katalog:
-
-```
-/var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
-```
 
 I följande exempel visas distributions statusen för NetworkWatcherAgentLinux-tillägget för en virtuell dator som distribueras via Resource Manager med hjälp av Azure CLI:
 

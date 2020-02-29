@@ -4,14 +4,14 @@ description: I den här artikeln lär du dig hur du skapar Recovery Services val
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 682bf26c1485bd9e2ae288a6947e9ad573463069
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: eb7dcb4038260b1edac57a2163a1c0eae29ee452
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705470"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920118"
 ---
-# <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
+# <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
 Ett Recovery Services-valv är en entitet som lagrar säkerhets kopior och återställnings punkter som skapats med tiden. Recovery Services valvet innehåller också de säkerhets kopierings principer som är associerade med de skyddade virtuella datorerna.
 
@@ -88,7 +88,7 @@ För den här processen finns det prissättnings effekter som på lagrings nivå
 >Innan du börjar:
 >
 >- Granska [support matrisen](backup-support-matrix.md#cross-region-restore) för en lista över hanterade typer och regioner som stöds.
->- Funktionen för återställning av kors region (CRR) är för närvarande endast tillgänglig i regionen WCUS.
+>- Funktionen för återställning av kors region (CRR) är för närvarande endast tillgänglig i följande regioner: västra centrala USA, västra USA 2, östra Australien och sydöstra Australien. 
 >- CRR är ett alternativ för att välja en valv nivå för alla GRS-valv (inaktiverat som standard).
 >- Använd följande kommando för att publicera din prenumeration för den här funktionen:<br>
 >  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`

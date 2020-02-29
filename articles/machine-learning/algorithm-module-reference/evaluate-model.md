@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: 5951c6ec63478b4b266f22eaf8bf3162e0a45df0
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.date: 02/24/2020
+ms.openlocfilehash: a665ee97f923620bb484243d5cd4904a647969e4
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137553"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917448"
 ---
 # <a name="evaluate-model-module"></a>Utvärdera modell modul
 
@@ -25,7 +25,8 @@ Använd den här modulen för att mäta noggrannheten för en utbildad modell. D
  Måtten som returneras av **evaluate-modellen** beror på vilken typ av modell du utvärderar:  
   
 -   **Klassificerings modeller**    
--   **Regressions modeller**    
+-   **Regressions modeller**  
+-   **Kluster modeller**  
 
 
 > [!TIP]
@@ -72,7 +73,7 @@ Modellen eller data som är kopplade till den vänstra porten visas först i rap
 
 Följande bild visar till exempel en jämförelse av resultat från två kluster modeller som bygger på samma data, men med olika parametrar.  
 
-![AML&#95;Comparing2Models](media/module/aml-comparing2models.png "AML_Comparing2Models")  
+![Comparing2Models](media/module/evaluate-2-models.png)  
 
 Eftersom det här är en kluster modell är utvärderings resultatet annorlunda än om du jämför resultat från två Regressions modeller eller jämför två klassificerings modeller. Den övergripande presentationen är dock densamma. 
 
@@ -82,10 +83,11 @@ I det här avsnittet beskrivs de mått som returneras för de olika typerna av m
 
 + [klassificerings modeller](#metrics-for-classification-models)
 + [Regressions modeller](#metrics-for-regression-models)
++ [kluster modeller](#metrics-for-clustering-models)
 
 ### <a name="metrics-for-classification-models"></a>Mått för klassificerings modeller
 
-Följande mått rapporteras när klassificerings modeller utvärderas. Om du jämför modeller rangordnas de efter det mått som du väljer för utvärdering.  
+Följande mått rapporteras när klassificerings modeller utvärderas.
   
 -   **Noggrannhet** mäter en klassificerings modells lämplighet som andel sanna resultat av totalt antal fall.  
   
@@ -105,7 +107,7 @@ Följande mått rapporteras när klassificerings modeller utvärderas. Om du jä
  
 Måtten som returneras för Regressions modeller är utformade för att uppskatta mängden fel.  En modell anses vara bra anpassad om skillnaden mellan observerade och förväntade värden är liten. Men om du tittar på resten av resten (skillnaden mellan en förutsägande punkt och dess motsvarande faktiska värde) kan du få mycket information om potentiell förskjutning i modellen.  
   
- Följande mått rapporteras för utvärdering av Regressions modeller. När du jämför modeller rangordnas de efter det mått som du väljer för utvärdering.  
+ Följande mått rapporteras för utvärdering av Regressions modeller.
   
 - **Medelvärde för absolut fel (Mae)** hur nära förutsägelserna är till de faktiska resultatet; Därför är en lägre poäng bättre.  
   
@@ -118,6 +120,30 @@ Måtten som returneras för Regressions modeller är utformade för att uppskatt
 
   
 - **Koefficienten för bestämning**, som ofta kallas R<sup>2</sup>, representerar modellens förutsägande effekt som ett värde mellan 0 och 1. Noll betyder att modellen är slumpmässig (förklarar ingenting). 1 betyder en perfekt anpassning. Vi bör dock använda försiktighet i tolkningen av R<sup>2</sup> -värden, eftersom låga värden kan vara helt normala och höga värden kan vara misstänkta.
+
+###  <a name="metrics-for-clustering-models"></a>Mått för kluster modeller
+
+Eftersom kluster modeller skiljer sig avsevärt från klassificerings-och Regressions modeller i många avseenden, returnerar [utvärdera modellen](evaluate-model.md) även en annan uppsättning statistik för kluster modeller.  
+  
+ Statistiken som returneras för en kluster modell beskriver hur många data punkter som har tilldelats varje kluster, mängden separering mellan kluster och hur nära data punkterna är sammanslagna i varje kluster.  
+  
+ Statistiken för kluster modellen beräknas över hela data uppsättningen, med ytterligare rader som innehåller statistik per kluster.  
+  
+Följande mått rapporteras för utvärdering av kluster modeller.
+    
+-   Poängen i kolumnen, det **genomsnittliga avståndet till andra centret**, visar hur nära, i genomsnitt, varje punkt i klustret är till centroids för alla andra kluster.   
+
+-   Poängen i kolumnen, **Genomsnittligt avstånd till kluster Center**, motsvarar stängningen av alla punkter i ett kluster till centroid i klustret.  
+  
+-   I kolumnen **antal punkter** visas hur många data punkter som har tilldelats varje kluster, tillsammans med det totala antalet data punkter i alla kluster.  
+  
+     Om antalet data punkter som tilldelas till kluster är mindre än det totala antalet tillgängliga data punkter, innebär det att data punkterna inte kunde tilldelas till ett kluster.  
+  
+-   Poängen i kolumnen, **Maximalt avstånd till kluster Center**, motsvarar summan av avstånden mellan varje punkt och centroid för den punktens kluster.  
+  
+     Om det här värdet är högt, kan det betyda att klustret är allmänt utspridd. Du bör granska statistiken tillsammans med det **genomsnittliga avståndet till kluster Center** för att fastställa klustrets uppslag.   
+
+-   Den **kombinerade utvärderings** poängen längst ned i varje del av resultaten visar genomsnitts poängen för de kluster som skapats i just den modellen.  
   
 
 ## <a name="next-steps"></a>Nästa steg

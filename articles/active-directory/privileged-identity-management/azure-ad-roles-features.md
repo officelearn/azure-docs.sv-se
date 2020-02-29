@@ -16,12 +16,12 @@ ms.date: 12/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f7bc881cee362103fc611cbf8a094e07ad50699
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: f5d63577cbdbdf18cb17618bdb5c9e3b5de0e44a
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77499046"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162274"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Hanterings funktioner för Azure AD-roller i Privileged Identity Management
 
@@ -62,7 +62,7 @@ Vi har försökt med vårt bästa att kontakta alla kunder som använder föreg�
 
 ## <a name="powershell-change"></a>PowerShell-ändring
 
-För kunder som använder Privileged Identity Management PowerShell-modulen för Azure AD-roller slutar PowerShell att arbeta med uppdateringen. I stället för föregående cmdletar måste du använda Privileged Identity Management-cmdletar i Azure AD Preview PowerShell-modulen. Installera Azure AD PowerShell-modulen från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Cmdletarna skapas ovanpå Graph API.
+För kunder som använder Privileged Identity Management PowerShell-modulen för Azure AD-roller slutar PowerShell att arbeta med uppdateringen. I stället för föregående cmdletar måste du använda Privileged Identity Management-cmdletar i Azure AD Preview PowerShell-modulen. Installera Azure AD PowerShell-modulen från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Nu kan du [läsa dokumentationen och exemplen för PIM-åtgärder i den här PowerShell-modulen](powershell-for-azure-ad-roles.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 46b9fe5c6a038aa98cf8df64c40bf8ea1747efec
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e735495038f0e5c28af31aa79a45c71225502b3c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663597"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918163"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Avancerat skydd med Azure Security Center
 
@@ -95,12 +95,14 @@ Om du har en proxy eller brand vägg som blockerar anonym trafik, som en Microso
 
 Så här skapar du en ofarlig test avisering för Microsoft Defender ATP:
 
-1. Använd fjärr skrivbord för att få åtkomst till antingen en virtuell Windows Server 2012 R2-dator eller en virtuell Windows Server 2016-dator. Öppna ett kommandotolksfönster.
+1. Skapa en mapp ' C:\test-MDATP-test '.
 
-2. Kopiera och kör följande kommando i kommando tolken. Kommando tolks fönstret stängs automatiskt.
+1. Använd fjärr skrivbord för att få åtkomst till antingen en virtuell Windows Server 2012 R2-dator eller en virtuell Windows Server 2016-dator. Öppna ett kommando rads fönster.
+
+1. Kopiera och kör följande kommando i kommando tolken. Kommando tolks fönstret stängs automatiskt.
 
     ```
-    powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-WDATP-test\\invoice.exe'); Start-Process 'C:\\test-WDATP-test\\invoice.exe'
+    powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
     ```
 
    ![Ett kommando tolks fönster med kommandot ovan](media/security-center-wdatp/image4.jpeg)

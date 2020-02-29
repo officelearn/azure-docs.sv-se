@@ -8,20 +8,28 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: c923dfed24253ce2e3551c13a457f19d155a1e40
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: a9c045162e650b4468fb53676e367d2c658bf7cc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77068404"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912586"
 ---
+## <a name="what-is-the-time-required-for-migration"></a>Vad är den tid som krävs för migrering?
+
+Planering och utförande av migreringen beror avsevärt på arkitekturens komplexitet och det kan ta några månader.  
+
+## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>Vad är definitionen av en ny kund på virtuella IaaS-datorer (klassisk)?
+
+Kunder som inte har IaaS virtuella datorer (klassisk) i sina prenumerationer under månaden Febrauary 2020 (en månad innan utgångs punkt startade) betraktas som nya kunder. 
+
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Påverkar den här migreringsplanen några befintliga tjänster eller program som körs på virtuella Azure-datorer? 
 
-Nej. De virtuella datorerna (klassiskt läge) är tjänster med fullständigt stöd och allmänt tillgängliga. Du kan fortsätta att använda de här resurserna för att utöka storleken på Microsoft Azure.
+Inte förrän den 1 mars 2023 för virtuella IaaS-datorer (klassisk). De virtuella IaaS-datorerna (klassiska) är fullt tillgängliga tjänster som är allmänt tillgängliga. Du kan fortsätta att använda de här resurserna för att utöka storleken på Microsoft Azure. Den 1 mars 2023 kommer de virtuella datorerna att dras tillbaka och alla aktiva eller allokerade virtuella datorer stoppas & frigörs. Andra klassiska resurser påverkas inte, t. ex. Cloud Services (klassisk), lagrings konton (klassisk) osv.   
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>Vad händer med mina virtuella datorer om jag inte planerar för migrering inom den närmaste framtiden? 
 
-Vi kommer inte att avveckla de befintliga klassiska API:erna och resursmodellerna. Vi vill att migreringen ska gå lätt och smidigt med tanke på de avancerade funktionerna i Resource Manager-distributionsmodellen. Vi rekommenderar att du läser igenom [några av förbättringarna](../articles/azure-resource-manager/management/deployment-models.md) som är en del av IaaS i Resource Manager.
+Den 1 mars 2023 kommer virtuella IaaS-datorer (klassisk) att dras tillbaka och alla aktiva eller allokerade virtuella datorer stoppas & frigörs. För att förhindra påverkan på verksamheten, kommenterar vi hög kommentarer för att börja planera migreringen idag och slutföra den före den 1 mars 2023. Vi är inte föråldrade de befintliga klassiska API: erna, Cloud Services och resurs modellen. Vi vill att migreringen ska gå lätt och smidigt med tanke på de avancerade funktionerna i Resource Manager-distributionsmodellen. Vi rekommenderar att du börjar planera för att migrera de här resurserna till Azure Resource Manager. 
 
 ## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>Vad innebär den här migreringsplanen för mina befintliga verktyg? 
 
@@ -37,7 +45,7 @@ Du kan avbryta migreringen så länge resurserna är i förberedelsefasen. Åter
 
 ## <a name="can-i-roll-back-my-migration-if-the-commit-operation-fails"></a>Kan jag återställa migreringen om incheckningen misslyckas? 
 
-Du kan inte avbryta migreringen om incheckningen misslyckas. Alla migreringsåtgärder, inklusive incheckning, är idempotenta. Vi rekommenderar därför att du gör om åtgärden om en stund. Om du fortfarande stöter på ett fel, skapar du ett support ärende eller skapar ett forum inlägg på [Microsoft Q & a](https://docs.microsoft.com/answers/index.html).
+Du kan inte avbryta migreringen om incheckningen misslyckas. Alla migreringsåtgärder, inklusive incheckning, är idempotenta. Vi rekommenderar därför att du gör om åtgärden om en stund. Om du fortfarande stöter på ett fel kan du skapa ett support ärende.
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Måste jag köpa en annan ExpressRoute-krets om jag måste använda IaaS med Resource Manager? 
 

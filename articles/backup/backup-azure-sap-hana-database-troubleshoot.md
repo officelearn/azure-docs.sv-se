@@ -3,12 +3,12 @@ title: Felsöka fel vid säkerhets kopiering av SAP HANA databaser
 description: Beskriver hur du felsöker vanliga fel som kan uppstå när du använder Azure Backup för att säkerhetskopiera SAP HANA-databaser.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 04f9bafba0ca490b33a0daf3c3725e57d81bcc7e
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 8872cfe87df9b8d0553d777f72fe7102d08dea4d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664606"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916871"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Felsöka säkerhets kopiering av SAP HANA databaser på Azure
 
@@ -16,9 +16,16 @@ Den här artikeln innehåller felsöknings information för att säkerhetskopier
 
 ## <a name="prerequisites-and-permissions"></a>Krav och behörigheter
 
-Se [nödvändiga komponenter](tutorial-backup-sap-hana-db.md#prerequisites) och konfigurera [behörigheter](tutorial-backup-sap-hana-db.md#setting-up-permissions) innan du konfigurerar säkerhets kopieringar.
+Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för för registrering gör](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) i avsnitten innan du konfigurerar säkerhets kopieringar.
 
 ## <a name="common-user-errors"></a>Vanliga användar fel
+
+### <a name="usererrorhanainternalrolenotpresent"></a>UserErrorHANAInternalRoleNotPresent
+
+| **Fel meddelande**      | <span style="font-weight:normal">Azure Backup har inte de roll behörigheter som krävs för att utföra säkerhets kopiering</span>    |
+| ---------------------- | ------------------------------------------------------------ |
+| **Möjliga orsaker**    | Rollen kan ha skrivits över.                          |
+| **Rekommenderad åtgärd** | Lös problemet genom att köra skriptet från rutan för att **hitta databas** eller ladda ned det [här](https://aka.ms/scriptforpermsonhana). Du kan också lägga till rollen SAP_INTERNAL_HANA_SUPPORT till säkerhets kopierings användaren för arbets belastningen (AZUREWLBACKUPHANAUSER). |
 
 ### <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection
 

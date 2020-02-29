@@ -3,7 +3,7 @@ title: Storlekar för virtuella Azure-datorer – GPU | Microsoft Docs
 description: Visar en lista över de olika GPU-optimerade storlekar som är tillgängliga för virtuella datorer i Azure. Visar information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för storlekar i den här serien.
 services: virtual-machines
 documentationcenter: ''
-author: jonbeck7
+author: vikancha
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: e7e9ff795f7f639686b9f629dacb6f0752c20732
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 7e1e0d488844a94bd0be2b91398678e620295729
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77660214"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913590"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU-optimerade storlekar på virtuella datorer
 

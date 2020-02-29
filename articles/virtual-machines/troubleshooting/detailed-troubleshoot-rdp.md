@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: ee2fb3757b0e3a7015a98f4e04084fd9c6a4850d
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: ea448b87f9e6954abecead2934bfb7f4ed04a9c5
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747538"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920152"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Detaljerade fel söknings steg för anslutnings problem med fjärr skrivbord till virtuella Windows-datorer i Azure
 Den här artikeln innehåller detaljerade fel söknings steg för att diagnostisera och åtgärda komplexa fjärr skrivbords fel för Windows-baserade virtuella Azure-datorer.
@@ -38,7 +38,7 @@ Följande komponenter ingår i en RDP-anslutning:
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
 
-Innan du fortsätter kan det vara bra att granska vad som har ändrats sedan den senaste lyckade fjärr skrivbords anslutningen till den virtuella datorn. Ett exempel:
+Innan du fortsätter kan det vara bra att granska vad som har ändrats sedan den senaste lyckade fjärr skrivbords anslutningen till den virtuella datorn. Några exempel:
 
 * Den offentliga IP-adressen för den virtuella datorn eller moln tjänsten som innehåller den virtuella datorn (kallas även den virtuella IP-adressen [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) har ändrats. RDP-felet kan bero på att DNS-klientcachen fortfarande har den *gamla IP-adressen* registrerad för DNS-namnet. Töm cacheminnet för DNS-klienten och försök att ansluta den virtuella datorn igen. Eller försök att ansluta direkt med den nya VIP: en.
 * Du använder ett program från tredje part för att hantera dina fjärr skrivbords anslutningar i stället för att använda den anslutning som genererades av Azure Portal. Kontrol lera att program konfigurationen innehåller rätt TCP-port för fjärr skrivbords trafiken. Du kan kontrol lera den här porten för en klassisk virtuell dator i [Azure Portal](https://portal.azure.com)genom att klicka på den virtuella datorns inställningar > slut punkter.
@@ -92,6 +92,9 @@ Om du kan skapa en anslutning till fjärr skrivbord med en dator som är direkta
 Arbeta med nätverks administratören för att korrigera inställningarna för organisationens intranät gräns enhet för att tillåta HTTPS-baserade fjärr skrivbords anslutningar till Internet.
 
 ## <a name="source-3-cloud-service-endpoint-and-acl"></a>Källa 3: moln tjänstens slut punkt och ACL
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 För virtuella datorer som skapats med den klassiska distributions modellen kontrollerar du att en annan virtuell Azure-dator som finns i samma moln tjänst eller virtuella nätverk kan göra fjärr skrivbords anslutningar till din virtuella Azure-dator.
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
@@ -193,7 +196,7 @@ Kontrol lera att fjärr skrivbords slut punkten för den virtuella Azure-datorn 
 ## <a name="additional-resources"></a>Ytterligare resurser
 [Återställa ett lösen ord eller fjärr skrivbords tjänsten för virtuella Windows-datorer](../windows/reset-rdp.md)
 
-[Hur du installerar och konfigurerar Azure PowerShell](/powershell/azure/overview)
+[Installera och konfigurera Azure PowerShell](/powershell/azure/overview)
 
 [Felsök SSH-anslutningar (Secure Shell) till en Linux-baserad virtuell Azure-dator](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

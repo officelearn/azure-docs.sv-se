@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 0b321f3548910a2bc79e4473609de30eda8c8622
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/10/2020
+ms.openlocfilehash: a3eafc28dc6d0f44a1f1019cb3393259aa2a698a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314359"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920356"
 ---
 # <a name="score-svd-recommender"></a>Poäng för SVD-rekommenderare
 
-Den här artikeln beskriver hur du använder modulen Scores i SVD-rekommendation i Azure Machine Learning designer. Använd den här modulen för att skapa förutsägelser med hjälp av en utbildad rekommendations modell som baseras på en algoritm för enkel värdes avsammansättning (SVD).
+I den här artikeln beskrivs hur du använder den SVD-rekommenderade modulen i Azure Machine Learning designer (för hands version). Använd den här modulen för att skapa förutsägelser med hjälp av en utbildad rekommendations modell som baseras på en algoritm för enkel värdes avsammansättning (SVD).
 
 SVD-rekommendationen kan generera två olika typer av förutsägelser:
 
@@ -91,7 +91,7 @@ För att rekommendera objekt för användare, ange en lista med användare och o
 
 5. **Maximalt antal objekt att rekommendera till en användare**: Ange antalet objekt som ska returneras för varje användare. Som standard rekommenderar modulen fem objekt.
 
-6. **Minsta storlek på den rekommenderade poolen per användare**: Ange ett värde som anger hur många tidigare rekommendationer som krävs. Som standard är den här parametern inställd på **2**, vilket innebär att minst två andra användare har rekommenderat objektet.
+6. **Minsta storlek på den rekommenderade poolen per användare**: Ange ett värde som anger hur många tidigare rekommendationer som krävs. Som standard är den här parametern inställd på 2, vilket innebär att minst två andra användare har rekommenderat objektet.
 
    Använd bara det här alternativet om du är i bedömnings läge. Alternativet är inte tillgängligt om du väljer **från alla objekt** eller **från oklassificerade objekt (för att föreslå nya objekt till användare)** .
 

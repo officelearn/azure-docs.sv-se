@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: 5c199d074a6655ad14a0c66925e4302f70424970
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 834a097eb77cc7de2d0a3643bf1499ff7517ddb0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615989"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912281"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Hantera och svara på säkerhets aviseringar i Azure Security Center
 
@@ -67,7 +67,7 @@ Security Center samlar automatiskt in, analyserar och integrerar loggdata från 
 
 1. De reparations steg som föreslås av Security Center varierar beroende på säkerhets aviseringen. Följ dem för varje avisering. 
 
-    I vissa fall kan du behöva använda andra Azure-kontroller eller-tjänster för att kunna åtgärda en varning om hot identifiering. 
+    I vissa fall kan du behöva använda andra Azure-kontroller eller-tjänster för att kunna åtgärda en säkerhets avisering. 
 
     Följande avsnitt vägleder dig genom de olika aviseringarna, beroende på resurs typer:
     

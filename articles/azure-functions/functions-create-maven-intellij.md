@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1d3dd0f4f1da4d3815d4d879dd13ed5882f39e8f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 46044d4c6dd65944291aff157229be0abc60d3d7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230733"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913250"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Skapa din första Azure-funktion med Java och IntelliJ
 
@@ -80,8 +80,6 @@ Maven skapar projektfilerna i en ny mapp med samma namn som _ArtifactId_ -värde
 1. Välj **(+)** om du vill lägga till en **fjärr anslutning**.
 1. Fyll i fälten _namn_ och _Inställningar_ och välj sedan **OK** för att spara konfigurationen.
 1. Efter installationen väljer du **felsök < Fjärrkonfigurationens namn >** eller trycker på Shift + F9 på tangent bordet för att starta fel sökningen.
-
-   ![Fel söknings funktioner i IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.png)
 
 1. Stoppa fel söknings programmet och den process som körs när du är klar. Endast en funktions värd kan vara aktiv och köras lokalt i taget.
 

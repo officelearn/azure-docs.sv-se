@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d8096a14bf2abc0b06b7ab7c3d340a313b1cd24c
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2c4152ec5e67761ce9be9a81bfbf39e1591787da
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057289"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913522"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Distribuera om den virtuella Linux-datorn till en ny Azure-nod
 Om du har problem med att felsöka SSH eller program åtkomst till en virtuell Linux-dator i Azure kan det hjälpa att distribuera om den virtuella datorn. När du distribuerar om en virtuell dator flyttar den den virtuella datorn till en ny nod i Azure-infrastrukturen och ger sedan den behörighet igen. Alla konfigurations alternativ och tillhör ande resurser behålls. Den här artikeln visar hur du distribuerar om en virtuell dator med hjälp av Azure CLI eller Azure Portal.
@@ -37,7 +37,11 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="use-the-azure-classic-cli"></a>Använd den klassiska Azure-CLI
-Installera den [senaste Azure Classic CLI](../../cli-install-nodejs.md) och logga in på ditt Azure-konto. Se till att du är i Resource Manager-läge`azure config mode arm`().
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
+
+Installera den [senaste Azure Classic CLI](../../cli-install-nodejs.md) och logga in på ditt Azure-konto. Kontrol lera att du är i Resource Manager-läge (`azure config mode arm`).
 
 I följande exempel distribueras den virtuella datorn med namnet *myVM* i resurs gruppen med namnet *myResourceGroup*:
 

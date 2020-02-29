@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: d4a51a44b48e94669e92a9d525c1b0966df53c18
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 3a7254cc9de89a297811792b4dd64b4b669ba8e4
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68964135"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921051"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Skicka meddelanden från moln till enhet från en IoT-hubb
 
@@ -23,7 +23,7 @@ Skicka meddelanden från moln till enhet från din IoT Hub till din enhet om du 
 
 Du skickar meddelanden från molnet till enheten via en */Messages/devicebound*-slutpunkt. En enhet tar sedan emot meddelandena via en enhets bestämd slut punkt, */Devices/{deviceId}/Messages/devicebound*.
 
-För att rikta in varje moln-till-enhet-meddelande på en enskild enhet ställer IoT Hub in på-egenskapen till */Devices/{deviceId}/Messages/devicebound*.
+För att rikta in varje moln-till-enhet-meddelande på en enskild enhet ställer IoT Hub **in på-egenskapen till** */Devices/{deviceId}/Messages/devicebound*.
 
 Varje enhets kön innehåller högst 50 meddelanden från molnet till enheten. För att försöka skicka fler meddelanden till samma enhet resulterar det i ett fel.
 
@@ -35,17 +35,17 @@ Diagrammet livs cykel tillstånd visas i följande diagram:
 
 ![Livs cykel för meddelande från moln till enhet](./media/iot-hub-devguide-messages-c2d/lifecycle.png)
 
-När tjänsten IoT Hub skickar ett meddelande till en enhet, ställer tjänsten in meddelandets tillstånd i *kö*. När en enhet vill *ta emot* ett meddelande *låser* IoT-hubben meddelandet genom att ställa in läget på *osynligt*. Det här läget tillåter att andra trådar på enheten börjar ta emot andra meddelanden. När en enhets tråd slutför bearbetningen av ett meddelande, meddelas IoT-hubben genom att *slutföra* meddelandet. IoT Hub anger sedan statusen till slutförd.
+När tjänsten IoT Hub skickar ett meddelande till en enhet, ställer tjänsten in meddelandets tillstånd i *kö*. När en enhet vill *ta emot* ett meddelande *låser* IoT-hubben meddelandet genom att ställa in läget på *osynligt*. Det här läget tillåter att andra trådar på enheten börjar ta emot andra meddelanden. När en enhets tråd slutför bearbetningen av ett meddelande, meddelas IoT-hubben genom att *slutföra* meddelandet. IoT Hub anger sedan statusen till *slutförd*.
 
 En enhet kan också:
 
 * *Avvisa* meddelandet, vilket leder till att IoT-hubben anger det som status för *obeställbara meddelanden* . Enheter som ansluter via MQTT-protokollet (Message Queuing telemetri transport) kan inte förkasta meddelanden från molnet till enheten.
 
-* *Överge* meddelandet, vilket gör att IoT-hubben kan placera meddelandet i kön igen, med tillstånds inställningen placerad i *kö*. Enheter som ansluter via MQTT-protokollet kan inte överge meddelanden från molnet till enheten.
+* *Överge* meddelandet, vilket gör att IoT-hubben kan placera meddelandet i kön igen, med tillstånds inställningen *placerad i kö*. Enheter som ansluter via MQTT-protokollet kan inte överge meddelanden från molnet till enheten.
 
-En tråd kunde inte bearbeta ett meddelande utan att meddela IoT-hubben. I det här fallet övergår meddelanden automatiskt från det osynliga läget tillbaka till läget i *kö* efter en *Synlighets* -timeout (eller *låsnings* -timeout). Värdet för denna timeout är en minut och kan inte ändras.
+En tråd kunde inte bearbeta ett meddelande utan att meddela IoT-hubben. I det här fallet övergår meddelanden automatiskt från det *osynliga* läget tillbaka till läget i *kö* efter en *Synlighets* -timeout (eller *låsnings* -timeout). Värdet för denna timeout är en minut och kan inte ändras.
 
-Egenskapen **Max Delivery Count** i IoT Hub avgör det maximala antalet gånger som ett meddelande kan övergå mellan tillståndet i *kö* och osynligt. Efter det antalet över gångar anger IoT-hubben status för meddelandet till *död brev*. På samma sätt anger IoT Hub statusen för ett meddelande till *obeställbara meddelanden* efter förfallo tiden. Mer information finns i [Time to Live](#message-expiration-time-to-live).
+Egenskapen **Max Delivery Count** i IoT Hub avgör det maximala antalet gånger som ett meddelande kan övergå mellan tillståndet i *kö* och *osynligt* . Efter det antalet över gångar anger IoT-hubben status för meddelandet till *död brev*. På samma sätt anger IoT Hub statusen för ett meddelande till *obeställbara meddelanden* efter förfallo tiden. Mer information finns i [Time to Live](#message-expiration-time-to-live).
 
 Avsnittet [skicka meddelanden från moln till enhet med IoT Hub](iot-hub-csharp-csharp-c2d.md) visar hur du skickar meddelanden från moln till enhet från molnet och tar emot dem på en enhet.
 
@@ -75,7 +75,7 @@ När du skickar ett meddelande från molnet till enheten kan tjänsten begära l
 
 | Bekräftelse egenskaps värde | Beteende |
 | ------------ | -------- |
-| inga     | IoT Hub genererar inget feedback-meddelande (standard beteende). |
+| ingen     | IoT Hub genererar inget feedback-meddelande (standard beteende). |
 | positivt | Om meddelandet från molnet till enheten når statusen *slutfört* , genererar IoT Hub ett feedback-meddelande. |
 | påverka | Om meddelandet från molnet till enheten når status för *obeställbara meddelanden* genererar IoT Hub ett feedback-meddelande. |
 | fullständig     | IoT Hub genererar ett feedback-meddelande i båda fallen. |
@@ -88,7 +88,7 @@ Som förklaras i [slut punkter](iot-hub-devguide-endpoints.md)ger IoT Hub feedba
 | ------------ | ----------- |
 | EnqueuedTime | En tidsstämpel som anger när feedback-meddelandet togs emot av hubben |
 | UserId       | `{iot hub name}` |
-| ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
+| Innehålls  | `application/vnd.microsoft.iothub.feedback.json` |
 
 Texten är en JSON-serialiserad matris med poster, var och en med följande egenskaper:
 
@@ -134,12 +134,36 @@ Varje IoT-hubb exponerar följande konfigurations alternativ för meddelanden fr
 
 | Egenskap                  | Beskrivning | Intervall och standard |
 | ------------------------- | ----------- | ----------------- |
-| defaultTtlAsIso8601       | Standard-TTL för meddelanden från moln till enhet | ISO_8601-intervall upp till två dagar (minst 1 minut); objekt 1 timme |
-| maxDeliveryCount          | Maximalt antal leveranser för köer för moln-till-enhet per enhet | 1 till 100; objekt 10 |
-| feedback.ttlAsIso8601     | Kvarhållning för service-kopplade e-postmeddelanden | ISO_8601-intervall upp till två dagar (minst 1 minut); objekt 1 timme |
-| feedback.maxDeliveryCount | Maximalt antal leveranser för feedback-kön | 1 till 100; objekt 100 |
+| defaultTtlAsIso8601       | Standard-TTL för meddelanden från moln till enhet | ISO_8601 intervall upp till två dagar (minst 1 minut); standard: 1 timme |
+| maxDeliveryCount          | Maximalt antal leveranser för köer för moln-till-enhet per enhet | 1 till 100; standard: 10 |
+| feedback.ttlAsIso8601     | Kvarhållning för service-kopplade e-postmeddelanden | ISO_8601 intervall upp till två dagar (minst 1 minut); standard: 1 timme |
+| feedback.maxDeliveryCount | Maximalt antal leveranser för feedback-kön | 1 till 100; standard: 10 |
+| feedback. lockDurationAsIso8601 | Maximalt antal leveranser för feedback-kön | ISO_8601 intervall mellan 5 och 300 sekunder (minst 5 sekunder); standard: 60 sekunder. |
 
-Mer information om hur du anger dessa konfigurations alternativ finns i [skapa IoT](iot-hub-create-through-portal.md)-hubbar.
+Du kan ställa in konfigurations alternativen på något av följande sätt:
+
+* **Azure Portal**: under **Inställningar** på din IoT-hubb väljer du **inbyggda slut punkter** och expanderar **molnet till enhets meddelanden**. (Du kan ange **feedback. maxDeliveryCount** och **feedback. lockDurationAsIso8601** egenskaper stöds inte för närvarande i Azure Portal.)
+
+    ![Ange konfigurations alternativ för meddelanden från molnet till enheten i portalen](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
+
+* **Azure CLI**: Använd [uppdaterings kommandot för AZ IoT Hub](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) :
+
+    ```azurecli
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.defaultTtlAsIso8601=PT1H0M0S
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.maxDeliveryCount=10
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.ttlAsIso8601=PT1H0M0S
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.maxDeliveryCount=10
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.lockDurationAsIso8601=PT0H1M0S
+    ```
 
 ## <a name="next-steps"></a>Nästa steg
 

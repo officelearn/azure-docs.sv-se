@@ -13,20 +13,18 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6f7e2380bff7d6d3e6fafd1b3d44b65de972e57d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f3e1581e2e96c0915fa92a51f60311f90eb79ee5
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703396"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78160852"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Snabb start: Hämta en token och anropa Microsoft Graph-API med hjälp av appens identitet
 
-I den här snabbstarten lär dig hur du skriver en .NET Core-app som kan hämta en åtkomsttoken med hjälp av appens egen identitet och sedan anropa Microsoft Graph API för att visa en [lista över användare](https://docs.microsoft.com/graph/api/user-list) i katalogen. Det här scenariot är användbart för situationer där ett fjärradministrerat, obevakat jobb eller en Windows-tjänst måste köras med en programidentitet, istället för en användares identitet.
+I den här snabbstarten lär dig hur du skriver en .NET Core-app som kan hämta en åtkomsttoken med hjälp av appens egen identitet och sedan anropa Microsoft Graph API för att visa en [lista över användare](https://docs.microsoft.com/graph/api/user-list) i katalogen. Det här scenariot är användbart för situationer där ett fjärradministrerat, obevakat jobb eller en Windows-tjänst måste köras med en programidentitet, istället för en användares identitet. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
-![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
-
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här snabb starten kräver [.net Core 2,2](https://www.microsoft.com/net/download/dotnet-core/2.2).
 
@@ -43,7 +41,7 @@ Den här snabb starten kräver [.net Core 2,2](https://www.microsoft.com/net/dow
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
 
 > [!div renderon="docs"]
 > #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
@@ -70,41 +68,48 @@ Den här snabb starten kräver [.net Core 2,2](https://www.microsoft.com/net/dow
 > > [Gör ändringarna åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-netcore-daemon/green-check.png) Programmet konfigureras med de här attributen.
+> > ![Redan konfigurerad](media/quickstart-v2-netcore-daemon/green-check.png) Appen konfigureras med de här attributen.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Steg 2: Ladda ned ditt Visual Studio-projekt
 
-[Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
+> [!div renderon="docs"]
+> [Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
+> [!div class="sxs-lookup" renderon="portal"]
+> Kör projektet med Visual Studio 2019.
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Ladda ned kod exemplet]()
 
-1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
-1. Öppna lösningen i Visual Studio- **1-Call-MSGraph\daemon-Console.SLN** (valfritt).
-1. Redigera **appsettings.json** och ersätt värdena för fälten `ClientId`, `Tenant` och `ClientSecret` med följande:
-
-    ```json
-    "Tenant": "Enter_the_Tenant_Id_Here",
-    "ClientId": "Enter_the_Application_Id_Here",
-    "ClientSecret": "Enter_the_Client_Secret_Here"
-    ```
-    > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
-    > > [Generera en ny klienthemlighet]()
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Enter_the_Supported_Account_Info_Here
     
-    > [!div class="sxs-lookup" renderon="portal"]
-    > > [!NOTE]
-    > > Den här snabb starten stöder Enter_the_Supported_Account_Info_Here.
-    
-    > [!div renderon="docs"]
-    >> Var:
-    >> * `Enter_the_Application_Id_Here` – är **program-ID (klient)** för programmet som du har registrerat.
-    >> * `Enter_the_Tenant_Id_Here` – ersätt det här värdet med **klient-ID** eller **klientnamn** (t.ex. contoso.microsoft.com)
-    >> * `Enter_the_Client_Secret_Here` – ersätt det här värdet med klienthemligheten som skapades i steg 1.
+> [!div renderon="docs"]
+> #### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
+> 
+> 1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
+> 1. Öppna lösningen i Visual Studio- **1-Call-MSGraph\daemon-Console.SLN** (valfritt).
+> 1. Redigera **appsettings.json** och ersätt värdena för fälten `ClientId`, `Tenant` och `ClientSecret` med följande:
+> 
+>    ```json
+>    "Tenant": "Enter_the_Tenant_Id_Here",
+>    "ClientId": "Enter_the_Application_Id_Here",
+>    "ClientSecret": "Enter_the_Client_Secret_Here"
+>    ```
+>   Där:
+>   - `Enter_the_Application_Id_Here` – är **program-ID (klient)** för programmet som du har registrerat.
+>   - `Enter_the_Tenant_Id_Here` – ersätt det här värdet med **klient-ID** eller **klientnamn** (t.ex. contoso.microsoft.com)
+>   - `Enter_the_Client_Secret_Here` – ersätt det här värdet med klienthemligheten som skapades i steg 1.
 
-    > [!div renderon="docs"]
-    > > [!TIP]
-    > > För att hitta värdena för **program-ID (klient)** , **katalog-ID (klient)** och går du till appens **översiktssida** i Azure-portalen. Generera en ny nyckel genom att gå till sidan **Certifikat och hemligheter**.
-    
-#### <a name="step-4-admin-consent"></a>Steg 4: Administratörsmedgivande
+> [!div renderon="docs"]
+> > [!TIP]
+> > För att hitta värdena för **program-ID (klient)** , **katalog-ID (klient)** och går du till appens **översiktssida** i Azure-portalen. Generera en ny nyckel genom att gå till sidan **Certifikat och hemligheter**.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-admin-consent"></a>Steg 3: administratörs medgivande
+
+> [!div renderon="docs"]
+> #### <a name="step-4-admin-consent"></a>Steg 4: Administratörsmedgivande
 
 Om du försöker köra programmet nu får du ett *HTTP 403-otillåtet* fel: `Insufficient privileges to complete the operation`. Detta beror på att en *app-only-behörighet* kräver administratörs medgivande, vilket innebär att en global administratör för din katalog måste ge ditt program medgivande. Välj ett av alternativen nedan beroende på din roll:
 
@@ -127,14 +132,18 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 ```
 
 > [!div renderon="docs"]
->> Var:
+>> Där:
 >> * `Enter_the_Tenant_Id_Here` – ersätt det här värdet med **klient-ID** eller **klientnamn** (t.ex. contoso.microsoft.com)
 >> * `Enter_the_Application_Id_Here` – är **program-ID (klient)** för programmet som du har registrerat.
 
 > [!NOTE]
 > Du kan se felmeddelandet *”AADSTS50011: Ingen svarsadress registrerad för programmet”* när du har beviljat åtkomst till appen med föregående URL. Det här händer eftersom den här appen och URL:en inte har en omdirigerings-URI – ignorera felet.
 
-#### <a name="step-5-run-the-application"></a>Steg 5: Köra appen
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-4-run-the-application"></a>Steg 4: kör programmet
+
+> [!div renderon="docs"]
+> #### <a name="step-5-run-the-application"></a>Steg 5: Köra appen
 
 Om du använder Visual Studio trycker du på **F5** för att köra programmet, annars kör du programmet via kommando tolken eller konsolen:
 
@@ -143,7 +152,7 @@ cd {ProjectFolder}\daemon-console\1-Call-Graph
 dotnet run
 ```
 
-> Var:
+> Där:
 > * *{ProjectFolder}* är den mapp där du har extraherat zip-filen. Exempel **C:\Azure-Samples\active-directory-dotnetcore-daemon-v2**
 
 Du bör se en lista över användare i Azure AD-katalogen som resultat.
@@ -152,6 +161,9 @@ Du bör se en lista över användare i Azure AD-katalogen som resultat.
 > Det här snabbstartsprogrammet använder en klienthemlighet för att identifiera sig som en konfidentiell klient. Eftersom klienthemligheten läggs till som oformaterad text till dina projektfiler rekommenderar vi att du av säkerhetsskäl använder ett certifikat i stället för en klienthemlighet innan programmet används som produktionsprogram. Mer information om hur du använder ett certifikat finns i [dessa instruktioner](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates) på GitHub-lagringsplatsen för det här exemplet.
 
 ## <a name="more-information"></a>Mer information
+
+### <a name="how-the-sample-works"></a>Så här fungerar exemplet
+![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
 ### <a name="msalnet"></a>MSAL.NET
 
@@ -188,7 +200,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 );
 ```
 
-> | Var: ||
+> | Där: ||
 > |---------|---------|
 > | `config.ClientSecret` | Är klienthemligheten som skapats för appen i Azure-portalen. |
 > | `config.ClientId` | Är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du hittar det här värdet på appens **översiktssida** på Azure-portalen. |
@@ -205,7 +217,7 @@ result = await app.AcquireTokenForClient(scopes)
                   .ExecuteAsync();
 ```
 
-> |Var:| |
+> |Där:| |
 > |---------|---------|
 > | `scopes` | Innehåller omfattningarna som begärdes. För konfidentiella klienter bör ett format som liknar `{Application ID URI}/.default` användas för att ange att omfattningarna som begärs är dem som statiskt definieras i appobjektet som anges i Azure-portalen (för Microsoft Graph, `{Application ID URI}` pekar på `https://graph.microsoft.com`). För anpassade webb-API:er definieras `{Application ID URI}` under avsnittet **Exponera ett API** i Programregistrering (förhandsversion) i Azure-portalen. |
 

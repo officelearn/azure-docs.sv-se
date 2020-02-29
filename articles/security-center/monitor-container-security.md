@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: memildin
-ms.openlocfilehash: d208629ee29bb9102f16fcb1d541677bd4a4d5fa
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 330cbc3f28f5e549d5a21417c3d7ccc1e5444769
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431571"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919540"
 ---
 # <a name="monitoring-the-security-of-your-containers"></a>Övervaka säkerheten för dina behållare
 
@@ -29,7 +29,7 @@ Azure Security Center omfattar följande tre aspekter av behållar säkerhet:
 
 - **Härdning av Azure Kubernetes service-kluster** – Security Center ger rekommendationer när de hittar sårbarheter i konfigurationen av Azure Kubernetes service-kluster. Mer information om de rekommendationer som kan visas finns i rekommendationer för [Kubernetes-tjänsten](recommendations-reference.md#recs-containers).
 
-- **Körnings skydd** – om du är på Security Center standard pris nivån får du hot identifiering i real tid för dina behållares miljöer. Security Center genererar aviseringar för misstänkta aktiviteter på kluster nivån värd och AKS. Mer information om relevanta säkerhets aviseringar som kan visas finns i avsnittet [aviseringar för Azure Kubernetes service-kluster](alerts-reference.md#alerts-akscluster) och [aviseringar för behållare-värdnivå](alerts-reference.md#alerts-containerhost) avsnitt i referens tabellen för aviseringar.
+- **Körnings skydd** – om du är på Security Center standard pris nivån får du real tids skydd för dina behållares miljöer. Security Center genererar aviseringar för misstänkta aktiviteter på kluster nivån värd och AKS. Mer information om relevanta säkerhets aviseringar som kan visas finns i avsnittet [aviseringar för Azure Kubernetes service-kluster](alerts-reference.md#alerts-akscluster) och [aviseringar för behållare-värdnivå](alerts-reference.md#alerts-containerhost) avsnitt i referens tabellen för aviseringar.
 
 ## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Genomsökning av dina ARM-baserade behållar register för sårbarheter 
 

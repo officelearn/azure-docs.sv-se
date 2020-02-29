@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3691790b2e47ef43c6742fa912aff8d7777900f8
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 977504f41e93e37ae2c5ce9bdb1182a1cfe0a3fd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023709"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917506"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Etablera Linux Compute-noder i batch-pooler
 
@@ -47,7 +47,7 @@ När du konfigurerar en avbildnings referens för en virtuell dator anger du ege
 | --- | --- |
 | Utgivare |Canonical |
 | Erbjudande |UbuntuServer |
-| SKU |14.04.4-LTS |
+| SKU |18,04 – LTS |
 | Version |senaste |
 
 > [!TIP]
@@ -58,7 +58,7 @@ När du konfigurerar en avbildnings referens för en virtuell dator anger du ege
 ### <a name="node-agent-sku"></a>Node agent-SKU
 Batch Node agent är ett program som körs på varje nod i poolen och tillhandahåller kommando-och-Control-gränssnittet mellan noden och batch-tjänsten. Det finns olika implementeringar av Node-agenten, som kallas SKU: er, för olika operativ system. När du skapar en konfiguration för virtuell dator är det i princip att du först ange avbildnings referensen för den virtuella datorn och sedan ange vilken Node-agent som ska installeras på avbildningen. Normalt är varje nod-agent-SKU kompatibel med flera avbildningar av virtuella datorer. Här följer några exempel på Node agent-SKU: er:
 
-* batch. Node. Ubuntu 14,04
+* batch. Node. Ubuntu 18,04
 * batch. Node. CentOS 7
 * batch. Node. Windows amd64
 
@@ -70,7 +70,7 @@ Batch Node agent är ett program som körs på varje nod i poolen och tillhandah
 ## <a name="create-a-linux-pool-batch-python"></a>Skapa en Linux-pool: batch python
 Följande kodfragment visar ett exempel på hur du använder [Microsoft Azure Batch klient bibliotek för python][py_batch_package] för att skapa en pool med Ubuntu-serverns beräknings noder. Referens dokumentation för batch python-modulen hittar du på [Azure. batch-paketet][py_batch_docs] på läsa dokumenten.
 
-Det här kodfragmentet skapar en [ImageReference][py_imagereference] explicit och anger var och en av dess egenskaper (utgivare, erbjudande, SKU, version). I produktions kod rekommenderar vi dock att du använder metoden [list_node_agent_skus][py_list_skus] för att fastställa och välja bland kombinationerna tillgängliga avbildnings-och Node agent-SKU vid körning.
+Det här kodfragmentet skapar en [ImageReference][py_imagereference] explicit och anger var och en av dess egenskaper (utgivare, erbjudande, SKU, version). I produktions kod rekommenderar vi dock att du använder metoden [list_supported_images][py_list_supported_images] för att fastställa och välja bland kombinationerna tillgängliga avbildnings-och Node agent-SKU vid körning.
 
 ```python
 # Import the required modules from the
@@ -86,7 +86,7 @@ batch_url = "<batch-account-url>"
 
 # Pool settings
 pool_id = "LinuxNodesSamplePoolPython"
-vm_size = "STANDARD_A1"
+vm_size = "STANDARD_D2_V3"
 node_count = 1
 
 # Initialize the Batch client
@@ -109,7 +109,7 @@ new_pool.start_task = start_task
 ir = batchmodels.ImageReference(
     publisher="Canonical",
     offer="UbuntuServer",
-    sku="14.04.2-LTS",
+    sku="18.04-LTS",
     version="latest")
 
 # Create the VirtualMachineConfiguration, specifying
@@ -117,7 +117,7 @@ ir = batchmodels.ImageReference(
 # be installed on the node.
 vmc = batchmodels.VirtualMachineConfiguration(
     image_reference=ir,
-    node_agent_sku_id="batch.node.ubuntu 14.04")
+    node_agent_sku_id="batch.node.ubuntu 18.04")
 
 # Assign the virtual machine configuration to the pool
 new_pool.virtual_machine_configuration = vmc
@@ -126,64 +126,65 @@ new_pool.virtual_machine_configuration = vmc
 client.pool.add(new_pool)
 ```
 
-Som tidigare nämnts rekommenderar vi att du i stället för att skapa [ImageReference][py_imagereference] uttryckligen använder metoden [list_node_agent_skus][py_list_skus] för att dynamiskt välja bland kombinations avbildningar för just nu stöd för Node-agenten/Marketplace. Följande python-kodfragment visar hur du använder den här metoden.
+Som tidigare nämnts rekommenderar vi att du i stället för att skapa [ImageReference][py_imagereference] uttryckligen använder metoden [list_supported_images][py_list_supported_images] för att dynamiskt välja bland kombinations avbildningar för just nu stöd för Node-agenten/Marketplace. Följande python-kodfragment visar hur du använder den här metoden.
 
 ```python
-# Get the list of node agents from the Batch service
-nodeagents = client.account.list_node_agent_skus()
+# Get the list of supported images from the Batch service
+images = client.account.list_supported_images()
 
-# Obtain the desired node agent
-ubuntu1404agent = next(
-    agent for agent in nodeagents if "ubuntu 14.04" in agent.id)
+# Obtain the desired image reference
+image = None
+for img in images:
+  if (img.image_reference.publisher.lower() == "canonical" and
+        img.image_reference.offer.lower() == "ubuntuserver" and
+        img.image_reference.sku.lower() == "18.04-lts"):
+    image = img
+    break
 
-# Pick the first image reference from the list of verified references
-ir = ubuntu1404agent.verified_image_references[0]
+if image is None:
+  raise RuntimeError('invalid image reference for desired configuration')
 
 # Create the VirtualMachineConfiguration, specifying the VM image
 # reference and the Batch node agent to be installed on the node.
 vmc = batchmodels.VirtualMachineConfiguration(
-    image_reference=ir,
-    node_agent_sku_id=ubuntu1404agent.id)
+    image_reference=image.image_reference,
+    node_agent_sku_id=image.node_agent_sku_id)
 ```
 
 ## <a name="create-a-linux-pool-batch-net"></a>Skapa en Linux-pool: batch .NET
 Följande kodfragment visar ett exempel på hur du använder [batch .net][nuget_batch_net] -klient biblioteket för att skapa en pool med Ubuntu-serverns Compute-noder. Du hittar [batch .net Reference-dokumentationen][api_net] på docs.Microsoft.com.
 
-I följande kodfragment används [PoolOperations][net_pool_ops]. [ListNodeAgentSkus][net_list_skus] -metoden för att välja från en lista över stödda Marketplace-avbildningar och Node agent-kombinationer som stöds för närvarande. Den här tekniken är önskvärd eftersom listan över kombinationer som stöds kan ändras från tid till tid. Oftast läggs de kombinationer som stöds till.
+I följande kodfragment används [PoolOperations][net_pool_ops]. [ListSupportedImages][net_list_supported_images] -metoden för att välja från en lista över stödda Marketplace-avbildningar och Node agent-kombinationer som stöds för närvarande. Den här tekniken är önskvärd eftersom listan över kombinationer som stöds kan ändras från tid till tid. Oftast läggs de kombinationer som stöds till.
 
 ```csharp
 // Pool settings
 const string poolId = "LinuxNodesSamplePoolDotNet";
-const string vmSize = "STANDARD_A1";
+const string vmSize = "STANDARD_D2_V3";
 const int nodeCount = 1;
 
 // Obtain a collection of all available node agent SKUs.
 // This allows us to select from a list of supported
 // VM image/node agent combinations.
-List<NodeAgentSku> nodeAgentSkus =
-    batchClient.PoolOperations.ListNodeAgentSkus().ToList();
+List<ImageInformation> images =
+    batchClient.PoolOperations.ListSupportedImages().ToList();
 
-// Define a delegate specifying properties of the VM image
-// that we wish to use.
-Func<ImageReference, bool> isUbuntu1404 = imageRef =>
-    imageRef.Publisher == "Canonical" &&
-    imageRef.Offer == "UbuntuServer" &&
-    imageRef.Sku.Contains("14.04");
-
-// Obtain the first node agent SKU in the collection that matches
-// Ubuntu Server 14.04. Note that there are one or more image
-// references associated with this node agent SKU.
-NodeAgentSku ubuntuAgentSku = nodeAgentSkus.First(sku =>
-    sku.VerifiedImageReferences.Any(isUbuntu1404));
-
-// Select an ImageReference from those available for node agent.
-ImageReference imageReference =
-    ubuntuAgentSku.VerifiedImageReferences.First(isUbuntu1404);
+// Find the appropriate image information
+ImageInformation image = null;
+foreach (var img in images)
+{
+    if (img.ImageReference.Publisher == "Canonical" &&
+        img.ImageReference.Offer == "UbuntuServer" &&
+        img.ImageReference.Sku == "18.04-LTS")
+    {
+        image = img;
+        break;
+    }
+}
 
 // Create the VirtualMachineConfiguration for use when actually
 // creating the pool
 VirtualMachineConfiguration virtualMachineConfiguration =
-    new VirtualMachineConfiguration(imageReference, ubuntuAgentSku.Id);
+    new VirtualMachineConfiguration(image.ImageReference, image.NodeAgentSkuId);
 
 // Create the unbound pool object using the VirtualMachineConfiguration
 // created above
@@ -197,53 +198,18 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 await pool.CommitAsync();
 ```
 
-Även om det tidigare kodfragmentet använder [PoolOperations][net_pool_ops]. [ListNodeAgentSkus][net_list_skus] -metoden för att dynamiskt lista och välja från avbildningar som stöds och som stöds (rekommenderas), kan du också konfigurera en [ImageReference][net_imagereference] explicit:
+Även om det tidigare kodfragmentet använder [PoolOperations][net_pool_ops]. [ListSupportedImages][net_list_supported_images] -metoden för att dynamiskt lista och välja från avbildningar som stöds och som stöds (rekommenderas), kan du också konfigurera en [ImageReference][net_imagereference] explicit:
 
 ```csharp
 ImageReference imageReference = new ImageReference(
     publisher: "Canonical",
     offer: "UbuntuServer",
-    sku: "14.04.2-LTS",
+    sku: "18.04-LTS",
     version: "latest");
 ```
 
 ## <a name="list-of-virtual-machine-images"></a>Lista över avbildningar av virtuella datorer
-I följande tabell visas avbildningarna för den virtuella Marketplace-datorn som är kompatibla med de tillgängliga batch Node-agenterna när den här artikeln senast uppdaterades. Det är viktigt att Observera att listan inte är definitiv, eftersom avbildningar och nods agenter kan läggas till eller tas bort när som helst. Vi rekommenderar att batch-program och-tjänster alltid använder [list_node_agent_skus][py_list_skus] (python) eller [ListNodeAgentSkus][net_list_skus] (batch .net) för att fastställa och välja bland de aktuella tillgängliga SKU: erna.
-
-> [!WARNING]
-> Följande lista kan ändras när som helst. Använd alltid de **SKU** -metoder för List-noden som finns i batch-API: erna för att visa en lista över kompatibla virtuella datorer och Node agent-SKU: er när du kör batch-jobb.
->
->
-
-| **Utgivare** | **Erbjudande** | **Bild-SKU** | **Version** | **ID för Node-agent-SKU** |
-| ------------- | --------- | ------------- | ----------- | --------------------- |
-| batch | rendering-centos73 | Render | senaste | batch. Node. CentOS 7 |
-| batch | rendering-windows2016 | Render | senaste | batch. Node. Windows amd64 |
-| Canonical | UbuntuServer | 16.04-LTS | senaste | batch. Node. Ubuntu 16,04 |
-| Canonical | UbuntuServer | 14.04.5-LTS | senaste | batch. Node. Ubuntu 14,04 |
-| credativ | Debian | 9 | senaste | batch. Node. Debian 9 |
-| credativ | Debian | 8 | senaste | batch. Node. Debian 8 |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | senaste | batch. Node. CentOS 7 |
-| microsoft-ads | standard-data-science-vm | standard-data-science-vm | senaste | batch. Node. Windows amd64 |
-| microsoft-azure-batch | CentOS-container | 7-4 | senaste | batch. Node. CentOS 7 |
-| microsoft-azure-batch | CentOS-container-RDMA | 7-4 | senaste | batch. Node. CentOS 7 |
-| microsoft-azure-batch | ubuntu-server-container | 16-04 – LTS | senaste | batch. Node. Ubuntu 16,04 |
-| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04 – LTS | senaste | batch. Node. Ubuntu 16,04 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | senaste | batch. Node. Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk | senaste | batch. Node. Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Data Center-med-containers | senaste | batch. Node. Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | senaste | batch. Node. Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | senaste | batch. Node. Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | senaste | batch. Node. Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | senaste | batch. Node. Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | senaste | batch. Node. Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk | senaste | batch. Node. Windows amd64 |
-| OpenLogic | CentOS | 7.4 | senaste | batch. Node. CentOS 7 |
-| OpenLogic | CentOS-HPC | 7.4 | senaste | batch. Node. CentOS 7 |
-| OpenLogic | CentOS-HPC | 7.3 | senaste | batch. Node. CentOS 7 |
-| OpenLogic | CentOS-HPC | 7.1 | senaste | batch. Node. CentOS 7 |
-| Oracle | Oracle-Linux | 7.4 | senaste | batch. Node. CentOS 7 |
-| SUSE | SLES – HPC | 12-SP2 | senaste | batch. Node. openSUSE 42,1 |
+Om du vill hämta en lista över alla virtuella Marketplace-avbildningar som stöds för batch-tjänsten och deras motsvarande Node-agenter, kan du använda [list_supported_images][py_list_supported_images] (python), [ListSupportedImages][net_list_supported_images] (batch .net) eller motsvarande API i respektive språk-SDK som du väljer.
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>Ansluta till Linux-noder med SSH
 Under utvecklingen eller under fel sökningen kanske du måste logga in på noderna i poolen. Till skillnad från Windows Compute-noder kan du inte använda Remote Desktop Protocol (RDP) för att ansluta till Linux-noder. I stället möjliggör batch-tjänsten SSH-åtkomst på varje nod för fjärr anslutning.
@@ -319,10 +285,10 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 
 I stället för ett lösen ord kan du ange en offentlig SSH-nyckel när du skapar en användare på en nod. Använd **ssh_public_key** -parametern på [COMPUTENODEUSER][py_computenodeuser]i python SDK. Använd [ComputeNodeUser][net_computenodeuser]i .net. [SshPublicKey][net_ssh_key] -egenskap.
 
-## <a name="pricing"></a>Prissättning
-Azure Batch bygger på Azure Cloud Services-och Azure Virtual Machines-teknik. Själva batch-tjänsten erbjuds utan kostnad, vilket innebär att du bara debiteras för de beräknings resurser som dina batch-lösningar använder. När du väljer **Cloud Services konfiguration**debiteras du baserat på [Cloud Services prissättnings][cloud_services_pricing] struktur. När du väljer **konfiguration för virtuell dator**debiteras du baserat på [Virtual Machines pris][vm_pricing] strukturen. 
+## <a name="pricing"></a>Priser
+Azure Batch bygger på Azure Cloud Services-och Azure Virtual Machines-teknik. Själva batch-tjänsten erbjuds utan kostnad, vilket innebär att du bara debiteras för beräknings resurserna (och tillhör ande kostnader som ingår) som dina batch-lösningar använder. När du väljer **Cloud Services konfiguration**debiteras du baserat på [Cloud Services prissättnings][cloud_services_pricing] struktur. När du väljer **konfiguration för virtuell dator**debiteras du baserat på [Virtual Machines pris][vm_pricing] strukturen.
 
-Om du distribuerar program till dina batch-noder med hjälp av [programpaket](batch-application-packages.md), debiteras du också för de Azure Storage-resurser som dina program paket använder. I allmänhet är Azure Storage kostnader minimala. 
+Om du distribuerar program till dina batch-noder med hjälp av [programpaket](batch-application-packages.md), debiteras du också för de Azure Storage-resurser som dina program paket använder.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -340,7 +306,7 @@ Om du distribuerar program till dina batch-noder med hjälp av [programpaket](ba
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_computenodeuser]: /dotnet/api/microsoft.azure.batch.computenodeuser?view=azure-dotnet
 [net_imagereference]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.imagereference.aspx
-[net_list_skus]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listnodeagentskus.aspx
+[net_list_supported_images]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.listsupportedimages
 [net_pool_ops]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.aspx
 [net_ssh_key]: /dotnet/api/microsoft.azure.batch.computenodeuser.sshpublickey?view=azure-dotnet#Microsoft_Azure_Batch_ComputeNodeUser_SshPublicKey
 [nuget_batch_net]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
@@ -351,6 +317,6 @@ Om du distribuerar program till dina batch-noder med hjälp av [programpaket](ba
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
 [py_computenodeuser]: /python/api/azure-batch/azure.batch.models.computenodeuser
 [py_imagereference]: /python/api/azure-mgmt-batch/azure.mgmt.batch.models.imagereference
-[py_list_skus]: https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.AccountOperations?view=azure-python
+[py_list_supported_images]: https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.AccountOperations?view=azure-python
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/

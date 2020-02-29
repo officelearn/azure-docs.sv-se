@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: cfe5ea47ad2cbed7bd2779ee535d7bef447475e5
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 91578b5c840f589f3e49737b71e63f4d5e82a126
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500352"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919659"
 ---
 # <a name="azure-media-services-release-notes"></a>Viktig information om Azure Media Services
 
@@ -45,6 +45,10 @@ Vi vill höra från våra kunder så att vi kan fokusera på att åtgärda probl
 
 ## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>REST API versions historik
 Information om Media Services REST API versions historik finns i [Azure Media Services REST API referens].
+
+## <a name="february-2020"></a>Februari 2020
+
+Vissa analys medie processorer kommer att dras tillbaka. Information om datum för indragning finns i avsnittet om [äldre komponenter](legacy-components.md) .
 
 ## <a name="september-2019"></a>September 2019
 

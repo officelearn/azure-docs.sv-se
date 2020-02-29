@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5d3dc951c8cb2948a4cd0b9d9f5c2a9b213c6e7e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c9cea52e04a991e6e3ac64426f0443939f8aaa3a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514994"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914389"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Arbeta med den tidigare versionen av Azure Migrate
 
@@ -76,7 +76,7 @@ En dator flyttas bara till ett senare steg om den tidigare har passerat. Om en d
 
 Vyn för Azure-beredskap i utvärderingen visar beredskapsstatus för varje virtuell dator.
 
-**Beredskap** | **Tillstånd** | **Detaljer**
+**Beredskap** | **Låst** | **Detaljer**
 --- | --- | ---
 Redo för Azure | Inga kompatibilitetsproblem. Datorn kan migreras med Azure, och den kommer att startas i Azure med fullständig support för Azure. | För förberedda virtuella datorer rekommenderar Azure Migrate en VM-storlek i Azure.
 Villkorligt redo för Azure | Datorn kan starta i Azure, men kanske inte har fullständig support för Azure. Till exempel en dator med en äldre version av Windows Server som inte stöds i Azure. | Azure Migrate förklarar beredskaps problemen och ger åtgärder.
@@ -92,11 +92,11 @@ Beredskapen tar hänsyn till ett antal VM-egenskaper, för att identifiera om de
 --- | --- | ---
 **Start typ** | BIOS stöds. UEFI stöds inte. | Villkoret klart om start typen är UEFI.
 **Kärnor** | Datorer Core < = det maximala antalet kärnor (128) som stöds för en virtuell Azure-dator.<br/><br/> Om prestanda historiken är tillgänglig, Azure Migrate beakta de använda kärnorna.<br/>Om en bekvämlighets faktor anges i utvärderings inställningarna multipliceras antalet använda kärnor av den praktiska faktorn.<br/><br/> Om det inte finns någon prestanda historik använder Azure Migrate tilldelade kärnor, utan att använda den praktiska faktorn. | Redo om det är mindre än eller lika med begränsningar.
-**Minne** | Datorns minnes storlek < = högsta mängd minne (3892 GB på Azure M-serien Standard_M128m&nbsp;<sup>2</sup>) för en virtuell Azure-dator. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Om prestanda historiken är tillgänglig Azure Migrate anses det använda minnet.<br/><br/>Om en bekvämlighets faktor anges multipliceras det använda minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används allokerat minne, utan att du använder den praktiska faktorn.<br/><br/> | Redo om det är inom gränserna.
+**Minnesoptimerade** | Datorns minnes storlek < = högsta mängd minne (3892 GB på Azure M-serien Standard_M128m&nbsp;<sup>2</sup>) för en virtuell Azure-dator. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Om prestanda historiken är tillgänglig Azure Migrate anses det använda minnet.<br/><br/>Om en bekvämlighets faktor anges multipliceras det använda minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används allokerat minne, utan att du använder den praktiska faktorn.<br/><br/> | Redo om det är inom gränserna.
 **Lagrings disk** | Den allokerade storleken på en disk måste vara 4 TB (4096 GB) eller mindre.<br/><br/> Antalet diskar som är anslutna till datorn måste vara 65 eller mindre, inklusive OS-disken. | Redo om det är inom gränserna.
 **Nätverk** | En dator måste ha 32 eller färre nätverkskort kopplade till sig. | Redo om det är inom gränserna.
 
-#### <a name="guest-operating-system"></a>Gästoperativsystem
+#### <a name="guest-operating-system"></a>Gäst operativ system
 
 Tillsammans med VM-egenskaper tittar Azure Migrate också på gäst operativ systemet för den lokala virtuella datorn för att identifiera om den virtuella datorn kan köras i Azure.
 
@@ -105,7 +105,7 @@ Tillsammans med VM-egenskaper tittar Azure Migrate också på gäst operativ sys
 
 Följande logik används.
 
-**Operativsystem** | **Detaljer** | **Beredskap**
+**Operativ system** | **Detaljer** | **Beredskap**
 --- | --- | ---
 Windows Server 2016 och alla SPs | Azure ger fullständig support. | Redo för Azure
 Windows Server 2012 R2 och alla SPs | Azure ger fullständig support. | Redo för Azure
@@ -130,7 +130,7 @@ Operativ systemet har angetts som **annat** i vCenter Server | Azure Migrate kan
 - Om storleks ändringen är prestanda beroende, tar storleks rekommendationen hänsyn till de virtuella datorernas prestanda historik (CPU och minne) och diskar (IOPS och data flöde).
 - Om storleks kriteriet är "som lokalt", baseras storleks rekommendationen i Azure på storleken på den virtuella datorn lokalt. Disk storlek baseras på den lagrings typ som anges i utvärderings egenskaperna (standard är Premium diskar). Azure Migrate anser inte prestanda data för den virtuella datorn och diskarna.
 
-### <a name="review-cost-estimates"></a>Granska kostnadsuppskattningar
+### <a name="review-cost-estimates"></a>Granska kostnads uppskattningar
 
 Kostnads uppskattningar visar total beräknings-och lagrings kostnad för att köra de virtuella datorerna i Azure, tillsammans med information för varje dator.
 
@@ -229,7 +229,7 @@ Så här installerar du agenten på en Windows-dator:
 4. I **installations alternativ för agent**väljer du **Azure Log Analytics** > **Nästa**.
 5. Klicka på **Lägg** till för att lägga till en ny Log Analytics-arbetsyta. Klistra in det arbetsyte-ID och den nyckel som du kopierade från portalen. Klicka på **Next**.
 
-Du kan installera agenten från kommando raden eller med en automatiserad metod som Configuration Manager. [Lär dig mer](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) om att använda dessa metoder för att installera MMA-agenten.
+Du kan installera agenten från kommando raden eller med en automatiserad metod som Configuration Manager. [Lär dig mer](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) om att använda dessa metoder för att installera MMA-agenten.
 
 #### <a name="install-the-mma-agent-on-a-linux-machine"></a>Installera MMA-agenten på en Linux-dator
 

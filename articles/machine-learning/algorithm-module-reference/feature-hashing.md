@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
-ms.openlocfilehash: 4340ee4ed1edda8590726151e07eec45c0751ed6
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 6ba53793e57be67e2954af870dfa4248fca465ec
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152269"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912213"
 ---
 # <a name="feature-hashing-module-reference"></a>Modulreferens för funktion för hashing
 
@@ -111,7 +111,7 @@ När bearbetningen är klar matar modulen ut en transformerad data uppsättning 
 
 När du har skapat den transformerade data uppsättningen kan du använda den som indata för modulen träna modell.
  
-### <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Bästa praxis
 
 Följande metod tips kan hjälpa dig att få ut mesta möjliga av modulen för funktions-hash:
 

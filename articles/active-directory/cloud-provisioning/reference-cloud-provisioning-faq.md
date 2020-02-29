@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2067bea25dae05c496c81929ae65d00565bf4f1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: fbc1baa86bb81c8975587e84427a72ccc044805e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020768"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916582"
 ---
-# <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect – vanliga frågor och svar
+# <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect vanliga frågor och svar
 
 Läs om vanliga frågor och svar om Azure Active Directory (Azure AD) Anslut till moln etablering.
 
@@ -71,6 +71,14 @@ Nej, moln etableringen stöder inte tillbakaskrivning av ms-DS-consistencyGUID f
 **F: Jag är etablerad användare som använder moln etablering. Jag har tagit bort konfigurationen. Varför ser jag fortfarande de gamla synkroniserade objekten i Azure AD?** 
 
 När du tar bort konfigurationen rensar moln etableringen inte de synkroniserade objekten i Azure AD. Se till att du inte har de gamla objekten genom att ändra omfånget för konfigurationen till en tom grupp eller organisationsenheter. När etableringen körs och rensar objekten inaktiverar du och tar bort konfigurationen. 
+
+**F: Vad betyder det att Exchange hybrid inte stöds?**
+
+Funktionen Exchange-hybridinstallation gör att Exchange-postlådor kan samexistera lokalt och i Office 365. Azure AD Connect synkroniserar en särskild uppsättning attribut från Azure AD tillbaka till din lokala katalog.  Moln Provisioning-agenten synkroniserar för närvarande inte de här attributen i din lokala katalog och stöds därför inte som en ersättning för Azure AD Connect.
+
+**F: kan jag installera moln etablerings agenten på Windows Server Core?**
+
+Nej, det finns inte stöd för att installera agenten på Server Core.
 
 ## <a name="next-steps"></a>Nästa steg 
 

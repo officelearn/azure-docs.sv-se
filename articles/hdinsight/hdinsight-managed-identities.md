@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/20/2019
-ms.openlocfilehash: 236f79c9060a0d6fdcb0f558373d02f32eba7abb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c2b590e623062d5d5ae39261b3b5fa5a37a39122
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905599"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919228"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Hanterade identiteter i Azure HDInsight
 
@@ -21,7 +21,7 @@ En hanterad identitet är en identitet som registrerats i Azure Active Directory
 
 Hanterade identiteter används i Azure HDInsight för att komma åt Azure AD Domain Services eller komma åt filer i Azure Data Lake Storage Gen2 när det behövs.
 
-Det finns två typer av hanterade identiteter: användare tilldelade och tilldelade system. Azure HDInsight använder användarspecifika hanterade identiteter. En användare som tilldelats en hanterad identitet skapas som en fristående Azure-resurs, som du sedan kan tilldela till en eller flera Azure Service-instanser. Däremot skapas en systemtilldelad hanterad identitet i Azure AD och aktive ras sedan direkt på en viss Azure-tjänstinstans automatiskt. Livs längden för den systemtilldelade hanterade identiteten är sedan knuten till livs längden för den tjänst instans som den är aktive rad för.
+Det finns två typer av hanterade identiteter: användare tilldelade och tilldelade system. Azure HDInsight har endast stöd för användar tilldelade hanterade identiteter. HDInsight har inte stöd för systemtilldelade hanterade identiteter. En användare som tilldelats en hanterad identitet skapas som en fristående Azure-resurs, som du sedan kan tilldela till en eller flera Azure Service-instanser. Däremot skapas en systemtilldelad hanterad identitet i Azure AD och aktive ras sedan direkt på en viss Azure-tjänstinstans automatiskt. Livs längden för den systemtilldelade hanterade identiteten är sedan knuten till livs längden för den tjänst instans som den är aktive rad för.
 
 ## <a name="hdinsight-managed-identity-implementation"></a>HDInsight-hanterad identitets implementering
 
@@ -31,7 +31,7 @@ I Azure HDInsight är hanterade identiteter etablerade på varje nod i klustret.
 
 Hanterade identiteter kan skapas med någon av följande metoder:
 
-* [Azure-portalen](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
+* [Azure Portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
 * [Azure Resource Manager](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md)
 * [Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)
@@ -46,7 +46,7 @@ Hanterade identiteter används i Azure HDInsight i flera scenarier. Se relaterad
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Kafka Bring Your Own Key (BYOK)](kafka/apache-kafka-byok.md#get-started-with-byok)
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 ### <a name="what-happens-if-i-delete-the-managed-identity-after-the-cluster-creation"></a>Vad händer om jag tar bort den hanterade identiteten när klustret har skapats?
 Klustret kommer att köra problem när den hanterade identiteten behövs. Det finns för närvarande inget sätt att uppdatera eller ändra hantera Idenity när klustret har skapats. Vår rekommendation är att se till att den hanterade identiteten inte tas bort under kluster körningen. Du kan också återskapa klustret och tilldela en ny hanterad identitet.
 

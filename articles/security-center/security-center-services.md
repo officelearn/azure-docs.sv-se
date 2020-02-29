@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 8d905da733ea0573b91b289da43684ed8083c804
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 14c54028dacb545532b540ae8ff79fc3dc5356bc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616372"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921274"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Funktioner som stöds i Azure Security Center
 
@@ -38,10 +38,10 @@ I följande avsnitt visas Security Center funktioner som är tillgängliga för 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 ||**Azure Virtual Machines**|**Azure-Virtual Machine Scale Sets**|**Datorer som inte är Azure-datorer**|**Prissättning**
-|[Microsoft Defender ATP-integrering](security-center-wdatp.md)|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|Standard|
-|[Aviseringar om hot identifiering för virtuella datorer med beteende analys](threat-protection.md)|✔|✔|✔|Rekommendationer (kostnads fri) hot identifiering (standard)|
-|[Aviseringar om filbaserad hot identifiering](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
-|[Nätverksbaserade hot identifierings aviseringar](threat-protection.md#network-layer)|✔|✔|-|Standard|
+|[Microsoft Defender ATP-integrering](security-center-wdatp.md)|✔</br>(i versioner som stöds)|✔</br>(i versioner som stöds)|✔|Standard|
+|[Beteende analys av virtuella datorer (och säkerhets aviseringar)](threat-protection.md)|✔|✔|✔|Rekommendationer (kostnads fri) </br></br> Säkerhets aviseringar (standard)|
+|[Filbaserad säkerhets aviseringar](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
+|[Nätverksbaserade säkerhets aviseringar](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-in-Time VM-åtkomst](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Ursprunglig sårbarhets bedömning](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[Övervakning av fil integritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
@@ -50,7 +50,7 @@ I följande avsnitt visas Security Center funktioner som är tillgängliga för 
 |[Anpassad nätverks härdning](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |Anpassningsbara nätverks kontroller|✔|✔|-|Standard|
 |[Instrument panel för regelefterlevnad & rapporter](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
-|Rekommendationer och hot identifiering på Docker-värdbaserade IaaS behållare|-|-|-|Standard|
+|Rekommendationer och hot skydd på Docker-värdbaserade IaaS-behållare|-|-|-|Standard|
 |Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Kostnadsfri|
 |Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Kostnadsfri|
 |[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Kostnadsfri|
@@ -65,9 +65,9 @@ I följande avsnitt visas Security Center funktioner som är tillgängliga för 
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 ||**Azure Virtual Machines**|**Azure-Virtual Machine Scale Sets**|**Datorer som inte är Azure-datorer**|**Prissättning**
 |[Microsoft Defender ATP-integrering](security-center-wdatp.md)|-|-|-|Standard|
-|[Aviseringar om hot identifiering för virtuella datorer med beteende analys](security-center-alerts-iaas.md)|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|Rekommendationer (kostnads fri) hot identifiering (standard)|
-|[Aviseringar om filbaserad hot identifiering](alerts-reference.md#alerts-windows)|-|-|-|Standard|
-|[Nätverksbaserade hot identifierings aviseringar](threat-protection.md#network-layer)|✔|✔|-|Standard|
+|[Beteende analys av virtuella datorer (och säkerhets aviseringar)](security-center-alerts-iaas.md)|✔</br>(i versioner som stöds)|✔</br>(i versioner som stöds)|✔|Rekommendationer (kostnads fri) </br></br> Säkerhets aviseringar (standard)|
+|[Filbaserad säkerhets aviseringar](alerts-reference.md#alerts-windows)|-|-|-|Standard|
+|[Nätverksbaserade säkerhets aviseringar](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-in-Time VM-åtkomst](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Ursprunglig sårbarhets bedömning](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[Övervakning av fil integritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
@@ -76,7 +76,7 @@ I följande avsnitt visas Security Center funktioner som är tillgängliga för 
 |[Anpassad nätverks härdning](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |Anpassningsbara nätverks kontroller|✔|✔|-|Standard|
 |[Instrument panel för regelefterlevnad & rapporter](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
-|Rekommendationer och hot identifiering på Docker-värdbaserade IaaS behållare|✔|✔|✔|Standard|
+|Rekommendationer och hot skydd på Docker-värdbaserade IaaS-behållare|✔|✔|✔|Standard|
 |Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Kostnadsfri|
 |Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Kostnadsfri|
 |[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Kostnadsfri|
@@ -116,7 +116,7 @@ Information om när rekommendationer genereras för vart och ett av dessa skydd 
 
 Följande PaaS-resurser stöds av Azure Security Center:
 
-|Tjänst|Rekommendationer (kostnads fri)|Aviseringar om hot identifiering (standard)|Sårbarhets bedömning (standard)|
+|Tjänst|Rekommendationer (kostnads fri)|Säkerhets aviseringar (standard)|Sårbarhets bedömning (standard)|
 |----|:----:|:----:|:----:|
 |SQL Databases|✔|✔|✔|
 |Azure Container Registry|-|-|✔|
@@ -158,6 +158,5 @@ rekommendationer för \*\* Azure Active Directory (Azure AD) är endast tillgän
 - Lär dig hur [Security Center hanterar och skyddar data](security-center-data-security.md).
 - Lär dig att [planera och förstå design överväganden för att anta Azure Security Center](security-center-planning-and-operations-guide.md).
 - Granska de [plattformar som har stöd för Security Center](security-center-os-coverage.md).
-- Lär dig mer om [hot identifiering för virtuella datorer & servrar i Azure Security Center](security-center-alerts-iaas.md).
+- Läs mer om [skydd mot hot för Windows-och Linux-datorer i Azure Security Center](threat-protection.md#windows-machines).
 - Hitta [vanliga frågor om Azure Security Center](faq-general.md).
-- Hitta [blogg inlägg om säkerhet och efterlevnad i Azure](https://blogs.msdn.com/b/azuresecurity/).

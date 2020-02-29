@@ -10,18 +10,18 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b49b3187f9178012131d793a7762ae470b0ea540
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f5c6125b850062450516e7fc0b19c2e0d5d6f577
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965727"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916072"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Anropa REST API åtgärder med autentisering med delad nyckel
 
 Den här artikeln visar hur du anropar Azure Storage REST-API: er, inklusive hur du skapar ett Authorization-huvud. Den är skriven från den tidpunkt då en utvecklare vet ingenting om REST och ingen idé att göra ett REST-samtal. När du har lärt dig hur du kallar en REST-åtgärd kan du utnyttja den här kunskapen för att använda andra Azure Storage REST-åtgärder.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Exempel programmet visar en lista över BLOB-behållare för ett lagrings konto. Om du vill testa koden i den här artikeln behöver du följande objekt:
 
@@ -37,7 +37,7 @@ Exempel programmet visar en lista över BLOB-behållare för ett lagrings konto.
 
 Exempel programmet är ett konsol program skrivet C#.
 
-Använd [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön.
+Använd [git](https://git-scm.com/) för att hämta en kopia av programmet till utvecklingsmiljön.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
@@ -175,7 +175,7 @@ Nu när du har skapat begäran kan du anropa SendAsync-metoden för att skicka d
 }
 ```
 
-Om du kör en nätverks avlyssning, till exempel [Fiddler](https://www.telerik.com/fiddler) när du ringer till SendAsync, kan du se information om begäran och svar. Vi tar oss en titt. Namnet på lagrings kontot är *contosorest*.
+Om du kör en nätverks avlyssning, till exempel [Fiddler](https://www.telerik.com/fiddler) när du ringer till SendAsync, kan du se information om begäran och svar. Låt oss ta en titt. Namnet på lagrings kontot är *contosorest*.
 
 **Anmoda**
 
@@ -302,7 +302,7 @@ StringToSign = VERB + "\n" +
 
 De flesta av dessa fält används sällan. För Blob Storage anger du VERB, MD5, innehålls längd, kanoniska huvuden och kanoniskt resurs. Du kan lämna de andra tomma (men placeras i `\n` så att de vet att de är tomma).
 
-Vad är CanonicalizedHeaders och CanonicalizedResource? Bra fråga! Vad faktiskt är, vad är det kanoniska medelvärdet? Microsoft Word känner inte ens igen som ett ord. Det här är vad [Wikipedia säger om kanoniska](https://en.wikipedia.org/wiki/Canonicalization): *i dator vetenskap är kanoniska (ibland standardisering eller normalisering) en process för att konvertera data som har fler än en möjlig representation till en "standard", "normal" eller kanonisk form.* I normal-Speak innebär detta att ta med listan över objekt (till exempel rubriker när det gäller kanoniska rubriker) och standardisera dem i ett format som krävs. Microsoft beslutade i princip ett format och du måste matcha det.
+Vad är CanonicalizedHeaders och CanonicalizedResource? Lämplig fråga. Vad faktiskt är, vad är det kanoniska medelvärdet? Microsoft Word känner inte ens igen som ett ord. Det här är vad [Wikipedia säger om kanoniska](https://en.wikipedia.org/wiki/Canonicalization): *i dator vetenskap är kanoniska (ibland standardisering eller normalisering) en process för att konvertera data som har fler än en möjlig representation till en "standard", "normal" eller kanonisk form.* I normal-Speak innebär detta att ta med listan över objekt (till exempel rubriker när det gäller kanoniska rubriker) och standardisera dem i ett format som krävs. Microsoft beslutade i princip ett format och du måste matcha det.
 
 Vi börjar med de två kanoniska fälten, eftersom de krävs för att skapa ett Authorization-huvud.
 
@@ -410,7 +410,7 @@ internal static AuthenticationHeaderValue GetAuthorizationHeader(
 
     // This is the actual header that will be added to the list of request headers.
     AuthenticationHeaderValue authHV = new AuthenticationHeaderValue("SharedKey",
-        storageAccountName + ":" + Convert.ToBase64String(SHA256.ComputeHash(SignatureBytes)));
+        storageAccountName + ":" + signature);
     return authHV;
 }
 ```
@@ -569,7 +569,7 @@ I den här artikeln har du lärt dig hur du gör en begäran till Blob Storage R
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Blob-tjänstens REST-API](/rest/api/storageservices/blob-service-rest-api)
-- [Fil-tjänstens REST-API](/rest/api/storageservices/file-service-rest-api)
-- [Kö-tjänstens REST-API](/rest/api/storageservices/queue-service-rest-api)
-- [Tabell-tjänstens REST-API](/rest/api/storageservices/table-service-rest-api)
+- [BLOB service-REST API](/rest/api/storageservices/blob-service-rest-api)
+- [Fil tjänst REST API](/rest/api/storageservices/file-service-rest-api)
+- [Queue Service-REST API](/rest/api/storageservices/queue-service-rest-api)
+- [Tabell tjänst REST API](/rest/api/storageservices/table-service-rest-api)

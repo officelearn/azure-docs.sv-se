@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 01/29/2020
+ms.date: 02/26/2020
 ms.author: aahi
-ms.openlocfilehash: 5623be028cfe10c0ea6786b24bf75ae2bf9c5255
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 0b4495616c750b2b3e8431e011d71ae8671af1ef
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560799"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912656"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-go"></a>Snabb start: Använd Textanalys klient bibliotek för go
 
@@ -28,12 +28,11 @@ ms.locfileid: "77560799"
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den senaste versionen av [Go](https://golang.org/dl/)
+* När du har en Azure-prenumeration kan <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="skapa en Textanalys resurs"  target="_blank">skapa en Textanalys <span class="docon docon-navigate-external x-hidden-focus"></span> resurs</a> i Azure Portal för att hämta din nyckel och slut punkt. 
+    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till API för textanalys. Du kommer att göra detta senare i snabb starten.
+    * Du kan använda den kostnads fria pris nivån för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
 
 ## <a name="setting-up"></a>Konfigurera
-
-### <a name="create-a-text-analytics-azure-resource"></a>Skapa en Textanalys Azure-resurs 
-
-[!INCLUDE [text-analytics-resource-creation](../includes/quickstarts/resource-creation.md)]
 
 ### <a name="create-a-new-go-project"></a>Skapa ett nytt go-projekt
 

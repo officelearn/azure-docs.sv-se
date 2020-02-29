@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 95733f579740f2928cda917eec0023bf00d53076
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 8e2f8fd7f99c359949b02959cc442f2f3d3ebfff
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722790"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912162"
 ---
 # <a name="deprecation-of-tls-10-and-11-in-iot-hub-and-device-provisioning-service"></a>Utfasningen av TLS 1,0 och 1,1 i IoT Hub-och Device Provisioning-tjänsten
 
@@ -25,12 +25,12 @@ Beroende på kundernas särskilda omständigheter och konfigurationer kan utfasn
 
 ## <a name="supported-ciphers"></a>Chiffer som stöds
 
-Endast följande chiffer tillåts under TLS-handskakning:
+Tids linjen för tillgänglighet för olika chiffer som används i TLS-handskakning är följande:
 
-* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (stöds för närvarande)
+* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (stöds i andra halvan av 2020)
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (stöds i andra halvan av 2020)
+* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (stöds i andra halvan av 2020)
 
 
 ## <a name="customer-feedback"></a>Kundfeedback

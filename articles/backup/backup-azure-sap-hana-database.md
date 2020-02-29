@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SAP HANA-databas till Azure med Azure Backup
 description: I den här artikeln lär du dig hur du säkerhetskopierar en SAP HANA-databas till virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: dd4c6fc0e018f3fc8f2a2029ef8a90cdc305e2c2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a5fd09e0e487d103e8bd78964c11b572a62e28fa
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765521"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164618"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Säkerhetskopiera SAP HANA-databaser i virtuella Azure-datorer
 
@@ -28,9 +28,9 @@ I den här artikeln får du lära dig hur du:
 >**Mjuk borttagning för SQL Server i Azure VM och mjuk borttagning för SAP HANA i Azure VM-arbetsbelastningar** finns nu i för hands version.<br>
 >Registrera dig för för hands versionen genom att skriva till oss på AskAzureBackupTeam@microsoft.com
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Se avsnitten [krav](tutorial-backup-sap-hana-db.md#prerequisites) och [konfiguration av behörigheter](tutorial-backup-sap-hana-db.md#setting-up-permissions) för att konfigurera databasen för säkerhets kopiering.
+Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för för registrering gör](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) i avsnitten för att konfigurera databasen för säkerhets kopiering.
 
 ### <a name="set-up-network-connectivity"></a>Konfigurera nätverks anslutning
 
@@ -89,23 +89,6 @@ Använda NSG service-Taggar | Enklare att hantera när intervall ändringar slå
 Använd Azure Firewall FQDN-Taggar | Enklare att hantera eftersom nödvändiga FQDN-namn hanteras automatiskt | Kan endast användas med Azure brand vägg
 Använda en HTTP-proxy | Detaljerad kontroll i proxyn över lagrings-URL: er tillåts <br/><br/> En enda punkt i Internet åtkomst till virtuella datorer <br/><br/> Ändringar i Azure IP-adress ingår inte | Ytterligare kostnader för att köra en virtuell dator med proxy-programvaran
 
-## <a name="onboard-to-the-public-preview"></a>Publicera till den offentliga för hands versionen
-
-Publicera till den offentliga för hands versionen enligt följande:
-
-* I portalen registrerar du ditt prenumerations-ID till Recovery Services tjänst leverantören genom att [följa den här artikeln](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal).
-* För modulen "AZ" i PowerShell kör du denna cmdlet. Den bör slutföras som "registrerad".
-
-    ```powershell
-    Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-* Om du använder modulen "AzureRM" i PowerShell kör du denna cmdlet. Den bör slutföras som "registrerad".
-
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-    
-
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>Identifiera databaserna
@@ -130,7 +113,7 @@ Aktivera nu säkerhets kopiering.
 
 1. I steg 2 klickar du på **Konfigurera säkerhets kopiering**.
 
-    ![Konfigurera Backup](./media/backup-azure-sap-hana-database/configure-backup.png)
+    ![Konfigurera säkerhetskopiering](./media/backup-azure-sap-hana-database/configure-backup.png)
 2. I **Välj objekt att säkerhetskopiera**väljer du alla databaser som du vill skydda > **OK**.
 
     ![Välj objekt som ska säkerhets kopie ras](./media/backup-azure-sap-hana-database/select-items.png)
@@ -201,7 +184,7 @@ Säkerhets kopieringar körs enligt princip schemat. Du kan köra en säkerhets 
 
 1. I menyn valv klickar du på **säkerhets kopierings objekt**.
 2. I **säkerhets kopierings objekt**väljer du den virtuella dator som kör SAP HANA databasen och klickar sedan på **Säkerhetskopiera nu**.
-3. I **Säkerhetskopiera nu**använder du kalender kontrollen för att välja den sista dagen som återställnings punkten ska behållas. Klicka på **OK**.
+3. I **Säkerhetskopiera nu**använder du kalender kontrollen för att välja den sista dagen som återställnings punkten ska behållas. Klicka sedan på **OK**.
 4. Övervaka Portal meddelanden. Du kan övervaka jobb förloppet i valv instrument panelen > **säkerhets kopierings jobb** > **pågår**. Det kan ta en stund att skapa den första säkerhets kopieringen, beroende på databasens storlek.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Köra säkerhets kopiering av SAP HANA Studio på en databas med Azure Backup aktiverat

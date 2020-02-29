@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 482154a37334b056719a18355f87b467d4fe95c7
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 2aeb2ab4cfb4ed5e8652638aaced320cc7119d3e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604247"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919489"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Hantering av flera innehavare i Security Center
 
@@ -50,7 +50,7 @@ Vyer och åtgärder är i princip samma. Här följer några exempel:
 - **Åtgärda rekommendationer**: övervaka och reparera en [rekommendation](security-center-recommendations.md) för många resurser från olika klienter på en gång. Du kan sedan omedelbart ta itu över de säkerhets risker som visar den högsta risken för alla klienter.
 - **Hantera aviseringar**: identifiera [aviseringar](security-center-alerts-overview.md) i de olika klient organisationerna. Vidta åtgärder för resurser som inte är kompatibla med åtgärds bara [steg](security-center-managing-and-responding-alerts.md).
 
-- **Hantera avancerade funktioner för moln skydd och mer**: hantera de olika hot identifierings-och skydds tjänsterna, till exempel [just-in-Time (JIT) VM-åtkomst](security-center-just-in-time.md), [anpassningsbar nätverks härdning](security-center-adaptive-network-hardening.md), [anpassningsbara program kontroller](security-center-adaptive-application.md)och mycket annat.
+- **Hantera avancerade funktioner för moln skydd och mer**: hantera de olika skydds tjänsterna, till exempel [just-in-Time (JIT) VM-åtkomst](security-center-just-in-time.md), [anpassningsbar nätverks härdning](security-center-adaptive-network-hardening.md), [anpassningsbara program kontroller](security-center-adaptive-application.md)och mycket annat.
  
 ## <a name="next-steps"></a>Nästa steg
 Den här artikeln förklarar hur hantering av flera innehavare fungerar i Security Center. I följande avsnitt kan du lära dig mer om Security Center:

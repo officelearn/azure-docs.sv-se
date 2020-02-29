@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: dce01cb8ed6043193878551207eeca3d573f9d4d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 8b1acb4676d97ff16410543828493428059ad0fb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672488"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919897"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Stöd för virtuella datorer i generation 2 i Azure
 
@@ -33,18 +33,18 @@ Virtuella datorer i generation 2 använder den nya UEFI-baserade start arkitektu
 Virtuella datorer i generation 1 stöds av alla VM-storlekar i Azure (förutom för virtuella datorer i Mv2-serien). Azure erbjuder nu generation 2-stöd för följande valda VM-serien:
 
 * [B-serien](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
-* [DC-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dc-series)
-* [Dsv2-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv2-series) och [Dsv3-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv3-series-1)
-* [Esv3-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#esv3-series)
-* [Fsv2-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-compute#fsv2-series-1)
+* [DC-serien](../dcv2-series.md)
+* [DSv2-serien](../dv2-dsv2-series.md) och [Dsv3-serien](../dv3-dsv3-series.md)
+* [Esv3-serien](../ev3-esv3-series.md)
+* [Fsv2-serien](../fsv2-series.md)
 * [GS-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
-* [HB-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hb-series)
-* [HC-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hc-series)
-* [Ls-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) och [Lsv2-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-storage#lsv2-series)
-* [Mv2-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series)
-* [NCv2-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv2-series) och [NCv3-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv3-series)
-* [ND-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nd-series)
-* [NVv3-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
+* [HB-serien](../hb-series.md)
+* [HC-serien](../hc-series.md)
+* [Ls-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) och [Lsv2-serien](../lsv2-series.md)
+* [Mv2-serien](../mv2-series.md)
+* [NCv2-serien](../ncv2-series.md) och [NCv3-serien](../ncv3-series.md)
+* [ND-serien](../nd-series.md)
+* [NVv3-serien](../nvv3-series.md)
 
 > [!NOTE]
 > Användningen av virtuella datorer i generation 2 för virtuella datorer i Mv2-serien är allmänt tillgänglig eftersom Mv2-serien fungerar med generation 2 VM-avbildningar exklusivt. Generation 1 VM-avbildningar stöds inte på virtuella datorer i Mv2-serien. 

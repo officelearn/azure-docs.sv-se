@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 62728f5b66825eb6698e37bb7ad3adbad831b465
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: cd9907d041562d23bc487de319a17d36b68db6f3
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615336"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916125"
 ---
 # <a name="container-security-in-security-center"></a>Behållar säkerhet i Security Center
 
@@ -61,9 +61,9 @@ AKS tillhandahåller säkerhets kontroller och insyn i säkerhets position i din
 
 Mer information om relevanta Security Center rekommendationer som kan visas för den här funktionen finns i [avsnittet container](recommendations-reference.md#recs-containers) i referens tabellen för rekommendationer.
 
-## <a name="run-time-protection---real-time-threat-detection"></a>Kör tids skydd – real tids identifiering av hot
+## <a name="run-time-protection---real-time-threat-protection"></a>Kör tids skydd – real tids skydd av hot
 
-Security Center tillhandahåller hot identifiering i real tid för dina behållares miljöer och genererar aviseringar för misstänkta aktiviteter. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina containrar.
+Security Center tillhandahåller hot skydd i real tid för dina behållares miljöer och genererar aviseringar för misstänkta aktiviteter. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina containrar.
 
 Vi identifierar hot på kluster nivån värd och AKS. Fullständig information finns i [hot skydd för Azure-behållare](threat-protection.md#azure-containers).
 

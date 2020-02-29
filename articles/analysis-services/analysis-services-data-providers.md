@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 006e1fb3fcef1ebcd0e09dffb79149e75eec622a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f099546ced64bd911916164879cd533329761c66
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713170"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914678"
 ---
-# <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Klient bibliotek för anslutning till Azure Analysis Services
+# <a name="client-libraries-for-connecting-to-analysis-services"></a>Klient bibliotek för anslutning till Analysis Services
 
 Klient bibliotek krävs för klient program och-verktyg för att ansluta till Analysis Services-servrar. Microsoft-klientprogram som Power BI Desktop, Excel, SQL Server Management Studio (SSMS) och Analysis Services Projects-tillägg för Visual Studio installerar alla tre klient biblioteken och uppdaterar dem tillsammans med regelbundna program uppdateringar. I vissa fall kan du behöva installera nyare versioner av klient biblioteken. Klient bibliotek måste också vara installerade för anpassade klient program.
 

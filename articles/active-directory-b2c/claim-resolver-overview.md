@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 03/02/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4434c877f69391f5dc5926c6aed07049ba46b7b7
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 97e51331657c62094996f79483148f2f441e6a44
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425654"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161609"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Om anspråk matchare i Azure Active Directory B2C anpassade principer
 
@@ -66,15 +66,16 @@ I följande avsnitt listas tillgängliga anspråks lösningar.
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |Parametern `acr_values` frågesträng. | Ej tillämpligt |
+| {OIDC:AuthenticationContextReferences} |Parametern `acr_values` frågesträng. | Saknas |
 | {OIDC:ClientId} |Parametern `client_id` frågesträng. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |Parametern `domain_hint` frågesträng. | facebook.com |
 | {OIDC: LoginHint} |  Parametern `login_hint` frågesträng. | someone@contoso.com |
-| {OIDC:MaxAge} | `max_age`. | Ej tillämpligt |
+| {OIDC:MaxAge} | `max_age`. | Saknas |
 | {OIDC:Nonce} |Parametern `Nonce` frågesträng. | defaultNonce |
 | {OIDC: prompt} | Parametern `prompt` frågesträng. | inloggning |
-| {OIDC:Resource} |Parametern `resource` frågesträng. | Ej tillämpligt |
+| {OIDC:Resource} |Parametern `resource` frågesträng. | Saknas |
 | {OIDC: omfång} |Parametern `scope` frågesträng. | OpenID |
+| {OIDC: RedirectUri} |Parametern `redirect_uri` frågesträng. | https://jwt.ms |
 
 ### <a name="context"></a>Kontext
 
@@ -85,7 +86,7 @@ I följande avsnitt listas tillgängliga anspråks lösningar.
 | {Context:DateTimeInUtc} |Datum tid i UTC.  | 10/10/2018 12:00:00 PM |
 | {Context: DeploymentMode} |Princip distributions läget.  | Produktion |
 | {Context: IPAddress} | Användarens IP-adress. | 11.111.111.11 |
-
+| {Context: KMSI avgör} | Anger om kryss rutan [Behåll mig inloggad](custom-policy-keep-me-signed-in.md) är markerad. |  true |
 
 ### <a name="non-protocol-parameters"></a>Parametrar som inte är protokoll
 
@@ -96,13 +97,13 @@ Alla parameter namn som ingår i en OIDC-eller OAuth2-begäran kan mappas till e
 | {OAUTH-KV: campaignId} | En frågesträngparametern. | hawaii |
 | {OAUTH-KV: app_session} | En frågesträngparametern. | A3C5R |
 | {OAUTH-KV:loyalty_number} | En frågesträngparametern. | 1234 |
-| {OAUTH-KV: valfri anpassad frågesträng} | En frågesträngparametern. | Ej tillämpligt |
+| {OAUTH-KV: valfri anpassad frågesträng} | En frågesträngparametern. | Saknas |
 
 ### <a name="oauth2"></a>OAuth2
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------------------- | --------|
-| {oauth2:access_token} | Åtkomsttoken. | Ej tillämpligt |
+| {oauth2:access_token} | Åtkomsttoken. | Saknas |
 
 
 ### <a name="saml"></a>SAML

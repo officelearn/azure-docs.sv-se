@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: a25337cad39674bc6016f67bdc46a804518d0b03
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3abd9835c1cf750b926f49442f3e34e96dc9c865
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509027"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917364"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Vanliga frågor och svar
 
@@ -41,13 +41,15 @@ På den här sidan besvaras vanliga frågor om Azure Active Directory Domain Ser
 Nej. Det går bara att skapa en enskild hanterad domän som hanteras av Azure AD Domain Services för en enda Azure AD-katalog.
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network"></a>Kan jag aktivera Azure AD Domain Services i ett klassiskt virtuellt nätverk?
-Klassiska virtuella nätverk stöds inte för nya distributioner. Befintliga hanterade domäner som distribueras i klassiska virtuella nätverk fortsätter att stödjas. Du kan också [migrera Azure AD Domain Services från den klassiska virtuella nätverks modellen till Resource Manager (för hands version)](migrate-from-classic-vnet.md).
+Klassiska virtuella nätverk stöds inte för nya distributioner. Befintliga hanterade domäner som distribueras i klassiska virtuella nätverk fortsätter att stödjas tills de har dragits tillbaka den 1 mars 2023. För befintliga distributioner kan du [migrera Azure AD Domain Services från den klassiska virtuella nätverks modellen till Resource Manager](migrate-from-classic-vnet.md).
+
+Mer information finns i meddelandet om [officiellt utfasnings meddelande](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/).
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Kan jag aktivera Azure AD Domain Services i ett Azure Resource Manager virtuellt nätverk?
 Ja. Azure AD Domain Services kan aktive ras i ett Azure Resource Manager virtuellt nätverk. Klassiska virtuella Azure-nätverk är inte längre tillgängliga när du skapar en hanterad domän.
 
 ### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Kan jag migrera min befintliga hanterade domän från ett klassiskt virtuellt nätverk till ett virtuellt Resource Manager-nätverk?
-Ja, den här funktionen är i för hands version. Mer information finns i [migrera Azure AD Domain Services från den klassiska virtuella nätverks modellen till Resource Manager (för hands version)](migrate-from-classic-vnet.md).
+Ja. Mer information finns i [migrera Azure AD Domain Services från den klassiska virtuella nätverks modellen till Resource Manager](migrate-from-classic-vnet.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Kan jag aktivera Azure AD Domain Services i en Azure CSP-prenumeration (Cloud Solution Provider)?
 Ja. Mer information finns i [så här aktiverar du Azure AD Domain Services i Azure CSP-prenumerationer](csp.md).
@@ -139,7 +141,7 @@ Nej. Azure AD Domain Services är en Azure-tjänst enligt principen betala per a
 ### <a name="what-azure-regions-is-the-service-available-in"></a>Vilka Azure-regioner finns tjänsten i?
 På sidan [Azure-tjänster per region](https://azure.microsoft.com/regions/#services/) kan du se en lista över de Azure-regioner där Azure AD Domain Services är tillgängligt.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Läs [fel söknings guiden](troubleshoot.md) för lösningar på vanliga problem med att konfigurera eller administrera Azure AD Domain Services.
 

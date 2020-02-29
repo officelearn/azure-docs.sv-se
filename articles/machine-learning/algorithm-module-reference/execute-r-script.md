@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 4991fe9fb06d0a49da3e0404f0362c85f15571af
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: d39ac40e8e29c7ff90e2accc3a519449571c1d58
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152303"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917415"
 ---
 # <a name="execute-r-script"></a>Köra R-skript
 
@@ -130,6 +130,8 @@ azureml_main <- function(dataframe1, dataframe2){
 **Kör R-skriptets** moduler kan returnera flera utdata, men de måste anges som R-databildor. Data ramar konverteras automatiskt till data uppsättningar i designern för kompatibilitet med andra moduler.
 
 Standard meddelanden och fel från R returneras till modulens logg.
+
+Om du behöver skriva ut resultaten i R-skriptet kan du hitta de utskrifts resultat som finns i fliken **70_driver_log** under **utdata + loggar** på den högra panelen i modulen.
 
 ## <a name="sample-scripts"></a>Exempelskript
 
@@ -278,7 +280,7 @@ Den aktuella listan över förinstallerade R-paket som är tillgängliga för an
 | flernodskluster      | 2.0.7-1    | 
 | codetools    | 0,2 – 16     | 
 | colorspace   | 1.4-1      | 
-| Kompilatorn     | 3.5.1      | 
+| kompilatorn     | 3.5.1      | 
 | färg       | 1.3.4      | 
 | Klammerparentes         | 3.3        | 
 | data. table   | 1.12.2     | 

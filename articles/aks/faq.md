@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om Azure Kubernetes service (AKS)
 description: Hitta svar på några vanliga frågor om Azure Kubernetes service (AKS).
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 8586ff1ae22bf188af3705434ed90e064ff33c0f
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 1531308a8d0bd5a09952d8ad8ccd03c92f2f99eb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595679"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914610"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure Kubernetes service (AKS)
 
@@ -184,7 +184,6 @@ Ingen AKS är en hanterad tjänst och manipulering av IaaS-resurser stöds inte.
 
 <!-- LINKS - internal -->
 
-[aks-regions]: ./quotas-skus-regions.md#region-availability
 [aks-upgrade]: ./upgrade-cluster.md
 [aks-cluster-autoscale]: ./autoscaler.md
 [aks-advanced-networking]: ./configure-azure-cni.md
@@ -203,7 +202,7 @@ Ingen AKS är en hanterad tjänst och manipulering av IaaS-resurser stöds inte.
 [availability-zones]: ./availability-zones.md
 
 <!-- LINKS - external -->
-
+[aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [auto-scaler]: https://github.com/kubernetes/autoscaler
 [cordon-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent

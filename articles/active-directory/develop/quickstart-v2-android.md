@@ -11,23 +11,22 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: bbaaf4b26beec56cd8608abc8a2f9cdd3a4cda3f
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c4af08a204cbf88c56b699bcbcdd3a7700e0f5e0
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084539"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78160969"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
 
-I den här snabb starten används ett kod exempel för att visa hur ett Android-program kan logga in på personliga konton, arbets-eller skol konton med hjälp av Microsoft Identity Platform och hämta en åtkomsttoken och anropa Microsoft Graph-API: et.
+I den här snabb starten används ett kod exempel för att visa hur ett Android-program kan logga in på personliga konton, arbets-eller skol konton med hjälp av Microsoft Identity Platform och hämta en åtkomsttoken och anropa Microsoft Graph-API: et. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
-Program måste representeras av ett app-objekt i Azure Active Directory så att Microsoft Identity Platform kan dela tokens med ditt program.
+Program måste representeras av ett app-objekt i Azure Active Directory så att Microsoft Identity Platform kan tillhandahålla tokens till ditt program.
 
 > [!div renderon="docs"]
 > Kod exemplet levereras med en standard `redirect_uri` förkonfigurerad i `AndroidManifest.xml`-filen så att du inte behöver registrera ditt eget app-objekt först. En `redirect_uri` baseras delvis på appens signerings nyckel. Exempelprojektet är förkonfigurerad med en signerings nyckel så att den tillhandahållna `redirect_uri` fungerar. Mer information om hur du registrerar ett app-objekt och integrerar det med ditt program finns i artikeln [Logga in användare och anropa Microsoft Graph från en Android-app](tutorial-v2-android.md) .
 
-![Skärm bild av exempel appen](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
 > **Förutsättningar**
@@ -44,73 +43,14 @@ Program måste representeras av ett app-objekt i Azure Active Directory så att 
 > > ![Redan konfigurerad](media/quickstart-v2-android/green-check.png) appen konfigureras med de här attributen
 >
 > ### <a name="step-2-download-the-project"></a>Steg 2: Ladda ned projektet 
-> * [Ladda ned kod exemplet](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
+> [!div class="sxs-lookup" renderon="portal"]
+> Kör projektet med Android Studio.
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Ladda ned kod exemplet]()
 >
-> ### <a name="step-3-configure-your-project"></a>Steg 3: Konfigurera projektet
-> 1. Extrahera och öppna projektet i Android Studio.
-> 2. Inuti **appen** > **src** > **main** > **res** > **RAW**, öppna **auth_config_multiple_account. JSON** och ersätt den med följande kod:
-> ```javascript 
-> {
->   "client_id" : "Enter_the_Application_Id_Here",
->   "authorization_user_agent" : "DEFAULT",
->   "redirect_uri" : "Enter_the_Redirect_Uri_Here",
->   "account_mode" : "MULTIPLE",
->   "broker_redirect_uri_registered": true,
->   "authorities" : [
->     {
->       "type": "AAD",
->       "audience": {
->         "type": "Enter_the_Audience_Info_Here",
->         "tenant_id": "Enter_the_Tenant_Info_Here"
->       }
->     }
->   ]
-> }
-> ```
-
 > [!div class="sxs-lookup" renderon="portal"]
-> 3. Inuti **appen** > **src** > **main** > **res** > **RAW**, öppna **auth_config_single_account. JSON** och ersätt den med följande kod:
-> ```javascript 
-> {
->   "client_id" : "Enter_the_Application_Id_Here",
->   "authorization_user_agent" : "DEFAULT",
->   "redirect_uri" : "Enter_the_Redirect_Uri_Here",
->   "account_mode" : "SINGLE",
->   "broker_redirect_uri_registered": true,
->   "authorities" : [
->     {
->       "type": "AAD",
->       "audience": {
->         "type": "Enter_the_Audience_Info_Here",
->         "tenant_id": "Enter_the_Tenant_Info_Here"
->       }
->     }
->   ]
-> }
-> ```
-
-> [!div class="sxs-lookup" renderon="portal"]
-> 4. Inuti **appen** > **src** > **main**öppnar du **AndroidManifest. XML**.
-> 5. I noden **manifest\application** ersätter du noden **aktivitet Android: Name = "com. Microsoft. Identity. client. BrowserTabActivity"** med följande:    
-> ```xml
-> <!--Intent filter to catch Microsoft's callback after Sign In-->
-> <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
->     <intent-filter>
->         <action android:name="android.intent.action.VIEW" />
->         <category android:name="android.intent.category.DEFAULT" />
->         <category android:name="android.intent.category.BROWSABLE" />
->         <!--
->             Add in your scheme/host from registered redirect URI 
->             note that the leading "/" is required for android:path
->         -->
->         <data 
->             android:host="Enter_the_Package_Name"
->             android:path="/Enter_the_Signature_Hash"
->             android:scheme= "msauth" />
->     </intent-filter>
-> </activity>
-> ```
-> 6. Kör appen!   
+> ### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: appen har kon figurer ATS och är redo att köras
+> Vi har konfigurerat ditt projekt med värdena för appens egenskaper och är redo att köras. 
 > Exempel appen startar på skärmen med ett **enda konto läge** . En standard omfattning, **User. Read**, tillhandahålls som standard, som används när du läser dina egna profil data under Microsoft Graph API-anropet. URL: en för API-anropet Microsoft Graph anges som standard. Du kan ändra båda dessa om du vill.
 >
 > ![MSAL exempel app som visar användning av enkel och flera konton](./media/quickstart-v2-android/quickstart-sample-app.png)
@@ -126,7 +66,7 @@ Program måste representeras av ett app-objekt i Azure Active Directory så att 
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Den här snabb starten stöder Enter_the_Supported_Account_Info_Here.
+> > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
 > ## <a name="step-1-get-the-sample-app"></a>Steg 1: Hämta exempel appen
@@ -151,10 +91,12 @@ Program måste representeras av ett app-objekt i Azure Active Directory så att 
 > I läget för flera konton kan du upprepa samma steg.  Dessutom kan du ta bort det inloggade kontot, vilket även tar bort cachelagrade token för det kontot.
 
 ## <a name="how-the-sample-works"></a>Så här fungerar exemplet
+![Skärm bild av exempel appen](media/quickstart-v2-android/android-intro.svg)
+
 
 Koden är indelad i fragment som visar hur du skriver en enda och flera konton MSAL-appen. Filerna är organiserade enligt följande:
 
-| Arkiv  | Visar  |
+| Fil  | Demonstrationer  |
 |---------|---------|
 | MainActivity | Hanterar användar gränssnittet |
 | MSGraphRequestWrapper  | Anropar Microsoft Graph-API med hjälp av token som tillhandahålls av MSAL |
@@ -171,7 +113,7 @@ Nu ska vi titta på de här filerna i detalj och anropa MSAL kod i varje.
 MSAL ([com. Microsoft. Identity. client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) är det bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform. Gradle 3.0 + installerar biblioteket när du lägger till följande i **Gradle-skript** > **build. Gradle (modul: app)** under **beroenden**:
 
 ```gradle  
-implementation 'com.microsoft.identity.client:msal:1.0.0'
+implementation 'com.microsoft.identity.client:msal:1.+'
 ```
 
 Du kan se detta i exempel projektet i build. gradle (modul: app):
@@ -179,7 +121,7 @@ Du kan se detta i exempel projektet i build. gradle (modul: app):
 ```java
 dependencies {
     ...
-    implementation 'com.microsoft.identity.client:msal:1.0.+'
+    implementation 'com.microsoft.identity.client:msal:1.+'
     ...
 }
 ```

@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2da009189e0265aafcb26b7ec96837965f1ea0c5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f17192e738bb82fb348c660488e6296aa550bd25
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76838555"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913488"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
 
@@ -46,7 +46,7 @@ Från och med API-versionen `2019-05-06`struktureras fel och varningar på objek
 
 Indexeraren kunde inte läsa dokumentet från data källan. Detta kan inträffa på grund av:
 
-| Orsak | Information/exempel | Upplösning |
+| Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
 | inkonsekventa fält typer i olika dokument | Värdets typ stämmer inte med kolumn typen. Det gick inte att lagra `'{47.6,-122.1}'` i Authors-kolumnen.  Förväntad typ är JArray. | Se till att typen för varje fält är samma för olika dokument. Om t. ex. det första dokument `'startTime'`s fältet är ett datum/tid och i det andra dokumentet är det en sträng. detta fel uppstår. |
 | fel från data källans underliggande tjänst | (från Cosmos DB) `{"Errors":["Request rate is large"]}` | Kontrol lera lagrings instansen för att säkerställa att den är felfri. Du kan behöva justera skalning/partitionering. |
@@ -57,7 +57,7 @@ Indexeraren kunde inte läsa dokumentet från data källan. Detta kan inträffa 
 ## <a name="error-could-not-extract-content-or-metadata-from-your-document"></a>Fel: det gick inte att extrahera innehåll eller metadata från dokumentet
 Indexeraren med en BLOB-datakälla kunde inte extrahera innehåll eller metadata från dokumentet (till exempel en PDF-fil). Detta kan inträffa på grund av:
 
-| Orsak | Information/exempel | Upplösning |
+| Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
 | blobben överskrider storleks gränsen | Dokumentet är `'150441598'` byte, vilket överskrider den maximala storleken `'134217728'` byte för dokument extrahering för den aktuella tjänst nivån. | [BLOB-indexerings fel](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | BLOB har en innehålls typ som inte stöds | Dokumentet innehåller en innehålls typ som inte stöds `'image/png'` | [BLOB-indexerings fel](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
@@ -69,7 +69,7 @@ Indexeraren med en BLOB-datakälla kunde inte extrahera innehåll eller metadata
 ## <a name="error-could-not-parse-document"></a>Fel: det gick inte att parsa dokumentet
 Indexeraren läser dokumentet från data källan, men det uppstod ett problem med att konvertera dokument innehållet till det angivna fält mappnings schemat. Detta kan inträffa på grund av:
 
-| Orsak | Information/exempel | Upplösning |
+| Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
 | Dokument nyckeln saknas | Dokument nyckeln kan inte vara tom eller saknas | Se till att alla dokument har giltiga dokument nycklar |
 | Dokument nyckeln är ogiltig | Dokument nyckeln får innehålla högst 1024 tecken | Ändra dokument nyckeln så att den uppfyller verifierings kraven. |
@@ -81,7 +81,7 @@ Indexeraren läser dokumentet från data källan, men det uppstod ett problem me
 ## <a name="error-could-not-execute-skill"></a>Fel: det gick inte att köra kompetensen
 Indexeraren kunde inte köra en färdighet i färdigheter.
 
-| Orsak | Information/exempel | Upplösning |
+| Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
 | Problem med tillfälliga anslutningar | Ett tillfälligt fel har uppstått. Försök igen senare. | Ibland finns det ibland oväntade anslutnings problem. Försök att köra dokumentet via din indexerare igen senare. |
 | Potentiell produkt fel | Det uppstod ett oväntat fel. | Detta indikerar en okänd fel klass och det kan betyda att det finns en produkt bugg. Använd ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) för att få hjälp. |
@@ -140,7 +140,7 @@ Det maximala värde som du kan ange för parametern `timeout` är 230 sekunder. 
 
 Dokumentet lästes och bearbetades, men indexeraren kunde inte lägga till det i Sök indexet. Detta kan inträffa på grund av:
 
-| Orsak | Information/exempel | Upplösning |
+| Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
 | Ett fält innehåller en term som är för stor | En term i dokumentet är större än [32 KB-gränsen](search-limits-quotas-capacity.md#api-request-limits) | Du kan undvika den här begränsningen genom att se till att fältet inte har kon figurer ATS som filtrerat, aspekt Bart eller sorterbart.
 | Dokumentet är för stort för att indexeras | Ett dokument är större än [Max storleken för API-begäranden](search-limits-quotas-capacity.md#api-request-limits) | [Så här indexerar du stora data mängder](search-howto-large-index.md)
@@ -152,9 +152,9 @@ Dokumentet lästes och bearbetades, men indexeraren kunde inte lägga till det i
 
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"/>
 
-## <a name="error-could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>Fel: det gick inte att indexera dokumentet eftersom index data till index var ogiltiga
+## <a name="error-could-not-index-document-because-some-of-the-documents-data-was-not-valid"></a>Fel: det gick inte att indexera dokumentet eftersom vissa dokument data inte var giltiga
 
-Dokumentet lästes och bearbetades, men på grund av ett matchnings fel i konfigurationen av index fälten och typen av data som extraherats av indexeraren, gick det inte att lägga till i Sök indexet. Detta kan inträffa på grund av:
+Dokumentet lästes och bearbetades av indexeraren, men på grund av ett matchnings fel i konfigurationen av index fälten och de data som extraherats och behandlats av indexeraren, gick det inte att lägga till i Sök indexet. Detta kan inträffa på grund av:
 
 | Orsak | Information/exempel
 | --- | ---
@@ -166,12 +166,11 @@ Dokumentet lästes och bearbetades, men på grund av ett matchnings fel i konfig
 
 I alla dessa fall refererar du till [data typer som stöds](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) och [data typs mappning för indexerare](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) för att se till att du skapar index schemat korrekt och har konfigurerat lämpliga [fält mappningar för indexeraren](search-indexer-field-mappings.md). Fel meddelandet innehåller information som kan hjälpa till att spåra källan till matchnings felet.
 
-<a name="could-not-process-document-within-indexer-max-run-time"/>
-
 ## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Fel: den integrerade principen för ändrings spårning kan inte användas eftersom tabellen har en sammansatt primär nyckel
 
 Detta gäller för SQL-tabeller och inträffar vanligt vis när nyckeln antingen definieras som en sammansatt nyckel eller, när tabellen har definierat ett unikt grupperat index (som i ett SQL-index, inte ett Azure Search index). Huvud orsaken är att nyckelattributet ändras till en sammansatt primär nyckel när ett [unikt grupperat index](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15)används. I så fall kontrollerar du att SQL-tabellen inte har ett unikt grupperat index eller att du mappar nyckel fältet till ett fält som garanterat inte har dubblettvärden.
 
+<a name="could-not-process-document-within-indexer-max-run-time"/>
 
 ## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>Fel: det gick inte att bearbeta dokumentet inom indexeraren maximal kör tid
 
@@ -183,7 +182,7 @@ Det här felet uppstår när indexeraren inte kan slutföra bearbetningen av ett
 
 Felet uppstår när indexeraren försöker [projicera data till ett kunskaps lager](knowledge-store-projection-overview.md) och det uppstod ett fel i vårt försök att göra det.  Det här felet kan vara konsekvent och fixablet, eller så kan det vara ett tillfälligt fel med Utkorgen för projektion av utdata som du kan behöva vänta och försöka igen för att kunna lösa problemet.  Här är en uppsättning kända fellägen och möjliga lösningar.
 
-| Orsak | Information/exempel | Upplösning |
+| Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
 | Det gick inte att uppdatera BLOB-`'blobUri'` för projektion i container `'containerName'` |Den angivna behållaren finns inte. | Indexeraren kontrollerar om den angivna behållaren har skapats tidigare och kommer att skapa den om det behövs, men den utför bara den här kontrollen en gång per indexerare körs. Det här felet innebär att något har tagits bort från behållaren efter det här steget.  Försök att lösa det här felet: lämna din lagrings konto information, vänta tills indexeraren har slutförts och kör sedan indexeraren igen. |
 | Det gick inte att uppdatera BLOB-`'blobUri'` för projektion i container `'containerName'` |Det gick inte att skriva data till transport anslutningen: en befintlig anslutning tvingades stänga av den fjärranslutna värden. | Detta förväntas vara ett tillfälligt haveri med Azure Storage och bör därför lösas genom att köra om indexeraren. Om det här felet uppstår konsekvent kan du skicka ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) så att det kan undersökas ytterligare.  |
@@ -220,7 +219,7 @@ Om du vill ange ett standardvärde i händelse av saknade indata kan du använda
 }
 ```
 
-| Orsak | Information/exempel | Upplösning |
+| Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
 | Kompetens ineffekten är av fel typ | "Nödvändig kompetens information var inte av den förväntade typen `String`. Namn: `text`, källa: `/document/merged_content`. "  "Krav på färdighets information var inte av det förväntade formatet. Namn: `text`, källa: `/document/merged_content`. "  "Det går inte att iterera över icke-matriser `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`."  "Det går inte att välja `0` i `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`som inte är matris" | Vissa kunskaper förväntar sig indata av särskilda typer, till exempel [sentiment-kompetens](cognitive-search-skill-sentiment.md) förväntar sig `text` att vara en sträng. Om indatan anger ett värde som inte är ett sträng värde, körs inte kompetensen och genererar inga utdata. Se till att data uppsättningen har inmatnings värden som är enhetliga i typ eller Använd en [anpassad webb-API-färdighet](cognitive-search-custom-skill-web-api.md) för att Förbearbeta indatan. Om du vill iterera över en matris kontrollerar du att kunskaps kontexten och indatamängden har `*` på rätt platser. Vanligt vis ska både kontexten och Indatakällan sluta med `*` för matriser. |
 | Kompetens ineffekt saknas | "Nödvändig kompetens information saknas. Namn: `text`, källa: `/document/merged_content`"" värde `/document/normalized_images/0/imageTags`saknas. "  "Det går inte att välja `0` i mat ris `/document/pages` `0`." | Om alla dokument får den här varningen, är det förmodligen ett stavfel i inmatnings Sök vägarna och du bör dubbelt kontrol lera egenskaps namnets Skift läge, extra eller saknas `*` i sökvägen, och se till att dokumenten från data källan tillhandahåller nödvändiga indata. |
@@ -323,7 +322,7 @@ Mappningar av utdatakolumner som refererar till icke-existerande/null-data gener
 
 [Indexerings lägena för indexeraren](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) måste veta hur texten kodas innan den kan parsas. De två vanligaste sätten att koda text är UTF-16 och UTF-8. UTF-8 är en kodning med variabel längd där varje tecken är mellan 1 byte och 4 byte långt. UTF-16 är en kodning med fast längd där varje tecken är 2 byte långt. UTF-16 har två olika varianter, "big endian" och "little endian". Text kodningen bestäms av en "byte ordnings markering", en serie byte före texten.
 
-| Encoding | Markering av byte ordning |
+| Kodning | Markering av byte ordning |
 | --- | --- |
 | UTF-16 big endian | 0xFE 0xFF |
 | UTF-16 lite endian | 0xFF 0xFE |

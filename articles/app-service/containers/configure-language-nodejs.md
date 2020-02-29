@@ -4,12 +4,12 @@ description: Lär dig hur du konfigurerar en fördefinierad Node. js-behållare 
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 6cf60472307a378d2fd4258a9777152344a11ded
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 45d7d141bc2ab85ab33be455fc3da5570b0e7f51
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670276"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920033"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Konfigurera en Linux Node. js-app för Azure App Service
 
@@ -44,6 +44,32 @@ Den här inställningen anger vilken Node. js-version som ska användas, både v
 > [!NOTE]
 > Du bör ange Node. js-versionen i projektets `package.json`. Distributions motorn körs i en separat behållare som innehåller alla Node. js-versioner som stöds.
 
+## <a name="customize-build-automation"></a>Anpassa Bygg automatisering
+
+Om du distribuerar din app med hjälp av git-eller zip-paket med build-automatisering aktiverat, App Service bygga automatiserings steg i följande ordning:
+
+1. Kör anpassat skript om det anges av `PRE_BUILD_SCRIPT_PATH`.
+1. Kör `npm install` utan några flaggor, som innehåller NPM `preinstall` och `postinstall` skript och installerar `devDependencies`.
+1. Kör `npm run build` om ett build-skript har angetts i *Package. JSON*.
+1. Kör `npm run build:azure` om en build: Azure-skript anges i *Package. JSON*.
+1. Kör anpassat skript om det anges av `POST_BUILD_SCRIPT_PATH`.
+
+> [!NOTE]
+> Som det beskrivs i [NPM-dokument](https://docs.npmjs.com/misc/scripts), använder skript som heter `prebuild` och `postbuild` kör före och efter `build`om de anges. `preinstall` och `postinstall` köra före och efter `install`.
+
+`PRE_BUILD_COMMAND` och `POST_BUILD_COMMAND` är miljövariabler som är tomma som standard. Definiera `PRE_BUILD_COMMAND`för att köra kommandon för för bygge. Definiera `POST_BUILD_COMMAND`för att köra kommandon efter kompilering.
+
+I följande exempel anges de två variablerna för en serie kommandon, avgränsade med kommatecken.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+Ytterligare miljövariabler för att anpassa Bygg automatisering finns i [Oryx-konfiguration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+Mer information om hur App Service kör och skapar Node. js-appar i Linux finns i [Oryx-dokumentation: så här identifieras och skapas Node. js-appar](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/nodejs.md).
+
 ## <a name="configure-nodejs-server"></a>Konfigurera Node. js-Server
 
 Node. js-behållare levereras med [PM2](https://pm2.keymetrics.io/), en produktions process hanterare. Du kan konfigurera appen så att den startar med PM2, eller med NPM, eller med ett anpassat kommando.
@@ -62,7 +88,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Kör NPM-start
 
-För att starta din app med hjälp av `npm start`kontrollerar du bara att ett `start`-skript finns i *Package. JSON* -filen. Exempel:
+För att starta din app med hjälp av `npm start`kontrollerar du bara att ett `start`-skript finns i *Package. JSON* -filen. Några exempel:
 
 ```json
 {
@@ -110,7 +136,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 Du kan felsöka Node. js-appen via fjärr anslutning i [Visual Studio Code](https://code.visualstudio.com/) om du konfigurerar den att [köras med PM2](#run-with-pm2), förutom när du kör den med hjälp av *. config. js, *. yml eller *. yaml*.
 
-I de flesta fall krävs ingen extra konfiguration för din app. Om din app körs med en *process. JSON* -fil (standard eller anpassad), måste den ha en `script`-egenskap i JSON-roten. Exempel:
+I de flesta fall krävs ingen extra konfiguration för din app. Om din app körs med en *process. JSON* -fil (standard eller anpassad), måste den ha en `script`-egenskap i JSON-roten. Några exempel:
 
 ```json
 {
@@ -138,7 +164,7 @@ process.env.NODE_ENV
 
 Kudu kör som standard `npm install --production` när den identifierar en Node. js-app distribueras. Om din app kräver något av de populära automatiserings verktygen, till exempel grunt, Bower eller Gulp, måste du ange ett [anpassat distributions skript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) för att köra det.
 
-Om du vill göra det möjligt för lagrings platsen att köra dessa verktyg måste du lägga till dem i beroenden i *Package. JSON.* Exempel:
+Om du vill göra det möjligt för lagrings platsen att köra dessa verktyg måste du lägga till dem i beroenden i *Package. JSON.* Några exempel:
 
 ```json
 "dependencies": {
@@ -217,7 +243,7 @@ fi
 
 I App Service sker [SSL-avslutning](https://wikipedia.org/wiki/TLS_termination_proxy) på lastbalanserare för nätverk, så alla HTTPS-begäranden når din app som okrypterade HTTP-begäranden. Om din applogik behöver kontrollera om användarbegäranden är krypterade eller inte kan du kontrollera `X-Forwarded-Proto`-rubriken.
 
-Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standardappens mönster. I [Express](https://expressjs.com/)kan du använda [betrodda proxyservrar](https://expressjs.com/guide/behind-proxies.html). Exempel:
+Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standardappens mönster. I [Express](https://expressjs.com/)kan du använda [betrodda proxyservrar](https://expressjs.com/guide/behind-proxies.html). Några exempel:
 
 ```javascript
 app.set('trust proxy', 1)
@@ -235,12 +261,12 @@ if (req.secure) {
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Prova följande när en fungerande Node. js-app fungerar annorlunda i App Service eller innehåller fel:
 
 - [Åtkomst till logg strömmen](#access-diagnostic-logs).
-- Testa appen lokalt i produktions läge. App Service kör Node. js-appar i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Exempel:
+- Testa appen lokalt i produktions läge. App Service kör Node. js-appar i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Några exempel:
     - Beroende på *Package. JSON*kan olika paket installeras i produktions läge (`dependencies` jämfört med `devDependencies`).
     - Vissa webb ramverk kan distribuera statiska filer på ett annat sätt i produktions läge.
     - Vissa webb ramverk kan använda anpassade Start skript när de körs i produktions läge.

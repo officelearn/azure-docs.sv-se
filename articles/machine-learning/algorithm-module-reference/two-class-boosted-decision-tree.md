@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 985417200737e00ddbda4194cf7596b11c74ac10
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 1d144a48f79e59b35c88c5b338747d3186ebceda
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153731"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920747"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Modul för besluts träd med två klasser
 
@@ -38,6 +38,7 @@ Du kan träna den här typen av modell med hjälp av [träna modell](././train-m
   
     + **Enskild parameter**: om du vet hur du vill konfigurera modellen kan du ange en viss uppsättning värden som argument.
   
+    + **Parameter intervall**: om du inte är säker på de bästa parametrarna kan du hitta de optimala parametrarna med hjälp av modulen [finjustera modellens standardparametrar](tune-model-hyperparameters.md) . Du anger några värden och utbildaren upprepas över flera kombinationer av inställningarna för att avgöra vilken kombination av värden som ger bäst resultat.
   
 3.  För **maximalt antal löv per träd**, anger du det maximala antalet terminalservrar (löv) som kan skapas i alla träd.
   

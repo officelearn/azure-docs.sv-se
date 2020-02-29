@@ -2,19 +2,19 @@
 title: Eav4-serien och Easv4-serien – Azure Virtual Machines
 description: Specifikationer för virtuella datorer med Eav4 och Easv4-serien.
 services: virtual-machines
-author: jonbeck7
+author: migerdes
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 96cd7b4f4627e7c0335df9c745d8193a3dac7044
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: e05a2b97a25ce4cab7d619f4b62d405765cb08db
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493779"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164397"
 ---
-# <a name="eav4-and-easv4-series"></a>Eav4 och Easv4-serien
+# <a name="eav4-and-easv4-series"></a>Eav4- och Easv4-serien
 
 Eav4-serien och Easv4-serien använder AMD: s 2.35 GHz EPYC<sup>TM</sup> 7452-processor i en multi-threadd konfiguration med upp till 256 MB L3-cache, vilket ökar alternativen för att köra de flesta minnesoptimerade arbets belastningar. Eav4-serien och Easv4-serien har samma minnes-och diskkonfigurationer som Ev3 & Esv3-serien.
 
@@ -25,6 +25,10 @@ ACU: 230-260
 Premium Storage: stöds inte
 
 Premium Storage caching: stöds inte
+
+Direktmigrering: stöds
+
+Minnes bebetjänings uppdateringar: stöds
 
 Eav4-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en högre högsta frekvens på 3.35 GHz och använder Premium SSD. Eav4-seriens storlek är idealiska för minnes intensiva företags program. Datadisklagring faktureras separat från virtuella datorer. Om du vill använda Premium SSD använder du Easv4-seriens storlekar. Pris-och debiterings mätare för Easv4-storlekar är samma som för Eav3-serien.
 
@@ -49,6 +53,10 @@ ACU: 230-260
 Premium Storage: stöds
 
 Premium Storage caching: stöds
+
+Direktmigrering: stöds
+
+Minnes bebetjänings uppdateringar: stöds
 
 Easv4-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en högre högsta frekvens på 3.35 GHz och använder Premium SSD. Easv4-seriens storlek är idealiska för minnes intensiva företags program.
 

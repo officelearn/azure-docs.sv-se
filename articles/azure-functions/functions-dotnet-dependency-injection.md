@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: a17ff15e71251e781cd30c33a5616af85e4f4eb9
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 1aff2815144f776b351e92d8945b267d1451f9f6
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260091"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915715"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Använd beroende inmatning i .NET Azure Functions
 
@@ -21,11 +21,11 @@ Azure Functions stöder design mönstret för program beroende insprutning (DI),
 
 - Stöd för beroende inmatning börjar med Azure Functions 2. x.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan använda beroende inmatning måste du installera följande NuGet-paket:
 
-- [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
+- [Microsoft. Azure. functions. Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - [Microsoft. net. SDK. Functions-paket](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) version 1.0.28 eller senare
 
@@ -130,13 +130,13 @@ Om du behöver en egen Logging-Provider registrerar du en anpassad typ som en `I
 
 > [!WARNING]
 > - Lägg inte till `AddApplicationInsightsTelemetry()` i samlingen tjänster när den registrerar tjänster som står i konflikt med tjänster som tillhandahålls av miljön.
-> - Registrera inte dina egna `TelemetryConfiguration` eller `TelemetryClient` om du använder de inbyggda Application Insights funktionerna.
+> - Registrera inte dina egna `TelemetryConfiguration` eller `TelemetryClient` om du använder de inbyggda Application Insights funktionerna. Om du behöver konfigurera en egen `TelemetryClient`-instans skapar du en via de inmatade `TelemetryConfiguration` som visas i [övervaka Azure Functions](./functions-monitoring.md#version-2x-and-later-2).
 
 ## <a name="function-app-provided-services"></a>Function-appen tillhandahåller tjänster
 
 Funktions värden registrerar många tjänster. Följande tjänster är säkra att ta med i ditt program:
 
-|Typ av tjänst|Giltighet|Beskrivning|
+|Tjänsttyp|Giltighet|Beskrivning|
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Körnings konfiguration|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Ansvarar för att tillhandahålla ID för värd instansen|

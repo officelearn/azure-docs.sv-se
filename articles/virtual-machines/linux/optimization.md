@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: a042e768ef6693d2ced6d679947a6fe321d259bf
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: a80446317a289f27cdbbff3b2939cfe0db45748f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934723"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918061"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
 Det är enkelt att skapa en virtuell Linux-dator (VM) från kommando raden eller från portalen. Den här självstudien visar hur du ser till att du har konfigurerat för att optimera prestandan på Microsoft Azures plattformen. I det här avsnittet används en virtuell Ubuntu-Server, men du kan också skapa en virtuell Linux-dator med [dina egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Det här avsnittet förutsätter att du redan har en fungerande Azure-prenumeration ([kostnads fri utvärderings version](https://azure.microsoft.com/pricing/free-trial/)) och redan har etablerad en virtuell dator till din Azure-prenumeration. Kontrol lera att du har det senaste [Azure CLI](/cli/azure/install-az-cli2) installerat och inloggat i din Azure-prenumeration med [AZ-inloggning](/cli/azure/reference-index) innan du [skapar en virtuell dator](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure OS-disk
@@ -129,11 +129,10 @@ Om dina arbets belastningar kräver mer IOps än en enskild disk kan du behöva 
 
 Som ett alternativ till en traditionell RAID-konfiguration kan du också välja att installera Logical Volume Manager (LVM) för att konfigurera ett antal fysiska diskar i en enda stripe-volym för logisk lagring. I den här konfigurationen distribueras läsningar och skrivningar till flera diskar som ingår i volym gruppen (liknar RAID0). Av prestanda skäl är det troligt att du vill ta bort dina logiska volymer så att läsningar och skrivningar använder alla dina anslutna data diskar.  Mer information om hur du konfigurerar en striped logisk volym på din virtuella Linux-dator i Azure finns i **[Konfigurera LVM på en virtuell Linux-dator i Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** -dokument.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Kom ihåg, precis som med alla optimerings diskussioner, måste du utföra tester före och efter varje ändring för att mäta effekten av ändringen.  Optimering är en steg-för-steg-process som har olika resultat på olika datorer i din miljö.  Det som fungerar för en konfiguration kanske inte fungerar för andra.
 
 Några användbara länkar till ytterligare resurser:
 
 * [Användar handbok för Azure Linux-agenten](../extensions/agent-linux.md)
-* [Optimera MySQL-prestanda på virtuella Azure Linux-datorer](classic/optimize-mysql.md)
 * [Konfigurera programvaru-RAID på Linux](configure-raid.md)

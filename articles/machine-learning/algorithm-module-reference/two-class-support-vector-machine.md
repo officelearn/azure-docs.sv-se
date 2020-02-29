@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 072809949badb08e5b1e7078566e289c5a5fecd9
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 3b2f6b2bb1dc5f9e16c537f78b5a456ee4984e80
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153680"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916735"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Dubbelriktad Vector Machine-modul
 
@@ -43,6 +43,8 @@ För den här modell typen rekommenderar vi att du normaliserar data uppsättnin
 2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
     -   **Enskild parameter**: om du vet hur du vill konfigurera modellen kan du ange en viss uppsättning värden som argument.  
+
+    -   **Parameter intervall**: om du inte är säker på de bästa parametrarna kan du hitta de optimala parametrarna med hjälp av modulen [finjustera modellens standardparametrar](tune-model-hyperparameters.md) . Du anger några värden och utbildaren upprepas över flera kombinationer av inställningarna för att avgöra vilken kombination av värden som ger bäst resultat.
 
 3.  För **antal iterationer**anger du ett tal som anger antalet iterationer som används när modellen skapas.  
   

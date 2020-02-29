@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: da397c180b6ccaf91084a0ec22210c7bcc88a5dc
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: a79e718c04f81b1552d63ab98b6dcd6bb428fb50
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084807"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918345"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Använd Azure Media Video Thumbnails för att skapa en video Sammanfattning  
- 
+
+> [!NOTE]
+> **Azure Media Video thumbnails** medie processorn kommer att dras tillbaka. Information om återställnings datumet finns i avsnittet [äldre komponenter](legacy-components.md) .
+
 ## <a name="overview"></a>Översikt
 
 Med **Azure Media Video thumbnails** Media processor (MP) kan du skapa en sammanfattning av en video som är användbar för kunder som bara vill förhandsgranska en sammanfattning av en lång video. Kunder kan till exempel vilja se en kort "sammanfattnings video" när de hovrar över en miniatyr bild. Genom att ändra parametrarna för **Azure Media Video thumbnails** via en konfigurations för inställning kan du använda MP: s kraftfulla bild identifierings-och kombinations teknik för att algorithmically generera ett beskrivande under klipp.  
@@ -281,13 +284,13 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 ### <a name="video-thumbnail-output"></a>Video miniatyrer, utdata
 [Video miniatyrer, utdata](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Tillhörande länkar
+## <a name="related-links"></a>Relaterade länkar
 [Översikt över Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Azure-medieanalys demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)

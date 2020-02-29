@@ -5,21 +5,21 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
+ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a7681ba815533296deae2b585e377a733074b6c9
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147918"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911822"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Använda Azure-portalen för att administrera din Data Box Disk
 
 Självstudierna i den här artikeln gäller för förhandsversionen av Microsoft Azure Data Box Disk. Den här artikeln beskriver några av de komplexa arbetsflöden och de administrativa uppgifter som du kan utföra med Data Box Disk. 
 
-Du kan hantera Data Box Disk via Azure Portal. Den här artikeln fokuserar på de uppgifter som du kan utföra på Azure Portal. Använd Azure Portal för att hantera beställningar, hantera diskar och spåra orderstatusen från början till slut.
+Du kan hantera Data Box Disk via Azure Portal. Den här artikeln fokuserar på de uppgifter som du kan utföra med Azure-portalen. Använd Azure Portal för att hantera beställningar, hantera diskar och spåra orderstatusen från början till slut.
 
 ## <a name="cancel-an-order"></a>Annullera en beställning
 
@@ -105,7 +105,7 @@ Följ stegen nedan om du vill redigera ordern.
 
 ## <a name="edit-notification-details"></a>Redigera meddelandeinformation
 
-Du kan behöva ändra vilka användare som ska få e-postmeddelanden om orderstatusen. Exempelvis kanske en användare ska meddelas när disken levereras eller hämtas. En annan användare behöva du informeras när Datakopieringen är klar så att de kan kontrollera dina data finns i Azure storage-kontot innan du tar bort den från källan. I dessa fall kan du redigera meddelandeinformationen.
+Du kan behöva ändra vilka användare som ska få e-postmeddelanden om orderstatusen. Exempelvis kanske en användare ska meddelas när disken levereras eller hämtas. En annan användare kan behöva informeras när data kopieringen är klar så att de kan verifiera att data finns i Azure Storage-kontot innan de tas bort från källan. I dessa fall kan du redigera meddelandeinformationen.
 
 Följ stegen nedan om du vill redigera meddelandeinformationen.
 
@@ -129,7 +129,7 @@ Följ stegen nedan om du vill redigera meddelandeinformationen.
 |Mottaget     | Dina diskar har tagits emot på Azures datacenter. Datakopieringen startar inom kort.        |
 |Kopierade data     |Data kopieras.<br> Vänta tills datakopieringen är klar.         |
 |Slutfört       |Ordern har slutförts.<br> Kontrollera att dina data finns i Azure innan du tar bort lokala data från servrarna.         |
-|Slutfört med fel| Datakopieringen slutfördes men det uppstod fel. <br> Granska felloggarna för överföring med hjälp av sökvägen som anges i den **översikt**. Mer information går du till [Download uppladdning felloggar](data-box-disk-troubleshoot-upload.md#download-logs).   |
+|Slutfört med fel| Datakopieringen slutfördes men det uppstod fel. <br> Granska fel loggarna för uppladdning med hjälp av sökvägen som anges i **översikten**. Mer information finns i [Ladda ned fel loggar för uppladdning](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |Avbrutna            |Ordern har avbrutits. <br> Antingen annullerade du beställningen eller så påträffades ett fel som gjorde att tjänsten avbröt ordern.     |
 
 

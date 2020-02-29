@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 2570e3753dd93173166c6b563e9add69bed3f862
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: d2c5a094c45eeca779a33a39261bd3fc17d53d1a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922262"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913862"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurera en Linux python-app för Azure App Service
 
@@ -47,6 +47,28 @@ Kör följande kommando i [Cloud Shell](https://shell.azure.com) för att ställ
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
 ```
+
+## <a name="customize-build-automation"></a>Anpassa Bygg automatisering
+
+Om du distribuerar din app med hjälp av git-eller zip-paket med build-automatisering aktiverat, App Service bygga automatiserings steg i följande ordning:
+
+1. Kör anpassat skript om det anges av `PRE_BUILD_SCRIPT_PATH`.
+1. Kör `pip install -r requirements.txt`.
+1. Om *Manage.py* finns i roten för lagrings platsen kör du *Manage.py collectstatic*. Men om `DISABLE_COLLECTSTATIC` är inställt på `true`hoppas det här steget över.
+1. Kör anpassat skript om det anges av `POST_BUILD_SCRIPT_PATH`.
+
+`PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND`och `DISABLE_COLLECTSTATIC` är miljövariabler som är tomma som standard. Definiera `PRE_BUILD_COMMAND`för att köra kommandon för för bygge. Definiera `POST_BUILD_COMMAND`för att köra kommandon efter kompilering. Ange `DISABLE_COLLECTSTATIC=true`om du vill inaktivera att köra collectstatic när du skapar django-appar.
+
+I följande exempel anges de två variablerna för en serie kommandon, avgränsade med kommatecken.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+Ytterligare miljövariabler för att anpassa Bygg automatisering finns i [Oryx-konfiguration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+Mer information om hur App Service kör och skapar python-appar i Linux finns i [Oryx-dokumentation: så här identifieras och skapas python-appar](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/python.md).
 
 ## <a name="container-characteristics"></a>Containeregenskaper
 
@@ -159,7 +181,7 @@ Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standa
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 - **Du ser standardappen när du har distribuerat din egen appkod.** Standardappen visas eftersom du antingen inte har distribuerat din kod till App Service eller för att App Service inte kunde hitta din appkod och körde standardappen i stället.
 - Starta om App Service, vänta 15–20 sekunder och kontrollera appen igen.

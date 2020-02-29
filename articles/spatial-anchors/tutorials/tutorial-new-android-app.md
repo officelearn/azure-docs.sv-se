@@ -8,18 +8,18 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a1c19523508f434c114df884824d1595376bac21
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c02595ebdb2f011dcc94b517771a79a4b2df754d
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276932"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161728"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Självstudie: steg-för-steg-instruktioner för att skapa en ny Android-app med hjälp av Azure spatiala ankare
 
 I den här självstudien får du lära dig hur du skapar en ny Android-app som integrerar ARCore-funktionen med avstånds ankare för Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa den här självstudien måste du ha:
 
@@ -30,7 +30,7 @@ För att kunna följa den här självstudien måste du ha:
 
 Starta Android Studio. Klicka på **starta ett nytt Android Studio projekt**i fönstret **Välkommen till Android Studio** . Eller, om du har ett projekt som redan har öppnats, väljer du **fil**->**nytt projekt**.
 
-I fönstret **Skapa nytt projekt** under avsnittet **telefon och surfplatta** väljer du **Tom aktivitet**och klickar på **Nästa**. Välj `API 26: Android 8.0 (Oreo)`under **lägsta API-nivå**, och se till att **språket** är inställt på `Java`. Du kanske vill ändra projekt namnet & plats och paket namnet. Lämna de andra alternativen som de är. Klicka på **Slutför**. **Komponent installations programmet** körs. När den är klar klickar du på **Slutför**. Vid viss bearbetning öppnar Android Studio IDE-filen.
+I fönstret **Skapa nytt projekt** under avsnittet **telefon och surfplatta** väljer du **Tom aktivitet**och klickar på **Nästa**. Välj `API 26: Android 8.0 (Oreo)`under **lägsta API-nivå**, och se till att **språket** är inställt på `Java`. Du kanske vill ändra projekt namnet & plats och paket namnet. Lämna de andra alternativen som de är. Klicka på **Finish**. **Komponent installations programmet** körs. När den är klar klickar du på **Slutför**. Vid viss bearbetning öppnar Android Studio IDE-filen.
 
 ## <a name="trying-it-out"></a>Testa
 
@@ -123,18 +123,18 @@ Lägg slutligen till följande `handleTap()` metod som binder allt tillsammans. 
 
 ## <a name="attach-a-local-azure-spatial-anchor"></a>Koppla en lokal Azure-spatial fäst punkt
 
-Ändra `Gradle Scripts\build.gradle (Module: app)` att inkludera följande post. Med den här koden ser du till att appen är riktad mot Azure spatiala ankare version 1.3.0. Det sägs att hänvisning till eventuella nya versioner av Azures spatialdata bör fungera.
+Ändra `Gradle Scripts\build.gradle (Module: app)` att inkludera följande post. Med den här koden ser du till att appen är riktad mot Azure spatiala ankare version 2.2.0. Det sägs att hänvisning till eventuella nya versioner av Azures spatialdata bör fungera. Du hittar viktig information [här.](https://github.com/Azure/azure-spatial-anchors-samples/releases)
 
 ```
 dependencies {
     ...
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[1.3.0]"
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[1.3.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[2.2.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[2.2.0]"
     ...
 }
 ```
 
-Högerklicka på `app\java\<PackageName>`->**ny**->**Java-klass**. Ange **namnet** _MyFirstApp_och **superklass** till _Android. app. Application_. Lämna de andra alternativen som de är. Klicka på **OK**. En fil med namnet `MyFirstApp.java` kommer att skapas. Lägg till följande import:
+Högerklicka på `app\java\<PackageName>`->**ny**->**Java-klass**. Ange **namnet** _MyFirstApp_och **superklass** till _Android. app. Application_. Lämna de andra alternativen som de är. Klicka på **OK** En fil med namnet `MyFirstApp.java` kommer att skapas. Lägg till följande import:
 
 ```java
 import com.microsoft.CloudServices;

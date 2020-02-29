@@ -8,51 +8,21 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 02/27/2020
 ms.author: diberry
-ms.openlocfilehash: cadbf5fa88db7d5e524cb7e075745c03a844f750
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: dea2bf3b34ca336f3932dd85bf587184ab6881db
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901699"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915001"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Använda aktiv inlärning för att förbättra kunskapsbasen
 
-Med aktiv inlärning kan du förbättra kvaliteten på din kunskaps bas genom att föreslå alternativa frågor, baserat på användar-och användar sändningar, till din fråga och svar-paret. Du kan granska dessa förslag, antingen lägga till dem i befintliga frågor eller avvisa dem.
+Med [aktiv inlärning](../Concepts/active-learning-suggestions.md) kan du förbättra kvaliteten på din kunskaps bas genom att föreslå alternativa frågor, baserat på användar-och användar sändningar, till din fråga och svar-paret. Du kan granska dessa förslag, antingen lägga till dem i befintliga frågor eller avvisa dem.
 
 Kunskaps basen ändras inte automatiskt. För att alla ändringar ska börja gälla måste du godkänna förslagen. Dessa förslag lägger till frågor, men ändrar inte eller tar inte bort befintliga frågor.
 
-## <a name="what-is-active-learning"></a>Vad är aktiv inlärning?
-
-QnA Maker lär sig nya variationer i frågan med implicit och uttrycklig feedback.
-
-* [Implicit feedback](#how-qna-makers-implicit-feedback-works) – rankningen förstår när en användar fråga har flera svar med poäng som är mycket nära och som ser ut som feedback. Du behöver inte göra något för att detta ska ske.
-* [Explicit feedback](#how-you-give-explicit-feedback-with-the-train-api) – när flera svar med lite variation i poängen returneras från kunskaps basen, ber klient programmet användaren som frågan är rätt fråga om. Användarens uttryckliga feedback skickas till QnA Maker med träna- [API: et](#train-api).
-
-Båda metoderna ger rangordningen med liknande frågor som är klustrade.
-
-## <a name="how-active-learning-works"></a>Så här fungerar Active Learning
-
-Aktiv inlärning utlöses baserat på resultaten av de viktigaste svaren som returneras av QnA Maker. Om Poäng skillnaderna ligger inom ett litet intervall, anses frågan vara ett möjligt förslag (som en alternativ fråga) för varje möjligt QnA-par. När du har accepterat den föreslagna frågan för ett speciellt QnA-par avvisas den för de andra paren. Du måste komma ihåg att spara och träna när du har accepterat förslag.
-
-Active Learning ger bästa möjliga förslag i fall där slut punkterna får en rimlig mängd och olika användnings frågor. Om 5 eller fler liknande frågor grupperas, var 30: e minut, föreslår QnA Maker de användarbaserade frågorna till kunskaps bas verktyget för att godkänna eller avvisa. Alla förslag är grupperade efter likhet och de vanligaste förslagen för alternativa frågor som visas baserat på frekvensen för specifika frågor av slutanvändare.
-
-När frågorna föreslås i QnA Maker portal måste du granska och godkänna eller avvisa dessa förslag. Det finns inget API för att hantera förslag.
-
-## <a name="how-qna-makers-implicit-feedback-works"></a>Så här fungerar QnA Makers implicit feedback
-
-QnA Makers implicita feedback använder en algoritm för att fastställa poängen och gör sedan aktiva inlärnings förslag. Algoritmen för att bestämma närhet är inte en enkel beräkning. Intervallen i följande exempel är inte avsedda att korrigeras utan bör användas som vägledning för att endast förstå effekten av algoritmen.
-
-När en frågas Poäng är mycket trygg, t. ex. 80%, är poängen som beaktas för aktiv inlärning en bred, ungefär inom 10%. När förtroende poängen minskar, till exempel 40%, minskar intervallet för poängen, ungefär inom 4%.
-
-## <a name="how-you-give-explicit-feedback-with-the-train-api"></a>Hur du ger explicit feedback med träna-API: et
-
-Det är viktigt att QnA Maker får uttrycklig feedback om vilka svar som var det bästa svaret. Hur det bästa svaret fastställs är upp till dig och kan innehålla:
-
-* Feedback från användare och välj ett av svaren.
-* Affärs logik, till exempel att fastställa ett acceptabelt Poäng intervall.
-* En kombination av både feedback och affärs logik.
 
 ## <a name="upgrade-your-runtime-version-to-use-active-learning"></a>Uppgradera din körnings version för att använda aktiv inlärning
 
@@ -192,7 +162,7 @@ Content-Type: application/json
 |URL-rutt parameter|Kunskaps bas-ID|sträng|Din kunskaps bas-GUID.|
 |Anpassad under domän|Resurs namn för QnAMaker|sträng|Resurs namnet används som anpassad under domän för QnA Maker. Detta är tillgängligt på sidan inställningar när du har publicerat kunskaps basen. Den visas som `host`.|
 |Huvud|Content-Type|sträng|Medie typen för den brödtext som skickas till API: et. Standardvärdet är: `application/json`|
-|Huvud|Autentisering|sträng|Din slut punkts nyckel (EndpointKey XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX).|
+|Huvud|Auktorisering|sträng|Din slut punkts nyckel (EndpointKey XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX).|
 |Publicera brödtext|JSON-objekt|JSON|Feedback om utbildningen|
 
 JSON-texten har flera inställningar:
@@ -391,7 +361,7 @@ Kolumnen `SuggestedQuestions` är ett JSON-objekt med information om implicit, `
 ```
 
 Du kan också använda nedladdnings-API: et för att granska dessa ändringar, med hjälp av REST eller någon av de språkbaserade SDK: erna:
-* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
+* [REST-API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
 * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
 
 
@@ -399,7 +369,7 @@ När du importerar om den här appen fortsätter den aktiva inlärningen att sam
 
 
 
-## <a name="best-practices"></a>Bästa metoder
+## <a name="best-practices"></a>Bästa praxis
 
 För bästa praxis när du använder aktiv inlärning, se [metod tips](../Concepts/best-practices.md#active-learning).
 

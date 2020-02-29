@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 02/01/2020
 ms.author: victorh
-ms.openlocfilehash: 925b859de28b8878412ee99402ffd727edcc4e7c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: c8ff1849668d5effe15b6c25d00f3965a17b8e3e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934728"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915647"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Azure Web Application-brandvägg i Azures front dörr
 
@@ -77,7 +77,7 @@ Du kan konfigurera anpassade regler WAF på följande sätt:
 
 ### <a name="azure-managed-rule-sets"></a>Azure-hanterade regel uppsättningar
 
-Azure-hanterade regel uppsättningar ger ett enkelt sätt att distribuera skydd mot en gemensam uppsättning säkerhetshot. Eftersom sådana rulesets hanteras av Azure uppdateras reglerna vid behov för att skydda mot nya attack-signaturer. I offentlig för hands version inkluderar den Azure-hanterade standard regel uppsättningen regler mot följande hot kategorier:
+Azure-hanterade regel uppsättningar ger ett enkelt sätt att distribuera skydd mot en gemensam uppsättning säkerhetshot. Eftersom sådana rulesets hanteras av Azure uppdateras reglerna vid behov för att skydda mot nya attack-signaturer. Azure-hanterad standard regel uppsättning innehåller regler mot följande hot kategorier:
 
 - Skript för Cross-Site
 - Java-attacker
@@ -91,6 +91,8 @@ Azure-hanterade regel uppsättningar ger ett enkelt sätt att distribuera skydd 
 
 Versions numret för standard regel uppsättningen ökar när nya angrepps signaturer läggs till i regel uppsättningen.
 Standard regel uppsättningen är aktive rad som standard i identifierings läge i dina WAF-principer. Du kan inaktivera eller aktivera enskilda regler inom standard regel uppsättningen för att uppfylla dina program krav. Du kan också ange specifika åtgärder (Tillåt/blockera/OMDIRIGERA/logga) per regel.
+
+Ibland kan du behöva utelämna vissa begär ande attribut från en WAF-utvärdering. Ett vanligt exempel är Active Directory-infogade tokens som används för autentisering. Du kan konfigurera en undantags lista för en hanterad regel, regel grupp eller för hela regel uppsättningen.  
 
 Standard åtgärden är att blockera. Dessutom kan anpassade regler konfigureras i samma WAF-princip om du vill kringgå någon av de förkonfigurerade reglerna i standard regel uppsättningen.
 

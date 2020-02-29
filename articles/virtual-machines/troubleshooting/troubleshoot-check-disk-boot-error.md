@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: ba3138076da89610bef878583e424153594c5dcc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 86938c582745cb0759eda9cd0693f407471a0529
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981379"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921495"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Windows visar "kontrollerar fil system" när en virtuell Azure-dator startas
 
 I den här artikeln beskrivs fel meddelandet "kontrollerar fil systemet" som kan uppstå när du startar en virtuell Windows-dator (VM) i Microsoft Azure.
 
-> [!NOTE] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder distributions modellen för Resource Manager, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributions modellen.
 
 ## <a name="symptom"></a>Symptom 
 
@@ -40,8 +38,8 @@ Om ett NTFS-fel påträffas i fil systemet kontrollerar Windows och reparerar ko
 ## <a name="solution"></a>Lösning 
 
 Windows startar normalt när processen för att kontrol lera disken har slutförts. Om den virtuella datorn har fastnat i kontrol lera disk-processen försöker du köra check disken på den virtuella datorn offline:
-1.  Ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
-2.  [Koppla OS-disk till virtuell återställningsdator](troubleshoot-recovery-disks-portal-windows.md).  
+1.  Ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicks bilder av en disk](../windows/snapshot-copy-managed-disk.md).
+2.  [Koppla OS-disken till en virtuell dator för återställning](troubleshoot-recovery-disks-portal-windows.md).  
 3.  Kör check disk på den anslutna OS-disken på den virtuella återställnings datorn. I följande exempel är driv rutins beteckningen för den anslutna OS-disken E: 
         
         chkdsk E: /f

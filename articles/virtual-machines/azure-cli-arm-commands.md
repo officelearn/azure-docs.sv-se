@@ -8,18 +8,18 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 899f453ef67fd094578e946c1cdd9ca4d427bf79
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: ad213cc02f707609a837ea66b79e51c6f2a617f8
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122448"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919778"
 ---
 # <a name="azure-classic-cli-commands"></a>Klassiska Azure CLI-kommandon 
 
-> [!IMPORTANT]
-> Det här avsnittet beskriver hur du installerar klassiska Azure CLI. Klassiska CLI är inaktuell och bör endast användas med den klassiska distributionsmodellen.
-> Använd [Azure CLI](https://docs.microsoft.com/cli/azure/)för alla andra distributioner.
+[!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
+
+Det här avsnittet beskriver hur du installerar klassiska Azure CLI. Klassiska CLI är inaktuell och bör endast användas med den klassiska distributionsmodellen. Använd [Azure CLI](https://docs.microsoft.com/cli/azure/)för alla andra distributioner.
 
 Den här artikeln innehåller syntax och alternativ för kommandon i Azures klassiska kommando rads gränssnitt (CLI) som du använder ofta för att skapa och hantera Azure-resurser. Detta är inte en fullständig referens och CLI-versionen kan visa något olika kommandon eller parametrar. 
 

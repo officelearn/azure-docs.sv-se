@@ -4,12 +4,12 @@ description: Lär dig hur du konfigurerar en fördefinierad ASP.NET Core behåll
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2019
-ms.openlocfilehash: cab99b9d20ce8a3190eb9aa59650dab32fca324d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 30cd6ad1b5516eb3bc7e858ae364a88ace1b93b3
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768426"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917638"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Konfigurera en Linux ASP.NET Core-app för Azure App Service
 
@@ -38,6 +38,28 @@ Kör följande kommando i [Cloud Shell](https://shell.azure.com) för att ange .
 ```azurecli-interactive
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|2.1"
 ```
+
+## <a name="customize-build-automation"></a>Anpassa Bygg automatisering
+
+Om du distribuerar din app med hjälp av git-eller zip-paket med build-automatisering aktiverat, App Service bygga automatiserings steg i följande ordning:
+
+1. Kör anpassat skript om det anges av `PRE_BUILD_SCRIPT_PATH`.
+1. Kör `dotnet restore` för att återställa NuGet-beroenden.
+1. Kör `dotnet publish` för att skapa en binär för produktion.
+1. Kör anpassat skript om det anges av `POST_BUILD_SCRIPT_PATH`.
+
+`PRE_BUILD_COMMAND` och `POST_BUILD_COMMAND` är miljövariabler som är tomma som standard. Definiera `PRE_BUILD_COMMAND`för att köra kommandon för för bygge. Definiera `POST_BUILD_COMMAND`för att köra kommandon efter kompilering.
+
+I följande exempel anges de två variablerna för en serie kommandon, avgränsade med kommatecken.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+Ytterligare miljövariabler för att anpassa Bygg automatisering finns i [Oryx-konfiguration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+Mer information om hur App Service kör och skapar ASP.NET Core appar i Linux finns i [Oryx-dokumentation: hur .net Core Apps identifieras och skapas](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/dotnetcore.md).
 
 ## <a name="access-environment-variables"></a>Få åtkomst till miljövariabler
 
@@ -72,7 +94,7 @@ Om du konfigurerar en app-inställning med samma namn i App Service och i *appSe
 
 ## <a name="get-detailed-exceptions-page"></a>Sidan Hämta detaljerade undantag
 
-När ASP.NET-appen genererar ett undantag i Visual Studio-felsökaren visar webbläsaren en detaljerad undantags sida, men i App Service sidan ersätts av ett allmänt **HTTP 500-** fel eller så **uppstod ett fel när din begäran bearbetades.** som meddelande. Om du vill visa den detaljerade undantags sidan i App Service lägger du till inställningen `ASPNETCORE_ENVIRONMENT` app i appen genom att köra följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+När ASP.NET-appen genererar ett undantag i Visual Studio-felsökaren visar webbläsaren en detaljerad undantags sida, men i App Service sidan ersätts av ett allmänt **HTTP 500-** fel eller så **uppstod ett fel när din begäran bearbetades.** meddelande. Om du vill visa den detaljerade undantags sidan i App Service lägger du till inställningen `ASPNETCORE_ENVIRONMENT` app i appen genom att köra följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"

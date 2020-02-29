@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: fac83a7a5137a50a26721da58395cc2e915f222d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: fae9b8a2101329383cc90c8f7f0ff225e3a9059c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086201"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913826"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Migrera webb tjänsten från Google Maps
 
@@ -24,21 +24,24 @@ I tabellen visas Azure Maps tjänst-API: er, som har liknande funktioner som lis
 
 | API för Google Maps-tjänsten | API för Azure Maps tjänsten                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Direction              | [Styra](https://docs.microsoft.com/rest/api/maps/route)                               |
-| Avstånds mat ris         | [Väg mat ris](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview) |
-| Geokodning               | [Sök](https://docs.microsoft.com/rest/api/maps/search)                             |
-| Sök efter platser           | [Sök](https://docs.microsoft.com/rest/api/maps/search)                             |
-| Placera Autoavsluta      | [Sök](https://docs.microsoft.com/rest/api/maps/search)                             |
-| Statisk karta              | [Återge](https://docs.microsoft.com/rest/api/maps/render/getmapimage)                 |
-| Tidszon               | [Tidszon](https://docs.microsoft.com/rest/api/maps/timezone)                        |
+| Direction              | [Styra](https://docs.microsoft.com/rest/api/maps/route)                                     |
+| Avstånds mat ris         | [Väg mat ris](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)       |
+| Geokodning               | [Sök](https://docs.microsoft.com/rest/api/maps/search)                                   |
+| Sök efter platser           | [Sök](https://docs.microsoft.com/rest/api/maps/search)                                   |
+| Placera Autoavsluta      | [Sök](https://docs.microsoft.com/rest/api/maps/search)                                   |
+| Fäst vid väg            | Se avsnittet [Beräkna vägar och vägvisningar](#calculate-routes-and-directions) .            |
+| Hastighets begränsningar            | Se avsnittet [Omvänd landskod a koordinat](#reverse-geocode-a-coordinate) .                  |
+| Statisk karta              | [Återge](https://docs.microsoft.com/rest/api/maps/render/getmapimage)                       |
+| Tidszon               | [Tidszon](https://docs.microsoft.com/rest/api/maps/timezone)                              |
 
 Följande tjänst-API: er är för närvarande inte tillgängliga i Azure Maps:
 
 - Höjning
 - Geoplats
-- Placera information och placera foton. Telefonnummer och webbplats-URL finns i Azure Maps Search API.
+- Plats information och foton – telefonnummer och webbplats-URL finns i Azure Maps Search API.
 - Kart-URL: er
-- Korsa. Hastighets begränsnings data är tillgängliga via väg-och omvända API: er för omdirigering i Azure Maps.
+- Närmaste vägar – detta kan åstadkommas med hjälp av webb-SDK: n som visas [här](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic
+), men inte tillgänglig som en tjänst för närvarande.
 - Statisk gata vy
 
 Azure Maps har flera andra REST-webbtjänster som kan vara av intresse:
@@ -176,8 +179,8 @@ Beräkna vägar och vägbeskrivning med Azure Maps. Azure Maps har många av sam
 
 Tjänsten Azure Maps routning innehåller följande API: er för att beräkna vägar:
 
-- [**Beräkna väg**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections): beräkna en väg och behandla begäran omedelbart. Detta API stöder både GET-och POST-förfrågningar. Använd POST-begäranden när du anger ett stort antal waypoints eller när du använder många av väg alternativen. Det beror på att när du använder POST ser du till att URL-begäran inte blir för lång och orsakar problem.
-- [**Batch-väg**](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview): skapa en begäran som innehåller upp till 1 000 cirkulations förfrågan och behandla dem under en viss tids period. Alla data kommer att bearbetas parallellt på servern. När bearbetningen är klar kan du ladda ned den fullständiga uppsättningen med resultat.
+- [**Beräkna väg**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections): beräkna en väg och behandla begäran omedelbart. Detta API stöder både GET-och POST-förfrågningar. POST-begäranden rekommenderas när du anger ett stort antal waypoints eller när du använder flera väg alternativ för att säkerställa att URL-begäran inte blir för lång och orsaka problem. POSTernas riktnings riktning i Azure Maps har ett alternativ som tar i tusentals [stöd punkter](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints) och kommer att använda dem för att återskapa en logisk väg väg mellan dem (fäst på väg). 
+- [**Batch-väg**](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview): skapa en begäran som innehåller upp till 1 000 cirkulations förfrågan och behandla dem under en viss tids period. Alla data kommer att bearbetas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned.
 - [**Mobilitets tjänster**](https://docs.microsoft.com/rest/api/maps/mobility): beräkna vägar och vägbeskrivningar med hjälp av offentlig överföring.
 
 Tabellen kors refererar till Google Maps API-parametrar med de jämförbara API-parametrarna i Azure Maps.

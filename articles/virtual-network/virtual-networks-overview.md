@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 768d01346b7697953d44742458c7e507ae7c115a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3b908406c8717d2fa8834bc4dff1bcd27ec4761f
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894599"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164907"
 ---
-# <a name="what-is-azure-virtual-network"></a>Vad är Azure Virtuellt nätverk?
+# <a name="what-is-azure-virtual-network"></a>Vad är Azure Virtual Network?
 
 Azure Virtual Network (VNet) är det grundläggande Bygg blocket för ditt privata nätverk i Azure. VNet möjliggör många typer av Azure-resurser, till exempel Azure Virtual Machines (VM), för att på ett säkert sätt kommunicera med varandra, Internet och lokala nätverk. VNet liknar ett traditionellt nätverk som du kommer att använda i ditt eget Data Center, men ger ytterligare fördelar med Azures infrastruktur, till exempel skalning, tillgänglighet och isolering.
 
@@ -31,14 +31,14 @@ Azure Virtual Network (VNet) är det grundläggande Bygg blocket för ditt priva
 - **Regioner**: VNet är begränsat till en enda region/plats. flera virtuella nätverk från olika regioner kan dock anslutas tillsammans med Virtual Network-peering.
 - **Prenumeration:** VNet är begränsat till en prenumeration. Du kan implementera flera virtuella nätverk i varje Azure-[prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) och Azure-[region](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region).
 
-## <a name="best-practices"></a>Bästa metoder
+## <a name="best-practices"></a>Bästa praxis
 
 När du skapar nätverket i Azure är det viktigt att tänka på följande allmänna design principer:
 
 - Se till att adress utrymmen inte överlappar varandra. Kontrol lera att ditt VNet-adressutrymme (CIDR-block) inte överlappar din organisations andra nätverks intervall.
 - Dina undernät ska inte avse hela det virtuella adress utrymmet för det virtuella nätverket. Planera i förväg och reservera vissa adress utrymmen för framtiden.
 - Vi rekommenderar att du har färre stora virtuella nätverk än flera små virtuella nätverk. Detta förhindrar hanterings kostnader.
-- Skydda ditt VNet med nätverks säkerhets grupper (NSG: er).
+- Skydda ditt VNet genom att tilldela nätverks säkerhets grupper (NSG: er) till under näten under dem.
 
 ## <a name="communicate-with-the-internet"></a>Kommunicera med Internet
 
@@ -81,7 +81,7 @@ Azure dirigerar trafik mellan undernät, anslutna virtuella nätverk, lokala nä
 
 Det finns vissa begränsningar kring antalet Azure-resurser som du kan distribuera. De flesta gränser för Azure-nätverk har högsta tillåtna värden. Du kan dock [öka vissa nätverks gränser](../azure-portal/supportability/networking-quota-requests.md) enligt vad som anges på [sidan VNet-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits). 
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Det kostar inget att använda Azure VNet, utan kostnad. Standard avgifterna gäller för resurser, till exempel Virtual Machines (VM) och andra produkter. Mer information finns i avsnittet om [priser för VNet](https://azure.microsoft.com/pricing/details/virtual-network/) och [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/)för Azure.
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: acf0409459994adf5dde98fb3b1a8ab2e280df76
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: c9388da449e75dee00fd43af9a4e0407c46f597a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153714"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916718"
 ---
 # <a name="two-class-decision-forest-module"></a>Modul för besluts skog i två klass
 
@@ -66,6 +66,8 @@ Mer information finns i [besluts skogar](https://go.microsoft.com/fwlink/?LinkId
 3.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
     -   **Enskild parameter**: om du vet hur du vill konfigurera modellen kan du ange en viss uppsättning värden som argument.
+
+    -   **Parameter intervall**: om du inte är säker på de bästa parametrarna kan du hitta de optimala parametrarna med hjälp av modulen [finjustera modellens standardparametrar](tune-model-hyperparameters.md) . Du anger några värden och utbildaren upprepas över flera kombinationer av inställningarna för att avgöra vilken kombination av värden som ger bäst resultat.
   
 4.  För **antal besluts träd**anger du det maximala antalet besluts träd som kan skapas i ensemblen. Genom att skapa fler besluts träd kan du eventuellt få bättre täckning, men inlärnings tiden ökar.  
   

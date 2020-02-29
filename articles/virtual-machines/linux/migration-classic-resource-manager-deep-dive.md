@@ -14,14 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 41e8ae05e02fa4cd97a4c3338a4292611fb26649
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 75732cf58a68948bf225e15e9227a3fa7592e738
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122009"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914933"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Teknisk djupgående om migrering av plattformar som stöds från klassisk till Azure Resource Manager
+
+> [!IMPORTANT]
+> Idag, cirka 90% av virtuella IaaS-datorer använder [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Från och med den 28 februari 2020 har klassiska virtuella datorer föråldrats och kommer att dras tillbaka den 1 mars 2023. [Läs mer]( https://aka.ms/classicvmretirement) om den här utfasningen och [hur den påverkar dig](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
 
 Låt oss ta en titt på migreringen från den klassiska distributions modellen i Azure till Azure Resource Manager distributions modell. Vi tittar på resurser på en resurs-och funktions nivå för att hjälpa dig att förstå hur Azure-plattformen migrerar resurser mellan de två distributions modellerna. Mer information finns i artikeln om service meddelande: [migrering av plattformar som stöds av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: f3cb583a3594b14266249ef80f8c49633c1df1de
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: cd634c41a1d6e3d9846e8299dd281b52beb77130
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152201"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912797"
 ---
 # <a name="linear-regression-module"></a>Linjär Regressions modul
 I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
@@ -51,17 +51,15 @@ I år har statistiker utvecklat avancerade metoder för regression. Detta gälle
 
 Den här modulen stöder två metoder för att anpassa en Regressions modell med olika alternativ:
 
-+ [Skapa en Regressions modell med brantaste för online-gradient](#bkmk_GradientDescent)
++ [Anpassa en Regressions modell med minsta möjliga kvadratmetoden](#create-a-regression-model-using-ordinary-least-squares)
+
+    För små data uppsättningar är det bäst att välja vanliga minsta kvadratmetoden. Detta bör ge liknande resultat till Excel.
+    
++ [Skapa en Regressions modell med brantaste för online-gradient](#create-a-regression-model-using-online-gradient-descent)
 
     Gradient-brantaste är en bättre förlust funktion för modeller som är mer komplexa eller som har för lite utbildnings data som har fått antalet variabler.
 
-
-
-+ [Anpassa en Regressions modell med minsta möjliga kvadratmetoden](#bkmk_OrdinaryLeastSquares)
-
-    För små data uppsättningar är det bäst att välja vanliga minsta kvadratmetoden. Detta bör ge liknande resultat till Excel.
-
-## <a name="bkmk_OrdinaryLeastSquares"></a>Skapa en Regressions modell med minsta möjliga kvadratmetoden
+### <a name="create-a-regression-model-using-ordinary-least-squares"></a>Skapa en Regressions modell med minsta möjliga kvadratmetoden
 
 1. Lägg till modulen **linjär Regressions modell** i din pipeline i designern.
 
@@ -86,7 +84,7 @@ Den här modulen stöder två metoder för att anpassa en Regressions modell med
 
 8. Köra en pipeline.
 
-## <a name="results-for-ordinary-least-squares-model"></a>Resultat för vanlig minsta kvadratmetoden
+### <a name="results-for-ordinary-least-squares-model"></a>Resultat för vanlig minsta kvadratmetoden
 
 När utbildningen är klar:
 
@@ -94,7 +92,7 @@ När utbildningen är klar:
 + Om du vill göra förutsägelser ansluter du den tränade modellen till [Poäng modellens](./score-model.md) modul, tillsammans med en data uppsättning med nya värden. 
 
 
-## <a name="bkmk_GradientDescent"></a>Skapa en Regressions modell med brantaste för online-gradient
+### <a name="create-a-regression-model-using-online-gradient-descent"></a>Skapa en Regressions modell med brantaste för online-gradient
 
 1. Lägg till modulen **linjär Regressions modell** i din pipeline i designern.
 
@@ -105,6 +103,8 @@ När utbildningen är klar:
 3. För **skapa utbildare-läge**anger du om du vill träna modellen med en fördefinierad uppsättning parametrar, eller om du vill optimera modellen med hjälp av en parameter rensning.
 
     + **Enskild parameter**: om du vet hur du vill konfigurera ett linjärt Regressions nätverk kan du ange en viss uppsättning värden som argument.
+    
+    + **Parameter intervall**: Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra en parameter rensning. Välj ett värde intervall som du vill iterera över, och de [finjusterande modellens egenskaper](tune-model-hyperparameters.md) upprepas över alla möjliga kombinationer av de inställningar som du angav för att fastställa de egenskaper som ger optimala resultat.  
 
    
 4. För **inlärnings frekvens**anger du den inledande inlärnings takten för Stochastic gradient brantaste optimering.
@@ -133,7 +133,7 @@ När utbildningen är klar:
 
 13. Köra en pipeline.
 
-## <a name="results-for-online-gradient-descent"></a>Resultat för brantaste för online-toning
+### <a name="results-for-online-gradient-descent"></a>Resultat för brantaste för online-toning
 
 När utbildningen är klar:
 

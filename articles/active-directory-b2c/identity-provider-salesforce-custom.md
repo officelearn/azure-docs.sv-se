@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0a745f83dcceef25634032cbe6fdb971f4f533ce
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0b03846a274abee5def57008fe3db4130b4350d0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847425"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916310"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med en Salesforce-SAML-provider genom att använda anpassade principer i Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76847425"
 
 Den här artikeln visar hur du aktiverar inloggning för användare från en Salesforce-organisation med [anpassade principer](custom-policy-overview.md) i Azure Active Directory B2C (Azure AD B2C). Du aktiverar inloggning genom att lägga till en [teknisk SAML-profil](saml-technical-profile.md) i en anpassad princip.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md).
 - Registrera dig för ett [kostnads fritt Developer Edition-konto](https://developer.salesforce.com/signup)om du inte redan gjort det. I den här artikeln används [Salesforce-upplevelsen](https://developer.salesforce.com/page/Lightning_Experience_FAQ).
@@ -36,7 +36,7 @@ Den här artikeln visar hur du aktiverar inloggning för användare från en Sal
 2. På den vänstra menyn, under **Inställningar**, expandera **identitet**och välj sedan **identitetsprovider**.
 3. Välj **Aktivera identitets leverantör**.
 4. Under **Välj certifikat**väljer du det certifikat som du vill att Salesforce ska använda för att kommunicera med Azure AD B2C. Du kan använda standard certifikatet.
-5. Klicka på **Spara**.
+5. Klicka på **Save** (Spara).
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Skapa en ansluten app i Salesforce
 
@@ -88,7 +88,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 Du måste lagra det certifikat som du skapade i Azure AD B2C-klienten.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer du **ID för identitets miljö**.
@@ -103,11 +103,11 @@ Du måste lagra det certifikat som du skapade i Azure AD B2C-klienten.
 
 Om du vill att användarna ska logga in med ett Salesforce-konto måste du definiera kontot som en anspråks leverantör som Azure AD B2C kan kommunicera med via en slut punkt. Slut punkten innehåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en speciell användare har autentiserats.
 
-Du kan definiera ett Salesforce-konto som en anspråks leverantör genom att lägga till det i **ClaimsProviders** -elementet i principens tilläggs fil.
+Du kan definiera ett Salesforce-konto som en anspråks leverantör genom att lägga till det i **ClaimsProviders** -elementet i principens tilläggs fil. Mer information finns i [definiera en teknisk profil för SAML](saml-technical-profile.md).
 
 1. Öppna *TrustFrameworkExtensions. XML*.
-2. Hitta **ClaimsProviders** -elementet. Om den inte finns lägger du till den under rot elementet.
-3. Lägg till en ny **ClaimsProvider** enligt följande:
+1. Hitta **ClaimsProviders** -elementet. Om den inte finns lägger du till den under rot elementet.
+1. Lägg till en ny **ClaimsProvider** enligt följande:
 
     ```XML
     <ClaimsProvider>
@@ -142,14 +142,32 @@ Du kan definiera ett Salesforce-konto som en anspråks leverantör genom att lä
             <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
             <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
           </OutputClaimsTransformations>
-          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-idp"/>
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
     ```
 
-4. Uppdatera värdet för **PartnerEntity** med URL: en för Salesforce-metadata som du kopierade tidigare.
-5. Uppdatera värdet för båda instanserna av **StorageReferenceId** till namnet på nyckeln för ditt signerings certifikat. Till exempel B2C_1A_SAMLSigningCert.
+1. Uppdatera värdet för **PartnerEntity** med URL: en för Salesforce-metadata som du kopierade tidigare.
+1. Uppdatera värdet för båda instanserna av **StorageReferenceId** till namnet på nyckeln för ditt signerings certifikat. Till exempel B2C_1A_SAMLSigningCert.
+1. Leta upp avsnittet `<ClaimsProviders>` och Lägg till följande XML-kodfragment. Om principen redan innehåller `SM-Saml-idp` tekniska profilen går du vidare till nästa steg. Mer information finns i [hantering av enkel inloggnings session](custom-policy-reference-sso.md).
+
+    ```XML
+    <ClaimsProvider>
+      <DisplayName>Session Management</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="SM-Saml-idp">
+          <DisplayName>Session Management Provider</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <Item Key="IncludeSessionIndex">false</Item>
+            <Item Key="RegisterServiceProviders">false</Item>
+          </Metadata>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
+1. Spara filen.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Ladda upp tilläggs filen för verifiering
 

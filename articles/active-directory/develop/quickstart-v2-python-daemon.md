@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 4a45f516f751609b413948278e2f2cfca47c9da2
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f80f586c783293f87e3b7de469eff07d2e4802d8
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703311"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78160905"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Snabb start: Hämta en token och anropa Microsoft Graph API från en python-konsol app med appens identitet
 
@@ -25,7 +25,7 @@ I den här snabb starten skriver du ett python-program som hämtar en åtkomstto
 > [!div renderon="docs"]
 > ![visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill köra det här exemplet behöver du:
 
@@ -45,7 +45,7 @@ Om du vill köra det här exemplet behöver du:
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
 
 > [!div renderon="docs"]
 > #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
@@ -72,41 +72,46 @@ Om du vill köra det här exemplet behöver du:
 > > [Gör ändringarna åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-netcore-daemon/green-check.png) Programmet konfigureras med de här attributen.
+> > ![Redan konfigurerad](media/quickstart-v2-netcore-daemon/green-check.png) Appen konfigureras med de här attributen.
 
 #### <a name="step-2-download-your-python-project"></a>Steg 2: Ladda ned ditt python-projekt
 
-[Ladda ned python daemon-projektet](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
+> [!div renderon="docs"]
+> [Ladda ned python daemon-projektet](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
 
-#### <a name="step-3-configure-your-python-project"></a>Steg 3: Konfigurera ditt python-projekt
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Ladda ned kod exemplet]()
 
-1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
-1. Navigera till undermappen **1-Call-MsGraph-WithSecret "** .
-1. Redigera **Parameters. JSON** och ersätt värdena för fälten `authority`, `client_id`och `secret` med följande kodfragment:
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Enter_the_Supported_Account_Info_Here
 
-    ```json
-    "authority": "https://login.microsoftonline.com/Enter_the_Tenant_Id_Here",
-    "client_id": "Enter_the_Application_Id_Here",
-    "secret": "Enter_the_Client_Secret_Here"
-    ```
-    > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
-    > > [Generera en ny klienthemlighet]()
+
+> [!div renderon="docs"]
+> #### <a name="step-3-configure-your-python-project"></a>Steg 3: Konfigurera ditt python-projekt
+> 
+> 1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
+> 1. Navigera till undermappen **1-Call-MsGraph-WithSecret "** .
+> 1. Redigera **Parameters. JSON** och ersätt värdena för fälten `authority`, `client_id`och `secret` med följande kodfragment:
+>
+>    ```json
+>    "authority": "https://login.microsoftonline.com/Enter_the_Tenant_Id_Here",
+>    "client_id": "Enter_the_Application_Id_Here",
+>    "secret": "Enter_the_Client_Secret_Here"
+>    ```
+>    Där:
+>    - `Enter_the_Application_Id_Here` – är **program-ID (klient)** för programmet som du har registrerat.
+>    - `Enter_the_Tenant_Id_Here` – ersätt det här värdet med **klient-ID** eller **klientnamn** (t.ex. contoso.microsoft.com)
+>    - `Enter_the_Client_Secret_Here` – ersätt det här värdet med klienthemligheten som skapades i steg 1.
+>
+> > [!TIP]
+> > För att hitta värdena för **program-ID (klient)** , **katalog-ID (klient)** och går du till appens **översiktssida** i Azure-portalen. Generera en ny nyckel genom att gå till sidan **Certifikat och hemligheter**.
     
-    > [!div class="sxs-lookup" renderon="portal"]
-    > > [!NOTE]
-    > > Den här snabb starten stöder Enter_the_Supported_Account_Info_Here.
-    
-    > [!div renderon="docs"]
-    >> Var:
-    >> * `Enter_the_Application_Id_Here` – är **program-ID (klient)** för programmet som du har registrerat.
-    >> * `Enter_the_Tenant_Id_Here` – ersätt det här värdet med **klient-ID** eller **klientnamn** (t.ex. contoso.microsoft.com)
-    >> * `Enter_the_Client_Secret_Here` – ersätt det här värdet med klienthemligheten som skapades i steg 1.
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-admin-consent"></a>Steg 3: administratörs medgivande
 
-    > [!div renderon="docs"]
-    > > [!TIP]
-    > > För att hitta värdena för **program-ID (klient)** , **katalog-ID (klient)** och går du till appens **översiktssida** i Azure-portalen. Generera en ny nyckel genom att gå till sidan **Certifikat och hemligheter**.
-    
-#### <a name="step-4-admin-consent"></a>Steg 4: Administratörsmedgivande
+> [!div renderon="docs"]
+> #### <a name="step-4-admin-consent"></a>Steg 4: Administratörsmedgivande
 
 Om du försöker köra programmet nu får du ett *HTTP 403-otillåtet* fel: `Insufficient privileges to complete the operation`. Det här felet beror på att en *app-only-behörighet* kräver administratörs medgivande: en global administratör för din katalog måste ge ditt program medgivande. Välj ett av alternativen nedan beroende på din roll:
 
@@ -129,11 +134,15 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 ```
 
 > [!div renderon="docs"]
->> Var:
+>> Där:
 >> * `Enter_the_Tenant_Id_Here` – ersätt det här värdet med **klient-ID** eller **klientnamn** (t.ex. contoso.microsoft.com)
 >> * `Enter_the_Application_Id_Here` – är **program-ID (klient)** för programmet som du har registrerat.
 
-#### <a name="step-5-run-the-application"></a>Steg 5: Köra appen
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-4-run-the-application"></a>Steg 4: kör programmet
+
+> [!div renderon="docs"]
+> #### <a name="step-5-run-the-application"></a>Steg 5: Köra appen
 
 Du måste installera beroendena för det här exemplet en gång
 
@@ -180,7 +189,7 @@ app = msal.ConfidentialClientApplication(
     client_credential=config["secret"])
 ```
 
-> | Var: ||
+> | Där: ||
 > |---------|---------|
 > | `config["secret"]` | Är klienthemligheten som skapats för appen i Azure-portalen. |
 > | `config["client_id"]` | Är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du hittar det här värdet på appens **översiktssida** på Azure-portalen. |
@@ -201,7 +210,7 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 ```
 
-> |Var:| |
+> |Där:| |
 > |---------|---------|
 > | `config["scope"]` | Innehåller omfattningarna som begärdes. För konfidentiella klienter bör ett format som liknar `{Application ID URI}/.default` användas för att ange att omfattningarna som begärs är dem som statiskt definieras i appobjektet som anges i Azure-portalen (för Microsoft Graph, `{Application ID URI}` pekar på `https://graph.microsoft.com`). För anpassade webb-API:er definieras `{Application ID URI}` under avsnittet **Exponera ett API** i Programregistrering (förhandsversion) i Azure-portalen. |
 

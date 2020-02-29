@@ -11,18 +11,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 745d7335f70fb082ced16341742e3eb77a34f563
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 35744780030ebf601802ea00eb1a1ed9c623465b
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120463"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78160886"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Snabbstart: Hämta en token och anropa Microsoft Graph API från en Windows-skrivbordsapp
 
-I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogram med .NET (WPF) som kan logga in personliga konton och arbets- och skolkonton, hämta en åtkomsttoken samt anropa Microsoft Graph API.
-
-![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-windows-desktop/windesktop-intro.svg)
+I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogram med .NET (WPF) som kan logga in personliga konton och arbets- och skolkonton, hämta en åtkomsttoken samt anropa Microsoft Graph API. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
@@ -63,23 +61,33 @@ I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogr
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Steg 2: Ladda ned ditt Visual Studio-projekt
 
-[Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip) ([Visa projekt på GitHub](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/))
+> [!div renderon="docs"]
+> [Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)  
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
+> [!div class="sxs-lookup" renderon="portal"]
+> Kör projektet med Visual Studio 2019.
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Ladda ned kod exemplet]()
 
-1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
-1. Öppna projektet i Visual Studio.
-1. Redigera **App.Xaml.cs** och ersätt värdena för fälten `ClientId` och `Tenant` med följande kod:
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: appen har kon figurer ATS och är redo att köras
+> Vi har konfigurerat ditt projekt med värdena för appens egenskaper och är redo att köras. 
 
-    ```csharp
-    private static string ClientId = "Enter_the_Application_Id_here";
-    private static string Tenant = "Enter_the_Tenant_Info_Here";
-    ```
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Den här snabb starten stöder Enter_the_Supported_Account_Info_Here.
+> > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
+> #### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
+> 1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
+> 1. Öppna projektet i Visual Studio.
+> 1. Redigera **App.Xaml.cs** och ersätt värdena för fälten `ClientId` och `Tenant` med följande kod:
+>
+>    ```csharp
+>    private static string ClientId = "Enter_the_Application_Id_here";
+>    private static string Tenant = "Enter_the_Tenant_Info_Here";
+>    ```
+> 
 > Där:
 > - `Enter_the_Application_Id_here` – är **program-ID (klient)** för programmet som du har registrerat.
 > - `Enter_the_Tenant_Info_Here` – är inställt på något av följande alternativ:
@@ -92,8 +100,10 @@ I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogr
 
 ## <a name="more-information"></a>Mer information
 
-### <a name="msalnet"></a>MSAL.NET
+### <a name="how-the-sample-works"></a>Så här fungerar exemplet
+![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-windows-desktop/windesktop-intro.svg)
 
+### <a name="msalnet"></a>MSAL.NET
 MSAL ([Microsoft. Identity. client](https://www.nuget.org/packages/Microsoft.Identity.Client)) är det bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform. Du kan installera MSAL genom att köra följande kommando i **Package Manager-konsolen** i Visual Studio:
 
 ```powershell

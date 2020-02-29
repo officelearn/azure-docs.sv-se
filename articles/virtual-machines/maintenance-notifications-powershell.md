@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: c23a06c502bd43b52cb35220b711084c7c8c1c7a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: b23c210d7c8a9f1d42e6e1b46e0f7f81bda857b2
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121833"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916090"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Hantera planerat underhåll med PowerShell
 
@@ -83,6 +83,8 @@ Restart-AzVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceG
 ```
 
 ## <a name="classic-deployments"></a>Klassiska distributioner
+
+[!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
 
 Om du fortfarande har äldre virtuella datorer som har distribuerats med den klassiska distributions modellen kan du använda PowerShell för att fråga efter virtuella datorer och initiera underhåll.
 

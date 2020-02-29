@@ -1,28 +1,26 @@
 ---
 title: Instans skydd för instanser av skalnings uppsättningar för virtuella Azure-datorer
 description: Lär dig hur du skyddar skalnings uppsättnings instanser i Azure Virtual Machine från skalnings-och skalnings uppsättningar.
-author: mayanknayar
+author: avirishuv
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: manayar
-ms.openlocfilehash: 071ea79f4d288e86cc5b9347f8607b4ff7190bc1
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.date: 02/26/2020
+ms.author: avverma
+ms.openlocfilehash: 021faad28fb575c4ffeb4d895ad451d8cd82b1a5
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275794"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919863"
 ---
-# <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>Instans skydd för instanser av skalnings uppsättningar för virtuella Azure-datorer (för hands version)
+# <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Instans skydd för instanser av skalnings uppsättningar för virtuella Azure-datorer
+
 Skalnings uppsättningar för virtuella Azure-datorer ger bättre elastiskhet för dina arbets belastningar genom [autoskalning](virtual-machine-scale-sets-autoscale-overview.md), så du kan konfigurera när infrastrukturen skalar ut och när den skalas upp. Med skalnings uppsättningar kan du också centralt hantera, konfigurera och uppdatera ett stort antal virtuella datorer via olika inställningar för [uppgraderings principer](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) . Du kan konfigurera en uppdatering för skalnings uppsättnings modellen och den nya konfigurationen tillämpas automatiskt på varje skalnings uppsättnings instans om du har angett att uppgraderings principen ska vara automatisk eller rullande.
 
 När programmet bearbetar trafik kan det finnas situationer där du vill att specifika instanser ska behandlas annorlunda än resten av skalnings uppsättnings instansen. Vissa instanser i skalnings uppsättningen kan till exempel utföra långvariga åtgärder och du vill inte att instanserna ska skalas förrän åtgärderna har slutförts. Du kanske också har specialiserade några få instanser i skalnings uppsättningen för att utföra ytterligare eller andra uppgifter än andra medlemmar i skalnings uppsättningen. Du behöver dessa "särskilda" virtuella datorer som inte ska ändras med de andra instanserna i skalnings uppsättningen. Instans skydd ger ytterligare kontroller för att aktivera dessa och andra scenarier för ditt program.
 
 I den här artikeln beskrivs hur du kan tillämpa och använda olika instans skydds funktioner med skalnings uppsättnings instanser.
-
-> [!NOTE]
->Instans skyddet är för närvarande en offentlig för hands version. Ingen deltagande procedur krävs för att använda funktionen för offentlig för hands version som beskrivs nedan. För hands version av instans skydd stöds endast med API-version 2019-03-01 och på skalnings uppsättningar med hanterade diskar.
 
 ## <a name="types-of-instance-protection"></a>Typer av instans skydd
 Skalnings uppsättningar ger två typer av funktioner för instans skydd:
@@ -45,7 +43,18 @@ Instans skydd kan tillämpas på skalnings uppsättnings instanser när instanse
 
 Det finns flera sätt att tillämpa skalnings skydd på dina skalnings uppsättnings instanser enligt beskrivningen i exemplen nedan.
 
-### <a name="rest-api"></a>REST API
+### <a name="azure-portal"></a>Azure-portalen
+
+Du kan använda skalnings skydd genom Azure Portal till en instans i skalnings uppsättningen. Det går inte att justera fler än en instans i taget. Upprepa stegen för varje instans som du vill skydda.
+ 
+1. Gå till en befintlig skalnings uppsättning för virtuella datorer.
+1. Välj **instanser** på menyn till vänster under **Inställningar**.
+1. Välj namnet på den instans som du vill skydda.
+1. Välj fliken **skydds princip** .
+1. På bladet **skydds princip** väljer du alternativet **skydda från skalbarhet** .
+1. Välj **Spara**. 
+
+### <a name="rest-api"></a>REST-API
 
 I följande exempel används skalnings skydd till en instans i skalnings uppsättningen.
 
@@ -102,7 +111,18 @@ Att skydda en instans från skalnings uppsättnings åtgärder skyddar också in
 
 Det finns flera sätt att tillämpa skalnings uppsättnings åtgärder på dina skalnings uppsättnings instanser enligt beskrivningen i exemplen nedan.
 
-### <a name="rest-api"></a>REST API
+### <a name="azure-portal"></a>Azure-portalen
+
+Du kan använda skydd från skalnings uppsättnings åtgärder via Azure Portal till en instans i skalnings uppsättningen. Det går inte att justera fler än en instans i taget. Upprepa stegen för varje instans som du vill skydda.
+ 
+1. Gå till en befintlig skalnings uppsättning för virtuella datorer.
+1. Välj **instanser** på menyn till vänster under **Inställningar**.
+1. Välj namnet på den instans som du vill skydda.
+1. Välj fliken **skydds princip** .
+1. Välj alternativet **skydda från skalnings uppsättning åtgärder** på bladet **skydds princip** .
+1. Välj **Spara**. 
+
+### <a name="rest-api"></a>REST-API
 
 I följande exempel används skydd från skalnings uppsättnings åtgärder till en instans i skalnings uppsättningen.
 
@@ -156,7 +176,7 @@ az vmss update \
   --protect-from-scale-set-actions true
 ```
 
-## <a name="troubleshoot"></a>Felsökning
+## <a name="troubleshoot"></a>Felsöka
 ### <a name="no-protectionpolicy-on-scale-set-model"></a>Ingen protectionPolicy i skalnings uppsättnings modellen
 Instans skydd kan bara användas på skalnings uppsättnings instanser och inte i skalnings uppsättnings modellen.
 

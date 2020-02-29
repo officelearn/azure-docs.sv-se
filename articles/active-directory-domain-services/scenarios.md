@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 5d0035e7c87806012d13117ae5335b7de5f3c99d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: ac67ef64ca4850c6e805b5314ace856114d889a7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132287"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917238"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Vanliga användnings fall och scenarier för Azure Active Directory Domain Services
 
@@ -97,7 +97,7 @@ Följande distributions överväganden gäller för det här exemplet:
 
 Du kan använda Azure AD DS för att tillhandahålla hanterade domän tjänster till fjärr skrivbords servrar som distribuerats i Azure. Mer information om det här distributions scenariot finns i [så här integrerar du Azure AD Domain Services med din RDS-distribution][windows-rds].
 
-## <a name="domain-joined-hdinsight-clusters-preview"></a>Domänanslutna HDInsight-kluster (för hands version)
+## <a name="domain-joined-hdinsight-clusters"></a>Domänanslutna HDInsight-kluster
 
 Du kan konfigurera ett Azure HDInsight-kluster som är anslutet till en hanterad Azure AD DS-domän med Apache Ranger aktiverat. Du kan skapa och använda Hive-principer via Apache Ranger och tillåta användare, till exempel data experter, att ansluta till Hive med hjälp av ODBC-baserade verktyg som Excel eller Tableau. Vi fortsätter att arbeta med att lägga till andra arbets belastningar, till exempel HBase, Spark och Storm för domänanslutna HDInsight.
 

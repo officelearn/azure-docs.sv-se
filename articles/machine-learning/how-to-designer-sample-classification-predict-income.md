@@ -9,13 +9,13 @@ ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 12/25/2019
-ms.openlocfilehash: 560339fb04e3bbbe42c4370655e74e8536a7c015
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/22/2020
+ms.openlocfilehash: 7fd51f587ff51e09254741615d3059d038e1205a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963384"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915919"
 ---
 # <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Bygg en klassificerare & använda funktions val för att förutse intäkter med Azure Machine Learning designer
 
@@ -25,13 +25,13 @@ ms.locfileid: "76963384"
 
 Lär dig hur du skapar en dator inlärnings klassificerare utan att skriva en enda rad kod med hjälp av designern (för hands version). Det här exemplet tränar ett **besluts träd i två klasser** för att förutsäga den vuxen skatte inkomsten (> = 50 000 eller < = 50 000).
 
-Eftersom frågan besvarar "vilket är en?" Detta kallas för ett klassificerings problem. Du kan dock använda samma grundläggande process för att ta itu med alla typer av Machine Learning-problem – regression, klassificering, klustring och så vidare.
+Eftersom frågan svarar "vilket är en?", kallas detta ett klassificerings problem. Du kan dock använda samma grundläggande process för att ta itu med alla typer av Machine Learning-problem – regression, klassificering, klustring och så vidare.
 
 Här är den slutliga pipeline-grafen för det här exemplet:
 
 ![Diagram över pipelinen](./media/how-to-designer-sample-classification-predict-income/overall-graph.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
@@ -51,7 +51,7 @@ Följ de här stegen för att skapa pipelinen:
 
 1. Dra den binära indatamängds-modulen för total mängds inkomst till pipeline-arbetsytan.
 1. Lägg till en modul för **delade data** för att skapa inlärnings-och test uppsättningar. Ange bråk delen av raderna i den första data uppsättningen för utdata till 0,7. Den här inställningen anger att 70% av data kommer att matas ut till den vänstra porten i modulen och resten till rätt port. Vi använder den vänstra data uppsättningen för utbildning och det som är bäst för testning.
-1. Lägg till **funktionen filtrera baserat funktions val** för att välja 5 funktioner efter PearsonCorreclation. 
+1. Lägg till **funktionen filtrera baserat funktions val** för att välja 5 funktioner efter PearsonCorrelation. 
 1. Lägg till en modul för **besluts träd med två klasser** för att initiera en utökat besluts träds klassificerare.
 1. Lägg till en modul för **träna modell** . Anslut klassificeraren från föregående steg till den vänstra Indataporten för **träna-modellen**. Anslut den filtrerade data uppsättningen från filter baserat funktions val modul som utbildnings data uppsättning.  **Träna-modellen** kommer att träna klassificeraren.
 1. Lägg till omvandling av urvals kolumner och Använd omvandling för att tillämpa samma omvandling (filtrerad beroende funktions val) för att testa data uppsättningen.

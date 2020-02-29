@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: f0a79fb0f90a633095343c162ccdc80ebc48f1d4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 1194b2d90e5a12b1ecf3664a48055ca763f31a4f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747662"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919455"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Felsök SSH-anslutningar till en virtuell Azure Linux-dator som Miss lyckas, fel eller nekas
 Den här artikeln hjälper dig att hitta och åtgärda de problem som uppstår på grund av SSH-fel (Secure Shell), SSH-anslutningsfel eller SSH nekas när du försöker ansluta till en virtuell Linux-dator (VM). Du kan använda Azure Portal, Azure CLI eller VM Access-tillägget för Linux för att felsöka och lösa anslutnings problem.
 
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).
 
 ## <a name="quick-troubleshooting-steps"></a>Snabb fel söknings steg
 Försök att ansluta till den virtuella datorn efter varje fel söknings steg.
@@ -46,13 +46,13 @@ Fortsätt att läsa för mer detaljerade fel söknings steg och förklaringar.
 Du kan återställa autentiseringsuppgifter eller SSH-konfiguration med någon av följande metoder:
 
 * [Azure Portal](#use-the-azure-portal) – bra om du snabbt behöver återställa SSH-konfigurationen eller SSH-nyckeln och du inte har installerat Azure-verktygen.
-* [Serie konsol för virtuell Azure-dator](https://aka.ms/serialconsolelinux) – den virtuella datorns serie konsol fungerar oavsett SSH-konfigurationen, och du får en interaktiv konsol till den virtuella datorn. I själva verket är "inte SSH"-situationer särskilt vad serie konsolen har utformats för att hjälpa dig att lösa problemet. Du hittar mer information nedan.
+* [Serie konsol för virtuell Azure-dator](https://aka.ms/serialconsolelinux) – den virtuella datorns serie konsol fungerar oavsett SSH-konfigurationen, och du får en interaktiv konsol till den virtuella datorn. I själva verket är "inte SSH"-situationer särskilt vad serie konsolen har utformats för att hjälpa dig att lösa problemet. Mer information finns nedan.
 * [Azure CLI](#use-the-azure-cli) – om du redan är på kommando raden kan du snabbt återställa SSH-konfigurationen eller autentiseringsuppgifterna. Om du arbetar med en klassisk virtuell dator kan du använda den [klassiska Azure CLI](#use-the-azure-classic-cli).
 * [Azure tillägget vmaccessforlinux-tillägg](#use-the-vmaccess-extension) – skapa och återanvänd JSON-definitionsfiler för att återställa SSH-konfigurationen eller användarautentiseringsuppgifter.
 
 Efter varje fel söknings steg försöker du ansluta till den virtuella datorn igen. Om du fortfarande inte kan ansluta kan du prova nästa steg.
 
-## <a name="use-the-azure-portal"></a>Använd Azure Portal
+## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 Azure Portal är ett snabbt sätt att återställa SSH-konfigurationen eller användarautentiseringsuppgifter utan att installera några verktyg på den lokala datorn.
 
 Börja genom att välja den virtuella datorn i Azure Portal. Rulla ned till avsnittet **support och fel sökning** och välj **Återställ lösen ord** som i följande exempel:
@@ -203,7 +203,7 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
 ## <a name="a-idrestart-vm-restart-a-vm"></a><a id="restart-vm" />starta om en virtuell dator
 Om du har återställt SSH-konfigurationen och användarautentiseringsuppgifter, eller påträffat ett fel i detta, kan du prova att starta om den virtuella datorn för att åtgärda underliggande beräknings problem.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure-portalen
 Om du vill starta om en virtuell dator med Azure Portal väljer du den virtuella datorn och väljer sedan **starta om** som i följande exempel:
 
 ![Starta om en virtuell dator i Azure Portal](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
@@ -216,6 +216,9 @@ az vm restart --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="azure-classic-cli"></a>Klassisk Azure CLI
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 I följande exempel startas den virtuella datorn med namnet `myVM` i resurs gruppen med namnet `myResourceGroup`. Använd dina egna värden på följande sätt:
 
 ```azurecli
@@ -230,7 +233,7 @@ Du kan distribuera om en virtuell dator till en annan nod i Azure, vilket kan å
 >
 >
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure-portalen
 Om du vill distribuera om en virtuell dator med hjälp av Azure Portal väljer du den virtuella datorn och bläddrar ned till avsnittet **support och fel sökning** . Välj **distribuera** igen som i följande exempel:
 
 ![Distribuera om en virtuell dator i Azure Portal](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
@@ -243,6 +246,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="azure-classic-cli"></a>Klassisk Azure CLI
+
 I följande exempel distribueras den virtuella datorn med namnet `myVM` i resurs gruppen med namnet `myResourceGroup`. Använd dina egna värden på följande sätt:
 
 ```azurecli
@@ -250,6 +254,9 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="vms-created-by-using-the-classic-deployment-model"></a>Virtuella datorer som skapats med hjälp av den klassiska distributions modellen
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 Testa de här stegen för att lösa de vanligaste SSH-anslutningsfel för virtuella datorer som har skapats med hjälp av den klassiska distributions modellen. Försök att ansluta till den virtuella datorn efter varje steg.
 
 * Återställ fjärråtkomst från [Azure Portal](https://portal.azure.com). Välj den virtuella datorn på Azure Portal och välj sedan **Återställ fjärran sluten...** .

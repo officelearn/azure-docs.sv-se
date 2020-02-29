@@ -3,12 +3,12 @@ title: Köra Azure Functions från ett paket
 description: Kör den Azure Functions körningen av dina funktioner genom att montera en distributions paket fil som innehåller dina projektfiler för Function-appen.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: f5d3465e0899f7e5eab213bdb6234313128b7ec8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a3e11a7c4f3fd91df2fd9dd7a44f3922c4922585
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230360"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921121"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Köra Azure Functions från en paketfil
 
@@ -57,6 +57,33 @@ Följande visar en Function-app som kon figurer ATS för att köras från en. zi
 ## <a name="adding-the-website_run_from_package-setting"></a>Lägga till inställningen WEBSITE_RUN_FROM_PACKAGE
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+### <a name="use-key-vault-references"></a>Använda Key Vault referenser
+
+För ökad säkerhet kan du använda Key Vault referenser tillsammans med din externa URL. Detta gör att URL: en krypteras i vila och gör det möjligt att använda Key Vault för hemlig hantering och rotation. Vi rekommenderar att du använder Azure Blob Storage så att du enkelt kan rotera den tillhör ande SAS-nyckeln. Azure Blob Storage är krypterat i vila, vilket skyddar dina program data när de inte distribueras på App Service.
+
+1. Skapa en Azure Key Vault.
+
+    ```azurecli
+    az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus
+    ```
+
+1. Lägg till din externa URL som en hemlighet i Key Vault.
+
+    ```azurecli
+    az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<insert-your-URL>"
+    ```
+
+1. Skapa inställningen `WEBSITE_RUN_FROM_PACKAGE` app och ange värdet som en Key Vault referens till den externa URL: en.
+
+    ```azurecli
+    az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"
+    ```
+
+Se följande artiklar för mer information.
+
+- [Key Vault referenser för App Service](../app-service/app-service-key-vault-references.md)
+- [Azure Storage kryptering för vilande data](../storage/common/storage-service-encryption.md)
 
 ## <a name="troubleshooting"></a>Felsökning
 

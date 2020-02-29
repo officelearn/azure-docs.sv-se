@@ -1,14 +1,14 @@
 ---
-title: Vanliga frågor och svar – säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer
+title: Vanliga frågor och svar – Säkerhetskopiera SAP HANA-databaser på virtuella Azure-datorer
 description: I den här artikeln hittar du svar på vanliga frågor om hur du säkerhetskopierar SAP HANA databaser med hjälp av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: e5684024668103ccbe13be4af3d7a9336651df77
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: d9d10e38885ba814045d8476b83671153feb7b8c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287845"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919693"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer
 
@@ -43,11 +43,11 @@ En döpt databas behandlas som en ny databas. Tjänsten kommer därför att beha
 
 ### <a name="what-are-the-prerequisites-to-back-up-sap-hana-databases-on-an-azure-vm"></a>Vilka är kraven för att säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator?
 
-Se avsnittet [krav](tutorial-backup-sap-hana-db.md#prerequisites) och [konfiguration av behörigheter](tutorial-backup-sap-hana-db.md#setting-up-permissions) .
+Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet gör för registrering](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) .
 
 ### <a name="what-permissions-should-be-set-for-azure-to-be-able-to-back-up-sap-hana-databases"></a>Vilka behörigheter ska ställas in för Azure för att kunna säkerhetskopiera SAP HANA databaser?
 
-Genom att köra skriptet före registreringen anger du de behörigheter som krävs för att Azure ska kunna säkerhetskopiera SAP HANA-databaser. Du hittar mer information om behörigheterna [här](tutorial-backup-sap-hana-db.md#setting-up-permissions).
+Genom att köra skriptet före registreringen anger du de behörigheter som krävs för att Azure ska kunna säkerhetskopiera SAP HANA-databaser. Du hittar mer information om skriptet för för [registrering.](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)
 
 ### <a name="will-backups-work-after-migrating-sap-hana-from-10-to-20"></a>Kommer säkerhets kopieringar att fungera efter migrering av SAP HANA från 1,0 till 2,0?
 

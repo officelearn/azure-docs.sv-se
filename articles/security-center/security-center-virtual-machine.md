@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
-ms.openlocfilehash: ed2c1f874bd61e846cbdf1f68181a8f374c89524
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 69062e42a5d572cf7b73bec3932613d39be9b92f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603359"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921512"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Azure Security Center och Azure Virtual Machines
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) hjälper dig att förebygga, identifiera och reagera på hot. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
@@ -33,7 +33,7 @@ Security Center hjälper dig att skydda data i virtuella datorer i Azure genom a
 * Rekommendationer för slutpunktsskydd
 * Verifiering av diskkryptering
 * Sårbarhetsbedömning och åtgärder
-* Hotidentifiering
+* Säkerhets aviseringar från hot Protection-funktionerna
 
 Utöver att skydda virtuella datorer i Azure tillhandahåller även Security Center säkerhetsövervakning och hantering för Cloud Services, App Services, Virtual Networks med mera. 
 

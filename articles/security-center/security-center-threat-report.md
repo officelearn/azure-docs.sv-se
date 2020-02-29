@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: 10e1081c7a91c65c21ffcb3da66930fb7c6e73bb
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: f8b4063d87fa9a89dccd42eddea644609bd6ff27
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603447"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921257"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Hotinformationsrapporter i Azure Security Center
 Det här dokumentet beskriver hur du kan lära dig mer om ett hot som genererat en säkerhetsvarning med hjälp av hotinformationsrapporter i Azure Security Center.
 
 ## <a name="what-is-a-threat-intelligence-report"></a>Vad är en hotinformationsrapport?
-Hotidentifieringen i Security Center sker genom övervakning av säkerhetsinformation från dina Azure-resurser, nätverket och anslutna partnerlösningar. Tjänsten analyserar den här informationen, och korrelerar ofta information från flera källor för att identifiera hot. Mer information finns i [hur Azure Security Center identifierar och svarar på hot](security-center-alerts-overview.md#detect-threats).
+Security Center hot skydd fungerar genom att övervaka säkerhets information från dina Azure-resurser, nätverket och anslutna partner lösningar. Tjänsten analyserar den här informationen, och korrelerar ofta information från flera källor för att identifiera hot. Mer information finns i [hur Azure Security Center identifierar och svarar på hot](security-center-alerts-overview.md#detect-threats).
 
 När Security Center identifierar ett hot utlöses en [säkerhetsvarning](security-center-managing-and-responding-alerts.md), som innehåller detaljerad information om en viss händelse, inklusive förslag på åtgärder. För att hjälpa incident hanterings team, undersöka och åtgärda hot, Security Center innehåller en hot informations rapport som innehåller information om det hot som identifierades, inklusive information som:
 

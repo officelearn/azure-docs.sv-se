@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f34c5d5069a158579864320d0fbf965de8936d9c
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: e3997fc215637175165402a926bffc6ac8d02771
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896115"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914866"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Åtkomst till flera protokoll på Azure Data Lake Storage
 
@@ -26,7 +26,11 @@ Med åtkomst med flera protokoll på Data Lake Storage kan du arbeta med dina da
 Blob Storage-funktioner som [diagnostisk loggning](../common/storage-analytics-logging.md), [åtkomst nivåer](storage-blob-storage-tiers.md)och principer för [hantering av BLOB-lagrings livs cykeln](storage-lifecycle-management-concepts.md) fungerar nu med konton som har ett hierarkiskt namn område. Därför kan du aktivera hierarkiska namn rymder på Blob Storage-kontona utan att förlora åtkomsten till dessa viktiga funktioner. 
 
 > [!NOTE]
-> Åtkomst till flera protokoll på Data Lake Storage är allmänt tillgänglig och är tillgänglig i alla regioner. Vissa Azure-tjänster eller Blob Storage-funktioner som aktive ras av åtkomst till flera protokoll är fortfarande i för hands version. Mer information finns i tabellerna i varje avsnitt i den här artikeln. 
+> Åtkomst till flera protokoll på Data Lake Storage är allmänt tillgänglig och är tillgänglig i alla regioner. Vissa Azure-tjänster eller Blob Storage-funktioner som aktive ras av åtkomst till flera protokoll är fortfarande i för hands version.  De här artiklarna sammanfattar det aktuella stödet för Blob Storage-funktioner och Azure Service integrationer. 
+>
+> [Blob Storage funktioner som är tillgängliga i Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
+>
+>[Azure-tjänster som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
 
 ## <a name="how-multi-protocol-access-on-data-lake-storage-works"></a>Så här fungerar åtkomst till flera protokoll på data Lake Storage
 
@@ -36,62 +40,12 @@ BLOB-API: er och Data Lake Storage Gen2-API: er kan köras på samma data i lagr
 
 Befintliga verktyg och program som använder BLOB API får dessa fördelar automatiskt. Utvecklare behöver inte ändra dem. Data Lake Storage Gen2 konsekvent tillämpar katalog-och fil nivå åtkomst kontrol listor oavsett vilket protokoll som verktyg och program använder för att komma åt data. 
 
-## <a name="blob-storage-feature-support"></a>Stöd för Blob Storage-funktioner
+## <a name="see-also"></a>Se även
 
-Med åtkomst med flera protokoll på Data Lake Storage kan du använda fler Blob Storage-funktioner med din Data Lake Storage. I den här tabellen listas de funktioner som aktive ras av åtkomst till flera protokoll på Data Lake Storage. 
-
-De objekt som visas i den här tabellen ändras med tiden att stöd för Blob Storage-funktioner fortsätter att expandera. 
-
-> [!NOTE]
-> Även om åtkomsten till flera protokoll på Data Lake Storage är allmänt tillgänglig, är stöd för vissa av dessa funktioner fortfarande i för hands version. 
-
-|Blob Storage-funktion | Support nivå |
-|---|---|
-|[Låg frekvent åtkomst nivå](storage-blob-storage-tiers.md)|Allmänt tillgänglig|
-|BLOB REST-API: er|Allmänt tillgänglig|
-|BLOB-SDK: er |Allmänt tillgänglig|
-|[PowerShell (BLOB)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Allmänt tillgänglig|
-|[CLI (BLOB)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Allmänt tillgänglig|
-|[Meddelanden via Azure Event Grid](data-lake-storage-events.md)|Allmänt tillgänglig|
-|BLOB-SDK: er med semantiska fil system ([.net](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-dotnet) &vert; [python](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-python) &vert; [Java](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-java))|Förhandsversion|
-|[PowerShell med semantiska fil system](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-powershell)|Förhandsversion|
-|[CLI med semantiska fil system](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-cli)|Förhandsversion|
-|[Diagnostikloggar](../common/storage-analytics-logging.md)| Förhandsversion|
-|[Principer för livs cykel hantering](storage-lifecycle-management-concepts.md)| Förhandsversion|
-|[Arkivåtkomstnivå](storage-blob-storage-tiers.md)| Förhandsversion|
-|[blobfuse](storage-how-to-mount-container-linux.md)|Stöds inte ännu|
-|[Oåterkalleligt lagrings utrymme](storage-blob-immutable-storage.md)|Stöds inte ännu|
-|[Ögonblicks bilder](storage-blob-snapshots.md)|Stöds inte ännu|
-|[Mjuk borttagning](storage-blob-soft-delete.md)|Stöds inte ännu|
-|[Statiska webbplatser](storage-blob-static-website.md)|Stöds inte ännu|
-
-Mer information om allmänna kända problem och begränsningar med Azure Data Lake Storage Gen2 finns i [kända problem](data-lake-storage-known-issues.md).
-
-## <a name="azure-ecosystem-support"></a>Stöd för Azure eko system
-
-Med åtkomst till flera protokoll på Data Lake Storage kan du också ansluta fler Azure-tjänster med din Data Lake Storage. I den här tabellen listas de tjänster som aktive ras av åtkomst av flera protokoll på Data Lake Storage. 
-
-Precis som listan över stödda Blob Storage-funktioner kommer objekten som visas i den här tabellen att ändras med tiden som stöd för Azure-tjänster fortsätter att expandera. 
-
-> [!NOTE]
-> Även om åtkomsten till flera protokoll på Data Lake Storage är allmänt tillgänglig, är stöd för vissa av dessa tjänster fortfarande i för hands version. 
-
-|Azure-tjänst | Support nivå |
-|---|---|
-|[Azure Data Box](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|Allmänt tillgänglig|
-|[Samling av Azure-Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|Allmänt tillgänglig|
-|[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Allmänt tillgänglig|
-|[IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|Allmänt tillgänglig|
-|[Logic Apps](https://azure.microsoft.com/services/logic-apps/)|Allmänt tillgänglig|
-|[Azure-Kognitiv sökning](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|Förhandsversion|
-
-En fullständig lista över stöd för Azure eko system för Data Lake Storage Gen2 finns i [integrera Azure Data Lake Storage med Azure-tjänster](data-lake-storage-integrate-with-azure-services.md).
-
-Mer information om allmänna kända problem och begränsningar med Azure Data Lake Storage Gen2 finns i [kända problem](data-lake-storage-known-issues.md).
-
-## <a name="next-steps"></a>Nästa steg
-
-Se [kända problem](data-lake-storage-known-issues.md)
+- [Blob Storage funktioner som är tillgängliga i Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
+- [Azure-tjänster som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
+- [Plattformar med öppen källkod som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md)
+- [Kända problem med Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 
 
 

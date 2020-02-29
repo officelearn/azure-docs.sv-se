@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 8cf0b88ddc24bfc6bc293dd62416417f1eec3a06
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 2/27/2020
+ms.openlocfilehash: 83b0a69e063e9427c726216ef873f5a1c97f9582
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770959"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163734"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrera MySQL-databasen med hjälp av import och export
 I den här artikeln beskrivs två vanliga metoder för att importera och exportera data till en Azure Database for MySQL-server med hjälp av MySQL Workbench. 
@@ -19,10 +19,10 @@ I den här artikeln beskrivs två vanliga metoder för att importera och exporte
 ## <a name="before-you-begin"></a>Innan du börjar
 För att gå igenom den här instruktions guiden behöver du:
 - En Azure Database for MySQL-server genom att följa [skapa en Azure Database for MySQL-server med hjälp av Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md).
-- MySQL Workbench har [laddats ned](https://dev.mysql.com/downloads/workbench/)eller ett annat mysql-verktyg för att importera och exportera.
+- MySQL Workbench [MySQL Workbench Hämta](https://dev.mysql.com/downloads/workbench/) eller ett annat mysql-verktyg från tredje part för import/export.
 
 ## <a name="use-common-tools"></a>Använd vanliga verktyg
-Använd vanliga verktyg som MySQL Workbench, TOAD eller Navicat för att fjärrans luta och importera eller exportera data till Azure Database for MySQL. 
+Använd vanliga verktyg och verktyg som MySQL Workbench eller mysqldump för att fjärrans luta och importera eller exportera data till Azure Database for MySQL. 
 
 Använd sådana verktyg på klient datorn med en Internet anslutning för att ansluta till Azure Database for MySQL. Använd en SSL-krypterad anslutning för bästa säkerhets praxis enligt beskrivningen i [Konfigurera SSL-anslutning i Azure Database for MySQL](concepts-ssl-connection-security.md).
 

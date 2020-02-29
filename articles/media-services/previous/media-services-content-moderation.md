@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: a8560df6120dd773e13dbfc7427d9a16e6f6c83b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 83fe7867a3128ac82597c028452863a1ad681ace
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896004"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914340"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Använd Azure Media Content Moderator för att identifiera eventuell vuxen och vågat innehåll 
+
+> [!NOTE]
+> **Azure Media Content moderator** Media-processorn kommer att dras tillbaka. Information om återställnings datumet finns i avsnittet [äldre komponenter](legacy-components.md) .
 
 ## <a name="overview"></a>Översikt
 Med **Azure Media Content moderator** Media-processorn (MP) kan du använda dator redigering för dina videor. Du vill kanske exempelvis identifiera möjligt innehåll som är olämpligt för barn eller olämpligt innehåll i videor och granska innehåll som flaggats av det mänskliga modereringsteamet.
@@ -50,8 +53,8 @@ Utdata-JSON innehåller följande element:
 | timescale |"Tickar" per sekund för videon. |
 | redovisningsmotkonto |Tidsförskjutningen för tidsstämplar. I version 1,0 av video-API: er, är det här värdet alltid 0. Det här värdet kan ändras i framtiden. |
 | ram |Bildrutor per sekund i videon. |
-| bredd |Bredden på video rutan för utdata i bild punkter.|
-| höjd |Höjden på video rutan för utdata i bild punkter.|
+| LED |Bredden på video rutan för utdata i bild punkter.|
+| våghöjd |Höjden på video rutan för utdata i bild punkter.|
 | TotalDuration |Varaktigheten för inmatad video i "ticker". |
 | [fragment](#fragments-json-elements) |Metadata delas upp i olika segment som kallas fragment. Varje fragment är en automatiskt identifierad bild med start, varaktighet, intervall nummer och händelse (r). |
 
@@ -217,13 +220,13 @@ The following example of a Content Moderator JSON output was truncated.
     }
 ```
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Tillhörande länkar
+## <a name="related-links"></a>Relaterade länkar
 [Översikt över Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Azure-medieanalys demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)

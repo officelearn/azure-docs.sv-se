@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 2baa82bda1f92fe81bb0db69b84e6865b2709e42
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: cdbaeb5a97beba342bc471e75d1b07be0d0141ae
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058040"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921419"
 ---
-# <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Felsöka distribution av problem med virtuella Windows-datorer i Azure
+# <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Felsöka problem med distribution av virtuella Windows-datorer i Azure
 
 För att felsöka distributions problem med virtuella datorer i Azure kan du läsa om de vanligaste [problemen](#top-issues) med vanliga fel och lösningar.
 
@@ -31,7 +31,7 @@ Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azu
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>Klustret har inte stöd för den begärda virtuella dator storleken
-\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
+\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
 - Gör om begäran med en mindre VM-storlek.
 - Om det inte går att ändra storleken på den begärda virtuella datorn:
     - Stoppa alla virtuella datorer i tillgänglighets uppsättningen. Klicka på **resurs grupper** > resurs gruppen > **resurser** > din tillgänglighets uppsättning > **Virtual Machines** > den virtuella datorn > **stoppa**.
@@ -40,7 +40,7 @@ Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azu
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>Det finns inga lediga resurser för klustret
-\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
+\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
 - Gör om begäran senare.
 - Om den nya virtuella datorn kan ingå i en annan tillgänglighets uppsättning
     - Skapa en virtuell dator i en annan tillgänglighets uppsättning (i samma region).
@@ -78,7 +78,7 @@ Information om hur du aktiverar din månatliga kredit finns i den här [artikeln
 
 ## <a name="how-to-add-enterprise-devtest-to-my-enterprise-agreement-ea-to-get-access-to-window-client-images"></a>Hur lägger jag till Enterprise Dev/Test i Enterprise-avtal (EA) för att få åtkomst till klient avbildningar för Windows?
 
-Möjligheten att skapa abonnemang baserat på Enterprise Dev/Test-erbjudandet är begränsad till kontoinnehavare som har fått tillstånd att göra detta av en företagsadministratör. Konto ägaren skapar prenumerationer via Azures konto Portal och lägger sedan till aktiva Visual Studio-prenumeranter som medadministratörer. Så att de kan hantera och använda de resurser som krävs för utveckling och testning. Mer information finns i [Enterprise dev/test](https://azure.microsoft.com/offers/ms-azr-0148p/).
+Möjligheten att skapa prenumerationer som baseras på Enterprise Dev/Test erbjudandet är begränsad till konto innehavare som har fått tillstånd att göra detta av en företags administratör. Konto ägaren skapar prenumerationer via Azures konto Portal och lägger sedan till aktiva Visual Studio-prenumeranter som medadministratörer. Så att de kan hantera och använda de resurser som krävs för utveckling och testning. Mer information finns i [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ## <a name="my-drivers-are-missing-for-my-windows-n-series-vm"></a>Mina driv rutiner saknas för den virtuella Windows N-serien
 
@@ -106,6 +106,8 @@ Den här [artikeln](../windows/client-images.md) beskriver behörighets kraven f
 När en virtuell dator körs distribueras den till en fysisk server. De fysiska servrarna i Azure-regionerna grupperas i kluster av gemensamt fysiskt maskin vara. Att ändra storlek på en virtuell dator som kräver att den virtuella datorn flyttas till olika maskin varu kluster är olika beroende på vilken distributions modell som användes för att distribuera den virtuella datorn.
 
 - Virtuella datorer som distribueras i den klassiska distributions modellen måste moln tjänst distributionen tas bort och omdistribueras för att ändra de virtuella datorerna till en storlek i en annan storleks familj.
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 - Virtuella datorer som distribueras i distributions modellen för Resource Manager måste du stoppa alla virtuella datorer i tillgänglighets uppsättningen innan du ändrar storleken på virtuella datorer i tillgänglighets uppsättningen.
 

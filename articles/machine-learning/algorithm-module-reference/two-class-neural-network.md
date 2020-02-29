@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: c87673fef0079ff1b04b0840da0434b090cda67c
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 03e6c2ecbf8fa0c5f71218d29b67cb03cdf3d5db
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153663"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916803"
 ---
 # <a name="two-class-neural-network-module"></a>Neurala-modul i två klasser
 
@@ -42,7 +42,9 @@ För att beräkna nätverkets utdata för ett visst indata beräknas ett värde 
   
 2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enda parameter**: Välj det här alternativet om du redan vet hur du vill konfigurera modellen.  
+    -   **Enda parameter**: Välj det här alternativet om du redan vet hur du vill konfigurera modellen.
+
+    -   **Parameter intervall**: om du inte är säker på de bästa parametrarna kan du hitta de optimala parametrarna med hjälp av modulen [finjustera modellens standardparametrar](tune-model-hyperparameters.md) . Du anger några värden och utbildaren upprepas över flera kombinationer av inställningarna för att avgöra vilken kombination av värden som ger bäst resultat.  
 
 3.  För **dolda lager specifikation**väljer du vilken typ av nätverks arkitektur som ska skapas.  
   

@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: daba49e6861eb67fd07c6fcf618b2b2d6cdd8c89
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 424ef37885d685829a11d1864a72b043a562231c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133810"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920560"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Red Hat-arbetsbelastningar på Azure
 Red Hat-arbetsbelastningar stöds via en mängd olika erbjudanden i Azure. Red Hat Enterprise Linux-avbildningar (RHEL) finns i kärnan av RHEL-arbetsbelastningar, precis som i Red Hat Update-infrastrukturen (RHUI).
@@ -39,7 +39,7 @@ Azure erbjuder även Red Hat guld-bilder. De här avbildningarna kan vara använ
 > Observera dubbel fakturering: dubbel fakturering uppstår när en användare betalar två gånger för RHEL-prenumerationer. Detta inträffar vanligt vis när en kund använder prenumerations hanteraren för att koppla en rättighet till en RHEL PAYG VM. En kund som till exempel använder prenumerations hanteraren för att ansluta en rättighet för SAP-paket på en RHEL PAYG-avbildning kommer indirekt att debiteras eftersom de kommer att betala två gånger för RHEL – en gång via PAYG Premium-avgiften och en gång via SAP-prenumerationen. Detta sker inte för BYOS avbildnings användare.
 
 ### <a name="generation-2-images"></a>Generation 2-avbildningar
-Virtuella datorer i generation 2 innehåller några nya funktioner jämfört med virtuella datorer i generation 1. Information finns i [generation 2-dokumentationen](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2). Den viktigaste skillnaden från ett RHEL-bildperspektiv är att virtuella datorer i generation 2 använder en UEFI i stället för den inbyggda program varans BIOS och använder en GUID-partitionstabell (GPT) i stället för en Master Boot Record (MBR) vid start. Detta möjliggör bland annat OS-disk storlekar som är större än 2 TB. Dessutom körs [virtuella datorer i Mv2-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series) bara på generation 2-avbildningar.
+Virtuella datorer i generation 2 innehåller några nya funktioner jämfört med virtuella datorer i generation 1. Information finns i [generation 2-dokumentationen](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2). Den viktigaste skillnaden från ett RHEL-bildperspektiv är att virtuella datorer i generation 2 använder en UEFI i stället för den inbyggda program varans BIOS och använder en GUID-partitionstabell (GPT) i stället för en Master Boot Record (MBR) vid start. Detta möjliggör bland annat OS-disk storlekar som är större än 2 TB. Dessutom körs [virtuella datorer i Mv2-serien](../../mv2-series.md) bara på generation 2-avbildningar.
 
 RHEL generation 2-avbildningar är tillgängliga i Marketplace. Sök efter "Gen2" i avbildnings-SKU: n när du har listat alla avbildningar med Azure CLI och gå till fliken "Avancerat" i distributions processen för virtuella datorer för att distribuera en virtuell dator i generation 2.
 

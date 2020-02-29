@@ -1,5 +1,5 @@
 ---
-title: Azure Hybrid-förmånen för Windows Server
+title: Azure Hybrid-förmån för Windows Server
 description: Lär dig hur du maximerar dina Windows Software Assurance-förmåner för att ta med lokala licenser till Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,28 +13,26 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: d6e3d4d059e464795c712af1226d8202d00bfd74
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 470e38c21a250273216f93eb38a5334a4bb581e7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461152"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911803"
 ---
-# <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid-förmånen för Windows Server
+# <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid-förmån för Windows Server
 För kunder med Software Assurance kan Azure Hybrid-förmån för Windows Server använda dina lokala Windows Server-licenser och köra virtuella Windows-datorer i Azure till en lägre kostnad. Du kan använda Azure Hybrid-förmån för Windows Server för att distribuera nya virtuella datorer med Windows OS. Den här artikeln går igenom stegen för att distribuera nya virtuella datorer med Azure Hybrid-förmån för Windows Server och hur du kan uppdatera befintliga virtuella datorer som körs. Mer information om Azure Hybrid-förmån för Windows Server-licensiering och kostnads besparingar finns på [sidan för Azure Hybrid-förmån för Windows Server-licensiering](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
-> [!Important]
-> Varje licens för dubbla processorer eller varje uppsättning av licenser för processorer med 16 kärnor berättigar innehavaren till två instanser med upp till åtta processorkärnor eller en instans med upp till 16 processorkärnor. Azure Hybrid-användningsförmånen för Standard Edition-licenser kan endast användas en gång – antingen lokalt eller i Azure. Datacenter Edition-förmånerna berättigar till samtidig användning både lokalt och i Azure.
->
+Varje licens för två processorer eller varje uppsättning av licenser med 16 kärnor har rätt till två instanser av upp till 8 kärnor eller en instans av upp till 16 kärnor. Azure Hybrid-förmån för Standard Edition-licenser kan endast användas en gång antingen lokalt eller i Azure. Data Center Edition-förmåner möjliggör samtidig användning både lokalt och i Azure.
 
-> [!Important]
-> Att använda Azure Hybrid-förmån för Windows Server med virtuella datorer som kör Windows Server OS stöds nu i alla regioner, inklusive virtuella datorer med ytterligare program vara som SQL Server eller Marketplace-programvara från tredje part. 
->
+Att använda Azure Hybrid-förmån för Windows Server med virtuella datorer som kör Windows Server OS stöds nu i alla regioner, inklusive virtuella datorer med ytterligare program vara som SQL Server eller Marketplace-programvara från tredje part. 
 
-> [!NOTE]
-> För klassiska virtuella datorer stöds endast distribution av nya virtuella datorer från lokala anpassade avbildningar. Om du vill dra nytta av de funktioner som stöds i den här artikeln måste du först migrera klassiska virtuella datorer till Resource Manager-modellen.
->
 
+## <a name="classic-vms"></a>Klassiska virtuella datorer
+
+För klassiska virtuella datorer stöds endast distribution av nya virtuella datorer från lokala anpassade avbildningar. Om du vill dra nytta av de funktioner som stöds i den här artikeln måste du först migrera klassiska virtuella datorer till Resource Manager-modellen.
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
  
 
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Sätt att använda Azure Hybrid-förmån för Windows Server
@@ -49,7 +47,7 @@ Det finns några sätt att använda virtuella Windows-datorer med Azure Hybrid-f
 ## <a name="create-a-vm-with-azure-hybrid-benefit-for-windows-server"></a>Skapa en virtuell dator med Azure Hybrid-förmån för Windows Server
 Alla Windows Server OS-baserade avbildningar stöds för Azure Hybrid-förmån för Windows Server. Du kan använda Azure Platform support-avbildningar eller ladda upp dina egna anpassade Windows Server-avbildningar. 
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>Portal
 Om du vill skapa en virtuell dator med Azure Hybrid-förmån för Windows Server kan du använda växla under avsnittet "Spara pengar".
 
 ### <a name="powershell"></a>PowerShell
@@ -90,7 +88,7 @@ Om du har en befintlig virtuell dator som du vill konvertera för att kunna anv�
 > Att ändra licens typen på den virtuella datorn gör inte att systemet startas om eller orsakar en tjänst interuption.  Det är helt enkelt en uppdatering av en metadata-flagga.
 > 
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>Portal
 Från bladet för virtuell Portal-dator kan du uppdatera den virtuella datorn så att den använder Azure Hybrid-förmån genom att välja alternativet "konfiguration" och växla mellan alternativet "Azure Hybrid Benefit"
 
 ### <a name="powershell"></a>PowerShell
@@ -120,7 +118,7 @@ Från bladet för virtuell Portal-dator kan du uppdatera den virtuella datorn s�
 ### <a name="how-to-verify-your-vm-is-utilizing-the-licensing-benefit"></a>Så här verifierar du att din virtuella dator utnyttjar licens förmånen
 När du har distribuerat den virtuella datorn via PowerShell, Resource Manager-mall eller Portal kan du kontrol lera inställningen i följande metoder.
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>Portal
 Från bladet virtuell Portal-dator kan du Visa växlings fönstret för Azure Hybrid-förmån för Windows Server genom att välja fliken konfiguration.
 
 ### <a name="powershell"></a>PowerShell
@@ -155,7 +153,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVM --query "[?licenseType=='Wind
 ## <a name="list-all-vms-with-azure-hybrid-benefit-for-windows-server-in-a-subscription"></a>Visa en lista med alla virtuella datorer med Azure Hybrid-förmån för Windows Server i en prenumeration
 Om du vill se och räkna alla virtuella datorer som har distribuerats med Azure Hybrid-förmån för Windows Server kan du köra följande kommando från din prenumeration:
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>Portal
 På resurs bladet för den virtuella datorn eller den virtuella datorns skalnings uppsättningar kan du Visa en lista över alla VM: er och licensierings typ genom att konfigurera tabell kolumnen så att den inkluderar "Azure Hybrid-förmån". VM-inställningen kan antingen vara i läget "aktive rad", "ej aktive rad" eller "stöds inte".
 
 ### <a name="powershell"></a>PowerShell

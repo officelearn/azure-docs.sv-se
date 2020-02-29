@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 684e4a410ac8624066c897b4078ea4044a965357
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f331a537c80628a386525e29743807a70a163f0d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848920"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914329"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till ADFS som en SAML Identity Provider med anpassade principer i Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76848920"
 
 Den här artikeln visar hur du aktiverar inloggning för ett ADFS-användarkonto genom att använda [anpassade principer](custom-policy-overview.md) i Azure Active Directory B2C (Azure AD B2C). Du aktiverar inloggning genom att lägga till en [teknisk SAML-profil](saml-technical-profile.md) i en anpassad princip.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md).
 - Se till att du har åtkomst till en Certificate. pfx-fil med en privat nyckel. Du kan skapa ett eget signerat certifikat och överföra det till Azure AD B2C. Azure AD B2C använder det här certifikatet för att signera SAML-begäran som skickats till din SAML Identity-Provider.
@@ -34,7 +34,7 @@ Den här artikeln visar hur du aktiverar inloggning för ett ADFS-användarkonto
 
 Du måste lagra ditt certifikat i Azure AD B2C-klienten.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer du **ID för identitets miljö**.
@@ -48,11 +48,11 @@ Du måste lagra ditt certifikat i Azure AD B2C-klienten.
 
 Om du vill att användarna ska logga in med ett ADFS-konto måste du definiera kontot som en anspråks leverantör som Azure AD B2C kan kommunicera med via en slut punkt. Slut punkten innehåller en uppsättning anspråk som används av Azure AD B2C för att verifiera att en speciell användare har autentiserats.
 
-Du kan definiera ett ADFS-konto som en anspråks leverantör genom att lägga till det i **ClaimsProviders** -elementet i principens tilläggs fil.
+Du kan definiera ett ADFS-konto som en anspråks leverantör genom att lägga till det i **ClaimsProviders** -elementet i principens tilläggs fil. Mer information finns i [definiera en teknisk profil för SAML](saml-technical-profile.md).
 
 1. Öppna *TrustFrameworkExtensions. XML*.
-2. Hitta **ClaimsProviders** -elementet. Om den inte finns lägger du till den under rot elementet.
-3. Lägg till en ny **ClaimsProvider** enligt följande:
+1. Hitta **ClaimsProviders** -elementet. Om den inte finns lägger du till den under rot elementet.
+1. Lägg till en ny **ClaimsProvider** enligt följande:
 
     ```xml
     <ClaimsProvider>
@@ -87,14 +87,33 @@ Du kan definiera ett ADFS-konto som en anspråks leverantör genom att lägga ti
             <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
             <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
           </OutputClaimsTransformations>
-          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-idp"/>
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
     ```
 
-4. Ersätt `your-ADFS-domain` med namnet på din ADFS-domän och Ersätt värdet för **identityProvider** utgående anspråk med DNS (valfritt värde som anger din domän).
-5. Spara filen.
+1. Ersätt `your-ADFS-domain` med namnet på din ADFS-domän och Ersätt värdet för **identityProvider** utgående anspråk med DNS (valfritt värde som anger din domän).
+
+1. Leta upp avsnittet `<ClaimsProviders>` och Lägg till följande XML-kodfragment. Om principen redan innehåller `SM-Saml-idp` tekniska profilen går du vidare till nästa steg. Mer information finns i [hantering av enkel inloggnings session](custom-policy-reference-sso.md).
+
+    ```XML
+    <ClaimsProvider>
+      <DisplayName>Session Management</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="SM-Saml-idp">
+          <DisplayName>Session Management Provider</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <Item Key="IncludeSessionIndex">false</Item>
+            <Item Key="RegisterServiceProviders">false</Item>
+          </Metadata>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
+
+1. Spara filen.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Ladda upp tilläggs filen för verifiering
 
@@ -167,7 +186,7 @@ Ersätt följande värden:
 4. På sidan **Välj data källa** väljer du **Importera data om den förlitande parten publicera online eller i ett lokalt nätverk**, anger din Azure AD B2C metadata-URL och klickar sedan på **Nästa**.
 5. På sidan **Ange visnings namn** anger du ett **visnings namn**under **anteckningar**, anger en beskrivning för det här förlitande part förtroendet och klickar sedan på **Nästa**.
 6. På sidan **välj Access Control princip** väljer du en princip och klickar sedan på **Nästa**.
-7. På sidan **redo att lägga till förtroende** granskar du inställningarna och klickar sedan på **Nästa** för att spara information om förtroende för förlitande part.
+7. På sidan **Redo att lägga till förlitande** granskar du inställningarna och klickar sedan på **Nästa** för att spara information om den förlitande parten.
 8. På sidan **Slutför** klickar du på **Stäng**. den här åtgärden visar automatiskt dialog rutan **Redigera anspråks regler** .
 9. Välj **Lägg till regel**.
 10. I **anspråks regel mal len**väljer du **Skicka LDAP-attribut som anspråk**.
@@ -178,7 +197,7 @@ Ersätt följande värden:
     | User-Principal-Name | userPrincipalName |
     | Efternamn | family_name |
     | Angivet namn | given_name |
-    | E-Mail-Address | e-post |
+    | E-postadress | e-post |
     | Visnings namn | namn |
 
     Observera att dessa namn inte visas i list rutan Utgående anspråks typer. Du måste skriva in dem manuellt i. (List rutan kan redige ras i själva verket).

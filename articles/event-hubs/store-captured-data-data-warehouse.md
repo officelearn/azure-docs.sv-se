@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: a83d65e497688fa97fbb2bdb5a4a72c6d29d81ae
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 43668fe1f465a5db74e63b8b1c1ae6cb328d2092
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905688"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914134"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Självstudie: Migrera insamlade Event Hubs data till en SQL Data Warehouse med Event Grid och Azure Functions
 
@@ -26,7 +26,7 @@ Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capt
 *   Sedan skapar du en Azure Event Grid-prenumeration med Event Hubs-namnområdet som källa och Azure Function-slutpunkten som mål.
 *   När en ny Avro-fil skickas till blob-lagring i Azure Storage av funktionen Event Hubs Capture, meddelar Event Grid blob-lagringens URI till Azure Function. Därefter migreras data av Function från blob-lagringen till ett SQL Data Warehouse.
 
-I den här självstudien gör du följande: 
+I de här självstudierna gör du följande: 
 
 > [!div class="checklist"]
 > * Distribuera infrastrukturen
@@ -35,7 +35,7 @@ I den här självstudien gör du följande:
 > * Strömma exempeldata till Event Hub. 
 > * Verifiera insamlade data i SQL Data Warehouse
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -76,9 +76,9 @@ Om du vill distribuera mallen med Azure CLI kör du följande kommandon:
 ```azurecli-interactive
 az group create -l westus -n rgDataMigrationSample
 
-az group deployment create \
-  --resource-group rgDataMigrationSample \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json \
+az group deployment create `
+  --resource-group rgDataMigrationSample `
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json `
   --parameters eventHubNamespaceName=<event-hub-namespace> eventHubName=hubdatamigration sqlServerName=<sql-server-name> sqlServerUserName=<user-name> sqlServerPassword=<password> sqlServerDatabaseName=<database-name> storageName=<unique-storage-name> functionAppName=<app-name>
 ```
 

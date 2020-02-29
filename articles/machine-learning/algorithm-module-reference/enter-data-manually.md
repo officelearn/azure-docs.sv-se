@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 61c3dde49d4cd298fb3a0f19dc1d8c00e54977af
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 27c359a594cec66708647d5a648c7e8414c0d92c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152354"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917483"
 ---
 # <a name="enter-data-manually-module"></a>Ange modulen data manuellt
 
@@ -36,13 +36,13 @@ Den här modulen kan vara till hjälp i scenarier som dessa:
   
 2.  Välj något av följande alternativ för **dataformat**. De här alternativen avgör hur de data som du anger ska tolkas. Kraven för varje format skiljer sig kraftigt, så se till att läsa närliggande ämnen.  
   
-    -   **Arff**. Fil formatet för attribut-relation som används av Wekas.   
+    -   **Arff**: fil formatet för filrelationen som används av wekas.   
   
-    -   **CSV**. Format med kommaavgränsade värden. Mer information finns i [konvertera till CSV](./convert-to-csv.md).  
+    -   **CSV**: format med kommaavgränsade värden. Mer information finns i [konvertera till CSV](./convert-to-csv.md).  
   
-    -   **SVMLight**. Ett format som används av Vowpal Wabbit och andra ramverk för maskin inlärning.  
+    -   **SVMLight**: ett format som används av Vowpal Wabbit och andra ramverk för maskin inlärning.  
   
-    -   **TSV**. Format med Tabbavgränsade värden.
+    -   **TSV**: format med Tabbavgränsade värden.
 
      Ett körnings fel uppstår om du väljer ett format och inte tillhandahåller data som uppfyller format kraven.
   

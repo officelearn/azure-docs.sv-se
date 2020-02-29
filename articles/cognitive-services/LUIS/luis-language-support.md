@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: f6b95f76af4c83459ac81ff1703d8588f649326c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 4b6d954d06f09bef5240bddc4860ddbc83513d69
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970550"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916599"
 ---
 # <a name="language-and-region-support-for-luis"></a>Stöd för språk och din region för LUIS
 
@@ -24,31 +24,31 @@ LUIS har olika funktioner i tjänsten. Alla funktioner är inte på samma språk
 
 ## <a name="multi-language-luis-apps"></a>Flera language Understanding Intelligent Service-appar
 
-Om du behöver ett klientprogram för flera språk LUIS som en chattrobot finns ett par alternativ. Om LUIS har stöd för alla språk, kan du utveckla en LUIS-app för varje språk. Varje LUIS-app har ett unikt app-ID och slutpunkten log. Om du måste ange språkförståelse för ett språk som LUIS inte stöder, du kan använda [Microsoft Translator API](../Translator/translator-info-overview.md) skicka uttryck till LUIS-slutpunkten för att översätta uttryck till ett språk som stöds, och ta emot den resulterande poäng.
+Om du behöver ett klientprogram för flera språk LUIS som en chattrobot finns ett par alternativ. Om LUIS har stöd för alla språk, kan du utveckla en LUIS-app för varje språk. Varje LUIS-app har ett unikt app-ID och slutpunkten log. Om du behöver ange språk förståelse för ett språk LUIS inte stöder kan du använda [Microsoft Translator API](../Translator/translator-info-overview.md) för att översätta uttryck till ett språk som stöds, skicka uttryck till Luis-slutpunkten och ta emot de resulterande poängen.
 
 ## <a name="languages-supported"></a>Språk som stöds
 
 LUIS förstår yttranden på följande språk:
 
-| Språk |Nationella inställningar  |  Fördefinierade domän | Fördefinierade entitet | Rekommendationer för fras lista | **[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Känsla och<br>Nyckelord)|
+| Språk |Nationell inställning  |  Fördefinierade domän | Fördefinierade entitet | Rekommendationer för fras lista | **[text analys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Känsla och<br>Nyckelord)|
 |--|--|:--:|:--:|:--:|:--:|
 | Amerikansk engelska |`en-US` | ✔ | ✔  |✔|✔|
 | Arabiska (förhands granskning-modern standard arabisk) |`ar-AR`|-|-|-|-|
-| *[Kinesiska](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
+| *[kinesiska](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Nederländska |`nl-NL` |✔|  -   |-|✔|
 | Franska (Frankrike) |`fr-FR` |✔| ✔ |✔ |✔|
 | Franska (Kanada) |`fr-CA` |-|   -   |-|✔|
 | Tyska |`de-DE` |✔| ✔ |✔ |✔|
 | Hindi | `hi-IN`|-|-|-|-|
 | Italienska |`it-IT` |✔| ✔ |✔|✔|
-| *[Japanska](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Endast diskussionsämne|
+| *[japanska](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Endast diskussionsämne|
 | Koreanska |`ko-KR` |✔|   -   |-|Endast diskussionsämne|
 | Portugisiska (Brasilien) |`pt-BR` |✔| ✔ |✔ |inte alla underordnade kulturer|
 | Spanska (Spanien) |`es-ES` |✔| ✔ |✔|✔|
 | Spanska (Mexiko)|`es-MX` |-|  -   |✔|✔|
 | Turkiska | `tr-TR` |✔|-|-|Endast sentiment|
 
-Språkstöd varierar för [förskapade entiteter](luis-reference-prebuilt-entities.md) och [fördefinierade domäner](luis-reference-prebuilt-domains.md).
+Språk stöd varierar för [färdiga entiteter](luis-reference-prebuilt-entities.md) och [fördefinierade domäner](luis-reference-prebuilt-domains.md).
 
 [!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]
 
@@ -61,13 +61,13 @@ Språkstöd varierar för [förskapade entiteter](luis-reference-prebuilt-entiti
 [!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
 
 ### <a name="speech-api-supported-languages"></a>Talspråk för API som stöds
-Se tal [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) för talspråk diktering läge.
+Se språk som [stöds](../speech-service/speech-to-text.md) av tal i tal för tallägen.
 
 ### <a name="bing-spell-check-supported-languages"></a>Stavningskontroll i Bing stöds språk
-Se stavningskontroll i Bing [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) en lista över språk som stöds och status.
+Se Stavningskontroll i Bing [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) för en lista över språk och status som stöds.
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>Sällsynta eller främmande ord i ett program
-I den `en-us` kulturen, LUIS lär sig att skilja mest svenska ord, inklusive slang. I den `zh-cn` kulturen, LUIS lär sig att skilja mellan de flesta kinesiska tecken. Om du använder ett ovanligt ord i `en-us` eller tecknet i `zh-cn`, och du ser att LUIS verkar det går inte att skilja den ord eller tecken, du kan lägga till den ord eller tecken till en [funktionen frasen lista](luis-how-to-add-features.md). Till exempel ska utanför programmet – det vill säga främmande ord--kultur läggas till en fras-list-funktion.
+I `en-us` kulturen lär sig LUIS att skilja de flesta engelska ord, inklusive slang. I `zh-cn` kulturen lär sig LUIS att skilja på de flesta kinesiska tecknen. Om du använder ett sällsynt ord i `en-us` eller ett specialtecken i `zh-cn`och du ser att LUIS inte verkar särskilja ordet eller specialtecknet kan du lägga till ordet eller symbolen i en [fras List funktion](luis-how-to-add-features.md). Till exempel ska utanför programmet – det vill säga främmande ord--kultur läggas till en fras-list-funktion.
 
 <!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
@@ -75,9 +75,9 @@ I den `en-us` kulturen, LUIS lär sig att skilja mest svenska ord, inklusive sla
 Hybrid språk kombinera ord från två kulturer, till exempel engelska och kinesiska. De här språken stöds inte i LUIS eftersom en app är baserad på en enda kultur.
 
 ## <a name="tokenization"></a>Tokenisering
-Om du vill utföra maskininlärning LUIS delar ett uttryck i [token](luis-glossary.md#token) baserat på kultur.
+För att utföra maskin inlärning bryter LUIS en uttryck till [token](luis-glossary.md#token) baserat på kulturen.
 
-|Språk|  varje blanksteg eller specialtecken | tecknet nivå|sammansatta ord|[principfilerna entitet returnerades](luis-concept-data-extraction.md#tokenized-entity-returned)
+|Språk|  varje blanksteg eller specialtecken | tecknet nivå|sammansatta ord|[en token enhet returnerades](luis-concept-data-extraction.md#tokenized-entity-returned)
 |--|:--:|:--:|:--:|:--:|
 |Arabiska|||||
 |Kinesiska||✔||✔|

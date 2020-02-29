@@ -2,20 +2,20 @@
 title: REST API Claims-börser – Azure Active Directory B2C
 description: Lägg till REST API åberopade anspråk till anpassade principer i Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1caf0b3f6396cc008e77bb96e686fe78f462850b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 351b41f45fb84384ec0193f8e3130347d0b19401
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849102"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189097"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Lägg till REST API åberopade anspråk till anpassade principer i Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Scenariot som representeras i den här artikeln innehåller följande åtgärder
 2. Hämta staden där användaren är registrerad.
 3. Returnera attributet till programmet som ett anspråk.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started.md).
 - En REST API slut punkt att interagera med. I den här artikeln används en enkel Azure-funktion som exempel. Information om hur du skapar Azure-funktionen finns i [skapa din första funktion i Azure Portal](../azure-functions/functions-create-first-azure-function.md).

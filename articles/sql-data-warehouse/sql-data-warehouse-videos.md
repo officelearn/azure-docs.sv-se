@@ -1,6 +1,6 @@
 ---
 title: Videoklipp
-description: Länkar till olika video spelnings listor för Azure SQL Data Warehouse.
+description: Länkar till olika video spelnings listor för Azure Synapse Analytics.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 02/15/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5d01ff2eb74844997eb1640123e4af59abe2340b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bc6d0aed017dea46a781ca2b1d8d238e9d761e1b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692432"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192174"
 ---
-# <a name="azure-sql-data-warehouse---videos"></a>Azure SQL Data Warehouse-videor
+# <a name="azure-synapse-analytics---sql-pool-videos"></a>Videor om Azure Synapse Analytics – SQL-pool
 
-Titta på de senaste Azure SQL Data Warehouse videor och lär dig mer om nya funktioner och prestanda förbättringar. 
+Se de senaste Azure Synapse SQL-poolerna för att lära dig mer om nya funktioner och förbättringar av prestanda. 
 
-Kom igång genom att välja översikts videon nedan om du vill veta mer om de nya uppdateringarna för Azure SQL Data Warehouse. Lär dig också hur moderna informations lager mönster kan användas för att ta itu med verkliga världs scenarier som cyberbrott.
+Kom igång genom att välja översikts videon nedan om du vill veta mer om de nya uppdateringarna av Azure Synapse SQL-poolen. Lär dig också hur moderna informations lager mönster kan användas för att ta itu med verkliga världs scenarier som cyberbrott.
 </br>
 
 <a href="https://www.youtube.com/watch?v=7MDCWgxPnVY&list=PLXtHYVsvn_b_v4EKljH6dGo9qJ7JjItWL&index=2">

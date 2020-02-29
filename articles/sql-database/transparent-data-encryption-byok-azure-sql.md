@@ -1,22 +1,22 @@
 ---
 title: Kundhanterad transparent data kryptering (TDE)
-description: Bring Your Own Key (BYOK) stöd för transparent datakryptering (TDE) med Azure Key Vault för SQL Database och informations lager. TDE med BYOK-översikt, fördelar, hur det fungerar, överväganden och rekommendationer.
+description: Bring Your Own Key (BYOK) stöd för transparent datakryptering (TDE) med Azure Key Vault för SQL Database och Azure Synapse. TDE med BYOK-översikt, fördelar, hur det fungerar, överväganden och rekommendationer.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ms.devlang: ''
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/12/2020
-ms.openlocfilehash: 8e91bb9223f3e6ccd4c76614d75db8591dbed045
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: a29466ad5b261e1e2ce818d7b4a18260e35caaec
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201532"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192752"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL transparent datakryptering med kundhanterad nyckel
 
@@ -24,7 +24,7 @@ Azure SQL [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/rela
 
 I det här scenariot är den nyckel som används för kryptering av databas krypterings nyckeln (DEK), som kallas TDE-skydd, en kundhanterad asymmetrisk nyckel som lagras i ett kundägda och Kundhanterade [Azure Key Vault (AKV)](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), ett molnbaserad hanterings system för externa nycklar. Key Vault har hög tillgänglighet och skalbart säkert lagrings utrymme för kryptografiska RSA-nycklar, eventuellt backas upp av FIPS 140-2 nivå 2-validerade maskinvarubaserade säkerhetsmoduler (HSM: er). Den tillåter inte direkt åtkomst till en lagrad nyckel, men tillhandahåller tjänster för kryptering/dekryptering med hjälp av nyckeln till auktoriserade entiteter. Nyckeln kan genereras av nyckel valvet, importeras eller [överföras till nyckel valvet från en lokal HSM-enhet](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
-För Azure SQL Database och Azure SQL Data Warehouse anges TDE-skydd på den logiska Server nivån och ärvs av alla krypterade databaser som är kopplade till den servern. För Azure SQL-hanterad instans anges TDE-skydd på instans nivå och ärvs av alla krypterade databaser på den instansen. Termen *Server* avser både att SQL Database logisk server och hanterad instans i det här dokumentet, om inget annat anges.
+För Azure SQL Database och Azure-Synapse anges TDE-skyddet på den logiska Server nivån och ärvs av alla krypterade databaser som är kopplade till den servern. För Azure SQL-hanterad instans anges TDE-skydd på instans nivå och ärvs av alla krypterade databaser på den instansen. Termen *Server* avser både att SQL Database logisk server och hanterad instans i det här dokumentet, om inget annat anges.
 
 > [!IMPORTANT]
 > För de som använder tjänstehanterade TDE som vill börja använda Kundhanterade TDE-data förblir data krypterade under växlings processen och det finns ingen nedtid eller Omkryptering av databasfilerna. Om du växlar från en tjänst-hanterad nyckel till en kundhanterad nyckel krävs bara Omkryptering av DEK, vilket är en snabb och online-åtgärd.
@@ -163,7 +163,7 @@ Om den nyckel som behövs för att återställa en säkerhets kopia inte längre
 
 För att minimera den, kör cmdleten [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) för målet SQL Database logisk server eller [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) för mål hanterad instans för att returnera listan över tillgängliga nycklar och identifiera de som saknas. Se till att mål servern för återställningen har åtkomst till alla nycklar som behövs för att säkerställa att alla säkerhets kopior kan återställas. Dessa nycklar behöver inte markeras som TDE-skydd.
 
-Mer information om säkerhets kopierings återställning för SQL Database finns i [återställa en Azure SQL-databas](sql-database-recovery-using-backups.md). Mer information om säkerhets kopierings återställning för SQL Data Warehouse finns i [återställa en Azure SQL Data Warehouse](../sql-data-warehouse/backup-and-restore.md). För SQL Server interna säkerhets kopiering/återställning med hanterade instanser, se [snabb start: återställa en databas till en hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore)
+Mer information om säkerhets kopierings återställning för SQL Database finns i [återställa en Azure SQL-databas](sql-database-recovery-using-backups.md). Mer information om säkerhets kopierings återställning för SQL-poolen finns i [återställa en SQL-pool](../sql-data-warehouse/backup-and-restore.md). För SQL Server interna säkerhets kopiering/återställning med hanterade instanser, se [snabb start: återställa en databas till en hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore)
 
 Ytterligare överväganden för loggfiler: säkerhetskopierade loggfiler förblir krypterade med det ursprungliga TDE-skyddet, även om det roterats och databasen nu använder ett nytt TDE-skydd.  Vid återställnings tiden krävs båda nycklarna för att återställa databasen.  Om logg filen använder ett TDE-skydd som lagras i Azure Key Vault, krävs den här nyckeln vid återställnings tiden, även om databasen har ändrats för att använda tjänstehanterade TDE under tiden.
 

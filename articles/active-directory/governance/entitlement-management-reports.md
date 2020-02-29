@@ -16,12 +16,12 @@ ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 819badb85e532275b4d5d6ca84c3e6e7fe527fa0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c98a583e2aa8ac679842e16d1c0cc36811db90de
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422555"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190593"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Visa rapporter och loggar i hantering av Azure AD-berättigande
 
@@ -85,7 +85,7 @@ Om du vill ha mer information om hur en användare begärde och fick åtkomst ti
 
 1. Längst upp ändrar du **kategorin** till antingen `EntitlementManagement` eller `UserManagement`, beroende på vilken gransknings post du letar efter.  
 
-1. Klicka på **Använd**.
+1. Klicka på **Verkställ**.
 
 1. Klicka på **Hämta**om du vill hämta loggarna.
 
@@ -109,5 +109,6 @@ När användarens åtkomst paket tilldelning går ut, annulleras av användaren 
 
 ## <a name="next-steps"></a>Nästa steg
 
+- [Arkivera rapporter och loggar](entitlement-management-logs-and-reporting.md)
 - [Felsöka hantering av Azure AD-berättigande](entitlement-management-troubleshoot.md)
 - [Vanliga scenarier](entitlement-management-scenarios.md)

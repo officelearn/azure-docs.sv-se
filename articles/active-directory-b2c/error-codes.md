@@ -3,20 +3,20 @@ title: Fel kods referens
 titleSuffix: Azure AD B2C
 description: En lista över felkoder som kan returneras av Azure Active Directory B2Cs tjänsten.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 01/10/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c48f7bdd51c9b8c173ee0ebed72ed8c7f4fb51fc
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 5b09b3c19ab1c5b23e56e25afc1d9631cd1caa68
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75735084"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188672"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Felkoder: Azure Active Directory B2C
 

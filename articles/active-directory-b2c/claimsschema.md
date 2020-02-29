@@ -2,20 +2,20 @@
 title: ClaimsSchema – Azure Active Directory B2C | Microsoft Docs
 description: Ange ClaimsSchema-elementet för en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/24/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2861b882d9b4c00a1c4db87b2dd49d49dfeb53a6
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: b997e15b4e987b7a18890606326f52a82cb15212
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77581114"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189932"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -64,7 +64,7 @@ PredicateValidationReference| 0:1 | En referens till ett **PredicateValidationsI
 Elementet **datatype** stöder följande värden:
 
 | Typ | Beskrivning |
-| ------- | ----------- | 
+| ------- | ----------- |
 |boolesk|Representerar ett värde för boolesk (`true` eller `false`).|
 |datum| Representerar en omedelbar tid, vanligt vis uttrycks som ett datum på en dag. Värdet för datumet följer ISO 8601-konventionen.|
 |Datum/tid|Representerar en omedelbar tid, vanligt vis uttryckt som datum och tid på dagen. Värdet för datumet följer ISO 8601-konventionen.|

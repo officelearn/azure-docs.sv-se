@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1d808210861d971b2915206e7be0fe9b955616c5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 6e4b5bc6d30f6caa2809b7aa1e72be70ae12dbc1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720324"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193042"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics-arkitektur (tidigare SQL DW) 
 
@@ -25,7 +25,7 @@ Azure Synapse är en obegränsad analystjänst som sammanför informationslager 
 - SQL Analytics: fullständig T-SQL-baserad analys 
     - SQL-pool (betala per DWU etablerad) – allmänt tillgänglig
     - SQL på begäran (betala per TB bearbetat) – (för hands version)
-- Spark: djupt integrerad Apache Spark (förhands granskning) 
+- Spark: djupt integrerad Apache Spark (förhands granskning)
 - Data integrering: hybrid data integrering (för hands version)
 - Studio: enhetlig användar upplevelse.  (Förhandsversion)
 

@@ -1,34 +1,34 @@
 ---
 title: Minnes-och samtidiga gränser
-description: Visa minnes-och samtidiga gränser som tilldelats de olika prestanda nivåerna och resurs klasserna i Azure SQL Data Warehouse.
+description: Visa minnes-och samtidiga gränser som tilldelats de olika prestanda nivåerna och resurs klasserna i Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 12/04/2019
+ms.date: 02/04/2020
 ms.author: rortloff
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: dfdaef0002f068dc4c9044e979b169de779cf6d5
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.reviewer: jrasnick
+ms.custom: azure-synapse
+ms.openlocfilehash: 73c7b756009035c8592c85bec3a6b7d85d93666c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851289"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200693"
 ---
-# <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Minnes-och samtidiga gränser för Azure SQL Data Warehouse
-Visa minnes-och samtidiga gränser som tilldelats de olika prestanda nivåerna och resurs klasserna i Azure SQL Data Warehouse.  
+# <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Minnes-och samtidiga gränser för Azure Synapse Analytics
+Visa minnes-och samtidiga gränser som tilldelats de olika prestanda nivåerna och resurs klasserna i Azure Synapse Analytics.  
 
 ## <a name="data-warehouse-capacity-settings"></a>Kapacitets inställningar för informations lager
 I följande tabeller visas den maximala kapaciteten för data lagret på olika prestanda nivåer. Information om hur du ändrar prestanda nivån finns i [Scale Compute-Portal](quickstart-scale-compute-portal.md).
 
-### <a name="service-levels"></a>Tjänstenivåer
+### <a name="service-levels"></a>Servicenivåer
 
 Tjänst nivåerna sträcker sig från DW100c till DW30000c.
 
-| Prestandanivå | Beräkningsnoder | Distributioner per Compute-nod | Minne per informations lager (GB) |
+| Prestanda nivå | Compute-noder | Distributioner per Compute-nod | Minne per informations lager (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
 | DW100c            | 1             | 60                             |    60                          |
 | DW200c            | 1             | 60                             |   120                          |
@@ -54,26 +54,26 @@ Med introduktionen av [arbets belastnings grupper](sql-data-warehouse-workload-i
 
 |Servicenivå|Maximalt antal samtidiga frågor|Lägsta% som stöds för REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
-|DW100c|4|25 %|
+|DW100c|4|25%|
 |DW200c|8|12,5%|
-|DW300c|12|8 %|
+|DW300c|12|7,8|
 |DW400c|16|6,25%|
-|DW500c|20|5 %|
-|DW1000c|32|3 %|
-|DW1500c|32|3 %|
+|DW500c|20|5|
+|DW1000c|32|3|
+|DW1500c|32|3|
 |DW2000c|48|2%|
 |DW2500c|48|2%|
-|DW3000c|64|1,5 %|
-|DW5000c|64|1,5 %|
-|DW6000c|128|0,75 %|
-|DW7500c|128|0,75 %|
-|DW10000c|128|0,75 %|
-|DW15000c|128|0,75 %|
-|DW30000c|128|0,75 %|
+|DW3000c|64|1,5%|
+|DW5000c|64|1,5%|
+|DW6000c|128|0,75%|
+|DW7500c|128|0,75%|
+|DW10000c|128|0,75%|
+|DW15000c|128|0,75%|
+|DW30000c|128|0,75%|
 ||||
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Concurrency-maximum för resurs klasser
-För att säkerställa att varje fråga har tillräckligt med resurser för att köras effektivt, SQL Data Warehouse spårar resursutnyttjande genom att tilldela samtidiga platser till varje fråga. Systemet placerar frågor i en kö baserat på prioritets-och samtidiga platser. Frågor väntar i kön tills det finns tillräckligt med tillgängliga samtidighets fack. [Prioritets](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) -och samtidiga platser fastställer processor prioritet. Mer information finns i [analysera din arbets belastning](analyze-your-workload.md)
+För att se till att varje fråga har tillräckligt med resurser för att fungera effektivt spårar du resursutnyttjande med hjälp av SQL Analytics i Azure Synapse genom att tilldela samtidiga platser till varje fråga. Systemet placerar frågor i en kö baserat på prioritets-och samtidiga platser. Frågor väntar i kön tills det finns tillräckligt med tillgängliga samtidighets fack. [Prioritets](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) -och samtidiga platser fastställer processor prioritet. Mer information finns i [analysera din arbets belastning](analyze-your-workload.md)
 
 **Statiska resurs klasser**
 

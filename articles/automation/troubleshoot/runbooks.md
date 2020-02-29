@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 571be831d337c71a084780da18b480cdd1e42d20
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: b7d876c7f865b8368451ea1b6cc96ade89a59aa8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77365206"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190967"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med Runbooks
 
@@ -471,7 +471,7 @@ Din Runbook visas i **stoppat** tillstånd efter att ha körts i 3 timmar. Du ka
 The job was evicted and subsequently reached a Stopped state. The job cannot continue running
 ```
 
-Det här beteendet är avsiktligt i Azure-sand lådor på grund av "god resurs" övervakning av processer inom Azure Automation. Om den körs längre än tre timmar stoppar en egen resurs automatiskt en Runbook. Status för en Runbook som infaller efter den verkliga delnings tids gränsen skiljer sig åt efter Runbook-typ. PowerShell-och python-Runbooks anges till **stoppad** status. PowerShell Workflow-Runbooks är inställda på **misslyckade**.
+Det här beteendet är avsiktligt i Azure-sand lådor på grund av [rättvis resurs](../automation-runbook-execution.md#fair-share) övervakning av processer inom Azure Automation. Om den körs längre än tre timmar stoppar en egen resurs automatiskt en Runbook. Status för en Runbook som går förbi den verkliga delnings tiden skiljer sig åt efter Runbook-typ. PowerShell-och python-Runbooks anges till **stoppad** status. PowerShell Workflow-Runbooks är inställda på **misslyckade**.
 
 ### <a name="cause"></a>Orsak
 
@@ -481,7 +481,7 @@ Runbooken kördes över den gräns på 3 timmar som tillåts av rättvis resurs 
 
 En rekommenderad lösning är att köra runbooken på en [hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
-Hybrid Worker begränsas inte av den [verkliga delningen](../automation-runbook-execution.md#fair-share) på 3 timmar som Azure-sandbox har. Runbooks som körs på Hybrid Runbook Worker bör utvecklas för att stödja omstarts beteenden om det uppstår oväntade problem med lokal infrastruktur.
+Hybrid Worker begränsas inte av den 3 timmars verkliga resurs-Runbook-gränsen som Azure-sandbox har. Runbooks som körs på Hybrid Runbook Worker bör utvecklas för att stödja omstarts beteenden om det uppstår oväntade problem med lokal infrastruktur.
 
 Ett annat alternativ är att optimera runbooken genom att skapa [underordnade Runbooks](../automation-child-runbooks.md). Om din Runbook upprepas genom samma funktion på flera resurser, till exempel en databas åtgärd på flera databaser, kan du flytta den funktionen till en underordnad Runbook. Var och en av dessa underordnade Runbooks körs parallellt i separata processer. Det här beteendet minskar den totala tiden som den överordnade runbooken slutförs.
 

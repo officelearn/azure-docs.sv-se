@@ -2,20 +2,20 @@
 title: Teknisk och funktions översikt – Azure Active Directory B2C
 description: En djupgående introduktion till funktionerna och teknikerna i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 09/19/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5801cc4fdfeb4bbdf7c22e2be2f686558611a7f6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1aed1b0a13482bc932024a9d2a131ec5f1d948ba
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840221"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186904"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Teknisk och funktions översikt över Azure Active Directory B2C
 
@@ -115,7 +115,7 @@ Lär dig mer om användar flöden i [användar flöden i Azure Active Directory 
 
 Anpassade principer låser upp åtkomst till den fulla kraften i IEF-Orchestration-motorn (Identity Experience Framework). Med anpassade principer kan du använda IEF för att bygga nästan all autentisering, användar registrering eller profil redigerings upplevelse som du kan föreställa dig.
 
-Med Identity Experience Framework kan du skapa användar resor med valfri kombination av steg. Ett exempel:
+Med Identity Experience Framework kan du skapa användar resor med valfri kombination av steg. Några exempel:
 
 * Federera med andra identitets leverantörer
 * Krav för MFA (Multi-Factor Authentication) för första och tredje part
@@ -148,7 +148,7 @@ Föregående diagram visar hur Azure AD B2C kan kommunicera med olika protokoll 
 1. När en användare av programmet väljer att logga in med en extern identitetsprovider som använder SAML-protokollet anropar Azure AD B2C SAML-protokollet för att kommunicera med den identitets leverantören.
 1. När användaren har slutfört inloggnings åtgärden med den externa identitets leverantören, returnerar Azure AD B2C token till det förlitande part programmet med OpenID Connect.
 
-## <a name="application-integration"></a>Integrering av applikationer
+## <a name="application-integration"></a>Integrering av program
 
 När en användare vill logga in i ditt program, oavsett om det är en webb-, mobil-, skriv bords-eller Enkels Ides applikation (SPA), initierar programmet en auktoriseringsbegäran till en användar flöde eller en anpassad princip slut punkt. Användar flödet eller den anpassade principen definierar och styr användarens upplevelse. När de slutför ett användar flöde, till exempel *registrerings-eller inloggnings* flödet, Azure AD B2C skapar en token och omdirigerar sedan tillbaka användaren till ditt program.
 

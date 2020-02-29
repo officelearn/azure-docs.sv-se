@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 7ea65b64e5a812b717f065c1d8cc6208e0c0ba69
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 00ec2d328265e8d301b9f54b9a6a2013072f1ed4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164570"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190287"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Gör så här: aktivera enkel inloggning mellan appar på iOS med ADAL
 
@@ -109,7 +109,7 @@ Om en kompatibel Broker är installerad på enheten, t. ex. Microsoft Authentica
 
 #### <a name="how-we-ensure-the-application-is-valid"></a>Så här ser vi till att programmet är giltigt
 
-Behovet av att se till att identiteten för ett program anropar Service Broker är avgörande för säkerheten som vi tillhandahåller i Service Broker-inloggningar. Varken iOS eller Android framtvingar unika identifierare som endast är giltiga för ett angivet program, så att skadliga program kan "falska" ett legitimt programs ID och ta emot de token som är avsedda för det legitima programmet. För att säkerställa att vi alltid kommunicerar med rätt program vid körning ber vi utvecklaren att tillhandahålla en anpassad redirectURI när han registrerar sitt program hos Microsoft. Hur utvecklare bör utforma denna omdirigerings-URI beskrivs i detalj nedan. Den här anpassade redirectURI innehåller paket-ID: t för programmet och är säkerställt att vara unikt för programmet av Apple App Store. När ett program anropar koordinatorn ber Service Broker operativ systemet för iOS att tillhandahålla det paket-ID som anropade Service Broker. Service Broker innehåller det här paket-ID: t för Microsoft i anropet till vårt identitets system. Om paket-ID: t för programmet inte matchar det paket-ID som tillhandahölls av utvecklaren under registreringen, kommer vi att neka åtkomst till de token för resursen som programmet begär. Den här kontrollen säkerställer att endast det program som har registrerats av utvecklaren tar emot tokens.
+Behovet av att se till att identiteten för ett program som anropar Service Broker är avgörande för den säkerhet vi tillhandahåller i Service Broker-inloggningar. Varken iOS eller Android framtvingar unika identifierare som endast är giltiga för ett angivet program, så att skadliga program kan "falska" ett legitimt programs ID och ta emot de token som är avsedda för det legitima programmet. För att säkerställa att vi alltid kommunicerar med rätt program vid körning ber vi utvecklaren att tillhandahålla en anpassad redirectURI när han registrerar sitt program hos Microsoft. Hur utvecklare bör utforma denna omdirigerings-URI beskrivs i detalj nedan. Den här anpassade redirectURI innehåller paket-ID: t för programmet och är säkerställt att vara unikt för programmet av Apple App Store. När ett program anropar koordinatorn ber Service Broker operativ systemet för iOS att tillhandahålla det paket-ID som anropade Service Broker. Service Broker innehåller det här paket-ID: t för Microsoft i anropet till vårt identitets system. Om paket-ID: t för programmet inte matchar det paket-ID som tillhandahölls av utvecklaren under registreringen, kommer vi att neka åtkomst till de token för resursen som programmet begär. Den här kontrollen säkerställer att endast det program som har registrerats av utvecklaren tar emot tokens.
 
 **Utvecklaren har möjlighet att välja om SDK: n anropar Broker eller använder det stödda flödet som inte har stöd för Service Broker.** Om utvecklaren väljer att inte använda det stödda Broker-flödet förlorar du dock fördelarna med att använda SSO-autentiseringsuppgifter som användaren redan har lagt till på enheten och förhindrar att deras program används med företags funktioner som Microsoft tillhandahåller Kunder som villkorlig åtkomst, Intune-hanterings funktioner och certifikatbaserad autentisering.
 

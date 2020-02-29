@@ -4,12 +4,12 @@ description: Lär dig hur du installerar och konfigurerar en NGINX ingress Contr
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: a72312e2921b4721a4a5944cf62241b513da1e0a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 10422595b85c71020225df694778e6b8ae7e0185
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595526"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191358"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Skapa en ingångs kontroll enhet med en statisk offentlig IP-adress i Azure Kubernetes service (AKS)
 
@@ -28,7 +28,7 @@ Du kan också:
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
 
-Den här artikeln använder Helm för att installera NGINX ingress-kontrollant, cert Manager och en webbapp. Du måste ha Helm initierat i ditt AKS-kluster och med ett tjänst konto för till gången. Kontrol lera att du använder den senaste versionen av Helm 3. Anvisningar om hur du uppgraderar finns i [installations dokument för Helm][helm-install]. Mer information om hur du konfigurerar och använder Helm finns i [installera program med Helm i Azure Kubernetes service (AKS)][use-helm].
+Den här artikeln använder Helm för att installera NGINX ingress-kontrollant, cert Manager och en webbapp. Kontrol lera att du använder den senaste versionen av Helm. Anvisningar om hur du uppgraderar finns i [installations dokument för Helm][helm-install]. Mer information om hur du konfigurerar och använder Helm finns i [installera program med Helm i Azure Kubernetes service (AKS)][use-helm].
 
 Den här artikeln kräver också att du kör Azure CLI-version 2.0.64 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
@@ -116,13 +116,10 @@ Om du vill installera certifikat hanterarens kontrollant i ett RBAC-aktiverat kl
 
 ```console
 # Install the CustomResourceDefinition resources separately
-kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.12/deploy/manifests/00-crds.yaml
-
-# Create the namespace for cert-manager
-kubectl create namespace cert-manager
+kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.13/deploy/manifests/00-crds.yaml
 
 # Label the cert-manager namespace to disable resource validation
-kubectl label namespace cert-manager cert-manager.io/disable-validation=true
+kubectl label namespace ingress-basic cert-manager.io/disable-validation=true
 
 # Add the Jetstack Helm repository
 helm repo add jetstack https://charts.jetstack.io
@@ -133,8 +130,8 @@ helm repo update
 # Install the cert-manager Helm chart
 helm install \
   cert-manager \
-  --namespace cert-manager \
-  --version v0.12.0 \
+  --namespace ingress-basic \
+  --version v0.13.0 \
   jetstack/cert-manager
 ```
 
@@ -151,7 +148,6 @@ apiVersion: cert-manager.io/v1alpha2
 kind: ClusterIssuer
 metadata:
   name: letsencrypt-staging
-  namespace: ingress-basic
 spec:
   acme:
     server: https://acme-staging-v02.api.letsencrypt.org/directory
@@ -167,7 +163,7 @@ spec:
 Skapa utfärdaren genom att använda kommandot `kubectl apply -f cluster-issuer.yaml`.
 
 ```
-$ kubectl apply -f cluster-issuer.yaml
+$ kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
 
 clusterissuer.cert-manager.io/letsencrypt-staging created
 ```
@@ -347,20 +343,17 @@ NAME                    NAMESPACE       REVISION        UPDATED                 
 aks-helloworld          ingress-basic   1               2020-01-11 15:02:21.51172346   deployed        aks-helloworld-0.1.0
 aks-helloworld-2        ingress-basic   1               2020-01-11 15:03:10.533465598  deployed        aks-helloworld-0.1.0
 nginx-ingress           ingress-basic   1               2020-01-11 14:51:03.454165006  deployed        nginx-ingress-1.28.2    0.26.2
-cert-manager            cert-manager    1               2020-01-06 21:19:03.866212286  deployed        cert-manager-v0.12.0            v0.12.0
+cert-manager            ingress-basic    1               2020-01-06 21:19:03.866212286  deployed        cert-manager-v0.13.0    v0.13.0
 ```
 
 Ta bort utgåvorna med kommandot `helm uninstall`. I följande exempel tar vi bort NGINX ingress Deployment, Certificate Manager och de två exempel AKS Hello World-apparna.
 
 ```
-$ helm uninstall aks-helloworld aks-helloworld-2 nginx-ingress -n ingress-basic
+$ helm uninstall aks-helloworld aks-helloworld-2 nginx-ingress cert-manager -n ingress-basic
 
 release "aks-helloworld" deleted
 release "aks-helloworld-2" deleted
 release "nginx-ingress" deleted
-
-$ helm uninstall cert-manager -n cert-manager
-
 release "cert-manager" deleted
 ```
 

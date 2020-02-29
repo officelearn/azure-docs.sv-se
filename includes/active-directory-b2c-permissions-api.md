@@ -1,26 +1,26 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
-ms.author: marsma
-ms.openlocfilehash: ce49e9e26160017d64d745c9c7ad5402bc3ae2ca
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.author: mimart
+ms.openlocfilehash: 71a6654acd436c27bd2370646dede81778113860
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641564"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186157"
 ---
-#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+#### <a name="applications"></a>[Program](#tab/applications/)
 
 1. Välj **program**och välj sedan det webb program som ska ha åtkomst till API: et. Till exempel *webapp1*.
-1. Välj **API-åtkomst** och därefter **Lägg till**.
+1. Välj **API-åtkomst** och sedan **Lägg till**.
 1. I list rutan **Välj API** väljer du det API som webb programmet ska beviljas åtkomst till. Till exempel *webapi1*.
 1. I list rutan **Välj omfång** väljer du de omfattningar som du definierade tidigare. Till exempel *demo. Read* och *demo. Write*.
 1. Välj **OK**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
 1. Välj **Appregistreringar (för hands version)** och välj sedan det webb program som ska ha åtkomst till API: et. Till exempel *webapp1*.
 1. Under **Hantera**, Välj **API-behörigheter**.

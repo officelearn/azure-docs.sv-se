@@ -3,20 +3,20 @@ title: Microsoft Graph åtgärder som stöds
 titleSuffix: Azure AD B2C
 description: Ett index för Microsoft Graph åtgärder som stöds för hantering av Azure AD B2C resurser, inklusive användare, användar flöden, identitets leverantörer, anpassade principer, princip nycklar med mera.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/20/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5eeae1ab6866435311eeec944b4a51ecf2793dee
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 27fe1a41365d96a4179f8c659b63dc22c7b9fc93
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522976"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184256"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph åtgärder som är tillgängliga för Azure AD B2C
 

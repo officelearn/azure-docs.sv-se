@@ -3,12 +3,12 @@ title: Planera distribution av Azure Service Fabric-kluster
 description: Lär dig mer om att planera och förbereda för en produktions Service Fabric kluster distribution till Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 32d48f9ffa056d252bdf762304340f245d80fd26
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1762a6975448301957579b3437a8af5c89b3accd
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834458"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193484"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planera och förbereda för en kluster distribution
 
@@ -77,7 +77,6 @@ Tillfälliga OS-diskar är inte en speciell Service Fabric funktion, utan i stä
         "virtualMachineProfile": {
             "storageProfile": {
                 "osDisk": {
-                        "vhdContainers": ["[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('vmStorageAccountName')), variables('storageApiVersion')).primaryEndpoints.blob, parameters('vmStorageAccountContainerName'))]"],
                         "caching": "ReadOnly",
                         "createOption": "FromImage",
                         "diffDiskSettings": {

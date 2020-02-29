@@ -8,18 +8,18 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.openlocfilehash: 85fb709dfcca45b6ca8141c6d3de1941044f5ee5
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 0c37f1ce2f173f4bf527e7cca30f010101b01720
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163208"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190695"
 ---
 # <a name="tutorial-use-c-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Självstudie: använda C# och AI för att generera sökbart innehåll från Azure-blobbar
 
 Om du har ostrukturerad text eller avbildningar i Azure Blob Storage kan en [AI-pipeline](cognitive-search-concept-intro.md) utvinna information och skapa nytt innehåll som är användbart för full texts ökning eller kunskaps utvinnings scenarier. I den C# här självstudien ska du använda OCR (optisk tecken läsning) på bilder och utföra naturlig språk bearbetning för att skapa nya fält som du kan använda i frågor, ansikts och filter.
 
-I den här självstudien använder C# och [.NET SDK](https://aka.ms/search-sdk) för att utföra följande uppgifter:
+I den här C# självstudien används och [.NET SDK](https://aka.ms/search-sdk) för att utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Börja med programfiler och avbildningar i Azure Blob Storage.
@@ -929,11 +929,11 @@ Upprepa för ytterligare fält: innehåll, languageCode, diskussions fraser och 
 
 ## <a name="reset-and-rerun"></a>Återställa och köra igen
 
-I de tidiga experiment stegen i utvecklingen är den mest praktiska metoden för design iterationer att ta bort objekten från Azure Kognitiv sökning och tillåta att koden återskapas. Resursnamn är unika. Om du tar bort ett objekt kan du återskapa det med samma namn.
+I de tidiga experiment stegen i utvecklingen är den mest praktiska metoden för design upprepning att ta bort objekten från Azure Kognitiv sökning och tillåta att koden återskapas. Resursnamn är unika. Om du tar bort ett objekt kan du återskapa det med samma namn.
 
-Den här självstudien tog hand om att söka efter befintliga indexerare och index och ta bort dem om de redan funnits, så att du kan köra koden igen.
+Exempel koden för den här självstudien kontrollerar om det finns befintliga objekt och tar bort dem så att du kan köra koden igen.
 
-Du kan också använda portalen för att ta bort index, indexerare och färdighetsuppsättningar.
+Du kan också använda portalen för att ta bort index, indexerare, data källor och färdighetsuppsättningar.
 
 ## <a name="takeaways"></a>Lärdomar
 
@@ -945,11 +945,13 @@ Slutligen lärde du dig att testa resultat och återställa systemet för ytterl
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Det snabbaste sättet att rensa efter en själv studie kurs är att ta bort resurs gruppen som innehåller Azure Kognitiv sökning service och Azure Blob Service. Förutsatt att du placerade båda tjänsterna i samma grupp, tar du bort resursgruppen för att permanent ta bort allt i den, inklusive tjänsterna och eventuellt lagrat innehåll som du skapade i den här självstudien. På portalen visas resursgruppens namn på översiktssidan för varje tjänst.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
+
+Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Anpassa eller utöka pipelinen med anpassade kunskaper. När du skapar en anpassad kunskap och lägger till den i en kunskapsuppsättning kan du publicera text eller bildanalys som du skriver själv.
+Nu när du är bekant med alla objekt i en pipeline för AI-anrikning, tar vi en närmare titt på färdigheter-definitioner och enskilda kunskaper.
 
 > [!div class="nextstepaction"]
-> [Exempel: skapa en anpassad färdighet för AI-anrikning](cognitive-search-create-custom-skill-example.md)
+> [Så här skapar du en färdigheter](cognitive-search-defining-skillset.md)

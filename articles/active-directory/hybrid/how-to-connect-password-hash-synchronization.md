@@ -9,18 +9,18 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 405b2fb9d9b8ef3bce17a9370ac87592a3437026
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: a3f7d7c9af807120457b119e0be047c7a342b961
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585959"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190542"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering
 Den här artikeln innehåller information du behöver för att synkronisera dina lösenord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory (Azure AD)-instans.
@@ -136,10 +136,10 @@ Om du vill ha stöd för tillfälliga lösen ord i Azure AD för synkroniserade 
 `Set-ADSyncAADCompanyFeature  -ForcePasswordChangeOnLogOn $true`
 
 > [!NOTE]
-> Att tvinga en användare att ändra sina lösen ord vid nästa inloggning kräver en lösen ords ändring samtidigt.  AD Connect hämtar inte flaggan påtvinga lösen ords ändringar. Det kompletterar den identifierade lösen ords ändringen som sker under synkroniseringen av lösen ords-hash.
+> Att tvinga en användare att ändra sina lösen ord vid nästa inloggning kräver en lösen ords ändring samtidigt.  Azure AD Connect hämtar inte flaggan påtvinga ändring av lösen ord fristående. Det kompletterar den identifierade lösen ords ändringen som sker under synkroniseringen av lösen ords-hash.
 
 > [!CAUTION]
-> Om du inte aktiverar självbetjäning för återställning av lösen ord (SSPR) i Azure AD-användare får du en förvirrande upplevelse när de återställer sitt lösen ord i Azure AD och försöker sedan logga in i Active Directory med det nya lösen ordet, eftersom det nya lösen ordet inte är giltigt i Active Directory . Du bör endast använda den här funktionen när tillbakaskrivning av SSPR och lösen ord är aktiverat på klienten.
+> Du bör endast använda den här funktionen när tillbakaskrivning av SSPR och lösen ord är aktiverade på klienten.  Detta är så att om en användare ändrar sitt lösen ord via SSPR, kommer den att synkroniseras till Active Directory.
 
 > [!NOTE]
 > Den här funktionen finns nu i offentlig för hands version.

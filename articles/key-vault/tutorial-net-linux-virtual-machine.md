@@ -5,18 +5,19 @@ services: key-vault
 author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 65c59ba299490ee2bbef849b6f7354abc05ad885
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8c5b3fcc1cb2ac481be0b435c48ce213c716edde
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003344"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198175"
 ---
-# <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>Självstudier: Använd en virtuell Linux-dator och en .NET-app för att lagra hemligheter i Azure Key Vault
+# <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>Självstudie: Använd en virtuell Linux-dator och en .NET-app för att lagra hemligheter i Azure Key Vault
 
 Azure Key Vault hjälper dig att skydda hemligheter som API-nycklar och databas anslutnings strängar som behövs för att få åtkomst till dina program, tjänster och IT-resurser.
 
@@ -61,9 +62,9 @@ az login
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resurs grupp med hjälp `az group create` av kommandot. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
+Skapa en resurs grupp med hjälp av kommandot `az group create`. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
-Skapa en resurs grupp på platsen USA, västra. Välj ett namn för resurs gruppen och Ersätt `YourResourceGroupName` i följande exempel:
+Skapa en resurs grupp på platsen USA, västra. Välj ett namn för resurs gruppen och ersätt `YourResourceGroupName` i följande exempel:
 
 ```azurecli-interactive
 # To list locations: az account list-locations --output table
@@ -76,8 +77,8 @@ Du använder den här resursgruppen i hela självstudien.
 
 Skapa sedan ett nyckel valv i resurs gruppen. Ange följande information:
 
-* Nyckel valvets namn: en sträng på 3 till 24 tecken som bara får innehålla siffror, bokstäver och bindestreck (0-9, a-z, A-Z och \- ).
-* Resursgruppsnamn
+* Nyckel valvets namn: en sträng på 3 till 24 tecken som bara får innehålla siffror, bokstäver och bindestreck (0-9, a-z, A-Z och \-).
+* Namn på resursgrupp
 * Plats: **USA, västra**
 
 ```azurecli-interactive
@@ -98,9 +99,9 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 ## <a name="create-a-linux-virtual-machine"></a>Skapa en virtuell Linux-dator
 
-Skapa en virtuell dator med `az vm create` kommandot.
+Skapa en virtuell dator med kommandot `az vm create`.
 
-Följande exempel skapar virtuell dator med namnet **myVM** och lägger till ett användarkonto med namnet **azureuser**. Parametern vi använde för att automatiskt generera en SSH-nyckel och ange den på standard platsen för nycklar ( **~/.ssh**). `--generate-ssh-keys` Om du i stället vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
+Följande exempel skapar virtuell dator med namnet **myVM** och lägger till ett användarkonto med namnet **azureuser**. Parametern `--generate-ssh-keys` som vi använder för att automatiskt generera en SSH-nyckel och ange den på standard platsen för nycklar ( **~/.ssh**). Om du i stället vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -126,7 +127,7 @@ Det tar några minuter att skapa den virtuella datorn och stödresurser. Följan
 }
 ```
 
-Anteckna `publicIpAddress` i utdata från den virtuella datorn. Du använder den här adressen för att komma åt den virtuella datorn i senare steg.
+Anteckna dina `publicIpAddress` i utdata från den virtuella datorn. Du använder den här adressen för att komma åt den virtuella datorn i senare steg.
 
 ## <a name="assign-an-identity-to-the-vm"></a>Tilldela en identitet till den virtuella datorn
 
@@ -136,7 +137,7 @@ Skapa en systemtilldelad identitet till den virtuella datorn genom att köra fö
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-Utdata från kommandot ska vara:
+Resultatet av kommandot ska se ut ungefär så här:
 
 ```azurecli
 {

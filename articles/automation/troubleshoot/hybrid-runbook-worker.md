@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4d804499116631be6f922f67f8b8f6c7063a6d5c
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 137623e4c52d24061aec8ec11fca0fc02ca54c7f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030735"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190984"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Felsöka hybrid Runbook Worker
 
@@ -54,7 +54,7 @@ Datorer som kör Hybrid Runbook Worker bör uppfylla minimi kraven för maskin v
 
 Bekräfta att datorn som ska köra Hybrid Runbook Worker funktionen uppfyller minimi kraven för maskin vara. Om det gör det kan du övervaka processor-och minnes användning för att fastställa eventuella korrelationer mellan prestandan för Hybrid Runbook Worker processer och Windows. Eventuell minnes-eller processor belastning kan indikera att du behöver uppgradera resurser. Du kan också välja en annan beräknings resurs som uppfyller minimi kraven och skala när arbets belastningen kräver att en ökning är nödvändig.
 
-Kontrol lera händelse loggen för **Microsoft-SMA** för att se om en motsvarande händelse har slutförts med en beskrivning av *Win32-processen med koden [4294967295]* . Orsaken till det här felet är att du inte har konfigurerat autentisering i dina runbooks eller angett kör som-autentiseringsuppgifterna för Hybrid Worker gruppen. Granska [Runbook-behörigheter](../automation-hrw-run-runbooks.md#runbook-permissions) för att bekräfta att du har konfigurerat autentiseringen för dina runbooks korrekt.
+Kontrol lera händelse loggen för **Microsoft-SMA** för att se om en motsvarande händelse har slutförts med en beskrivning av *Win32-processen med koden [4294967295]* . Orsaken till det här felet är att du inte har konfigurerat autentisering i dina runbooks eller angett kör som-autentiseringsuppgifterna för Hybrid Runbook Worker gruppen. Granska Runbook-behörigheter i [köra Runbooks på en hybrid Runbook Worker](../automation-hrw-run-runbooks.md) för att bekräfta att du har konfigurerat autentisering för dina runbooks korrekt.
 
 ### <a name="no-cert-found"></a>Scenario: det gick inte att hitta något certifikat i certifikat arkivet på Hybrid Runbook Worker
 

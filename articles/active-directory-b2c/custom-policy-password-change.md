@@ -3,20 +3,20 @@ title: Konfigurera ändring av lösen ord med anpassade principer
 titleSuffix: Azure AD B2C
 description: Lär dig hur du gör det möjligt för användare att ändra sina lösen ord med hjälp av anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6bb4b762fead279bcc8492cb902e2059d7cfc68c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2c351f8a95110a32c53c68c5eb6095918578bc5b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848946"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189182"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera ändring av lösen ord med anpassade principer i Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76848946"
 
 I Azure Active Directory B2C (Azure AD B2C) kan du göra det möjligt för användare som är inloggade med ett lokalt konto att ändra sina lösen ord utan att behöva bevisa sin äkthet via e-postverifiering. Om sessionen upphör att gälla när användaren kommer till lösen ordet för lösen ords ändring uppmanas de att logga in igen. Den här artikeln visar hur du konfigurerar ändring av lösen ord i [anpassade principer](custom-policy-overview.md). Det är också möjligt att konfigurera [lösen ords återställning via självbetjäning](user-flow-self-service-password-reset.md) för användar flöden.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen i [Kom igång med anpassade principer i Active Directory B2C](custom-policy-get-started.md).
 
@@ -165,7 +165,7 @@ När du testar dina program i Azure AD B2C kan det vara praktiskt att ha Azure A
 
 ### <a name="upload-the-files"></a>Ladda upp filerna
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **ramverk för identitets upplevelse**.

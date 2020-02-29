@@ -3,20 +3,20 @@ title: Exempel på generella anspråk för anpassade principer
 titleSuffix: Azure AD B2C
 description: Exempel på generella anspråk för omvandlings IEF-schemat (Identity Experience Framework) för Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/03/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 98d9730168764f0ba683a246f9ac224c13d3bf31
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: afdf2f531ede30d868123d89cac94fcfae070384
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982814"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188553"
 ---
 # <a name="general-claims-transformations"></a>Allmänna anspråks omvandlingar
 
@@ -36,13 +36,13 @@ Kopiera värdet för ett anspråk till ett annat. Båda anspråk måste vara av 
 Använd den här anspråks omvandlingen för att kopiera ett värde från en sträng eller ett numeriskt anspråk till ett annat anspråk. I följande exempel kopieras värdet för externalEmail-anspråk till e-postanspråk.
 
 ```XML
-<ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim"> 
+<ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="externalEmail" TransformationClaimType="inputClaim"/>
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="email" TransformationClaimType="outputClaim"/>
-  </OutputClaims>         
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -51,7 +51,7 @@ Använd den här anspråks omvandlingen för att kopiera ett värde från en str
 - Inmatade anspråk:
     - **inputClaim**: bob@contoso.com
 - Utgående anspråk:
-    - **outputClaim**: bob@contoso.com 
+    - **outputClaim**: bob@contoso.com
 
 ## <a name="doesclaimexist"></a>DoesClaimExist
 
@@ -60,7 +60,7 @@ Kontrollerar om **inputClaim** finns eller inte och anger **outputClaim** till t
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |Alla | Det ingångs anspråk vars existens måste verifieras. |
-| OutputClaim | outputClaim | boolean | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
+| OutputClaim | outputClaim | boolesk | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
 
 Använd den här anspråks omvandlingen för att kontrol lera om det finns ett anspråk eller innehåller något värde. Returvärdet är ett booleskt värde som anger om anspråk finns. Följande exempel kontrollerar om e-postadressen finns.
 

@@ -11,18 +11,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 86401e0a827d1941b2d183d8c17371ba915c81ae
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 3700dc8755e91c35be229aaab53d47af58c80e72
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063704"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78160929"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (Universell Windows-plattform)
 
-Den här snabb starten innehåller ett kod exempel som visar hur ett Universell Windows-plattform-program (UWP) kan logga in användare med personliga konton eller arbets-och skol konton, hämta en åtkomsttoken och anropa Microsoft Graph API.
-
-![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-uwp/uwp-intro.svg)
+Den här snabb starten innehåller ett kod exempel som visar hur ett Universell Windows-plattform-program (UWP) kan logga in användare med personliga konton eller arbets-och skol konton, hämta en åtkomsttoken och anropa Microsoft Graph API. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
@@ -34,7 +32,7 @@ Den här snabb starten innehåller ett kod exempel som visar hur ett Universell 
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
 >
 > 1. Gå till fönstret ny [Azure Portal-Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs) .
-> 1. Ange ett namn för programmet och klicka på **Registrera**.
+> 1. Ange ett namn för ditt program och klicka på **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
@@ -64,22 +62,32 @@ Den här snabb starten innehåller ett kod exempel som visar hur ett Universell 
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Steg 2: Ladda ned ditt Visual Studio-projekt
 
- - [Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+> [!div renderon="docs"]
+> [Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
+> [!div class="sxs-lookup" renderon="portal"]
+> Kör projektet med Visual Studio 2019.
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Ladda ned kod exemplet]()
 
-1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
-1. Öppna projektet i Visual Studio. Du kan uppmanas att installera en UWP SDK. I så fall accepterar du.
-1. Redigera **mainpage.XAML.cs** och ersätt värdena i fältet `ClientId`:
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: appen har kon figurer ATS och är redo att köras
+> Vi har konfigurerat ditt projekt med värdena för appens egenskaper och är redo att köras. 
 
-    ```csharp
-    private const string ClientId = "Enter_the_Application_Id_here";
-    ```
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Den här snabb starten stöder Enter_the_Supported_Account_Info_Here.    
+> > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
+> #### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
+> 
+> 1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
+> 1. Öppna projektet i Visual Studio. Du kan uppmanas att installera en UWP SDK. I så fall accepterar du.
+> 1. Redigera **mainpage.XAML.cs** och ersätt värdena i fältet `ClientId`:
+>
+>    ```csharp
+>    private const string ClientId = "Enter_the_Application_Id_here";
+>    ```
 > Där:
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
 >
@@ -90,13 +98,15 @@ Den här snabb starten innehåller ett kod exempel som visar hur ett Universell 
 
 Om du vill prova snabb starten på din Windows-dator:
 
-1. I verktygsfältet Visual Studio väljer du rätt plattform (antagligen **x64** eller **x86**, inte arm).
-   > Observera att mål enheten ändras från *enheten* till den *lokala datorn*
+1. I verktygsfältet Visual Studio väljer du rätt plattform (antagligen **x64** eller **x86**, inte arm). Observera att mål enheten ändras från *enheten* till den *lokala datorn*
 1. Välj Felsök | **Starta utan fel sökning**
 
 ## <a name="more-information"></a>Mer information
 
 Det här avsnittet innehåller mer information om snabbstarten.
+
+### <a name="how-the-sample-works"></a>Så här fungerar exemplet
+![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-uwp/uwp-intro.svg)
 
 ### <a name="msalnet"></a>MSAL.NET
 

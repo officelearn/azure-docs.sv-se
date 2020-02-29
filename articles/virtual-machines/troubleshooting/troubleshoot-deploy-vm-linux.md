@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 230319471dbf62bf64ee980d84c360807687ce17
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 5a8a58a3935b7cd5efb8565f7e3278ccaae4f4de
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058217"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921444"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Felsöka distribution av problem med virtuella Linux-datorer i Azure
 
@@ -31,7 +31,7 @@ Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azu
 [!INCLUDE [virtual-machines-linux-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>Klustret har inte stöd för den begärda virtuella dator storleken
-\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
+\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
 - Gör om begäran med en mindre VM-storlek.
 - Om det inte går att ändra storleken på den begärda virtuella datorn:
     - Stoppa alla virtuella datorer i tillgänglighets uppsättningen. Klicka på **resurs grupper** > resurs gruppen > **resurser** > din tillgänglighets uppsättning > **Virtual Machines** > den virtuella datorn > **stoppa**.
@@ -40,7 +40,7 @@ Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azu
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>Det finns inga lediga resurser för klustret
-\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
+\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
 - Gör om begäran senare.
 - Om den nya virtuella datorn kan ingå i en annan tillgänglighets uppsättning
     - Skapa en virtuell dator i en annan tillgänglighets uppsättning (i samma region).
@@ -86,6 +86,7 @@ Du hittar listan i Linux på [Azure-godkända distributioner](../linux/endorsed-
 
 Ja. Du kan lägga till en befintlig klassisk virtuell dator i en ny eller befintlig tillgänglighets uppsättning. Mer information finns i [lägga till en befintlig virtuell dator i en tillgänglighets uppsättning](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/).

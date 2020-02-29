@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 089fcc89f330e47a09187b5338176bf23fd801bb
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 39e2deead1affd750d9a5e68985b02ebfe8e0efd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603762"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921308"
 ---
 # <a name="supported-platforms"></a>Plattformar som stöds 
 
@@ -126,4 +126,4 @@ Skydd för Virtual Machines som finns i Azure Stack stöds också. Mer informati
 - Lär dig hur [Security Center hanterar och skyddar data](security-center-data-security.md).
 - Lär dig att [planera och förstå design överväganden för att anta Azure Security Center](security-center-planning-and-operations-guide.md).
 - Lär dig mer om [funktioner som är tillgängliga för de olika moln miljöerna](security-center-services.md).
-- Lär dig mer om [hot identifiering för virtuella datorer & servrar i Azure Security Center](security-center-alerts-iaas.md).
+- Läs mer om [skydd mot hot för Windows-och Linux-datorer i Azure Security Center](threat-protection.md#windows-machines).

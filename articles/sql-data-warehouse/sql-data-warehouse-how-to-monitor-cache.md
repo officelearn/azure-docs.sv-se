@@ -10,28 +10,36 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 924705b7ce1d324583077797714491bdf3fc5cc9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: azure-synapse
+ms.openlocfilehash: 257b33802ea95138ef8149ef9302b14ca379e7ac
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721225"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195588"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Så här övervakar du Gen2-cachen
-Lagrings arkitekturen Gen2 använder automatiskt de mest efterfrågade columnstore-segmenten i en cache som finns på NVMe-baserade SSD som är utformade för Gen2 Data Warehouse. Bättre prestanda realiseras när dina frågor hämtar segment som finns i cacheminnet. I den här artikeln beskrivs hur du övervakar och felsöker långsamma frågeresultat genom att fastställa om din arbets belastning optimalt utnyttjar Gen2-cachen.  
+
+I den här artikeln beskrivs hur du övervakar och felsöker långsamma frågeresultat genom att fastställa om din arbets belastning optimalt utnyttjar Gen2-cachen.
+
+Lagrings arkitekturen Gen2 använder automatiskt de mest efterfrågade columnstore-segmenten i en cache som finns på NVMe-baserade SSD som är utformade för Gen2 Data Warehouse. Bättre prestanda realiseras när dina frågor hämtar segment som finns i cacheminnet.
+ 
 ## <a name="troubleshoot-using-the-azure-portal"></a>Felsöka med hjälp av Azure Portal
-Du kan använda Azure Monitor för att Visa Gen2-cache-mått för att felsöka frågans prestanda. Gå först till Azure Portal och klicka på övervakaren:
 
-![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache_0.png)
+Du kan använda Azure Monitor för att Visa Gen2-cache-mått för att felsöka frågans prestanda. Gå först till Azure Portal och klicka på **övervakaren**, **mått** och **+ Välj ett omfång**:
 
-Välj knappen mått och fyll i data lagrets **prenumeration**, **resurs** **grupp**, **resurs typ**och **resurs namn** .
+![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache-0.png)
 
-Nyckel måtten för fel sökning av Gen2-cachen är **cache träff procent** och **cache som används i procent**. Konfigurera Azure Metric-diagrammet så att de här två måtten visas.
+Använd Sök-och list fälten för att hitta ditt informations lager. Välj sedan Använd.
 
-![Cache-mått](./media/sql-data-warehouse-cache-portal/cache_1.png)
+![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache-1.png)
 
+Nyckel måtten för fel sökning av Gen2-cachen är **cache träff procent** och **cache som används i procent**. Välj **procent andels träff i procent** och Använd sedan knappen **Lägg till mått** för att lägga till **cache-använt procent**. 
+
+![Cache-mått](./media/sql-data-warehouse-cache-portal/cache-2.png)
 
 ## <a name="cache-hit-and-used-percentage"></a>Cacheträffar och Använd procent andel
+
 I matrisen nedan beskrivs scenarier som baseras på värdena för cache-måtten:
 
 |                                | **Procent andel vid hög cacheträffar** | **Procent andel låg cacheträffar** |

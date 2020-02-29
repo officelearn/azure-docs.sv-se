@@ -3,20 +3,20 @@ title: Konfigurera inloggning med ett konto med Microsoft-konto genom att använ
 titleSuffix: Azure AD B2C
 description: Använda anpassade principer för att aktivera Microsoft-konto (MSA) som en identitetsprovider med OpenID Connect-protokollet (OIDC).
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f4265659df786cf0a972b6dcf4f122bfc68535c1
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b7d8fbddc86c0d05d7b0d4ce46cb06c5fc92a2cf
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483286"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188128"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med en Microsoft-konto att använda anpassade principer i Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Den här artikeln visar hur du aktiverar inloggning för användare från en Mic
 
 Om du vill aktivera inloggning för användare med en Microsoft-konto måste du registrera ett program i Azure AD-klienten. Azure AD-klienten är inte samma som din Azure AD B2C klient.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ny registrering**.
@@ -51,7 +51,7 @@ Om du vill aktivera inloggning för användare med en Microsoft-konto måste du 
 
 Om du vill hämta `family_name`-och `given_name`-anspråk från Azure AD kan du konfigurera valfria anspråk för ditt program i Azure Portal användar gränssnitt eller applikations manifest. Mer information finns i [så här ger du valfria anspråk till din Azure AD-App](../active-directory/develop/active-directory-optional-claims.md).
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Sök efter och välj **Azure Active Directory**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Sök efter och välj **Azure Active Directory**.
 1. I avsnittet **Hantera** väljer du **Appregistreringar**.
 1. Välj det program som du vill konfigurera valfria anspråk för i listan.
 1. I avsnittet **Hantera** väljer du **konfiguration av token (för hands version)** .
@@ -64,7 +64,7 @@ Om du vill hämta `family_name`-och `given_name`-anspråk från Azure AD kan du 
 
 Nu när du har skapat programmet i din Azure AD-klient måste du lagra programmets klient hemlighet i din Azure AD B2C klient.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
 1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 1. På sidan Översikt väljer du **ID för identitets miljö**.

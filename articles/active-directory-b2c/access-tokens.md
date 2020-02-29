@@ -2,20 +2,20 @@
 title: Begär en åtkomsttoken – Azure Active Directory B2C | Microsoft Docs
 description: Lär dig hur du begär en åtkomsttoken från Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d808bca17012d46d1c32658ec0069ca2e2e6a3ac
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 8358d3378ea892ebeef653bcb51243c9f1aa0b8d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962041"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184425"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Begär en åtkomsttoken i Azure Active Directory B2C
 
@@ -24,9 +24,9 @@ En *åtkomsttoken* innehåller anspråk som du kan använda i Azure Active Direc
 Den här artikeln visar hur du begär en åtkomsttoken för ett webb program och webb-API. Mer information om tokens i Azure AD B2C finns i [Översikt över tokens i Azure Active Directory B2C](tokens-overview.md).
 
 > [!NOTE]
-> **Webb-API:ets kedjor (On-Behalf-Of) stöds inte av Azure AD B2C.** – Många arkitekturer innehåller ett webb-API som måste anropa ett annat underordnat webb-API, som båda skyddas av Azure AD B2C. Det här scenariot är vanligt i klienter som har en server del för webb-API, som i sin tur anropar en annan tjänst. Det här scenariot med länkade webb-API:er kan användas med hjälp av "OAuth 2.0 JWT Bearer Credential grant", även kallat On-Behalf-Of-flöde. Dock är On-Behalf-Of-flödet inte implementerat i Azure AD B2C.
+> **Webb-API-kedjor (på-plats-av) stöds inte av Azure AD B2C.** – Många arkitekturer innehåller ett webb-API som måste anropa ett annat underordnat webb-API, som båda skyddas av Azure AD B2C. Det här scenariot är vanligt i klienter som har en server del för webb-API, som i sin tur anropar en annan tjänst. Det här scenariot med länkade webb-API:er kan användas med hjälp av "OAuth 2.0 JWT Bearer Credential grant", även kallat On-Behalf-Of-flöde. Dock är On-Behalf-Of-flödet inte implementerat i Azure AD B2C.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa ett användar flöde](tutorial-create-user-flows.md) så att användarna kan registrera sig och logga in i programmet.
 - Om du inte redan har gjort det [lägger du till ett webb-API-program till din Azure Active Directory B2C-klient](add-web-application.md).

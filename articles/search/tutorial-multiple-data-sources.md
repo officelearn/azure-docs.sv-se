@@ -7,21 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/23/2019
-ms.openlocfilehash: aac5dc300009ec682ef1599ad654415f5c4ad190
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 02/28/2020
+ms.openlocfilehash: 6408689deec7de365ede86665a0eaeb0bd0de64b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495014"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196577"
 ---
-# <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-cognitive-search-index"></a>C#Självstudie: kombinera data från flera data källor i ett Azure Kognitiv sökning-index
+# <a name="tutorial-index-data-from-multiple-data-sources-in-c"></a>Självstudie: indexera data från flera data källor iC#
 
 Azure Kognitiv sökning kan importera, analysera och indexera data från flera data källor till ett enda kombinerat Sök index. Detta stöder situationer där strukturerade data sammanställs med mindre strukturerade eller udda text data från andra källor, t. ex. text-, HTML-eller JSON-dokument.
 
 I den här självstudien beskrivs hur du kan indexera hotell data från en Azure Cosmos DB data källa och slå samman med information om hotell rums information från Azure Blob Storage dokument. Resultatet blir ett kombinerat hotell Sök index som innehåller komplexa data typer.
 
-I den här C#självstudien använder vi .NET SDK för Azure Kognitiv sökning och Azure Portal för att utföra följande uppgifter:
+I den här C# självstudien används och [.NET SDK](https://aka.ms/search-sdk) för att utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Ladda upp exempel data och skapa data källor
@@ -30,19 +30,19 @@ I den här C#självstudien använder vi .NET SDK för Azure Kognitiv sökning oc
 > * Indexera hotell data från Azure Cosmos DB
 > * Slå samman hotell rums data från Blob Storage
 
-## <a name="prerequisites"></a>Krav
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Följande tjänster, verktyg och data används i den här snabb starten. 
+## <a name="prerequisites"></a>Förutsättningar
 
-- [Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här självstudien.
++ [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal)
++ [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Visual Studio 2019](https://visualstudio.microsoft.com/)
++ [Skapa](search-create-service-portal.md) eller [hitta en befintlig Sök tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
-- [Skapa ett Azure Cosmos DB-konto](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) för att lagra exempel på hotell data.
+> [!Note]
+> Du kan använda den kostnads fria tjänsten för den här självstudien. En kostnads fri Sök tjänst begränsar dig till tre index, tre indexerare och tre data källor. I den här kursen skapar du en av varje. Innan du börjar bör du kontrol lera att du har utrymme på tjänsten för att godkänna de nya resurserna.
 
-- [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) för att lagra exempel rummets data.
-
-- [Installera Visual Studio 2019](https://visualstudio.microsoft.com/) för användning som IDE.
-
-### <a name="install-the-project-from-github"></a>Installera projektet från GitHub
+## <a name="download-files"></a>Hämta filer
 
 1. Leta upp exempel lagrings platsen på GitHub: [Azure-Search-dotNet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 1. Välj **klona eller ladda ned** och gör din privata lokala kopia av lagrings platsen.
@@ -98,7 +98,7 @@ I det här exemplet används två små uppsättningar med data som beskriver sju
 
 1. När behållaren har skapats öppnar du den och väljer **Ladda upp** i kommando fältet. Navigera till mappen som innehåller exempelfilerna. Markera alla och klicka sedan på **överför**.
 
-   ![Överföra filer](media/tutorial-multiple-data-sources/blob-upload.png "Ladda upp filer")
+   ![Överföra filer](media/tutorial-multiple-data-sources/blob-upload.png "Överföra filer")
 
 När uppladdningen är klar ska filerna visas i listan för data containern.
 
@@ -340,13 +340,23 @@ I Azure Portal öppnar du **översikts** sidan Sök tjänst och letar upp **hote
 
 Klicka på hotell-rum-exempel index i listan. Ett Sök Utforskaren-gränssnitt visas för indexet. Ange en fråga för en term som "lyxen". Du bör se minst ett dokument i resultatet och det här dokumentet ska innehålla en lista över rums objekt i matrisen för rummen.
 
+## <a name="reset-and-rerun"></a>Återställa och köra igen
+
+I de tidiga experiment stegen i utvecklingen är den mest praktiska metoden för design upprepning att ta bort objekten från Azure Kognitiv sökning och tillåta att koden återskapas. Resursnamn är unika. Om du tar bort ett objekt kan du återskapa det med samma namn.
+
+Exempel koden för den här självstudien kontrollerar om det finns befintliga objekt och tar bort dem så att du kan köra koden igen.
+
+Du kan också använda portalen för att ta bort index, indexerare och data källor.
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Det snabbaste sättet att rensa efter en själv studie kurs är att ta bort resurs gruppen som innehåller Azure Kognitiv sökning-tjänsten. Du kan ta bort resursgruppen nu så att allt innehåll i den tas bort permanent. I portalen finns resurs gruppens namn på sidan Översikt i Azure Kognitiv sökning-tjänsten.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
+
+Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det finns flera metoder och flera alternativ för att indexera JSON-blobbar. Om dina källdata innehåller JSON-innehåll kan du granska de här alternativen för att se vad som passar bäst för ditt scenario.
+Nu när du är bekant med konceptet för att mata in data från flera källor tar vi en närmare titt på indexerings konfigurationen, från och med Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Så här indexerar du JSON-blobbar med Azure Kognitiv sökning BLOB-indexeraren](search-howto-index-json-blobs.md)
+> [Konfigurera en Azure Cosmos DB indexerare](search-howto-index-cosmosdb.md)

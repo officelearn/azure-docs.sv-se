@@ -3,20 +3,20 @@ title: Konfigurera inloggning med ett Twitter-konto genom att använda anpassade
 titleSuffix: Azure AD B2C
 description: Konfigurera inloggning med ett Twitter-konto genom att använda anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bae7a235ee42ca02dc72fcbc8d9a694321571ac4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 85af3457f83f06c107f8b4aa9bd88a9f915c776f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849570"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187941"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett Twitter-konto genom att använda anpassade principer i Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76849570"
 
 Den här artikeln visar hur du aktiverar inloggning för användare av ett Twitter-konto genom att använda [anpassade principer](custom-policy-overview.md) i Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md).
 - Om du inte redan har ett Twitter-konto skapar du ett på [Twitter-registrerings sidan](https://twitter.com/signup).
@@ -46,7 +46,7 @@ Om du vill använda Twitter som identitets leverantör i Azure AD B2C måste du 
 
 Du måste lagra den hemliga nyckeln som du tidigare har registrerat i Azure AD B2C-klienten.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer du **ID för identitets miljö**.

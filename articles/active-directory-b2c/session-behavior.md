@@ -2,20 +2,20 @@
 title: Konfigurera sessionens beteende – Azure Active Directory B2C | Microsoft Docs
 description: Konfigurera sessionens beteende i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6147dc64833f44f24afe14cd1da34432a3735519
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c1d39fdbca9484f47ce0c8537c82247b75b2e3db
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840238"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186819"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Konfigurera sessionens beteende i Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Följande användnings fall är aktiverade med följande egenskaper:
 
 ## <a name="configure-the-properties"></a>Konfigurera egenskaperna
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD B2C-klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **användar flöden (principer)** .
@@ -58,4 +58,4 @@ Följande användnings fall är aktiverade med följande egenskaper:
 
     ![Inställningar för sessionens beteende egenskap i Azure Portal](./media/session-behavior/session-behavior.png)
 
-8. Klicka på **Spara**.
+8. Klicka på **Save** (Spara).

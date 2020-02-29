@@ -3,26 +3,26 @@ title: 'Självstudie: aktivera autentisering i en app med en enda sida'
 titleSuffix: Azure AD B2C
 description: I den här självstudien får du lära dig hur du använder Azure Active Directory B2C för att tillhandahålla användar inloggning för ett JavaScript-baserat program med en sida (SPA).
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/14/2019
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: f66d8e229535346525f117d8ebbfb37b893fe022
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 435800d9c6bfd9131d50681a9808f9836104fac0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850001"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183354"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>Självstudie: aktivera autentisering i ett program med en enda sida med hjälp av Azure Active Directory B2C (Azure AD B2C)
 
 Den här självstudien visar hur du använder Azure Active Directory B2C (Azure AD B2C) för att logga in och registrera användare i ett enda webb program (SPA). Med Azure AD B2C kan program autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med hjälp av öppna standardprotokoll.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Uppdatera programmet i Azure AD B2C
@@ -31,7 +31,7 @@ I den här guiden får du lära dig hur man:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande Azure AD B2C resurser på plats innan du fortsätter med stegen i den här självstudien:
 
@@ -51,9 +51,9 @@ I den andra själv studie kursen som du avslutade som en del av förutsättninga
 
 Du kan använda den aktuella **program** upplevelsen eller vår nya enhetliga **Appregistreringar (för hands version)** för att uppdatera programmet. [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
 
-#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+#### <a name="applications"></a>[Program](#tab/applications/)
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Azure AD B2C**.
 1. Välj **Program** och därefter programmet *webapp1*.
@@ -61,9 +61,9 @@ Du kan använda den aktuella **program** upplevelsen eller vår nya enhetliga **
 1. Välj **Spara**.
 1. På sidan Egenskaper registrerar du **program-ID: t**. Du använder app-ID i ett senare steg när du uppdaterar koden i webb programmet med en sida.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Välj **Appregistreringar (för hands version)** , Välj fliken **ägda program** och välj sedan *webapp1* -programmet.
@@ -109,7 +109,7 @@ Nu när du har hämtat exemplet uppdaterar du koden med ditt Azure AD B2C klient
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
-1. Öppna ett konsol fönster och ändra till den katalog som innehåller exemplet. Ett exempel:
+1. Öppna ett konsol fönster och ändra till den katalog som innehåller exemplet. Några exempel:
 
     ```console
     cd active-directory-b2c-javascript-msal-singlepageapp

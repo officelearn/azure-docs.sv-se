@@ -3,20 +3,20 @@ title: Konfigurera inloggning med ett LinkedIn-konto genom att använda anpassad
 titleSuffix: Azure AD B2C
 description: Konfigurera inloggning med ett LinkedIn-konto i Azure Active Directory B2C att använda anpassade principer.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f4ad74104d34e7e2c3f4d6aafc05b36574f8e287
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 80bd1b65d04ea49fc742033e1850d95a85021c9f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847438"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188179"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett LinkedIn-konto med anpassade principer i Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76847438"
 
 Den här artikeln visar hur du aktiverar inloggning för användare från ett LinkedIn-konto genom att använda [anpassade principer](custom-policy-overview.md) i Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md).
 - LinkedIn-konto – om du inte redan har ett [konto kan du skapa ett konto](https://www.linkedin.com/start/join).
@@ -60,7 +60,7 @@ Om du vill använda LinkedIn som identitets leverantör i Azure AD B2C måste du
 
 Du måste lagra klient hemligheten som du tidigare registrerade i Azure AD B2C-klienten.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer du **ID för identitets miljö**.
@@ -77,7 +77,7 @@ Om du vill att användarna ska logga in med ett LinkedIn-konto måste du definie
 
 Definiera ett LinkedIn-konto som en anspråks leverantör genom att lägga till det i **ClaimsProviders** -elementet i principens tilläggs fil.
 
-1. Öppna filen *SocialAndLocalAccounts/ **TrustFrameworkExtensions. XML*** i redigeraren. Den här filen finns i det [Start paket för anpassad princip][starter-pack] som du laddade ned som en del av en av kraven.
+1. Öppna filen *SocialAndLocalAccounts/* * TrustFrameworkExtensions. XML** * i redigeraren. Den här filen finns i det [Start paket för anpassad princip][starter-pack] som du laddade ned som en del av en av kraven.
 1. Hitta **ClaimsProviders** -elementet. Om den inte finns lägger du till den under rot elementet.
 1. Lägg till en ny **ClaimsProvider** enligt följande:
 
@@ -246,7 +246,7 @@ I det befintliga **metadata** -elementet i **TechnicalProfile**uppdaterar du fö
 <Item Key="scope">r_emailaddress r_basicprofile</Item>
 ```
 
-Att
+Till:
 
 ```XML
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
@@ -272,7 +272,7 @@ I den befintliga **OutputClaims** av **TechnicalProfile**uppdaterar du följande
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
 ```
 
-Att
+Till:
 
 ```XML
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />

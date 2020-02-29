@@ -3,20 +3,20 @@ title: Definiera en teknisk profil för anspråks omvandling
 titleSuffix: Azure AD B2C
 description: Definiera en teknisk profil för anspråks omvandling i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/13/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fbc1d59ac401adedcf897d0c16edb6904c89acc3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 84c1cf798e88e4067da8a495c1591143d2ee1bd0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77193451"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189794"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för anspråks omvandling i en Azure Active Directory B2C anpassad princip
 
@@ -102,7 +102,7 @@ Den tekniska profilen för anspråks omvandling gör att du kan köra en ansprå
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | IncludeClaimResolvingInClaimsHandling  | Nej | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true`eller `false` (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true`. |
 

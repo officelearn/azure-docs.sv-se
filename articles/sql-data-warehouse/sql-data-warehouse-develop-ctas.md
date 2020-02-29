@@ -1,6 +1,6 @@
 ---
 title: CREATE TABLE SOM SELECT (CTAS)
-description: Förklaring och exempel på instruktionen CREATE TABLE AS SELECT (CTAS) i Azure SQL Data Warehouse för att utveckla lösningar.
+description: Förklaring och exempel på instruktionen CREATE TABLE AS SELECT (CTAS) i SQL Analytics för utveckling av lösningar.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,17 +10,17 @@ ms.subservice: development
 ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seoapril2019
-ms.openlocfilehash: 4992bb00fa5397ef6a4e055e08b445d35f5ed77a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 09a543ac4b4f77f0c7b7efd2411b962fa9fa2769
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685860"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195914"
 ---
-# <a name="create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>CREATE TABLE som SELECT (CTAS) i Azure SQL Data Warehouse
+# <a name="create-table-as-select-ctas-in-sql-analytics"></a>CREATE TABLE AS SELECT (CTAS) i SQL Analytics
 
-I den här artikeln beskrivs instruktionen CREATE TABLE AS SELECT (CTAS) T-SQL i Azure SQL Data Warehouse för utveckling av lösningar. Artikeln innehåller också kod exempel.
+I den här artikeln beskrivs CREATE TABLE AS SELECT (CTAS) T-SQL-instruktionen i SQL Analytics för utveckling av lösningar. Artikeln innehåller också kod exempel.
 
 ## <a name="create-table-as-select"></a>CREATE TABLE SOM VÄLJ
 
@@ -38,7 +38,7 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-Välj... I kan du inte ändra antingen distributions metoden eller index typen som en del av åtgärden. Du skapar `[dbo].[FactInternetSales_new]` med standard distributions typen ROUND_ROBIN och standard tabell strukturen för GRUPPERat COLUMNSTORE-INDEX.
+Välj... I kan du inte ändra antingen distributions metoden eller index typen som en del av åtgärden. Du skapar `[dbo].[FactInternetSales_new]` med hjälp av standard distributions typen ROUND_ROBIN och standard tabell strukturen för GRUPPERat COLUMNSTORE-INDEX.
 
 Med CTAS kan du å andra sidan Ange både distributionen av tabell data och tabell struktur typ. Så här konverterar du det föregående exemplet till CTAS:
 
@@ -123,7 +123,7 @@ DROP TABLE FactInternetSales_old;
 
 ## <a name="use-ctas-to-work-around-unsupported-features"></a>Använd CTAS för att arbeta runt funktioner som inte stöds
 
-Du kan också använda CTAS för att arbeta runt ett antal funktioner som inte stöds i listan nedan. Den här metoden kan ofta vara användbar, eftersom inte bara är din kod kompatibel, men den körs ofta snabbare på SQL Data Warehouse. Den här prestandan är resultatet av dess helt parallella design. Scenarierna är:
+Du kan också använda CTAS för att arbeta runt ett antal funktioner som inte stöds i listan nedan. Den här metoden kan ofta vara användbar, eftersom inte bara är din kod kompatibel, men den körs ofta snabbare i SQL Analytics. Den här prestandan är resultatet av dess helt parallella design. Scenarierna är:
 
 * ANSI-kopplingar vid uppdateringar
 * ANSI-kopplingar vid borttagningar
@@ -174,7 +174,7 @@ ON    [acs].[EnglishProductCategoryName]    = [fis].[EnglishProductCategoryName]
 AND    [acs].[CalendarYear]                = [fis].[CalendarYear];
 ```
 
-SQL Data Warehouse stöder inte ANSI-kopplingar i `FROM`-satsen i ett `UPDATE`-uttryck, så du kan inte använda föregående exempel utan att ändra det.
+SQL Analytics stöder inte ANSI-kopplingar i `FROM`-satsen i en `UPDATE`-instruktion, så du kan inte använda föregående exempel utan att ändra det.
 
 Du kan använda en kombination av en CTAS och en implicit koppling för att ersätta föregående exempel:
 
@@ -208,7 +208,7 @@ DROP TABLE CTAS_acs;
 
 ## <a name="ansi-join-replacement-for-delete-statements"></a>ANSI Join-ersättning för Delete-instruktioner
 
-Ibland är den bästa metoden för att ta bort data att använda CTAS, särskilt för `DELETE`-uttryck som använder ANSI Join-syntax. Detta beror på att SQL Data Warehouse inte stöder ANSI-kopplingar i `FROM`-satsen i ett `DELETE`-uttryck. I stället för att ta bort data väljer du de data som du vill behålla.
+Ibland är den bästa metoden för att ta bort data att använda CTAS, särskilt för `DELETE`-uttryck som använder ANSI Join-syntax. Detta beror på att SQL Analytics inte stöder ANSI-kopplingar i `FROM`-satsen i en `DELETE`-instruktion. I stället för att ta bort data väljer du de data som du vill behålla.
 
 Följande är ett exempel på en konverterad `DELETE`-instruktion:
 
@@ -330,7 +330,7 @@ AS
 SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 ```
 
-Observera följande:
+Tänk på följande:
 
 * Du kan använda CAST eller CONVERT.
 * Använd ISNULL, inte sammanslagning, för att tvinga NULL. Se följande anmärkning.
@@ -412,7 +412,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 Du kan se att typ konsekvens och underhåll egenskaper för null i en CTAS är en metod för bästa praxis. Det hjälper till att upprätthålla integriteten i dina beräkningar och säkerställer också att partition växling är möjlig.
 
-CTAS är en av de viktigaste satserna i SQL Data Warehouse. Se till att du förstår den noggrant. Se [CTAs-dokumentationen](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
+CTAS är en av de viktigaste uttrycken i SQL Analytics. Se till att du förstår den noggrant. Se [CTAs-dokumentationen](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
 
 ## <a name="next-steps"></a>Nästa steg
 

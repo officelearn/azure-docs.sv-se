@@ -3,20 +3,20 @@ title: Lägg till anspråk och anpassa användarindata i anpassade principer
 titleSuffix: Azure AD B2C
 description: Lär dig hur du anpassar användarindata och lägger till anspråk till inloggnings-eller inloggnings resan i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ebbc0c8ac067635d31714468f1aee047b3683eb0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 737f373fb71494492f633d3297463cbef797f3d6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846983"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189556"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till anspråk och anpassa användarindata med anpassade principer i Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76846983"
 
 I den här artikeln lägger du till en ny användardefinierad post (ett anspråk) till din inloggnings användar resa i Azure Active Directory B2C (Azure AD B2C).  Du konfigurerar posten som en listruta och definierar om det krävs.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen i artikeln [komma igång med anpassade principer](custom-policy-get-started.md). Testa inloggnings-eller inloggnings användar resan och registrera ett nytt lokalt konto innan du fortsätter.
 
@@ -261,7 +261,7 @@ Följande element används för att definiera anspråket:
 
 ## <a name="test-the-custom-policy"></a>Testa den anpassade principen
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
 3. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 4. Välj **ramverk för identitets upplevelse (för hands version)** .

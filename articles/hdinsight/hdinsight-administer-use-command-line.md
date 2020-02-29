@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 12/06/2019
-ms.openlocfilehash: 81bc632f1061f0ee73d2295cafa5f7a8472d20ee
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.date: 02/26/2020
+ms.openlocfilehash: 2c6495454e5ba2449d4b3c74a096681f74610813
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951810"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199469"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Hantera Azure HDInsight-kluster med Azure CLI
 
@@ -23,7 +23,7 @@ Lär dig hur du använder [Azure CLI](https://docs.microsoft.com/cli/azure/?view
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installerar Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) cli.
 
@@ -82,10 +82,10 @@ az group delete --name RESOURCE_GROUP_NAME
 
 ## <a name="scale-clusters"></a>Skala kluster
 
-Använd [AZ HDInsight ändra storlek](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) för att ändra storlek på det angivna HDInsight-klustret till den angivna storleken. Redigera kommandot nedan genom att ersätta `RESOURCE_GROUP_NAME`och `CLUSTER_NAME` med relevant information. Ersätt `TARGET_INSTANCE_COUNT` med det önskade antalet arbetsnoder för klustret. Mer information om hur du skalar kluster finns i [skala HDInsight-kluster](./hdinsight-scaling-best-practices.md). Ange kommandot:
+Använd [AZ HDInsight ändra storlek](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) för att ändra storlek på det angivna HDInsight-klustret till den angivna storleken. Redigera kommandot nedan genom att ersätta `RESOURCE_GROUP_NAME`och `CLUSTER_NAME` med relevant information. Ersätt `WORKERNODE_COUNT` med det önskade antalet arbetsnoder för klustret. Mer information om hur du skalar kluster finns i [skala HDInsight-kluster](./hdinsight-scaling-best-practices.md). Ange kommandot:
 
 ```azurecli-interactive
-az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --target-instance-count TARGET_INSTANCE_COUNT
+az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --workernode-count WORKERNODE_COUNT
 ```
 
 ## <a name="next-steps"></a>Nästa steg

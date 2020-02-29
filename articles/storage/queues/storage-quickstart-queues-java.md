@@ -7,12 +7,12 @@ ms.date: 12/4/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 2bbd66257e1ccd81f1dac7d775b4dd6ccc39189a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9cfedd322db721156584844e949724ab2d104968
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75473138"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199809"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Snabb start: Azure Queue Storage klient bibliotek V12 för Java
 
@@ -27,9 +27,9 @@ Använd klient biblioteket för Azure Queue Storage-V12 för Java för att:
 * Ta emot och ta bort meddelanden från en kö
 * Ta bort en kö
 
-[API Reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [Library Source Code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | [Package (maven) | -](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) [exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples)
+[API Reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [Library Source Code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | [Package (maven) | -](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) [exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) version 8 eller senare
 * [Apache Maven](https://maven.apache.org/download.cgi)
@@ -160,7 +160,7 @@ Använd följande Java-klasser för att interagera med dessa resurser:
 * [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html): klassen `QueueClient` gör att du kan hantera och ändra en enskild kö och dess meddelanden.
 * [QueueMessageItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/QueueMessageItem.html): klassen `QueueMessageItem` representerar de enskilda objekt som returneras när [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-) anropas i en kö.
 
-## <a name="code-examples"></a>Kodexempel
+## <a name="code-examples"></a>Kod exempel
 
 I de här exempel kods tycken visar vi hur du utför följande åtgärder med klient biblioteket för Azure Queue Storage för java:
 

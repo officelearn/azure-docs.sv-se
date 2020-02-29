@@ -3,20 +3,20 @@ title: Använda AppAuth i ett iOS-program
 titleSuffix: Azure AD B2C
 description: Så här skapar du en iOS-app som använder AppAuth med Azure Active Directory B2C för att hantera användar identiteter och autentisera användare.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5433867b0676ffa644160251c9aacd81ba04dda7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c659280ebc8c91b53cbc3a176c84397edd942c23
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848361"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186836"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Logga in med ett iOS-program
 
@@ -133,4 +133,4 @@ Om du vill konfigurera ditt program för att hantera omdirigeringen till URI: n 
 
 Läs AppAuth- [guiden](https://openid.github.io/AppAuth-iOS/) om hur du Slutför resten av processen. Om du snabbt behöver komma igång med en fungerande app kan du kolla [in exemplet](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Följ stegen i [Readme.MD](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) för att ange din egen Azure AD B2C konfiguration.
 
-Vi är alltid öppna för återkoppling och förslag! Om du har problem med den här artikeln eller har rekommendationer för att förbättra det här innehållet, skulle vi uppskatta din feedback längst ned på sidan. För förfrågningar om ny funktionalitet, vänligen lägg till dem i [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Vi är alltid öppna för återkoppling och förslag! Om du har problem med den här artikeln eller har rekommendationer för att förbättra det här innehållet, skulle vi uppskatta din feedback längst ned på sidan. För funktions begär Anden lägger du till dem i [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).

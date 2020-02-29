@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skapa ett lager – Azure PowerShell'
-description: Skapa snabbt en SQL Database logisk server, brand Väggs regel på server nivå och data lager med Azure PowerShell.
+title: 'Snabb start: skapa ett informations lager (PowerShell)'
+description: Skapa snabbt en logisk server för Azure Synapse Analytics-data lagret med en brand Väggs regel på server nivå med hjälp av Azure PowerShell.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,22 +10,24 @@ ms.subservice: development
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 94dcc0dee5dd4fe81eb5ce067d7ace31edeca353
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 9df9b4b1bdb33a856d9e31d65981e8654af049d2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461522"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200013"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Snabb start: skapa och skicka frågor till en Azure SQL Data Warehouse med Azure PowerShell
+# <a name="quickstart-create--query-a-data-warehouse-with-azure-powershell"></a>Snabb start: skapa & fråga ett informations lager med Azure PowerShell
 
-Skapa snabbt en Azure SQL Data Warehouse med hjälp av Azure PowerShell.
+Skapa ett informations lager för Azure Synapse Analytics genom att tillhandahålla en SQL-pool med hjälp av Azure PowerShell.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 > [!NOTE]
-> Att skapa ett SQL Data Warehouse kan resultera i en ny fakturerbar tjänst.  Mer information finns på [prissidan för SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Att skapa ett lager kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -68,7 +70,7 @@ $password = "ChangeYourAdminPassword1"
 $startip = "0.0.0.0"
 $endip = "0.0.0.0"
 # The database name
-$databasename = "mySampleDataWarehosue"
+$databasename = "mySampleDataWarehouse"
 ```
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
@@ -78,6 +80,7 @@ Skapa en [Azure-resurs grupp](../azure-resource-manager/management/overview.md) 
 ```powershell
 New-AzResourceGroup -Name $resourcegroupname -Location $location
 ```
+
 ## <a name="create-a-logical-server"></a>Skapa en logisk server
 
 Skapa en [logisk Azure SQL-Server](../sql-database/sql-database-logical-servers.md) med kommandot [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) . En logisk server innehåller en uppsättning databaser som hanteras som en grupp. I följande exempel skapas en slumpmässigt namngiven server i resurs gruppen med en administratörs användare med namnet `ServerAdmin` och ett lösen ord för `ChangeYourAdminPassword1`. Ersätt dessa fördefinierade värden efter behov.
@@ -100,7 +103,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> SQL Database och SQL Data Warehouse kommunicera via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 bli nekad av nätverkets brandvägg. I så fall kan du inte ansluta till din Azure SQL-Server om inte din IT-avdelning öppnar port 1433.
+> SQL-slutpunkter kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 bli nekad av nätverkets brandvägg. I så fall kan du inte ansluta till din Azure SQL-Server om inte din IT-avdelning öppnar port 1433.
 >
 
 
@@ -121,10 +124,10 @@ New-AzSqlDatabase `
 Erfordrade parametrar är:
 
 * **RequestedServiceObjectiveName**: mängden [data lager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) som du begär. Om du ökar värdet ökar beräknings kostnaden. En lista över värden som stöds finns i [minnes-och samtidiga gränser](memory-concurrency-limits.md).
-* **Databasename**: namnet på SQL Data Warehouse som du skapar.
+* **Databasename**: namnet på det informations lager som du skapar.
 * **Server**namn: namnet på den server som du använder för att skapa.
 * **ResourceGroupName**: resurs gruppen som du använder. Använd Get-AzureResource för att hitta tillgängliga resursgrupper i din prenumeration.
-* **Version**: Måste vara ”DataWarehouse” för att skapa ett SQL Data Warehouse.
+* **Utgåva**: måste vara "DataWarehouse" för att skapa ett informations lager.
 
 Valfria parametrar är:
 
@@ -148,6 +151,6 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du skapat ett informations lager, skapat en brand Väggs regel, anslutit till ditt data lager och kört några frågor. Om du vill veta mer om Azure SQL Data Warehouse kan fortsätta med självstudiekursen om att läsa in data.
+Nu har du skapat ett informations lager, skapat en brand Väggs regel, anslutit till ditt data lager och kört några frågor. Om du vill veta mer kan du fortsätta till självstudien för att läsa in data.
 > [!div class="nextstepaction"]
->[Läs in data i en SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Läs in data i ett informations lager](load-data-from-azure-blob-storage-using-polybase.md)

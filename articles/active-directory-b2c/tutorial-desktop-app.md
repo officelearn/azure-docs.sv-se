@@ -3,26 +3,26 @@ title: 'Självstudie: autentisera användare i ett internt klient program'
 titleSuffix: Azure AD B2C
 description: Självstudiekurs som lär dig hur du använder Azure Active Directory B2C för att tillhandahålla användarinloggning i ett .NET-program.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/12/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 4c271a750719f475a859f9a492009bfaf74da869
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 06d27c3a3daa4702653a2063d0ac70fd094e2d74
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850008"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186207"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>Självstudie: autentisera användare i en intern Skriv bords klient med hjälp av Azure Active Directory B2C
 
 Den här självstudien visar hur du använder Azure Active Directory B2C (Azure AD B2C) för att logga in och registrera användare i en Windows Presentation Foundation (WPF) Desktop-program. Med Azure AD B2C kan program autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med hjälp av öppna standardprotokoll.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Lägga till det interna klientprogrammet
@@ -31,7 +31,7 @@ I den här guiden får du lära dig hur man:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa användarflöden](tutorial-create-user-flows.md) för att möjliggöra användarupplevelser i programmet.
 - Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med **.net Desktop development** **-och ASP.net-och webb utvecklings** arbets belastningar.
@@ -61,7 +61,7 @@ Så här uppdaterar du programmet så att det fungerar med din Azure AD B2C klie
     private static readonly string ClientId = "{application-ID}";
     ```
 
-3. Uppdatera variablerna för princip namn med namnen på de användar flöden som du skapade som en del av förutsättningarna. Ett exempel:
+3. Uppdatera variablerna för princip namn med namnen på de användar flöden som du skapade som en del av förutsättningarna. Några exempel:
 
     ```csharp
     public static string PolicySignUpSignIn = "B2C_1_signupsignin1";

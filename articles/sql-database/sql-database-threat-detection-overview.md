@@ -10,22 +10,23 @@ ms.topic: conceptual
 author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
-ms.date: 03/31/2019
-ms.openlocfilehash: d09cc202c3f7e18358ec693d1cfe4bd2648811ba
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/05/2020
+tags: azure-synapse
+ms.openlocfilehash: 473c58fa5097c4f4e318543c59ad1cf3a3899594
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820702"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194095"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Advanced Threat Protection för Azure SQL Database
 
-Avancerat skydd för [Azure SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.
+Avancerat skydd för [Azure SQL Database](sql-database-technical-overview.md) och [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.
 
 Avancerat skydd är en del av erbjudandet för [Avancerad data säkerhet](sql-database-advanced-data-security.md) (Ads), som är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. Avancerat skydd kan nås och hanteras via den centrala SQL ADS-portalen.
 
 > [!NOTE]
-> Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
+> Det här avsnittet gäller för Azure SQL Server och för både SQL Database och Azure-Synapse som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när du refererar till både SQL Database och Azure-Synapse.
 
 ## <a name="what-is-advanced-threat-protection"></a>Vad är Avancerat skydd
 
@@ -68,7 +69,7 @@ Du får ett e-postmeddelande när du har identifierat avvikande databas aktivite
 
 Avancerat skydd integrerar sina aviseringar med [Azure Security Center](https://azure.microsoft.com/services/security-center/). Live SQL Advanced Threat Protection-paneler i bladet databas och SQL-annonser i Azure Portal spåra statusen för aktiva hot.
 
-Klicka på **Avancerat skydds varning** för att starta sidan Azure Security Center aviseringar och få en översikt över aktiva SQL-hot som har identifierats på databasen eller data lagret.
+Klicka på **Avancerat skydds varning** för att starta sidan Azure Security Center aviseringar och få en översikt över aktiva SQL-hot som har identifierats i databasen.
 
    ![Avisering om Avancerat skydd](./media/sql-database-threat-detection/threat_detection_alert.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Återställa ett borttaget informationslager
-description: Guide för att återställa en borttagen Azure SQL Data Warehouse.
+title: Återställa en borttagen SQL-pool
+description: Guide för att återställa en borttagen SQL-pool.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e508eff3b322b49a6dc50d818c8bcccc3e924ff2
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 34851203432b7e2daf44e840e45275de76bc3b3a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759684"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196675"
 ---
-# <a name="restore-a-deleted-azure-sql-data-warehouse"></a>Återställa en borttagen Azure SQL Data Warehouse
+# <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Återställa en borttagen SQL-pool med Azure Synapse Analytics
 
-I den här artikeln får du lära dig att återställa en borttagen SQL Data Warehouse med Azure Portal och PowerShell:
+I den här artikeln får du lära dig att återställa en SQL med antingen Azure Portal eller PowerShell.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Verifiera din DTU-kapacitet.** Varje SQL Data Warehouse hanteras av en SQL-Server (till exempel myserver.database.windows.net) som har en standard-DTU-kvot.  Kontrol lera att SQL Server har tillräckligt med den återstående DTU-kvoten för databasen som återställs. Information om hur du beräknar DTU krävs eller begär mer DTU finns i [begär en ändring av DTU-kvot](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verifiera din DTU-kapacitet.** Varje SQL-pool finns på en SQL-Server (till exempel myserver.database.windows.net) som har en standard-DTU-kvot.  Kontrol lera att SQL Server har tillräckligt med den återstående DTU-kvoten för databasen som återställs. Information om hur du beräknar DTU krävs eller begär mer DTU finns i [begär en ändring av DTU-kvot](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>Återställa ett borttaget informations lager via PowerShell
 
-Om du vill återställa en borttagen SQL Data Warehouse använder du cmdleten [restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) . Om motsvarande logiska server också har tagits bort kan du inte återställa det data lagret.
+Om du vill återställa en borttagen SQL-pool använder du cmdleten [restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) . Om motsvarande logiska server också har tagits bort kan du inte återställa det data lagret.
 
 1. Innan du börjar ska du se till att [installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Öppna PowerShell.
@@ -71,7 +71,7 @@ $RestoredDatabase.status
 
 ## <a name="restore-a-deleted-database-using-the-azure-portal"></a>Återställa en borttagen databas med hjälp av Azure Portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Gå till den SQL Server som du har tagit bort data lagret på.
 3. Välj ikonen **borttagna databaser** i innehålls förteckningen.
 
@@ -85,6 +85,6 @@ $RestoredDatabase.status
 
     ![Ange databas namn](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
-## <a name="next-steps"></a>Efterföljande moment
-- [Återställa ett befintligt informations lager](sql-data-warehouse-restore-active-paused-dw.md)
-- [Återställa från ett informations lager för geo-säkerhetskopiering](sql-data-warehouse-restore-from-geo-backup.md)
+## <a name="next-steps"></a>Nästa steg
+- [Återställa en befintlig SQL-pool](sql-data-warehouse-restore-active-paused-dw.md)
+- [Återställa från en geo-backup SQL-pool](sql-data-warehouse-restore-from-geo-backup.md)

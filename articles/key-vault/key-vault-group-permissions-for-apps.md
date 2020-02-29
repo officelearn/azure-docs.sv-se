@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 10445aba9c52c5367a8ea03729462d14e2d51085
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: d5086377b0bb7f3ca2ece643f82a4e45156f1955
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707183"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184884"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Tillhandahålla Key Vault autentisering med en princip för åtkomst kontroll
 
@@ -32,7 +33,7 @@ Fullständig information om Key Vault åtkomst kontroll finns i [Azure Key Vault
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett nyckel valv. Du kan använda ett befintligt nyckel valv eller skapa ett nytt genom att följa stegen i någon av följande snabb starter:
    - [Skapa ett nyckel valv med Azure CLI](quick-create-cli.md)
@@ -53,7 +54,7 @@ Varje post för åtkomst principer för nyckel valv ger en distinkt uppsättning
 
 Om du vill ge ett program, Azure AD-grupp eller användar åtkomst till ditt nyckel valv måste du först hämta dess objectId.
 
-#### <a name="applications"></a>Appar
+#### <a name="applications"></a>Program
 
 ObjectId för ett program motsvarar dess associerade tjänst huvud namn. Fullständig information om tjänstens huvud namn. Se [program-och tjänst huvud objekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). 
 

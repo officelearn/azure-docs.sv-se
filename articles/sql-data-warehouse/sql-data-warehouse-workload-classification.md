@@ -1,26 +1,26 @@
 ---
 title: Arbetsbelastningsklassificering
-description: Vägledning för att använda klassificering för att hantera samtidighets-, prioritets-och beräknings resurser för frågor i Azure SQL Data Warehouse.
+description: Vägledning för att använda klassificering för att hantera samtidighets-, prioritets-och beräknings resurser för frågor i Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/27/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: ab7c8ba64057b4f27e00a2928a65de8eadc78c4b
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.custom: azure-synapse
+ms.openlocfilehash: f350885c2d25860c7dc83310534ca9d8c9d72555
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768836"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191778"
 ---
-# <a name="azure-sql-data-warehouse-workload-classification"></a>Azure SQL Data Warehouse arbets belastnings klassificering
+# <a name="azure-synapse-analytics-workload-classification"></a>Azure Synapse Analytics-arbetsbelastnings klassificering
 
-I den här artikeln förklaras processen för SQL Data Warehouse arbets belastnings klassificering för att tilldela en resurs klass och prioritet för inkommande begär Anden.
+Den här artikeln beskriver processen för arbets belastnings klassificering för att tilldela en arbets belastnings grupp och prioritet för inkommande begär Anden med SQL Analytics i Azure Synapse.
 
 ## <a name="classification"></a>Klassificering
 
@@ -36,7 +36,7 @@ Alla instruktioner klassificeras inte eftersom de inte kräver resurser eller ä
 
 ## <a name="classification-process"></a>Klassificerings process
 
-Klassificering i SQL Data Warehouse uppnås idag genom att tilldela användare till en roll som har en motsvarande resurs klass som är tilldelad till den med hjälp av [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Möjligheten att karakterisera begär Anden utöver en inloggning till en resurs klass är begränsad till den här funktionen. En bättre metod för klassificering är nu tillgänglig med [klassificerings metoden skapa arbets belastning](/sql/t-sql/statements/create-workload-classifier-transact-sql) .  Med den här syntaxen kan SQL Data Warehouse användare tilldela prioritet och hur mycket system resurser som tilldelas en begäran via parametern `workload_group`. 
+Klassificeringen av SQL Analytics i Azure Synapse uppnås idag genom att tilldela användare till en roll som har en motsvarande resurs klass som är tilldelad till den med hjälp av [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Möjligheten att karakterisera begär Anden utöver en inloggning till en resurs klass är begränsad till den här funktionen. En bättre metod för klassificering är nu tillgänglig med [klassificerings metoden skapa arbets belastning](/sql/t-sql/statements/create-workload-classifier-transact-sql) .  Med den här syntaxen kan SQL Analytics-användare tilldela prioritet och hur mycket system resurser som tilldelas en begäran via `workload_group`-parametern. 
 
 > [!NOTE]
 > Klassificeringen utvärderas per begäran. Flera begär anden i en enda session kan klassificeras på olika sätt.

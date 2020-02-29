@@ -1,6 +1,6 @@
 ---
 title: Primära, externa och unika nycklar
-description: Tabell begränsningar stöder i Azure SQL Data Warehouse
+description: Tabell begränsningar stöd i SQL Analytics i Azure Synapse Analytics
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,29 +10,29 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 8f3102425c6f984df0f50bc05eeb6f9a5e66d3dd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 0379bed08c3ee6931e931a78a2d2c91664535250
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685486"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198141"
 ---
-# <a name="primary-key-foreign-key-and-unique-key-in-azure-sql-data-warehouse"></a>Primär nyckel, sekundär nyckel och unik nyckel i Azure SQL Data Warehouse
+# <a name="primary-key-foreign-key-and-unique-key-in-sql-analytics"></a>Primär nyckel, sekundär nyckel och unik nyckel i SQL Analytics
 
-Lär dig mer om tabell begränsningar i Azure SQL Data Warehouse, inklusive primär nyckel, sekundär nyckel och unik nyckel.
+Lär dig mer om tabell begränsningar i SQL Analytics, inklusive primär nyckel, sekundär nyckel och unik nyckel.
 
 ## <a name="table-constraints"></a>Tabellbegränsningar 
-Azure SQL Data Warehouse stöder följande tabell begränsningar: 
+SQL Analytics stöder följande tabell begränsningar: 
 - PRIMÄR nyckel stöds bara om både icke-KLUSTRad och inte framtvingad används.    
 - En unik begränsning stöds endast med inte TVINGAd användning.   
 
-Sekundär nyckel begränsning stöds inte i Azure SQL Data Warehouse.  
+Sekundär nyckel begränsning stöds inte i SQL Analytics.  
 
 ## <a name="remarks"></a>Kommentarer
-Med primär nyckel och/eller unik nyckel kan data lager motorn generera en optimal körnings plan för en fråga.  Alla värden i en primär nyckel kolumn eller en unik begränsnings kolumn måste vara unika. 
+Med primär nyckel och/eller unik nyckel kan SQL Analytics-motorn generera en optimal körnings plan för en fråga.  Alla värden i en primär nyckel kolumn eller en unik begränsnings kolumn måste vara unika. 
 
-När du har skapat en tabell med primär nyckel eller unik begränsning i Azure Data Warehouse måste användarna se till att alla värden i dessa kolumner är unika.  En överträdelse av som kan orsaka att frågan returnerar felaktigt resultat.  Det här exemplet visar hur en fråga kan returnera felaktigt resultat om kolumnen primär nyckel eller unik begränsning innehåller dubblettvärden.  
+När du har skapat en tabell med primär nyckel eller unik begränsning i SQL Analytics måste användarna se till att alla värden i dessa kolumner är unika.  En överträdelse av som kan orsaka att frågan returnerar felaktigt resultat.  Det här exemplet visar hur en fråga kan returnera felaktigt resultat om kolumnen primär nyckel eller unik begränsning innehåller dubblettvärden.  
 
 ```sql
  -- Create table t1
@@ -158,12 +158,12 @@ a1          total
 ```
 
 ## <a name="examples"></a>Exempel
-Skapa en informations lager tabell med en primär nyckel: 
+Skapa en SQL Analytics-tabell med en primär nyckel: 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Skapa en informations lager tabell med en unik begränsning:
+Skapa en SQL Analytics-tabell med en unik begränsning:
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -171,4 +171,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat tabellerna för ditt informations lager är nästa steg att läsa in data i tabellen. En inläsnings kurs finns i [inläsning av data till SQL Data Warehouse](load-data-wideworldimportersdw.md).
+När du har skapat tabellerna för SQL Analytics-databasen är nästa steg att läsa in data i tabellen. En inläsnings kurs finns i [läsa in data till SQL Analytics-databaser](load-data-wideworldimportersdw.md).

@@ -3,12 +3,12 @@ title: Python Developer-referens för Azure Functions
 description: Förstå hur du utvecklar funktioner med python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: cfac28c4a759cee66c932c7b8cfea053c9c4f505
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 8ee13b59812e6a212fbafcf4ea6bfc171e735dc3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921800"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190712"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -22,25 +22,9 @@ Azure Functions förväntar sig att en funktion är en tillstånds lös metod i 
 
 Data från utlösare och bindningar är kopplade till funktionen via attribut med hjälp av egenskapen `name` som definierats i *Function. JSON* -filen. _Funktionen. JSON_ nedan beskriver till exempel en enkel funktion som utlöses av en http-begäran med namnet `req`:
 
-```json
-{
-  "bindings": [
-    {
-      "name": "req",
-      "direction": "in",
-      "type": "httpTrigger",
-      "authLevel": "anonymous"
-    },
-    {
-      "name": "$return",
-      "direction": "out",
-      "type": "http"
-    }
-  ]
-}
-```
+:::code language="son" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
-`__init__.py`-filen innehåller följande funktions kod:
+Baserat på den här definitionen kan `__init__.py`-filen som innehåller funktions koden se ut som i följande exempel:
 
 ```python
 def main(req):
@@ -322,7 +306,7 @@ FUNCTIONS_WORKER_PROCESS_COUNT gäller för varje värd som fungerar när du ska
 
 Om du vill hämta anrops kontexten för en funktion under körningen inkluderar du argumentet [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) i signaturen. 
 
-Ett exempel:
+Några exempel:
 
 ```python
 import azure.functions
@@ -398,7 +382,7 @@ requests==2.19.1
 pip install -r requirements.txt
 ```
 
-## <a name="publishing-to-azure"></a>Publicera i Azure
+## <a name="publishing-to-azure"></a>Publicera till Azure
 
 När du är redo att publicera ser du till att alla dina offentligt tillgängliga beroenden visas i filen Requirements. txt, som finns i roten i projekt katalogen. 
 
@@ -582,7 +566,7 @@ class TestFunction(unittest.TestCase):
             'msg body: test',
         )
 ```
-## <a name="temporary-files"></a>Tillfälliga filer
+## <a name="temporary-files"></a>Temporära filer
 
 Metoden `tempfile.gettempdir()` returnerar en tillfällig mapp, som på Linux är `/tmp`. Ditt program kan använda den här katalogen för att lagra temporära filer som skapas och används av funktionerna under körningen. 
 

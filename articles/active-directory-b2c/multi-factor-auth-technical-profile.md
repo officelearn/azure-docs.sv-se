@@ -3,20 +3,20 @@ title: Tekniska profiler för Azure MFA i anpassade principer
 titleSuffix: Azure AD B2C
 description: Anpassad princip referens för Azure Multi-Factor Authentication (MFA) tekniska profiler i Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a8aaea6b2afb4d89e6e667edba0eeba2f4ddcca8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 05851dba9de06b5dfba2da4f455fbaf5e9376d08
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480221"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184289"
 ---
 # <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en Azure MFA Technical-profil i en Azure AD B2C anpassad princip
 
@@ -57,8 +57,8 @@ Det första läget i den här tekniska profilen är att generera en kod och skic
 | --------- | -------- | ----------- |
 | userPrincipalName | Ja | Identifieraren för den användare som äger telefonnumret. |
 | phoneNumber | Ja | Telefonnumret som en SMS-kod ska skickas till. |
-| CompanyName | Inga |Företags namnet i SMS. Om inget namn anges används namnet på programmet. |
-| språk | Inga | Språk inställningen för SMS. Om den inte anges används webbläsarens nationella inställningar. |
+| companyName | Nej |Företags namnet i SMS. Om inget namn anges används namnet på programmet. |
+| språk | Nej | Språk inställningen för SMS. Om den inte anges används webbläsarens nationella inställningar. |
 
 **InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan de skickas till Azure MFA-tjänsten.
 
@@ -73,13 +73,13 @@ Azure MFA Protocol-providern returnerar inga **OutputClaims**, därför behöver
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Åtgärd | Ja | Måste vara **OneWaySMS**.  |
-| UserMessageIfInvalidFormat | Inga | Anpassat fel meddelande om det angivna telefonnumret inte är ett giltigt telefonnummer |
-| UserMessageIfCouldntSendSms | Inga | Anpassat fel meddelande om det angivna telefonnumret inte accepterar SMS |
-| UserMessageIfServerError | Inga | Anpassat fel meddelande om ett internt fel uppstått på servern |
+| UserMessageIfInvalidFormat | Nej | Anpassat fel meddelande om det angivna telefonnumret inte är ett giltigt telefonnummer |
+| UserMessageIfCouldntSendSms | Nej | Anpassat fel meddelande om det angivna telefonnumret inte accepterar SMS |
+| UserMessageIfServerError | Nej | Anpassat fel meddelande om ett internt fel uppstått på servern |
 
 ### <a name="return-an-error-message"></a>Returnera ett fel meddelande
 
-Som det beskrivs i [metadata](#metadata)kan du anpassa fel meddelandet som visas för användaren om olika fel inträffar. Du kan ytterligare lokalisera dessa meddelanden genom att prefixet för nationella inställningar. Ett exempel:
+Som det beskrivs i [metadata](#metadata)kan du anpassa fel meddelandet som visas för användaren om olika fel inträffar. Du kan ytterligare lokalisera dessa meddelanden genom att prefixet för nationella inställningar. Några exempel:
 
 ```XML
 <Item Key="en.UserMessageIfInvalidFormat">Invalid phone number.</Item>
@@ -133,15 +133,15 @@ Azure MFA Protocol-providern returnerar inga **OutputClaims**, därför behöver
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Åtgärd | Ja | Måste **Verifiera** |
-| UserMessageIfInvalidFormat | Inga | Anpassat fel meddelande om det angivna telefonnumret inte är ett giltigt telefonnummer |
-| UserMessageIfWrongCodeEntered | Inga | Anpassat fel meddelande om den kod som angetts för verifiering är felaktig |
-| UserMessageIfMaxAllowedCodeRetryReached | Inga | Anpassat fel meddelande om användaren försökte utföra en verifierings kod för många gånger |
-| UserMessageIfThrottled | Inga | Anpassat fel meddelande om användaren är begränsad |
-| UserMessageIfServerError | Inga | Anpassat fel meddelande om ett internt fel uppstått på servern |
+| UserMessageIfInvalidFormat | Nej | Anpassat fel meddelande om det angivna telefonnumret inte är ett giltigt telefonnummer |
+| UserMessageIfWrongCodeEntered | Nej | Anpassat fel meddelande om den kod som angetts för verifiering är felaktig |
+| UserMessageIfMaxAllowedCodeRetryReached | Nej | Anpassat fel meddelande om användaren försökte utföra en verifierings kod för många gånger |
+| UserMessageIfThrottled | Nej | Anpassat fel meddelande om användaren är begränsad |
+| UserMessageIfServerError | Nej | Anpassat fel meddelande om ett internt fel uppstått på servern |
 
 ### <a name="return-an-error-message"></a>Returnera ett fel meddelande
 
-Som det beskrivs i [metadata](#metadata)kan du anpassa fel meddelandet som visas för användaren om olika fel inträffar. Du kan ytterligare lokalisera dessa meddelanden genom att prefixet för nationella inställningar. Ett exempel:
+Som det beskrivs i [metadata](#metadata)kan du anpassa fel meddelandet som visas för användaren om olika fel inträffar. Du kan ytterligare lokalisera dessa meddelanden genom att prefixet för nationella inställningar. Några exempel:
 
 ```XML
 <Item Key="en.UserMessageIfWrongCodeEntered">Wrong code has been entered.</Item>

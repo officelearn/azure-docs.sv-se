@@ -2,20 +2,20 @@
 title: TrustFrameworkPolicy – Azure Active Directory B2C | Microsoft Docs
 description: Ange TrustFrameworkPolicy-elementet för en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/31/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b49c873112358db4fec2992ef3d2d61161e8b373
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: c964a7bde0b7db9357c73fc79d2df3170075fcc1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982423"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186394"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -41,12 +41,12 @@ En anpassad princip visas som en eller flera XML-formaterade filer som refererar
 | Attribut | Krävs | Beskrivning |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Ja | Den schema version som ska användas för att köra principen. Värdet måste vara `0.3.0.0` |
-| TenantObjectId | Inga | Den unika objekt identifieraren för Azure Active Directory B2C-klienten (Azure AD B2C). |
+| TenantObjectId | Nej | Den unika objekt identifieraren för Azure Active Directory B2C-klienten (Azure AD B2C). |
 | TenantId | Ja | Den unika identifieraren för den klient som principen tillhör. |
 | `PolicyId` | Ja | Den unika identifieraren för principen. Den här identifieraren måste föregås av *B2C_1A_* |
 | PublicPolicyUri | Ja | En URI för principen, som är en kombination av klient-ID och princip-ID. |
-| DeploymentMode | Inga | Möjliga värden: `Production`eller `Development`. `Production` används som standard. Använd den här egenskapen för att felsöka principen. Mer information finns i [samla in loggar](troubleshoot-with-application-insights.md). |
-| UserJourneyRecorderEndpoint | Inga | Den slut punkt som används när **DeploymentMode** har angetts till `Development`. Värdet måste vara `urn:journeyrecorder:applicationinsights`. Mer information finns i [samla in loggar](troubleshoot-with-application-insights.md). |
+| DeploymentMode | Nej | Möjliga värden: `Production`eller `Development`. `Production` används som standard. Använd den här egenskapen för att felsöka principen. Mer information finns i [samla in loggar](troubleshoot-with-application-insights.md). |
+| UserJourneyRecorderEndpoint | Nej | Den slut punkt som används när **DeploymentMode** har angetts till `Development`. Värdet måste vara `urn:journeyrecorder:applicationinsights`. Mer information finns i [samla in loggar](troubleshoot-with-application-insights.md). |
 
 
 I följande exempel visas hur du anger **TrustFrameworkPolicy** -elementet:

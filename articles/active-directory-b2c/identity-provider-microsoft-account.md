@@ -3,20 +3,20 @@ title: Konfigurera registrering och inloggning med ett Microsoft-konto
 titleSuffix: Azure AD B2C
 description: Tillhandahålla registrering och inloggning till kunder med Microsoft-konton i dina program med hjälp av Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f023fea4340fed6fa50defb3797c776a51bad5f4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 25784eb161a860398b0741d1d20375cabd1c4eca
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849557"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188026"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med en Microsoft-konto med hjälp av Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76849557"
 
 Om du vill använda en Microsoft-konto som [identitets leverantör](openid-connect.md) i Azure Active Directory B2C (Azure AD B2C) måste du skapa ett program i Azure AD-klienten. Azure AD-klienten är inte samma som din Azure AD B2C klient. Om du inte redan har ett Microsoft-konto kan du hämta ett på [https://www.live.com/](https://www.live.com/).
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ny registrering**.
@@ -42,7 +42,7 @@ Om du vill använda en Microsoft-konto som [identitets leverantör](openid-conne
 
 ## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>Konfigurera en Microsoft-konto som identitets leverantör
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD B2C-klientorganisationen.
+1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 1. Välj **identitets leverantörer**och välj sedan **Microsoft-konto**.

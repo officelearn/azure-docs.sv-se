@@ -3,20 +3,20 @@ title: Skicka en åtkomsttoken via en anpassad princip till din app
 titleSuffix: Azure AD B2C
 description: Lär dig hur du kan skicka en åtkomsttoken för OAuth 2,0-identitets leverantörer som ett anspråk via en anpassad princip till ditt program i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 697c904f98ea29395d5c4e95abe27556c06bb479
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ff5ef8f742914129d868152814d84d2112267c09
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76839099"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187803"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Skicka en åtkomsttoken via en anpassad princip till ditt program i Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ En [anpassad princip](custom-policy-get-started.md) i Azure Active Directory B2C
 
 Azure AD B2C stöder överföring av åtkomsttoken för [OAuth 2,0](authorization-code-flow.md) och [OpenID Connect](openid-connect.md) Identity providers. För alla andra identitets leverantörer returneras anspråket tomt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Din anpassade princip konfigureras med en OAuth 2,0-eller OpenID Connect-identitetsprovider.
 
@@ -84,7 +84,7 @@ När du testar dina program i Azure AD B2C kan det vara praktiskt att ha Azure A
 
 ### <a name="upload-the-files"></a>Ladda upp filerna
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att klicka på filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **ramverk för identitets upplevelse**.

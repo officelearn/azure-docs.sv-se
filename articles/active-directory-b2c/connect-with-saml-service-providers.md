@@ -3,21 +3,21 @@ title: Konfigurera Azure AD B2C som en SAML-IdP till dina program
 title-suffix: Azure AD B2C
 description: Så här konfigurerar du Azure AD B2C att tillhandahålla SAML-protokoll kontroller till dina program (tjänst leverantörer). Azure AD B2C fungerar som en IdP (Single Identity Provider) till ditt SAML-program.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: be7d798d96e61d1d753e130c5e4ad6a479f391fc
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 1c362cd2924de73b2e40e634fe554ff1526e09d8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912248"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189658"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrera ett SAML-program i Azure AD B2C
 
@@ -63,7 +63,7 @@ Om du ännu inte har en SAML-tjänstleverantör och en associerad slut punkt fö
 
 ## <a name="1-set-up-certificates"></a>1. Konfigurera certifikat
 
-Om du vill skapa en förtroende relation mellan din tjänst leverantör och Azure AD B2C måste du tillhandahålla X509-certifikat och deras privata nycklar.
+Om du vill skapa en förtroende relation mellan din tjänst leverantör och Azure AD B2C måste du tillhandahålla X509-certifikaten för webbapp.
 
 * **Service Provider-certifikat**
   * Certifikat med en privat nyckel lagrad i din webbapp. Det här certifikatet används av tjänst leverantören för att signera SAML-begäran som skickats till Azure AD B2C. Azure AD B2C läser den offentliga nyckeln från tjänst leverantörens metadata för att verifiera signaturen.

@@ -1,22 +1,22 @@
 ---
 title: Arbetsbelastningshantering
-description: Vägledning för att implementera arbets belastnings hantering i Azure SQL Data Warehouse.
+description: Vägledning för att implementera arbets belastnings hantering i Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/13/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 287ad5467f9f3aac7eb8c9d7c19ea15c380c6879
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.custom: azure-synapse
+ms.openlocfilehash: 14ea742a40afff8105560f1003655004687c7c9e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935414"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197665"
 ---
 # <a name="what-is-workload-management"></a>Vad är arbets belastnings hantering?
 
@@ -36,11 +36,11 @@ Prestanda kapaciteten för ett informations lager bestäms av [data lager enhete
 
 
 ## <a name="workload-management-concepts"></a>Koncept för arbets belastnings hantering
-Tidigare hanterade du frågeresultatet på SQL Data Warehouse via [resurs klasser](resource-classes-for-workload-management.md).  Resurs klasser som tillåts att tilldela minne till en fråga baserat på roll medlemskap.  Den primära utmaningen med resurs klasser är att, när den har kon figurer ATS, inte har någon styrning eller möjlighet att styra arbets belastningen.  
+För SQL Analytics i Azure Synapse har du tidigare hanterat frågeresultaten genom [resurs klasser](resource-classes-for-workload-management.md).  Resurs klasser som tillåts att tilldela minne till en fråga baserat på roll medlemskap.  Den primära utmaningen med resurs klasser är att, när den har kon figurer ATS, inte har någon styrning eller möjlighet att styra arbets belastningen.  
 
 Om du till exempel beviljar ett ad hoc användar roll medlemskap till smallrc tillåts användaren att använda 100% av minnet i systemet.  Med resurs klasser finns det inget sätt att reservera och se till att resurserna är tillgängliga för kritiska arbets belastningar.
 
-Arbets belastnings hantering på SQL Data Warehouse består av tre koncept på hög nivå: [arbets belastnings klassificering](sql-data-warehouse-workload-classification.md), [arbets belastnings prioritet](sql-data-warehouse-workload-importance.md) och [arbets belastnings isolering](sql-data-warehouse-workload-isolation.md).  Med de här funktionerna får du mer kontroll över hur arbets belastningen använder system resurser.
+Arbets belastnings hantering i SQL Analytics i Azure Synapse består av tre koncept på hög nivå: [arbets belastnings klassificering](sql-data-warehouse-workload-classification.md), [arbets belastnings prioritet](sql-data-warehouse-workload-importance.md) och [arbets belastnings isolering](sql-data-warehouse-workload-isolation.md).  Med de här funktionerna får du mer kontroll över hur arbets belastningen använder system resurser.
 
 Arbets belastnings klassificering är begreppet att tilldela en begäran till en arbets belastnings grupp och ange prioritets nivåer.  Tidigare genomfördes den här tilldelningen via roll medlemskap med hjälp av [sp_addrolemember](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#change-a-users-resource-class).  Nu kan du göra det via [CLASSIFER skapa arbets belastning](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  Klassificerings funktionen ger en mer omfattande uppsättning alternativ, till exempel etikett, session och tid för klassificering av begär Anden.
 

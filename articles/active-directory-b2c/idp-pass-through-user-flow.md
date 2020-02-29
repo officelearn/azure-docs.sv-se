@@ -3,20 +3,20 @@ title: Skicka en åtkomsttoken via ett användar flöde till din app
 titleSuffix: Azure AD B2C
 description: Lär dig hur du skickar en åtkomsttoken för OAuth 2,0-identitets leverantörer som ett anspråk i ett användar flöde i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 25a8181d404091064c26407c98fe31465cd4f4b3
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 312d093548b6e3cf3654f45d7610e8fc474a87b8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76838963"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187796"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Skicka en åtkomsttoken via ett användar flöde till ditt program i Azure Active Directory B2C
 
@@ -24,14 +24,14 @@ Ett [användar flöde](user-flow-overview.md) i Azure Active Directory B2C (Azur
 
 Azure AD B2C stöder för närvarande bara att skicka åtkomsttoken för [OAuth 2,0](authorization-code-flow.md) -identitets leverantörer, som innehåller [Facebook](identity-provider-facebook.md) och [Google](identity-provider-google.md). För alla andra identitets leverantörer returneras anspråket tomt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ditt program måste använda ett [v2-användar flöde](user-flow-versions.md).
 * Ditt användar flöde har kon figurer ATS med en identitets leverantör för OAuth 2,0.
 
 ## <a name="enable-the-claim"></a>Aktivera anspråket
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD B2C-klientorganisationen.
+1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **användar flöden (principer)** och välj sedan ditt användar flöde. Till exempel **B2C_1_signupsignin1**.

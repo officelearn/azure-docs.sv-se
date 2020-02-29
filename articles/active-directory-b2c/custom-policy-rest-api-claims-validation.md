@@ -3,20 +3,20 @@ title: REST API anspråks utbyten som verifiering
 titleSuffix: Azure AD B2C
 description: En genom gång för att skapa en Azure AD B2C användar resa som samverkar med RESTful-tjänster.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 209cddcc8648f7d396f048057bb4367e2ae9f66c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7100498d99068941bcd7ca48b6cbcaa271fbb095
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846619"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189080"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Genom gång: integrera REST API Claims-utbyten i Azure AD B2C användar resa som verifiering vid användarindata
 
@@ -37,7 +37,7 @@ För exempel på validerings profil använder vi profil redigera användar resa 
 
 Vi kan kontrol lera att namnet som anges av användaren i profil redigering inte ingår i en undantags lista.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure AD B2C klient som har kon figurer ATS för att slutföra en lokal konto registrering/inloggning, enligt beskrivningen i [komma igång](custom-policy-get-started.md).
 - En REST API slut punkt att interagera med. I den här genom gången har vi konfigurerat en demo webbplats som heter [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) med en REST API-tjänst.

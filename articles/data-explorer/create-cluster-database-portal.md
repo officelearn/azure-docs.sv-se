@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Skapa Azure Datautforskaren-kluster och-databas'
+title: 'Snabb start: skapa ett Azure Datautforskaren-kluster & DB'
 description: I den här snabbstarten får du lära dig hur du skapar ett Azure Data Explorer-kluster och en -databas och matar in data (läsa in).
 author: orspod
 ms.author: orspodek
@@ -7,17 +7,17 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.openlocfilehash: 895b26fc7f35303cbef6c9df543c87ca435c2290
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: e97a712664a5864062fef2bba36dda76175af715
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984361"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199860"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snabbstart: Skapa ett Azure Data Explorer-kluster och -databas
 
 > [!div class="op_single_selector"]
-> * [Portal](create-cluster-database-portal.md)
+> * [Portalen](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-kont
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-cluster"></a>Skapa ett kluster
 

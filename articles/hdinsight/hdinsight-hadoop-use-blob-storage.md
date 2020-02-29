@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/01/2019
-ms.openlocfilehash: 55cddf5317938dea353517cde7260a1aa531d1df
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 02/28/2020
+ms.openlocfilehash: f496f6c06d36f817b0a933bdc68d5c53f308e3f2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061266"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192633"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
 
@@ -28,7 +28,7 @@ I den här artikeln får du lära dig hur Azure Storage fungerar med HDInsight-k
 | Typ av lagrings konto | Tjänster som stöds | Prestanda nivåer som stöds | Åtkomst nivåer som stöds |
 |----------------------|--------------------|-----------------------------|------------------------|
 | StorageV2 (generell användning v2)  | Blob     | Standard                    | Frekvent, låg frekvent, Arkiv\*   |
-| Lagring (generell användning v1)   | Blob     | Standard                    | Ej tillämpligt                    |
+| Lagring (generell användning v1)   | Blob     | Standard                    | Saknas                    |
 | BlobStorage                    | Blob     | Standard                    | Frekvent, låg frekvent, Arkiv\*   |
 
 Vi rekommenderar inte att du använder standard-BLOB-behållaren för lagring av affärs data. Ta bort standardcontainern efter varje användning för att minska lagringskostnaden. Standard behållaren innehåller program-och system loggar. Se till att hämta loggarna innan du tar bort containern.
@@ -38,7 +38,7 @@ Delning av en BLOB-behållare som standard fil system för flera kluster stöds 
 > [!NOTE]  
 > Arkiv åtkomst nivån är en offline-nivå som har en svars tid på flera timmar och rekommenderas inte för användning med HDInsight. Mer information finns i [Arkiv åtkomst nivå](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
 
-## <a name="access-files-from-the-cluster"></a>Åtkomst till filer från klustret
+## <a name="access-files-from-within-cluster"></a>Komma åt filer inifrån klustret
 
 Det finns flera sätt som du kan använda för att komma åt filerna i Data Lake Storage från ett HDInsight-kluster. URI-schemat ger okrypterad åtkomst (med prefixet *wasb:* ) och SSL-krypterad åtkomst (med *wasbs*). Vi rekommenderar att du använder *wasbs* när det är möjligt, även för åtkomst till data som finns i samma region i Azure.
 
@@ -122,6 +122,17 @@ LOCATION 'wasbs:///example/data/';
 LOCATION '/example/data/';
 ```
 
+## <a name="access-files-from-outside-cluster"></a>Komma åt filer från externa kluster
+
+Microsoft tillhandahåller följande verktyg för att arbeta med Azure Storage:
+
+| Verktyg | Linux | OS X | Windows |
+| --- |:---:|:---:|:---:|
+| [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
+| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
+| [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
+
 ## <a name="identify-storage-path-from-ambari"></a>Identifiera lagrings Sök väg från Ambari
 
 * Om du vill identifiera den fullständiga sökvägen till det konfigurerade standard arkivet går du till:
@@ -132,6 +143,8 @@ LOCATION '/example/data/';
 
     **HDFS** > **konfiguration** och anger `blob.core.windows.net` i rutan Filter indatamängd.
 
+Information om hur du hämtar sökvägen med Ambari REST API finns i [Hämta standard lagringen](./hdinsight-hadoop-manage-ambari-rest-api.md#get-the-default-storage).
+
 ## <a name="blob-containers"></a>Blob-containrar
 
 Om du vill använda blobbar skapar du först ett [Azure Storage-konto](../storage/common/storage-create-storage-account.md). Som en del av detta anger du en Azure-region där lagringskontot ska skapas. Klustret och lagringskontot måste finnas i samma region. Hive-metaarkiv SQL Server Database och Apache Oozie metaarkiv SQL Server Database måste också finnas i samma region.
@@ -141,17 +154,6 @@ Oavsett var den finns tillhör varje blob som du skapar en container på ditt Az
 Standardcontainern lagrar klusterspecifik information, till exempel jobbhistorik och loggar. Låt inte flera HDInsight-kluster dela en standardblob-container. Detta kan skada jobbets historik. Vi rekommenderar att du använder en annan behållare för varje kluster och lagrar delade data på ett länkat lagrings konto som anges vid distribution av alla relevanta kluster i stället för standard lagrings kontot. Mer information om hur du konfigurerar länkade lagrings konton finns i [skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). Du kan emellertid återanvända en standardcontainer för lagring när det ursprungliga HDInsight-klustret har tagits bort. För HBase-kluster kan du faktiskt behålla HBase-tabellens schema och data genom att skapa ett nytt HBase-kluster med hjälp av standard-BLOB-behållaren som används av ett HBase-kluster som har tagits bort.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
-
-## <a name="interacting-with-azure-storage"></a>Interagera med Azure Storage
-
-Microsoft tillhandahåller följande verktyg för att arbeta med Azure Storage:
-
-| Verktyg | Linux | OS X | Windows |
-| --- |:---:|:---:|:---:|
-| [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
-| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
-| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
-| [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
 
 ## <a name="use-additional-storage-accounts"></a>Använda ytterligare lagringskonton
 

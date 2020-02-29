@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 02/28/2020
 ms.author: diberry
-ms.openlocfilehash: 9c92a3ad2fc6a372b58aa651228a7bbccdf8ba0a
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: f5197ae79670e4543c58224a33838706edae6218
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552038"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194654"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Steg för att migrera till Azure Authoring-resursen
 
 Från Language Understanding-portalen (LUIS) migrerar du alla appar som du äger för att använda Azures redigerings resurs.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Du kan också**säkerhetskopiera apparna från Luis-portalens lista med appar genom att exportera varje app eller använda export- [API: et](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40).
 * **Du kan också**Spara varje apps collaborator's-lista. Alla medarbetare kan skicka ett e-postmeddelande som en del av migreringsprocessen.
@@ -32,7 +32,10 @@ Om du inte har någon Azure-prenumeration kan du [Registrera dig](https://azure.
 
 ## <a name="access-the-migration-process"></a>Åtkomst till migreringsprocessen
 
-Varje vecka uppmanas du att migrera dina appar. Du kan avbryta det här fönstret utan att migrera. Om du vill migrera före nästa schemalagda period kan du starta migreringsprocessen från **Lås** ikonen i det övre verktygsfältet i Luis-portalen.
+Varje vecka uppmanas du att migrera dina appar. Du kan avbryta det här fönstret utan att migrera. Om du vill migrera före nästa schemalagda period kan du starta migreringsprocessen från **Azure** -ikonen i det övre verktygsfältet i Luis-portalen.
+
+> [!div class="mx-imgBorder"]
+> ![migrerings ikon](./media/migrate-authoring-key/migration-button.png)
 
 ## <a name="app-owner-begins-the-migration-process"></a>Appens ägare börjar migreringsprocessen
 

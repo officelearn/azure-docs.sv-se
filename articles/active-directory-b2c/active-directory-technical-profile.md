@@ -3,20 +3,20 @@ title: Definiera en teknisk Azure AD-profil i en anpassad princip
 titleSuffix: Azure AD B2C
 description: Definiera en Azure Active Directory teknisk profil i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/13/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9f00bebfbab7b3726930e212893ae9dd2f5c17c8
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 06c9e79a68540cb10557b0951b743bf841963057
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77193485"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190270"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en Azure Active Directory teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -121,7 +121,7 @@ Namnet på anspråket är namnet på Azure AD-attributet om inte attributet **Pa
 
 ## <a name="azure-ad-technical-provider-operations"></a>Azure AD Technical Provider-åtgärder
 
-### <a name="read"></a>Läs
+### <a name="read"></a>Läsa
 
 **Läs** åtgärden läser data om ett enda användar konto. Om du vill läsa användar data måste du ange en nyckel som ett indata-anspråk, till exempel **ObjectID**, **userPrincipalName**, **signInNames** (alla typer, användar namn och e-postbaserat konto) eller **alternativeSecurityId**.
 
@@ -253,7 +253,7 @@ Följande tekniska profil tar bort ett socialt användar konto med **alternative
 ```
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Åtgärd | Ja | Åtgärden som ska utföras. Möjliga värden: `Read`, `Write`, `DeleteClaims`eller `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Nej | Generera ett fel om objektet användare inte finns i katalogen. Möjliga värden: `true` eller `false`. |

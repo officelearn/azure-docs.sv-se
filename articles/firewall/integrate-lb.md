@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 02/28/2020
 ms.author: victorh
-ms.openlocfilehash: 91f34d06532b2d7f56d293df40939212a4f3d68c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ab9a500d9535b55702b8baff15f8cc47e6ac2c86
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167072"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196741"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrera Azure Firewall med Azure Standard Load Balancer
 
@@ -39,9 +39,23 @@ Undvik det här problemet genom att skapa ytterligare en värd väg för brand v
 
 ![Asymmetrisk routning](media/integrate-lb/Firewall-LB-asymmetric.png)
 
-Följande vägar är till exempel för en brand vägg på offentlig IP-13.86.122.41 och privat IP-10.3.1.4.
+### <a name="route-table-example"></a>Exempel på routningstabell
 
-![Routningstabell](media/integrate-lb/route-table.png)
+Följande vägar är till exempel för en brand vägg på offentlig IP-20.185.97.136 och privat IP-10.0.1.4.
+
+> [!div class="mx-imgBorder"]
+> ![Routningstabell](media/integrate-lb/route-table.png)
+
+### <a name="nat-rule-example"></a>Exempel på NAT-regel
+
+I följande exempel översätter en NAT-regel RDP-trafik till brand väggen vid 20.185.97.136 över till belastningsutjämnaren på 20.42.98.220:
+
+> [!div class="mx-imgBorder"]
+> ![NAT-regel](media/integrate-lb/nat-rule-02.png)
+
+### <a name="health-probes"></a>Hälsotillståndsavsökningar
+
+Kom ihåg att du behöver en webb tjänst som körs på värdarna i belastningsutjämnaren om du använder TCP-hälsosökningar till port 80 eller HTTP/HTTPS-avsökningar.
 
 ## <a name="internal-load-balancer"></a>Intern lastbalanserare
 
@@ -56,6 +70,8 @@ Så du kan distribuera det här scenariot på liknande sätt som i det offentlig
 Om du vill förbättra säkerheten i ditt belastningsutjämnade scenario kan du använda nätverks säkerhets grupper (NSG: er).
 
 Du kan till exempel skapa en NSG i backend-undernätet där de belastningsutjämnade virtuella datorerna finns. Tillåt inkommande trafik från brand väggens IP-adress/port.
+
+![Nätverkssäkerhetsgrupp](media/integrate-lb/nsg-01.png)
 
 Mer information om NSG: er finns i [säkerhets grupper](../virtual-network/security-overview.md).
 

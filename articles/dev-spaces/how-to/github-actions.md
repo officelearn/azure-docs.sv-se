@@ -1,17 +1,17 @@
 ---
-title: GitHub åtgärder & Azure Kubernetes service
+title: GitHub-åtgärder & Azure Kubernetes service (för hands version)
 services: azure-dev-spaces
 ms.date: 02/04/2020
 ms.topic: conceptual
 description: Granska och testa ändringar från en pull-begäran direkt i Azure Kubernetes-tjänsten med hjälp av GitHub-åtgärder och Azure dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, GitHub Actions, Helm, service nät, service mask-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 35050d0c9d1e6062866747dc8544d03574a8d8fe
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e2b6f47483d2c7b6c4970dac531bada1cecd279e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026106"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196560"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub-åtgärder & Azure Kubernetes service (för hands version)
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig hur du:
 > [!IMPORTANT]
 > Den här funktionen är för närvarande en förhandsversion. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 * [Azure CLI installerat][azure-cli-installed].
@@ -50,7 +50,7 @@ Spara *namnet* -värdet från utdata eftersom det används i ett senare steg.
 
 ## <a name="create-a-service-principal-for-authentication"></a>Skapa ett huvud namn för tjänsten för autentisering
 
-Använd [AZ AD SP Create-for-RBAC][az-ad-sp-create-for-rbac] för att skapa ett huvud namn för tjänsten. Ett exempel:
+Använd [AZ AD SP Create-for-RBAC][az-ad-sp-create-for-rbac] för att skapa ett huvud namn för tjänsten. Några exempel:
 
 ```cmd
 az ad sp create-for-rbac --sdk-auth --skip-assignment

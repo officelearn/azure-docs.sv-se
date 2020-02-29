@@ -1,34 +1,34 @@
 ---
 title: Självstudier läsa in data från Azure Data Lake Storage
-description: Använd PolyBase-externa tabeller för att läsa in data från Azure Data Lake Storage till Azure SQL Data Warehouse.
+description: Använd PolyBase-externa tabeller för att läsa in data från Azure Data Lake Storage för SQL Analytics.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 12/06/2019
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: fdbf0eb849549071b4cbbb961c9e9f71fce1faf8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.custom: azure-synapse
+ms.openlocfilehash: 9a567a8f62f8f12de725f6d9420576680a3005fe
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923631"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194588"
 ---
-# <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Läsa in data från Azure Data Lake Storage till SQL Data Warehouse
-Den här guiden beskriver hur du använder PolyBase-externa tabeller för att läsa in data från Azure Data Lake Storage till Azure SQL Data Warehouse. Även om du kan köra adhoc-frågor på data som lagras i Data Lake Storage rekommenderar vi att du importerar data till SQL Data Warehouse för bästa prestanda. 
+# <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>Läs in data från Azure Data Lake Storage för SQL Analytics
+Den här guiden beskriver hur du använder PolyBase-externa tabeller för att läsa in data från Azure Data Lake Storage. Även om du kan köra adhoc-frågor på data som lagras i Data Lake Storage rekommenderar vi att du importerar data för bästa prestanda. 
 
 > [!NOTE]  
-> Ett alternativ till att läsa in är [kopierings instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) för närvarande i offentlig för hands version. Om du vill ge feedback om KOPIERINGs instruktionen skickar du ett e-postmeddelande till följande distributions lista: sqldwcopypreview@service.microsoft.com.
+> Ett alternativ till att läsa in är [kopierings instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) för närvarande i offentlig för hands version.  KOPIERINGs instruktionen ger störst flexibilitet. Om du vill ge feedback om KOPIERINGs instruktionen skickar du ett e-postmeddelande till följande distributions lista: sqldwcopypreview@service.microsoft.com.
 >
 > [!div class="checklist"]
 
 > * Skapa databas objekt som krävs för att läsa in från Data Lake Storage.
 > * Anslut till en Data Lake Storage katalog.
-> * Läs in data till Azure SQL Data Warehouse.
+> * Läs in data i data lagret.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -37,7 +37,7 @@ Innan du börjar med de här självstudierna ska du ladda ned och installera den
 
 För att kunna köra den här självstudien behöver du:
 
-* En Azure SQL Data Warehouse. Se [skapa och fråga och Azure SQL Data Warehouse](create-data-warehouse-portal.md).
+* En SQL-pool. Se [skapa en SQL-pool och fråga efter data](create-data-warehouse-portal.md).
 * Ett Data Lake Storage konto. Se [Kom igång med Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). För det här lagrings kontot måste du konfigurera eller ange någon av följande autentiseringsuppgifter som ska läsas in: en lagrings konto nyckel, en Azure Directory-programanvändare eller en AAD-användare som har lämplig RBAC-roll för lagrings kontot. 
 
 ##  <a name="create-a-credential"></a>Skapa en autentiseringsuppgift
@@ -194,7 +194,7 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 
 ## <a name="optimize-columnstore-compression"></a>Optimera columnstore-komprimering
-Som standard lagrar SQL Data Warehouse tabellen som ett grupperat columnstore-index. När en belastning är klar kanske vissa av data raderna inte komprimeras till columnstore.  Det finns en mängd olika orsaker till varför detta kan inträffa. Mer information finns i [Hantera columnstore-index](sql-data-warehouse-tables-index.md).
+Som standard definieras tabeller som ett grupperat columnstore-index. När en belastning är klar kanske vissa av data raderna inte komprimeras till columnstore.  Det finns en mängd olika orsaker till varför detta kan inträffa. Mer information finns i [Hantera columnstore-index](sql-data-warehouse-tables-index.md).
 
 Om du vill optimera prestanda och columnstore-komprimering efter en belastning måste du återskapa tabellen för att tvinga columnstore-indexet att komprimera alla rader.
 
@@ -212,19 +212,20 @@ Om du bestämmer dig för att skapa en statistik med en kolumn på varje kolumn 
 I följande exempel visas en start punkt för att skapa statistik. Den skapar statistik med en kolumn för varje kolumn i tabellen dimension och i varje kopplings kolumn i fakta tabellerna. Du kan alltid lägga till en eller flera kolumn statistik i andra fakta tabell kolumner senare.
 
 ## <a name="achievement-unlocked"></a>Utmärkelse upplåst!
-Du har läst in data i Azure SQL Data Warehouse. Bra jobbat!
+Du har läst in data i informations lagret. Bra jobbat!
 
 ## <a name="next-steps"></a>Nästa steg 
 I den här självstudien har du skapat externa tabeller för att definiera strukturen för data som lagras i Data Lake Storage Gen1 och sedan använda PolyBase-CREATE TABLE som SELECT-uttryck för att läsa in data till data lagret. 
 
 Du gjorde detta:
 > [!div class="checklist"]
+>
 > * Skapade databas objekt som krävs för att läsa in från Data Lake Storage.
 > * Ansluten till en Data Lake Storage katalog.
-> * Inlästa data till Azure SQL Data Warehouse.
+> * Inlästa data till data lagret.
 >
 
-Inläsning av data är det första steget för att utveckla en informations lager lösning med hjälp av SQL Data Warehouse. Kolla våra utvecklings resurser.
+Inläsning av data är det första steget för att utveckla en informations lager lösning med Azure Synapse Analytics. Kolla våra utvecklings resurser.
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du utvecklar tabeller i SQL Data Warehouse](sql-data-warehouse-tables-overview.md)
+> [Lär dig hur du utvecklar tabeller för data lager hantering](sql-data-warehouse-tables-overview.md)

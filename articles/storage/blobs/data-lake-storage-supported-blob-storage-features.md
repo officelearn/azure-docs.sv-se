@@ -8,28 +8,28 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: debc674184e6846128b0b8cff857c75a805e365a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 215244204aa58cc2fdedc639d48e01b514759694
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77925701"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196016"
 ---
-# <a name="blobstoragefeaturesavailableinazuredatalakestoragegen2"></a>Blob Storage-funktioner som är tillgängliga i Azure Data Lake Storage Gen2
+# <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Blob Storage-funktioner som är tillgängliga i Azure Data Lake Storage Gen2
 
-Blob Storage funktioner som [diagnostisk loggning](../common/storage-analytics-logging.md), [åtkomst nivåer](storage-blob-storage-tiers.md)och [Blob Storage hanterings principer för livs cykeln](storage-lifecycle-management-concepts.md) fungerar nu med konton som har ett hierarkiskt namn område. Därför kan du aktivera hierarkiska namn rymder på Blob Storage-kontona utan att förlora åtkomsten till dessa funktioner.
+Blob Storage funktioner som [diagnostisk loggning](../common/storage-analytics-logging.md), [åtkomst nivåer](storage-blob-storage-tiers.md)och [Blob Storage hanterings principer för livs cykeln](storage-lifecycle-management-concepts.md) fungerar nu med konton som har ett hierarkiskt namn område. Därför kan du aktivera hierarkiska namn rymder på Blob Storage-kontona utan att förlora åtkomsten till dessa funktioner.
 
 I den här tabellen visas de Blob Storage-funktioner som du kan använda med Azure Data Lake Storage Gen2. De objekt som visas i tabellerna ändras med tiden då stödet fortsätter att expandera.
 
-## <a name="supportedblobstoragefeatures"></a>Funktioner för blob-lagring som stöds
+## <a name="supported-blob-storage-features"></a>Funktioner för blob-lagring som stöds
 
 > [!NOTE]
 > Support nivån avser endast hur funktionen stöds med Data Lake Storage Gen2.
 
-|Blob Storage funktion |Support nivå |Relaterade artiklar |
+|Blob Storage funktion |Support nivå |Relaterade artiklar |
 |---------------|-------------------|---|
-|Frekvent åtkomstnivå |Allmänt tillgänglig|[Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring](storage-blob-storage-tiers.md)|
-|Lågfrekvent åtkomstnivå |Allmänt tillgänglig|[Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring](storage-blob-storage-tiers.md)|
+|Frekvent åtkomstnivå|Allmänt tillgänglig|[Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring](storage-blob-storage-tiers.md)|
+|Lågfrekvent åtkomstnivå|Allmänt tillgänglig|[Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring](storage-blob-storage-tiers.md)|
 |Händelser|Allmänt tillgänglig|[Reagera på Blob Storage-händelser](storage-blob-event-overview.md)|
 |Mått (klassisk)|Allmänt tillgänglig|[Azure Storage analys mått (klassisk)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Mått i Azure Monitor|Allmänt tillgänglig|[Azure Storage-mått i Azure Monitor](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|

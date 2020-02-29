@@ -1,6 +1,6 @@
 ---
-title: Övervaka din arbetsbelastning med DMV:er
-description: 'Lär dig hur du övervakar din arbets belastning med DMV: er.'
+title: 'Övervaka arbets belastningen i SQL-poolen med DMV: er'
+description: 'Lär dig hur du övervakar arbets belastningen i Azure Synapse Analytics SQL-poolen och kör frågor med hjälp av DMV: er.'
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -10,25 +10,29 @@ ms.subservice: manage
 ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 14c4bb843a93fe6d235354f24475b9974142db79
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: synapse-analytics
+ms.openlocfilehash: f00ab883f9e2b1365c4e7486d61b55157cecb2a7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721157"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197274"
 ---
-# <a name="monitor-your-workload-using-dmvs"></a>Övervaka din arbetsbelastning med DMV:er
-Den här artikeln beskriver hur du använder DMV: er (Dynamic Management views) för att övervaka din arbets belastning. Inkluderad undersöker körningen av en fråga i Azure SQL Data Warehouse.
+# <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Övervaka arbets belastningen för Azure Synapse Analytics SQL-poolen med DMV: er
+
+Den här artikeln beskriver hur du använder DMV: er (Dynamic Management views) för att övervaka din arbets belastning, inklusive att undersöka frågekörningen i SQL-poolen.
 
 ## <a name="permissions"></a>Behörigheter
-Om du vill fråga DMV: er i den här artikeln måste du antingen visa databas tillstånd eller kontroll behörighet. Det är vanligt vis att Granting VIEW DATABASE STATE är den bästa behörigheten eftersom det är mycket mer restriktivt.
+
+Om du vill fråga DMV: er i den här artikeln måste du antingen **Visa databas tillstånd** eller **kontroll** behörighet. Det är vanligt vis att beviljande **VISNINGS databas status** är den rekommenderade behörigheten eftersom det är mycket mer restriktivt.
 
 ```sql
 GRANT VIEW DATABASE STATE TO myuser;
 ```
 
 ## <a name="monitor-connections"></a>Övervaka anslutningar
-Alla inloggningar till SQL Data Warehouse loggas till [sys. dm_pdw_exec_sessions](https://msdn.microsoft.com/library/mt203883.aspx).  Denna DMV innehåller de senaste 10 000 inloggningarna.  Session_id är den primära nyckeln och tilldelas sekventiellt för varje ny inloggning.
+
+Alla inloggningar till data lagret loggas till [sys. dm_pdw_exec_sessions](https://msdn.microsoft.com/library/mt203883.aspx).  Denna DMV innehåller de senaste 10 000 inloggningarna.  Session_id är den primära nyckeln och tilldelas sekventiellt för varje ny inloggning.
 
 ```sql
 -- Other Active Connections
@@ -36,16 +40,16 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <
 ```
 
 ## <a name="monitor-query-execution"></a>Övervaka frågekörningen
-Alla frågor som körs på SQL Data Warehouse loggas till [sys. dm_pdw_exec_requests](https://msdn.microsoft.com/library/mt203887.aspx).  Denna DMV innehåller de senaste 10 000 frågorna som kördes.  Request_id identifierar unikt varje fråga och är den primära nyckeln för denna DMV.  Request_id tilldelas sekventiellt för varje ny fråga och föregås av QID, som står för fråge-ID.  Om du frågar denna DMV för en specifik session_id visas alla frågor för en specifik inloggning.
+
+Alla frågor som körs på SQL-poolen loggas till [sys. dm_pdw_exec_requests](https://msdn.microsoft.com/library/mt203887.aspx).  Denna DMV innehåller de senaste 10 000 frågorna som kördes.  Request_id identifierar unikt varje fråga och är den primära nyckeln för denna DMV.  Request_id tilldelas sekventiellt för varje ny fråga och föregås av QID, som står för fråge-ID.  Om du frågar denna DMV för en specifik session_id visas alla frågor för en specifik inloggning.
 
 > [!NOTE]
-> Lagrade procedurer använder flera ID: n för begäran.  ID för begäran tilldelas i sekventiell ordning. 
-> 
-> 
+> Lagrade procedurer använder flera ID: n för begäran.  ID för begäran tilldelas i sekventiell ordning.
 
 Här följer några steg som du följer för att undersöka körnings planer och tids perioder för en viss fråga.
 
 ### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>STEG 1: identifiera den fråga som du vill undersöka
+
 ```sql
 -- Monitor active queries
 SELECT * 
@@ -63,9 +67,9 @@ ORDER BY total_elapsed_time DESC;
 
 I föregående frågeresultat **noterar du fråge-ID** för frågan som du vill undersöka.
 
-Frågor i tillståndet **Suspended** kan placeras i kö på grund av ett stort antal aktiva körnings frågor. Dessa frågor visas också i [sys. dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) väntar på fråga med en typ av UserConcurrencyResourceType. Information om samtidiga gränser finns i [minnes-och samtidiga gränser för Azure SQL Data Warehouse](memory-concurrency-limits.md) -eller [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md). Frågor kan också vänta på andra orsaker till exempel för objekt lås.  Om din fråga väntar på en resurs, se [undersöka frågor som väntar på resurser](#monitor-waiting-queries) ytterligare i den här artikeln.
+Frågor i tillståndet **Suspended** kan placeras i kö på grund av ett stort antal aktiva körnings frågor. Dessa frågor visas också i [sys. dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) väntar på fråga med en typ av UserConcurrencyResourceType. Information om samtidiga gränser finns i [minnes-och samtidiga gränser](memory-concurrency-limits.md) eller [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md). Frågor kan också vänta på andra orsaker till exempel för objekt lås.  Om din fråga väntar på en resurs, se [undersöka frågor som väntar på resurser](#monitor-waiting-queries) ytterligare i den här artikeln.
 
-För att förenkla sökningen av en fråga i [sys. dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) -tabellen använder du [etikett](https://msdn.microsoft.com/library/ms190322.aspx) för att tilldela en kommentar till frågan, som kan visas i vyn sys. dm_pdw_exec_requests.
+För att förenkla sökningen av en fråga i [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) -tabellen använder du [etikett](https://msdn.microsoft.com/library/ms190322.aspx) för att tilldela en kommentar till frågan, som kan visas i vyn sys. dm_pdw_exec_requests.
 
 ```sql
 -- Query with Label
@@ -82,6 +86,7 @@ WHERE   [label] = 'My Query';
 ```
 
 ### <a name="step-2-investigate-the-query-plan"></a>STEG 2: Undersök frågeplan
+
 Använd förfrågnings-ID: t för att hämta frågans distribuerade SQL-plan (DSQL) från [sys. dm_pdw_request_steps](https://msdn.microsoft.com/library/mt203913.aspx).
 
 ```sql
@@ -100,7 +105,8 @@ Om du vill undersöka ytterligare information om ett enda steg, *operation_type*
 * Fortsätt med Steg 3a för **SQL-åtgärder**: OnOperation, RemoteOperation, ReturnOperation.
 * Fortsätt med steg 3b för **data förflyttnings åtgärder**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>Steg 3a: Undersök SQL på de distribuerade databaserna
+### <a name="step-3-investigate-sql-on-the-distributed-databases"></a>STEG 3: Undersök SQL på de distribuerade databaserna
+
 Använd förfrågnings-ID och steg index för att hämta information från [sys. dm_pdw_sql_requests](https://msdn.microsoft.com/library/mt203889.aspx), som innehåller körnings information för steget fråga på alla distribuerade databaser.
 
 ```sql
@@ -114,17 +120,17 @@ WHERE request_id = 'QID####' AND step_index = 2;
 När steget körs kan [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx) användas för att hämta den SQL Server beräknade planen från SQL Server plan-cachen för det steg som körs på en viss distribution.
 
 ```sql
--- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
+-- Find the SQL Server execution plan for a query running on a specific SQL pool or control node.
 -- Replace distribution_id and spid with values from previous query.
 
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>STEG 3B: Undersök data förflyttning på distribuerade databaser
+### <a name="step-4-investigate-data-movement-on-the-distributed-databases"></a>STEG 4: Undersök data förflyttning på de distribuerade databaserna
 Använd förfrågnings-ID och steg index för att hämta information om ett steg för data förflyttning som körs på varje distribution från [sys. dm_pdw_dms_workers](https://msdn.microsoft.com/library/mt203878.aspx).
 
 ```sql
--- Find the information about all the workers completing a Data Movement Step.
+-- Find information about all the workers completing a Data Movement Step.
 -- Replace request_id and step_index with values from Step 1 and 3.
 
 SELECT * FROM sys.dm_pdw_dms_workers
@@ -137,7 +143,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 Om frågan körs kan du använda [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx) för att hämta den SQL Server beräknade planen från SQL Server plan-cachen för det SQL-steg som körs för närvarande i en viss distribution.
 
 ```sql
--- Find the SQL Server estimated plan for a query running on a specific SQL Data Warehouse Compute or Control node.
+-- Find the SQL Server estimated plan for a query running on a specific SQL pool Compute or control node.
 -- Replace distribution_id and spid with values from previous query.
 
 DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
@@ -171,10 +177,12 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Om frågan väntar på resurser från en annan fråga blir statusen **AcquireResources**.  Om frågan har alla nödvändiga resurser kommer statusen att **beviljas**.
 
 ## <a name="monitor-tempdb"></a>Övervaka tempdb
-TempDB används för att lagra mellanliggande resultat under frågekörningen. Hög användning av tempdb-databasen kan leda till långsam frågans prestanda. Varje nod i Azure SQL Data Warehouse har ungefär 1 TB RAW-utrymme för tempdb. Nedan visas tips för att övervaka tempdb-användning och för att minska tempdb-användning i dina frågor. 
+
+TempDB används för att lagra mellanliggande resultat under frågekörningen. Hög användning av tempdb-databasen kan leda till långsam frågans prestanda. Varje nod i SQL-poolen har ungefär 1 TB RAW-utrymme för tempdb. Nedan visas tips för att övervaka tempdb-användning och för att minska tempdb-användning i dina frågor. 
 
 ### <a name="monitoring-tempdb-with-views"></a>Övervaka tempdb med vyer
-Om du vill övervaka tempdb-användningen installerar du först [Microsoft. vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) -vyn från [microsoft Toolkit för SQL Data Warehouse](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). Du kan sedan köra följande fråga för att se tempdb-användning per nod för alla utförda frågor:
+
+Om du vill övervaka tempdb-användningen installerar du först [Microsoft. vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) -vyn från [Microsoft Toolkit för SQL-poolen](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). Du kan sedan köra följande fråga för att se tempdb-användning per nod för alla utförda frågor:
 
 ```sql
 -- Monitor tempdb
@@ -206,11 +214,11 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-Om du har en fråga som förbrukar en stor mängd minne eller har fått ett fel meddelande som rör allokering av tempdb, kan det bero på en mycket stor [CREATE TABLE som Select (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) eller [insert Select](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) -instruktionen som körs och som inte fungerar i den slutliga data flytt åtgärden. Detta kan vanligt vis identifieras som en ShuffleMove-åtgärd i den distribuerade fråge planen direkt före den slutliga INFOGNINGen.  Använd [sys. dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) för att övervaka ShuffleMove-åtgärder. 
+Om du har en fråga som förbrukar en stor mängd minne eller har fått ett fel meddelande som rör allokering av tempdb, kan det bero på en mycket stor [CREATE TABLE som Select (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) eller [insert Select](/sql/t-sql/statements/insert-transact-sql) -instruktionen som körs och som inte fungerar i den slutliga data flytt åtgärden. Detta kan vanligt vis identifieras som en ShuffleMove-åtgärd i den distribuerade fråge planen direkt före den slutliga INFOGNINGen.  Använd [sys. dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) för att övervaka ShuffleMove-åtgärder. 
 
 Den vanligaste lösningen är att bryta din CTAS eller infoga SELECT-instruktion i flera load-instruktioner så att data volymen inte överskrider tempdb-gränsen på 1 TB per nod. Du kan också skala klustret till en större storlek som kommer att sprida tempdb-storleken mellan fler noder som minskar tempdb på varje enskild nod.
 
-Förutom CTAS och INSERT SELECT-instruktioner, kan stora, komplexa frågor som körs med otillräckligt minne spill i tempdb som orsakar att frågor inte kan köras.  Överväg att köra med en större [resurs klass](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) för att undvika spill i tempdb.
+Förutom CTAS och INSERT SELECT-instruktioner, kan stora, komplexa frågor som körs med otillräckligt minne spill i tempdb som orsakar att frågor inte kan köras.  Överväg att köra med en större [resurs klass](resource-classes-for-workload-management.md) för att undvika spill i tempdb.
 
 ## <a name="monitor-memory"></a>Övervaka minne
 
@@ -239,7 +247,8 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>Övervaka transaktions logg storlek
-Följande fråga returnerar transaktions logg storleken för varje distribution. Om en av loggfilerna når 160 GB bör du överväga att skala upp instansen eller begränsa transaktions storleken. 
+Följande fråga returnerar transaktions logg storleken för varje distribution. Om en av loggfilerna når 160 GB bör du överväga att skala upp instansen eller begränsa transaktions storleken.
+
 ```sql
 -- Transaction log size
 SELECT
@@ -251,7 +260,9 @@ WHERE
 instance_name like 'Distribution_%' 
 AND counter_name = 'Log File(s) Used Size (KB)'
 ```
+
 ## <a name="monitor-transaction-log-rollback"></a>Övervaka återställning av transaktions logg
+
 Om dina frågor inte fungerar eller tar lång tid att gå vidare kan du kontrol lera och övervaka om du har några transaktioner att återställa.
 ```sql
 -- Monitor rollback
@@ -265,6 +276,7 @@ GROUP BY t.pdw_node_id, nod.[type]
 ```
 
 ## <a name="monitor-polybase-load"></a>Övervaka PolyBase-belastning
+
 Följande fråga ger en ungefärlig uppskattning av förloppet för inläsningen. Frågan visar bara filer som bearbetas just nu. 
 
 ```sql
@@ -290,4 +302,5 @@ ORDER BY
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om DMV: er finns i [systemvyer](./sql-data-warehouse-reference-tsql-system-views.md).
+
+Mer information om DMV: er finns i [systemvyer](sql-data-warehouse-reference-tsql-system-views.md).

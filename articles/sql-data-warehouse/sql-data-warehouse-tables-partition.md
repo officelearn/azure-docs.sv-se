@@ -1,6 +1,6 @@
 ---
 title: Partitionerings tabeller
-description: Rekommendationer och exempel för att använda Table-partitioner i Azure SQL Data Warehouse.
+description: Rekommendationer och exempel för att använda Table-partitioner i SQL Analytics
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,24 +10,24 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 7ec313094a9ebc05f966e0c49f44284909ca778f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 25485502ff1ae6858ee7d0f840c22940dc3ab9b5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685415"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192157"
 ---
-# <a name="partitioning-tables-in-sql-data-warehouse"></a>Partitionera tabeller i SQL Data Warehouse
-Rekommendationer och exempel för att använda Table-partitioner i Azure SQL Data Warehouse.
+# <a name="partitioning-tables-in-sql-analytics"></a>Partitionerings tabeller i SQL Analytics
+Rekommendationer och exempel för att använda Table-partitioner i SQL Analytics.
 
 ## <a name="what-are-table-partitions"></a>Vad är Table-partitioner?
-Med Table partitions kan du dela upp data i mindre grupper av data. I de flesta fall skapas Table partitions i en datum kolumn. Partitionering stöds för alla SQL Data Warehouse tabell typer; inklusive grupperat columnstore, grupperat index och heap. Partitionering stöds också på alla distributions typer, inklusive både hash-och resursallokering-distribution.  
+Med Table partitions kan du dela upp data i mindre grupper av data. I de flesta fall skapas Table partitions i en datum kolumn. Partitionering stöds på alla typer av SQL Analytics-tabeller. inklusive grupperat columnstore, grupperat index och heap. Partitionering stöds också på alla distributions typer, inklusive både hash-och resursallokering-distribution.  
 
 Partitionering kan dra nytta av data underhåll och frågans prestanda. Vare sig det gäller både eller bara en är beroende av hur data läses in och om samma kolumn kan användas för båda syfte, eftersom partitionering bara kan göras på en kolumn.
 
 ### <a name="benefits-to-loads"></a>Fördelar med att läsa in
-Den främsta fördelen med partitionering i SQL Data Warehouse är att förbättra effektiviteten och prestandan vid inläsning av data genom att använda borttagning av partition, växling och sammanslagning. I de flesta fall är data partitionerade i en datum kolumn som är nära knutna till den ordning som data läses in i databasen. En av de största fördelarna med att använda partitioner för att underhålla data är att undvika transaktions loggning. Även om du helt enkelt infogar, uppdaterar eller tar bort data är det enklaste sättet, med lite tanke och ansträngning, att använda partitionering under inläsnings processen och förbättra prestanda avsevärt.
+Den främsta fördelen med partitionering i SQL Analytics är att förbättra effektiviteten och prestandan vid inläsning av data genom att använda borttagning av partition, växling och sammanslagning. I de flesta fall är data partitionerade i en datum kolumn som är nära knutna till den ordning som data läses in i databasen. En av de största fördelarna med att använda partitioner för att underhålla data är att undvika transaktions loggning. Även om du helt enkelt infogar, uppdaterar eller tar bort data är det enklaste sättet, med lite tanke och ansträngning, att använda partitionering under inläsnings processen och förbättra prestanda avsevärt.
 
 Partition växling kan användas för att snabbt ta bort eller ersätta en del av en tabell.  En försäljnings fakta tabell kan till exempel innehålla endast data för de senaste 36 månaderna. I slutet av varje månad tas den äldsta månaden av försäljnings data bort från tabellen.  Dessa data kan tas bort med hjälp av en Delete-instruktion för att ta bort data för den äldsta månaden. Att ta bort en stor mängd data rad för rad med en Delete-instruktion kan dock ta för lång tid, samt skapa risken för stora transaktioner som tar lång tid att återställa om något går fel. En mer optimal metod är att släppa den äldsta data partitionen. Det kan ta flera sekunder att ta bort enskilda rader och det kan ta flera sekunder att ta bort en hel partition.
 
@@ -37,10 +37,10 @@ Partitionering kan också användas för att förbättra prestanda för frågor.
 ## <a name="sizing-partitions"></a>Storleksändra partitioner
 Medan partitionering kan användas för att förbättra prestanda för vissa scenarier, kan en tabell med **för många** partitioner försämra prestanda under vissa omständigheter.  Dessa problem gäller särskilt för grupperade columnstore-tabeller. För att partitionering ska vara till hjälp är det viktigt att förstå när du ska använda partitionering och antalet partitioner som ska skapas. Det finns ingen fast snabb regel för hur många partitioner som är för många, beroende på dina data och hur många partitioner som du läser in samtidigt. Ett lyckat partitionerings schema har vanligt vis till hundratals partitioner, inte tusentals.
 
-När du skapar partitioner i **grupperade columnstore** -tabeller är det viktigt att fundera över hur många rader som tillhör varje partition. För optimal komprimering och prestanda för grupperade columnstore-tabeller behövs minst 1 000 000 rader per distribution och partition. Innan partitionerna skapas delar SQL Data Warehouse redan varje tabell i 60-distribuerade databaser. Alla partitioner som läggs till i en tabell är utöver de distributioner som skapats i bakgrunden. I det här exemplet, om försäljnings fakta tabellen innehöll 36 månads partitioner och om SQL Data Warehouse har 60-distributioner, ska försäljnings fakta tabellen innehålla 60 000 000 rader per månad eller 2 100 000 000 rader när alla månader fylls. Om en tabell innehåller färre än det rekommenderade lägsta antalet rader per partition bör du överväga att använda färre partitioner för att öka antalet rader per partition. Mer information finns i [indexerings](sql-data-warehouse-tables-index.md) artikeln, som innehåller frågor som kan bedöma kvaliteten på kluster columnstore-index.
+När du skapar partitioner i **grupperade columnstore** -tabeller är det viktigt att fundera över hur många rader som tillhör varje partition. För optimal komprimering och prestanda för grupperade columnstore-tabeller behövs minst 1 000 000 rader per distribution och partition. Innan partitionerna skapas delar SQL Analytics redan varje tabell i 60-distribuerade databaser. Alla partitioner som läggs till i en tabell är utöver de distributioner som skapats i bakgrunden. I det här exemplet, om försäljnings fakta tabellen innehöll 36 månader, och eftersom SQL Analytics-databasen har 60-distributioner, ska försäljnings fakta tabellen innehålla 60 000 000 rader per månad eller 2 100 000 000 rader när alla månader är ifyllda. Om en tabell innehåller färre än det rekommenderade lägsta antalet rader per partition bör du överväga att använda färre partitioner för att öka antalet rader per partition. Mer information finns i [indexerings](sql-data-warehouse-tables-index.md) artikeln, som innehåller frågor som kan bedöma kvaliteten på kluster columnstore-index.
 
 ## <a name="syntax-differences-from-sql-server"></a>Skillnader i syntaxen från SQL Server
-SQL Data Warehouse introducerar ett sätt att definiera partitioner som är enklare än SQL Server. Partitionerings funktioner och scheman används inte i SQL Data Warehouse som de är i SQL Server. I stället behöver du bara identifiera partitionerade kolumner och gränserna. Även om syntaxen för partitionering kan skilja sig något från SQL Server, är de grundläggande begreppen desamma. SQL Server och SQL Data Warehouse stöd för en partition kolumn per tabell, vilket kan ha en intervall partition. Mer information om partitionering finns i [partitionerade tabeller och index](/sql/relational-databases/partitions/partitioned-tables-and-indexes).
+SQL Analytics introducerar ett sätt att definiera partitioner som är enklare än SQL Server. Partitionerings funktioner och scheman används inte i SQL Analytics eftersom de är i SQL Server. I stället behöver du bara identifiera partitionerade kolumner och gränserna. Även om syntaxen för partitionering kan skilja sig något från SQL Server, är de grundläggande begreppen desamma. SQL Server och SQL Analytics stöder en partitions kolumn per tabell som kan ha en intervall partition. Mer information om partitionering finns i [partitionerade tabeller och index](/sql/relational-databases/partitions/partitioned-tables-and-indexes).
 
 I följande exempel används instruktionen [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) för att partitionera tabellen FactInternetSales i kolumnen OrderDateKey:
 
@@ -69,12 +69,12 @@ WITH
 ```
 
 ## <a name="migrating-partitioning-from-sql-server"></a>Migrera partitionering från SQL Server
-Så här migrerar du SQL Server partitions definitioner till SQL Data Warehouse bara:
+Så här migrerar du SQL Server partitions definitioner till SQL Analytics:
 
 - Eliminera SQL Server [partition schema](/sql/t-sql/statements/create-partition-scheme-transact-sql).
 - Lägg till [partition funktions](/sql/t-sql/statements/create-partition-function-transact-sql) definitionen i CREATE TABLE.
 
-Om du migrerar en partitionerad tabell från en SQL Server instans kan följande SQL hjälpa dig att ta reda på antalet rader i varje partition. Tänk på att om samma partitionerings kornig het används på SQL Data Warehouse, minskar antalet rader per partition med en faktor på 60.  
+Om du migrerar en partitionerad tabell från en SQL Server instans kan följande SQL hjälpa dig att ta reda på antalet rader i varje partition. Tänk på att om samma partitionerings kornig het används på SQL Analytics, minskar antalet rader per partition med en faktor på 60.  
 
 ```sql
 -- Partition information for a SQL Server Database
@@ -111,7 +111,7 @@ GROUP BY    s.[name]
 ```
 
 ## <a name="partition-switching"></a>Partition växling
-SQL Data Warehouse stöder delning av partitioner, sammanslagning och växling. Var och en av dessa funktioner utförs med instruktionen [Alter Table](/sql/t-sql/statements/alter-table-transact-sql) .
+SQL Analytics stöder partitions delning, sammanslagning och växling. Var och en av dessa funktioner utförs med instruktionen [Alter Table](/sql/t-sql/statements/alter-table-transact-sql) .
 
 Om du vill byta partitioner mellan två tabeller måste du se till att partitionerna överensstämmer med deras respektive gränser och att tabell definitionerna matchar. Eftersom kontroll begränsningar inte är tillgängliga för att genomdriva värde intervallet i en tabell måste käll tabellen innehålla samma partition gränser som mål tabellen. Om partitionernas gränser inte är samma, kommer partitionsuppsättningen att Miss Miss sen eftersom metadata för partitionen inte kommer att synkroniseras.
 
@@ -227,7 +227,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Läs in nya data i partitioner som innehåller data i ett steg
-Att läsa in data i partitioner med partitionering är ett praktiskt sätt att mellanlagra nya data i en tabell som inte är synliga för användarens växel i nya data.  Det kan vara svårt att utnyttja upptagna system för att hantera den låsning som är kopplad till partition växling.  För att rensa befintliga data i en partition, är det `ALTER TABLE` som krävs för att kunna växla ut data.  En annan `ALTER TABLE` krävdes för att växla till nya data.  I SQL Data Warehouse stöds alternativet `TRUNCATE_TARGET` i `ALTER TABLE` kommandot.  Med `TRUNCATE_TARGET` kommandot `ALTER TABLE` skriva över befintliga data i partitionen med nya data.  Nedan visas ett exempel som använder `CTAS` för att skapa en ny tabell med befintliga data, infogar nya data och sedan växlar alla data tillbaka till mål tabellen och skriver över befintliga data.
+Att läsa in data i partitioner med partitionering är ett praktiskt sätt att mellanlagra nya data i en tabell som inte är synliga för användarens växel i nya data.  Det kan vara svårt att utnyttja upptagna system för att hantera den låsning som är kopplad till partition växling.  För att rensa befintliga data i en partition, är det `ALTER TABLE` som krävs för att kunna växla ut data.  En annan `ALTER TABLE` krävdes för att växla till nya data.  I SQL Analytics stöds alternativet `TRUNCATE_TARGET` i `ALTER TABLE` kommandot.  Med `TRUNCATE_TARGET` kommandot `ALTER TABLE` skriva över befintliga data i partitionen med nya data.  Nedan visas ett exempel som använder `CTAS` för att skapa en ny tabell med befintliga data, infogar nya data och sedan växlar alla data tillbaka till mål tabellen och skriver över befintliga data.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]
@@ -328,7 +328,7 @@ Om du vill undvika din tabell definition från **rusting** i ditt käll kontroll
     DROP TABLE #partitions;
     ```
 
-Med den här metoden är koden i käll kontrollen fortfarande statisk och partitionerings gränsen får vara dynamisk. utveckling med lagret över tid.
+Med den här metoden är koden i käll kontrollen fortfarande statisk och partitionerings gränsen får vara dynamisk. utvecklas med databasen över tid.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om hur du utvecklar tabeller finns i artiklarna om [tabell översikt](sql-data-warehouse-tables-overview.md).

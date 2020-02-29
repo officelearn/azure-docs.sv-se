@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 9b156193035d87472c462bae37e405e0317d8402
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: e53fb46b7c13e1feb0cc24663fb0782b4de06f2b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650307"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198039"
 ---
 # <a name="vcore-model-overview"></a>Översikt över modell för virtuell kärna
 
@@ -98,10 +98,11 @@ Om du vill aktivera maskin vara i M-serien för en prenumeration och region mås
 |Maskin varu generering  |Compute  |Minne  |
 |:---------|:---------|:---------|
 |Gen4     |– Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer<br>-Etablera upp till 24 virtuella kärnor (1 vCore = 1 fysisk kärna)  |– 7 GB per vCore<br>-Etablera upp till 168 GB|
-|Gen5     |**Allokerad beräkning**<br>– Intel E5-2673 v4 (Broadwell) 2,3-GHz-och Intel SP-8160-processorer (Skylake)<br>-Etablera upp till 80 virtuella kärnor (1 vCore = 1 Hyper-Thread)<br><br>**Data behandling utan Server**<br>– Intel E5-2673 v4 (Broadwell) 2,3-GHz-och Intel SP-8160-processorer (Skylake)<br>-Skala upp till 16 virtuella kärnor (1 vCore = 1 Hyper-Thread) automatiskt|**Allokerad beräkning**<br>– 5,1 GB per vCore<br>-Etablera upp till 408 GB<br><br>**Data behandling utan Server**<br>-Skala upp till 24 GB per vCore automatiskt<br>-Skala upp till 48 GB max|
+|Gen5     |**Allokerad beräkning**<br>– Intel E5-2673 v4 (Broadwell) 2,3-GHz och Intel SP-8160 (Skylake) * processorer<br>-Etablera upp till 80 virtuella kärnor (1 vCore = 1 Hyper-Thread)<br><br>**Data behandling utan Server**<br>– Intel E5-2673 v4 (Broadwell) 2,3-GHz och Intel SP-8160 (Skylake) * processorer<br>-Skala upp till 16 virtuella kärnor (1 vCore = 1 Hyper-Thread) automatiskt|**Allokerad beräkning**<br>– 5,1 GB per vCore<br>-Etablera upp till 408 GB<br><br>**Data behandling utan Server**<br>-Skala upp till 24 GB per vCore automatiskt<br>-Skala upp till 48 GB max|
 |Fsv2-serien     |– Intel Xeon platina 8168-processorer (SkyLake)<br>– Med en hög kärnors klock hastighet på 3,4 GHz och en maximal Turbo Turbo klock hastighet på 3,7 GHz.<br>-Etablera 72 virtuella kärnor (1 vCore = 1 Hyper-Thread)|– 1,9 GB per vCore<br>-Etablera 136 GB|
 |M-serien     |– Intel Xeon-E7 – 8890 v3 2,5 GHz-processorer<br>-Etablera 128 virtuella kärnor (1 vCore = 1 Hyper-Thread)|– 29 GB per vCore<br>-Etablera 3,7 TB|
 
+\* i vyn [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamisk hantering visas maskin varu generering för Gen5-databaser med Intel SP-8160-processorer (Skylake) som Gen6. Resurs gränser för alla Gen5-databaser är desamma oavsett processor typ (Broadwell eller Skylake).
 
 Mer information om resurs gränser finns i [resurs gränser för enskilda databaser (vCore)](sql-database-vcore-resource-limits-single-databases.md)eller [resurs gränser för elastiska pooler (vCore)](sql-database-vcore-resource-limits-elastic-pools.md).
 

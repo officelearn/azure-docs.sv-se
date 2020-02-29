@@ -3,20 +3,20 @@ title: Skydda en RESTful-tjänst med hjälp av HTTP Basic-autentisering
 titleSuffix: Azure AD B2C
 description: Skydda dina anpassade REST API Claims-utbyten i Azure AD B2C med hjälp av HTTP Basic-autentisering.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 986ad1845fa2699bb3462dceb3865300a035cb71
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 505d92e33606dac327778cae179df44efbfdf853
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848543"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183864"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Skydda dina RESTful-tjänster med hjälp av HTTP Basic-autentisering
 
@@ -28,7 +28,7 @@ I den här artikeln lägger du till HTTP Basic-autentisering till din RESTful-tj
 
 Mer information finns [i grundläggande autentisering i ASP.net Web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen i artikeln [integrera REST API anspråk i Azure AD B2C användar resa](rest-api-claims-exchange-dotnet.md) .
 

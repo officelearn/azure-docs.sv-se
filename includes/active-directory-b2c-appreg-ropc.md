@@ -1,22 +1,22 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
-ms.author: marsma
-ms.openlocfilehash: dec912ef6479e3668f22227c5f05de5ae8b12fcc
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.author: mimart
+ms.openlocfilehash: 03329252c0ed4231585d1717d9361a2aef35b36f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73800138"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187020"
 ---
 Om du vill registrera ett program i din Azure AD B2C klient kan du använda den aktuella **program** upplevelsen eller vår nya enhetliga **Appregistreringar (förhands granskning)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
 
-#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+#### <a name="applications"></a>[Program](#tab/applications/)
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Välj **Program** och därefter **Lägg till**.
@@ -25,9 +25,9 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda den 
 1. Lämna de andra värdena som de är och välj sedan **skapa**.
 1. Registrera **program-ID** för användning i ett senare steg.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Välj **Appregistreringar (för hands version)** och välj sedan **ny registrering**.

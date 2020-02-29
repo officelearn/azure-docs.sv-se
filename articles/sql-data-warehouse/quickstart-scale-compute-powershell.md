@@ -1,6 +1,6 @@
 ---
 title: 'Snabb start: skala beräkning – PowerShell '
-description: Skala beräkning i Azure SQL Data Warehouse i PowerShell. Skala ut beräkning för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna.
+description: Skala beräkning i SQL-poolen i PowerShell. Skala ut beräkning för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna.
 services: sql-data-warehouse
 author: Antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f4c2087052e4c3b4fac4d27bb4ecdc2ebf8a42f6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5952f17c83b778e8713488b5c53c9f210c84a146
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692963"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200487"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-azure-powershell"></a>Snabb start: skala beräkning i Azure SQL Data Warehouse i Azure PowerShell
+# <a name="quickstart-scale-compute-in-in-azure-synapse-analytics-sql-pool-using-azure-powershell"></a>Snabb start: skala beräkning i Azure Synapse Analytics SQL-poolen med hjälp av Azure PowerShell
 
-Skala beräkning i Azure SQL Data Warehouse med Azure PowerShell. [Skala ut beräkning](sql-data-warehouse-manage-compute-overview.md) för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna.
+Skala beräkning i SQL-pool med Azure PowerShell. [Skala ut beräkning](sql-data-warehouse-manage-compute-overview.md) för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -28,7 +28,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Den här snabb starten förutsätter att du redan har en SQL Data Warehouse som du kan skala. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
+Den här snabb starten förutsätter att du redan har en SQL-pool som du kan skala. Om du behöver skapa en använder du [skapa och Anslut-portalen](create-data-warehouse-portal.md) för att skapa en SQL-pool med namnet **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -56,39 +56,38 @@ Leta upp databasens namn, servernamnet och resursgruppen för det informationsla
 
 Följ de här anvisningarna för att hitta platsen för ditt informationslager.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Klicka på **SQL-informationslager** till vänster på Azure Portal.
-3. Välj **mySampleDataWarehouse** på sidan **SQL-databaser**. Informationslagret öppnas.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Klicka på **Azure Synapse Analytics (tidigare SQL DW)** på den vänstra navigerings sidan i Azure Portal.
+3. Välj **mySampleDataWarehouse** på sidan **Azure Synapse Analytics (tidigare SQL DW)** för att öppna data lagret.
 
     ![Servernamn och resursgrupp](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Anteckna namnet på informationslagret. Detta ska användas som databasnamn. Kom ihåg att ett informationslager är en typ av databas. Anteckna även servernamnet och resursgruppen. Du ska använda dem i kommandona för att pausa och återuppta.
-5. Om din server är foo.database.windows.net använder du bara den första delen som servernamn i dina PowerShell-cmdlets. I den föregående bilden är det fullständiga servernamnet newserver-20171113.database.windows.net. Vi använder **newserver-20180430** som servernamn i PowerShell-cmdleten.
+4. Anteckna namnet på informationslagret. Detta ska användas som databasnamn. Kom ihåg att ett informationslager är en typ av databas. Anteckna även servernamnet och resursgruppen. Du kommer att använda Server namnet och resurs gruppens namn i kommandona paus och återuppta.
+5. Använd endast den första delen av Server namnet i PowerShell-cmdletar. I föregående bild är det fullständiga Server namnet sqlpoolservername.database.windows.net. Vi använder **sqlpoolservername** som server namn i PowerShell-cmdleten.
 
 ## <a name="scale-compute"></a>Skala beräkning
 
-I SQL Data Warehouse kan du öka eller minska beräkningsresurser genom att justera informationslagerenheter. I [Skapa och ansluta – portal](create-data-warehouse-portal.md) skapades **mySampleDataWarehouse** och initierades med 400 DWU. Följande steg justerar DWU för **mySampleDataWarehouse**.
+I SQL-poolen kan du öka eller minska beräknings resurserna genom att justera informations lager enheter. I [Skapa och ansluta – portal](create-data-warehouse-portal.md) skapades **mySampleDataWarehouse** och initierades med 400 DWU. Följande steg justerar DWU för **mySampleDataWarehouse**.
 
-Om du vill ändra informations lager enheter använder du PowerShell-cmdleten [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) . I följande exempel anges data lager enheter till DW300c för databasen **mySampleDataWarehouse** som finns i resurs gruppen **myResourceGroup** på Server **mynewserver-20180430**.
+Om du vill ändra informations lager enheter använder du PowerShell-cmdleten [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) . I följande exempel anges data lager enheter till DW300c för databasen **mySampleDataWarehouse**, som finns i resurs gruppen **ResourceGroupName** på Server **sqlpoolservername**.
 
 ```Powershell
-Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
+Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySampleDataWarehouse" -ServerName "sqlpoolservername" -RequestedServiceObjectiveName "DW300c"
 ```
 
 ## <a name="check-data-warehouse-state"></a>Kontrollera tillstånd för informationslager
 
-Använd PowerShell-cmdleten [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) om du vill se data lagrets aktuella tillstånd. När du gör det hämtas statusen för databasen **mySampleDataWarehouse** i resursgruppen **myResourceGroup** på servern **mynewserver-20180430.database.windows.net**.
+Använd PowerShell-cmdleten [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) om du vill se data lagrets aktuella tillstånd. Denna cmdlet visar status för **mySampleDataWarehouse** -databasen i ResourceGroup **resourcegroupname** och Server **sqlpoolservername.Database.Windows.net**.
 
 ```powershell
-$database = Get-AzSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
-$database
+$database = Get-AzSqlDatabase -ResourceGroupName resourcegroupname -ServerName sqlpoolservername -DatabaseName mySampleDataWarehouse
 ```
 
 Resultatet liknar detta:
 
 ```powershell
-ResourceGroupName             : myResourceGroup
-ServerName                    : mynewserver-20171113
+ResourceGroupName             : resourcegroupname
+ServerName                    : sqlpoolservername
 DatabaseName                  : mySampleDataWarehouse
 Location                      : North Europe
 DatabaseId                    : 34d2ffb8-b70a-40b2-b4f9-b0a39833c974
@@ -106,7 +105,7 @@ ElasticPoolName               :
 EarliestRestoreDate           :
 Tags                          :
 ResourceId                    : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/
-                                resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/mynewserver-20171113/databases/mySampleDataWarehouse
+                                resourceGroups/resourcegroupname/providers/Microsoft.Sql/servers/sqlpoolservername/databases/mySampleDataWarehouse
 CreateMode                    :
 ReadScale                     : Disabled
 ZoneRedundant                 : False
@@ -121,7 +120,7 @@ $database | Select-Object DatabaseName,Status
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Nu har du lärt dig hur du skalar beräkning för informationslagret. Om du vill veta mer om Azure SQL Data Warehouse kan fortsätta med självstudiekursen om att läsa in data.
+Nu har du lärt dig hur du skalar beräkning för SQL-poolen. Om du vill veta mer om SQL-poolen fortsätter du till självstudien för att läsa in data.
 
 > [!div class="nextstepaction"]
->[Läs in data i en SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Läs in data i en SQL-pool](load-data-from-azure-blob-storage-using-polybase.md)

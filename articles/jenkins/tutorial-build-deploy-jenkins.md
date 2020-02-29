@@ -4,12 +4,12 @@ description: I dessa självstudier får du lära dig hur du med hjälp av Jenkin
 keywords: Jenkins, Azure, DevOps, virtuell dator, cicd
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 380d547aaee68ad40ae12a4836826d2addae3a18
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: cae28b293a6217996b44c839dc8836ec940c3155
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606470"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192616"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Självstudier: Distribuera appar till virtuella Linux-datorer i Azure med Jenkins och Azure DevOps Services
 
@@ -96,9 +96,9 @@ Först måste du konfigurera två Jenkins plugin-program: **NodeJS** och **VS Te
 5. Välj **Trigger release in TFS/Team Services** (Utlös version i TFS/Team Services). Ange URI för din Azure DevOps Services-organisation, till exempel **https://{your-organization-name}.visualstudio.com**.
 6. Ange namnet för **projektet**.
 7. Ge versionspipelinen ett namn. (Du skapar den här versionspipelinen senare i Azure DevOps Services.)
-8. Välj autentiseringsuppgifter för att ansluta till din Azure DevOps Services- eller Team Foundation Server-miljö:
+8. Välj autentiseringsuppgifter för att ansluta till din Azure DevOps-tjänst eller Azure DevOps Server miljö:
    - Låt **Username** (Användarnamn) vara tomt om du använder Azure DevOps Services. 
-   - Ange användarnamn och lösenord om du använder en lokal version av Team Foundation Server.    
+   - Ange ett användar namn och lösen ord om du använder en lokal version av Azure DevOps Server.    
    ![Konfigurera åtgärder efter skapandet i Jenkins](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
 5. Spara Jenkins-projektet.
 

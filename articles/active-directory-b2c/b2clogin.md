@@ -3,20 +3,20 @@ title: 'Migrera program och API: er till b2clogin.com'
 titleSuffix: Azure AD B2C
 description: 'Läs om hur du använder b2clogin.com i dina omdirigerings-URL: er för Azure Active Directory B2C.'
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aa1e6d8705cf4aed975ed0940087f243a06a9019
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 64b440054795670b99a22e37dec7188f3e1cd74c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372689"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189998"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Ange omdirigerings-URL: er till b2clogin.com för Azure Active Directory B2C
 
@@ -58,7 +58,7 @@ Det finns två format som du kan använda för dina b2clogin.com-omdirigerings-U
 https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
 ```
 
-Det andra alternativet använder klient domän namnet i form av `your-tenant-name.onmicrosoft.com`. Exempel:
+Det andra alternativet använder klient domän namnet i form av `your-tenant-name.onmicrosoft.com`. Några exempel:
 
 ```
 https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp

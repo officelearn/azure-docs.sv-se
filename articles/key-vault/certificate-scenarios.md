@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b6a44bc31e21a63b12a0d06c537cc026ed77e386
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 32a453678fe3702fcb4b77f0b04a8ed5c889ef59
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832858"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197631"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Kom igång med Key Vault certifikat
 I följande scenarier beskrivs flera av de primära användningarna av Key Vaults hanterings tjänst för certifikat, inklusive de ytterligare steg som krävs för att skapa ditt första certifikat i ditt nyckel valv.
@@ -63,7 +64,7 @@ OBS! den här processen, genom steg 3,1, är en Databasmigrering-åtgärd.
 **Steg 4** – följande beskrivningar motsvarar de gröna numrerade stegen i föregående diagram.  
   (1) – i diagrammet ovan skapar ditt program ett certifikat som börjar med att skapa en nyckel i ditt nyckel valv.  
   (2)-Key Vault skickar en TLS/SSL-certifikatbegäran till certifikat utfärdaren.  
-  (3) – dina program avsöker, i en slinga och väntar, för din Key Vault för slut för ande av certifikat. Skapandet av certifikat är klar när Key Vault tar emot certifikatutfärdarens svar med X.509-certifikat.  
+  (3) – dina program avsöker, i en slinga och väntar, för din Key Vault för slut för ande av certifikat. Certifikatet har skapats när Key Vault tar emot CA: ns svar med x509-certifikat.  
   (4) – CA: n svarar på Key Vault TLS/SSL-certifikatbegäran med ett X509 TLS/SSL-certifikat.  
   (5) – ditt nya certifikat har skapats med sammanslagningen av X509-certifikatet för CA: n.  
 

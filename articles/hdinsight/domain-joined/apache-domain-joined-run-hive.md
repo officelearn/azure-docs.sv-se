@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: ff612c43a058fce02bd801e15632c27979f22d17
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435862"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196934"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurera Apache Hive-principer i HDInsight med Enterprise Security Package
 
 Lär dig hur du konfigurerar Apache Ranger-principer för Apache Hive. I den här artikeln skapar du två Ranger-principer för att begränsa åtkomsten till hivesampletable. Hivesampletable medföljer HDInsight-kluster. När du har konfigurerat principerna använder du Excel och ODBC-drivrutinen för att ansluta till Hive-tabeller i HDInsight.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett HDInsight-kluster med Enterprise Security Package. Se [Konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md).
 * En arbetsstation med Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, fristående Excel 2013 eller Office 2010 Professional Plus.
@@ -93,7 +93,7 @@ Du hittar anvisningarna i [Skapa Hive ODBC-datakällan](../hadoop/apache-hadoop-
  | Mekanism | Välj **Azure HDInsight-tjänst** |
  | HTTP-sökväg | Lämna tomt. |
  | Användarnamn | Ange hiveuser1@contoso158.onmicrosoft.com. Uppdatera domän namnet om det är annorlunda. |
- | lösenord | Ange lösenordet för hiveuser1. |
+ | Lösenord | Ange lösenordet för hiveuser1. |
 
 Se till att klicka på **Test** innan du sparar datakällan.
 
@@ -152,7 +152,7 @@ Om du vill testa den andra principen (Read-hivesampletable-devicemake) skapade d
 
 * Information om hur du konfigurerar ett HDInsight-kluster med Enterprise Security Package finns i [Konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md).
 * Information om hur du hanterar HDInsight-kluster med ESP finns i [Hantera HDInsight-kluster med ESP](apache-domain-joined-manage.md).
-* Information om hur du kör Hive-frågor med SSH på HDInsight-kluster med ESP finns i [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Information om hur du kör Hive-frågor med SSH på HDInsight-kluster med ESP finns i [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight).
 * För att ansluta Hive med Hive-JDBC, se [Anslut till Apache Hive på Azure HDInsight med HIVE JDBC-drivrutinen](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)
 * Information om hur du ansluter Excel till Hadoop med Hive ODBC finns i [ansluta Excel till Apache Hadoop med Microsoft HIVE ODBC-enhet](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)
 * Information om hur du ansluter Excel till Hadoop med hjälp av Power Query finns i [ansluta Excel till Apache Hadoop med Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md)

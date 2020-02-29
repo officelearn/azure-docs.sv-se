@@ -1,6 +1,6 @@
 ---
 title: Användardefinierade återställnings punkter
-description: Så här skapar du en återställnings punkt Azure SQL Data Warehouse.
+description: Så här skapar du en återställnings punkt för SQL-poolen.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bf092b5b6c6eb88b565a940de56d614426e34d8e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 72e2535730dc6c814708ef3ff563136235930475
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759609"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198292"
 ---
 # <a name="user-defined-restore-points"></a>Användardefinierade återställnings punkter
 
-I den här artikeln får du lära dig att skapa en ny användardefinierad återställnings punkt för Azure SQL Data Warehouse med PowerShell och Azure Portal.
+I den här artikeln får du lära dig att skapa en ny användardefinierad återställnings punkt för en SQL-pool i Azure Synapse Analytics med hjälp av PowerShell och Azure Portal.
 
 ## <a name="create-user-defined-restore-points-through-powershell"></a>Skapa användardefinierade återställnings punkter via PowerShell
 
@@ -62,9 +62,9 @@ Användardefinierade återställnings punkter kan också skapas via Azure Portal
 
 1. Logga in på ditt [Azure Portal](https://portal.azure.com/) -konto.
 
-2. Navigera till SQL Data Warehouse som du vill skapa en återställnings punkt för.
+2. Gå till den SQL-pool som du vill skapa en återställnings punkt för.
 
-3. Välj **Översikt** i den vänstra rutan och välj **+ ny återställnings punkt**. Om knappen Ny återställnings punkt inte är aktive rad kontrollerar du att informations lagret inte har pausats.
+3. Välj **Översikt** i den vänstra rutan och välj **+ ny återställnings punkt**. Om knappen Ny återställnings punkt inte är aktive rad kontrollerar du att SQL-poolen inte är pausad.
 
     ![Ny återställnings punkt](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
@@ -74,7 +74,7 @@ Användardefinierade återställnings punkter kan också skapas via Azure Portal
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Återställa ett befintligt informations lager](sql-data-warehouse-restore-active-paused-dw.md)
-- [Återställa ett borttaget informations lager](sql-data-warehouse-restore-deleted-dw.md)
-- [Återställa från ett informations lager för geo-säkerhetskopiering](sql-data-warehouse-restore-from-geo-backup.md)
+- [Återställa en befintlig SQL-pool](sql-data-warehouse-restore-active-paused-dw.md)
+- [Återställa en borttagen SQL-pool](sql-data-warehouse-restore-deleted-dw.md)
+- [Återställa från en geo-backup SQL-pool](sql-data-warehouse-restore-from-geo-backup.md)
 

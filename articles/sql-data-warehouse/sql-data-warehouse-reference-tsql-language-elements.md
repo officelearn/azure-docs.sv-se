@@ -1,6 +1,6 @@
 ---
 title: Språkelement för T-SQL
-description: Länkar till dokumentationen för T-SQL-uttryck som stöds i Azure SQL Data Warehouse.
+description: Länkar till dokumentationen för T-SQL-uttryck som stöds i SQL Analytics.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: query
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 02f463e12547ba64a05e04988d9c192bba4f6a27
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: edd77d711654a7f2793eb3c08b93e85fc0a89e8f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692519"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198430"
 ---
-# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Språk element för T-SQL som stöds i Azure SQL Data Warehouse
-Länkar till dokumentation för språk element i T-SQL som stöds i Azure SQL Data Warehouse.
+# <a name="t-sql-language-elements-supported-in-sql-analytics"></a>Språk element för T-SQL som stöds i SQL Analytics
+Länkar till dokumentation för språk element i T-SQL som stöds i SQL Analytics.
 
 ## <a name="core-elements"></a>Kärn element
 * [syntax konventioner](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
@@ -47,7 +47,7 @@ Länkar till dokumentation för språk element i T-SQL som stöds i Azure SQL Da
 * [FÖRSÖK... DOKUMENTATION](https://msdn.microsoft.com/library/ms175976.aspx)
 * [TIDEN](https://msdn.microsoft.com/library/ms178642.aspx)
 
-## <a name="operators"></a>Operatorer
+## <a name="operators"></a>Operatörer
 * [+ (Lägg till)](https://msdn.microsoft.com/library/ms178565.aspx)
 * [+ (Sträng sammanfogning)](https://msdn.microsoft.com/library/ms177561.aspx)
 * [-(Negativt)](https://msdn.microsoft.com/library/ms189480.aspx)
@@ -278,5 +278,5 @@ Länkar till dokumentation för språk element i T-SQL som stöds i Azure SQL Da
 * [ANGE XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
-Mer referensinformation finns i [T-SQL-uttryck i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md)och [systemvyer i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).
+Mer referensinformation finns i [T-SQL-uttryck i SQL Analytics](sql-data-warehouse-reference-tsql-statements.md)och [systemvyer i SQL Analytics](sql-data-warehouse-reference-tsql-system-views.md).
 

@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 33dfc91381b23bf1ac33bef5274e1098df411f4a
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 0bca690fd585b288f15cbab21c1c951474390318
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609850"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196987"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Hantera program för flera miljöer
 
@@ -42,7 +42,7 @@ När du skapar en namngiven program instans i Service Fabric kan du välja att s
 
   - I PowerShell använder [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) -cmdleten program parametrarna som en hash-modul.
   - Med hjälp av sfctl tar kommandot [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) parametrar som en JSON-sträng. Install.sh-skriptet använder sfctl.
-  - Med Visual Studio får du en uppsättning parameter-filer i mappen parametrar i programprojektet. Dessa parameter-filer används vid publicering från Visual Studio med hjälp av Azure DevOps Services eller Team Foundation Server. I Visual Studio skickas parametervärdena till skriptet Deploy-FabricApplication. ps1.
+  - Med Visual Studio får du en uppsättning parameter-filer i mappen parametrar i programprojektet. Dessa parameter-filer används vid publicering från Visual Studio med hjälp av Azure DevOps Services eller Azure DevOps Server. I Visual Studio skickas parametervärdena till skriptet Deploy-FabricApplication. ps1.
 
 ## <a name="next-steps"></a>Nästa steg
 I följande artiklar visas hur du använder några av de begrepp som beskrivs här:

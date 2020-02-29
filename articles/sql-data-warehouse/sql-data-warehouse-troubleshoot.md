@@ -1,51 +1,51 @@
 ---
 title: Felsökning
-description: Felsöka Azure SQL Data Warehouse.
+description: Felsöka Azure Synapse Analytics.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 11/25/2019
+ms.date: 02/04/2019
 ms.author: kevin
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 4eec340a04b9cdbc85a2c8712a11d31132766206
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.reviewer: jrasnick
+ms.custom: azure-synapse
+ms.openlocfilehash: 085b907b6a848fb534df63b5465948864048cc19
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153374"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199877"
 ---
-# <a name="troubleshooting-azure-sql-data-warehouse"></a>Felsöka Azure SQL Data Warehouse
+# <a name="troubleshooting-sql-analytics-in-azure-synapse"></a>Felsöka SQL Analytics i Azure Synapse
 Den här artikeln innehåller vanliga fel söknings frågor.
 
 ## <a name="connecting"></a>Sker
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Inloggningen misslyckades för användaren NT AUTHORITY\ANONYMOUS LOGON. (Microsoft SQL Server, fel: 18456) | Det här felet inträffar när en AAD-användare försöker ansluta till huvuddatabasen men inte har någon användare där.  Du kan åtgärda problemet genom att antingen ange den SQL Data Warehouse-instans du vill ansluta till när anslutningen görs eller lägga till användaren i huvuddatabasen.  Mer information finns i [säkerhets översikts](sql-data-warehouse-overview-manage-security.md) artikeln. |
-| Serverns huvudnamn MyUserName kan inte komma åt huvuddatabasen i den aktuella säkerhetskontexten. Det går inte att öppna användarens standarddatabas. Det gick inte att logga in. Inloggningen misslyckades för användaren MyUserName. (Microsoft SQL Server, fel: 916) | Det här felet inträffar när en AAD-användare försöker ansluta till huvuddatabasen men inte har någon användare där.  Du kan åtgärda problemet genom att antingen ange den SQL Data Warehouse-instans du vill ansluta till när anslutningen görs eller lägga till användaren i huvuddatabasen.  Mer information finns i [säkerhets översikts](sql-data-warehouse-overview-manage-security.md) artikeln. |
-| CTAIP-fel                                                  | Det här felet kan inträffa när en inloggning har skapats på SQL Server-huvuddatabasen, men inte i SQL Data Warehouse databasen.  Om du stöter på det här felet kan du ta en titt på artikeln [säkerhets översikt](sql-data-warehouse-overview-manage-security.md) .  Den här artikeln förklarar hur du skapar en inloggning och användare på huvud servern och hur du skapar en användare i SQL Data Warehouse databasen. |
-| Blockerad av brand väggen                                          | Azure SQL-databaser skyddas av brand väggar på Server-och databas nivå så att endast kända IP-adresser har åtkomst till en databas. Brand väggarna är säkra som standard, vilket innebär att du måste uttryckligen aktivera och IP-adresser eller adress intervall innan du kan ansluta.  Konfigurera brand väggen för åtkomst genom att följa stegen i [Konfigurera serverns brand Väggs åtkomst för klientens IP-adress](sql-data-warehouse-get-started-provision.md) i [etablerings anvisningarna](sql-data-warehouse-get-started-provision.md). |
-| Det går inte att ansluta med verktyget eller driv rutinen                           | SQL Data Warehouse rekommenderar att du använder [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15), [SSDT för Visual Studio](sql-data-warehouse-install-visual-studio.md)eller [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md) för att fråga dina data. Mer information om driv rutiner och hur du ansluter till SQL Data Warehouse finns i [driv rutiner för Azure SQL Data Warehouse](sql-data-warehouse-connection-strings.md) och [ansluta till Azure SQL Data Warehouse](sql-data-warehouse-connect-overview.md) artiklar. |
+| Inloggningen misslyckades för användaren NT AUTHORITY\ANONYMOUS LOGON. (Microsoft SQL Server, fel: 18456) | Det här felet inträffar när en AAD-användare försöker ansluta till huvuddatabasen men inte har någon användare där.  Du kan åtgärda det här problemet genom att antingen ange den SQL-pool som du vill ansluta till vid anslutnings tiden eller lägga till användaren i huvud databasen.  Mer information finns i [säkerhets översikts](sql-data-warehouse-overview-manage-security.md) artikeln. |
+| Serverns huvudnamn MyUserName kan inte komma åt huvuddatabasen i den aktuella säkerhetskontexten. Det går inte att öppna användarens standarddatabas. Det gick inte att logga in. Inloggningen misslyckades för användaren MyUserName. (Microsoft SQL Server, fel: 916) | Det här felet inträffar när en AAD-användare försöker ansluta till huvuddatabasen men inte har någon användare där.  Du kan åtgärda det här problemet genom att antingen ange den SQL-pool som du vill ansluta till vid anslutnings tiden eller lägga till användaren i huvud databasen.  Mer information finns i [säkerhets översikts](sql-data-warehouse-overview-manage-security.md) artikeln. |
+| CTAIP-fel                                                  | Det här felet kan inträffa när en inloggning har skapats på SQL Server-huvuddatabasen, men inte i SQL-databasen.  Om du stöter på det här felet kan du ta en titt på artikeln [säkerhets översikt](sql-data-warehouse-overview-manage-security.md) .  Den här artikeln förklarar hur du skapar en inloggning och användare på huvud servern och hur du skapar en användare i SQL-databasen. |
+| Blockerad av brand väggen                                          | SQL-pooler skyddas av brand väggar för att se till att endast kända IP-adresser har åtkomst till en databas. Brand väggarna är säkra som standard, vilket innebär att du måste uttryckligen aktivera och IP-adresser eller adress intervall innan du kan ansluta.  Konfigurera brand väggen för åtkomst genom att följa stegen i [Konfigurera serverns brand Väggs åtkomst för klientens IP-adress](sql-data-warehouse-get-started-provision.md) i [etablerings anvisningarna](sql-data-warehouse-get-started-provision.md). |
+| Det går inte att ansluta med verktyget eller driv rutinen                           | SQL Analytics rekommenderar att du använder [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15), [SSDT för Visual Studio](sql-data-warehouse-install-visual-studio.md)eller [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md) för att fråga dina data. Mer information om driv rutiner och hur du ansluter till Azure Synapse finns i [driv rutiner för Azure Synapse](sql-data-warehouse-connection-strings.md) och [ansluta till Azure Synapse](sql-data-warehouse-connect-overview.md) -artiklar. |
 
 ## <a name="tools"></a>Verktyg
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| AAD-användare saknas i Visual Studio Object Explorer           | Detta är ett känt problem.  Som en lösning kan du Visa användarna i [sys. database_principals](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?view=sql-server-ver15).  Mer information om hur du använder Azure Active Directory med SQL Data Warehouse finns i [autentisering till Azure SQL Data Warehouse](sql-data-warehouse-authentication.md) . |
+| AAD-användare saknas i Visual Studio Object Explorer           | Detta är ett känt problem.  Som en lösning kan du Visa användarna i [sys. database_principals](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?view=sql-server-ver15).  Mer information om hur du använder Azure Active Directory med SQL Analytics finns i [autentisering till Azure-Synapse](sql-data-warehouse-authentication.md) . |
 | Manuell skript användning med skript guiden eller anslutning via SSMS är långsam, svarar inte eller skapar fel | Se till att användarna har skapats i huvud databasen. I skript alternativ ser du också till att motor versionen är inställd på "Microsoft Azure SQL Data Warehouse Edition" och att motor typen är "Microsoft Azure SQL Database". |
-| Generera skript Miss lyckas i SSMS                               | Det går inte att skapa ett skript för SQL Data Warehouse om alternativet "skapa skript för beroende objekt" är inställt på "true". Som en lösning måste användarna manuellt gå till **verktyg-> alternativ-> SQL Server Object Explorer-> skapa skript för beroende alternativ och ange värdet FALSKT** |
+| Generera skript Miss lyckas i SSMS                               | Det går inte att skapa ett skript för SQL Analytics om alternativet "skapa skript för beroende objekt" är inställt på "true". Som en lösning måste användarna manuellt gå till **verktyg-> alternativ-> SQL Server Object Explorer-> skapa skript för beroende alternativ och ange värdet FALSKT** |
 
 ## <a name="performance"></a>Prestanda
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Felsöka prestanda fel sökning                            | Om du försöker Felsöka en viss fråga börjar du med [att lära dig hur du övervakar dina frågor](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md#monitor-query-execution). |
-| Problem med TempDB-utrymme | [Övervaka](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md#monitor-tempdb) användning av tempdb-utrymme.  Vanliga orsaker till att slut på TempDB-utrymme körs är:<br>-Inte tillräckligt med resurser allokeras till den fråga som orsakar att data spiller till TempDB.  Se [hantering av arbets belastning](resource-classes-for-workload-management.md) <br>– Statistik saknas eller är inaktuell och orsakar onödig data förflyttning.  Se [underhålla tabell statistik](sql-data-warehouse-tables-statistics.md) för information om hur du skapar statistik<br>– TempDB-utrymme tilldelas per service nivå.  Om du [skalar SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#scaling-compute) till en högre DWU-inställning allokerar mer tempdb-utrymme.|
+| Problem med TempDB-utrymme | [Övervaka](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md#monitor-tempdb) användning av tempdb-utrymme.  Vanliga orsaker till att slut på TempDB-utrymme körs är:<br>-Inte tillräckligt med resurser allokeras till den fråga som orsakar att data spiller till TempDB.  Se [hantering av arbets belastning](resource-classes-for-workload-management.md) <br>– Statistik saknas eller är inaktuell och orsakar onödig data förflyttning.  Se [underhålla tabell statistik](sql-data-warehouse-tables-statistics.md) för information om hur du skapar statistik<br>– TempDB-utrymme tilldelas per service nivå.  Om [du skalar SQL-poolen](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#scaling-compute) till en högre DWU-inställning allokeras mer tempdb-utrymme.|
 | Dåliga frågor och prestanda är ofta en följd av statistik som saknas | Den vanligaste orsaken till dåliga prestanda är brist på statistik för dina tabeller.  Mer information om hur du skapar statistik och varför de är viktiga för dina prestanda finns i [underhålla tabell statistik](sql-data-warehouse-tables-statistics.md) . |
 | Låg concurrency/frågor i kö                             | Det är viktigt att förstå [arbets belastnings hanteringen](resource-classes-for-workload-management.md) för att förstå hur du balanserar minnesallokering med samtidighet. |
-| Så här implementerar du bästa metoder                              | Den bästa platsen för att lära dig hur du kan förbättra prestanda för frågor är [SQL Data Warehouse metod tips](sql-data-warehouse-best-practices.md) . |
-| Förbättra prestanda med skalning                      | Ibland är lösningen för att förbättra prestandan att helt enkelt lägga till mer beräknings kraft för dina frågor genom [att skala SQL Data Warehouse](sql-data-warehouse-manage-compute-overview.md). |
+| Så här implementerar du bästa metoder                              | Den bästa platsen för att lära dig hur du kan förbättra prestanda för frågor finns i artikeln om [metod tips för SQL Analytics](sql-data-warehouse-best-practices.md) . |
+| Förbättra prestanda med skalning                      | Lösningen för att förbättra prestanda är ibland att helt enkelt lägga till mer beräknings kraft för dina frågor genom [att skala SQL-poolen](sql-data-warehouse-manage-compute-overview.md). |
 | Dåliga frågeresultat på grund av dålig index kvalitet     | Vissa gånger kan frågor sakta ned på grund av [dålig kolumn kvalitet i columnstore-index](../sql-data-warehouse/sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality).  Se den här artikeln för mer information och hur du [bygger om index för att förbättra segment kvaliteten](../sql-data-warehouse/sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality). |
 
 ## <a name="system-management"></a>System hantering

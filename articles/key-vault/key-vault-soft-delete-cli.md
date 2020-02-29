@@ -5,15 +5,16 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: aef4061a8349e6602ac4394cb31bbe76b6cb63c0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 7288e5d8c01122bea7650274cdaf358c7fc24cd0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976298"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197325"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Använda Key Vault mjuk borttagning med CLI
 
@@ -34,7 +35,7 @@ Key Vault åtgärder hanteras separat via RBAC-behörigheter (rollbaserad åtkom
 
 | Åtgärd | Beskrivning | Användar behörighet |
 |:--|:--|:--|
-|List|Visar en lista över borttagna nyckel valv.|Microsoft.KeyVault/deletedVaults/read|
+|Visa lista|Visar en lista över borttagna nyckel valv.|Microsoft.KeyVault/deletedVaults/read|
 |Återställ|Återställer ett borttaget nyckel valv.|Microsoft.KeyVault/vaults/write|
 |Rensa|Tar permanent bort ett borttaget nyckel valv och allt dess innehåll.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -154,7 +155,7 @@ az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
 
 #### <a name="set-a-key-vault-access-policy"></a>Ange en åtkomst princip för nyckel valvet
 
-Följande kommando ger user@contoso.com behörighet att använda flera åtgärder på nycklar i *ContosoVault* , inklusive **Rensa**:
+Följande kommando beviljar user@contoso.com behörighet att använda flera åtgärder på nycklar i *ContosoVault* , inklusive **Rensa**:
 
 ```azurecli
 az keyvault set-policy --name ContosoVault --key-permissions get create delete list update import backup restore recover purge
@@ -206,7 +207,7 @@ Samma sak gäller för nyckel valvet. Om du vill ta bort ett mjukt borttaget nyc
 
 ### <a name="purging-a-key-vault"></a>Rensar ett nyckel valv
 
-När ett nyckel valv rensas tas hela innehållet bort permanent, inklusive nycklar, hemligheter och certifikat. Om du vill rensa ett mjukt borttaget nyckel valv använder `az keyvault purge` du kommandot. Du kan hitta platsen som prenumerationens borttagna nyckel valv med hjälp av kommandot `az keyvault list-deleted`.
+När ett nyckel valv rensas tas hela innehållet bort permanent, inklusive nycklar, hemligheter och certifikat. Om du vill rensa ett mjukt borttaget nyckel valv använder du kommandot `az keyvault purge`. Du kan hitta platsen som prenumerationens borttagna nyckel valv använder med kommandot `az keyvault list-deleted`.
 
 ```azurecli
 az keyvault purge --location westus --name ContosoVault
@@ -236,7 +237,7 @@ Om du vill aktivera både mjuk borttagnings-och rensnings skydd när du skapar e
 az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
 ```
 
-Om du vill lägga till rensnings skydd i ett befintligt valv (som redan har mjuk borttagning aktiverat) använder du kommandot [AZ](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) -uppdaterings kommando:
+Om du vill lägga till rensnings skydd i ett befintligt valv (som redan har mjuk borttagning aktiverat) använder du kommandot [AZ-uppdaterings](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) kommando:
 
 ```
 az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true

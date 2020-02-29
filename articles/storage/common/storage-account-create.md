@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 86aaebe652968a2ea33fd8e15f9de9c1dff31a30
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c2d1e8b4975be0657983192df00cc434da00a6f7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086961"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197733"
 ---
 # <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
 
@@ -28,11 +28,11 @@ I den här instruktions artikeln lär du dig att skapa ett lagrings konto med hj
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 Ingen.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Om du vill skapa ett Azure Storage-konto med PowerShell kontrollerar du att du har installerat Azure PowerShell modul AZ version 0,7 eller senare. Mer information finns i [Introduktion till modulen för Azure PowerShell AZ](/powershell/azure/new-azureps-module-az).
 
@@ -44,7 +44,7 @@ Get-InstalledModule -Name "Az"
 
 Information om hur du installerar eller uppgraderar Azure PowerShell finns i [installera Azure PowerShell-modulen](/powershell/azure/install-Az-ps).
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Du kan logga in på Azure och köra Azure CLI-kommandon på ett av två sätt:
 
@@ -65,7 +65,7 @@ Knappen startar ett interaktivt gränssnitt som du kan använda för att köra s
 
 Du kan även installera och använda Azure CLI lokalt. Den här instruktions artikeln kräver att du kör Azure CLI-version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
 
-# <a name="templatetabtemplate"></a>[Mall](#tab/template)
+# <a name="template"></a>[Mall](#tab/template)
 
 Ingen.
 
@@ -73,11 +73,11 @@ Ingen.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 Logga in på [Azure-portalen](https://portal.azure.com).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Logga in på din Azure-prenumeration med kommandot `Connect-AzAccount` och följ anvisningarna på skärmen för att autentisera.
 
@@ -85,7 +85,7 @@ Logga in på din Azure-prenumeration med kommandot `Connect-AzAccount` och följ
 Connect-AzAccount
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Logga in på [Azure Portal](https://portal.azure.com)för att starta Azure Cloud Shell.
 
@@ -95,9 +95,9 @@ Logga in på den lokala installationen av CLI genom att köra kommandot [AZ logi
 az login
 ```
 
-# <a name="templatetabtemplate"></a>[Mall](#tab/template)
+# <a name="template"></a>[Mall](#tab/template)
 
-SAKNAS
+Saknas
 
 ---
 
@@ -109,11 +109,11 @@ Varje lagringskonto måste tillhöra en Azure-resursgrupp. En resursgrupp är en
 
 Ett **v2-lagringskonto för generell användning** ger åtkomst till alla Azure Storage-tjänster: blobar, filer, köer, tabeller och diskar. De steg som beskrivs här skapar ett allmänt-syfte v2-lagrings konto, men stegen för att skapa en typ av lagrings konto liknar varandra.
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Skapa först en ny resursgrupp med PowerShell med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
 
@@ -155,7 +155,7 @@ Om du vill skapa ett allmänt-syfte v2-lagrings konto med ett annat replikerings
 |GZRS (geo-Zone-redundant lagring) (för hands version)    |Standard_GZRS         |
 |Read-Access geo-Zone-redundant lagring (RA-GZRS) (för hands version)    |Standard_RAGZRS         |
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Skapa först en ny resursgrupp med Azure CLI med kommandot [az group create](/cli/azure/group#az_group_create).
 
@@ -198,7 +198,7 @@ Om du vill skapa ett allmänt-syfte v2-lagrings konto med ett annat replikerings
 |GZRS (geo-Zone-redundant lagring) (för hands version)    |Standard_GZRS         |
 |Read-Access geo-Zone-redundant lagring (RA-GZRS) (för hands version)    |Standard_RAGZRS         |
 
-# <a name="templatetabtemplate"></a>[Mall](#tab/template)
+# <a name="template"></a>[Mall](#tab/template)
 
 Du kan använda antingen Azure PowerShell eller Azure CLI för att distribuera en Resource Manager-mall för att skapa ett lagrings konto. Mallen som används i den här instruktions artikeln är från [Azure Resource Manager snabb starts mallar](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Om du vill köra skripten väljer du **prova** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**.
 
@@ -219,7 +219,10 @@ az group create --name $resourceGroupName --location "$location" &&
 az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
-Information om hur du skapar mallar finns i:
+> [!NOTE]
+> Den här mallen fungerar bara som ett exempel. Det finns många inställningar för lagrings konton som inte har kon figurer ATS som en del av den här mallen. Om du till exempel vill använda [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)ändrar du mallen genom att ange egenskapen `isHnsEnabledad` för `StorageAccountPropertiesCreateParameters`-objektet som ska `true`. 
+
+Information om hur du ändrar den här mallen eller skapar nya finns i:
 
 - [Azure Resource Manager-dokumentation](/azure/azure-resource-manager/).
 - [Referens för lagrings konto mal len](/azure/templates/microsoft.storage/allversions).
@@ -233,12 +236,12 @@ Mer information om tillgängliga replikeringsalternativ finns i [Storage replica
 
 Om du tar bort ett lagrings konto raderas hela kontot, inklusive alla data i kontot, och det går inte att ångra.
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 1. Navigera till lagrings kontot i [Azure Portal](https://portal.azure.com).
 1. Klicka på **Ta bort**.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Om du vill ta bort lagrings kontot använder du kommandot [Remove-AzStorageAccount](/powershell/module/az.storage/remove-azstorageaccount) :
 
@@ -246,7 +249,7 @@ Om du vill ta bort lagrings kontot använder du kommandot [Remove-AzStorageAccou
 Remove-AzStorageAccount -Name <storage-account> -ResourceGroupName <resource-group>
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Om du vill ta bort lagrings kontot använder du kommandot [AZ Storage Account Delete](/cli/azure/storage/account#az-storage-account-delete) :
 
@@ -254,7 +257,7 @@ Om du vill ta bort lagrings kontot använder du kommandot [AZ Storage Account De
 az storage account delete --name <storage-account> --resource-group <resource-group>
 ```
 
-# <a name="templatetabtemplate"></a>[Mall](#tab/template)
+# <a name="template"></a>[Mall](#tab/template)
 
 Om du vill ta bort lagrings kontot använder du antingen Azure PowerShell eller Azure CLI.
 
@@ -285,22 +288,22 @@ Alternativt kan du ta bort resurs gruppen, vilket innebär att lagrings kontot o
 
 I den här instruktions artikeln har du skapat ett standard lagrings konto för generell användning v2. Om du vill lära dig hur du laddar upp och laddar ned blobar till och från ditt lagrings konto fortsätter du till något av snabb starterna för Blob Storage.
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 > [!div class="nextstepaction"]
 > [Arbeta med blobar med Azure-portalen](../blobs/storage-quickstart-blobs-portal.md)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!div class="nextstepaction"]
 > [Arbeta med blobar med PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
 > [Arbeta med blobar med Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 
-# <a name="templatetabtemplate"></a>[Mall](#tab/template)
+# <a name="template"></a>[Mall](#tab/template)
 
 > [!div class="nextstepaction"]
 > [Arbeta med blobar med Azure-portalen](../blobs/storage-quickstart-blobs-portal.md)

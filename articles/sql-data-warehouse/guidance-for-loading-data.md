@@ -1,26 +1,26 @@
 ---
 title: Metodtips för datainläsning
-description: Rekommendationer och prestandaoptimering för inläsning av data i Azure SQL Data Warehouse.
+description: Rekommendationer och prestanda optimeringar för inläsning av data i SQL Analytics
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 08/08/2019
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 01bb53488bf63f32d2bae804e4844400a7fd2d31
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: d59a66b25b55572865f297436331971434d831c3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686097"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199894"
 ---
-# <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Metodtips för inläsning av data i Azure SQL Data Warehouse
+# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Metod tips för att läsa in data för data lager
 
-Rekommendationer och prestandaoptimering för inläsning av data i Azure SQL Data Warehouse.
+Rekommendationer och prestanda optimeringar för att läsa in data
 
 ## <a name="preparing-data-in-azure-storage"></a>Förbereda data i Azure Storage
 
@@ -36,9 +36,9 @@ Dela upp stora komprimerade filer i små komprimerade filer.
 
 ## <a name="running-loads-with-enough-compute"></a>Köra belastningar med tillräckligt med beräkning
 
-För högsta hastighet för inläsning, kör du bara ett inläsningsjobb i taget. Om detta inte är möjligt, kör du ett minimalt antal belastningar samtidigt. Överväg att skala upp ditt informationslager innan belastningen om du förväntar dig ett stort inläsningsjobb.
+För högsta hastighet för inläsning, kör du bara ett inläsningsjobb i taget. Om detta inte är möjligt, kör du ett minimalt antal belastningar samtidigt. Om du förväntar dig ett stort inläsnings jobb kan du skala upp SQL-poolen före belastningen.
 
-För att köra inläsningar med lämpliga beräkningsresurser skapar du inläsningsanvändare som är avsedda att köra inläsningar. Tilldela varje inläsningsanvändare till en specifik resursklass. Om du vill köra en inläsning loggar du in som en inläsnings användare och kör sedan belastningen. Inläsningen körs med användarens resursklass.  Den här metoden är enklare än att försöka ändra en användares resursklass så att den passar det aktuella behovet av resursklass.
+För att köra inläsningar med lämpliga beräkningsresurser skapar du inläsningsanvändare som är avsedda att köra inläsningar. Tilldela varje inläsnings användare till en angiven resurs klass eller arbets belastnings grupp. Om du vill köra en inläsning loggar du in som en inläsnings användare och kör sedan belastningen. Inläsningen körs med användarens resursklass.  Den här metoden är enklare än att försöka ändra en användares resursklass så att den passar det aktuella behovet av resursklass.
 
 ### <a name="example-of-creating-a-loading-user"></a>Exempel på att skapa en inläsningsanvändare
 
@@ -89,7 +89,7 @@ Kolumnlagringsindex kräver en stor mängd minne för att komprimera data i hög
 - Läs in tillräckligt med rader för att helt fylla de nya radgrupperna. Under en massinläsning komprimeras var 1 048 576:e rad direkt till columnstore som en fullständig radgrupp. Belastningar med färre än 102 400 rader skickar raderna till deltastore där raderna förvaras i ett b-trädindex. Om du läser in för få rader kan alla rader hamna i deltalagringen och inte bli komprimerade direkt i kolumnlagringsformatet.
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Öka batchstorleken när du använder SQLBulkCopy API eller BCP
-Som nämnts tidigare ger inläsning med PolyBase det högsta data flödet med SQL Data Warehouse. Om du inte kan använda PolyBase för att läsa in och måste använda SQLBulkCopy-API (eller BCP) bör du fundera på att öka batchstorleken för bättre data flöde. 
+Som nämnts tidigare ger inläsning med PolyBase det högsta data flödet med SQL Data Warehouse. Om du inte kan använda PolyBase för att läsa in och måste använda SQLBulkCopy-API (eller BCP) bör du fundera på att öka batchstorleken för bättre data flöde – en bra tumregel är en batchstorlek mellan 100 000 och 1 miljon rader.
 
 ## <a name="handling-loading-failures"></a>Hantera inläsningsfel
 
@@ -107,7 +107,7 @@ Om du har tusentals eller fler enskilda infogningar under dagen bör du gruppera
 
 För att få bättre frågeprestanda är det viktigt att skapa statistik på alla kolumner i alla tabeller efter den första inläsningen eller efter betydande dataändringar.  Detta kan göras manuellt eller så kan du aktivera [statistik för automatisk skapande](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic).
 
-En detaljerad förklaring av statistik finns i [Statistik](sql-data-warehouse-tables-statistics.md). I följande exempel visas hur du manuellt skapar statistik på fem kolumner i Customer_Speed-tabellen.
+En detaljerad förklaring av statistik finns i [Statistik](sql-data-warehouse-tables-statistics.md). I följande exempel visas hur du manuellt skapar statistik på fem kolumner i Customer_Speeds tabellen.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -143,6 +143,6 @@ Det behövs inga andra ändringar i underliggande externa datakällor.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta mer om PolyBase och hur du utformar en ELT-process (extrahering, laddning och transformering) kan du läsa [Designa ELT för SQL Data Warehouse](design-elt-data-loading.md).
+- Om du vill veta mer om PolyBase och hur du utformar en ELT-process (extrahering, inläsning och transformering) kan du läsa [Designa ELT för SQL Data Warehouse](design-elt-data-loading.md).
 - En kurs i inläsning av data hittar du i [Använda PolyBase för att läsa in data från Azure Blob Storage till Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 - Om du vill övervaka datainläsningen läser du [Övervaka arbetsbelastningen med datahanteringsvyer](sql-data-warehouse-manage-monitor.md).

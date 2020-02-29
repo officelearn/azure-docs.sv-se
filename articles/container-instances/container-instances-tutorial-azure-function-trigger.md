@@ -4,12 +4,12 @@ description: Skapa en HTTP-utlöst, Server lös PowerShell-funktion för att aut
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.custom: ''
-ms.openlocfilehash: 49eb0721972a92f33bda2532367bc78280b6e655
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 51146886e3f52cb6a60d49da0d57aea1e2c55106
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533380"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196543"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Självstudie: Använd en HTTP-utlöst Azure-funktion för att skapa en behållar grupp
 
@@ -28,9 +28,9 @@ Lär dig att:
 > [!IMPORTANT]
 > PowerShell för Azure Functions är för närvarande en för hands version. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Se [skapa din första PowerShell-funktion i Azure](../azure-functions/functions-create-first-function-powershell.md#prerequisites) för krav för att installera och använda Visual Studio Code med Azure Functions i ditt operativ system.
+Se [skapa din första funktion i Azure](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-powershell#configure-your-environment) för krav för att installera och använda Visual Studio Code med Azure Functions i ditt operativ system.
 
 Vissa steg i den här artikeln använder Azure CLI. Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra de här stegen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 

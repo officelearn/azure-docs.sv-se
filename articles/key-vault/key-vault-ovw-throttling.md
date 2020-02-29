@@ -5,15 +5,16 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 28e79dffb206e8a62410bf3b4e0e239879b51224
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 6c4923e86f8678458d6301503043413fb8a5629b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806685"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197376"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Vägledning för Azure Key Vault-begränsning
 
@@ -40,7 +41,7 @@ Om du upptäcker att ovanstående fortfarande inte uppfyller dina behov kan du f
 
 | Valv namn | Valv region | Objekt typ (hemligt, nyckel eller certifikat) | Åtgärd (er) * | Nyckel typ | Nyckel längd eller kurva | HSM-nyckel?| RPS för stabilt tillstånd krävs | Topp-RPS krävs |
 |--|--|--|--|--|--|--|--|--|
-| https://mykeyvault.vault.azure.net/ | | Nyckel | Signera | EC | P-256 | Nej | 200 | 1 000 |
+| https://mykeyvault.vault.azure.net/ | | Nyckel | Logga in | EC | P-256 | Nej | 200 | 1000 |
 
 \* en fullständig lista över möjliga värden finns i [Azure Key Vault åtgärder](/rest/api/keyvault/key-operations).
 
@@ -95,7 +96,7 @@ Börja begränsning klienten med hjälp av en exponentiell backoff-metod på htt
 
 Nu kan bör du inte hämta HTTP 429-svarskoder.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-En djupare orientering av begränsning i Microsoft Cloud finns [mönster för begränsning av](https://docs.microsoft.com/azure/architecture/patterns/throttling).
+En djupare orientering av begränsningen för Microsoft Cloud finns i [begränsnings mönster](https://docs.microsoft.com/azure/architecture/patterns/throttling).
 

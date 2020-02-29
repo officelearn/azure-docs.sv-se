@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5c959dc7fa36fb41307d286b1e7d0b475d5b56c6
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5eaf4cf702e56df932a61ab277dff6b34d97854d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988472"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185037"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Ta emot och svara på meddelanden om nyckel valv med Azure Event Grid (för hands version)
 
@@ -22,12 +23,12 @@ Azure Key Vault integration med Azure Event Grid (för närvarande i för hands 
 
 I den här guiden beskrivs hur du tar emot Key Vault-meddelanden via Event Grid och hur du svarar på status ändringar via Azure Automation.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - Ett nyckel valv i din Azure-prenumeration. Du kan snabbt skapa ett nytt nyckel valv genom att följa stegen i [Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure CLI](quick-create-cli.md).
 
-## <a name="concepts"></a>Begrepp
+## <a name="concepts"></a>Koncept
 
 Event Grid är en händelse tjänst för molnet. Genom att följa stegen i den här guiden kommer du att prenumerera på händelser för Key Vault och dirigera händelser till Automation. När en av hemligheterna i nyckel valvet håller på att gå ut får Event Grid ett meddelande om status ändringen och gör ett HTTP-inlägg till slut punkten. En webbhook utlöser sedan en Automation-körning av ett PowerShell-skript.
 
@@ -178,7 +179,7 @@ Kontrol lera att din Event Grid-prenumeration är korrekt konfigurerad. Det här
 
 1. Välj det senaste jobbet och titta på POST-begäran som skickades från Event Grid till webhooken. Undersök JSON och se till att parametrarna för nyckel valvet och händelse typen är korrekta. Om parametern "händelse typ" i JSON-objektet matchar händelsen som inträffat i nyckel valvet (i det här exemplet Microsoft. Key Vault. SecretNearExpiry) lyckades testet.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="you-cant-create-an-event-subscription"></a>Du kan inte skapa en händelse prenumeration
 

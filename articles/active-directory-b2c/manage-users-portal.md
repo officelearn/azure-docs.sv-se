@@ -2,20 +2,20 @@
 title: Skapa & ta bort Azure AD B2C konsument användar konton i Azure Portal
 description: Lär dig hur du använder Azure Portal för att skapa och ta bort konsument användare i din Azure AD B2Cs katalog.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/09/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d96db5cf062da1b2e8badd80a9a00620b724fd4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c8fad8b5bd2dccba36c0c6888712fa806f3cbfc8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840425"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187227"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Använd Azure Portal för att skapa och ta bort konsument användare i Azure AD B2C
 
@@ -29,15 +29,15 @@ För att lägga till eller ta bort användare måste ditt konto tilldelas rollen
 
 Enligt beskrivningen i [Översikt över användar konton i Azure AD B2C](user-overview.md)finns det tre typer av användar konton som kan skapas i en Azure AD B2C katalog:
 
-* Arbetstidsmallar
-* Gäst
-* Konsument
+* Arbete
+* Välkommen
+* Kund
 
 Den här artikeln fokuserar på att arbeta med **konsument konton** i Azure Portal. Information om hur du skapar och tar bort arbets-och gäst konton finns i [lägga till eller ta bort användare med hjälp av Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 ## <a name="create-a-consumer-user"></a>Skapa en konsument användare
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Under **Hantera** väljer du **Användare**.

@@ -2,20 +2,20 @@
 title: 'Lokaliserings Strängs-ID: n Azure Active Directory B2C | Microsoft Docs'
 description: 'Ange ID: n för en innehålls definition med ID: t för API. signuporsignin i en anpassad princip i Azure Active Directory B2C.'
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/03/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cd5e543a6d5dc2b59847a78bd925be68f8cdde25
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 3af62a75228959478a80c2628307fff2b47c3c4a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982865"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187499"
 ---
 # <a name="localization-string-ids"></a>Sträng-ID för lokalisering
 
@@ -33,11 +33,11 @@ Följande ID: n används för en innehålls definition med ID `api.signuporsigni
 | **logonIdentifier_email** | E-postadress |
 | **requiredField_email** | Ange din e-postadress |
 | **invalid_email** | Ange en giltig e-postadress |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&’' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)* $ |
+| **email_pattern** | ^ [a-zA-Z0-9.! # $% & ' ' *+/=? ^ _\`{\|} ~-] + @ [a-za-Z0-9-] + (?:\\. [ a – zA-Z0-9-] +)* $ |
 | **local_intro_username** | Logga in med ditt användar namn |
 | **logonIdentifier_username** | Användarnamn |
 | **requiredField_username** | Ange ditt användar namn |
-| **Lösenord** | Lösenord |
+| **ords** | Lösenord |
 | **requiredField_password** | Ange ditt lösen ord |
 | **invalid_password** | Det angivna lösen ordet har inte det förväntade formatet. |
 | **forgotpassword_link** | Glömt ditt lösenord? |
@@ -47,7 +47,7 @@ Följande ID: n används för en innehålls definition med ID `api.signuporsigni
 | **cancel_message** | Användaren har glömt sitt lösen ord |
 | **button_signin** | Logga in |
 | **social_intro** | Logga in med ditt sociala konto |
-  **remember_me** |Håll mig inloggad|
+  **remember_me** |Jag vill förbli inloggad|
 | **unknown_error** | Vi har problem med att logga in dig. Försök igen senare. |
 
 I följande exempel visas användningen av några av användar gränssnitts elementen på sidan för registrering eller inloggning:
@@ -98,31 +98,31 @@ Följande är ID: n för en innehålls definition med ID `api.localaccountsignup
 | ID | Standardvärde |
 | -- | ------------- |
 | **ver_sent** | Verifierings koden har skickats till: |
-| **ver_but_default** | Default |
+| **ver_but_default** | Standard |
 | **cancel_message** | Användaren har avbrutit registrering av självkontrollerad information |
 | **preloader_alt** | Snälla vänta |
 | **ver_but_send** | Skicka verifierings kod |
 | **alert_yes** | Ja |
 | **error_fieldIncorrect** | Ett eller flera fält har fyllts i felaktigt. Kontrol lera dina poster och försök igen. |
-| **år** | Year |
+| **år** | År |
 | **verifying_blurb** | Vänta medan vi bearbetar din information. |
 | **button_cancel** | Avbryt |
 | **ver_fail_no_retry** | Du har gjort för många felaktiga försök. Försök igen senare. |
-| **månaderna** | Månad |
+| **månaderna** | Month |
 | **ver_success_msg** | E-postadress verifierad. Nu kan du fortsätta. |
 | **månader** | Januari, februari, mars, april, maj, juni, juli, augusti, september, oktober, november, december |
 | **ver_fail_server** | Vi har problem med att verifiera din e-postadress. Ange en giltig e-postadress och försök igen. |
 | **error_requiredFieldMissing** | Ett obligatoriskt fält saknas. Fyll i alla obligatoriska fält och försök igen. |
 | **initial_intro** | Ange följande information. |
 | **ver_but_resend** | Skicka ny kod |
-| **button_continue** | Create |
+| **button_continue** | Skapa |
 | **error_passwordEntryMismatch** | Fälten för lösen ords inmatning stämmer inte överens. Ange samma lösen ord i båda fälten och försök igen. |
 | **ver_incorrect_format** | Felaktigt format. |
 | **ver_but_edit** | Ändra e-post |
 | **ver_but_verify** | Verifiera kod |
-| **alert_no** | Inga |
+| **alert_no** | Nej |
 | **ver_info_msg** | Verifierings koden har skickats till din inkorg. Kopiera den till inmatade rutan nedan. |
-| **dagen** | Day |
+| **dagen** | Dag |
 | **ver_fail_throttled** | Det finns för många begär Anden att verifiera den här e-postadressen. Vänta en stund och försök sedan igen. |
 | **helplink_text** | Vad är det här? |
 | **ver_fail_retry** | Den koden är felaktig. Försök igen. |

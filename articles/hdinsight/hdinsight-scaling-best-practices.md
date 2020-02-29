@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/05/2020
-ms.openlocfilehash: 035f819cfaad82373f7cb55a7bb2d14fc53bb49b
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 02/26/2020
+ms.openlocfilehash: a88682cd2217850e336afc2f9ef5af84c0d8cb82
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064639"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192651"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster
 
@@ -33,8 +33,8 @@ Microsoft tillhandahåller följande verktyg för att skala kluster:
 |---|---|
 |[PowerShell-AZ](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -kluster namn \<kluster namn >-TargetInstanceCount \<NewSize >|
 |[PowerShell-AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -kluster namn \<kluster namn >-TargetInstanceCount \<NewSize >|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [AZ HDInsight ändra storlek](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resurs grupp \<resurs grupp >--Name \<kluster namn >--Target-instance-Count \<NewSize >|
-|[Azure CLI](hdinsight-administer-use-command-line.md)|storlek på Azure HDInsight-kluster ändra storlek \<kluster namn > \<mål instans antal > |
+|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [AZ HDInsight ändra storlek](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resurs grupp \<resurs grupp >--Name \<kluster namn >--workernode-Count \<NewSize >|
+|[Klassisk Azure-CLI](hdinsight-administer-use-command-line.md)|storlek på Azure HDInsight-kluster ändra storlek \<kluster namn > \<mål instans antal > |
 |[Azure Portal](https://portal.azure.com)|Öppna fönstret HDInsight-kluster, Välj **kluster storlek** på den vänstra menyn och skriv sedan antalet arbetsnoder i rutan kluster storlek och välj Spara.|  
 
 ![Alternativet Azure Portal skalnings kluster](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
@@ -126,7 +126,7 @@ Om du vill avsluta programmet manuellt kör du följande kommando från SSH-grä
 yarn application -kill <application_id>
 ```
 
-Exempel:
+Några exempel:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

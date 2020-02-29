@@ -7,19 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/14/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: fd9bd846beba718cb305907d4d0c5a613d2ef816
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.custom: azure-synapse
+ms.openlocfilehash: 69a200d4fda940f072960da9224f84a22db51647
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029941"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193806"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring-preview"></a>Azure Synapse Analytics – övervakning av arbets belastnings Hanteringsportal (för hands version)
-Den här artikeln förklarar hur du övervakar resursutnyttjande för [arbets belastnings grupper](sql-data-warehouse-workload-isolation.md#workload-groups) och frågor. Mer information om hur du konfigurerar Azure-Metrics Explorer finns i artikeln [komma igång med Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) .  Mer information om hur du övervakar användningen av system resurser finns i avsnittet [resursutnyttjande](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) i Azure SQL Data Warehouse övervaknings dokumentation.
+Den här artikeln förklarar hur du övervakar resursutnyttjande för [arbets belastnings grupper](sql-data-warehouse-workload-isolation.md#workload-groups) och frågor. Mer information om hur du konfigurerar Azure-Metrics Explorer finns i artikeln [komma igång med Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) .  Mer information om hur du övervakar användningen av system resurser finns i avsnittet [resursutnyttjande](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) i dokumentationen för Azure Synapse Analytics-övervakning.
 Det finns två olika kategorier av mått för arbets belastnings grupper som tillhandahålls för övervakning av arbets belastnings hantering: resurstilldelning och fråga aktivitet.  Dessa mått kan delas och filtreras efter arbets belastnings grupp.  Måtten kan delas och filtreras baserat på om de är systemdefinierade (arbets belastnings grupper för resurs klass) eller användardefinierade (skapas av användare med [skapa arbets belastnings gruppens](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax).
 
 ## <a name="workload-management-metric-definitions"></a>Mått definitioner för arbets belastnings hantering

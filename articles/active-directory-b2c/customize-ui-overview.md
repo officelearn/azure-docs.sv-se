@@ -3,20 +3,20 @@ title: Anpassa användargränssnittet
 titleSuffix: Azure AD B2C
 description: Lär dig hur du anpassar användar gränssnittet för dina program som använder Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2dcdc67f884d1f566c794ab9e996a74984ab61a4
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: dad4c156b088c28ccf199cb155278ac9a189e4be
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77373150"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189063"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Anpassa användar gränssnittet i Azure Active Directory B2C
 
@@ -165,7 +165,7 @@ Om du vill anpassa dina användar flödes sidor konfigurerar du först företags
 
 Börja med att ange banderoll, bakgrunds bild och bakgrunds färg inom **företags anpassning**.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Under **Hantera**väljer du **företags anpassning**.

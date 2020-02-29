@@ -3,20 +3,20 @@ title: Anspråk matchare i anpassade principer
 titleSuffix: Azure AD B2C
 description: Lär dig hur du använder anspråk matchare i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/02/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 97e51331657c62094996f79483148f2f441e6a44
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 02277d2da2e431ac1cefdd9b018af4c25f7d5a9a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161609"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189845"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Om anspråk matchare i Azure Active Directory B2C anpassade principer
 
@@ -117,9 +117,9 @@ Alla parameter namn som ingår i en OIDC-eller OAuth2-begäran kan mappas till e
 | {SAML: ForceAuthn} | Värdet för `ForceAuthN`-attributet från `AuthnRequest`-elementet i SAML-begäran. | True |
 | {SAML: ProviderName} | Värdet för `ProviderName`-attributet från `AuthnRequest`-elementet i SAML-begäran.| Contoso.com |
 
-## <a name="using-claim-resolvers"></a>Använda anspråks matchare 
+## <a name="using-claim-resolvers"></a>Använda anspråks matchare
 
-Du kan använda anspråk matchare med följande element: 
+Du kan använda anspråk matchare med följande element:
 
 | Objekt | Element | Inställningar |
 | ----- | ----------------------- | --------|
@@ -135,7 +135,7 @@ Du kan använda anspråk matchare med följande element:
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
 |[RelyingParty](relyingparty.md#technicalprofile) teknisk profil| `OutputClaim`| 2 |
 
-Autentiseringsinställningar 
+Autentiseringsinställningar
 1. `IncludeClaimResolvingInClaimsHandling` metadata måste anges till `true`.
 1. Attributet indata-eller utgående anspråk `AlwaysUseDefaultValue` måste anges till `true`.
 
@@ -195,7 +195,7 @@ Därför skickar Azure AD B2C ovanstående parametrar till sidan HTML-innehåll:
 
 ### <a name="content-definition"></a>Innehålls definition
 
-I en [ContentDefinition](contentdefinitions.md) `LoadUri`kan du skicka anspråk matchare för att hämta innehåll från olika platser, baserat på de parametrar som används. 
+I en [ContentDefinition](contentdefinitions.md) `LoadUri`kan du skicka anspråk matchare för att hämta innehåll från olika platser, baserat på de parametrar som används.
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -224,7 +224,7 @@ Med Azure Application insikter och anspråks matchare kan du få insikter om anv
 
 ### <a name="relying-party-policy"></a>Princip för förlitande part
 
-I en teknisk profil för [förlitande part](relyingparty.md) , kanske du vill skicka klient-ID eller KORRELATIONS-ID till det förlitande part programmet i JWT. 
+I en teknisk profil för [förlitande part](relyingparty.md) , kanske du vill skicka klient-ID eller KORRELATIONS-ID till det förlitande part programmet i JWT.
 
 ```XML
 <RelyingParty>

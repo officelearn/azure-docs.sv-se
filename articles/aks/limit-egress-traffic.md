@@ -4,12 +4,12 @@ description: Ta reda på vilka portar och adresser som krävs för att styra utg
 services: container-service
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: a76f4eb8680d07193feb29450fdba7bb2a710a68
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: d69921ce23e961879fea6be68838f86bfcc703d0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595016"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191307"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Styra utgående trafik för klusternoder i Azure Kubernetes service (AKS)
 
@@ -143,7 +143,7 @@ Följande FQDN/program-regler krävs för AKS-kluster som har Azure dev-utrymmen
 | cloudflare.docker.com | HTTPS:443 | Den här adressen används för att hämta Linux Alpine och andra Azure dev Spaces-bilder |
 | gcr.io | HTTP: 443 | Den här adressen används för att hämta Helm/till-avbildningar |
 | storage.googleapis.com | HTTP: 443 | Den här adressen används för att hämta Helm/till-avbildningar |
-| azds-<guid>.<location>. azds.io | HTTPS:443 | För att kommunicera med Azure dev Spaces-backend-tjänster för din kontrollant. Du hittar exakt FQDN i "dataplaneFqdn" i% USERPROFILE%\.azds\settings.JSON |
+| azds-\<-GUID\>.\<plats\>. azds.io | HTTPS:443 | För att kommunicera med Azure dev Spaces-backend-tjänster för din kontrollant. Du hittar exakt FQDN i "dataplaneFqdn" i% USERPROFILE%\.azds\settings.JSON |
 
 ## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Obligatoriska adresser och portar för AKS-kluster med Azure Policy (i offentlig för hands version) aktiverat
 
@@ -156,7 +156,7 @@ Följande FQDN/program-regler krävs för AKS-kluster som har Azure Policy aktiv
 |-----------------------------------------|-----------|----------|
 | gov-prod-policy-data.trafficmanager.net | HTTPS:443 | Adressen används för att Azure Policy ska fungera korrekt. (för närvarande i för hands version i AKS) |
 | raw.githubusercontent.com | HTTPS:443 | Den här adressen används för att hämta de inbyggda principerna från GitHub för att säkerställa korrekt drift av Azure Policy. (för närvarande i för hands version i AKS) |
-| *. GK.<location>. azmk8s.io | HTTPS:443 | Azure policy-tillägg som talar om för gatekeeper gransknings slut punkten som körs på huvud servern för att hämta gransknings resultaten. |
+| *. GK.\<plats\>. azmk8s.io | HTTPS:443   | Azure policy-tillägg som talar om för gatekeeper gransknings slut punkten som körs på huvud servern för att hämta gransknings resultaten. |
 | dc.services.visualstudio.com | HTTPS:443 | Azure policy-tillägg som skickar telemetridata till program insikter-slutpunkten. |
 
 ## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Krävs av Windows Server-baserade noder (i offentlig för hands version) aktiverat

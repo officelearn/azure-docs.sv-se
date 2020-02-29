@@ -4,13 +4,13 @@ description: Lär dig hur du integrerar Azure Kubernetes service (AKS) med Azure
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 09/17/2018
-ms.openlocfilehash: b1f4449728589eca4f64035d7e70d01dbc187bc4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 02/25/2020
+ms.openlocfilehash: 5d8b45137ff82db6b23b5bf31eb3e8063de343bb
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596206"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191341"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autentisera med Azure Container Registry från Azure Kubernetes-tjänsten
 
@@ -25,9 +25,12 @@ Följande exempel kräver:
 * Rollen **ägare** eller **administratör för Azure-konto** på Azure- **prenumerationen**
 * Azure CLI-version 2.0.73 eller senare
 
+För att undvika att du behöver en **ägare** eller rollen som **administratör för Azure-konto** kan du konfigurera ett huvud namn för tjänsten manuellt eller använda ett befintligt huvud namn för tjänsten för att autentisera ACR från AKS. Mer information finns i [ACR-autentisering med tjänstens huvud namn](../container-registry/container-registry-auth-service-principal.md) eller [autentisera från Kubernetes med en pull-hemlighet](../container-registry/container-registry-auth-kubernetes.md).
+
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>Skapa ett nytt AKS-kluster med ACR-integrering
 
-Du kan ställa in AKS-och ACR-integration när du skapar ditt AKS-kluster.  För att tillåta ett AKS-kluster att samverka med ACR används ett Azure Active Directory **tjänstens huvud namn** . Med följande CLI-kommando kan du auktorisera en befintlig ACR i din prenumeration och konfigurera rätt **ACRPull** -roll för tjänstens huvud namn. Ange giltiga värden för parametrarna nedan. 
+Du kan ställa in AKS-och ACR-integration när du skapar ditt AKS-kluster.  För att tillåta ett AKS-kluster att samverka med ACR används ett Azure Active Directory **tjänstens huvud namn** . Med följande CLI-kommando kan du auktorisera en befintlig ACR i din prenumeration och konfigurera rätt **ACRPull** -roll för tjänstens huvud namn. Ange giltiga värden för parametrarna nedan.
+
 ```azurecli
 # set this to the name of your Azure Container Registry.  It must be globally unique
 MYACR=myContainerRegistry
@@ -37,12 +40,11 @@ az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
 
 # Create an AKS cluster with ACR integration
 az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr $MYACR
-
 ```
 Alternativt kan du ange namnet på ACR med ett ACR-resurs-ID, som har följande format:
 
-/Subscriptions/\<prenumeration-ID\>/resourceGroups/\<resurs-grupp-Name\>/providers/Microsoft.ContainerRegistry/registries/\<\> 
- 
+`/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\>` 
+
 ```azurecli
 az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr /subscriptions/<subscription-id>/resourceGroups/myContainerRegistryResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry
 ```

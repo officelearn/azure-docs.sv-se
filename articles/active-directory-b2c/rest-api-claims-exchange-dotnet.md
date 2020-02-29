@@ -3,20 +3,20 @@ title: Integrera REST API anspråk utbyten i en användar resa
 titleSuffix: Azure AD B2C
 description: Integrera REST API Claims-utbyten i Azure AD B2C användar resa som validering av användarindata.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 780d575bd7f035673510d5b1e62cff4dfd6ede16
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5976b6ef747b27a5a04c755d47ae4383fc4b2447
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848764"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187363"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrera REST API Claims-utbyten i Azure AD B2C användar resa som validering av användarindata
 
@@ -57,7 +57,7 @@ I den här genom gången utvecklar du ett .NET Framework webb-API som validerar 
 * Skicka tillbaka ett förmåns nummer
 * Lägga till förmåns numret till en JSON Web Token (JWT)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen i artikeln [komma igång med anpassade principer](custom-policy-get-started.md) .
 

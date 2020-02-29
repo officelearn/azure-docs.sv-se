@@ -2,20 +2,20 @@
 title: Lägg till ett webb-API-program – Azure Active Directory B2C | Microsoft Docs
 description: Lär dig hur du lägger till ett webb-API-program till din Active Directory B2C-klient.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 04/16/2019
 ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 37cb242f667190fcd29bed1b7a82ca44ba2c94e9
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: e6dbf3d6fd5a43ab2d075c193c5bc589dc3566a0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641575"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190185"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Lägga till ett webb-API-program till din Azure Active Directory B2C-klient
 
@@ -23,9 +23,9 @@ ms.locfileid: "73641575"
 
 Om du vill registrera ett program i din Azure AD B2C klient kan du använda den aktuella **program** upplevelsen eller vår nya enhetliga **Appregistreringar (förhands granskning)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
 
-#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+#### <a name="applications"></a>[Program](#tab/applications/)
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **Program** och därefter **Lägg till**.
@@ -34,11 +34,11 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda den 
 7. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. I produktions programmet kan du ange svars-URL till ett värde som `https://localhost:44332`. I test syfte anger du svars-URL till `https://jwt.ms`.
 8. För **URI för app-ID** anger du den identifierare som används för webb-API:t. Den fullständiga URI-identifieraren inklusive domänen skapas åt dig. Till exempel `https://contosotenant.onmicrosoft.com/api`.
 9. Klicka på **Skapa**.
-10. På egenskapssidan antecknar du program-ID:t du kommer att använda när du konfigurerar webbappen.
+10. På egenskapssidan antecknar du det program-ID som du kommer att använda när du konfigurerar webbappen.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Välj **Appregistreringar (för hands version)** och välj sedan **ny registrering**.
@@ -64,7 +64,7 @@ Omfång är ett sätt att styra åtkomsten till skyddade resurser. Omfång anvä
 
 ## <a name="grant-permissions"></a>Bevilja behörigheter
 
-Om du vill anropa ett skyddat webb-API från ett program måste du ge programmet åtkomst till API:t. I [Självstudier: registrera ett program i Azure Active Directory B2C](tutorial-register-applications.md)registreras till exempel ett webb program med namnet *webapp1* i Azure AD B2C. Du kan använda det här programmet för att anropa webb-API: et.
+Om du vill anropa ett skyddat webb-API från ett program måste du ge programmet åtkomst till API:et. I [Självstudier: registrera ett program i Azure Active Directory B2C](tutorial-register-applications.md)registreras till exempel ett webb program med namnet *webapp1* i Azure AD B2C. Du kan använda det här programmet för att anropa webb-API: et.
 
 [!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 

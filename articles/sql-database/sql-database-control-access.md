@@ -1,30 +1,30 @@
 ---
 title: Bevilja åtkomst
-description: Läs om hur du beviljar åtkomst till Microsoft Azure SQL Database och SQL Data Warehouse.
+description: Lär dig mer om att bevilja åtkomst till Microsoft Azure SQL Database och Azure-Synapse.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse
 ms.custom: sql-data-warehouse, seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 05/08/2019
-ms.openlocfilehash: 05a949bbd99a36c41143190d216116f78c433951
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/06/2020
+ms.openlocfilehash: 5142cc941b37cfef7be79e5129b6df7094bfd00e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826601"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197852"
 ---
-# <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Azure SQL Database och SQL Data Warehouse åtkomst kontroll
+# <a name="azure-sql-database-and-azure-synapse-access-control"></a>Azure SQL Database och Azure Synapse Access Control
 
-För att tillhandahålla säkerhet, kan Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) kontrol lera åtkomst med brand Väggs regler som begränsar anslutningarna med IP-adress, autentiseringsmekanismer som kräver att användarna visar sin identitet och auktoriserings metoder begränsa användare till vissa åtgärder och data. 
+För att tillhandahålla säkerhets-, Azure [SQL Database](sql-database-technical-overview.md) -och [Azure-Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) styr åtkomst med brand Väggs regler begränsning av anslutningar via IP-adress, autentiseringsmetoder som kräver att användarna kan bevisa sin identitet och auktoriserings metoder som begränsar användarna till vissa åtgärder och data. 
 
 > [!IMPORTANT]
-> En översikt över säkerhetsfunktionerna i SQL Database finns i [SQL Säkerhetsöversikt](sql-database-security-overview.md). En själv studie kurs finns i [skydda din Azure SQL Database](sql-database-security-tutorial.md). En översikt över SQL Data Warehouse säkerhetsfunktioner finns [SQL Data Warehouse säkerhets översikt](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)
+> En översikt över säkerhetsfunktionerna i SQL Database finns i [SQL Säkerhetsöversikt](sql-database-security-overview.md). En själv studie kurs finns i [skydda din Azure SQL Database](sql-database-security-tutorial.md). En översikt över säkerhetsfunktioner i SQL Analytics i Azure Synapse finns i [Översikt över Azure Synapse-säkerhet](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)
 
 ## <a name="firewall-and-firewall-rules"></a>Brandvägg och brandväggsregler
 

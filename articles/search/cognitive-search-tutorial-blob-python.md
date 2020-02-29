@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/26/2020
-ms.openlocfilehash: 743c6fa6545342f2a7655059016637fc54158b64
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: e7708b0043b7f5baf2c12e813306595cc358a01d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164023"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194062"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Självstudie: Använd python och AI för att generera sökbart innehåll från Azure-blobbar
 
 Om du har ostrukturerad text eller avbildningar i Azure Blob Storage kan en [AI-pipeline](cognitive-search-concept-intro.md) utvinna information och skapa nytt innehåll som är användbart för full texts ökning eller kunskaps utvinnings scenarier. Även om en pipeline kan bearbeta bilder fokuserar den här python-kursen på text, använder språk identifiering och bearbetning av naturligt språk för att skapa nya fält som du kan använda i frågor, ansikts och filter.
 
-I den här självstudien använder du python och [rest](https://docs.microsoft.com/rest/api/searchservice/) för att utföra följande uppgifter:
+Den här självstudien använder python och [Sök REST-API: er](https://docs.microsoft.com/rest/api/searchservice/) för att utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Börja med hela dokument (ostrukturerad text) som PDF, HTML, DOCX och PPTX i Azure Blob Storage.
@@ -512,19 +512,13 @@ Du kan använda GET eller POST, beroende på frågesträngens komplexitet och l�
 
 ## <a name="reset-and-rerun"></a>Återställa och köra igen
 
-I de tidiga utvecklings faserna är det praktiskt att ta bort objekt från Azure Kognitiv sökning och tillåta att koden återskapar dem. Resursnamn är unika. Om du tar bort ett objekt kan du återskapa det med samma namn.
+I de tidiga experiment stegen i utvecklingen är den mest praktiska metoden för design upprepning att ta bort objekten från Azure Kognitiv sökning och tillåta att koden återskapas. Resursnamn är unika. Om du tar bort ett objekt kan du återskapa det med samma namn.
 
-Indexera dokumenten på nytt med de nya definitionerna:
-
-1. Ta bort Indexer, index och färdigheter.
-2. Ändra objekt definitioner.
-3. Återskapa objekt på din tjänst. Om du återskapar indexeraren körs pipelinen. 
-
-Du kan använda portalen för att ta bort index, indexerare och färdighetsuppsättningar. När du tar bort indexeraren kan du välja att selektivt ta bort index, färdigheter och data källan samtidigt.
+Du kan använda portalen för att ta bort index, indexerare, data källor och färdighetsuppsättningar. När du tar bort indexeraren kan du välja att selektivt ta bort index, färdigheter och data källan samtidigt.
 
 ![Ta bort Sök objekt](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Ta bort Sök objekt i portalen")
 
-Du kan också ta bort dem med hjälp av ett skript. Följande skript tar bort färdigheter som vi skapade. Du kan enkelt ändra begäran om du vill ta bort index, indexerare och data källa.
+Du kan också ta bort dem med hjälp av ett skript. Följande skript visar hur du tar bort en färdigheter. 
 
 ```python
 # delete the skillset
@@ -545,11 +539,13 @@ Slutligen har du lärt dig hur du testar resultaten och återställer systemet f
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Det snabbaste sättet att rensa efter en själv studie kurs är att ta bort resurs gruppen som innehåller Azure Kognitiv sökning service och Azure Blob Service. Förutsatt att du sätter båda tjänsterna i samma grupp tar du bort resurs gruppen för att ta bort allt innehåll i den, inklusive tjänsterna och allt lagrat innehåll som du skapade i den här självstudien. På portalen visas resursgruppens namn på översiktssidan för varje tjänst.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
+
+Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Anpassa eller utöka pipelinen med anpassade kunskaper. När du skapar en anpassad kunskap och lägger till den i en kunskapsuppsättning kan du publicera text eller bildanalys som du skriver själv.
+Nu när du är bekant med alla objekt i en pipeline för AI-anrikning, tar vi en närmare titt på färdigheter-definitioner och enskilda kunskaper.
 
 > [!div class="nextstepaction"]
-> [Exempel: skapa en anpassad färdighet för AI-anrikning](cognitive-search-create-custom-skill-example.md)
+> [Så här skapar du en färdigheter](cognitive-search-defining-skillset.md)

@@ -9,14 +9,14 @@ ms.workload: big-compute
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: lahugh
-ms.openlocfilehash: 14cbacf43e83dc768e9a85620df131533b746671
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 0134e7d92ddca9bd3b45abaf642f33de9d209b33
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463107"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192310"
 ---
-# <a name="securely-access-key-vault-with-batch"></a>Säker åtkomst Key Vault med batch
+# <a name="securely-access-key-vault-with-batch"></a>Säker åtkomst till Key Vault med Batch
 
 I den här artikeln får du lära dig hur du konfigurerar batch-noder för säker åtkomst till autentiseringsuppgifter som lagras i Azure Key Vault. Det finns ingen punkt där du kan ange autentiseringsuppgifter för din administratör i Key Vault och sedan ange autentiseringsuppgifter för att få åtkomst Key Vault från ett skript. Lösningen är att använda ett certifikat som ger dina batch-noder åtkomst till Key Vault. Med några få steg kan vi implementera säker nyckel lagring för batch.
 
@@ -40,7 +40,7 @@ cd C:\Program Files (x86)\Windows Kits\10\bin\x64
 Använd sedan `makecert`-verktyget för att skapa självsignerade certifikatfiler som kallas `batchcertificate.cer` och `batchcertificate.pvk`. Det egna namnet (CN) som används är inte viktigt för det här programmet, men det är bra att göra det något som anger vad certifikatet används för.
 
 ```console
-makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
+makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org" batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
 ```
 
 Batch kräver en `.pfx`-fil. Använd verktyget [pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) för att konvertera `.cer` och `.pvk` filer som skapats av `makecert` till en enda `.pfx`-fil.

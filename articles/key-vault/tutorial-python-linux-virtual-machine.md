@@ -5,16 +5,17 @@ services: key-vault
 author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 15650de776b481d1635b58f2b8ecf2bf2921d12f
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 3c80a206af74eb370470c38a7af9c7f1fe840406
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242417"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198158"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Självstudie: Använd en virtuell Linux-dator och en python-app för att lagra hemligheter i Azure Key Vault
 
@@ -32,7 +33,7 @@ I den här självstudien konfigurerar du en Azure-webbapp till att läsa informa
 
 Innan du fortsätter behöver du känna till [grundbegreppen om nyckelvalv](basic-concepts.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Git](https://git-scm.com/downloads).
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.

@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9f88af7027f6c907b5b55eb9aac545d98e2fbb7a
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: b9ff80275cc89dde0db215856c2e134c4b273020
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880849"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199741"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Övervaka och hantera processen för att skapa certifikat
 Gäller för: Azure
@@ -37,7 +38,7 @@ Scenarierna/åtgärderna som beskrivs i den här artikeln är:
 
 ## <a name="request-a-kv-certificate-with-a-supported-issuer"></a>Begär ett KV-certifikat med en utfärdare som stöds 
 
-|Metod|Förfrågans URI|
+|Metod|URI för förfrågan|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
@@ -80,19 +81,19 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ## <a name="get-pending-request---request-status-is-inprogress"></a>Hämta väntande begäran-status för begäran är "pågår"
 
-|Metod|Förfrågans URI|
+|Metod|URI för förfrågan|
 |------------|-----------------|
 |HÄMTA|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>Förfrågan
-TA`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
+Hämta `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 ELLER
 
-TA`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
+Hämta `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 > [!NOTE]
-> Om *request_id* anges i frågan fungerar det som ett filter. Om *request_id* i frågan och i det väntande objektet är olika returneras en HTTP-statuskod på 404.
+> Om *request_id* anges i frågan fungerar det som ett filter. Om *request_id* i frågan och i det väntande objektet skiljer sig returneras en HTTP-statuskod på 404.
 
 ### <a name="response"></a>Svar
 
@@ -116,15 +117,15 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ### <a name="request"></a>Förfrågan
 
-|Metod|Förfrågans URI|
+|Metod|URI för förfrågan|
 |------------|-----------------|
 |HÄMTA|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
-TA`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
+Hämta `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 ELLER
 
-TA`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
+Hämta `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 ### <a name="response"></a>Svar
 
@@ -148,15 +149,15 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ### <a name="request"></a>Förfrågan
 
-|Metod|Förfrågans URI|
+|Metod|URI för förfrågan|
 |------------|-----------------|
 |HÄMTA|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
-TA`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
+Hämta `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 ELLER
 
-TA`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
+Hämta `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 ### <a name="response"></a>Svar
 
@@ -186,16 +187,16 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ## <a name="get-pending-request---pending-request-status-is-deleted-or-overwritten"></a>Hämta väntande begäran – status för väntande begäran är borttagen eller överskriven
 Ett väntande objekt kan tas bort eller skrivas över av en Create/import-åtgärd när dess status inte är "pågår".
 
-|Metod|Förfrågans URI|
+|Metod|URI för förfrågan|
 |------------|-----------------|
 |HÄMTA|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>Förfrågan
-TA`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
+Hämta `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 ELLER
 
-TA`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
+Hämta `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 ### <a name="response"></a>Svar
 
@@ -224,7 +225,7 @@ Så här löser du en konflikt:
 > [!NOTE]
 > Om du tar bort ett väntande objekt kan det hända att x509-certifikatbegäran inte kan avbrytas med providern.
 
-|Metod|Förfrågans URI|
+|Metod|URI för förfrågan|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
@@ -261,7 +262,7 @@ Sammanslagning tillåts inte när ett väntande objekt skapas med en utfärdare 
 
 Om begäran om att skapa x509-certifikatet Miss lyckas eller avbryts av någon anledning, och om ett x509-certifikat kan hämtas med out-of-band-medel, kan en sammanslagning utföras för att slutföra KV-certifikatet.
 
-|Metod|Förfrågans URI|
+|Metod|URI för förfrågan|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 
@@ -290,16 +291,16 @@ StatusCode: 403, ReasonPhrase: 'Forbidden'
 ## <a name="request-a-cancellation-while-the-pending-request-status-is-inprogress"></a>Begär en annullering medan status för väntande begäran är "pågår"
 Det går bara att begära en annullering. En begäran kan vara avbruten. Om en begäran inte är "pågår" returneras en http-status på 400 (felaktig begäran).
 
-|Metod|Förfrågans URI|
+|Metod|URI för förfrågan|
 |------------|-----------------|
-|PATCH|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
+|9\.0a|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>Förfrågan
-9\.0A`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
+KORRIGERINGs `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 ELLER
 
-9\.0A`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
+KORRIGERINGs `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 ```json
 {
@@ -330,16 +331,16 @@ StatusCode: 200, ReasonPhrase: 'OK'
 > [!NOTE]
 > Om du tar bort det väntande objektet kan det hända att x509-certifikatbegäran inte kan avbrytas med providern.
 
-|Metod|Förfrågans URI|
+|Metod|URI för förfrågan|
 |------------|-----------------|
 |DELETE|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>Förfrågan
-TA BORT`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
+TA bort `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 ELLER
 
-TA BORT`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
+TA bort `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
 ### <a name="response"></a>Svar
 
@@ -360,7 +361,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ## <a name="create-a-kv-certificate-manually"></a>Skapa ett KV-certifikat manuellt
 Du kan skapa ett certifikat som utfärdats med en CA som du väljer via en manuell skapande process. Ange namnet på utfärdaren till "okänt" eller ange inte fältet Issuer.
 
-|Metod|Förfrågans URI|
+|Metod|URI för förfrågan|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
@@ -400,7 +401,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ## <a name="merge-when-a-pending-request-is-created---manual-certificate-creation"></a>Sammanfoga när en väntande begäran skapas – manuellt skapande av certifikat
 
-|Metod|Förfrågans URI|
+|Metod|URI för förfrågan|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 
@@ -413,9 +414,9 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-|Elementnamn|Obligatorisk|type|Version|Beskrivning|
+|Elementnamn|Krävs|Typ|Version|Beskrivning|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|Ja|array|\<Introduktion till version >|X509-certifikat kedja som bas 64-sträng mat ris.|
+|x5c|Ja|matris|\<introduktion till version >|X509-certifikat kedja som bas 64-sträng mat ris.|
 
 ### <a name="response"></a>Svar
 

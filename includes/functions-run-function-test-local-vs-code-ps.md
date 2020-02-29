@@ -2,20 +2,20 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 01/16/2020
+ms.date: 02/19/2020
 ms.author: glenga
-ms.openlocfilehash: 916aa2552e5dd004ec767df98ce7c78f7320efd0
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: edf5fc33ec14d41630462cca1a4ace0663473196
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964150"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191074"
 ---
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 
-Azure Functions Core Tools integreras med Visual Studio Code så att du kan köra och felsöka ett Azure Functions-projekt lokalt.  
+Azure Functions Core Tools integreras med Visual Studio Code så att du kan köra och felsöka ett Azure Functions-projekt lokalt. Mer information om hur du felsöker i Visual Studio Code finns i [Felsöka PowerShell Azure Functions lokalt](../articles/azure-functions/functions-debug-powershell-local.md). 
 
-1. Om du vill felsöka din funktion infogar du ett anrop till [`Wait-Debugger`](/powershell/module/microsoft.powershell.utility/wait-debugger?view=powershell-6) cmdlet i funktions koden innan du vill koppla fel sökaren. Tryck sedan på F5 för att starta programmet för Function-appen och koppla fel sökaren. Utdata från Core Tools visas på panelen **Terminal**.
+1. Tryck på F5 för att starta projektet för Function-appen. Utdata från Core Tools visas på panelen **Terminal**.
 
 1. På panelen **Terminal** kopierar du URL-slutpunkten för den HTTP-utlösta funktionen.
 
@@ -38,9 +38,6 @@ Azure Functions Core Tools integreras med Visual Studio Code så att du kan kör
 
     ![Funktions körning i Terminal panel](./media/functions-run-function-test-local-vs-code-ps/function-execution-terminal.png)
 
-1. Om du vill stoppa fel sökningen trycker du på CTRL + C för att stoppa Core tools.
+1. När du är färdig trycker du på **CTRL + C** för att stoppa Core tools.
 
 När du har kontrollerat att funktionen körs korrekt på den lokala datorn är det dags att publicera projektet på Azure.
-
-> [!NOTE]
-> Kom ihåg att ta bort alla anrop till `Wait-Debugger` innan du publicerar dina funktioner till Azure. 

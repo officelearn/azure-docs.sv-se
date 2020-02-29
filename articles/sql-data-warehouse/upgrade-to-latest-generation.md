@@ -1,6 +1,6 @@
 ---
 title: Uppgradera till den senaste generationen
-description: Uppgradera Azure SQL Data Warehouse till den senaste generationen av Azures maskinvaru-och lagrings arkitektur.
+description: Uppgradera Azure Synapse Analytics SQL-poolen till den senaste generationen av Azures maskinvaru-och lagrings arkitektur.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -11,38 +11,38 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 02c426cd921f4af19f3b8c271e4b1c08eae2c3c2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 97cbae93b1ee2dd6ca4916f4efbb964141b33a3f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692448"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200834"
 ---
-# <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimera prestanda genom att uppgradera SQL Data Warehouse
+# <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Optimera prestanda genom att uppgradera Azure Synapse Analytics SQL-poolen
 
-Uppgradera Azure SQL Data Warehouse till den senaste generationen av Azures maskinvaru-och lagrings arkitektur.
+Uppgradera SQL-poolen till den senaste generationen Azure-maskinvaru-och lagrings arkitektur.
 
 ## <a name="why-upgrade"></a>Varför uppgradera?
 
-Nu kan du sömlöst uppgradera till den SQL Data Warehouse Compute-optimerade Gen2-nivån i Azure Portal för [regioner som stöds](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Om din region inte stöder själv uppgradering kan du uppgradera till en region som stöds eller vänta tills själv uppgradering är tillgänglig i din region. Uppgradera nu för att dra nytta av den senaste generationen Azure-maskinvara och förbättrad lagrings arkitektur, inklusive snabbare prestanda, högre skalbarhet och obegränsad kolumn lagring. 
+Nu kan du sömlöst uppgradera till SQL-poolens optimerade Gen2-nivå i Azure Portal för [regioner som stöds](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Om din region inte stöder själv uppgradering kan du uppgradera till en region som stöds eller vänta tills själv uppgradering är tillgänglig i din region. Uppgradera nu för att dra nytta av den senaste generationen Azure-maskinvara och förbättrad lagrings arkitektur, inklusive snabbare prestanda, högre skalbarhet och obegränsad kolumn lagring. 
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
-## <a name="applies-to"></a>Gäller för
+## <a name="applies-to"></a>Gäller
 
-Den här uppgraderingen gäller för data lager som är optimerade på gen1 nivå i [regioner som stöds](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
+Den här uppgraderingen gäller för Compute-optimerade SQL-pooler på gen1-nivå i [regioner som stöds](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 1. Kontrol lera om din [region](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) stöds för GEN1 till Gen2-migrering. Anteckna datum för automatisk migrering. För att undvika konflikter med den automatiserade processen bör du planera din manuella migrering innan start datumet för automatisk process.
 2. Om du befinner dig i en region som ännu inte stöds fortsätter du att söka efter din region som ska läggas till eller [uppgraderas med hjälp av Restore](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) till en region som stöds.
 3. Om din region stöds [uppgraderar du genom Azure Portal](#upgrade-in-a-supported-region-using-the-azure-portal)
-4. **Välj den föreslagna prestanda nivån** för informations lagret baserat på din aktuella prestanda nivå på Compute-optimerade gen1-nivåer med hjälp av mappningen nedan:
+4. **Välj den föreslagna prestanda nivån** för SQL-poolen baserat på din aktuella prestanda nivå på Compute-optimerade gen1-nivåer med hjälp av mappningen nedan:
 
    | Compute-optimerad gen1-nivå | Compute-optimerad Gen2-nivå |
    | :-------------------------: | :-------------------------: |
    |            DW100            |           DW100c            |
-   |            DW200 kl            |           DW200c            |
+   |            DW200            |           DW200c            |
    |            DW300            |           DW300c            |
    |            DW400            |           DW400c            |
    |            DW500            |           DW500c            |
@@ -68,12 +68,12 @@ Den här uppgraderingen gäller för data lager som är optimerade på gen1 niv�
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. Om det data lager som ska uppgraderas har pausats på det beräknade gen1, [återupptar du data lagret](pause-and-resume-compute-portal.md).
+1. Om den beräknade gen1-nivå som den SQL-pool som ska uppgraderas har pausats, [ÅTERUPPTA SQL-poolen](pause-and-resume-compute-portal.md).
 
    > [!NOTE]
-   > Azure SQL Data Warehouse måste köras för att migrera till Gen2.
+   > SQL-poolen måste köras för att migrera till Gen2.
 
 2. Var beredd på några minuter av stillestånds tid. 
 
@@ -107,28 +107,28 @@ Logga in på [Azure Portal](https://portal.azure.com/).
    ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300c') ; 
    ```
    > [!NOTE] 
-   > SERVICE_OBJECTIVE = ' DW300 ' har ändrats till SERVICE_OBJECTIVE = ' DW300**c**'
+   > SERVICE_OBJECTIVE = ' DW300 ' ändras till SERVICE_OBJECTIVE = ' DW300**c**'
 
 ## <a name="start-the-upgrade"></a>Starta uppgraderingen
 
-1. Gå till ditt Compute-optimerade gen1 nivå informations lager i Azure Portal. Om det data lager som ska uppgraderas har pausats på det beräknade gen1, [återupptar du data lagret](pause-and-resume-compute-portal.md). 
-2. Välj **Uppgradera till Gen2** -kortet under fliken aktiviteter: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. Gå till din Compute-optimerade gen1 SQL-pool i Azure Portal. Om den beräknade gen1-nivå som den SQL-pool som ska uppgraderas har pausats, [ÅTERUPPTA SQL-poolen](pause-and-resume-compute-portal.md). 
+2. Välj **Uppgradera till Gen2** -kortet under fliken aktiviteter: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/upgrade-to-gen2-1.png)
     
     > [!NOTE]
     > Om du inte ser kortet **Uppgradera till Gen2** på fliken aktiviteter är prenumerations typen begränsad i den aktuella regionen.
     > [Skicka in ett support ärende](sql-data-warehouse-get-started-create-support-ticket.md) för att hämta din prenumerations vit listas.
 
-3. Se till att arbets belastningen har slutförts och är offline innan du uppgraderar. Du kommer att uppleva drift stopp i några minuter innan ditt informations lager är online igen som ett data lager för data behandling som är optimerat på Gen2 nivå. **Välj uppgradering**:
+3. Se till att arbets belastningen har slutförts och är offline innan du uppgraderar. Du kommer att uppleva nedtid i några minuter innan SQL-poolen är online igen som en Compute-optimerad SQL-pool på Gen2-nivå. **Välj uppgradering**:
 
-   ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
+   ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/upgrade-to-gen2-2.png)
 
 4. **Övervaka uppgraderingen** genom att kontrol lera statusen i Azure Portal:
 
-   ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_3.png)
+   ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/upgrade-to-gen2-3.png)
 
    Det första steget i uppgraderings processen går igenom skalnings åtgärden ("uppgradering – offline") där alla sessioner kommer att avlivas och anslutningarna kommer att tas bort. 
 
-   Det andra steget i uppgraderings processen är datamigrering ("uppgradering – online"). Datamigrering är en bakgrunds process online trickle. Den här processen flyttar långsamt kolumn data från den gamla lagrings arkitekturen till den nya lagrings arkitekturen med hjälp av en lokal SSD-cache. Under den här tiden är ditt informations lager online för frågor och inläsning. Dina data är tillgängliga för frågor oavsett om de har migrerats eller inte. Datamigreringen sker i olika hastigheter beroende på din data storlek, prestanda nivå och antalet dina columnstore-segment. 
+   Det andra steget i uppgraderings processen är datamigrering ("uppgradering – online"). Datamigrering är en bakgrunds process online trickle. Den här processen flyttar långsamt kolumn data från den gamla lagrings arkitekturen till den nya lagrings arkitekturen med hjälp av en lokal SSD-cache. Under den här tiden är SQL-poolen online för frågor och inläsning. Dina data är tillgängliga för frågor oavsett om de har migrerats eller inte. Datamigreringen sker i olika hastigheter beroende på din data storlek, prestanda nivå och antalet dina columnstore-segment. 
 
 5. **Valfri rekommendation:** När skalnings åtgärden är klar kan du påskynda bakgrunds processen för datamigrering. Du kan tvinga data förflyttning genom att köra [Alter index Rebuild](sql-data-warehouse-tables-index.md) på alla primära columnstore-tabeller som du frågar efter en större service nivå mål och resurs klass. Den här åtgärden är **frånkopplad** till bakgrunds processen trickle, vilket kan ta timmar att slutföra beroende på antalet och storleken på dina tabeller. Men när det är klart kommer migreringen att bli mycket snabbare på grund av den nya förbättrad lagrings arkitekturen med högkvalitativa av hög kvalitet.
  
@@ -184,9 +184,9 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 ## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Skapa en användardefinierad återställnings punkt med hjälp av Azure Portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-2. Navigera till SQL Data Warehouse som du vill skapa en återställnings punkt för.
+2. Gå till den SQL-pool som du vill skapa en återställnings punkt för.
 
 3. Överst i översikts avsnittet väljer du **+ ny återställnings punkt**.
 
@@ -198,19 +198,15 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Återställa en aktiv eller pausad databas med hjälp av Azure Portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Navigera till SQL Data Warehouse som du vill återställa från.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Gå till den SQL-pool som du vill återställa från.
 3. Överst i översikts avsnittet väljer du **Återställ**.
 
     ![ Återställa översikt](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)
 
-4. Välj antingen **automatiska återställnings punkter** eller **användardefinierade återställnings punkter**.
+4. Välj antingen **automatiska återställnings punkter** eller **användardefinierade återställnings punkter**. För användardefinierade återställnings punkter **väljer du en användardefinierad återställnings punkt** eller **skapar en ny användardefinierad återställnings punkt**. För-servern väljer du **Skapa ny** och väljer en server i en geografisk region som stöds av Gen2. 
 
     ![Automatiska återställnings punkter](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
-
-5. För användardefinierade återställnings punkter **väljer du en återställnings punkt** eller **skapar en ny användardefinierad återställnings punkt**. Välj en server i en geografisk region som stöds av Gen2. 
-
-    ![Användardefinierade återställnings punkter](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
 ## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>Återställa från en geografisk Azure-region med hjälp av PowerShell
 
@@ -249,8 +245,8 @@ $GeoRestoredDatabase.status
 Den återställda databasen kommer att TDEs om käll databasen är TDE-aktive rad.
 
 
-Om du får problem med ditt informations lager kan du skapa en [support förfrågan](sql-data-warehouse-get-started-create-support-ticket.md) och en referens "Gen2 uppgradering" som möjlig orsak.
+Om du får problem med SQL-poolen skapar du en [support förfrågan](sql-data-warehouse-get-started-create-support-ticket.md) och en referens "Gen2 Upgrade" som möjlig orsak.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det uppgraderade data lagret är online. För att dra nytta av den förbättrade arkitekturen, se [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md).
+Den uppgraderade SQL-poolen är online. För att dra nytta av den förbättrade arkitekturen, se [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md).

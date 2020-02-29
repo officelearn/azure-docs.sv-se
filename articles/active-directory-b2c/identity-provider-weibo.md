@@ -3,20 +3,20 @@ title: Konfigurera registrering och inloggning med ett Weibo-konto
 titleSuffix: Azure AD B2C
 description: Tillhandahålla registrering och inloggning till kunder med Weibo-konton i dina program med hjälp av Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3f84d1d33874ac70a21c9d596c6fa5a9e608bb84
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e99b5717cdcc32d8fd138d1edf5fe1bd3283c70e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847399"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187907"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Weibo-konto med hjälp av Azure Active Directory B2C
 
@@ -49,7 +49,7 @@ Om du vill använda ett Weibo-konto som identitets leverantör i Azure Active Di
 
 ## <a name="configure-a-weibo-account-as-an-identity-provider"></a>Konfigurera ett Weibo-konto som en identitets leverantör
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD B2C-klientorganisationen.
+1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 1. Välj **identitets leverantörer**och välj sedan **Weibo (för hands version)** .

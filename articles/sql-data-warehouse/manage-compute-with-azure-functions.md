@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: hantera beräkning med Azure Functions'
-description: Så här använder du Azure Functions för att hantera beräkningar i ditt informationslager.
+description: Hur du använder Azure Functions för att hantera beräkningen av SQL-poolen i Azure Synapse Analytics.
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -10,27 +10,27 @@ ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: bc350ed092c063dcc7eca479f064114be9eb28f5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: a08c2c3c0167f0d82fe901e19b02db22b0ad56c5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693015"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193244"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Använd Azure Functions för att hantera beräknings resurser i Azure SQL Data Warehouse
+# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Använda Azure Functions för att hantera beräknings resurser i Azure Synapse Analytics SQL-poolen
 
-I den här självstudien används Azure Functions för att hantera beräknings resurser för ett informations lager i Azure SQL Data Warehouse.
+I den här självstudien används Azure Functions för att hantera beräknings resurser för en SQL-pool i Azure Synapse Analytics.
 
-Om du vill kunna använda Azures funktionsapp med SQL Data Warehouse måste du skapa ett [huvudkonto för tjänsten](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) med deltagarbehörighet inom ramen för samma prenumeration som används för din instans av informationslagret. 
+För att kunna använda Azure Funktionsapp med SQL-poolen måste du skapa ett [tjänst huvud namns konto](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) med deltagar åtkomst under samma prenumeration som SQL-adresspoolen. 
 
 ## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Distribuera timer-baserad skalning med en Azure Resource Manager-mall
 
 Om du vill distribuera mallen behöver du följande information:
 
-- Namnet på resursgruppen som din instans av Azure SQL Data Warehouse finns i
-- Namnet på den logiska server som din instans av Azure SQL Data Warehouse finns i
-- Namnet på din instans av Azure SQL Data Warehouse
+- Namnet på resurs gruppen som instansen av SQL-poolen finns i
+- Namnet på den logiska server som SQL-instansen finns i
+- Namn på din instans av SQL-pool
 - Klient-ID (katalog-ID) för din Azure Active Directory
 - Prenumerations-ID:t 
 - Program-ID för tjänstens huvudkonto
@@ -119,17 +119,17 @@ För närvarande ingår bara två skalningsfunktioner i mallen. Med dessa funkti
 5. Ställ in din åtgärds variabel på önskat beteende enligt följande:
 
    ```javascript
-   // Resume the data warehouse instance
+   // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"
    }
 
-   // Pause the data warehouse instance
+   // Pause the SQL pool instance
    var operation = {
        "operationType": "PauseDw"
    }
 
-   // Scale the data warehouse instance to DW600
+   // Scale the SQL pool instance to DW600
    var operation = {
        "operationType": "ScaleDw",
        "ServiceLevelObjective": "DW600"
@@ -177,7 +177,7 @@ Uppskalning till DW1000 kl. 08.00, nedskalning till DW600 kl. 16.00 under arbets
 
 Läs mer om Azures funktioner för [timerutlösare](../azure-functions/functions-create-scheduled-function.md).
 
-Checka ut [exempeldatabasen](https://github.com/Microsoft/sql-data-warehouse-samples) för SQL Data Warehouse.
+Checka in databasen för SQL-poolens [exempel](https://github.com/Microsoft/sql-data-warehouse-samples).
 
 
 

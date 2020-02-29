@@ -3,20 +3,20 @@ title: Översikt över tekniska profiler i anpassade principer
 titleSuffix: Azure AD B2C
 description: Lär dig hur tekniska profiler används i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/11/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3b0e59912d740e30b0e29fb882542f1995ab6f54
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 48324d252e22ca898f923e1f0ad9b76df1c10861
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505665"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183660"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Om tekniska profiler i Azure Active Directory B2C anpassade principer
 
@@ -40,7 +40,7 @@ En teknisk profil möjliggör följande typer av scenarier:
 - [Självkontrollerad](self-asserted-technical-profile.md) – interagera med användaren. Du kan till exempel samla in användarens autentiseringsuppgifter för att logga in, återge registrerings sidan eller lösen ords återställning.
 - [Sessionshantering](custom-policy-reference-sso.md) – hantera olika typer av sessioner.
 - [Application Insights](../azure-monitor/app/usage-overview.md)
-- [Ett eng ång slö sen ord](one-time-password-technical-profile.md) – ger stöd för att hantera genereringen och verifieringen av ett eng ång slö sen ord. 
+- [Ett eng ång slö sen ord](one-time-password-technical-profile.md) – ger stöd för att hantera genereringen och verifieringen av ett eng ång slö sen ord.
 
 ## <a name="technical-profile-flow"></a>Tekniskt profil flöde
 
@@ -48,10 +48,10 @@ Alla typer av tekniska profiler delar samma koncept. Du kan skicka indata-anspr�
 
 ![Diagram som illustrerar det tekniska profil flödet](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
  
-1. **Hantering av enkel inloggning (SSO)** – återställer den tekniska profilens sessionstillstånd med hjälp av SSO- [sessionshantering](custom-policy-reference-sso.md). 
+1. **Hantering av enkel inloggning (SSO)** – återställer den tekniska profilens sessionstillstånd med hjälp av SSO- [sessionshantering](custom-policy-reference-sso.md).
 1. **Transformering** av inmatade anspråk-inloggade anspråk för varje inloggad [anspråks omvandling](claimstransformations.md) hämtas från anspråks säcken.  De utgående anspråken för en inmatnings anspråks omvandling kan vara inmatade anspråk för en efterföljande omvandling av anspråk.
 1. **Ingående anspråk** – anspråk hämtas från anspråks säcken och används för den tekniska profilen. En [självkontrollerad teknisk profil](self-asserted-technical-profile.md) använder till exempel indata-anspråk för att fylla i de utgående anspråk som användaren tillhandahåller. En REST API teknisk profil använder ingångs anspråk för att skicka indataparametrar till REST API-slutpunkten. Azure Active Directory använder ingångs anspråk som unik identifierare för att läsa, uppdatera eller ta bort ett konto.
-1. **Körning av teknisk profil** – den tekniska profilen utbyter anspråk med den konfigurerade parten. Exempel:
+1. **Körning av teknisk profil** – den tekniska profilen utbyter anspråk med den konfigurerade parten. Några exempel:
     - Omdirigera användaren till identitets leverantören för att slutföra inloggningen. Efter lyckad inloggning återgår användaren och den tekniska profil körningen fortsätter.
     - Anropa ett REST API när du skickar parametrar som InputClaims och få tillbaka information som OutputClaims.
     - Skapa eller uppdatera användar kontot.
@@ -64,7 +64,7 @@ Alla typer av tekniska profiler delar samma koncept. Du kan skicka indata-anspr�
 
 ## <a name="technical-profile-inclusion"></a>Inkluderad teknik profil
 
-En teknisk profil kan innehålla en annan teknisk profil för att ändra inställningar eller lägga till nya funktioner.  `IncludeTechnicalProfile`-elementet är en referens till den grundläggande tekniska profil som en teknisk profil härleds från. Det finns ingen gräns för antalet nivåer. 
+En teknisk profil kan innehålla en annan teknisk profil för att ändra inställningar eller lägga till nya funktioner.  `IncludeTechnicalProfile`-elementet är en referens till den grundläggande tekniska profil som en teknisk profil härleds från. Det finns ingen gräns för antalet nivåer.
 
 Till exempel innehåller den tekniska profilen **AAD-UserReadUsingAlternativeSecurityId-noerror** filen **AAD-UserReadUsingAlternativeSecurityId**. Den här tekniska profilen anger `RaiseErrorIfClaimsPrincipalDoesNotExist` metadataelement som ska `true`s och genererar ett fel om ett socialt konto inte finns i katalogen. **AAD-UserReadUsingAlternativeSecurityId – noerror** åsidosätter detta beteende och inaktiverar det fel meddelandet.
 

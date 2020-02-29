@@ -1,6 +1,6 @@
 ---
 title: Källkontrollsintegrering
-description: Databas DevOps-upplevelse i företags klass för SQL Data Warehouse med intern käll kontroll integrering med Azure databaser (git och GitHub).
+description: Databas DevOps-upplevelse i företags klass för SQL-pool med intern käll kontroll integrering med Azure databaser (git och GitHub).
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: integration
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fc1fdddc7a157828fcc4770c4e8237af9a45fdc3
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1a4939e8c349f36fe745becb811717983caa95c0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720035"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198239"
 ---
-# <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Käll kontrolls integrering för Azure SQL Data Warehouse
+# <a name="source-control-integration-for-sql-pool"></a>Käll kontrolls integrering för SQL-pool
 
-I den här självstudien beskrivs hur du integrerar ditt SSDT-databas projekt (SQL Server data verktyg) med käll kontroll.  Käll kontroll integrering är det första steget i att skapa din pipeline för kontinuerlig integrering och distribution med SQL Data Warehouse. 
+I den här självstudien beskrivs hur du integrerar ditt SSDT-databas projekt (SQL Server data verktyg) med käll kontroll.  Käll kontroll integrering är det första steget i att skapa en kontinuerlig integrerings-och distributions-pipeline med SQL-adresspoolen i Azure Synapse Analytics. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -81,4 +81,4 @@ I den här självstudien beskrivs hur du integrerar ditt SSDT-databas projekt (S
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utveckla för Azure SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
+- [Utveckla för SQL-pool](sql-data-warehouse-overview-develop.md)

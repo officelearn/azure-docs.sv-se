@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload-management
-ms.date: 11/21/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 2a6c5ca9f7d2ceaef08b28e78b38b94a459548f5
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.custom: azure-synapse
+ms.openlocfilehash: bd3ad98116b18a77a77e8f6f327689d0ebb7dd21
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304752"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200523"
 ---
 # <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Snabb start: Konfigurera arbets belastnings isolering med T-SQL
 
@@ -25,13 +25,13 @@ I den här snabb starten skapar du snabbt en arbets belastnings grupp och en kla
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 > [!NOTE]
-> Att skapa ett SQL Data Warehouse kan resultera i en ny fakturerbar tjänst.  Mer information finns på [prissidan för SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Att skapa en SQL Analytics-instans i Azure Synapse Analytics kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
 ## <a name="prerequisites"></a>Förutsättningar
  
-Den här snabb starten förutsätter att du redan har en SQL Data Warehouse och att du har behörighet att kontrol lera databasen. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
+Den här snabb starten förutsätter att du redan har en SQL Analytics-instans i Azure Synapse och att du har behörighet att kontrol lera databasen. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -109,7 +109,7 @@ DROP USER [ELTLogin]
 
 Du debiteras för data lager enheter och data som lagras i ditt informations lager. Dessa beräknings- och lagringsresurser debiteras separat.
 
-- Om du vill behålla data i lagringsutrymmet kan du pausa beräkningarna när du inte använder informationslagret. Genom att pausa beräkning debiteras du bara för data lagring. När du är redo att arbeta med data återupptar du beräkningen.
+- Om du vill behålla data i lagrings utrymmet kan du pausa beräkningen när du inte använder SQL-poolen. Genom att pausa beräkning debiteras du bara för data lagring. När du är redo att arbeta med data återupptar du beräkningen.
 - Om du vill undvika framtida avgifter kan du ta bort informationslagret.
 
 Rensa resurserna genom att följa dessa steg.
@@ -129,4 +129,4 @@ Rensa resurserna genom att följa dessa steg.
 ## <a name="next-steps"></a>Nästa steg
 
 - Nu har du skapat en arbets belastnings grupp. Kör några frågor som ELTLogin för att se hur de fungerar. Se [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) för att visa frågor och arbets belastnings gruppen som tilldelats.
-- Mer information om Azure SQL Data Warehouse arbets belastnings hantering finns i [arbets belastnings hantering](sql-data-warehouse-workload-management.md) och [arbets belastnings isolering](sql-data-warehouse-workload-isolation.md).
+- Mer information om hantering av arbets belastning i SQL Analytics finns i [arbets belastnings hantering](sql-data-warehouse-workload-management.md) och [arbets belastnings isolering](sql-data-warehouse-workload-isolation.md).

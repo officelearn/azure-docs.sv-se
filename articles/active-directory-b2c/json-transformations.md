@@ -3,20 +3,20 @@ title: Transformerings exempel för JSON-anspråk för anpassade principer
 titleSuffix: Azure AD B2C
 description: JSON-anspråk omvandlings exempel för IEF-schemat (Identity Experience Framework) för Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/10/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 56c46b8f2804e37544c94ec2d6ced7e8879b1ffa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ad8fcf578ae1c89856a9d7929af0aec813cb4082
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75367135"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187601"
 ---
 # <a name="json-claims-transformations"></a>JSON-anspråk omvandlingar
 
@@ -133,7 +133,7 @@ Hämta en lista med angivna element från JSON-data.
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | jsonSourceClaim | sträng | ClaimTypes som används av anspråks omvandlingen för att hämta anspråk. |
-| InputParameter | errorOnMissingClaims | boolean | Anger om ett fel ska genereras om en av anspråken saknas. |
+| InputParameter | errorOnMissingClaims | boolesk | Anger om ett fel ska genereras om en av anspråken saknas. |
 | InputParameter | includeEmptyClaims | sträng | Ange om tomma anspråk ska tas med. |
 | InputParameter | jsonSourceKeyName | sträng | Element nyckel namn |
 | InputParameter | jsonSourceValueName | sträng | Element värde namn |
@@ -171,8 +171,8 @@ I följande exempel extraherar anspråks omvandlingen följande anspråk: email 
 - Indataparametrar:
     - **errorOnMissingClaims**: falskt
     - **includeEmptyClaims**: falskt
-    - **jsonSourceKeyName**: key
-    - **jsonSourceValueName**: value
+    - **jsonSourceKeyName**: nyckel
+    - **jsonSourceValueName**: värde
 - Utgående anspråk:
   - **e-post**: "someone@example.com"
   - **DisplayName**: "någon"

@@ -5,16 +5,18 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: e751b3dd9108d364c900bbd059dc89c1eb3770c4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 37d4c27d3033545c523cefc2f317073af531f095
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722347"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199724"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric Node-typer och skalnings uppsättningar för virtuella datorer
 
-[Skalnings uppsättningar för virtuella datorer](/azure/virtual-machine-scale-sets) är en Azure Compute-resurs. Du kan använda skalnings uppsättningar för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som du definierar i ett Azure Service Fabric-kluster ställer in en separat skala. Service Fabric runtime installeras på varje virtuell dator i skalnings uppsättningen av tillägget *Microsoft. Azure. ServiceFabric* för virtuella datorer. Du kan skala upp eller ned varje nodtyp separat, ändra OS-SKU: n som körs på varje klusternod, ha olika portar öppna och använda olika kapacitets mått.
+[Skalnings uppsättningar för virtuella datorer](/azure/virtual-machine-scale-sets) är en Azure Compute-resurs. Du kan använda skalnings uppsättningar för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som du definierar i ett Azure Service Fabric-kluster konfigurerar exakt en skalnings uppsättning: flera nodtyper kan inte backas upp av samma skalnings uppsättning och en nodtyp bör inte (i de flesta fall) backas upp av flera skalnings uppsättningar. Ett undantag till detta är i sällsynta fall av [vertikal skalning](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) av en nodtyp, när du tillfälligt har två skalnings uppsättningar med samma `nodeTypeRef` värde när repliker migreras från originalet till den uppgraderade skalnings uppsättningen.
+
+Service Fabric runtime installeras på varje virtuell dator i skalnings uppsättningen av tillägget *Microsoft. Azure. ServiceFabric* för virtuella datorer. Du kan skala upp eller ned varje nodtyp separat, ändra OS-SKU: n som körs på varje klusternod, ha olika portar öppna och använda olika kapacitets mått.
 
 Följande bild visar ett kluster som har två nodtyper, med namnet *FrontEnd* och *Server*del. Varje nodtyp har fem noder.
 
@@ -72,13 +74,13 @@ Följande är egenskaps beskrivningarna:
 
 | **Namn** | **Tillåtna värden** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
-| name | sträng | unikt namn för tillägg |
-| type | "ServiceFabricLinuxNode" eller "ServiceFabricWindowsNode" | Identifierar OS-Service Fabric som startas |
+| namn | sträng | Unikt namn för tillägg |
+| typ | "ServiceFabricLinuxNode" eller "ServiceFabricWindowsNode" | Identifierar OS-Service Fabric som startas |
 | autoUpgradeMinorVersion | Sant eller falskt | Aktivera automatisk uppgradering av SF runtime minor-versioner |
 | publisher | Microsoft.Azure.ServiceFabric | Namnet på Service Fabric anknytnings utgivaren |
 | clusterEndpont | sträng | URI: PORT till hanterings slut punkt |
-| NodeTypeRef | sträng | namn på nodeType |
-| durabilityLevel | bronze, silver, gold, platinum | tid som tillåts för att pausa oåterkallelig Azure-infrastruktur |
+| nodeTypeRef | sträng | Namn på nodeType |
+| durabilityLevel | bronze, silver, gold, platinum | Tid som tillåts för att pausa oåterkallelig Azure-infrastruktur |
 | enableParallelJobs | Sant eller falskt | Aktivera Compute ParallelJobs som ta bort virtuell dator och starta om den virtuella datorn i samma skalnings uppsättning parallellt |
 | nicPrefixOverride | sträng | Undernätsprefixet som "10.0.0.0/24" |
 | commonNames | sträng [] | Vanliga namn på installerade kluster certifikat |

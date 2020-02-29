@@ -3,20 +3,20 @@ title: 'Snabb start: Konfigurera inloggning för en ASP.NET-webbapp'
 titleSuffix: Azure AD B2C
 description: I den här snabb starten kör du ett exempel på en ASP.NET-webbapp som använder Azure Active Directory B2C för att tillhandahålla konto inloggning.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7ee56e69befb220a742077326956efa996979105
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 197155650bf7b8d113f96dbcfd6d9e2b58924b7f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850176"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187210"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Snabb start: Konfigurera inloggning för ett ASP.NET-program med hjälp av Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller moln identitets hante
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) med arbets belastningen **ASP.net och webb utveckling** .
 - Ett socialt konto från Facebook, Google eller Microsoft.
@@ -39,18 +39,18 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller moln identitets hante
     - **TaskWebApp** – Ett webbprogram som skapar och redigerar en uppgiftslista. Webb programmet använder användar flödet för **registrering eller inloggning** för att registrera eller logga in användare.
     - **TaskService** – Ett webb-API med stöd för att skapa, läsa, uppdatera och ta bort en uppgiftslista. Webb-API:n skyddas av Azure AD B2C och anropas av webbprogrammet.
 
-## <a name="run-the-application-in-visual-studio"></a>Kör programmet i Visual Studio
+## <a name="run-the-application-in-visual-studio"></a>Köra programmet i Visual Studio
 
 1. I exempelprogrammets projektmapp öppnar du lösningen **B2C-WebAPI-DotNet.sln** i Visual Studio.
 2. För den här snabbstarten kör du både **TaskWebApp**- och **TaskService**-projektet samtidigt. Högerklicka på lösningen **B2C-WebAPI-DotNet** i Solution Explorer och välj sedan **Ange startprojekt**.
 3. Välj **Flera startprojekt** och ändra **Åtgärd** för båda projekten till **Start**.
-4. Klicka på **OK**.
+4. Klicka på **OK**
 5. Tryck på **F5** för att felsöka båda programmen. Varje program öppnas i ett eget webbläsarfönster:
 
     - `https://localhost:44316/` – ASP.NET-webbprogrammet. Du kan interagera direkt med det här programmet i snabbstarten.
     - `https://localhost:44332/` – Webb-API som anropas av ASP.NET-webbprogrammet.
 
-## <a name="sign-in-using-your-account"></a>Logga in på ditt konto
+## <a name="sign-in-using-your-account"></a>Logga in med ditt konto
 
 1. Klicka på **Registrera dig/Logga in** i ASP.NET-webbprogrammet för att starta arbetsflödet.
 
@@ -103,7 +103,7 @@ I den här snabb starten använde du ett exempel på ASP.NET-program för att:
 * Skapa ett Azure AD B2C konto
 * Anropa ett webb-API som skyddas av Azure AD B2C
 
-Kom igång med att skapa en egen Azure AD B2C-klientorganisation.
+Kom igång med att skapa en egen Azure AD B2C-klient.
 
 > [!div class="nextstepaction"]
 > [Skapa en Azure Active Directory B2C-klientorganisation i Azure-portalen](tutorial-create-tenant.md)

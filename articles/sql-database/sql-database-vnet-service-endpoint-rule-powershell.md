@@ -1,6 +1,6 @@
 ---
 title: PowerShell för VNet-slutpunkter och regler för databaser med enkel och pool
-description: Tillhandahåller PowerShell-skript för att skapa och hantera slut punkter för virtuella tjänster för Azure SQL Database och SQL Data Warehouse.
+description: Tillhandahåller PowerShell-skript för att skapa och hantera slut punkter för virtuella tjänster för din Azure SQL Database och Azure-Synapse.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,19 +11,20 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 76c4ea6c3fc5f415316e2b5cfcdf80c0681cc3f6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+tags: azure-synapse
+ms.openlocfilehash: f61403ef50af209fdc6e811191d31ccc83f8da73
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422487"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191886"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell: skapa en virtuell tjänst slut punkt och VNet-regel för SQL
 
-*Regler för virtuella nätverk* är en brand Väggs säkerhetsfunktion som styr om databas servern för dina enskilda databaser och elastisk pool i Azure [SQL Database](sql-database-technical-overview.md) eller för dina databaser i [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepterar kommunikation som skickas från särskilda undernät i virtuella nätverk.
+*Regler för virtuella nätverk* är en brand Väggs säkerhetsfunktion som styr om databas servern för dina enskilda databaser och elastisk pool i Azure [SQL Database](sql-database-technical-overview.md) eller för dina databaser i [Azure-Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepterar kommunikation som skickas från särskilda undernät i virtuella nätverk.
 
 > [!IMPORTANT]
-> Den här artikeln gäller för Azure SQL Server och för både SQL Database och SQL Data Warehouse databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse. Den här artikeln gäller *inte* för distribution av **hanterade instanser** i Azure SQL Database eftersom den inte har någon associerad tjänst slut punkt.
+> Den här artikeln gäller för Azure SQL Server och för både SQL Database och informations lager i Azure-Synapse som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när du refererar till både SQL Database och Azure-Synapse. Den här artikeln gäller *inte* för distribution av **hanterade instanser** i Azure SQL Database eftersom den inte har någon associerad tjänst slut punkt.
 
 Den här artikeln innehåller och förklarar ett PowerShell-skript som vidtar följande åtgärder:
 
@@ -296,7 +297,7 @@ Write-Host 'Completed script 3, the "Virtual-Network-Rule".';
 Detta slutliga skript tar bort de resurser som tidigare skript skapade för demonstrationen. Skriptet ber dock om bekräftelse innan följande tas bort:
 
 - Azure SQL Database Server
-- Azure-resursgrupp
+- Azure-resurs grupp
 
 Du kan köra skript 4 när som helst efter att skript 1 har slutförts.
 

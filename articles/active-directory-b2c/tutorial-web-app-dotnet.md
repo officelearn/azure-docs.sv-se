@@ -3,26 +3,26 @@ title: 'Självstudie: aktivera autentisering i ett webb program'
 titleSuffix: Azure AD B2C
 description: Självstudie som lär dig använda Azure Active Directory B2C för att tillhandahålla en användarinloggning till en ASP.NET-webbapp.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/14/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 2f9a678ae8fea95f842f30234229c648e1966d40
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e4b56f18bf8a2ed1c22b00b8a57efdbf06eb7fa2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850085"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183342"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Självstudie: aktivera autentisering i ett webb program med hjälp av Azure Active Directory B2C
 
 Den här självstudien visar hur du använder Azure Active Directory B2C (Azure AD B2C) för att logga in och registrera användare i ett ASP.NET-webbprogram. Med Azure AD B2C kan program autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med hjälp av öppna standardprotokoll.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Uppdatera programmet i Azure AD B2C
@@ -31,7 +31,7 @@ I den här guiden får du lära dig hur man:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Skapa användarflöden](tutorial-create-user-flows.md) för att möjliggöra användarupplevelser i programmet.
 * Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med arbets belastningen **ASP.net och webb utveckling** .
@@ -44,9 +44,9 @@ I självstudien som du avslutade som en del av förutsättningarna registrerade 
 
 Du kan använda den aktuella **program** upplevelsen eller vår nya enhetliga **Appregistreringar (för hands version)** för att uppdatera programmet. [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
 
-#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+#### <a name="applications"></a>[Program](#tab/applications/)
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 1. Välj **Program** och därefter programmet *webapp1*.
@@ -54,9 +54,9 @@ Du kan använda den aktuella **program** upplevelsen eller vår nya enhetliga **
 1. Välj **Spara**.
 1. På sidan Egenskaper registrerar du program-ID för användning i ett senare steg när du konfigurerar webb programmet.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Välj **Appregistreringar (för hands version)** , Välj fliken **ägda program** och välj sedan *webapp1* -programmet.

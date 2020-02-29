@@ -9,12 +9,13 @@ ms.author: mbaldwin
 ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: 6996a5965454dfd5997f0c0404e0c348c68b626f
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.subservice: general
+ms.openlocfilehash: 6377edf72651c9cddf570d0c6db9d5ceb40409f4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177457"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200727"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Tjänst-till-tjänst-autentisering för Azure Key Vault med .NET
 
@@ -24,7 +25,7 @@ Det kan vara svårt att hantera sådana autentiseringsuppgifter. Det är frestan
 
 `Microsoft.Azure.Services.AppAuthentication`-biblioteket hanterar autentisering automatiskt, vilket i sin tur kan du fokusera på din lösning i stället för dina autentiseringsuppgifter. Den stöder lokal utveckling med Microsoft Visual Studio, Azure CLI eller Azure AD Integrated Authentication. När det distribueras till en Azure-resurs som har stöd för en hanterad identitet, använder biblioteket automatiskt [hanterade identiteter för Azure-resurser](../active-directory/msi-overview.md). Inga kod-eller konfigurations ändringar krävs. Biblioteket stöder också direkt användning av autentiseringsuppgifter för Azure AD- [klient](../azure-resource-manager/resource-group-authenticate-service-principal.md) när en hanterad identitet inte är tillgänglig, eller när utvecklarens säkerhets kontext inte kan fastställas under lokal utveckling.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Visual studio 2019](https://www.visualstudio.com/downloads/) eller [Visual Studio 2017 v 15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/).
 

@@ -3,20 +3,20 @@ title: Konfigurera inloggning med ett Google-konto med anpassade principer
 titleSuffix: Azure AD B2C
 description: Konfigurera inloggning med ett Google-konto i Azure Active Directory B2C att använda anpassade principer.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ed11fcb24f06eae1b2baa6975a3cd8016042813e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8d02c86a1ff330aa4003299e1494a164089d8470
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847464"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188230"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett Google-konto med anpassade principer i Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76847464"
 
 Den här artikeln visar hur du aktiverar inloggning för användare med ett Google-konto med hjälp av [anpassade principer](custom-policy-overview.md) i Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Slutför stegen i avsnittet [komma igång med anpassade principer i Active Directory B2C](custom-policy-get-started.md).
 - Om du inte redan har ett Google-konto skapar du ett i [skapa ditt Google-konto](https://accounts.google.com/SignUp).
@@ -48,7 +48,7 @@ Om du vill aktivera inloggning för användare från ett Google-konto måste du 
 
 Du måste lagra klient hemligheten som du tidigare registrerade i Azure AD B2C-klienten.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer du **ID för identitets miljö**.

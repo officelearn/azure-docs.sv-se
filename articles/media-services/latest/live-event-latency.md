@@ -1,6 +1,6 @@
 ---
-title: LiveEvent svarstid i Azure Media Services | Microsoft Docs
-description: Det här avsnittet ger en översikt över LiveEvent svarstid och visar hur du ställer in låg latens.
+title: LiveEvent inställningar för låg latens i Azure Media Services | Microsoft Docs
+description: Det här avsnittet ger en översikt över inställningar för LiveEvent med låg latens och visar hur du ställer in låg latens.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,23 +13,23 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 393b87aeed759950b946ccb45a008da9af4b7ebe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a82a0644fac099b568ab86ea213b98cd8e7d5c22
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702794"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199656"
 ---
-# <a name="live-event-latency-in-media-services"></a>Live-händelse svarstid i Media Services
+# <a name="live-event-low-latency-settings"></a>Inställningar för låg latens för live event
 
-Den här artikeln visar hur du anger med låg latens för en [direktsänd händelse](https://docs.microsoft.com/rest/api/media/liveevents). Det innehåller också information om typiska resultat som visas när du använder med låg latens-inställningar i olika spelare. Resultatet varierar beroende på CDN och nätverksfördröjning.
+Den här artikeln visar hur du ställer in låg latens för en [Live-händelse](https://docs.microsoft.com/rest/api/media/liveevents). Den diskuterar också vanliga resultat som visas när du använder inställningarna för låg latens i olika spelare. Resultaten varierar beroende på CDN och nätverks svars tid.
 
-Du använder den nya **LowLatency** funktionen kan du ange den **StreamOptionsFlag** till **LowLatency** på den **LiveEvent**. När du skapar [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) HLS uppspelning ange [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) till 1. När den är igång, kan du använda den [Azure Media Player](https://ampdemo.azureedge.net/) (AMP demo sidan) och ange uppspelningsalternativ att använda ”låg latens heuristik profilen”.
+Om du vill använda den nya **LowLatency** -funktionen ställer du in **StreamOptionsFlag** på **LowLatency** på **LiveEvent**. När du skapar [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) för HLS-uppspelning ställer du in [LiveOutput. HLS. fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) på 1. När strömmen är igång kan du använda [Azure Media Player](https://ampdemo.azureedge.net/) (amp demo-sidan) och ange uppspelnings alternativen för att använda heuristiks profilen för "låg latens".
 
 > [!NOTE]
-> För närvarande LowLatency HeuristicProfile i Azure Media Player har utformats för att spela strömmar i MPEG-DASH-protokollet, med CSF eller CMAF format (till exempel `format=mdp-time-csf` eller `format=mdp-time-cmaf`). 
+> För närvarande är LowLatency-HeuristicProfile i Azure Media Player utformad för att spela upp strömmar i MPEG-streck-protokollet, med antingen CSF eller CMAF format (till exempel `format=mdp-time-csf` eller `format=mdp-time-cmaf`). 
 
-I följande .NET-exempel visas hur du ställer in **LowLatency** på den **LiveEvent**:
+Följande .NET-exempel visar hur du ställer in **LowLatency** på **LiveEvent**:
 
 ```csharp
 LiveEvent liveEvent = new LiveEvent(
@@ -52,31 +52,31 @@ LiveEvent liveEvent = new LiveEvent(
         );
 ```                
 
-Se fullständiga exempel: [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
+Se det fullständiga exemplet: [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
 
-## <a name="live-events-latency"></a>Direktsända händelser svarstid
+## <a name="live-events-latency"></a>Svars tid för Live-händelser
 
-Följande tabeller visar vanliga resultat för svarstid (när LowLatency-flaggan är aktiverad) i Media Services, mätt från dess bidrag feeden når tjänsten när en tittare ser uppspelningen i spelaren. Om du vill använda med låg latens optimalt, bör du finjustera inställningarna encoder ned till 1 sekund ”grupp av bilder” (GOP) längd. När du använder en högre GOP-längd kan du minimera bandbreddsanvändning och minska bithastighet under samma bildfrekvens. Det är särskilt bra i videofilmer med mindre rörelse.
+Följande tabeller visar typiska resultat för latens (när LowLatency-flaggan är aktive rad) i Media Services, mätt från den tidpunkt då bidrags flödet når tjänsten till när ett visnings program ser uppspelningen av spelaren. Om du vill använda låg latens optimalt bör du justera inställningarna för kodare nedåt till 1 andra "grupp med bilder" (GOP). När du använder en högre GOP-längd minimerar du bandbredds förbrukningen och minskar bit hastigheten under samma bild hastighet. Det är särskilt fördelaktigt i videor med mindre rörelse.
 
 ### <a name="pass-through"></a>Direkt 
 
-||2S GOP låg latens som aktiverats|1s GOP låg latens som aktiverats|
+||2s GOP låg latens har Aktiver ATS|1 GOP låg latens har Aktiver ATS|
 |---|---|---|
-|BINDESTRECK i AMP|10-tal|8S|
-|HLS på interna iOS player|14s|10-tal|
+|STRECK i AMP|tiotal|8s|
+|HLS på ursprunglig iOS-spelare|14s|tiotal|
 
 ### <a name="live-encoding"></a>Live Encoding
 
-||2S GOP låg latens som aktiverats|1s GOP låg latens som aktiverats|
+||2s GOP låg latens har Aktiver ATS|1 GOP låg latens har Aktiver ATS|
 |---|---|---|
-|BINDESTRECK i AMP|14s|10-tal|
-|HLS på interna iOS player|18s|13s|
+|STRECK i AMP|14s|tiotal|
+|HLS på ursprunglig iOS-spelare|18s|13s|
 
 > [!NOTE]
-> Svarstiden slutpunkt till slutpunkt kan variera beroende på lokala nätverket eller genom att introducera ett CDN-cachelagring lager. Du bör testa dina exakta konfigurationer.
+> Svars tiden från slut punkt till slut punkt kan variera beroende på lokala nätverks förhållanden eller genom att introducera ett lager för CDN-cachelagring. Du bör testa dina exakta konfigurationer.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Direktsänd strömning översikt](live-streaming-overview.md)
-- [Live direktuppspelning självstudien](stream-live-tutorial-with-api.md)
+- [Översikt över direkt uppspelning](live-streaming-overview.md)
+- [Själv studie kurs om Live-direktuppspelning](stream-live-tutorial-with-api.md)
 

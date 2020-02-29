@@ -3,21 +3,21 @@ title: Åtkomst och granska gransknings loggar
 titleSuffix: Azure AD B2C
 description: Få åtkomst till Azure AD B2C gransknings loggar program mässigt och i Azure Portal.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/20/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 62a969519ebefaab919505d9c8faae830f55f4c6
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 83086fa2cb96eba423b9111134a0406d7256821f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505617"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185785"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C gransknings loggar
 
@@ -51,7 +51,7 @@ I den här exempel bilden från Azure Portal visas de data som registrerats när
 
 Panelen aktivitets information innehåller följande relevanta information:
 
-|Section|Field|Beskrivning|
+|Section|Fält|Beskrivning|
 |-------|-----|-----------|
 | Aktivitet | Namn | Vilken aktivitet som ägde rum. Du kan till exempel *utfärda en id_token till programmet*, vilket avslutar den faktiska användar inloggningen. |
 | Initierad av (aktör) | ObjectId | **Objekt-ID** för det B2C-program som användaren loggar in på. Den här identifieraren visas inte i Azure Portal, men är tillgänglig via Microsoft Graph API. |

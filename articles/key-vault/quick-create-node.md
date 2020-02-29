@@ -5,13 +5,14 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: a59ba62df546c60c4086829eec355d3e69b69363
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2091916b0ec2eab68904a485d93f5d2353261f68
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773727"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197750"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Snabb start: Azure Key Vault klient bibliotek för Node. js (v4)
 
@@ -27,7 +28,7 @@ Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som a
 
 [API Reference-dokumentation](/javascript/api/overview/azure/key-vault?view=azure-node-latest) | [bibliotekets käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [paketet (NPM)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Aktuell [Node. js](https://nodejs.org) för ditt operativ system.

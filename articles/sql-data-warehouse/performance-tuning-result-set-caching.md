@@ -1,6 +1,6 @@
 ---
 title: Prestanda justering med cachelagring av resultat uppsättningar
-description: Översikt över cachelagring av resultat uppsättningar för Azure SQL Data Warehouse
+description: Översikt över cachelagring av resultat uppsättningar för SQL Analytics i Azure Synapse Analytics
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 461320b9c3ed48176fb60fe695704c582edcd552
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 3d204605e68cf8cf33f69d73fb20f3cc08674e44
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692948"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200540"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Prestanda justering med cachelagring av resultat uppsättningar  
-När cachelagring av resultat uppsättningar är aktiverat cachelagrar Azure SQL Data Warehouse automatiskt frågeresultat i användar databasen för upprepad användning.  Detta gör att efterföljande fråge körningar kan hämta resultat direkt från det sparade cacheminnet så att omberäkning inte behövs.   Cachelagring av resultat uppsättningar förbättrar prestanda för frågor och minskar användningen av beräknings resurser.  Dessutom använder frågor som använder cachelagrade resultat uppsättningar inte några samtidiga platser och räknas därför inte över mot befintliga samtidighets gränser. Användare kan bara komma åt de cachelagrade resultaten om de har samma data åtkomst behörigheter som de användare som skapar de cachelagrade resultaten.  
+När cachelagring av resultat uppsättningar är aktiverat cachelagrar SQL Analytics automatiskt frågeresultat i användar databasen för upprepad användning.  Detta gör att efterföljande fråge körningar kan hämta resultat direkt från det sparade cacheminnet så att omberäkning inte behövs.   Cachelagring av resultat uppsättningar förbättrar prestanda för frågor och minskar användningen av beräknings resurser.  Dessutom använder frågor som använder cachelagrade resultat uppsättningar inte några samtidiga platser och räknas därför inte över mot befintliga samtidighets gränser. Användare kan bara komma åt de cachelagrade resultaten om de har samma data åtkomst behörigheter som de användare som skapar de cachelagrade resultaten.  
 
 ## <a name="key-commands"></a>Nyckel kommandon
 [Aktivera/inaktivera cachelagring av resultat uppsättningar för en användar databas](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)
@@ -39,7 +39,8 @@ När cachelagring av resultat uppsättningar har Aktiver ATS för en databas cac
 - Frågor som returnerar data med en rad storlek som är större än 64 KB
 
 > [!IMPORTANT]
-> Åtgärderna för att skapa cache för resultat uppsättning och hämta data från cachen sker på noden kontroll i en informations lager instans. När cachelagring av resultat uppsättningar är aktiverat, kan körnings frågor som returnerar stor resultat uppsättning (till exempel > 1 miljon rader) orsaka hög CPU-användning på noden kontroll och sakta ned det övergripande svaret på instansen.  Frågorna används ofta vid data utforskning eller ETL-åtgärder. För att undvika att kontrol lera noden och orsaka prestanda problem bör användarna stänga av resultat uppsättningens cachelagring i databasen innan du kör dessa typer av frågor.  
+> Åtgärderna för att skapa en resultat uppsättning cache och hämta data från cachen sker på noden kontroll i en SQL Analytics-instans.
+> När cachelagring av resultat uppsättningar är aktiverat, kan körnings frågor som returnerar stor resultat uppsättning (till exempel > 1 miljon rader) orsaka hög CPU-användning på noden kontroll och sakta ned det övergripande svaret på instansen.  Frågorna används ofta vid data utforskning eller ETL-åtgärder. För att undvika att kontrol lera noden och orsaka prestanda problem bör användarna stänga av resultat uppsättningens cachelagring i databasen innan du kör dessa typer av frågor.  
 
 Kör den här frågan för den tid som krävs för cachelagring av resultat uppsättningar för en fråga:
 
@@ -64,7 +65,7 @@ Den cachelagrade resultat uppsättningen återanvänds för en fråga om alla f�
 - Det finns en exakt matchning mellan den nya frågan och den föregående frågan som genererade resultat uppsättningens cacheminne.
 - Det finns inga data eller schema ändringar i tabellerna där den cachelagrade resultat uppsättningen genererades.
 
-Kör det här kommandot för att kontrol lera om en fråga kördes med en resultat-cacheträffar eller missar. Om det finns en cacheträff, kommer result_cache_hit att returnera 1.
+Kör det här kommandot för att kontrol lera om en fråga kördes med en resultat-cacheträffar eller missar. Om det finns en cacheträff kommer result_cache_hit att returnera 1.
 
 ```sql
 SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests 
@@ -75,7 +76,7 @@ WHERE request_id = <'Your_Query_Request_ID'>
 
 Den maximala storleken för cache för resultat uppsättning är 1 TB per databas.  De cachelagrade resultaten blir automatiskt ogiltiga när den underliggande frågans data ändras.  
 
-Cache-avtagningen hanteras av Azure SQL Data Warehouse automatiskt enligt det här schemat: 
+Cache-avtagningen hanteras av SQL Analytics enligt följande schema: 
 - Var 48: e timme om resultat uppsättningen inte har använts eller har ogiltig förklarats. 
 - När cachen för resultat uppsättningen närmar sig den maximala storleken.
 
@@ -86,4 +87,4 @@ Användare kan manuellt tömma hela resultat uppsättningens cacheminne genom at
 Om du pausar en databas töms inte cachelagrad resultat uppsättning.  
 
 ## <a name="next-steps"></a>Nästa steg
-För fler utvecklingstips, se [Översikt över SQL Data Warehouse-utveckling](sql-data-warehouse-overview-develop.md). 
+Mer utvecklings tips finns i [utvecklings översikt](sql-data-warehouse-overview-develop.md). 

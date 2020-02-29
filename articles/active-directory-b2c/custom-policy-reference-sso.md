@@ -3,20 +3,20 @@ title: Hantering av enkel inloggning med anpassade principer
 titleSuffix: Azure AD B2C
 description: Lär dig hur du hanterar SSO-sessioner med anpassade principer i Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b905591266b90e5bba83e7c74b27e7f6b3cab610
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: a64af5d2b19b05ec9a5eda97c43e278cdfb8b4ff
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912553"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189114"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Hantering av enkel inloggning i Azure Active Directory B2C
 
@@ -39,11 +39,11 @@ SSO-hanterings klasser anges med `<UseTechnicalProfileForSessionManagement Refer
 
 ## <a name="input-claims"></a>Inmatade anspråk
 
-`InputClaims`-elementet är tomt eller saknas. 
+`InputClaims`-elementet är tomt eller saknas.
 
 ## <a name="persisted-claims"></a>Beständiga anspråk
 
-Anspråk som måste returneras till programmet eller används av villkor i efterföljande steg, ska lagras i sessionen eller utökas av en läsning från användarens profil i katalogen. Om du använder beständiga anspråk ser du till att det inte går att köra autentiseringen på saknade anspråk. Om du vill lägga till anspråk i sessionen använder du `<PersistedClaims>` elementet i den tekniska profilen. När providern används för att fylla i sessionen läggs de beständiga anspråken till i anspråks säcken. 
+Anspråk som måste returneras till programmet eller används av villkor i efterföljande steg, ska lagras i sessionen eller utökas av en läsning från användarens profil i katalogen. Om du använder beständiga anspråk ser du till att det inte går att köra autentiseringen på saknade anspråk. Om du vill lägga till anspråk i sessionen använder du `<PersistedClaims>` elementet i den tekniska profilen. När providern används för att fylla i sessionen läggs de beständiga anspråken till i anspråks säcken.
 
 ## <a name="output-claims"></a>Utgående anspråk
 
@@ -53,7 +53,7 @@ Anspråk som måste returneras till programmet eller används av villkor i efter
 
 ### <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
 
-Den här providern gör inget under namnet. Den här providern kan användas för att förhindra SSO-beteende för en speciell teknisk profil. Följande `SM-Noop` teknisk profil ingår i [Start paketet för den anpassade principen](custom-policy-get-started.md#custom-policy-starter-pack).  
+Den här providern gör inget under namnet. Den här providern kan användas för att förhindra SSO-beteende för en speciell teknisk profil. Följande `SM-Noop` teknisk profil ingår i [Start paketet för den anpassade principen](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-Noop">
@@ -64,7 +64,7 @@ Den här providern gör inget under namnet. Den här providern kan användas fö
 
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
-Den här providern kan användas för att lagra anspråk i en session. Den här providern refereras vanligt vis till i en teknisk profil som används för att hantera lokala konton. Följande `SM-AAD` teknisk profil ingår i [Start paketet för den anpassade principen](custom-policy-get-started.md#custom-policy-starter-pack). 
+Den här providern kan användas för att lagra anspråk i en session. Den här providern refereras vanligt vis till i en teknisk profil som används för att hantera lokala konton. Följande `SM-AAD` teknisk profil ingår i [Start paketet för den anpassade principen](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-AAD">
@@ -84,7 +84,7 @@ Den här providern kan användas för att lagra anspråk i en session. Den här 
 </TechnicalProfile>
 ```
 
-Följande `SM-MFA` teknisk profil ingår i `SocialAndLocalAccountsWithMfa`för [anpassad princip start paket](custom-policy-get-started.md#custom-policy-starter-pack) . Den här tekniska profilen hanterar Multi-Factor Authentication-sessionen. 
+Följande `SM-MFA` teknisk profil ingår i `SocialAndLocalAccountsWithMfa`för [anpassad princip start paket](custom-policy-get-started.md#custom-policy-starter-pack) . Den här tekniska profilen hanterar Multi-Factor Authentication-sessionen.
 
 ```XML
 <TechnicalProfile Id="SM-MFA">
@@ -117,7 +117,7 @@ Den här providern används för att utelämna skärmen "Välj identitetsprovide
 ```
 
 #### <a name="metadata"></a>Metadata
-        
+
 | Attribut | Krävs | Beskrivning|
 | --- | --- | --- |
 | AlwaysFetchClaimsFromProvider | Nej | Används inte för närvarande, kan ignoreras. |
@@ -138,7 +138,7 @@ Den här providern används för att hantera Azure AD B2C SAML-sessioner mellan 
 ```
 
 När du använder providern för att lagra B2C SAML-sessionen måste `IncludeSessionIndex` och `RegisterServiceProviders` anges till `true`. Utloggningen av SAML-sessionen kräver att `SessionIndex` och `NameID` har slutförts.
- 
+
 Följande `SM-Saml-idp` teknisk profil används av den [tekniska profilen för SAML-utfärdaren](connect-with-saml-service-providers.md)
 
 ```XML
@@ -148,7 +148,7 @@ Följande `SM-Saml-idp` teknisk profil används av den [tekniska profilen för S
 </TechnicalProfile>
 ```
 #### <a name="metadata"></a>Metadata
-        
+
 | Attribut | Krävs | Beskrivning|
 | --- | --- | --- |
 | IncludeSessionIndex | Nej | Anger vilken provider som ska lagras i sessionens index. Möjliga värden: `true` (standard) eller `false`.|

@@ -1,30 +1,30 @@
 ---
 title: Hantera och övervaka arbetsbelastningsprioritet
-description: Lär dig hur du hanterar och övervakar prioriteten på begärans nivå i Azure SQL Data Warehouse.
+description: Lär dig hur du hanterar och övervakar prioriteten på begärans nivå i Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.subservice: workload-management
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 02/04/2020
 ms.author: rortloff
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: ee9acb873c5118733de142045457028c3f4d5f61
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.reviewer: jrasnick
+ms.custom: azure-synapse
+ms.openlocfilehash: 6274bff9f9c57bfb06e58e1c4bfce6b6e265ac62
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692704"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195625"
 ---
-# <a name="manage-and-monitor-workload-importance-in-azure-sql-data-warehouse"></a>Hantera och övervaka arbets belastnings prioritet i Azure SQL Data Warehouse
+# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Hantera och övervaka arbets belastnings prioritet i Azure Synapse Analytics
 
-Hantera och övervaka prioritet för begär ande nivå i Azure SQL Data Warehouse med hjälp av DMV: er och katalogfiler.
+Hantera och övervaka SQL Analytics-förfrågnings nivån i Azure Synapse med hjälp av DMV: er och katalogvyer.
 
 ## <a name="monitor-importance"></a>Övervaknings prioritet
 
-Övervaka prioritet med kolumnen ny prioritet i vyn för dynamisk hantering i [sys. DM-_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) .
+Övervaka prioritet med kolumnen ny prioritet i vyn [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) dynamisk hantering.
 Övervaknings frågan nedan visar sändnings tid och start tid för frågor. Granska sändnings tiden och start tiden tillsammans med viktig information för att se hur viktigt det är att schemalägga.
 
 ```sql
@@ -39,7 +39,7 @@ Använd katalogvyer för att se mer i hur frågor schemaläggs.
 
 ## <a name="manage-importance-with-catalog-views"></a>Hantera prioritet med katalogvyer
 
-Catalog-vyn sys. workload_management_workload_classifiers innehåller information om klassificerare i Azure SQL Data Warehouse-instansen. Om du vill utesluta systemdefinierade klassificerare som mappar till resurs klasser kör du följande kod:
+Vyn sys. workload_management_workload_classifiers Catalog innehåller information om klassificerare. Om du vill utesluta systemdefinierade klassificerare som mappar till resurs klasser kör du följande kod:
 
 ```sql
 SELECT *

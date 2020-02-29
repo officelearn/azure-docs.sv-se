@@ -3,20 +3,20 @@ title: Övervaka Azure AD B2C med Azure Monitor
 titleSuffix: Azure AD B2C
 description: Lär dig hur du loggar Azure AD B2C händelser med Azure Monitor med hjälp av delegerad resurs hantering.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: 6f7f0252a6377397ccaccdc44c9c8561da7c9d29
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: acba378badb41324b2124b84833407da920a0e00
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121377"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190066"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Övervaka Azure AD B2C med Azure Monitor
 
@@ -226,7 +226,7 @@ Konfigurera övervaknings inställningar för Azure AD B2C aktivitets loggar:
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. Välj **Azure Active Directory**
-1. Under **övervakning**väljer du **diagnostikinställningar**.
+1. Under **Övervakning** väljer du **Diagnostikinställningar**.
 1. Om det finns befintliga inställningar på resursen visas en lista över inställningar som redan har kon figurer ATS. Välj antingen **Lägg till diagnostisk inställning** för att lägga till en ny inställning eller **Redigera** inställning för att redigera en befintlig. Varje inställning får inte ha fler än en av varje mål typ..
 
     ![Fönstret diagnostikinställningar i Azure Portal](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)

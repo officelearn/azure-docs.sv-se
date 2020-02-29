@@ -1,5 +1,5 @@
 ---
-title: Läs in Contosos detalj handels data
+title: Läs in Contosos detalj handels data till ett informations lager för SQL Analytics
 description: Använd PolyBase-och T-SQL-kommandon för att läsa in två tabeller från Contosos detalj handels data till Azure SQL-analys.
 services: sql-data-warehouse
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: af505d7614b527d6dc7e1ce54136578d67824cf9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4da4ea54de5517864567583cc6853df40b4370a9
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721174"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197308"
 ---
 # <a name="load-contoso-retail-data-to-a-sql-analytics-data-warehouse"></a>Läs in Contosos detalj handels data till ett informations lager för SQL Analytics
 
@@ -29,12 +29,15 @@ I den här självstudien kommer du att:
 3. Utför optimeringar när belastningen är färdig.
 
 ## <a name="before-you-begin"></a>Innan du börjar
+
 För att kunna köra den här självstudien behöver du ett Azure-konto som redan har ett informations lager för SQL Analytics. Om du inte har ett data lager som har skapats, se [skapa ett informations lager och ange brand Väggs regel på server nivå](create-data-warehouse-portal.md).
 
-## <a name="1-configure-the-data-source"></a>1. Konfigurera data källan
+## <a name="configure-the-data-source"></a>Konfigurera data källan
+
 PolyBase använder externa T-SQL-objekt för att definiera platsen och attributen för externa data. De externa objekt definitionerna lagras i ditt SQL Analytics-informations lager. Data lagras externt.
 
-### <a name="11-create-a-credential"></a>1.1. Skapa en autentiseringsuppgift
+## <a name="create-a-credential"></a>Skapa en autentiseringsuppgift
+
 **Hoppa över det här steget** om du läser in offentliga contoso-data. Du behöver inte säker åtkomst till offentliga data eftersom den redan är tillgänglig för alla.
 
 **Hoppa inte över det här steget** om du använder den här självstudien som mall för att läsa in dina data. Om du vill få åtkomst till data via en autentiseringsuppgift använder du följande skript för att skapa en databas med begränsade autentiseringsuppgifter. Använd den när du definierar platsen för data källan.
@@ -72,7 +75,8 @@ WITH (
 );
 ```
 
-### <a name="12-create-the-external-data-source"></a>1.2. Skapa den externa data källan
+## <a name="create-the-external-data-source"></a>Skapa den externa data källan
+
 Använd det här kommandot [skapa extern data källa](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15) för att lagra data platsen och data typen. 
 
 ```sql
@@ -87,9 +91,9 @@ WITH
 > [!IMPORTANT]
 > Om du väljer att göra dina Azure Blob Storage-behållare offentliga måste du komma ihåg att som data ägare debiteras du för avgifter för utgående data när data lämnar data centret. 
 > 
-> 
 
-## <a name="2-configure-data-format"></a>2. Konfigurera data format
+## <a name="configure-the-data-format"></a>Konfigurera data formatet
+
 Data lagras i textfiler i Azure Blob Storage, och varje fält skiljs åt med en avgränsare. I SSMS kör du följande kommando för att skapa externt fil FORMAT för att ange formatet för data i textfilerna. Contoso-data är okomprimerade och pipe-avgränsade.
 
 ```sql
@@ -104,10 +108,10 @@ WITH
 );
 ``` 
 
-## <a name="3-create-the-external-tables"></a>3. skapa de externa tabellerna
+## <a name="create-the-external-tables"></a>Skapa externa tabeller
 Nu när du har angett data källan och fil formatet är du redo att skapa de externa tabellerna. 
 
-### <a name="31-create-a-schema-for-the-data"></a>3.1. Skapa ett schema för data.
+## <a name="create-a-schema-for-the-data"></a>Skapa ett schema för data
 Skapa ett schema för att skapa en plats för att lagra contoso-data i databasen.
 
 ```sql
@@ -115,7 +119,8 @@ CREATE SCHEMA [asb]
 GO
 ```
 
-### <a name="32-create-the-external-tables"></a>3.2. Skapa de externa tabellerna.
+## <a name="create-the-external-tables"></a>Skapa externa tabeller
+
 Kör följande skript för att skapa DimProduct-och FactOnlineSales-externa tabeller. Allt du gör här är att definiera kolumn namn och data typer och att binda dem till platsen och formatet för Azure Blob Storage-filerna. Definitionen lagras i informations lagret för SQL Analytics och data finns fortfarande i Azure Storage Blob.
 
 Parametern **location** är mappen under rotmappen i Azure Storage blob. Varje tabell finns i en annan mapp.
@@ -202,10 +207,11 @@ WITH
 ;
 ```
 
-## <a name="4-load-the-data"></a>4. Läs in data
+## <a name="load-the-data"></a>Läs in data
 Det finns olika sätt att komma åt externa data.  Du kan fråga efter data direkt från de externa tabellerna, läsa in data i nya tabeller i informations lagret eller lägga till externa data i befintliga data lager tabeller.  
 
-### <a name="41-create-a-new-schema"></a>4.1. Skapa ett nytt schema
+###  <a name="create-a-new-schema"></a>Skapa ett nytt schema
+
 CTAS skapar en ny tabell som innehåller data.  Börja med att skapa ett schema för Contoso-data.
 
 ```sql
@@ -213,7 +219,8 @@ CREATE SCHEMA [cso]
 GO
 ```
 
-### <a name="42-load-the-data-into-new-tables"></a>4.2. Läs in data i nya tabeller
+### <a name="load-the-data-into-new-tables"></a>Läs in data i nya tabeller
+
 Använd uttrycket [CREATE TABLE as Select (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) för att läsa in data från Azure Blob Storage till data lager tabellen. När du läser in med [CTAs](sql-data-warehouse-develop-ctas.md) utnyttjas de mest skrivna externa tabellerna som du har skapat. Om du vill läsa in data i nya tabeller använder du ett CTAS-uttryck per tabell. 
  
 CTAS skapar en ny tabell och fyller den med resultatet av en SELECT-instruktion. CTAS definierar den nya tabellen för att ha samma kolumner och data typer som resultatet av SELECT-instruktionen. Om du väljer alla kolumner från en extern tabell är den nya tabellen en replik av kolumnerna och data typerna i den externa tabellen.
@@ -228,7 +235,8 @@ CREATE TABLE [cso].[DimProduct]            WITH (DISTRIBUTION = HASH([ProductKey
 CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey]  ) ) AS SELECT * FROM [asb].[FactOnlineSales]        OPTION (LABEL = 'CTAS : Load [cso].[FactOnlineSales]        ');
 ```
 
-### <a name="43-track-the-load-progress"></a>4,3 spåra inläsnings förloppet
+### <a name="track-the-load-progress"></a>Spåra inläsnings förloppet
+
 Du kan följa förloppet för din belastning med hjälp av DMV: er (Dynamic Management views). 
 
 ```sql
@@ -264,7 +272,8 @@ ORDER BY
     gb_processed desc;
 ```
 
-## <a name="5-optimize-columnstore-compression"></a>5. optimera columnstore-komprimering
+## <a name="optimize-columnstore-compression"></a>Optimera columnstore-komprimering
+
 Som standard lagrar SQL Analytics-informations lagret tabellen som ett grupperat columnstore-index. När en belastning är klar kanske vissa av data raderna inte komprimeras till columnstore.  Det kan bero på olika orsaker. Mer information finns i [Hantera columnstore-index](sql-data-warehouse-tables-index.md).
 
 Om du vill optimera prestanda och columnstore-komprimering efter en belastning måste du återskapa tabellen för att tvinga columnstore-indexet att komprimera alla rader. 
@@ -279,7 +288,8 @@ ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 
 Mer information om hur du behåller columnstore-index finns i artikeln [Hantera columnstore-index](sql-data-warehouse-tables-index.md) .
 
-## <a name="6-optimize-statistics"></a>6. optimera statistiken
+## <a name="optimize-statistics"></a>Optimera statistik
+
 Det är bäst att skapa statistik med en kolumn direkt efter en belastning. Om du vet att vissa kolumner inte kommer att finnas i frågesyntaxen kan du hoppa över att skapa statistik för dessa kolumner. Om du skapar en statistik med en kolumn på varje kolumn kan det ta lång tid att återskapa all statistik. 
 
 Om du bestämmer dig för att skapa en statistik med en kolumn på varje kolumn i varje tabell kan du använda exempel koden för den lagrade proceduren `prc_sqldw_create_stats` i [statistik](sql-data-warehouse-tables-statistics.md) artikeln.
@@ -329,7 +339,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ```
 
 ## <a name="achievement-unlocked"></a>Utmärkelse upplåst!
-Du har läst in offentliga data i ett informations lager för SQL Analytics. Bra jobbat!
+Du har läst in offentliga data i informations lagret. Bra jobbat!
 
 Nu kan du börja fråga tabellerna och utforska dina data. Kör följande fråga för att ta reda på total försäljning per varumärke:
 

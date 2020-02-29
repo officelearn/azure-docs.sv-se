@@ -2,20 +2,20 @@
 title: Självstudie – Skapa en Azure Active Directory B2C-klient
 description: Lär dig hur du förbereder registreringen av dina program genom att skapa en Azure Active Directory B2C-klient med hjälp av Azure Portal.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/28/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9cb23dc11a853401d8d99a750a0c79082adbe036
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: c31f3c4c6688af7d2142180e8d9b7100965bad96
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547599"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186411"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Självstudie: skapa en Azure Active Directory B2C-klient
 
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Skapa en Azure AD B2C-klient
 
-1. Logga in på [Azure Portal](https://portal.azure.com/). Logga in med ett Azure-konto som har tilldelats minst [deltagar](../role-based-access-control/built-in-roles.md) rollen i prenumerationen eller en resurs grupp i prenumerationen.
+1. Logga in på [Azure-portalen](https://portal.azure.com/). Logga in med ett Azure-konto som har tilldelats minst [deltagar](../role-based-access-control/built-in-roles.md) rollen i prenumerationen eller en resurs grupp i prenumerationen.
 
 1. Välj den katalog som innehåller din prenumeration.
 
@@ -43,7 +43,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
     ![Prenumerations klient, katalog + prenumerations filter med vald prenumerations klient](media/tutorial-create-tenant/portal-01-pick-directory.png)
 
-1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**.
+1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**.
 1. Sök efter **Azure Active Directory B2C**och välj sedan **skapa**.
 1. Välj **Skapa en ny Azure AD B2C-klient**.
 
@@ -68,8 +68,8 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
     För **Resursgrupp** väljer du **Skapa ny**. Ange ett **namn** för den resurs grupp som ska innehålla klienten, Välj plats för **resurs grupp**och välj sedan **skapa**.
 
     ![Länka prenumerations inställnings formulär i Azure Portal](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
-    
-    Du kan länka flera Azure AD B2C klienter till en enda Azure-prenumeration för fakturerings syfte. 
+
+    Du kan länka flera Azure AD B2C klienter till en enda Azure-prenumeration för fakturerings syfte.
 
 ## <a name="select-your-b2c-tenant-directory"></a>Välj din B2C-klient katalog
 
@@ -89,7 +89,7 @@ I stället för att söka efter *Azure AD B2C* i **alla tjänster** varje gång 
 
 Du behöver bara utföra den här åtgärden en gång. Innan du utför de här stegen bör du kontrol lera att du har växlat till den katalog som innehåller Azure AD B2C klient organisationen enligt beskrivningen i föregående avsnitt, [välja din B2C-innehavaradministratör](#select-your-b2c-tenant-directory).
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. I menyn Azure Portal väljer du **alla tjänster**.
 1. I Sök rutan **alla tjänster** söker du efter **Azure AD B2C**, hovrar över Sök resultatet och väljer sedan stjärn ikonen i knapp beskrivningen. **Azure AD B2C** visas nu i Azure Portal under **Favoriter**.
 1. Om du vill ändra placeringen för den nya favoriten går du till Azure Portal-menyn, väljer **Azure AD B2C**och drar den sedan uppåt eller nedåt till önskad position.

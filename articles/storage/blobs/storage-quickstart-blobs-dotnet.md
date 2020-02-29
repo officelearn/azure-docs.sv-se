@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 1811cc54c3554d62b22a7ea8816aa5af1876422c
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 09002a8c0999dc137ca3386ca7392a566d323e8a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163632"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196067"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Snabb start: klient biblioteket för Azure Blob Storage-V12 för .NET
 
@@ -29,7 +29,7 @@ Använd Azure Blob Storage-V12 för .NET för att:
 * Ladda ned blobben till den lokala datorn
 * Ta bort en container
 
-[API Reference documentation](/dotnet/api/azure.storage.blobs) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet) | -](https://www.nuget.org/packages/Azure.Storage.Blobs) [exempel](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+[API Reference documentation](/dotnet/api/azure.storage.blobs) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet) | -](https://www.nuget.org/packages/Azure.Storage.Blobs) [exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

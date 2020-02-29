@@ -2,20 +2,20 @@
 title: Lokalisering-Azure Active Directory B2C
 description: Ange lokaliserings element för en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 08/27/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ec9b4e7ce761d524d047f4d12cab9e5b782e6032
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 9a9fb1d64fb27507e4ee42c39be9ea80fbe5f168
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70033451"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184459"
 ---
 # <a name="localization"></a>Lokalisering
 
@@ -39,9 +39,9 @@ ms.locfileid: "70033451"
 
 **Lokaliserings** elementet innehåller följande attribut:
 
-| Attribut | Obligatorisk | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Aktiverad | Nej | Möjliga värden: `true` eller `false`. |
+| Enabled | Nej | Möjliga värden: `true` eller `false`. |
 
 **Lokaliserings** elementet innehåller följande XML-element
 
@@ -54,10 +54,10 @@ ms.locfileid: "70033451"
 
 **SupportedLanguages** -elementet innehåller följande attribut:
 
-| Attribut | Obligatorisk | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | DefaultLanguage | Ja | Det språk som ska användas som standard för lokaliserade resurser. |
-| MergeBehavior | Nej | Ett uppräknings värde för värden som slås samman med en ClaimType som finns i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i bas principen. Möjliga värden: `Append`, `Prepend`, eller `ReplaceAll`. `Append` Värdet anger att data uppsättningen som finns ska läggas till i slutet av den samling som anges i den överordnade principen. `Prepend` Värdet anger att data uppsättningen som finns ska läggas till innan den samling som anges i den överordnade principen. `ReplaceAll` Värdet anger att data uppsättningen som definieras i den överordnade principen ska ignoreras, med i stället de data som definierats i den aktuella principen. |
+| MergeBehavior | Nej | Ett uppräknings värde för värden som slås samman med en ClaimType som finns i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i bas principen. Möjliga värden: `Append`, `Prepend`eller `ReplaceAll`. Värdet `Append` anger att data uppsättningen som finns ska läggas till i slutet av den samling som anges i den överordnade principen. Värdet `Prepend` anger att data mängden som finns ska läggas till innan den samling som anges i den överordnade principen. Värdet `ReplaceAll` anger att data uppsättningen som definieras i den överordnade principen ska ignoreras, med hjälp av i stället de data som definierats i den aktuella principen. |
 
 ### <a name="supportedlanguages"></a>SupportedLanguages
 
@@ -71,9 +71,9 @@ ms.locfileid: "70033451"
 
 **LocalizedResources** -elementet innehåller följande attribut:
 
-| Attribut | Obligatorisk | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ID | Ja | En identifierare som används för att identifiera lokaliserade resurser unikt. |
+| Id | Ja | En identifierare som används för att identifiera lokaliserade resurser unikt. |
 
 **LocalizedResources** -elementet innehåller följande element:
 
@@ -94,7 +94,7 @@ ms.locfileid: "70033451"
 
 **LocalizedCollection** -elementet innehåller följande attribut:
 
-| Attribut | Obligatorisk | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | ElementType | Ja | Refererar till ett ClaimType-element eller ett användar gränssnitts element i princip filen. |
 | ElementId | Ja | En sträng som innehåller en referens till en anspråks typ som redan har definierats i ClaimsSchema-avsnittet som används om **ElementType** har angetts till en claimType. |
@@ -108,13 +108,13 @@ ms.locfileid: "70033451"
 
 Elementet **item** innehåller följande attribut:
 
-| Attribut | Obligatorisk | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Text | Ja | Den användarvänliga visnings strängen som ska visas för användaren i användar gränssnittet för det här alternativet. |
-| Value | Ja | Det sträng anspråks värde som är associerat med att välja det här alternativet. |
-| SelectByDefault | Nej | Anger om det här alternativet ska vara markerat som standard i användar gränssnittet. Möjliga värden: SANT eller FALSKT. |
+| Värde | Ja | Det sträng anspråks värde som är associerat med att välja det här alternativet. |
+| SelectByDefault | Nej | Anger om det här alternativet ska vara markerat som standard i användar gränssnittet. Möjliga värden: true eller false. |
 
-I följande exempel visas användningen av **LocalizedCollections** -elementet. Den innehåller två **LocalizedCollection** -element, ett för engelska och ett för spanska. Båda anger **begränsnings** samlingen för anspråket `Gender` med en lista över objekt för engelska och spanska.
+I följande exempel visas användningen av **LocalizedCollections** -elementet. Den innehåller två **LocalizedCollection** -element, ett för engelska och ett för spanska. Båda ställer in **begränsnings** insamlingen för anspråks `Gender` med en lista över objekt för engelska och spanska.
 
 ```XML
 <LocalizedResources Id="api.selfasserted.en">
@@ -144,11 +144,11 @@ I följande exempel visas användningen av **LocalizedCollections** -elementet. 
 
 **LocalizedString** -elementet innehåller följande attribut:
 
-| Attribut | Obligatorisk | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ElementType | Ja | En referens till ett anspråks typ element eller ett användar gränssnitts element i principen. Möjliga värden: `ClaimType` `UxElement` ,`Predicate`,, eller. `ErrorMessage` `ClaimType` Värdet används för att lokalisera ett av attributen för anspråk enligt vad som anges i StringId. `UxElement` Värdet används för att lokalisera ett av användar gränssnitts elementen som anges i StringId. `ErrorMessage` Värdet används för att lokalisera ett av system fel meddelandena som anges i StringId. Värdet används för att lokalisera ett av de predikat fel meddelanden som anges i StringId. [](predicates.md) `Predicate` Värdet används för att lokalisera en av PredicateValidation Groups fel meddelanden som anges i StringId. [](predicates.md) `InputValidation` |
-| ElementId | Ja | Om **ElementType** är inställt `Predicate`på `ClaimType`, `InputValidation`eller, innehåller det här elementet en referens till en anspråks typ som redan har definierats i avsnittet ClaimsSchema. |
-| StringId | Ja | Om **ElementType** är inställt på `ClaimType`, innehåller det här elementet en referens till ett attribut för en anspråks typ. Möjliga värden: `DisplayName`, `AdminHelpText`, eller `PatternHelpText`. `DisplayName` Värdet används för att ange visnings namn för anspråket. `AdminHelpText` Värdet används för att ange hjälp text namnet för anspråks användaren. `PatternHelpText` Värdet används för att ange hjälp texten för anspråks mönstret. Om **ElementType** är inställt på `UxElement`, innehåller det här elementet en referens till ett attribut i ett användar gränssnitts element. Om **ElementType** är inställt på `ErrorMessage`, anger det här elementet identifieraren för ett fel meddelande. Se [lokaliserings Strängs-ID: n](localization-string-ids.md) för en `UxElement` fullständig lista över identifierare.|
+| ElementType | Ja | En referens till ett anspråks typ element eller ett användar gränssnitts element i principen. Möjliga värden: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`eller. `ClaimType`-värdet används för att lokalisera ett av attributen för anspråk enligt vad som anges i StringId. `UxElement`-värdet används för att lokalisera ett av användar gränssnitts elementen som anges i StringId. `ErrorMessage`-värdet används för att lokalisera ett av system fel meddelandena som anges i StringId. `Predicate`-värdet används för att lokalisera ett av de [predikat](predicates.md) fel meddelanden som anges i StringId. `InputValidation`-värdet används för att lokalisera en av [PredicateValidation](predicates.md) Groups fel meddelanden som anges i StringId. |
+| ElementId | Ja | Om **ElementType** är inställt på `ClaimType`, `Predicate`eller `InputValidation`innehåller det här elementet en referens till en anspråks typ som redan har definierats i avsnittet ClaimsSchema. |
+| StringId | Ja | Om **ElementType** är inställt på `ClaimType`, innehåller det här elementet en referens till ett attribut av en anspråks typ. Möjliga värden: `DisplayName`, `AdminHelpText`eller `PatternHelpText`. Värdet `DisplayName` används för att ange visnings namn för anspråket. `AdminHelpText`-värdet används för att ange hjälp text namnet för anspråks användaren. `PatternHelpText`-värdet används för att ange hjälp texten för anspråks mönstret. Om **ElementType** är inställt på `UxElement`, innehåller det här elementet en referens till ett attribut i ett användar gränssnitts element. Om **ElementType** är inställt på `ErrorMessage`, anger det här elementet identifieraren för ett fel meddelande. Se [lokaliserings Strängs-ID: n](localization-string-ids.md) för en fullständig lista över `UxElement` identifierare.|
 
 
 I följande exempel visas en lokaliserad registrerings sida. De första tre **LocalizedString** -värdena anger attributet Claim. Den tredje ändrar värdet för knappen Fortsätt. Den senaste ändringen av fel meddelandet.
@@ -165,7 +165,7 @@ I följande exempel visas en lokaliserad registrerings sida. De första tre **Lo
 </LocalizedResources>
 ```
 
-I följande exempel visas en lokaliserad **UserHelpText** av **predikat** med ID `IsLengthBetween8And64`. Och en lokaliserad **UserHelpText** av **PredicateGroup** med ID `CharacterClasses` för **PredicateValidation** med ID `StrongPassword`.
+I följande exempel visas en lokaliserad **UserHelpText** av **predikat** med ID `IsLengthBetween8And64`. Och en lokaliserad **UserHelpText** av **PredicateGroup** med ID `CharacterClasses` av **PredicateValidation** med ID `StrongPassword`.
 
 ```XML
 <PredicateValidation Id="StrongPassword">
@@ -211,19 +211,19 @@ Under **BuildingBlocks** -elementet lägger du till **lokaliserings** elementet 
 
 Lägg till **LocalizedResources** -element i **lokaliserings** elementet efter slutet av **SupportedLanguages** -elementet. Du lägger till **LocalizedResources** -element för varje sida (innehålls definition) och valfritt språk som du vill stödja. Om du vill anpassa den enhetliga inloggnings-eller inloggnings sidan, registrera dig och Multi-Factor Authentication (MFA) sidor för engelska, spanska och Frankrike lägger du till följande **LocalizedResources** -element.
 
-- Enhetlig registrering eller inloggnings sida, engelska`<LocalizedResources Id="api.signuporsignin.en">`
-- En enhetlig registrerings-eller inloggnings sida, spanska`<LocalizedResources Id="api.signuporsignin.es">`
-- Enhetlig registrering eller inloggnings sida, Frankrike`<LocalizedResources Id="api.signuporsignin.fr">`
-- Registrera dig, engelska`<LocalizedResources Id="api.localaccountsignup.en">`
-- Registrering, spanska`<LocalizedResources Id="api.localaccountsignup.es">`
-- Registrering, Frankrike`<LocalizedResources Id="api.localaccountsignup.fr">`
-- MFA, engelska`<LocalizedResources Id="api.phonefactor.en">`
-- MFA, spanska`<LocalizedResources Id="api.phonefactor.es">`
-- MFA, Frankrike`<LocalizedResources Id="api.phonefactor.fr">`
+- Enhetlig registrerings-eller inloggnings sida, engelska `<LocalizedResources Id="api.signuporsignin.en">`
+- En enhetlig registrerings-eller inloggnings sida, spanska `<LocalizedResources Id="api.signuporsignin.es">`
+- Enhetlig registrering eller inloggnings sida, Frankrike `<LocalizedResources Id="api.signuporsignin.fr">`
+- Registrera dig, engelska `<LocalizedResources Id="api.localaccountsignup.en">`
+- Registrera dig, spanska `<LocalizedResources Id="api.localaccountsignup.es">`
+- Registrering, Frankrike `<LocalizedResources Id="api.localaccountsignup.fr">`
+- MFA, engelska `<LocalizedResources Id="api.phonefactor.en">`
+- MFA, spanska `<LocalizedResources Id="api.phonefactor.es">`
+- MFA, Frankrike `<LocalizedResources Id="api.phonefactor.fr">`
 
-Varje **LocalizedResources** -element innehåller alla nödvändiga **LocalizedStrings** -element med flera **LocalizedString** -element och **LocalizedCollections** -element med flera **LocalizedCollection** ämnen.  I följande exempel lägger du till en engelsk lokalisering på registrerings sidan:
+Varje **LocalizedResources** -element innehåller alla nödvändiga **LocalizedStrings** -element med flera **LocalizedString** -element och **LocalizedCollections** -element med flera **LocalizedCollection** -element.  I följande exempel lägger du till en engelsk lokalisering på registrerings sidan:
 
-Obs! I det här exemplet skapas en `Gender` referens `City` till och anspråks typerna. Om du vill använda det här exemplet kontrollerar du att du definierar dessa anspråk. Mer information finns i [ClaimsSchema](claimsschema.md).
+Obs! det här exemplet gör en referens till `Gender` och `City` anspråks typer. Om du vill använda det här exemplet kontrollerar du att du definierar dessa anspråk. Mer information finns i [ClaimsSchema](claimsschema.md).
 
 ```XML
 <LocalizedResources Id="api.localaccountsignup.en">

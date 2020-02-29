@@ -5,18 +5,19 @@ services: key-vault
 author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 84256d79ec543d038b4d3d3f3dc6901bbd003871
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: e636ab843a9801097bf770ca12c9d1e512750c91
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003372"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198124"
 ---
-# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Självstudier: Använda Azure Key Vault med en Azure-webbapp i .NET
+# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Självstudie: Använda Azure Key Vault med Azure Web App i .NET
 
 Med Azure Key Vault kan du skydda hemligheter, till exempel API-nycklar och databasanslutningssträngar. Det ger dig tillgång till dina program, tjänster och IT-resurser.
 
@@ -84,7 +85,7 @@ Du kan använda den här resursgruppen i den här självstudien.
 Ange följande information för att skapa ett nyckelvalv i resursgruppen:
 
 * Nyckel valvets namn: en sträng på 3 till 24 tecken som bara får innehålla siffror (0-9), bokstäver (a-z, A-Z) och bindestreck (-)
-* Resursgruppsnamn
+* Namn på resursgrupp
 * Plats: **USA, västra**
 
 Ange följande kommando i Azure CLI:
@@ -127,7 +128,7 @@ Du kan även se den här videon:
 
 ## <a name="open-and-edit-the-solution"></a>Öppna och redigera lösningen
 
-1. Gå till**About.cshtml.cs** -filen **Pages** > .
+1. Gå till **sidorna** > **About.cshtml.cs** -fil.
 
 1. Installera dessa Nuget-paket:
    - [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)
@@ -191,7 +192,7 @@ Du kan även se den här videon:
 
 ## <a name="run-the-web-app"></a>Kör webbappen
 
-1. På huvud menyn i Visual Studio 2019 väljer du **Felsök** > **Start**, med eller utan fel sökning. 
+1. På huvud menyn i Visual Studio 2019 väljer du **felsök** > **Starta**, med eller utan fel sökning. 
 1. Gå till sidan **om** i webbläsaren.  
     Värdet för **AppSecret** visas.
 
@@ -206,7 +207,7 @@ az webapp identity assign --name "<YourAppName>" --resource-group "<YourResource
 ```
 
 Ersätt \<YourAppName > med namnet på den publicerade appen på Azure.  
-    Om namnet på den publicerade appen exempelvis var **MyAwesomeapp.azurewebsites.net**ersätter \<du YourAppName > med **MyAwesomeapp**.
+    Om namnet på den publicerade appen till exempel var **MyAwesomeapp.azurewebsites.net**ersätter du \<YourAppName > med **MyAwesomeapp**.
 
 Anteckna `PrincipalId` när du publicerar programmet till Azure. Kommandot i steg 1 ger utdata i följande format:
 
@@ -223,7 +224,7 @@ Anteckna `PrincipalId` när du publicerar programmet till Azure. Kommandot i ste
 
 ## <a name="assign-permissions-to-your-app"></a>Tilldela behörigheter till din app
 
-Ersätt \<YourKeyVaultName > med namnet på ditt nyckel valv och Ersätt \<PrincipalId-> med värdet för **PrincipalId** i följande kommando:
+Ersätt \<YourKeyVaultName > med namnet på ditt nyckel valv och ersätt \<PrincipalId > med värdet för **PrincipalId** i följande kommando:
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get list

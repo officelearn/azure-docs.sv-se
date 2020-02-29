@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 37055d9b59d49091261109e3553f99bcc03d8e14
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 48c28831d1fbbfc4fe78ebe12e5a158a8259cf44
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164583"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190304"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Gör så här: aktivera enkel inloggning mellan appar på Android med ADAL
 
@@ -60,7 +60,7 @@ Om en kompatibel Broker är installerad på enheten, t. ex. Microsoft Authentica
 
 #### <a name="how-microsoft-ensures-the-application-is-valid"></a>Hur Microsoft ser till att programmet är giltigt
 
-Behovet av att se till att identiteten för ett program anropar Service Broker är avgörande för den säkerhet som anges i Service Broker-inloggningar. iOS och Android tillämpar inte unika identifierare som endast är giltiga för ett angivet program, så att skadliga program kan "falska" ett legitimt programs ID och ta emot de token som är avsedda för det legitima programmet. För att säkerställa att Microsoft alltid kommunicerar med rätt program vid körning uppmanas utvecklaren att tillhandahålla en anpassad redirectURI när de registrerar sitt program hos Microsoft. **Hur utvecklare bör utforma denna omdirigerings-URI beskrivs i detalj nedan.** Den här anpassade redirectURI innehåller certifikatets tumavtryck för programmet och är säkerställt att vara unikt för programmet av Google Play Butik. När ett program anropar koordinatorn ber Service Broker operativ systemet Android att tillhandahålla det med det tumavtryck för certifikatet som anropade Service Broker. Service Broker innehåller det här certifikatets tumavtryck till Microsoft i anropet till identitets systemet. Om certifikatets tumavtryck för programmet inte matchar certifikatets tumavtryck som tillhandahölls av utvecklaren under registreringen, nekas åtkomst till de token för resursen som programmet begär. Den här kontrollen säkerställer att endast det program som har registrerats av utvecklaren tar emot tokens.
+Behovet av att se till att identiteten för ett program som anropar Service Broker är avgörande för den säkerhet som anges i Service Broker-inloggningar. iOS och Android tillämpar inte unika identifierare som endast är giltiga för ett angivet program, så att skadliga program kan "falska" ett legitimt programs ID och ta emot de token som är avsedda för det legitima programmet. För att säkerställa att Microsoft alltid kommunicerar med rätt program vid körning uppmanas utvecklaren att tillhandahålla en anpassad redirectURI när de registrerar sitt program hos Microsoft. **Hur utvecklare bör utforma denna omdirigerings-URI beskrivs i detalj nedan.** Den här anpassade redirectURI innehåller certifikatets tumavtryck för programmet och är säkerställt att vara unikt för programmet av Google Play Butik. När ett program anropar koordinatorn ber Service Broker operativ systemet Android att tillhandahålla det med det tumavtryck för certifikatet som anropade Service Broker. Service Broker innehåller det här certifikatets tumavtryck till Microsoft i anropet till identitets systemet. Om certifikatets tumavtryck för programmet inte matchar certifikatets tumavtryck som tillhandahölls av utvecklaren under registreringen, nekas åtkomst till de token för resursen som programmet begär. Den här kontrollen säkerställer att endast det program som har registrerats av utvecklaren tar emot tokens.
 
 Brokered-SSO-inloggningar har följande fördelar:
 

@@ -1,6 +1,6 @@
 ---
 title: Inloggningar och användare
-description: Lär dig mer om SQL Database och SQL Data Warehouse säkerhets hantering, särskilt hur du hanterar databas åtkomst och inloggnings säkerhet via huvud kontot på server nivå.
+description: Lär dig mer om SQL Database och Azure Synapse Security Management, särskilt hur du hanterar databas åtkomst och inloggnings säkerhet via huvud kontot på server nivå.
 keywords: sql database-säkerhet, hantering av databassäkerhet, inloggningssäkerhet, databassäkerhet, databasåtkomst
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,21 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 03/26/2019
-ms.openlocfilehash: e9934f868fb62f9b1a19ef408dab69ab8a2c0e29
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 02/06/2020
+tags: azure-synapse
+ms.openlocfilehash: 79a31e5b8e3433af7879fcde8597173f25bf96b7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159143"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196968"
 ---
-# <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Styra och bevilja databas åtkomst till SQL Database och SQL Data Warehouse
+# <a name="controlling-and-granting-database-access-to-sql-database-and-azure-synapse-analytics"></a>Styra och bevilja databas åtkomst till SQL Database och Azure Synapse Analytics
 
-Efter konfigurationen av brand Väggs regler kan du ansluta till Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) som ett administratörs konto, som databas ägare eller som en databas användare i databasen.  
+Efter konfigurationen av brand Väggs regler kan du ansluta till Azure- [SQL Database](sql-database-technical-overview.md) och [Azure-Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) som ett administratörs konto, som databas ägare eller som en databas användare i databasen.  
 
 > [!NOTE]  
-> Det här avsnittet gäller för Azure SQL Server och för att SQL Database och SQL Data Warehouse databaser som skapats på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse. 
+> Det här avsnittet gäller Azure SQL Server och SQL Database och Azure-Synapse som skapats på Azure SQL-servern. För enkelhetens skull används SQL Database när du refererar till både SQL Database och Azure-Synapse.
 > [!TIP]
 > En själv studie kurs finns i [skydda din Azure SQL Database](sql-database-security-tutorial.md). Den här självstudien gäller inte för **Azure SQL Database hanterade instanser**.
 
@@ -43,7 +44,7 @@ Det finns två administrativa konton (**Serveradministratör** och **Active Dire
 
 - **Azure Active Directory administratör**
 
-  Ett Azure Active Directory-konto, antingen ett enskilt eller säkerhetsgruppkonto, kan också konfigureras som en administratör. Det är valfritt att konfigurera en Azure AD-administratör, men en Azure AD-administratör **måste** konfigureras om du vill använda Azure AD-konton för att ansluta till SQL Database. Mer information om hur du konfigurerar åtkomst till Azure Active Directory finns i [Ansluta till SQL Database eller SQL Data Warehouse med Azure Active Directory-autentisering](sql-database-aad-authentication.md) och [SSMS-stöd för Azure AD MFA med SQL Database och SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+  Ett Azure Active Directory-konto, antingen ett enskilt eller säkerhetsgruppkonto, kan också konfigureras som en administratör. Det är valfritt att konfigurera en Azure AD-administratör, men en Azure AD-administratör **måste** konfigureras om du vill använda Azure AD-konton för att ansluta till SQL Database. Mer information om hur du konfigurerar Azure Active Directory åtkomst finns i [ansluta till SQL Database eller Azure-Synapse med hjälp av Azure Active Directory autentisering](sql-database-aad-authentication.md) och [SSMS stöd för Azure AD MFA med SQL Database och Azure Synapse](sql-database-ssms-mfa-authentication.md).
 
 Administratörs kontona för **Server administratören** och **Azure AD** har följande egenskaper:
 
@@ -128,7 +129,7 @@ Den andra administrativa rollen är inloggningshanterare-rollen. Medlemmar i den
 
 ## <a name="non-administrator-users"></a>Användare som är icke-administratörer
 
-Icke-administratörskonton behöver i allmänhet inte åtkomst till huvuddatabasen. Skapa oberoende databasanvändare på databasnivå med hjälp av instruktionen [SKAPA ANVÄNDARE (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). Användaren kan vara en Azure Active Directory autentisering som innehåller databas användare (om du har konfigurerat din miljö för Azure AD-autentisering) eller en SQL Server autentisering som innehåller en databas användare eller en SQL Server autentisering som är baserad på en SQL Server inloggning för autentisering (skapades i föregående steg.) Mer information finns i [inneslutna databas användare – göra databasen portabel](https://msdn.microsoft.com/library/ff929188.aspx). 
+Icke-administratörskonton behöver i allmänhet inte åtkomst till huvuddatabasen. Skapa oberoende databasanvändare på databasnivå med hjälp av instruktionen [SKAPA ANVÄNDARE (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). Användaren kan vara en Azure Active Directory autentisering som innehåller databas användare (om du har konfigurerat din miljö för Azure AD-autentisering) eller en SQL Server autentisering som innehåller en databas användare eller en SQL Server autentisering som är baserad på en SQL Server autentisering (skapades i föregående steg). Mer information finns i [inneslutna databas användare – göra databasen portabel](https://msdn.microsoft.com/library/ff929188.aspx). 
 
 För att skapa användare, anslut till databasen och köra instruktioner som liknar följande exempel:
 
@@ -151,7 +152,7 @@ I Azure SQL Database använder du `ALTER ROLE`-instruktionen.
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-I Azure SQL Data Warehouse använder du [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+Använd [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)i Azure-Synapse.
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
 ```

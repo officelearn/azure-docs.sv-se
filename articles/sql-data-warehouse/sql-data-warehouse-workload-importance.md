@@ -1,26 +1,26 @@
 ---
 title: Arbetsbelastningsprioritet
-description: Vägledning för att ställa in prioritet för frågor i Azure SQL Data Warehouse.
+description: Vägledning för att ställa in prioritet för SQL Analytics-frågor i Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 05/01/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 76a77c1833ae1827f2a6a9b577b3cca51b35a344
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: azure-synapse
+ms.openlocfilehash: de7bb28770bc356514c392c3478fd0e33658f878
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351429"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191783"
 ---
-# <a name="azure-sql-data-warehouse-workload-importance"></a>Azure SQL Data Warehouse arbets belastnings prioritet
+# <a name="azure-synapse-analytics-workload-importance"></a>Arbets belastnings prioritet för Azure Synapse Analytics
 
-Den här artikeln förklarar hur arbets belastnings prioriteten kan påverka körnings ordningen för SQL Data Warehouse begär Anden.
+Den här artikeln förklarar hur arbets belastnings prioriteten kan påverka ordningen för körningen av SQL Analytics-begäranden i Azure Synapse.
 
 ## <a name="importance"></a>Prioritet
 
@@ -36,9 +36,9 @@ Det finns fem viktiga nivåer: låg, below_normal, normal, above_normal och hög
 
 Utöver det grundläggande prioritets scenario som beskrivs ovan med försäljnings-och väder data finns det andra scenarier där arbets belastnings prioriteten hjälper till att möta data bearbetning och frågor om behov.
 
-### <a name="locking"></a>Låsning
+### <a name="locking"></a>Spärr
 
-Åtkomst till Lås för läsnings-och skriv aktivitet är ett av naturliga konkurrens områden. Aktiviteter som [partitions växling](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) eller [namnbytes objekt](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) kräver utökade lås.  SQL Data Warehouse optimeras för data flöde utan arbets belastnings prioritet. Optimering för data flöde innebär att när du kör och köade begär Anden har samma lås behov och resurser är tillgängliga, kan köade begär Anden kringgå begär Anden med högre låsnings behov som anlänt i kön för begär Anden tidigare. När arbets belastnings prioriteten tillämpas på begär Anden med högre låsnings behov. Begäran med högre prioritet kommer att köras före begäran med lägre prioritet.
+Åtkomst till Lås för läsnings-och skriv aktivitet är ett av naturliga konkurrens områden. Aktiviteter som [partitions växling](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) eller [namnbytes objekt](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) kräver utökade lås.  SQL Analytics i Azure Synapse optimerar för data flödet utan arbets belastnings prioritet. Optimering för data flöde innebär att när du kör och köade begär Anden har samma lås behov och resurser är tillgängliga, kan köade begär Anden kringgå begär Anden med högre låsnings behov som anlänt i kön för begär Anden tidigare. När arbets belastnings prioriteten tillämpas på begär Anden med högre låsnings behov. Begäran med högre prioritet kommer att köras före begäran med lägre prioritet.
 
 Ta följande som exempel:
 
@@ -50,7 +50,7 @@ Om Q2 och Q3 har samma betydelse och Q1 fortfarande körs, börjar Q3 att köras
 
 ### <a name="non-uniform-requests"></a>Icke-enhetliga begär Anden
 
-Ett annat scenario där prioriteten kan hjälpa till att möta frågor om krav är när förfrågningar med olika resurs klasser skickas.  Som tidigare nämnts har SQL Data Warehouse optimerats för data flöde under samma prioritet. När blandade storleks begär Anden (till exempel smallrc eller mediumrc) placeras i kö, kommer SQL Data Warehouse att välja den tidigaste inkommande begäran som passar i de tillgängliga resurserna. Om prioriteten för arbets belastningen används schemaläggs den högsta prioriteten nästa gång.
+Ett annat scenario där prioriteten kan hjälpa till att möta frågor om krav är när förfrågningar med olika resurs klasser skickas.  Som tidigare nämnts har SQL Analytics i Azure Synapse optimerats för data flödet under samma prioritet. När blandade storleks begär Anden (till exempel smallrc eller mediumrc) placeras i kö, kommer SQL Analytics att välja den tidigaste inkommande begäran som passar i de tillgängliga resurserna. Om prioriteten för arbets belastningen används schemaläggs den högsta prioriteten nästa gång.
   
 Tänk på följande exempel på DW500c:
 
@@ -63,7 +63,7 @@ Eftersom Q5 är mediumrc krävs två samtidiga platser. Q5 måste vänta på att
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om hur du skapar en klassificerare finns i [create klassificerare för arbets belastning (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql).  
-- Mer information om SQL Data Warehouse arbets belastnings klassificering finns i avsnittet om [arbets belastnings klassificering](sql-data-warehouse-workload-classification.md).  
+- Mer information om arbets belastnings klassificering finns i avsnittet om [arbets belastnings klassificering](sql-data-warehouse-workload-classification.md).  
 - Se hur du skapar en arbets belastnings klassificering genom att [skapa](quickstart-create-a-workload-classifier-tsql.md) en arbets belastnings klassificerare för snabb start. 
 - Se instruktions artiklar för att [Konfigurera arbets belastnings prioritet](sql-data-warehouse-how-to-configure-workload-importance.md) och hur du [hanterar och övervakar arbets belastnings hantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 - Se [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) för att visa frågor och prioriteten som tilldelats.

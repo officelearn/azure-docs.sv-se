@@ -3,12 +3,12 @@ title: Förstå resurs låsning
 description: Lär dig mer om låsnings alternativen i Azure-ritningar för att skydda resurser när du tilldelar en skiss.
 ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1491af0ddfb0f6f5fbea322bd00dc9838c155983
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: b810e8d4ddd263f9e651704d1bf9b785ce0202db
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919880"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199707"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resurs låsning i Azure-ritningar
 
@@ -83,6 +83,9 @@ Begär ande texten för skiss tilldelningen ser ut så här:
 ```
 
 Den viktigaste skillnaden i denna begär ande text och en som tilldelas en prenumeration är egenskapen `properties.scope`. Den här obligatoriska egenskapen måste anges till den prenumeration som skiss tilldelningen avser. Prenumerationen måste vara direkt underordnad till den hanterings grupp hierarki där skiss tilldelningen lagras.
+
+> [!NOTE]
+> En skiss som är tilldelad hanterings gruppens omfattning fungerar fortfarande som en skiss tilldelning på prenumerations nivå. Den enda skillnaden är att skiss tilldelningen lagras för att förhindra prenumerations ägare från att ta bort tilldelningen och associerade lås.
 
 ## <a name="removing-locking-states"></a>Tar bort lås tillstånd
 

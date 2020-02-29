@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 997651887c3c378e4791553d5ff05f585ad169ea
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8915970cd4c70228fad3b49921f4c81d6d90aa72
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000672"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195369"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 
@@ -42,7 +43,7 @@ Den här kursen hjälper dig att komma igång med Azure Key Vault-loggning. Du s
 För att kunna slutföra den här självstudiekursen behöver du följande:
 
 * Ett befintligt nyckelvalv som du har använt.  
-* Azure PowerShell, lägsta versionen av 1.0.0. Om du vill installera och sedan koppla Azure PowerShell till din Azure-prenumeration läser du [Installera och konfigurera Azure PowerShell](/powershell/azure/overview). Om du redan har installerat Azure PowerShell och inte känner till versionen från Azure PowerShell-konsolen anger `$PSVersionTable.PSVersion`du.  
+* Azure PowerShell, lägsta versionen av 1.0.0. Om du vill installera och sedan koppla Azure PowerShell till din Azure-prenumeration läser du [Installera och konfigurera Azure PowerShell](/powershell/azure/overview). Om du redan har installerat Azure PowerShell och inte känner till versionen går du till Azure PowerShell-konsolen och anger `$PSVersionTable.PSVersion`.  
 * Tillräckligt med utrymme i Azure för Key Vault-loggarna.
 
 ## <a id="connect"></a>Anslut till din Key Vault-prenumeration
@@ -162,13 +163,13 @@ resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CO
 resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json
 ```
 
-Som du kan se dessa utdata följer blobbarna en namngivningskonvention: `resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
+Som du kan se från dessa utdata följer Blobbarna en namngivnings konvention: `resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
 
 Datum- och tidsvärdena använder UTC.
 
 Eftersom du kan använda samma lagrings konto för att samla in loggar för flera resurser, är det fullständiga resurs-ID: t i BLOB-namnet användbart för att få åtkomst till eller hämta bara de blobbar som du behöver. Men innan vi gör det ska vi titta på hur du hämtar alla blobbar.
 
-Skapa en mapp för att ladda ned Blobbarna. Exempel:
+Skapa en mapp för att ladda ned Blobbarna. Några exempel:
 
 ```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
@@ -186,9 +187,9 @@ Använd den här listan via **Get-AzStorageBlobContent** för att ladda ned blob
 $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
 ```
 
-När du kör den här andra kommandot skapar den **/** avgränsaren i blobbnamnen skapar en fullständig mappstruktur under målmappen. Du använder den här strukturen för att ladda ned och lagra Blobbarna som filer.
+När du kör det här andra kommandot skapar **/** avgränsaren i BLOB-namnen en fullständig mappstruktur under målmappen. Du använder den här strukturen för att ladda ned och lagra Blobbarna som filer.
 
-Om du vill ladda ned blobbarna selektivt använder du jokertecken. Exempel:
+Om du vill ladda ned blobbarna selektivt använder du jokertecken. Några exempel:
 
 * Om du har flera nyckelvalv och bara vill hämta loggar för ett av dem, mer specifikt nyckelvalvet CONTOSOKEYVAULT3:
 
@@ -202,7 +203,7 @@ Om du vill ladda ned blobbarna selektivt använder du jokertecken. Exempel:
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
   ```
 
-* Om du vill hämta alla loggar i januari 2019 använder `-Blob '*/year=2019/m=01/*'`du:
+* Om du vill ladda ned alla loggar för januari 2019 använder du `-Blob '*/year=2019/m=01/*'`:
 
   ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
@@ -251,10 +252,10 @@ I följande tabell visas fält namn och beskrivningar:
 | Fältnamn | Beskrivning |
 | --- | --- |
 | **tid** |Datum och tid i UTC. |
-| **Resurs-ID** |Azure Resource Manager-resurs-ID. För Key Vault loggar är detta alltid Key Vault resurs-ID. |
-| **OperationName** |Namnet på åtgärden, som beskrivs i nästa tabell. |
+| **resourceId** |Azure Resource Manager-resurs-ID. För Key Vault loggar är detta alltid Key Vault resurs-ID. |
+| **operationName** |Namnet på åtgärden, som beskrivs i nästa tabell. |
 | **operationVersion** |REST API version som begärs av klienten. |
-| **Kategori** |Typ av resultat. För Key Vault loggar är **AuditEvent** det enda tillgängliga värdet. |
+| **kategori** |Typ av resultat. För Key Vault loggar är **AuditEvent** det enda tillgängliga värdet. |
 | **resultType** |Resultat av den REST API begäran. |
 | **resultSignature** |HTTP-status. |
 | **resultDescription** |En ytterligare beskrivning av resultatet, om en sådan är tillgänglig. |
@@ -262,13 +263,13 @@ I följande tabell visas fält namn och beskrivningar:
 | **callerIpAddress** |IP-adressen för den klient som gjorde begäran. |
 | **correlationId** |Ett valfritt GUID som klienten kan skicka för att korrelera loggar på klientsidan med loggar på tjänstsidan (Key Vault). |
 | **Autentiseringsidentitet** |Identitet från den token som angavs i REST API begäran. Detta är vanligt vis en "användare", "tjänstens huvud namn" eller kombinationen "användare + appId", som i fallet med en begäran som resulterar från en Azure PowerShell-cmdlet. |
-| **Egenskaper** |Information som varierar beroende på åtgärd (**operationName**). I de flesta fall innehåller det här fältet klient information (den användar agent sträng som skickas av klienten), exakt REST API begär ande-URI och HTTP-statuskod. När ett objekt returneras som ett resultat av en begäran (till exempel nyckel **create** eller **VaultGet**), innehåller det även nyckel-URI (som "ID"), valv-URI eller hemlig URI. |
+| **egenskaperna** |Information som varierar beroende på åtgärd (**operationName**). I de flesta fall innehåller det här fältet klient information (den användar agent sträng som skickas av klienten), exakt REST API begär ande-URI och HTTP-statuskod. När ett objekt returneras som ett resultat av en begäran (till exempel nyckel **create** eller **VaultGet**), innehåller det även nyckel-URI (som "ID"), valv-URI eller hemlig URI. |
 
-Värdena för **operationName** -fältet är i *ObjectVerb* -format. Exempel:
+Värdena för **operationName** -fältet är i *ObjectVerb* -format. Några exempel:
 
-* Alla Key Vault-åtgärder har `Vault<action>` formatet, `VaultGet` till exempel och `VaultCreate`.
-* Alla viktiga åtgärder har `Key<action>` formatet, `KeySign` till exempel och `KeyList`.
-* Alla hemliga åtgärder har `Secret<action>` formatet, `SecretGet` till exempel och `SecretListVersions`.
+* Alla Key Vault-åtgärder har `Vault<action>` format, till exempel `VaultGet` och `VaultCreate`.
+* Alla viktiga åtgärder har `Key<action>` format, till exempel `KeySign` och `KeyList`.
+* Alla hemligheter har `Secret<action>` format, till exempel `SecretGet` och `SecretListVersions`.
 
 I följande tabell visas **operationName** -värdena och motsvarande REST API-kommandon:
 
@@ -284,15 +285,15 @@ I följande tabell visas **operationName** -värdena och motsvarande REST API-ko
 | **KeyGet** |[Hämta information om en nyckel](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
 | **Importmedia** |[Importera en nyckel till ett valv](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
 | **Säkerhets kopiering** |[Säkerhetskopiera en nyckel](https://msdn.microsoft.com/library/azure/dn878058.aspx) |
-| **KeyDelete** |[Ta bort en nyckel](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
+| **Ta bort ta bort** |[Ta bort en nyckel](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
 | **Återställ** |[Återställa en nyckel](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
-| **KeySign** |[Signera med en nyckel](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
+| **Tecken** |[Signera med en nyckel](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
 | **Verifiera verifiering** |[Verifiera med en nyckel](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
 | **Packa upp** |[Omsluta en nyckel](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
 | **KeyUnwrap** |[Ta bort en nyckelomslutning](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
 | **Kryptera** |[Kryptera med en nyckel](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
-| **KeyDecrypt** |[Dekryptera med en nyckel](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
-| **KeyUpdate** |[Uppdatera en nyckel](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
+| **Dekryptera** |[Dekryptera med en nyckel](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
+| **Uppdatera** |[Uppdatera en nyckel](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
 | **Filterlista** |[Visa en lista med nycklarna i ett valv](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
 | **KeyListVersions** |[Visa en lista över versionerna av en nyckel](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
 | **SecretSet** |[Skapa en hemlighet](https://msdn.microsoft.com/library/azure/dn903618.aspx) |

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/01/2020
-ms.openlocfilehash: 0b2eafeec27cb92ccb191ec902e8bf1d581a3b4a
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 20c93d214195f8fe389f4982e1d8b10998c7057d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587302"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192395"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Välj mellan vCore och DTU inköps modeller
 
@@ -142,6 +142,20 @@ Indatavärdena för den här formeln kan hämtas från [sys. dm_db_resource_stat
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Arbets belastningar som drar nytta av en elastisk pool av resurser
 
 Pooler lämpar sig väl för databaser med ett genomsnittligt medelvärde för resursanvändning och relativt ovanliga användnings toppar. Mer information finns i [när bör du överväga en SQL Database elastisk pool?](sql-database-elastic-pool.md).
+
+### <a name="hardware-generations-in-the-dtu-based-purchasing-model"></a>Maskin varu generationer i den DTU-baserade inköps modellen
+
+I den DTU-baserade inköps modellen kan kunder inte välja den maskin varu generation som används för sina databaser. Även om en viss databas vanligt vis hålls på en specifik maskin varu generation under en längre tid (vanligt vis i flera månader), finns det vissa händelser som kan orsaka att en databas flyttas till en annan maskin varu generation.
+
+Till exempel kan en databas flyttas till en annan maskin varu generation om den skalas upp eller ned till ett annat tjänst mål, eller om den aktuella infrastrukturen i ett Data Center närmar sig sin kapacitets gräns, eller om den aktuella maskin varan används inaktive ras på grund av dess livs längd.
+
+Om en databas flyttas till en annan maskin vara kan arbets belastnings prestandan ändras. DTU-modellen garanterar att data flödet och svars tiden för [DTU-benchmark](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-dtu#dtu-benchmark) -arbetsbelastningen förblir väsentligen identiska när databasen flyttas till en annan maskin varu generation, så länge tjänst målet (antalet DTU: er) är oförändrat. 
+
+Men över hela spektrumet av kund arbets belastningar som körs i Azure SQL Database, kan effekten av att använda annan maskin vara för samma tjänst mål vara mer uttalad. Olika arbets belastningar kan dra nytta av olika maskin varu konfiguration och-funktioner. För andra arbets belastningar än DTU-Benchmark är det därför möjligt att se prestanda skillnader om databasen flyttas från en maskin varu generation till en annan.
+
+Till exempel kan ett program som är känsligt för nätverks fördröjning se bättre prestanda på Gen5 maskin vara jämfört med Gen4 på grund av användningen av accelererat nätverk i Gen5, men ett program som använder intensiv läsning i/o kan se bättre prestanda på Gen4 maskin vara jämfört med Gen5 på grund av högre minne per Core-förhållande på Gen4.
+
+Kunder med arbets belastningar som är känsliga för maskin varu ändringar, eller kunder som vill styra valet av maskin varu generering för sin databas kan använda [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) -modellen för att välja den maskin varu generation som du vill skapa när databasen skapas och skalas. I vCore-modellen dokumenteras resurs gränserna för varje tjänst mål för varje maskin varu generation, för både [enkla databaser](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) och [elastiska pooler](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools). Mer information om maskin varu generationer i vCore-modellen finns i [maskin varu generationer](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore#hardware-generations).
 
 ## <a name="frequently-asked-questions-faqs"></a>Vanliga frågor och svar
 

@@ -3,20 +3,20 @@ title: Registrera dig och logga in med anpassade principer (förhands granskning
 titleSuffix: Azure AD B2C
 description: Skicka eng ång slö sen ord (eng ång slö sen ord) i textmeddelanden till dina program användares telefoner med anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 50e7d66fef67e2728c95790947393de8d58398c2
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: eadac0e973b361b1fdee63dcc9cfa848a0b2bacb
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77647535"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183966"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c-preview"></a>Konfigurera telefonin loggning och inloggning med anpassade principer i Azure AD B2C (för hands version)
 
@@ -26,7 +26,7 @@ Följ stegen i den här artikeln för att använda anpassade principer för att 
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Eng ång slö sen ord skickas till användarna med SMS-textmeddelanden, och du kan debiteras för varje meddelande som skickas. Information om priser finns i avsnittet **separata avgifter** i [Azure Active Directory B2C prissättning](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
@@ -86,7 +86,7 @@ Du kan hitta en användare med deras telefonnummer (inloggnings namn) genom att 
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
 ```
 
-Exempel:
+Några exempel:
 
 ```http
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+450334567890' and c/issuer eq 'contosob2c.onmicrosoft.com')

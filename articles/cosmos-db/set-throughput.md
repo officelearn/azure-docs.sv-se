@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 236ae017832d5d613d0bf9fc948d16a7218d2269
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 31ad7a9d1108adc9071812454419252a813cb93e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621946"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194877"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Etablera dataflöde på containrar och databaser
 
@@ -63,7 +63,8 @@ Om arbets belastningen på en logisk partition förbrukar mer än det data flöd
 Behållare i en delad data flödes databas delar data flöde (RU/s) som allokeras till databasen. Du kan ha upp till fyra behållare med minst 400 RU/s på databasen. Varje ny behållare efter de första fyra kräver ytterligare 100 RU/s-minimum. Om du till exempel har en delad data flödes databas med åtta behållare blir lägsta RU/s i databasen 800 RU/s.
 
 > [!NOTE]
-> I en delad data flödes databas kan du ha högst 25 behållare i databasen. Om du redan har fler än 25 behållare i en delad data flödes databas kommer du inte att kunna skapa ytterligare behållare förrän antalet behållare är mindre än 25.
+> I februari 2020 införde vi en ändring som gör att du kan ha högst 25 behållare i en delad data flödes databas, vilket bättre möjliggör data flödes delning över behållarna. Efter de första 25 behållarna kan du bara lägga till fler behållare i databasen om de är [etablerade med dedikerat data flöde](#set-throughput-on-a-database-and-a-container), som är åtskilda från det delade data flödet i databasen.<br>
+Om ditt Azure Cosmos DB-konto redan innehåller en delad data flödes databas med > = 25 behållare, är kontot och alla andra konton i samma Azure-prenumeration undantagna från den här ändringen. [Kontakta produkt supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om du har feedback eller frågor. 
 
 Om arbets belastningarna innebär att du tar bort och återskapar alla samlingar i en databas, rekommenderar vi att du släpper den tomma databasen och återskapar en ny databas innan du skapar samlingen. Följande bild visar hur en fysisk partition kan vara värd för en eller flera logiska partitioner som tillhör olika behållare i en databas:
 

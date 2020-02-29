@@ -5,15 +5,16 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 51e5c654da95732409c3bbb7acae088d8935a59d
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 642cc42a9853fe0a93a40ca65652b6dc5fcd8d40
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000629"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195285"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Hantera Key Vault med Azure CLI 
 
@@ -117,7 +118,7 @@ az provider register -n Microsoft.KeyVault
 
 ### <a name="create-a-key-vault"></a>Skapa ett nyckelvalv
 
-`az keyvault create` Använd kommandot för att skapa ett nyckel valv. Det här skriptet har tre obligatoriska parametrar: ett resurs grupps namn, ett nyckel valv namn och den geografiska platsen.
+Använd kommandot `az keyvault create` för att skapa ett nyckel valv. Det här skriptet har tre obligatoriska parametrar: ett resurs grupps namn, ett nyckel valv namn och den geografiska platsen.
 
 Om du vill skapa ett nytt valv med namnet **ContosoKeyVault**i resurs gruppen **ContosoResourceGroup**, som finns på **Asien, östra** plats, skriver du: 
 
@@ -127,14 +128,14 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 Utdata från det här kommandot visar egenskaper för nyckel valvet som du har skapat. De två viktigaste egenskaperna är:
 
-* **name**: I exemplet är namnet ContosoKeyVault. Du kommer att använda det här namnet för andra Key Vault-kommandon.
-* **vaultUri**: I exemplet är https://contosokeyvault.vault.azure.net URI: n. Program som använder ditt valv via dess REST-API måste använda denna URI.
+* **namn**: i exemplet är namnet ContosoKeyVault. Du kommer att använda det här namnet för andra Key Vault-kommandon.
+* **vaultUri**: i exemplet är URI: n https://contosokeyvault.vault.azure.net. Program som använder ditt valv via dess REST-API måste använda denna URI.
 
 Nu har ditt Azure-konto behörighet att utföra åtgärder i det här nyckelvalvet. Från och med har ingen annan behörighet.
 
 ## <a name="adding-a-key-secret-or-certificate-to-the-key-vault"></a>Lägga till en nyckel, hemlighet eller certifikat i nyckel valvet
 
-Om du vill Azure Key Vault skapa en skyddad nyckel för dig använder `az key create` du kommandot.
+Om du vill Azure Key Vault skapa en skyddad nyckel för dig använder du kommandot `az key create`.
 
 ```azurecli
 az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --protection software
@@ -193,7 +194,7 @@ Program som använder ett nyckelvalv måste autentiseras med hjälp av en token 
 
 Programmet måste presentera båda dessa värden för Azure Active Directory för att få en token. Hur ett program konfigureras för att hämta en token beror på programmet. I [Key Vault-exempelprogrammet](https://www.microsoft.com/download/details.aspx?id=45343) anger programmets ägare dessa värden i filen app.config.
 
-Detaljerade anvisningar om hur du registrerar ett program med Azure Active Directory du bör läsa avsnitten [integrera program med Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [använda portalen för att skapa ett Azure Active Directory program och tjänst huvud konto som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md)och [skapa ett huvud namn för Azure-tjänsten med Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
+Detaljerade anvisningar om hur du registrerar ett program med Azure Active Directory du bör läsa avsnitten [integrera program med Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [använda portalen för att skapa ett Azure Active Directory program och tjänstens huvud namn som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md)och [skapa ett Azure-tjänstens huvud namn med Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Registrera ett program i Azure Active Directory:
 
@@ -204,7 +205,7 @@ az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --skip-assignment
 
 ## <a name="authorizing-an-application-to-use-a-key-or-secret"></a>Auktorisera ett program för att använda en nyckel eller hemlighet
 
-Använd `az keyvault set-policy` kommandot för att ge programmet åtkomst till nyckeln eller hemligheten i valvet.
+Använd kommandot `az keyvault set-policy` för att ge programmet åtkomst till nyckeln eller hemligheten i valvet.
 
 Om ditt valv till exempel är ContosoKeyVault har programmet ett appID för 8f8c4bbd-485b-45FD-98f7-ec6300b7b4ed och du vill ge programmet behörighet att dekryptera och signera med nycklar i valvet, använder du följande kommando:
 
@@ -222,19 +223,19 @@ az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec
 
 Använd [AZ-uppdateringen](/cli/azure/keyvault#az-keyvault-update) för att aktivera avancerade principer för nyckel valvet.
 
- Aktivera Key Vault för distribution: Tillåter att virtuella datorer hämtar certifikat som lagras som hemligheter från valvet.
+ Aktivera Key Vault för distribution: tillåter att virtuella datorer hämtar certifikat som lagras som hemligheter från valvet.
 
  ```azurecli
  az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
  ```
 
-Aktivera Key Vault för disk kryptering: Krävs när du använder valvet för Azure Disk Encryption.
+Aktivera Key Vault för disk kryptering: krävs när du använder valvet för Azure Disk Encryption.
 
  ```azurecli
  az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-disk-encryption "true"
  ```  
 
-Aktivera Key Vault för mall-distribution: Tillåter att Resource Manager hämtar hemligheter från valvet.
+Aktivera Key Vault för mall distribution: tillåter Resource Manager att hämta hemligheter från valvet.
 
 ```azurecli 
  az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-template-deployment "true"
@@ -274,7 +275,7 @@ Mer detaljerad information om hur du skapar det här BYOK-paketet finns i [så h
 
 ## <a name="deleting-the-key-vault-and-associated-keys-and-secrets"></a>Tar bort nyckel valvet och associerade nycklar och hemligheter
 
-Om du inte längre behöver nyckel valvet och dess nycklar eller hemligheter kan du ta bort nyckel valvet med hjälp `az keyvault delete` av kommandot:
+Om du inte längre behöver nyckel valvet och dess nycklar eller hemligheter kan du ta bort nyckel valvet med hjälp av kommandot `az keyvault delete`:
 
 ```azurecli
 az keyvault delete --name "ContosoKeyVault"

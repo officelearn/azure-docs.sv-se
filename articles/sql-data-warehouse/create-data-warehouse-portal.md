@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skapa och fråga ett informations lager – Azure Portal'
-description: Skapa och fråga ett informations lager med Azure SQL Data Warehouse i Azure Portal.
+title: Skapa och fråga ett informations lager (Azure Portal)
+description: Skapa och fråga en Azure Synapse Analytics SQL-pool med hjälp av Azure Portal
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,125 +10,117 @@ ms.subservice: development
 ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 841041cb9fa20b034dd4522a5231813b71558bd7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 7a3dbe5d74dc1e88d0615937b8c6e6d2a77b64a7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457807"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200303"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabb start: skapa och skicka frågor till en Azure SQL Data Warehouse i Azure Portal
+# <a name="quickstart-create-and-query-an-azure-synapse-analytics-sql-pool-using-the-azure-portal"></a>Snabb start: skapa och fråga en Azure Synapse Analytics SQL-pool med hjälp av Azure Portal
 
-Skapa snabbt och fråga en Azure SQL Data Warehouse med hjälp av Azure Portal.
+Skapa snabbt och fråga ett informations lager genom att tillhandahålla SQL-poolen i Azure Synapse Analytics (tidigare SQL DW) med hjälp av Azure Portal.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+## <a name="prerequisites"></a>Förutsättningar
 
-> [!NOTE]
-> Att skapa ett SQL Data Warehouse kan resultera i en ny fakturerbar tjänst. Mer information finns på [prissidan för SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+1. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="before-you-begin"></a>Innan du börjar
+   > [!NOTE]
+   > Att skapa en SQL-pool i Azure Synapse kan resultera i en ny fakturerbar tjänst. Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-Ladda ned och installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+2. Ladda ned och installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="create-a-data-warehouse"></a>Skapa ett datalager
+## <a name="create-a-sql-pool"></a>Skapa en SQL-pool
 
-En Azure SQL Data Warehouse skapas med en definierad uppsättning [beräknings resurser](memory-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/management/overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-logical-servers.md). 
+Informations lager skapas med SQL-pool i Azure Synapse Analytics. En SQL-pool skapas med en definierad uppsättning [beräknings resurser](memory-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/management/overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-servers.md).
 
-Följ dessa steg om du vill skapa en SQL Data Warehouse som innehåller exempel data för AdventureWorksDW. 
+Följ de här stegen för att skapa ett informations lager som innehåller **AdventureWorksDW** exempel data.
 
-1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
+1. Välj **skapa en resurs** i det övre vänstra hörnet av Azure Portal.
 
-2. Välj **Databases** (Databaser) på sidan **New** (nytt) och välj **SQL Data Warehouse** under **Featured** (aktuella) på sidan **New** (nytt).
+   ![skapa en resurs i Azure Portal](media/create-data-warehouse-portal/create-a-resource.png)
 
-    ![skapa ett tomt informationslager](media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
+2. Välj **databaser** på sidan **nytt** och välj **Azure SYNAPSE Analytics (tidigare SQL DW)** i listan **aktuella** .
 
-3. Fyll i formuläret SQL Data Warehouse med följande information:
+   ![skapa ett tomt informationslager](media/create-data-warehouse-portal/create-a-data-warehouse.png)
 
-    | Inställning | Föreslaget värde | Beskrivning |
-    | :------ | :-------------- | :---------- |
-    | **Prenumeration** | Din prenumeration | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
-    | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
-    | **Data lager namn** | mySampleDataWarehouse | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). Observera att ett informationslager är en typ av databas.|
-    ||||
+3. I **grunderna**, anger du din prenumeration, resurs grupp, SQL-poolnamn och Server Namn:
 
-    ![skapa ett informationslager](media/create-data-warehouse-portal/select-sample.png)
+   | Inställning | Föreslaget värde | Beskrivning |
+   | :------ | :-------------- | :---------- |
+   | **Prenumeration** | Din prenumeration | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
+   | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
+   | **Data lager namn** | Globalt unikt namn (ett exempel är *mySampleDataWarehouse*) | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). Observera att ett informationslager är en typ av databas. |
+   | **Server** | Valfritt globalt unikt namn | Välj befintlig server eller skapa ett nytt Server namn och välj **Skapa ny**. Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
 
-4. Välj en befintlig **Server** eller klicka på **Skapa ny** för att skapa och konfigurera en ny server för den nya databasen. Fyll i formuläret **Ny server** med följande information: 
+   ![skapa grundläggande information om informations lagret](media/create-data-warehouse-portal/create-sql-pool-basics.png)
 
-    | Inställning | Föreslaget värde | Beskrivning |
-    | :------ | :-------------- | :---------- |
-    | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
-    | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
-    | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
-    | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
-    ||||
+4. Under **prestanda nivå**väljer du **Välj prestanda nivå** om du vill ändra konfigurationen genom att välja ett skjutreglage.
 
-    ![skapa databasserver](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
+   ![ändra prestanda nivå för informations lager](media/create-data-warehouse-portal/create-sql-pool-performance-level.png)  
 
-5. Klicka på **Välj**.
+   Mer information om prestanda nivåer finns i [Hantera beräkning i Azure SQL Data Warehouse](sql-data-warehouse-manage-compute-overview.md).
 
-6. Klicka på **prestanda nivå** för att ange prestanda konfigurationen för data lagret.
+5. Nu när du har slutfört fliken grundläggande i formuläret för Azure Synapse Analytics väljer du **Granska + skapa** och sedan **skapa** för att skapa data lagret i SQL-poolen. Etableringen tar några minuter.
 
-7. I den här självstudien väljer du **Gen2**. Skjutreglaget är som standard inställt på **DW1000c**. Prova att flytta det uppåt och nedåt för att se hur det fungerar. 
+   ![Välj granska + skapa](media/create-data-warehouse-portal/create-sql-pool-review-create.png)
 
-    ![konfigurera prestanda](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
+   ![Välj Skapa](media/create-data-warehouse-portal/create-sql-pool-create.png)
 
-8. Klicka på **Använd**.
+6. I verktygsfältet väljer du **meddelanden** för att övervaka distributions processen.
 
-9. Nu när du har slutfört fliken grundläggande i SQL Data Warehouse formuläret klickar du på **Granska + skapa** för att etablera databasen. Etableringen tar några minuter.
-
-    ![klicka på skapa](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
-
-10. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
-    
-     ![avisering](media/load-data-from-azure-blob-storage-using-polybase/notification.png)
+   ![avisering](media/create-data-warehouse-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Skapa en brandväggsregel på servernivå
 
-Tjänsten SQL Data Warehouse skapar en brand vägg på server nivå. Den här brand väggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern. Om du vill kan du lägga till brandväggsregler som tillåter anslutningar för specifika IP-adresser. Följ dessa steg för att skapa en [brandväggsregel på servernivå](../sql-database/sql-database-firewall-configure.md) för klientens IP-adress.
+Azure Synapse-tjänsten skapar en brand vägg på server nivå. Den här brand väggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern. Om du vill kan du lägga till brandväggsregler som tillåter anslutningar för specifika IP-adresser. Följ dessa steg för att skapa en [brandväggsregel på servernivå](../sql-database/sql-database-firewall-configure.md) för klientens IP-adress.
 
 > [!NOTE]
-> SQL Database Warehouse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
+> Azure-Synapse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
 
-1. När distributionen är klar väljer du **alla tjänster** i den vänstra menyn. Välj **databaser**, Välj stjärnan bredvid **SQL Data Warehouses** för att lägga till SQL Data Warehouse i dina favoriter.
-1. Välj **SQL Data Warehouses** på menyn till vänster och klicka sedan på **MySampleDataWarehouse** på sidan **SQL Data Warehouse** . Översikts sidan för databasen öppnas och visar det fullständigt kvalificerade Server namnet (till exempel **mynewserver-20180430.Database.Windows.net**) och alternativ för ytterligare konfiguration.
-1. Kopiera det här fullständigt kvalificerade Server namnet som ska användas för att ansluta till servern och dess databaser i den här och andra snabb starter. Öppna serverinställningarna genom att klicka på servernamnet.
+1. När distributionen är klar väljer du **alla tjänster** i den vänstra menyn. Välj **databaser**, Välj stjärnan bredvid **Azure Synapse Analytics** för att lägga till Azure Synapse Analytics i dina favoriter.
 
-   ![hitta servernamn](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
+2. Välj **Azure Synapse Analytics** på menyn till vänster och välj sedan **MySampleDataWarehouse** på sidan **Azure Synapse Analytics** . Översikts sidan för databasen öppnas och visar det fullständigt kvalificerade Server namnet (till exempel **sqlpoolservername.Database.Windows.net**) och alternativ för ytterligare konfiguration.
 
-1. Klicka på **Visa brandväggsinställningar**.
+3. Kopiera det här fullständigt kvalificerade Server namnet som ska användas för att ansluta till servern och dess databaser i den här och andra snabb starter. Välj Server namnet för att öppna Server inställningar.
 
-   ![serverinställningar](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
+   ![hitta servernamn](media/create-data-warehouse-portal/find-server-name.png)
 
-1. Sidan **Brandväggsinställningar** för SQL Database-servern öppnas.
+4. Välj **Visa brand Väggs inställningar**.
 
-   ![brandväggsregler för server](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
+   ![serverinställningar](media/create-data-warehouse-portal/server-settings.png)
 
-1. Klicka på **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny brandväggsregel. Med en brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
+5. Sidan **Brandväggsinställningar** för SQL Database-servern öppnas.
 
-1. Klicka på **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
+   ![brandväggsregler för server](media/create-data-warehouse-portal/server-firewall-rule.png)
 
-1. Klicka på **OK** och stäng sedan sidan **Brandväggsinställningar**.
+6. Om du vill lägga till din aktuella IP-adress i en ny brand Väggs regel väljer du **Lägg till klient-IP** i verktygsfältet. Med en brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
+
+7. Välj **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
+
+8. Välj **OK** och stäng sedan sidan **brand Väggs inställningar** .
 
 Nu kan du ansluta till SQL-servern och dess informationslager med den här IP-adress. Anslutningen fungerar från SQL Server Management Studio eller något annat verktyg du väljer. När du ansluter kan du använda ServerAdmin-kontot som du skapade tidigare.
 
 > [!IMPORTANT]
-> Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Klicka på **AV** på den här sidan och klicka sedan på **Spara** för att inaktivera brandväggen för alla Azure-tjänster.
+> Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Välj **av** på den här sidan och välj sedan **Spara** för att inaktivera brand väggen för alla Azure-tjänster.
 
 ## <a name="get-the-fully-qualified-server-name"></a>Hämta det fullständigt kvalificerade servernamnet
 
 Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Portal. Du använder det fullständigt kvalificerade namnet senare när du ska ansluta till servern.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Välj **SQL Data Warehouses** på menyn till vänster och klicka på informations lagret på sidan **SQL Data Warehouse** .
-3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet mynewserver-20180430.database.windows.net.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-    ![anslutningsinformation](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
+2. Välj **Azure Synapse Analytics** på menyn till vänster och välj ditt informations lager på **Azure Synapse Analytics** -sidan.
+
+3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet sqlpoolservername.database.windows.net.
+
+    ![anslutningsinformation](media/create-data-warehouse-portal/find-server-name-copy.png)
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ansluta till servern som serveradministratör
 
@@ -141,34 +133,35 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
    | Inställning | Föreslaget värde | Beskrivning |
    | :------ | :-------------- | :---------- |
    | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
-   | servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **mynewserver-20180430.Database.Windows.net**. |
+   | servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **sqlpoolservername.Database.Windows.net**. |
    | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
-   | Logga in | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
-   | lösenord | Lösenordet för serveradministratörskontot | Lösen ordet du angav när du skapade servern. |
+   | Inloggning | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
+   | Lösenord | Lösenordet för serveradministratörskontot | Lösen ordet du angav när du skapade servern. |
    ||||
 
-    ![Anslut till server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
+   ![Anslut till server](media/create-data-warehouse-portal/connect-to-server-ssms.png)
 
-3. Klicka på **Anslut**. Fönstret Object Explorer öppnas i SSMS. 
+3. Välj **Anslut**. Fönstret Object Explorer öppnas i SSMS. 
 
 4. Expandera **Databaser** i Object Explorer. Expandera **mySampleDatabase** så visas objekten i den nya databasen.
 
-    ![databasobjekt](media/create-data-warehouse-portal/connected.png) 
+   ![databasobjekt](media/create-data-warehouse-portal/connected-ssms.png) 
 
 ## <a name="run-some-queries"></a>Köra några frågor
 
 SQL Data Warehouse använder T-SQL som frågespråk. Använd följande steg om du vill öppna ett frågefönster och köra några T-SQL-frågor:
 
-1. Högerklicka på **mySampleDataWarehouse** och välj **Ny fråga**. Ett nytt frågefönster öppnas.
+1. Högerklicka på **mySampleDataWarehouse** och välj **ny fråga**. Ett nytt frågefönster öppnas.
+
 2. Ange följande kommando i frågefönstret för att visa en lista över databaser.
 
     ```sql
     SELECT * FROM sys.databases
     ```
 
-3. Klicka på **Execute**. Resultatet av frågan visar två databaser: **master** och **mySampleDataWarehouse**.
+3. Välj **Kör**. Resultatet av frågan visar två databaser: **master** och **mySampleDataWarehouse**.
 
-    ![Skicka frågor mot databaser](media/create-data-warehouse-portal/query-databases.png)
+   ![Skicka frågor mot databaser](media/create-data-warehouse-portal/query-databases.png)
 
 4. Vi kan titta på vissa data genom att använda följande kommando för att se hur många kunder med efternamnet Adams som har tre barn hemma. I resultatlistan finns sex kunder. 
 
@@ -177,28 +170,29 @@ SQL Data Warehouse använder T-SQL som frågespråk. Använd följande steg om d
     WHERE LastName = 'Adams' AND NumberChildrenAtHome = 3;
     ```
 
-    ![Skicka frågor till dbo.dimCustomer](media/create-data-warehouse-portal/query-customer.png)
+   ![Skicka frågor till dbo.dimCustomer](media/create-data-warehouse-portal/query-customer.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Du debiteras för data lager enheter och data som lagras i data lagret. Dessa beräknings- och lagringsresurser debiteras separat.
 
 - Om du vill behålla data i lagringsutrymmet kan du pausa beräkningarna när du inte använder informationslagret. Genom att pausa beräkning debiteras du bara för data lagring. Du kan återuppta beräkningen när du är redo att arbeta med data.
+
 - Om du vill undvika framtida avgifter kan du ta bort informationslagret.
 
 Följ dessa steg för att rensa resurser som du inte längre behöver.
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och klicka på ditt informationslager.
+1. Logga in på [Azure Portal](https://portal.azure.com)och välj på informations lagret.
 
-    ![Rensa resurser](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+   ![Rensa resurser](media/create-data-warehouse-portal/clean-up-resources.png)
 
-2. Om du vill pausa beräkningarna klickar du på knappen **Pausa**. När data lagret har pausats visas en knappen **Fortsätt** . Fortsätt beräkning genom att klicka på **Fortsätt**.
+2. Om du vill pausa beräkningen väljer du knappen **pausa** . När data lagret har pausats visas en knappen **Fortsätt** . Om du vill återuppta beräkningen väljer du **återuppta**.
 
-3. Om du vill ta bort data lagret så att du inte debiteras för beräkning eller lagring klickar du på **ta bort**.
+3. Om du vill ta bort data lagret så att du inte debiteras för beräkning eller lagring väljer du **ta bort**.
 
-4. Om du vill ta bort den SQL-Server som du har skapat klickar du på **mynewserver-20180430.Database.Windows.net** i föregående bild och sedan på **ta bort**. Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
+4. Om du vill ta bort den SQL-Server som du har skapat väljer du **sqlpoolservername.Database.Windows.net** i föregående bild och väljer sedan **ta bort**. Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
 
-5. Om du vill ta bort resursgruppen klickar du på **myResourceGroup** och sedan på **Ta bort resursgrupp**.
+5. Om du vill ta bort resurs gruppen väljer du **myResourceGroup**och väljer sedan **ta bort resurs grupp**.
 
 ## <a name="next-steps"></a>Nästa steg
 

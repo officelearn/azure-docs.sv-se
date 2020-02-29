@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 84ef01b5e7fc3f628b1cdf7a1f13175604ebcdd4
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 60f6443e041c2f3a76a9027bebd33dc29a07f445
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137947"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197478"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Så här: identifiera sentiment med hjälp av API för textanalys
 
@@ -50,7 +50,7 @@ API för textanalys erbjuder två versioner av Attitydanalys-v2 och v3. Attityda
 | Sentiment-etikettering                        |                       | X                     |
 | Modell version                   |                       | X                     |
 
-#### <a name="version-30-previewtabversion-3"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
 
 ### <a name="sentiment-scoring"></a>Sentiment-Poäng
 
@@ -76,10 +76,10 @@ Attitydanalys v3 kan returnera Poäng och etiketter på en menings-och dokument 
 
 ### <a name="example-c-code"></a>Exempel C# kod
 
-Du kan hitta ett exempel C# program som anropar den här versionen av Attitydanalys på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
+Du kan hitta ett exempel C# program som anropar den här versionen av Attitydanalys på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/TextAnalyticsSentiment.cs).
 
 
-#### <a name="version-21tabversion-2"></a>[Version 2,1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2,1](#tab/version-2)
 
 ### <a name="sentiment-scoring"></a>Sentiment-Poäng
 
@@ -101,11 +101,11 @@ Dokument storleken måste vara under 5 120 tecken per dokument. Du kan ha upp ti
 
 Skapa en POST-begäran. Du kan [använda Postman](text-analytics-how-to-call-api.md) eller **konsolen för API-testning** i följande referens länkar för att snabbt strukturera och skicka en. 
 
-#### <a name="version-30-previewtabversion-3"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
 
 [Attitydanalys v3-referens](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
 
-#### <a name="version-21tabversion-2"></a>[Version 2,1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2,1](#tab/version-2)
 
 [Referens för Attitydanalys v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
@@ -116,11 +116,11 @@ Ange HTTPS-slutpunkten för sentiment-analys genom att antingen använda en Text
 > [!NOTE]
 > Du kan hitta din nyckel och slut punkt för din Textanalys-resurs på Azure-portalen. De kommer att finnas på resursens **snabb start** sida under **resurs hantering**. 
 
-#### <a name="version-30-previewtabversion-3"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/sentiment`
 
-#### <a name="version-21tabversion-2"></a>[Version 2,1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2,1](#tab/version-2)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
 
@@ -162,7 +162,7 @@ Sentiment Analyzer klassificerar texten som huvudsakligen positiv eller negativ.
 
 Utdata returneras direkt. Du kan strömma resultaten till ett program som accepterar JSON eller spara utdata till en fil på det lokala systemet. Importera sedan utdata till ett program som du kan använda för att sortera, söka och ändra data.
 
-#### <a name="version-30-previewtabversion-3"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
 
 ### <a name="sentiment-analysis-v3-example-response"></a>Exempel svar för Attitydanalys v3
 
@@ -238,7 +238,7 @@ Svar från Attitydanalys v3 innehåller sentiment etiketter och Poäng för varj
 }
 ```
 
-#### <a name="version-21tabversion-2"></a>[Version 2,1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2,1](#tab/version-2)
 
 ### <a name="sentiment-analysis-v2-example-response"></a>Exempel svar för Attitydanalys v2
 

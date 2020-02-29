@@ -4,13 +4,13 @@ description: Lär dig hur du skapar en Azure Functions som körs på en anpassad
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
-zone_pivot_groups: programming-languages-set-functions01
-ms.openlocfilehash: b714806c163a94bbae7069c357e603b82ba797ba
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+zone_pivot_groups: programming-languages-set-functions
+ms.openlocfilehash: 29b0719670529a486222ef5fad21dd803ea6f195
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482368"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190814"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Skapa en funktion i Linux med en anpassad behållare
 
@@ -70,7 +70,7 @@ Du kan följa den här självstudien på alla datorer som kör Windows, Mac OS e
 
 1. I en terminal-eller kommando tolk skapar du en mapp för den här självstudien på en lämplig plats och navigerar sedan till mappen.
 
-1. Följ anvisningarna i [skapa och aktivera en virtuell miljö](functions-create-first-function-python.md#create-and-activate-a-virtual-environment) för att skapa en virtuell miljö som du kan använda med den här självstudien.
+1. Följ anvisningarna i [skapa och aktivera en virtuell miljö](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv) för att skapa en virtuell miljö som du kan använda med den här självstudien.
 
 1. Kör följande kommando för ditt valda språk för att skapa ett Function app-projekt i en mapp med namnet `LocalFunctionsProject`. Alternativet `--docker` genererar en `Dockerfile` för projektet, som definierar en lämplig anpassad behållare för användning med Azure Functions och den valda körningen.
 
@@ -370,7 +370,7 @@ Med den avbildning som distribueras till Function-appen på Azure kan du nu anro
 
 1. Hämta funktions webb adressen med åtkomst nyckeln (Function) med hjälp av Azure Portal eller med hjälp av Azure CLI med kommandot `az rest`.)
 
-    # <a name="portal"></a>[Portal](#tab/portal)
+    # <a name="portal"></a>[Portalen](#tab/portal)
 
     1. Logga in på Azure Portal och leta sedan reda på din Function-app genom att ange namnet på din app i rutan **Sök** högst upp på sidan. I resultaten väljer du **App Service** resursen.
 

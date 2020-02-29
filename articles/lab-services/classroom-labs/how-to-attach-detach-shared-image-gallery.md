@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 3e915c26e9469b37ac8bc345c4d5cd1712e7acdb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 00dbef7b4453ffcb54020340bde51f55827759a0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597736"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190525"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Koppla eller koppla från ett delat avbildnings galleri i Azure Lab Services
 Lärare/labb administratören kan spara en mall för en virtuell dator i ett galleri för Azure- [delade avbildningar](../../virtual-machines/windows/shared-image-galleries.md) så att de kan återanvändas av andra. Som ett första steg kopplar labb administratören ett befintligt delat avbildnings galleri till labb kontot. När du har bifogat det delade bild galleriet kan labb som skapats i labb kontot Spara bilder i det delade avbildnings galleriet. Andra lärare kan välja den här avbildningen från galleriet för delade avbildningar för att skapa en mall för deras klasser. 
@@ -28,7 +28,7 @@ När en bild sparas i ett delat bild galleri, Azure Lab Services replikerar den 
 Den här artikeln visar hur du kopplar eller kopplar från ett delat avbildnings galleri till ett labb konto. 
 
 > [!NOTE]
-> För närvarande har Azure Lab Services stöd för att skapa virtuella datorer baserat på endast **generaliserade** VM-avbildningar (inte specialiserade avbildningar) i ett delat avbildnings Galleri. 
+> För närvarande stöder Azure Lab Services skapandet av mall-VM: ar baserat på endast **generaliserade** VM-avbildningar (inte specialiserade bilder) i ett delat avbildnings Galleri. 
 
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Konfigurera när labb kontot skapas

@@ -1,6 +1,6 @@
 ---
 title: 'Pausa, återuppta och skala med REST API: er'
-description: 'Hantera beräknings kraft i Azure SQL Data Warehouse via REST-API: er.'
+description: 'Hantera beräknings kraften i Azure Synapse Analytics-datalagret via REST-API: er.'
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: implement
 ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: f72b3fd1024a68a6f48d2e9e676fc7ca23bf2a4f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 4e3435fdaa505a73abf96b9463b061c623c192ad
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686056"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199401"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>REST-API: er för Azure SQL Data Warehouse
-REST API: er för att hantera data bearbetning i Azure SQL Data Warehouse.
+REST API: er för att hantera data lagret i Azure Synapse Analytics.
 
 ## <a name="scale-compute"></a>Skala beräkning
 Om du vill ändra informations lager enheter använder du REST API [skapa eller uppdatera databas](/rest/api/sql/databases/createorupdate) . I följande exempel anges data lager enheter till DW1000 för databasen MySQLDW, som finns på Server-serverns Server. Servern finns i en Azure-resurs grupp med namnet ResourceGroup1.
@@ -69,7 +69,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 ```
 
 ## <a name="set-maintenance-schedule"></a>Ange underhålls schema
-Ange och uppdatera ett maintnenance-schema för ett befintligt informations lager.
+Ange och uppdatera ett underhålls schema för ett befintligt informations lager.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

@@ -11,14 +11,15 @@ ms.date: 04/17/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 26cdbb1fc2899d1b03fea6199074467623706c63
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+tags: azure-synapse
+ms.openlocfilehash: 89ec405a348e3ace851fd5f5e17283a8036692a5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153289"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199418"
 ---
-# <a name="secure-a-database-in-sql-data-warehouse"></a>Skydda en databas i SQL Data Warehouse
+# <a name="secure-a-database-in-azure-synapse"></a>Skydda en databas i Azure Synapse
 > [!div class="op_single_selector"]
 > * [Säkerhets översikt](sql-data-warehouse-overview-manage-security.md)
 > * [Autentisering](sql-data-warehouse-authentication.md)
@@ -47,7 +48,7 @@ När du skapade den logiska servern för databasen angav du en "serveradministra
 
 Men som bästa praxis bör din organisations användare använda ett annat konto för att autentisera. På så sätt kan du begränsa de behörigheter som beviljats för programmet och minska riskerna med skadlig aktivitet, om program koden är utsatt för en SQL-attack. 
 
-Om du vill skapa en SQL Server autentiserad användare ansluter du till **huvud** databasen på servern med Server administratörs inloggningen och skapar en ny server inloggning.  Det är en bra idé att även skapa en användare i huvud databasen Azure Synapse-användare. Genom att skapa en användare i Master kan en användare logga in med hjälp av verktyg som SSMS utan att ange ett databas namn.  Det gör det också möjligt för dem att använda Object Explorer för att visa alla databaser på en SQL-Server.
+Om du vill skapa en SQL Server autentiserad användare ansluter du till **huvud** databasen på servern med Server administratörs inloggningen och skapar en ny server inloggning.  Det är en bra idé att även skapa en användare i huvud databasen. Genom att skapa en användare i Master kan en användare logga in med hjälp av verktyg som SSMS utan att ange ett databas namn.  Det gör det också möjligt för dem att använda Object Explorer för att visa alla databaser på en SQL-Server.
 
 ```sql
 -- Connect to master database and create a login
@@ -58,7 +59,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 Anslut sedan till din **SQL-adresspool** med Server Administratörs inloggning och skapa en databas användare baserat på Server inloggningen som du skapade.
 
 ```sql
--- Connect to SQL DW database and create a database user
+-- Connect to the database and create a database user
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
@@ -76,7 +77,7 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 Serveradministratörskontot som du ansluter med är medlem i db_owner som har behörighet att göra vad som helst i databasen. Spara det här kontot för att distribuera schemauppgraderingar och andra hanteringsåtgärder. Använd kontot "ApplicationUser" med mer begränsade behörigheter för att ansluta från ditt program till databasen med den minsta behörigheten som krävs av programmet.
 
-Det finns sätt att ytterligare begränsa vad en användare kan göra i ett informations lager:
+Det finns sätt att ytterligare begränsa vad en användare kan göra i databasen:
 
 * Med detaljerade [behörigheter](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine?view=sql-server-ver15) kan du styra vilka åtgärder du kan utföra på enskilda kolumner, tabeller, vyer, scheman, procedurer och andra objekt i databasen. Använd detaljerade behörigheter för att få ut mesta möjliga kontroll och bevilja de lägsta behörigheter som krävs. 
 * Andra [databas roller](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15) än db_datareader och db_datawriter kan användas för att skapa mer kraftfulla program användar konton eller mindre kraftfulla hanterings konton. De inbyggda fasta databas rollerna ger ett enkelt sätt att bevilja behörigheter, men kan resultera i att ge fler behörigheter än vad som behövs.

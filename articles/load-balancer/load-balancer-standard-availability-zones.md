@@ -13,82 +13,31 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 0d61ad33b97b97c3a45334704544d72809e56848
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 5a65982c5c13eb4e4273efcfd8d14910b0f35572
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715268"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197155"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard Load Balancer och tillgänglighetszoner
 
 Azure Standard Load Balancer stöder scenarier med [tillgänglighets zoner](../availability-zones/az-overview.md) . Du kan använda Standard Load Balancer för att optimera tillgängligheten i ditt slut punkt till slut punkt genom att justera resurser med zoner och distribuera dem i olika zoner.  Granska [tillgänglighets zoner](../availability-zones/az-overview.md) för vägledning om vilka tillgänglighets zoner är, vilka regioner som för närvarande stöder tillgänglighets zoner och andra relaterade begrepp och produkter. Tillgänglighets zoner i kombination med Standard Load Balancer är en mycket och flexibel funktions uppsättning som kan skapa många olika scenarier.  Granska det här dokumentet för att förstå dessa [begrepp](#concepts) och [design rikt linjer](#design)för grundläggande scenarier.
 
->[!IMPORTANT]
->Granska [Tillgänglighetszoner](../availability-zones/az-overview.md) för närliggande ämnen, inklusive information om regioner.
-
 ## <a name="concepts"></a>Tillgänglighetszoner begrepp som tillämpas på Load Balancer
 
-Det finns ingen direkt relation mellan Load Balancer resurser och faktisk infrastruktur. När du skapar en Load Balancer skapas inte en instans. Load Balancer-resurser är objekt inom vilka du kan uttrycka hur Azure ska program mera fördefinierad infrastruktur för flera innehavare för att uppnå det scenario som du vill skapa.  Detta är viktigt i samband med tillgänglighets zoner eftersom en enda Load Balancer resurs kan styra programmering av infrastruktur i flera tillgänglighets zoner medan en zon redundant tjänst visas som en resurs från en kunds visnings punkt.  
-
-En Load Balancer själva resursen är regional och aldrig zonindelade.  Och ett VNet och undernät är alltid regionala och aldrig zonindelade. Vilken kornig het du kan konfigurera begränsas av varje konfiguration av en klient dels-, regel-och Server dels uppsättnings definition.
-
+En Load Balancer själva resursen är regional och aldrig zonindelade. Vilken kornig het du kan konfigurera begränsas av varje konfiguration av en klient dels-, regel-och Server dels uppsättnings definition.
 I samband med tillgänglighets zoner beskrivs beteende och egenskaper för en Load Balancer regel som zoner-redundanta eller zonindelade.  Zon-redundant och zonindelade beskriver egenskapen zonality för en egenskap.  I kontexten för Load Balancer innebär zon-redundant alltid *flera zoner* och zonindelade innebär att tjänsten isoleras till en *enda zon*.
-
 Både offentliga och interna Load Balancer stödja zoner – redundanta och zonindelade scenarier och båda kan dirigera trafik mellan zoner vid behov (*belastnings utjämning mellan*zoner). 
 
 ### <a name="frontend"></a>Delen
 
 En Load Balancer-frontend är en IP-konfiguration för klient delen som hänvisar till antingen en offentlig IP-adressresurs eller en privat IP-adress inom under nätet för en virtuell nätverks resurs.  Den utgör den belastningsutjämnade slut punkten där tjänsten exponeras.
+En Load Balancer resurs kan innehålla regler med zonindelade-och Zone-redundanta klient delar samtidigt. När en offentlig IP-resurs eller en privat IP-adress har garanterats till en zon, är zonality (eller avsaknad av sådan) inte föränderligt.  Om du vill ändra eller utelämna zonality för en offentlig IP-adress eller en privat IP-adresspool måste du återskapa den offentliga IP-adressen i lämplig zon.  Tillgänglighets zoner ändrar inte begränsningarna för flera klient delar, granskar [flera klient delar för Load Balancer](load-balancer-multivip-overview.md) för information om den här möjligheten.
 
-En Load Balancer resurs kan innehålla regler med zonindelade-och Zone-redundanta klient delar samtidigt. 
+#### <a name="zone-redundant"></a>Zonen är redundant 
 
-När en offentlig IP-resurs eller en privat IP-adress har garanterats till en zon, är zonality (eller avsaknad av sådan) inte föränderligt.  Om du vill ändra eller utelämna zonality för en offentlig IP-adress eller en privat IP-adresspool måste du återskapa den offentliga IP-adressen i lämplig zon.  Tillgänglighets zoner ändrar inte begränsningarna för flera klient delar, granskar [flera klient delar för Load Balancer](load-balancer-multivip-overview.md) för information om den här möjligheten.
-
-#### <a name="zone-redundant-by-default"></a>Zonen är redundant som standard
-
-I en region med tillgänglighets zoner är en Standard Load Balancer-frontend zon-redundant som standard.  Zon-redundant innebär att alla inkommande eller utgående flöden hanteras av flera tillgänglighets zoner i en region samtidigt med en enda IP-adress. DNS-redundanta scheman är inte obligatoriska. En enda IP-adress för klient delen kan överleva zon haveriet och kan användas för att få åtkomst till alla (inte påverkade) Server dels medlemmar oberoende av zonen. En eller flera tillgänglighets zoner kan inte köras och data Sök vägen finns kvar så länge en zon i regionen är felfri. Klient delens enda IP-adress behandlas samtidigt av flera oberoende infrastruktur distributioner i flera tillgänglighets zoner.  Detta innebär inte hitless data Sök väg, men eventuella återförsök eller återupprättade kommer att lyckas i andra zoner som inte påverkas av zon felet.   
-
-Följande utdrag är en illustration för hur du definierar en offentlig IP-adress för en zon-redundant offentlig IP-adress som ska användas med din offentliga Standard Load Balancer. Om du använder befintliga Resource Manager-mallar i konfigurationen lägger du till avsnittet **SKU** i dessa mallar.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-Följande utdrag är en illustration för hur du definierar en zon-redundant IP-adress för klient delen för din interna Standard Load Balancer. Om du använder befintliga Resource Manager-mallar i konfigurationen lägger du till avsnittet **SKU** i dessa mallar.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zone_redundant_frontend",
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-Föregående utdrag är inte fullständiga mallar, men tänk på att visa egenskaper för att uttrycka tillgänglighets zoner.  Du måste lägga till dessa instruktioner i dina mallar.
+I en region med tillgänglighets zoner kan en Standard Load Balancer-frontend vara zon-redundant.  Zon-redundant innebär att alla inkommande eller utgående flöden hanteras av flera tillgänglighets zoner i en region samtidigt med en enda IP-adress. DNS-redundanta scheman är inte obligatoriska. En enda IP-adress för klient delen kan överleva zon haveriet och kan användas för att få åtkomst till alla (inte påverkade) Server dels medlemmar oberoende av zonen. En eller flera tillgänglighets zoner kan inte köras och data Sök vägen finns kvar så länge en zon i regionen är felfri. Klient delens enda IP-adress behandlas samtidigt av flera oberoende infrastruktur distributioner i flera tillgänglighets zoner.  Detta innebär inte hitless data Sök väg, men eventuella återförsök eller återupprättade kommer att lyckas i andra zoner som inte påverkas av zon felet.   
 
 #### <a name="optional-zone-isolation"></a>Valfri zon isolering
 
@@ -101,49 +50,6 @@ Om du vill blanda dessa begrepp (zoner-redundanta och zonindelade för samma ser
 För en offentlig Load Balancer-klient lägger du till en *zon* parameter till den offentliga IP-resurs som refereras av IP-konfigurationen för klient delen som används av respektive regel.
 
 För en intern Load Balancer-frontend lägger du till en *zon* parameter till den interna Load Balancer IP-konfiguration för klient delen. Zonindelade-frontend gör att Load Balancer garantera en IP-adress i ett undernät till en speciell zon.
-
-Följande utdrag är en illustration för hur du definierar en offentlig IP-adress för zonindelade-standard i tillgänglighets Zon 1. Om du använder befintliga Resource Manager-mallar i konfigurationen lägger du till avsnittet **SKU** i dessa mallar.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "zones": [ "1" ],
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-Följande utdrag är en illustration för hur du definierar en intern Standard Load Balancer klient del i tillgänglighets Zon 1. Om du använder befintliga Resource Manager-mallar i konfigurationen lägger du till avsnittet **SKU** i dessa mallar. Definiera också egenskapen **zoner** i klient DELENS IP-konfiguration för den underordnade resursen.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zonal_frontend_in_az1",
-                        "zones": [ "1" ],
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-Föregående utdrag är inte fullständiga mallar, men tänk på att visa egenskaper för att uttrycka tillgänglighets zoner.  Du måste lägga till dessa instruktioner i dina mallar.
 
 ### <a name="cross-zone-load-balancing"></a>Belastnings utjämning mellan zoner
 
@@ -201,14 +107,6 @@ Undvik att införa oönskade kors zon beroenden, vilket kommer att upphäver til
   - Kan programmet förstå hur man konvergerar på ett säkert sätt när en zon returnerar?
 
 Gå igenom [design mönster för molnet i molnet](https://docs.microsoft.com/azure/architecture/patterns/) för att förbättra återhämtningen hos ditt program till haveri situationer.
-
-### <a name="zonalityguidance"></a>Zone-redundant jämfört med zonindelade
-
-Zon-redundant kan ge en enkelhet med ett oberoende alternativ och samtidigt elastiskt alternativ med en enda IP-adress för tjänsten.  Det kan minska komplexiteten i tur och ett.  Zon-redundant har även rörlighet mellan zoner och kan användas på ett säkert sätt på resurser i alla zoner.  Dessutom är det framtida korrektur i regioner utan tillgänglighets zoner som kan begränsa de ändringar som krävs när en region har tillgänglighets zoner.  Konfigurations syntaxen för en zon-redundant IP-adress eller klient del har slutförts i valfri region, inklusive de utan tillgänglighets zoner: en zon har inte angetts i resursens egenskaps zoner:.
-
-Zonindelade kan ge en uttrycklig garanti till en zon, som uttryckligen delar in överlappande med hälso tillståndet för zonen. Att skapa en Load Balancer regel med en zonindelade IP-adress-frontend eller zonindelade intern Load Balancer-frontend kan vara ett bra tillägg, särskilt om din anslutna resurs är en zonindelade virtuell dator i samma zon.  Eller så kanske ditt program kräver uttrycklig kunskap om vilken zon en resurs finns i förväg och du vill veta mer om tillgänglighet i separata zoner.  Du kan välja att exponera flera zonindelade-frontend-enheter för en slutpunkt-till-slutpunkt-tjänst som distribueras mellan zoner (det vill säga per zon zonindelade-frontend för flera zonindelade Virtual Machine Scale set).  Och om dina zonindelade-frontend-klienter är offentliga IP-adresser kan du använda dessa flera zonindelade-frontend-klienter för att exponera tjänsten med [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Eller så kan du använda flera zonindelade-frontend-klienter för att få kunskap om hälso tillstånd och prestanda i olika zoner genom att övervaka lösningar från tredje part och exponera den övergripande tjänsten med en zon redundant klient del. Du bör bara hantera zonindelade-resurser med zonindelade-frontend-platser justerade till samma zon och undvika potentiellt skadliga kors zons scenarier för zonindelade-resurser.  Zonindelade-resurser finns bara i regioner där tillgänglighets zoner finns.
-
-Det finns ingen allmän vägledning om att ett är ett bättre alternativ än den andra utan att känna till tjänst arkitekturen.  Gå igenom [design mönster för molnet i molnet](https://docs.microsoft.com/azure/architecture/patterns/) för att förbättra återhämtningen hos ditt program till haveri situationer.
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [Tillgänglighetszoner](../availability-zones/az-overview.md)

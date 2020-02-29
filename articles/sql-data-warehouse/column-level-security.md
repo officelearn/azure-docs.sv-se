@@ -1,5 +1,5 @@
 ---
-title: Vad är säkerhet på kolumn nivå för SQL Data Warehouse?
+title: Vad är säkerhet på kolumn nivå för Azure-Synapse?
 description: Säkerhet på kolumn nivå gör det möjligt för kunder att kontrol lera åtkomsten till databas tabell kolumner baserat på användarens körnings kontext eller grupp medlemskap, förenkla utformningen och kodningen av säkerhet i ditt program och tillåta att du implementerar begränsningar i kolumnen fjärråtkomstservrar.
 services: sql-data-warehouse
 author: julieMSFT
@@ -7,16 +7,17 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 04/02/2019
+ms.date: 02/05/2020
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 344701989a753e17d8a026f6bb771a6030bdb71f
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+tags: azure-synapse
+ms.openlocfilehash: aa9791f019436cc5c7effc9bce197d89131a6557
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513056"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199979"
 ---
 # <a name="column-level-security"></a>Säkerhet på kolumn nivå
 
@@ -24,7 +25,7 @@ Säkerhet på kolumn nivå gör det möjligt för kunder att styra åtkomsten ti
 
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Eftersom den här videon har publicerats [säkerhet på radnivå](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) blev tillgänglig för SQL Data Warehouse. 
+Eftersom den här videon har publicerats [säkerhet på radnivå](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) blev tillgänglig för Azure Synapse. 
 
 Säkerhet på kolumn nivå fören klar utformningen och kodningen av säkerhet i ditt program, så att du kan begränsa kolumn åtkomsten för att skydda känsliga data. Till exempel ser du till att specifika användare bara har åtkomst till vissa kolumner i en tabell som är relevanta för deras avdelning. Logiken för åtkomst begränsning finns i databas nivån i stället för bort från data i en annan program nivå. Databasen tillämpar åtkomst begränsningar varje gång data åtkomsten görs från vilken nivå som helst. Den här begränsningen gör din säkerhet mer tillförlitlig och robust genom att minska det totala säkerhets systemets Area. Dessutom eliminerar säkerhet på kolumn nivå behovet av att introducera vyer för att filtrera bort kolumner för att få åtkomst begränsningar för användarna.
 
@@ -80,7 +81,7 @@ Msg 230, Level 14, State 1, Line 12
 The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'.
 ```
 
-## <a name="use-cases"></a>Användningsfall
+## <a name="use-cases"></a>Användnings fall
 
 Några exempel på hur säkerhet på kolumn nivå används idag:
 

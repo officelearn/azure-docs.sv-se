@@ -3,20 +3,20 @@ title: Lägg till ADFS som en SAML-identitetsprovider genom att använda anpassa
 titleSuffix: Azure AD B2C
 description: Konfigurera ADFS 2016 med hjälp av SAML-protokollet och anpassade principer i Azure Active Directory B2C
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f331a537c80628a386525e29743807a70a163f0d
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: bfe39d9528927f995d14772e07e02b2a0528e5e0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77914329"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188536"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till ADFS som en SAML Identity Provider med anpassade principer i Azure Active Directory B2C
 
@@ -197,7 +197,7 @@ Ersätt följande värden:
     | User-Principal-Name | userPrincipalName |
     | Efternamn | family_name |
     | Angivet namn | given_name |
-    | E-postadress | e-post |
+    | E-Mail-Address | e-post |
     | Visnings namn | namn |
 
     Observera att dessa namn inte visas i list rutan Utgående anspråks typer. Du måste skriva in dem manuellt i. (List rutan kan redige ras i själva verket).

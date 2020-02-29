@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 0b15b35f6fc83097e94f7d69815a163a0e98a228
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 559c9ee237f95f9d175aaefb487131466700e899
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523279"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190797"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -463,7 +463,7 @@ Azure Functions Core Tools stöder två typer av distribution: Distribuera Funct
 
 En projektmapp kan innehålla språkspecifika filer och kataloger som inte ska publiceras. Undantagna objekt visas i en. funcignore-fil i rotmappen.     
 
-### <a name="project-file-deployment"></a>Distribution (projektfiler)
+### <a name="project-file-deployment"></a>Distribuera projektfiler
 
 Om du vill publicera din lokala kod i en Function-app i Azure använder du kommandot `publish`:
 
@@ -500,7 +500,7 @@ Följande publicerings alternativ stöds bara i version 2. x:
 | **`--no-build`** | Bygg inte funktioner i .NET-klass bibliotek. |
 | **`--dotnet-cli-params`** | När du publicerar C# kompilerade (. CSPROJ)-funktioner anropar kärn verktygen "dotNet build--output bin/Publish". Alla parametrar som skickas till detta läggs till i kommando raden. |
 
-### <a name="deployment-custom-container"></a>Distribution (anpassad behållare)
+### <a name="deploy-custom-container"></a>Distribuera anpassad behållare
 
 Med Azure Functions kan du distribuera ett funktions projekt i en [anpassad Docker-behållare](functions-deployment-technologies.md#docker-container). Mer information finns i [skapa en funktion i Linux med en anpassad avbildning](functions-create-function-linux-custom-image.md). Anpassade behållare måste ha en Dockerfile. Om du vill skapa en app med en Dockerfile använder du alternativet--Dockerfile på `func init`.
 

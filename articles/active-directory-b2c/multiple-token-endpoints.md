@@ -3,20 +3,20 @@ title: 'Migrera OWIN-baserade webb-API: er till b2clogin.com'
 titleSuffix: Azure AD B2C
 description: Lär dig hur du aktiverar ett .NET-webb-API för att stödja tokens som utfärdats av flera token utfärdare när du migrerar dina program till b2clogin.com.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e6a92d12e7f2f24289aafa7e4a9acc9edccbd34c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5daf88e746ea803f345c79bd31d656f2615b6754
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840408"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184102"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrera ett OWIN webb-API till b2clogin.com
 
@@ -29,7 +29,7 @@ I följande avsnitt finns ett exempel på hur du aktiverar flera utfärdare i et
 > [!NOTE]
 > Den här artikeln är avsedd för Azure AD B2C kunder med för närvarande distribuerade API: er och program som refererar `login.microsoftonline.com` och som vill migrera till den rekommenderade `b2clogin.com` slut punkten. Om du konfigurerar ett nytt program ska du använda [b2clogin.com](b2clogin.md) som dirigerad.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande Azure AD B2C resurser på plats innan du fortsätter med stegen i den här artikeln:
 
@@ -88,7 +88,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 I det här avsnittet uppdaterar du koden för att ange att både token utfärdarens slut punkter är giltiga.
 
 1. Öppna lösningen **B2C-WebAPI-dotNet. SLN** i Visual Studio
-1. I **TaskService** -projektet öppnar du filen *TaskService\\App_Start\\**startup.auth.cs**.* i redigeraren
+1. I **TaskService** -projektet öppnar du filen *TaskService\\App_Start\\* * startup.auth.cs** * i redigeraren
 1. Lägg till följande `using`-direktiv överst i filen:
 
     `using System.Collections.Generic;`
@@ -123,7 +123,7 @@ Som tidigare nämnts tillhandahåller andra OWIN-bibliotek vanligt vis en liknan
 
 Med båda URI: erna som stöds av ditt webb-API, behöver du nu uppdatera webb programmet så att det hämtar tokens från b2clogin.com-slutpunkten.
 
-Du kan till exempel konfigurera exempel webb programmet att använda den nya slut punkten genom att ändra `ida:AadInstance` värdet i filen *TaskWebApp\\**Web. config**.* i **TaskWebApp** -projektet.
+Du kan till exempel konfigurera exempel webb programmet att använda den nya slut punkten genom att ändra `ida:AadInstance`-värdet i filen *TaskWebApp\\* * Web. config** * i **TaskWebApp** -projektet.
 
 Ändra `ida:AadInstance`-värdet i *Web. config* för TaskWebApp så att det refererar `{your-b2c-tenant-name}.b2clogin.com` i stället för `login.microsoftonline.com`.
 

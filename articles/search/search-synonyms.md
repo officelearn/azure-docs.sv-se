@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 7c94ad096cf7d0d01bf2076f6748b49cf4ae1bb4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 02/28/2020
+ms.openlocfilehash: aa573e84fa9fff83bd6a894f516ce5f67b3afa79
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794227"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194350"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Synonymer i Azure Kognitiv sökning
 
@@ -27,7 +27,7 @@ Det finns inget Portal stöd för att skapa synonymer, men du kan använda REST 
 
 Om du använder [Kundhanterade nycklar](search-security-manage-encryption-keys.md) för tjänstens kryptering på plats kan du tillämpa det skyddet på innehållet i synonym kartan.
 
-## <a name="use-synonyms"></a>Använd synonymer
+## <a name="use-synonyms"></a>Använda synonymer
 
 I Azure Kognitiv sökning baseras synonym stödet på synonym Maps som du definierar och överför till din tjänst. Dessa kartor utgör en oberoende resurs (t. ex. index eller data källor) och kan användas av valfritt sökbart fält i alla index i Sök tjänsten.
 
@@ -45,7 +45,7 @@ Du kan skapa flera synonym mappningar för ditt sökprogram (till exempel efter 
 
 #### <a name="add-or-update-a-synonym-map-under-your-service-using-post-or-put"></a>Lägg till eller uppdatera en synonym avbildning under din tjänst med POST eller placering.
 
-Synonym Maps överförs till tjänsten via POST eller placering. Varje regel måste avgränsas med det nya rad symbolen (\n). Du kan definiera upp till 5 000 regler per synonym mappning i en kostnads fri tjänst och 10 000 regler i alla andra SKU: er. Varje regel kan ha upp till 20 expansionar.
+Synonym Maps överförs till tjänsten via POST eller placering. Varje regel måste avgränsas med det nya rad symbolen (\n). Du kan definiera upp till 5 000 regler per synonym mappning i en kostnads fri tjänst och 20 000 regler per karta i alla andra SKU: er. Varje regel kan ha upp till 20 expansionar.
 
 Synonym Maps måste vara i formatet Apache Solr som beskrivs nedan. Om du har en befintlig synonym ord lista i ett annat format och vill använda den direkt, kan du berätta för oss på [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
@@ -152,7 +152,7 @@ Synonym-funktionen gäller för Sök frågor och gäller inte för filter eller 
 
 Synonym expansionar gäller inte för sökord med jokertecken. termerna prefix, fuzzy och regex expanderas inte.
 
-Om du behöver göra en enskild fråga som använder synonym expansion och jokertecken, regex eller fuzzy-sökningar kan du kombinera frågorna med hjälp av eller-syntaxen. Om du till exempel vill kombinera synonymer med jokertecken för enkel frågesyntax, skulle termen vara `<query> | <query>*`.
+Om du behöver göra en enskild fråga som använder synonym expansion och jokertecken, regex eller fuzzy-sökningar kan du kombinera frågorna med hjälp av eller-syntaxen. Om du t. ex. vill kombinera synonymer med jokertecken för enkel frågesyntax, skulle termen vara `<query> | <query>*`.
 
 Om du har ett befintligt index i en utvecklings miljö (icke-produktion) kan du experimentera med en liten ord lista för att se hur tillägget av synonymer ändrar Sök upplevelsen, inklusive påverkan på bedömnings profiler, träff markering och förslag.
 

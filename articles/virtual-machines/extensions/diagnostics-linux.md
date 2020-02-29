@@ -2,19 +2,19 @@
 title: Azure Compute – Linux-diagnostiskt tillägg
 description: Så här konfigurerar du LAD (Azure Linux Diagnostic Extension) för att samla in mått och logg händelser från virtuella Linux-datorer som körs i Azure.
 services: virtual-machines-linux
-author: MicahMcKittrick-MSFT
+author: axayjo
 manager: gwallace
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: mimckitt
-ms.openlocfilehash: 5b4ddc177359a08aad404c78b5cc0793f8d80e93
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.author: akjosh
+ms.openlocfilehash: d9375d09219d2655bd9947c0953557f4a1bf8f3c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156530"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199622"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använd Linux-diagnostiskt tillägg för att övervaka mått och loggar
 
@@ -36,7 +36,7 @@ Tillägget för Linux-diagnostik hjälper en användare att övervaka hälsan ho
 
 Det här tillägget fungerar med både Azures distributions modeller.
 
-## <a name="installing-the-extension-in-your-vm"></a>Installera tillägget på den virtuella datorn
+## <a name="installing-the-extension-in-your-vm"></a>Installera tillägget på din virtuella dator
 
 Du kan aktivera det här tillägget med hjälp av Azure PowerShell-cmdletar, Azure CLI-skript, ARM-mallar eller Azure Portal. Mer information finns i [tillägg-funktioner](features-linux.md).
 
@@ -49,7 +49,7 @@ Dessa installationsinstruktioner och en [nedladdnings bar exempel konfiguration]
 
 Den nedladdnings bara konfigurationen är bara ett exempel. ändra den så att den passar dina egna behov.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * **Azure Linux-agentens version 2.2.0 eller senare**. De flesta Azure VM Linux-avbildningar innehåller version 2.2.7 eller senare. Kör `/usr/sbin/waagent -version` för att bekräfta versionen som är installerad på den virtuella datorn. Om den virtuella datorn kör en äldre version av gäst agenten följer du [de här anvisningarna](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) för att uppdatera den.
 * **Azure CLI**. [Konfigurera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) -miljön på din dator.
@@ -94,80 +94,29 @@ URL: en för exempel konfigurationen och dess innehåll kan komma att ändras. L
 #### <a name="powershell-sample"></a>PowerShell-exempel
 
 ```Powershell
-// Set your Azure VM diagnostics variables correctly below - don't forget to replace the VMResourceID
+$storageAccountName = "yourStorageAccountName"
+$storageAccountResourceGroup = "yourStorageAccountResourceGroupName"
+$vmName = "yourVMName"
+$VMresourceGroup = "yourVMResourceGroupName"
 
-$SASKey = '<SASKeyForDiagStorageAccount>'
+# Get the VM object
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $VMresourceGroup
 
-$ladCfg = "{
-'diagnosticMonitorConfiguration': {
-'performanceCounters': {
-'sinks': 'WADMetricEventHub,WADMetricJsonBlob',
-'performanceCounterConfiguration': [
-{
-'unit': 'Percent',
-'type': 'builtin',
-'counter': 'PercentProcessorTime',
-'counterSpecifier': '/builtin/Processor/PercentProcessorTime',
-'annotation': [
-{
-'locale': 'en-us',
-'displayName': 'Aggregate CPU %utilization'
-}
-],
-'condition': 'IsAggregate=TRUE',
-'class': 'Processor'
-},
-{
-'unit': 'Bytes',
-'type': 'builtin',
-'counter': 'UsedSpace',
-'counterSpecifier': '/builtin/FileSystem/UsedSpace',
-'annotation': [
-{
-'locale': 'en-us',
-'displayName': 'Used disk space on /'
-}
-],
-'condition': 'Name='/'',
-'class': 'Filesystem'
-}
-]
-},
-'metrics': {
-'metricAggregation': [
-{
-'scheduledTransferPeriod': 'PT1H'
-},
-{
-'scheduledTransferPeriod': 'PT1M'
-}
-],
-'resourceId': '<VMResourceID>'
-},
-'eventVolume': 'Large',
-'syslogEvents': {
-'sinks': 'SyslogJsonBlob,LoggingEventHub',
-'syslogEventConfiguration': {
-'LOG_USER': 'LOG_INFO'
-}
-}
-}
-}"
-$ladCfg = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($ladCfg))
-$perfCfg = "[
-{
-'query': 'SELECT PercentProcessorTime, PercentIdleTime FROM SCX_ProcessorStatisticalInformation WHERE Name='_TOTAL'',
-'table': 'LinuxCpu',
-'frequency': 60,
-'sinks': 'LinuxCpuJsonBlob'
-}
-]"
+# Get the public settings template from GitHub and update the templated values for storage account and resource ID
+$publicSettings = (Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json).Content
+$publicSettings = $publicSettings.Replace('__DIAGNOSTIC_STORAGE_ACCOUNT__', $storageAccountName)
+$publicSettings = $publicSettings.Replace('__VM_RESOURCE_ID__', $vm.Id)
 
-// Get the VM Resource
-Get-AzureRmVM -ResourceGroupName <RGName> -VMName <VMName>
+# If you have your own customized public settings, you can inline those rather than using the template above: $publicSettings = '{"ladCfg":  { ... },}'
 
-// Finally tell Azure to install and enable the extension
-Set-AzureRmVMExtension -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -ResourceGroupName <RGName> -VMName <VMName> -Location <Location> -Name LinuxDiagnostic -Settings @{'StorageAccount'='<DiagStorageAccount>'; 'sampleRateInSeconds' = '15' ; 'ladCfg'=$ladCfg; 'perfCfg' = $perfCfg} -ProtectedSettings @{'storageAccountName' = '<DiagStorageAccount>'; 'storageAccountSasToken' = $SASKey } -TypeHandlerVersion 3.0
+# Generate a SAS token for the agent to use to authenticate with the storage account
+$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context
+
+# Build the protected settings (storage account SAS token)
+$protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
+
+# Finally install the extension with the settings built above
+Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location $vm.Location -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0 
 ```
 
 ### <a name="updating-the-extension-settings"></a>Uppdaterar tilläggs inställningarna
@@ -223,7 +172,7 @@ Du kan enkelt skapa den SAS-token som krävs via Azure Portal.
 1. Gör lämpliga avsnitt enligt beskrivningen ovan
 1. Klicka på knappen generera SAS.
 
-![mallar](./media/diagnostics-linux/make_sas.png)
+![image](./media/diagnostics-linux/make_sas.png)
 
 Kopiera de genererade SAS: erna till fältet storageAccountSasToken; ta bort det inledande fråga-tecknet ("?").
 
@@ -388,14 +337,14 @@ Det här valfria avsnittet styr insamlingen av mått. RAW-exempel sammanställs 
 
 Element | Värde
 ------- | -----
-mottagare | valfritt En kommaavgränsad lista över namn på mottagare som LAD skickar sammanställda mått resultat till. Alla sammansatta mått publiceras till varje mottagen mottagare. Se [sinksConfig](#sinksconfig). Exempel: `"EHsink1, myjsonsink"`.
+Mottagare | valfritt En kommaavgränsad lista över namn på mottagare som LAD skickar sammanställda mått resultat till. Alla sammansatta mått publiceras till varje mottagen mottagare. Se [sinksConfig](#sinksconfig). Exempel: `"EHsink1, myjsonsink"`.
 typ | Identifierar den faktiska providern för måttet.
 klass | Tillsammans med "Counter" identifierar det angivna måttet i namn området för providern.
 räknare | Tillsammans med "Class" identifierar det angivna måttet i namn området för providern.
 counterSpecifier | Identifierar det speciella måttet i namn området för Azure-mått.
 condition | valfritt Väljer en speciell instans av objektet som måttet gäller för eller väljer agg regeringen för alla instanser av objektet. Mer information finns i mått definitionerna för `builtin`.
 sampleRate | ÄR 8601 intervall som anger med vilken hastighet rå samplingar för det här måttet samlas in. Om den inte anges anges samlings intervallet av värdet för [sampleRateInSeconds](#ladcfg). Den kortaste samplings frekvensen är 15 sekunder (PT15S).
-enhet | Måste vara en av följande strängar: "count", "bytes", "Seconds", "percent", "CountPerSecond", "BytesPerSecond", "Millisekunde". Definierar måttets enhet. Användare av insamlade data förväntar sig insamlade datavärden som matchar den här enheten. LAD ignorerar det här fältet.
+unit | Måste vara en av följande strängar: "count", "bytes", "Seconds", "percent", "CountPerSecond", "BytesPerSecond", "Millisekunde". Definierar måttets enhet. Användare av insamlade data förväntar sig insamlade datavärden som matchar den här enheten. LAD ignorerar det här fältet.
 displayName | Etiketten (på det språk som anges av den associerade språk inställningen) som ska kopplas till dessa data i Azure-mått. LAD ignorerar det här fältet.
 
 CounterSpecifier är en godtycklig identifierare. Konsumenter av mått, som Azure Portal funktion för diagram och avisering, använder counterSpecifier som "Key" som identifierar ett mått eller en instans av ett mått. För `builtin` mått rekommenderar vi att du använder counterSpecifier-värden som börjar med `/builtin/`. Om du samlar in en speciell instans av ett mått rekommenderar vi att du kopplar instansens identifierare till counterSpecifier-värdet. Några exempel:
@@ -434,7 +383,7 @@ SyslogEventConfiguration-samlingen har en post för varje syslog-funktion. Om mi
 
 Element | Värde
 ------- | -----
-mottagare | En kommaavgränsad lista över namn på mottagare som enskilda logg händelser publiceras till. Alla logg händelser som matchar begränsningarna i syslogEventConfiguration publiceras till varje mottagen mottagare. Exempel: "EHforsyslog"
+Mottagare | En kommaavgränsad lista över namn på mottagare som enskilda logg händelser publiceras till. Alla logg händelser som matchar begränsningarna i syslogEventConfiguration publiceras till varje mottagen mottagare. Exempel: "EHforsyslog"
 facilityName | Ett syslog-servernamn (till exempel "LOG\_användare" eller "Logga\_LOCAL0"). Se avsnittet "anläggning" på [sidan syslog-man](http://man7.org/linux/man-pages/man3/syslog.3.html) för den fullständiga listan.
 minSeverity | En syslog-allvarlighets nivå (till exempel "LOG\_ERR" eller "Logga\_information"). Se avsnittet "nivå" på [sidan syslog-man](http://man7.org/linux/man-pages/man3/syslog.3.html) för den fullständiga listan. Tillägget fångar händelser som skickas till anläggningen på eller över den angivna nivån.
 
@@ -464,10 +413,10 @@ Det här valfria avsnittet styr körningen av godtyckliga [OMI](https://github.c
 Element | Värde
 ------- | -----
 namnområde | valfritt OMI-namnområdet som frågan ska köras inom. Om inget anges är standardvärdet "root/SCX", implementerat av [System Center cross-platform-leverantörer](https://github.com/Microsoft/SCXcore).
-DocumentDB | OMI-frågan som ska köras.
+query | OMI-frågan som ska köras.
 table | valfritt Azure Storage-tabellen i det angivna lagrings kontot (se [skyddade inställningar](#protected-settings)).
 frequency | valfritt Antalet sekunder mellan körningen av frågan. Standardvärdet är 300 (5 minuter); Minimivärdet är 15 sekunder.
-mottagare | valfritt En kommaavgränsad lista över namn på ytterligare mottagare som rå samplings mått resultat ska publiceras i. Ingen agg regering av dessa RAW-exempel beräknas av tillägget eller av Azure-mått.
+Mottagare | valfritt En kommaavgränsad lista över namn på ytterligare mottagare som rå samplings mått resultat ska publiceras i. Ingen agg regering av dessa RAW-exempel beräknas av tillägget eller av Azure-mått.
 
 Du måste ange antingen "table" eller "Sinks" eller båda.
 
@@ -489,7 +438,7 @@ Element | Värde
 ------- | -----
 file | Den fullständiga sökvägen till logg filen som ska bevakas och fångas. Sökvägen måste ha ett namn på en enskild fil. den kan inte namnge en katalog eller innehålla jokertecken.
 table | valfritt Azure Storage-tabellen, i det angivna lagrings kontot (enligt vad som anges i den skyddade konfigurationen), som nya rader från "änden" av filen skrivs till.
-mottagare | valfritt En kommaavgränsad lista över namn på ytterligare mottagare som logg rader skickas till.
+Mottagare | valfritt En kommaavgränsad lista över namn på ytterligare mottagare som logg rader skickas till.
 
 Du måste ange antingen "table" eller "Sinks" eller båda.
 
@@ -765,7 +714,7 @@ I varje enskilt fall överförs data också till:
 
 Använd Azure Portal för att visa prestanda data eller ange aviseringar:
 
-![mallar](./media/diagnostics-linux/graph_metrics.png)
+![image](./media/diagnostics-linux/graph_metrics.png)
 
 `performanceCounters` data lagras alltid i en Azure Storage tabell. Azure Storage-API: er är tillgängliga för många språk och plattformar.
 
@@ -774,11 +723,11 @@ Data som skickas till JsonBlob-mottagare lagras i blobbar i lagrings kontot med 
 Dessutom kan du använda dessa UI-verktyg för att komma åt data i Azure Storage:
 
 * Visual Studio-Server Explorer.
-* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Lagringsutforskaren").
 
 Den här ögonblicks bilden av en Microsoft Azure Storage Explorer-session visar de genererade Azure Storage tabellerna och behållarna från ett korrekt konfigurerat LAD 3,0-tillägg på en virtuell test dator. Avbildningen stämmer inte exakt med [exemplet på LAD 3,0-konfigurationen](#an-example-lad-30-configuration).
 
-![mallar](./media/diagnostics-linux/stg_explorer.png)
+![image](./media/diagnostics-linux/stg_explorer.png)
 
 Se relevant [EventHubs-dokumentation](../../event-hubs/event-hubs-what-is-event-hubs.md) för att lära dig hur du använder meddelanden som publicerats till en EventHubs-slutpunkt.
 

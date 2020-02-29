@@ -1,28 +1,28 @@
 ---
 title: Hantering och övervakning – fråga aktivitet, resursutnyttjande
-description: 'Lär dig vilka funktioner som är tillgängliga för att hantera och övervaka Azure SQL Data Warehouse. Använd Azure Portal-och DMV: er (Dynamic Management views) för att förstå frågans aktivitet och resursutnyttjande för ditt informations lager.'
+description: 'Lär dig vilka funktioner som är tillgängliga för hantering och övervakning av Azure Synapse Analytics. Använd Azure Portal-och DMV: er (Dynamic Management views) för att förstå frågans aktivitet och resursutnyttjande för ditt informations lager.'
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 01/14/2020
+ms.date: 02/04/2020
 ms.author: kevin
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 366d170a4caf9ee7428b68d71f910c65356038ff
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.reviewer: jrasnick
+ms.custom: azure-synapse
+ms.openlocfilehash: 47f142a19ac470fb29e9542941cd94a6b29ce240
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76024534"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195931"
 ---
-# <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Övervaka resursutnyttjande och fråga aktivitet i Azure SQL Data Warehouse
-Azure SQL Data Warehouse ger en omfattande övervaknings upplevelse inom Azure Portal till Surface Insights för arbets belastningen för informations lagret. Azure Portal är det rekommenderade verktyget när du övervakar ditt informations lager eftersom det tillhandahåller konfigurerbara kvarhållningsperiod, varningar, rekommendationer och anpassningsbara diagram och instrument paneler för mått och loggar. Portalen gör det också möjligt att integrera med andra Azure Monitoring-tjänster som Operations Management Suite (OMS) och Azure Monitor (loggar) för att ge en helhets övervakning av inte bara ditt informations lager, utan även hela Azure Analytics plattform för en integrerad övervaknings upplevelse. Den här dokumentationen beskriver vilka övervaknings funktioner som är tillgängliga för att optimera och hantera din analys plattform med SQL Data Warehouse. 
+# <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Övervaka resursutnyttjande och fråga aktivitet i Azure Synapse Analytics
+Azure Synapse Analytics ger en omfattande övervaknings upplevelse inom Azure Portal till Surface Insights för arbets belastningen för data lagret. Azure Portal är det rekommenderade verktyget när du övervakar ditt informations lager eftersom det tillhandahåller konfigurerbara kvarhållningsperiod, varningar, rekommendationer och anpassningsbara diagram och instrument paneler för mått och loggar. Portalen gör det också möjligt att integrera med andra Azure Monitoring-tjänster som Operations Management Suite (OMS) och Azure Monitor (loggar) för att ge en helhets övervakning av inte bara ditt informations lager, utan även hela Azure Analytics plattform för en integrerad övervaknings upplevelse. Den här dokumentationen beskriver vilka övervaknings funktioner som är tillgängliga för att optimera och hantera din analys plattform med SQL Analytics. 
 
 ## <a name="resource-utilization"></a>Resursutnyttjande 
-Följande mått är tillgängliga i Azure Portal för SQL Data Warehouse. Dessa mått är uppdelade via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
+Följande mått är tillgängliga i Azure Portal för SQL Analytics. Dessa mått är uppdelade via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
 
 
 | Måttnamn             | Beskrivning                                                  | Sammansättningstyp: |
@@ -49,12 +49,12 @@ Saker att tänka på när du visar mått och ställer in aviseringar:
 
 
 ## <a name="query-activity"></a>Fråga aktivitet
-För en programmerings upplevelse när du övervakar SQL Data Warehouse via T-SQL tillhandahåller tjänsten en uppsättning vyer för dynamisk hantering (DMV: er). Dessa vyer är användbara när du aktivt ska felsöka och identifiera Flask halsar i prestanda med din arbets belastning.
+För en programmerings upplevelse vid övervakning av SQL Analytics via T-SQL tillhandahåller tjänsten en uppsättning vyer för dynamisk hantering (DMV: er). Dessa vyer är användbara när du aktivt ska felsöka och identifiera Flask halsar i prestanda med din arbets belastning.
 
-Om du vill visa en lista över DMV: er som SQL Data Warehouse tillhandahåller kan du läsa den här [dokumentationen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
+Om du vill visa en lista över DMV: er som SQL Analytics innehåller, se den här [dokumentationen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
 
-## <a name="metrics-and-diagnostics-logging"></a>Mått och diagnostikloggning
-Både mått och loggar kan exporteras till Azure Monitor, särskilt [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) -komponenten och kan nås via programmering via [logg frågor](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata). Logg fördröjningen för SQL Data Warehouse är cirka 10-15 minuter. Mer information om de faktorer som påverkar svars tiderna finns i följande dokumentation.
+## <a name="metrics-and-diagnostics-logging"></a>Mått- och diagnostikloggning
+Både mått och loggar kan exporteras till Azure Monitor, särskilt [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) -komponenten och kan nås via programmering via [logg frågor](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata). Logg fördröjningen för SQL Analytics är cirka 10-15 minuter. Mer information om de faktorer som påverkar svars tiderna finns i följande dokumentation.
 
 
 ## <a name="next-steps"></a>Nästa steg

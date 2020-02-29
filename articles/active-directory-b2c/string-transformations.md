@@ -3,20 +3,20 @@ title: Transformerings exempel för sträng anspråk för anpassade principer
 titleSuffix: Azure AD B2C
 description: Exempel på sträng anspråk för IEF-schemat (Identity Experience Framework) för Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/24/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e220009ec04ce732d99a53432077d681707e28d1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 678385d9ed16a9821fc61be476e7eb9eaf6fd4f1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585738"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183711"
 ---
 # <a name="string-claims-transformations"></a>Transformeringar av sträng anspråk
 
@@ -363,7 +363,7 @@ Använd den här anspråks omvandlingen för att formatera en sträng med två p
 - Utgående anspråk:
     - **outputClaim**: Johan Fernando
 
-## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation 
+## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation
 
 Kopierar lokaliserade strängar till anspråk.
 
@@ -428,9 +428,9 @@ Transformationen Claims anger värdet för anspråks typen som *omfattas* av vä
 
 - Utgående anspråk:
   - **ämne**: e-postverifierings kod för Contoso-konto
-  - **meddelande**: Tack för att du verifierar ditt konto! 
-  - **codeIntro**: din kod är 
-  - **signatur**: vänliga hälsningar  
+  - **meddelande**: Tack för att du verifierar ditt konto!
+  - **codeIntro**: din kod är
+  - **signatur**: vänliga hälsningar
 
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
@@ -618,7 +618,7 @@ Kontrollerar att ett sträng anspråks `claimToMatch`-och `matchTo` indataparame
 | OutputClaim | outputClaim | sträng | Om reguljärt uttryck matchar, innehåller det här utgående anspråket värdet för `outputClaimIfMatched` indataparameter. Eller null, om ingen matchning. |
 | OutputClaim | regexCompareResultClaim | boolesk | Den reguljära uttrycks typen för resultat av utgående anspråk, som ska anges som `true` eller `false` baserat på resultatet av matchning. |
 
-Kontrollerar till exempel om det angivna telefonnumret är giltigt, baserat på vanligt uttrycks mönster för telefonnummer.  
+Kontrollerar till exempel om det angivna telefonnumret är giltigt, baserat på vanligt uttrycks mönster för telefonnummer.
 
 ```XML
 <ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
@@ -755,7 +755,7 @@ Avgör om en angiven under sträng inträffar inom det inmatade anspråket. Resu
 Använd den här anspråks omvandlingen för att kontrol lera om en sträng anspråks typ innehåller en under sträng. Följande exempel kontrollerar om anspråks typen `roles` sträng innehåller värdet **administratör**.
 
 ```XML
-<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains"> 
+<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
   </InputClaims>
@@ -765,7 +765,7 @@ Använd den här anspråks omvandlingen för att kontrol lera om en sträng ansp
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
-  </OutputClaims>         
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -777,7 +777,7 @@ Använd den här anspråks omvandlingen för att kontrol lera om en sträng ansp
     - **innehåller**: "admin"
     - **ignoreCase**: sant
 - Utgående anspråk:
-    - **outputClaim**: sant 
+    - **outputClaim**: sant
 
 ## <a name="stringsubstring"></a>StringSubstring
 
@@ -790,7 +790,7 @@ Extraherar delar av en sträng anspråks typ, med början vid tecknet vid den an
 | InputParameter | length | int | Antalet tecken i under strängen. |
 | OutputClaim | outputClaim | boolesk | En sträng som motsvarar den del sträng som börjar vid start index i denna instans, eller tom om start index är lika med längden på den här instansen och längden är noll. |
 
-Hämta till exempel telefonnumret till Country.  
+Hämta till exempel telefonnumret till Country.
 
 
 ```XML
@@ -828,7 +828,7 @@ Söker efter en anspråks typ sträng för ett angivet värde och returnerar en 
 | InputParameter | newValue | sträng | Strängen som ska ersätta alla förekomster av `oldValue` |
 | OutputClaim | outputClaim | boolesk | En sträng som motsvarar den aktuella strängen, förutom att alla instanser av oldValue ersätts med newValue. Om oldValue inte hittas i den aktuella instansen returnerar metoden den aktuella instansen oförändrad. |
 
-Du kan till exempel normalisera ett telefonnummer genom att ta bort `-` tecken  
+Du kan till exempel normalisera ett telefonnummer genom att ta bort `-` tecken
 
 
 ```XML
@@ -864,7 +864,7 @@ Sammanfogar elementen i en angiven typ av sträng samlings anspråk med hjälp a
 | InputClaim | inputClaim | stringCollection | En samling som innehåller de strängar som ska sammanfogas. |
 | InputParameter | avgränsare | sträng | Strängen som ska användas som avgränsare, till exempel komma `,`. |
 | OutputClaim | outputClaim | sträng | En sträng som består av medlemmarna i den `inputClaim` sträng samlingen som avgränsas av inparameteren `delimiter`. |
-  
+
 I följande exempel används en sträng uppsättning med användar roller och konverterar den till en kommaavgränsad sträng. Du kan använda den här metoden för att lagra en sträng samling i Azure AD-användarkontot. När du senare läser kontot från katalogen använder du `StringSplit` för att konvertera kommatecken sträng tillbaka till sträng samling.
 
 ```XML
@@ -900,7 +900,7 @@ Returnerar en sträng mat ris som innehåller under strängarna i den här insta
 | InputClaim | inputClaim | sträng | En sträng anspråks typ som innehåller de under strängar som ska delas. |
 | InputParameter | avgränsare | sträng | Strängen som ska användas som avgränsare, till exempel komma `,`. |
 | OutputClaim | outputClaim | stringCollection | En sträng samling vars element innehåller del strängarna i den här strängen som avgränsas av `delimiter` indataparameter. |
-  
+
 I följande exempel används en kommaavgränsad sträng för användar roller och konverterar den till en sträng samling.
 
 ```XML
@@ -925,7 +925,7 @@ I följande exempel används en kommaavgränsad sträng för användar roller oc
   - **avgränsare**: ","
 - Utgående anspråk:
   - **outputClaim**: ["admin", "författare", "läsare"]
-  
+
 ## <a name="string-claim-transformations-expressions"></a>Uttryck för omvandling av sträng anspråk
 Anspråk omvandlings uttryck i Azure AD B2C anpassade principer ger Sammanhangs information om klient-ID och ID för teknisk profil.
 

@@ -1,22 +1,23 @@
 ---
 title: Analysera data med Azure Machine Learning
-description: Använd Azure Machine Learning för att skapa en förutsägbar Machine Learning-modell som baseras på data lagrade i Azure SQL Data Warehouse.
+description: Använd Azure Machine Learning för att bygga en förutsägelse maskin inlärnings modell som baseras på data som lagras i Azure Synapse.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: integration
-ms.date: 03/22/2019
+ms.date: 02/05/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 892d4642d700949d1d1169c69926021c751cef67
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+tag: azure-Synapse
+ms.openlocfilehash: f6765fdbb65f62bb790d1e8781512db572170b10
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721293"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195897"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analysera data med Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -28,7 +29,7 @@ ms.locfileid: "76721293"
 > 
 > 
 
-Denna självstudie använder Azure Machine Learning för att skapa en förutsägbar Machine Learning-modell som baseras på data lagrade i Azure SQL Data Warehouse. Mer specifikt skapar detta en riktad marknadsföringskampanj för Adventure Works, en cykelbutik, genom att förutsäga hur sannolikt det är att en kund kommer att köpa en cykel.
+Den här självstudien använder Azure Machine Learning för att bygga en förutsägelse maskin inlärnings modell som baseras på data som lagras i Azure Synapse. Mer specifikt skapar detta en riktad marknadsföringskampanj för Adventure Works, en cykelbutik, genom att förutsäga hur sannolikt det är att en kund kommer att köpa en cykel.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
 > 
@@ -37,7 +38,7 @@ Denna självstudie använder Azure Machine Learning för att skapa en förutsäg
 ## <a name="prerequisites"></a>Förutsättningar
 För att gå igenom de här självstudierna, behöver du:
 
-* Ett SQL Data Warehouse förinstallerat med AdventureWorksDW som exempeldatabas. Om du vill distribuera detta, se [Skapa ett SQL Data Warehouse](create-data-warehouse-portal.md) och välj att läsa in exempeldata. Om du redan har ett Data Warehouse men inte har exempeldata, kan du [läsa in exempeldata manuellt](sql-data-warehouse-load-sample-databases.md).
+* En SQL-pool förinstallerad med AdventureWorksDW exempel data. För att etablera detta, se [skapa en SQL-pool](create-data-warehouse-portal.md) och välj att läsa in exempel data. Om du redan har ett Data Warehouse men inte har exempeldata, kan du [läsa in exempeldata manuellt](sql-data-warehouse-load-sample-databases.md).
 
 ## <a name="1-get-the-data"></a>1. Hämta data
 Aktuella data finns i dbo.vTargetMail-vyn i AdventureWorksDW-databasen. Så här läser du in dessa data:
@@ -46,7 +47,7 @@ Aktuella data finns i dbo.vTargetMail-vyn i AdventureWorksDW-databasen. Så här
 2. Klicka på **+ ny** längst ned till vänster på skärmen och välj **Tom experiment**.
 3. Ange ett namn för experimentet: Riktad marknadsföring.
 4. Dra modulen **Importera data** under **data inmatning och utdata** från fönstret moduler till arbets ytan.
-5. Ange information om din SQL Data Warehouse-databas i fönstret Egenskaper.
+5. Ange information om SQL-poolen i rutan Egenskaper.
 6. Ange **fråga** för databasen för att läsa data av intresse.
 
 ```sql
@@ -128,7 +129,7 @@ Du ser två kolumner som läggs till i testdata.
 * Poängsatt sannolikhet: sannolikheten att en kund är en cykelköpare.
 * Poängsatta etiketter: klassificering utförd av modellen – cykelköpare (1) eller inte (0). Det här sannolikhetströskelvärdet för etikettering anges till 50 % och kan justeras.
 
-Genom att jämföra kolumnen BikeBuyer (faktiska) med Poängsatta etiketter (förutsagda), kan du se hur väl modellen har utförts. Sedan kan du använda den här modellen för att göra förutsägelser för nya kunder och publicera den här modellen som en webb tjänst eller Skriv tillbaka resultatet till SQL Data Warehouse.
+Genom att jämföra kolumnen BikeBuyer (faktiska) med Poängsatta etiketter (förutsagda), kan du se hur väl modellen har utförts. Sedan kan du använda den här modellen för att göra förutsägelser för nya kunder och publicera den här modellen som en webb tjänst eller Skriv tillbaka resultatet till Azure Synapse.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om hur du skapar förutsägbara maskininlärningsmodeller finns i [Introduktion till Machine Learning på Azure](https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/).

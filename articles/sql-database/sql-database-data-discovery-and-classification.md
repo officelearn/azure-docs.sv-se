@@ -5,21 +5,22 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: ''
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse
 ms.devlang: ''
 ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/22/2019
-ms.openlocfilehash: dda65c94671044f3c5a569a3f9753951de9eee3a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/05/2020
+tags: azure-synapse
+ms.openlocfilehash: e22205e81178ac0caff4b71462ece776238900f6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717677"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191953"
 ---
-# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>& Klassificering för Azure SQL Database och SQL Data Warehouse data identifiering
+# <a name="azure-sql-database-and-azure-synapse-analytics-data-discovery--classification"></a>Azure SQL Database och Azure Synapse Analytics data Discovery & klassificering
 
 Data identifiering & klassificering innehåller avancerade funktioner som är inbyggda i Azure SQL Database för att **upptäcka**, **klassificera**och **märka** & **rapportering** av känsliga data i dina databaser.
 
@@ -32,7 +33,7 @@ Att identifiera och klassificera dina mest känsliga data (företags-, finans-, 
 Data identifierings & klassificering är en del av erbjudandet för [Avancerad data säkerhet](sql-database-advanced-data-security.md) (Ads), som är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. data identifiering & klassificering kan nås och hanteras via den centrala SQL ADS-portalen.
 
 > [!NOTE]
-> Det här dokumentet relaterar till Azure SQL Database och Azure SQL Data Warehouse. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse. SQL Server (lokalt) finns i [identifiering och klassificering av SQL-data](https://go.microsoft.com/fwlink/?linkid=866999).
+> Det här dokumentet relaterar till Azure SQL Database och Azure Synapse. För enkelhetens skull används SQL Database när du refererar till både SQL Database och Azure-Synapse. SQL Server (lokalt) finns i [identifiering och klassificering av SQL-data](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>Vad är & klassificering av data identifiering
 
@@ -138,7 +139,7 @@ Lär dig mer om [RBAC för Azure-resurser](https://docs.microsoft.com/azure/role
 
 ## <a id="subheading-5"></a>Hantera klassificeringar
 
-# <a name="t-sqltabazure-t-sql"></a>[T-SQL](#tab/azure-t-sql)
+# <a name="t-sql"></a>[T-SQL](#tab/azure-t-sql)
 Du kan använda T-SQL för att lägga till/ta bort kolumn klassificeringar, samt hämta alla klassificeringar för hela databasen.
 
 > [!NOTE]
@@ -148,7 +149,7 @@ Du kan använda T-SQL för att lägga till/ta bort kolumn klassificeringar, samt
 - Ta bort klassificeringen från en eller flera kolumner: [släpp känslighets klassificering](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Visa alla klassificeringar för databasen: [sys. sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-# <a name="rest-apistabazure-rest-api"></a>[REST-API: er](#tab/azure-rest-api)
+# <a name="rest-apis"></a>[REST-API: er](#tab/azure-rest-api)
 Du kan använda REST-API: er för att hantera klassificeringar och rekommendationer program mässigt. De publicerade REST API: erna har stöd för följande åtgärder:
 
 - [Skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) – skapar eller uppdaterar känslighets etiketten för en specifik kolumn
@@ -159,7 +160,7 @@ Du kan använda REST-API: er för att hantera klassificeringar och rekommendatio
 - [Lista aktuella efter databas](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) – hämtar de aktuella känslighets etiketterna för en specifik databas
 - [Lista rekommenderas av databasen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) – hämtar de rekommenderade känslighets etiketterna för en specifik databas
 
-# <a name="powershell-cmdlettabazure-powelshell"></a>[PowerShell-cmdlet](#tab/azure-powelshell)
+# <a name="powershell-cmdlet"></a>[PowerShell-cmdlet](#tab/azure-powelshell)
 Du kan använda PowerShell för att hantera klassificeringar och rekommendationer för Azure SQL Database och hanterad instans.
 
 ### <a name="powershell-cmdlet-for-azure-sql-database"></a>PowerShell-cmdlet för Azure SQL Database

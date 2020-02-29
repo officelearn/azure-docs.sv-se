@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: e98655dca7d682e5c42f3b0ae7f26c892bd12377
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: c64d87b2430cc1d733a67bbc1e803590a37b1714
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710727"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190780"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Självstudie: använda Machine Learning-modeller i Azure Functions med python och TensorFlow
 
@@ -59,7 +59,7 @@ I den här artikeln får du lära dig hur du använder python, TensorFlow och Az
 Navigera till mappen *Start* och kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`. Se till att använda python 3,7, som stöds av Azure Functions.
 
 
-# <a name="bashtabbash"></a>[bash](#tab/bash)
+# <a name="bash"></a>[bash](#tab/bash)
 
 ```bash
 cd start
@@ -79,7 +79,7 @@ Om python inte installerade venv-paketet på din Linux-distribution kör du föl
 sudo apt-get install python3-venv
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 cd start
@@ -93,7 +93,7 @@ py -m venv .venv
 .venv\scripts\activate
 ```
 
-# <a name="cmdtabcmd"></a>[Kommandot](#tab/cmd)
+# <a name="cmd"></a>[Kommandot](#tab/cmd)
 
 ```cmd
 cd start
@@ -133,7 +133,7 @@ I Azure Functions är ett funktions projekt en behållare för en eller flera en
     func new --name classify --template "HTTP trigger"
     ```
 
-    Det här kommandot skapar en mapp som matchar namnet på funktionen, *klassificera*. I den mappen finns två filer: *\_\_init\_\_. py*, som innehåller funktions koden och *Function. JSON*, som beskriver funktionens utlösare och dess indata och utdata-bindningar. Mer information om innehållet i de här filerna finns i [skapa en http-utlöst python-funktion i Azure – granska fil innehållet](functions-create-first-function-python.md#optional-examine-the-file-contents).
+    Det här kommandot skapar en mapp som matchar namnet på funktionen, *klassificera*. I den mappen finns två filer: *\_\_init\_\_. py*, som innehåller funktions koden och *Function. JSON*, som beskriver funktionens utlösare och dess indata och utdata-bindningar. Mer information om innehållet i de här filerna finns i [Granska fil innehållet](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) i python-snabb starten.
 
 
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
@@ -158,19 +158,19 @@ Om du vill ändra `classify`-funktionen för att klassificera en bild baserat p�
 
 1. I mappen *Start* kör du följande kommando för att kopiera modell filen till mappen *klassificera* . Se till att inkludera `\*` i kommandot. 
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     cp ../resources/model/* classify
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\model\* classify
     ```
     
-    # <a name="cmdtabcmd"></a>[Kommandot](#tab/cmd)
+    # <a name="cmd"></a>[Kommandot](#tab/cmd)
     
     ```cmd
     copy ..\resources\model\* classify
@@ -182,19 +182,19 @@ Om du vill ändra `classify`-funktionen för att klassificera en bild baserat p�
 
 1. I mappen *Start* kör du följande kommando för att kopiera en fil med hjälp kod till mappen *klassificera* :
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     cp ../resources/predict.py classify
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\predict.py classify
     ```
     
-    # <a name="cmdtabcmd"></a>[Kommandot](#tab/cmd)
+    # <a name="cmd"></a>[Kommandot](#tab/cmd)
     
     ```cmd
     copy ..\resources\predict.py classify
@@ -266,19 +266,19 @@ Om du vill testa att anropa funktions slut punkten från en annan webbapp finns 
 
 1. Starta en HTTP-server med python:
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```bash 
     python -m http.server
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
     ```powershell
     py -m http.server
     ```
 
-    # <a name="cmdtabcmd"></a>[Kommandot](#tab/cmd)
+    # <a name="cmd"></a>[Kommandot](#tab/cmd)
 
     ```cmd
     py -m http.server

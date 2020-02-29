@@ -3,21 +3,21 @@ title: 'Snabb start: Konfigurera inloggning för en Skriv bords app'
 titleSuffix: Azure AD B2C
 description: I den här snabb starten kör du ett exempel på ett WPF Desktop-program som använder Azure Active Directory B2C för att tillhandahålla konto inloggning.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f36b705d590f34a79aefe14355f25f7639562d2a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ebed2f5e8664bd4336219f9387b8d27c8f3a1c59
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908980"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187346"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Snabbstart: Konfigurera inloggning för en skrivbordsapp med Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller moln identitets hante
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) med arbets belastningen **ASP.net och webb utveckling** .
 - Ett socialt konto från Facebook, Google eller Microsoft.
@@ -35,12 +35,12 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller moln identitets hante
     git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
     ```
 
-## <a name="run-the-application-in-visual-studio"></a>Kör programmet i Visual Studio
+## <a name="run-the-application-in-visual-studio"></a>Köra programmet i Visual Studio
 
 1. I exempelprogrammets projektmapp öppnar du lösningen **active-directory-b2c-wpf.sln** i Visual Studio.
 2. Tryck på **F5** för att felsöka programmet.
 
-## <a name="sign-in-using-your-account"></a>Logga in på ditt konto
+## <a name="sign-in-using-your-account"></a>Logga in med ditt konto
 
 1. Klicka på **Logga in** för att starta arbetsflödet **Registrera sig eller logga in**.
 
@@ -96,7 +96,7 @@ I den här snabb starten använde du ett exempel på ett Skriv bords program fö
 * Skapa ett Azure AD B2C konto
 * Anropa ett webb-API som skyddas av Azure AD B2C
 
-Kom igång med att skapa en egen Azure AD B2C-klientorganisation.
+Kom igång med att skapa en egen Azure AD B2C-klient.
 
 > [!div class="nextstepaction"]
 > [Skapa en Azure Active Directory B2C-klientorganisation i Azure-portalen](tutorial-create-tenant.md)

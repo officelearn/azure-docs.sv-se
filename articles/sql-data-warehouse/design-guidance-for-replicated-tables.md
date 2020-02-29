@@ -1,6 +1,6 @@
 ---
 title: Design vägledning för replikerade tabeller
-description: Rekommendationer för att utforma replikerade tabeller i Azure SQL Data Warehouse schemat. 
+description: Rekommendationer för att utforma replikerade tabeller i SQL Analytics
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,32 +10,32 @@ ms.subservice: development
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 18577cb729c9f17a112979cd1ebb763af38b9ca2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: ff141b0da0eb2fe68bbeccb7e39292a70b7305f0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693056"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194758"
 ---
-# <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Design Guide för att använda replikerade tabeller i Azure SQL Data Warehouse
-Den här artikeln innehåller rekommendationer för att utforma replikerade tabeller i SQL Data Warehouse schemat. Använd dessa rekommendationer för att förbättra prestandan för frågor genom att minska data flytt och fråga efter komplexitet.
+# <a name="design-guidance-for-using-replicated-tables-in-sql-analytics"></a>Design Guide för att använda replikerade tabeller i SQL Analytics
+Den här artikeln innehåller rekommendationer för att utforma replikerade tabeller i SQL Analytics-schemat. Använd dessa rekommendationer för att förbättra prestandan för frågor genom att minska data flytt och fråga efter komplexitet.
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Den här artikeln förutsätter att du är bekant med koncepten för data distribution och data förflyttning i SQL Data Warehouse.  Mer information finns i [arkitektur](massively-parallel-processing-mpp-architecture.md) artikeln. 
+## <a name="prerequisites"></a>Förutsättningar
+Den här artikeln förutsätter att du är bekant med koncepten för data distribution och data förflyttning i SQL Analytics.  Mer information finns i [arkitektur](massively-parallel-processing-mpp-architecture.md) artikeln. 
 
 Som en del av tabell designen förstår du så mycket som möjligt av dina data och hur data efter frågas.  Överväg till exempel följande frågor:
 
 - Hur stor är tabellen?   
 - Hur ofta uppdateras tabellen?   
-- Har jag fakta-och dimensions tabeller i ett informations lager?   
+- Har jag fakta-och dimensions tabeller i en SQL Analytics-databas?   
 
 ## <a name="what-is-a-replicated-table"></a>Vad är en replikerad tabell?
 En replikerad tabell innehåller en fullständig kopia av den tillgängliga tabellen på varje Compute-nod. Replikering av en tabell tar bort behovet av att överföra data mellan datornoder före en koppling eller agg regering. Eftersom tabellen har flera kopior fungerar replikerade tabeller bäst när tabell storleken är mindre än 2 GB komprimerad.  2 GB är inte en hård gräns.  Om data är statiska och inte ändras kan du replikera större tabeller.
 
-Följande diagram visar en replikerad tabell som är tillgänglig på varje Compute-nod. I SQL Data Warehouse kopieras den replikerade tabellen fullständigt till en distributions databas på varje Compute-nod. 
+Följande diagram visar en replikerad tabell som är tillgänglig på varje Compute-nod. I SQL Analytics kopieras den replikerade tabellen fullständigt till en distributions databas på varje Compute-nod. 
 
 ![Replikerad tabell](media/guidance-for-using-replicated-tables/replicated-table.png "Replikerad tabell")  
 
@@ -43,14 +43,14 @@ Replikerade tabeller fungerar bra för dimensions tabeller i ett stjärn schema.
 
 Överväg att använda en replikerad tabell när:
 
-- Tabell storleken på disken är mindre än 2 GB, oavsett antalet rader. Du kan använda [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) -kommandot för att hitta storleken på en tabell: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
-- Tabellen används i kopplingar som annars kräver data förflyttning. När du kopplar ihop tabeller som inte är distribuerade i samma kolumn, till exempel en hash-distribuerad tabell till en Round Robin-tabell, krävs data flytt för att slutföra frågan.  Om en av tabellerna är liten bör du tänka på en replikerad tabell. Vi rekommenderar att du använder replikerade tabeller i stället för Round-Robin-tabeller i de flesta fall. Använd [sys. DM _pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)om du vill visa data förflyttnings åtgärder i fråge planer.  BroadcastMoveOperation är den typiska data flytt åtgärden som kan elimineras med hjälp av en replikerad tabell.  
+- Tabell storleken på disken är mindre än 2 GB, oavsett antalet rader. Om du vill hitta storleken på en tabell kan du använda [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) kommandot: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
+- Tabellen används i kopplingar som annars kräver data förflyttning. När du kopplar ihop tabeller som inte är distribuerade i samma kolumn, till exempel en hash-distribuerad tabell till en Round Robin-tabell, krävs data flytt för att slutföra frågan.  Om en av tabellerna är liten bör du tänka på en replikerad tabell. Vi rekommenderar att du använder replikerade tabeller i stället för Round-Robin-tabeller i de flesta fall. Använd [sys. dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)om du vill visa åtgärder för data förflyttning i fråge planer.  BroadcastMoveOperation är den typiska data flytt åtgärden som kan elimineras med hjälp av en replikerad tabell.  
  
 Replikerade tabeller kanske inte ger bästa prestanda för frågor när:
 
 - Tabellen har ofta Infoga-, uppdaterings-och borttagnings åtgärder. Dessa åtgärder för data manipulations språk (DML) kräver en återskapning av den replikerade tabellen. Återskapande av ofta kan orsaka sämre prestanda.
-- Data lagret skalas ofta. Om du skalar ett informations lager ändras antalet datornoder, vilket innebär att den replikerade tabellen återskapas.
-- Tabellen har ett stort antal kolumner, men data åtgärder använder vanligt vis bara ett litet antal kolumner. I det här scenariot, i stället för att replikera hela tabellen, kan det vara mer effektivt att distribuera tabellen och sedan skapa ett index på kolumnerna som används ofta. När en fråga kräver data flytt, SQL Data Warehouse bara flyttar data för de begärda kolumnerna. 
+- SQL Analytics-databasen skalas ofta. Om du skalar en SQL Analytics-databas ändras antalet datornoder, vilket innebär att den replikerade tabellen återskapas.
+- Tabellen har ett stort antal kolumner, men data åtgärder använder vanligt vis bara ett litet antal kolumner. I det här scenariot, i stället för att replikera hela tabellen, kan det vara mer effektivt att distribuera tabellen och sedan skapa ett index på kolumnerna som används ofta. När en fråga kräver data förflyttning flyttar SQL Analytics endast data för de begärda kolumnerna. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Använda replikerade tabeller med enkla frågenoder
 Innan du väljer att distribuera eller replikera en tabell bör du tänka på vilka typer av frågor du planerar att köra mot tabellen. När det är möjligt
@@ -94,7 +94,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 ### <a name="query-performance-example-for-round-robin-versus-replicated"></a>Exempel på prestanda frågor för resursallokering med resursallokering och replikerad 
 
-En replikerad tabell kräver ingen data förflyttning för kopplingar eftersom hela tabellen redan finns på varje Compute-nod. Om dimensions tabellerna har distribuerats med resursallokering, kopierar en koppling dimensions tabellen i fullständig till varje Compute-nod. För att flytta data innehåller frågeuttrycket en åtgärd som kallas BroadcastMoveOperation. Den här typen av data förflyttnings åtgärd saktar ned frågans prestanda och elimineras genom att använda replikerade tabeller. Om du vill visa plan stegen för planen använder du system katalog visningen [sys. DM _pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) . 
+En replikerad tabell kräver ingen data förflyttning för kopplingar eftersom hela tabellen redan finns på varje Compute-nod. Om dimensions tabellerna har distribuerats med resursallokering, kopierar en koppling dimensions tabellen i fullständig till varje Compute-nod. För att flytta data innehåller frågeuttrycket en åtgärd som kallas BroadcastMoveOperation. Den här typen av data förflyttnings åtgärd saktar ned frågans prestanda och elimineras genom att använda replikerade tabeller. Om du vill visa plan stegen för planen använder du system katalog visningen [sys. dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) . 
 
 I följande fråga mot AdventureWorks-schemat är `FactInternetSales` tabellen hash-distribuerad. Tabellerna `DimDate` och `DimSalesTerritory` är mindre dimensions tabeller. Den här frågan returnerar den totala försäljningen i Nordamerika för räkenskapsår 2004:
 
@@ -118,11 +118,11 @@ Vi återskapade `DimDate` och `DimSalesTerritory` som replikerade tabeller och k
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Prestanda överväganden vid ändring av replikerade tabeller
-SQL Data Warehouse implementerar en replikerad tabell genom att underhålla en huvud version av tabellen. Den kopierar huvud versionen till en distributions databas på varje Compute-nod. När en ändring görs måste SQL Data Warehouse först uppdatera huvud tabellen. Sedan återaktiveras tabellerna på varje Compute-nod. En återskapning av en replikerad tabell omfattar att kopiera tabellen till varje Compute-nod och sedan skapa index.  Till exempel har en replikerad tabell på en DW400 fem kopior av data.  En huvud kopia och en fullständig kopia på varje Compute-nod.  Alla data lagras i distributions databaser. SQL Data Warehouse använder den här modellen för att stödja snabbare data ändrings instruktioner och flexibla skalnings åtgärder. 
+SQL Analytics implementerar en replikerad tabell genom att underhålla en huvud version av tabellen. Den kopierar huvud versionen till en distributions databas på varje Compute-nod. När det sker en ändring uppdaterar SQL Analytics huvud tabellen. Sedan återaktiveras tabellerna på varje Compute-nod. En återskapning av en replikerad tabell omfattar att kopiera tabellen till varje Compute-nod och sedan skapa index.  Till exempel har en replikerad tabell på en DW400 fem kopior av data.  En huvud kopia och en fullständig kopia på varje Compute-nod.  Alla data lagras i distributions databaser. SQL Analytics använder den här modellen för att stödja snabbare data ändrings instruktioner och flexibla skalnings åtgärder. 
 
 Återuppbyggnad krävs efter:
 - Data läses in eller ändras
-- Data lagret skalas till en annan nivå
+- SQL Analytics-instansen skalas till en annan nivå
 - Tabell definitionen har uppdaterats
 
 Återuppbyggnadar krävs inte efter:
@@ -132,7 +132,7 @@ SQL Data Warehouse implementerar en replikerad tabell genom att underhålla en h
 Återskapning sker inte omedelbart efter att data har ändrats. I stället utlöses omgenereringen första gången en fråga väljs från tabellen.  Frågan som utlöste återställnings läsningarna direkt från huvud versionen av tabellen medan data kopieras asynkront till varje Compute-nod. När data kopieringen är klar fortsätter de efterföljande frågorna att använda huvud versionen av tabellen.  Om en aktivitet sker mot den replikerade tabellen som tvingar fram en ny återskapning, är data kopian ogiltig och nästa SELECT-instruktion kommer att utlösa data som ska kopieras igen. 
 
 ### <a name="use-indexes-conservatively"></a>Använda index försiktigt
-Standard indexerings metoder gäller för replikerade tabeller. SQL Data Warehouse återkonstruerar varje replikerat tabell index som en del av återuppbyggnaden. Använd bara index när prestanda ökningen förväger kostnaden för att återskapa indexen.  
+Standard indexerings metoder gäller för replikerade tabeller. SQL Analytics återskapar varje replikerat tabell index som en del av återuppbyggnaden. Använd bara index när prestanda ökningen förväger kostnaden för att återskapa indexen.  
  
 ### <a name="batch-data-loads"></a>Inläsning av batch-data
 När du läser in data i replikerade tabeller kan du försöka minimera återställningarna genom att gruppera. Utför alla batch-inläsningar innan SELECT-instruktioner körs.
@@ -160,7 +160,7 @@ Till exempel läser det här inläsnings mönstret data från fyra källor, men 
 ### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>Återskapa en replikerad tabell efter en batch-inläsning
 För att säkerställa konsekvent körning av frågor, kan du överväga att tvinga fram skapandet av de replikerade tabellerna efter en batch-belastning. Annars kommer den första frågan fortfarande använda data förflyttning för att slutföra frågan. 
 
-Den här frågan använder [sys. PDW _replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV för att visa en lista över replikerade tabeller som har ändrats, men inte återskapas.
+Den här frågan använder [sys. pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV för att visa en lista över replikerade tabeller som har ändrats, men inte återskapas.
 
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
@@ -182,8 +182,8 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 ## <a name="next-steps"></a>Nästa steg 
 Använd någon av följande instruktioner för att skapa en replikerad tabell:
 
-- [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE som SELECT (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (SQL Analytics)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE som SELECT (SQL Analytics)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 En översikt över distribuerade tabeller finns i [distribuerade tabeller](sql-data-warehouse-tables-distribute.md).
 

@@ -3,20 +3,20 @@ title: Transformerings exempel för booleska anspråk för anpassade principer
 titleSuffix: Azure AD B2C
 description: Transformerings exempel för booleska anspråk för IEF-schemat (Identity Experience Framework) för Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/03/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 130fca4d5894316e7684270ff9d6361e9d9f9dd3
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 65f5b9bc09bb74ccbc63a457ba8e5681de8eefab
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620844"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189949"
 ---
 # <a name="boolean-claims-transformations"></a>Omvandlingar med booleska anspråk
 
@@ -116,7 +116,7 @@ Den självkontrollerade tekniska profilen anropar verifierings **inloggningen-in
 
 ## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
 
-Kontrollerar att booleskt värde för ett anspråk är lika med `true` eller `false`och returnerar resultatet av komprimeringen. 
+Kontrollerar att booleskt värde för ett anspråk är lika med `true` eller `false`och returnerar resultatet av komprimeringen.
 
 | Objekt | TransformationClaimType  | Datatyp  | Anteckningar |
 | ---- | ------------------------ | ---------- | ----- |
@@ -148,7 +148,7 @@ Följande anspråks omvandling visar hur du kontrollerar värdet för en boolesk
 - Indataparametrar:
     - **valueToCompareTo**: sant
 - Utgående anspråk:
-    - **compareResult**: falskt 
+    - **compareResult**: falskt
 
 
 

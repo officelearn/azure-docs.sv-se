@@ -1,6 +1,6 @@
 ---
 title: Indexerings tabeller
-description: Rekommendationer och exempel för indexerings tabeller i Azure SQL Data Warehouse.
+description: Rekommendationer och exempel för indexering av tabeller i SQL Analytics.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,27 +10,27 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 079891824bf71caf1ebfa575833de650a55ed5be
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 5167c897109f9e4f050ac6f7416ecabbbb28a4a9
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685449"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196613"
 ---
-# <a name="indexing-tables-in-sql-data-warehouse"></a>Indexera tabeller i SQL Data Warehouse
+# <a name="indexing-tables-in-sql-analytics"></a>Indexera tabeller i SQL Analytics
 
-Rekommendationer och exempel för indexerings tabeller i Azure SQL Data Warehouse.
+Rekommendationer och exempel för indexering av tabeller i SQL Analytics.
 
 ## <a name="index-types"></a>Indextyper
 
-SQL Data Warehouse erbjuder flera indexerings alternativ, inklusive [grupperade columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-overview), [grupperade index och icke-grupperade index](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)och ett icke-index-alternativ som också kallas [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
+SQL Analytics erbjuder flera indexerings alternativ, inklusive [grupperade columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-overview), [grupperade index och icke-grupperade index](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)och ett icke-index-alternativ som också kallas [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
 
-Information om hur du skapar en tabell med ett index finns i dokumentationen för [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) .
+Information om hur du skapar en tabell med ett index finns i dokumentationen för [CREATE TABLE (SQL Analytics)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) .
 
 ## <a name="clustered-columnstore-indexes"></a>Grupperade columnstore-index
 
-Som standard skapar SQL Data Warehouse ett grupperat columnstore-index när inga index alternativ anges för en tabell. Grupperade columnstore-tabeller ger både den högsta nivån av data komprimering och bästa övergripande prestanda för frågor.  Grupperade columnstore-tabeller avsevärt vanligt vis grupperade index eller heap-tabeller och är vanligt vis det bästa valet för stora tabeller.  Därför är grupperat columnstore det bästa sättet att starta när du är osäker på hur du kan indexera tabellen.  
+Som standard skapar SQL Analytics ett grupperat columnstore-index när inga index alternativ anges för en tabell. Grupperade columnstore-tabeller ger både den högsta nivån av data komprimering och bästa övergripande prestanda för frågor.  Grupperade columnstore-tabeller avsevärt vanligt vis grupperade index eller heap-tabeller och är vanligt vis det bästa valet för stora tabeller.  Därför är grupperat columnstore det bästa sättet att starta när du är osäker på hur du kan indexera tabellen.  
 
 Om du vill skapa en grupperad columnstore-tabell ska du helt enkelt ange ett GRUPPERat COLUMNSTORE-INDEX i WITH-satsen eller lämna WITH-satsen avstängd:
 
@@ -52,7 +52,7 @@ Det finns några scenarier där grupperat columnstore inte kan vara ett lämplig
 
 ## <a name="heap-tables"></a>Heap-tabeller
 
-När du tillfälligt ställer in data i SQL Data Warehouse kanske du upptäcker att du använder en heap-tabell för att göra den övergripande processen snabbare. Detta beror på att belastningar till heaps är snabbare än att indexera tabeller och i vissa fall kan den efterföljande läsningen göras från cachen.  Om du bara läser in data för att mellanlagra dem innan du kör fler transformationer går det mycket snabbare att läsa in tabellen till heap-tabellen än att läsa in data till en grupperad columnstore-tabell. Dessutom går det snabbare att läsa in data till en [temporär tabell](sql-data-warehouse-tables-temporary.md) än att läsa in en tabell till permanent lagring.  
+När du tillfälligt anropar data i SQL Analytics kan du se att det går att använda en heap-tabell för att göra den övergripande processen snabbare. Detta beror på att belastningar till heaps är snabbare än att indexera tabeller och i vissa fall kan den efterföljande läsningen göras från cachen.  Om du bara läser in data för att mellanlagra dem innan du kör fler transformationer går det mycket snabbare att läsa in tabellen till heap-tabellen än att läsa in data till en grupperad columnstore-tabell. Dessutom går det snabbare att läsa in data till en [temporär tabell](sql-data-warehouse-tables-temporary.md) än att läsa in en tabell till permanent lagring.  
 
 För små uppslags tabeller är färre än 60 000 000 rader, och det är ofta heap-tabeller som är begripliga.  Kluster columnstore-tabeller börjar uppnå optimal komprimering när det finns fler än 60 000 000 rader.
 
@@ -190,7 +190,7 @@ Dessa faktorer kan orsaka ett columnstore-index som är betydligt mindre än de 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Minnes belastning när index har skapats
 
-Antalet rader per komprimerad radgrupp är direkt relaterat till radens bredd och mängden minne som är tillgängligt för bearbetning av rad gruppen.  När rader skrivs till columnstore-tabeller när minnet är hårt belastat, kan columnstore-segmentens kvalitet påverkas.  Därför är det bästa sättet att ge sessionen som skriver till dina columnstore-index-tabeller åtkomst till så mycket minne som möjligt.  Eftersom det finns en kompromiss mellan minne och samtidighet beror rikt linjerna för den rätt minnesallokering på data i varje rad i tabellen, de data lager enheter som allokeras till systemet och antalet samtidiga platser som du kan ge till sessionen som skriver data till tabellen.
+Antalet rader per komprimerad radgrupp är direkt relaterat till radens bredd och mängden minne som är tillgängligt för bearbetning av rad gruppen.  När rader skrivs till columnstore-tabeller när minnet är hårt belastat, kan columnstore-segmentens kvalitet påverkas.  Därför är det bästa sättet att ge sessionen som skriver till dina columnstore-index-tabeller åtkomst till så mycket minne som möjligt.  Eftersom det finns en kompromiss mellan minne och samtidighet beror rikt linjerna för den rätt minnesallokering på data i varje rad i tabellen, de SQL Analytics-enheter som allokeras till systemet och antalet samtidiga platser som du kan ge till sessionen som är skriver data till tabellen.
 
 ### <a name="high-volume-of-dml-operations"></a>Hög mängd DML-åtgärder
 
@@ -204,13 +204,13 @@ Batch-uppdatering och infognings åtgärder som överskrider Mass tröskelvärde
 
 ### <a name="small-or-trickle-load-operations"></a>Små eller trickle inläsnings åtgärder
 
-Små belastningar som flödar till SQL Data Warehouse är ibland även kallade trickle-belastningar. De representerar vanligt vis en nära konstant data ström som matas in av systemet. Men eftersom den här data strömmen är nära kontinuerlig, är volymen av rader inte särskilt stor. Oftare än att data är betydligt under tröskelvärdet som krävs för direkt inläsning till columnstore-format.
+Små belastningar som flödar till SQL Analytics-databaser kallas ibland även trickle-belastningar. De representerar vanligt vis en nära konstant data ström som matas in av systemet. Men eftersom den här data strömmen är nära kontinuerlig, är volymen av rader inte särskilt stor. Oftare än att data är betydligt under tröskelvärdet som krävs för direkt inläsning till columnstore-format.
 
 I dessa fall är det ofta bättre att fylla i data först i Azure Blob Storage och låta dem ackumuleras innan de läses in. Den här tekniken kallas ofta för *Micro batching*.
 
 ### <a name="too-many-partitions"></a>För många partitioner
 
-En annan sak att överväga är effekten av partitionering i dina grupperade columnstore-tabeller.  Före partitionering delar SQL Data Warehouse redan dina data i 60-databaser.  Om du partitionerar ytterligare delas dina data upp.  Om du partitionerar dina data måste du ta hänsyn till att **varje** partition behöver minst 1 000 000 rader för att dra nytta av ett grupperat columnstore-index.  Om du partitionerar din tabell i 100 partitioner behöver din tabell minst 6 000 000 000 rader för att dra nytta av ett grupperat columnstore-index (60-distributioner *100 partitioner* 1 000 000 rader). Om din 100-partitionstabell inte har 6 000 000 000-rader kan du antingen minska antalet partitioner eller överväga att använda en heap-tabell i stället.
+En annan sak att överväga är effekten av partitionering i dina grupperade columnstore-tabeller.  Före partitionering delar SQL Analytics redan dina data i 60-databaser.  Om du partitionerar ytterligare delas dina data upp.  Om du partitionerar dina data måste du ta hänsyn till att **varje** partition behöver minst 1 000 000 rader för att dra nytta av ett grupperat columnstore-index.  Om du partitionerar din tabell i 100 partitioner behöver din tabell minst 6 000 000 000 rader för att dra nytta av ett grupperat columnstore-index (60-distributioner *100 partitioner* 1 000 000 rader). Om din 100-partitionstabell inte har 6 000 000 000-rader kan du antingen minska antalet partitioner eller överväga att använda en heap-tabell i stället.
 
 När dina tabeller har lästs in med vissa data följer du stegen nedan för att identifiera och återskapa tabeller med under optimalt grupperade columnstore-index.
 
@@ -252,7 +252,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Att återskapa ett index i SQL Data Warehouse är en offline-åtgärd.  Mer information om hur du återskapar index finns i avsnittet ALTER INDEX Rebuild i [columnstore-index defragmentering](/sql/relational-databases/indexes/columnstore-indexes-defragmentation)och [ändra index](/sql/t-sql/statements/alter-index-transact-sql).
+Att återskapa ett index i SQL Analytics är en offline-åtgärd.  Mer information om hur du återskapar index finns i avsnittet ALTER INDEX Rebuild i [columnstore-index defragmentering](/sql/relational-databases/indexes/columnstore-indexes-defragmentation)och [ändra index](/sql/t-sql/statements/alter-index-transact-sql).
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Steg 3: kontrol lera att den klustrade columnstore-segmentets kvalitet har förbättrats
 
@@ -283,7 +283,7 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
-Mer information om att skapa partitioner på nytt med hjälp av CTAS finns [i använda partitioner i SQL Data Warehouse](sql-data-warehouse-tables-partition.md).
+Mer information om att skapa partitioner på nytt med hjälp av CTAS finns i [använda partitioner i SQL Analytics](sql-data-warehouse-tables-partition.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

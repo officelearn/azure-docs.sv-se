@@ -3,20 +3,20 @@ title: Konfigurera krav för lösen ords komplexitet
 titleSuffix: Azure AD B2C
 description: Hur du konfigurerar komplexitets kraven för lösen ord som tillhandahålls av användare i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6e629f3c83d847cf20eccbe7a3fb0d3f444dac62
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: c5ef550af0c7e19531ea19093ea937880f7dcf14
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77430337"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185649"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Konfigurera komplexitets krav för lösen ord i Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Om du använder anpassade principer kan du ([Konfigurera lösen ords komplexitet
 
 ## <a name="configure-password-complexity"></a>Konfigurera lösen ords komplexitet
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 3. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 4. Välj **användar flöden (principer)** .

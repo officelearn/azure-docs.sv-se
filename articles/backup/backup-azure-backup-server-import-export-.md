@@ -1,54 +1,54 @@
 ---
 title: Offlinesäkerhetskopiering för DPM och Azure Backup Server
-description: Med Azure Backup kan du skicka data från nätverket med tjänsten Azure import/export. I den här artikeln beskrivs arbets flödet offline-säkerhetskopiering för DPM och Azure Backup Server (MABS).
+description: Med Azure Backup kan du skicka data från nätverket med Azure import/export-tjänsten. I den här artikeln beskrivs arbets flödet offline-säkerhetskopiering för DPM och Azure Backup Server.
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 6be75062ab0ce06784d8cd7c833e0070476acf60
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 080b0bc53b2058bd186e90f354b8f5bcda510414
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022587"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197100"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server
 
 Azure Backup har flera inbyggda effektivitets vinster som sparar kostnader för nätverk och lagring under de första fullständiga säkerhets kopieringarna av data till Azure. De första fullständiga säkerhets kopieringarna överför ofta stora mängder data och kräver mer nätverks bandbredd jämfört med efterföljande säkerhets kopieringar som bara överför delta/steg. Azure Backup komprimerar de första säkerhets kopiorna. Genom processen för dirigering av dirigering kan Azure Backup använda diskar för att ladda upp komprimerade första säkerhets kopierings data offline till Azure.
 
-Offline-seeding-processen för Azure Backup är nära integrerad med [Azure import/export-tjänsten](../storage/common/storage-import-export-service.md) som gör att du kan överföra data till Azure med hjälp av diskar. Om du har terabyte (TBs) av inledande säkerhets kopierings data som behöver överföras via ett nätverk med hög latens och låg bandbredd, kan du använda arbets flödet offline-seeding för att leverera den första säkerhets kopian på en eller flera hård diskar till ett Azure-datacenter. Den här artikeln innehåller en översikt och ytterligare information om hur du slutför det här arbets flödet för System Center DPM och Azure Backup Server.
+Offline-seeding-processen för Azure Backup är nära integrerad med [Azure import/export-tjänsten](../storage/common/storage-import-export-service.md). Du kan använda den här tjänsten för att överföra data till Azure med hjälp av diskar. Om du har terabyte (TBs) av inledande säkerhets kopierings data som behöver överföras via ett nätverk med hög latens och låg bandbredd, kan du använda arbets flödet offline-seeding för att leverera den första säkerhets kopian på en eller flera hård diskar till ett Azure-datacenter. Den här artikeln innehåller en översikt och ytterligare steg som slutför det här arbets flödet för System Center Data Protection Manager (DPM) och Microsoft Azure Backup Server (MABS).
 
 > [!NOTE]
-> Processen för säkerhets kopiering offline för Microsoft Azure Recovery Services (MARS)-agenten skiljer sig från System Center DPM och Azure Backup Server. Information om hur du använder offline-säkerhetskopiering med MARS-agenten finns i [den här artikeln](backup-azure-backup-import-export.md). Säkerhets kopiering offline stöds inte för säkerhets kopiering av system tillstånd som gjorts med Azure Backup-agenten.
+> Processen för säkerhets kopiering offline för Microsoft Azure Recovery Services (MARS) Agent skiljer sig från DPM och MABS. Information om hur du använder säkerhets kopiering offline med MARS-agenten finns i [arbets flöde för offline-säkerhetskopiering i Azure Backup](backup-azure-backup-import-export.md). Offline-säkerhetskopiering stöds inte för säkerhets kopiering av system tillstånd som gjorts med hjälp av Azure Backup agenten.
 >
 
 ## <a name="overview"></a>Översikt
 
-Med funktionen offline-seeding i Azure Backup och Azure import/export är det enkelt att ladda upp data offline till Azure med hjälp av diskar. Säkerhets kopierings processen offline omfattar följande steg:
+Med funktionen offline-seeding i Azure Backup och tjänsten Azure import/export är det enkelt att ladda upp data offline till Azure med hjälp av diskar. Säkerhets kopierings processen offline omfattar följande steg:
 
 > [!div class="checklist"]
 >
-> * Säkerhetskopierade data, i stället för att skickas över nätverket, skrivs till en *mellanlagringsplats*
-> * Data på *mellanlagringsplatsen* skrivs sedan till en eller flera SATA-diskar med *AzureOfflineBackupDiskPrep* -verktyget
-> * Ett Azure import-jobb skapas automatiskt av verktyget
-> * SATA-enheterna skickas sedan till närmaste Azure-datacenter
+> * Säkerhetskopierade data skrivs till en mellanlagringsplats i stället för att skickas över nätverket.
+> * Data på mellanlagringsplatsen skrivs sedan till en eller flera SATA-diskar med hjälp av *AzureOfflineBackupDiskPrep* -verktyget.
+> * Ett Azure import-jobb skapas automatiskt av verktyget.
+> * SATA-enheterna skickas sedan till närmaste Azure-datacenter.
 > * När överföringen av säkerhets kopierings data till Azure är färdig Azure Backup kopierar säkerhetskopierade data till säkerhets kopierings valvet och de stegvisa säkerhets kopiorna schemaläggs.
 
 ## <a name="supported-configurations"></a>Konfigurationer som stöds
 
-Offline-säkerhetskopiering stöds för alla distributions modeller av Azure Backup att externt säkerhetskopiera data från lokala platser till Microsoft Cloud. Detta inkluderar
+Offline-säkerhetskopiering stöds för alla distributions modeller av Azure Backup som säkerhetskopierar data från lokala nätverk till Microsoft-molnet. Dessa modeller är:
 
 > [!div class="checklist"]
 >
-> * Säkerhets kopiering av filer och mappar med Microsoft Azure Recovery Services MARS-agenten eller Azure Backup agenten.
-> * Säkerhets kopiering av alla arbets belastningar och filer med System Center Data Protection Manager (SC DPM)
-> * Säkerhets kopiering av alla arbets belastningar och filer med Microsoft Azure Backup Server
+> * Säkerhets kopiering av filer och mappar med MARS-agenten eller Azure Backup-agenten.
+> * Säkerhets kopiering av alla arbets belastningar och filer med DPM.
+> * Säkerhets kopiering av alla arbets belastningar och filer med MABS.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Kontrol lera att följande krav är uppfyllda innan du initierar arbets flödet offline-säkerhetskopiering
+Kontrol lera att följande krav är uppfyllda innan du startar arbets flödet offline-säkerhetskopiering:
 
-* Ett [Recovery Services-valv](backup-azure-recovery-services-vault-overview.md) har skapats. Se stegen i [den här artikeln](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault) för att skapa en.
-* Azure Backup Agent eller Azure Backup Server eller SC DPM har installerats på antingen Windows Server/Windows-klienten, så som det är tillämpligt och datorn har registrerats med Recovery Services-valvet. Se till att endast den [senaste versionen av Azure Backup](https://go.microsoft.com/fwlink/?linkid=229525) används.
+* Ett [Recovery Services-valv](backup-azure-recovery-services-vault-overview.md) har skapats. Följ stegen i [skapa ett Recovery Services-valv](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault) för att skapa en.
+* En Azure Backup-Agent eller MABS eller DPM har installerats på antingen Windows Server eller en Windows-klient, efter vad som är tillämpligt och datorn har registrerats med Recovery Services-valvet. Se till att endast den [senaste versionen av Azure Backup](https://go.microsoft.com/fwlink/?linkid=229525) används.
 * [Hämta filen Azure Publish Settings](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) på den dator som du planerar att säkerhetskopiera dina data från. Den prenumeration som du hämtar publicerings inställnings filen från kan skilja sig från den prenumeration som innehåller Recovery Services valvet. Om din prenumeration är på suveräna Azure-moln kan du använda följande länkar för att ladda ned filen med Azures publicerings inställningar.
 
     | Region för suveräna moln | Fil länk för Azure Publish-inställningar |
@@ -56,18 +56,18 @@ Kontrol lera att följande krav är uppfyllda innan du initierar arbets flödet 
     | USA | [Länk](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | Kina | [Länk](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* Ett Azure Storage konto med distributions modellen *Resource Manager* har skapats i den prenumeration som du laddade ned filen med publicerings inställningar för:
+* Ett Azure Storage-konto med distributions modellen Resource Manager har skapats i den prenumeration som du laddade ned filen med publicerings inställningar för.
 
   ![Skapa ett lagrings konto med Resource Manager-utveckling](./media/backup-azure-backup-import-export/storage-account-resource-manager.png)
 
-* En mellanlagringsplats, som kan vara en nätverks resurs eller ytterligare en enhet på datorn, intern eller extern, med tillräckligt disk utrymme för att lagra din ursprungliga kopia skapas. Om du till exempel försöker säkerhetskopiera en fil server på 500 GB måste du kontrol lera att mellanlagringsområdet är minst 500 GB. (En mindre mängd används på grund av komprimering.)
-* För diskar som ska skickas till Azure ser du till att endast 2,5-tums SSD, eller 2,5-tums eller 3,5-tums interna hård diskar används. Du kan använda hård diskar upp till 10 TB. Läs [dokumentationen för Azure import/export-tjänsten](../storage/common/storage-import-export-requirements.md#supported-hardware) för den senaste uppsättningen enheter som stöds av tjänsten.
-* SATA-enheterna måste vara anslutna till en dator (kallas *kopierings dator*) från den plats där kopian av säkerhets kopierings data från *mellanlagringsplatsen* till SATA-enheterna görs. Kontrol lera att BitLocker är aktiverat på *kopierings datorn*
+* En mellanlagringsplats, som kan vara en nätverks resurs eller ytterligare en enhet på datorn, intern eller extern, med tillräckligt disk utrymme för att lagra din ursprungliga kopia skapas. Om du till exempel vill säkerhetskopiera en fil server med 500 GB kontrollerar du att mellanlagringsområdet är minst 500 GB. (En mindre mängd används på grund av komprimering.)
+* För diskar som har skickats till Azure, se till att endast 2,5-tums SSD-eller 2,5-tums eller 3,5-tums inbyggda SATA II/III-hårddiskar används. Du kan använda hård diskar upp till 10 TB. Läs [dokumentationen för Azure import/export-tjänsten](../storage/common/storage-import-export-requirements.md#supported-hardware) för den senaste uppsättningen enheter som stöds av tjänsten.
+* SATA-enheterna måste vara anslutna till en dator (kallas *kopierings dator*) från den plats där kopian av säkerhets kopierings data från mellanlagringsplatsen till SATA-enheterna görs. Se till att BitLocker är aktiverat på kopierings datorn.
 
 ## <a name="prepare-the-server-for-the-offline-backup-process"></a>Förbered servern för säkerhets kopiering av offline-process
 
 >[!NOTE]
-> Om du inte hittar de verktyg som visas som *AzureOfflineBackupCertGen. exe* i installationen av mars-agenten skriver du till AskAzureBackupTeam@microsoft.com för att få åtkomst till dem.
+> Om du inte hittar de listade verktygen, till exempel *AzureOfflineBackupCertGen. exe*, i din installation av mars-agenten skriver du till AskAzureBackupTeam@microsoft.com för att få åtkomst till dem.
 
 * Öppna en kommando tolk med förhöjd behörighet på servern och kör följande kommando:
 
@@ -75,12 +75,12 @@ Kontrol lera att följande krav är uppfyllda innan du initierar arbets flödet 
     AzureOfflineBackupCertGen.exe CreateNewApplication SubscriptionId:<Subs ID>
     ```
 
-    Verktyget skapar en Azure offline backup AD-applikation om det inte finns något.
+    Verktyget skapar en Azure offline-säkerhetskopiering Active Directory program om det inte finns något.
 
-    Om det redan finns ett program kommer den här körbara filen att be dig att ladda upp certifikatet manuellt till programmet i klient organisationen. Följ stegen nedan i [det här avsnittet](#manually-upload-offline-backup-certificate) för att ladda upp certifikatet manuellt till programmet.
+    Om det redan finns ett program, ber den här körbara filen dig att ladda upp certifikatet manuellt till programmet i klient organisationen. Följ stegen i [det här avsnittet](#manually-upload-an-offline-backup-certificate) för att ladda upp certifikatet manuellt till programmet.
 
-* Verktyget AzureOfflineBackup. exe kommer att generera en OfflineApplicationParams. XML-fil.  Kopiera den här filen till servern med MABS eller DPM.
-* Installera den [senaste mars-agenten](https://aka.ms/azurebackup_agent) på DPM/Azure Backup-servern (Mabs).
+* Verktyget *AzureOfflineBackup. exe* genererar en *OfflineApplicationParams. XML-* fil. Kopiera den här filen till servern med MABS eller DPM.
+* Installera den [senaste mars-agenten](https://aka.ms/azurebackup_agent) på DPM-instansen eller Azure Backup servern.
 * Registrera servern på Azure.
 * Kör följande kommando:
 
@@ -88,74 +88,76 @@ Kontrol lera att följande krav är uppfyllda innan du initierar arbets flödet 
     AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname configured with Azure Data Box>
     ```
 
-* Kommandot ovan skapar filen `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch\MicrosoftBackupProvider\OfflineApplicationParams_<Storageaccountname>.xml`
+* Föregående kommando skapar filen `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch\MicrosoftBackupProvider\OfflineApplicationParams_<Storageaccountname>.xml`.
 
-## <a name="manually-upload-offline-backup-certificate"></a>Ladda upp offline backup-certifikat manuellt
+## <a name="manually-upload-an-offline-backup-certificate"></a>Ladda upp ett offline-certifikat för säkerhets kopiering manuellt
 
-Följ stegen nedan om du vill ladda upp offline backup-certifikatet manuellt till ett tidigare skapat Azure Active Directory program som är avsett för säkerhets kopiering offline.
+Följ dessa steg om du vill ladda upp offline backup-certifikatet manuellt till ett tidigare skapat Azure Active Directory program som är avsett för offline-säkerhetskopiering.
 
 1. Logga in på Azure Portal.
-2. Gå till **Azure Active Directory** > **Appregistreringar**
-3. Gå till fliken **ägda program** och leta upp ett program med visnings namns formatet `AzureOfflineBackup _<Azure User Id` som det visas nedan:
+1. Gå till **Azure Active Directory** > **Appregistreringar**.
+1. Leta upp ett program med formatet visnings namn `AzureOfflineBackup _<Azure User Id`på fliken **ägda program** .
 
     ![Fliken hitta program på ägda program](./media/backup-azure-backup-import-export/owned-applications.png)
 
-4. Klicka på programmet. Under fliken **Hantera** i den vänstra rutan går du till **certifikat & hemligheter**.
-5. Sök efter befintliga certifikat eller offentliga nycklar. Om det inte finns någon kan du ta bort programmet genom att klicka på knappen **ta bort** på programmets **översikts** sida. Därefter kan du göra om stegen för att [förbereda servern för säkerhets kopierings processen offline](#prepare-the-server-for-the-offline-backup-process) och hoppa över stegen nedan. Annars kör du följande steg från DPM/Azure Backup Server-servern (MABS) där du vill konfigurera säkerhets kopiering offline.
-6. Öppna fliken **Hantera dator certifikats program** > **personliga** och leta efter certifikatet med namnet `CB_AzureADCertforOfflineSeeding_<ResourceId>`
-7. Välj certifikatet ovan, högerklicka på **alla aktiviteter** och **Exportera**, utan privat nyckel, i. cer-format.
-8. Gå till Azure offline Backup-programmet i Azure Portal.
-9. Klicka på **hantera** > **certifikat & hemligheter** > **Ladda upp certifikat**och ladda upp det exporterade certifikatet i föregående steg.
+1. Välj programmet. Under **Hantera** i det vänstra fönstret, går du till **certifikat & hemligheter**.
+1. Sök efter befintliga certifikat eller offentliga nycklar. Om det inte finns någon, kan du ta bort programmet genom att välja knappen **ta bort** på programmets **översikts** sida. Sedan kan du göra om stegen för att [förbereda servern för säkerhets kopierings processen offline](#prepare-the-server-for-the-offline-backup-process) och hoppa över följande steg. Annars fortsätter du att följa de här stegen från DPM-instansen eller Azure Backup server där du vill konfigurera säkerhets kopiering offline.
+1. Välj fliken **Hantera dator certifikat program** > **personliga** . Sök efter certifikatet med namnet `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
+1. Välj certifikatet, högerklicka på **alla uppgifter**och välj sedan **Exportera**, utan privat nyckel, i. cer-format.
+1. Gå till Azure offline Backup-programmet i Azure Portal.
+1. Välj **hantera** > **certifikat & hemligheter** > **Ladda upp certifikat**. Överför certifikatet som exporterades i föregående steg.
 
     ![Ladda upp certifikatet](./media/backup-azure-backup-import-export/upload-certificate.png)
-10. På-servern öppnar du registret genom att skriva **regedit** i körnings fönstret.
-11. Gå till register posten *dator \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider*.
-12. Högerklicka på **CloudBackupProvider** och Lägg till ett nytt sträng värde med namnet `AzureADAppCertThumbprint_<Azure User Id>`
+
+1. På-servern öppnar du registret genom att skriva in **regedit** i körnings fönstret.
+1. Gå till register posten *dator \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider*.
+1. Högerklicka på **CloudBackupProvider**och Lägg till ett nytt sträng värde med namnet `AzureADAppCertThumbprint_<Azure User Id>`.
 
     >[!NOTE]
-    > Obs! gör något av följande för att hitta användar-ID: t för Azure:
+    > Gör något av följande för att hitta användar-ID: t för Azure:
     >
-    >1. Kör kommandot `Get-AzureRmADUser -UserPrincipalName “Account Holder’s email as appears in the portal”` från Azure Connected PowerShell.
-    >2. Navigera till register Sök vägen: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;`
+    >* Kör kommandot `Get-AzureRmADUser -UserPrincipalName “Account Holder’s email as appears in the portal”` från Azure-ansluten PowerShell.
+    >* Gå till register Sök vägen `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;`.
 
-13. Högerklicka på den sträng som lades till i föregående steg och välj **ändra**. I värdet anger du tumavtrycket för det certifikat som du exporterade i steg 7 och klickar på **OK**.
-14. För att hämta värdet för tumavtrycket, dubbelklicka på certifikatet, Välj fliken **information** och rulla nedåt tills du ser fältet tumavtryck. Klicka på **tumavtryck** och kopiera värdet.
+1. Högerklicka på den sträng som du lade till i föregående steg och välj **ändra**. I värdet anger du tumavtrycket för det certifikat som du exporterade i steg 7. Välj sedan **OK**.
+1. Om du vill hämta värdet för tumavtrycket dubbelklickar du på certifikatet. Välj fliken **information** och rulla nedåt tills du ser fältet tumavtryck. Välj **tumavtryck**och kopiera värdet.
 
     ![Kopiera värde från fältet tumavtryck](./media/backup-azure-backup-import-export/thumbprint-field.png)
 
-15. Fortsätt till [arbets flödes](#workflow) avsnittet om du vill fortsätta med säkerhets kopierings processen offline.
+1. Fortsätt till [arbets flödes](#workflow) avsnittet om du vill fortsätta med säkerhets kopierings processen offline.
 
 ## <a name="workflow"></a>Arbetsflöde
 
-Informationen i det här avsnittet hjälper dig att slutföra arbets flödet för offline-säkerhetskopiering så att dina data kan skickas till ett Azure-datacenter och laddas upp till Azure Storage. Om du har frågor om import tjänsten eller någon del av processen går du till [översikts dokumentationen för import tjänsten](../storage/common/storage-import-export-service.md) som refereras tidigare.
+Informationen i det här avsnittet hjälper dig att slutföra arbets flödet offline-säkerhetskopiering så att dina data kan skickas till ett Azure-datacenter och laddas upp till Azure Storage. Om du har frågor om import tjänsten eller någon del av processen går du till [översikts dokumentationen för import tjänsten](../storage/common/storage-import-export-service.md) som refereras tidigare.
 
 ### <a name="initiate-offline-backup"></a>Starta säkerhets kopiering offline
 
-1. När du schemalägger en säkerhets kopia visas följande skärm (i Windows Server, Windows-klient eller System Center Data Protection Manager).
+1. När du schemalägger en säkerhets kopia ser du följande sida i Windows Server, en Windows-klient eller DPM.
 
     ![Sidan importera](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
 
-    Här är motsvarande skärm i System Center Data Protection Manager: <br/>
-    ![SC DPM och Azure Backup Server import](./media/backup-azure-backup-import-export/dpmoffline.png)
+    Här är motsvarande sida i DPM. <br/>
+    
+    ![Sidan importera DPM och Azure Backup Server](./media/backup-azure-backup-import-export/dpmoffline.png)
 
-    Beskrivningen av indata är följande:
+    De rutor som du fyller i är:
 
-   * **Mellanlagringsplats**: den tillfälliga lagrings plats som den första säkerhets kopian skrivs till. Mellanlagrings platsen kan vara en nätverks resurs eller en lokal dator. Om kopierings datorn och käll datorn skiljer sig åt rekommenderar vi att du anger den fullständiga nätverks Sök vägen för mellanlagringsplatsen.
-   * **Namn på Azure import-jobb**: det unika namnet som Azure import service och Azure Backup spåra överföringen av data som skickas på diskar till Azure.
-   * **Publicerings inställningar för Azure**: Ange den lokala sökvägen till filen med publicerings inställningar.
+   * **Mellanlagringsplats**: den tillfälliga lagrings plats som den första säkerhets kopian skrivs till. Mellanlagrings platsen kan vara en nätverks resurs eller en lokal dator. Om kopierings datorn och käll datorn skiljer sig anger du sökvägen till den fullständiga nätverks platsen för mellanlagringsplatsen.
+   * **Publicerings inställningar för Azure**: den lokala sökvägen till filen med publicerings inställningar.
+   * **Azure-importens jobbnamn**: det unika namn som Azures import-/export tjänst och Azure Backup spåra överföringen av data som skickas på diskar till Azure.
    * **ID för Azure-prenumeration**: ID för Azure-prenumerationen för prenumerationen från varifrån du laddade ned filen för Azure Publish-inställningar.
    * **Azure Storage konto**: namnet på det lagrings konto i Azure-prenumerationen som är associerat med Azure Publish Settings-filen.
    * **Azure Storage behållare**: namnet på mål lagrings-bloben i Azure Storage-kontot där säkerhetskopierade data importeras.
 
-     Spara *mellanlagringsplatsen* och det *Azure import Job-namn* som du angav som det krävs för att förbereda diskarna.  
+   Spara **mellanlagringsplatsen** och namn informationen för **Azure import-jobbet** som du har angett. Det krävs att du förbereder diskarna.
 
-2. Slutför arbets flödet och starta säkerhets kopieringen offline genom att klicka på **Säkerhetskopiera nu** i Azure Backup Agent hanterings konsol. Den första säkerhets kopian skrivs till mellanlagringsområdet som en del av det här steget.
+1. Slutför arbets flödet. Om du vill starta säkerhets kopiering offline väljer du **Säkerhetskopiera nu** på Azure Backup Agent hanterings konsol. Den första säkerhets kopian skrivs till mellanlagringsområdet som en del av det här steget.
 
     ![Säkerhetskopiera nu](./media/backup-azure-backup-import-export/backupnow.png)
 
-    För att slutföra motsvarande arbets flöde i System Center Data Protection Manager eller Azure Backup Server, högerklickar du på **skydds gruppen**och väljer sedan alternativet för att **skapa återställnings punkt** . Sedan väljer du alternativet **onlineskydd** .
+    Slutför motsvarande arbets flöde i DPM eller Azure Backup Server genom att högerklicka på **skydds gruppen**. Välj alternativet för att **skapa återställnings punkt** . Välj sedan alternativet **onlineskydd** .
 
-    ![SC DPM och Azure Backup Server Säkerhetskopiera nu](./media/backup-azure-backup-import-export/dpmbackupnow.png)
+    ![DPM och MABS Säkerhetskopiera nu](./media/backup-azure-backup-import-export/dpmbackupnow.png)
 
     När åtgärden har slutförts är mellanlagringsplatsen redo att användas för disk förberedelse.
 
@@ -163,114 +165,112 @@ Informationen i det här avsnittet hjälper dig att slutföra arbets flödet fö
 
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>Förbered SATA-enheter och leverera till Azure
 
-Verktyget *AzureOfflineBackupDiskPrep* används för att förbereda SATA-enheter som skickas till närmaste Azure-datacenter. Det här verktyget finns i installations katalogen för Recovery Services agenten på följande sökväg:
+Verktyget *AzureOfflineBackupDiskPrep* används för att förbereda SATA-enheter som skickas till närmaste Azure-datacenter. Det här verktyget är tillgängligt i installations katalogen för Recovery Services agenten på följande sökväg:
 
 `*\\Microsoft Azure Recovery Services Agent\Utils\*`
 
-1. Gå till katalogen och kopiera **AzureOfflineBackupDiskPrep** -katalogen till en kopierings dator där de SATA-enheter som ska förberedas är anslutna. Se till att kopiera datorn med avseende på följande:
+1. Gå till katalogen och kopiera *AzureOfflineBackupDiskPrep* -katalogen till en kopierings dator där de SATA-enheter som ska förberedas är anslutna. Se till att:
 
-   * Kopierings datorn kan komma åt mellanlagringsplatsen för arbets flödet offline-seeding med hjälp av samma nätverks Sök väg som angavs i arbets flödet **initiera säkerhets kopiering offline** .
+   * Kopierings datorn kan komma åt mellanlagringsplatsen för arbets flödet offline-dirigering med hjälp av samma nätverks Sök väg som tillhandahölls i arbets flödet i avsnittet "Starta säkerhets kopiering offline".
    * BitLocker är aktiverat på kopierings datorn.
-   * Kopierings datorn har åtkomst till Azure Portal.
-
-     Vid behov kan kopierings datorn vara samma som käll datorn.
+   * Kopierings datorn har åtkomst till Azure Portal. Vid behov kan kopierings datorn vara samma som käll datorn.
 
      > [!IMPORTANT]
      > Om käll datorn är en virtuell dator är det obligatoriskt att använda en annan fysisk server eller klient dator som kopierings dator.
 
-2. Öppna en kommando tolk med förhöjd behörighet på Kopiera datorn med katalogen *AzureOfflineBackupDiskPrep* Utility som den aktuella katalogen och kör följande kommando:
+1. Öppna en kommando tolk med förhöjd behörighet på kopierings datorn med katalogen *AzureOfflineBackupDiskPrep* Utility som den aktuella katalogen. Kör följande kommando:
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to AzurePublishSettingsFile*>]`
 
     | Parameter | Beskrivning |
     | --- | --- |
-    | s: *sökväg till&lt;mellanlagrings plats*&gt; |Obligatoriska indatatyper som används för att ange sökvägen till den mellanlagringsplats som du angav i arbets flödet **Starta säkerhets kopiering offline** . |
-    | p:&lt;*sökvägen till PublishSettingsFile*&gt; |Valfria indata som används för att ange sökvägen till filen för **Azure Publish-inställningar** som du angav i arbets flödet **Starta säkerhets kopiering offline** . |
+    | s: *sökväg till&lt;mellanlagrings plats*&gt; |Den här obligatoriska indatatypen används för att ange sökvägen till den mellanlagringsplats som du angav i arbets flödet i avsnittet "påbörja säkerhets kopiering offline". |
+    | p:&lt;*sökvägen till PublishSettingsFile*&gt; |Den här alternativa indatan används för att ange sökvägen till filen för Azure Publish-inställningar som du angav i arbets flödet i avsnittet "påbörja säkerhets kopiering offline". |
 
     > [!NOTE]
     > Värdet för &lt;sökvägen till AzurePublishSettingFile&gt; är obligatoriskt när kopierings datorn och käll datorn skiljer sig åt.
     >
     >
 
-    När du kör kommandot begär verktyget valet av Azure import-jobb som motsvarar de enheter som måste förberedas. Om bara ett enda import jobb är associerat med den angivna mellanlagringsplatsen visas en skärm som liknar den som följer.
+    När du kör kommandot begär verktyget valet av Azure import-jobb som motsvarar de enheter som måste förberedas. Om bara ett enda import jobb är associerat med den angivna mellanlagringsplatsen visas en sida som den här.
 
     ![Inmatade Azure disk Preparation-verktyg](./media/backup-azure-backup-import-export/azureDiskPreparationToolDriveInput.png) <br/>
 
-3. Ange enhets beteckningen utan avslutande kolon för den monterade disk som du vill förbereda för överföring till Azure. Ange en bekräftelse för enhetens formatering vid uppmaning.
+1. Ange enhets beteckningen utan avslutande kolon för den monterade disk som du vill förbereda för överföring till Azure. När du uppmanas till det anger du en bekräftelse av enhetens formatering.
 
-    Verktyget börjar sedan förbereda disken och kopiera säkerhetskopierade data. Du kan behöva bifoga ytterligare diskar när du uppmanas att göra det om den angivna disken inte har tillräckligt med utrymme för säkerhets kopierings data. <br/>
+    Verktyget börjar sedan förbereda disken och kopiera säkerhetskopierade data. Du kan behöva koppla ytterligare diskar när du uppmanas att göra det om disken inte har tillräckligt med utrymme för säkerhets kopierings data. <br/>
 
-    I slutet av lyckad körning av verktyget är en eller flera diskar som du har angett för beredd för leverans till Azure. Dessutom skapas ett import jobb med det namn som du angav under initiera arbets flödet **initiera offline-säkerhetskopiering** i Azure. Slutligen visar verktyget leverans adressen till det Azure-datacenter där diskarna måste skickas.
+    När verktyget har slutförts förbereds en eller flera diskar som du har angett för leverans till Azure. Ett import jobb med det namn som du angav under arbets flödet i avsnittet "initiera offline-säkerhetskopiering" skapas också i Azure. Slutligen visar verktyget leverans adressen till det Azure-datacenter där diskarna måste skickas.
 
-    ![Förberedelse av Azure-disk slutförd](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
+    ![Förberedelse av Azure-disk avslutad](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
 
-4. I slutet av kommando körningen visas även alternativet att uppdatera leverans informationen enligt nedan:
+1. I slutet av kommando körningen visas även alternativet att uppdatera leverans information.
 
     ![Uppdatera leverans information, alternativ](./media/backup-azure-backup-import-export/updateshippingutility.png)<br/>
 
-5. Du kan ange information direkt. Verktyget vägleder dig genom processen som omfattar en serie indata. Men om du inte har information som spårnings nummer eller annan information relaterad till leverans kan du avsluta sessionen. De steg som krävs för att uppdatera leverans informationen finns i den här artikeln.
+1. Du kan ange information direkt. Verktyget vägleder dig genom processen som omfattar en serie indata. Om du inte har information som spårnings nummer eller annan information som är relaterad till leverans kan du avsluta sessionen. De steg som krävs för att uppdatera leverans informationen finns i den här artikeln.
 
-6. Leverera diskarna till den adress som verktyget tillhandahåller och behåll spårnings numret för framtida bruk.
+1. Leverera diskarna till den adress som verktyget tillhandahåller. Behåll spårnings numret för framtida bruk.
 
    > [!IMPORTANT]
-   > Det går inte att ha samma spårnings nummer på två Azure import-jobb. Se till att enheter som förbereds av verktyget under ett enda Azure import-jobb levereras tillsammans i ett enda paket och att det finns ett enda unikt spårnings nummer för paketet. Kombinera inte enheter som har bearbetats som en del av **olika** Azure import-jobb i ett enda paket.
+   > Det går inte att ha samma spårnings nummer på två Azure import-jobb. Se till att enheter som förbereds av verktyget under ett enda Azure import-jobb levereras tillsammans i ett enda paket och att det finns ett enda unikt spårnings nummer för paketet. Kombinera inte enheter som har bearbetats som en del av olika Azure import-jobb i ett enda paket.
 
-7. När du har information om spårnings numret går du till käll datorn, som väntar på att importen ska slutföras och kör följande kommando i en upphöjd kommando tolk med *AzureOfflineBackupDiskPrep* Utility-katalogen som den aktuella katalogen:
+1. När du har information om spårnings numret går du till käll datorn, som väntar på slut för ande av import jobb. Kör följande kommando i en upphöjd kommando tolk med *AzureOfflineBackupDiskPrep* Utility-katalogen som den aktuella katalogen.
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:`
 
-   Du kan också köra följande kommando från en annan dator, t. ex. *kopierings datorn*, med *AzureOfflineBackupDiskPrep* verktygs katalog som den aktuella katalogen:
+   Du kan också köra följande kommando från en annan dator, t. ex. kopierings datorn, med *AzureOfflineBackupDiskPrep* -katalogen som den aktuella katalogen.
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 
     | Parameter | Beskrivning |
     | --- | --- |
-    | u: | Obligatoriskt indata används för att uppdatera skeppnings information för ett Azure-import jobb |
-    | s: *sökväg till&lt;mellanlagrings plats*&gt; | Obligatoriska indata när kommandot inte körs på käll datorn. Används för att ange sökvägen till den mellanlagringsplats som du angav i arbets flödet starta arbets flödet för **offline-säkerhetskopiering** . |
-    | p:&lt;*sökvägen till PublishSettingsFile*&gt; | Obligatoriska indata när kommandot inte körs på käll datorn. Används för att ange sökvägen till den fil för **Azure Publish-inställningar** som du angav i arbets flödet starta arbets flödet för **säkerhets kopiering offline** . |
+    | u: | Detta obligatoriska indata används för att uppdatera skeppnings information för ett Azure-import jobb. |
+    | s: *sökväg till&lt;mellanlagrings plats*&gt; | Detta obligatoriska indata används när kommandot inte körs på käll datorn. Den används för att ange sökvägen till den mellanlagringsplats som du angav i arbets flödet i avsnittet "påbörja säkerhets kopiering offline". |
+    | p:&lt;*sökvägen till PublishSettingsFile*&gt; | Detta obligatoriska indata används när kommandot inte körs på käll datorn. Den används för att ange sökvägen till filen för Azure Publish-inställningar som du angav i arbets flödet i avsnittet "påbörja säkerhets kopiering offline". |
 
-    Verktyget identifierar automatiskt det import jobb som käll datorn väntar på eller de import jobb som är kopplade till mellanlagringsplatsen när kommandot körs på en annan dator. Det ger dig möjlighet att uppdatera leverans information via en serie med indata som visas nedan:
+    Verktyget identifierar automatiskt det import jobb som käll datorn väntar på eller de import jobb som är kopplade till mellanlagringsplatsen när kommandot körs på en annan dator. Det ger dig möjlighet att uppdatera skeppnings information via en serie med indata.
 
     ![Ange leverans information](./media/backup-azure-backup-import-export/shippinginputs.png)<br/>
 
-8. När du har angett alla indata kan du läsa informationen noggrant och bekräfta leverans informationen som du angav genom att skriva *Ja*.
+1. När du har angett alla indata kan du läsa informationen noga och bekräfta leverans informationen du angav genom att skriva **Ja**.
 
     ![Granska skeppnings information](./media/backup-azure-backup-import-export/reviewshippinginformation.png)<br/>
 
-9. När leverans informationen har uppdaterats ger verktyget en lokal plats där leverans informationen som anges av dig lagras som visas nedan
+1. När leverans informationen har uppdaterats tillhandahåller verktyget en lokal plats där leverans informationen du angav lagras.
 
-    ![Lagra skeppnings information](./media/backup-azure-backup-import-export/storingshippinginformation.png)<br/>
+    ![Lagra leverans information](./media/backup-azure-backup-import-export/storingshippinginformation.png)<br/>
 
    > [!IMPORTANT]
-   > Se till att enheterna når Azure-datacentret inom två veckor från att tillhandahålla leverans informationen med hjälp av *AzureOfflineBackupDiskPrep* -verktyget. Om du inte gör det kan det leda till att enheterna inte bearbetas.  
+   > Se till att enheterna når Azure-datacentret inom två veckor från att tillhandahålla skeppnings information med hjälp av *AzureOfflineBackupDiskPrep* -verktyget. Om du inte gör det kan det leda till att enheterna inte bearbetas. 
 
-När du har slutfört stegen ovan är Azure-datacentret redo att ta emot enheterna och bearbeta dem ytterligare för att överföra säkerhets kopierings data från enheterna till det klassiska Azure Storage-konto som du skapade.
+När du har slutfört de föregående stegen är Azure-datacenter redo att ta emot enheterna och bearbeta dem ytterligare för att överföra säkerhets kopierings data från enheterna till det klassiska Azure Storage-konto som du skapade.
 
 ### <a name="time-to-process-the-drives"></a>Tid för att bearbeta enheterna
 
-Hur lång tid det tar att bearbeta ett Azure-importerat jobb varierar beroende på olika faktorer, till exempel leverans tid, Jobbtyp, typ och storlek för de data som kopieras och storleken på de diskar som tillhandahålls. Tjänsten Azure import/export har inget service avtal, men när diskarna har tagits emot strävar tjänsten efter att slutföra säkerhets kopieringen av säkerhets kopian till ditt Azure Storage-konto på 7 till 10 dagar. I nästa avsnitt beskrivs hur du kan övervaka statusen för Azure import-jobbet.
+Hur lång tid det tar att bearbeta ett Azure-importerat jobb varierar. Process tiden beror på faktorer som leverans tid, Jobbtyp, typ och storlek för de data som kopieras och storleken på de diskar som tillhandahålls. Tjänsten Azure import/export har inget service avtal. När diskarna har tagits emot strävar tjänsten efter att slutföra säkerhets kopieringen av säkerhets kopian till ditt Azure Storage-konto på 7 till 10 dagar. I nästa avsnitt beskrivs hur du kan övervaka statusen för Azure import-jobbet.
 
-### <a name="monitoring-azure-import-job-status"></a>Övervakar status för Azure import-jobb
+### <a name="monitor-azure-import-job-status"></a>Övervaka status för Azure import-jobb
 
-Medan dina enheter överförs eller på Azure-datacenter för att kopieras till lagrings kontot, visar Azure Backup-agenten eller SC DPM eller Azure Backup Server konsolen på käll datorn följande jobb status för dina schemalagda säkerhets kopieringar.
+Medan dina enheter överförs eller på Azure-datacenter för att kopieras till lagrings kontot, visar Azure Backup agenten eller DPM eller MABS-konsolen på käll datorn följande jobb status för schemalagda säkerhets kopieringar:
 
   `Waiting for Azure Import Job to complete. Please check on Azure Management portal for more information on job status`
 
-Följ stegen nedan för att kontrol lera status för import jobb.
+Kontrol lera status för import jobb:
 
 1. Öppna en kommando tolk med förhöjd behörighet på käll datorn och kör följande kommando:
 
      `AzureOfflineBackupDiskPrep.exe u:`
 
-2. I resultatet visas import jobbets aktuella status enligt nedan:
+1. I utdata visas import jobbets aktuella status.
 
-    ![Kontrollerar status för import jobb](./media/backup-azure-backup-import-export/importjobstatusreporting.png)<br/>
+    ![Kontrol lera status för import jobb](./media/backup-azure-backup-import-export/importjobstatusreporting.png)<br/>
 
-Mer information om de olika tillstånden för Azures import jobb finns i [den här artikeln](../storage/common/storage-import-export-view-drive-status.md)
+Mer information om de olika tillstånden för Azures import jobb finns i [Visa status för Azure import/export-jobb](../storage/common/storage-import-export-view-drive-status.md).
 
-### <a name="complete-the-workflow"></a>Slutför arbets flödet
+### <a name="finish-the-workflow"></a>Slutför arbets flödet
 
-När import jobbet är klart är de första säkerhets kopierings data tillgängliga i ditt lagrings konto. Vid nästa schemalagda säkerhets kopiering kopierar Azure Backup innehållet i data från lagrings kontot till Recovery Services valvet som visas nedan:
+När import jobbet är klart är de första säkerhets kopierings data tillgängliga i ditt lagrings konto. Vid nästa schemalagda säkerhets kopiering Azure Backup kopierar innehållet i data från lagrings kontot till Recovery Services-valvet.
 
    ![Kopiera data till Recovery Services Vault](./media/backup-azure-backup-import-export/copyingfromstorageaccounttoazurebackup.png)<br/>
 
@@ -278,4 +278,4 @@ Vid nästa schemalagda säkerhets kopiering Azure Backup utföra stegvis säkerh
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du har frågor om Azures import/export-arbetsflöde läser du [Använd tjänsten Microsoft Azure import/export för att överföra data till Blob Storage](../storage/common/storage-import-export-service.md).
+* Om du har frågor om Azures arbets flöde för import/export-tjänsten kan du läsa mer i [använda tjänsten Microsoft Azure import/export för att överföra data till Blob Storage](../storage/common/storage-import-export-service.md).

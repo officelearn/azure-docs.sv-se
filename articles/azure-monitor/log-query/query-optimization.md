@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/25/2019
-ms.openlocfilehash: 874fd0ccdd2fdf0a2e75412ae2da82abb736ff3f
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.date: 02/28/2019
+ms.openlocfilehash: 4fad7d1e3359264c647ffc2d5f67dc547c87a13a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164584"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196662"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimera logg frågor i Azure Monitor
 Azure Monitor loggar använder [Azure datautforskaren (ADX)](/azure/data-explorer/) för att lagra loggdata och köra frågor för att analysera data. Den skapar, hanterar och underhåller ADX-kluster åt dig, och optimerar dem för din logg analys arbets belastning. När du kör en fråga optimeras den och dirigeras till lämpligt ADX-kluster som lagrar arbets ytans data. Både Azure Monitor loggar och Azure Datautforskaren använder många automatiska metoder för optimering av frågor. Även om automatiska optimeringar ger betydande ökning, finns det i vissa fall där du kan förbättra dina frågeresultat dramatiskt. Den här artikeln beskriver prestanda överväganden och flera tekniker för att åtgärda dem.
@@ -256,6 +256,34 @@ Perf
     | summarize arg_max(TimeGenerated, *), min(TimeGenerated)   
 by Computer
 ) on Computer
+```
+
+Ett annat exempel på det här felet är när du utför omfångs filtreringen strax efter en [union](/azure/kusto/query/unionoperator?pivots=azuremonitor) över flera tabeller. När du utför en union ska varje under fråga begränsas. Du kan använda [let](/azure/kusto/query/letstatement) -instruktionen för att garantera en konsekvent omfattning.
+
+Följande fråga genomsöker t. ex. alla data i *heartbeat* -och *perf* -tabellerna, inte bara de senaste 1 dagarna:
+
+```Kusto
+Heartbeat 
+| summarize arg_min(TimeGenerated,*) by Computer
+| union (
+    Perf 
+    | summarize arg_min(TimeGenerated,*) by Computer) 
+| where TimeGenerated > ago(1d)
+| summarize min(TimeGenerated) by Computer
+```
+
+Den här frågan bör korrigeras enligt följande:
+
+```Kusto
+let MinTime = ago(1d);
+Heartbeat 
+| where TimeGenerated > MinTime
+| summarize arg_min(TimeGenerated,*) by Computer
+| union (
+    Perf 
+    | where TimeGenerated > MinTime
+    | summarize arg_min(TimeGenerated,*) by Computer) 
+| summarize min(TimeGenerated) by Computer
 ```
 
 Måttet är alltid större än den faktiska tiden som angetts. Om filtret i frågan till exempel är 7 dagar kan systemet Skanna 7,5 eller 8,1 dagar. Detta beror på att systemet partitionerar data i segment i varierande storlek. För att säkerställa att alla relevanta poster genomsöks, genomsöks hela partitionen som kan se flera timmar och ännu mer än en dag.

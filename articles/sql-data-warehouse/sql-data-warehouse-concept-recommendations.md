@@ -1,32 +1,30 @@
 ---
-title: SQL Data Warehouse rekommendationer
-description: Lär dig mer om SQL Data Warehouse rekommendationer och hur de genereras
+title: Rekommendationer för SQL Analytics
+description: Lär dig mer om SQL Analytics-rekommendationer och hur de genereras
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 11/05/2018
+ms.date: 02/05/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 1a93339b99c6591ee9ed615c032d0eac58a372fe
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.custom: azure-synapse
+ms.openlocfilehash: 5471236c09737eeef2d4cb7542c245d3087e726c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827504"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195965"
 ---
-# <a name="sql-data-warehouse-recommendations"></a>SQL Data Warehouse rekommendationer
+# <a name="sql-analytics-recommendations"></a>Rekommendationer för SQL Analytics
 
-I den här artikeln beskrivs rekommendationer som hanteras av SQL Data Warehouse via Azure Advisor.  
+I den här artikeln beskrivs rekommendationer för SQL Analytics som hanteras via Azure Advisor.  
 
-SQL Data Warehouse ger rekommendationer för att säkerställa att informations lagret är konsekvent optimerat för prestanda. Informations lager rekommendationerna är nära integrerade med [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) för att ge dig bästa praxis direkt i [Azure Portal](https://aka.ms/Azureadvisor). SQL Data Warehouse analyserar det aktuella läget för ditt informations lager, samlar in telemetri och underlags rekommendationer för din aktiva arbets belastning på en daglig takt. De scenarier som stöds av data lagrets rekommendationer beskrivs nedan tillsammans med hur du använder rekommenderade åtgärder.
+SQL Analytics ger rekommendationer för att säkerställa att arbets belastningen för data lagret är konsekvent optimerad för prestanda. Rekommendationerna är nära integrerade med [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) för att ge dig bästa praxis direkt i [Azure Portal](https://aka.ms/Azureadvisor). SQL Analytics samlar in telemetri-och underlag rekommendationer för din aktiva arbets belastning på en daglig takt. De rekommendations scenarier som stöds beskrivs nedan tillsammans med hur du använder rekommenderade åtgärder.
 
-Om du har några synpunkter på SQL Data Warehouse Advisor eller om du får problem kan du kontakta [sqldwadvisor@service.microsoft.com](mailto:sqldwadvisor@service.microsoft.com).   
-
-Klicka [här](https://aka.ms/Azureadvisor) för att kontrol lera dina rekommendationer idag! Den här funktionen gäller för närvarande endast för Gen2-informations lager. 
+Du kan [kontrol lera dina rekommendationer](https://aka.ms/Azureadvisor) idag! Den här funktionen gäller för närvarande endast för Gen2-informations lager. 
 
 ## <a name="data-skew"></a>Data skevning
 
@@ -36,7 +34,7 @@ Dataskevning kan orsaka ytterligare data flytt eller resurs Flask halsar när du
 
 ## <a name="no-or-outdated-statistics"></a>Ingen eller inaktuell statistik
 
-Om du har en underoptimerad statistik kan du kraftigt påverka frågeresultatet eftersom det kan orsaka att SQL Data Warehouse Query Optimering genererar underoptimala fråge planer. I följande dokumentation beskrivs de bästa metoderna för att skapa och uppdatera statistik:
+Om du har en underoptimerad statistik kan du kraftigt påverka frågeresultatet eftersom det kan orsaka att SQL Query Optimering genererar underoptimala fråge planer. I följande dokumentation beskrivs de bästa metoderna för att skapa och uppdatera statistik:
 
 - [Skapa och uppdatera tabell statistik](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
 

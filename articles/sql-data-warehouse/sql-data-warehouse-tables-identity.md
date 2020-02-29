@@ -1,6 +1,6 @@
 ---
 title: Använda identitet för att skapa surrogat nycklar
-description: Rekommendationer och exempel för att använda identitets egenskapen för att skapa surrogat nycklar i tabeller i Azure SQL Data Warehouse.
+description: Rekommendationer och exempel för att använda identitets egenskapen för att skapa surrogat nycklar i tabeller i SQL Analytics.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,25 +10,25 @@ ms.subservice: development
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 0ee15b975b5513077b26cceeb80ea3fb8c02456b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: c29b83b3473b8a4224587195587feacf834f2d72
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692466"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199435"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Använda identitet för att skapa surrogat nycklar i Azure SQL Data Warehouse
+# <a name="using-identity-to-create-surrogate-keys-in-sql-analytics"></a>Använda identitet för att skapa surrogat nycklar i SQL Analytics
 
-Rekommendationer och exempel för att använda identitets egenskapen för att skapa surrogat nycklar i tabeller i Azure SQL Data Warehouse.
+Rekommendationer och exempel för att använda identitets egenskapen för att skapa surrogat nycklar i tabeller i SQL Analytics.
 
 ## <a name="what-is-a-surrogate-key"></a>Vad är en surrogat nyckel?
 
-En surrogat nyckel i en tabell är en kolumn med en unik identifierare för varje rad. Nyckeln genereras inte från tabell data. Data modellerare som skapar surrogat nycklar i sina tabeller när de utformar data lager modeller. Du kan använda identitets egenskapen för att uppnå det här målet enkelt och effektivt utan att påverka belastnings prestanda.  
+En surrogat nyckel i en tabell är en kolumn med en unik identifierare för varje rad. Nyckeln genereras inte från tabell data. Data modellerare som skapar surrogat nycklar i sina tabeller när de utformar SQL Analytics-modeller. Du kan använda identitets egenskapen för att uppnå det här målet enkelt och effektivt utan att påverka belastnings prestanda.  
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Skapa en tabell med en identitets kolumn
 
-IDENTITETS egenskapen är utformad för att skala ut över alla distributioner i data lagret utan att påverka belastnings prestanda. Därför orienteras implementeringen av identitet mot att uppnå dessa mål.
+IDENTITETS egenskapen är utformad för att skala ut över alla distributioner i SQL Analytics-databasen utan att påverka belastnings prestanda. Därför orienteras implementeringen av identitet mot att uppnå dessa mål.
 
 Du kan definiera en tabell som har egenskapen IDENTITY när du först skapar tabellen med hjälp av syntaxen som liknar följande uttryck:
 
@@ -50,7 +50,7 @@ I den här återstoden av det här avsnittet beskrivs olika delarna för impleme
 
 ### <a name="allocation-of-values"></a>Allokering av värden
 
-IDENTITETS egenskapen garanterar inte i vilken ordning surrogat värden allokeras, vilket återspeglar beteendet för SQL Server och Azure SQL Database. Men i Azure SQL Data Warehouse är frånvaron av en garanti mer uttalad.
+IDENTITETS egenskapen garanterar inte i vilken ordning surrogat värden allokeras, vilket återspeglar beteendet för SQL Server och Azure SQL Database. Men i SQL-analys är frånvaron av en garanti mer uttalad.
 
 Följande exempel är en illustration:
 
@@ -100,7 +100,7 @@ CREATE TABLE AS SELECT (CTAS) följer samma SQL Server beteende som dokumenteras
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Infoga värden explicit i en identitets kolumn
 
-SQL Data Warehouse stöder `SET IDENTITY_INSERT <your table> ON|OFF` syntax. Du kan använda den här syntaxen för att explicit infoga värden i identitets kolumnen.
+SQL Analytics stöder `SET IDENTITY_INSERT <your table> ON|OFF` syntax. Du kan använda den här syntaxen för att explicit infoga värden i identitets kolumnen.
 
 Många data modellerare som använder fördefinierade negativa värden för vissa rader i deras dimensioner. Ett exempel är raden-1 eller "okänd medlem".
 
@@ -161,13 +161,13 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Det går inte att använda `CREATE TABLE AS SELECT` för närvarande när data läses in i en tabell med en identitets kolumn.
 >
 
-Mer information om hur du läser in data finns i [utforma extrahering, belastning och transformering (ELT) för att Azure SQL Data Warehouse](design-elt-data-loading.md) och [läsa in bästa praxis](guidance-for-loading-data.md).
+Mer information om hur du läser in data finns i [utforma extrahering, belastning och transformering (ELT) för SQL-analys](design-elt-data-loading.md) och [inläsning av bästa praxis](guidance-for-loading-data.md).
 
 ## <a name="system-views"></a>Systemvyer
 
-Du kan använda vyn [sys. identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql) för att identifiera en kolumn som har egenskapen Identity.
+Du kan använda vyn [sys. identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql) Catalog för att identifiera en kolumn som har egenskapen Identity.
 
-För att hjälpa dig att bättre förstå databasschemat, visar det här exemplet hur du integrerar sys. identity_column med andra system katalogs visningar:
+För att hjälpa dig att bättre förstå databasschemat, visar det här exemplet hur du integrerar sys. identity_column "med andra system katalog visningar:
 
 ```sql
 SELECT  sm.name
@@ -195,7 +195,7 @@ Det går inte att använda identitets egenskapen:
 - När kolumnen också är distributions nyckeln
 - När tabellen är en extern tabell
 
-Följande relaterade funktioner stöds inte i SQL Data Warehouse:
+Följande relaterade funktioner stöds inte i SQL Analytics:
 
 - [IDENTITET ()](/sql/t-sql/functions/identity-function-transact-sql)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql)

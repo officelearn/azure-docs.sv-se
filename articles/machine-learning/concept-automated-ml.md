@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
-ms.date: 11/04/2019
-ms.openlocfilehash: 2ef3cbc83cd67647709a53fee2c32b444c5d86f4
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.date: 02/28/2020
+ms.openlocfilehash: 9739c0a6b66099a2bebb1d42922d8653a92e650b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526135"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190355"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
@@ -150,6 +150,14 @@ Med tanke på modell **A**, finns det en vanlig felbegrepp att om test precision
 När du jämför modeller **a** och **B**är modell **a** en bättre modell eftersom den har högre test precision, och även om test noggrannheten är något lägre vid 95% är det inte en stor skillnad som tyder på överanpassning. Du väljer inte modell **B** eftersom tågets och testernas noggrannhet är närmare tillsammans.
 
 Modell **C** är ett tydligt Skift läge vid överanpassning. inlärnings precisionen är mycket hög men test noggrannheten är inte tillgänglig någonstans i närheten. Den här skillnaden är underkänd, men kommer från kännedom om ditt problem och dina data och vilka fel som kan uppstå. 
+
+## <a name="classification--regression"></a>Klassificering & regression
+
+Klassificering och regression är de vanligaste typerna av Machine Learning-uppgifter. Båda är typer av övervakad utbildning där modeller lär sig använda tränings data och tillämpar dem på nya data. Azure Machine Learning erbjuder featurizations specifikt för dessa uppgifter, till exempel djup neurala Network text featurizers för klassificering. Läs mer om [funktionalisering-alternativ](how-to-create-portal-experiments.md#featurization). 
+
+Det huvudsakliga målet med klassificerings modeller är att förutsäga vilka kategorier nya data kommer att ingå i baserat på inlärnings data. Vanliga klassificerings exempel är bedrägeri identifiering, hand SKRIFTS igenkänning och objekt identifiering.  Läs mer och se ett exempel på [klassificering med automatiserad maskin inlärning](tutorial-train-models-with-aml.md).
+
+Det skiljer sig från klassificeringen där förutsägande utdatakolumner är kategoriska. Regressions modeller förutsäger numeriska utmatnings värden baserat på oberoende förförutsägelser. Syftet med regressionen är att hjälpa till att upprätta relationen mellan de oberoende förutsägande variablerna genom att uppskatta hur en variabel påverkar de andra. Till exempel, bil pris baserat på funktioner som gas mil, säkerhets klassificering osv. Läs mer och se ett exempel på [regression med automatiserad maskin inlärning](tutorial-auto-train-models.md).
 
 ## <a name="time-series-forecasting"></a>Prognoser för tids serier
 

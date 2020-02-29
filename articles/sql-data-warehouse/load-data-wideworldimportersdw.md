@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: läsa in data med Azure Portal & SSMS'
-description: Självstudier använder Azure Portal och SQL Server Management Studio för att läsa in informations lagret wideworldimportersdw Data Warehouse från en global Azure-blob till Azure SQL Data Warehouse.
+description: Självstudier använder Azure Portal och SQL Server Management Studio för att läsa in informations lagret wideworldimportersdw Data Warehouse från en global Azure-blob till en Azure Synapse Analytics SQL-pool.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,22 +10,22 @@ ms.subservice: load-data
 ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: a2adc2acdb9c1d850bb12833540ed8da51701e58
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: seo-lt-2019, synapse-analytics
+ms.openlocfilehash: 8e58c315ddc171ba19e0bce1cea4f694691f946e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75370144"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193664"
 ---
-# <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Självstudie: Läsa in data till Azure SQL Data Warehouse
+# <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Självstudie: läsa in data till Azure Synapse Analytics SQL-pool
 
-I den här självstudien används PolyBase för att läsa in informationslagret WideWorldImportersDW från Azure Blob Storage till Azure SQL Data Warehouse. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att:
+I den här självstudien används PolyBase för att läsa in informations lagret wideworldimportersdw Data Warehouse från Azure Blob Storage till ditt data lager i Azure Synapse Analytics SQL-poolen. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att:
 
 > [!div class="checklist"]
-> * Skapa ett informationslager på Azure-portalen
-> * Skapade en brandväggsregel på servernivå på Azure-portalen
-> * Ansluta till informationslagret med SSMS
+> * Skapa ett informations lager med SQL-pool i Azure Portal
+> * Skapa en brandväggsregel på servernivå på Azure-portalen
+> * Ansluta till SQL-poolen med SSMS
 > * Skapa en användare som utsetts för att läsa in data
 > * Skapa externa tabeller som använder Azure-blobb som datakälla
 > * Använda CTAS T-SQL-instruktionen för att läsa in data till informationslagret
@@ -41,35 +41,32 @@ Innan du börjar med de här självstudierna ska du ladda ned och installera den
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-data-warehouse"></a>Skapa en tom SQL Data Warehouse
+## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Skapa ett tomt informations lager i SQL-poolen
 
-En Azure SQL Data Warehouse skapas med en definierad uppsättning [beräknings resurser](memory-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/management/overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
+En SQL-pool skapas med en definierad uppsättning [beräknings resurser](memory-concurrency-limits.md). SQL-poolen skapas i en [Azure-resurs grupp](../azure-resource-manager/management/overview.md) och i en [logisk Azure SQL-Server](../sql-database/sql-database-features.md). 
 
-Följ de här stegen för att skapa en tom SQL Data Warehouse. 
+Följ de här stegen för att skapa en tom SQL-pool. 
 
-1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
+1. Välj **skapa en resurs** i Azure Portal.
 
-2. Välj **Databases** (Databaser) på sidan **New** (nytt) och välj **SQL Data Warehouse** under **Featured** (aktuella) på sidan **New** (nytt).
+1. Välj **databaser** på sidan **nytt** och välj **Azure Synapse Analytics** under **aktuella** på den **nya** sidan.
 
-    ![skapa ett informationslager](media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
+    ![skapa SQL-pool](media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
 
-3. Fyll i formuläret SQL Data Warehouse med följande information:   
+1. Fyll i avsnittet **projekt information** med följande information:   
 
-   | Inställning | Föreslaget värde | Beskrivning | 
-   | ------- | --------------- | ----------- | 
-   | **Databasnamn** | SampleDW | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). | 
+   | Inställning | Exempel | Beskrivning | 
+   | ------- | --------------- | ----------- |
    | **Prenumeration** | Din prenumeration  | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
-   | **Resursgrupp** | SampleRG | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
-   | **Välj källa** | Tom databas | Anger att en tom databas ska skapas. Observera att ett informationslager är en typ av databas.|
+   | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
 
-    ![skapa ett informationslager](media/load-data-wideworldimportersdw/create-data-warehouse.png)
-
-4. Klicka på **Server** för att skapa och konfigurera en ny server för den nya databasen. Fyll i formuläret **Ny server** med följande information: 
+1. Ange ett namn för SQL-poolen under **information om SQL-pooler**. Välj sedan antingen en befintlig server i list rutan eller Välj **Skapa ny** under **Server** inställningar för att skapa en ny server. Fyll i formuläret med följande information: 
 
     | Inställning | Föreslaget värde | Beskrivning | 
     | ------- | --------------- | ----------- |
+    |**SQL-poolnamn**|SampleDW| För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). | 
     | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). | 
     | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
     | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
@@ -77,67 +74,52 @@ Följ de här stegen för att skapa en tom SQL Data Warehouse.
 
     ![skapa databasserver](media/load-data-wideworldimportersdw/create-database-server.png)
 
-5. Klicka på **Välj**.
+1. **Välj prestanda nivå**. Skjutreglaget som standard är inställt på **DW1000c**. Flytta skjutreglaget uppåt och nedåt för att välja önskad prestanda skala. 
 
-6. Klicka på **prestanda nivå** för att ange om data lagret är gen1 eller Gen2 och antalet informations lager enheter. 
+    ![skapa databasserver](media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
-7. I den här självstudien väljer du tjänst nivån **gen1** . Skjutreglaget är som standard är inställt på **DW400**.  Prova att flytta det uppåt och nedåt för att se hur det fungerar. 
+1. På sidan **ytterligare inställningar** ställer du in **Använd befintliga data** till ingen och låter **sorteringen** vara standard *SQL_Latin1_General_CP1_CI_AS*. 
 
-    ![konfigurera prestanda](media/load-data-wideworldimportersdw/configure-performance.png)
+1. Välj **Granska + skapa** för att granska inställningarna och välj sedan **skapa** för att skapa ditt informations lager. Du kan övervaka förloppet genom att öppna sidan **distribution** pågår från menyn **meddelanden** . 
 
-8. Klicka på **Använd**.
-9. På sidan för SQL-informationslager väljer du en **Sortering** för den tomma databasen. I de här självstudierna ska du välja standardvärdet. Mer information om sorteringar finns i [Sorteringar](/sql/t-sql/statements/collations).
-
-11. Nu när du har fyllt i SQL Database-formuläret klickar du på **Skapa** så att databasen etableras. Etableringen tar några minuter. 
-
-    ![klicka på skapa](media/load-data-wideworldimportersdw/click-create.png)
-
-12. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
-    
      ![avisering](media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Skapa en brandväggsregel på servernivå
 
-Tjänsten SQL Database Warehouse skapar en brandvägg på servernivå som hindrar externa program och verktyg från att ansluta till servern eller databaser på servern. Om du vill kan du lägga till brandväggsregler som tillåter anslutningar för specifika IP-adresser.  Följ dessa steg för att skapa en [brandväggsregel på servernivå](../sql-database/sql-database-firewall-configure.md) för klientens IP-adress. 
+Azure Synapse Analytics-tjänsten skapar en brand vägg på server nivå som förhindrar att externa program och verktyg ansluter till servern eller några databaser på servern. Om du vill kan du lägga till brandväggsregler som tillåter anslutningar för specifika IP-adresser.  Följ dessa steg för att skapa en [brandväggsregel på servernivå](../sql-database/sql-database-firewall-configure.md) för klientens IP-adress. 
 
 > [!NOTE]
-> SQL Database Warehouse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
+> Azure Synapse Analytics SQL-poolen kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
 >
 
-1. När distributionen är klar klickar du på **SQL-databaser** på den vänstra menyn och sedan på **SampleDW** på sidan **SQL-databaser**. Översiktssidan för databasen öppnas och visar det fullständiga domännamnet (till exempel **sample-svr.database.windows.net**) tillsammans med alternativ för ytterligare konfiguration. 
 
-2. Kopiera det här fullständiga servernamnet för anslutning till servern och databaserna i efterföljande snabbstarter. Du öppnar serverinställningarna genom att klicka på servernamnet.
+1. När distributionen är klar söker du efter namnet på din pool i sökrutan i navigerings menyn och väljer resursen SQL-pool. Välj servernamnet. 
 
-    ![hitta servernamn](media/load-data-wideworldimportersdw/find-server-name.png) 
+    ![Gå till din resurs](media/load-data-wideworldimportersdw/search-for-sql-pool.png) 
 
-3. Du öppnar serverinställningarna genom att klicka på servernamnet.
+1. Välj servernamnet. 
+    ![servernamn](media/load-data-wideworldimportersdw/find-server-name.png) 
+
+1. Välj **Visa brand Väggs inställningar**. Sidan **brand Väggs inställningar** för SQL-adresspoolen öppnas. 
 
     ![serverinställningar](media/load-data-wideworldimportersdw/server-settings.png) 
 
-5. Klicka på **Visa brandväggsinställningar**. Sidan **Brandväggsinställningar** för SQL Database-servern öppnas. 
+1. På sidan **brand väggar och virtuella nätverk** väljer du **Lägg till klient-IP** för att lägga till din aktuella IP-adress i en ny brand Väggs regel. Med en brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
 
     ![brandväggsregler för server](media/load-data-wideworldimportersdw/server-firewall-rule.png) 
 
-4.  Klicka på **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny brandväggsregel. Med en brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
+1. Välj **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
 
-5. Klicka på **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
-
-6. Klicka på **OK** och stäng sedan sidan **Brandväggsinställningar**.
-
-Nu kan du ansluta till SQL-servern och dess informationslager med den här IP-adress. Anslutningen fungerar från SQL Server Management Studio eller något annat verktyg du väljer. När du ansluter använder du serveradmin-kontot som du skapade tidigare.  
+Nu kan du ansluta till SQL-servern med din klient-IP-adress. Anslutningen fungerar från SQL Server Management Studio eller något annat verktyg du väljer. När du ansluter använder du serveradmin-kontot som du skapade tidigare.  
 
 > [!IMPORTANT]
 > Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Klicka på **AV** på den här sidan och klicka sedan på **Spara** för att inaktivera brandväggen för alla Azure-tjänster.
 
 ## <a name="get-the-fully-qualified-server-name"></a>Hämta det fullständigt kvalificerade servernamnet
 
-Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Portal. Du kommer att använda det fullständigt kvalificerade namnet senare när du ska ansluta till servern.
+Det fullständigt kvalificerade Server namnet är det som används för att ansluta till servern. Gå till din SQL-pool i Azure Portal och visa det fullständigt kvalificerade namnet under **Server namn**.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
-3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet mynewserver 20171113.database.windows.net. 
-
-    ![anslutningsinformation](media/load-data-wideworldimportersdw/find-server-name.png)  
+![servernamn](media/load-data-wideworldimportersdw/find-server-name.png) 
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ansluta till servern som serveradministratör
 
@@ -150,10 +132,10 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
     | Inställning      | Föreslaget värde | Beskrivning | 
     | ------------ | --------------- | ----------- | 
     | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
-    | servernamn | Fullständigt kvalificerat servernamn | Ett exempel på ett fullständigt servernamn är **sample-svr.database.windows.net**. |
+    | servernamn | Fullständigt kvalificerat servernamn | Till exempel är **sqlpoolservername.Database.Windows.net** ett fullständigt kvalificerat Server namn. |
     | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
-    | Logga in | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
-    | lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
+    | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
+    | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 
     ![Anslut till server](media/load-data-wideworldimportersdw/connect-to-server.png)
 
@@ -165,7 +147,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
 
 ## <a name="create-a-user-for-loading-data"></a>Skapa en användare för att läsa in data
 
-Serveradministratörskontot är avsett för att utföra hanteringsåtgärder och är inte lämpligt för att köra frågor på användardata. Datainläsning är en minneskrävande åtgärd. Maximalt minne anges i enlighet med genereringen av det SQL Data Warehouse du använder samt [informationslagerenheterna](what-is-a-data-warehouse-unit-dwu-cdwu.md) och [resursklassen](resource-classes-for-workload-management.md). 
+Serveradministratörskontot är avsett för att utföra hanteringsåtgärder och är inte lämpligt för att köra frågor på användardata. Datainläsning är en minneskrävande åtgärd. Högsta minnes storlek definieras enligt den generation av SQL-pool som du använder, [data lager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md)och [resurs klass](resource-classes-for-workload-management.md). 
 
 Det är bäst att skapa en särskild inloggning och en särskild användare för inläsning av data. Lägg sedan till inläsningsanvändaren i en [resursklass](resource-classes-for-workload-management.md) som möjliggör en lämplig maximal minnesallokering.
 
@@ -182,13 +164,13 @@ Eftersom du för närvarande är ansluten som serveradministratör kan du skapa 
     CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
     ```
 
-3. Klicka på **Execute**.
+3. Klicka på **Kör**.
 
 4. Högerklicka på **SampleDW** och välj **Ny fråga**. Ett nytt frågefönster öppnas.  
 
     ![Ny fråga på exempelinformationslagret](media/load-data-wideworldimportersdw/create-loading-user.png)
  
-5. Använd följande T-SQL-kommandon för att skapa en databasanvändare med namnet LoaderRC60 för inloggningen LoaderRC60. Den andra raden ger den nya användaren kontrollbehörighet på det nya informationslagret.  Dessa behörigheter påminner om att göra användaren till databasens ägare. Den tredje raden lägger till den nya användaren som en medlem i resursklassen staticrc60 [](resource-classes-for-workload-management.md).
+5. Använd följande T-SQL-kommandon för att skapa en databasanvändare med namnet LoaderRC60 för inloggningen LoaderRC60. Den andra raden ger den nya användaren kontrollbehörighet på det nya informationslagret.  Dessa behörigheter påminner om att göra användaren till databasens ägare. Den tredje raden lägger till den nya användaren som en medlem i [resursklassen](resource-classes-for-workload-management.md) staticrc60.
 
     ```sql
     CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
@@ -196,7 +178,7 @@ Eftersom du för närvarande är ansluten som serveradministratör kan du skapa 
     EXEC sp_addrolemember 'staticrc60', 'LoaderRC60';
     ```
 
-6. Klicka på **Execute**.
+6. Klicka på **Kör**.
 
 ## <a name="connect-to-the-server-as-the-loading-user"></a>Ansluta till servern som inläsningsanvändare
 
@@ -216,7 +198,7 @@ Det första steget för att läsa in data är att logga in som LoaderRC60.
 
 ## <a name="create-external-tables-and-objects"></a>Skapa externa tabeller och objekt
 
-Du är redo att börja läsa in data till ditt nya informationslager. För framtida behov kan du läsa i [översikten om inläsning](sql-data-warehouse-overview-load.md) om hur du flyttar dina data till Azure blobblagring eller läser in dem direkt från källan till SQL Data Warehouse.
+Du är redo att börja läsa in data till ditt nya informationslager. Information om hur du hämtar dina data till Azure Blob Storage eller läser in dem direkt från källan till SQL-poolen finns i [Översikt över inläsning](sql-data-warehouse-overview-load.md).
 
 Kör följande SQL-skript för att ange information om de data du vill läsa in. Informationen omfattar var informationen finns, formatet för innehållet i aktuella data och tabelldefinitionen för dessa data. Data finns i en global Azure-blob.
 
@@ -266,7 +248,7 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
     CREATE SCHEMA wwi;
     ```
 
-7. Skapa de externa tabellerna. Tabelldefinitionerna lagras i SQL Data Warehouse, men tabellerna refererar till data som lagras i Azure blobblagring. Kör följande T-SQL-kommandon för att skapa flera externa tabeller som alla pekar mot den Azure-blob du definierade tidigare i den externa datakällan.
+7. Skapa de externa tabellerna. Tabell definitionerna lagras i databasen, men tabellerna refererar till data som lagras i Azure Blob Storage. Kör följande T-SQL-kommandon för att skapa flera externa tabeller som alla pekar mot den Azure-blob du definierade tidigare i den externa datakällan.
 
     ```sql
     CREATE EXTERNAL TABLE [ext].[dimension_City](
@@ -545,15 +527,15 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
 
     ![Visa externa tabeller](media/load-data-wideworldimportersdw/view-external-tables.png)
 
-## <a name="load-the-data-into-your-data-warehouse"></a>Läsa in data till informationslagret
+## <a name="load-the-data-into-sql-pool"></a>Läs in data i SQL-poolen
 
-I det här avsnittet används de externa tabeller som du har definierat för att läsa in exempel data från Azure blob till SQL Data Warehouse.  
+I det här avsnittet används de externa tabeller som du har definierat för att läsa in exempel data från Azure-blob till SQL-pool.  
 
 > [!NOTE]
 > De här självstudierna läser in data direkt till den slutliga tabellen. I en produktionsmiljö använder du vanligtvis CREATE TABLE AS SELECT FÖR att läsa in till en mellanlagringstabell. Du kan utföra alla nödvändiga omvandlingar när data är i mellanlagringstabellen. Du kan använda instruktionen INSERT...SELECT om du vill lägga till data i mellanlagringstabellen i en produktionstabell. Mer information finns i [Infoga data i en produktionstabell](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 > 
 
-Skriptet använder T-SQL-instruktionen [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) för att läsa in data från Azure Storage Blob till nya tabeller i informationslagret. CTAS skapar en ny tabell baserat på resultatet av en SELECT-instruktion. Den nya tabellen har samma kolumner och datatyper som resultatet av select-instruktionen. När SELECT-instruktionen väljer från en extern tabell importerar SQL Data Warehouse data till en relationsdatabastabell i informationslagret. 
+Skriptet använder T-SQL-instruktionen [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) för att läsa in data från Azure Storage Blob till nya tabeller i informationslagret. CTAS skapar en ny tabell baserat på resultatet av en SELECT-instruktion. Den nya tabellen har samma kolumner och datatyper som resultatet av select-instruktionen. När SELECT-instruktionen väljer från en extern tabell, importeras data till en Relations tabell i data lagret. 
 
 Det här skriptet läser inte in data i tabellerna WWI. dimension_Date och WWI. fact_Sale. Tabellerna genereras i ett senare steg för att tabellerna ska innehålla ett radantal med justerbar storlek.
 
@@ -704,7 +686,7 @@ Det här skriptet läser inte in data i tabellerna WWI. dimension_Date och WWI. 
     ;
     ```
 
-2. Visa data som laddas. Du läser in flera GB data och komprimerar dem till högpresterande klustrade Columnstore-index. Öppna ett nytt frågefönster för SampleDW och kör följande fråga för att visa status för belastningen. När du har startat frågan kan du hämta lite kaffe och något att äta medan SQL Data Warehouse sköter grovjobbet.
+2. Visa data som laddas. Du läser in flera GB data och komprimerar dem till högpresterande klustrade Columnstore-index. Öppna ett nytt frågefönster för SampleDW och kör följande fråga för att visa status för belastningen. När du har startat frågan tar du en kaffe och en fika medan SQL-poolen gör några tung lyft.
 
     ```sql
     SELECT
@@ -977,7 +959,8 @@ Använd de lagrade procedurer som du skapade för att generera miljon tals rader
     ```
 
 ## <a name="populate-the-replicated-table-cache"></a>Fyll i cachen för replikerad tabell
-SQL Data Warehouse replikerar en tabell genom att cachelagra data till varje beräkningsnod. Cachen fylls när en fråga körs mot tabellen. Den första frågan i en replikerad tabell kan därför kräva extra lång tid för att fylla i cachen. När cachen är fylld körs frågor i replikerade tabeller snabbare.
+
+SQL-poolen replikerar en tabell genom att cachelagra data till varje Compute-nod. Cachen fylls när en fråga körs mot tabellen. Den första frågan i en replikerad tabell kan därför kräva extra lång tid för att fylla i cachen. När cachen är fylld körs frågor i replikerade tabeller snabbare.
 
 Kör följande SQL-frågor för att fylla i cachen för replikerad tabell på beräkningsnoderna. 
 
@@ -1112,16 +1095,16 @@ I de här självstudierna lärde du dig att skapa ett informationslager och skap
 
 Du gjorde detta:
 > [!div class="checklist"]
-> * Skapade ett informationslager på Azure-portalen
-> * Skapade en brandväggsregel på servernivå på Azure-portalen
-> * Anslöt till informationslagret med SSMS
+> * Skapade ett informations lager med SQL-pool i Azure Portal
+> * Skapa en brandväggsregel på servernivå på Azure-portalen
+> * Ansluten till SQL-poolen med SSMS
 > * Skapade en användare för inläsning av data
 > * Skapade externa tabeller för data i Azure Storage Blob
 > * Använde CTAS T-SQL-instruktionen för att läsa in data till informationslagret
 > * Visade förloppet för data under inläsning
 > * Skapade statistik på nyligen inlästa data
 
-Gå vidare till utvecklings översikten och lär dig hur du migrerar en befintlig databas till SQL Data Warehouse.
+Gå vidare till utvecklings översikten och lär dig hur du migrerar en befintlig databas till Azure Synapse SQL-poolen.
 
 > [!div class="nextstepaction"]
->[Utforma beslut för att migrera en befintlig databas till SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
+>[Design beslut för att migrera en befintlig databas till SQL-poolen](sql-data-warehouse-overview-develop.md)

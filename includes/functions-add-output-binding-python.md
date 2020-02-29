@@ -4,38 +4,15 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/23/2019
 ms.author: glenga
-ms.openlocfilehash: 14c821e5b1d98a05c791ea102fc4bdd58fdc9525
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 8bdd8b9d900cc50fdeb34ff7d233ac4d7e17a45c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71839151"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191083"
 ---
-När `name` har kon figurer ATS kan du börja använda den för att få åtkomst till bindningen som ett method-attribut i Function-signaturen. I följande exempel är `msg` en instans av [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest).
+Uppdatera *HttpExample\\\_\_init\_\_. py* för att matcha följande kod, lägga till `msg`-parametern i funktions definitionen och `msg.set(name)` under `if name:`-instruktionen.
 
-```python
-import logging
+:::code language="python" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
 
-import azure.functions as func
-
-
-def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
-
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
-
-    if name:
-        msg.set(name)
-        return func.HttpResponse(f"Hello {name}!")
-    else:
-        return func.HttpResponse(
-            "Please pass a name on the query string or in the request body",
-            status_code=400
-        )
-```
+Parametern `msg` är en instans av [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest). Dess `set` metod skriver ett sträng meddelande till kön, i det här fallet det namn som skickades till funktionen i URL-frågesträngen.

@@ -6,15 +6,16 @@ author: amitbapat
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 57c5e3f2741f81bce2eff2d5ef2b0f2d029096e3
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 36dada57e587da6e023a83c8ebb6555abe44b9ba
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976391"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184854"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Få åtkomst till Azure Key Vault bakom en brandvägg
 
@@ -32,7 +33,7 @@ Det finns vissa varianter beroende på din konfiguration och miljö.
 
 All trafik till nyckelvalvet för alla tre funktioner (autentisering, hantering och dataplanåtkomst) går över HTTPS: port 443. Det är dock ibland HTTP (port 80)-trafik för CRL. Klienter som har stöd för OCSP ska inte nå CRL, men kan ibland nå [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl).  
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 Nyckelvalv-klientprogram behöver åtkomst till Azure Active Directory-slutpunkter för autentisering. Den slutpunkt som används beror på Azure AD-klientkonfiguration, typ av huvudkonto (användarens eller tjänstens huvudnamn) och typ av konto, t.ex. ett Microsoft-konto eller ett arbets- eller skolkonto.  
 

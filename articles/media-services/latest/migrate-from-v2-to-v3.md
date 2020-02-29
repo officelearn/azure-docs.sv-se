@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 10/02/2019
+ms.date: 02/28/2020
 ms.author: juliako
-ms.openlocfilehash: dc3b122ab7f4a243f3a4ecd6f220caa00beb044e
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 2a670c7bce113de8854b33e407c7de2236edd794
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505785"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197869"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Vägledning för migrering för att flytta från Media Services v2 till v3
 
@@ -77,7 +77,26 @@ Om du har en video tjänst som utvecklats idag ovanpå de [äldre Media Services
 * Liveutdata startar när de skapas och avbryts när de tas bort. Program fungerade annorlunda i v2-API: er, de var igång när de har skapats.
 * Om du vill hämta information om ett jobb måste du känna till Transformations namnet som jobbet skapades under. 
 * I v2 skapas filer för XML- [indata](../previous/media-services-input-metadata-schema.md) och [utdata](../previous/media-services-output-metadata-schema.md) som genereras som ett resultat av ett kodnings jobb. I v3 har metadata-formatet ändrats från XML till JSON. 
+* I Media Services v2 kan du ange initierings vektor (IV). Det går inte att ange FairPlay IV i Media Services v3. Även om det inte påverkar kunder som använder Media Services för både paketering och licens leverans, kan det vara ett problem när du använder ett DRM-system från tredje part för att leverera FairPlay-licenser (hybrid läge). I så fall är det viktigt att veta att FairPlay IV härleds från CBCS-nyckel-ID: t och kan hämtas med följande formel:
 
+    ```
+    string cbcsIV =  Convert.ToBase64String(HexStringToByteArray(cbcsGuid.ToString().Replace("-", string.Empty)));
+    ```
+
+    med
+
+    ``` 
+    public static byte[] HexStringToByteArray(string hex)
+    {
+        return Enumerable.Range(0, hex.Length)
+            .Where(x => x % 2 == 0)
+            .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+            .ToArray();
+    }
+    ```
+
+    Mer information finns i [Azure Functions C# koden för Media Services v3 i hybrid läge för både Live-och VOD-åtgärder](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/LiveAndVodDRMOperationsV3).
+ 
 > [!NOTE]
 > Granska de namngivnings konventioner som tillämpas på [Media Services v3-resurser](media-services-apis-overview.md#naming-conventions). Granska också [namngivning av blobbar](assets-concept.md#naming).
 

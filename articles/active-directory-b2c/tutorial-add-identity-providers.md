@@ -3,20 +3,20 @@ title: 'Självstudie: Lägg till identitets leverantörer i dina appar'
 titleSuffix: Azure AD B2C
 description: Lär dig hur du lägger till identitets leverantörer i dina program i Azure Active Directory B2C att använda Azure Portal.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 07/08/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2bc02433be9ee7955b0e10ac659ee40e315e5a5e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1f49061210ca8e3c106b0569f77a67d1f10757a1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840170"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183524"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Självstudie: Lägg till identitets leverantörer till dina program i Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Du använder vanligt vis bara en identitets leverantör i dina program, men du h
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [Skapa ett användar flöde](tutorial-create-user-flows.md) så att användarna kan registrera sig och logga in i programmet.
 
@@ -45,7 +45,7 @@ Identitets leverantörs program ger identifieraren och nyckeln för att aktivera
 
 Om du vill aktivera inloggning för användare från Azure AD måste du registrera ett program i Azure AD-klienten. Azure AD-klienten är inte samma som din Azure AD B2C klient.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ny registrering**.

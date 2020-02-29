@@ -1,16 +1,16 @@
 ---
-title: Ansluta din utvecklingsdator till ett AKS-kluster
+title: Ansluta din utvecklingsdator till ett AKS-kluster (förhandsversion)
 services: azure-dev-spaces
 ms.date: 11/04/2019
 ms.topic: conceptual
 description: Lär dig hur du ansluter din utvecklings dator till ett AKS-kluster med Azure dev Spaces
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: cba68702155475832930c791c3a7be014375ba04
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 13e6f16e66941be0ae463e8280827dc0b8183450
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770687"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196101"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Ansluta din utvecklingsdator till ett AKS-kluster (förhandsversion)
 
@@ -35,7 +35,7 @@ I den här guiden används [cykel delnings exempel programmet i Azure dev Spaces
 
 * UDP stöds inte för tillfället.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 * [Azure CLI installerat][azure-cli].
@@ -96,7 +96,7 @@ När du har valt appens TCP-port upprättar Azure dev-utrymmen en anslutning til
 
 Azure dev Spaces öppnar ett terminalfönster med titeln *AZDS Connect-Bikes* när den upprättar en anslutning till ditt AKS-kluster. Det här terminalfönstret innehåller alla miljövariabler och DNS-poster som kon figurer ATS från ditt AKS-kluster. All kod som du kör i det här terminalfönstret eller med Visual Studio Code debugger är ansluten till AKS-klustret.
 
-![Terminal](../media/how-to-connect/connect-terminal.png)
+![Slutliga](../media/how-to-connect/connect-terminal.png)
 
 Dessutom skapar Azure dev Spaces ett fönster med rubriken *dev Spaces Connect* med alla utdata.
 

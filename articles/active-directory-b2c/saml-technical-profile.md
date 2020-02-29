@@ -3,20 +3,20 @@ title: Definiera en teknisk profil för SAML i en anpassad princip
 titleSuffix: Azure AD B2C
 description: Definiera en teknisk profil för SAML i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/13/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3a3df4d3a955926381a664ab872e03ae987f0839
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 8c81d2bc499c3d9cae262ef62be2dac2d7280be7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77197981"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183847"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för SAML i en Azure Active Directory B2C anpassad princip
 
@@ -121,7 +121,7 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | PartnerEntity | Ja | URL för metadata för SAML Identity Provider. Kopiera metadata för identitets leverantören och Lägg till dem i CDATA-elementet `<![CDATA[Your IDP metadata]]>` |
 | WantsSignedRequests | Nej | Anger om den tekniska profilen kräver att alla utgående autentiseringsbegäranden signeras. Möjliga värden: `true` eller `false`. Standardvärdet är `true`. När värdet är inställt på `true`måste den kryptografiska nyckeln **SamlMessageSigning** anges och alla utgående autentiseringsbegäranden signeras. Om värdet är inställt på `false`utelämnas parametrarna **SigAlg** och **Signature** (frågesträng eller post parameter) från begäran. Dessa metadata styr också attributet metadata **AuthnRequestsSigned** , som är utdata i metadata för den Azure AD B2C tekniska profil som delas med identitets leverantören. Azure AD B2C signerar inte begäran om värdet för **WantsSignedRequests** i metadata för teknisk profil är inställt på `false` och **WantAuthnRequestsSigned** för identitetsprovider har angetts till `false` eller inte har angetts. |
@@ -141,7 +141,7 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 **CryptographicKeys** -elementet innehåller följande attribut:
 
-| Attribut |Obligatoriskt | Beskrivning |
+| Attribut |Krävs | Beskrivning |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |Ja | X509-certifikatet (RSA-nyckel uppsättning) som används för att signera SAML-meddelanden. Azure AD B2C använder den här nyckeln för att signera förfrågningarna och skicka dem till identitets leverantören. |
 | SamlAssertionDecryption |Ja | X509-certifikatet (RSA-nyckel uppsättning) som används för att dekryptera SAML-meddelanden. Det här certifikatet bör tillhandahållas av identitets leverantören. Azure AD B2C använder det här certifikatet för att dekryptera data som skickas av identitets leverantören. |

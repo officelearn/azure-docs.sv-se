@@ -6,12 +6,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gwallace
-ms.openlocfilehash: bfb7d3ad6f918d91061fa226ae2dbfcd7f27852d
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 43352117d149abbe41ba7bf49a1ffb68e46d2707
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210165"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190761"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Distributions tekniker i Azure Functions
 
@@ -104,7 +104,7 @@ Du kan använda en extern paket-URL för att referera till en fjärrfil-fil (zip
 
 Använd zip Deploy för att skicka en. zip-fil som innehåller din Function-app till Azure. Om du vill kan du ange att appen ska börja [köras från paketet](run-functions-from-deployment-package.md)eller ange att en [fjärran sluten version](#remote-build) sker.
 
->__Så här använder du den:__ Distribuera med hjälp av ditt favorit klient verktyg: [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [visual Studio](functions-develop-vs.md#publish-to-azure), [Azure Functions Core tools](functions-run-local.md)eller [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). Som standard använder dessa verktyg zip-distribution och [Kör från paket](run-functions-from-deployment-package.md). Core tools och Visual Studio Code-tillägget aktiverar både [fjärran sluten skapande](#remote-build) vid distribution till Linux. Om du vill distribuera en. zip-fil manuellt till Function-appen följer du anvisningarna i [distribuera från en. zip-fil eller URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
+>__Så här använder du den:__ Distribuera med hjälp av ditt favorit klient verktyg: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)eller från kommando raden med hjälp av [Azure Functions Core tools](functions-run-local.md#project-file-deployment). Som standard använder dessa verktyg zip-distribution och [Kör från paket](run-functions-from-deployment-package.md). Core tools och Visual Studio Code-tillägget aktiverar både [fjärran sluten skapande](#remote-build) vid distribution till Linux. Om du vill distribuera en. zip-fil manuellt till Function-appen följer du anvisningarna i [distribuera från en. zip-fil eller URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
 >När du distribuerar med hjälp av zip-distribution kan du ange att appen ska [köras från paketet](run-functions-from-deployment-package.md). Om du vill köra från paket ställer du in värdet för `WEBSITE_RUN_FROM_PACKAGE` Application Setting på `1`. Vi rekommenderar zip-distribution. Det ger snabbare inläsnings tider för dina program och är standard för VS Code, Visual Studio och Azure CLI. 
 

@@ -3,20 +3,20 @@ title: Aktivera verifiering av eng ång slö sen ord
 titleSuffix: Azure AD B2C
 description: Lär dig hur du konfigurerar ett eng ång slö sen ord (eng ång slö sen ord) genom att använda Azure AD B2C anpassade principer.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/10/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9becb91cfffd4553b2b8aa1a2d616963eae92ab0
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: 701fb64dd85526bc79cab48bf36d4583da71ca76
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114047"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184034"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en teknisk profil för eng ång slö sen ord i en Azure AD B2C anpassad princip
 

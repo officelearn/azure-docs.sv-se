@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C anpassade principer | Microsoft Docs
 description: Lär dig mer om att Azure Active Directory B2C anpassade principer.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b1f3bbcba562d126d503920cb7b6787e2ca0025c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f72aedb010301f9c7b12778432c4f10feb10f7a3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847048"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189250"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Anpassade principer i Azure Active Directory B2C
 
@@ -29,9 +29,9 @@ Anpassade principer är konfigurationsfiler som definierar beteendet för din Az
 |-|-------------------|-----------------|
 | Mål användare | Alla program utvecklare med eller utan identitets kunskaper. | Identitets tekniker, system integrerare, konsulter och interna identitets team. De är bekvämt med OpenID Connect-flöden och förstå identitets leverantörer och anspråksbaserad autentisering. |
 | Konfigurations metod | Azure Portal med ett användarvänligt användar gränssnitt (UI). | Redigera XML-filer direkt och ladda upp till Azure Portal. |
-| UI-anpassning | Fullständig anpassning av gränssnittet, inklusive HTML, CSS och Java Script.<br><br>Stöd för flera språk med anpassade strängar. | Det |
-| Attribut anpassning | Standard-och anpassade attribut. | Det |
-| Hantering av token och sessioner | Alternativ för anpassad token och flera sessioner. | Det |
+| UI-anpassning | Fullständig anpassning av gränssnittet, inklusive HTML, CSS och Java Script.<br><br>Stöd för flera språk med anpassade strängar. | det |
+| Attribut anpassning | Standard-och anpassade attribut. | det |
+| Hantering av token och sessioner | Alternativ för anpassad token och flera sessioner. | det |
 | Identitetsprovidrar | Fördefinierad lokal eller social Provider och de flesta OIDC-identitets leverantörer, till exempel Federation med Azure Active Directory klienter. | Standardbaserad OIDC, OAUTH och SAML.  Autentisering är också möjligt med hjälp av integrering med REST API: er. |
 | Identitets uppgifter | Registrera dig eller logga in med lokala eller många sociala konton.<br><br>Lösen ords återställning via självbetjäning.<br><br>Redigera profil.<br><br>Multi-Factor Authentication.<br><br>Anpassa token och sessioner.<br><br>Flöden för åtkomsttoken. | Slutför samma uppgifter som användar flöden med anpassade identitets leverantörer eller Använd anpassade omfattningar.<br><br>Etablera ett användar konto i ett annat system vid tidpunkten för registreringen.<br><br>Skicka ett välkomst meddelande med din egen e-posttjänstprovider.<br><br>Använd ett användar Arkiv utanför Azure AD B2C.<br><br>Verifiera användarens angivna information med ett betrott system med hjälp av ett API. |
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 02/28/2020
 ms.author: diberry
-ms.openlocfilehash: 6e1005e3d9c3769de3249f3244d65a656edc963e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ec6f9592a4c149be382fab66cca27d929644d988
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891753"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194517"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrera till en Azure-resurs redigerings nyckel
 
@@ -70,19 +70,19 @@ Du kan försena migreringsprocessen genom att avbryta fönstret. Du uppmanas reg
 
 Om du inte har någon Azure-prenumeration kan du [Registrera dig](https://azure.microsoft.com/free/).
 
-### <a name="migration-steps"></a>Migreringssteg
+### <a name="migration-steps"></a>Migreringsanvisningar
 
 Följ [dessa steg för migrering](luis-migration-authoring-steps.md).
 
-### <a name="after-you-migrate"></a>Efter migreringen
+### <a name="after-you-migrate"></a>När du har migrerat
 
 Efter migreringsprocessen är alla dina LUIS-appar nu kopplade till en enda LUIS Authoring-resurs.
 
 Du kan skapa fler redigerings resurser och tilldela dem från sidan **hantera > Azure-resurser** på Luis- _portalen_.
 
-Du kan lägga till deltagare till redigerings resursen från _Azure Portal_på sidan **Access Control (IAM)** för resursen. Mer information finns i [lägga till deltagar åtkomst](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource) .
+Du kan lägga till deltagare till redigerings resursen från _Azure Portal_på sidan **Access Control (IAM)** för resursen. Mer information finns i [lägga till deltagar åtkomst](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource).
 
-|Portalen|Syfte|
+|Portal|Syfte|
 |--|--|
 |[Azure](https://azure.microsoft.com/free/)|* Skapa förutsägelse-och redigera resurser.<br>* Tilldela deltagare.|
 |[LUIS](https://www.luis.ai)|* Migrera till nya redigerings resurser.<br>* Tilldela eller ta bort tilldelningar av förutsägelse och redigering av resurser till appar från sidan **hantera > Azure-resurser** .|
@@ -104,12 +104,20 @@ Appens ägare måste [lägga till ditt e-postmeddelande till Azure Authoring-res
 
 Efter migreringen är alla appar som du äger tillgängliga på sidan **Mina appar** i Luis-portalen.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting-the-migration-process-for-luis-authoring"></a>Felsöka migreringsprocessen för LUIS-redigering
 
-* LUIS redigerings nycklar visas bara i LUIS-portalen när migreringen är klar. Om du skapar redigerings nycklarna, till exempel med LUIS CLI, måste användaren fortfarande slutföra migreringsprocessen.
+* LUIS redigerings nycklar visas bara i LUIS-portalen när migreringen är klar. Om du skapar redigerings nycklarna, till exempel med LUIS CLI, måste användaren fortfarande slutföra migreringsprocessen i LUIS-portalen.
 * Om en migrerad användare lägger till en icke-migrerad användare som deltagare i sin Azure-resurs får den icke-migrerade användaren ingen åtkomst till apparna om de inte migrerar.
-* Om en icke-migrerad användare inte är ägare till några appar, men han är en medarbetare till andra appar som ägs av andra och ägarna har genomgått migreringsprocessen, måste användaren migrera för att få åtkomst till apparna.
+* Om en icke-migrerad användare inte är ägare till några appar, men är en medarbetare till andra appar som ägs av andra och ägarna har genomgått migreringsprocessen, måste användaren migrera för att få åtkomst till apparna.
 * Om en icke-migrerad användare har lagt till en annan migrerad användare som en medarbetare i sin app, uppstår ett fel eftersom du inte kan lägga till en migrerad användare som medarbetare i en app. Den icke-migrerade användaren måste sedan gå igenom migreringsprocessen och skapa en Azure-resurs och lägga till den migrerade användaren som deltagare i resursen.
+
+Du får ett fel meddelande under migreringsprocessen om:
+* Din prenumeration tillåter inte att du skapar Cognitive Services resurser
+* Migreringen påverkar negativt alla program körningar. När du migrerar tas alla medarbetare bort från dina appar och du tas bort som en medarbetare från andra appar. Den här processen innebär att de nycklar som du har tilldelat också tas bort. Migreringen blockeras om du har tilldelat nycklar i andra appar. Ta bort den nyckel du tilldelade säkert innan du migrerar. Om du vet att den nyckel som du har tilldelat inte används i körnings miljön måste du ta bort den för att kunna fortsätta med migreringen.
+
+Få åtkomst till appens Azure Resource List med följande URL-format:
+
+`https://www.luis.ai/applications/REPLACE-WITH-YOUR-APP-ID/versions/REPLACE-WITH-YOUR-VERSION-ID/manage/resources`
 
 ## <a name="next-steps"></a>Nästa steg
 

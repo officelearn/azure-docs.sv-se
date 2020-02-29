@@ -10,22 +10,22 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 3cc2f140eeed0a4667a01aa8c5ccbad7e4411521
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: abeb5c125a746842f522030878f93941450df974
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686000"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200557"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Prestanda justering med ordnat grupperat columnstore-index  
 
-När användarna frågar en columnstore-tabell i Azure SQL Data Warehouse kontrollerar optimeringen de lägsta och högsta värden som lagras i varje segment.  Segment som ligger utanför gränserna för frågespråket går inte att läsa från disk till minne.  En fråga kan få snabbare prestanda om antalet segment som ska läsas och deras sammanlagda storlek är små.   
+När användarna frågar en columnstore-tabell i SQL Analytics kontrollerar optimeringen de lägsta och högsta värden som lagras i varje segment.  Segment som ligger utanför gränserna för frågespråket går inte att läsa från disk till minne.  En fråga kan få snabbare prestanda om antalet segment som ska läsas och deras sammanlagda storlek är små.   
 
 ## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Ordnat eller icke-ordnat grupperat columnstore-index 
-Som standard skapar en intern komponent (CCI) ett grupperat columnstore-index (CCI) för varje Azure Data Warehouse-tabell som skapats utan ett index-alternativ.  Data i varje kolumn komprimeras till ett separat CCI radgrupps-segment.  Det finns metadata för varje segments värde intervall, så segment som ligger utanför gränserna för frågespråket är inte lästa från disk under frågekörningen.  CCI erbjuder den högsta nivån av data komprimering och minskar storleken på segment som ska läsas så att frågor kan köras snabbare. Men eftersom index Builder inte sorterar data innan de komprimeras i segment, kan segment med överlappande värde intervall inträffa, vilket gör att frågor kan läsa fler segment från disken och ta längre tid att slutföra.  
+Som standard skapar en intern komponent (ett grupperat columnstore-index) för varje SQL Analytics-tabell som skapats utan ett index-alternativ (CCI).  Data i varje kolumn komprimeras till ett separat CCI radgrupps-segment.  Det finns metadata för varje segments värde intervall, så segment som ligger utanför gränserna för frågespråket är inte lästa från disk under frågekörningen.  CCI erbjuder den högsta nivån av data komprimering och minskar storleken på segment som ska läsas så att frågor kan köras snabbare. Men eftersom index Builder inte sorterar data innan de komprimeras i segment, kan segment med överlappande värde intervall inträffa, vilket gör att frågor kan läsa fler segment från disken och ta längre tid att slutföra.  
 
-När du skapar en ordnad CCI sorterar Azure SQL Data Warehouses motorn befintliga data i minnet efter beställnings nyckeln (erna) innan index verktyget komprimerar dem till index segment.  Med sorterade data minskas överlappande av segment som gör att frågor kan få en mer effektiv segment Eli minering och därmed snabbare prestanda eftersom antalet segment som ska läsas från disken är mindre.  Om alla data kan sorteras i minnet samtidigt, kan segment som överlappa varandra undvikas.  Det här scenariot inträffar inte ofta när du har fått den stora storleken på data i data lager tabeller.  
+När du skapar en ordnad CCI sorterar SQL Analytics-motorn befintliga data i minnet efter beställnings nyckeln (erna) innan index verktyget komprimerar dem till index segment.  Med sorterade data minskas överlappande av segment som gör att frågor kan få en mer effektiv segment Eli minering och därmed snabbare prestanda eftersom antalet segment som ska läsas från disken är mindre.  Om alla data kan sorteras i minnet samtidigt, kan segment som överlappa varandra undvikas.  Det här scenariot inträffar inte ofta när du har fått den stora storleken på data i SQL Analytics-tabeller.  
 
 Om du vill kontrol lera segment intervallen för en kolumn kör du det här kommandot med ditt tabell namn och kolumn namn:
 
@@ -44,7 +44,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> I en ordnad CCI-tabell, sorteras de nya data som skapas från samma sats av DML-eller data inläsnings åtgärder i batchen, men det finns ingen global sortering för alla data i tabellen.  Användare kan återskapa de beställda CCI för att sortera alla data i tabellen.  I Azure SQL Data Warehouse är columnstore-indexet återbyggt en offline-åtgärd.  För en partitionerad tabell görs en ombyggning av en partition i taget.  Data i partitionen som återskapas är offline och otillgängliga tills återskapandet har slutförts för den partitionen. 
+> I en ordnad CCI-tabell, sorteras de nya data som skapas från samma sats av DML-eller data inläsnings åtgärder i batchen, men det finns ingen global sortering för alla data i tabellen.  Användare kan återskapa de beställda CCI för att sortera alla data i tabellen.  I SQL Analytics är columnstore-indexet återbyggt en offline-åtgärd.  För en partitionerad tabell görs en ombyggning av en partition i taget.  Data i partitionen som återskapas är offline och otillgängliga tills återskapandet har slutförts för den partitionen. 
 
 ## <a name="query-performance"></a>Frågeprestanda
 
@@ -55,7 +55,7 @@ Frågor med alla dessa mönster körs vanligt vis snabbare med ordnade CCI.
 1. Predikatet predikat och de beställda CCI-kolumnerna är desamma.  
 1. Predikat-kolumnerna används i samma ordning som kolumn ordnings talet för de ordnade CCI-kolumnerna.  
  
-I det här exemplet har Table T1 ett grupperat columnstore-index som ordnats i sekvensen Col_C, Col_B och Col_A.
+I det här exemplet har tabell T1 ett grupperat columnstore-index som ordnats i sekvensen av Col_C, Col_B och Col_A.
 
 ```sql
 
@@ -110,7 +110,7 @@ CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX O
 AS SELECT * FROM ExampleTable
 OPTION (MAXDOP 1);
 ```
-- Sortera data efter sorterings nyckel (er) innan du läser in dem i Azure SQL Data Warehouse tabeller.
+- Sortera data efter sorterings nyckel (er) innan du läser in dem i SQL Analytics-tabeller.
 
 
 Här är ett exempel på en ordnad tabell distribution som har noll segment som överlappar följande rekommendationer. Den ordnade CCI-tabellen skapas i en DWU1000c-databas via CTAS från en heap-tabell med 20 GB med MAXDOP 1 och xlargerc.  CCI är ordnade i en BIGINT-kolumn utan dubbletter.  
@@ -121,11 +121,11 @@ Här är ett exempel på en ordnad tabell distribution som har noll segment som 
 Att skapa en ordnad CCI är en offline-åtgärd.  För tabeller som inte har några partitioner är data inte tillgängliga för användarna förrän den ordnade CCI-processen har skapats.   För partitionerade tabeller, eftersom motorn skapar den beställda CCI-partitionen per partition, kan användarna fortfarande komma åt data i partitioner där ordnade CCI inte har skapats.   Du kan använda det här alternativet för att minimera stillestånds tiden när du skapar ordnade CCI i stora tabeller: 
 
 1.  Skapa partitioner på den stora mål tabellen (kallas Table_A).
-2.  Skapa en tom sorterad CCI-tabell (kallas Table_B) med samma tabell-och partitions schema som tabell A.
+2.  Skapa en tom ordnad tabell (kallas Table_B) med samma tabell och partition schema som tabell A.
 3.  Växla en partition från tabell A till tabell B.
-4.  Kör ALTER INDEX < Ordered_CCI_Index > på < Table_B > återskapa PARTITION = < Partition_ID > på tabell B för att återskapa den switchade partitionen.  
+4.  Kör ALTER INDEX < Ordered_CCI_Index > på < Table_B > återskapa PARTITION = < Partition_ID > i tabell B för att återskapa den switchade partitionen.  
 5.  Upprepa steg 3 och 4 för varje partition i Table_A.
-6.  När alla partitioner har växlats från Table_A till Table_B och har återskapats, tar du bort Table_A och byter namn på Table_B till Table_A. 
+6.  När alla partitioner har växlats från Table_A till Table_B och har återskapats, släpp Table_A och Byt namn på Table_B till Table_A. 
 
 ## <a name="examples"></a>Exempel
 
@@ -145,4 +145,4 @@ WITH (DROP_EXISTING = ON)
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-För fler utvecklingstips, se [Översikt över SQL Data Warehouse-utveckling](sql-data-warehouse-overview-develop.md).
+Mer utvecklings tips finns i [utvecklings översikt](sql-data-warehouse-overview-develop.md).

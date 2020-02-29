@@ -2,21 +2,21 @@
 title: Flöde för auktoriseringskod – Azure Active Directory B2C | Microsoft Docs
 description: Lär dig hur du skapar webbappar med hjälp av Azure AD B2C-och OpenID Connect-autentiseringsprotokollet.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6ddfefb69e53ec4801d913e01b00158a4905d2df
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8248ca0abb1d633786b09b894bcd6b1089ab2d8c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846944"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190083"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>OAuth 2,0 Authorization Code Flow i Azure Active Directory B2C
 
@@ -60,9 +60,9 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | response_type |Krävs |Svars typen, som måste innehålla `code` för flödets auktoriseringskod. |
 | redirect_uri |Krävs |Omdirigerings-URI för appen, där autentiseringsbegäranden skickas och tas emot av din app. Det måste exakt matcha en av de omdirigerings-URI: er som du har registrerat i portalen, förutom att den måste vara URL-kodad. |
 | omfång |Krävs |En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar att Azure Active Directory (Azure AD) båda de behörigheter som begärs. Med hjälp av klient-ID som omfånget anger att din app behöver en åtkomsttoken som kan användas för din egen tjänst eller ditt webb-API som representeras av samma klient-ID.  `offline_access` omfånget indikerar att appen behöver en uppdateringstoken för långvarig åtkomst till resurser. Du kan också använda `openid` omfång för att begära en ID-token från Azure AD B2C. |
-| response_mode |Rekommenderad |Den metod som du använder för att skicka den resulterande auktoriseringskod tillbaka till din app. Det kan vara `query`, `form_post`eller `fragment`. |
-| state |Rekommenderad |Ett värde som ingår i begäran som kan vara en sträng med innehåll som du vill använda. Normalt används ett slumpmässigt genererat unikt värde för att förhindra förfalsknings attacker på begäran från en webbplats. Det här läget används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat. Till exempel sidan användaren var på eller det användar flöde som kördes. |
-| visas |Valfritt |Typ av användar interaktion som krävs. För närvarande är det enda giltiga värdet `login`, vilket tvingar användaren att ange sina autentiseringsuppgifter för begäran. Enkel inloggning träder inte i kraft. |
+| response_mode |Rekommenderas |Den metod som du använder för att skicka den resulterande auktoriseringskod tillbaka till din app. Det kan vara `query`, `form_post`eller `fragment`. |
+| state |Rekommenderas |Ett värde som ingår i begäran som kan vara en sträng med innehåll som du vill använda. Normalt används ett slumpmässigt genererat unikt värde för att förhindra förfalsknings attacker på begäran från en webbplats. Det här läget används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat. Till exempel sidan användaren var på eller det användar flöde som kördes. |
+| visas |Valfri |Typ av användar interaktion som krävs. För närvarande är det enda giltiga värdet `login`, vilket tvingar användaren att ange sina autentiseringsuppgifter för begäran. Enkel inloggning träder inte i kraft. |
 
 Nu uppmanas användaren att slutföra användar flödets arbets flöde. Detta kan innebära att användaren anger sitt användar namn och lösen ord, loggar in med en social identitet, registrerar sig för katalogen eller något annat antal steg. Användar åtgärder är beroende av hur användar flödet definieras.
 
@@ -117,7 +117,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | client_id |Krävs |Det program-ID som har tilldelats din app i [Azure Portal](https://portal.azure.com).|
 | client_secret | Ja, i Web Apps | Den program hemlighet som genererades i [Azure Portal](https://portal.azure.com/). Klient hemligheter används i det här flödet för scenarier med webb program, där klienten kan lagra en klient hemlighet på ett säkert sätt. För interna app-scenarier (offentliga klienter) kan inte klient hemligheter lagras på ett säkert sätt och används därför inte i det här anropet. Om du använder en klient hemlighet måste du ändra den regelbundet. |
 | grant_type |Krävs |Typ av beviljande. För Authorization Code Flow måste tilldelnings typen `authorization_code`. |
-| omfång |Rekommenderad |En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar Azure AD båda de behörigheter som begärs. Med hjälp av klient-ID som omfånget anger att din app behöver en åtkomsttoken som kan användas för din egen tjänst eller ditt webb-API som representeras av samma klient-ID.  `offline_access` omfånget indikerar att appen behöver en uppdateringstoken för långvarig åtkomst till resurser.  Du kan också använda `openid` omfång för att begära en ID-token från Azure AD B2C. |
+| omfång |Rekommenderas |En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar Azure AD båda de behörigheter som begärs. Med hjälp av klient-ID som omfånget anger att din app behöver en åtkomsttoken som kan användas för din egen tjänst eller ditt webb-API som representeras av samma klient-ID.  `offline_access` omfånget indikerar att appen behöver en uppdateringstoken för långvarig åtkomst till resurser.  Du kan också använda `openid` omfång för att begära en ID-token från Azure AD B2C. |
 | code |Krävs |Den auktoriseringskod som du förvärvade i den första delen av flödet. |
 | redirect_uri |Krävs |Omdirigerings-URI för programmet där du fick auktoriseringskod. |
 
@@ -183,8 +183,8 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 | client_id |Krävs |Det program-ID som har tilldelats din app i [Azure Portal](https://portal.azure.com). |
 | client_secret | Ja, i Web Apps | Den program hemlighet som genererades i [Azure Portal](https://portal.azure.com/). Klient hemligheter används i det här flödet för scenarier med webb program, där klienten kan lagra en klient hemlighet på ett säkert sätt. För interna app-scenarier (offentliga klienter) kan inte klient hemligheter lagras på ett säkert sätt och används därför inte i det här anropet. Om du använder en klient hemlighet måste du ändra den regelbundet. |
 | grant_type |Krävs |Typ av beviljande. För den här delen av koden för auktoriseringskod måste tilldelnings typen `refresh_token`. |
-| omfång |Rekommenderad |En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar Azure AD båda de behörigheter som begärs. Med hjälp av klient-ID som omfånget anger att din app behöver en åtkomsttoken som kan användas för din egen tjänst eller ditt webb-API som representeras av samma klient-ID.  `offline_access` omfånget indikerar att appen behöver en uppdateringstoken för långvarig åtkomst till resurser.  Du kan också använda `openid` omfång för att begära en ID-token från Azure AD B2C. |
-| redirect_uri |Valfritt |Omdirigerings-URI för programmet där du fick auktoriseringskod. |
+| omfång |Rekommenderas |En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar Azure AD båda de behörigheter som begärs. Med hjälp av klient-ID som omfånget anger att din app behöver en åtkomsttoken som kan användas för din egen tjänst eller ditt webb-API som representeras av samma klient-ID.  `offline_access` omfånget indikerar att appen behöver en uppdateringstoken för långvarig åtkomst till resurser.  Du kan också använda `openid` omfång för att begära en ID-token från Azure AD B2C. |
+| redirect_uri |Valfri |Omdirigerings-URI för programmet där du fick auktoriseringskod. |
 | refresh_token |Krävs |Den ursprungliga uppdateringstoken som du förvärvade i den andra delen av flödet. |
 
 Ett lyckat token-svar ser ut så här:

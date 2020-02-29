@@ -3,20 +3,20 @@ title: 'Självstudie: registrera ett program'
 titleSuffix: Azure AD B2C
 description: Lär dig hur du registrerar ett webb program i Azure Active Directory B2C med hjälp av Azure Portal.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dbb689182a45367061ae129304a98a8ee9962051
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a688f5e75f7513d0ea4308b751f87f75a2c9510a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840119"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183099"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Självstudie: registrera ett program i Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ I den här artikeln kan du se hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte redan har skapat din egen [Azure AD B2C-klient](tutorial-create-tenant.md)skapar du en nu. Du kan använda en befintlig Azure AD B2C klient.
 
@@ -38,9 +38,9 @@ Om du inte redan har skapat din egen [Azure AD B2C-klient](tutorial-create-tenan
 
 Om du vill registrera ett program i din Azure AD B2C klient kan du använda den aktuella **program** upplevelsen eller vår nya enhetliga **Appregistreringar (förhands granskning)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
 
-#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+#### <a name="applications"></a>[Program](#tab/applications/)
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Välj **Program** och därefter **Lägg till**.
@@ -57,9 +57,9 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda den 
 
 1. Välj **skapa** för att slutföra program registreringen.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Välj **Appregistreringar (för hands version)** och välj sedan **ny registrering**.
@@ -90,13 +90,13 @@ När program registreringen är klar aktiverar du det implicita tilldelnings fl�
 
 Om programmet utbyter en auktoriseringskod för en åtkomsttoken måste du skapa en program hemlighet.
 
-#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+#### <a name="applications"></a>[Program](#tab/applications/)
 
 1. På sidan **Azure AD B2C-program** väljer du det program som du skapade, till exempel *webapp1*.
 1. Välj **nycklar** och välj sedan **generera nyckel**.
 1. Välj **Spara** för att Visa nyckeln. Anteckna **appnyckel**-värdet. Du använder det här värdet som program hemlighet i programmets kod.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
 1. På sidan **Azure AD B2C-Appregistreringar (förhands granskning)** väljer du det program som du skapade, till exempel *webapp1*.
 1. Under **Hantera**väljer du **certifikat & hemligheter**.

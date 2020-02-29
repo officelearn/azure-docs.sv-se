@@ -1,6 +1,6 @@
 ---
-title: PowerShell-cmdletar
-description: Hitta de vanligaste PowerShell-cmdletarna för Azure SQL Data Warehouse inklusive hur du pausar och återupptar en databas.
+title: 'PowerShell & REST API: er'
+description: Hitta de främsta PowerShell-cmdletarna för Azure Synapse Analytics SQL-poolen, inklusive hur du pausar och återupptar en databas.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -11,19 +11,21 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c5f85f102d72ac2e4a0315109748d48573f49407
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: c0c8b1e9b7526bd45d037f053715613b53ec163f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721191"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198464"
 ---
-# <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>PowerShell-cmdletar och REST-API: er för SQL Data Warehouse
-Många SQL Data Warehouse administrations uppgifter kan hanteras med hjälp av antingen Azure PowerShell-cmdletar eller REST-API: er.  Nedan visas några exempel på hur du kan använda PowerShell-kommandon för att automatisera vanliga uppgifter i SQL Data Warehouse.  En del användbara exempel finns i artikeln [Hantera skalbarhet med rest](sql-data-warehouse-manage-compute-rest-api.md).
+# <a name="powershell--rest-apis-for-azure-synapse-analytics-sql-pool"></a>PowerShell & REST API: er för Azure Synapse Analytics SQL-pool
+
+Många administrativa uppgifter i Azure Synapse Analytics SQL-poolen kan hanteras med hjälp av antingen Azure PowerShell-cmdlets eller REST-API: er.  Nedan visas några exempel på hur du använder PowerShell-kommandon för att automatisera vanliga uppgifter i SQL-poolen.  En del användbara exempel finns i artikeln [Hantera skalbarhet med rest](sql-data-warehouse-manage-compute-rest-api.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-azure-powershell-cmdlets"></a>Kom igång med Azure PowerShell-cmdletar
+
 1. Öppna Windows PowerShell.
 2. Kör dessa kommandon i PowerShell-prompten för att logga in på Azure Resource Manager och välj din prenumeration.
    
@@ -33,12 +35,13 @@ Många SQL Data Warehouse administrations uppgifter kan hanteras med hjälp av a
     Select-AzSubscription -SubscriptionName "MySubscription"
     ```
 
-## <a name="pause-sql-data-warehouse-example"></a>Pausa SQL Data Warehouse exempel
+## <a name="pause-data-warehouse-example"></a>Exempel på Pausa data lager
 Pausa en databas med namnet "Database02" som finns på en server med namnet "Server01".  Servern finns i en Azure-resurs grupp med namnet "ResourceGroup1".
 
 ```Powershell
 Suspend-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
+
 En variation, det här exemplet rör det hämtade objektet för att [pausa-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase).  Databasen pausas därför. Det slutliga kommandot visar resultatet.
 
 ```Powershell
@@ -47,7 +50,8 @@ $resultDatabase = $database | Suspend-AzSqlDatabase
 $resultDatabase
 ```
 
-## <a name="start-sql-data-warehouse-example"></a>Starta SQL Data Warehouse exempel
+## <a name="start-data-warehouse-example"></a>Exempel på Start data lager
+
 Återuppta åtgärden för en databas med namnet "Database02" som finns på en server med namnet "Server01". Servern finns i en resurs grupp med namnet "ResourceGroup1".
 
 ```Powershell
@@ -67,7 +71,7 @@ $resultDatabase = $database | Resume-AzSqlDatabase
 > 
 
 ## <a name="other-supported-powershell-cmdlets"></a>Andra PowerShell-cmdletar som stöds
-Dessa PowerShell-cmdletar stöds med Azure SQL Data Warehouse.
+Dessa PowerShell-cmdletar stöds med Azure Synapse Analytics data Warehouse.
 
 * [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase)
 * [Get-AzSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup)
@@ -83,7 +87,7 @@ Dessa PowerShell-cmdletar stöds med Azure SQL Data Warehouse.
 ## <a name="next-steps"></a>Nästa steg
 Fler PowerShell-exempel finns i:
 
-* [Skapa en SQL Data Warehouse med hjälp av PowerShell](create-data-warehouse-powershell.md)
+* [Skapa ett informations lager med PowerShell](create-data-warehouse-powershell.md)
 * [Återställning av databas](sql-data-warehouse-restore-database-powershell.md)
 
-För andra uppgifter som kan automatiseras med PowerShell, se [Azure SQL Database-cmdletar](https://docs.microsoft.com/powershell/module/az.sql). Alla Azure SQL Database-cmdlets stöds inte för Azure SQL Data Warehouse.  En lista över uppgifter som kan automatiseras med REST finns i [åtgärder för Azure SQL Database](https://msdn.microsoft.com/library/azure/dn505719.aspx).
+För andra uppgifter som kan automatiseras med PowerShell, se [Azure SQL Database-cmdletar](https://docs.microsoft.com/powershell/module/az.sql). Alla Azure SQL Database-cmdlets stöds inte för Azure Synapse Analytics-datalagret.  En lista över uppgifter som kan automatiseras med REST finns i [åtgärder för Azure SQL Database](/rest/api/sql/).

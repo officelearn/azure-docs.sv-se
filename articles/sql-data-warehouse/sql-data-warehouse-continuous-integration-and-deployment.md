@@ -1,25 +1,26 @@
 ---
 title: Kontinuerlig integrering och distribution
-description: Databas DevOps-upplevelse i företags klass för SQL Data Warehouse med inbyggt stöd för kontinuerlig integrering och distribution med hjälp av Azure pipelines.
+description: Databas DevOps-upplevelse i företags klass för data lager hantering med inbyggt stöd för kontinuerlig integrering och distribution med hjälp av Azure-pipelines.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: integration
-ms.date: 08/28/2019
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8178e5ff9ff4816ddd422d3c45cfc0e1e0b3d41
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: azure-synapse
+ms.openlocfilehash: cb28afc84c423c5c5321a8f948e82f82031888a0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712994"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195948"
 ---
-# <a name="continuous-integration-and-deployment-for-azure-sql-data-warehouse"></a>Kontinuerlig integrering och distribution för Azure SQL Data Warehouse
+# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Kontinuerlig integrering och distribution för data lager
 
-Den här enkla själv studie kursen beskriver hur du integrerar SQL Server ditt SSDT-databas projekt med Azure DevOps och utnyttjar Azure-pipeliner för att konfigurera kontinuerlig integrering och distribution. Den här självstudien är det andra steget i att skapa en pipeline för kontinuerlig integrering och distribution med SQL Data Warehouse. 
+Den här enkla själv studie kursen beskriver hur du integrerar SQL Server ditt SSDT-databas projekt med Azure DevOps och utnyttjar Azure-pipeliner för att konfigurera kontinuerlig integrering och distribution. Den här självstudien är det andra steget i att skapa en pipeline för kontinuerlig integrering och distribution för data lager. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -61,7 +62,7 @@ Nu har du en enkel miljö där all incheckning av huvud grenen för käll kontro
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Utforska [Azure SQL Data Warehouse-arkitekturen](massively-parallel-processing-mpp-architecture.md)
-- [Skapa en SQL Data Warehouse](create-data-warehouse-portal.md) snabbt
+- Utforska [SQL Analytics MPP-arkitektur](massively-parallel-processing-mpp-architecture.md)
+- [Skapa snabbt en SQL-pool](create-data-warehouse-portal.md)
 - [Läs in exempel data](sql-data-warehouse-load-sample-databases.md)
 - Utforska [videor](/azure/sql-data-warehouse/sql-data-warehouse-videos)

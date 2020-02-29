@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1a4fbfa87756914f169bb20387702cac69d8736d
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: f7cac849caf478850707eb0a71b2369dcfa49520
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759490"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197189"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (tidigare SQL DW) vanliga frågor och svar
 
@@ -23,9 +23,9 @@ ms.locfileid: "76759490"
 
 F. Vad är Azure Synapse?
 
-A. Azure Synapse är en obegränsad analys tjänst som samlar ihop data lager och stor data analys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen server utan på begäran eller etablerade resurser – i stor skala. Azure Synapse sammanför de två världarna med en enhetlig upplevelse för att mata in, förbereda, hantera och hämta data för snabba BI- och maskininlärningsbehov. Mer information finns i, [Vad är Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Azure Synapse är en obegränsad analys tjänst som samlar ihop data lager och stor data analys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen server utan på begäran eller etablerade resurser – i stor skala. Azure synapse ger de här två världar tillsammans med en enhetlig upplevelse för att mata in, förbereda, hantera och hantera data för omedelbara BI-och maskin inlärnings behov. Mer information finns i, [Vad är Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-F. Vad hände med Azure SQL Data Warehouse?
+F. Vad hände med att Azure SQL Data Warehouse?
 
 A. Azure Synapse är Azure SQL Data Warehouse (SQL DW) har utvecklats. Vi har tagit samma branschledande informations lager till en helt ny nivå av prestanda och kapacitet. Du kan fortsätta att köra dina befintliga arbets belastningar för data lager i produktion med Azure Synapse och automatiskt dra nytta av de nya funktionerna som finns i för hands versionen. Mer information finns i [Vad är Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
@@ -47,7 +47,7 @@ A. Besök sidan [Microsoft Compliance (efterlevnad](https://www.microsoft.com/tr
 
 F. Kan jag ansluta Power BI?
 
-A. Ja! Även om Power BI stöder direkt frågor med Azure Synapse är det inte avsett för ett stort antal användare eller real tids data. Om du vill optimera Power BI prestanda ytterligare bör du överväga att använda Power BI ovanpå Azure Analysis Services-eller Analysis Service-IaaS.
+A. Visst! Även om Power BI stöder direkt frågor med Azure Synapse är det inte avsett för ett stort antal användare eller real tids data. Om du vill optimera Power BI prestanda ytterligare bör du överväga att använda Power BI ovanpå Azure Analysis Services-eller Analysis Service-IaaS.
 
 F. Vad är kapacitets gränser för SQL Analytics?
 
@@ -88,7 +88,7 @@ F. Stöder SQL Analytics REST-API: er?
 A. Ja. De flesta REST-funktioner som kan användas med SQL Database finns också i SQL Analytics. Du kan hitta API-information i REST-dokumentations sidor eller [MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 
-## <a name="loading"></a>Läser in
+## <a name="loading"></a>Vid
 
 F. Vilka klient driv rutiner stöder du?
 
@@ -108,7 +108,7 @@ A: Nej, PolyBase samverkar bara med lagrings komponenterna.
 
 F: kan jag ansluta till HDI?
 
-A: HDI kan använda antingen ADLS eller WASB som HDFS-skiktet. Om du har antingen ditt HDFS-lager kan du läsa in dessa data i SQL DW. Du kan dock inte generera mottagnings-beräkning till HDI-instansen. 
+A: HDI kan använda antingen ADLS eller WASB som HDFS-skiktet. Om du har antingen ditt HDFS-lager kan du läsa in dessa data i ett informations lager för SQL Analytics. Du kan dock inte generera mottagnings-beräkning till HDI-instansen. 
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure Synapse som helhet finns på vår [översikts](sql-data-warehouse-overview-faq.md) sida.

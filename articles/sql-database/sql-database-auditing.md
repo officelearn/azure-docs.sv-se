@@ -9,16 +9,17 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
-ms.openlocfilehash: 686e426ef0b7706eff168e42ffc67417b2c5c743
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.custom: azure-synapse
+ms.openlocfilehash: 70f37c70f685ee139db4b417c1c498f9eefb8205
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212887"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184765"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL Database-granskning
 
-Granskning för Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) spårar databas händelser och skriver dem till en Gransknings logg i ditt Azure storage-konto, Log Analytics arbets yta eller Event Hubs. Granskning:
+Granskning för Azure [SQL Database](sql-database-technical-overview.md) och [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) spårar databas händelser och skriver dem till en Gransknings logg i ditt Azure storage-konto, Log Analytics arbets yta eller Event Hubs. Granskning:
 
 - Hjälper dig att upprätthålla regelefterlevnad, förstå databas aktivitet och få insikt i avvikelser och avvikelser som kan tyda på affärs problem eller misstänkta säkerhets överträdelser.
 
@@ -26,7 +27,7 @@ Granskning för Azure [SQL Database](sql-database-technical-overview.md) och [SQ
 
 
 > [!NOTE] 
-> Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
+> Det här avsnittet gäller för Azure SQL Server och för både SQL Database-och Azure Synapse Analytics-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när du refererar till både SQL Database och Azure-Synapse.
 
 ## <a id="subheading-1"></a>Översikt över Azure SQL Database-granskning
 
@@ -80,6 +81,16 @@ I följande avsnitt beskrivs konfigurationen av granskning med hjälp av Azure P
 
     ![Navigeringsfönster][3]
 
+5. **Ny** – nu har du flera alternativ för att konfigurera var gransknings loggar ska skrivas. Du kan skriva loggar till ett Azure Storage-konto till en Log Analytics arbets yta för användning genom att Azure Monitor loggar eller till Event Hub för användning med Event Hub. Du kan konfigurera valfri kombination av dessa alternativ och gransknings loggarna skrivs till var och en.
+  
+   > [!NOTE]
+   > Kunden vill konfigurera ett oåterkalleligt logg Arkiv för gransknings händelser på Server-eller databas nivå genom att följa [anvisningarna som anges i Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes)
+  
+   > [!WARNING]
+   > Om du aktiverar granskning till Log Analytics debiteras kostnaden baserat på inmatnings taxan. Var medveten om den associerade kostnaden med hjälp av det här [alternativet](https://azure.microsoft.com/pricing/details/monitor/)eller Överväg att lagra gransknings loggarna i ett Azure Storage-konto.
+
+   ![lagrings alternativ](./media/sql-database-auditing-get-started/auditing-select-destination.png)
+   
 ### <a id="audit-storage-destination">Granska till lagrings mål</a>
 
 Om du vill konfigurera att skriva gransknings loggar till ett lagrings konto väljer du **lagring** och öppna **lagrings information**. Välj det Azure Storage-konto där loggar ska sparas och välj sedan kvarhållningsperioden. Klicka sedan på **OK**. Loggar som är äldre än kvarhållningsperioden tas bort.
@@ -105,9 +116,22 @@ Om du vill konfigurera att skriva gransknings loggar till en Log Analytics arbet
 
 ### <a id="audit-event-hub-destination">Granska till Event Hub-målet</a>
 
+< < < < < < < huvud < < < < < < < HEAD = = = = = = =
+>>>>>>> a8190987e07da4c5ced6de5f588d394ace4ca31d
+> [!IMPORTANT]
+> Det går inte att aktivera granskning på en pausad SQL-pool. Pausa SQL-poolen om du vill aktivera den.
+
+> [!WARNING]
+> Om du aktiverar granskning på en server som har en SQL-pool på den **kommer SQL-poolen att återupptas och pausas igen,** vilket kan ådra sig vid fakturerings avgifter.
+< < < < < < < HEAD = = = = = = = konfigurera gransknings loggar till en händelsehubben genom att välja **Event Hub (för hands version)** och **information om**att läsa händelsehubben. Välj den händelsehubben där loggar ska skrivas och klicka sedan på **OK**. Se till att händelsehubben är i samma region som din databas och server.
+
+   ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
+>>>>>>> <a name="bf6444e83361ab743aca04ae233c420e51ea1e03"></a>bf6444e83361ab743aca04ae233c420e51ea1e03
+=======
 Om du vill konfigurera att skriva gransknings loggar till en Event Hub väljer du **Event Hub (för hands version)** och **information om**att öppna händelsehubben. Välj den händelsehubben där loggar ska skrivas och klicka sedan på **OK**. Se till att händelsehubben är i samma region som din databas och server.
 
    ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
+>>>>>>> a8190987e07da4c5ced6de5f588d394ace4ca31d
 
 ## <a id="subheading-3"></a>Analysera gransknings loggar och rapporter
 

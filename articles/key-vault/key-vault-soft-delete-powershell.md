@@ -5,15 +5,16 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f026957b5f9fceab8a0df1f339e7cb459ec1078d
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 26c309eeebd7226c6777ec41ae674587da796dd4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562144"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199673"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Använda Key Vault mjuk borttagning med PowerShell
 
@@ -22,7 +23,7 @@ Azure Key Vault med funktionen för mjuk borttagning kan återställa borttagna 
 - Stöd för rekonstruerbar borttagning av ett nyckel valv
 - Stöd för rekonstruerbar borttagning av Key Vault-objekt; nycklar, hemligheter och certifikat
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -41,7 +42,7 @@ Key Vault åtgärder hanteras separat via RBAC-behörigheter (rollbaserad åtkom
 
 | Åtgärd | Beskrivning | Användar behörighet |
 |:--|:--|:--|
-|Lista|Visar en lista över borttagna nyckel valv.|Microsoft.KeyVault/deletedVaults/read|
+|Visa lista|Visar en lista över borttagna nyckel valv.|Microsoft.KeyVault/deletedVaults/read|
 |Återställ|Återställer ett borttaget nyckel valv.|Microsoft.KeyVault/vaults/write|
 |Rensa|Tar permanent bort ett borttaget nyckel valv och allt dess innehåll.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -254,7 +255,7 @@ Om du vill lägga till rensnings skydd i ett befintligt valv (som redan har mjuk
 Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ```
 
-## <a name="other-resources"></a>Övriga resurser
+## <a name="other-resources"></a>Andra resurser
 
 - En översikt över Key Vault mjuk borttagnings funktionen finns i [Azure Key Vault översikt över mjuk borttagning](key-vault-ovw-soft-delete.md).
 - En allmän översikt över Azure Key Vault användning finns i [Vad är Azure Key Vault?](key-vault-overview.md).

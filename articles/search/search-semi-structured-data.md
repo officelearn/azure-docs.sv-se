@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: indexera halv strutured data i JSON-blobar'
+title: 'Självstudie: indexera halv strukturerade data i JSON-blobar'
 titleSuffix: Azure Cognitive Search
 description: 'Lär dig att indexera och söka i halv strukturerade Azure JSON-blobbar med Azure Kognitiv sökning REST-API: er och Postman.'
 manager: nitinme
@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 0603ad1fbecf33e5880fd7f18d35af51795f8e39
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.date: 02/28/2020
+ms.openlocfilehash: f025b3357943014a6d9c6e331c47f019fe94c5bf
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251999"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196951"
 ---
-# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>REST-självstudie: indexera och Sök i halv strukturerade data (JSON-blobbar) i Azure Kognitiv sökning
+# <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Självstudie: indexera JSON-blobbar från Azure Storage med REST
 
 Azure Kognitiv sökning kan indexera JSON-dokument och matriser i Azure Blob Storage med hjälp av en [indexerare](search-indexer-overview.md) som vet hur man kan läsa semi-strukturerade data. Halvstrukturerade data innehåller taggar eller märkord som separerar innehållet i data. Den delar skillnaden mellan ostrukturerade data som måste vara fullständigt indexerad och formellt strukturerade data som följer en data modell, till exempel ett Relations databas schema, som kan indexeras per fält.
 
-I den här självstudien använder du [Azure KOGNITIV sökning REST-API: er](https://docs.microsoft.com/rest/api/searchservice/) och en rest-klient för att utföra följande uppgifter:
+I den här självstudien används Postman och [Sök REST-API: er](https://docs.microsoft.com/rest/api/searchservice/) för att utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Konfigurera en Azure Kognitiv sökning-datakälla för en Azure Blob-behållare
@@ -27,15 +27,18 @@ I den här självstudien använder du [Azure KOGNITIV sökning REST-API: er](htt
 > * Konfigurera och kör en indexerare för att läsa behållaren och extrahera sökbart innehåll från Azure Blob Storage
 > * Söka i indexet som du precis skapade
 
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
 ## <a name="prerequisites"></a>Förutsättningar
 
-Följande tjänster, verktyg och data används i den här snabb starten. 
++ [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Skrivbordsappen Postman](https://www.getpostman.com/)
++ [Skapa](search-create-service-portal.md) eller [hitta en befintlig Sök tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
-[Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här självstudien. 
+> [!Note]
+> Du kan använda den kostnads fria tjänsten för den här självstudien. En kostnads fri Sök tjänst begränsar dig till tre index, tre indexerare och tre data källor. I den här kursen skapar du en av varje. Innan du börjar bör du kontrol lera att du har utrymme på tjänsten för att godkänna de nya resurserna.
 
-[Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) för att lagra exempel data.
-
-[Postman-appen](https://www.getpostman.com/) för att skicka förfrågningar till Azure kognitiv sökning.
+## <a name="download-files"></a>Hämta filer
 
 [Clinical-Trials-JSON. zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) innehåller de data som används i den här självstudien. Ladda ned och zippa upp den här filen till en egen mapp. Data härstammar från [ClinicalTrials.gov](https://clinicaltrials.gov/ct2/results), konverteras till JSON för den här självstudien.
 
@@ -283,13 +286,27 @@ Passa på att experimentera och prova några frågor själv. Observera att du ka
 
 Parametern `$filter` fungerar endast med metadata som markerades som filtrerbara när indexet skapades.
 
+## <a name="reset-and-rerun"></a>Återställa och köra igen
+
+I de tidiga experiment stegen i utvecklingen är den mest praktiska metoden för design upprepning att ta bort objekten från Azure Kognitiv sökning och tillåta att koden återskapas. Resursnamn är unika. Om du tar bort ett objekt kan du återskapa det med samma namn.
+
+Du kan använda portalen för att ta bort index, indexerare och data källor. Eller Använd **ta bort** och ange URL: er för varje objekt. Följande kommando tar bort en indexerare.
+
+```http
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2019-05-06
+```
+
+Statuskod 204 returneras vid borttagning.
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Det snabbaste sättet att rensa efter en själv studie kurs är att ta bort resurs gruppen som innehåller Azure Kognitiv sökning-tjänsten. Du kan ta bort resursgruppen nu så att allt innehåll i den tas bort permanent. I portalen finns resurs gruppens namn på sidan Översikt i Azure Kognitiv sökning-tjänsten.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
+
+Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det finns flera metoder och flera alternativ för att indexera JSON-blobbar. I nästa steg ska du granska och testa de olika alternativen för att se vad som passar bäst för ditt scenario.
+Nu när du är bekant med grunderna för Azure Blob-indexering, tar vi en närmare titt på indexerings konfigurationen.
 
 > [!div class="nextstepaction"]
-> [Så här indexerar du JSON-blobbar med Azure Kognitiv sökning BLOB-indexeraren](search-howto-index-json-blobs.md)
+> [Konfigurera en Azure Blob Storage-indexerare](search-howto-indexing-azure-blob-storage.md)

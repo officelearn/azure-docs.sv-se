@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: mata in övervaknings data utan kod – Azure Datautforskaren'
+title: 'Självstudie: mata in övervaknings data i Azure Datautforskaren utan kod'
 description: I den här självstudien får du lära dig att mata in övervaknings data till Azure Datautforskaren utan en kodrad och fråga dessa data.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: 24e09f6578431e6b7f2a83be13bae59bf2e707de
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 3a53a660da2257540f23bc6438fc5933e5229c76
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986214"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198056"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>Självstudie: mata in och fråga övervaknings data i Azure Datautforskaren 
 
@@ -30,7 +30,7 @@ I den här kursen får du lära du dig att:
 > [!NOTE]
 > Skapa alla resurser på samma Azure-plats eller region. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Ett Azure Data Explorer-kluster och en databas](create-cluster-database-portal.md). I den här självstudien är databasnamnet *TestDatabase*.
@@ -43,7 +43,7 @@ Visa och förstå de data som tillhandahålls av Azure Monitor diagnostiska måt
 
 Azures diagnostiska mått och loggar och aktivitets loggar genereras av en Azure-tjänst och tillhandahåller information om driften av tjänsten. 
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Diagnostiska mått](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[Diagnostiska mått](#tab/diagnostic-metrics)
 #### <a name="example"></a>Exempel
 
 Diagnostiska mått sammanställs med en tids kornig het på 1 minut. Följande är ett exempel på ett Azure Datautforskaren Metric-schema för frågans varaktighet:
@@ -77,7 +77,7 @@ Diagnostiska mått sammanställs med en tids kornig het på 1 minut. Följande �
 }
 ```
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[Diagnostikloggar](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Diagnostikloggar](#tab/diagnostic-logs)
 #### <a name="example"></a>Exempel
 
 Följande är ett exempel på en logg för Azure Datautforskaren- [diagnostik](using-diagnostic-logs.md#diagnostic-logs-schema):
@@ -133,7 +133,7 @@ Följande är ett exempel på en logg för Azure Datautforskaren- [diagnostik](u
     }
 }
 ```
-# <a name="activity-logstabactivity-logs"></a>[Aktivitets loggar](#tab/activity-logs)
+# <a name="activity-logs"></a>[Aktivitets loggar](#tab/activity-logs)
 #### <a name="example"></a>Exempel
 
 Azure aktivitets loggar är prenumerations nivå loggar som ger inblick i de åtgärder som utförs på resurser i din prenumeration. Följande är ett exempel på en aktivitet – logg händelse för att kontrol lera åtkomst:
@@ -210,7 +210,7 @@ Strukturen i Azure Monitors loggarna är inte i tabell form. Du kommer att ändr
 
 Använd webbgränssnittet för Azure Data Explorer till att skapa måltabellerna i Azure Data Explorer-databasen.
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Diagnostiska mått](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[Diagnostiska mått](#tab/diagnostic-metrics)
 #### <a name="create-tables-for-the-diagnostic-metrics"></a>Skapa tabeller för diagnostiska mått
 
 1. I *TestDatabase* -databasen skapar du en tabell med namnet *DiagnosticMetrics* för att lagra diagnostiska mått poster. Ange följande `.create table`-kontrollkommando:
@@ -235,7 +235,7 @@ Använd webbgränssnittet för Azure Data Explorer till att skapa måltabellerna
     .alter-merge table DiagnosticRawRecords policy retention softdelete = 0d
     ```
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[Diagnostikloggar](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Diagnostikloggar](#tab/diagnostic-logs)
 #### <a name="create-tables-for-the-diagnostic-logs"></a>Skapa tabeller för diagnostikloggar 
 
 1. I *TestDatabase* -databasen skapar du en tabell med namnet *DiagnosticLogs* för att lagra diagnostikloggar. Ange följande `.create table`-kontrollkommando:
@@ -258,7 +258,7 @@ Använd webbgränssnittet för Azure Data Explorer till att skapa måltabellerna
     .alter-merge table DiagnosticRawRecords policy retention softdelete = 0d
     ```
 
-# <a name="activity-logstabactivity-logs"></a>[Aktivitets loggar](#tab/activity-logs)
+# <a name="activity-logs"></a>[Aktivitets loggar](#tab/activity-logs)
 #### <a name="create-tables-for-the-activity-logs"></a>Skapa tabeller för aktivitets loggarna 
 
 1. Skapa en tabell med namnet *ActivityLogs* i *TestDatabase* -databasen för att ta emot aktivitets logg poster. Skapa tabellen genom att köra följande Azure Data Explorer-fråga:
@@ -284,7 +284,7 @@ Använd webbgränssnittet för Azure Data Explorer till att skapa måltabellerna
 
  Eftersom dataformatet är `json` krävs datamappning. `json`-mappningen matchar varje json-sökväg till ett kolumnnamn i tabellen.
 
-# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[Diagnostiska mått/diagnostikloggar](#tab/diagnostic-metrics+diagnostic-logs) 
+# <a name="diagnostic-metrics--diagnostic-logs"></a>[Diagnostiska mått/diagnostikloggar](#tab/diagnostic-metrics+diagnostic-logs) 
 #### <a name="map-diagnostic-metrics-and-logs-to-the-table"></a>Mappa diagnostiska mått och loggar till tabellen
 
 Om du vill mappa diagnostiskt mått och loggdata till tabellen använder du följande fråga:
@@ -293,7 +293,7 @@ Om du vill mappa diagnostiskt mått och loggdata till tabellen använder du föl
 .create table DiagnosticRawRecords ingestion json mapping 'DiagnosticRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-# <a name="activity-logstabactivity-logs"></a>[Aktivitets loggar](#tab/activity-logs)
+# <a name="activity-logs"></a>[Aktivitets loggar](#tab/activity-logs)
 #### <a name="map-activity-logs-to-the-table"></a>Mappa aktivitets loggar till tabellen
 
 Om du vill mappa aktivitets logg data till tabellen använder du följande fråga:
@@ -305,7 +305,7 @@ Om du vill mappa aktivitets logg data till tabellen använder du följande fråg
 
 ### <a name="create-the-update-policy-for-metric-and-log-data"></a>Skapa en uppdaterings princip för mått-och loggdata
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Diagnostiska mått](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[Diagnostiska mått](#tab/diagnostic-metrics)
 #### <a name="create-data-update-policy-for-diagnostics-metrics"></a>Skapa data uppdaterings princip för diagnostiska mått
 
 1. Skapa en [funktion](/azure/kusto/management/functions) som utökar insamlingen av diagnostiska mått poster så att varje värde i samlingen får en separat rad. Använd operatorn [`mv-expand`](/azure/kusto/query/mvexpandoperator):
@@ -333,7 +333,7 @@ Om du vill mappa aktivitets logg data till tabellen använder du följande fråg
     .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[Diagnostikloggar](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Diagnostikloggar](#tab/diagnostic-logs)
 #### <a name="create-data-update-policy-for-diagnostics-logs"></a>Skapa data uppdaterings princip för diagnostikloggar
 
 1. Skapa en [funktion](/azure/kusto/management/functions) som utökar samlingen av diagnostiska logg poster så att varje värde i samlingen får en separat rad. Du aktiverar inmatnings loggar i ett Azure Datautforskaren-kluster och använder [schemat](/azure/data-explorer/using-diagnostic-logs#diagnostic-logs-schema)för inmatnings loggar. Du skapar en tabell för lyckad och för misslyckad inmatning, medan vissa av fälten är tomma för lyckad inmatning (felkod till exempel). Använd operatorn [`mv-expand`](/azure/kusto/query/mvexpandoperator):
@@ -366,7 +366,7 @@ Om du vill mappa aktivitets logg data till tabellen använder du följande fråg
     .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
-# <a name="activity-logstabactivity-logs"></a>[Aktivitets loggar](#tab/activity-logs)
+# <a name="activity-logs"></a>[Aktivitets loggar](#tab/activity-logs)
 #### <a name="create-data-update-policy-for-activity-logs"></a>Skapa data uppdaterings princip för aktivitets loggar
 
 1. Skapa en [funktion](/azure/kusto/management/functions) som utökar samlingen av aktivitets logg poster så att varje värde i samlingen får en separat rad. Använd operatorn [`mv-expand`](/azure/kusto/query/mvexpandoperator):
@@ -425,7 +425,7 @@ Med Azure Diagnostic-inställningar kan du exportera mått och loggar till ett l
 
 Nu måste du ansluta dina diagnostiska mått och loggar och dina aktivitets loggar till händelsehubben.
 
-# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[Diagnostiska mått/diagnostikloggar](#tab/diagnostic-metrics+diagnostic-logs) 
+# <a name="diagnostic-metrics--diagnostic-logs"></a>[Diagnostiska mått/diagnostikloggar](#tab/diagnostic-metrics+diagnostic-logs) 
 ### <a name="connect-diagnostic-metrics-and-logs-to-your-event-hub"></a>Ansluta diagnostiska mått och loggar till händelsehubben
 
 Välj en resurs som du vill exportera mått från. Flera resurs typer stöder export av diagnostikdata, inklusive Event Hubs namnrymd, Azure Key Vault, Azure IoT Hub och Azure Datautforskaren-kluster. I den här självstudien använder vi ett Azure Datautforskaren-kluster som vår resurs. vi kommer att gå igenom resultat loggarna för frågor och resultat.
@@ -452,7 +452,7 @@ Välj en resurs som du vill exportera mått från. Flera resurs typer stöder ex
 
 1. Välj **Spara**.
 
-# <a name="activity-logstabactivity-logs"></a>[Aktivitets loggar](#tab/activity-logs)
+# <a name="activity-logs"></a>[Aktivitets loggar](#tab/activity-logs)
 ### <a name="connect-activity-logs-to-your-event-hub"></a>Ansluta aktivitetsloggar till händelsehubben
 
 1. På den vänstra menyn i Azure-portalen väljer du **Aktivitetslogg**.
@@ -501,7 +501,7 @@ Nu måste du skapa data anslutningarna för dina diagnostiska mått och loggar o
 
     ![Dataanslutning för händelsehubb](media/ingest-data-no-code/event-hub-data-connection.png)
 
-# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[Diagnostiska mått/diagnostikloggar](#tab/diagnostic-metrics+diagnostic-logs) 
+# <a name="diagnostic-metrics--diagnostic-logs"></a>[Diagnostiska mått/diagnostikloggar](#tab/diagnostic-metrics+diagnostic-logs) 
 
 1. Använd följande inställningar i fönstret **Dataanslutning**:
 
@@ -528,7 +528,7 @@ Nu måste du skapa data anslutningarna för dina diagnostiska mått och loggar o
 
 1. Välj **Skapa**.  
 
-# <a name="activity-logstabactivity-logs"></a>[Aktivitets loggar](#tab/activity-logs)
+# <a name="activity-logs"></a>[Aktivitets loggar](#tab/activity-logs)
 
 1. Använd följande inställningar i fönstret **Dataanslutning**:
 
@@ -560,7 +560,7 @@ Nu måste du skapa data anslutningarna för dina diagnostiska mått och loggar o
 
 Du har nu en pipeline med dataflöde. Inmatning via klustret tar 5 minuter som standard, så låt data flöda i några minuter innan du börjar köra frågor.
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Diagnostiska mått](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[Diagnostiska mått](#tab/diagnostic-metrics)
 ### <a name="query-the-diagnostic-metrics-table"></a>Fråga tabellen med diagnostiska mått
 
 I följande fråga analyseras frågans varaktighets data från diagnostiska mått poster i Azure Datautforskaren:
@@ -579,7 +579,7 @@ Frågeresultat:
 |   | 00:06.156 |
 | | |
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[Diagnostikloggar](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Diagnostikloggar](#tab/diagnostic-logs)
 ### <a name="query-the-diagnostic-logs-table"></a>Fråga tabellen diagnostikloggar
 
 Den här pipelinen skapar inmatningar via en händelsehubben. Du granskar resultatet av dessa inmatningar.
@@ -599,7 +599,7 @@ Frågeresultat:
 |   | 00:06.156 | TestDatabase | DiagnosticRawRecords | https://rtmkstrldkereneus00.blob.core.windows.net/20190827-readyforaggregation/1133_TestDatabase_DiagnosticRawRecords_6cf02098c0c74410bd8017c2d458b45d.json.zip
 | | |
 
-# <a name="activity-logstabactivity-logs"></a>[Aktivitets loggar](#tab/activity-logs)
+# <a name="activity-logs"></a>[Aktivitets loggar](#tab/activity-logs)
 ### <a name="query-the-activity-logs-table"></a>Fråga tabellen aktivitets loggar
 
 Följande fråga analyserar data från aktivitetsloggposter i Azure Data Explorer:

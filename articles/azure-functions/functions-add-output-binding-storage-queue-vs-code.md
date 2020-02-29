@@ -1,17 +1,17 @@
 ---
-title: Ansluta funktioner till Azure Storage med Visual Studio Code
-description: Lär dig hur du lägger till en utgående bindning för att ansluta dina funktioner till en Azure Storage kö med hjälp av Visual Studio Code.
-ms.date: 06/25/2019
+title: Ansluta Azure Functions till Azure Storage med Visual Studio Code
+description: Lär dig hur du ansluter Azure Functions till en Azure Storage kö genom att lägga till en utgående bindning i Visual Studio Code-projektet.
+ms.date: 02/07/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 5b7d7be7854a216b7cb7b610ea6d51fdc496a93f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 22f7df52e90a35a3ed9a26a7672f8354efc173e3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845648"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191096"
 ---
-# <a name="connect-functions-to-azure-storage-using-visual-studio-code"></a>Ansluta funktioner till Azure Storage med Visual Studio Code
+# <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Ansluta Azure Functions till Azure Storage med Visual Studio Code
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
@@ -19,7 +19,7 @@ Den här artikeln visar hur du använder Visual Studio Code för att ansluta den
 
 De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra det enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot finns redan i en app-inställning med namnet `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="configure-your-local-environment"></a>Konfigurera din lokala miljö
 
 Innan du startar den här artikeln måste du uppfylla följande krav:
 
@@ -90,98 +90,17 @@ I functions kräver varje typ av bindning en `direction`, `type`och en unik `nam
 
 När bindningen har definierats kan du använda `name` av bindningen för att komma åt den som ett attribut i funktions under kommandot. Genom att använda en utgående bindning behöver du inte använda den Azure Storage SDK-koden för autentisering, hämta en Queue referens eller skriva data. Bindningarna Functions Runtime och Queue output utför dessa uppgifter åt dig.
 
-::: zone pivot="programming-language-javascript"
-
+::: zone pivot="programming-language-javascript"  
 [!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
+::: zone-end  
 
-::: zone-end
-
-::: zone pivot="programming-language-typescript"
-
-Lägg till kod som använder objektet `msg` utgående bindning på `context.bindings` för att skapa ett Queue-meddelande. Lägg till den här koden före `context.res`-instruktionen.
-
-```typescript
-// Add a message to the Storage queue.
-context.bindings.msg = "Name passed to the function: " + name;
-```
-
-I det här läget bör din funktion se ut så här:
-
-```javascript
-import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-
-const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-    context.log('HTTP trigger function processed a request.');
-    const name = (req.query.name || (req.body && req.body.name));
-
-    if (name) {
-        // Add a message to the Storage queue.
-        context.bindings.msg = "Name passed to the function: " + name; 
-        // Send a "hello" response.
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
-};
-
-export default httpTrigger;
-```
-
-::: zone-end
+::: zone pivot="programming-language-typescript"  
+[!INCLUDE [functions-add-output-binding-ts](../../includes/functions-add-output-binding-ts.md)]
+::: zone-end  
 
 ::: zone pivot="programming-language-powershell"
 
-Lägg till kod som använder `Push-OutputBinding`-cmdlet för att skriva text till kön med `msg` utgående bindning. Lägg till den här koden innan du anger statusen OK i `if`-instruktionen.
-
-```powershell
-# Write the $name value to the queue.
-$outputMsg = "Name passed to the function: $name"
-Push-OutputBinding -name msg -Value $outputMsg
-```
-
-I det här läget bör din funktion se ut så här:
-
-```powershell
-using namespace System.Net
-
-# Input bindings are passed in via param block.
-param($Request, $TriggerMetadata)
-
-# Write to the Azure Functions log stream.
-Write-Host "PowerShell HTTP trigger function processed a request."
-
-# Interact with query parameters or the body of the request.
-$name = $Request.Query.Name
-if (-not $name) {
-    $name = $Request.Body.Name
-}
-
-if ($name) {
-    # Write the $name value to the queue.
-    $outputMsg = "Name passed to the function: $name"
-    Push-OutputBinding -name msg -Value $outputMsg
-
-    $status = [HttpStatusCode]::OK
-    $body = "Hello $name"
-}
-else {
-    $status = [HttpStatusCode]::BadRequest
-    $body = "Please pass a name on the query string or in the request body."
-}
-
-# Associate values to output bindings by calling 'Push-OutputBinding'.
-Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
-    StatusCode = $status
-    Body = $body
-})
-```
+[!INCLUDE [functions-add-output-binding-powershell](../../includes/functions-add-output-binding-powershell.md)]
 
 ::: zone-end
 
@@ -191,11 +110,9 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp"
-
+::: zone pivot="programming-language-csharp"  
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
-
-::: zone-end
+::: zone-end  
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
 
@@ -215,7 +132,7 @@ En ny kö med namnet **arbetskö** skapas i ditt lagrings konto av Functions-kö
 
 Hoppa över det här avsnittet om du redan har installerat Azure Storage Explorer och anslutit det till ditt Azure-konto.
 
-1. Kör [Azure Storage Explorer] -verktyget, Välj ikonen Anslut till vänster och välj **Lägg till ett konto**.
+1. Kör verktyget [Azure Storage Explorer], Välj ikonen Anslut till vänster och välj **Lägg till ett konto**.
 
     ![Lägg till ett Azure-konto i Microsoft Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-add-account.png)
 
@@ -263,9 +180,29 @@ Du skapade resurser för att slutföra de här snabbstarterna. Det är möjligt 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har uppdaterat din HTTP-utlöst funktion för att skriva data till en lagrings kö. Härnäst kan du lära dig mer om hur du utvecklar funktioner med Visual Studio Code:
+Du har uppdaterat din HTTP-utlöst funktion för att skriva data till en lagrings kö. Nu kan du lära dig mer om hur du utvecklar funktioner med Visual Studio Code:
 
-> [!div class="nextstepaction"]
-> [Utveckla Azure Functions med Visual Studio Code](functions-develop-vs-code.md)
-
-[Azure Storage Explorer]: https://storageexplorer.com/
++ [Utveckla Azure Functions med Visual Studio Code](functions-develop-vs-code.md)
+::: zone pivot="programming-language-csharp"  
++ [Exempel på kompletta funktions projekt i C# ](/samples/browse/?products=azure-functions&languages=csharp).
++ [Referens C# för Azure Functions-utvecklare](functions-dotnet-class-library.md)  
+::: zone-end 
+::: zone pivot="programming-language-javascript"  
++ [Exempel på kompletta funktions projekt i Java Script](/samples/browse/?products=azure-functions&languages=javascript).
++ [Azure Functions JavaScript-guide för utvecklare](functions-reference-node.md)  
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
++ [Exempel på kompletta funktions projekt i typescript](/samples/browse/?products=azure-functions&languages=typescript).
++ [Guide för Azure Functions TypeScript-utvecklare](functions-reference-node.md#typescript)  
+::: zone-end  
+::: zone pivot="programming-language-python"  
++ [Exempel på kompletta funktions projekt i python](/samples/browse/?products=azure-functions&languages=python).
++ [Guide för Azure Functions python-utvecklare](functions-reference-python.md)  
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
++ [Exempel på kompletta funktions projekt i PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
++ [Azure Functions PowerShell-guide för utvecklare](functions-reference-powershell.md) 
+::: zone-end
++ [Azure Functions utlösare och bindningar](functions-triggers-bindings.md).
++ [Prissättnings sida för funktioner](https://azure.microsoft.com/pricing/details/functions/)
++ [Beräknar kostnader för förbruknings planer](functions-consumption-costs.md) .

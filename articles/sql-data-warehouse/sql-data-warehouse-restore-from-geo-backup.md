@@ -1,6 +1,6 @@
 ---
 title: Återställa ett informations lager från en geo-säkerhetskopiering
-description: Instruktions guide för geo-återställning av en Azure SQL Data Warehouse.
+description: Instruktions guide för geo-återställning av en SQL-pool.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 69ba3ed981a27dfff41ea9ea52e1da769a9366c4
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 624c6665e70802907be8a41015b78d36cca7df1c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759643"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198408"
 ---
-# <a name="geo-restore-azure-sql-data-warehouse"></a>Geo-Restore-Azure SQL Data Warehouse
+# <a name="geo-restore-for-sql-pool"></a>Geo-återställning för SQL-pool
 
-I den här artikeln får du lära dig att återställa ditt informations lager från en geo-säkerhetskopiering via Azure Portal och PowerShell.
+I den här artikeln får du lära dig att återställa SQL-poolen från en geo-säkerhetskopiering via Azure Portal och PowerShell.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Verifiera din DTU-kapacitet.** Varje SQL Data Warehouse hanteras av en SQL-Server (till exempel myserver.database.windows.net) som har en standard-DTU-kvot. Kontrol lera att SQL Server har tillräckligt med den återstående DTU-kvoten för databasen som återställs. Information om hur du beräknar DTU krävs eller begär mer DTU finns i [begär en ändring av DTU-kvot](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verifiera din DTU-kapacitet.** Varje SQL-pool finns på en SQL-Server (till exempel myserver.database.windows.net) som har en standard-DTU-kvot. Kontrol lera att SQL Server har tillräckligt med den återstående DTU-kvoten för databasen som återställs. Information om hur du beräknar DTU krävs eller begär mer DTU finns i [begär en ändring av DTU-kvot](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Återställa från en geografisk Azure-region via PowerShell
 
@@ -74,20 +74,27 @@ Den återställda databasen kommer att TDEs om käll databasen är TDE-aktive ra
 
 ## <a name="restore-from-an-azure-geographical-region-through-azure-portal"></a>Återställa från en geografisk region i Azure via Azure Portal
 
-Följ stegen som beskrivs nedan för att återställa en Azure SQL Data Warehouse från en geo-säkerhets kopiering:
+Följ stegen som beskrivs nedan för att återställa en SQL-pool från en geo-säkerhets kopiering:
 
 1. Logga in på ditt [Azure Portal](https://portal.azure.com/) -konto.
-1. Klicka på **+ skapa en resurs** och sök efter SQL Data Warehouse och klicka på **skapa**.
+1. Klicka på **+ skapa en resurs**. 
 
-    ![Ny DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
-1. Fyll i informationen som begärs på fliken **grundläggande** och klicka på **Nästa: ytterligare inställningar**.
+![Ny DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-    ![Grundläggande inställningar](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
-1. Om du vill **använda befintlig data** parameter väljer du **säkerhets kopiering** och väljer lämplig säkerhets kopia från rullnings List alternativen. Klicka på **Granska + skapa**.
+3. Klicka på **databaser** och sedan * * Azure Synapse Analytics (tidigare SQL DW) * *.
+
+![Ny DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
+
+4. Fyll i informationen som begärs på fliken **grundläggande** och klicka på **Nästa: ytterligare inställningar**.
+
+![Grundläggande inställningar](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+
+5. Om du vill **använda befintlig data** parameter väljer du **säkerhets kopiering** och väljer lämplig säkerhets kopia från rullnings List alternativen. Klicka på **Granska + skapa**.
  
-   ![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
-2. När data lagret har återställts kontrollerar du att **statusen** är online.
+![säkerhetskopiering](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 
-## <a name="next-steps"></a>Efterföljande moment
-- [Återställa ett befintligt informations lager](sql-data-warehouse-restore-active-paused-dw.md)
-- [Återställa ett borttaget informations lager](sql-data-warehouse-restore-deleted-dw.md)
+6. När data lagret har återställts kontrollerar du att **statusen** är online.
+
+## <a name="next-steps"></a>Nästa steg
+- [Återställa en befintlig SQL-pool](sql-data-warehouse-restore-active-paused-dw.md)
+- [Återställa en borttagen SQL-pool](sql-data-warehouse-restore-deleted-dw.md)

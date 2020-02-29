@@ -1,30 +1,30 @@
 ---
 title: Analysera din arbetsbelastning
-description: Tekniker för att analysera frågan prioriteras för din arbets belastning i Azure SQL Data Warehouse.
+description: Tekniker för att analysera frågan prioriteras för din arbets belastning i Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 03/13/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 14e53c1ebe63fac0f7c8e29f66ee5aa0cb3b9526
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 9b1432c41e56c6e0bc3fd80f9c2dbb36374d9e2a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693111"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200003"
 ---
-# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analysera din arbets belastning i Azure SQL Data Warehouse
+# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analysera din arbets belastning i Azure Synapse Analytics
 
-Tekniker för att analysera arbets belastningen i Azure SQL Data Warehouse.
+Tekniker för att analysera SQL Analytics-arbetsbelastningen i Azure Synapse Analytics.
 
 ## <a name="resource-classes"></a>Resursklasser
 
-SQL Data Warehouse tillhandahåller resurs klasser för att tilldela system resurser till frågor.  Mer information om resurs klasser finns i [resurs klasser & hantering av arbets belastning](resource-classes-for-workload-management.md).  Frågor väntar om resurs klassen som tilldelas till en fråga behöver fler resurser än vad som för närvarande är tillgängligt.
+SQL Analytics tillhandahåller resurs klasser för att tilldela system resurser till frågor.  Mer information om resurs klasser finns i [resurs klasser & hantering av arbets belastning](resource-classes-for-workload-management.md).  Frågor väntar om resurs klassen som tilldelas till en fråga behöver fler resurser än vad som för närvarande är tillgängligt.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Avkänning av köade frågor och andra DMV: er
 
@@ -63,7 +63,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-SQL Data Warehouse har följande vänte typer:
+SQL Analytics har följande vänte typer:
 
 * **LocalQueriesConcurrencyResourceType**: frågor som ligger utanför samtidighets fack ramverket. DMV-frågor och system funktioner som `SELECT @@VERSION` är exempel på lokala frågor.
 * **UserConcurrencyResourceType**: frågor som är i ramverket för samtidighets fack. Frågor mot slut användar tabeller representerar exempel som använder den här resurs typen.
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du hanterar databas användare och säkerhet finns [i skydda en databas i SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). Mer information om hur större resurs klasser kan förbättra grupperade columnstore-index finns i [Återskapa index för att förbättra segment kvaliteten](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Mer information om hur du hanterar databas användare och säkerhet finns i [skydda en databas i SQL Analytics](sql-data-warehouse-overview-manage-security.md). Mer information om hur större resurs klasser kan förbättra grupperade columnstore-index finns i [Återskapa index för att förbättra segment kvaliteten](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

@@ -5,15 +5,16 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7991fcec42a81a74ead1a00784e2cec59997da57
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 331e3d5855e4ea1fc18a3b638741f6297a7a27d8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981538"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184680"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guide för Azure Key Vault utvecklare
 
@@ -89,7 +90,7 @@ I Node. js är API för Key Vault hantering och Key Vault objekt-API separata. I
 - [Skapa Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 - [Komma igång med Key Vault i Node. js](https://github.com/Azure-Samples/key-vault-node-getting-started)
 
-### <a name="code-examples"></a>Kodexempel
+### <a name="code-examples"></a>Kod exempel
 
 Fullständiga exempel som använder Key Vault med dina program finns i:
 
@@ -119,7 +120,7 @@ De här artiklarna är till för andra scenarier och tjänster som använder ell
 
 - [Azure Disk Encryption](../security/fundamentals/encryption-overview.md) utnyttjar standarden för [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) -funktionen i Windows och funktionen [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) i Linux för att tillhandahålla volym kryptering för operativ systemet och data diskarna. Lösningen är integrerad med Azure Key Vault som hjälper dig att styra och hantera disk krypterings nycklar och hemligheter i Key Vault-prenumerationen, samtidigt som du ser till att alla data på de virtuella dator diskarna krypteras i vila i Azure Storage.
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) tillhandahåller alternativ för kryptering av data som lagras i kontot. För nyckel hantering har Data Lake Store två lägen för att hantera dina huvud krypterings nycklar (MEKs), som krävs för dekryptering av data som lagras i Data Lake Store. Du kan antingen låta Data Lake Store hantera MEKs åt dig eller välja att behålla ägarskapet för MEKs med ditt Azure Key Vault-konto. Du anger läget för nyckel hantering när du skapar ett Data Lake Store-konto.
-- Med [Azure information Protection](/azure/information-protection/plan-implement-tenant-key) kan du hantera din egen klient nyckel. I stället för att Microsoft hanterar din klient nyckel (standard) kan du till exempel hantera din egen klient nyckel för att följa särskilda regler som gäller för din organisation. Att hantera sin egen klientnyckel kallas också för att ta med sin egen nyckel eller BYOK.
+- Med [Azure information Protection](/azure/information-protection/plan-implement-tenant-key) kan du hantera din egen klient nyckel. I stället för att Microsoft hanterar din klient nyckel (standard) kan du till exempel hantera din egen klient nyckel för att följa särskilda regler som gäller för din organisation. Att hantera din egen klient nyckel kallas även för att ta med din egen nyckel eller BYOK.
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault översikter och begrepp
 
@@ -128,7 +129,7 @@ De här artiklarna är till för andra scenarier och tjänster som använder ell
 - [Översikt över Key Vault lagrings konto nycklar](key-vault-ovw-storage-keys.md) beskriver konto nycklar för Key Vault-integrering Azure Storage konton.
 - [Key Vault säkerhets världar](key-vault-ovw-security-worlds.md) beskriver relationerna mellan regioner och säkerhets områden.
 
-## <a name="social"></a>Socialt
+## <a name="social"></a>Sociala medier
 
 - [Key Vault blogg](https://aka.ms/kvblog)
 - [Key Vault forum](https://aka.ms/kvforum)

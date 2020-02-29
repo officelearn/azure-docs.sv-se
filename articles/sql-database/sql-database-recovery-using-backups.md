@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 3b0b5b02fa8f369bdfa03726bd5649b70b7bbd48
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b98331a9cdb359aeefac5db1546f3a15b54010ba
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228034"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194500"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Återställa en Azure SQL-databas med hjälp av automatisk säkerhets kopiering av databasen
 
@@ -126,7 +126,7 @@ Ett exempel på PowerShell-skript som visar hur du återställer en borttagen Az
 
 #### <a name="managed-instance-database"></a>Hanterad instans databas
 
-Ett exempel på PowerShell-skript som visar hur du återställer en borttagen instans databas finns i [återställa borttagna databaser på den hanterade instansen med PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance). 
+Ett exempel på PowerShell-skript som visar hur du återställer en borttagen instans databas finns i [återställa borttagen databas på hanterad instans med hjälp av PowerShell](sql-database-managed-instance-point-in-time-restore.md#restore-a-deleted-database)
 
 > [!TIP]
 > För att program mässigt återställa en borttagen databas, se [program mässigt utföra återställning med automatiska säkerhets kopieringar](sql-database-recovery-using-backups.md).
@@ -135,7 +135,7 @@ Ett exempel på PowerShell-skript som visar hur du återställer en borttagen in
 
 Du kan återställa en SQL-databas på valfri server i valfri Azure-region från de senaste geo-replikerade säkerhets kopiorna. Geo-återställning använder en geo-replikerad säkerhets kopiering som källa. Du kan begära geo-återställning även om databasen eller data centret inte går att komma åt på grund av ett avbrott.
 
-Geo-återställning är standard alternativet för återställning när databasen inte är tillgänglig på grund av en incident i värd regionen. Du kan återställa databasen till en server i en annan region. Det uppstår en fördröjning mellan när en säkerhets kopia tas och när den är geo-replikerad till en Azure-blob i en annan region. Det innebär att den återställda databasen kan vara upp till en timme bakom den ursprungliga databasen. Följande bild visar en databas återställning från den senaste tillgängliga säkerhets kopian i en annan region.
+Geo-återställning är standard alternativet för återställning när databasen inte är tillgänglig på grund av en incident i värd regionen. Du kan återställa databasen till en server i valfri annan region. Det uppstår en fördröjning mellan när en säkerhets kopia tas och när den är geo-replikerad till en Azure-blob i en annan region. Det innebär att den återställda databasen kan vara upp till en timme bakom den ursprungliga databasen. Följande bild visar en databas återställning från den senaste tillgängliga säkerhets kopian i en annan region.
 
 ![Grafik för geo-återställning](./media/sql-database-geo-restore/geo-restore-2.png)
 

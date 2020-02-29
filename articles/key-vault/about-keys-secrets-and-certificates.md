@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: affa182145645b9a91801a9c6b38e682e6bd77ec
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9bbbcc38116c5681e3b5c867690c296f60507ad1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720069"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196118"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
 
@@ -330,7 +331,7 @@ Det finns ytterligare skrivskyddade attribut som ingår i svaret:
 > [!Note] 
 > Om ett Key Vault certifikat upphör att gälla, är det adresser bara nyckeln och hemligheten blir oanvändbar.  
 
-#### <a name="tags"></a>Tags
+#### <a name="tags"></a>Taggar
 
  Klientens angivna ord lista med nyckel värdes par, liknar Taggar i nycklar och hemligheter.  
 
@@ -363,14 +364,14 @@ Följande tabell visar mappningen av principen för x509-nyckel användning till
 
 |**Användnings flaggor för X509-nyckel**|**Key Vault Key OPS**|**Standard beteende**|
 |----------|--------|--------|
-|DataEncipherment|kryptera, dekryptera| E.t. |
-|DecipherOnly|innehållet| E.t.  |
+|DataEncipherment|kryptera, dekryptera| Saknas |
+|DecipherOnly|innehållet| Saknas  |
 |DigitalSignature|signera, verifiera| Key Vault standard utan användnings specifikation när certifikat skapas | 
-|EncipherOnly|encrypt| E.t. |
-|KeyCertSign|signera, verifiera|E.t.|
+|EncipherOnly|encrypt| Saknas |
+|KeyCertSign|signera, verifiera|Saknas|
 |KeyEncipherment|wrapKey, unwrapKey| Key Vault standard utan användnings specifikation när certifikat skapas | 
-|Oavvislig het|signera, verifiera| E.t. |
-|cRLSign|signera, verifiera| E.t. |
+|Oavvislig het|signera, verifiera| Saknas |
+|cRLSign|signera, verifiera| Saknas |
 
 ### <a name="certificate-issuer"></a>Certifikatutfärdare
 

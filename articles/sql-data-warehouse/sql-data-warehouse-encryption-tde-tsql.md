@@ -1,6 +1,6 @@
 ---
 title: Transparent data kryptering (T-SQL)
-description: Transparent data kryptering (TDE) i SQL Data Warehouse (T-SQL)
+description: Transparent data kryptering (TDE) i Azure Synapse Analytics (T-SQL)
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 04/30/2019
 ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4e7f4f31cd8b899e3fcf79568ea62830313936b9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bd6f40b8389284c1932a2f16a70060cd56e412fb
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822611"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195813"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Kom igång med transparent datakryptering (TDE)
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "73822611"
 Om du vill aktivera transparent datakryptering (TDE) måste du vara administratör eller medlem i DBManager-rollen.
 
 ## <a name="enabling-encryption"></a>Aktivera kryptering
-Följ de här stegen för att aktivera TDE för en SQL Data Warehouse:
+Följ de här stegen för att aktivera TDE:
 
 1. Anslut till *huvud* databasen på den server som är värd för databasen med en inloggning som är administratör eller medlem i **DBManager** -rollen i huvud databasen
 2. Kör följande instruktion för att kryptera-databasen.
@@ -41,7 +41,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
 ## <a name="disabling-encryption"></a>Inaktiverar kryptering
-Följ dessa steg om du vill inaktivera TDE för en SQL Data Warehouse:
+Följ dessa steg om du vill inaktivera TDE:
 
 1. Anslut till *huvud* databasen med en inloggning som är administratör eller medlem i **DBManager** -rollen i huvud databasen
 2. Kör följande instruktion för att kryptera-databasen.
@@ -51,12 +51,12 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
 > [!NOTE]
-> En pausad SQL Data Warehouse måste återupptas innan du gör ändringar i TDE-inställningarna.
+> En pausad SQL-pool måste återupptas innan du gör ändringar i TDE-inställningarna.
 > 
 > 
 
 ## <a name="verifying-encryption"></a>Verifiera kryptering
-Följ stegen nedan för att kontrol lera krypterings status för en SQL Data Warehouse:
+Följ stegen nedan för att kontrol lera krypterings status:
 
 1. Anslut till *huvud* -eller instans databasen med hjälp av en inloggning som är administratör eller medlem i **DBManager** -rollen i huvud databasen
 2. Kör följande instruktion för att kryptera-databasen.

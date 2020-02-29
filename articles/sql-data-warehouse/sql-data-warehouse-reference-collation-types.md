@@ -1,6 +1,6 @@
 ---
-title: Sortering
-description: Sorterings typer som stöds i Azure SQL Data Warehouse.
+title: Sorterings typer för informations lager
+description: Sorterings typer som stöds i Azure Synapse Analytics SQL-poolen.
 services: sql-data-warehouse
 author: antvgski
 manager: igorstan
@@ -9,21 +9,22 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 49a250a43c7b2654e1317981c853b0117fa0cf28
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 67627e4157c85853cf05dd6b24ced968a9654e62
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851799"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198447"
 ---
-# <a name="database-collation-support-for-azure-sql-data-warehouse"></a>Stöd för databas sortering för Azure SQL Data Warehouse
+# <a name="database-collation-support-for-azure-synapse-analytics-sql-pool"></a>Stöd för databas sortering för Azure Synapse Analytics SQL-pool
 
-Du kan ändra standard databas sorteringen från Azure Portal när du skapar en ny Azure SQL Data Warehouse databas. Den här funktionen gör det ännu enklare att skapa en ny databas med en av de 3800 databas sorteringar som stöds för SQL Data Warehouse.
+Du kan ändra standard databas sorteringen från Azure Portal när du skapar en ny Azure Synapse SQL-adresspool. Den här funktionen gör det ännu enklare att skapa en ny databas med en av de 3800 databas sorteringar som stöds. 
+
 Sorteringarna anger språk, tecken tabell, sorterings ordning och tecken känslighets regler för teckenbaserade data typer. När du har valt alla kolumner och uttryck som kräver sorterings information ärver du den valda sorteringen från databas inställningen. Standard arvet kan åsidosättas genom att uttryckligen ange en annan sortering för en tecken-baserad datatyp.
 
 ## <a name="changing-collation"></a>Ändrar sortering
-Om du vill ändra standard sorteringen kan du enkelt uppdatera sorterings fältet i etablerings upplevelsen.
+Om du vill ändra standard sorteringen uppdaterar du till sorterings fältet i etablerings upplevelsen.
 
 Om du till exempel vill ändra standard sorteringen till Skift läges känslig, behöver du bara byta namn på sorteringen från SQL_Latin1_General_CP1_CI_AS till SQL_Latin1_General_CP1_CS_AS. 
 
@@ -100,9 +101,12 @@ Om du till exempel vill ändra standard sorteringen till Skift läges känslig, 
 *   SQL_EBCDIC277_2_CP1_CS_AS
 
 ## <a name="checking-the-current-collation"></a>Kontrollerar den aktuella sorteringen
+
 Om du vill kontrol lera den aktuella sorteringen för databasen kan du köra följande T-SQL-kodfragment:
+
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 ```
-När den skickade sorteringen som egenskaps parameter returnerar funktionen DatabasePropertyEx den aktuella sorteringen för den angivna databasen. Du kan lära dig mer om DatabasePropertyEx-funktionen på MSDN.
+
+När den skickade sorteringen som egenskaps parameter returnerar funktionen DatabasePropertyEx den aktuella sorteringen för den angivna databasen. Mer information finns i [DatabasePropertyEx](/sql/t-sql/functions/databasepropertyex-transact-sql).
 

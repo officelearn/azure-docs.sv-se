@@ -1,6 +1,6 @@
 ---
 title: Förbättra prestanda för columnstore-index
-description: Azure SQL Data Warehouse minska minnes kraven eller öka det tillgängliga minnet för att maximera antalet rader ett columnstore-index komprimeras till varje radgrupps.
+description: Minska minnes kraven eller öka det tillgängliga minnet för att maximera antalet rader i varje radgrupps.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,13 +10,13 @@ ms.subservice: load-data
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: d5dba4e9a086502f638252a0ce2b16b4abeeb643
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 11c0a168e4b2e8eac03eaebd37b208446082d1b4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685652"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197206"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximera radgrupps-kvalitet för columnstore
 
@@ -34,13 +34,13 @@ För bästa prestanda för frågor är målet att maximera antalet rader per rad
 
 Ibland finns det inte tillräckligt med minne för att komprimera alla rader som har angetts för varje radgrupps under en återuppbyggnad av Mass inläsning eller columnstore-index. När det finns minnes belastning trimmar columnstore-index de radgrupps storlekarna så att komprimeringen kan utföras. 
 
-SQL Data Warehouse genererar ett fel när det inte finns tillräckligt med minne för att komprimera minst 10 000 rader till varje radgrupps.
+Om det inte finns tillräckligt med minne för att komprimera minst 10 000 rader till varje radgrupps genereras ett fel.
 
 Mer information om Mass inläsning finns i [Mass inläsning till ett grupperat columnstore-index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk ).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Så här övervakar du radgrupps-kvalitet
 
-DMV sys. DM-_pdw_nodes_db_column_store_row_group_physical_stats ([sys. DM _db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) innehåller visnings definitionen som matchar SQL db till SQL Data Warehouse) som visar användbar information, till exempel antalet rader i högkvalitativa och orsaken till trimning av eventuella trimning. Du kan skapa följande vy som ett praktiskt sätt att fråga denna DMV för att få information om radgrupps trimning.
+DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys. dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) innehåller den visnings definition som matchar SQL DB) som visar användbar information, till exempel antalet rader i högkvalitativa och orsaken till trimningen om det har beskurits. Du kan skapa följande vy som ett praktiskt sätt att fråga denna DMV för att få information om radgrupps trimning.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -67,9 +67,9 @@ select *
 from cte;
 ```
 
-Trim_reason_desc anger om radgrupps har trimmats (trim_reason_desc = NO_TRIM betyder det att det inte fanns någon trimning och rad grupp är av optimal kvalitet). Följande trimnings orsaker visar för tidig trimning av radgrupps:
+Trim_reason_desc anger om radgrupps har trimmats (trim_reason_desc = NO_TRIM betyder det att det inte finns någon trimning och rad grupp är av optimal kvalitet). Följande trimnings orsaker visar för tidig trimning av radgrupps:
 - BULKLOAD: den här trimnings orsaken används när den inkommande gruppen med rader för inläsningen hade färre än 1 000 000 rader. Motorn skapar komprimerade rad grupper om fler än 100 000 rader infogas (i stället för att infoga i delta arkivet), men anger trimnings orsaken till BULKLOAD. I det här scenariot kan du öka batch-belastningen för att ta med fler rader. Du kan också utvärdera om partitionerings schema för att se till att det inte är för detaljerat eftersom rad grupper inte kan spänna över partitionerings gränser.
-- MEMORY_LIMITATION: för att skapa rad grupper med 1 000 000 rader krävs en viss mängd arbets minne av motorn. När det tillgängliga minnet för inläsnings sessionen är mindre än det nödvändiga arbets minnet, så får rad grupper för tidigt trimning. I följande avsnitt beskrivs hur du beräknar minne som krävs och tilldelar mer minne.
+- MEMORY_LIMITATION: om du vill skapa rad grupper med 1 000 000 rader krävs en viss mängd arbets minne av motorn. När det tillgängliga minnet för inläsnings sessionen är mindre än det nödvändiga arbets minnet, så får rad grupper för tidigt trimning. I följande avsnitt beskrivs hur du beräknar minne som krävs och tilldelar mer minne.
 - DICTIONARY_SIZE: den här trimnings orsaken indikerar att radgrupps trimning utfördes eftersom det fanns minst en sträng kolumn med breda och/eller höga kardinalation-strängar. Ord listans storlek är begränsad till 16 MB i minnet och när den här gränsen nås är rad gruppen komprimerad. Om du stöter på den här situationen bör du överväga att isolera den problematiska kolumnen i en separat tabell.
 
 ## <a name="how-to-estimate-memory-requirements"></a>Beräkna minnes krav
@@ -89,7 +89,7 @@ där korta strängar använder sträng data typer för < = 32 byte och Long-Stri
 
 Långa strängar komprimeras med en komprimerings metod som är utformad för komprimering av text. Den här komprimerings metoden använder en *ord lista* för att lagra text mönster. Den maximala storleken för en ord lista är 16 MB. Det finns bara en ord lista för varje lång sträng kolumn i radgrupps.
 
-En djupgående Beskrivning av kraven för columnstore-minnet finns i video [Azure SQL Data Warehouse skalning: konfiguration och vägledning](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+En djupgående Beskrivning av kraven för columnstore-minnet finns i video skalning för [SQL Analytics: konfiguration och vägledning](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Sätt att minska minnes kraven
 
@@ -109,7 +109,7 @@ Ytterligare minnes krav för sträng komprimering:
 
 ### <a name="avoid-over-partitioning"></a>Undvik överpartitionering
 
-Columnstore-index skapar en eller flera högkvalitativa per partition. I SQL Data Warehouse ökar antalet partitioner snabbt eftersom data distribueras och varje distribution är partitionerad. Om tabellen har för många partitioner kanske det inte finns tillräckligt med rader för att fylla i högkvalitativa. Bristen på rader skapar inte minnes belastning under komprimering, men den leder till högkvalitativa som inte uppnår bästa prestanda för columnstore-frågor.
+Columnstore-index skapar en eller flera högkvalitativa per partition. För data lager hantering i Azure Synapse Analytics ökar antalet partitioner snabbt eftersom data distribueras och varje distribution är partitionerad. Om tabellen har för många partitioner kanske det inte finns tillräckligt med rader för att fylla i högkvalitativa. Bristen på rader skapar inte minnes belastning under komprimering, men den leder till högkvalitativa som inte uppnår bästa prestanda för columnstore-frågor.
 
 Ett annat skäl att undvika överpartitionering är att det finns en minnes belastning för att läsa in rader i ett columnstore-index i en partitionerad tabell. Under en belastning kan många partitioner ta emot inkommande rader, som lagras i minnet tills varje partition har tillräckligt med rader som ska komprimeras. Om du har för många partitioner skapas ytterligare minnes belastning.
 
@@ -141,5 +141,4 @@ DWU storlek och användar resurs klass avgör hur mycket minne som är tillgäng
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du kan förbättra prestanda i SQL Data Warehouse finns i [Översikt över prestanda](sql-data-warehouse-overview-manage-user-queries.md).
-
+Mer information om hur du kan förbättra prestandan för SQL Analytics finns i [Översikt över prestanda](sql-data-warehouse-overview-manage-user-queries.md).

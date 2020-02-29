@@ -2,26 +2,26 @@
 title: Skydda ett Azure API Management-API med Azure Active Directory B2C
 description: Lär dig hur du använder åtkomsttoken som utfärdats av Azure Active Directory B2C för att skydda en Azure API Management API-slutpunkt.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/31/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 942c565c885d59a14d64e7ec06beee0354e7c4ca
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 00938d831e70289b24acb599b81016aa6e564d78
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641625"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186938"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Skydda ett Azure API Management-API med Azure AD B2C
 
 Lär dig hur du begränsar åtkomsten till ditt Azure API Management-API (APIM) till klienter som har autentiserats med Azure Active Directory B2C (Azure AD B2C). Följ stegen i den här artikeln för att skapa och testa en inkommande princip i APIM som begränsar åtkomsten till de begär Anden som innehåller en giltig Azure AD B2C-utfärdad åtkomsttoken.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande resurser på plats innan du fortsätter med stegen i den här artikeln:
 
@@ -37,17 +37,17 @@ När du skyddar ett API i Azure API Management med Azure AD B2C behöver du fler
 
 Du kan använda den aktuella **program** upplevelsen eller vår nya enhetliga **Appregistreringar (förhands granskning)** för att hämta program-ID: t. [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
 
-#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+#### <a name="applications"></a>[Program](#tab/applications/)
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Under **Hantera**väljer du **program**.
 1. Registrera värdet i kolumnen **program-ID** för *webapp1* eller något annat program som du har skapat tidigare.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Välj **Appregistreringar (för hands version)** och välj sedan fliken **ägda program** .
@@ -73,7 +73,7 @@ Sedan hämtar du den välkända konfigurations-URL: en för en av dina Azure AD 
 
     Du använder det här värdet i nästa avsnitt när du konfigurerar ditt API i Azure API Management.
 
-Du bör nu ha två URL: er som har registrerats för användning i nästa avsnitt: den OpenID Connect-välkända konfigurations slut punkts-URL: en och utfärdar-URI: n. Till exempel:
+Du bör nu ha två URL: er som har registrerats för användning i nästa avsnitt: den OpenID Connect-välkända konfigurations slut punkts-URL: en och utfärdar-URI: n. Några exempel:
 
 ```
 https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1
@@ -154,7 +154,7 @@ Ett klient program (i det här fallet Postman) som anropar ett publicerat API m�
 
 När du har registrerat åtkomst-token och APIM prenumerations nyckel är du nu redo att testa om du har konfigurerat säker åtkomst till API: et korrekt.
 
-1. Skapa en ny `GET`-begäran i [Postman](https://www.getpostman.com/). För fråge-URL: en anger du slut punkten för Utskicks listan för API: et som du har publicerat som en av kraven. Till exempel:
+1. Skapa en ny `GET`-begäran i [Postman](https://www.getpostman.com/). För fråge-URL: en anger du slut punkten för Utskicks listan för API: et som du har publicerat som en av kraven. Några exempel:
 
     `https://contosoapim.azure-api.net/conference/speakers`
 

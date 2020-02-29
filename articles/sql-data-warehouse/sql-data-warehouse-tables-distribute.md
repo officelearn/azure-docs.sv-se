@@ -1,6 +1,6 @@
 ---
 title: Design rikt linjer för distribuerade tabeller
-description: Rekommendationer för att utforma hash-distribuerade och resursallokering-tabeller med resursallokering i Azure SQL Data Warehouse.
+description: Rekommendationer för att designa distribuerade hash-och resursallokering-tabeller i SQL Analytics.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,18 +10,18 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 025c60485625a4ab4d2e29b1e81d8574f6187b93
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.custom: azure-synapse
+ms.openlocfilehash: 3a07dd6ccd5d0bf3440df21b2af4e67cbcf663c9
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049116"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199452"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Vägledning för att utforma distribuerade tabeller i Azure SQL Data Warehouse
-Rekommendationer för att utforma hash-distribuerade och resursallokering-tabeller med resursallokering i Azure SQL Data Warehouse.
+# <a name="guidance-for-designing-distributed-tables-in-sql-analytics"></a>Vägledning för att utforma distribuerade tabeller i SQL Analytics
+Rekommendationer för att designa distribuerade hash-och resursallokering-tabeller i SQL Analytics.
 
-Den här artikeln förutsätter att du är bekant med koncepten för data distribution och data förflyttning i SQL Data Warehouse.  Mer information finns i [arkitektur för Azure SQL Data Warehouse-massiv parallel Processing (MPP)](massively-parallel-processing-mpp-architecture.md). 
+Den här artikeln förutsätter att du är bekant med koncepten för data distribution och data förflyttning i SQL Analytics.  Mer information finns i [SQL Analytics-arkitekturen för storskalig parallell bearbetning (MPP)](massively-parallel-processing-mpp-architecture.md). 
 
 ## <a name="what-is-a-distributed-table"></a>Vad är en distribuerad tabell?
 En distribuerad tabell visas som en enskild tabell, men raderna lagras i stället för 60-distributioner. Raderna distribueras med en hash-eller Round-Robin-algoritm.  
@@ -34,7 +34,7 @@ Som en del av tabell designen förstår du så mycket som möjligt av dina data 
 
 - Hur stor är tabellen?   
 - Hur ofta uppdateras tabellen?   
-- Har jag fakta-och dimensions tabeller i ett informations lager?   
+- Har jag fakta-och dimensions tabeller i en SQL Analytics-databas?   
 
 
 ### <a name="hash-distributed"></a>Hash distribuerad
@@ -42,7 +42,7 @@ En hash-distribuerad tabell distribuerar tabell rader över datornoderna genom a
 
 ![Distribuerad tabell](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Distribuerad tabell")  
 
-Eftersom identiska värden alltid hash-kodas till samma distribution, har informations lagret inbyggd kunskap om rad platserna. SQL Data Warehouse använder den här kunskapen för att minimera data flytt under frågor, vilket förbättrar prestanda för frågor. 
+Eftersom identiska värden alltid hash-kodas till samma distribution har SQL Analytics inbyggda kunskaper om rad platser. SQL Analytics använder den här kunskapen för att minimera data flyttningen under frågor, vilket förbättrar frågans prestanda. 
 
 Hash-distribuerade tabeller fungerar bra för stora fakta tabeller i ett stjärn schema. De kan ha ett stort antal rader och har fortfarande höga prestanda. Det finns naturligtvis några design överväganden som hjälper dig att få den prestanda som det distribuerade systemet har utformats för att tillhandahålla. Att välja en lämplig distributions kolumn är en sådan som beskrivs i den här artikeln. 
 
@@ -65,7 +65,7 @@ Det innebär att systemet ibland måste anropa en åtgärd för data förflyttni
 - Om kopplingen är mindre viktig än andra kopplingar i frågan
 - När tabellen är en tillfällig mellanlagrings tabell
 
-Självstudien [Läs in New York taxidata-data till Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) ger ett exempel på inläsning av data i en mellanlagrings tabell för resursallokering.
+Självstudien [läsa in New York taxidata-data](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) ger ett exempel på inläsning av data i en mellanlagrings tabell för RESURSALLOKERING i SQL Analytics.
 
 
 ## <a name="choosing-a-distribution-column"></a>Välja en distributions kolumn
@@ -109,7 +109,7 @@ För att balansera parallell bearbetningen väljer du en distributions kolumn so
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Välj en distributions kolumn som minimerar data flyttningen
 
-För att få rätt frågor om frågeresultat kan du flytta data från en Compute-nod till en annan. Data flyttning sker ofta när frågor har kopplingar och agg regeringar i distribuerade tabeller. Att välja en distributions kolumn som hjälper till att minimera data flytt är en av de viktigaste strategierna för att optimera prestandan för din SQL Data Warehouse.
+För att få rätt frågor om frågeresultat kan du flytta data från en Compute-nod till en annan. Data flyttning sker ofta när frågor har kopplingar och agg regeringar i distribuerade tabeller. Att välja en distributions kolumn som hjälper till att minimera data flytt är en av de viktigaste strategierna för att optimera prestanda för SQL Analytics-databasen.
 
 Om du vill minimera data flytten väljer du en distributions kolumn som:
 
@@ -217,7 +217,7 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Använd någon av följande instruktioner om du vill skapa en distribuerad tabell:
 
-- [CREATE TABLE (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE som SELECT (Azure SQL Data Warehouse](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE som SELECT (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 

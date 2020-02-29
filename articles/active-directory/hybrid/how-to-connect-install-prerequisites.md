@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 02/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f250d4593c8dac8007590245e1b774b95d8fa786
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: bc76f8edc8520ca50cd4c9527b037d99d24ce63c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75767950"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190508"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Krav för Azure AD Connect
 I det här avsnittet beskrivs krav och maskin varu krav för Azure AD Connect.
@@ -31,7 +31,7 @@ Innan du installerar Azure AD Connect finns det några saker du behöver.
 
 ### <a name="azure-ad"></a>Azure AD
 * En Azure AD-klientorganisation. Du får ett med en [kostnads fri utvärderings version av Azure](https://azure.microsoft.com/pricing/free-trial/). Du kan använda någon av följande portaler för att hantera Azure AD Connect:
-  * Den [Azure-portalen](https://portal.azure.com).
+  * [Azure Portal](https://portal.azure.com).
   * [Office-portalen](https://portal.office.com).  
 * [Lägg till och verifiera den domän](../active-directory-domains-add-azure-portal.md) som du planerar att använda i Azure AD. Om du till exempel planerar att använda contoso.com för dina användare ser du till att den här domänen har verifierats och att du inte bara använder contoso.onmicrosoft.com standard domän.
 * En Azure AD-klient tillåter som standard 50 000-objekt. När du verifierar din domän ökas gränsen till över 300 000-objekt. Om du behöver ännu fler objekt i Azure AD måste du öppna ett support ärende om du vill öka gränsen ytterligare. Om du behöver fler än 500 000-objekt måste du ha en licens, till exempel Office 365, Azure AD Basic, Azure AD Premium eller företags mobilitet och säkerhet.
@@ -86,10 +86,10 @@ Du kan läsa mer här:
 
 ### <a name="accounts"></a>Konton
 * Ett globalt administratörs konto i Azure AD för den Azure AD-klient som du vill integrera med. Kontot måste vara ett **skol-eller organisations konto** och får inte vara ett **Microsoft-konto**.
-* Om du använder Express inställningar eller uppgraderar från DirSync måste du ha ett företags administratörs konto för din lokala Active Directory.
-* [Konton i Active Directory](reference-connect-accounts-permissions.md) om du använder installations Sök vägen för anpassade inställningar eller ett företags administratörs konto för din lokala Active Directory.
+* Om du använder [Express inställningar](reference-connect-accounts-permissions.md#express-settings-installation) eller uppgraderar från DirSync måste du ha ett företags administratörs konto för din lokala Active Directory.
+* Om du använder installations Sök vägen för anpassade inställningar har du fler alternativ se [konton i Active Directory](reference-connect-accounts-permissions.md#custom-installation-settings)
 
-### <a name="connectivity"></a>Anslutningsmöjlighet
+### <a name="connectivity"></a>Anslutning
 * Den Azure AD Connect servern behöver DNS-matchning för både intranätet och Internet. DNS-servern måste kunna matcha namn både till din lokala Active Directory och Azure AD-slutpunkter.
 * Om du har brand väggar i intranätet och du behöver öppna portar mellan Azure AD Connect-servrar och domän kontrol Lanterna, kan du se [Azure AD Connect portar](reference-connect-ports.md) för mer information.
 * Om proxyn eller brand väggen begränsar vilka URL: er som kan nås måste URL: erna som dokumenteras i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) öppnas.
@@ -129,7 +129,7 @@ Du kan läsa mer här:
 Mer information finns i MSDN om [default proxy-elementet](https://msdn.microsoft.com/library/kd3cf2ex.aspx).  
 Mer information om problem med anslutningen finns i [Felsöka anslutnings problem](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Övrigt
+### <a name="other"></a>Annat
 * Valfritt: ett test användar konto för att verifiera synkroniseringen.
 
 ## <a name="component-prerequisites"></a>Komponent krav

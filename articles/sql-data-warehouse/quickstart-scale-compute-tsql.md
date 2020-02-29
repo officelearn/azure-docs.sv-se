@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skala Compute-T-SQL '
-description: Skala beräkning i Azure SQL Data Warehouse med hjälp av T-SQL och SQL Server Management Studio (SSMS). Skala ut beräkning för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna.
+title: Skala beräkning i Azure Synapse Analytics-T-SQL
+description: Skala beräkning i Azure Synapse Analytics med hjälp av T-SQL och SQL Server Management Studio (SSMS). Skala ut beräkning för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna.
 services: sql-data-warehouse
 author: Antvgski
 manager: craigg
@@ -10,17 +10,17 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 6729552262d7bea619948ddba406418b80cf69dc
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: a6d47a41375c00b9bdad5079f8e1f11cf369120a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685953"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200447"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Snabbstart: Skala beräkning i Azure SQL Data Warehouse med hjälp av T-SQL
+# <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>Snabb start: skala beräkning i Azure Synapse Analytics med hjälp av T-SQL
 
-Skala beräkning i Azure SQL Data Warehouse med hjälp av T-SQL och SQL Server Management Studio (SSMS). [Skala ut beräkning](sql-data-warehouse-manage-compute-overview.md) för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna. 
+Skala beräkning i Azure Synapse Analytics (tidigare SQL DW) med T-SQL och SQL Server Management Studio (SSMS). [Skala ut beräkning](sql-data-warehouse-manage-compute-overview.md) för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -30,7 +30,7 @@ Ladda ned och installera den senaste versionen av [SQL Server Management Studio]
  
 ## <a name="create-a-data-warehouse"></a>Skapa ett datalager
 
-Använd [Snabbstart: Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**. Slutför snabbstarten så att du har en brandväggsregel och kan ansluta till informationslagret från SQL Server Management Studio.
+Använd [Snabbstart: Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**. Slutför snabb starten för att se till att du har en brand Väggs regel och kan ansluta till data lagret inifrån SQL Server Management Studio.
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ansluta till servern som serveradministratör
 
@@ -43,25 +43,25 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
    | Inställning       | Föreslaget värde | Beskrivning | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
-   | servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **mynewserver 20171113.database.windows.net**. |
+   | servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **mySampleDataWarehouseservername.Database.Windows.net**. |
    | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
    | Inloggning | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
-   | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
+   | Lösenord | Lösenordet för serveradministratörskontot | Det lösen ord som du angav när du skapade servern. |
 
-    ![Anslut till server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
+    ![Anslut till Server](media/quickstart-scale-compute-tsql/connect-to-server.png)
 
-4. Klicka på **Anslut**. Fönstret Object Explorer öppnas i SSMS. 
+3. Klicka på **Anslut**. Fönstret Object Explorer öppnas i SSMS.
 
-5. Expandera **Databaser** i Object Explorer. Expandera **mySampleDatabase** så visas objekten i den nya databasen.
+4. Expandera **Databaser** i Object Explorer. Expandera sedan **mySampleDataWarehouse** för att visa objekten i den nya databasen.
 
-    ![databasobjekt](media/create-data-warehouse-portal/connected.png) 
+    ![Databas objekt](media/quickstart-scale-compute-tsql/connected.png)
 
 ## <a name="view-service-objective"></a>Visa tjänstmål
 Inställningen för tjänstmål innehåller antalet informationslagerenheter för informationslagret. 
 
 Så här visar du aktuella informationslagerenheter för informationslagret:
 
-1. Under anslutningen till **mynewserver-20171113.database.windows.net** expanderar du **Systemdatabaser**.
+1. Under anslutningen till **mySampleDataWarehouseservername.Database.Windows.net**expanderar du **system databaser**.
 2. Högerklicka på **Huvud** och välj **Ny fråga**. Ett nytt frågefönster öppnas.
 3. Kör följande fråga för att välja från den dynamiska hanteringsvyn sys.database_service_objectives. 
 
@@ -80,11 +80,10 @@ Så här visar du aktuella informationslagerenheter för informationslagret:
 
 4. Följande resultat visar att **mySampleDataWarehouse** har tjänstmålet DW400. 
 
-    ![Visa aktuella DWU](media/quickstart-scale-compute-tsql/view-current-dwu.png)
-
+    ![a-Current-DWU](media/quickstart-scale-compute-tsql/view-current-dwu.png)
 
 ## <a name="scale-compute"></a>Skala beräkning
-I SQL Data Warehouse kan du öka eller minska beräkningsresurser genom att justera informationslagerenheter. I [Skapa och ansluta – portal](create-data-warehouse-portal.md) skapades **mySampleDataWarehouse** och initierades med 400 DWU. Följande steg justerar DWU för **mySampleDataWarehouse**.
+I Azure Synapse kan du öka eller minska beräknings resurserna genom att justera informations lager enheter. I [Skapa och ansluta – portal](create-data-warehouse-portal.md) skapades **mySampleDataWarehouse** och initierades med 400 DWU. Följande steg justerar DWU för **mySampleDataWarehouse**.
 
 Så här ändrar du informationslagerenheter:
 
@@ -93,8 +92,7 @@ Så här ändrar du informationslagerenheter:
 
     ```Sql
     ALTER DATABASE mySampleDataWarehouse
-    MODIFY (SERVICE_OBJECTIVE = 'DW300c')
-    ;
+    MODIFY (SERVICE_OBJECTIVE = 'DW300c');
     ```
 
 ## <a name="monitor-scale-change-request"></a>Övervaka ändringsbegäran för skalning
@@ -113,7 +111,7 @@ Så här avsöker du serviceobjektets ändringsstatus:
         WHERE 
             1=1
             AND resource_type_desc = 'Database'
-            AND major_resource_id = 'MySampleDataWarehouse'
+            AND major_resource_id = 'mySampleDataWarehouse'
             AND operation = 'ALTER DATABASE'
         ORDER BY
             start_time DESC
@@ -134,7 +132,7 @@ När ett informationslager har pausats går det inte att ansluta till det med T-
 
 ## <a name="check-operation-status"></a>Kontrollera åtgärdsstatus
 
-Kör följande fråga i den dynamiska hanteringsvyn [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) för att returnera information om olika hanteringsåtgärder i SQL Data Warehouse. Den returnerar exempelvis åtgärden och åtgärdens tillstånd, som är IN_PROGRESS eller COMPLETED.
+Om du vill returnera information om olika hanterings åtgärder på Azure-Synapse kör du följande fråga på [sys. dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) DMV. Den returnerar exempelvis åtgärden och åtgärdens tillstånd, som är IN_PROGRESS eller COMPLETED.
 
 ```sql
 SELECT *
@@ -143,12 +141,12 @@ FROM
 WHERE
     resource_type_desc = 'Database'
 AND 
-    major_resource_id = 'MySampleDataWarehouse'
+    major_resource_id = 'mySampleDataWarehouse'
 ```
 
 
 ## <a name="next-steps"></a>Nästa steg
-Nu har du lärt dig hur du skalar databearbetningen för informationslagret. Om du vill veta mer om Azure SQL Data Warehouse kan fortsätta med självstudiekursen om att läsa in data.
+Nu har du lärt dig hur du skalar databearbetningen för informationslagret. Om du vill veta mer om Azure Synapse går du vidare till självstudien för att läsa in data.
 
 > [!div class="nextstepaction"]
->[Läs in data i en SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Läs in data i en Azure Synapse-analys](load-data-from-azure-blob-storage-using-polybase.md)

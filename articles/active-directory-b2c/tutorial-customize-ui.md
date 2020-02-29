@@ -3,20 +3,20 @@ title: 'Självstudie: anpassa användar gränssnittet'
 titleSuffix: Azure AD B2C
 description: Lär dig hur du anpassar användar gränssnittet (UI) för dina program i Azure Active Directory B2C med hjälp av Azure Portal.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1b0ad7049375cb20d2daa0e6f920b680d03530a5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b2b2bc8dd4e60348553228b8b418df252a8c426a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840136"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186258"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Självstudie: anpassa gränssnittet för användar upplevelser i Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ I den här artikeln kan du se hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [Skapa ett användar flöde](tutorial-create-user-flows.md) så att användarna kan registrera sig och logga in i programmet.
 
@@ -39,11 +39,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Du skapar ett Azure Storage-konto och en behållare och placerar sedan grundläggande HTML-och CSS-filer i behållaren.
 
-### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Även om du kan lagra dina filer på många sätt kan du i den här självstudien lagra dem i [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md).
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Kontrol lera att du använder den katalog som innehåller din Azure-prenumeration. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din prenumeration. Den här katalogen skiljer sig åt från den som innehåller din Azure B2C-klient.
 3. Välj alla tjänster i det övre vänstra hörnet av Azure Portal, Sök efter och välj **lagrings konton**.
 4. Välj **Lägg till**.
@@ -71,7 +71,7 @@ Du skapar ett Azure Storage-konto och en behållare och placerar sedan grundläg
 
     ![Konfigurations sidan CORS i Azure Blob Storage i Azure Portal](./media/tutorial-customize-ui/enable-cors.png)
 
-5. Klicka på **Spara**.
+5. Klicka på **Save** (Spara).
 
 ### <a name="create-the-customization-files"></a>Skapa anpassnings filerna
 

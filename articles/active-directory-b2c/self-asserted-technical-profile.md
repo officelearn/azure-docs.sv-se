@@ -3,20 +3,20 @@ title: Definiera en egen kontrollerad teknisk profil i en anpassad princip
 titleSuffix: Azure AD B2C
 description: Definiera en egen kontrollerad teknisk profil i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/17/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8f2a86f72f16a23b0133601cfe41b9e636d8866d
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: e0a282be9b8a20c64cd3e74e7860a289baa5aec6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425614"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183813"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en egen kontrollerad teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -198,7 +198,7 @@ Du kan också anropa en REST API teknisk profil med din affärs logik, skriva ö
 | setting.showCancelButton | Nej | Visar knappen Avbryt. Möjliga värden: `true` (standard) eller `false` |
 | setting.showContinueButton | Nej | Visar knappen Fortsätt. Möjliga värden: `true` (standard) eller `false` |
 | Setting. showSignupLink <sup>2</sup>| Nej | Visar registrerings knappen. Möjliga värden: `true` (standard) eller `false` |
-| Setting. forgotPasswordLinkLocation <sup>2</sup>| Nej| Visar länken Glömt lösen ord. Möjliga värden: `AfterInput` (standard) länken visas längst ned på sidan, eller `None` tar bort länken Glömt lösen ord.| 
+| Setting. forgotPasswordLinkLocation <sup>2</sup>| Nej| Visar länken Glömt lösen ord. Möjliga värden: `AfterInput` (standard) länken visas längst ned på sidan, eller `None` tar bort länken Glömt lösen ord.|
 | IncludeClaimResolvingInClaimsHandling  | Nej | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true`eller `false` (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true`. |
 
 Obs!

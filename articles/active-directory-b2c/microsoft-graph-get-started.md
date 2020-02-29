@@ -3,20 +3,20 @@ title: Hantera resurser med Microsoft Graph
 titleSuffix: Azure AD B2C
 description: Förbered för att hantera Azure AD B2C resurser med Microsoft Graph genom att registrera ett program som har beviljats nödvändiga Graph API behörigheter.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bcddcf051e73381af35ca40e22c443c7b9ae30a7
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 32117d4bfcf0c0af94eced095b94ab0c1b6f88af
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492947"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184371"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Hantera Azure AD B2C med Microsoft Graph
 

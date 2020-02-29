@@ -2,20 +2,20 @@
 title: ClaimsTransformations – Azure Active Directory B2C | Microsoft Docs
 description: Definition av ClaimsTransformations-elementet i Azure Active Directory B2C för identitets upplevelsens Framework-schema.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 66c94f08638895c85836fda37c3ae61f3857ee51
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e71d521dce40f6a8ec81286fcc95dc97bf10078c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836708"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189744"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -51,7 +51,7 @@ Om du vill lägga till en lista över anspråksmedvetna omvandlings funktioner s
   </InputClaims>
   <InputParameters>
     ...
-  </InputParameters>                
+  </InputParameters>
   <OutputClaims>
     ...
   </OutputClaims>
@@ -62,7 +62,7 @@ Om du vill lägga till en lista över anspråksmedvetna omvandlings funktioner s
 | Element | Förekomster | Beskrivning |
 | ------- | -------- | ----------- |
 | InputClaims | 0:1 | En lista med **InputClaim** -element som anger anspråks typer som ska tas in i anspråks omvandlingen. Vart och ett av dessa element innehåller en referens till en ClaimType som redan har definierats i ClaimsSchema-avsnittet i principen. |
-| Indataparametrar | 0:1 | En lista med **InputParameter** -element som tillhandahålls som indata till anspråks omvandlingen.  
+| Indataparametrar | 0:1 | En lista med **InputParameter** -element som tillhandahålls som indata till anspråks omvandlingen.
 | OutputClaims | 0:1 | En lista med **OutputClaim** -element som anger anspråks typer som skapas efter att ClaimsTransformation har anropats. Vart och ett av dessa element innehåller en referens till en ClaimType som redan har definierats i ClaimsSchema-avsnittet. |
 
 ### <a name="inputclaims"></a>InputClaims
@@ -106,7 +106,7 @@ Elementet **indataparametrar** innehåller följande element:
 | ------- | ----------- | ----------- |
 | OutputClaim | 0: n | En förväntad typ av utgående anspråk. |
 
-#### <a name="outputclaim"></a>OutputClaim 
+#### <a name="outputclaim"></a>OutputClaim
 
 **OutputClaim** -elementet innehåller följande attribut:
 
@@ -114,7 +114,7 @@ Elementet **indataparametrar** innehåller följande element:
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | Ja | En referens till en ClaimType som redan har definierats i ClaimsSchema-avsnittet i principen.
 | TransformationClaimType | Ja | En identifierare som refererar till en omvandlings anspråks typ. Varje anspråks omvandling har sina egna värden. I [omvandlings referensen för anspråk](#claims-transformations-reference) finns en fullständig lista över tillgängliga värden. |
- 
+
 Om indata-anspråk och utgående anspråk är av samma typ (sträng eller boolesk) kan du använda samma indata-anspråk som utgående anspråk. I det här fallet ändrar anspråks omvandlingen indata-anspråk med värdet output.
 
 ## <a name="example"></a>Exempel
@@ -160,7 +160,7 @@ Du kan till exempel lagra den senaste versionen av dina tjänst villkor som anv�
 Exempel på anspråks omvandlingar finns i följande referens sidor:
 
 - [Boolesk](boolean-transformations.md)
-- [datum](date-transformations.md)
+- [Ikraftträdande](date-transformations.md)
 - [Talet](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [Allmänt](general-transformations.md)

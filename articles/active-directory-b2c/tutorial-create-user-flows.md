@@ -2,20 +2,20 @@
 title: Självstudie – Skapa användar flöden – Azure Active Directory B2C
 description: Lär dig hur du skapar användar flöden i Azure Portal för att aktivera registrering, inloggning och användar profil redigering för dina program i Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 21a3597a8c3675a060359b5e4feb9561e02f0149
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 51adbb74635f66ca86347b536dc2607566dcb725
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840153"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183575"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Självstudie: skapa användar flöden i Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Den här självstudien visar hur du skapar vissa rekommenderade användar flöde
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [Registrera dina program](tutorial-register-applications.md) som är en del av de användar flöden som du vill skapa.
 
@@ -40,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Användar flödet för registrering och inloggning hanterar både registrering och inloggnings upplevelser med en enda konfiguration. Användare av ditt program är i rätt sökväg beroende på kontexten.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 
     ![B2C-klient, katalog och prenumerations fönstret Azure Portal](./media/tutorial-create-user-flows/directory-subscription-pane.png)
@@ -59,7 +59,7 @@ Användar flödet för registrering och inloggning hanterar både registrering o
 
     ![Sidan skapa användar flöde i Azure Portal med egenskaper markerat](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
-1. För användarattribut **och anspråk**väljer du de anspråk och attribut som du vill samla in och skicka från användaren under registreringen. Välj till exempel **Visa mer**och välj sedan attribut och anspråk för **land/region**, **visnings namn**och **post nummer**. Klicka på **OK**.
+1. För användarattribut **och anspråk**väljer du de anspråk och attribut som du vill samla in och skicka från användaren under registreringen. Välj till exempel **Visa mer**och välj sedan attribut och anspråk för **land/region**, **visnings namn**och **post nummer**. Klicka på **OK**
 
     ![Sidan för attribut och val av anspråk med tre anspråk valda](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
@@ -86,7 +86,7 @@ Om du vill att användarna ska kunna redigera sin profil i ditt program använde
 1. Välj användar flödet **profil redigering** på den **rekommenderade** fliken.
 1. Ange ett **Namn** för användarflödet. Till exempel *profileediting1*.
 1. För **identitets leverantörer**väljer du **lokal konto inloggning**.
-1. För **användarattribut**väljer du de attribut som du vill att kunden ska kunna redigera i profilen. Välj till exempel **Visa mer**och välj sedan både attribut och anspråk för **visnings namn** och **befattning**. Klicka på **OK**.
+1. För **användarattribut**väljer du de attribut som du vill att kunden ska kunna redigera i profilen. Välj till exempel **Visa mer**och välj sedan både attribut och anspråk för **visnings namn** och **befattning**. Klicka på **OK**
 1. Klicka på **skapa** för att lägga till användar flödet. Ett prefix för *B2C_1* läggs automatiskt till i namnet.
 
 ### <a name="test-the-user-flow"></a>Testa användar flödet
@@ -105,7 +105,7 @@ Om du vill göra det möjligt för användare av ditt program att återställa s
 1. Ange ett **Namn** för användarflödet. Till exempel *passwordreset1*.
 1. För **identitets leverantörer**aktiverar du **Återställ lösen ord med e-postadress**.
 1. Under program anspråk klickar du på **Visa fler** och väljer de anspråk som du vill ska returneras i de autentiseringstoken som skickas tillbaka till programmet. Välj till exempel **Användarobjekt-id**.
-1. Klicka på **OK**.
+1. Klicka på **OK**
 1. Klicka på **skapa** för att lägga till användar flödet. Ett prefix för *B2C_1* läggs automatiskt till i namnet.
 
 ### <a name="test-the-user-flow"></a>Testa användar flödet

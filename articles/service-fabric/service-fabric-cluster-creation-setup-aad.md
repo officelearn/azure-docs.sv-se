@@ -3,12 +3,12 @@ title: Konfigurera Azure Active Directory för klientautentisering
 description: Lär dig hur du konfigurerar Azure Active Directory (Azure AD) för att autentisera klienter för Service Fabric kluster.
 ms.topic: conceptual
 ms.date: 6/28/2019
-ms.openlocfilehash: 2a6ffdb1c1fdc447545477286a6d131be2449cdb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 28c4c65cfcc77607dfe9a463a09ecd10389a6eca
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843828"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193396"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Konfigurera Azure Active Directory för klientautentisering
 
@@ -26,7 +26,7 @@ Service Fabric-kluster erbjuder flera startpunkter för dess hanteringsfunktione
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 I den här artikeln förutsätter vi att du redan har skapat en klientorganisation. Om du inte har gjort det börjar du med att läsa avsnittet om [hur du skaffar en Azure Active Directory-klientorganisation][active-directory-howto-tenant].
 
 Vi har skapat en uppsättning Windows PowerShell-skript för att förenkla vissa av de steg som används för att konfigurera Azure AD med Service Fabric-kluster.
@@ -38,7 +38,7 @@ Vi har skapat en uppsättning Windows PowerShell-skript för att förenkla vissa
 
 Vi använder skripten för att skapa två Azure AD-program för att kontrol lera åtkomsten till klustret: ett webb program och ett internt program. När du har skapat program som representerar klustret skapar du användare för de [roller som stöds av Service Fabric](service-fabric-cluster-security-roles.md): skrivskyddad och administratör.
 
-Kör `SetupApplications.ps1` och ange klientorganisations-ID, klusternamn och svars-URL för webbprogram som parametrar.  Ange även användarnamn och lösenord för användarna. Ett exempel:
+Kör `SetupApplications.ps1` och ange klientorganisations-ID, klusternamn och svars-URL för webbprogram som parametrar.  Ange även användarnamn och lösenord för användarna. Några exempel:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -104,7 +104,7 @@ När du försöker logga in på Azure AD i Service Fabric Explorer returnerar si
 Kluster (webb) som representerar Service Fabric Explorer försöker autentisera mot Azure AD, och som en del av begäran tillhandahåller URL: en för omdirigerings RETUR. Men URL: en visas inte i listan Azure AD Application **svars-URL** .
 
 #### <a name="solution"></a>Lösning
-På sidan Azure AD väljer du **Appregistreringar**, väljer kluster programmet och väljer sedan **svars-URL: er**. I rutan **svars-URL: er** lägger du till Service Fabric Explorer URL i listan eller ersätter ett objekt i listan. Spara ändringen.
+På registrerings sidan för Azure AD-appen för klustret väljer du **autentisering**och under avsnittet **omdirigerings-URI** lägger du till Service Fabric Explorer URL i listan. Spara ändringen.
 
 ![Webb program svars-URL][web-application-reply-url]
 

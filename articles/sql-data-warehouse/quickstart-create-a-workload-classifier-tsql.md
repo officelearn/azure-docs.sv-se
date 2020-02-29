@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa en arbets belastnings klassificering-T-SQL '
+title: 'Snabb start: skapa en arbets belastnings klassificering-T-SQL'
 description: Använd T-SQL för att skapa en klassificering för arbets belastning med hög prioritet.
 services: sql-data-warehouse
 author: ronortloff
@@ -7,15 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload-management
-ms.date: 05/01/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1375605b6dab385b53af9212023767003e686e60
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.custom: azure-synapse
+ms.openlocfilehash: 9f15317141e56614cf6fe04f46ff478a73266775
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646297"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200506"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Snabb start: skapa en arbets belastnings klassificering med T-SQL
 
@@ -24,17 +25,17 @@ I den här snabb starten skapar du snabbt en arbets belastnings klassificering m
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 > [!NOTE]
-> Att skapa ett SQL Data Warehouse kan resultera i en ny fakturerbar tjänst.  Mer information finns på [prissidan för SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Att skapa en SQL Analytics-instans i Azure Synapse Analytics kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här snabb starten förutsätter att du redan har en SQL Data Warehouse och att du har behörighet att kontrol lera databasen. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-login-for-theceo"></a>Skapa inloggning för TheCEO
 
@@ -107,6 +108,6 @@ Rensa resurserna genom att följa dessa steg.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Du har nu skapat en arbets belastnings klassificering. Kör några frågor som TheCEO för att se hur de fungerar. Se [sys. DM _pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) för att visa frågor och prioriteten som tilldelats.
-- Mer information om Azure SQL Data Warehouse arbets belastnings hantering finns i sekretess för [arbets belastning](sql-data-warehouse-workload-importance.md) och [arbets belastning](sql-data-warehouse-workload-classification.md).
+- Du har nu skapat en arbets belastnings klassificering. Kör några frågor som TheCEO för att se hur de fungerar. Se [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) för att visa frågor och prioriteten som tilldelats.
+- Mer information om arbets belastnings hantering i SQL Analytics finns i avsnittet om [arbets belastnings prioritet](sql-data-warehouse-workload-importance.md) och [arbets belastnings klassificering](sql-data-warehouse-workload-classification.md).
 - Se instruktions artiklar för att [Konfigurera arbets belastnings prioritet](sql-data-warehouse-how-to-configure-workload-importance.md) och hur du [hanterar och övervakar arbets belastnings hantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

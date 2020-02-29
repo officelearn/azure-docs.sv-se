@@ -1,30 +1,30 @@
 ---
 title: Resurs klasser för hantering av arbets belastning
-description: Vägledning för att använda resurs klasser för att hantera samtidighet och beräknings resurser för frågor i Azure SQL Data Warehouse.
+description: Vägledning för att använda resurs klasser för att hantera samtidighet och beräknings resurser för frågor i Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 12/04/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 30d3c67a815d05a256717fc4447ae3687adb8146
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.custom: azure-synapse
+ms.openlocfilehash: c94b2a755d85bdf425980574b63d8fd74a232b19
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548177"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195999"
 ---
-# <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Arbets belastnings hantering med resurs klasser i Azure SQL Data Warehouse
+# <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Arbets belastnings hantering med resurs klasser i Azure Synapse Analytics
 
-Vägledning för att använda resurs klasser för att hantera minne och samtidighet för frågor i din Azure SQL Data Warehouse.  
+Vägledning för att använda resurs klasser för att hantera minne och samtidighet för SQL Analytics-frågor i Azure Synapse.  
 
 ## <a name="what-are-resource-classes"></a>Vad är resurs klasser
 
-Prestanda kapaciteten för en fråga bestäms av användarens resurs klass.  Resurs klasser är i förväg bestämda resurs gränser i Azure SQL Data Warehouse som styr beräknings resurser och samtidighet för frågekörningen. Resurs klasser kan hjälpa dig att konfigurera resurser för dina frågor genom att ange gränser för antalet frågor som körs samtidigt och på beräknings resurserna som tilldelas varje fråga.  Det finns en kompromiss mellan minne och samtidighet.
+Prestanda kapaciteten för en fråga bestäms av användarens resurs klass.  Resurs klasser är i förväg bestämda resurs gränser i SQL Analytics som styr beräknings resurser och samtidighet för frågekörningen. Resurs klasser kan hjälpa dig att konfigurera resurser för dina frågor genom att ange gränser för antalet frågor som körs samtidigt och på beräknings resurserna som tilldelas varje fråga.  Det finns en kompromiss mellan minne och samtidighet.
 
 - Mindre resurs klasser minskar högsta mängd minne per fråga, men ökar samtidigheten.
 - Större resurs klasser ökar det maximala minnet per fråga, men minskar samtidigheten.
@@ -69,12 +69,12 @@ Minnes tilldelningen för varje resurs klass är följande.
 
 | Servicenivå  | smallrc           | mediumrc               | largerc                | xlargerc               |
 |:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
-| DW100c         | 25 %               | 25 %                    | 25 %                    | 70 %                    |
-| DW200c         | 12,5%             | 12,5%                  | 22.2                    | 70 %                    |
-| DW300c         | 8 %                | 10 %                    | 22.2                    | 70 %                    |
-| DW400c         | 6,25%             | 10 %                    | 22.2                    | 70 %                    |
-| DW500c         | 20 %               | 10 %                    | 22.2                    | 70 %                    |
-| DW1000c till<br> DW30000c | 3 %       | 10 %                    | 22.2                    | 70 %                    |
+| DW100c         | 25%               | 25%                    | 25%                    | 70%                    |
+| DW200c         | 12,5%             | 12,5%                  | 22.2                    | 70%                    |
+| DW300c         | 7,8                | 10                    | 22.2                    | 70%                    |
+| DW400c         | 6,25%             | 10                    | 22.2                    | 70%                    |
+| DW500c         | tjugo               | 10                    | 22.2                    | 70%                    |
+| DW1000c till<br> DW30000c | 3       | 10                    | 22.2                    | 70%                    |
 
 
 
@@ -82,7 +82,7 @@ Minnes tilldelningen för varje resurs klass är följande.
 
 Som standard är varje användare medlem i den dynamiska resurs klassen **smallrc**.
 
-Tjänst administratörens resurs klass är fast i smallrc och kan inte ändras.  Tjänst administratören är den användare som skapas under etablerings processen.  Tjänst administratören i den här kontexten är den inloggning som anges för inloggningen "Server administratör" när en ny SQL Data Warehouse-instans skapas med en ny server.
+Tjänst administratörens resurs klass är fast i smallrc och kan inte ändras.  Tjänst administratören är den användare som skapas under etablerings processen.  Tjänst administratören i den här kontexten är den inloggning som anges för "server admin-inloggning" när en ny SQL Analytics-instans skapas med en ny server.
 
 > [!NOTE]
 > Användare eller grupper som definieras som Active Directory administratör är också tjänst administratörer.
@@ -594,5 +594,5 @@ GO
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du hanterar databas användare och säkerhet finns [i skydda en databas i SQL Data Warehouse](./sql-data-warehouse-overview-manage-security.md). Mer information om hur större resurs klasser kan förbättra grupperade columnstore-index kvalitet finns i [minnes optimeringar för columnstore-komprimering](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Mer information om hur du hanterar databas användare och säkerhet finns i [skydda en databas i SQL Analytics](./sql-data-warehouse-overview-manage-security.md). Mer information om hur större resurs klasser kan förbättra grupperade columnstore-index kvalitet finns i [minnes optimeringar för columnstore-komprimering](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 

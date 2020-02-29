@@ -2,26 +2,26 @@
 title: 'Självstudie: bevilja åtkomst till ett Node. js-webb-API från ett Skriv bords program'
 description: Själv studie kurs om hur du använder Active Directory B2C för att skydda ett Node. js-webb-API och anropa det från en .NET Desktop-app.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/12/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: a72c45f80d03cda7b176c421cc5498dd16c242ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 59670cda68f54e4c0b20b361f0688e6766acba61
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850043"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183402"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett Node.js-webb-API från en skrivbordsapp med Azure Active Directory B2C
 
 Den här självstudien visar hur du anropar en Node. js-webb-API som skyddas av Azure Active Directory B2C (Azure AD B2C) från en Windows Presentation Foundation (WPF) Desktop-app, som också skyddas av Azure AD B2C.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Lägga till ett program för webb-API
@@ -29,7 +29,7 @@ I den här guiden får du lära dig hur man:
 > * Tilldela behörigheter till webb-API:et
 > * Uppdatera exemplet så att programmet används
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen och kraven i [Självstudier: autentisera användare i en intern Skriv bords klient](tutorial-desktop-app.md).
 
@@ -51,15 +51,15 @@ Om du vill anropa ett skyddat webb-API från ett internt klient program måste d
 
 I den nödvändiga självstudien har du registrerat ett internt klient program med namnet *nativeapp1*. Följande steg konfigurerar den interna program registreringen med de API-omfattningar som du exponerade för *webapi1* i föregående avsnitt. Detta gör det möjligt för Skriv bords programmet att hämta en åtkomsttoken från Azure AD B2C att webb-API: et kan använda för att verifiera och ge begränsad åtkomst till resurser. Du konfigurerar och kör både desktop program och webb-API-kod exempel senare i självstudien.
 
-#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+#### <a name="applications"></a>[Program](#tab/applications/)
 
 1. Välj **Program** och sedan *nativeapp1*.
-1. Välj **API-åtkomst** och därefter **Lägg till**.
+1. Välj **API-åtkomst** och sedan **Lägg till**.
 1. I listrutan **Välj API** väljer du *webapi1*.
 1. I list rutan **Välj omfång** väljer du de omfattningar som du definierade tidigare. Till exempel *demo. Read* och *demo. Write*.
 1. Välj **OK**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
 1. Välj **Appregistreringar (för hands version)** och välj sedan det interna klient program som ska ha åtkomst till API: et. Till exempel *nativeapp1*.
 1. Under **Hantera**, Välj **API-behörigheter**.

@@ -2,20 +2,20 @@
 title: Aktivera ålders hantera i Azure Active Directory B2C | Microsoft Docs
 description: Lär dig mer om att identifiera minderåriga med ditt program.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1fc63b222fd2f08bb4b5596d58f825c8f6b1910e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 56cbeb8e8fe21f4b39c2f5c6af43e83ae330e5d5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836244"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189981"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Aktivera ålders hantera i Azure Active Directory B2C
 
@@ -33,24 +33,24 @@ Azure AD B2C använder den information som användaren anger för att identifier
 
 | Land/region | Land/region namn | Liten medgivande ålder | Mindre ålder |
 | -------------- | ------------------- | ----------------- | --------- |
-| Default | Inget | Inget | 18 |
-| AE | Förenade Arabemiraten | Inget | 21 |
+| Standard | Ingen | Ingen | 18 |
+| AE | Förenade Arabemiraten | Ingen | 21 |
 | AT | Österrike | 14 | 18 |
 | BE | Belgien | 14 | 18 |
 | BG | Bulgarien | 16 | 18 |
-| BH | Bahrain | Inget | 21 |
-| CM | Kamerun | Inget | 21 |
+| BH | Bahrain | Ingen | 21 |
+| CM | Kamerun | Ingen | 21 |
 | CY | Cypern | 16 | 18 |
 | CZ | Tjeckien | 16 | 18 |
 | DE | Tyskland | 16 | 18 |
 | DK | Danmark | 16 | 18 |
 | EE | Estland | 16 | 18 |
-| EG | Egypten | Inget | 21 |
+| EG | Egypten | Ingen | 21 |
 | ES | Spanien | 13 | 18 |
 | FR | Frankrike | 16 | 18 |
 | GB | Storbritannien | 13 | 18 |
 | GR | Grekland | 16 | 18 |
-| Personal | Kroatien | 16 | 18 |
+| HR | Kroatien | 16 | 18 |
 | HU | Ungern | 16 | 18 |
 | IE | Irland | 13 | 18 |
 | IT | Italien | 16 | 18 |
@@ -59,18 +59,18 @@ Azure AD B2C använder den information som användaren anger för att identifier
 | LU | Luxemburg | 16 | 18 |
 | LV | Lettland | 16 | 18 |
 | MT | Malta | 16 | 18 |
-| Ej tillämpligt | Namibia | Inget | 21 |
+| Ej tillämpligt | Namibia | Ingen | 21 |
 | NL | Nederländerna | 16 | 18 |
 | PL | Polen | 13 | 18 |
 | PT | Portugal | 16 | 18 |
 | RO | Rumänien | 16 | 18 |
 | SE | Sverige | 13 | 18 |
-| SG | Singapore | Inget | 21 |
+| SG | Singapore | Ingen | 21 |
 | SI | Slovenien | 16 | 18 |
 | SK | Slovakien | 16 | 18 |
-| TD | Tchad | Inget | 21 |
-| TH | Thailand | Inget | 20 |
-| TW | Taiwan | Inget | 20 |
+| TD | Tchad | Ingen | 21 |
+| TH | Thailand | Ingen | 20 |
+| TW | Taiwan | Ingen | 20 |
 | USA | USA | 13 | 18 |
 
 ## <a name="age-gating-options"></a>Alternativ för ålders hantera

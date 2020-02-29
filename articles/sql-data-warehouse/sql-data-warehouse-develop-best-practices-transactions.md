@@ -1,6 +1,6 @@
 ---
 title: Optimera transaktioner
-description: Lär dig hur du optimerar prestandan för transaktions koden i Azure SQL Data Warehouse samtidigt som du minimerar risken för långa återställningar.
+description: Lär dig hur du optimerar prestandan för transaktions koden i SQL Analytics samtidigt som du minimerar risken för långa återställningar.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,21 +10,21 @@ ms.subservice: development
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: b8b8be9467ade870e57355be91b0de329b0f6217
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 6f7005f1706e72ea1794f99c030a25fa533327b8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692856"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195846"
 ---
-# <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Optimera transaktioner i Azure SQL Data Warehouse
-Lär dig hur du optimerar prestandan för transaktions koden i Azure SQL Data Warehouse samtidigt som du minimerar risken för långa återställningar.
+# <a name="optimizing-transactions-in-sql-analytics"></a>Optimera transaktioner i SQL Analytics
+Lär dig hur du optimerar prestandan för transaktions koden i SQL Analytics samtidigt som du minimerar risken för långa återställningar.
 
 ## <a name="transactions-and-logging"></a>Transaktioner och loggning
-Transaktioner är en viktig komponent i en Relations databas motor. SQL Data Warehouse använder transaktioner under data ändringen. Dessa transaktioner kan vara explicita eller implicita. Ett enda INSERT-, UPDATE-och DELETE-uttryck är exempel på implicita transaktioner. Explicita transaktioner använder påbörja omstart, genomför omlägg eller Återställ omlastning. Explicita transaktioner används vanligt vis när flera ändrings instruktioner måste vara knutna till varandra i en enda atomisk enhet. 
+Transaktioner är en viktig komponent i en Relations databas motor. SQL Analytics använder transaktioner under data modifieringen. Dessa transaktioner kan vara explicita eller implicita. Ett enda INSERT-, UPDATE-och DELETE-uttryck är exempel på implicita transaktioner. Explicita transaktioner använder påbörja omstart, genomför omlägg eller Återställ omlastning. Explicita transaktioner används vanligt vis när flera ändrings instruktioner måste vara knutna till varandra i en enda atomisk enhet. 
 
-Azure SQL Data Warehouse genomför ändringar i databasen med transaktions loggar. Varje distribution har sin egen transaktions logg. Transaktions logg skrivningar är automatiskt. Ingen konfiguration krävs. Men även om den här processen garanterar Skriv åtgärden, introduceras en omkostnader i systemet. Du kan minimera den här effekten genom att skriva en transaktions effektiv kod. Transaktions effektiv kod i stort sett hamnar i två kategorier.
+SQL Analytics genomför ändringar i databasen med transaktions loggar. Varje distribution har sin egen transaktions logg. Transaktions logg skrivningar är automatiskt. Ingen konfiguration krävs. Men även om den här processen garanterar Skriv åtgärden, introduceras en omkostnader i systemet. Du kan minimera den här effekten genom att skriva en transaktions effektiv kod. Transaktions effektiv kod i stort sett hamnar i två kategorier.
 
 * Använd minimala loggnings konstruktioner när det är möjligt
 * Bearbeta data med hjälp av omfångs batchar för att undvika att transaktioner med lång tid körs
@@ -78,7 +78,7 @@ CTAS och infoga... SELECT är både Mass inläsnings åtgärder. Båda påverkas
 Det är värt att notera att alla skrivningar för att uppdatera sekundära eller icke-grupperade index alltid är fullständigt loggade.
 
 > [!IMPORTANT]
-> SQL Data Warehouse har 60-distributioner. Detta förutsätter att alla rader är jämnt distribuerade och landningar i en enda partition, men din batch måste innehålla 6 144 000 rader eller större för att få minimal inloggning vid skrivning till ett grupperat columnstore-index. Om tabellen är partitionerad och de rader som infogas sträcker sig över diskpartitioner, behöver du 6 144 000 rader per partition, förutsatt att du har till och med data distribution. Varje partition i varje distribution måste vara oberoende av gränsen på 102 400 rader för att infogningen ska vara minimalt inloggad i distributionen.
+> En SQL Analytics-databas har 60-distributioner. Detta förutsätter att alla rader är jämnt distribuerade och landningar i en enda partition, men din batch måste innehålla 6 144 000 rader eller större för att få minimal inloggning vid skrivning till ett grupperat columnstore-index. Om tabellen är partitionerad och de rader som infogas sträcker sig över diskpartitioner, behöver du 6 144 000 rader per partition, förutsatt att du har till och med data distribution. Varje partition i varje distribution måste vara oberoende av gränsen på 102 400 rader för att infogningen ska vara minimalt inloggad i distributionen.
 > 
 > 
 
@@ -177,7 +177,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Att skapa stora tabeller på nytt kan dra nytta av SQL Data Warehouse funktioner för hantering av arbets belastning. Mer information finns i [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md).
+> Att återskapa stora tabeller kan dra nytta av funktionerna för hantering av arbets belastning i SQL Analytics. Mer information finns i [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md).
 > 
 > 
 
@@ -405,18 +405,18 @@ END
 ```
 
 ## <a name="pause-and-scaling-guidance"></a>Guide för paus och skalning
-Med Azure SQL Data Warehouse kan du [pausa, återuppta och skala](sql-data-warehouse-manage-compute-overview.md) ditt informations lager på begäran. När du pausar eller skalar dina SQL Data Warehouse är det viktigt att förstå att alla pågående transaktioner avbryts omedelbart. orsaka att eventuella öppna transaktioner återställs. Om din arbets belastning har utfärdat en tids krävande och ofullständig data ändring innan paus-eller skalnings åtgärden, måste det här arbetet utföras. Detta kan påverka tiden det tar att pausa eller skala Azure SQL Data Warehouse databasen. 
+Med SQL Analytics kan du [pausa, återuppta och skala](sql-data-warehouse-manage-compute-overview.md) din SQL-pool på begäran. När du pausar eller skalar SQL-poolen är det viktigt att förstå att alla transaktioner i flygningen avslutas omedelbart. orsaka att eventuella öppna transaktioner återställs. Om din arbets belastning har utfärdat en tids krävande och ofullständig data ändring innan paus-eller skalnings åtgärden, måste det här arbetet utföras. Detta kan påverka tiden det tar att pausa eller skala SQL-poolen. 
 
 > [!IMPORTANT]
 > Både `UPDATE` och `DELETE` är fullständigt inloggade och därför kan dessa åtgärder för att ångra och upprepa ta betydligt längre tid än motsvarande minimalt loggade åtgärder. 
 > 
 > 
 
-Det bästa scenariot är att låta ändringar i Flight-datatransaktionerna slutföras innan du pausar eller skalar SQL Data Warehouse. Det här scenariot är dock inte alltid praktiskt. Överväg något av följande alternativ för att minska risken för en lång återställning:
+Det bästa scenariot är att tillåta att ändringar i Flight-transaktioner slutförs innan SQL-poolen pausas eller skalas. Det här scenariot är dock inte alltid praktiskt. Överväg något av följande alternativ för att minska risken för en lång återställning:
 
 * Skriv över tids krävande åtgärder med [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 * Bryt åtgärden i segment. körs på en delmängd av raderna
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om isolerings nivåer och transaktionella gränser finns i [transaktioner i SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) .  En översikt över andra bästa metoder finns i [SQL Data Warehouse metod tips](sql-data-warehouse-best-practices.md).
+Se [transaktioner i SQL Analytics](sql-data-warehouse-develop-transactions.md) för att lära dig mer om isolerings nivåer och transaktionella gränser.  En översikt över andra bästa metoder finns i [SQL Data Warehouse metod tips](sql-data-warehouse-best-practices.md).
 

@@ -6,16 +6,18 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 2c16cc965c1e7e98727170fd5896dd081482c692
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 76af5f398edd736874fa79095f2e80c02298eac0
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493506"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164652"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Utgående bindningar för Azure Queue Storage för Azure Functions
 
 Azure Functions kan skapa nya Azure Queue Storage-meddelanden genom att konfigurera en utgående bindning.
+
+Information om konfiguration och konfigurations information finns i [översikten](./functions-bindings-storage-queue.md).
 
 ## <a name="example"></a>Exempel
 
@@ -410,7 +412,7 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
 |maxPollingInterval|00:00:01|Det maximala intervallet mellan Queue-avsökningar. Minimum är 00:00:00.100 (100 MS) och ökar till 00:01:00 (1 min).  I 1. x är data typen millisekunder och i 2. x och högre är det ett TimeSpan.|
 |visibilityTimeout|00:00:00|Tidsintervall mellan återförsök vid bearbetning av ett meddelande Miss lyckas. |

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 16c325f2d6ea78ba980406f56839dd4d0b64bee1
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 71321fa631bafde5b1dbaac2d165cb68fd8116d4
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482266"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164601"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Azure Queue Storage-utlösare och bindningar för Azure Functions översikt
 
@@ -20,7 +20,7 @@ Azure Functions kan köras som nya Azure Queue Storage-meddelanden skapas och ka
 | Åtgärd | Typ |
 |---------|---------|
 | Kör en funktion som ändringar i Queue Storage-data | [Utlösare](./functions-bindings-storage-queue-trigger.md) |
-| Skriva kö lagrings meddelanden |[Utgående bindning](./functions-bindings-storage-blob-output.md) |
+| Skriva kö lagrings meddelanden |[Utgående bindning](./functions-bindings-storage-queue-output.md) |
 
 ## <a name="add-to-your-functions-app"></a>Lägg till i functions-appen
 
@@ -28,7 +28,7 @@ Azure Functions kan köras som nya Azure Queue Storage-meddelanden skapas och ka
 
 Om du arbetar med utlösaren och bindningarna måste du referera till rätt paket. NuGet-paketet används för .NET-klass bibliotek medan tilläggs paketet används för alla andra program typer.
 
-| Språk                                        | Lägg till efter...                                   | Anmärkningar 
+| Språk                                        | Lägg till efter...                                   | Kommentarer 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installera [NuGet-paket], version 3. x | |
 | C#Skript, Java, Java Script, python, PowerShell | [Tilläggs paketet] registreras          | [Tillägget Azure-verktyg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) rekommenderas för användning med Visual Studio Code. |
@@ -49,4 +49,4 @@ Functions 1. x-appar har automatiskt en referens till [Microsoft. Azure. WebJobs
 ## <a name="next-steps"></a>Nästa steg
 
 - [Kör en funktion som ändringar i Queue Storage-data (utlösare)](./functions-bindings-storage-queue-trigger.md)
-- [Skriva kö lagrings meddelanden (utgående bindning)](./functions-bindings-storage-blob-output.md)
+- [Skriva kö lagrings meddelanden (utgående bindning)](./functions-bindings-storage-queue-output.md)

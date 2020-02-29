@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 5298655437e04736e56193c443b8a770ea929606
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 10821639fb26af935326bda0bff7895105da675c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152422"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919965"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Regressions modul för besluts träd
 
@@ -54,7 +54,9 @@ Metoden för tonings förstärkning kan också användas för klassificerings pr
   
 2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enskild parameter**: Välj det här alternativet om du vet hur du vill konfigurera modellen och ange en viss uppsättning värden som argument.  
+    -   **Enskild parameter**: Välj det här alternativet om du vet hur du vill konfigurera modellen och ange en viss uppsättning värden som argument. 
+     
+    -   **Parameter intervall**: Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra en parameter rensning. Välj ett värde intervall som du vill iterera över, och de [finjusterande modellens egenskaper](tune-model-hyperparameters.md) upprepas över alla möjliga kombinationer av de inställningar som du angav för att fastställa de egenskaper som ger optimala resultat.    
    
   
 3. **Maximalt antal löv per träd**: Ange det maximala antalet terminalservrar (löv) som kan skapas i alla träd.  
@@ -75,7 +77,6 @@ Metoden för tonings förstärkning kan också användas för klassificerings pr
 
     Som standard är det slumpmässiga startvärdet inställt på 0, vilket innebär att det första startvärdet hämtas från system klockan.
   
-8. **Tillåt okända kategoriska-nivåer**: Välj det här alternativet om du vill skapa en grupp för okända värden i inlärnings-och validerings uppsättningarna. Om du avmarkerar det här alternativet kan modellen bara acceptera de värden som finns i tränings data. Modellen kan vara mindre exakt för kända värden, men den kan ge bättre förutsägelser för nya (okända) värden.
 
 9. Lägg till en data uppsättning för utbildning och en av inlärnings modulerna:
 

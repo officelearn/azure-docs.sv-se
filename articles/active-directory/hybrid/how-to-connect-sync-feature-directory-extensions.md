@@ -16,15 +16,16 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 138ca9bf3352c46b8ac495b58a2fd6d7bafeb658
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 80438319a6337dd6f28f9bdca8a428829b6cb0b9
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889910"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917921"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect synkronisering: Katalog tillägg
-Du kan använda katalog tillägg för att utöka schemat i Azure Active Directory (Azure AD) med dina egna attribut från lokala Active Directory. Med den här funktionen kan du bygga LOB-appar genom att förbruka attribut som du fortsätter att hantera lokalt. Dessa attribut kan användas via [Azure AD Graph API Directory-tillägg](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) eller [Microsoft Graph](https://developer.microsoft.com/graph/). Du kan se tillgängliga attribut med hjälp av [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) respektive [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Du kan också använda den här funktionen för att skapa dynamiska grupper i Azure AD.
+Du kan använda katalog tillägg för att utöka schemat i Azure Active Directory (Azure AD) med dina egna attribut från lokala Active Directory. Med den här funktionen kan du bygga LOB-appar genom att förbruka attribut som du fortsätter att hantera lokalt. Dessa attribut kan användas via [tillägg](https://docs.microsoft.com/graph/extensibility-overview
+). Du kan se tillgängliga attribut med hjälp av [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Du kan också använda den här funktionen för att skapa dynamiska grupper i Azure AD.
 
 Inga Office 365-arbetsbelastningar förbrukar dessa attribut.
 
@@ -61,16 +62,12 @@ Se till att du väljer **alla program** för att se den här appen.
 
 Attributen föregås av **tillägget \_{ApplicationId}\_** . ApplicationId har samma värde för alla attribut i din Azure AD-klient. Du behöver det här värdet för alla andra scenarier i det här avsnittet.
 
-## <a name="viewing-attributes-using-graph"></a>Visa attribut med Graph
+## <a name="viewing-attributes-using-the-microsoft-graph-api"></a>Visa attribut med hjälp av Microsoft Graph API
 
-De här attributen är nu tillgängliga via Azure AD-Graph API. Du kan fråga dem med hjälp av [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/).
-
-![Azure AD Graph Explorer](./media/how-to-connect-sync-feature-directory-extensions/extension4.png)
-
-Du kan också fråga attributen via Microsoft Graph-API: et genom att använda [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
+De här attributen är nu tillgängliga via Microsoft Graph API, med [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> I Microsoft Graph måste du be om de attribut som ska returneras. Välj uttryckligen attribut som detta: https\://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division.
+> I Microsoft Graph API måste du be om vilka attribut som ska returneras. Välj uttryckligen attribut så här: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`.
 >
 > Mer information finns i [Microsoft Graph: Använd frågeparametrar](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 

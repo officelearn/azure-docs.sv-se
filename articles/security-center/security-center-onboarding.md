@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: memildin
-ms.openlocfilehash: db74415d3c6c5f6636a150d212bc2bc3d790fbec
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: be26a9d4c66412518079de303ac0764d979c3e7c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686379"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912060"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Onboarding to Azure Security Center standard för förbättrad säkerhet
 Uppgradera till Security Center standard för att dra nytta av förbättrad säkerhets hantering och skydd mot hot för dina hybrid moln arbets belastningar. Du kan prova standard kostnads fritt. Mer information finns på sidan med Security Center [prissättning](https://azure.microsoft.com/pricing/details/security-center/) .
 
-Security Center standard innehåller:
+Security Center standard nivån innehåller:
 
-- **Hybrid säkerhet** – få en enhetlig vy över säkerheten i alla dina lokala och molnbaserade arbets belastningar. Tillämpa säkerhets principer och utvärdera kontinuerligt säkerheten för dina hybrid moln arbets belastningar för att säkerställa efterlevnaden av säkerhets standarder. Samla in, sök efter och analysera säkerhetsdata från flera olika källor, till exempel brandväggar och andra partnerlösningar.
-- **Avancerad hot identifiering** – Använd avancerad analys och Microsoft Intelligent Security Graph för att få en gräns för de växande cyberhot-angrepp. Utnyttja inbyggda beteendeanalyser och maskinlärning för att identifiera attacker och nolldagarshot. Övervaka nätverk, datorer och molntjänster för att se inkommande attacker och aktiviteter efter intrång. Effektiviseras undersökningen med interaktiva verktyg och kontextbaserad hotinformation.
+- **Hybrid säkerhet** – få en enhetlig vy över säkerheten i alla dina lokala och molnbaserade arbets belastningar. Tillämpa säkerhets principer och utvärdera kontinuerligt säkerheten för dina hybrid moln arbets belastningar för att säkerställa efterlevnaden av säkerhets standarder. Samla in, Sök efter och analysera säkerhets data från en mängd olika källor, inklusive brand väggar och andra partner lösningar.
+- **Säkerhets aviseringar** – Använd avancerad analys och Microsoft Intelligent Security Graph för att få en gräns för de växande cyberhot-angrepp. Använd inbyggd beteende analys och maskin inlärning för att identifiera attacker och den långsiktiga ingreppen. Övervaka nätverk, datorer och moln tjänster för inkommande attacker och aktiviteter efter intrång. Effektivisera undersökningen med interaktiva verktyg och sammanhangsbaserad Hot information.
 - **Åtkomst-och program kontroller** – blockera skadlig kod och andra oönskade program genom att använda vit listning rekommendationer som är anpassade till dina specifika arbets belastningar och drivs av maskin inlärning. Minska nätverks Attacks ytan med just-in-Time-kontrollerad åtkomst till hanterings portar på virtuella Azure-datorer, vilket drastiskt minskar exponeringen för bruten kraft och andra nätverks attacker.
 
 ## <a name="detecting-unprotected-resources"></a>Identifiera oskyddade resurser
@@ -101,7 +101,7 @@ Du kan lägga till en dator genom att följa arbets flödet från **onboarding**
 
 4. Under **Lägg till nya icke-Azure-datorer**väljer du en arbets yta för att ansluta datorn till och klickar på **Lägg till datorer**.
 
-   ![Lägg till datorer][7]
+   ![Lägga till datorer][7]
 
    Bladet **Direct agent** innehåller en länk för att ladda ned en Windows-eller Linux-Agent samt det arbetsyte-ID och nycklar som ska användas för att konfigurera agenten.
 

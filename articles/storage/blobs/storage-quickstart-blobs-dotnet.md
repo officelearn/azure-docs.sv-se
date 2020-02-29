@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 2a1a9b1973ded5db7182fb1898fc7222904c39c3
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 1811cc54c3554d62b22a7ea8816aa5af1876422c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863969"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163632"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Snabb start: klient biblioteket för Azure Blob Storage-V12 för .NET
 
@@ -33,7 +33,7 @@ Använd Azure Blob Storage-V12 för .NET för att:
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Azure Storage-konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -85,7 +85,6 @@ Från projekt katalogen:
 Här är koden:
 
 ```csharp
-using Azure.Storage;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using System;
@@ -124,7 +123,7 @@ Använd följande .NET-klasser för att interagera med dessa resurser:
 * [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): klassen `BlobClient` gör att du kan ändra Azure Storage blobbar.
 * [BlobDownloadInfo](/dotnet/api/azure.storage.blobs.models.blobdownloadinfo): klassen `BlobDownloadInfo` representerar egenskaperna och innehållet som returnerades från att hämta en blob.
 
-## <a name="code-examples"></a>Kodexempel
+## <a name="code-examples"></a>Kod exempel
 
 I de här exempel kods tycken visas hur du gör följande med klient biblioteket för Azure Blob Storage för .NET:
 
@@ -181,7 +180,7 @@ Följande kodfragment:
 
 1. Skapar en textfil i den lokala *data* katalogen.
 1. Hämtar en referens till ett [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) -objekt genom att anropa metoden [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) i behållaren från avsnittet [skapa en behållare](#create-a-container) .
-1. Överför den lokala text filen till blobben genom att anropa metoden [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) . Den här metoden skapar bloben om den inte redan finns, och skriver över den om den finns.
+1. Överför den lokala text filen till blobben genom att anropa metoden [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync#Azure_Storage_Blobs_BlobClient_UploadAsync_System_IO_Stream_System_Boolean_System_Threading_CancellationToken_) . Den här metoden skapar bloben om den inte redan finns, och skriver över den om den finns.
 
 Lägg till den här koden i slutet av `Main`-metoden:
 
@@ -201,7 +200,7 @@ Console.WriteLine("Uploading to Blob storage as blob:\n\t {0}\n", blobClient.Uri
 
 // Open the file and upload its data
 using FileStream uploadFileStream = File.OpenRead(localFilePath);
-await blobClient.UploadAsync(uploadFileStream);
+await blobClient.UploadAsync(uploadFileStream, true);
 uploadFileStream.Close();
 ```
 

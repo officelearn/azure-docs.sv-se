@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 1f609c33ea474508eb107c0df9993c2ba3483660
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 36d6b0cac0321c989fecbc5751d71c744cd83292
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087026"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920951"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Självstudie: träna och distribuera en modell från CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -68,7 +68,7 @@ git clone https://github.com/microsoft/MLOps.git
 Databasen innehåller följande filer, som används för att distribuera den utbildade modellen som en webb tjänst:
 
 * `aciDeploymentConfig.yml`: en __distributions konfigurations__ fil. Den här filen definierar den värd miljö som behövs för modellen.
-* `inferenceConfig.yml`: en härlednings configuration__ fil. Den här filen definierar den program miljö som används av tjänsten för att räkna data med modellen.
+* `inferenceConfig.yml`: en __konfigurations__ fil för härledning. Den här filen definierar den program miljö som används av tjänsten för att räkna data med modellen.
 * `score.py`: ett Python-skript som accepterar inkommande data, visar det med modellen och returnerar sedan ett svar.
 * `scoring-env.yml`: de Conda-beroenden som behövs för att köra modellen och `score.py` skriptet.
 * `testdata.json`: en datafil som kan användas för att testa den distribuerade webb tjänsten.

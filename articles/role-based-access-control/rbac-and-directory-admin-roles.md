@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/01/2019
+ms.date: 02/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 08c14135ba17df4de446de5625352c8cffdc60a1
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: e8d82011fe4fdd40bb07c77411ad0e948ddad049
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138081"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916531"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Administratörsroller för klassiska prenumerationer, Azure RBAC-roller och administratörsroller för Azure AD
 
@@ -75,7 +75,7 @@ Azure RBAC är ett auktoriseringssystem som bygger på [Azure Resource Manager](
 | Azure RBAC-roll | Behörigheter | Anteckningar |
 | --- | --- | --- |
 | [Ägare](built-in-roles.md#owner) | <ul><li>Fullständig åtkomst till alla resurser</li><li>Delegera åtkomst till andra</li></ul> | Tjänstadministratören och medadministratörer tilldelas rollen Ägare i prenumerationsomfånget<br>Gäller för alla resurstyper. |
-| [Deltagare](built-in-roles.md#contributor) | <ul><li>Skapa och hantera alla typer av Azure-resurser</li><li>Kan inte bevilja åtkomst till andra</li></ul> | Gäller för alla resurstyper. |
+| [Deltagare](built-in-roles.md#contributor) | <ul><li>Skapa och hantera alla typer av Azure-resurser</li><li>Skapa en ny klientorganisation i Azure Active Directory</li><li>Kan inte bevilja åtkomst till andra</li></ul> | Gäller för alla resurstyper. |
 | [Läsare](built-in-roles.md#reader) | <ul><li>Visa Azure-resurser</li></ul> | Gäller för alla resurstyper. |
 | [Administratör för användaråtkomst](built-in-roles.md#user-access-administrator) | <ul><li>Hantera användaråtkomst till Azure-resurser</li></ul> |  |
 

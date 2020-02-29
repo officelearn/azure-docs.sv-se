@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 355909052a711773545114179cd5d1ca01811cec
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: bb6ad1f131d1299ce1e076fee70e6640e3bdf20a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485088"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913267"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway konfiguration
 
@@ -256,14 +256,14 @@ Azure Application Gateway använder Gateway Managed cookies för att underhålla
 
 Den här funktionen är användbar när du vill behålla en användarsession på samma server och när sessionstillstånd sparas lokalt på servern för en användarsession. Om programmet inte kan hantera cookie-baserad tillhörighet kan du inte använda den här funktionen. Kontrol lera att klienterna har stöd för cookies för att använda den.
 
-Från och med **17 februari 2020**, hämtar [krom](https://www.chromium.org/Home) [V80-uppdateringen](https://chromiumdash.appspot.com/schedule) ett uppdrag där http-cookies utan SameSite-attribut behandlas som SameSite = lax. I händelse av CORS-begäranden (Cross-Origin resurs delning) om cookien måste skickas i en tredjeparts kontext måste den använda "SameSite = none; Säkra "attribut och får bara skickas över HTTPS. I annat fall skickar webbläsaren inte cookies i den tredje partens sammanhang. Målet med den här uppdateringen från Chrome är att förbättra säkerheten och undvika CSRF-attacker (Cross-Site request förfalskning). 
+Chrome [Browser](https://www.chromium.org/Home) - [V80 uppdaterar](https://chromiumdash.appspot.com/schedule) ett uppdrag där http-cookies utan [SameSite](https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7) -attribut måste behandlas som SameSite = lax. Om en cookie måste skickas i en tredjeparts kontext måste den använda *SameSite = none för CORS-begäranden (Cross-Origin resurs delning). Säkra* attribut och bör endast skickas över https. I annat fall skickar webbläsaren inte cookies i den tredje partens sammanhang. Målet med den här uppdateringen från Chrome är att förbättra säkerheten och undvika CSRF-attacker (Cross-Site request förfalskning). 
 
-För att stödja den här ändringen kommer Application Gateway (alla SKU-typer) att injicera en annan identisk cookie som heter **ApplicationGatewayAffinityCORS** , förutom den befintliga **ApplicationGatewayAffinity** -cookien, som är liknande, men denna cookie har nu två fler attribut **"SameSite = none; Säker "** har lagts till så att en fästis kan underhållas även för frågor över ett visst ursprung.
+För att stödja den här ändringen, med start februari 17 2020, kommer Application Gateway (alla SKU-typer) att injicera en annan cookie som kallas *ApplicationGatewayAffinityCORS* , förutom den befintliga *ApplicationGatewayAffinity* -cookien. *ApplicationGatewayAffinityCORS* -cookien har två fler attribut som läggs till i den ( *"SameSite = none; Säker "* ) så att den tröga sessionen upprätthålls även för frågor över andra ursprung.
 
-Observera att namnet på standard-tillhörigheten är **ApplicationGatewayAffinity** och att det kan ändras av användarna. Om du använder ett namn på en anpassad tillhörighet, läggs ytterligare en cookie med CORS som suffix, till exempel **CustomCookieNameCORS**.
+Observera att standard tillhörighets-Cookiens namn är *ApplicationGatewayAffinity* och att du kan ändra det. Om du använder ett namn på en anpassad tillhörighet, läggs en ytterligare cookie till med CORS som suffix. Till exempel *CustomCookieNameCORS*.
 
 > [!NOTE]
-> Om attributet **SameSite = inget** har angetts bör cookien också innehålla en **säker** flagga och skickas via **https**. Så om det krävs en sessions tillhörighet över CORS måste du migrera din arbets belastning till HTTPS. Mer information om hur du konfigurerar SSL-avlastning finns i SSL-avlastning och SSL-dokumentation från slut punkt till [](end-to-end-ssl-portal.md)slut punkt för Application Gateway här – [Översikt](ssl-overview.md), [hur du konfigurerar SSL-avlastning](create-ssl-portal.md).
+> Om attributet *SameSite = inget* anges är det obligatoriskt att cookien även innehåller en *säker* flagga och måste skickas via https.  Om session tillhörighet krävs över CORS måste du migrera din arbets belastning till HTTPS. Mer information om hur du konfigurerar SSL-avlastning finns i SSL-avlastning och SSL-dokumentation från slut punkt till [](end-to-end-ssl-portal.md)slut punkt för Application Gateway här – [Översikt](ssl-overview.md), [hur du konfigurerar SSL-avlastning](create-ssl-portal.md).
 
 ### <a name="connection-draining"></a>Anslutningstömning
 

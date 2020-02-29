@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 97095e4802373a1dd3f7b795c2fe567b778d2d5e
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: d1e93c18b13e7171274eda2a7e8d07eefbefb592
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153833"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920390"
 ---
 # <a name="neural-network-regression-module"></a>Neurala Network regression-modul
 
@@ -56,7 +56,9 @@ Neurala-nätverk kan anpassas i stor utsträckning. I det här avsnittet beskriv
   
 2. Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enda parameter**: Välj det här alternativet om du redan vet hur du vill konfigurera modellen.  
+    -   **Enda parameter**: Välj det här alternativet om du redan vet hur du vill konfigurera modellen.
+
+    -   **Parameter intervall**: Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra en parameter rensning. Välj ett värde intervall som du vill iterera över, och de [finjusterande modellens egenskaper](tune-model-hyperparameters.md) upprepas över alla möjliga kombinationer av de inställningar som du angav för att fastställa de egenskaper som ger optimala resultat.   
 
 3.  I **specifikationen för dolt lager**väljer du **fullständigt anslutet ärende**. Med det här alternativet skapas en modell som använder standard nätverks arkitekturen neurala, som för en neurala-nätverks Regressions modell, som har följande attribut:  
   
@@ -72,7 +74,6 @@ Neurala-nätverk kan anpassas i stor utsträckning. I det här avsnittet beskriv
 
 6.  I **antal inlärnings iterationer**anger du det maximala antalet gånger som algoritmen bearbetar inlärnings fallen.
 
-7.  För * * den inledande frekvensen för inlärnings viktningen anger du ett värde som avgör den aktuella nodens vikt i början av inlärnings processen.
 
 8.  Ange ett **värde som ska**användas under inlärningen som en vikt på noder från föregående iterationer.
 

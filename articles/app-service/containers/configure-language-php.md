@@ -4,12 +4,12 @@ description: Lär dig hur du konfigurerar en fördefinierad PHP-behållare för 
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: a3de4769193d95a3ef483924c4d65c4fa1cc9f8d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: e805487075499bd4e461a21fffb4c44156ce192b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671843"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913879"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Konfigurera en Linux PHP-app för Azure App Service
 
@@ -39,52 +39,26 @@ Kör följande kommando i [Cloud Shell](https://shell.azure.com) för att ställ
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "PHP|7.2"
 ```
 
-## <a name="run-composer"></a>Kör Composer
+## <a name="customize-build-automation"></a>Anpassa Bygg automatisering
 
-Som standard kör kudu inte [Composer](https://getcomposer.org/). Om du vill aktivera Composer-automatisering under kudu-distributionen måste du ange ett [anpassat distributions skript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+Om du distribuerar din app med hjälp av git-eller zip-paket med build-automatisering aktiverat, App Service bygga automatiserings steg i följande ordning:
 
-Ändra katalogen till lagrings platsens rot från ett lokalt terminalfönster. Följ [installations stegen för kommando tolken](https://getcomposer.org/download/) för att ladda ned *Composer. Phar*.
+1. Kör anpassat skript om det anges av `PRE_BUILD_SCRIPT_PATH`.
+1. Kör `php composer.phar install`.
+1. Kör anpassat skript om det anges av `POST_BUILD_SCRIPT_PATH`.
 
-Kör följande kommandon:
+`PRE_BUILD_COMMAND` och `POST_BUILD_COMMAND` är miljövariabler som är tomma som standard. Definiera `PRE_BUILD_COMMAND`för att köra kommandon för för bygge. Definiera `POST_BUILD_COMMAND`för att köra kommandon efter kompilering.
 
-```bash
-npm install kuduscript -g
-kuduscript --php --scriptType bash --suppressPrompt
+I följande exempel anges de två variablerna för en serie kommandon, avgränsade med kommatecken.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
 ```
 
-Din databas rot har nu två nya filer förutom *Composer. Phar*: *. Deployment* och *Deploy.sh*. De här filerna fungerar både för Windows-och Linux-varianter av App Service.
+Ytterligare miljövariabler för att anpassa Bygg automatisering finns i [Oryx-konfiguration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
 
-Öppna *Deploy.sh* och hitta `Deployment`-avsnittet. Ersätt hela avsnittet med följande kod:
-
-```bash
-##################################################################################################################################
-# Deployment
-# ----------
-
-echo PHP deployment
-
-# 1. KuduSync
-if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
-  "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
-  exitWithMessageOnError "Kudu Sync failed"
-fi
-
-# 3. Initialize Composer Config
-initializeDeploymentConfig
-
-# 4. Use composer
-echo "$DEPLOYMENT_TARGET"
-if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
-  echo "Found composer.json"
-  pushd "$DEPLOYMENT_TARGET"
-  php composer.phar install $COMPOSER_ARGS
-  exitWithMessageOnError "Composer install failed"
-  popd
-fi
-##################################################################################################################################
-```
-
-Genomför alla ändringar och distribuera koden igen. Composer ska nu köras som en del av distributions automatiseringen.
+Mer information om hur App Service kör och skapar PHP-appar i Linux finns i [Oryx-dokumentation: så här identifieras och skapas php-appar](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/php.md).
 
 ## <a name="customize-start-up"></a>Anpassa start
 
@@ -142,7 +116,7 @@ Om du behöver göra ändringar i din PHP-installation kan du ändra något av [
 
 Om du vill anpassa PHP_INI_USER, PHP_INI_PERDIR och PHP_INI_ALL direktiv (se [php. ini-direktiv](https://www.php.net/manual/ini.list.php)) lägger du till en *. htaccess* -fil i rot katalogen för din app.
 
-I *htaccess* -filen lägger du till direktiven med hjälp av syntaxen `php_value <directive-name> <value>`. Exempel:
+I *htaccess* -filen lägger du till direktiven med hjälp av syntaxen `php_value <directive-name> <value>`. Några exempel:
 
 ```
 php_value upload_max_filesize 1000M
@@ -219,12 +193,12 @@ Starta om appen för att ändringarna ska börja gälla.
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Prova följande när en fungerande PHP-app fungerar annorlunda i App Service eller innehåller fel:
 
 - [Åtkomst till logg strömmen](#access-diagnostic-logs).
-- Testa appen lokalt i produktions läge. App Service kör Node. js-appar i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Exempel:
+- Testa appen lokalt i produktions läge. App Service kör Node. js-appar i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Några exempel:
     - Beroende på din *Composer. JSON*kan olika paket installeras i produktions läge (`require` jämfört med `require-dev`).
     - Vissa webb ramverk kan distribuera statiska filer på ett annat sätt i produktions läge.
     - Vissa webb ramverk kan använda anpassade Start skript när de körs i produktions läge.

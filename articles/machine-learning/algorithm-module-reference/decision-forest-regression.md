@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 3c412937e59927a9f3f3218b0da3382f0b67c230
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 6d326b3cb5a964e43ce77ee459533a4271d5ed73
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152388"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919948"
 ---
 # <a name="decision-forest-regression-module"></a>Besluts skogs Regressions modul
 
@@ -59,6 +59,8 @@ Mer information om det teoretiska ramverket för den här algoritmen och dess im
     - **Enskild parameter**
 
       Om du vet hur du vill konfigurera modellen kan du ange en speciell uppsättning värden som argument. Du kanske har lärt dig dessa värden genom att experimentera eller ta emot dem som vägledning.
+
+    - **Parameter intervall**: Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra en parameter rensning. Välj ett värde intervall som du vill iterera över, och de [finjusterande modellens egenskaper](tune-model-hyperparameters.md) upprepas över alla möjliga kombinationer av de inställningar som du angav för att fastställa de egenskaper som ger optimala resultat. 
 
 
 

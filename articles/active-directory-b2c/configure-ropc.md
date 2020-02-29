@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 03ff564848298d31c8bf92169d9e5f66d024d711
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 1d17f9af5700df5458cc4373dfc5cd8fb7774f91
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949192"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912415"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure AD B2C
 
@@ -24,16 +24,7 @@ ROPC-flödet (Resource Owner Password Credential) är ett OAuth-standardautentis
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-I Azure Active Directory B2C (Azure AD B2C) stöds följande alternativ:
-
-- **Inbyggd klient**: användar interaktion under autentisering sker när kod körs på en enhet på användar sidan. Enheten kan vara ett mobilt program som körs i ett inbyggt operativ system, till exempel Android och iOS.
-- **Offentligt klient flöde**: endast användarautentiseringsuppgifter som samlats in av ett program skickas i API-anropet. Autentiseringsuppgifterna för programmet skickas inte.
-- **Lägg till nya anspråk**: innehållet i ID-token kan ändras för att lägga till nya anspråk.
-
-Följande flöden stöds inte:
-
-- **Server-till-Server**: identitets skydds systemet behöver en tillförlitlig IP-adress som samlats in från anroparen (den interna klienten) som en del av interaktionen. I ett API-anrop på Server sidan används bara serverns IP-adress. Om ett dynamiskt tröskelvärde för misslyckade autentiseringar överskrids, kan identitets skydds systemet identifiera en upprepad IP-adress som en angripare.
-- **Konfidentiellt klient flöde**: programmets klient-ID är verifierat, men program hemligheten är inte verifierad.
+[!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Skapa ett användar flöde för resurs ägare
 
@@ -71,7 +62,7 @@ Använd ditt favorit-API utvecklings program för att generera ett API-anrop och
 | lösenord | Passxword1 |
 | grant_type | lösenord |
 | omfång | OpenID \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > offline_access |
-| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
 | response_type | token id_token |
 
 *Client_id* är det värde som du tidigare antecknade som program-ID. *Offline_access* är valfritt om du vill ta emot en uppdateringstoken. Det användar namn och lösen ord som du använder måste vara autentiseringsuppgifter från en befintlig användare i Azure AD B2C-klienten.
@@ -109,8 +100,8 @@ Skapa ett POST samtal som det som visas här med informationen i följande tabel
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
-| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
-| resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
+| resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* och *resurs* är de värden som du tidigare antecknade som program-ID. *Refresh_token* är den token som du fick i det autentiseringsfel som nämndes ovan.

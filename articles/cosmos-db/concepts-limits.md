@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 5681efc202df511745532e4a314e88b319e9880a
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 99f255d9991b51897ee31671835dabb5f3e359fd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623412"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916514"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -168,6 +168,9 @@ I följande tabell visas de gränser som är begränsade till stöd för MongoDB
 | --- | --- |
 | Maximal minnes storlek för MongoDB-fråga | 40 MB |
 | Maximal körnings tid för MongoDB-åtgärder| 30 s |
+| Tids gräns för inaktiv anslutning för anslutning till Server Sidan * | 30 minuter |
+
+\* vi rekommenderar att klient program anger timeout för inaktiv anslutning i driv rutins inställningarna till 2-3 minuter, eftersom [Standard-timeout för Azure Loadbalancer är 4 minuter](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout).  Den här tids gränsen ser till att inaktiva anslutningar inte stängs av en mellanliggande belastningsutjämnare mellan klient datorn och Azure Cosmos DB.
 
 ## <a name="try-cosmos-db-free-limits"></a>Försök Cosmos DB fria gränser
 

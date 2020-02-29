@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/15/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: eda567fda13d6caca679d0ce4947e042eca9530d
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 94ed936e619461a2dbf7ec837c2d80e21c01c88e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77652014"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919999"
 ---
 # <a name="detecting-and-handling-batch-service-errors"></a>Identifiera och hantera batch-tjänstens fel
 
@@ -33,11 +33,16 @@ Det är viktigt att komma ihåg att söka efter fel när du arbetar med ett REST
 - Begränsning kan orsaka fel, till exempel 429 eller 503, status kod HTTP-svar med rubriken försök igen.
 - 4xx-fel som innehåller sådana fel som AlreadyExists och InvalidOperation. Det innebär att resursen inte är i rätt tillstånd för tillstånds över gången.
 
+Detaljerad information om de olika typerna av felkoder och särskilda felkoder finns i [batch-status och felkoder](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
+
 ## <a name="when-to-retry"></a>Försök igen
 
 Batch-API: erna meddelar dig om det uppstår ett problem. De kan provas igen och alla innehåller en global återförsöks hanterare för detta ändamål. Det är bäst att använda den här inbyggda mekanismen.
 
 Efter ett haveri bör du vänta en stund (flera sekunder mellan återförsök) innan du försöker igen. Om du försöker igen för ofta eller för snabbt, kommer hanteraren för återförsök att begränsas.
 
+### <a name="for-more-information"></a>Mer information  
+
+[Batch-API: er och verktyg](batch-apis-tools.md) länkar till information om API-Referensinformation. .NET-API: t kan till exempel ha en [RetryPolicyProvider-klass]( https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet) där den nödvändiga principen för återförsök ska anges. 
 
 För detaljerad information om varje API och deras standard principer för återförsök, Läs [batch-status och felkoder](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).

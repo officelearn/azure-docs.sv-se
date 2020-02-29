@@ -1,20 +1,19 @@
 ---
 title: Vad är stacken för Apache Hadoop Technology? - Azure HDInsight
 description: En introduktion till HDInsight och Apache Hadoop Technology stack och komponenter.
-keywords: Azure hadoop, hadoop azure, introduktion av hadoop, introduktion av hadoop, hadoop-teknikstacken, introduktion till hadoop, introduktion till hadoop, vad är ett hadoop-kluster, vad är hadoop-kluster, vad används hadoop för
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
-ms.date: 08/15/2019
-ms.openlocfilehash: 193b8f59a805de4303bfc38d397a821cc068dcc0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
+ms.date: 02/27/2020
+ms.openlocfilehash: e98a11d9aee1c4f76453dc1716f92514b021444f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088190"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917840"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>Vad är Apache Hadoop i Azure HDInsight?
 
@@ -24,15 +23,15 @@ Azure HDInsight är en fullständigt hanterad analys tjänst med full spektrum o
 
 För att se tillgängliga stack-komponenter för Hadoop Technology i HDInsight, se [komponenter och versioner som är tillgängliga med HDInsight](../hdinsight-component-versioning.md). Mer information om Hadoop i HDInsight finns på [sidan om Azure-funktioner för HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
-## <a id="whatis"></a>Vad är MapReduce
+## <a name="what-is-mapreduce"></a>Vad är MapReduce
 
 Apache Hadoop MapReduce är ett ramverk för program vara som används för att skriva jobb som bearbetar stora mängder data. Indata delas upp i oberoende segment. Varje segment bearbetas parallellt över noderna i klustret. Ett MapReduce-jobb består av två funktioner:
 
-* **Mapper**: Använder indata, analyserar dem (vanligt vis med filter-och sorterings åtgärder) och genererar tupler (nyckel/värde-par)
+* **Mapper**: använder indata, analyserar dem (vanligt vis med filter-och sorterings åtgärder) och genererar tupler (nyckel/värde-par)
 
-* **Minskning**: Använder tupel som genereras av mappningen och utför en sammanfattnings åtgärd som skapar ett mindre kombinerat resultat från Mapper-data
+* **Minsknings**funktion: använder tupler som genereras av mappningen och utför en sammanfattnings åtgärd som skapar ett mindre kombinerat resultat från Mapper-data
 
-Ett exempel på en grundläggande ord räkning för MapReduce-jobb illustreras i följande diagram:   
+Ett exempel på en grundläggande ord räkning för MapReduce-jobb illustreras i följande diagram:
 
  ![HDI.WordCountDiagram](./media/apache-hadoop-introduction/hdi-word-count-diagram.gif)
 
@@ -51,7 +50,7 @@ Hadoop-direktuppspelning kommunicerar med mapper och minskar för STDIN och STDO
 
     [key]/t[value]
 
-Mer information finns i [Hadoop streaming](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
+Mer information finns i [Hadoop streaming](https://hadoop.apache.org/docs/current/hadoop-streaming/HadoopStreaming.html).
 
 Exempel på användning av Hadoop streaming med HDInsight finns i följande dokument:
 

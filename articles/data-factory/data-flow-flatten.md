@@ -1,17 +1,17 @@
 ---
 title: Koppla samman transformering av data flöde
-description: Sammanslagen transformering av data flöde för Azure Data Factory-mappning
+description: Sammanslagen transformering av data flöde för Azure Data Factory mappning
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 435d2469be8eb572caa02e381d84ae4e9ac32f4b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 415a093fd8a8fbe27e1d240b061548e18f2ca6b6
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77674849"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164737"
 ---
 # <a name="azure-data-factory-flatten-transformation"></a>Azure Data Factory förenkla transformering
 
@@ -29,7 +29,7 @@ Först väljer du den matris kolumn som du vill ångra och pivotera.
 
 ## <a name="unroll-root"></a>Avregistrera rot
 
-Som standard kommer ADF att förenkla strukturen på den avrullnings mat ris som du väljer ovan. Eller så kan du välja en annan del av hierarkin för att ångra.
+Som standard kommer ADF att förenkla strukturen på den avrullnings mat ris som du väljer ovan. Eller så kan du välja en annan del av hierarkin för att ångra. "Avregistrering av rot" är en valfri inställning.
 
 ## <a name="input-columns"></a>Inmatade kolumner
 

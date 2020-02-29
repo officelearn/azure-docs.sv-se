@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 884f5ab6fa57b201e1a9105729bf96e10931dca1
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 84ed5db54874231d8bde4d892eedbc60c42a3430
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604061"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918765"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
@@ -39,7 +39,7 @@ Som en hjälp i skyddet mot dessa utmaningar erbjuder Security Center dig verkty
 
 -   **Förstärk säkerhets position**: Security Center utvärderar din miljö och gör det möjligt att förstå statusen för dina resurser och om de är säkra.
 
--   **Skydda mot hot**: Security Center utvärderar dina arbets belastningar och genererar hot skydds rekommendationer och aviseringar om hot identifiering.
+-   **Skydda mot hot**: Security Center utvärderar dina arbets belastningar och aktiverar rekommendationer för skydd mot hot och säkerhets aviseringar.
 
 -   **Bli säker snabbare**: i Security Center görs allt i moln hastigheten. Eftersom Security Center är inbyggt sker distributionen snabbt och enkelt, och ger dig automatisk etablering och skydd med Azure-tjänster.
 
@@ -51,7 +51,7 @@ Eftersom Security Center ingår internt i Azure, så övervakas och skyddas PaaS
 
 Dessutom skyddar Security Center Azure-servrar och virtuella datorer i molnet eller lokalt för både Windows och Linux-servrar genom att installera Microsoft Monitoring Agent på dem. Virtuella Azure-datorer etableras automatiskt i Security Center.
 
-De händelser som samlas in från agenter och från Azure korreleras i säkerhetsanalysmotorn, som ger dig skräddarsydda rekommendationer (härdningsuppgifter) som du bör följa om du vill försäkra dig om att dina arbetsbelastningar är säkra och att du får hotidentifieringsaviseringar. Du bör kontrollera dessa aviseringar så snart som möjligt så att du kan försäkra dig om att dina arbetsbelastningar inte utsätts för potentiellt skadliga attacker.
+De händelser som samlas in från agenterna och från Azure korreleras i Security Analytics-motorn för att ge dig anpassade rekommendationer (härdning av aktiviteter), som du bör följa för att se till att dina arbets belastningar är säkra och säkerhets aviseringar. Du bör kontrollera dessa aviseringar så snart som möjligt så att du kan försäkra dig om att dina arbetsbelastningar inte utsätts för potentiellt skadliga attacker.
 
 När du aktiverar Security Center visas den inbyggda Security Center-säkerhetsprincipen i Azure Policy som ett inbyggt initiativ under kategorin Security Center. Det inbyggda initiativet tilldelas automatiskt till alla Security Center-registrerade prenumerationer (på kostnadsfri nivå eller standardnivå). Det inbyggda initiativet innehåller endast granskningsprinciper. Läs mer om Security Center-principer i Azure Policy i artikeln om att [arbeta med säkerhetsprinciper](tutorial-security-policy.md).
 
@@ -107,9 +107,9 @@ Security Centers hotskydd innehåller fusionsattackkedjeanalys, som automatiskt 
 
 ![Security Center-attackrekommendationer](media/security-center-intro/sc-attack-recommendation.png)
 
-### <a name="advanced-threat-protection"></a>Advanced Threat Protection
+### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integrering med Microsoft Defender Avancerat skydd
 
-Med Security Center får du Windows Defender Advanced Threat Protection direkt integrerat från början. Det innebär att utan någon som helst konfiguration så är dina Windows-datorer och servrar är helt integrerade med Security Centers rekommendationer och utvärderingar. Avancerad hotidentifiering erbjuds även direkt för Linux-datorer och servrar.
+Security Center inkluderar automatisk, inbyggd integrering med Microsoft Defender Avancerat skydd. Det innebär att Windows-och Linux-datorerna är helt integrerade med Security Center rekommendationer och utvärderingar utan någon konfiguration.
 
 I kan Security Center du dessutom automatisera programkontrollsprinciper för servermiljöer. Med de anpassningsbara programkontrollerna i Security Center kan du placera program på listan över tillåtna från slutpunkt till slutpunkt för alla dina Windows-servrar. Du behöver varken skapa reglerna eller kontrollera överträdelser. Allt görs automatiskt.
 
@@ -129,7 +129,7 @@ Security Center innehåller funktioner som hjälper dig att utföra automatisk k
 
 ### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Skydda IoT-och hybrid moln arbets belastningar
 
-Azure Security Center for IoT (Sakernas Internet) fören klar hybrid arbets belastnings skyddet genom att leverera enhetlig synlighet och kontroll, anpassningsbart hot skydd och intelligent hot identifiering och-svar mellan arbets belastningar som körs på Edge, lokalt, i Azure och i andra moln. Mer information finns i [Azure Security Center for IoT](https://docs.microsoft.com/azure/asc-for-iot/).
+Azure Security Center for IoT (Sakernas Internet) fören klar hybrid arbets belastnings skyddet genom att leverera enhetlig synlighet och kontroll, anpassningsbart hot skydd och intelligent skydd och svar mellan arbets belastningar som körs på Edge, lokalt, i Azure och i andra moln. Mer information finns i [Azure Security Center for IoT](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Bli skyddad snabbare
 
@@ -146,6 +146,5 @@ Omfattande logginsamling som innebär att loggar från både Windows och Linux b
 ## <a name="next-steps"></a>Nästa steg
 
 - För att komma igång med Security Center måste du ha en prenumeration på Microsoft Azure. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
-- Security Centers kostnadsfria prisnivå aktiveras med Azure-prenumerationen. Om du vill använda avancerad säkerhetshantering och hotidentifiering måste du uppgradera till prisnivån Standard. Du kan prova Standard-nivån kostnadsfritt. På [prissättningssidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/) finns det mer information.
-- Om du är redo att aktivera Security Center Standard kan du använda [Snabbstart: Registrera Azure-prenumerationen för Security Center Standard](security-center-get-started.md) som en vägledning.
-
+- Security Center kostnads fri pris nivå är aktive rad med din Azure-prenumeration. Om du vill dra nytta av funktionerna för avancerad säkerhets hantering och skydd mot hot måste du uppgradera till standard pris nivån. Standard nivån kan provas kostnads fritt i 30 dagar. Mer information finns på sidan med [Security Center priser](https://azure.microsoft.com/pricing/details/security-center/).
+- Om du är redo att aktivera Security Center standard nu går du igenom anvisningarna genom att [publicera din Azure-prenumeration till Security Center standard](security-center-get-started.md) .

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: dapine
-ms.openlocfilehash: 4a2887ef8b264628128872730422fd38d6b0ac0f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: e30587ed4d09ba792516ebc7b16529a6ee5ac57c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425008"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918962"
 ---
 # <a name="what-is-custom-speech"></a>Vad är Custom Speech?
 
@@ -43,7 +43,7 @@ Det här diagrammet visar de delar som utgör den [Custom Speech portalen](https
 
 ## <a name="set-up-your-azure-account"></a>Konfigurera ditt Azure-konto
 
-En röst tjänst prenumeration krävs innan du kan använda [Custom Speech Portal](https://speech.microsoft.com/customspeech) för att skapa en anpassad modell. Följ de här anvisningarna för att skapa en standard prenumeration för tal tjänster: [skapa en tal prenumeration](get-started.md#try-the-speech-service-using-a-new-azure-account).
+En röst tjänst prenumeration krävs innan du kan använda [Custom Speech Portal](https://speech.microsoft.com/customspeech) för att skapa en anpassad modell. Följ de här anvisningarna för att skapa en standard prenumeration för tal tjänster: [skapa en tal prenumeration](get-started.md#new-resource).
 
 > [!NOTE]
 > Se till att skapa standard prenumerationer (S0), prenumerationer för kostnads fria utvärderings versioner (F0) stöds inte.

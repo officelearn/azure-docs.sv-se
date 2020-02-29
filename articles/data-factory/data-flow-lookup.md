@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/26/2020
-ms.openlocfilehash: aa71f7d2f3b277ca34e1e5fea76ada6adf93e573
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2216e1bf058eef486dbfefba24d52bdc6bdb232f
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655079"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164686"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory mappning av data flödes uppslags omvandling
 
@@ -45,6 +45,9 @@ Uppslags omvandlingen implementeras som en vänster yttre koppling. Om du har fl
 * Matcha flera rader: lämna det tomt om du vill returnera en enskild rad matchning
 * Matcha på: Välj First, Last eller valfri matchning
 * Sorterings villkor: om du väljer första eller sista kräver ADF att dina data ska beställas så att det finns logik bakom första och sista
+
+> [!NOTE]
+> Använd bara det första eller sista alternativet på en rad väljare om du behöver kontrol lera vilket värde som ska användas i sökningen. Att använda "any" eller flera rader kommer att utföras snabbare.
 
 ### <a name="option-2"></a>Alternativ 2
 

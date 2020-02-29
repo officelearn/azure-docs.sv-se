@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 075216cf7d67aa4d5a04f34a7ae3444a078b4c62
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/22/2020
+ms.openlocfilehash: 1778ba543e070bbffbbc8579b280373d834492fd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313917"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920813"
 ---
 # <a name="train-svd-recommender"></a>Träna SVD-rekommenderare
 
-Den här artikeln beskriver hur du använder modulen träna SVD-rekommendation i Azure Machine Learning designer. Använd den här modulen för att träna en rekommendations modell baserat på SVD-algoritmen (Single Value diskomposition).  
+Den här artikeln beskriver hur du använder modulen för att träna SVD-rekommendation i Azure Machine Learning designer (för hands version). Använd den här modulen för att träna en rekommendations modell baserat på SVD-algoritmen (Single Value diskomposition).  
 
 Modulen för att träna SVD-rekommendation läser en data uppsättning av tredubbla användar objekts bedömningar. Den returnerar en utbildad SVD-rekommendation. Du kan sedan använda den tränade modellen för att förutsäga klassificeringar eller skapa rekommendationer med hjälp av funktionen [Scores i SvD-rekommenderat](score-svd-recommender.md) läge.  
 
@@ -40,7 +40,7 @@ Mer information om SVD-rekommenderat finns i relevant Research Paper: [matris fa
 
 ## <a name="how-to-configure-train-svd-recommender"></a>Så här konfigurerar du träna SVD-rekommenderat  
 
-### <a name="prepare-data"></a>Förbered data
+### <a name="prepare-data"></a>Förbereda data
 
 Innan du använder modulen måste dina indata vara i det format som rekommendations modellen förväntar sig. Det krävs en tränings data uppsättning för användar objekts bedömning av tredubbel information.
 
@@ -48,14 +48,11 @@ Innan du använder modulen måste dina indata vara i det format som rekommendati
 + Den andra kolumnen innehåller objekt identifierare.
 + Den tredje kolumnen innehåller omdömet för paret User-Item. Klassificerings värden måste vara en numerisk typ.  
 
-Data uppsättningen **restaurang klassificering** i Azure Machine Learning designer (Välj **sparade data uppsättningar** och sedan **exempel**) visar det förväntade formatet:
+Data uppsättningen för **film klassificeringen** i Azure Machine Learning designer (Välj **data uppsättningar** och sedan **exempel**) visar det förväntade formatet:
 
-|userID|placeID|rating|
-|------------|-------------|------------|
-|U1077|135085|2|
-|U1077|135038|2|
+![Film klassificeringar](media/module/movie-ratings-dataset.png)
 
-Från det här exemplet kan du se att en enskild användare har klassificerat två olika restauranger. 
+Från det här exemplet kan du se att en enskild användare har betygsatt flera filmer. 
 
 ### <a name="train-the-model"></a>Träna modellen
 

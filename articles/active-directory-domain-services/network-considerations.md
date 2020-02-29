@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 4a5aba6f8a357f33fd921ee12aac7e45f9b581ff
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: e00ec8448739ac30950877a2ae196aa78cde750c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613341"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917347"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Design överväganden för virtuellt nätverk och konfigurations alternativ för Azure AD Domain Services
 
@@ -143,6 +143,11 @@ Följande regler för nätverks säkerhets grupper krävs för att Azure AD DS s
 * Utan åtkomst till den här porten kan din Azure AD DS-hanterade domän inte uppdateras, konfigureras, säkerhets kopie ras eller övervakas.
 * För Azure AD DS-hanterade domäner som använder ett Resource Manager-baserat virtuellt nätverk kan du begränsa inkommande åtkomst till den här porten till *AzureActiveDirectoryDomainServices* service tag.
     * För äldre Azure AD DS-hanterade domäner som använder ett klassiskt virtuellt nätverk kan du begränsa inkommande åtkomst till den här porten till följande käll-IP-adresser: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*och *104.40.87.209*.
+
+    > [!NOTE]
+    > I 2017 blev Azure AD Domain Services tillgänglig som värd i ett Azure Resource Manager nätverk. Sedan dess har vi kunnat bygga en säkrare tjänst med Azure Resource Manager moderna funktioner. Eftersom Azure Resource Manager distributioner fullständigt ersätter klassiska distributioner, kommer Azure AD DS klassiska virtuella nätverks distributioner att dras tillbaka den 1 mars 2023.
+    >
+    > Mer information finns i meddelande om [officiellt utfasning](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
 
 ## <a name="user-defined-routes"></a>Användardefinierade vägar
 

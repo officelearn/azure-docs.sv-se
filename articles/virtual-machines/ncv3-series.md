@@ -2,17 +2,17 @@
 title: NCv3-serien – Azure Virtual Machines
 description: Specifikationer för virtuella datorer i NCv3-serien.
 services: virtual-machines
-author: jonbeck7
+author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 363f8d2aae4e77453b8291637f2f6067d24bb80b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 1f93fd3c293f8f6108d7c5fbcd83f2f7a8b8f5d9
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661132"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162170"
 ---
 # <a name="ncv3-series"></a>NCv3-serien
 
@@ -21,6 +21,10 @@ Virtuella datorer i NCv3-serien drivs av [NVIDIA Tesla V100](https://www.nvidia.
 Premium Storage: stöds
 
 Premium Storage caching: stöds
+
+Direktmigrering: stöds inte
+
+Minnes bebetjänings uppdateringar: stöds inte
 
 > [!IMPORTANT]
 > För den här VM-serien ställs vCPU-kvoten (kärnor) i din prenumeration från början till 0 i varje region. [Begär en vCPU-kvot ökning](../azure-supportability/resource-manager-core-quotas-request.md) för den här serien i en [tillgänglig region](https://azure.microsoft.com/regions/services/).

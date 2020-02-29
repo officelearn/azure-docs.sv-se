@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 95601735064451a91530907e5e6b59f579ff0e28
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: df6f8ce22e8215a0727db7f69e0f6e5c3f5fc9e0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840272"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917398"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure Active Directory B2C att använda en anpassad princip
 
@@ -24,19 +24,9 @@ ms.locfileid: "76840272"
 
 I Azure Active Directory B2C (Azure AD B2C) är ROPC-flödet (Resource Owner Password Credential) ett OAuth-standardautentiserings flöde. I det här flödet, som även kallas för den förlitande parten, utbyter giltiga autentiseringsuppgifter för token. Autentiseringsuppgifterna innehåller ett användar-ID och lösen ord. De token som returneras är en ID-token, en åtkomsttoken och en uppdateringstoken.
 
-Följande alternativ stöds i ROPC-flödet:
+[!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
-- **Intern klient** -användar interaktion under autentisering sker när kod körs på en enhet på användar sidan.
-- Endast användar referenser för **offentliga klient flöden** som samlas in av ett program skickas i API-anropet. Autentiseringsuppgifterna för programmet skickas inte.
-- **Lägg till nya anspråk** – innehållet i ID-token kan ändras för att lägga till nya anspråk.
-
-Följande flöden stöds inte:
-
-- **Server-till-Server** -identitets skydds systemet behöver en tillförlitlig IP-adress som samlats in från anroparen (den interna klienten) som en del av interaktionen. I ett API-anrop på Server sidan används bara serverns IP-adress. Om för många inloggnings försök Miss lyckas kan identitets skydds systemet titta på en upprepad IP-adress som en angripare.
-- **Program** med en sida – ett klient program som främst är skrivet i Java Script. Programmet skrivs ofta med hjälp av ett ramverk som AngularJS, maskininlärning. js eller Durandal.
-- **Konfidentiellt klient flöde** – programmets klient-ID är verifierat, men program hemligheten är inte.
-
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md).
 
@@ -264,8 +254,8 @@ Använd ditt favorit-API utvecklings program för att generera ett API-anrop och
 | Nyckel | Värde |
 | --- | ----- |
 | användarnamn | `user-account` |
-| password | `password1` |
-| grant_type | password |
+| lösenord | `password1` |
+| grant_type | lösenord |
 | omfång | OpenID `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | token id_token |

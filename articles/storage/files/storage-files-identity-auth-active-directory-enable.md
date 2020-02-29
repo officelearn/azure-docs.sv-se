@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/23/2020
 ms.author: rogarana
-ms.openlocfilehash: 9bda3331bc27f387bd05ea0fcd29e7badf6d6a02
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 419f0506751ddc328539eafa52507b0dd0739c79
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651091"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921563"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Aktivera Active Directory autentisering över SMB för Azure-filresurser
 
@@ -62,15 +62,15 @@ Innan du aktiverar AD-autentisering för Azure-filresurser måste du kontrol ler
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Azure Files AD-autentisering är tillgängligt i [de flesta offentliga regioner](https://azure.microsoft.com/global-infrastructure/regions/), är den del av regionerna som den inte är tillgänglig än:
+Azure Files AD-autentisering (för hands version) är tillgänglig i [de flesta offentliga regioner](https://azure.microsoft.com/global-infrastructure/regions/) utom:
 
-- Västra USA
-- Västra USA 2
-- Östra USA
+- USA, västra
+- USA, västra 2
+- USA, östra
 - USA, östra 2
-- Södra centrala USA
-- Västra Europa
-- Norra Europa
+- USA, södra centrala
+- Europa, västra
+- Europa, norra
 
 ## <a name="workflow-overview"></a>Översikt över arbets flöde
 
@@ -130,7 +130,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId "<your-subscription-id-here>"
 
 #Register the target storage account with your active directory environment under the target OU
-join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Name "<storage-account-name-here>" -DomainAccountType "<ServiceLogonAccount|ComputerAccount>" -OrganizationUnitName "<ou-name-here>"
+join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Name "<storage-account-name-here>" -DomainAccountType "<ServiceLogonAccount|ComputerAccount>" -OrganizationalUnitName "<ou-name-here>"
 ```
 
 Följande beskrivning sammanfattar alla åtgärder som utförs när `join-AzStorageAccountForAuth` cmdleten körs. Du kan utföra dessa steg manuellt, om du inte vill använda kommandot:

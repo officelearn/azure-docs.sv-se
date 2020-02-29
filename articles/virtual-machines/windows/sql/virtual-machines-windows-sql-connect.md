@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ae5c4cdd76f164d13da349c355a30d8b6dc83058
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: deb337d989a3658e909cefa7a9ab028e37792562
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102093"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918384"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ansluta till en SQL Server virtuell dator på Azure
 
@@ -59,7 +59,7 @@ Om du vill ansluta till din SQL Server databas motor från Internet väljer du *
 > [!IMPORTANT]
 > Avbildningarna av virtuella datorer för SQL Server Developer-och Express-versioner aktiverar inte TCP/IP-protokollet automatiskt. För Developer-och Express-versioner måste du använda Konfigurationshanteraren för SQL Server för att [manuellt Aktivera TCP/IP-protokollet](#manualtcp) när du har skapat den virtuella datorn.
 
-Alla klienter med Internet åtkomst kan ansluta till SQL Server-instansen genom att ange antingen den offentliga IP-adressen för den virtuella datorn eller en DNS-etikett som tilldelats den IP-adressen. Om SQL Server porten är 1433 behöver du inte ange den i anslutnings strängen. Följande anslutnings sträng ansluter till en virtuell SQL-dator med en DNS- `sqlvmlabel.eastus.cloudapp.azure.com` etikett för att använda SQL-autentisering (du kan också använda den offentliga IP-adressen).
+Alla klienter med Internet åtkomst kan ansluta till SQL Server-instansen genom att ange antingen den offentliga IP-adressen för den virtuella datorn eller en DNS-etikett som tilldelats den IP-adressen. Om SQL Server porten är 1433 behöver du inte ange den i anslutnings strängen. Följande anslutnings sträng ansluter till en virtuell SQL-dator med en DNS-etikett för `sqlvmlabel.eastus.cloudapp.azure.com` med hjälp av SQL-autentisering (du kan också använda den offentliga IP-adressen).
 
 ```
 Server=sqlvmlabel.eastus.cloudapp.azure.com;Integrated Security=false;User ID=<login_name>;Password=<your_password>
@@ -137,7 +137,7 @@ I följande tabell visas kraven för att ansluta till SQL Server som körs i en 
 
 | Krav | Beskrivning |
 |---|---|
-| [Aktivera SQL Server autentiseringsläge](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | SQL Server autentisering krävs för att fjärrans luta till den virtuella datorn om du inte har konfigurerat Active Directory på en Virtual Network. |
+| [Aktivera SQL Server autentiseringsläge](/sql/database-engine/configure-windows/change-server-authentication-mode#use-ssms) | SQL Server autentisering krävs för att fjärrans luta till den virtuella datorn om du inte har konfigurerat Active Directory på en Virtual Network. |
 | [Skapa en SQL-inloggning](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Om du använder SQL-autentisering behöver du en SQL-inloggning med ett användar namn och lösen ord som också har behörighet till mål databasen. |
 | [Aktivera TCP/IP-protokoll](#manualtcp) | SQL Server måste tillåta anslutningar via TCP. |
 | [Aktivera brand Väggs regel för den SQL Server porten](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | Brand väggen på den virtuella datorn måste tillåta inkommande trafik på SQL Server porten (standard 1433). |

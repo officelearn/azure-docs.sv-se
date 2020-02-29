@@ -13,92 +13,32 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3860823787b860f2504d6fb13b9479d1feec9d28
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 68bb1fea88ab7ba30e0ba07839f2d962840b7818
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505813"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921189"
 ---
 # <a name="assets-in-azure-media-services"></a>Till gångar i Azure Media Services
 
-I Azure Media Services innehåller en [till gång](https://docs.microsoft.com/rest/api/media/assets) information om digitala filer som lagras i Azure Storage (inklusive video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning).
+I Azure Media Services är en [till gång](https://docs.microsoft.com/rest/api/media/assets) ett Core-begrepp. Det är här du matar in media (till exempel via överföring eller Live-inmatning), utdata-medium (från ett jobb) och publicerar media från (för strömning). 
 
-En till gång mappas till en BLOB-behållare i [Azure Storage-kontot](storage-account-concept.md) och filerna i till gången lagras som block-blobbar i den behållaren. Media Services stöder BLOB-nivåer när kontot använder General-Purpose v2-lagring (GPv2). Med GPv2 kan du flytta filer till låg frekvent [lagring eller Arkiv lag](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)ring. **Arkiv** lag ring är lämpligt för att arkivera källfiler när de inte längre behövs (till exempel efter att de har kodats).
+En till gång mappas till en BLOB-behållare i [Azure Storage-kontot](storage-account-concept.md) och filerna i till gången lagras som block-blobbar i den behållaren. Till gångar innehåller information om digitala filer som lagras i Azure Storage (inklusive video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning).
+
+Media Services stöder BLOB-nivåer när kontot använder General-Purpose v2-lagring (GPv2). Med GPv2 kan du flytta filer till låg frekvent [lagring eller Arkiv lag](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)ring. **Arkiv** lag ring är lämpligt för att arkivera källfiler när de inte längre behövs (till exempel efter att de har kodats).
 
 **Arkiv** lag rings nivån rekommenderas endast för mycket stora källfiler som redan har kodats och kodnings jobbets utdata lades till i en utgående BLOB-behållare. De blobbar i behållaren för utdata som du vill associera med en till gång och som används för att **strömma eller analysera** innehållet måste finnas på en frekvent eller låg **frekvent lagrings** nivå.
 
-### <a name="naming"></a>Namngivning 
+## <a name="naming"></a>Namngivning 
 
-#### <a name="assets"></a>Tillgångar
+### <a name="assets"></a>Tillgångar
 
 Till gångens namn måste vara unika. Media Services v3-resurs namn (till exempel till gångar, jobb, transformeringar) lyder under Azure Resource Manager namngivnings begränsningar. Mer information finns i [namngivnings konventioner](media-services-apis-overview.md#naming-conventions).
 
-#### <a name="blobs"></a>Blobar
+### <a name="blobs"></a>Blobar
 
 Namnen på filer/blobbar i en till gång måste följa både BLOB- [namnets krav](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) och [kraven för NTFS-namn](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). Orsaken till dessa krav är att filerna kan kopieras från Blob Storage till en lokal NTFS-disk för bearbetning.
-
-## <a name="upload-digital-files-into-assets"></a>Överför digitala filer till till gångar
-
-När de digitala filerna har överförts till lagring och associerats med en till gång kan de användas i Media Services kodning, strömning och analys av innehålls arbets flöden. En av vanliga Media Services arbets flöden är att ladda upp, koda och strömma en fil. Det här avsnittet beskriver de allmänna stegen.
-
-> [!TIP]
-> Innan du börjar utveckla bör du läsa [utveckla med Media Services v3-API: er](media-services-apis-overview.md) (innehåller information om hur du kommer åt API: er, namngivnings konventioner och så vidare).
-
-1. Använd API:et för Media Services v3 för att skapa en ny ”indataresurs”. Den här åtgärden skapar en container i det lagringskonto som associeras med ditt Media Services-konto. API: et returnerar behållar namnet (till exempel `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
-
-    Om du redan har en BLOB-behållare som du vill koppla till en till gång kan du ange behållar namnet när du skapar till gången. Media Services stöder för närvarande endast blobar i containerroten och inte med sökvägar i filnamnet. Därmed fungerar en container med namnet ”input.mp4”. Men en behållare med fil namnet "videor/Inputs/input. mp4" fungerar inte.
-
-    Du kan använda Azure CLI för att ladda upp direkt till valfritt lagringskonto och container som du har rättigheter till i din prenumeration.
-
-    Containerns namn måste vara unikt och följa riktlinjerna för namngivning för lagring. Namnet måste inte följa formateringen för Media Services-tillgångscontainerns namn (tillgångs-GUID).
-
-    ```azurecli
-    az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
-    ```
-2. Hämta en SAS-URL med läs- och skrivbehörigheter som används för att ladda upp digitala filer till tillgångscontainern. Du kan använda Media Services-API:et för att [lista URL:er för tillgångscontainern](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
-3. Använd Azure Storage-API: er eller SDK: er (till exempel [lagrings REST API](../../storage/common/storage-rest-api-auth.md) eller [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) för att ladda upp filer till till gångs behållaren.
-4. Använd Media Services v3-API:er för att skapa en transformering och ett jobb för att bearbeta din ”indatatillgång”. Mer information finns i [Transformeringar och jobb](transform-concept.md).
-5. Strömma innehållet från "output"-till gången.
-
-För ett fullständigt .NET-exempel som visar hur du skapar till gången, hämtar en skrivbar SAS-URL till till gångens behållare i lagringen och laddar upp filen till behållaren i lagring med SAS-URL: en, se [skapa ett jobb indata från en lokal fil](job-input-from-local-file-how-to.md).
-
-### <a name="create-a-new-asset"></a>Skapa en ny till gång
-
-> [!NOTE]
-> En till gångs egenskaper för datetime-typen är alltid i UTC-format.
-
-#### <a name="rest"></a>REST
-
-```
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01
-```
-
-Ett REST-exempel finns i exemplet [skapa en till gång med rest](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) .
-
-Exemplet visar hur du skapar **begär ande texten** där du kan ange beskrivning, container namn, lagrings konto och annan användbar information.
-
-#### <a name="curl"></a>cURL
-
-```cURL
-curl -X PUT \
-  'https://management.azure.com/subscriptions/00000000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Media/mediaServices/amsAccountName/assets/myOutputAsset?api-version=2018-07-01' \
-  -H 'Accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "properties": {
-    "description": "",
-  }
-}'
-```
-
-#### <a name="net"></a>.NET
-
-```csharp
- Asset asset = await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, assetName, new Asset());
-```
-
-Ett fullständigt exempel finns i [skapa ett jobb indata från en lokal fil](job-input-from-local-file-how-to.md). I Media Services v3 kan du också skapa ett jobbs inmatare från HTTPS-URL: er (se [skapa ett jobb inmatat från en HTTPS-URL](job-input-from-http-how-to.md)).
 
 ## <a name="map-v3-asset-properties-to-v2"></a>Mappa v3 till gångs egenskaper till v2
 
@@ -131,12 +71,10 @@ Resurserna som ska krypteras av kryptering för lagring på serversidan för att
 
 <sup>2</sup> i Media Services v3 stöds inte lagrings kryptering (AES-256-kryptering) för bakåtkompatibilitet när dina till gångar skapades med Media Services v2. Det innebär att v3 fungerar med befintliga lagrings krypterade till gångar men tillåter inte att nya skapas.
 
-## <a name="filtering-ordering-paging"></a>Filtrering, skrivordning, växling
-
-Se [filtrering, sortering, sid indelning för Media Services entiteter](entities-overview.md).
-
 ## <a name="next-steps"></a>Nästa steg
 
-* [Strömma en fil](stream-files-dotnet-quickstart.md)
-* [Använda en molnbaserad DVR-spelare](live-event-cloud-dvr.md)
-* [Skillnader mellan Media Services v2 och v3](migrate-from-v2-to-v3.md)
+[Hantera till gångar i Media Services](manage-asset-concept.md)
+
+## <a name="also-see"></a>Se även
+
+[Skillnader mellan Media Services v2 och v3](migrate-from-v2-to-v3.md)

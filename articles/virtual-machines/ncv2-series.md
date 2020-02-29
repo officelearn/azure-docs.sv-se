@@ -2,17 +2,17 @@
 title: NCv2-serien – Azure Virtual Machines
 description: Specifikationer för virtuella datorer i NCv2-serien.
 services: virtual-machines
-author: jonbeck7
+author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 4ea199cdc75732ff3af730fa79530399e4372ebd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: f4a382e422fd56e754d8014bfb4f0f0af1a3ec77
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661047"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163989"
 ---
 # <a name="ncv2-series"></a>NCv2-serien
 
@@ -23,6 +23,10 @@ NC24rs v2-konfigurationen ger ett nätverks gränssnitt med låg fördröjning o
 Premium Storage: stöds
 
 Premium Storage caching: stöds
+
+Direktmigrering: stöds inte
+
+Minnes bebetjänings uppdateringar: stöds inte
 
 > [!IMPORTANT]
 > För den här VM-serien ställs vCPU-kvoten (kärnor) i din prenumeration från början till 0 i varje region. [Begär en vCPU-kvot ökning](../azure-supportability/resource-manager-core-quotas-request.md) för den här serien i en [tillgänglig region](https://azure.microsoft.com/regions/services/).

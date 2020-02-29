@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 65cd5e637434c717ab9ba1b5598c467eea9b4a74
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 2/27/2020
+ms.openlocfilehash: b15da2aa83231bfdc8732995888349b06ab56d15
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770942"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163785"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrera MySQL-databasen till Azure Database for MySQL med dumpa och Återställ
 I den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i Azure Database for MySQL
@@ -22,10 +22,10 @@ I den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och åters
 För att gå igenom den här instruktions guiden måste du ha:
 - [Skapa Azure Database for MySQL server – Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
 - kommando rads verktyget [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) installerat på en dator.
-- MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/), TOAD, Navicat eller andra MySQL-verktyg från tredje part för att utföra dump-och Restore-kommandon.
+- MySQL Workbench [MySQL Workbench Hämta](https://dev.mysql.com/downloads/workbench/) eller ett annat mysql-verktyg från tredje part för att utföra dump-och Restore-kommandon.
 
 ## <a name="use-common-tools"></a>Använd vanliga verktyg
-Använd vanliga verktyg och verktyg som MySQL Workbench, mysqldump, TOAD eller Navicat för att fjärrans luta och återställa data till Azure Database for MySQL. Använd sådana verktyg på klient datorn med en Internet anslutning för att ansluta till den Azure Database for MySQL. Använd en SSL-krypterad anslutning för bästa säkerhets praxis, se även [Konfigurera SSL-anslutning i Azure Database for MySQL](concepts-ssl-connection-security.md). Du behöver inte flytta dumpfiler till någon speciell moln plats när du migrerar till Azure Database for MySQL. 
+Använd vanliga verktyg och verktyg som MySQL Workbench eller mysqldump för att fjärrans luta och återställa data till Azure Database for MySQL. Använd sådana verktyg på klient datorn med en Internet anslutning för att ansluta till den Azure Database for MySQL. Använd en SSL-krypterad anslutning för bästa säkerhets praxis, se även [Konfigurera SSL-anslutning i Azure Database for MySQL](concepts-ssl-connection-security.md). Du behöver inte flytta dumpfiler till någon speciell moln plats när du migrerar till Azure Database for MySQL. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>Vanliga användnings områden för dump och återställning
 Du kan använda MySQL-verktyg som mysqldump och mysqlpump för att dumpa och läsa in databaser i en Azure MySQL-databas i flera vanliga scenarier. I andra scenarier kan du använda metoden [import och export](concepts-migrate-import-export.md) i stället.
@@ -80,7 +80,7 @@ $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sq
 ```
 
 ## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>Skapa en databas på mål Azure Database for MySQLs servern
-Skapa en tom databas på mål Azure Database for MySQL servern där du vill migrera data. Använd ett verktyg som MySQL Workbench, TOAD eller Navicat för att skapa databasen. Databasen kan ha samma namn som databasen som innehåller de dumpade data eller så kan du skapa en databas med ett annat namn.
+Skapa en tom databas på mål Azure Database for MySQL servern där du vill migrera data. Använd ett verktyg som MySQL Workbench för att skapa databasen. Databasen kan ha samma namn som databasen som innehåller de dumpade data eller så kan du skapa en databas med ett annat namn.
 
 För att ansluta, letar du upp anslutnings informationen i **översikten** över din Azure Database for MySQL.
 

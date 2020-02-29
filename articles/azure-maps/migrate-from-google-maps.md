@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 175625ab9fca9103bde027c3c0ea0986806ad846
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 7b73923b7fc32ae83bfc8405d074835c02031a63
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208310"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913709"
 ---
 # <a name="migrate-from-google-maps-to-azure-maps"></a>Migrera från Google Maps till Azure Maps
 
@@ -39,10 +39,13 @@ Tabellen innehåller en övergripande lista med Azure Maps funktioner som motsva
 | Höjning                   | Planerad                                |
 | Landskod (framåt/omvänd) | ✓                                      |
 | Geoplats                 | Saknas                                    |
+| Närmaste vägar               | ✓                                      |
 | Sök efter platser               | ✓                                      |
 | Plats information              | Saknas – webbplats & telefonnummer är tillgängligt |
 | Placerar foton               | Saknas                                    |
 | Placera Autoavsluta          | ✓                                      |
+| Fäst vid väg                | ✓                                      |
+| Hastighets begränsningar                | ✓                                      |
 | Statiska Maps                 | ✓                                      |
 | Statisk gata vy          | Saknas                                    |
 | Tidszon                   | ✓                                      |
@@ -87,7 +90,9 @@ Här är en lista över användbara tekniska resurser för Azure Maps.
 - Forum för utvecklare: [https://aka.ms/AzureMapsForums](https://aka.ms/AzureMapsForums)
 - Videor: [https://aka.ms/AzureMapsVideos](https://aka.ms/AzureMapsVideos)
 - Blogg: [https://aka.ms/AzureMapsBlog](https://aka.ms/AzureMapsBlog)
+- Teknisk blogg: [https://aka.ms/AzureMapsTechBlog](https://aka.ms/AzureMapsTechBlog)
 - Azure Maps feedback (UserVoice): [https://aka.ms/AzureMapsFeedback](https://aka.ms/AzureMapsFeedback)
+- [Azure Maps Jupyter Notebook] [https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook]
 
 ## <a name="migration-support"></a>Migreringsstöd
 

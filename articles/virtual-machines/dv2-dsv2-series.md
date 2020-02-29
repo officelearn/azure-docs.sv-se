@@ -2,19 +2,19 @@
 title: Dv2 och Dsv2-serien – Azure Virtual Machines
 description: Specifikationer för virtuella datorer med Dv2 och Dsv2-serien.
 services: virtual-machines
-author: jonbeck7
+author: joelpelley
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: cdfb8e333e3834adf242029e9e00eac9cf9abebe
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 808b14f118e842cb9e52d110075f92ba25a343c9
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493103"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164431"
 ---
-# <a name="dv2-and-dsv2-series"></a>Dv2 och DSv2-serien
+# <a name="dv2-and-dsv2-series"></a>Dv2- och DSv2-serien
 
 Dv2 och Dsv2-serien, som är en uppföljning av den ursprungliga D-serien, har en mer kraftfull processor och optimal processor-till-minnes-konfiguration som gör dem lämpliga för de flesta produktions arbets belastningar. Dv2-serien är cirka 35% snabbare än D-serien. Dv2-serien körs på Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
 
@@ -27,6 +27,10 @@ ACU: 210–250
 Premium Storage: stöds inte
 
 Premium Storage caching: stöds inte
+
+Direktmigrering: stöds
+
+Minnes bebetjänings uppdateringar: stöds
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt data flöde för temporär lagring: IOPS/Read Mbit/s/Write Mbit/s | Maximalt antal datadiskar | Data flöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|
@@ -45,6 +49,10 @@ ACU: 210–250
 Premium Storage: stöds
 
 Premium Storage caching: stöds
+
+Direktmigrering: stöds
+
+Minnes bebetjänings uppdateringar: stöds
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|

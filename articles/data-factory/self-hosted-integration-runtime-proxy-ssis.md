@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 02/06/2020
-ms.openlocfilehash: 5f9e15b83c36c6c19fbe93c5f1df365f6f763c81
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/28/2020
+ms.openlocfilehash: 701e279e349bdc3b92d5b5c2dc50e23199f9d766
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187686"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78160819"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Konfigurera en egen värd-IR som en proxy för en Azure-SSIS IR i Azure Data Factory
 
@@ -165,7 +165,7 @@ De andra mellanlagrings aktiviteterna som körs på Azure-SSIS IR faktureras int
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
-- Det finns för närvarande stöd för data flödes aktiviteter med Open Database Connectivity (ODBC), OLEDB eller Flate File Connection Manager och ODBC, OLEDB och flata fil källor eller OLEDB-mål. 
+- Det finns för närvarande stöd för data flödes aktiviteter med Open Database Connectivity (ODBC), OLEDB eller Flate File Connection Manager och ODBC, OLEDB eller flata fil källor. 
 - Det finns för närvarande stöd för Azure Blob Storage – länkade tjänster som är konfigurerade med *konto nyckel*, *signatur för delad åtkomst (SAS)* eller *tjänstens huvud namn* .
 
 ## <a name="next-steps"></a>Nästa steg

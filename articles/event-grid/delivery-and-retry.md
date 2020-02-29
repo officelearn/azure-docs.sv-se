@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 02/27/2020
 ms.author: spelluru
-ms.openlocfilehash: 483b8251bf17eaa5fe7aa7cbd86299575535725d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: dda2fd98c4c0d330059156a5ec00baa97ffaf627
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170058"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921070"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelande leverans och försök igen
 
@@ -26,12 +26,33 @@ Event Grid standard för att skicka varje händelse individuellt till prenumeran
 
 Batch-leverans har två inställningar:
 
-* **Max antal händelser per batch** är det maximala antalet händelser som Event Grid skickas per batch. Det här antalet kommer aldrig att överskridas, men färre händelser kan levereras om inga andra händelser är tillgängliga vid tidpunkten för publiceringen. Event Grid fördröjer inte händelser för att skapa en batch om färre händelser är tillgängliga. Måste vara mellan 1 och 5 000.
-* **Önskad batchstorlek i kilobyte** är mål taket för batchstorlek i kilobyte. På samma sätt som för högsta antal händelser kan batchstorleken vara mindre om fler händelser inte är tillgängliga vid tidpunkten för publiceringen. Det är möjligt att en batch är större än den önskade batchstorleken *om* en enskild händelse är större än den önskade storleken. Om den önskade storleken till exempel är 4 KB och en 10 KB-händelse skickas till Event Grid, kommer 10 KB-händelsen fortfarande att levereras i sin egen batch i stället för att släppas.
+* **Max antal händelser per batch** -maximalt antal händelser Event Grid skickas per batch. Det här antalet kommer aldrig att överskridas, men färre händelser kan levereras om inga andra händelser är tillgängliga vid tidpunkten för publiceringen. Event Grid fördröjer inte händelser för att skapa en batch om färre händelser är tillgängliga. Måste vara mellan 1 och 5 000.
+* **Önskad batchstorlek i kilobyte** – mål tak för batchstorlek i kilobyte. På samma sätt som för högsta antal händelser kan batchstorleken vara mindre om fler händelser inte är tillgängliga vid tidpunkten för publiceringen. Det är möjligt att en batch är större än den önskade batchstorleken *om* en enskild händelse är större än den önskade storleken. Om den önskade storleken till exempel är 4 KB och en 10 KB-händelse skickas till Event Grid, kommer 10 KB-händelsen fortfarande att levereras i sin egen batch i stället för att släppas.
 
 Batch-baserad leverans i som kon figurer ATS per händelse prenumeration via portalen, CLI, PowerShell eller SDK: er.
 
+### <a name="azure-portal"></a>Azure-portalen: 
 ![Inställningar för batch-leverans](./media/delivery-and-retry/batch-settings.png)
+
+### <a name="azure-cli"></a>Azure CLI
+När du skapar en händelse prenumeration använder du följande parametrar: 
+
+- **Max antal händelser per batch** -maximalt antal händelser i en batch. Måste vara ett tal mellan 1 och 5000.
+- **önskad-batch-storlek-in-kilobyte** -önskad batchstorlek i kilobyte. Måste vara ett tal mellan 1 och 1024.
+
+```azurecli
+storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
+endpoint=https://$sitename.azurewebsites.net/api/updates
+
+az eventgrid event-subscription create \
+  --resource-id $storageid \
+  --name <event_subscription_name> \
+  --endpoint $endpoint \
+  --max-events-per-batch 1000 \
+  --preferred-batch-size-in-kilobytes 512
+```
+
+Mer information om hur du använder Azure CLI med Event Grid finns i [dirigera lagrings händelser till webb slut punkter med Azure CLI](../storage/blobs/storage-blob-event-quickstart.md).
 
 ## <a name="retry-schedule-and-duration"></a>Schema och varaktighet för omförsök
 
@@ -97,7 +118,7 @@ Alla andra koder som inte finns i ovanstående uppsättning (200-204) betraktas 
 | 400 Felaktig begäran | Försök igen om 5 minuter eller mer (obeställbara meddelanden kön omedelbart om obeställbara meddelanden kön-konfigurationen) |
 | 401 obehörig | Försök igen om 5 minuter eller mer |
 | 403 förbud | Försök igen om 5 minuter eller mer |
-| 404 Hittades inte | Försök igen om 5 minuter eller mer |
+| 404 hittades inte | Försök igen om 5 minuter eller mer |
 | 408 Timeout för begäran | Försök igen om 2 minuter eller mer |
 | 413 begär ande enheten är för stor | Försök igen om 10 sekunder eller mer (obeställbara meddelanden kön omedelbart om obeställbara meddelanden kön-konfigurationen) |
 | 503 Tjänsten är inte tillgänglig | Försök igen om 30 sekunder eller mer |

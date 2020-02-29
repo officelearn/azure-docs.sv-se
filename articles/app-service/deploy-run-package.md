@@ -3,12 +3,12 @@ title: Köra din app från ett ZIP-paket
 description: Distribuera appens ZIP-paket med Atomicitet. Förbättra förutsägbarheten och tillförlitligheten för appens beteende under ZIP-distributions processen.
 ms.topic: article
 ms.date: 01/14/2020
-ms.openlocfilehash: 5cc909d79b3f5ea2b4c6a3da12bc7250addbe00c
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 316ada7700a5cf45ee90f515336039702bab48c0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945843"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920730"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Kör din app i Azure App Service direkt från ett ZIP-paket
 
@@ -41,7 +41,7 @@ med `WEBSITE_RUN_FROM_PACKAGE="1"` kan du köra din app från ett paket lokalt t
 
 ## <a name="run-the-package"></a>Kör paketet
 
-Det enklaste sättet att köra ett paket i App Service är med Azure CLI [-distributions källans konfigurations-zip-](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) kommando. Ett exempel:
+Det enklaste sättet att köra ett paket i App Service är med Azure CLI [-distributions källans konfigurations-zip-](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) kommando. Några exempel:
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
@@ -63,7 +63,34 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 Om du publicerar ett uppdaterat paket med samma namn i Blob Storage måste du starta om appen så att det uppdaterade paketet läses in i App Service.
 
-## <a name="troubleshooting"></a>Felsöka
+### <a name="use-key-vault-references"></a>Använda Key Vault referenser
+
+För ökad säkerhet kan du använda Key Vault referenser tillsammans med din externa URL. Detta gör att URL: en krypteras i vila och gör det möjligt att använda Key Vault för hemlig hantering och rotation. Vi rekommenderar att du använder Azure Blob Storage så att du enkelt kan rotera den tillhör ande SAS-nyckeln. Azure Blob Storage är krypterat i vila, vilket skyddar dina program data när de inte distribueras på App Service.
+
+1. Skapa en Azure Key Vault.
+
+    ```azurecli
+    az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus
+    ```
+
+1. Lägg till din externa URL som en hemlighet i Key Vault.
+
+    ```azurecli
+    az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<insert-your-URL>"
+    ```
+
+1. Skapa inställningen `WEBSITE_RUN_FROM_PACKAGE` app och ange värdet som en Key Vault referens till den externa URL: en.
+
+    ```azurecli
+    az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"
+    ```
+
+Se följande artiklar för mer information.
+
+- [Key Vault referenser för App Service](app-service-key-vault-references.md)
+- [Azure Storage kryptering för vilande data](../storage/common/storage-service-encryption.md)
+
+## <a name="troubleshooting"></a>Felsökning
 
 - Att köra direkt från ett paket gör `wwwroot` skrivskyddat. Din app får ett fel meddelande om det försöker skriva filer till den här katalogen.
 - TAR-och GZIP-format stöds inte.

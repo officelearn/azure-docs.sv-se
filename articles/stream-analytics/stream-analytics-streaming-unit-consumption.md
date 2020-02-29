@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/28/2019
-ms.openlocfilehash: dd7579c97e2166e2822ee5674bbcd5a8ad64d2c7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/27/2020
+ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201500"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921155"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Förstå och justera direktuppspelningsenheter
 
@@ -32,7 +32,7 @@ Måttet SU%, som sträcker sig från 0% till 100%, beskriver minnes förbrukning
     ![Azure Portal Stream Analytics jobb konfiguration][img.stream.analytics.preview.portal.settings.scale]
     
 4. Använd skjutreglaget för att ställa in SUs för jobbet. Observera att du är begränsad till särskilda SU-inställningar. 
-5. Du kan ändra antalet SUs som är tilldelat ditt jobb även när det körs. Detta är inte möjligt om ditt jobb använder en [icke-partitionerad utdata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) eller har [en fråga med flera steg med olika partitioner med värden](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). Jobbet bör också ha minst 6 SUs för att ändra den här inställningen när jobbet körs. Du kanske är begränsad till att välja från en uppsättning SU-värden när jobbet körs. 
+5. Du kan ändra antalet SUs som är tilldelat ditt jobb även när det körs. Detta är inte möjligt om ditt jobb använder en [icke-partitionerad utdata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) eller har [en fråga med flera steg med olika partitioner med värden](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). Du kanske är begränsad till att välja från en uppsättning SU-värden när jobbet körs. 
 
 ## <a name="monitor-job-performance"></a>Övervaka jobb prestanda
 Med hjälp av Azure Portal kan du spåra data flödet för ett jobb:

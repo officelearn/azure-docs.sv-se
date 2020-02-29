@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 660b39a063496eb6566d51dbef2c914499dc70c9
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 2/27/2020
+ms.openlocfilehash: 72735e83af97fde8377e27daa45501704ef5a3c8
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776013"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164550"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migrera MariaDB-databasen till Azure Database for MariaDB med dump och Återställ
 I den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i Azure Database for MariaDB
@@ -22,10 +22,10 @@ I den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och åters
 För att gå igenom den här instruktions guiden måste du ha:
 - [Skapa Azure Database for MariaDB Server – Azure Portal](quickstart-create-mariadb-server-database-using-azure-portal.md)
 - kommando rads verktyget [mysqldump](https://mariadb.com/kb/en/library/mysqldump/) installerat på en dator.
-- MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/), TOAD, Navicat eller andra MySQL-verktyg från tredje part för att utföra dump-och Restore-kommandon.
+- MySQL Workbench [MySQL Workbench Hämta](https://dev.mysql.com/downloads/workbench/) eller ett annat mysql-verktyg från tredje part för att utföra dump-och Restore-kommandon.
 
 ## <a name="use-common-tools"></a>Använd vanliga verktyg
-Använd vanliga verktyg och verktyg som MySQL Workbench, mysqldump, TOAD eller Navicat för att fjärrans luta och återställa data till Azure Database for MariaDB. Använd sådana verktyg på klient datorn med en Internet anslutning för att ansluta till den Azure Database for MariaDB. Använd en SSL-krypterad anslutning för bästa säkerhets praxis, se även [Konfigurera SSL-anslutning i Azure Database for MariaDB](concepts-ssl-connection-security.md). Du behöver inte flytta dumpfiler till någon speciell moln plats när du migrerar till Azure Database for MariaDB. 
+Använd vanliga verktyg och verktyg som MySQL Workbench eller mysqldump för att fjärrans luta och återställa data till Azure Database for MariaDB. Använd sådana verktyg på klient datorn med en Internet anslutning för att ansluta till den Azure Database for MariaDB. Använd en SSL-krypterad anslutning för bästa säkerhets praxis, se även [Konfigurera SSL-anslutning i Azure Database for MariaDB](concepts-ssl-connection-security.md). Du behöver inte flytta dumpfiler till någon speciell moln plats när du migrerar till Azure Database for MariaDB. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>Vanliga användnings områden för dump och återställning
 Du kan använda MySQL-verktyg som mysqldump och mysqlpump för att dumpa och läsa in databaser till en Azure Database for MariaDB-server i flera vanliga scenarier. 
@@ -81,7 +81,7 @@ $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sq
 ```
 
 ## <a name="create-a-database-on-the-target-server"></a>Skapa en databas på mål servern
-Skapa en tom databas på mål Azure Database for MariaDB servern där du vill migrera data. Använd ett verktyg som MySQL Workbench, TOAD eller Navicat för att skapa databasen. Databasen kan ha samma namn som databasen som innehåller de dumpade data eller så kan du skapa en databas med ett annat namn.
+Skapa en tom databas på mål Azure Database for MariaDB servern där du vill migrera data. Använd ett verktyg som MySQL Workbench för att skapa databasen. Databasen kan ha samma namn som databasen som innehåller de dumpade data eller så kan du skapa en databas med ett annat namn.
 
 För att ansluta, letar du upp anslutnings informationen i **översikten** över din Azure Database for MariaDB.
 

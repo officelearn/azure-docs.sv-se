@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 61b94e95c5292b4013409deed6565a90890b66d1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 55afeb52323ead7db8be7e8fd1dabc880328e888
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892642"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921546"
 ---
-# <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Använd PowerShell för att aktivera Azure Diagnostics i en virtuell dator som kör Windows
+# <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Använd PowerShell för att aktivera Azure-diagnostik på en virtuell dator som kör Windows
 
 Azure-diagnostik är funktionen i Azure som möjliggör insamling av diagnostikdata i ett distribuerat program. Du kan använda tillägget för diagnostik för att samla in diagnostikdata som program loggar eller prestanda räknare från en virtuell Azure-dator (VM) som kör Windows. 
 
@@ -62,6 +62,9 @@ Cmdleten returnerar *PublicSettings*, som innehåller diagnostik-konfigurationen
 Cmdlet: en [Remove-AzVmDiagnosticsExtension](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdiagnosticsextension) kan användas för att ta bort tillägget för diagnostik från den virtuella datorn.  
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>Aktivera diagnostik-tillägget om du använder den klassiska distributions modellen
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 Du kan använda cmdleten [set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) för att aktivera ett diagnostiskt tillägg på en virtuell dator som du skapar via den klassiska distributions modellen. I följande exempel visas hur du skapar en ny virtuell dator via den klassiska distributions modellen med diagnostik-tillägget aktiverat.
 
     $VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage

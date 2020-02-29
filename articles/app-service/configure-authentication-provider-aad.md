@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 69959418c52eb7324efe19ca41481e426b822ab4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 717336e0ddfe99c96afda4861f4de1239ee949bf
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842373"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913216"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Konfigurera din App Service-app att använda Azure AD-inloggning
 
@@ -26,7 +26,10 @@ Följ dessa rekommendationer när du konfigurerar din app och autentisering:
 
 ## <a name="express"> </a>Konfigurera med Express inställningar
 
-1. I [Azure-portalen]söker du efter och väljer **app Services**och väljer sedan din app.
+> [!NOTE]
+> **Express** alternativet är inte tillgängligt för offentliga moln. 
+
+1. I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app.
 2. Välj **autentisering/auktorisering** > **på**i det vänstra navigerings fältet.
 3. Välj **Azure Active Directory** > **Express**.
 
@@ -63,7 +66,7 @@ Du behöver följande information när du konfigurerar din App Service-app:
 
 Utför följande steg:
 
-1. Logga in på [Azure-portalen], Sök efter och välj **app Services**och välj sedan din app. Anteckna appens **URL**. Du använder den för att konfigurera din Azure Active Directory app-registrering.
+1. Logga in på [Azure Portal], Sök efter och välj **app Services**och välj sedan din app. Anteckna appens **URL**. Du använder den för att konfigurera din Azure Active Directory app-registrering.
 1. Välj **Azure Active Directory** > **Appregistreringar** > **ny registrering**.
 1. På sidan **Registrera ett program** anger du ett **namn** för din app-registrering.
 1. I **omdirigerings-URI**väljer du **webb** och typ `<app-url>/.auth/login/aad/callback`. Till exempel `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
@@ -84,13 +87,13 @@ Utför följande steg:
 
 ### <a name="secrets"> </a>Aktivera Azure Active Directory i App Service-appen
 
-1. I [Azure-portalen]söker du efter och väljer **app Services**och väljer sedan din app. 
+1. I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. 
 1. Välj **autentisering/auktorisering** > **på**i den vänstra rutan under **Inställningar**.
 1. Valfritt Som standard tillåter App Service autentisering oautentiserad åtkomst till din app. Om du vill framtvinga användarautentisering anger du **åtgärden som ska vidtas när begäran inte autentiseras** att **logga in med Azure Active Directory**.
 1. Under **autentiseringsproviders**väljer du **Azure Active Directory**.
 1. I **hanterings läge**väljer du **avancerat** och konfigurerar app service autentisering enligt följande tabell:
 
-    |Field|Beskrivning|
+    |Fält|Beskrivning|
     |-|-|
     |Klientorganisations-ID| Använd **program-ID: t (klient)** för appens registrering. |
     |Utfärdar-ID| Använd `https://login.microsoftonline.com/<tenant-id>`och Ersätt *\<klient-id >* med katalog- **ID** för appens registrering. |
@@ -105,7 +108,7 @@ Du är nu redo att använda Azure Active Directory för autentisering i din App 
 
 Du kan registrera interna klienter för att tillåta autentisering med hjälp av ett klient bibliotek som **Active Directory-autentiseringsbibliotek**.
 
-1. I [Azure-portalen]väljer du **Active Directory** > **Appregistreringar** > **ny registrering**.
+1. I [Azure Portal]väljer du **Active Directory** > **Appregistreringar** > **ny registrering**.
 1. På sidan **Registrera ett program** anger du ett **namn** för din app-registrering.
 1. I **omdirigerings-URI**väljer du **offentlig klient (mobil & Desktop)** och anger URL: en `<app-url>/.auth/login/aad/callback`. Till exempel `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
@@ -125,4 +128,4 @@ Nu har du konfigurerat ett internt klient program som har åtkomst till din App 
 
 <!-- URLs. -->
 
-[Azure-portalen]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

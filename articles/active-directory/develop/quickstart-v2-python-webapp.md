@@ -11,20 +11,19 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 2710263aa099618d57f763edd199673ae04b53ed
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 5a2d6bfe2c58d382aea14b6ca8d4151acb9adfbf
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160499"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78160874"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en python-webbapp
 
 I den här snabb starten får du lära dig hur du integrerar ett python-webbprogram med Microsoft Identity Platform. Din app kommer att logga in en användare, hämta en åtkomsttoken för att anropa Microsoft Graph-API: et och göra en begäran till Microsoft Graph API.
 
-När du har slutfört guiden kommer ditt program att godkänna inloggningar med personliga Microsoft-konton (inklusive outlook.com, live.com och andra) och arbets-eller skol konton från alla företag eller organisationer som använder Azure Active Directory.
+När du har slutfört guiden kommer ditt program att godkänna inloggningar med personliga Microsoft-konton (inklusive outlook.com, live.com och andra) och arbets-eller skol konton från alla företag eller organisationer som använder Azure Active Directory. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
-![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-python-webapp/python-quickstart.svg)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -92,45 +91,56 @@ Om du vill köra det här exemplet behöver du:
 > > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Appen har konfigurerats med det här attributet
 
 #### <a name="step-2-download-your-project"></a>Steg 2: Ladda ned ditt projekt
+> [!div renderon="docs"]
+> [Ladda ned kod exemplet](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
-[Ladda ned kod exemplet](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
-
-#### <a name="step-3-configure-the-application"></a>Steg 3: konfigurera programmet
-
-1. Extrahera zip-filen i en lokal mapp närmare rotkatalogen, till exempel **C:\Azure-Samples**
-1. Om du använder en Integrated Development Environment öppnar du exemplet i din favorit IDE (valfritt).
-1. Öppna filen **app_config. py** , som du hittar i rotmappen och Ersätt med följande kodfragment:
-
-```python
-CLIENT_ID = "Enter_the_Application_Id_here"
-CLIENT_SECRET = "Enter_the_Client_Secret_Here"
-AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
-```
+> [!div class="sxs-lookup" renderon="portal"]
+> Hämta projektet och extrahera zip-filen till en lokal mapp närmare rotmappen – till exempel **C:\Azure-samples**
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Ladda ned kod exemplet]()
 
 > [!div renderon="docs"]
+> #### <a name="step-3-configure-the-application"></a>Steg 3: konfigurera programmet
+> 
+> 1. Extrahera zip-filen i en lokal mapp närmare rotkatalogen, till exempel **C:\Azure-Samples**
+> 1. Om du använder en Integrated Development Environment öppnar du exemplet i din favorit IDE (valfritt).
+> 1. Öppna filen **app_config. py** , som du hittar i rotmappen och Ersätt med följande kodfragment:
+> 
+> ```python
+> CLIENT_ID = "Enter_the_Application_Id_here"
+> CLIENT_SECRET = "Enter_the_Client_Secret_Here"
+> AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
+> ```
 > Där:
 >
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
 > - `Enter_the_Client_Secret_Here` – är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
 > - `Enter_the_Tenant_Name_Here`-är **katalog-ID** -värdet för det program som du har registrerat.
 
-#### <a name="step-4-run-the-code-sample"></a>Steg 4: kör kod exemplet
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-run-the-code-sample"></a>Steg 3: kör kod exemplet
+
+> [!div renderon="docs"]
+> #### <a name="step-4-run-the-code-sample"></a>Steg 4: kör kod exemplet
 
 1. Du måste installera MSAL python Library, kolv Framework, kolv-sessioner för hantering av Server sidan och begär Anden med hjälp av pip på följande sätt:
 
-   ```Shell
-   pip install -r requirements.txt
-   ```
+    ```Shell
+    pip install -r requirements.txt
+    ```
 
 2. Kör app.py från Shell eller kommando rad:
 
-   ```Shell
-   python app.py
-   ```
+    ```Shell
+    python app.py
+    ```
    > [!IMPORTANT]
    > Det här snabbstartsprogrammet använder en klienthemlighet för att identifiera sig som en konfidentiell klient. Eftersom klienthemligheten läggs till som oformaterad text till dina projektfiler rekommenderar vi att du av säkerhetsskäl använder ett certifikat i stället för en klienthemlighet innan programmet används som produktionsprogram. Mer information om hur du använder ett certifikat finns i [följande instruktioner](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
 
 ## <a name="more-information"></a>Mer information
+
+### <a name="how-the-sample-works"></a>Så här fungerar exemplet
+![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-python-webapp/python-quickstart.svg)
 
 ### <a name="getting-msal"></a>Hämtar MSAL
 MSAL är det bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform.

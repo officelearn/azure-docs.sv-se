@@ -15,18 +15,20 @@ ms.date: 08/07/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 24d8a0b88da44c53cb176244cd5fe7377514abda
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5bfdcfab37091a5f581ce147c0a6af5ccd8147a0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978118"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914797"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Etablera en SQL Server virtuell dator med Azure PowerShell (klassisk)
 
+[!INCLUDE [classic-vm-deprecation](../../../../includes/classic-vm-deprecation.md)]
+
 Den här artikeln innehåller anvisningar för hur du skapar en SQL Server virtuell dator i Azure med hjälp av PowerShell-cmdlets.
 
-> [!IMPORTANT] 
+> [!NOTE] 
 > Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
 Information om Resource Manager-versionen av det här avsnittet finns i [etablera en SQL Server virtuell dator med hjälp av Azure PowerShell Resource Manager](../sql/virtual-machines-windows-ps-sql-create.md).

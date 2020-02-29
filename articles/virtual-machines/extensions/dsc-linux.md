@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 102433b88ffb140cae46433be1c0edef90857e6d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2f04b5ecb2019a77bbb38e97c3869cc0a9447955
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969937"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921529"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-tillägg för Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -38,7 +38,7 @@ DSCForLinux-tillägget har publicerats och stöds av Microsoft. Tillägget insta
 
  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -290,6 +290,9 @@ Mer information om Azure Resource Manager-mallen finns i [redigera Azure Resourc
 Innan du distribuerar DSCForLinux-tillägget konfigurerar du `public.json` och `protected.json` enligt de olika scenarierna i avsnitt 3.
 
 #### <a name="classic"></a>Klassisk
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 Det klassiska distributions läget kallas även för Azure Service Management-läge. Du kan växla till den genom att köra:
 ```
 $ azure config mode asm
@@ -306,7 +309,7 @@ För att lära dig den senaste tilläggs versionen som är tillgänglig, kör:
 $ azure vm extension list
 ```
 
-#### <a name="resource-manager"></a>Resurshanterare
+#### <a name="resource-manager"></a>Resource Manager
 Du kan växla till Azure Resource Manager läge genom att köra:
 ```
 $ azure config mode arm
@@ -363,7 +366,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
   -PublicConfiguration $publicConfig | Update-AzureVM
 ```
 
-#### <a name="resource-manager"></a>Resurshanterare
+#### <a name="resource-manager"></a>Resource Manager
 
 Du kan logga in på ditt Azure-konto i Azure Resource Manager läge genom att köra:
 
@@ -407,7 +410,7 @@ Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location
 
 ## <a name="troubleshoot-and-support"></a>Felsökning och support
 
-### <a name="troubleshoot"></a>Felsökning
+### <a name="troubleshoot"></a>Felsöka
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av Azure CLI. Om du vill se distributions statusen för tillägg för en specifik virtuell dator kör du följande kommando med hjälp av Azure CLI.
 

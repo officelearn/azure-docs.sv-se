@@ -14,14 +14,17 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: fd31528325ddbe913333bc228fc3847242abcd24
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: f4c021531a4d04bf16e5dbee4172952433f675d9
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083758"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913012"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Identifiera rörelser med Azure-medieanalys
+
+> [!NOTE]
+> **Azure Media motion Detector** medie processorn kommer att dras tillbaka. Information om återställnings datumet finns i avsnittet [äldre komponenter](legacy-components.md) .
  
 ## <a name="overview"></a>Översikt
 
@@ -108,7 +111,7 @@ I följande tabell beskrivs elementen i JSON-filen för utdata.
 | evenemang |Varje event-fragment innehåller den rörelse som identifierats inom den tids perioden. |
 | typ |I den aktuella versionen är det alltid "2" för allmän rörelse. Den här etiketten ger video-API: er möjlighet att kategorisera rörelsen i framtida versioner. |
 | regionId |Som förklaras ovan kommer detta alltid att vara 0 i den här versionen. Den här etiketten ger video-API flexibiliteten att hitta rörelse i olika regioner i framtida versioner. |
-| regioner |Avser det områden i videon där du bryr dig om rörelse. <br/><br/>-"ID" representerar region området – i den här versionen finns det bara ett, ID 0. <br/>-"typ" representerar formen på den region du bryr dig om för rörelse. För närvarande stöds "rektangel" och "polygon".<br/> Om du har angett "rektangel" har regionen dimensioner i X, Y, width och height. X-och Y-koordinaterna representerar de övre vänstra XY-koordinaterna för regionen i en normaliserad skala på 0,0 till 1,0. Bredden och höjden representerar storleken på regionen i en normaliserad skala på 0,0 till 1,0. I den aktuella versionen är X, Y, width och height alltid fast som 0, 0 och 1. <br/>Om du har angett "polygon" har regionen dimensioner i punkter. <br/> |
+| områdena |Avser det områden i videon där du bryr dig om rörelse. <br/><br/>-"ID" representerar region området – i den här versionen finns det bara ett, ID 0. <br/>-"typ" representerar formen på den region du bryr dig om för rörelse. För närvarande stöds "rektangel" och "polygon".<br/> Om du har angett "rektangel" har regionen dimensioner i X, Y, width och height. X-och Y-koordinaterna representerar de övre vänstra XY-koordinaterna för regionen i en normaliserad skala på 0,0 till 1,0. Bredden och höjden representerar storleken på regionen i en normaliserad skala på 0,0 till 1,0. I den aktuella versionen är X, Y, width och height alltid fast som 0, 0 och 1. <br/>Om du har angett "polygon" har regionen dimensioner i punkter. <br/> |
 | fragment |Metadata delas upp i olika segment som kallas fragment. Varje fragment innehåller en start, varaktighet, intervallnummer och händelser. Ett fragment utan händelser innebär att ingen rörelse upptäcktes under den Start tiden och varaktigheten. |
 | hakparenteser [] |Varje klammer representerar ett intervall i händelsen. Tomma hakparenteser för det intervallet innebär att ingen rörelse har identifierats. |
 | platser |I den här nya posten under händelser visas platsen där rörelsen ägde rum. Detta är mer exakt än identifierings zonerna. |

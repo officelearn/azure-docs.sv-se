@@ -3,12 +3,12 @@ title: Konfigurera beroende visualisering i Azure Migrate
 description: Beskriver konfiguration av beroende visualisering i Azure Migrate Server-utvärdering.
 ms.topic: article
 ms.date: 2/24/2020
-ms.openlocfilehash: f5b0682adf345681c03bb6dbf14e9a0d9ba1fd58
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 054e2301160a885909630c2968863e5f9e25af69
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589084"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916293"
 ---
 # <a name="set-up-dependency-visualization"></a>Konfigurera beroende visualisering
 
@@ -76,7 +76,7 @@ Så här installerar du agenten på en Windows-dator:
 5. Klicka på **Lägg** till för att lägga till en ny Log Analytics-arbetsyta. Klistra in det arbetsyte-ID och den nyckel som du kopierade från portalen. Klicka på **Next**.
 
 Du kan installera agenten från kommando raden eller med en automatiserad metod som Configuration Manager eller [Intigua](https://go.microsoft.com/fwlink/?linkid=2104196).
-- [Lär dig mer](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) om att använda dessa metoder för att installera MMA-agenten.
+- [Lär dig mer](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) om att använda dessa metoder för att installera MMA-agenten.
 - MMA-agenten kan också installeras med detta [skript](https://go.microsoft.com/fwlink/?linkid=2104394).
 - [Läs mer](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) om de Windows-operativsystem som stöds av MMA.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: a53a27a92b393c38d1f49efbd50d91fa1a2e9657
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 712626345e10ab0e4290ac91b0f121ff6960303e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597702"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920577"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux guld-avbildningar för prenumerationer i Azure
 
@@ -41,6 +41,9 @@ Red Hat Enterprise Linux-avbildningar (RHEL) är tillgängliga i Azure via en PA
 - Bilderna är inte berättigade, så du måste använda prenumerations hanteraren för att registrera och prenumerera på de virtuella datorerna för att få uppdateringar från Red Hat direkt
 
 - Det går för närvarande inte att växla mellan BYOS-och PAYG-fakturerings modeller för Linux-avbildningar dynamiskt. Omdistribution av den virtuella datorn från respektive avbildning krävs för att byta fakturerings modell
+
+>[!NOTE]
+> Generation 2 RHEL BYOS-avbildningar är för närvarande inte tillgängliga via Marketplace-erbjudandet. Om du behöver en gen 2 RHEL BYOS-avbildning kan du gå till coud Access-instrumentpanelen i Red Hat-prenumerations hantering. Mer information finns i [Red Hat-dokumentationen](https://access.redhat.com/articles/4847681).
 
 ## <a name="requirements-and-conditions-to-access-the-red-hat-gold-images"></a>Krav och villkor för åtkomst till Red Hat Gold-avbildningar
 

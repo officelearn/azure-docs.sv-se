@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 4766f22cd84b2aab00f6dcc4064dbeea8018f694
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 7b5569738721038beadc78d94c81393803b6d36a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77564985"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920594"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
 
@@ -37,7 +37,7 @@ Det här avsnittet beskriver vanliga scenarier för att leverera innehåll [live
 
 Om du vill börja använda Azure Media Services ska du ha följande:
 
-* Ett Azure-konto. Om du inte har ett konto kan du skapa ett kostnadsfritt provkonto på bara några minuter. Mer information om den [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
+* Ett Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
 * Ett Azure Media Services-konto. Mer information finns i [Skapa konto](media-services-portal-create-account.md).
 * Slutpunkten för direktuppspelning som du vill spela upp innehåll från måste ha tillståndet **Körs**.
 
@@ -111,7 +111,7 @@ Information om tillgänglighet i datacenter finns i avsnittet [Tillgänglighet](
 3. Förhandsgranska din liveuppspelning.
 4. Leverera innehållet via vanliga strömningsprotokoll (t.ex. MPEG DASH, Smooth, HLS) direkt till dina kunder eller till ett nätverk för innehållsleverans för vidare distribution.
 
-    -eller-
+    ELLER
 
     Spela in och lagra det infogade innehållet för att kunna strömma senare (Video-on-Demand).
 
@@ -202,6 +202,9 @@ AMS erbjuder två kodare på begäran: **Media Encoder Standard** och **Media En
 ### <a name="analytics-media-processors"></a>Mediebearbetare för analys
 
 Media Analytics är en samling tal- och visionskomponenter som gör det enklare för organisationer och företag att härleda insikter som det går att direkt agera utifrån från sina videofiler. Mer information finns i [Översikt över Azure Media Services Analytics](media-services-analytics-overview.md).
+
+> [!NOTE]
+> Vissa analys medie processorer kommer att dras tillbaka. Information om datum för indragning finns i avsnittet om [äldre komponenter](legacy-components.md) .
 
 #### <a name="availability"></a>Tillgänglighet
 

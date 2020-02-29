@@ -12,18 +12,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 590505d954d52ebec9f8a5c344d6e750f11ef677
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981370"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921461"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows visar "kritisk tjänst misslyckades" på blå skärm vid start av en virtuell Azure-dator
 I den här artikeln beskrivs fel meddelandet "kritisk tjänst misslyckades" som kan uppstå när du startar en virtuell Windows-dator (VM) i Microsoft Azure. Den innehåller fel söknings steg som hjälper dig att lösa problemen. 
 
-> [!NOTE] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder distributions modellen för Resource Manager, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributions modellen.
 
 ## <a name="symptom"></a>Symptom 
 
@@ -45,8 +43,8 @@ För att lösa det här problemet kan du [kontakta supporten och skicka en dumpf
 
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Koppla OS-disken till en virtuell dator för återställning
 
-1. Ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
-2. [Koppla OS-disk till virtuell återställningsdator](./troubleshoot-recovery-disks-portal-windows.md). 
+1. Ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicks bilder av en disk](../windows/snapshot-copy-managed-disk.md).
+2. [Koppla OS-disken till en virtuell dator för återställning](./troubleshoot-recovery-disks-portal-windows.md). 
 3. Upprätta en fjärr skrivbords anslutning till den virtuella återställnings datorn.
 
 ### <a name="enable-dump-logs-and-serial-console"></a>Aktivera dumpnings loggar och serie konsol

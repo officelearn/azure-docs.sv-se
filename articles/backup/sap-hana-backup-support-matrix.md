@@ -3,27 +3,16 @@ title: Stödmatris för SAP HANA-säkerhetskopiering
 description: I den här artikeln lär du dig om de scenarier och begränsningar som stöds när du använder Azure Backup för att säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 82d844385290ab0dc2953537c1f9a3387dd7b2b2
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 941ec71cec42a4a61b6b3e24712471c5df448112
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842639"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161592"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Supportmatris för säkerhetskopiering av SAP HANA-databaser på virtuella Azure-datorer
 
 Azure Backup stöder säkerhets kopiering av SAP HANA-databaser till Azure. Den här artikeln sammanfattar scenarier som stöds och begränsningar som finns när du använder Azure Backup för att säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer.
-
-## <a name="onboard-to-the-public-preview"></a>Publicera till den offentliga för hands versionen
-
-Publicera till den offentliga för hands versionen enligt följande:
-
-* I portalen registrerar du ditt prenumerations-ID till Recovery Services tjänst leverantören genom att [följa den här artikeln](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal).
-* För PowerShell kör du denna cmdlet. Den bör slutföras som "registrerad".
-
-```PowerShell
-Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
-```
 
 > [!NOTE]
 > Frekvensen av logg säkerhets kopieringen kan nu anges till minst 15 minuter. Logg säkerhets kopior börjar bara att flyta efter en lyckad fullständig säkerhets kopiering för databasen har slutförts.
@@ -33,10 +22,10 @@ Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Micros
 | **Scenario**               | **Konfigurationer som stöds**                                | **Konfigurationer som inte stöds**                              |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topologi**               | Endast SAP HANA som körs i virtuella Azure Linux-datorer                    | HANA stora instanser (HLI)                                   |
-| **Geografiska områden**                   | **GA**<br />**Europa** – Västeuropa, Nord Europa, Frankrike, centrala, Storbritannien, södra, Storbritannien, västra, Tyskland, norra, Tyskland, västra centrala, Schweiz, norra, Schweiz, västra<br />**Asien och Stillahavsområdet** – Australien, centrala Australien 2, östra Australien, sydöstra Australien, Östra Japan, västra Japan, centrala Korea, södra Korea<br /><br>**Förhandsgranskningsvyn**<br />**Amerika** – centrala USA, östra USA 2, östra USA, norra centrala USA, södra centrala USA, västra USA 2, västra centrala USA, västra USA, centrala Kanada, Östra Kanada <br />**Asien och Stillahavsområdet** – Asien, östra, Sydostasien, Central Indien, södra Indien | Kina, östra, Kina, norra, Kina östra, Kina, norra 2, västra Indien, Central Schweiz, norra, sydöstra Sydafrika, västra Sydafrika, västra Förenade Arabemiraten, norra Förenade Arabemiraten Central, Azure Government regioner, södra Brasilien, södra Brasilien |
-| **OS-versioner**            | SLES 12 med SP2, SP3 eller SP4                                | SLES 15, RHEL                                                |
-| **HANA-versioner**          | SDC på HANA 1. x, MDC på HANA 2. x < = SPS04 rev 44            | -                                                            |
-| **HANA-distributioner**       | SAP HANA på en enda virtuell Azure-dator – skala upp               | Skalbarhet                                                    |
+| **Geografiska områden**                   | **GA**<br> **Amerika** – centrala USA, östra USA 2, östra USA, norra centrala USA, södra centrala USA, västra USA 2, västra centrala USA, västra USA, centrala Kanada, Östra Kanada, södra Brasilien <br> **Asien och Stillahavsområdet** – Australien, centrala Australien 2, östra Australien, sydöstra Australien, Östra Japan, västra Japan, centrala Korea, södra, Asien, östra, Sydostasien, centrala Indien, södra Indien, västra indien, Kina, östra, Kina, norra, Kina östra, Kina, norra 2 <br> **Europa** – Västeuropa, Nord Europa, Frankrike, centrala, Storbritannien, södra, Storbritannien, västra, Tyskland, norra, Tyskland, västra centrala, Schweiz, norra, Schweiz, västra, Central Schweiz, norra <br> **Afrika/me** – Sydafrika, västra Sydafrika, västra Förenade Arabemiraten Nord, Förenade Arabemiraten Central  <BR>  **Azure Government regioner** | Södra Frankrike, centrala Tyskland, Tyskland nordöstra, US Gov IOWA |
+| **OS-versioner**            | SLES 12 med SP2, SP3 eller SP4; SLES 15 med SP1                              | RHEL                                                |
+| **HANA-versioner**          | SDC på HANA 1. x, MDC på HANA 2. x < = SPS04 rev 46       | -                                                            |
+| **HANA-distributioner**       | SAP HANA på en enda virtuell Azure-dator – skala upp               | Skala ut                                                    |
 | **HANA-instanser**         | En enda SAP HANA instans på en enda virtuell Azure-dator – skala upp | Flera SAP HANA-instanser på en enskild virtuell dator                  |
 | **HANA-databas typer**    | Enkel databas container (SDC) på 1. x, MDC (Multi-Database container) på 2. x | MDC i HANA 1. x                                              |
 | **HANA-databasens storlek**     | 2 – TB fullständig säkerhets kopierings storlek enligt vad som rapporteras av HANA)                   |                                                              |
@@ -49,8 +38,6 @@ Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Micros
 
 > [!NOTE]
 > Säkerhets kopierings-och återställnings åtgärder från SAP HANA interna klienter (SAP HANA Studio/cockpit/DBA cockpit) stöds inte för närvarande.
-
-
 
 ## <a name="next-steps"></a>Nästa steg
 

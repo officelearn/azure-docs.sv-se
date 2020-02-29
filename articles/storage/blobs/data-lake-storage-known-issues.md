@@ -1,27 +1,41 @@
 ---
 title: Kända problem med Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Lär dig mer om begränsningar och kända problem med Azure Data Lake Storage Gen2
+description: Läs mer om begränsningar och kända problem med Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 951d707c898ad0efa1f21480c12f0c733f5218ee
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 7d637c2fb3f4a4d5f8deac9cd99c0a44af6568e6
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834948"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919619"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
-Den här artikeln innehåller funktioner och verktyg som inte stöds eller som bara delvis stöds med lagrings konton som har ett hierarkiskt namn område (Azure Data Lake Storage Gen2).
+I den här artikeln beskrivs begränsningar och kända problem med Azure Data Lake Storage Gen2.
 
-<a id="blob-apis-disabled" />
+## <a name="supported-blob-storage-features"></a>Funktioner för blob-lagring som stöds
 
-## <a name="issues-and-limitations-with-using-blob-apis"></a>Problem och begränsningar med att använda BLOB API: er
+Nu fungerar ett ökande antal Blob Storage-funktioner med konton som har ett hierarkiskt namn område. En fullständig lista finns [i Blob Storage funktioner som är tillgängliga i Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+
+## <a name="supported-azure-service-integrations"></a>Azure Service-integration som stöds
+
+Data Lake Storage Gen2 stöder flera Azure-tjänster som du kan använda för att mata in data, utföra analyser och skapa visuella representationer. En lista över Azure-tjänster som stöds finns i [Azure-tjänster som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+
+Se [Azure-tjänster som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+
+## <a name="supported-open-source-platforms"></a>Öppen källkod-plattformar som stöds
+
+Data Lake Storage Gen2 har stöd för flera plattformar för öppen källkod. En fullständig lista finns i [plattformar med öppen källkod som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
+
+Se [plattformar med öppen källkod som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
+
+## <a name="blob-storage-apis"></a>API: er för BLOB storage
 
 BLOB-API: er och Data Lake Storage Gen2-API: er kan köras på samma data.
 
@@ -48,38 +62,57 @@ Ohanterade VM-diskar stöds inte i konton som har ett hierarkiskt namn område. 
 
 <a id="api-scope-data-lake-client-library" />
 
-## <a name="filesystem-support-in-sdks"></a>Filesystem-stöd i SDK: er
+## <a name="file-system-support-in-sdks"></a>Stöd för fil system i SDK: er
 
-- [.Net](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) och [python](data-lake-storage-directory-file-acl-python.md) -support finns i offentlig för hands version. Andra SDK: er stöds inte för närvarande.
+- [.Net](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) och [python](data-lake-storage-directory-file-acl-python.md)och [Java Script](data-lake-storage-directory-file-acl-javascript.md) och support finns i offentlig för hands version. Andra SDK: er stöds inte för närvarande.
 - Hämta och ange ACL-åtgärder är för närvarande inte rekursiva.
 
-## <a name="filesystem-support-in-powershell-and-azure-cli"></a>Filesystem-stöd i PowerShell och Azure CLI
+## <a name="file-system-support-in-powershell-and-azure-cli"></a>Stöd för fil system i PowerShell och Azure CLI
 
 - [PowerShell](data-lake-storage-directory-file-acl-powershell.md) -och [Azure CLI](data-lake-storage-directory-file-acl-cli.md) -stöd finns i offentlig för hands version.
 - Hämta och ange ACL-åtgärder är för närvarande inte rekursiva.
 
-## <a name="support-for-other-blob-storage-features"></a>Stöd för andra Blob Storage funktioner
+## <a name="lifecycle-management-policies"></a>Principer för livs cykel hantering
 
-I följande tabell visas alla andra funktioner och verktyg som inte stöds eller som bara delvis stöds med lagrings konton som har ett hierarkiskt namn område (Azure Data Lake Storage Gen2).
+* Borttagning av BLOB-ögonblicksbilder stöds inte ännu.  
 
-| Funktion/verktyg    | Mer information    |
-|--------|-----------|
-| **Redundansväxling av konto** |Stöds inte ännu|
-| **AzCopy** | Versions-/regionsspecifika stöd <br><br>Använd endast den senaste versionen av AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Tidigare versioner av AzCopy, till exempel AzCopy v 8.1, stöds inte.|
-| **Hanterings principer för Azure Blob Storage Lifecycle** | Policys för livs cykel hantering stöds (för hands version).  Registrera dig för för hands versionen av policys för livs cykel hantering och Arkiv åtkomst nivå [här](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   <br><br>Alla åtkomst nivåer stöds. Arkiv åtkomst nivån är för närvarande en för hands version. Borttagning av BLOB-ögonblicksbilder stöds inte ännu.  Det finns för närvarande vissa buggar som påverkar livs cykel hanterings principer och Arkiv åtkomst nivå.  |
-| **Azure Content Delivery Network (CDN)** | Stöds inte ännu|
-| **Azure Search** |Stöds (för hands version)|
-| **Azure Storage Explorer** | Versions-/regionsspecifika stöd. <br><br>Använd endast versioner `1.6.0` eller högre. <br> Det finns för närvarande en lagrings enhet som påverkar version `1.11.0` som kan leda till autentiseringsfel i vissa scenarier. En korrigering för lagrings felet är insamlad, men som en lösning rekommenderar vi att du använder version `1.10.x` som är tillgänglig som en [kostnads fri nedladdning](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). `1.10.x` påverkas inte av lagrings felet.|
-| **Antal ACL: er för BLOB-behållare** |Stöds inte ännu|
-| **Blobfuse** |Stöds inte ännu|
-| **Anpassade domäner** |Stöds inte ännu|
-| **Storage Explorer i Azure Portal** | Begränsat stöd. ACL: er stöds inte ännu. |
-| **Diagnostikloggning** |Diagnostikloggar stöds (för hands version). <br><br>Azure Storage Explorer 1.10. x kan inte användas för att Visa diagnostikloggar. Om du vill visa loggar använder du AzCopy eller SDK: er.
-| **Oåterkalleligt lagrings utrymme** |Stöds inte ännu <br><br>Oföränderlig lagring ger möjlighet att lagra data i en [mask (Skriv en gång, läsa många)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) .|
-| **Objekt nivå nivåer** |Låg frekvent nivå och Arkiv lag ring stöds. Arkiv nivån är i för hands version. Alla andra åtkomst nivåer stöds inte ännu. <br><br> Det finns för närvarande vissa buggar som påverkar Arkiv åtkomst nivån.  Registrera dig för för hands versionen av Arkiv åtkomst nivån [här](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).|
-| **Statiska webbplatser** |Stöds inte ännu <br><br>Mer specifikt möjlighet att betjäna filer till [statiska webbplatser](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
-| **Program från tredje part** | Begränsat stöd <br><br>Program från tredje part som använder REST-API: er för arbete fortsätter att fungera om du använder dem med Data Lake Storage Gen2. <br>Program som anropar BLOB-API: er kommer förmodligen att fungera.|
-|**Mjuk borttagning** |Stöds inte ännu|
-| **Versions funktioner** |Stöds inte ännu <br><br>Detta inkluderar [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)och andra versions funktioner, till exempel [ögonblicks bilder](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob).|
+* Det finns för närvarande vissa buggar som påverkar livs cykel hanterings principer och Arkiv åtkomst nivå. 
+
+## <a name="diagnostic-logs"></a>Diagnostikloggar
+
+Azure Storage Explorer 1.10. x kan inte användas för att Visa diagnostikloggar. Om du vill visa loggar använder du AzCopy eller SDK: er.
+
+## <a name="blobfuse"></a>Blobfuse
+
+Blobfuse stöds inte.
+
+
+
+<a id="known-issues-tools" />
+
+## <a name="azcopy"></a>AzCopy
+
+Använd endast den senaste versionen av AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Tidigare versioner av AzCopy, till exempel AzCopy v 8.1, stöds inte.
+
+<a id="storage-explorer" />
+
+## <a name="azure-storage-explorer"></a>Azure Lagringsutforskaren
+
+Använd endast versioner `1.6.0` eller högre. För närvarande finns det ett lagrings fel som påverkar version `1.11.0` som kan leda till autentiseringsfel i vissa scenarier. En korrigering för lagrings felet är insamlad, men som en lösning rekommenderar vi att du använder version `1.10.x` som är tillgänglig som en [kostnads fri nedladdning](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). `1.10.x` påverkas inte av lagrings felet.
+
+<a id="explorer-in-portal" />
+
+## <a name="storage-explorer-in-the-azure-portal"></a>Storage Explorer i Azure-portalen
+
+ACL: er stöds inte ännu.
+
+<a id="third-party-apps" />
+
+## <a name="thirdpartyapplications"></a>Program från tredje part
+
+Program från tredje part som använder REST-API: er för arbete fortsätter att fungera om du använder dem med Data Lake Storage Gen2 program som anropar BLOB-API: er kommer att fungera.
+
+
+
 
 

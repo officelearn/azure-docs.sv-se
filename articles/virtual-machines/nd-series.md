@@ -2,17 +2,17 @@
 title: ND-serien – Azure Virtual Machines
 description: Specifikationer för de virtuella datorerna i ND-serien.
 services: virtual-machines
-author: jonbeck7
+author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 5f2e6775e0c1dbe094ed24554d2feac1da915511
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 31783b95b0816478b895086ddb47abf74503480e
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661039"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162074"
 ---
 # <a name="nd-series"></a>ND-serien
 
@@ -21,6 +21,10 @@ De virtuella datorerna i ND-serien är ett nytt tillägg till GPU-familjen som �
 Premium Storage: stöds
 
 Premium Storage caching: stöds
+
+Direktmigrering: stöds inte
+
+Minnes bebetjänings uppdateringar: stöds inte
 
 > [!IMPORTANT]
 > För den här VM-serien anges vCPU (Core)-kvoten per region i din prenumeration till 0. [Begär en vCPU-kvot ökning](../azure-supportability/resource-manager-core-quotas-request.md) för den här serien i en [tillgänglig region](https://azure.microsoft.com/regions/services/).

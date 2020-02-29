@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: memildin
-ms.openlocfilehash: b8b8b05f703a3eb05936ca95e2047a13650914cf
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: b1e1402f58b103570d6a98a5f9a01c8168abf749
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604262"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912370"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Förstå rekommendationer för Azure Security Center container
 
@@ -35,7 +35,7 @@ Azure Security Center tillhandahåller följande funktioner som hjälper dig att
 
     ![fliken container](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
-- **Hot identifiering för behållare i real tid**<br> Security Center tillhandahåller hot identifiering i real tid för dina behållare på Linux-datorer med granskad komponent. Aviseringarna identifierar flera misstänkta Docker-aktiviteter, till exempel skapandet av en privilegie rad behållare på värden, en indikation på SSH-servern (Secure Shell) som körs i en Docker-behållare eller användning av kryptografiska gruv arbetare. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina containrar.
+- **Hot skydd för behållare i real tid**<br> Security Center tillhandahåller skydd mot hot i real tid för dina behållare på Linux-datorer med granskad komponent. Aviseringarna identifierar flera misstänkta Docker-aktiviteter, till exempel skapandet av en privilegie rad behållare på värden, en indikation på SSH-servern (Secure Shell) som körs i en Docker-behållare eller användning av kryptografiska gruv arbetare. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina containrar.
 
     ![fliken container](./media/security-center-container-recommendations/docker-threat-detection.png)
 

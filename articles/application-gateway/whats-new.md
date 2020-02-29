@@ -7,27 +7,28 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: b2e7b9f28c84b769fe64be82f91418cc2a7d634f
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 373656c3585d503eccf166ce049b58e784e9131c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044376"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921342"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Vad är nytt i Azure Application Gateway?
 
-Azure Application Gateway uppdateras regelbundet. För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln information om:
+Azure Application Gateway uppdateras regelbundet. Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den här artikeln information om:
 
-- De senaste versionerna
+- Den senaste versionen
 - Kända problem
 - Felkorrigeringar
-- Föråldrade funktioner
+- Inaktuell funktion
 
 ## <a name="new-features"></a>Nya funktioner
 
 |Funktion  |Beskrivning  |Tilläggsdatum  |
 |---------|---------|---------|
-|Avsöknings förbättringar |Med de anpassade avsöknings förbättringarna i Application Gateway v2 SKU: n, har vi förenklad [avsöknings konfiguration](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku), under lätta [Server dels hälsotest på begäran](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe) och ytterligare [diagnostikinformation](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages) som hjälper dig att felsöka Server dels hälsa åtgärder.  |Oktober 2019 |
+|Tillhörighets-cookie-ändringar |När cookie-baserad tillhörighet är aktive rad, infogar Application Gateway en annan identisk cookie med namnet *ApplicationGatewayAffinityCORS* förutom den befintliga ApplicationGatewayAffinity-cookien. *ApplicationGatewayAffinityCORS* har två fler attribut som läggs till i den (*SameSite = none; Säker*) så att den tröga sessionen upprätthålls även för frågor över andra ursprung. Mer information finns i [Application Gateway cookie-baserad tillhörighet](configuration-overview.md#cookie-based-affinity) . |Februari 2020 |
+|Avsöknings förbättringar |Med de anpassade avsöknings förbättringarna i Application Gateway v2 SKU: n, har vi förenklad [avsöknings konfiguration](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku), under lätta [Server dels hälsotest på begäran](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe) och ytterligare [diagnostikinformation](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages) som hjälper dig att felsöka Server dels hälso problem.  |Oktober 2019 |
 |Fler mått |Vi har lagt till följande nya mått som hjälper dig att övervaka din program Gateway v2 SKU: [tidsrelaterade mått](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#timing-metrics), status för Server del svar, mottagna byte, skickade byte, client TLS-protokoll och aktuella Compute-enheter. Se [mått som stöds av Application Gateway v2 SKU: n](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku). |Augusti 2019 |
 |Anpassade WAF-regler |Application Gateway WAF_v2 har nu stöd för att skapa anpassade regler. Se [Application Gateway anpassade regler](custom-waf-rules-overview.md). |Juni 2019 |
 |Automatisk skalning, zon redundans, statisk VIP-support GA |Allmän tillgänglighet för v2-SKU: n som stöder autoskalning, zon redundans, bättre prestanda, statisk VIP, Key Vault, överskrivning av huvuden. Se [Application Gateway autoskalning-dokumentationen](application-gateway-autoscaling-zone-redundant.md). |April 2019 |

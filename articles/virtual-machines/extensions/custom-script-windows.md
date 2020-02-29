@@ -10,20 +10,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 80b13cb9a926837604e2a10fed75b976ba3393b6
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: bf4c7e9fc623ad7dc74b6da943232d5c558d43a4
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934921"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920271"
 ---
-# <a name="custom-script-extension-for-windows"></a>Anpassat skript tillägg för Windows
+# <a name="custom-script-extension-for-windows"></a>Anpassat skripttillägg för Windows
 
 Det anpassade skript tillägget laddar ned och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration av distribution, program varu installation eller andra konfigurations-eller hanterings uppgifter. Skripten kan laddas ned från Azure Storage eller GitHub, eller tillhandahållas via Azure Portal vid tilläggskörning. Det anpassade skript tillägget integreras med Azure Resource Manager mallar och kan köras med hjälp av Azure CLI, PowerShell, Azure Portal eller den virtuella Azure-datorn REST API.
 
 Det här dokumentet beskriver hur du använder tillägget för anpassat skript med hjälp av Azure PowerShell-modulen, Azure Resource Manager mallar och information om fel söknings steg i Windows-system.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!NOTE]  
 > Använd inte anpassat skript tillägg för att köra Update-AzVM med samma virtuella dator som parametern, eftersom det väntar på sig själv.  
@@ -42,7 +42,7 @@ Om du behöver hämta ett skript externt, till exempel från GitHub eller Azure 
 
 Om ditt skript finns på en lokal server kanske du fortfarande behöver fler brand väggar och nätverks säkerhets grupps portar måste öppnas.
 
-### <a name="tips-and-tricks"></a>Tips
+### <a name="tips-and-tricks"></a>Tips och knep
 
 * Den högsta fel frekvensen för det här tillägget beror på syntaxfel i skriptet, testa skriptet körs utan fel och Lägg även till ytterligare loggning i skriptet så att det blir lättare att hitta det som misslyckades.
 * Skriv skript som är idempotenta. Detta säkerställer att om de körs igen av misstag, kommer de inte att orsaka system ändringar.
@@ -112,7 +112,7 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | datum |
 | publisher | Microsoft.Compute | sträng |
 | typ | CustomScriptExtension | sträng |
 | typeHandlerVersion | 1,10 | int |
@@ -268,15 +268,17 @@ Om du använder [Invoke-WebRequest](/powershell/module/microsoft.powershell.util
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 ```
-## <a name="virtual-machine-scale-sets"></a>Skalningsuppsättningar för virtuell dator
+## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
 
 Om du vill distribuera tillägget för anpassat skript i en skalnings uppsättning, se [Add-AzVmssExtension](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
 
 ## <a name="classic-vms"></a>Klassiska virtuella datorer
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 Om du vill distribuera tillägget för anpassat skript på klassiska virtuella datorer kan du använda Azure Portal eller de klassiska Azure PowerShell-cmdletarna.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Navigera till den klassiska VM-resursen. Välj **tillägg** under **Inställningar**.
 
@@ -304,7 +306,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>Felsökning och support
 
-### <a name="troubleshoot"></a>Felsökning
+### <a name="troubleshoot"></a>Felsöka
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av modulen Azure PowerShell. Kör följande kommando för att se distributions status för tillägg för en virtuell dator:
 
@@ -328,7 +330,7 @@ där `<n>` är ett decimal tal som kan ändras mellan körningar av tillägget. 
 
 När du kör kommandot `commandToExecute`, anger tillägget den här katalogen (till exempel `...\Downloads\2`) som den aktuella arbets katalogen. Den här processen gör det möjligt att använda relativa sökvägar för att hitta filerna som hämtats via egenskapen `fileURIs`. Se tabellen nedan för exempel.
 
-Eftersom den absoluta nedladdnings Sök vägen kan variera med tiden är det bättre att välja relativa skript-och fil Sök vägar i `commandToExecute` strängen, närhelst det är möjligt. Ett exempel:
+Eftersom den absoluta nedladdnings Sök vägen kan variera med tiden är det bättre att välja relativa skript-och fil Sök vägar i `commandToExecute` strängen, närhelst det är möjligt. Några exempel:
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
@@ -347,4 +349,4 @@ Sök vägs information efter det första URI-segmentet behålls för filer som h
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Du kan också skriva en support incident för Azure. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Du kan också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).

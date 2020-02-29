@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: cf70124f2e310dd62fd32de0e17edb40c047a318
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 19c136c7f312d800b76aa60f2cab6e8da992591c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615688"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161575"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions Premium-plan
 
@@ -109,29 +109,30 @@ Nedan finns de regioner som stöds för varje operativ system.
 |Australien, centrala 2| ✔<sup>1</sup> | |
 |Australien, östra| ✔ | ✔<sup>1</sup> |
 |Australien, sydöstra | ✔ | ✔<sup>1</sup> |
-|Brasilien, södra| ✔<sup>2</sup> |  |
+|Brasilien, södra| ✔<sup>2</sup> | ✔<sup>1</sup> |
 |Kanada, centrala| ✔ | ✔<sup>1</sup> |
-|USA, centrala| ✔ |  |
-|Asien, östra| ✔ |  |
+|USA, centrala| ✔ | ✔<sup>1</sup> |
+|Asien, östra| ✔ | ✔<sup>1</sup> |
 |USA, östra | ✔ | ✔<sup>1</sup> |
 |USA, östra 2| ✔ | ✔<sup>1</sup> |
-|Frankrike, centrala| ✔ |  |
+|Frankrike, centrala| ✔ | ✔<sup>1</sup> |
 |Tyskland, västra centrala| ✔ | |
 |Japan, östra| ✔ | ✔<sup>1</sup> |
 |Japan, västra| ✔ | ✔<sup>1</sup> |
 |Sydkorea, centrala| ✔ | ✔<sup>1</sup> |
-|USA, norra centrala| ✔ |  |
+|USA, norra centrala| ✔ | ✔<sup>1</sup> |
 |Europa, norra| ✔ | ✔<sup>1</sup> |
+|Östra Norge| ✔<sup>1</sup> | ✔<sup>1</sup> |
 |USA, södra centrala| ✔ | ✔<sup>1</sup> |
 |Indien, södra | ✔ | |
 |Sydostasien| ✔ | ✔<sup>1</sup> |
 |Storbritannien, södra| ✔ | ✔<sup>1</sup> |
-|Storbritannien, västra| ✔ |  |
+|Storbritannien, västra| ✔ | ✔<sup>1</sup> |
 |Europa, västra| ✔ | ✔<sup>1</sup> |
-|Indien, västra| ✔ |  |
-|USA, västra centrala| | ✔<sup>1</sup> |
+|Indien, västra| ✔ | ✔<sup>1</sup> |
+|USA, västra centrala| ✔<sup>1</sup> | ✔<sup>1</sup> |
 |USA, västra| ✔ | ✔<sup>1</sup> |
-|USA, västra 2| ✔ |  |
+|USA, västra 2| ✔ | ✔<sup>1</sup> |
 
 <sup>1</sup> Högsta skala begränsad till 20 instanser.  
 <sup>2</sup> Högsta skala begränsad till 60 instanser.

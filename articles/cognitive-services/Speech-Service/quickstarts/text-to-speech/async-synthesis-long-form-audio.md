@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: eef9a99e4c94fa45e21abfc9d19fcef1230ffe76
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: afa9437a00c6f30688c7942feea94f7db7ed490a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75944683"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919353"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Snabb start: asynkron syntes för lång Forms ljud i python (för hands version)
 
@@ -24,13 +24,13 @@ I den här snabb starten använder du den långa ljud-API: n för att konvertera
 > [!NOTE]
 > Asynkron syntes för lång Forms ljud kan bara användas med [anpassade neurala-röster](../../how-to-custom-voice.md#custom-neural-voices).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
 * Python 2.7. x eller 3. x.
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download)eller din favorit text redigerare.
-* En Azure-prenumeration och en prenumerations nyckel för en röst tjänst. [Skapa ett Azure-konto](../../get-started.md#try-the-speech-service-using-a-new-azure-account) och [skapa en tal resurs](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) för att hämta nyckeln. När du skapar tal resursen måste du kontrol lera att pris nivån är inställd på **S0**och att platsen är inställd på en [region som stöds](../../regions.md#standard-and-neural-voices).
+* En Azure-prenumeration och en prenumerations nyckel för en röst tjänst. [Skapa ett Azure-konto](../../get-started.md#new-resource) och [skapa en tal resurs](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) för att hämta nyckeln. När du skapar tal resursen måste du kontrol lera att pris nivån är inställd på **S0**och att platsen är inställd på en [region som stöds](../../regions.md#standard-and-neural-voices).
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 

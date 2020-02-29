@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
-ms.openlocfilehash: 9c463095612b1540cc593b17a0e52bfd24db30d2
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c24218dc116803ca0e0a1f166b7b54b24fc4d5ef
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514501"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163802"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexera mediefiler med Azure Media Indexer 2 för hands version
 
 > [!NOTE]
-> [Azure Media Indexer 2](media-services-process-content-with-indexer2.md) medie processorn kommer att dras tillbaka. Se det här avsnittet om [äldre komponenter](legacy-components.md) för datum för indragningen. [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) ersätter denna äldre medie processor. Mer information finns i [Migrera från Azure Media Indexer och Azure Media Indexer 2 till Azure Media Services video Indexer](migrate-indexer-v1-v2.md).
+> **Azure Media Indexer 2** medie processorn kommer att dras tillbaka. Se det här avsnittet om [äldre komponenter](legacy-components.md) för datum för indragningen. [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) ersätter denna äldre medie processor. Mer information finns i [Migrera från Azure Media Indexer och Azure Media Indexer 2 till Azure Media Services video Indexer](migrate-indexer-v1-v2.md).
 
 Med den **Azure Media Indexer 2-förhands gransknings** medie processorn (MP) kan du göra mediefiler och innehåll sökbara, samt generera dold textning spår. Jämfört med den tidigare versionen av [Azure Media Indexer](media-services-index-content.md)utför **Azure Media Indexer 2 för hands** versionen snabbare indexering och erbjuder bredare språk stöd. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (mandariner, förenklad), portugisiska, arabiska, ryska och japanska.
 
@@ -291,13 +291,13 @@ namespace IndexContent
 }
 ```
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Tillhörande länkar
+## <a name="related-links"></a>Relaterade länkar
 [Översikt över Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Azure-medieanalys demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)

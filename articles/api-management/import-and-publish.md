@@ -1,6 +1,6 @@
 ---
-title: Importera och publicera ditt första API i Azure API Management | Microsoft Docs
-description: Lär dig hur du importerar och publicerar ditt första API med API Management.
+title: Importera och publicera ditt första API i Azure API Management
+description: Lär dig hur du importerar ett API för OpenAPI-specifikation till Azure API Management och testar ditt API i Azure Portal.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -11,82 +11,78 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/24/2019
+ms.date: 02/27/2020
 ms.author: apimpm
-ms.openlocfilehash: bae762b4603b2f5f80447a16671fed4e37e62b95
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 886063dcf886d79ac960814f20b3789e8e3b6839
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108538"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163524"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importera och publicera ditt första API 
 
-I den här kursen visas hur du importerar en OpenAPI-specifikation för serverdels-API som finns på https://conferenceapi.azurewebsites.net?format=json. Detta serverdels-API tillhandahålls av Microsoft och finns i Azure. 
+Den här självstudien visar hur du importerar ett OpenAPI-API i JSON-format till Azure API Management. Microsoft tillhandahåller Server dels-API: et och är värd för det på Azure på [https://conferenceapi.azurewebsites.net?format=json](https://conferenceapi.azurewebsites.net?format=json).
 
-När serverdels-API:et importeras i API Management (APIM) blir APIM-API:et en fasad för serverdels-API:et. När du importerar serverdels-API:et är käll-API:et och APIM-API:et identiska. Med APIM kan du anpassa fasaden efter dina behov utan att behöva röra serverdels-API:et. Mer information finns i [Transformera och skydda ditt API](transform-api.md). 
+När du har importerat Server dels-API: et till API Management blir ditt API Management-API ett fasad för Server dels-API: et. Du kan anpassa fasad efter dina behov i API Management utan att behöva röra Server dels-API: et. Mer information finns i [Transformera och skydda ditt API](transform-api.md). 
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Importera ditt första API
+> * Importera ett API till API Management
 > * Testa API:et i Azure Portal
-> * Testa API:et i utvecklarportalen
 
-![Nytt API](./media/api-management-get-started/created-api.png)
+![Nytt API](./media/api-management-import-and-publish/created-api.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-+ Lär dig [Azure API Management-terminologin](api-management-terminology.md).
-+ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
+- Förstå [Azure API Management terminologi](api-management-terminology.md).
+- [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>Importera och publicera ett serverdels-API
+## <a name="create-api"> </a>Importera och publicera ett Server dels-API
 
-I det här avsnittet visas hur du importerar och publicerar en OpenAPI-specifikation för serverdels-API.
+I det här avsnittet visas hur du importerar och publicerar ett OpenAPI-API för-specifikation.
  
-1. Välj **API: er** under **API-HANTERING**.
-2. Välj **OpenAPI-specifikation** i listan och klicka på **Fullständig** i popup-fönstret.
+1. I det vänstra navigerings fönstret på API Management-instansen väljer du **API: er** från avsnittet **API Management** .
+1. Välj panelen **openapi** och välj sedan **fullständig** på popup-skärmen.
+1. På skärmen **skapa från openapi-specifikation** använder du värdena från följande tabell för att skapa API: et.
+   
+   En röd stjärna bredvid ett fält i formuläret anger att fältet är obligatoriskt. Du kan ange API-värden under skapandet eller senare genom att gå till fliken **Inställningar** . 
+   
+   ![Skapa ett API](./media/api-management-import-and-publish/create-api.png)
+   
+   |Inställning|Värde|Beskrivning|
+   |-------|-----|-----------|
+   |**OpenAPI-specifikation**|*https:\//conferenceapi.azurewebsites.net? format = JSON*|Tjänsten som implementerar API: et. API-hanteringen vidarebefordrar begäranden till den här adressen.|
+   |**Visningsnamn**|När du har angett föregående tjänst-URL fyller API Management det här fältet baserat på JSON.|Namnet som visas i Developer-portalen.|
+   |**Namn**|När du har angett föregående tjänst-URL fyller API Management det här fältet baserat på JSON.|Ett unikt namn för API: et.|
+   |**Beskrivning**|När du har angett föregående tjänst-URL fyller API Management det här fältet baserat på JSON.|En valfri beskrivning av API: et.|
+   |**URL-schema**|**HTTPS**|Vilka protokoll som kan användas för att få åtkomst till API: et.|
+   |**API URL-suffix**|*konferens*|Suffixet som läggs till i bas-URL: en för API Managements tjänsten. API Management skiljer API: er från deras suffix så att suffixet måste vara unikt för varje-API för en specifik utgivare.|
+   |**Produkter**|**Obegränsat**|Associering av en eller flera API: er. Varje API Management instans levereras med två exempel produkter: **starter** och **obegränsade**. Du publicerar ett API genom att associera API: et med en produkt, **obegränsat** i det här exemplet.<br/>Du kan inkludera flera API: er i en produkt och erbjuda dem till utvecklare via Developer-portalen. Om du vill lägga till detta API till en annan produkt skriver du eller väljer produkt namnet. Upprepa det här steget om du vill lägga till API: et till flera produkter. Du kan också lägga till API: er till produkter senare från sidan **Inställningar** .<br/>För att få åtkomst till API:et måste utvecklarna först prenumerera på en produkt. När de prenumererar får de en prenumerations nyckel som är lämplig för alla API: er i produkten. <br/>Om du har skapat API Management-instansen är du redan administratör, så du prenumererar på alla produkter i instansen.|
+   |**Taggar**| |Taggar för att ordna API: er för sökning, gruppering eller filtrering.|
+   |**Version av det här API:et?**|Markera eller avmarkera|Mer information om versions hantering finns i [publicera flera versioner av ditt API](api-management-get-started-publish-versions.md).|
+   
+   > [!NOTE]
+   > Om du vill publicera API:t måste du associera det med en produkt. Du kan göra det från sidan **Inställningar** .
+   
+1. Välj **Skapa**.
 
-    ![Skapa ett API](./media/api-management-get-started/create-api.png)
-
-    Du kan ange API-värden när du skapar eller senare genom att gå till fliken **Inställningar** . Den röda stjärnan bredvid ett fält anger att fältet är obligatoriskt.
-
-    Använd värdena i tabellen nedan för att skapa ditt första API.
-
-    | Inställning                   | Värde                                              | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-    |---------------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **OpenAPI-specifikation** | https://conferenceapi.azurewebsites.net?format=json | Refererar till tjänsten som implementerar API:et. API-hanteringen vidarebefordrar begäranden till den här adressen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-    | **Visningsnamn**          | *Demokonferens-API*                              | Om du trycker på fliken när du har angett tjänstens URL fyller APIM i det här fältet baserat på vad som finns i JSON. <br/>Det här namnet visas i Developer-portalen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-    | **Namn**                  | *demo-conference-api*                              | Tillhandahåller ett unikt namn för API:et. <br/>Om du trycker på fliken när du har angett tjänstens URL fyller APIM i det här fältet baserat på vad som finns i JSON.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-    | **Beskrivning**           | Ange en valfri beskrivning av API: et.        | Om du trycker på fliken när du har angett tjänstens URL fyller APIM i det här fältet baserat på vad som finns i JSON.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-    | **URL-schema**            | *HTTPS*                                            | Fastställer vilka protokoll som kan användas för att få åtkomst till API:et.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-    | **API URL-suffix**        | *konferens*                                       | Suffixet läggs till i API-hanteringstjänstens bas-URL. API Management skiljer API:erna åt med hjälp av deras suffix, och suffixet måste därför vara unikt för alla API:er för en viss utgivare.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-    | **Produkter**              | *Obegränsat*                                        | Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er i en produkt och erbjuda dem till utvecklare via utvecklarportalen. <br/>Du kan publicera API:et genom att associera det med en produkt (i det här exemplet *Unlimited*). Om du vill lägga till detta nya API till en produkt, så ange produktens namn (du kan också göra det senare från sidan **Inställningar**). Det här steget kan du upprepa flera gånger för om du ska lägga till API:et till flera produkter.<br/>För att få åtkomst till API:et måste utvecklarna först prenumerera på en produkt. När de prenumererar få de en prenumerationsnyckel som går att använda till alla API:er i produkten. <br/> Om du har skapat APIM-instansen är du redan administratör, vilket innebär att du prenumererar på alla produkter.<br/> Som standard medföljer två exempelprodukter varje API Management-instans: **Starter** och **Unlimited**. |
-    | **Taggar**                  |                                                    | Taggar för att organisera API:er. Taggar kan användas för sökning, gruppering och filtrering.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-    | **Version av det här API:et?**     |                                                    | Om du vill ha mer versionsinformation kan du gå till [Publicera flera versioner av ditt API](api-management-get-started-publish-versions.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-
-    >[!NOTE]
-    > Om du vill publicera API:t måste du associera det med en produkt. Du kan göra det från sidan **Inställningar**.
-
-3. Välj **Skapa**.
-
-> [!TIP]
-> Om du påträffar problem med import av din egen API-definition kan du [läsa listan över kända problem och begränsningar](api-management-api-import-restrictions.md).
+Om du har problem med att importera en API-definition kan du läsa [listan över kända problem och begränsningar](api-management-api-import-restrictions.md).
 
 ## <a name="test-the-new-api-in-the-azure-portal"></a>Testa det nya API: et i Azure Portal
 
-![Testa API-karta](./media/api-management-get-started/01-import-first-api-01.png)
+Du kan anropa API-åtgärder direkt från Azure Portal, vilket ger ett bekvämt sätt att visa och testa åtgärderna.
 
-Du kan anropa åtgärder direkt från Azure Portal, vilket är ett enkelt sätt att visa och testa åtgärderna i ett API.
-
-1. Välj det API som du skapade i föregående steg (från fliken **API:er**).
-2. Tryck på fliken **Test**.
-3. Klicka på **GetSpeakers**. På sidan visas fälten för frågeparametrar (inga i det här fallet) och huvuden. Ett av huvudena är Ocp-Apim-prenumeration-Key, för prenumerationsnyckeln till den produkt som är associerad med det här API:et. Nyckeln fylls i automatiskt.
-4. Tryck på **Skicka**.
-
-    Serverdelen svarar med **200 OK** och några data.
+1. I det vänstra navigerings fönstret på API Management-instansen väljer du **API: er** från avsnittet **API Management** och väljer sedan **demo konferens-API**.
+1. Välj fliken **test** och välj sedan **GetSpeakers**. Sidan visar **frågeparametrar** och **rubriker**, om det finns några. **OCP-APIM-Subscription-Key** fylls i automatiskt för den prenumerations nyckel som är kopplad till detta API.
+1. Välj **Skicka**.
+   
+   ![Testa API-karta](./media/api-management-import-and-publish/01-import-first-api-01.png)
+   
+   Serverdelen svarar med **200 OK** och några data.
 
 ## <a name="next-steps"> </a>Nästa steg
 
@@ -96,7 +92,7 @@ I den här självstudiekursen lärde du dig att:
 > * Importera ditt första API
 > * Testa API:et i Azure Portal
 
-Gå vidare till nästa kurs:
+Gå vidare till nästa självstudie och lär dig hur du skapar och publicerar en produkt:
 
 > [!div class="nextstepaction"]
 > [Skapa och publicera en produkt](api-management-howto-add-products.md)

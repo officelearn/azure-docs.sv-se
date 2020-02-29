@@ -1,14 +1,14 @@
 ---
 title: Förstå resurs låsning
 description: Lär dig mer om låsnings alternativen i Azure-ritningar för att skydda resurser när du tilldelar en skiss.
-ms.date: 04/24/2019
+ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: e042a4d117e28a2fd2228ce36f1be98a1da31e91
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 1491af0ddfb0f6f5fbea322bd00dc9838c155983
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057353"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919880"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resurs låsning i Azure-ritningar
 
@@ -24,8 +24,8 @@ Resurser som har skapats av artefakter i en skiss tilldelning har fyra tillstån
 |Läge|Artefakt resurs typ|Status|Beskrivning|
 |-|-|-|-|
 |Lås inte|*|Inte låst|Resurser skyddas inte av ritningar. Det här läget används också för resurser som läggs till i en **skrivskyddad** eller **inte tar bort** artefakten för resurs gruppen utanför en skiss tilldelning.|
-|Skrivskydd|Resursgrupp|Det går inte att redigera/ta bort|Resurs gruppen är skrivskyddad och taggarna i resurs gruppen kan inte ändras. Det går inte att lägga till, flytta, ändra eller ta bort resurser som **inte är låsta** från den här resurs gruppen.|
-|Skrivskydd|Icke-resurs grupp|Skrivskydd|Resursen kan inte ändras på något sätt: inga ändringar och det går inte att ta bort den.|
+|Skrivskyddad|Resursgrupp|Det går inte att redigera/ta bort|Resurs gruppen är skrivskyddad och taggarna i resurs gruppen kan inte ändras. Det går inte att lägga till, flytta, ändra eller ta bort resurser som **inte är låsta** från den här resurs gruppen.|
+|Skrivskyddad|Icke-resurs grupp|Skrivskyddad|Resursen kan inte ändras på något sätt: inga ändringar och det går inte att ta bort den.|
 |Ta inte bort|*|Kan inte ta bort|Resurserna kan ändras, men de kan inte tas bort. Det går inte att lägga till, flytta, ändra eller ta bort resurser som **inte är låsta** från den här resurs gruppen.|
 
 ## <a name="overriding-locking-states"></a>Åsidosätter lås tillstånd
@@ -33,6 +33,56 @@ Resurser som har skapats av artefakter i en skiss tilldelning har fyra tillstån
 Det är vanligt vis möjligt för någon med lämplig [rollbaserad åtkomst kontroll](../../../role-based-access-control/overview.md) (RBAC) för prenumerationen, t. ex. ägar rollen, att tillåtas att ändra eller ta bort resurser. Den här åtkomsten är inte fallet när ritningar använder lås som en del av en distribuerad tilldelning. Om tilldelningen har angetts med alternativet **skrivskyddad** eller **Ta inte bort** , inte ens prenumerations ägaren kan utföra den blockerade åtgärden på den skyddade resursen.
 
 Detta säkerhets mått skyddar konsekvensen för den definierade skissen och miljön som den har utformats för att skapa från oavsiktlig eller program mässig borttagning eller ändring.
+
+### <a name="assign-at-management-group"></a>Tilldela i hanterings grupp
+
+Ett ytterligare alternativ för att förhindra prenumerations ägare från att ta bort en skiss tilldelning är att tilldela skissen till en hanterings grupp. I det här scenariot har endast **ägare** av hanterings gruppen de behörigheter som krävs för att ta bort skiss tilldelningen.
+
+Om du vill tilldela skissen till en hanterings grupp i stället för en prenumeration ändras REST API anropet så att det ser ut så här:
+
+```http
+PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{assignmentMG}/providers/Microsoft.Blueprint/blueprintAssignments/{assignmentName}?api-version=2018-11-01-preview
+```
+
+Den hanterings grupp som definieras av `{assignmentMG}` måste antingen ligga inom hanterings gruppens hierarki eller vara samma hanterings grupp där skiss definitionen sparas.
+
+Begär ande texten för skiss tilldelningen ser ut så här:
+
+```json
+{
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "location": "eastus",
+    "properties": {
+        "description": "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+        "blueprintId": "/providers/Microsoft.Management/managementGroups/{blueprintMG}/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+        "scope": "/subscriptions/{targetSubscriptionId}",
+        "parameters": {
+            "storageAccountType": {
+                "value": "Standard_LRS"
+            },
+            "costCenter": {
+                "value": "Contoso/Online/Shopping/Production"
+            },
+            "owners": {
+                "value": [
+                    "johnDoe@contoso.com",
+                    "johnsteam@contoso.com"
+                ]
+            }
+        },
+        "resourceGroups": {
+            "storageRG": {
+                "name": "defaultRG",
+                "location": "eastus"
+            }
+        }
+    }
+}
+```
+
+Den viktigaste skillnaden i denna begär ande text och en som tilldelas en prenumeration är egenskapen `properties.scope`. Den här obligatoriska egenskapen måste anges till den prenumeration som skiss tilldelningen avser. Prenumerationen måste vara direkt underordnad till den hanterings grupp hierarki där skiss tilldelningen lagras.
 
 ## <a name="removing-locking-states"></a>Tar bort lås tillstånd
 
@@ -53,7 +103,7 @@ När tilldelningen tas bort tas låsen som skapats av ritningar bort. Resursen �
 
 |Läge |Behörigheter. åtgärder |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Skrivskydd |**\*** |**\*/Read** |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
+|Skrivskyddad |**\*** |**\*/Read** |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
 |Ta inte bort |**\*/Delete** | |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
 
 > [!IMPORTANT]
@@ -61,7 +111,7 @@ När tilldelningen tas bort tas låsen som skapats av ritningar bort. Resursen �
 
 ## <a name="exclude-a-principal-from-a-deny-assignment"></a>Undanta ett huvud konto från en neka-tilldelning
 
-I vissa design-eller säkerhets scenarier kan det vara nödvändigt att undanta ett huvud konto från den [neka-tilldelning](../../../role-based-access-control/deny-assignments.md) som skiss tilldelningen skapar. Detta görs i REST API genom att lägga till upp till fem värden i **excludedPrincipals** -matrisen i **Lås** -egenskapen när [tilldelningen skapas](/rest/api/blueprints/assignments/createorupdate). Detta är ett exempel på en begär ande text som innehåller **excludedPrincipals**:
+I vissa design-eller säkerhets scenarier kan det vara nödvändigt att undanta ett huvud konto från den [neka-tilldelning](../../../role-based-access-control/deny-assignments.md) som skiss tilldelningen skapar. Det här steget görs i REST API genom att lägga till upp till fem värden i **excludedPrincipals** -matrisen i **Lås** -egenskapen när [tilldelningen skapas](/rest/api/blueprints/assignments/createorupdate). Följande tilldelnings definition är ett exempel på en begär ande text som innehåller **excludedPrincipals**:
 
 ```json
 {

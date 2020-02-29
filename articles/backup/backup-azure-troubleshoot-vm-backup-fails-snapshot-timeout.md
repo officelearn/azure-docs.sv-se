@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 0a4d7f152e555ed89bd0a6aee0a7bc83b9815492
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 1ed0ce94074e3d0ed03c0a0dc4c276d71da7059b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77469144"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921019"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
@@ -23,19 +23,19 @@ Den här artikeln innehåller fel söknings steg som kan hjälpa dig att lösa A
 **Felkod**: UserErrorGuestAgentStatusUnavailable <br>
 **Fel meddelande**: VM-agenten kan inte kommunicera med Azure Backup<br>
 
-Azure VM-agenten kan vara stoppad, inaktuell, i ett inkonsekvent tillstånd eller inte installerad och förhindra att Azure Backup-tjänsten utlöser ögonblicks bilder.
+Azure VM-agenten kan vara stoppad, inaktuell, i ett inkonsekvent tillstånd eller inte installerad. Dessa tillstånd förhindrar att Azure Backups tjänsten utlöser ögonblicks bilder.
 
-- **Öppna Azure Portal > inställningar för virtuella datorer > > egenskaper-bladet** > Se till att VM- **status** är **igång** och att **agent status** är **klar**. Om den virtuella dator agenten har stoppats eller är i ett inkonsekvent tillstånd startar du om agenten<br>
+- **Öppna Azure Portal > vm > inställningar > fönstret egenskaper** > kontrol lera att VM- **status** är **igång** och att **agent status** är **klar**. Om den virtuella dator agenten har stoppats eller är i ett inkonsekvent tillstånd startar du om agenten<br>
   - För virtuella Windows-datorer följer du de här [stegen](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) för att starta om gäst agenten.<br>
   - För virtuella Linux-datorer följer du de här [stegen](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) för att starta om gäst agenten.
-- **Öppna Azure Portal > inställningar för virtuella datorer > > tillägg** > se till att alla tillägg har statusen **slutfört** . Om inte, följer du dessa [steg](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) för att lösa problemet.
+- **Öppna Azure Portal > VM > inställningar > tillägg** > se till att alla tillägg är i **etablerings läget lyckades** . Om inte, följer du dessa [steg](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) för att lösa problemet.
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError-det gick inte att kommunicera med VM-agenten för ögonblicks bild status
 
 **Felkod**: GuestAgentSnapshotTaskStatusError<br>
 **Fel meddelande**: det gick inte att kommunicera med VM-agenten för ögonblicks bild status <br>
 
-När du har registrerat och schemalagt en virtuell dator för Azure Backup tjänsten initierar säkerhets kopieringen jobbet genom att kommunicera med tillägget för säkerhets kopiering av virtuella datorer för att ta en ögonblicks bild av tidpunkten. Något av följande villkor kan förhindra att ögonblicks bilden utlöses. Om ögonblicks bilden inte utlöses kan ett säkerhets kopierings fel uppstå. Slutför följande fel söknings steg i ordningen i listan och försök sedan igen:  
+När du har registrerat och schemalagt en virtuell dator för Azure Backup tjänsten startar backup jobbet genom att kommunicera med tillägget för säkerhets kopiering av virtuella datorer för att ta en ögonblicks bild av tidpunkten. Något av följande villkor kan förhindra att ögonblicks bilden utlöses. Om ögonblicks bilden inte utlöses kan ett säkerhets kopierings fel uppstå. Slutför följande fel söknings steg i ordningen i listan och försök sedan igen:  
 
 **Orsak 1: [agenten installeras på den virtuella datorn, men den svarar inte (för virtuella Windows-datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 
@@ -52,9 +52,9 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 **Felkod**: UserErrorVmProvisioningStateFailed<br>
 **Fel meddelande**: det gick inte att etablerings status för den virtuella datorn<br>
 
-Felet uppstår när ett av de misslyckade tilläggen placerar den virtuella datorn i etablerings läget misslyckades.<br>**Öppna Azure Portal > inställningar för virtuella datorer > > tillägg > tillägg status** och kontrol lera om alla tillägg har statusen **slutfört** .
+Felet uppstår när ett av de misslyckade tilläggen placerar den virtuella datorn i etablerings läget misslyckades.<br>**Öppna Azure Portal > VM > inställningar > tillägg > tillägg status** och kontrol lera om alla tillägg är i **etablerings läget lyckades** .
 
-- Om VMSnapshot-tillägget är i ett felaktigt tillstånd högerklickar du på det misslyckade tillägget och tar bort det. Utlös en säkerhets kopiering på begäran, Detta installerar om tilläggen och kör säkerhets kopierings jobbet.  <br>
+- Om VMSnapshot-tillägget är i ett felaktigt tillstånd högerklickar du på det misslyckade tillägget och tar bort det. Utlös en säkerhets kopiering på begäran. Med den här åtgärden installeras tilläggen om och säkerhets kopierings jobbet körs.  <br>
 - Om ett annat tillägg är i ett felaktigt tillstånd kan det störa säkerhets kopieringen. Se till att de här tilläggs problemen är lösta och försök att säkerhetskopiera igen.  
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached-Max gränsen för återställnings punkt samlingen har uppnåtts
@@ -64,7 +64,7 @@ Felet uppstår när ett av de misslyckade tilläggen placerar den virtuella dato
 
 - Det här problemet kan inträffa om en lås på återställnings punkt resurs gruppen förhindrar automatisk rensning av återställnings punkter.
 - Det här problemet kan också inträffa om flera säkerhets kopieringar utlöses per dag. För närvarande rekommenderar vi bara en säkerhets kopiering per dag, eftersom återställnings punkterna för återställnings punkten behålls i 1-5 dagar per konfigurerad kvarhållning av ögonblicks bilder och endast 18 snabb RPs kan associeras med en virtuell dator vid en viss tidpunkt. <br>
-- Antalet återställnings punkter i återställnings punkt samlingar och resurs grupper för en virtuell dator får inte överstiga 18. Om du vill skapa en ny återställnings punkt tar du bort befintliga återställnings punkter.
+- Antalet återställnings punkter i återställnings punkt samlingar och resurs grupper för en virtuell dator får inte överstiga 18. Ta bort befintliga återställnings punkter för att skapa en ny återställnings punkt.
 
 Rekommenderad åtgärd:<br>
 Lös problemet genom att ta bort låset på den virtuella datorns resurs grupp och försök igen för att utlösa rensning.
@@ -79,14 +79,14 @@ Lös problemet genom att ta bort låset på den virtuella datorns resurs grupp o
 **Felkod**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Fel meddelande**: säkerhets kopieringen har inte tillräcklig behörighet för nyckel valvet för säkerhets kopiering av krypterade virtuella datorer. <br>
 
-För att en säkerhets kopiering ska lyckas på krypterade virtuella datorer måste den ha behörighet att komma åt nyckel valvet. Detta kan göras med hjälp av [Azure Portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) eller via [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
+För att en säkerhets kopiering ska lyckas på krypterade virtuella datorer måste den ha behörighet att komma åt nyckel valvet. Behörigheter kan ställas in via [Azure Portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) eller via [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork-åtgärden misslyckades på grund av ingen nätverks anslutning på den virtuella datorn
 
 **Felkod**: ExtensionSnapshotFailedNoNetwork<br>
 **Fel meddelande**: ögonblicks bild åtgärden misslyckades på grund av ingen nätverks anslutning på den virtuella datorn<br>
 
-När du har registrerat och schemalagt en virtuell dator för Azure Backup tjänsten initierar säkerhets kopieringen jobbet genom att kommunicera med tillägget för säkerhets kopiering av virtuella datorer för att ta en ögonblicks bild av tidpunkten. Något av följande villkor kan förhindra att ögonblicks bilden utlöses. Om ögonblicks bilden inte utlöses kan ett säkerhets kopierings fel uppstå. Slutför följande fel söknings steg i ordningen i listan och försök sedan igen:
+När du har registrerat och schemalagt en virtuell dator för Azure Backup tjänsten startar backup jobbet genom att kommunicera med tillägget för säkerhets kopiering av virtuella datorer för att ta en ögonblicks bild av tidpunkten. Något av följande villkor kan förhindra att ögonblicks bilden utlöses. Om ögonblicks bilden inte utlöses kan ett säkerhets kopierings fel uppstå. Slutför följande fel söknings steg i ordningen i listan och försök sedan igen:
 
 **Orsak 1: [ögonblicks bilds statusen kan inte hämtas eller så går det inte att hämta en ögonblicks bild](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Orsak 2: [säkerhets kopierings tillägget kan inte uppdateras eller läsas in](#the-backup-extension-fails-to-update-or-load)**  
@@ -96,7 +96,7 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 **Felkod**: ExtensionOperationFailedForManagedDisks <br>
 **Fel meddelande**: VMSnapshot-tilläggs åtgärd misslyckades<br>
 
-När du har registrerat och schemalagt en virtuell dator för Azure Backup tjänsten initierar säkerhets kopieringen jobbet genom att kommunicera med tillägget för säkerhets kopiering av virtuella datorer för att ta en ögonblicks bild av tidpunkten. Något av följande villkor kan förhindra att ögonblicks bilden utlöses. Om ögonblicks bilden inte utlöses kan ett säkerhets kopierings fel uppstå. Slutför följande fel söknings steg i ordningen i listan och försök sedan igen:  
+När du har registrerat och schemalagt en virtuell dator för Azure Backup tjänsten startar backup jobbet genom att kommunicera med tillägget för säkerhets kopiering av virtuella datorer för att ta en ögonblicks bild av tidpunkten. Något av följande villkor kan förhindra att ögonblicks bilden utlöses. Om ögonblicks bilden inte utlöses kan ett säkerhets kopierings fel uppstå. Slutför följande fel söknings steg i ordningen i listan och försök sedan igen:  
 **Orsak 1: [ögonblicks bilds statusen kan inte hämtas eller så går det inte att hämta en ögonblicks bild](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Orsak 2: [säkerhets kopierings tillägget kan inte uppdateras eller läsas in](#the-backup-extension-fails-to-update-or-load)**  
 **Orsak 3: [agenten installeras på den virtuella datorn, men den svarar inte (för virtuella Windows-datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -114,20 +114,19 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 **Orsak 4: [säkerhets kopierings tillägget kan inte uppdateras eller läsas in](#the-backup-extension-fails-to-update-or-load)**  
 **Orsak 5: säkerhets kopierings tjänsten har inte behörighet att ta bort de gamla återställnings punkterna på grund av ett resurs grupp lås** <br>
 
-
-## <a name="usererrorunsupporteddisksize---the-configured-disk-sizes-is-currently-not-supported-by-azure-backup"></a>UserErrorUnsupportedDiskSize – de konfigurerade disk storlekarna stöds för närvarande inte av Azure Backup.
+## <a name="usererrorunsupporteddisksize---the-configured-disk-sizes-is-currently-not-supported-by-azure-backup"></a>UserErrorUnsupportedDiskSize – den konfigurerade disk storleken/diskarna stöds inte för närvarande av Azure Backup
 
 **Felkod**: UserErrorUnsupportedDiskSize <br>
 **Fel meddelande**: den konfigurerade disk storleken/diskarna stöds för närvarande inte av Azure Backup. <br>
 
-Säkerhets kopierings åtgärden kunde inte utföras vid säkerhets kopiering av en virtuell dator med en disk storlek som är större än 32 TB. Dessutom stöds inte säkerhets kopiering av krypterade diskar som är större än 4 TB idag. Kontrol lera att disk storleken/diskarna är mindre än eller lika med den gräns som stöds genom att dela diskarna.
+Säkerhets kopierings åtgärden kunde inte utföras vid säkerhets kopiering av en virtuell dator med en disk storlek som är större än 32 TB. Dessutom stöds inte säkerhets kopiering av krypterade diskar som är större än 4 TB för närvarande. Kontrol lera att disk storleken/diskarna är mindre än eller lika med den gräns som stöds genom att dela diskarna.
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress – det går inte att initiera säkerhets kopieringen eftersom en annan säkerhets kopiering pågår just nu
 
 **Felkod**: UserErrorBackupOperationInProgress <br>
 **Fel meddelande**: det går inte att initiera säkerhets kopieringen eftersom en annan säkerhets kopiering pågår just nu<br>
 
-Det senaste säkerhets kopierings jobbet misslyckades på grund av att en befintlig säkerhets kopiering pågår. Du kan inte starta ett nytt säkerhets kopierings jobb förrän det aktuella jobbet har slutförts. Se till att den pågående säkerhets kopieringen har slutförts innan du utlöser eller schemalägger en annan säkerhets kopierings åtgärd. Kontrol lera status för säkerhets kopierings jobb genom att utföra stegen nedan:
+Det senaste säkerhets kopierings jobbet misslyckades på grund av att en befintlig säkerhets kopiering pågår. Du kan inte starta ett nytt säkerhets kopierings jobb förrän det aktuella jobbet har slutförts. Se till att den pågående säkerhets kopieringen har slutförts innan du utlöser eller schemalägger en annan säkerhets kopierings åtgärd. Gör så här för att kontrol lera status för säkerhets kopierings jobb:
 
 1. Logga in på Azure Portal, klicka på **alla tjänster**. Skriv Recovery Services och klicka på **Recovery Services-valv**. Listan över Recovery Services-valv visas.
 2. I listan över Recovery Services-valv väljer du ett valv där säkerhets kopian har kon figurer ATS.
@@ -139,6 +138,13 @@ Det senaste säkerhets kopierings jobbet misslyckades på grund av att en befint
 4. Försök säkerhetskopiera igen.
 
 Om den schemalagda säkerhets kopierings åtgärden tar längre tid, i konflikt med nästa säkerhets kopierings konfiguration, granskar du de [bästa metoderna](backup-azure-vms-introduction.md#best-practices), [säkerhets kopierings prestanda](backup-azure-vms-introduction.md#backup-performance)och [återställnings överväganden](backup-azure-vms-introduction.md#backup-and-restore-considerations).
+
+## <a name="usererrorcrpreportedusererror---backup-failed-due-to-an-error-for-details-see-job-error-message-details"></a>UserErrorCrpReportedUserError – det gick inte att säkerhetskopiera på grund av ett fel. Mer information finns i informationen om jobb fel meddelanden
+
+**Felkod**: UserErrorCrpReportedUserError <br>
+**Fel meddelande**: säkerhets kopieringen misslyckades på grund av ett fel. Mer information finns i informationen om jobb fel meddelanden.
+
+Det här felet rapporteras från den virtuella IaaS-datorn. Om du vill identifiera orsaken till problemet går du till inställningarna för Recovery Services valvet. Under avsnittet **övervakning** väljer du **säkerhets kopierings jobb** för att filtrera och visa statusen. Klicka på **fel** om du vill granska informationen om underliggande fel meddelanden. Vidta ytterligare åtgärder enligt rekommendationerna på sidan med fel information.
 
 ## <a name="causes-and-solutions"></a>Orsaker och lösningar
 
@@ -192,7 +198,7 @@ Följ dessa steg om du behöver utförlig loggning för waagent:
 ### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>Konfigurations alternativen för VM-agenten har inte angetts (för virtuella Linux-datorer)
 
 En konfigurations fil (/etc/waagent.conf) styr åtgärder för waagent. Alternativ för konfigurations fil **tillägg. Aktivera** och **etablering. agenten** måste anges till **y** för att säkerhets kopieringen ska fungera.
-Fullständig lista över alternativ för konfigurations filen för virtuella datorer finns <https://github.com/Azure/WALinuxAgent#configuration-file-options>
+Fullständig lista över alternativ för konfigurations filen för virtuella datorer finns i <https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Det går inte att hämta ögonblicks bild status, eller så kan en ögonblicks bild inte tas
 
@@ -229,7 +235,7 @@ När du slutför de här stegen installeras tillägget om under nästa säkerhet
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Ta bort låset från återställnings punkt resurs gruppen
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Gå till **alternativet alla resurser**, Välj resurs gruppen för återställnings punkt samling i följande format AzureBackupRG_`<Geo>`_`<number>`.
 3. I avsnittet **Inställningar** väljer du **Lås** för att Visa låsen.
 4. Om du vill ta bort låset väljer du ellipsen och klickar på **ta bort**.
@@ -240,7 +246,7 @@ När du slutför de här stegen installeras tillägget om under nästa säkerhet
 
 När du har tagit bort låset måste återställnings punkterna rensas.
 
-Om du tar bort resurs gruppen för den virtuella datorn eller själva datorn, förblir ögonblicks bilder av hanterade diskar aktiva och upphör att gälla enligt den kvarhållna uppsättningen. För att ta bort ögonblicks bilderna för omedelbar återställning (om du inte behöver dem längre) som lagras i återställnings punkts samlingen rensar du återställnings punkts samlingen enligt stegen nedan.
+Om du tar bort resurs gruppen för den virtuella datorn eller själva datorn, förblir ögonblicks bilder av hanterade diskar aktiva och upphör att gälla enligt den kvarhållna uppsättningen. Om du vill ta bort ögonblicks bilderna för omedelbar återställning (om du inte behöver dem längre) som lagras i återställnings punkts samlingen rensar du återställnings punkts samlingen enligt stegen nedan.
 
 Om du vill rensa återställnings punkterna följer du någon av metoderna:<br>
 
@@ -249,21 +255,21 @@ Om du vill rensa återställnings punkterna följer du någon av metoderna:<br>
 
 #### <a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a>Rensa återställnings punkts samlingen genom att köra säkerhets kopiering på begäran
 
-När du har tagit bort låset utlöser du en säkerhets kopiering på begäran. Detta säkerställer att återställnings punkterna rensas automatiskt. Vi förväntar dig att den här åtgärden på begäran upphör att fungera första gången; den kommer dock att säkerställa automatisk rensning i stället för manuell borttagning av återställnings punkter. Efter rensningen bör nästa schemalagda säkerhets kopiering lyckas.
+När du har tagit bort låset utlöser du en säkerhets kopiering på begäran. Den här åtgärden ser till att återställnings punkterna rensas automatiskt. Vi förväntar dig att den här åtgärden på begäran upphör att fungera första gången; den kommer dock att säkerställa automatisk rensning i stället för manuell borttagning av återställnings punkter. Efter rensningen ska din nästa schemalagda säkerhets kopiering lyckas.
 
 > [!NOTE]
 > Automatisk rensning sker efter några timmar efter att säkerhets kopieringen har påbörjats. Om den schemalagda säkerhets kopieringen fortfarande Miss lyckas, försök att ta bort återställnings punkts samlingen manuellt med hjälp av stegen i listan [här](#clean-up-restore-point-collection-from-azure-portal)
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Rensa återställnings punkt samling från Azure Portal <br>
 
-Gör så här om du vill rensa samlingen återställnings punkter manuellt, som inte rensas på grund av låset på resurs gruppen:
+Om du vill rensa samlingen återställnings punkter manuellt, som inte avmarkeras på grund av resurs gruppens lås, kan du prova följande steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på **alla resurser**på menyn **hubb** , Välj resurs gruppen med följande format AzureBackupRG_`<Geo>`_`<number>` där den virtuella datorn finns.
 
     ![Ta bort lås](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
-3. Klicka på resurs grupp, bladet **Översikt** visas.
+3. Klicka på resurs grupp. **översikts** fönstret visas.
 4. Välj alternativet **Visa dolda typer** om du vill visa alla dolda resurser. Välj återställnings punkt samlingarna med följande format AzureBackupRG_`<VMName>`_`<number>`.
 
     ![Ta bort lås](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)

@@ -9,18 +9,18 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 569eb31c6cbe8b95773d52f6e1325801fbabf86f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 329b930c950ea7c58bdac798fce51af152aa8ff3
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773537"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920611"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Service Bus mått i Azure Monitor
 
 Service Bus mått ger dig tillstånd för resurser i din Azure-prenumeration. Med en omfattande uppsättning Mät data kan du utvärdera den övergripande hälsan för dina Service Bus-resurser, inte bara på namn områdes nivå, utan även på enhets nivå. Den här statistiken kan vara viktig när de hjälper dig att övervaka status för Service Bus. Mått kan också hjälpa till att felsöka problem med grundorsaken utan att behöva kontakta Azure-supporten.
 
-Azure Monitor innehåller enhetligt användargränssnitt för övervakning över olika Azure-tjänster. Mer information finns i [övervakning i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) och [hämta Azure Monitor-mått med .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) i GitHub.
+Azure Monitor innehåller enhetligt användargränssnitt för övervakning över olika Azure-tjänster. Mer information finns i [övervakning i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) och [Hämta Azure Monitor mått med .net](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) -exempel på GitHub.
 
 > [!IMPORTANT]
 > När det inte har varit någon interaktion med en entitet i 2 timmar börjar måtten Visa "0" som ett värde tills entiteten inte längre är inaktiv.
@@ -33,7 +33,7 @@ Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna dat
 
 ## <a name="access-metrics-in-the-portal"></a>Åtkomst-mått i portal
 
-Du kan övervaka mått med tiden i den [Azure-portalen](https://portal.azure.com). I följande exempel visas hur du visar lyckade begäranden och inkommande begäranden på kontonivå:
+Du kan övervaka mått över tid i [Azure Portal](https://portal.azure.com). I följande exempel visas hur du visar lyckade begäranden och inkommande begäranden på kontonivå:
 
 ![][1]
 
@@ -86,6 +86,13 @@ Följande två typer av fel klassificeras som användar fel:
 | ActiveMessages| Antal aktiva meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Dimensionen: EntityName |
 | Meddelanden med obeställbara meddelanden| Antal meddelanden om obeställbara meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/>Dimensionen: EntityName |
 | Schemalagda meddelanden| Antal schemalagda meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt  <br/> Dimensionen: EntityName |
+
+> [!NOTE]
+> Värden för följande mått är tidpunkts värden. Inkommande meddelanden som förbrukas direkt efter den tidpunkten kanske inte återspeglas i dessa mått. 
+> - Meddelanden
+> - Aktiva meddelanden 
+> - Meddelanden med obeställbara meddelanden 
+> - Schemalagda meddelanden 
 
 ## <a name="connection-metrics"></a>Anslutningsmått
 

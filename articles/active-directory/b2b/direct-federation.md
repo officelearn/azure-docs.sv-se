@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 02/27/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 036c8361af3f6631b6151782fa18495542d2e3f6
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: a6187fa9f274c6d00c1c9872a1b27268ac91295e
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888896"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161494"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Direkt Federation med AD FS och tredje parts leverantörer för gäst användare (för hands version)
 |     |
@@ -64,7 +64,11 @@ Om du anger URL: en för metadata i inställningarna för identitetsprovider fö
 
 ### <a name="limit-on-federation-relationships"></a>Gräns för Federations relationer
 För närvarande stöds högst 1 000 Federations relationer. Den här gränsen omfattar både [interna federationar](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) och direkta federationer.
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+
+### <a name="limit-on-multiple-domains"></a>Begränsa för flera domäner
+Vi stöder för närvarande inte direkt Federation med flera domäner från samma klient organisation.
+
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Kan jag konfigurera direkt Federation med en domän för vilken en ohanterad (e-autentiserad) klient organisation finns? 
 Ja. Om domänen inte har verifierats och klienten inte har genomgått någon [Administratörs övertag](../users-groups-roles/domains-admin-takeover.md)Ande kan du konfigurera direkt Federation med domänen. Ohanterad eller e-postverifierad skapas klienter när en användare löser in en B2B-inbjudan eller utför en självbetjänings registrering för Azure AD med en domän som inte finns för närvarande. Du kan konfigurera direkt Federation med dessa domäner. Om du försöker konfigurera direkt Federation med en DNS-verifierad domän, antingen i Azure Portal eller via PowerShell, visas ett fel meddelande.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Om direkt Federation och e-postautentisering med eng ång slö sen ord är båda aktiverade, vilken metod har företräde?

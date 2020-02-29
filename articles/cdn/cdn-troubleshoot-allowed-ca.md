@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5462502514a3e327913122fe99fd699856891216
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 7b71611d43bc2d4de4c3e609462906c44fba0443
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083106"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919982"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Tillåtna certifikat utfärdare för att aktivera anpassad HTTPS på Azure CDN
 
-För en anpassad Azure Content Delivery Network-domän (CDN) i en **Azure CDN Standard från Microsoft** -slutpunkt, när du [aktiverar https-funktionen med hjälp av ditt eget certifikat](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates), måste du använda en tillåten certifikat utfärdare (ca) för att skapa SSL-certifikatet. Annars, om du använder en icke-tillåten CA eller ett självsignerat certifikat, kommer din begäran att avvisas.
+Du måste uppfylla specifika certifikat krav när du [aktiverar https-funktionen genom att använda ditt eget certifikat](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates) för en anpassad Azure Content Delivery Network-domän (CDN). **Azure CDN Standard från Microsoft** Profile kräver ett certifikat från en av de godkända certifikat utfärdarna (ca) i följande lista. Om ett certifikat från en certifikat utfärdare som inte är godkänt eller om ett självsignerat certifikat används, avvisas begäran. **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** -profiler accepterar alla giltiga certifikat från valfri giltig certifikat utfärdare.
 
 > [!NOTE]
-> Alternativet att använda ett eget certifikat för att aktivera anpassad HTTPS är bara tillgängligt med **Azure CDN Standard från Microsoft** -profiler. 
+> Alternativet att använda ditt eget certifikat för att aktivera HTTPS-funktionen för anpassade domäner är *inte* tillgänglig för **Azure CDN Standard från Akamai** -profiler. 
 >
 
 [!INCLUDE [cdn-front-door-allowed-ca](../../includes/cdn-front-door-allowed-ca.md)]

@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 9ef859cce68e13f5207d77d8396bc69ddbbce339
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/24/2020
+ms.openlocfilehash: 8611abd4e504e0378b744b12d0adb5fa22f5476b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314954"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920373"
 ---
 # <a name="permutation-feature-importance"></a>Permutationfunktionsprioritet
 
-Den här artikeln beskriver hur du använder modulen permutations prioritet i Azure Machine Learning designer för att beräkna en uppsättning funktions resultat för din data uppsättning. Du kan använda de här poängen för att avgöra vilka funktioner som ska användas i en modell.
+I den här artikeln beskrivs hur du använder funktionen permutations prioritet i Azure Machine Learning designer (för hands version) för att beräkna en uppsättning funktions resultat för din data uppsättning. Du kan använda de här poängen för att avgöra vilka funktioner som ska användas i en modell.
 
 I den här modulen är funktions värden slumpmässigt blandade, en kolumn i taget. Modellens prestanda mäts före och efter. Du kan välja något av standard måtten för att mäta prestanda.
 
@@ -46,7 +46,7 @@ Att generera en uppsättning funktions resultat kräver att du har en redan utbi
 
     -   **Klassificering**
 
-        Precision, precision, återkallande, genomsnittlig logg förlust  
+        Precision, precision, återkallande  
 
     -   **Regression**
 

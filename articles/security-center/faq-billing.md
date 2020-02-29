@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 7986a48b69b1d2c4df494dbd0a448d1bbe3091b4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 214b5eea6f8de2d59869f7279aa17bcd786d8742
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661795"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913845"
 ---
 # <a name="billing-questions"></a>Frågor om fakturering
 
@@ -27,7 +27,7 @@ Security Center finns på två nivåer:
 
 - Den **kostnads fria nivån** ger insyn i säkerhets läget för dina Azure-resurser, grundläggande säkerhets principer, säkerhets rekommendationer och integrering med säkerhets produkter och-tjänster från partner.
 
-- **Standard-nivån** lägger till funktioner för avancerad hot identifiering, inklusive Hot information, beteende analys, avvikelse identifiering, säkerhets incidenter och hot rapporterings rapporter. Du kan starta en kostnads fri utvärderings version på standard nivå. Om du vill uppgradera väljer du [pris nivå](https://docs.microsoft.com/azure/security-center/security-center-pricing) i säkerhets principen. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
+- **Standard-nivån** lägger till hot skydds funktioner som innehåller säkerhets aviseringar, Hot information, beteende analys, avvikelse identifiering och hot rapporterings rapporter. Du kan starta en kostnads fri utvärderings version på standard nivå. Om du vill uppgradera väljer du [pris nivå](https://docs.microsoft.com/azure/security-center/security-center-pricing) i säkerhets principen. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>Hur kan jag spåra vem som i min organisation genomförde ändringar av pris nivån i Azure Security Center
 Azure-prenumerationer kan ha flera administratörer som har behörighet att ändra pris nivån. Om du vill ta reda på vilken användare som utförde en pris nivå ändring använder du Azure aktivitets loggen. Mer information finns [här](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832).

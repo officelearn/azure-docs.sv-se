@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 1bf023dc886481354306a763a0f9c56286c57e05
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: e94ffb3d34082745c3d7ca86cfda2b93c0ed08da
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749878"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919421"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Förstå en omstart av systemet för virtuell Azure-dator
 
@@ -30,10 +30,7 @@ Det bästa sättet att skydda ett program som körs på Azure mot VM-omstarter o
 
 För att tillhandahålla den här nivån av redundans för ditt program, rekommenderar vi att du grupperar två eller flera virtuella datorer i en tillgänglighets uppsättning. Den här konfigurationen garanterar att minst en virtuell dator är tillgänglig under en planerad eller oplanerad underhålls händelse och uppfyller 99,95% [SLA för Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/).
 
-Mer information om tillgänglighets uppsättningar finns i följande artiklar:
-
-- [Hantera tillgängligheten för virtuella datorer](../windows/manage-availability.md)
-- [Konfigurera tillgänglighet för virtuella datorer](../windows/classic/configure-availability.md)
+Mer information om tillgänglighets uppsättningar finns i [Hantera tillgängligheten för virtuella datorer](../windows/manage-availability.md)
 
 ## <a name="resource-health-information"></a>Resource Health information
 

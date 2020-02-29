@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 02/03/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 559050d11b6b85a9842c679b94e0e5b2fd5dd0f8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: df1602fe82b4a625dd5f01de2bd7236816fbb0ac
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987721"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164669"
 ---
 # <a name="azure-media-services-v3-overview"></a>Översikt över Azure Media Services v3
 
@@ -34,13 +34,13 @@ Media Services v3-SDK: er baseras på [Media Services v3 openapi-specifikation (
 > För närvarande kan du inte använda Azure Portal för att hantera v3-resurser. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](media-services-apis-overview.md#sdks).
 
 ## <a name="compliance-privacy-and-security"></a>Efterlevnad, sekretess och säkerhet
+
+Som en viktig påminnelse måste du följa alla tillämpliga lagar i din användning av Azure Media Services och du får inte använda Media Services eller någon Azure-tjänst på ett sätt som strider mot andras rättigheter eller som kan vara skadliga för andra.
+
+Innan du laddar upp en video/bild till Media Services måste du ha alla de rättigheter som krävs för att använda videon/bilden, inklusive, vid behov enligt lag, alla nödvändiga samspelade individer (om de finns) i videon/bilden, för användning, bearbetning och lagring av data i Media Services och Azure. Vissa jurisdiktioner kan införa särskilda juridiska krav för insamling, online-bearbetning och lagring av vissa kategorier av data, t. ex. Bio metriska data. Innan du använder Media Services och Azure för bearbetning och lagring av data som omfattas av särskilda juridiska krav, måste du säkerställa efterlevnaden av sådana juridiska krav som kan gälla för dig.
+
+Om du vill veta mer om efterlevnad, sekretess och säkerhet i Media Services går du till Microsoft [Trust Center](https://www.microsoft.com/trust-center/?rtc=1). För Microsofts sekretess krav, data hantering och bevarande praxis, inklusive hur du tar bort dina data, kan du läsa Microsofts [sekretess policy](https://privacy.microsoft.com/PrivacyStatement), [Online Services-villkoren](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("ost") och [data bearbetnings tillägget](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Genom att använda Media Services samtycker du till att vara kopplad till OST-, DPA-och sekretess policyn.
  
-Som en viktig påminnelse måste du följa alla tillämpliga lagar, i din användning av Azure Media Services, och du får inte använda Azure Media Services eller någon annan Azure-tjänst på ett sätt som strider mot andras rättigheter eller kan vara skadliga för andra. 
-
-Innan du laddar upp videor/bilder, inklusive bio metriska data, för att Media Services för bearbetning och lagring måste du (1) ha alla lämpliga rättigheter till videor/bilder. och (2) har alla lämpliga samtycken från enskilda individer i videor som gör det möjligt att använda och lagra sina bio metriska data i Media Services. 
-
-Om du vill veta mer om efterlevnad, sekretess och hur Microsoft skyddar och skyddar dina data i Azure Media Services kan du gå till Azure [säkerhets Center](https://www.microsoft.com/trust-center/?rtc=1). Information om Microsofts sekretess avtal och hantering av dina data finns i Microsofts [sekretess policy](https://privacy.microsoft.com/PrivacyStatement), [Online Services-villkoren](https://www.microsoft.com/licensing/product-licensing/products) ("ost") och [tillägget för data bearbetning](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Det finns information om kvarhållning och borttagning av kunddata i DPA. Genom att använda Azure Media Services samtycker du till att vara kopplad till OST, DPA och sekretess policyn.
-
 ## <a name="what-can-i-do-with-media-services"></a>Vad kan jag göra med Media Services?
 
 Med Media Services kan du bygga en mängd olika medie arbets flöden i molnet. Några exempel på vad du kan göra med Media Services är:
@@ -74,7 +74,7 @@ Snabb starterna visar grundläggande dags-1-instruktioner för nya kunder för a
 * [Strömma videofiler – CLI](stream-files-cli-quickstart.md)
 * [Strömma videofiler-Node. js](stream-files-nodejs-quickstart.md)
 
-### <a name="tutorials"></a>Självstudiekurser
+### <a name="tutorials"></a>Självstudier
 
 Självstudierna visar scenariobaserade procedurer för några av de främsta Media Services uppgifterna.
 
@@ -88,7 +88,7 @@ Självstudierna visar scenariobaserade procedurer för några av de främsta Med
 
 Använd [den här exempel webbläsaren](https://docs.microsoft.com/samples/browse/?products=azure-media-services) för att bläddra bland Azure Media Services kod exempel.
 
-### <a name="how-to-guides"></a>Anvisningar
+### <a name="how-to-guides"></a>Instruktionsguider
 
 Instruktions guider innehåller kod exempel som visar hur du utför en uppgift. I det här avsnittet hittar du många exempel. Här är några av dem:
 
@@ -106,4 +106,3 @@ Kolla in [Azure Media Services community](media-services-community.md) -artikeln
 ## <a name="next-steps"></a>Nästa steg
 
 [Lär dig mer om grundläggande begrepp](concepts-overview.md)
-

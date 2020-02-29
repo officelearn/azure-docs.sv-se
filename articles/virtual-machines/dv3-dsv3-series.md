@@ -2,19 +2,19 @@
 title: Dv3 och Dsv3-serien – Azure Virtual Machines
 description: Specifikationer för virtuella datorer med Dv3 och Dsv3-serien.
 services: virtual-machines
-author: jonbeck7
+author: joelpelley
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: db50cadee4aeb618e85e977ca02f4fa6ff203d4b
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 9ea5811fa20ea4866655de74d79ff3905ba03f16
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493766"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164414"
 ---
-# <a name="dv3-and-dsv3-series"></a>Dv3 och Dsv3-serien
+# <a name="dv3-and-dsv3-series"></a>Dv3- och Dsv3-serien
 
 Dv3-serien körs på Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) i en Hyper-threaded-konfiguration, vilket ger ett bättre värde för de flesta allmänna syfte med arbets belastningar. Minnet har utökats (från ~ 3,5 GiB/vCPU till 4 GiB/vCPU) medan disk-och nätverks gränser har justerats per kärna för att justeras efter flytta till hyperthreading. Dv3-serien har inte längre hög minnes storlek för virtuella datorer i D/Dv2-serien, de har flyttats till den minnesoptimerade [Ev3 och Esv3-serien](ev3-esv3-series.md).
 
@@ -33,6 +33,10 @@ ACU: 160–190
 Premium Storage: stöds inte
 
 Premium Storage caching: stöds inte
+
+Direktmigrering: stöds
+
+Minnes bebetjänings uppdateringar: stöds
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt data flöde för temporär lagring: IOPS/Read Mbit/s/Write Mbit/s | Högsta antal nätverkskort/nätverks bandbredd |
 |---|---|---|---|---|---|---|
@@ -55,6 +59,10 @@ ACU: 160–190
 Premium Storage: stöds
 
 Premium Storage caching: stöds
+
+Direktmigrering: stöds
+
+Minnes bebetjänings uppdateringar: stöds
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|

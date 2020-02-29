@@ -12,23 +12,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 14cd43f7bd7965b755eca14e5914c64e2ec8e044
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981293"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918214"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Kan inte använda RDP till en virtuell dator eftersom den virtuella datorn startas i felsäkert läge
 
 Den här artikeln visar hur du löser problem som du inte kan ansluta till Azure Windows Virtual Machines (VM) eftersom den virtuella datorn är konfigurerad att starta i felsäkert läge.
 
-> [!NOTE]
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen.
 
 ## <a name="symptoms"></a>Symtom
 
-Du kan inte göra en RDP-anslutning eller andra anslutningar (till exempel HTTP) till en virtuell dator i Azure eftersom den virtuella datorn är konfigurerad att starta i felsäkert läge. När du checkar skärmbilden den [Startdiagnostik](../troubleshooting/boot-diagnostics.md) i Azure-portalen kan du se att den virtuella datorn startas normalt, men nätverksgränssnittet är inte tillgänglig:
+Du kan inte göra en RDP-anslutning eller andra anslutningar (till exempel HTTP) till en virtuell dator i Azure eftersom den virtuella datorn är konfigurerad att starta i felsäkert läge. När du kontrollerar skärm bilden i [startdiagnostiken](../troubleshooting/boot-diagnostics.md) i Azure Portal kan du se att den virtuella datorn startar normalt, men att nätverks gränssnittet inte är tillgängligt:
 
 ![Bild som visar nätverk inferce i felsäkert läge](./media/troubleshoot-rdp-safe-mode/network-safe-mode.png)
 
@@ -39,21 +37,21 @@ RDP-tjänsten är inte tillgänglig i felsäkert läge. Endast läses viktiga pr
 
 ## <a name="solution"></a>Lösning
 
-Innan du följer dessa steg kan du ta en ögonblicksbild av OS-disken på den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
+Innan du följer dessa steg kan du ta en ögonblicksbild av OS-disken på den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [ögonblicks bilder av en disk](../windows/snapshot-copy-managed-disk.md).
 
-Lös problemet genom att använda seriell kontroll för att konfigurera den virtuella datorn att starta i normalläge eller [reparera den virtuella datorn offline](#repair-the-vm-offline) med hjälp av en virtuell dator för återställning.
+Lös problemet genom att använda seriell kontroll för att konfigurera den virtuella datorn för att starta i normalt läge eller [reparera den virtuella datorn offline](#repair-the-vm-offline) med hjälp av en virtuell återställnings dator.
 
 ### <a name="use-serial-control"></a>Använda seriell kontroll
 
-1. Ansluta till [seriella konsolen och öppna CMD instans](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-   ). Om Seriekonsolen inte är aktiverad på den virtuella datorn finns i [reparera den virtuella datorn offline](#repair-the-vm-offline).
+1. Anslut till [serie konsolen och öppna cmd-instansen](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+   ). Om serie konsolen inte är aktive rad på den virtuella datorn, se [reparera den virtuella datorn offline](#repair-the-vm-offline).
 2. Kontrollera boot configuration data:
 
         bcdedit /enum
 
-    Om den virtuella datorn är konfigurerad för att starta i felsäkert läge, ser du en extra flagga under den **Windows Boot Loader** avsnitt som heter **safeboot**. Om du inte ser den **safeboot** flagga den virtuella datorn är inte i felsäkert läge. Den här artikeln gäller inte för ditt scenario.
+    Om den virtuella datorn har kon figurer ATS för att starta i fel säkert läge visas en extra flagga under **Windows Boot Loader** -avsnittet som heter **safeboot**. Om du inte ser flaggan **safeboot** är den virtuella datorn inte i fel säkert läge. Den här artikeln gäller inte för ditt scenario.
 
-    Den **safeboot** flaggan kan visas med följande värden:
+    **Safeboot** -flaggan kan visas med följande värden:
    - Minimalt
    - Nätverk
 
@@ -61,11 +59,11 @@ Lös problemet genom att använda seriell kontroll för att konfigurera den virt
 
      ![Bild som visar flaggan felsäkert läge](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
-3. Ta bort den **safemoade** flaggan, så att den virtuella datorn startar i normalt läge:
+3. Ta bort flaggan **safemoade** så att den virtuella datorn startar i normalt läge:
 
         bcdedit /deletevalue {current} safeboot
 
-4. Kontrollera boot configuration data för att se till att den **safeboot** flaggan tas bort:
+4. Kontrol lera start konfigurations data för att se till att flaggan **safeboot** har tagits bort:
 
         bcdedit /enum
 
@@ -75,9 +73,9 @@ Lös problemet genom att använda seriell kontroll för att konfigurera den virt
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Koppla OS-disken till en virtuell dator för återställning
 
-1. [Koppla OS-disk till virtuell återställningsdator](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Koppla OS-disken till en virtuell dator för återställning](../windows/troubleshoot-recovery-disks-portal.md).
 2. Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn.
-3. Kontrollera att disken flaggas som **Online** i konsolen Diskhantering. Observera den enhetsbeteckning som är tilldelad till den anslutna OS-disken.
+3. Kontrol lera att disken är flaggad som **online** i disk hanterings konsolen. Observera den enhetsbeteckning som är tilldelad till den anslutna OS-disken.
 
 #### <a name="enable-dump-log-and-serial-console-optional"></a>Aktivera dump logg- och Seriekonsol (valfritt)
 
@@ -85,7 +83,7 @@ Dump logg- och Seriekonsolen hjälper oss att göra mer felsökningsinformation 
 
 Kör följande skript för att aktivera dump logg- och Seriekonsol.
 
-1. Öppna en upphöjd kommandotolk-session (**kör som administratör**).
+1. Öppna en kommando tolk med förhöjd behörighet (**Kör som administratör**).
 2. Kör följande skript:
 
     I det här skriptet förutsätter vi att den enhetsbeteckning som är tilldelad till den anslutna OS-disken är F. Ersätt enhetsbeteckningen med lämpligt värde för den virtuella datorn.
@@ -114,20 +112,20 @@ Kör följande skript för att aktivera dump logg- och Seriekonsol.
 
 #### <a name="configure-the-windows-to-boot-into-normal-mode"></a>Konfigurera Windows för att starta i normalt läge
 
-1. Öppna en upphöjd kommandotolk-session (**kör som administratör**).
+1. Öppna en kommando tolk med förhöjd behörighet (**Kör som administratör**).
 2. Kontrol lera start konfigurations data. I följande kommandon antar vi att den enhets beteckning som är kopplad till den anslutna OS-disken är F. Ersätt enhets beteckningen med lämpligt värde för den virtuella datorn.
 
         bcdedit /store F:\boot\bcd /enum
     Anteckna ID-namnet för den partition som innehåller mappen **\Windows** . Som standard är Identifierarens namn "default".
 
-    Om den virtuella datorn är konfigurerad för att starta i felsäkert läge, ser du en extra flagga under den **Windows Boot Loader** avsnitt som heter **safeboot**. Om du inte ser flaggan **safeboot** gäller inte den här artikeln för ditt scenario.
+    Om den virtuella datorn har kon figurer ATS för att starta i fel säkert läge visas en extra flagga under **Windows Boot Loader** -avsnittet som heter **safeboot**. Om du inte ser flaggan **safeboot** gäller inte den här artikeln för ditt scenario.
 
     ![Avbildningen om start-ID](./media/troubleshoot-rdp-safe-mode/boot-id.png)
 
 3. Ta bort flaggan **safeboot** så att den virtuella datorn startar i normalt läge:
 
         bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
-4. Kontrollera boot configuration data för att se till att den **safeboot** flaggan tas bort:
+4. Kontrol lera start konfigurations data för att se till att flaggan **safeboot** har tagits bort:
 
         bcdedit /store F:\boot\bcd /enum
-5. [Koppla från den OS-disken och återskapa den virtuella datorn](../windows/troubleshoot-recovery-disks-portal.md). Kontrol lera sedan om problemet är löst.
+5. [Koppla från OS-disken och återskapa den virtuella datorn](../windows/troubleshoot-recovery-disks-portal.md). Kontrol lera sedan om problemet är löst.

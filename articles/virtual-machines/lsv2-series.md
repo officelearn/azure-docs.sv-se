@@ -2,17 +2,17 @@
 title: Lsv2-serien – Azure Virtual Machines
 description: Specifikationer för virtuella datorer i Lsv2-serien.
 services: virtual-machines
-author: jonbeck7
+author: sasha-melamed
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: b10433190ccc7703938bed2a75a5d816f073295e
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 103e19d6e299956b5ee1ad45b577e25f9f2de1c4
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587268"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164040"
 ---
 # <a name="lsv2-series"></a>Lsv2-serien
 
@@ -30,6 +30,10 @@ ACU: 150-175
 Premium Storage: stöds
 
 Premium Storage caching: stöds inte
+
+Direktmigrering: stöds inte
+
+Minnes bebetjänings uppdateringar: stöds inte
 
 | Storlek | Virtuell processor | Minne (GiB) | Temporär disk<sup>1</sup> (GIB) | NVMe-diskar<sup>2</sup> | NVMe-disk data flöde<sup>3</sup> (läsa IOPS/Mbit/s) | Högsta data flöde för ej cachelagrade data diskar (IOPs/Mbit/s)<sup>4</sup> | Maximalt antal data diskar | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|---|

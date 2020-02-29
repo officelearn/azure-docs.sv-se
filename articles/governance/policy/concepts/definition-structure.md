@@ -3,12 +3,12 @@ title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
 ms.date: 02/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: ade659637f1be6cc58cebae760c5e1b753f3830f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 1100248b43dbdf668dc1164651f3d9f941f3f016
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670788"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920220"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -159,19 +159,19 @@ Det här exemplet refererar till den **allowedLocations** -parameter som visades
 
 ### <a name="strongtype"></a>strongType
 
-I `metadata`-egenskapen kan du använda **strongType** för att ange en lista över alternativ i Azure Portal som innehåller flera alternativ. Tillåtna värden för **strongType** är för närvarande:
+I `metadata`-egenskapen kan du använda **strongType** för att ange en lista över alternativ i Azure Portal som innehåller flera alternativ. **strongType** kan vara en _resurs typ_ som stöds eller ett tillåtet värde. Använd [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)för att avgöra om en _resurs typ_ är giltig för **strongType**.
+
+Vissa _resurs typer_ som inte returneras av **Get-AzResourceProvider** stöds. De är:
+
+- `Microsoft.RecoveryServices/vaults/backupPolicies`
+
+_Tillåtna värden_ för icke- **strongType** är:
 
 - `location`
 - `resourceTypes`
 - `storageSkus`
 - `vmSKUs`
 - `existingResourceGroups`
-- `omsWorkspace`
-- `Microsoft.EventHub/Namespaces/EventHubs`
-- `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
-- `Microsoft.EventHub/Namespaces/AuthorizationRules`
-- `Microsoft.RecoveryServices/vaults`
-- `Microsoft.RecoveryServices/vaults/backupPolicies`
 
 ## <a name="definition-location"></a>Definitionens plats
 

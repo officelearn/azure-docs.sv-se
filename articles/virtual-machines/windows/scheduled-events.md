@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 107233248e5d0a8d6b578d9395d4cdbade79a842
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: c4461856bd5eeb01eb84b0d39afef9507438f8d3
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772620"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920672"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure-Metadata Service: Schemalagda händelser för virtuella Windows-datorer
 
@@ -56,18 +56,19 @@ Azure-metadatatjänsten visar information om att köra Virtual Machines att anv�
 ### <a name="endpoint-discovery"></a>Slut punkts identifiering
 För VNET-aktiverade virtuella datorer är metadatatjänsten tillgänglig från en statisk icke-dirigerbart IP-adress `169.254.169.254`. Den fullständiga slut punkten för den senaste versionen av Schemalagda händelser är: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01`
 
 Om den virtuella datorn inte har skapats inom en Virtual Network, krävs standard fall för moln tjänster och klassiska virtuella datorer, men ytterligare logik krävs för att identifiera IP-adressen som ska användas. Se det här exemplet för att lära dig hur du [identifierar värd slut punkten](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="version-and-region-availability"></a>Tillgänglighet för version och region
-Den Schemalagda händelser tjänsten har versions hantering. Versioner är obligatoriska och den aktuella versionen är `2017-11-01`.
+Den Schemalagda händelser tjänsten har versions hantering. Versioner är obligatoriska och den aktuella versionen är `2019-01-01`.
 
-| Version | Versions typ | Regioner | Viktig information | 
+| Version | Versionstyp | Regioner | Viktig information | 
 | - | - | - | - |
+| 2019-01-01 | Allmän tillgänglighet | Alla | <li> Stöd har lagts till för den virtuella datorns skalnings uppsättning EventType ' Terminate ' |
 | 2017-11-01 | Allmän tillgänglighet | Alla | <li> Stöd har lagts till för VM-utavlägsning av händelse-Preempt för VM<br> | 
 | 2017-08-01 | Allmän tillgänglighet | Alla | <li> Tog bort anpassningsprefix-understreck från resurs namn för virtuella IaaS-datorer<br><li>Krav för metadata-huvud tillämpas för alla begär Anden | 
-| 2017-03-01 | Förhandsversion | Alla |<li>Första utgåvan
+| 2017-03-01 | Förhandsversion | Alla |<li>Första utgåvan |
 
 > [!NOTE] 
 > Tidigare för hands versioner av schemalagda händelser som stöds {senaste} som API-version. Det här formatet stöds inte längre och kommer att bli inaktuellt i framtiden.
@@ -92,7 +93,7 @@ Du kan fråga efter Schemalagda händelser enkelt genom att göra följande anro
 
 #### <a name="powershell"></a>PowerShell
 ```
-curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01 -H @{"Metadata"="true"}
+curl http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01 -H @{"Metadata"="true"}
 ```
 
 Ett svar innehåller en matris med schemalagda händelser. En tom matris innebär att det inte finns några schemalagda händelser för tillfället.
@@ -103,7 +104,7 @@ Om det finns schemalagda händelser innehåller svaret en händelse mat ris:
     "Events": [
         {
             "EventId": {eventID},
-            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt",
+            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt" | "Terminate",
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
@@ -118,7 +119,7 @@ DocumentIncarnation är en ETag och ger ett enkelt sätt att kontrol lera om hä
 |Egenskap  |  Beskrivning |
 | - | - |
 | EventId | Globalt unik identifierare för den här händelsen. <br><br> Exempel: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| Typ | Påverkar den här händelsen. <br><br> Värden: <br><ul><li> `Freeze`: den virtuella datorn är schemalagd att pausas några sekunder. CPU-och nätverks anslutningen kan vara pausad, men det finns ingen inverkan på minnet eller öppna filer. <li>`Reboot`: den virtuella datorn är schemalagd för omstart (icke-beständigt minne går förlorad). <li>`Redeploy`: den virtuella datorn är schemalagd att flyttas till en annan nod (tillfälliga diskar går förlorade). <li>`Preempt`: den virtuella datorn håller på att tas bort (tillfälliga diskar går förlorade).|
+| Typ | Påverkar den här händelsen. <br><br> Värden: <br><ul><li> `Freeze`: den virtuella datorn är schemalagd att pausas några sekunder. CPU-och nätverks anslutningen kan vara pausad, men det finns ingen inverkan på minnet eller öppna filer. <li>`Reboot`: den virtuella datorn är schemalagd för omstart (icke-beständigt minne går förlorad). <li>`Redeploy`: den virtuella datorn är schemalagd att flyttas till en annan nod (tillfälliga diskar går förlorade). <li>`Preempt`: den virtuella datorn håller på att tas bort (tillfälliga diskar går förlorade). <li> `Terminate`: den virtuella datorn är schemalagd att tas bort. |
 | ResourceType | Typ av resurs som den här händelsen påverkar. <br><br> Värden: <ul><li>`VirtualMachine`|
 | Resurser| Lista över resurser som den här händelsen påverkar. Detta är garanterat att innehålla datorer från högst en [uppdaterings domän](manage-availability.md), men de får inte innehålla alla datorer i UD. <br><br> Exempel: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Händelse status | Status för den här händelsen. <br><br> Värden: <ul><li>`Scheduled`: den här händelsen är schemalagd att starta efter den tid som anges i egenskapen `NotBefore`.<li>`Started`: den här händelsen har startats.</ul> Ingen `Completed` eller liknande status har tillhandahållits. händelsen kommer inte längre att returneras när händelsen har slutförts.
@@ -130,9 +131,10 @@ Varje händelse schemaläggs en minimi period i framtiden baserat på händelse 
 |Typ  | Minsta meddelande |
 | - | - |
 | Tina| 15 minuter |
-| Omstart | 15 minuter |
+| Starta om | 15 minuter |
 | Omdistribuera | 10 minuter |
 | Utfärdas | 30 sekunder |
+| Avsluta | [Användaren kan konfigureras](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): 5 till 15 minuter |
 
 ### <a name="event-scope"></a>Händelse omfång     
 Schemalagda händelser levereras till:
@@ -160,7 +162,7 @@ Följande är den JSON som förväntas i `POST` begär ande texten. Begäran bö
 
 #### <a name="powershell"></a>PowerShell
 ```
-curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
+curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01
 ```
 
 > [!NOTE] 
@@ -206,7 +208,7 @@ function Handle-ScheduledEvents($scheduledEvents)
 
 # Set up the scheduled events URI for a VNET-enabled VM
 $localHostIP = "169.254.169.254"
-$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-11-01' -f $localHostIP 
+$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2019-01-01' -f $localHostIP 
 
 # Get events
 $scheduledEvents = Get-ScheduledEvents $scheduledEventURI

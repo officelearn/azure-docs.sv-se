@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: 636973110e11770e33c635e312c86b25110705da
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c22a401a6b25f7bb2c27a10e52214fa42ac6089b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981338"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918231"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Fjärr skrivbord frånkopplas ofta i virtuell Azure-dator
 
 Den här artikeln förklarar hur du felsöker frekventa från kopplingar till en virtuell Azure-dator via Remote Desktop Protocol RDP).
 
-> [!NOTE] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder distributions modellen för Resource Manager. Vi rekommenderar att du använder den här modellen för nya distributioner istället för att använda den klassiska distributions modellen.
 
 ## <a name="symptom"></a>Symptom
 
@@ -42,7 +40,7 @@ Du kan felsöka det här problemet genom att använda seriell kontroll eller [re
 
 ### <a name="serial-control"></a>Serie kontroll
 
-1. Ansluta till [seriella konsolen och öppna CMD instans](./serial-console-windows.md). Kör sedan följande kommandon för att återställa RDP-konfigurationerna. Om serie konsolen inte är aktive rad på den virtuella datorn går du till nästa steg.
+1. Anslut till [serie konsolen och öppna cmd-instansen](./serial-console-windows.md). Kör sedan följande kommandon för att återställa RDP-konfigurationerna. Om serie konsolen inte är aktive rad på den virtuella datorn går du till nästa steg.
 2. Sänk säkerhets skiktet för RDP till 0. Vid den här inställningen använder kommunikationen mellan servern och klienten den inbyggda RDP-krypteringen.
 
         REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v 'SecurityLayer' /t REG_DWORD /d 0 /f
@@ -89,10 +87,10 @@ Du kan felsöka det här problemet genom att använda seriell kontroll eller [re
 
 ### <a name="repair-the-vm-offline"></a>Reparera den virtuella datorn offline
 
-1. [Koppla OS-disk till virtuell återställningsdator](../windows/troubleshoot-recovery-disks-portal.md).
-2. När OS-disken är ansluten till den Virtuella återställningsdatorn, se till att disken flaggas som **Online** i konsolen Diskhantering. Observera den enhetsbeteckning som är tilldelad till den anslutna OS-disken.
+1. [Koppla OS-disken till en virtuell dator för återställning](../windows/troubleshoot-recovery-disks-portal.md).
+2. När OS-disken är ansluten till den virtuella återställnings datorn kontrollerar du att disken är flaggad som **online** i disk hanterings konsolen. Observera den enhetsbeteckning som är tilldelad till den anslutna OS-disken.
 3. Gå till mappen **\Windows\System32\Config** på den OS-disk som du har bifogat. Kopiera alla filer i den här mappen som en säkerhets kopia, om det krävs en återställning.
-4. Starta Registereditorn (regedit.exe).
+4. Starta Registereditorn (regedit. exe).
 5. Välj den **HKEY_LOCAL_MACHINE** nyckeln. På menyn väljer du **fil** > **Läs in Hive**:
 6. Bläddra till mappen **\windows\system32\config\SYSTEM** på den OS-disk som du har anslutit. Ange **BROKENSYSTEM**som namn på Hive. Den nya registrerings data filen visas under **HKEY_LOCAL_MACHINE** nyckeln. Läs sedan in Hive- **\windows\system32\config\SOFTWARE** under **HKEY_LOCAL_MACHINE** nyckeln. Skriv **BROKENSOFTWARE**som namn på Hive-programvaran. 
 7. Öppna ett kommando tolks fönster med förhöjd behörighet (**Kör som administratör**) och kör kommandon i de återstående stegen för att återställa RDP-konfigurationerna. 

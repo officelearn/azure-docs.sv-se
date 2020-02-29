@@ -3,12 +3,12 @@ title: Konfigurera Azure Backup-rapporter
 description: Konfigurera och Visa rapporter för Azure Backup med Log Analytics och Azure-arbetsböcker
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: cefe81e53e89b8d7903469e836f3c5d2665febea
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 651d1383f0f292895ed95c91bafd5206d4f04c2c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582712"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161209"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 
@@ -47,6 +47,9 @@ I avsnittet övervakning i Recovery Services-valvet väljer du **diagnostikinst�
 
 Azure Backup innehåller också en inbyggd Azure Policy som automatiserar konfigurationen av diagnostikinställningar för alla valv i ett angivet omfång. Läs följande artikel för att lära dig hur du använder den här principen: [Konfigurera valvets diagnostikinställningar i skala](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
 
+> [!NOTE]
+> När du har konfigurerat diagnostik kan det ta upp till 24 timmar innan den första data-push-installationen slutförs. När data börjar flöda in på arbets ytan LA kanske du inte kan se data i rapporterna direkt, eftersom data för den aktuella del dagen inte visas i rapporterna (mer information [här](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports)). Därför rekommenderar vi att du börjar visa rapporterna 2 dagar efter att du har konfigurerat dina valv för att skicka data till Log Analytics.
+
 3. **Visa rapporter på Azure Portal:**
 
 När du har konfigurerat dina valv för att skicka data till LA visar du dina säkerhets kopierings rapporter genom att gå till ett valvs blad och klicka på meny alternativet **säkerhetskopiera rapporter** . 
@@ -56,7 +59,8 @@ När du har konfigurerat dina valv för att skicka data till LA visar du dina s�
 När du klickar på den här länken öppnas arbets boken säkerhets kopierings rapport.
 
 > [!NOTE]
-> Den första inläsningen av rapporten kan för närvarande ta upp till 1 minut.
+> * Den första inläsningen av rapporten kan för närvarande ta upp till 1 minut.
+> * Recovery Services valvet är bara en start punkt för säkerhets kopierings rapporter. När arbets boken för säkerhets kopierings rapporter öppnas från ett valvs blad, kommer du att kunna se data som sammanställs över alla dina valv (genom att välja rätt uppsättnings arbets ytor).
 
 Nedan visas en beskrivning av de olika flikar som rapporten innehåller:
 

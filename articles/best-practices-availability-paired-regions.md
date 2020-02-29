@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: b71048412f5715fd1b8ef3edf742716916672bd5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c1e14db9dafc8b03acbeb1c6b97e5ac0e27cb0fd
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718744"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163056"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Verksamhets kontinuitet och haveri beredskap (BCDR): Azure-kopplade regioner
 
@@ -23,6 +23,9 @@ Azure fungerar i flera geografiska områden runtom i världen. En Azure-geografi
 Varje Azure-region är kopplad till en annan region inom samma geografi, tillsammans med ett regionalt par. Undantaget är södra Brasilien, som är länkat till en region utanför dess geografiska område. I region par i Azure serialiseras plattforms uppdateringar (planerat underhåll) så att endast en kopplad region uppdateras i taget. I händelse av ett avbrott som påverkar flera regioner prioriteras minst en region i varje par för återställning.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
+
+> [!NOTE]
+> Det går inte att ändra tilldelade Azure regionala par.
 
 Bild 1 – regionala Azure-par
 
@@ -35,7 +38,7 @@ Bild 1 – regionala Azure-par
 | Kanada |Kanada, centrala |Kanada, östra |
 | Kina |Kina, norra |Kina, östra|
 | Kina |Kina, norra 2 |Kina, östra 2|
-| Europa |Europa, norra (Irland) |Europa, västra (Nederländerna) |
+| Europa |Nord Europa (Irland) |Västeuropa (Nederländerna) |
 | Frankrike |Frankrike, centrala|Frankrike, södra|
 | Tyskland |Tyskland, centrala |Tyskland, nordöstra |
 | Indien |Indien, centrala |Indien, södra |
@@ -48,11 +51,11 @@ Bild 1 – regionala Azure-par
 | Nordamerika |USA, västra 2 |USA, västra centrala 
 | Sydafrika | Sydafrika, norra | Sydafrika, västra
 | Storbritannien |Storbritannien, västra |Storbritannien, södra |
-| Förenade Arabemiraten | Förenade Arabemiraten, norra | Förenade Arabemiraten, centrala
+| Förenade Arabemiraten | Förenade Arabemiraten, norra | Förenade Arabemiraten Central
 | OSS-försvars departement |USA DoD, östra |USA DoD, centrala |
-| Amerikanska myndigheter |US Gov, Arizona |US Gov, Texas |
-| Amerikanska myndigheter |USA Gov, Iowa |US Gov, Virginia |
-| Amerikanska myndigheter |US Gov, Virginia |US Gov, Texas |
+| AMERIKANSKA myndigheter |US Gov, Arizona |US Gov, Texas |
+| AMERIKANSKA myndigheter |USA Gov, Iowa |US Gov, Virginia |
+| AMERIKANSKA myndigheter |US Gov, Virginia |US Gov, Texas |
 
 Tabell 1 – mappning av regionala Azure-par
 

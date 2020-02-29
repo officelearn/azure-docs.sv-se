@@ -2,17 +2,17 @@
 title: Fsv2-serien – Azure Virtual Machines
 description: Specifikationer för virtuella datorer i Fsv2-serien.
 services: virtual-machines
-author: jonbeck7
+author: brbell
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 47ddd4733e4778493ad5e3671ae9c914176de33f
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: f28c6b61aee3c8cbc078db1c2cfb48ed1fba4554
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493090"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164856"
 ---
 # <a name="fsv2-series"></a>Fsv2-serien
 
@@ -25,6 +25,10 @@ ACU: 195-210
 Premium Storage: stöds
 
 Premium Storage caching: stöds
+
+Direktmigrering: stöds
+
+Minnes bebetjänings uppdateringar: stöds
 
 | Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|

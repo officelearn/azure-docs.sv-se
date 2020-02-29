@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: reference
 author: peterclu
 ms.author: peterlu
-ms.date: 12/17/2019
-ms.openlocfilehash: d3feb62c0c7fa24dd998add08d17ebd1d4e9ee6c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.date: 02/22/2020
+ms.openlocfilehash: ece4b7a85ff5738900b8f999cc2f14ba35ecab0d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162590"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920101"
 ---
-# <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Algoritmen & module-referens för Azure Machine Learning designer
+# <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Algoritm & module-referens för Azure Machine Learning designer (för hands version)
 
 Det här referens innehållet ger teknisk bakgrund på var och en av Machine Learning-algoritmerna och modulerna som är tillgängliga i Azure Machine Learning designer (för hands version).
 
@@ -57,6 +57,7 @@ Hjälp med att välja algoritmer finns i
 | R-språk | Skriv kod och bädda in den i en modul för att integrera R med din pipeline. | [Kör R-skript](execute-r-script.md) |
 | Textanalys | Tillhandahåll specialiserade beräknings verktyg för att arbeta med både strukturerad och ostrukturerad text. | [Extrahera N g-funktioner från text](extract-n-gram-features-from-text.md) <br/> [Hashing av funktioner](feature-hashing.md) <br/> [Förbearbeta text](preprocess-text.md) |
 | Rekommendation | Bygg rekommendationers modeller. | [Utvärdera rekommendation](evaluate-recommender.md) <br/> [Poäng för SVD-rekommendation](score-svd-recommender.md) <br/> [Träna SVD-rekommendation](train-SVD-recommender.md) |
+| Avvikelseidentifiering | Bygg modeller för avvikelse identifiering. | [PCA-baserad avvikelse identifiering](pca-based-anomaly-detection.md) <br/> [Träna avvikelse identifierings modell](train-anomaly-detection-model.md) |
 
 ## <a name="error-messages"></a>Felmeddelanden
 

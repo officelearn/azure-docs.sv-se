@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 6e2fa96584570e5837c4367c8be4701b7398fb0f
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/19/2020
+ms.openlocfilehash: 9606768288cc74afc24491149eb471944f45e2dc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152218"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921172"
 ---
 # <a name="module-k-means-clustering"></a>Modul: K-innebär klustring
 
@@ -107,11 +107,11 @@ När den bearbetar tränings data börjar algoritmen för K-medelvärdet med en 
   
     -   Om du ställer in **skapa utbildare** för en **parameter**lägger du till en taggad data uppsättning och tränar modellen med hjälp av modulen [träna kluster modell](train-clustering-model.md) .  
   
-### <a name="results"></a>Resultat
+## <a name="results"></a>Resultat
 
 När du har konfigurerat och tränat modellen har du en modell som du kan använda för att generera poäng. Det finns dock flera sätt att träna modellen på och flera sätt att visa och använda resultaten: 
 
-#### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>Avbilda en ögonblicks bild av modellen i din arbets yta
+### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>Avbilda en ögonblicks bild av modellen i din arbets yta
 
 Om du använde modulen [träna klustring modell](train-clustering-model.md) :
 
@@ -121,7 +121,7 @@ Om du använde modulen [träna klustring modell](train-clustering-model.md) :
 
 Den sparade modellen representerar tränings data vid den tidpunkt då du sparade modellen. Om du senare uppdaterar de tränings data som används i pipelinen, uppdateras inte den sparade modellen. 
 
-#### <a name="see-the-clustering-result-dataset"></a>Se data uppsättningen för kluster resultatet 
+### <a name="see-the-clustering-result-dataset"></a>Se data uppsättningen för kluster resultatet 
 
 Om du använde modulen [träna klustring modell](train-clustering-model.md) :
 
@@ -142,3 +142,7 @@ Du kan undvika det här problemet på ett par olika sätt:
 -   Skapa flera modeller, varierande mått eller iterera mer.  
   
 I allmänhet, med kluster modeller, är det möjligt att alla angivna konfigurationer resulterar i en lokalt optimerad uppsättning kluster. Med andra ord motsvarar den uppsättning kluster som returneras av modellen bara de aktuella data punkterna och kan inte generaliseras till andra data. Om du använder en annan inledande konfiguration kan metoden K-betyder att hitta en annan, överlägsen och konfiguration. 
+
+## <a name="next-steps"></a>Nästa steg
+
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

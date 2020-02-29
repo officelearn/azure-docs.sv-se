@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 02/28/2020
 tags: connectors
-ms.openlocfilehash: 3370eea8909f30563babcf2a84f727ba51f67e29
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: e7a0791cc2bca672e7fde142650ad25e7e8ab58b
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77647643"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161882"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av SSH och Azure Logic Apps
 
@@ -31,7 +31,28 @@ Mer skillnader mellan SFTP-SSH-anslutningsprogrammet och SFTP-anslutningen finns
 
 ## <a name="limits"></a>Begränsningar
 
-* Som standard kan SFTP och SSH-åtgärder läsa eller skriva filer som är *1 GB eller mindre* , men bara i *15 MB* -segment i taget. För att hantera filer som är större än 15 MB har SFTP-SSH-åtgärder stöd för [meddelande segment](../logic-apps/logic-apps-handle-large-messages.md), förutom åtgärden Kopiera fil, som bara kan hantera 15 MB filer. Åtgärden **Hämta fil innehåll** använder implicit meddelande segment.
+* SFTP – SSH-åtgärder som stöder [segment](../logic-apps/logic-apps-handle-large-messages.md) hantering kan hantera filer på upp till 1 GB, medan SFTP-SSH-åtgärder som inte stöder segment hantering kan hantera filer upp till 50 MB. Även om standard segment storleken är 15 MB, kan den här storleken dynamiskt ändra, med start från 5 MB och gradvis öka till 50 MB, baserat på faktorer som nätverks fördröjning, Server svars tid och så vidare.
+
+  > [!NOTE]
+  > För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
+
+  Segment storleken är associerad med en anslutning, vilket innebär att du kan använda samma anslutning för åtgärder som stöder segment och sedan för åtgärder som inte stöder segment koppling. I det här fallet är segment storleken för åtgärder som inte stöder segment intervall mellan 5 MB och 50 MB. Den här tabellen visar vilka SFTP-SSH-åtgärder som stöder segment:
+
+  | Åtgärd | Segment stöd |
+  |--------|------------------|
+  | **Kopiera fil** | Nej |
+  | **Skapa fil** | Ja |
+  | **Skapa mapp** | Inte tillämpligt |
+  | **Ta bort fil** | Inte tillämpligt |
+  | **Extrahera arkiv till mapp** | Inte tillämpligt |
+  | **Hämta fil innehåll** | Ja |
+  | **Hämta fil innehåll med hjälp av sökväg** | Ja |
+  | **Hämta filens metadata** | Inte tillämpligt |
+  | **Hämta metadata för fil med hjälp av sökväg** | Inte tillämpligt |
+  | **Lista filer i mappen** | Inte tillämpligt |
+  | **Byt namn på fil** | Inte tillämpligt |
+  | **Uppdatera fil** | Nej |
+  |||
 
 * SFTP – SSH-utlösare stöder inte segment. När du begär fil innehåll väljer utlösare endast filer som är 15 MB eller mindre. Om du vill hämta filer som är större än 15 MB följer du detta mönster i stället:
 
@@ -46,10 +67,6 @@ Mer skillnader mellan SFTP-SSH-anslutningsprogrammet och SFTP-anslutningen finns
 Här följer några andra viktiga skillnader mellan SFTP-SSH-anslutningen och SFTP-anslutningen där SFTP-SSH-anslutningen har dessa funktioner:
 
 * Använder [SSH.net-biblioteket](https://github.com/sshnet/SSH.NET), som är ett SSH-bibliotek med öppen källkod som stöder .net.
-
-* Som standard kan SFTP och SSH-åtgärder läsa eller skriva filer som är *1 GB eller mindre* , men bara i *15 MB* -segment i taget.
-
-  För att hantera filer som är större än 15 MB kan SFTP-SSH-åtgärder använda [meddelande segment](../logic-apps/logic-apps-handle-large-messages.md). Åtgärden Kopiera fil stöder dock endast 15 MB filer eftersom den åtgärden inte stöder meddelande segment. SFTP – SSH-utlösare stöder inte segment. Om du vill överföra stora filer behöver du både Läs-och Skriv behörighet för rotmappen på din SFTP-server.
 
 * Tillhandahåller åtgärden **Skapa mapp** , som skapar en mapp på den angivna sökvägen på SFTP-servern.
 
@@ -108,7 +125,7 @@ Om den privata nyckeln är i formatet SparaTillFil, som använder fil namns till
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   Exempel:
+   Några exempel:
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 

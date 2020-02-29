@@ -1,5 +1,6 @@
 ---
-title: Kom igång med anpassade principer – Azure Active Directory B2C
+title: Kom igång med anpassade principer
+titleSuffix: Azure AD B2C
 description: Lär dig hur du kommer igång med anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 02/28/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5a0e5846dd541e4997c271aee180b3790efa16e9
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: 04978b561e3b0057318d08146f344411dec55ee4
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114045"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161677"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Kom igång med anpassade principer i Azure Active Directory B2C
 
@@ -27,7 +28,7 @@ ms.locfileid: "77114045"
 
 - Om du inte redan har en, [skapar du en Azure AD B2C klient](tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
 - [Registrera ditt program](tutorial-register-applications.md) i klient organisationen som du skapade så att den kan kommunicera med Azure AD B2C.
-- Slutför stegen i Konfigurera [registrering och inloggning med ett Facebook-konto](identity-provider-facebook.md) för att konfigurera ett Facebook-program.
+- Slutför stegen i Konfigurera [registrering och inloggning med ett Facebook-konto](identity-provider-facebook.md) för att konfigurera ett Facebook-program. Även om ett Facebook-program inte krävs för att använda anpassade principer, används det i den här genom gången för att demonstrera aktivering av sociala inloggningar i en anpassad princip.
 
 ## <a name="add-signing-and-encryption-keys"></a>Lägg till signerings-och krypterings nycklar
 
@@ -75,7 +76,7 @@ Du behöver bara registrera dessa två program i Azure AD B2C klient organisatio
 
 Om du vill registrera ett program i din Azure AD B2C klient kan du använda den **Appregistreringar (äldre)** upplevelsen eller vår nya enhetliga **Appregistreringar (för hands version)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
 
-#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+#### <a name="applications"></a>[Program](#tab/applications/)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. I Azure Portal söker du efter och väljer **Azure Active Directory**.
@@ -86,7 +87,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda den 
 1. För **inloggnings-URL**anger du `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, där `your-tenant-name` är ditt Azure AD B2C klient domän namn. Alla URL: er ska nu använda [b2clogin.com](b2clogin.md).
 1. Välj **Skapa**. När den har skapats kopierar du program-ID: t och sparar det för att använda det senare.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
 1. Välj **Appregistreringar (för hands version)** och välj sedan **ny registrering**.
 1. I **namn**anger du `IdentityExperienceFramework`.
@@ -110,7 +111,7 @@ Sedan exponerar du API: et genom att lägga till ett omfång:
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registrera ProxyIdentityExperienceFramework-programmet
 
-#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+#### <a name="applications"></a>[Program](#tab/applications/)
 
 1. I **Appregistreringar (bakåtkompatibelt)** väljer du **ny program registrering**.
 1. I **namn**anger du `ProxyIdentityExperienceFramework`.
@@ -122,7 +123,7 @@ Sedan exponerar du API: et genom att lägga till ett omfång:
 1. Markera kryss rutan bredvid Access- **IdentityExperienceFramework**, klicka på **Välj**och sedan på **färdig**.
 1. Välj **bevilja behörigheter**och bekräfta genom att välja **Ja**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
 1. Välj **Appregistreringar (för hands version)** och välj sedan **ny registrering**.
 1. I **namn**anger du `ProxyIdentityExperienceFramework`.
@@ -221,6 +222,8 @@ När du överför filerna lägger Azure till prefixet `B2C_1A_` till varje.
 1. Logga in med samma konto för att bekräfta att du har rätt konfiguration.
 
 ## <a name="add-facebook-as-an-identity-provider"></a>Lägg till Facebook som en identitets leverantör
+
+Som nämnts i [förutsättningar](#prerequisites)krävs *inte* Facebook för att använda anpassade principer, men används här för att demonstrera hur du kan aktivera federerad social inloggning i en anpassad princip.
 
 1. I `SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** -filen ersätter du värdet för `client_id` med Facebook-programmets ID:
 

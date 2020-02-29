@@ -3,12 +3,12 @@ title: Vanliga frågor – identifiering, utvärdering och beroende analys i Azu
 description: Få svar på vanliga frågor om identifiering, utvärdering och beroende analys i Azure Migrate.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 179be4f5b39806c717e94789c9fe52842d2a07d8
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 6db521791e5ebb846585d4e0e823ba20d178d54a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589240"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918554"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Vanliga frågor om identifiering, utvärdering och beroende analys
 
@@ -100,7 +100,7 @@ Nej, det går inte att exportera beroende visualiseringen. Azure Migrate använd
 
 ## <a name="can-i-automate--mmadependency-agent-installation"></a>Kan jag automatisera MMA/beroende agent installation?
 
-Använd det här [skriptet för att installera beroende agenten](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Följ de här [anvisningarna för att installera MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) med hjälp av kommando raden eller Automation. Använd [det här skriptet](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)för MMA.
+Använd det här [skriptet för att installera beroende agenten](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Följ de här [anvisningarna för att installera MMA](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) med hjälp av kommando raden eller Automation. Använd [det här skriptet](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)för MMA.
 
 Förutom skript kan du också använda distributions verktyg som Microsoft Endpoint Configuration Manager och [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) för att distribuera agenterna.
 

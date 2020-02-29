@@ -1,23 +1,23 @@
 ---
-title: Träna modeller med Azure Machine Learning designer
+title: Träna om modeller med Azure Machine Learning designer (för hands version)
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du tränar om modeller med publicerade pipelines i Azure Machine Learning designer.
+description: Lär dig hur du tränar om modeller med publicerade pipelines i Azure Machine Learning designer (för hands version).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: peterlu
-author: peterclu
-ms.date: 12/15/2019
-ms.openlocfilehash: d1382da739fd8ca56d4cc53c2c302331bdfbf1c3
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.author: keli19
+author: likebupt
+ms.date: 02/24/2020
+ms.openlocfilehash: b69cd4c8459ffae363f02247b1f20488afe1cd9b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311877"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921612"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer"></a>Träna modeller med Azure Machine Learning designer
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Träna om modeller med Azure Machine Learning designer (för hands version)
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 I den här instruktionen får du lära dig hur du använder Azure Machine Learning designer för att omträna en maskin inlärnings modell. Lär dig hur du använder publicerade pipelines för att automatisera Machine Learning-arbetsflöden för omskolning.
 
@@ -29,7 +29,7 @@ I den här artikeln lär du dig hur du:
 > * Publicera din utbildnings pipeline.
 > * Träna om din modell.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
 
@@ -69,11 +69,11 @@ Designern sparar alla pipeline-utdata, inklusive utbildade modeller, på standar
 
 1. Välj modulen **träna modell** .
 
-1. I fönstret Inställningar väljer du **utdata**.
+1. I fönstret Inställningar väljer du **utdata + loggar**.
 
-1. Välj **Trained_model** för att ladda ned modellen.
+1. Klicka på ikonen **Visa utdata** och följ anvisningarna i popup-fönstret för att leta upp den tränade modellen.
 
-![Skärm bild som visar hur du laddar ned den tränade modellen](./media/how-to-retrain-designer/download-model.png)
+![Skärm bild som visar hur du laddar ned den tränade modellen](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="create-a-pipeline-parameter"></a>Skapa en pipeline-parameter
 

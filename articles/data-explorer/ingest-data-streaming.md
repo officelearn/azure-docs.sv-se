@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 89772bea818a0ebb57135990b3a04fcb559e2716
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b99827ff9fd01c7179a25fafd05bfc8e4ef8ae63
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77664940"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921104"
 ---
 # <a name="streaming-ingestion-preview"></a>Strömnings inmatning (för hands version)
 
@@ -80,7 +80,7 @@ Det finns två typer av streaming-inmatningar som stöds:
 
 Streaming-inmatningen har inte stöd för följande funktioner:
 * [Databas markörer](/azure/kusto/management/databasecursor).
-* [Data mappning](/azure/kusto/management/mappings). Det finns endast stöd för data mappning som [skapats i förväg](/azure/kusto/management/tables#create-ingestion-mapping) . 
+* [Data mappning](/azure/kusto/management/mappings). Det finns endast stöd för data mappning som [skapats i förväg](/azure/kusto/management/create-ingestion-mapping-command) . 
 
 ## <a name="next-steps"></a>Nästa steg
 

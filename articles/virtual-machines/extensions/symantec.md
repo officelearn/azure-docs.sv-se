@@ -14,16 +14,17 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: akjosh
-ms.openlocfilehash: 63f6be105def083354abf8c546d1c334f4daa70e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 63f9441d4df9551405c2ab2bf8c0c67d7de5753c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975399"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919914"
 ---
-# <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Så installerar och konfigurerar du Symantec Endpoint Protection på virtuella Windows-datorer
-> [!IMPORTANT] 
-> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+# <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Så här installerar och konfigurerar du Symantec Endpoint Protection på en virtuell Windows-dator
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
+Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
 Den här artikeln visar hur du installerar och konfigurerar Symantec Endpoint Protection-klienten på en befintlig virtuell dator (VM) som kör Windows Server. Den här fullständiga klienten omfattar tjänster som virus-och spionprograms skydd, brand vägg och skydd mot intrång. Klienten installeras som ett säkerhets tillägg med hjälp av VM-agenten.
 

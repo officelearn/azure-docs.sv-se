@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 92c4a40de7e35d0580fe407e36305a50ad68094c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 4b314fbdb9cbc0c0b797cbee8e92ee4702bbea81
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981792"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919472"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Fjärrskrivbordstjänster som inte startar på en virtuell Azure-dator
 
 Den här artikeln beskriver hur du felsöker problem när du ansluter till en virtuell Azure-dator (VM) och Fjärrskrivbordstjänster, eller TermService, inte startar eller inte går att starta.
 
-> [!NOTE]  
-> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Azure Resource Manager och klassisk](../../azure-resource-manager/management/deployment-models.md). I den här artikeln beskrivs hur du använder distributions modellen Resource Manager. Vi rekommenderar att du använder den här modellen för nya distributioner i stället för den klassiska distributions modellen.
 
 ## <a name="symptoms"></a>Symtom
 
@@ -40,7 +38,7 @@ När du försöker ansluta till en virtuell dator uppstår följande scenarier:
     **Källa**: tjänst kontroll hanteraren </br>
     **Datum**: 12/16/2017 11:19:36 am</br>
     **Händelse-ID**: 7022</br>
-    **Uppgift kategori**: ingen</br>
+    **Uppgifts kategori**: ingen</br>
     **Nivå**: fel</br>
     **Nyckelord**: klassisk</br>
     **Användare**: ej tillämpligt</br>
@@ -112,7 +110,7 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>TermService-tjänsten har stoppats på grund av problem med nekad åtkomst
 
-1. Ansluta till [Seriekonsolen](serial-console-windows.md) och öppna en PowerShell-instans.
+1. Anslut till [serie konsolen](serial-console-windows.md) och öppna en PowerShell-instans.
 2. Hämta Process Monitor-verktyget genom att köra följande skript:
 
    ```
@@ -123,7 +121,7 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
    $wc.DownloadFile($source,$destination) 
    ```
 
-3. Nu startar en **procmon** spårning:
+3. Starta nu en **Procmon** -spårning:
 
    ```
    procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
@@ -143,7 +141,7 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
 
 5. Samla in filen **c:\temp\ProcMonTrace.PML**:
 
-    1. [Anslut en datadisk till den virtuella datorn](../windows/attach-managed-disk-portal.md
+    1. [Koppla en datadisk till den virtuella datorn](../windows/attach-managed-disk-portal.md
 ).
     2. Använd Seriekonsol som du kan kopiera filen till den nya enheten. Till exempel `copy C:\temp\ProcMonTrace.PML F:\`. I det här kommandot är F enhetsbokstaven för den anslutna disken.
     3. Koppla från data enheten och koppla den på en fungerande virtuell dator som har Process Monitor-ubstakke installerad.
@@ -203,9 +201,9 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Koppla OS-disken till en virtuell dator för återställning
 
-1. [Koppla OS-disk till virtuell återställningsdator](../windows/troubleshoot-recovery-disks-portal.md).
-2. Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn. Se till att den anslutna disken flaggas som **Online** i konsolen Diskhantering. Observera den enhetsbeteckning som är tilldelad till den anslutna OS-disken.
-3. Öppna en upphöjd kommandotolk-instans (**kör som administratör**). Kör sedan följande skript. Vi antar att enhets beteckningen som är kopplad till den anslutna OS-disken är **F**. Ersätt det med lämpligt värde i den virtuella datorn. 
+1. [Koppla OS-disken till en virtuell dator för återställning](../windows/troubleshoot-recovery-disks-portal.md).
+2. Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn. Kontrol lera att den anslutna disken är flaggad som **online** i disk hanterings konsolen. Observera den enhetsbeteckning som är tilldelad till den anslutna OS-disken.
+3. Öppna en upphöjd kommando tolks instans (**Kör som administratör**). Kör sedan följande skript. Vi antar att enhets beteckningen som är kopplad till den anslutna OS-disken är **F**. Ersätt det med lämpligt värde i den virtuella datorn. 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -219,7 +217,7 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
    reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v type /t REG_DWORD /d 16 /f
    ```
 
-4. [Koppla från den OS-disken och återskapa den virtuella datorn](../windows/troubleshoot-recovery-disks-portal.md). Kontrol lera sedan om problemet är löst.
+4. [Koppla från OS-disken och återskapa den virtuella datorn](../windows/troubleshoot-recovery-disks-portal.md). Kontrol lera sedan om problemet är löst.
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 

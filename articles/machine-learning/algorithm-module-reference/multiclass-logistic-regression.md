@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: a697c1e43ccd486f8c98399ea9065902bd247f7d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 40193a2547959b44c5753cfcc6ccad9344ab9486
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152150"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920441"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Logistik Regressions-modul för multiklass
 
@@ -40,7 +40,7 @@ I multiklass Logistisk regression kan klassificeraren användas för att föruts
 
     + **Enskild parameter**: Använd det här alternativet om du vet hur du vill konfigurera modellen och ange en viss uppsättning värden som argument.
 
-    + **Parameter intervall**: Använd det här alternativet om du inte är säker på de bästa parametrarna och vill använda en parameter rensning.
+    + **Parameter intervall**: Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra en parameter rensning. Välj ett värde intervall som du vill iterera över, och de [finjusterande modellens egenskaper](tune-model-hyperparameters.md) upprepas över alla möjliga kombinationer av de inställningar som du angav för att fastställa de egenskaper som ger optimala resultat.  
 
 3. **Optimerings tolerans**, ange tröskelvärdet för optimerings konvergens. Om förbättringen mellan iterationer är mindre än tröskelvärdet stannar algoritmen och returnerar den aktuella modellen.
 

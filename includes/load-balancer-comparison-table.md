@@ -5,31 +5,28 @@ services: load balancer
 author: KumudD
 ms.service: load-balancer
 ms.topic: include
-ms.date: 02/08/2018
+ms.date: 02/21/2020
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: 4219df03f74f737c5f2435f9bc0842189dc1fd49
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 33e6fecafa2b9748a27794800365974ebc975d0e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76909168"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78202472"
 ---
-| | Standard-SKU | Grundläggande SKU |
+| | Standard Load Balancer | Grundläggande Load Balancer |
 | --- | --- | --- |
-| Storlek på serverdelspool | Stöder upp till 1000 instanser. | Har stöd för upp till 300 instanser. |
-| Slutpunkter för serverdelspool | Alla virtuella datorer i ett enda virtuellt nätverk, inklusive blandningar av virtuella datorer, tillgänglighets uppsättningar och skalnings uppsättningar för virtuella datorer. | Virtuella datorer i en enskild tillgänglighetsuppsättning eller en VM-skalningsuppsättning. |
+| [Storlek på backend-pool](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer) | Stöder upp till 1000 instanser. | Har stöd för upp till 300 instanser. |
+| Slutpunkter för serverdelspool | Virtuella datorer eller skalnings uppsättningar för virtuella datorer i ett enda virtuellt nätverk. | Virtuella datorer i en enskild tillgänglighetsuppsättning eller en VM-skalningsuppsättning. |
 | [Hälsoavsökningar](../articles/load-balancer/load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
 | [Beteende hos hälsoavsökning ur funktion](../articles/load-balancer/load-balancer-custom-probe-overview.md#probedown) | TCP-anslutningar är aktiva vid en instans avsökning __och__ i alla avsökningar. | TCP-anslutningar är vilande vid en instans avsökning. Alla TCP-anslutningar avslutas när alla avsökningar är nere. |
-| Tillgänglighetszoner | Zone-redundant och zonindelade-frontend för inkommande och utgående trafik. Utgående flöden mappar överleva zon haveri. Belastnings utjämning mellan zoner. | Inte tillgänglig |
-| Diagnostik | Azure Monitor. Flerdimensionella mått, inklusive byte och paket räknare. Status för hälso avsökning. Anslutnings försök (TCP-SYN). Utgående anslutnings hälsa (SNAT lyckade och misslyckade flöden). Mått för aktiva data planet. | Azure-Log Analytics endast för offentliga Load Balancer. Avisering om SNAT-överbelastning. Hälso antal för backend-pool. |
-| HA-portar | Intern lastbalanserare | Inte tillgänglig |
-| Säker som standard | Offentliga IP-adresser, offentliga Load Balancer slut punkter och interna Load Balancer slut punkter stängs till inkommande flöden om det inte tillåts av en nätverks säkerhets grupp. Observera att intern trafik från det virtuella nätverket till den interna belastningsutjämnaren fortfarande tillåts. | Öppnas som standard. Nätverks säkerhets gruppen är valfri. |
-| [Utgående anslutningar](../articles/load-balancer/load-balancer-outbound-connections.md) | Du kan uttryckligen ange poolbaserad utgående NAT med [utgående regler](../articles/load-balancer/load-balancer-outbound-rules-overview.md). Du kan välja att använda flera klient delar med belastnings Utjämnings regeln. Ett utgående scenario _måste_ skapas explicit för den virtuella datorn, tillgänglighets uppsättningen eller skalnings uppsättningen för den virtuella datorn så att den använder utgående anslutning. Tjänst slut punkter för virtuella nätverk kan nås utan att definiera utgående anslutning och räknas inte över till bearbetade data. Alla offentliga IP-adresser, inklusive Azure PaaS-tjänster som inte är tillgängliga som tjänst slut punkter för virtuella nätverk, måste nås med hjälp av utgående anslutning och räknas till bearbetade data. Om bara en intern Load Balancer hanterar en virtuell dator, tillgänglighets uppsättning eller skalnings uppsättning för virtuella datorer är utgående anslutningar över standard SNAT inte tillgängliga. Använd [utgående regler](../articles/load-balancer/load-balancer-outbound-rules-overview.md) i stället. Utgående SNAT-programmering beror på transport protokollet för inkommande belastnings Utjämnings regel. | Enkel klient del, väljs slumpmässigt när flera front-end-servrar finns. När endast interna Load Balancer hanterar en virtuell dator, tillgänglighets uppsättning eller skalnings uppsättning för virtuella datorer används standard SNAT. |
-| [Regel för utgående trafik](../articles/load-balancer/load-balancer-outbound-rules-overview.md) | Deklarativ utgående NAT-konfiguration med hjälp av offentliga IP-adresser eller offentliga IP-prefix eller både och. Konfigurerbar timeout för utgående inaktivitet (4-120 minuter). Anpassad SNAT-port tilldelning | Inte tillgänglig |
-| [TCP-återställning vid inaktivitet](../articles/load-balancer/load-balancer-tcp-reset.md) | Aktivera TCP-återställning (TCP RST) för timeout vid inaktivitet för alla regler | Inte tillgänglig |
+| Tillgänglighetszoner | Zoner-redundanta och zonindelade-frontend-klienter för inkommande och utgående trafik. | Inte tillgängligt |
+| Diagnostik | [Azure Monitor flerdimensionella mått](../articles/load-balancer/load-balancer-standard-diagnostics.md) | [Azure Monitor-loggar](../articles/load-balancer/load-balancer-monitor-log.md) |
+| HA-portar | [Tillgängligt för interna Load Balancer](../articles/load-balancer/load-balancer-ha-ports-overview.md) | Inte tillgängligt |
+| Säker som standard | Stängda för inkommande flöden om det inte tillåts av en nätverks säkerhets grupp. Observera att intern trafik från VNet till den interna belastningsutjämnaren tillåts. | Öppnas som standard. Nätverks säkerhets gruppen är valfri. |
+| Regler för utgående trafik | [Deklarativ utgående NAT-konfiguration](../articles/load-balancer/load-balancer-outbound-rules-overview.md) | Inte tillgängligt |
+| TCP-återställning vid inaktivitet | [Tillgängligt för någon regel](../articles/load-balancer/load-balancer-tcp-reset.md) | Inte tillgängligt |
 | [Flera frontend-sidor](../articles/load-balancer/load-balancer-multivip-overview.md) | Inkommande och [utgående](../articles/load-balancer/load-balancer-outbound-connections.md) | Endast inkommande |
 | Hanteringsåtgärder | De flesta åtgärder < 30 sekunder | 60-90 + sekunders standard |
-| SLA | 99,99 % för datasökväg med två felfria virtuella datorer. | Inte aktuellt | 
-| Prissättning | Debiteras baserat på antal regler och bearbetade inkommande och utgående data associerade med resursen. | Ingen avgift |
-|  |  |  |
+| SLA | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Inte tillgängligt | 

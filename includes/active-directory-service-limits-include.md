@@ -5,15 +5,15 @@ services: active-directory
 author: curtand
 ms.service: active-directory
 ms.topic: include
-ms.date: 01/22/2020
+ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 2e06a6c8dd7eb58769f504db9f96e0303c3e9f4c
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 5356252432b70654648a832f9ac27698f29b6327
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748780"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78202552"
 ---
 Här följer användningsbegränsningarna och andra tjänstbegränsningar för Azure Active Directory-tjänsten (Azure AD).
 
@@ -21,7 +21,7 @@ Här följer användningsbegränsningarna och andra tjänstbegränsningar för A
 | --- | --- |
 | Kataloger | En enskild användare kan som mest tillhöra 500 Azure AD-kataloger som medlem eller gäst.<br/>En enskild användare kan som mest skapa 20 kataloger. |
 | Domäner | Du kan som mest lägga till 900 hanterade domännamn. Om du konfigurerar alla dina domäner för federation lokalt med Active Directory kan du som mest lägga till 450 domännamn i varje katalog. |
-|Resurser |<ul><li>Högst 50 000 Azure AD-resurser kan skapas i en enda katalog av användare av den kostnads fria versionen av Azure Active Directory som standard. Om du har minst en verifierad domän utökas standard katalog tjänst kvoten i Azure AD till 300 000 Azure AD-resurser. </li><li>En användare som inte är administratör kan inte skapa mer än 250 Azure AD-resurser. Både aktiva resurser och borttagna resurser som är tillgängliga för att återställas mot den här kvoten. Endast Azure AD-resurser som har tagits bort under 30 dagar sedan är tillgängliga för återställning. Tog bort Azure AD-resurser som inte längre är tillgängliga för återställning till den här kvoten till ett värde av ett kvartal i 30 dagar. Om du har utvecklare som troligen ofta överskrider den här kvoten under sina normala uppgifter, kan du [skapa och tilldela en anpassad roll](../articles/active-directory/users-groups-roles/roles-quickstart-app-registration-limits.md) med behörighet att skapa ett obegränsat antal registrerade appar.</li></ul> |
+|Resurser |<ul><li>Högst 50 000 Azure AD-resurser kan skapas i en enda katalog av användare av den kostnads fria versionen av Azure Active Directory som standard. Om du har minst en verifierad domän utökas standard kvoten för Azure AD-tjänsten för din organisation till 300 000 Azure AD-resurser. Den här tjänst gränsen är inte relaterad till pris nivå gränsen på 500 000 resurser på prissättnings sidan för Azure AD. Om du vill gå bortom standard kvoten måste du kontakta Microsoft Support.</li><li>En användare som inte är administratör kan inte skapa mer än 250 Azure AD-resurser. Både aktiva resurser och borttagna resurser som är tillgängliga för att återställas mot den här kvoten. Endast Azure AD-resurser som har tagits bort under 30 dagar sedan är tillgängliga för återställning. Tog bort Azure AD-resurser som inte längre är tillgängliga för återställning till den här kvoten till ett värde av ett kvartal i 30 dagar. Om du har utvecklare som troligen ofta överskrider den här kvoten under sina normala uppgifter, kan du [skapa och tilldela en anpassad roll](../articles/active-directory/users-groups-roles/roles-quickstart-app-registration-limits.md) med behörighet att skapa ett obegränsat antal registrerade appar.</li></ul> |
 | Schematillägg |<ul><li>Tillägg av strängtyp får maximalt innehålla 256 tecken. </li><li>Tillägg av binär typ är begränsade till 256 byte.</li><li>Endast 100 tilläggs värden, för *alla* typer och *alla* program, kan skrivas till en enda Azure AD-resurs.</li><li>Endast entiteter av typen User, Group, TenantDetail, Device, Application och ServicePrincipal kan utökas med strängtypen eller enkelvärdesattribut av den binära typen.</li><li>Schematillägg är bara tillgängliga i förhandsversionen av Graph API-version 1.21. Programmet måste beviljas skrivbehörighet för att det ska vara möjligt att registrera ett tillägg.</li></ul> |
 | Program |Som mest kan 100 användare vara ägare av ett enda program. |
 |Program manifest |Högst 1200 poster kan läggas till i applikations manifestet. |

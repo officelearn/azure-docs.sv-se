@@ -5,21 +5,21 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 02/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a355307eef9f5ce1f833cfd7924f5efa234a0cd7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e145cf481dd165144b188e6205e4b78cc61359fd
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73523909"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78202473"
 ---
 ## <a name="premium-ssd"></a>Premium SSD
 
 Azure Premium SSD levererar hög prestanda och disk support med låg latens för virtuella datorer med indata/utdata (i/o)-intensiva arbets belastningar. Om du vill dra nytta av hastighet och prestanda för Premium Storage-diskar kan du migrera befintliga VM-diskar till Premium-SSD. Premium-SSD är lämpliga för verksamhets kritiska produktions program. Premium-SSD kan bara användas med VM-serien som är Premium Storage-kompatibla.
 
-Mer information om enskilda VM-typer och storlekar i Azure för Windows, inklusive vilka storlekar som är kompatibla med Premium Storage, finns i [storlekar för virtuella Windows-datorer](../articles/virtual-machines/windows/sizes.md). Mer information om enskilda VM-typer och storlekar i Azure för Linux, inklusive vilka storlekar är Premium Storage-kompatibla, finns i [storlekar för virtuella Linux-datorer](../articles/virtual-machines/linux/sizes.md).
+Mer information om enskilda VM-typer och storlekar i Azure för Windows, inklusive vilka storlekar som är kompatibla med Premium Storage, finns i [storlekar för virtuella Windows-datorer](../articles/virtual-machines/windows/sizes.md). Mer information om enskilda VM-typer och storlekar i Azure för Linux, inklusive vilka storlekar är Premium Storage-kompatibla, finns i [storlekar för virtuella Linux-datorer](../articles/virtual-machines/linux/sizes.md). Från någon av dessa artiklar måste du kontrol lera varje enskild artikel för VM-storlek för att avgöra om den är Premium Storage-kompatibel.
 
 ### <a name="disk-size"></a>Diskstorlek
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
@@ -67,7 +67,7 @@ När du använder hanterade diskar gäller följande saker:
 - Disktyp
 - hanterad disk storlek
 - Ögonblicksbilder
-- Utgående dataöverföringar
+- Utgående data överföringar
 - Antal transaktioner
 
 **Hanterad disk storlek**: hanterade diskar debiteras enligt den etablerade storleken. Azure mappar den etablerade storleken (avrundat uppåt) till den närmaste erbjudna disk storleken. Mer information om de disk storlekar som erbjuds finns i föregående tabeller. Varje disk mappar till ett erbjudande för allokerad disk storlek och debiteras enligt detta. Om du till exempel har upprättat en 200 GiB Standard SSD, mappas den till disk storleks erbjudandet för E15 (256 GiB). Faktureringen för en etablerad disk beräknas per timme genom att använda det månatliga priset för det Premium Storage erbjudandet. Om du till exempel har upprättat en E10-disk och tagit bort den efter 20 timmar debiteras du för E10-erbjudandet som har klassificerats till 20 timmar. Detta gäller oavsett hur mycket faktisk data som skrivs till disken.

@@ -1,6 +1,7 @@
 - name: Content Moderator-dokumentation
   href: index.yml
 - name: Översikt
+  expanded: true
   items:
     - name: Vad är Content Moderator?
       href: overview.md
@@ -37,7 +38,7 @@
       href: Review-Tool-User-Guide/human-in-the-loop.md
     - name: 'Granskningar, arbetsflöden och jobb'
       href: review-api.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Moderera innehåll
       items:

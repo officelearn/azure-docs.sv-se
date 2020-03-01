@@ -1,9 +1,12 @@
 - name: Dokumentation om Custom Vision Service
   href: index.yml
 - name: Översikt
+  expanded: true
   items:
     - name: Vad är Custom Vision?
       href: home.md
+    - name: Nyheter
+      href: whats-new.md
 - name: Snabbstarter
   items:
     - name: Använda webbportalen

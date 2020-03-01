@@ -5,6 +5,8 @@
   items:
     - name: Vad är visuellt innehåll?
       href: Home.md
+    - name: Nyheter
+      href: whats-new.md
 - name: Snabbstarter
   items:
     - name: Använda klient-SDK

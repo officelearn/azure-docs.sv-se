@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1e96a3acf2a576e0656afb3abea9dd787bf989a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: dd21b6520dc68a6f7faa5500054b2865556e3dfb
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750063"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205916"
 ---
-# <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption fel söknings guide
+# <a name="azure-disk-encryption-troubleshooting-guide"></a>Felsökningsguide för Azure Disk Encryption
 
-Den här guiden är för IT-proffs, informations säkerhets analytiker och moln administratörer vars organisationer använder Azure Disk Encryption. Den här artikeln är att hjälpa till med fel sökning av problem med disk kryptering.
+Den här guiden är för IT-proffs, informationssäkerhetsanalytiker och molnadministratörer i organisationer som använder Azure Disk Encryption. Den här artikeln är att hjälpa till med felsökning av disk-kryptering-relaterade problem.
 
 Innan du vidtar stegen nedan måste du först se till att de virtuella datorer som du försöker kryptera finns bland de [VM-storlekar och operativ system som stöds](disk-encryption-overview.md#supported-vms-and-operating-systems)och att du uppfyller alla krav:
 
@@ -26,18 +26,18 @@ Innan du vidtar stegen nedan måste du först se till att de virtuella datorer s
 
  
 
-## <a name="troubleshooting-linux-os-disk-encryption"></a>Felsöka Linux OS disk Encryption
+## <a name="troubleshooting-linux-os-disk-encryption"></a>Felsökning av Linux OS-diskkryptering
 
-Disk kryptering för Linux-operativsystem (OS) måste demontera operativ system enheten innan den kan köras genom hela disk krypterings processen. Om det inte går att demontera enheten visas fel meddelandet "Det gick inte att demontera efter..." sannolikt kommer att inträffa.
+Diskkryptering för Linux-operativsystem (OS) måste demontera operativsystemenheten innan du kör via krypteringsprocessen fullständig disk. Om det går inte att koppla bort enheten, ett felmeddelande för ”det gick inte att demontera efter...” är sannolikt kan förekomma.
 
-Det här felet kan inträffa när disk kryptering för operativ systemet görs på en virtuell dator med en miljö som har ändrats från den bild som stöds av lager galleriet. Avvikelser från den avbildning som stöds kan störa tilläggets möjlighet att demontera OS-enheten. Exempel på avvikelser kan innehålla följande objekt:
-- Anpassade avbildningar matchar inte längre ett fil system eller partitionerings schema som stöds.
-- Stora program som SAP, MongoDB, Apache Cassandra och Docker stöds inte när de är installerade och körs i operativ systemet före kryptering. Azure Disk Encryption kan inte stänga av dessa processer på ett säkert sätt som krävs för att förbereda operativ system enheten för disk kryptering. Om det fortfarande finns aktiva processer som arbetar med öppna fil referenser till operativ system enheten, kan inte operativ system enheten demonteras, vilket leder till att operativ system enheten inte krypteras. 
-- Anpassade skript som körs i nära tiden närmar sig den kryptering som aktive ras, eller om andra ändringar görs på den virtuella datorn under krypterings processen. Den här konflikten kan inträffa när en Azure Resource Manager mall definierar flera tillägg som ska köras samtidigt, eller när ett anpassat skript tillägg eller annan åtgärd körs samtidigt för disk kryptering. Att serialisera och isolera sådana steg kan lösa problemet.
-- Security Enhanced Linux (SELinux) har inte inaktiverats innan kryptering aktive ras, så det går inte att demontera steget. SELinux kan aktive ras igen när krypteringen är klar.
-- OS-disken använder ett LVM-schema (Logical Volume Manager). Även om det begränsade stödet för LVM-datadisk är tillgängligt är det inte en LVM OS-disk.
-- Minimi kraven på minne är inte uppfyllda (7 GB rekommenderas för disk kryptering i operativ system).
-- Data enheter monteras rekursivt under/mnt/-katalogen, eller med varandra (till exempel/mnt/data1,/mnt/data2,/DATA3 +/DATA3/DATA4).
+Det här felet kan inträffa när disk kryptering för operativ systemet görs på en virtuell dator med en miljö som har ändrats från den bild som stöds av lager galleriet. Avvikelser från avbildningen som stöds kan störa tilläggets möjligheten att demontera operativsystemenheten. Exempel på avvikelser kan innehålla följande objekt:
+- Anpassade avbildningar matchar inte längre ett filsystem som stöds eller partitioneringsschema.
+- Stora program som SAP, MongoDB, Apache Cassandra och Docker stöds inte när de är installerade och körs i Operativsystemet innan du kryptering. Azure Disk Encryption kan inte stänga av de här processerna som krävs som förberedelse för operativsystemenheten för diskkryptering på ett säkert sätt. Om det finns fortfarande aktiva processer med öppna filhandtag till operativsystemenheten, får inte operativsystemenheten vara demonterats, vilket resulterar i ett fel att kryptera operativsystemenheten. 
+- Anpassade skript som körs i Stäng tid närhet till kryptering som är aktiverade, eller om någon annan ändringar görs på den virtuella datorn under krypteringsprocessen. Den här konflikten kan inträffa när en Azure Resource Manager-mall definierar flera tillägg för att köra samtidigt, eller när ett anpassat skripttillägg eller annan åtgärd körs samtidigt till diskkryptering. Serialisering och isolera sådana åtgärder kan lösa problemet.
+- Security förbättrad Linux (SELinux) har inte inaktiverats innan du aktiverar kryptering, så att demontera steg misslyckas. Vara kan reenabled SELinux när kryptering är klar.
+- OS-disken använder ett schema för logiska Volume Manager (LVM). Även om det finns begränsat LVM data disk-stöd är inte en LVM OS-disk.
+- Minimikraven på minne inte uppfylls (7 GB rekommenderas för OS-diskkryptering).
+- Dataenheter är rekursivt monterad under katalogen /mnt/ eller varandra (till exempel /mnt/data1, /mnt/data2, /data3 + /data3/data4).
 
 ## <a name="update-the-default-kernel-for-ubuntu-1404-lts"></a>Uppdatera standard kärnan för Ubuntu 14,04-LTS
 
@@ -65,11 +65,11 @@ Tillägget Microsoft. OSTCExtensions. AzureDiskEncryptionForLinux är föråldra
 
 ## <a name="unable-to-encrypt-linux-disks"></a>Det gick inte att kryptera Linux-diskar
 
-I vissa fall verkar Linux-diskkryptering vara fastnat vid "OS disk Encryption startade" och SSH är inaktiverat. Krypterings processen kan ta mellan 3-16 timmar att avsluta på en akties galleri bild. Om data diskar med flera terabyte-storlek läggs till kan processen ta flera dagar.
+I vissa fall kan har Linux diskkryptering verkar ha fastnat på ”OS diskkryptering igång” och SSH inaktiverats. Krypteringsprocessen kan ta mellan 3-16 timmar att slutföra på en lagerartiklar galleriavbildning. Om flera terabyte storlek datadiskar läggs kan processen ta dagar.
 
-Disk krypterings ordningen i Linux OS demonterar tillfälligt operativ system enheten. Den utför sedan block-för-block-kryptering av hela OS-disken innan den monteras på nytt i krypterat tillstånd. Linux Disk Encryption tillåter inte samtidig användning av den virtuella datorn medan krypteringen pågår. Prestanda egenskaperna för den virtuella datorn kan göra en betydande skillnad i den tid som krävs för att slutföra krypteringen. Dessa egenskaper inkluderar disk storleken och om lagrings kontot är standard-eller Premium-lagring (SSD).
+Linux OS-disk kryptering sekvensen demonterar operativsystemenheten tillfälligt. Den utför sedan block för block kryptering av hela OS-disken innan den monterar om i det krypterade tillståndet. Linux Disk Encryption tillåter inte samtidig användning av den virtuella datorn medan krypteringen pågår. Prestandaegenskaperna för den virtuella datorn kan göra stor skillnad i den tid som krävs för att slutföra krypteringen. Följande egenskaper är storleken på disken och om lagringskontot är standard eller (SSD) premiumlagring.
 
-Om du vill kontrol lera krypterings statusen avsöker du fältet **ProgressMessage** som returnerades från kommandot [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) . Medan operativ system enheten krypteras, övergår den virtuella datorn till ett underhålls tillstånd och inaktiverar SSH för att förhindra eventuella avbrott i den pågående processen. **EncryptionInProgress** -meddelande rapporter för majoriteten av tiden medan kryptering pågår. Flera timmar senare visas ett **VMRestartPending** -meddelande där du ombeds att starta om den virtuella datorn. Till exempel:
+Om du vill kontrol lera krypterings statusen avsöker du fältet **ProgressMessage** som returnerades från kommandot [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) . Medan operativsystemenheten krypteras den virtuella datorn försätts i ett tillstånd för underhåll och inaktiverar SSH för att förhindra eventuella avbrott i den pågående processen. **EncryptionInProgress** -meddelande rapporter för majoriteten av tiden medan kryptering pågår. Flera timmar senare visas ett **VMRestartPending** -meddelande där du ombeds att starta om den virtuella datorn. Exempel:
 
 
 ```azurepowershell
@@ -86,31 +86,17 @@ OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncry
 ProgressMessage            : OS disk successfully encrypted, please reboot the VM
 ```
 
-När du uppmanas att starta om den virtuella datorn och när den virtuella datorn har startats om, måste du vänta 2-3 minuter för omstart och för att de sista stegen ska utföras på målet. Status meddelandet ändras när krypteringen slutligen slutförs. När det här meddelandet är tillgängligt förväntas den krypterade OS-enheten vara klar för användning och den virtuella datorn är redo att användas igen.
+När du uppmanas att starta om den virtuella datorn och när den virtuella datorn har startats om måste du vänta 2 – 3 minuter för omstarten och för de sista stegen som ska utföras på målet. Meddelandet statusändringar när krypteringen är slutligen Slutför. När det här meddelandet är tillgängligt, krypterade operativsystemenheten förväntas vara redo att användas och den virtuella datorn är redo att användas igen.
 
-I följande fall rekommenderar vi att du återställer den virtuella datorn till en ögonblicks bild eller säkerhets kopia som gjorts omedelbart före krypteringen:
-   - Om sekvensen för omstart, som beskrivs ovan, inte inträffar.
-   - Om start information, förlopps meddelandet eller andra fel indikatorer rapporterar att operativ system krypteringen har misslyckats i mitten av den här processen. Ett exempel på ett meddelande är fel meddelandet "Det gick inte att demontera" som beskrivs i den här hand boken.
+I följande fall rekommenderar vi att du återställer den virtuella datorn tillbaka till ögonblicksbild eller säkerhetskopior som gjorts omedelbart före kryptering:
+   - Om omstart-sekvensen som beskrivs ovan, inte inträffa.
+   - Om startinformation, pågående meddelande eller andra indikatorer felrapport misslyckades att OS-kryptering mitt i den här processen. Ett exempel på ett meddelande är felet ”Det gick inte att demontera” som beskrivs i den här guiden.
 
-Utvärdera egenskaperna för den virtuella datorn före nästa försök och kontrol lera att alla krav är uppfyllda.
+Dags att omvärdera egenskaperna för den virtuella datorn och kontrollera att alla krav är uppfyllda innan nästa försök.
 
-## <a name="troubleshooting-azure-disk-encryption-behind-a-firewall"></a>Felsöka Azure Disk Encryption bakom en brand vägg
+## <a name="troubleshooting-azure-disk-encryption-behind-a-firewall"></a>Felsöka Azure Disk Encryption bakom en brandvägg
 
-När anslutningen begränsas av en brand vägg, ett krav för en brand vägg eller en nätverks säkerhets grupp (NSG), kan det hända att tilläggets möjlighet att utföra nödvändiga åtgärder avbryts. Detta avbrott kan resultera i status meddelanden som "tilläggs status är inte tillgänglig på den virtuella datorn". I förväntat scenario slutförs inte krypteringen. Avsnitten som följer innehåller några vanliga brand Väggs problem som du kan undersöka.
-
-### <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
-Alla inställningar för nätverks säkerhets grupper som tillämpas måste fortfarande tillåta slut punkten att uppfylla de dokumenterade nätverks konfigurations [kraven](disk-encryption-overview.md#networking-requirements) för disk kryptering.
-
-### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault bakom en brand vägg
-
-När kryptering aktive ras med [autentiseringsuppgifter för Azure AD](disk-encryption-linux-aad.md#)måste den virtuella mål datorn tillåta anslutning till både Azure Active Directory slut punkter och Key Vault slut punkter. Nuvarande Azure Active Directory autentiserings slut punkter underhålls i avsnitten 56 och 59 i dokumentationen för [Office 365-URL: er och IP-adressintervall](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) . Key Vault-instruktioner finns i dokumentationen om hur du [får åtkomst till Azure Key Vault bakom en brand vägg](../../key-vault/key-vault-access-behind-firewall.md).
-
-### <a name="azure-instance-metadata-service"></a>Azure-Instance Metadata Service 
-Den virtuella datorn måste kunna komma åt [Azure instance metadata service](../windows/instance-metadata-service.md) -slutpunkten som använder en välkänd icke-flyttbar IP-adress (`169.254.169.254`) som bara kan nås från den virtuella datorn.  Proxykonfigurationen som ändrar lokal HTTP-trafik till den här adressen (till exempel att lägga till ett X-vidarebefordrat-för-huvud) stöds inte.
-
-### <a name="linux-package-management-behind-a-firewall"></a>Hantering av Linux-paket bakom en brand vägg
-
-Vid körning förlitar sig Azure Disk Encryption för Linux på mål distributionens pakethanteringssystem för att installera nödvändiga nödvändiga komponenter innan krypteringen aktive ras. Om brand Väggs inställningarna förhindrar att den virtuella datorn kan ladda ned och installera dessa komponenter förväntas efterföljande försök. Stegen för att konfigurera den här pakethanteringssystem kan variera beroende på distribution. I Red Hat måste du, när en proxyserver krävs, se till att prenumerations-och yum har kon figurer ATS korrekt. Mer information finns i [så här felsöker du problem med prenumerations hanteraren och yum](https://access.redhat.com/solutions/189533).  
+Se [disk kryptering i ett isolerat nätverk](disk-encryption-isolated-network.md)
 
 ## <a name="troubleshooting-encryption-status"></a>Felsöka krypterings status 
 
@@ -122,7 +108,7 @@ Om du vill inaktivera Azure Disk Encryption med CLI använder du [inaktivera AZ 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I det här dokumentet har du lärt dig mer om några vanliga problem i Azure Disk Encryption och hur du felsöker problemen. Mer information om den här tjänsten och dess funktioner finns i följande artiklar:
+I det här dokumentet har du lärt dig mer om några vanliga problem i Azure Disk Encryption och hur du felsöker dessa problem. Mer information om den här tjänsten och dess funktioner finns i följande artiklar:
 
 - [Använd disk kryptering i Azure Security Center](../../security-center/security-center-apply-disk-encryption.md)
 - [Azure Data Encryption i vila](../../security/fundamentals/encryption-atrest.md)

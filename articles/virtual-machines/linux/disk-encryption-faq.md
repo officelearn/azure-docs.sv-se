@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 77b092920bff75c806ec78a933d23df546bf636a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 45febcffed747f75b6c8b78c2e4b93a047f81b0a
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036355"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205882"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Vanliga frågor och svar om IaaS VM Azure Disk Encryption
 
@@ -28,11 +28,11 @@ Azure Disk Encryption GA stöder Azure Resource Manager-mallar, Azure PowerShell
 
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Hur mycket kostar Azure Disk Encryption?
 
-Det kostar inget att kryptera virtuella dator diskar med Azure Disk Encryption, men det finns kostnader som är kopplade till användningen av Azure Key Vault. Mer information om kostnader för Azure Key Vault finns i den [prissättning för Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) sidan.
+Det kostar inget att kryptera virtuella dator diskar med Azure Disk Encryption, men det finns kostnader som är kopplade till användningen av Azure Key Vault. Mer information om Azure Key Vault kostnader finns på sidan för [Key Vault priser](https://azure.microsoft.com/pricing/details/key-vault/) .
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Hur kan jag börja använda Azure Disk Encryption?
 
-Kom igång genom att läsa den [översikt över Azure Disk Encryption](disk-encryption-overview.md).
+Läs [Azure Disk Encryption översikt](disk-encryption-overview.md)för att komma igång.
 
 ## <a name="what-vm-sizes-and-operating-systems-support-azure-disk-encryption"></a>Vilka VM-storlekar och operativ system stöder Azure Disk Encryption?
 
@@ -87,7 +87,7 @@ Ja. Diskkryptering som använder en Azure AD-app stöds fortfarande. Men när du
 
 ## <a name="what-version-of-azure-powershell-does-azure-disk-encryption-support"></a>Vilken version av Azure PowerShell har stöd för Azure Disk Encryption?
 
-Använd den senaste versionen av Azure PowerShell SDK för att konfigurera Azure Disk Encryption. Ladda ned den senaste versionen av [Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Azure Disk Encryption är *inte* stöds av Azure SDK version 1.1.0.
+Använd den senaste versionen av Azure PowerShell SDK för att konfigurera Azure Disk Encryption. Ladda ned den senaste versionen av [Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Azure Disk Encryption stöds *inte* av Azure SDK-versionen 1.1.0.
 
 > [!NOTE]
 > Linux Azure Disk Encryption Preview-tillägget "Microsoft. OSTCExtension. AzureDiskEncryptionForLinux" är föråldrat. Tillägget publicerades för Azure Disk Encryption Preview-versionen. Du bör inte använda för hands versionen av tillägget i test-eller produktions distributionen.
@@ -100,7 +100,7 @@ Du kan inte använda Azure Disk Encryption på din anpassade Linux-avbildning. S
 
 ## <a name="can-i-apply-updates-to-a-linux-red-hat-vm-that-uses-the-yum-update"></a>Kan jag använda uppdateringar till virtuella Linux Red Hat-datorer som använder yum-uppdateringen?
 
-Ja, du kan utföra en yum uppdatering på en Red Hat Linux-dator.  Mer information finns i [hantering av Linux-paket bakom en brand vägg](disk-encryption-troubleshooting.md#linux-package-management-behind-a-firewall).
+Ja, du kan utföra en yum uppdatering på en Red Hat Linux-dator.  Mer information finns i [Azure Disk Encryption på ett isolerat nätverk](disk-encryption-isolated-network.md).
 
 ## <a name="what-is-the-recommended-azure-disk-encryption-workflow-for-linux"></a>Vad är rekommenderade Azure disk encryption-arbetsflöde för Linux?
 
@@ -110,7 +110,7 @@ Följande arbetsflöde bör vara de bästa resultat på Linux:
 * Kryptera (kan ta flera timmar eller t.o.m. dagar beroende på VM-egenskaper och storleken på eventuella anslutna datadiskar)
 * Anpassa och lägga till programvara i avbildningen efter behov.
 
-Om det här arbetsflödet inte är möjligt, förlitar sig på [Lagringstjänstkryptering](../../storage/common/storage-service-encryption.md) (SSE) på plattformen storage konto lager kan vara ett alternativ till fullständig diskkryptering med dm-crypt.
+Om det här arbets flödet inte är möjligt kan förlitande på [kryptering för lagringstjänst](../../storage/common/storage-service-encryption.md) (SSE) på plattforms lagrings konto lagret vara ett alternativ till fullständig disk kryptering med hjälp av dm-crypt.
 
 ## <a name="what-is-the-disk-bek-volume-or-mntazure_bek_disk"></a>Vad är den disken ”Bek volym” eller ”/ mnt/azure_bek_disk”?
 
@@ -124,10 +124,10 @@ Om det här arbetsflödet inte är möjligt, förlitar sig på [Lagringstjänstk
 Azure Disk Encryption använder dekrypteringen standardvärdet AES-XTS-plain64 med en huvud nyckel på 256-bitars volym.
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Om jag använder EncryptFormatAll och anger alla volymtyper av, kommer den att radera data på dataenheter som vi redan har krypterat?
-Nej, inte data raderas från enheter som redan är krypterade med Azure Disk Encryption. Liknande hur EncryptFormatAll inte kryptera operativsystemenheten, den kommer inte att kryptera enheten redan krypterade data. Mer information finns i den [EncryptFormatAll kriterier](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).        
+Nej, inte data raderas från enheter som redan är krypterade med Azure Disk Encryption. Liknande hur EncryptFormatAll inte kryptera operativsystemenheten, den kommer inte att kryptera enheten redan krypterade data. Mer information finns i EncryptFormatAll- [kriterier](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).        
 
 ## <a name="is-xfs-filesystem-supported"></a>Stöds XFS-filsystem?
-XFS-volymer stöds endast för datadisk-kryptering med EncryptFormatAll. Då formateras volymen och eventuella data raderas tidigare. Mer information finns i den [EncryptFormatAll kriterier](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+XFS-volymer stöds endast för datadisk-kryptering med EncryptFormatAll. Då formateras volymen och eventuella data raderas tidigare. Mer information finns i EncryptFormatAll- [kriterier](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Kan jag säkerhetskopiera och återställa en krypterad virtuell dator? 
 
@@ -135,11 +135,11 @@ Azure Backup tillhandahåller en mekanism för att säkerhetskopiera och återst
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Var kan jag få ställa frågor eller lämna feedback?
 
-Du kan ställa frågor eller lämna feedback om den [forum för Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
+Du kan ställa frågor eller ge feedback i [Azure Disk Encryption-forumet](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig mer om de vanligaste frågor som rör Azure Disk Encryption. Mer information om den här tjänsten finns i följande artiklar:
 
 - [Översikt av Azure Disk Encryption](disk-encryption-overview.md)
-- [Tillämpa diskkryptering i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Azure datakryptering i vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+- [Använd disk kryptering i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
+- [Azure Data Encryption i vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)

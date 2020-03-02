@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 02/28/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a727cd57e470f248321011d505f8037808f64298
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 90669ebde9537fdf597fccd621caa54deaed68a6
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656882"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206460"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-cmdletar för att konfigurera gruppinställningar
 
@@ -152,7 +152,7 @@ Här är inställningarna som definierats i gruppen. Unified SettingsTemplate. O
 |  <ul><li>EnableGroupCreation<li>Typ: boolesk<li>Standard: sant |Flaggan indikerar om Office 365-gruppen ska kunna skapas i katalogen av användare som inte är administratörer. Den här inställningen kräver inte en licens för Azure Active Directory Premium P1.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Typ: Sträng<li>Standard: "" |GUID för den säkerhets grupp för vilken medlemmarna får skapa Office 365-grupper även när EnableGroupCreation = = false. |
 |  <ul><li>UsageGuidelinesUrl<li>Typ: Sträng<li>Standard: "" |En länk till rikt linjerna för grupp användning. |
-|  <ul><li>ClassificationDescriptions<li>Typ: Sträng<li>Standard: "" | En kommaavgränsad lista över klassificerings beskrivningar. Värdet för ClassificationDescriptions är endast giltigt i det här formatet:<br>$setting ["ClassificationDescriptions"] = "klassificering: Beskrivning, klassificering: Beskrivning"<br>där klassificering matchar strängarna i ClassificationList.<br>Den här inställningen gäller inte när EnableMIPLabels = = True.|
+|  <ul><li>ClassificationDescriptions<li>Typ: Sträng<li>Standard: "" | En kommaavgränsad lista över klassificerings beskrivningar. Värdet för ClassificationDescriptions är endast giltigt i det här formatet:<br>$setting ["ClassificationDescriptions"] = "klassificering: Beskrivning, klassificering: Beskrivning"<br>där klassificeringen matchar en post i ClassificationList.<br>Den här inställningen gäller inte när EnableMIPLabels = = True.|
 |  <ul><li>DefaultClassification<li>Typ: Sträng<li>Standard: "" | Klassificeringen som ska användas som standard klassificering för en grupp om inget har angetts.<br>Den här inställningen gäller inte när EnableMIPLabels = = True.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Typ: Sträng<li>Standard: "" | Sträng med en maximal längd på 64 tecken som definierar den namngivnings konvention som har kon figurer ATS för Office 365-grupper. Mer information finns i [framtvinga en namngivnings princip för Office 365-grupper](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Typ: Sträng<li>Standard: "" | Kommaavgränsad sträng med fraser som användarna inte får använda i grupp namn eller alias. Mer information finns i [framtvinga en namngivnings princip för Office 365-grupper](groups-naming-policy.md). |
@@ -161,7 +161,7 @@ Här är inställningarna som definierats i gruppen. Unified SettingsTemplate. O
 |  <ul><li>AllowGuestsToAccessGroups<li>Typ: boolesk<li>Standard: sant | Booleskt värde som anger om en gäst användare får åtkomst till Office 365-grupp innehåll.  Den här inställningen kräver inte en licens för Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Typ: Sträng<li>Standard: "" | URL-adressen till en länk till gäst användnings rikt linjerna. |
 |  <ul><li>AllowToAddGuests<li>Typ: boolesk<li>Standard: sant | Ett booleskt värde som anger om gäster ska läggas till i katalogen eller inte. <br>Den här inställningen kan åsidosättas och bli skrivskyddad om *EnableMIPLabels* har värdet *True* och en gäst policy är associerad med den känslighets etikett som tilldelats gruppen. |
-|  <ul><li>ClassificationList<li>Typ: Sträng<li>Standard: "" |En kommaavgränsad lista över giltiga klassificerings värden som kan tillämpas på Office 365-grupper. <br>Den här inställningen gäller inte när EnableMIPLabels = = True.|
+|  <ul><li>ClassificationList<li>Typ: Sträng<li>Standard: "" | En kommaavgränsad lista över giltiga klassificerings värden som kan tillämpas på Office 365-grupper. <br>Den här inställningen gäller inte när EnableMIPLabels = = True.|
 |  <ul><li>EnableMIPLabels<li>Typ: boolesk<li>Standard: "falskt" |Flaggan som anger om känslighets etiketter som publiceras i Microsoft 365 Compliance Center kan tillämpas på Office 365-grupper. Mer information finns i [tilldela känslighets etiketter för Office 365-grupper](groups-assign-sensitivity-labels.md). |
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Exempel: Konfigurera gäst princip för grupper på katalog nivå

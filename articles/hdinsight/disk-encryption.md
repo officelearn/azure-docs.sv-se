@@ -6,90 +6,97 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/06/2019
-ms.openlocfilehash: b452cb986e6f662aeb33c2a475f18695ebc75745
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/20/2020
+ms.openlocfilehash: c22ee0ef0393c0dae64674d18bae5a2e92969b4c
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846119"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206082"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Kundhanterad nyckeldiskkryptering
 
-Azure HDInsight stöder Kundhanterade nycklar, även kallat Bring Your Own Key-kryptering (BYOK) för data på hanterade diskar och resurs diskar som är anslutna till virtuella HDInsight-kluster. Med den här funktionen kan du använda Azure Key Vault för att hantera krypterings nycklar som skyddar data i andra i HDInsight-klustren. Dina kluster kan ha ett eller flera kopplade Azure Storage konton där krypterings nycklarna också kan hanteras av Microsoft eller kund, men krypterings tjänsten skiljer sig åt.
-
-Det här dokumentet hanterar inte data som lagras i ditt Azure Storage-konto. Mer information om ASE finns i [Azure Storage kryptering för data i vila](../storage/common/storage-service-encryption.md).
+Azure HDInsight stöder kundhanterad nyckel kryptering för data på hanterade diskar och resurs diskar som är anslutna till virtuella HDInsight-kluster datorer. Med den här funktionen kan du använda Azure Key Vault för att hantera krypterings nycklar som skyddar data i andra i HDInsight-klustren. 
 
 Alla hanterade diskar i HDInsight skyddas med Azure Storage Service Encryption (SSE). Som standard krypteras data på dessa diskar med hjälp av Microsoft-hanterade nycklar. Om du aktiverar Kundhanterade nycklar för HDInsight, anger du krypterings nycklarna för HDInsight för att använda och hantera dessa nycklar med hjälp av Azure Key Vault.
+
+Det här dokumentet hanterar inte data som lagras i ditt Azure Storage-konto. Mer information om Azure Storage kryptering finns i [Azure Storage kryptering av data i vila](../storage/common/storage-service-encryption.md). Dina kluster kan ha ett eller flera kopplade Azure Storage konton där krypterings nycklarna också kan hanteras av Microsoft eller kund, men krypterings tjänsten skiljer sig åt.
+
+## <a name="introduction"></a>Introduktion
 
 Kundhanterad nyckel kryptering är en enda stegs process som hanteras när klustret skapas utan extra kostnad. Allt du behöver göra är att registrera HDInsight som en hanterad identitet med Azure Key Vault och lägga till krypterings nyckeln när du skapar klustret.
 
 Både resurs diskar och hanterade diskar på varje nod i klustret krypteras med en symmetrisk data krypterings nyckel (DEK). DEK skyddas med nyckel krypterings nyckeln (KEK) från ditt nyckel valv. Krypterings-och dekrypterings processerna hanteras helt av Azure HDInsight.
 
-Du kan använda Azure Portal eller Azure CLI för att på ett säkert sätt rotera nycklar i nyckel valvet. När en nyckel roterar börjar HDInsight-klustret med den nya nyckeln inom några minuter. Aktivera nyckel skydds funktionerna "mjuk borttagning" för att skydda dig mot utpressnings scenarier och oavsiktlig borttagning. Nyckel valv utan denna skydds funktion stöds inte.
+Om Key Vault-brandväggen är aktive rad i nyckel valvet där disk krypterings nyckeln lagras, måste den regionala HDInsight-providerns IP-adresser för den region där klustret ska distribueras läggas till i konfiguration av Key Vault-brandväggen. Detta är nödvändigt eftersom HDInsight inte är en betrodd Azure Key Vault-tjänst.
+
+Du kan använda Azure Portal eller Azure CLI för att på ett säkert sätt rotera nycklar i nyckel valvet. När en nyckel roterar börjar HDInsight-klustret med den nya nyckeln inom några minuter. Aktivera funktionen för nyckel skydd för [mjuk borttagning](../key-vault/key-vault-ovw-soft-delete.md) för att skydda dig mot utpressnings scenarier och oavsiktlig borttagning. Nyckel valv utan denna skydds funktion stöds inte.
+
+|Kluster typ |OS-disk (hanterad disk) |Data disk (hanterad disk) |Temporär data disk (lokal SSD) |
+|---|---|---|---|
+|Kafka, HBase med accelererade skrivningar|SSE-kryptering|SSE-kryptering + valfri CMK-kryptering|Valfri CMK-kryptering|
+|Alla andra kluster (Spark, Interactive, Hadoop, HBase utan accelererade skrivningar)|SSE-kryptering|Ej tillämpligt|Valfri CMK-kryptering|
 
 ## <a name="get-started-with-customer-managed-keys"></a>Kom igång med Kundhanterade nycklar
 
 Vi går igenom följande steg för att skapa ett kundhanterat nyckel aktiverat HDInsight-kluster:
 
 1. Skapa hanterade identiteter för Azure-resurser
-2. Installations Azure Key Vault och nycklar
-3. Skapa HDInsight-kluster med kundhanterad nyckel aktive rad
-4. Rotera krypterings nyckeln
+1. Skapa Azure Key Vault
+1. Skapa nyckel
+1. Skapa åtkomst princip
+1. Skapa HDInsight-kluster med kundhanterad nyckel aktive rad
+1. Rotera krypterings nyckeln
 
 ## <a name="create-managed-identities-for-azure-resources"></a>Skapa hanterade identiteter för Azure-resurser
 
-Om du vill autentisera till Key Vault skapar du en användardefinierad hanterad identitet med hjälp av [Azure Portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md)eller [Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). Mer information om hur hanterade identiteter fungerar i Azure HDInsight finns i [hanterade identiteter i Azure HDInsight](hdinsight-managed-identities.md). Se till att spara resurs-ID: t för den hanterade identiteten när du lägger till det i Key Vault åtkomst principen.
+Skapa en användardefinierad hanterad identitet för att autentisera till Key Vault.
 
-## <a name="set-up-the-key-vault-and-keys"></a>Konfigurera Key Vault och nycklar
+Se [skapa en användardefinierad hanterad identitet](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) för vissa steg. Mer information om hur hanterade identiteter fungerar i Azure HDInsight finns i [hanterade identiteter i Azure HDInsight](hdinsight-managed-identities.md). Se till att spara resurs-ID: t för den hanterade identiteten när du lägger till det i Key Vault åtkomst principen.
 
-HDInsight har endast stöd för Azure Key Vault. Om du har ett eget nyckel valv kan du importera dina nycklar till Azure Key Vault. Kom ihåg att nycklarna måste ha "mjuk borttagning". Funktionen "mjuk borttagning" är tillgänglig i gränssnitten REST, .NET/C#, PowerShell och Azure CLI.
+## <a name="create-azure-key-vault"></a>Skapa Azure Key Vault
 
-1. Om du vill skapa ett nytt nyckel valv följer du snabb starten för [Azure Key Vault](../key-vault/key-vault-overview.md) . Mer information om hur du importerar befintliga nycklar finns på [nycklar, hemligheter och certifikat](../key-vault/about-keys-secrets-and-certificates.md).
+Skapa ett nyckelvalv. Se [skapa Azure Key Vault](../key-vault/quick-create-portal.md) för vissa steg.
 
-1. Aktivera "mjuk borttagning" i Key-valvet med hjälp av AZ-kommando för [uppdatering](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) cli.
+HDInsight har endast stöd för Azure Key Vault. Om du har ett eget nyckel valv kan du importera dina nycklar till Azure Key Vault. Kom ihåg att nyckel valvet måste ha **mjuk borttagning** aktiverat. Mer information om hur du importerar befintliga nycklar finns på [nycklar, hemligheter och certifikat](../key-vault/about-keys-secrets-and-certificates.md).
 
-    ```azurecli
-    az keyvault update --name <Key Vault Name> --enable-soft-delete
-    ```
+## <a name="create-key"></a>Skapa nyckel
 
-1. Skapa nycklar.
-
-    a. Om du vill skapa en ny nyckel väljer du **generera/importera** från menyn **nycklar** under **Inställningar**.
+1. Från det nya nyckel valvet navigerar du till **inställningar** > **nycklar** >  **+ generera/importera**.
 
     ![Generera en ny nyckel i Azure Key Vault](./media/disk-encryption/create-new-key.png "Generera en ny nyckel i Azure Key Vault")
 
-    b. Ange **alternativ** för att **generera** och ge nyckeln ett namn.
+1. Ange ett namn och välj sedan **skapa**. Behåll standard **nyckel typen** för **RSA**.
 
     ![genererar nyckel namn](./media/disk-encryption/create-key.png "Generera nyckel namn")
 
-    c. Välj den nyckel som du skapade i listan över nycklar.
+1. När du kommer tillbaka till sidan **nycklar** väljer du den nyckel som du skapade.
 
     ![nyckel lista för nyckel valv](./media/disk-encryption/key-vault-key-list.png)
 
-    d. När du använder din egen nyckel för kluster kryptering i HDInsight måste du ange nyckel-URI: n. Kopiera **nyckel identifieraren** och spara den någonstans tills du är redo att skapa klustret.
+1. Välj version för att öppna sidan med **nyckel versionen** . När du använder din egen nyckel för kluster kryptering i HDInsight måste du ange nyckel-URI: n. Kopiera **nyckel identifieraren** och spara den någonstans tills du är redo att skapa klustret.
 
     ![Hämta nyckel identifierare](./media/disk-encryption/get-key-identifier.png)
 
-1. Lägg till hanterad identitet i åtkomst principen för nyckel valvet.
+## <a name="create-access-policy"></a>Skapa åtkomst princip
 
-    a. Skapa en ny Azure Key Vault åtkomst princip.
+1. Från det nya nyckel valvet navigerar du till **inställningar** > **åtkomst principer** >  **+ Lägg till åtkomst princip**.
 
-    ![Skapa ny princip för Azure Key Vault åtkomst](./media/disk-encryption/add-key-vault-access-policy.png)
+    ![Skapa ny princip för Azure Key Vault åtkomst](./media/disk-encryption/key-vault-access-policy.png)
 
-    b. Under **Välj huvud konto**väljer du den användare-tilldelade hanterade identitet som du har skapat.
+1. På sidan **Lägg till åtkomst princip** anger du följande information:
+
+    |Egenskap |Beskrivning|
+    |---|---|
+    |Nyckel behörigheter|Välj **Hämta**, **packa upp nyckel**och **Radbryt nyckel**.|
+    |Hemliga behörigheter|Välj **Hämta**, **Ange**och **ta bort**.|
+    |Välj huvud konto|Välj den användare som tilldelats den hanterade identitet som du skapade tidigare.|
 
     ![Ange Välj huvud konto för Azure Key Vault åtkomst princip](./media/disk-encryption/azure-portal-add-access-policy.png)
 
-    c. Ange **nyckel behörigheter** för att **Hämta, ta emot** **, packa upp**och **figursätta**nyckeln.
+1. Välj **Lägg till**.
 
-    ![Ange nyckel behörigheter för Azure Key Vault åtkomst policy1](./media/disk-encryption/add-key-vault-access-policy-keys.png "Ange nyckel behörigheter för Azure Key Vault åtkomst policy1")
-
-    d. Ange **hemliga behörigheter** för att **Hämta**, **Ange**och **ta bort**.
-
-    ![Ange nyckel behörigheter för Azure Key Vault åtkomst policy2](./media/disk-encryption/add-key-vault-access-policy-secrets.png "Ange nyckel behörigheter för Azure Key Vault åtkomst policy2")
-
-    e. Välj **Spara**.
+1. Välj **Spara**.
 
     ![Spara Azure Key Vault åtkomst princip](./media/disk-encryption/add-key-vault-access-policy-save.png)
 
@@ -99,13 +106,13 @@ Nu är du redo att skapa ett nytt HDInsight-kluster. Kundhanterad nyckel kan bar
 
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
-Under skapandet av klustret anger du den fullständiga nyckel-URL: en, inklusive nyckel versionen. Till exempel `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identiteten till klustret och ange nyckel-URI: n.
+Ange den fullständiga **nyckel identifieraren**, inklusive nyckel versionen, när klustret skapas. Till exempel `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identiteten till klustret och ange nyckel-URI: n.
 
-![Skapa ett nytt kluster](./media/disk-encryption/create-cluster-portal.png)
+![Skapa nytt kluster](./media/disk-encryption/create-cluster-portal.png)
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 
-I följande exempel visas hur du använder Azure CLI för att skapa ett nytt Apache Spark kluster med disk kryptering aktiverat. Mer information finns i [Azure CLI-AZ HDInsight Create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) Documentation.
+I följande exempel visas hur du använder Azure CLI för att skapa ett nytt Apache Spark kluster med disk kryptering aktiverat. Mer information finns i [Azure CLI AZ HDInsight Create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create).
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -123,13 +130,13 @@ Det kan finnas scenarier där du kanske vill ändra de krypterings nycklar som a
 
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
-Om du vill rotera nyckeln måste du ha den fullständiga URL: en för den nya nyckeln (se steg 3 i [konfigurera Key Vault och nycklar](#set-up-the-key-vault-and-keys)). När du har gjort det går du till avsnittet HDInsight-kluster egenskaper i portalen och klickar på **ändra nyckel** under **URL för disk krypterings nyckel**. Ange den nya nyckel-URL: en och skicka för att rotera nyckeln.
+Om du vill rotera nyckeln behöver du URI för bas nyckel valvet. När du har gjort det går du till avsnittet HDInsight-kluster egenskaper i portalen och klickar på **ändra nyckel** under **URL för disk krypterings nyckel**. Ange den nya nyckel-URL: en och skicka för att rotera nyckeln.
 
 ![rotera disk krypterings nyckel](./media/disk-encryption/change-key.png)
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 
-I följande exempel visas hur du roterar disk krypterings nyckeln för ett befintligt HDInsight-kluster. Se [Azure CLI AZ HDInsight rotation-Disk-Encryption-Key](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-rotate-disk-encryption-key) för mer information.
+I följande exempel visas hur du roterar disk krypterings nyckeln för ett befintligt HDInsight-kluster. Mer information finns i [Azure CLI AZ HDInsight rotation-Disk-Encryption-Key](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-rotate-disk-encryption-key).
 
 ```azurecli
 az hdinsight rotate-disk-encryption-key \
@@ -178,4 +185,5 @@ HDInsight Kundhanterade nycklar är tillgängliga i alla offentliga moln och i n
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Översikt över företags säkerhet i Azure HDInsight](./domain-joined/hdinsight-security-overview.md)
+* Mer information om Azure Key Vault finns i [Vad är Azure Key Vault](../key-vault/key-vault-overview.md).
+* [Översikt över företags säkerhet i Azure HDInsight](./domain-joined/hdinsight-security-overview.md).

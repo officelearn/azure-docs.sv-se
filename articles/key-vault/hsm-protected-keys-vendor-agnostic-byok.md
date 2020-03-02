@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: 9b8f1065660ea8331853f8804e709134fe682ba7
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 0e3246f9da202b54cc0d1285795c25cfafb678d8
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566122"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207038"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Importera HSM-skyddade nycklar till Key Vault (förhandsversion)
 
@@ -90,6 +90,9 @@ KEK måste vara:
 - genereras i samma nyckel valv där du tänker importera mål nyckeln
 - Har skapats med tillåtna nyckel åtgärder inställt på `import`
 
+> [!NOTE]
+> KEK måste ha ' import ' som den enda tillåtna nyckel åtgärden. import är ömsesidigt uteslutande med alla andra nyckel åtgärder.
+
 Använd kommandot [AZ Key Vault Key Create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) för att skapa en KEK som har nyckel åtgärder inställt på `import`. Registrera nyckel identifieraren (`kid`) som returneras från följande kommando. (Du kommer att använda `kid`-värdet i [steg 3](#step-3-generate-and-prepare-your-key-for-transfer).)
 
 ```azurecli
@@ -115,7 +118,7 @@ Se din HSM-leverantörs dokumentation för att ladda ned och installera BYOK-ver
 > [!NOTE] 
 > Det finns inte stöd för att importera RSA 1 024-bitars nycklar. Det finns för närvarande inte stöd för att importera en Elliptic Curve-nyckel (EC).
 > 
-> **Känt problem**: det går inte att importera en RSA 4K-mål nyckel från SafeNet Luna HSM: er. När problemet har lösts kommer den här artikeln att uppdateras.
+> **Känt problem**: det går bara att importera en RSA 4K-mål nyckel från SafeNet Luna HSM: er med inbyggd program vara 7.4.0 eller senare.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>Steg 4: överför din nyckel till Azure Key Vault
 

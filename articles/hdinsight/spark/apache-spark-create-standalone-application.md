@@ -5,19 +5,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 06/26/2019
-ms.openlocfilehash: 156892a4785bf1644d29b82e98c3b2ae202c5a49
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive,mvc
+ms.date: 02/28/2020
+ms.openlocfilehash: aa23b61967b27fefba863255721f4a0709ec02d5
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494691"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78204586"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Självstudie: Skapa ett Scala Maven-program för Apache Spark i HDInsight med hjälp av IntelliJ
 
-I den här självstudien lär du dig att skapa ett [Apache Spark](https://spark.apache.org/)-program som skrivits i [Scala](https://www.scala-lang.org/) med hjälp av [Apache Maven](https://maven.apache.org/) med IntelliJ IDEA. Artikeln använder Apache Maven som build-system och startar med en befintlig Maven-arketyp för Scala som tillhandahålls av IntelliJ IDEA.  Att skapa ett Scala-program i IntelliJ IDEA innefattar följande steg:
+I den här självstudien lär du dig att skapa ett [Apache Spark](./apache-spark-overview.md)-program som skrivits i [Scala](https://www.scala-lang.org/) med hjälp av [Apache Maven](https://maven.apache.org/) med IntelliJ IDEA. Artikeln använder Apache Maven som build-system och startar med en befintlig Maven-arketyp för Scala som tillhandahålls av IntelliJ IDEA.  Att skapa ett Scala-program i IntelliJ IDEA innefattar följande steg:
 
 * Använd Maven som build-system.
 * Uppdatera POM-filen (Project Object Model) för att hantera Spark-modulens beroenden.
@@ -61,15 +61,15 @@ Installera Scala-plugin-programmet via följande steg:
 
 1. Starta IntelliJ IDEA och välj **Skapa nytt projekt** för att öppna fönstret **Nytt projekt**.
 
-2. Välj **Azure Spark/HDInsight** i den vänstra rutan.
+2. Välj **Apache Spark/HDInsight** i det vänstra fönstret.
 
 3. Välj **Spark-projekt (Scala)** i huvudfönstret.
 
-4. Från listrutan **Byggverktyg** väljer du något av följande:
+4. I list rutan **build-verktyg** väljer du något av följande värden:
       * **Maven** för guidestöd när du skapar Scala-projekt.
       * **SBT** för att hantera beroenden när du skapar Scala-projektet.
 
-   ![IntelliJ dialog rutan nytt projekt](./media/apache-spark-create-standalone-application/create-hdi-scala-app.png)
+   ![IntelliJ dialog rutan nytt projekt](./media/apache-spark-create-standalone-application/intellij-project-apache-spark.png)
 
 5. Välj **Nästa**.
 
@@ -98,14 +98,16 @@ Installera Scala-plugin-programmet via följande steg:
 
 5. I listan med arketyper väljer du **org.scala tools.archetypes:scala-archetype-simple**. Den här arketypen skapar rätt katalogstruktur och laddar ned de beroenden som krävs för att skriva Scala-program.
 
-    ![IntelliJ idé skapa Maven-projekt](./media/apache-spark-create-standalone-application/create-maven-project.png)
+    ![IntelliJ idé skapa Maven-projekt](./media/apache-spark-create-standalone-application/intellij-project-create-maven.png)
 
 6. Välj **Nästa**.
 
-7. Ange relevanta värden för **GroupId**, **ArtifactId** och **Version**. I den här självstudien används följande värden:
+7. Expandera **artefakt koordinater**. Ange relevanta **värden för** **ArtifactId**. **Namn**och **plats** fylls i automatiskt. I den här självstudien används följande värden:
 
     - **GroupId:** com.microsoft.spark.example
     - **ArtifactId:** SparkSimpleApp
+
+    ![IntelliJ idé skapa Maven-projekt](./media/apache-spark-create-standalone-application/intellij-artifact-coordinates.png)
 
 8. Välj **Nästa**.
 
@@ -123,7 +125,7 @@ Installera Scala-plugin-programmet via följande steg:
 
 15. Markera kryssrutan **Import Maven projects automatically** (Importera Maven-projekt automatiskt).
 
-16. Tryck på **Tillämpa** och välj sedan **OK**.  Du kommer sedan tillbaka till projektfönstret.
+16. Tryck på **Tillämpa** och välj sedan **OK**.  Sedan kommer du tillbaka till projekt fönstret.
 
     ![Konfigurera Maven för automatisk nedladdning](./media/apache-spark-create-standalone-application/configure-maven-download.png)
 
@@ -188,7 +190,7 @@ Installera Scala-plugin-programmet via följande steg:
 
         ![IntelliJ idé projekt struktur jar från modul](./media/apache-spark-create-standalone-application/hdinsight-create-jar3.png)
 
-    6. Fliken **Output Layout** (Utdatalayout) visar alla jar-filer som ingår i Maven-projektet. Du kan markera och ta bort sådana som Scala-programmet inte har något direkt beroende till. För programmet som du skapar här kan du ta bort alla utom den sista (**SparkSimpleApp compile output**). Välj de jar-filer som ska tas bort och välj sedan minustecknet **-** .
+    6. Fliken **Output Layout** (Utdatalayout) visar alla jar-filer som ingår i Maven-projektet. Du kan markera och ta bort sådana som Scala-programmet inte har något direkt beroende till. När du skapar ett program kan du ta bort alla utom det sista (**SparkSimpleApp compile output**). Välj de jar-filer som ska tas bort och välj sedan minustecknet **-** .
 
         ![Ta bort utdata för IntelliJ idé projekt struktur](./media/apache-spark-create-standalone-application/hdi-delete-output-jars.png)
 
@@ -202,7 +204,7 @@ Installera Scala-plugin-programmet via följande steg:
 
 Om du vill köra programmet på klustret, kan du använda följande metoder:
 
-* **Kopiera programmets jar-fil till den Azure Storage Blob** som är associerad med klustret. Du kan använda kommandoradsverktyget [**AzCopy**](../../storage/common/storage-use-azcopy.md) till att göra detta. Det finns även andra klienter som du kan använda för att ladda upp data. Det finns mer information om dem i [Ladda upp data för Apache Hadoop-jobb i HDInsight](../hdinsight-upload-data.md).
+* **Kopiera programmet jar till den Azure Storage BLOB** som är associerad med klustret. Du kan använda kommandoradsverktyget [**AzCopy**](../../storage/common/storage-use-azcopy.md) till att göra detta. Det finns även andra klienter som du kan använda för att ladda upp data. Det finns mer information om dem i [Ladda upp data för Apache Hadoop-jobb i HDInsight](../hdinsight-upload-data.md).
 
 * **Använd Apache Livy till att skicka ett programjobb via fjärranslutning** till Spark-klustret. Spark-kluster i HDInsight innehåller Livy som gör REST-slutpunkter tillgängliga, så att man kan skicka Spark-jobb via en fjärranslutning. Mer information finns i [Skicka Apache Spark-jobb via fjärranslutning med hjälp av Apache Livy med Spark-kluster i HDInsight](apache-spark-livy-rest-interface.md).
 
@@ -210,7 +212,7 @@ Om du vill köra programmet på klustret, kan du använda följande metoder:
 
 Om du inte kommer att fortsätta att använda det här programmet, tar du bort det kluster som du skapade med följande steg:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. I rutan **Sök** längst upp skriver du **HDInsight**.
 

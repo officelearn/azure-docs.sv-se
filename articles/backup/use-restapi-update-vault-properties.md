@@ -1,15 +1,15 @@
 ---
-title: Uppdatera konfigurations egenskaper för Recovery Services valv med REST API
+title: Uppdatera Recovery Services valv konfiguration med REST API
 description: I den här artikeln lär du dig hur du uppdaterar valv konfigurationen med REST API.
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 3739f95e3962def9ab669970c48b2d1c546fdc0e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6cecbb18e0cd6f548e1688ef978f10dcee7d9fbc
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390545"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78204505"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Uppdatera Azure Recovery Services Vault-konfigurationer med REST API
 
@@ -86,9 +86,9 @@ Mer information finns i REST API- [dokumentationen](https://docs.microsoft.com/r
 |Namn  |Krävs  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  Valfri eTag       |
-|location     |  sant       |String         |   Resurs plats      |
+|location     |  true       |String         |   Resurs plats      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Egenskaper för valvet       |
-|tags     |         | Objekt        |     Resurstaggar    |
+|taggar     |         | Objekt        |     Resurstaggar    |
 
 #### <a name="example-request-body"></a>Exempel på begär ande text
 

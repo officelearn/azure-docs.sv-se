@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: a8814030e6c4345227ec05ea1554104e0b21efbc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c80c667cb281168de6f11bbb6a536c01fefb7935
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076541"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206970"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets med hjälp av CLI
 
@@ -22,27 +22,27 @@ Den här artikeln får du länka virtuella nätverk (Vnet) till Azure ExpressRou
 > * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
-> * [Video - Azure-portalen](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Video – Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (klassisk)](expressroute-howto-linkvnet-classic.md)
 > 
 
 ## <a name="configuration-prerequisites"></a>Förutsättningar för konfiguration
 
-* Du behöver den senaste versionen av kommandoradsgränssnittet (CLI). Mer information finns i [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Du behöver den senaste versionen av kommandoradsgränssnittet (CLI). Mer information finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-* Du behöver gå igenom den [krav](expressroute-prerequisites.md), [routningskrav](expressroute-routing.md), och [arbetsflöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
+* Du måste granska kraven, [](expressroute-prerequisites.md) [routningsstatus](expressroute-routing.md)och [arbets flöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
 
 * Du måste ha en aktiv ExpressRoute-krets. 
-  * Följ anvisningarna för att [skapa en ExpressRoute-krets](howto-circuit-cli.md) och aktivera kretsen av anslutningsprovidern. 
-  * Kontrollera att du har Azure privat peering har konfigurerats för din krets. Se den [konfigurera routning](howto-routing-cli.md) artikeln routning anvisningar. 
+  * Följ anvisningarna för att [skapa en ExpressRoute-krets](howto-circuit-cli.md) och ha den krets som Aktiver ATS av anslutnings leverantören. 
+  * Kontrollera att du har Azure privat peering har konfigurerats för din krets. Mer information finns i artikeln [om konfigurering av routning](howto-routing-cli.md) . 
   * Kontrollera att Azures privata peering har konfigurerats. BGP-peering mellan ditt nätverk och Microsoft måste vara upp så att du kan aktivera anslutning för slutpunkt till slutpunkt.
-  * Kontrollera att du har ett virtuellt nätverk och en virtuell nätverksgateway skapas och helt etablerad. Följ anvisningarna för att [konfigurera en virtuell nätverksgateway för ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Se till att använda `--gateway-type ExpressRoute`.
+  * Kontrollera att du har ett virtuellt nätverk och en virtuell nätverksgateway skapas och helt etablerad. Följ anvisningarna för att [Konfigurera en virtuell nätverksgateway för ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Se till att du använder `--gateway-type ExpressRoute`.
 
 * Du kan länka upp till 10 virtuella nätverk till en ExpressRoute-krets som standard. Alla virtuella nätverken måste finnas i samma geopolitiska region när du använder en standard ExpressRoute-krets. 
 
 * Ett enskilt virtuellt nätverk kan länkas till upp till fyra ExpressRoute-kretsar. Använd de här processerna för att skapa ett nytt anslutningsobjekt för varje ExpressRoute-krets som du ansluter till. ExpressRoute-kretsar kan finnas i samma prenumeration, olika prenumerationer eller en blandning av båda.
 
-* Om du aktiverar ExpressRoute premium-tillägget kan du länka ett virtuellt nätverk utanför den geopolitiska regionen för ExpressRoute-kretsen eller ansluta ett stort antal virtuella nätverk till ExpressRoute-kretsen. Mer information om premium-tillägget finns i den [vanliga frågor och svar](expressroute-faqs.md).
+* Om du aktiverar ExpressRoute premium-tillägget kan du länka ett virtuellt nätverk utanför den geopolitiska regionen för ExpressRoute-kretsen eller ansluta ett stort antal virtuella nätverk till ExpressRoute-kretsen. Mer information om Premium-tillägget finns i [vanliga frågor och svar](expressroute-faqs.md).
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Anslut ett virtuellt nätverk i samma prenumeration till en krets
 
@@ -73,7 +73,7 @@ Kretsägaren har rätt att ändra och återkalla auktoriseringar när som helst.
 
 ### <a name="circuit-owner-operations"></a>Kretsen ägare åtgärder
 
-**Skapa en auktorisering**
+**Så här skapar du en auktorisering**
 
 Kretsägaren skapar tillstånd, vilket skapar en auktoriseringsnyckeln som kan användas av en Kretsanvändare för att ansluta sina virtuella nätverksgatewayer för ExpressRoute-kretsen. En auktorisering är giltig för endast en anslutning.
 
@@ -103,7 +103,7 @@ Kretsägaren kan granska alla auktoriseringar som utfärdas på en viss krets ge
 az network express-route auth list --circuit-name MyCircuit -g ExpressRouteResourceGroup
 ```
 
-**Att lägga till auktoriseringar**
+**Lägga till auktoriseringar**
 
 Kretsägaren kan lägga till tillstånd med hjälp av följande exempel:
 
@@ -111,7 +111,7 @@ Kretsägaren kan lägga till tillstånd med hjälp av följande exempel:
 az network express-route auth create --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization1
 ```
 
-**Att ta bort auktoriseringar**
+**Ta bort auktoriseringar**
 
 Kretsägaren kan återkalla/ta bort auktoriseringar för användaren genom att köra följande exempel:
 
@@ -127,7 +127,7 @@ Kretsen användaren måste peer-ID och en auktoriseringsnyckeln från Kretsägar
 Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
-**Att kunna lösa in en anslutningsauktorisering**
+**Så här löser du en auktorisering av anslutningen**
 
 Kretsen-användare kan köra i följande exempel för att lösa in en länk-auktorisering:
 
@@ -135,16 +135,16 @@ Kretsen-användare kan köra i följande exempel för att lösa in en länk-aukt
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit --authorization-key "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 ```
 
-**Att släppa en anslutningsauktorisering**
+**Så här släpper du en auktorisering för anslutning**
 
 Du kan släppa en auktorisering genom att ta bort anslutningen som länkar ExpressRoute-kretsen till det virtuella nätverket.
 
 ## <a name="modify-a-virtual-network-connection"></a>Ändra en virtuell nätverksanslutning
 Du kan uppdatera vissa egenskaper för en virtuell nätverksanslutning. 
 
-**Uppdatera anslutningsvikten**
+**Så här uppdaterar du anslutnings vikten**
 
-Ditt virtuella nätverk kan anslutas till flera ExpressRoute-kretsar. Du kan få samma prefix från mer än en ExpressRoute-krets. Om du vill välja vilken anslutning som ska skicka trafik till det här prefixet, du kan ändra *RoutingWeight* för en anslutning. Trafik skickas på anslutningen med den högsta *RoutingWeight*.
+Ditt virtuella nätverk kan anslutas till flera ExpressRoute-kretsar. Du kan få samma prefix från mer än en ExpressRoute-krets. Om du vill välja vilken anslutning som ska skicka trafik till det här prefixet kan du ändra *RoutingWeight* för en anslutning. Trafiken kommer att skickas till anslutningen med den högsta *RoutingWeight*.
 
 ```azurecli
 az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --routing-weight 100
@@ -155,15 +155,17 @@ Intervallet för *RoutingWeight* är 0 till 32000. Standardvärdet är 0.
 ## <a name="configure-expressroute-fastpath"></a>Konfigurera ExpressRoute-FastPath 
 Du kan aktivera [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) om ExpressRoute-kretsen finns på [ExpressRoute Direct](expressroute-erdirect-about.md) och den virtuella nätverk-gatewayen är Ultra Performance eller ErGw3AZ. FastPath förbättrar data Sök vägs förformingen, till exempel paket per sekund och anslutningar per sekund mellan ditt lokala nätverk och ditt virtuella nätverk. 
 
-> [!NOTE] 
-> Om du redan har en virtuell nätverks anslutning men inte har aktiverat FastPath måste du ta bort den virtuella nätverks anslutningen och skapa en ny. 
-> 
->  
+**Konfigurera FastPath på en ny anslutning**
 
 ```azurecli
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
 ```
 
+**Uppdatera en befintlig anslutning för att aktivera FastPath**
+
+```azurecli
+az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

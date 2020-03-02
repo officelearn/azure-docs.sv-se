@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 70f37c70f685ee139db4b417c1c498f9eefb8205
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 27d65c7e6bbc0af20d01d91f1472433f3e7142a9
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184765"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206614"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL Database-granskning
 
@@ -116,22 +116,15 @@ Om du vill konfigurera att skriva gransknings loggar till en Log Analytics arbet
 
 ### <a id="audit-event-hub-destination">Granska till Event Hub-målet</a>
 
-< < < < < < < huvud < < < < < < < HEAD = = = = = = =
->>>>>>> a8190987e07da4c5ced6de5f588d394ace4ca31d
 > [!IMPORTANT]
 > Det går inte att aktivera granskning på en pausad SQL-pool. Pausa SQL-poolen om du vill aktivera den.
 
 > [!WARNING]
-> Om du aktiverar granskning på en server som har en SQL-pool på den **kommer SQL-poolen att återupptas och pausas igen,** vilket kan ådra sig vid fakturerings avgifter.
-< < < < < < < HEAD = = = = = = = konfigurera gransknings loggar till en händelsehubben genom att välja **Event Hub (för hands version)** och **information om**att läsa händelsehubben. Välj den händelsehubben där loggar ska skrivas och klicka sedan på **OK**. Se till att händelsehubben är i samma region som din databas och server.
+> Aktivering av granskning på en server som har en SQL-pool på den **resulterar i att SQL-poolen återupptas och pausas igen,** vilket kan medföra fakturerings avgifter.
 
-   ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
->>>>>>> <a name="bf6444e83361ab743aca04ae233c420e51ea1e03"></a>bf6444e83361ab743aca04ae233c420e51ea1e03
-=======
 Om du vill konfigurera att skriva gransknings loggar till en Event Hub väljer du **Event Hub (för hands version)** och **information om**att öppna händelsehubben. Välj den händelsehubben där loggar ska skrivas och klicka sedan på **OK**. Se till att händelsehubben är i samma region som din databas och server.
 
    ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
->>>>>>> a8190987e07da4c5ced6de5f588d394ace4ca31d
 
 ## <a id="subheading-3"></a>Analysera gransknings loggar och rapporter
 

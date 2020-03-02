@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 02/28/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d11f5a9f2de8683365d663e85c275c3729ebf8a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a815446b79b3e5ec0a75e5d179953956643b16c9
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901508"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206120"
 ---
-# <a name="search-groups--and-members-preview-in-azure-active-directory"></a>Sök efter grupper och medlemmar (förhands granskning) i Azure Active Directory
+# <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Sök efter grupper och medlemmar (förhands granskning) i Azure Active Directory
 
 Den här artikeln beskriver hur du söker efter medlemmar och ägare av en grupp och hur du använder Sök filter som en del av för hands versionen av grupper i Azure Active Directory (Azure AD)-portalen. Det finns många förbättringar i gruppen med grupper som hjälper dig att hantera dina grupper, inklusive medlemmar och ägare, snabbt och enkelt. Mer information om förhandsversioner finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -45,11 +45,11 @@ Om du har problem kan du växla tillbaka till den äldre upplevelsen genom att v
 
 ## <a name="group-search-and-sorting"></a>Grupps ökning och sortering
 
-Sök funktionen i grupp listan har förbättrats så att du när du kan ange en Sök sträng och söker efter `startswith` en under Strängs sökning automatiskt i listan med grupp namn. Under Strängs sökningen utförs endast på hela ord och innehåller inte specialtecken.
+Sök efter grupp listan har förbättrats så att när du kan ange en Sök sträng utför sökningen automatiskt en `startswith` och en under Strängs sökning i listan över grupp namn. Under Strängs sökningen utförs endast på hela ord och innehåller inte specialtecken. Under Strängs sökningen är Skift läges känslig.
 
 ![ny under Strängs sökning på sidan alla grupper](./media/groups-members-owners-search/groups-search-preview.png)
 
-En sökning efter "princip" kommer nu att returnera både "MDM-princip – väst" och "princip grupp". Det gick inte att returnera en grupp med namnet "New_policy".
+En sökning efter "princip" kommer nu att returnera både "MDM-princip – väst" och "princip grupp". Det går inte att returnera en grupp med namnet "New_policy".
 
 - Du kan också utföra samma sökning på grupp medlemskaps listor.
 - Nu kan du sortera listan grupper efter namn med hjälp av pilarna till höger om kolumn rubriken namn för att sortera listan i stigande eller fallande ordning.

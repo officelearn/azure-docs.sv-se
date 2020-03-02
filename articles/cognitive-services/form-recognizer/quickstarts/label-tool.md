@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 812680e587ac5c5c8b3d949199a615fcd85fa610
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 301b68d0dfaeef6d5cfdd4d7a5a504794ac877f4
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485360"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205838"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter
 
@@ -35,12 +35,19 @@ För att slutföra den här snabb starten måste du ha:
 ## <a name="set-up-the-sample-labeling-tool"></a>Konfigurera verktyget för samplings etiketter
 
 Du använder Docker-motorn för att köra verktyget för etikettering. Följ de här stegen för att konfigurera Docker-behållaren. För en introduktion till Docker-och container-grunderna, se [Docker-översikten](https://docs.docker.com/engine/docker-overview/).
-1. Börja med att installera Docker på en värddator. Värddatorn kan vara din lokala dator ([Windows](https://docs.docker.com/docker-for-windows/), [MacOS](https://docs.docker.com/docker-for-mac/)eller [Linux](https://docs.docker.com/install/)). Du kan också använda en Docker-värd tjänst i Azure, till exempel [Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/aks/index), [Azure Container instances](https://docs.microsoft.com/azure/container-instances/index)eller ett Kubernetes-kluster [som distribuerats till en Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). Värddatorn måste uppfylla följande maskin varu krav:
+1. Börja med att installera Docker på en värddator. I den här guiden visas hur du använder en lokal dator som värd. Om du vill använda en Docker-värd tjänst i Azure kan du läsa mer i guiden [distribuera exempel etikett verktyg](../deploy-label-tool.md) . 
+
+   Värddatorn måste uppfylla följande maskin varu krav:
 
     | Container | Minimum | Rekommenderas|
     |:--|:--|:--|
     |Exempel på etikett verktyg|2 kärnor, 4 GB minne|4 kärnor, 8 GB minne|
-    
+
+   Installera Docker på datorn genom att följa lämpliga instruktioner för ditt operativ system: 
+   * [Windows](https://docs.docker.com/docker-for-windows/)
+   * [macOS](https://docs.docker.com/docker-for-mac/)
+   * [Linux](https://docs.docker.com/install/).
+
 1. Hämta exempel på etiketting Tool-behållaren med kommandot `docker pull`.
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
@@ -116,17 +123,23 @@ Klicka på **Kör OCR på alla filer** i den vänstra rutan för att få informa
 
 ### <a name="apply-labels-to-text"></a>Använd etiketter på text
 
-Därefter skapar du etiketter och tillämpar dem på de text element som du vill att modellen ska känna igen.
+Därefter skapar du taggar (etiketter) och tillämpar dem på de text element som du vill att modellen ska känna igen.
 
-1. Använd först rutan Tags Editor för att skapa taggarna (etiketter) som du vill identifiera.
+1. Använd först rutan Tags Editor för att skapa de taggar som du vill identifiera.
+  1. Skapa en ny tagg genom att klicka på **+** .
+  1. Ange namnet på taggen.
+  1. Spara taggen genom att trycka på RETUR.
 1. Klicka och dra i huvud redigeraren för att markera ett eller flera ord från de markerade text elementen.
+1. Klicka på den tagg som du vill använda, eller tryck på motsvarande tangent bords nyckel. Siffer nycklarna tilldelas som kortkommandon för de första 10 taggarna. Du kan ändra ordning på taggarna med hjälp av upp-och nedpilens ikoner i rutan kod redigeraren.
+    > [!Tip]
+    > Tänk på följande när du är etikett på formulären.
+    > * Du kan bara använda en tagg för varje markerat text element.
+    > * Varje tagg kan bara tillämpas en gång per sida. Om ett värde visas flera gånger i samma formulär skapar du olika taggar för varje instans. Till exempel: "faktura nummer 1", "faktura nummer 2" och så vidare.
+    > * Taggar kan inte sträcka sig över sidor.
+    > * Etikettera värden som de visas i formuläret. Försök inte att dela upp ett värde i två delar med två olika taggar. Ett adress fält ska till exempel märkas med en enda tagg även om det sträcker sig över flera rader.
+    > * Inkludera inte nycklar i dina taggade fält&mdash;bara värdena.
+    > * Tabell data ska identifieras automatiskt och är tillgängliga i den slutgiltiga JSON-filen för utdata. Men om modellen inte kan identifiera alla tabell data kan du tagga dessa fält manuellt. Tagga varje cell i tabellen med en annan etikett. Om dina formulär har tabeller med varierande antal rader, se till att du tagga minst ett formulär med största möjliga tabell.
 
-    > [!NOTE]
-    > Du kan för närvarande inte välja text som sträcker sig över flera sidor.
-1. Klicka på den tagg som du vill använda, eller tryck på motsvarande tangent bords nyckel. Du kan bara använda en tagg för varje markerat text element och varje tagg kan bara tillämpas en gång per sida.
-
-    > [!TIP]
-    > Siffer nycklarna tilldelas som kortkommandon för de första tio taggarna. Du kan ändra ordning på taggarna med hjälp av upp-och nedpilens ikoner i rutan kod redigeraren.
 
 Följ stegen ovan för att märka fem av formulären och gå sedan vidare till nästa steg.
 

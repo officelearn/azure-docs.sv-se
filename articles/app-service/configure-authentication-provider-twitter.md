@@ -3,14 +3,14 @@ title: Konfigurera Twitter-autentisering
 description: Lär dig hur du konfigurerar Twitter-autentisering som identitets leverantör för din App Service-app.
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 02/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: b5ec17c18cec8053f0732366c0cc5d0c5003e4de
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 794f671b36b5aeb9f19cf5d80e488500cedb1098
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670802"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207155"
 ---
 # <a name="configure-your-app-service-app-to-use-twitter-login"></a>Konfigurera din App Service-app att använda Twitter-inloggning
 
@@ -22,26 +22,25 @@ För att kunna slutföra proceduren i den här artikeln behöver du ett Twitter-
 
 ## <a name="register"> </a>Registrera ditt program med Twitter
 
-1. Logga in på [Azure-portalen] och gå till ditt program. Kopiera din **URL**. Du använder den för att konfigurera din Twitter-app.
-1. Gå till webbplatsen för [Twitter-utvecklare] och logga in med dina Twitter-konto uppgifter och välj **Skapa ny app**.
-1. Ange ett **namn** och en **Beskrivning** för den nya appen. Klistra in programmets **URL** i fältet **webbplats** . I fältet **återanrops-URL** anger du URL: en för din app service-app och lägger till sökvägen `/.auth/login/aad/callback`. Till exempel `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Se till att använda HTTPS-schemat.
-1. Läs och godkänn villkoren längst ned på sidan. Välj **skapa ditt Twitter-program**. Programinformationen visas.
-1. Välj fliken **Inställningar** , markera **Tillåt att det här programmet används för att logga in med Twitter**och välj sedan **Uppdatera inställningar**.
+1. Logga in på [Azure Portal] och gå till ditt program. Kopiera din **URL**. Du använder den för att konfigurera din Twitter-app.
+1. Gå till webbplatsen för [Twitter-utvecklare] och logga in med dina Twitter-kontoautentiseringsuppgifter och välj **skapa en app**.
+1. Ange **appens namn** och **program beskrivningen** för den nya appen. Klistra in programmets **URL** i fältet **webbplats-URL** . I avsnittet **callback-URL: er** anger du HTTPS-URL: en för din app service-app och lägger till sökvägen `/.auth/login/twitter/callback`. Till exempel `https://contoso.azurewebsites.net/.auth/login/twitter/callback`.
+1. Längst ned på sidan skriver du minst 100 tecken i **berätta för oss hur den här appen ska användas**. Välj sedan **skapa**. Klicka på **skapa** igen i popup-fönstret. Programinformationen visas.
 1. Välj fliken **nycklar och åtkomst-token** .
 
    Anteckna dessa värden:
-   - Konsument nyckel (API-nyckel)
-   - Konsument hemlighet (API-hemlighet)
+   - API-nyckel
+   - Nyckel för API-hemlighet
 
    > [!NOTE]
-   > Konsument hemligheten är en viktig säkerhets autentiseringsuppgift. Dela inte den här hemligheten med någon eller distribuera den med din app.
+   > Nyckeln för API-hemlighet är en viktig säkerhets autentiseringsuppgift. Dela inte den här hemligheten med någon eller distribuera den med din app.
 
 ## <a name="secrets"> </a>Lägg till Twitter-information i ditt program
 
-1. Gå till ditt program i [Azure-portalen].
+1. Gå till ditt program i [Azure Portal].
 1. Välj **inställningar** > **autentisering/auktorisering**och se till att **App Service autentisering** är **aktiverat**.
 1. Välj **Twitter**.
-1. Klistra in `API Key` och `API Secret` värden som du har fått tidigare.
+1. Klistra in `API key` och `API secret key` värden som du har fått tidigare.
 1. Välj **OK**.
 
    ![Skärm bild av Twitter-inställningar för mobilapp][1]
@@ -70,5 +69,5 @@ Du är nu redo att använda Twitter för autentisering i din app.
 
 [Twitter-utvecklare]: https://go.microsoft.com/fwlink/p/?LinkId=268300
 [twitter.com]: https://go.microsoft.com/fwlink/p/?LinkID=268287
-[Azure-portalen]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md

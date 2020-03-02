@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: c8d2ef0330a32d5cab88355cc749322ec3a5ea30
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ff4079263fd7afb02e132a798997687fad7e9961
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530943"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206987"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Vanliga frågor och svar om Apache Kafka i Azure HDInsight
 
@@ -50,7 +50,7 @@ Med hjälp av [Enterprise Security Package (ESP)](../domain-joined/apache-domain
 
 ## <a name="is-my-data-encrypted-can-i-use-my-own-keys"></a>Är mina data krypterade? Kan jag använda mina egna nycklar?
 
-Alla Kafka-meddelanden på de hanterade diskarna är krypterade med [Azure Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md). Data under överföring (till exempel data som överförs från klienter till utlösare och på annat sätt runt) är inte krypterade som standard. Det är möjligt att kryptera sådan trafik genom [att konfigurera SSL på egen hand](./apache-kafka-ssl-encryption-authentication.md). Med HDInsight kan du dessutom hantera sina egna nycklar för att kryptera data i vila. Mer information finns i [ta med din egen nyckel för Apache Kafka på Azure HDInsight](apache-kafka-byok.md).
+Alla Kafka-meddelanden på de hanterade diskarna är krypterade med [Azure Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md). Data under överföring (till exempel data som överförs från klienter till utlösare och på annat sätt runt) är inte krypterade som standard. Det är möjligt att kryptera sådan trafik genom [att konfigurera SSL på egen hand](./apache-kafka-ssl-encryption-authentication.md). Med HDInsight kan du dessutom hantera sina egna nycklar för att kryptera data i vila. Mer information finns i [kund hanterad nyckel disk kryptering](../disk-encryption.md).
 
 ## <a name="how-do-i-connect-clients-to-my-cluster"></a>Hur gör jag för att ansluta klienter till mitt kluster?
 

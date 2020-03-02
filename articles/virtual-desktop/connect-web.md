@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: a29081f77587a96dc48930eab359610a42fc0be5
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9c738c5b7f233ffa34296eed67eb0f5497f737fc
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605820"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206681"
 ---
 # <a name="connect-with-the-web-client"></a>Ansluta med webbklienten
 
@@ -25,7 +25,7 @@ Med webb klienten kan du komma åt dina Windows-resurser för virtuella skriv bo
 
 Även om en HTML5-kompatibel webbläsare ska fungera, har vi officiellt stöd för följande operativ system och webbläsare.
 
-| Webbläsare           | OS som stöds                     | Anteckningar               |
+| Webbläsare           | Stödda operativsystem                     | Anteckningar               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
 | Internet Explorer | Windows                          |                     |
@@ -41,3 +41,7 @@ I en webbläsare navigerar du till [webb klienten för virtuella Windows-datorer
 >Om du redan har loggat in med ett annat Azure Active Directory-konto än det som du vill använda för Windows Virtual Desktop, bör du antingen logga ut eller använda ett privat webbläsarfönster.
 
 När du har loggat in bör du nu se en lista över resurser. Du kan starta resurser genom att välja dem som en normal app på fliken **alla resurser** .
+
+## <a name="next-steps"></a>Nästa steg
+
+Om du vill veta mer om hur du använder webb klienten kan du läsa [komma igång med webb klienten](https://go.microsoft.com/fwlink/?linkid=2120256).

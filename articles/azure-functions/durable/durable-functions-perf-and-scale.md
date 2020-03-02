@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ee35f26f9433f6ab342c7dce105638122b9d7717
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 260811c4ae15b45de6f7bc1b22e3ed6dcea44259
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486268"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78204522"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestanda och skalning i Durable Functions (Azure Functions)
 
@@ -220,7 +220,7 @@ De olika effekterna av utökade sessioner i funktionerna för Orchestrator och e
 
 ### <a name="orchestrator-function-replay"></a>Uppspelning av Orchestrator-funktion
 
-Som tidigare nämnts spelas Orchestrator-funktionerna om med hjälp av innehållet i **Historik** tabellen. Som standard spelas Orchestrator-funktions koden upp varje gång en grupp meddelanden tas ur kö från en kontroll kö. När utökade sessioner är aktiverade hålls Orchestrator Function-instanser i minnet längre och nya meddelanden kan bearbetas utan att en fullständig historik spelas upp.
+Som tidigare nämnts spelas Orchestrator-funktionerna om med hjälp av innehållet i **Historik** tabellen. Som standard spelas Orchestrator-funktions koden upp varje gång en grupp meddelanden tas ur kö från en kontroll kö. Även om du använder fläkten, fläkten och väntar på att alla aktiviteter ska slutföras (till exempel med hjälp av `Task.WhenAll` i .NET eller `context.df.Task.all` i Java Script), kommer det att spelas upp som inträffar när batchar av uppgifts svar bearbetas över tid. När utökade sessioner är aktiverade hålls Orchestrator Function-instanser i minnet längre och nya meddelanden kan bearbetas utan att en fullständig historik spelas upp.
 
 Prestanda förbättringen av utökade sessioner observeras oftast i följande situationer:
 

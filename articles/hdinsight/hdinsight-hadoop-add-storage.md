@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 6ad583fdb880e36e6ac9c2dfda56bb68378ea598
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 87eb04b7323186175195babf6a602fa12d25176f
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314017"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206715"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Lägg till ytterligare lagrings konton i HDInsight
 
@@ -21,13 +21,13 @@ Lär dig hur du använder skript åtgärder för att lägga till ytterligare Azu
 > [!IMPORTANT]  
 > Informationen i det här dokumentet är att lägga till ytterligare lagrings konton i ett kluster när det har skapats. Information om hur du lägger till lagrings konton när du skapar kluster finns i [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Lagrings kontots namn och nyckel. Se [Hantera åtkomst nycklar för lagrings konton](../storage/common/storage-account-keys-manage.md).
 * Om du använder PowerShell behöver du AZ-modulen.  Se [Översikt över Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
 Under bearbetningen utför skriptet följande åtgärder:
 
@@ -46,12 +46,12 @@ Under bearbetningen utför skriptet följande åtgärder:
 
 ## <a name="add-storage-account"></a>Lägg till lagringskonto
 
-Använd [skript åtgärd](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) för att tillämpa ändringarna med följande överväganden:
+Använd [skript åtgärd](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) för att tillämpa ändringarna med följande överväganden:
 
 |Egenskap | Värde |
 |---|---|
 |Bash-skript-URI|`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`|
-|Node-typ (er)|Huvud|
+|Node-typ (er)|Head|
 |Parametrar|`ACCOUNTNAME` `ACCOUNTKEY` `-p` (valfritt)|
 
 * `ACCOUNTNAME` är namnet på det lagrings konto som ska läggas till i HDInsight-klustret.

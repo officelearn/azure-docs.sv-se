@@ -3,12 +3,12 @@ title: Självstudie – SAP HANA DB-säkerhetskopiering på Azure med CLI
 description: I den här självstudien får du lära dig hur du säkerhetskopierar SAP HANA databaser som körs på en virtuell Azure-dator till ett Azure Backup Recovery Services valv med Azure CLI.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: 6d35b6ebfc6f47f5775c24407b645b97112387c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cdc8a8fb09a086a2b9212c21d071f267991fa275
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472354"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206630"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Självstudie: säkerhetskopiera SAP HANA databaser i en virtuell Azure-dator med Azure CLI
 
@@ -68,7 +68,7 @@ westus2    saphanaVault     saphanaResourceGroup
 
 ## <a name="register-and-protect-the-sap-hana-instance"></a>Registrera och skydda SAP HANA-instansen
 
-För SAP HANA-instansen (den virtuella datorn med SAP HANA installerad) som ska identifieras av Azure-tjänsterna måste ett [för registrerings skript](https://aka.ms/scriptforpermsonhana) köras på SAP HANA datorn. Kontrol lera att alla [krav](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#prerequisites) är uppfyllda innan du kör skriptet. Mer information om vad skriptet gör finns i avsnittet [Konfigurera behörigheter](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#setting-up-permissions) .
+För SAP HANA-instansen (den virtuella datorn med SAP HANA installerad) som ska identifieras av Azure-tjänsterna måste ett [för registrerings skript](https://aka.ms/scriptforpermsonhana) köras på SAP HANA datorn. Kontrol lera att alla [krav](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#prerequisites) är uppfyllda innan du kör skriptet. Mer information om vad skriptet gör finns i avsnittet så här [fungerar skriptet för för registrering](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) .
 
 När skriptet har körts kan SAP HANA-instansen registreras med Recovery Services-valvet som vi skapade tidigare. Registrera instansen med hjälp av [AZ för säkerhets kopierings behållare](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register) . *VMResourceId* är resurs-ID: t för den virtuella dator som du skapade för att installera SAP HANA.
 

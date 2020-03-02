@@ -4,12 +4,12 @@ description: Lär dig hur du kan använda Azure Backup för att skicka data frå
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 60295d1c534dbd1181533190df260ed4507ec11f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 1359616e074f36a1324a418d5b2c889076ced52d
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197137"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206766"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbets flöde för offline-säkerhetskopiering i Azure Backup
 
@@ -116,7 +116,7 @@ I det här avsnittet beskrivs arbets flödet offline-säkerhetskopiering så att
 
 *AzureOfflineBackupDiskPrep* -verktyget förbereder de SATA-enheter som skickas till närmaste Azure-datacenter. Det här verktyget finns i installations katalogen för Azure Backup-agenten på följande sökväg:
 
-    *\Microsoft Azure Recovery Services Agent\Utils\\*
+```*\Microsoft Azure Recovery Services Agent\Utils\\*```
 
 1. Gå till katalogen och kopiera *AzureOfflineBackupDiskPrep* -katalogen till en annan dator där SATA-enheterna är anslutna. På datorn med de anslutna SATA-enheterna kontrollerar du att:
 

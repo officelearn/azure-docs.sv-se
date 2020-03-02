@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 934a4fdf7cabb89c4b98c7800252cb24d4e23abf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 870d6f8441bf395ba0c02dccf8f3d1c6434410c6
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013682"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78208205"
 ---
 ## <a name="limitations"></a>Begränsningar
 
 - Skalnings uppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
 - Följande VM-serien stöds: DSv3, ESv3 och Fsv2. 
 
-## <a name="benefits"></a>Erbjudande 
+## <a name="benefits"></a>Fördelar 
 
 Att reservera hela värden ger följande fördelar:
 
@@ -89,7 +89,7 @@ Mer information finns i [vCPU kvoter för virtuella datorer](/azure/virtual-mach
 
 Den kostnads fria utvärderings versionen och MSDN-prenumerationen har inte kvot för Azure-dedikerade värdar.
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Användare debiteras per dedikerad värd, oavsett hur många virtuella datorer som distribueras. I din månads instruktion visas en ny fakturerbar resurs typ för värdar. De virtuella datorerna på en dedikerad värd visas fortfarande i din instruktion, men kommer att ha priset 0.
 
@@ -98,6 +98,8 @@ Värd priset anges baserat på VM-serien, typ (maskin varu storlek) och region. 
 Program varu licensiering, lagring och nätverks användning faktureras separat från värden och de virtuella datorerna. Det finns ingen ändring av de fakturerbara artiklarna.
 
 Mer information finns i pris information för [Azure-dedikerad värd](https://aka.ms/ADHPricing).
+
+Du kan också spara pengar med en [reserverad instans av Azure-dedikerade värdar] (.. /articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md).
  
 ## <a name="vm-families-and-hardware-generations"></a>VM-familjer och maskin varu generationer
 
@@ -115,7 +117,7 @@ Dedikerade värdar stöder följande värd SKU\types: DSv3_Type1 och ESv3_Type1
 
 Azure övervakar och hanterar dina värdars hälso status. Följande tillstånd kommer att returneras när du frågar din värd:
 
-| Hälso tillstånd   | Beskrivning       |
+| Hälsotillstånd   | Beskrivning       |
 |----------|----------------|
 | Värd tillgänglig     | Det finns inga kända problem med värden.   |
 | Värd under undersökning  | Vi har problem med värden som vi tittar på. Detta är ett över gångs tillstånd som krävs för att Azure ska kunna testa och identifiera omfattningen och rotor saken för det problem som identifierats. Virtuella datorer som körs på värden kan påverkas. |

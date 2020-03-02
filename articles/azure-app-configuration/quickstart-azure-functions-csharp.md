@@ -7,18 +7,18 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 268e6c5a999244eb643990143d1102d129b7af68
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 71a330523f1d3393a365fec29fb66f5c9773b6cc
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310064"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207072"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Snabb start: skapa en Azure Functions-app med Azure App konfiguration
 
 I den här snabb starten införlivar du Azure App konfigurations tjänsten i en Azure Functions-app för att centralisera lagring och hantering av alla dina program inställningar separat från din kod.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) med arbets belastningen **Azure Development** .
@@ -42,11 +42,7 @@ I den här snabb starten införlivar du Azure App konfigurations tjänsten i en 
 
 ## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 
-1. Högerklicka på projektet och välj **Hantera NuGet-paket**. På fliken **Bläddra** söker du efter och lägger till följande NuGet-paket i projektet. Om du inte hittar dem markerar du kryss rutan **Inkludera för hands version** .
-
-    ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 3.0.0-preview-010550001-251 or later
-    ```
+1. Högerklicka på projektet och välj **Hantera NuGet-paket**. På fliken **Bläddra** söker du efter och lägger till `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet-paketet i projektet. Om du inte hittar det markerar du kryss rutan **Inkludera för hands version** .
 
 2. Öppna *Function1.cs*och Lägg till namn områdena för .net Core-konfigurationen och konfigurations leverantören för app Configuration.
 
@@ -54,6 +50,7 @@ I den här snabb starten införlivar du Azure App konfigurations tjänsten i en 
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
+
 3. Lägg till en `static`-egenskap med namnet `Configuration` för att skapa en singleton-instans av `IConfiguration`. Lägg sedan till en `static`-konstruktor för att ansluta till app-konfigurationen genom att anropa `AddAzureAppConfiguration()`. Konfigurationen läses in en gång när programmet startas. Samma konfigurations instans kommer att användas för alla funktions anrop senare.
 
     ```csharp
@@ -66,6 +63,7 @@ I den här snabb starten införlivar du Azure App konfigurations tjänsten i en 
         Configuration = builder.Build();
     }
     ```
+
 4. Uppdatera `Run`-metoden för att läsa värden från konfigurationen.
 
     ```csharp
@@ -76,7 +74,7 @@ I den här snabb starten införlivar du Azure App konfigurations tjänsten i en 
 
         string keyName = "TestApp:Settings:Message";
         string message = Configuration[keyName];
-            
+
         return message != null
             ? (ActionResult)new OkObjectResult(message)
             : new BadRequestObjectResult($"Please create a key-value with the key '{keyName}' in App Configuration.");
@@ -90,14 +88,18 @@ I den här snabb starten införlivar du Azure App konfigurations tjänsten i en 
     ```CLI
         setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
+
     Om du använder Windows PowerShell kör du följande kommando:
 
     ```azurepowershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
+
     Om du använder macOS eller Linux kör du följande kommando:
 
+    ```bash
         export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
 2. Tryck på F5 för att testa funktionen. Om du får en uppmaning accepterar du begäran från Visual Studio för att ladda ned och installera **Azure Functions Core (CLI)** -verktyg. Du kan också behöva aktivera ett brand Väggs undantag så att verktygen kan hantera HTTP-begäranden.
 

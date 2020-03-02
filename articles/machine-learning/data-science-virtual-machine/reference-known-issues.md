@@ -9,16 +9,16 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: reference
 ms.date: 10/10/2019
-ms.openlocfilehash: d022b1124146a1e506401e6cee257805e3a38fd3
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: b83effa95b17d712d4019f8ab5bf13c4f02a7d2b
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526560"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206528"
 ---
 # <a name="known-issues-and-troubleshooting-the-azure-data-science-virtual-machine"></a>Kända problem och fel sökning av Azure-Data Science Virtual Machine
 
-Den här artikeln hjälper dig att hitta och korrigera fel eller fel som uppstår när du använder Azure-Data Science Virtual Machine.
+Den här artikeln hjälper dig att hitta och korrigera fel eller fel som du kan stöta på när du använder Azure-Data Science Virtual Machine.
 
 ## <a name="python-package-installation-issues"></a>Installations problem för python-paket
 
@@ -26,17 +26,22 @@ Den här artikeln hjälper dig att hitta och korrigera fel eller fel som uppstå
 
 Använd `sudo pip install` i stället för `pip install` när du installerar paket.
 
-## <a name="disk-encryption-issues"></a>Disk krypterings problem
+## <a name="disk-encryption-issues"></a>Problem med diskkryptering
 
 ### <a name="disk-encryption-fails-on-the-ubuntu-dsvm"></a>Disk kryptering Miss lyckas på Ubuntu-DSVM
 
-Azure Disk Encryption (ADE) stöds inte för närvarande på Ubuntu-DSVM. Som en lösning bör du överväga att konfigurera [Azure Storage kryptering med Kundhanterade nycklar](../../storage/common/storage-encryption-keys-portal.md).
+Azure Disk Encryption (ADE) stöds inte för närvarande på Ubuntu-DSVM. Som en lösning bör du överväga att konfigurera [kryptering på Server sidan av Azure Managed disks](../../virtual-machines/windows/disk-encryption.md).
 
 ## <a name="tool-appears-disabled"></a>Verktyget visas inaktiverat
 
 ### <a name="hyper-v-does-not-work-on-the-windows-dsvm"></a>Hyper-V fungerar inte på Windows-DSVM
 
-Detta är ett förväntat beteende, för start prestanda har vi inaktiverat vissa tjänster. Om du vill aktivera igen öppnar du Sök fältet på Windows-DSVM, skriver in "tjänster", anger sedan alla Hyper-V-tjänster till "Manuell" och anger "automatisk" hantering av virtuella Hyper-V-datorer.
+Att Hyper-V ursprungligen inte fungerar i Windows är förväntat beteende. Vi har inaktiverat vissa tjänster för start prestanda. Så här aktiverar du Hyper-V:
+
+1. Öppna Sök fältet på Windows-DSVM
+1. Skriv i "tjänster"
+1. Ställ in alla Hyper-V-tjänster på "Manuell"
+1. Ange "automatisk" hantering av virtuella Hyper-V-datorer
 
 Den slutliga skärmen bör se ut så här:
 

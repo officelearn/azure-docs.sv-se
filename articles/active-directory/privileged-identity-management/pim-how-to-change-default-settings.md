@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77132ae9a10eda7170ac56f2b7c65a3ebcde8d6d
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 4dd525973a8c8ba5bb3103126b4ddb5b6973590a
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498991"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205032"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Konfigurera inställningar för Azure AD-roller i Privileged Identity Management
 
@@ -107,7 +107,7 @@ Du kan kräva att användarna anger en affärs justering när de aktiverar. Om d
 
 ## <a name="require-approval-to-activate"></a>Kräv godkännande för att aktivera
 
-Följ dessa steg om du vill kräva godkännande för att aktivera en roll.
+Om du anger flera god kännare slutförs godkännandet så snart en av dem godkänner eller nekar. Du kan inte kräva godkännande från minst två användare. Följ dessa steg om du vill kräva godkännande för att aktivera en roll.
 
 1. Markera kryss rutan **Kräv godkännande för aktivering** .
 

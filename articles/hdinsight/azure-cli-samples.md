@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
-ms.openlocfilehash: 7ce2160fa94653a1155daaef166b7fdbb9386e7e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: cbbb38c645e56b2e7b8c70b437b1e5158b09a50b
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266715"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207106"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Azure CLI-exempel
 
 > [!div class="op_single_selector"]
 > [.Net-exempel](hdinsight-sdk-dotnet-samples.md)
-> [på](hdinsight-sdk-java-samples.md) python-exempel i[python](hdinsight-sdk-python-samples.md)
-> 
+> [Python-exempel](hdinsight-sdk-python-samples.md)
+> [Java-exempel](hdinsight-sdk-java-samples.md)
 
 Den här artikeln innehåller exempel skript för vanliga uppgifter. För varje exempel uppdaterar du variablerna med lämpliga värden och kör sedan kommandot.
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller exempel skript för vanliga uppgifter. För varje 
 
 * Azure CLI. Se [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) för steg.
 
-* Valfritt: Bash. I exemplen i den här artikeln används bash-gränssnittet i Windows 10. Installations [Guide för Windows-undersystem för Linux finns i Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) för installations steg.  Exemplen kommer att fungera från en kommando tolk i Windows med några små ändringar.
+* Valfritt: bash. I exemplen i den här artikeln används bash-gränssnittet i Windows 10. Installations [Guide för Windows-undersystem för Linux finns i Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) för installations steg.  Exemplen kommer att fungera från en kommando tolk i Windows med några små ändringar.
 
 ## <a name="az-login"></a>AZ-inloggning
 
@@ -90,7 +90,7 @@ az hdinsight create \
     --cluster-users-group-dns $groupDNS
 ```
 
-### <a name="create-a-kafka-cluster-with-disk-encryptionkafkaapache-kafka-byokmd"></a>Skapa ett Kafka-kluster med [disk kryptering](kafka/apache-kafka-byok.md)
+### <a name="create-a-kafka-cluster-with-disk-encryption"></a>Skapa ett Kafka-kluster med [disk kryptering](./disk-encryption.md)
 
 ```azurecli
 export clusterName=CLUSTERNAME

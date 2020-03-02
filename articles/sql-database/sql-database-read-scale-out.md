@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: f111b19eb07c218a9f3250ef3ffdb8a97cf07542
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 1a1b9907cd931716949d92d948a7d541fd2d5057
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420722"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206953"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Använd skrivskyddade repliker för att belastningsutjämna skrivskyddade arbets belastningar för frågor
 
@@ -35,7 +35,7 @@ Funktionen Läs skalning är aktive rad som standard på nya Premium-, Affärskr
 Om du vill säkerställa att programmet ansluter till den primära repliken, oavsett `ApplicationIntent` inställningen i SQL-anslutningssträngen, måste du explicit inaktivera Läs-och utskalning när du skapar databasen eller när du ändrar konfigurationen. Om du till exempel uppgraderar din databas från standard-eller Generell användning-nivån till Premium, Affärskritisk eller nivån på den storskaliga nivån och vill se till att alla dina anslutningar fortsätter att gå till den primära repliken inaktiverar du Läs-och utskalning. Mer information om hur du inaktiverar det finns i [Aktivera och inaktivera Läs skalning](#enable-and-disable-read-scale-out).
 
 > [!NOTE]
-> Fråga efter data lager, utökade händelser, SQL profiler och gransknings funktioner stöds inte på skrivskyddade repliker.
+> Frågor för data lager, utökade händelser och SQL-profiler stöds inte på skrivskyddade repliker.
 
 ## <a name="data-consistency"></a>Datakonsekvens
 

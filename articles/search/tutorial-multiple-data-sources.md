@@ -8,20 +8,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 6408689deec7de365ede86665a0eaeb0bd0de64b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 272926e6c3572f03cc316ee696893941fd91968d
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196577"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206885"
 ---
 # <a name="tutorial-index-data-from-multiple-data-sources-in-c"></a>Självstudie: indexera data från flera data källor iC#
 
-Azure Kognitiv sökning kan importera, analysera och indexera data från flera data källor till ett enda kombinerat Sök index. Detta stöder situationer där strukturerade data sammanställs med mindre strukturerade eller udda text data från andra källor, t. ex. text-, HTML-eller JSON-dokument.
+Azure Kognitiv sökning kan importera, analysera och indexera data från flera data källor till ett enda konsoliderings Sök index. Detta stöder situationer där strukturerade data sammanställs med mindre strukturerade eller udda text data från andra källor, t. ex. text-, HTML-eller JSON-dokument.
 
 I den här självstudien beskrivs hur du kan indexera hotell data från en Azure Cosmos DB data källa och slå samman med information om hotell rums information från Azure Blob Storage dokument. Resultatet blir ett kombinerat hotell Sök index som innehåller komplexa data typer.
 
-I den här C# självstudien används och [.NET SDK](https://aka.ms/search-sdk) för att utföra följande uppgifter:
+I den här C# självstudien används och [.NET SDK](https://aka.ms/search-sdk). I den här självstudien utför du följande uppgifter:
 
 > [!div class="checklist"]
 > * Ladda upp exempel data och skapa data källor
@@ -44,29 +44,17 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="download-files"></a>Hämta filer
 
-1. Leta upp exempel lagrings platsen på GitHub: [Azure-Search-dotNet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
-1. Välj **klona eller ladda ned** och gör din privata lokala kopia av lagrings platsen.
-1. Öppna Visual Studio 2019 och installera Microsoft Azure Kognitiv sökning NuGet-paketet, om det inte redan har installerats. I menyn **verktyg** väljer du **NuGet Package Manager** och hanterar sedan **NuGet-paket för lösning...** . På fliken **Bläddra** letar du reda på och installerar **Microsoft. Azure. search** (version 9.0.1 eller senare). Du måste klicka på ytterligare dialog rutor för att slutföra installationen.
+Käll koden för den här självstudien finns i GitHub-lagringsplatsen [Azure-Search-dotNet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) i mappen med [flera data källor](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources) .
 
-    ![Använda NuGet för att lägga till Azure-bibliotek](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
+## <a name="1---create-services"></a>1 – skapa tjänster
 
-1. Använd Visual Studio, navigera till din lokala lagrings plats och öppna lösnings filen **AzureSearchMultipleDataSources. SLN**.
+I den här självstudien används Azure Kognitiv sökning för indexering och frågor, Azure Cosmos DB för en data uppsättning och Azure Blob Storage för den andra data uppsättningen. 
 
-## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL
-
-Om du vill interagera med din Azure Kognitiv sökning-tjänst behöver du tjänst-URL och en åtkomst nyckel. En Sök tjänst skapas med båda, så om du har lagt till Azure-Kognitiv sökning till din prenumeration följer du dessa steg för att få den information som krävs:
-
-1. Logga in på [Azure Portal](https://portal.azure.com/)och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
-
-1. I **inställningar** > **nycklar**får du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
-
-![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
-
-Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende per begäran mellan programmet som skickar begäran och tjänsten som hanterar den.
-
-## <a name="prepare-sample-azure-cosmos-db-data"></a>Förbereda exempel Azure Cosmos DB data
+Skapa om möjligt alla tjänster i samma region och resurs grupp för närhet och hanterbarhet. I praktiken kan dina tjänster finnas i vilken region som helst.
 
 I det här exemplet används två små uppsättningar med data som beskriver sju fiktiva hotell. En uppsättning beskriver själva hotellen och kommer att läsas in i en Azure Cosmos DB databas. Den andra uppsättningen innehåller information om hotell rummet och tillhandahålls som sju separata JSON-filer som ska överföras till Azure Blob Storage.
+
+### <a name="start-with-cosmos-db"></a>Börja med Cosmos DB
 
 1. Logga in på [Azure Portal](https://portal.azure.com)och navigera sedan till översikts sidan för Azure Cosmos DB konto.
 
@@ -88,7 +76,7 @@ I det här exemplet används två små uppsättningar med data som beskriver sju
 
 1. Använd knappen Uppdatera för att uppdatera vyn av objekten i Hotels-samlingen. Sju nya databas dokument visas.
 
-## <a name="prepare-sample-blob-data"></a>Förbered BLOB-data för exempel
+### <a name="azure-blob-storage"></a>Azure Blob Storage
 
 1. Logga in på [Azure Portal](https://portal.azure.com), navigera till ditt Azure Storage-konto, klicka på **blobbar**och klicka sedan på **+ container**.
 
@@ -102,47 +90,74 @@ I det här exemplet används två små uppsättningar med data som beskriver sju
 
 När uppladdningen är klar ska filerna visas i listan för data containern.
 
-## <a name="set-up-connections"></a>Konfigurera anslutningar
+### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
-Anslutnings information för Sök tjänsten och data källorna anges i filen **appSettings. JSON** i lösningen. 
+Den tredje komponenten är Azure-Kognitiv sökning, som du kan [skapa i portalen](search-create-service-portal.md). Du kan använda den kostnads fria nivån för att slutföra den här genom gången. 
 
-1. Öppna filen **AzureSearchMultipleDataSources. SLN** i Visual Studio.
+### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Hämta en Admin API-nyckel och URL för Azure Kognitiv sökning
 
-1. Redigera filen **appSettings. JSON** i Solution Explorer.  
+Om du vill interagera med din Azure Kognitiv sökning-tjänst behöver du tjänst-URL: en och en åtkomst nyckel. En Sök tjänst skapas med båda, så om du har lagt till Azure-Kognitiv sökning till din prenumeration följer du dessa steg för att få den information som krävs:
 
-```json
-{
-  "SearchServiceName": "Put your search service name here",
-  "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
-  "BlobStorageAccountName": "Put your Azure Storage account name here",
-  "BlobStorageConnectionString": "Put your Azure Blob Storage connection string here",
-  "CosmosDBConnectionString": "Put your Cosmos DB connection string here",
-  "CosmosDBDatabaseName": "hotel-rooms-db"
-}
-```
+1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
+
+1. I **inställningar** > **nycklar**får du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+
+   Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
+
+   ![Hämta tjänstens namn och administratör och fråge nycklar](media/search-get-started-nodejs/service-name-and-keys.png)
+
+En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
+
+## <a name="2---set-up-your-environment"></a>2 – Konfigurera din miljö
+
+1. Starta Visual Studio 2019 och välj **NuGet Package Manager** i **verktyg** -menyn och **Hantera NuGet-paket för lösning...** . 
+
+1. På fliken **Bläddra** letar du reda på och installerar **Microsoft. Azure. search** (version 9.0.1 eller senare). Du måste klicka på ytterligare dialog rutor för att slutföra installationen.
+
+    ![Använda NuGet för att lägga till Azure-bibliotek](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
+
+1. Sök efter **Microsoft. Extensions. Configuration. JSON** NuGet-paketet och installera det också.
+
+1. Öppna lösnings filen **AzureSearchMultipleDataSources. SLN**.
+
+1. Redigera filen **appSettings. JSON** i Solution Explorer för att lägga till anslutnings information.  
+
+    ```json
+    {
+      "SearchServiceName": "Put your search service name here",
+      "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
+      "BlobStorageAccountName": "Put your Azure Storage account name here",
+      "BlobStorageConnectionString": "Put your Azure Blob Storage connection string here",
+      "CosmosDBConnectionString": "Put your Cosmos DB connection string here",
+      "CosmosDBDatabaseName": "hotel-rooms-db"
+    }
+    ```
 
 De första två posterna använder URL-adressen och administratörs nycklarna för Azure Kognitiv sökning-tjänsten. En slut punkt av `https://mydemo.search.windows.net`, till exempel det tjänst namn som ska tillhandahållas `mydemo`.
 
 I nästa poster anges konto namn och information om anslutnings strängen för Azure-Blob Storage och Azure Cosmos DB data källor.
 
-### <a name="identify-the-document-key"></a>Identifiera dokument nyckeln
+## <a name="3---map-key-fields"></a>3 – mappa nyckel fält
 
-I Azure Kognitiv sökning kan nyckel fältet unikt identifiera varje dokument i indexet. Varje Sök index måste ha exakt ett nyckel fält av typen `Edm.String`. Nyckel fältet måste finnas för varje dokument i en data källa som läggs till i indexet. (I själva verket är det det enda obligatoriska fältet.)
+Sammanfogning av innehåll kräver att båda data strömmarna är riktade mot samma dokument i Sök indexet. 
 
-När du indexerar data från flera data källor använder du en gemensam dokument nyckel för att koppla data från två fysiskt skilda käll dokument till ett nytt sökdokument i det kombinerade indexet. Det krävs ofta viss planering för att identifiera en meningsfull dokument nyckel för ditt index och se till att den finns i båda data källorna. I den här demon finns HotelId-nyckeln för varje hotell i Cosmos DB också i rummen JSON-blobbar i Blob Storage.
+I Azure Kognitiv sökning kan nyckel fältet unikt identifiera varje dokument. Varje Sök index måste ha exakt ett nyckel fält av typen `Edm.String`. Nyckel fältet måste finnas för varje dokument i en data källa som läggs till i indexet. (I själva verket är det det enda obligatoriska fältet.)
 
-Azure Kognitiv sökning-indexerare kan använda fält mappningar för att byta namn på och till och med omformatera data fält under indexerings processen, så att källdata kan dirigeras till rätt index fält.
+När du indexerar data från flera data källor ser du till att varje inkommande rad eller ett dokument innehåller en gemensam dokument nyckel för att koppla data från två fysiskt distinkta käll dokument till ett nytt sökdokument i det kombinerade indexet. 
 
-I vårt exempel Azure Cosmos DB data kallas hotell-ID: t **`HotelId`** . Men i JSON-BLOB-filerna för hotell rummen heter hotell-ID: t **`Id`** . Programmet hanterar detta genom att mappa **`Id`** fältet från blobarna till **`HotelId`** nyckel fältet i indexet.
+Det krävs ofta viss planering för att identifiera en meningsfull dokument nyckel för ditt index och se till att den finns i båda data källorna. I den här demon finns `HotelId` nyckel för varje hotell i Cosmos DB också i rummen JSON-blobbar i Blob Storage.
+
+Azure Kognitiv sökning-indexerare kan använda fält mappningar för att byta namn på och till och med omformatera data fält under indexerings processen, så att källdata kan dirigeras till rätt index fält. I Cosmos DB kallas till exempel hotell-ID **`HotelId`** . Men i JSON-BLOB-filerna för hotell rummen heter hotell-ID: t **`Id`** . Programmet hanterar detta genom att mappa **`Id`** fältet från blobarna till **`HotelId`** nyckel fältet i indexet.
 
 > [!NOTE]
-> I de flesta fall genererar automatiskt dokument nycklar, till exempel de som skapats som standard av vissa indexerare, inte dokument nycklar för kombinerade index. I allmänhet ska du använda ett meningsfullt, unikt nyckel värde som redan finns i eller som enkelt kan läggas till i data källorna.
+> I de flesta fall kan automatiskt genererade dokument nycklar, till exempel de som skapats som standard av vissa indexerare, inte göra dokument nycklar för kombinerade index. I allmänhet ska du använda ett meningsfullt, unikt nyckel värde som redan finns i eller som enkelt kan läggas till i data källorna.
 
-## <a name="understand-the-code"></a>Förstå koden
+## <a name="4---explore-the-code"></a>4 – utforska koden
 
 När data-och konfigurations inställningarna är på plats bör exempel programmet i **AzureSearchMultipleDataSources. SLN** vara redo att bygga och köra.
 
 Den här C#enkla/.NET-distribution.-konsolen utför följande uppgifter:
+
 * Skapar ett nytt index baserat på data strukturen i C# hotell klassen (som även hänvisar till adress-och rums klasserna).
 * Skapar en ny data källa och en indexerare som mappar Azure Cosmos DB data till index fält. Detta är båda objekten i Azure Kognitiv sökning.
 * Kör indexeraren för att läsa in hotell data från Cosmos DB.
@@ -154,7 +169,7 @@ Den här C#enkla/.NET-distribution.-konsolen utför följande uppgifter:
   + **Hotel.cs** innehåller det schema som definierar indexet
   + **Program.cs** innehåller funktioner som skapar Azure kognitiv sökning-index, data källor och indexerare och läser in de kombinerade resultaten i indexet.
 
-### <a name="define-the-index"></a>Definiera indexet
+### <a name="create-an-index"></a>Skapa ett index
 
 Det här exempel programmet använder .NET SDK för att definiera och skapa ett Azure Kognitiv sökning-index. Det drar nytta av klassen [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) för att generera en index struktur från en C# data modell klass.
 
@@ -330,7 +345,7 @@ Eftersom indexet redan har fyllts med hotell data från Azure Cosmos DB database
 > [!NOTE]
 > Om du har samma icke-nyckel fält i båda data källorna och data i dessa fält inte matchar, kommer indexet att innehålla värdena från den som indexeraren kördes senast. I vårt exempel innehåller båda data källorna ett **HotelName** -fält. Om data i det här fältet skiljer sig åt för dokument med samma nyckel värde, kommer **HotelName** -data från data källan som indexerats senast att vara det värde som lagras i indexet.
 
-## <a name="search-your-json-files"></a>Söka i JSON-filer
+## <a name="5---search"></a>5-Sök
 
 Du kan utforska det ifyllda Sök indexet när programmet har körts, med hjälp av [**Sök Utforskaren**](search-explorer.md) i portalen.
 

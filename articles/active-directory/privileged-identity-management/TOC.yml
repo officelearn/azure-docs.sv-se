@@ -47,6 +47,8 @@
       items:
         - name: Funktionsuppdatering
           href: azure-ad-roles-features.md
+        - name: PowerShell för Azure AD-roller
+          href: powershell-for-azure-ad-roles.md
         - name: Tilldela roller
           href: pim-how-to-add-role-to-user.md
         - name: Godkänn förfrågningar

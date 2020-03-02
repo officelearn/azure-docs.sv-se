@@ -31,7 +31,7 @@
           href: manage-user-access-with-access-reviews.md
         - name: Hantera användare som undantagits från villkorsstyrd åtkomst
           href: conditional-access-exclusion.md
-- name: Instruktionsguider
+- name: Anvisningar
   expanded: true
   items:
     - name: Berättigandehantering
@@ -48,6 +48,8 @@
               href: entitlement-management-external-users.md
             - name: Visa rapporter och loggar
               href: entitlement-management-reports.md
+            - name: Arkivera loggar och rapportering
+              href: entitlement-management-logs-and-reporting.md
             - name: Felsöka
               href: entitlement-management-troubleshoot.md
         - name: Katalogägare

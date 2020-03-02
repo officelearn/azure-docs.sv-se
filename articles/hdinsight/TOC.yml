@@ -504,6 +504,8 @@
           href: ./kafka/apache-kafka-quickstart-resource-manager-template.md
     - name: Självstudier
       items:
+        - name: Skapa Apache Kafka-kluster – Azure CLI
+          href: ./kafka/tutorial-cli-rest-proxy.md
         - name: 'Använda Apache Kafka-producenten och konsument-API:et'
           href: ./kafka/apache-kafka-producer-consumer-api.md
         - name: 'Utveckla en app med Apache Kafka Streams-API:et'
@@ -548,8 +550,6 @@
               href: ./kafka/apache-kafka-mirroring.md
             - name: Analysera Apache Kafka-loggar
               href: ./kafka/apache-kafka-log-analytics-operations-management.md
-            - name: Bring your own key
-              href: ./kafka/apache-kafka-byok.md
             - name: SSL-kryptering och autentisering
               href: ./kafka/apache-kafka-ssl-encryption-authentication.md
         - name: Felsöka

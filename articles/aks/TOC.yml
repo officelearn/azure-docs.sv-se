@@ -375,6 +375,8 @@
           href: kube-advisor-tool.md
         - name: Åtkomst till SSH-noden
           href: ssh.md
+        - name: Prestandaverktyg för Linux
+          href: troubleshoot-linux.md
 - name: Referens
   items:
     - name: Azure CLI

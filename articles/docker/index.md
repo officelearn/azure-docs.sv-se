@@ -10,12 +10,12 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: gwallace
-ms.openlocfilehash: 4f4849139f0e5c5a8672b9364f7acc03cff6c948
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 429494b829d1307b4f89dbf746d24135a4322a97
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605581"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164465"
 ---
 <div class="content">
    <h1>Docker på Azure</h1>   
@@ -31,9 +31,8 @@ Docker är en populär containerhanterings- och avbildningsplattform som gör at
 <h2>Steg för steg-självstudier</h2>
 <p>Lär dig hur du använder Docker i ditt program och som en del av din CI/CD-pipeline:</p>
 <ol>
-  <li><a href="/azure/app-service/containers/tutorial-python-postgresql-app">Skapa Python och PostgreSQL med Docker</a></li>
-  <li><a href="/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">CI/CD med Docker Swarm och Azure DevOps Services</a></li>
-  <li><a href="/azure/jenkins/tutorial-jenkins-github-docker-cicd">Integrera Docker, Jenkins och virtuella Linux-datorer</a></li>
+  <li><a href="/azure/app-service/containers/tutorial-python-postgresql-app">Kör en Python (Django)-webbapp med PostgreSQL i Azure App Service</a></li>
+  <li><a href="/azure/jenkins/tutorial-jenkins-github-docker-cicd">Skapa en infrastruktur för utveckling på en virtuell Linux-dator i Azure med Jenkins, GitHub och Docker</a></li>
 </ol>
 <h2>Resurser</h2>
 <p>Se följande länkar för ytterligare referensmaterial och verktyg för att arbeta med Docker på Azure.</p>

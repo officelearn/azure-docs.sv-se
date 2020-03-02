@@ -370,7 +370,7 @@
       items:
         - name: Tas ur bruk från och med 1 mars 2023
           href: ../classic-vm-deprecation.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-        - name: Översikt
+        - name: Översikt över migrering
           href: migration-classic-resource-manager-overview.md
         - name: Djupgående om migrering
           href: migration-classic-resource-manager-deep-dive.md

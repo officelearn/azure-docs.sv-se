@@ -1,6 +1,7 @@
 - name: Dokumentation om formigenkänning
   href: index.yml
 - name: Översikt
+  expanded: true
   items:
     - name: Vad är formigenkänning?
       href: overview.md
@@ -45,6 +46,8 @@
   items:
     - name: Skapa en träningsdatauppsättning
       href: build-training-data-set.md
+    - name: Distribuera exempeletikettverktyget
+      href: deploy-label-tool.md
     - name: Använda containrar
       items:
         - name: Installera och köra containrar

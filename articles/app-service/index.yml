@@ -1,154 +1,150 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om App Service
+summary: Med Azure App Service kan du skapa och vara värd för webbappar, mobila serverdelar och RESTful-API:er i valfritt programmeringsspråk utan att behöva hantera infrastrukturen. Azure Web Apps tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från GitHub, Azure DevOps eller valfri Git-lagringsplats. Lär dig hur du använder Azure App Service med våra snabbstarter, självstudier och exempel.
 metadata:
   title: Dokumentation om Azure App Service
-  meta.description: 'Host websites, web apps, RESTful APIs, and mobile back ends in Azure App Service. Find quickstarts, tutorials, and samples to help you succeed with App Service.'
+  description: Var värd för webbplatser, webbappar, RESTful-API:er och mobila serverdelar i Azure App Service. Hitta snabbstarter, självstudier och exempel som hjälper dig att använda App Service.
   ms.topic: landing-page
-  ms.date: 01/23/2017
-abstract:
-  description: 'Med Azure App Service kan du skapa och vara värd för webbappar, mobila serverdelar och RESTful-API:er i valfritt programmeringsspråk utan att behöva hantera infrastrukturen. Azure Web Apps tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från GitHub, Azure DevOps eller valfri Git-lagringsplats. Lär dig hur du använder Azure App Service med våra snabbstarter, självstudier och exempel.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: 'https://docs.microsoft.com/azure/app-service/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png'
-      width: 250
-    title: 'Skapa en app med Node.js och Azure App Service. (2:41)'
-    href: 'https://azure.microsoft.com/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/'
-    width: 250
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du distribuerar ditt första program i molnet med hjälp av App Service:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg'
-            text: .NET
-            href: 'https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet'
-          - image:
-              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_nodejs.svg'
-            text: Node.js
-            href: 'https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs'
-          - image:
-              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_php.svg'
-            text: PHP
-            href: 'https://docs.microsoft.com/azure/app-service/app-service-web-get-started-php'
-          - image:
-              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg'
-            text: Java
-            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-java'
-          - image:
-              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_python.svg'
-            text: Python (på Linux)
-            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-python'
-          - image:
-              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_html5.svg'
-            text: HTML
-            href: 'https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
-            text: Anpassad Windows-container (förhandsversion)
-            href: 'https://docs.microsoft.com/azure/app-service/app-service-web-get-started-windows-container'
-      - type: paragraph
-        text: 'Lär dig hur du distribuerar din kod:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/zip.svg
-            text: ZIP/WAR
-            href: deploy-zip.md
-          - image:
-              src: media/index/ftp.svg
-            text: FTP
-            href: deploy-ftp.md
-          - image:
-              src: media/index/git-icon.svg
-            text: Lokal Git
-            href: deploy-local-git.md
-          - image:
-              src: 'https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg'
-            text: Azure DevOps
-            href: 'https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json'
-          - image:
-              src: media/index/github-octicons.svg
-            text: GitHub
-            href: deploy-continuous-deployment.md
-          - image:
-              src: media/index/bitbucket.svg
-            text: Bitbucket
-            href: deploy-continuous-deployment.md
-          - image:
-              src: media/index/dropbox.svg
-            text: DropBox-synkronisering
-            href: deploy-content-sync.md
-          - image:
-              src: media/index/onedrive.svg
-            text: OneDrive-synkronisering
-            href: deploy-content-sync.md
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig att distribuera, hantera och övervaka säkra webbappar på Azure'
-      - type: list
-        style: ordered
-        items:
-          - html: Skapa ett program med hjälp av <a href="/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase">.NET med Azure SQL DB</a> eller <a href="/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app">Node.js med MongoDB</a>
-          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mappa en befintlig anpassad domän till ditt program</a>
-          - html: <a href="/azure/app-service/configure-ssl-certificate">Skydda ett anpassat DNS-namn med en SSL-bindning i Azure App Service</a>
-          - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">Lägga till ett CDN till ditt program</a>
-  - title: Utveckla dina färdigheter med Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Var värd för ett webbprogram med Azure App Service
-            href: /learn/modules/host-a-web-app-with-azure-app-service/
-            image:
-              src: /learn/achievements/host-a-web-app-with-azure-app-service.svg
-              href: /learn/modules/host-a-web-app-with-azure-app-service/
-      - type: paragraph
-        text: <a href="/learn/browse/">Mer interaktiv inlärning...</a>
-  - title: Kostnadsfri videoutbildning för Pluralsight
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Utveckla med .NET
-            href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - title: Utveckla med Node.js
-            href: 'https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-  - title: Exempel
-    items:
-      - type: paragraph
-        text: Hitta skript för att hantera vanliga uppgifter.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-          - html: <a href="/cli/azure/appservice">Azure CLI</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
-          - title: Språk
-            html: <p><a href="/dotnet/api">NET</a></p><p><a href="/java/api/">Java</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/appservice">REST API-referens</a></p>
+  ms.service: app-service
+  ms.date: 02/26/2020
+  ms.openlocfilehash: 0480bd65f8a7d22f8732cd0ffde7fd3835334d69
+  ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 02/29/2020
+  ms.locfileid: "78191188"
+landingContent:
+- title: Om App Service
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är App Service?
+      url: overview.md
+    - text: App Service på Linux
+      url: /azure/app-service/containers/
+    - text: Apptjänstmiljöer
+      url: environment/intro.md
+    - text: Jämför värdalternativ
+      url: /azure/architecture/guide/technology-choices/compute-decision-tree
+  - linkListType: whats-new
+    links:
+    - text: Tjänstuppdateringar
+      url: https://azure.microsoft.com/updates/?product=app-service
+- title: Kom igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Första ASP.NET Core-app
+      url: app-service-web-get-started-dotnet.md
+    - text: Första ASP.NET-app
+      url: app-service-web-get-started-dotnet-framework.md
+    - text: Första Node.js-app
+      url: app-service-web-get-started-nodejs.md
+    - text: Första PHP-app
+      url: app-service-web-get-started-php.md
+- title: Vanliga åtgärder
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Mappa en anpassad domän till din app
+      url: app-service-web-tutorial-custom-domain.md
+    - text: Skydda en anpassad domän med en SSL-bindning
+      url: configure-ssl-bindings.md
+    - text: Kör app i mellanlagrade miljöer
+      url: deploy-staging-slots.md
+  - linkListType: how-to-guide
+    links:
+    - text: Aktivera diagnostikloggar
+      url: troubleshoot-diagnostic-logs.md
+    - text: Migrera en aktiv domän till App Service
+      url: manage-custom-dns-migrate-domain.md
+- title: CRUD-app med databas
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: ASP.NET-app med SQL Database
+      url: app-service-web-tutorial-dotnet-sqldatabase.md
+    - text: ASP.NET Core-app med SQL Database
+      url: app-service-web-tutorial-dotnetcore-sqldb.md
+    - text: PHP (Laravel)-app med Azure MySQL
+      url: app-service-web-tutorial-php-mysql.md
+    - text: Node.js (MEAN.js)-app med MongoDB
+      url: app-service-web-tutorial-nodejs-mongodb-app.md
+- title: Ladda upp din kod eller ditt innehåll
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Ladda upp innehåll med FTP
+      url: deploy-ftp.md
+    - text: Ladda upp innehåll som zip-paket
+      url: deploy-zip.md
+    - text: Push-överför med Git från en lokal dator
+      url: deploy-local-git.md
+    - text: Synkronisera innehåll med OneDrive eller Dropbox
+      url: deploy-content-sync.md
+    - text: CI/CD med GitHub, BitBucket osv.
+      url: deploy-continuous-deployment.md
+- title: Köra containerbaserade Windows-appar
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Köra en anpassad Windows-container
+      url: app-service-web-get-started-windows-container.md
+  - linkListType: tutorial
+    links:
+    - text: Migrera en äldre app till Azure i en Windows-container
+      url: app-service-web-tutorial-windows-containers-custom-fonts.md
+  - linkListType: how-to-guide
+    links:
+    - text: Ansluta en container till Storage Files
+      url: configure-connect-to-azure-storage.md
+- title: Hantera och integrera
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Hantera App Service-planer
+      url: overview-hosting-plans.md
+  - linkListType: tutorial
+    links:
+    - text: Skydda åtkomst till resurser med hanterade identiteter
+      url: app-service-web-tutorial-connect-msi.md
+    - text: Autentisera användare
+      url: app-service-web-tutorial-auth-aad.md
+    - text: Agera värd åt RESTful-API med CORS
+      url: app-service-web-tutorial-rest-api.md
+    - text: Lägga till ett CDN till ditt program
+      url: ../cdn/cdn-add-to-web-app.md
+  - linkListType: how-to-guide
+    links:
+    - text: Integrera med ett virtuellt nätverk
+      url: web-sites-integrate-with-vnet.md
+    - text: Skapa hybridanslutning till lokal
+      url: app-service-hybrid-connections.md
+    - text: Belastningsutjämning med Traffic Manager
+      url: web-sites-traffic-manager-custom-domain-name.md
+    - text: Säkerhetskopiera din app till lagringsblobar
+      url: manage-backup.md
+- title: Fler resurser
+  linkLists:
+  - linkListType: video
+    links:
+    - text: Videobibliotek för Azure App Service
+      url: https://azure.microsoft.com/resources/videos/index/?services=app-service
+    - text: Videoutbildning för Pluralsight
+      url: https://www.pluralsight.com/search?q=azure%20app%20service
+  - linkListType: sample
+    links:
+    - text: Azure CLI-exempel
+      url: samples-cli.md
+    - text: Azure PowerShell-exempel
+      url: samples-powershell.md
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: /cli/azure/appservice
+    - text: Azure PowerShell
+      url: /powershell/module/az.websites/#app_service
+    - text: REST-API
+      url: /rest/api/appservice/
+    - text: Resource Manager
+      url: /azure/templates/microsoft.web/allversions

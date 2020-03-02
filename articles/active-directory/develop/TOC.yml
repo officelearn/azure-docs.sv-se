@@ -29,7 +29,7 @@
           href: quickstart-v2-javascript.md
     - name: Webbappar
       items:
-        - name: ASP .NET
+        - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
         - name: ASP.NET Core
           href: quickstart-v2-aspnet-core-webapp.md
@@ -42,7 +42,7 @@
           href: quickstart-v2-python-webapp.md
     - name: 'Webb-API:er'
       items:
-        - name: ASP .NET
+        - name: ASP.NET
           href: quickstart-v2-dotnet-native-aspnet.md
         - name: ASP.NET Core
           href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
@@ -70,7 +70,7 @@
           href: tutorial-v2-javascript-spa.md
     - name: Webbappar
       items:
-        - name: ASP .NET
+        - name: ASP.NET
           href: tutorial-v2-asp-webapp.md
     - name: Mobilappar och skrivbordsappar
       items:
@@ -242,13 +242,15 @@
           href: brokered-auth.md
         - name: Migrering
           items:
+            - name: Översikt
+              href: msal-migration.md
             - name: Migrera till MSAL.NET
               href: msal-net-migration.md
             - name: Migrera till MSAL.js
               href: msal-compare-msal-js-and-adal-js.md
             - name: Migrera till MSAL.Android
               href: migrate-android-adal-msal.md
-            - name: Migrera till MSAL.iOS/MacOS
+            - name: Migrera till MSAL.iOS/macOS
               href: migrate-objc-adal-msal.md
             - name: Migrera till MSAL Python
               href: migrate-python-adal-msal.md

@@ -42,6 +42,8 @@
     - name: 'Använda Flask till att översätta text, analysera sentiment och syntetisera tal'
       maintainContext: true
       href: 'https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis'
+    - name: Extrahera information i Excel med hjälp av Power Automate
+      href: tutorials/extract-excel-information.md
 - name: Anvisningar
   items:
     - name: 'Anropa API:t för textanalys'

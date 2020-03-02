@@ -19,6 +19,8 @@
           href: container-registry-get-started-powershell.md
         - name: Skicka händelser till Event Grid – CLI
           href: container-registry-event-grid-quickstart.md
+        - name: Skapa och push-överföra Java-avbildningar – CLI
+          href: container-registry-java-quickstart.md
     - name: Självstudier
       expanded: false
       items:

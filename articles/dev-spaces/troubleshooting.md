@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Lär dig hur du felsöker och löser vanliga problem när du aktiverar och använder Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: b926e651200a4ab23306b0ec2443cb64400b8f7b
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 061f812e7567d96bba092ebc9625756c14c46940
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605244"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662475"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Fel sökning av Azure dev Spaces
 
@@ -474,7 +474,7 @@ Om du vill aktivera Azure dev Spaces i ett AKS-kluster där den utgående trafik
 | cloudflare.docker.com | HTTPS:443 | Hämta Linux Alpine och andra Azure dev Spaces-bilder |
 | gcr.io | HTTP: 443 | Hämta Helm/till-avbildningar|
 | storage.googleapis.com | HTTP: 443 | Hämta Helm/till-avbildningar|
-| azds-<guid>.<location>.azds.io | HTTPS:443 | För att kommunicera med Azure dev Spaces-backend-tjänster för din kontrollant. Du hittar exakt FQDN i "dataplaneFqdn" i% USERPROFILE%\.azds\settings.JSON|
+| azds-<guid>.<location>. azds.io | HTTPS:443 | För att kommunicera med Azure dev Spaces-backend-tjänster för din kontrollant. Du hittar exakt FQDN i "dataplaneFqdn" i% USERPROFILE%\.azds\settings.JSON|
 
 ### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Fel "Det gick inte att hitta kluster \<klustret\> i prenumerationen \<subscriptionId\>"
 
@@ -484,3 +484,14 @@ Så här åtgärdar du problemet:
 
 * Använd `az aks use-dev-spaces -g <resource group name> -n <cluster name>` för att uppdatera den aktuella kontexten. Det här kommandot aktiverar även Azure dev Spaces på ditt AKS-kluster om inte redan har Aktiver ATS. Du kan också använda `kubectl config use-context <cluster name>` för att uppdatera den aktuella kontexten.
 * Använd `az account show` för att visa den aktuella Azure-prenumerationen som du är mål för och kontrol lera att detta är korrekt. Du kan ändra den prenumeration som du riktar in med `az account set`.
+
+### <a name="error-using-dev-spaces-after-rotating-aks-certificates"></a>Fel vid användning av dev Spaces efter rotering av AKS-certifikat
+
+När [du har roterat certifikaten i ditt AKS-kluster](../aks/certificate-rotation.md)kommer vissa åtgärder, till exempel `azds space list` och `azds up` att Miss Miss förfallit. Du måste också uppdatera certifikaten på Azure dev Spaces-kontrollanten när du har roterat certifikaten i klustret.
+
+Åtgärda problemet genom att se till att *kubeconfig* har de uppdaterade certifikaten med hjälp av `az aks get-credentials` kör sedan `azds controller refresh-credentials` kommandot. Några exempel:
+
+```azurecli
+az aks get-credentials -g <resource group name> -n <cluster name>
+azds controller refresh-credentials -g <resource group name> -n <cluster name>
+```

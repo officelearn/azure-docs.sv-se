@@ -405,6 +405,8 @@
           href: v2-admin-consent.md
         - name: Upplevelse för programmedgivande
           href: application-consent-experience.md
+    - name: Villkorlig åtkomst
+      href: v2-conditional-access-dev-guide.md
     - name: Nationella moln
       items:
         - name: Översikt

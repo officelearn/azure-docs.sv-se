@@ -619,6 +619,7 @@
                   href: cassandra-spark-table-copy-ops.md
             - name: Hantera med Resource Manager-mallar
               href: manage-cassandra-with-resource-manager.md
+              displayName: ARM
             - name: Hantera med hjälp av PowerShell
               href: powershell-samples-cassandra.md
             - name: Hantera med hjälp av Azure CLI
@@ -706,6 +707,7 @@
               displayName: custom commands
             - name: Hantera med Resource Manager-mallar
               href: manage-mongodb-with-resource-manager.md
+              displayName: ARM
             - name: Hantera med hjälp av PowerShell
               href: powershell-samples-mongodb.md
             - name: Hantera med hjälp av Azure CLI
@@ -767,6 +769,7 @@
               href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
             - name: Hantera med Resource Manager-mallar
               href: manage-gremlin-with-resource-manager.md
+              displayName: ARM
             - name: Hantera med hjälp av PowerShell
               href: powershell-samples-gremlin.md
             - name: Hantera med hjälp av Azure CLI
@@ -823,6 +826,7 @@
               href: table-storage-design-guide.md
             - name: Hantera med Resource Manager-mallar
               href: manage-table-with-resource-manager.md
+              displayName: ARM
             - name: Hantera med hjälp av PowerShell
               href: powershell-samples-table.md
             - name: Hantera med hjälp av Azure CLI
@@ -859,6 +863,7 @@
           href: manage-with-cli.md
         - name: Använda Resource Manager-mallar
           href: manage-sql-with-resource-manager.md
+          displayName: ARM
     - name: Global distribution
       items:
         - name: Konfigurera flera original
@@ -1110,6 +1115,7 @@
       href: /rest/api/cosmos-db-resource-provider/
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.documentdb/allversions
+      displayName: ARM
     - name: Publiceringsinformation om emulatorn
       href: local-emulator-release-notes.md
 - name: Resurser

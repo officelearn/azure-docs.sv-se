@@ -2,23 +2,23 @@
 title: Så här utlöser du komplexa åtgärder med Azure Monitor aviseringar
 description: Lär dig hur du skapar en logisk app-åtgärd för att bearbeta Azure Monitor aviseringar.
 author: dkamstra
-services: azure-monitor
+ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: adc53ad1c75b3251c5672d9078062631b107cc87
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: HT
+ms.openlocfilehash: 655a3acc44a1418778b37fbef85e5df75d042317
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669139"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206244"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Så här utlöser du komplexa åtgärder med Azure Monitor aviseringar
 
 Den här artikeln visar hur du konfigurerar och utlöser en Logic app för att skapa en konversation i Microsoft Teams när en avisering utlöses.
 
 ## <a name="overview"></a>Översikt
+
 När en Azure Monitor-avisering utlöses anropar den en [Åtgärds grupp](../../azure-monitor/platform/action-groups.md). Med åtgärds grupper kan du utlösa en eller flera åtgärder för att meddela andra om en avisering och även åtgärda det.
 
 Den allmänna processen är:
@@ -68,10 +68,10 @@ Processen påminner om du vill att Logic app ska utföra en annan åtgärd.
                 "activityLog": {
                     "authorization": {
                     "action": "microsoft.insights/activityLogAlerts/write",
-                    "scope": "/subscriptions/�"
+                    "scope": "/subscriptions/…"
                     },
                     "channels": "Operation",
-                    "claims": "�",
+                    "claims": "…",
                     "caller": "logicappdemo@contoso.com",
                     "correlationId": "91ad2bac-1afa-4932-a2ce-2f8efd6765a3",
                     "description": "",
@@ -81,12 +81,12 @@ Processen påminner om du vill att Logic app ska utföra en annan åtgärd.
                     "level": "Informational",
                     "operationName": "microsoft.insights/activityLogAlerts/write",
                     "operationId": "61f59fc8-1442-4c74-9f5f-937392a9723c",
-                    "resourceId": "/subscriptions/�",
+                    "resourceId": "/subscriptions/…",
                     "resourceGroupName": "LOGICAPP-DEMO",
                     "resourceProviderName": "microsoft.insights",
                     "status": "Succeeded",
                     "subStatus": "",
-                    "subscriptionId": "�",
+                    "subscriptionId": "…",
                     "submissionTimestamp": "2018-04-03T22:33:36.1068742+00:00",
                     "resourceType": "microsoft.insights/activityLogAlerts"
                 }
@@ -104,7 +104,7 @@ Processen påminner om du vill att Logic app ska utföra en annan åtgärd.
 
     ![Lägg till en åtgärd](media/action-groups-logic-app/add-action.png "Lägga till en åtgärd")
 
-11. Sök efter och välj Microsoft Teams-anslutningsprogrammet. Välj åtgärden **Microsoft Teams publicera meddelande** .
+11. Sök efter och välj Microsoft Teams-anslutningsprogrammet. Välj åtgärden **Microsoft Teams-publicera meddelande** .
 
     ![Microsoft Teams-åtgärder](media/action-groups-logic-app/microsoft-teams-actions.png "Microsoft Teams-åtgärder")
 
@@ -128,7 +128,7 @@ Processen påminner om du vill att Logic app ska utföra en annan åtgärd.
 
 14. Överst i **Logic Apps designer**väljer du **Spara** för att spara din Logic app.
 
-15. Öppna den befintliga åtgärds gruppen och Lägg till en åtgärd som refererar till Logic app. Om du inte har någon befintlig åtgärds grupp kan du läsa [skapa och hantera åtgärds grupper i Azure Portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) för att skapa en. Glöm inte att spara ändringarna.
+15. Öppna den befintliga åtgärds gruppen och Lägg till en åtgärd som refererar till Logic app. Om du inte har en befintlig åtgärds grupp kan du läsa [skapa och hantera åtgärds grupper i Azure Portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) för att skapa en. Glöm inte att spara ändringarna.
 
     ![Uppdatera åtgärds gruppen](media/action-groups-logic-app/update-action-group.png "Uppdatera åtgärds gruppen")
 
@@ -150,7 +150,7 @@ Azure Service Health poster ingår i aktivitets loggen. Processen för att skapa
                 "activityLog": {
                     "channels": "Admin",
                     "correlationId": "e416ed3c-8874-4ec8-bc6b-54e3c92a24d4",
-                    "description": "�",
+                    "description": "…",
                     "eventSource": "ServiceHealth",
                     "eventTimestamp": "2018-04-03T22:44:43.7467716+00:00",
                     "eventDataId": "9ce152f5-d435-ee31-2dce-104228486a6d",
@@ -158,23 +158,23 @@ Azure Service Health poster ingår i aktivitets loggen. Processen för att skapa
                     "operationName": "Microsoft.ServiceHealth/incident/action",
                     "operationId": "e416ed3c-8874-4ec8-bc6b-54e3c92a24d4",
                     "properties": {
-                        "title": "�",
-                        "service": "�",
+                        "title": "...",
+                        "service": "...",
                         "region": "Global",
-                        "communication": "�",
+                        "communication": "...",
                         "incidentType": "Incident",
-                        "trackingId": "�",
+                        "trackingId": "...",
                         "impactStartTime": "2018-03-22T21:40:00.0000000Z",
                         "impactMitigationTime": "2018-03-22T21:41:00.0000000Z",
                         "impactedServices": "[{"ImpactedRegions"}]",
-                        "defaultLanguageTitle": "�",
-                        "defaultLanguageContent": "�",
+                        "defaultLanguageTitle": "...",
+                        "defaultLanguageContent": "...",
                         "stage": "Active",
                         "communicationId": "11000001466525",
                         "version": "0.1.1"
                     },
                     "status": "Active",
-                    "subscriptionId": "�",
+                    "subscriptionId": "...",
                     "submissionTimestamp": "2018-04-03T22:44:50.8013523+00:00"
                 }
             },
@@ -237,7 +237,7 @@ Processen för att skapa en måtta aviseringar liknar att [skapa en aktivitets l
         "status": "Activated",
         "context": {
         "timestamp": "2018-04-09T19:00:07.7461615Z",
-        "id": "�",
+        "id": "...",
         "name": "TEST-VM CPU Utilization",
         "description": "",
         "conditionType": "SingleResourceMultipleMetricCriteria",
@@ -259,12 +259,12 @@ Processen för att skapa en måtta aviseringar liknar att [skapa en aktivitets l
             }
             ]
         },
-        "subscriptionId": "�",
+        "subscriptionId": "...",
         "resourceGroupName": "TEST",
         "resourceName": "test-vm",
         "resourceType": "Microsoft.Compute/virtualMachines",
-        "resourceId": "�",
-        "portalLink": "�"
+        "resourceId": "...",
+        "portalLink": "..."
         },
         "properties": {}
     }
@@ -284,7 +284,7 @@ Processen för att skapa en måtta aviseringar liknar att [skapa en aktivitets l
 
       !["Mått avisering True condition post åtgärd"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Mått avisering, True condition post-åtgärd")
 
-  1. I villkoret **om falskt** definierar du en Microsoft Teams-åtgärd för att kommunicera att mått varningen inte matchar förväntningarna i Logic-appen. Ta med JSON-nyttolasten. Observera hur du refererar till `triggerBody` dynamiskt innehåll i `json()`-uttrycket.
+  1. I villkoret **om falskt** definierar du en Microsoft Teams-åtgärd för att kommunicera att mått aviseringen inte matchar förväntningarna i Logic app. Ta med JSON-nyttolasten. Observera hur du refererar till `triggerBody` dynamiskt innehåll i `json()`-uttrycket.
 
       !["Mått varning falsk villkor post åtgärd"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Mått avisering, felaktig villkors post åtgärd")
 

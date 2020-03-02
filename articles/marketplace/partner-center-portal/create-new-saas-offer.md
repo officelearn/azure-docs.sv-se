@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/22/2020
-ms.openlocfilehash: 4cac2fcd16f779a6b31e36ca175801eedaa31d5d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.date: 02/28/2020
+ms.openlocfilehash: 9d06b34b459bf1d48aa293a889af57fb6192015d
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705827"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208873"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -134,16 +134,7 @@ En testen het är ett bra sätt att presentera ditt erbjudande för potentiella 
 
 Genom att aktivera test enheten uppmanas du att konfigurera en demonstrations miljö där kunder kan testa ditt erbjudande under en bestämd tids period. 
 
-### <a name="type-of-test-drive"></a>Typ av test enhet
-
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : en distributions mall som innehåller alla Azure-resurser som utgör din lösning. Produkter som passar det här scenariot använder bara Azure-resurser.
-- **[Dynamics 365 för företag, Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft är värd för och underhåller Test Drive-tjänsten (inklusive etablering och distribution) för ett företags huvud företags resurs planerings system (finans, Operations, service Chain, CRM osv.).  
-- **[Dynamics 365 för kund engagemang](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft är värd för och underhåller tjänsten Test Drive (inklusive etablering och distribution) för ett kund engagemang system (Sales, service, Project service, Field service osv.).  
-- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft är värd för och underhåller Test Drive-tjänsten (inklusive etablering och distribution) för ekonomi-och drift företags resurs planerings system (finans, drift, tillverkning, leverans kedja osv.). 
-- **[Logic app](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : en distributions mall som omfattar alla komplexa lösnings arkitekturer. Alla anpassade produkter bör använda den här typen av test enhet.
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : en inbäddad länk till en anpassad instrument panel. Produkter som vill demonstrera ett interaktivt Power BI visuellt objekt bör använda den här typen av test enhet. Allt du behöver ladda upp här är din inbäddade Power BI-URL.
-
-#### <a name="additional-test-drive-resources"></a>Ytterligare resurser för enhets test
+#### <a name="test-drive-resources"></a>Testa enhets resurser
 - [Test Drive tekniska metod tips](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Metod tips för marknadsföring av test enheter](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [Översikt över test enhet en pager](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
@@ -234,7 +225,7 @@ Ange information som ska visas på Marketplace, inklusive beskrivningar av ditt 
 - **Namn** (obligatoriskt): det namn som definieras här visas som rubrik på din erbjudande lista på de Marketplace som du har valt. Namnet är förifyllt baserat på din föregående **nya erbjudande** post. Namnet kan vara ett varumärke. Den får inte innehålla emojis (om de inte är varumärken och Copyright-symboler) och måste vara begränsade till 50 tecken.
 - **Sammanfattning** (krävs): Ange en kort beskrivning av ditt erbjudande som ska användas i Sök Resultat för Marketplace-listor. Upp till 100 tecken text kan anges i det här fältet.
 - **Beskrivning** (krävs): Ange en beskrivning av ditt erbjudande som ska visas i Översikt över Marketplace-listor. Överväg att inkludera ett värde förslag, viktiga fördelar, eventuella kategori-eller bransch associationer, inköps möjligheter för appar, eventuella obligatoriska upplysningar och en länk till mer information.
-Upp till 3 000 tecken text kan anges i det här fältet. Ytterligare tips finns i artikeln [skriva en bra app-Beskrivning](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
+Upp till 3 000 tecken text kan anges i det här fältet, inklusive pålägg. Ytterligare tips finns i artikeln [skriva en bra app-Beskrivning](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
 - **Sök Nyckelord**: ange upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande i Marketplace.
 - **Komma igång-instruktioner** (krävs): förklara hur du konfigurerar och börjar använda din app för potentiella kunder.  Den här snabb starten kan innehålla länkar till mer detaljerad onlinedokumentation. Upp till 3 000 tecken text kan anges i det här fältet.
 
@@ -277,7 +268,7 @@ Använd följande instruktioner för att använda Rich Text Editor:
 - **CSP-program marknadsförings material** (valfritt): Ange en länk till marknadsförings material om du väljer att utöka erbjudandet till program varan för [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . CSP utökar erbjudandet till ett bredare utbud av kvalificerade kunder genom att göra det möjligt för CSP-partner att paketera, marknadsföra och sälja ditt erbjudande. Dessa åter försäljare behöver åtkomst till material för marknadsföring av ditt erbjudande. Mer information finns i [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
 - **Användbara länkar** (valfritt): valfria kompletterande online-dokument om din app eller relaterade tjänster som listas genom att tillhandahålla en **rubrik** och **URL**. Lägg till ytterligare användbara länkar genom att klicka på **+ Lägg till en URL**.
 
-#### <a name="contact-information"></a>Kontaktinformation
+#### <a name="contact-information"></a>Kontakt information
 
 - **Kontakter**: Ange ett **namn**på en anställd, **telefonnummer**och **e-** postadress för varje kund kontakt.  (De *kommer inte* att visas offentligt). Det krävs också en **Support-URL** för **support kontakt** gruppen.  (Den här informationen *kommer* att visas offentligt).
 
@@ -290,7 +281,7 @@ Teknisk **kontakt** (krävs): för tekniska frågor.
 #### <a name="files-and-images"></a>Filer och avbildningar
 
 - **Dokument** (krävs): Lägg till relaterade marknadsförings dokument för ditt erbjudande i PDF-format, vilket ger minst ett (1) och högst tre (3) dokument per erbjudande.
-- **Avbildningar** (valfritt): det finns flera platser där ditt erbjudandes Logo bilder kan visas på alla platser, vilket kräver följande storlekar – liten: 48 x 48 pixlar _(krävs),_ Medium: 90 x 90 pixlar, stor: 216 x 216 bild punkter _(krävs),_ bred: 255 x 115 pixlar och hjälte: 815 x 290 bild punkter. Alla avbildningar måste vara i. PNG-format.
+- **Avbildningar** (valfritt): det finns flera platser där ditt erbjudandes Logo bilder kan visas på alla platser, vilket kräver följande storlekar:-liten: 48 x 48 bild punkter _(krävs),_ Medium: 90 x 90 bild punkter _(krävs)_ , stor: 216 x 216 bild punkter _(krävs),_ bred: 255 x 115 pixlar, och hjälte: 815 x 290 pixlar. Alla avbildningar måste vara i. PNG-format.
 - **Skärm bilder** (krävs): Lägg till skärm bilder som demonstrerar ditt erbjudande. Högst fem (5) skärm bilder kan läggas till och ska vara i storlek med 1280 x 720 pixlar. Alla avbildningar måste vara i. PNG-format.
 - **Videor** (valfritt): Lägg till länkar till videor som demonstrerar ditt erbjudande. Du kan använda länkar till YouTube och/eller Vimeo-videor som visas tillsammans med ditt erbjudande till kunder. Du måste också ange en miniatyr bild av videon, med en storlek på 1280 x 720 pixlar i PNG-format. Du kan visa högst fyra videor per erbjudande.
 
@@ -389,7 +380,7 @@ Varje plan måste vara tillgänglig på minst en marknad. Markera kryss rutan f�
 
 Om du redan har angett priser för din plan i USA dollar (USD) och lagt till en annan marknads plats kommer priset för den nya marknaden att beräknas enligt de aktuella växelkurserna. Du bör alltid granska priset för varje marknad innan du publicerar. Priserna kan granskas med hjälp av länken "export priser (xlsx)" när du har sparat ändringarna.
 
-#### <a name="pricing"></a>Prissättning
+#### <a name="pricing"></a>Priser
 
 - **Pris modell**: fast pris eller plats baserad
 
@@ -406,7 +397,7 @@ Välj den frekvens som kunderna måste betala i det angivna priset. Minst ett m�
 - **Pris**: USD per månad eller USD per år
 
 Priser som anges i lokal valuta (USD = USA dollar) konverteras till den lokala valutan för alla valda marknader med de aktuella växelkurserna som är tillgängliga under installationen. Validera dessa priser innan du publicerar genom att exportera pris kalkyl bladet och granska priset på varje marknad. Om du vill ange anpassade priser på en enskild marknad ändrar du och importerar pris kalkyl bladet. Du ansvarar för att verifiera priset och äga dessa inställningar.
-*\*Du måste först spara dina pris ändringar för att möjliggöra export av pris information.*
+*\*du först måste spara dina pris ändringar för att möjliggöra export av pris information.*
 
 Granska dina priser noggrant innan du publicerar, eftersom det finns vissa begränsningar för vad som kan ändras när en plan publiceras:
 
@@ -439,7 +430,7 @@ En klient organisation är en representation av en organisation med ett ID som r
 
 ![Exempel på Marketplace-plan lista med anteckningar](./media/marketplace-plan.svg)
 
-## <a name="test-drive"></a>Testkör
+## <a name="test-drive"></a>Test enhet
 
 [!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
 

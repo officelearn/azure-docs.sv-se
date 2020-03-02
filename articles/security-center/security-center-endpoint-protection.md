@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 899f4cba31afed812fa1643b925a38812308042e
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: dcf7df501665ea3885d00b9f7668a95cbbf02428
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552941"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208550"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Endpoint Protection-utvärdering och rekommendationer i Azure Security Center
 
-Azure Security Center tillhandahåller hälso utvärdering av versioner av Endpoint Protection-lösningar som [stöds](security-center-services.md#supported-endpoint-protection-solutions-) . I den här artikeln beskrivs scenarier som leder Security Center att generera följande två rekommendationer:
+Azure Security Center tillhandahåller hälso utvärdering av versioner av Endpoint Protection-lösningar som [stöds](security-center-services.md#endpoint-supported) . I den här artikeln beskrivs scenarier som leder Security Center att generera följande två rekommendationer:
 
 * **Installera Endpoint Protection-lösningar på den virtuella datorn**
 * **Lös problem med hälso tillstånd för slut punkts skydd på dina datorer**
 
-## <a name="windows-defender"></a>Windows Defender
+## <a name="windows-defender"></a>Windows försvarare
 
 * Security Center rekommenderar att du **installerar Endpoint Protection-lösningar på den virtuella datorn** när [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) körs och resultatet är **AMServiceEnabled: falskt**
 
@@ -92,13 +92,13 @@ Security Center rekommenderar att du **installerar Endpoint Protection-lösninga
 
 * **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM: \ Software\Symantec\Symantec-slutpunkt Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 Eller
 
 * **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM: \ Software\Wow6432Node\Symantec\Symantec-slutpunkt Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 Security Center rekommenderar att du **löser problem med hälso tillstånd för slut punkts skydd på dina datorer** när någon av följande kontroller inte är uppfyllda:
 
@@ -175,10 +175,10 @@ Security Center rekommenderar att du **löser problem med hälso tillstånd för
 
 ## <a name="troubleshoot-and-support"></a>Felsökning och support
 
-### <a name="troubleshoot"></a>Felsökning
+### <a name="troubleshoot"></a>Felsöka
 
 Microsoft-tilläggs loggar för program mot skadlig kod finns på: **%systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware (eller PaaSAntimalware) \1.5.5.x (version #) \CommandExecution.log**
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Eller fil en support incident för Azure. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Eller fil en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 39e2deead1affd750d9a5e68985b02ebfe8e0efd
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: e13149ba802f0f8b9a565e0aabd86ae05167f18b
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921308"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208832"
 ---
 # <a name="supported-platforms"></a>Plattformar som stöds 
 
@@ -35,7 +35,6 @@ För en Azure-miljö aktive rad på en Azure-prenumeration identifierar Azure Se
 
 > [!NOTE]
 > För att få en fullständig uppsättning säkerhetsfunktioner måste du ha Log Analytics- [agenten](../azure-monitor/platform/agents-overview.md#log-analytics-agent), som används av Azure Security Center, installerad och [korrekt konfigurerad för att skicka data till Azure Security Center](security-center-enable-data-collection.md#manual-agent).
-
 
 I följande avsnitt listas de serveroperativ system som stöds och som [Log Analytics-agenten](../azure-monitor/platform/agents-overview.md#log-analytics-agent), som används av Azure Security Center, kan köras.
 
@@ -85,38 +84,6 @@ Virtuella datorer skapas också i en kund prenumeration som en del av vissa Azur
 ### Cloud Services<a name="cloud-services"></a>
 
 Virtuella datorer som körs i en moln tjänst stöds också. Endast webb-och arbets roller för moln tjänster som körs i produktions platser övervakas. Mer information om moln tjänster finns i [Översikt över Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
-
-## PaaS-tjänster<a name="paas-services"></a>
-
-Följande Azure PaaS-resurser stöds av Azure Security Center:
-
-* SQL
-* PostGreSQL
-* MySQL
-* CosmosDB
-* Lagringskonto
-* Apptjänst
-* Funktion
-* Moln tjänst
-* VNet
-* Undernät
-* NIC
-* NSG
-* Batch-konto
-* Service Fabric-konto
-* Automation-konto
-* Lastbalanserare
-* Söka
-* service bus namnrymd
-* Stream analytics
-* Namnområde för händelsehubb
-* Logic Apps
-* Redis
-* Data Lake Analytics
-* Data Lake Store
-* Nyckelvalv
-
-Mer information om vilka funktioner som stöds för ovanstående lista över PaaS-resurser finns i [PaaS Services-funktioner som stöds](security-center-services.md#paas-services).
 
 Skydd för Virtual Machines som finns i Azure Stack stöds också. Mer information om Security Centers integrering med Azure Stack finns i [publicera dina Azure Stack virtuella datorer i Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
 

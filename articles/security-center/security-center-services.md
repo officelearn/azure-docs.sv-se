@@ -11,33 +11,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2020
+ms.date: 03/01/2020
 ms.author: memildin
-ms.openlocfilehash: 14c54028dacb545532b540ae8ff79fc3dc5356bc
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 9d3fa1e0b62ea6f4762c3df6ac7da310d5703807
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921274"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208805"
 ---
-# <a name="supported-features-available-in-azure-security-center"></a>Funktioner som stöds i Azure Security Center
+# <a name="feature-coverage-for-machines"></a>Funktions täckning för datorer
 
-> [!NOTE]
->Vissa funktioner är bara tillgängliga med standard nivån. Om du inte redan har registrerat dig för Security Center standard nivån finns en kostnads fri utvärderings period. Mer information finns på sidan med [Security Center priser](https://azure.microsoft.com/pricing/details/security-center/).
+Tabellerna nedan visar Azure Security Center funktioner som är tillgängliga för virtuella datorer och servrar.
 
-I följande avsnitt visas Security Center funktioner som är tillgängliga för [plattformar som stöds](security-center-os-coverage.md).
+## Funktioner som stöds för virtuella datorer och servrar<a name="vm-server-features"></a>
 
-* [Virtuella datorer/servrar](#vm-server-features)
-* [PaaS-tjänster](#paas-services)
-
-
-## Funktioner som stöds av virtuella datorer/servrar<a name="vm-server-features"></a>
-
-### <a name="windows"></a>[Windows](#tab/features-windows)
+### <a name="windows-machines"></a>[Windows-datorer](#tab/features-windows)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-||**Azure Virtual Machines**|**Azure-Virtual Machine Scale Sets**|**Datorer som inte är Azure-datorer**|**Prissättning**
+|**Funktion**|**Azure Virtual Machines**|**Azure-Virtual Machine Scale Sets**|**Datorer som inte är Azure-datorer**|**Prissättning**
 |[Microsoft Defender ATP-integrering](security-center-wdatp.md)|✔</br>(i versioner som stöds)|✔</br>(i versioner som stöds)|✔|Standard|
 |[Beteende analys av virtuella datorer (och säkerhets aviseringar)](threat-protection.md)|✔|✔|✔|Rekommendationer (kostnads fri) </br></br> Säkerhets aviseringar (standard)|
 |[Filbaserad säkerhets aviseringar](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
@@ -59,11 +52,11 @@ I följande avsnitt visas Security Center funktioner som är tillgängliga för 
 |[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Kostnadsfri|
 
 
-### <a name="linux"></a>[Linux](#tab/features-linux)
+### <a name="linux-machines"></a>[Linux-datorer](#tab/features-linux)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-||**Azure Virtual Machines**|**Azure-Virtual Machine Scale Sets**|**Datorer som inte är Azure-datorer**|**Prissättning**
+|**Funktion**|**Azure Virtual Machines**|**Azure-Virtual Machine Scale Sets**|**Datorer som inte är Azure-datorer**|**Prissättning**
 |[Microsoft Defender ATP-integrering](security-center-wdatp.md)|-|-|-|Standard|
 |[Beteende analys av virtuella datorer (och säkerhets aviseringar)](security-center-alerts-iaas.md)|✔</br>(i versioner som stöds)|✔</br>(i versioner som stöds)|✔|Rekommendationer (kostnads fri) </br></br> Säkerhets aviseringar (standard)|
 |[Filbaserad säkerhets aviseringar](alerts-reference.md#alerts-windows)|-|-|-|Standard|
@@ -86,6 +79,11 @@ I följande avsnitt visas Security Center funktioner som är tillgängliga för 
 
 --- 
 
+
+> [!TIP]
+>För att experimentera med funktioner som bara är tillgängliga på standard pris nivån kan användare på den kostnads fria nivån registreras i en 30-dagars utvärderings version. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/security-center/).
+
+
 ## Slut punkts skydds lösningar som stöds<a name="endpoint-supported"></a>
 
 Följande tabell innehåller en matris med:
@@ -95,7 +93,7 @@ Följande tabell innehåller en matris med:
 
 Information om när rekommendationer genereras för vart och ett av dessa skydd finns i [Endpoint Protection utvärdering och rekommendationer](security-center-endpoint-protection.md).
 
-| Slutpunktsskydd| Plattformar | Installation av Security Center | Security Center Discovery |
+| Endpoint Protection| Plattformar | Installation av Security Center | Security Center Discovery |
 |------|------|-----|-----|
 | Windows Defender (Microsoft-programvara mot skadlig kod)| Windows Server 2016| Nej, inbyggd i OS| Ja |
 | System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (se anmärkning nedan) | Via tillägg | Ja |
@@ -111,46 +109,6 @@ Information om när rekommendationer genereras för vart och ett av dessa skydd 
 > - Identifiering av System Center Endpoint Protection (SCEP) på en virtuell dator med Windows Server 2008 R2 kräver SCEP för att installeras efter PowerShell 3,0 (eller en övre version).
 > - Identifiering av Trend Micro Protection stöds för djup säkerhets agenter.  OfficeScan-agenter stöds inte.
 
-
-## Funktioner <a name="paas-services"></a> som stöds av PaaS Services
-
-Följande PaaS-resurser stöds av Azure Security Center:
-
-|Tjänst|Rekommendationer (kostnads fri)|Säkerhets aviseringar (standard)|Sårbarhets bedömning (standard)|
-|----|:----:|:----:|:----:|
-|SQL Databases|✔|✔|✔|
-|Azure Container Registry|-|-|✔|
-|Azure Kubernetes Service|✔|✔|-|
-|Azure Database for PostgreSQL *|✔|✔|-|
-|Azure Database for MySQL *|✔|✔|-|
-|Azure-CosmosDB *|-|✔|-|
-|Lagringskonton|✔|-|-|
-|Blob Storage|✔|✔|-|
-|App Service|✔|✔|-|
-|Funktionsapp|✔|-|-|
-|Cloud Services|✔|-|-|
-|Virtual Network|✔|-|-|
-|Undernät|✔|-|-|
-|NIC|✔|-|-|
-|Nätverkssäkerhetsgrupper|✔|-|-|
-|Prenumeration|✔ * *|✔|-|
-|Batch-konto|✔|-|-|
-|Service Fabric konto|✔|-|-|
-|Automation-konto|✔|-|-|
-|Lastbalanserare|✔|-|-|
-|Kognitiv sökning|✔|-|-|
-|Service Bus-namnområde|✔|-|-|
-|Stream analytics|✔|-|-|
-|Namnområde för händelsehubb|✔|-|-|
-|Logic Apps|✔|-|-|
-|Cache för Redis|✔|-|-|
-|Data Lake Analytics|✔|-|-|
-|Azure Data Lake Storage|✔|-|-|
-|Key Vault|✔|✔ *|-|
-
-\* dessa funktioner stöds för närvarande i för hands versionen.
-
-rekommendationer för \*\* Azure Active Directory (Azure AD) är endast tillgängliga för standard prenumerationer.
 
 ## <a name="next-steps"></a>Nästa steg
 

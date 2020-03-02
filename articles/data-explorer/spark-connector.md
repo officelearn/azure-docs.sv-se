@@ -7,59 +7,60 @@ ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 1/14/2020
-ms.openlocfilehash: 868e9e068244af91e218d906bee115b58906152f
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: b358287664ac6d6a3b641e1ab63073810ceb4c40
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027914"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208629"
 ---
-# <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Azure Datautforskaren Connector för Apache Spark (för hands version)
+# <a name="azure-data-explorer-connector-for-apache-spark"></a>Azure Datautforskaren Connector för Apache Spark
 
 [Apache Spark](https://spark.apache.org/) är en enhetlig analys motor för storskalig data bearbetning. Azure Datautforskaren är en snabb, fullständigt hanterad tjänst för data analys för real tids analys av stora mängder data. 
 
-Azure Datautforskaren Connector för Spark implementerar data källa och data mottagare för att flytta data mellan Azure Datautforskaren och Spark-kluster för att använda båda funktionerna. Med Azure Datautforskaren och Apache Spark kan du bygga snabba och skalbara program som riktar sig mot data drivna scenarier, till exempel Machine Learning (ML), Extract-Transform-load (ETL) och Log Analytics. Skrivning till Azure-Datautforskaren kan göras i batch-och strömnings läge.
-Läsning från Azure Datautforskaren stöder kolumn rensning och predikat mottagnings, vilket minskar mängden överförda data genom att filtrera bort data i Azure Datautforskaren.
+Azure Datautforskaren Connector för Spark är ett [projekt med öppen källkod](https://github.com/Azure/azure-kusto-spark) som kan köras på alla Spark-kluster. Den implementerar data källan och data mottagaren för att flytta data mellan Azure Datautforskaren och Spark-kluster. Med Azure Datautforskaren och Apache Spark kan du bygga snabba och skalbara program som riktar sig mot data drivna scenarier. Till exempel Machine Learning (ML), Extract-Transform-load (ETL) och Log Analytics. Med anslutnings tjänsten blir Azure Datautforskaren ett giltigt data lager för standard-Spark-källa och mottagar åtgärder, till exempel Skriv-, Läs-och writeStream.
 
-Azure Datautforskaren Spark Connector är ett [projekt med öppen källkod](https://github.com/Azure/azure-kusto-spark) som kan köras på alla Spark-kluster. Azure Datautforskaren Spark-anslutaren gör Azure Datautforskaren ett giltigt data lager för standard Spark-källa och mottagar åtgärder som Skriv-, Läs-och writeStream. 
+Du kan skriva till Azure Datautforskaren i antingen batch-eller strömnings läge. Läsning från Azure Datautforskaren stöder kolumn rensning och predikat mottagnings, som filtrerar data i Azure Datautforskaren, vilket minskar mängden överförda data.
+
+I det här avsnittet beskrivs hur du installerar och konfigurerar Azure Datautforskaren Spark Connector och flyttar data mellan Azure Datautforskaren och Apache Spark kluster.
 
 > [!NOTE]
 > Även om några av exemplen nedan refererar till ett [Azure Databricks](https://docs.azuredatabricks.net/) Spark-kluster, tar Azure datautforskaren Spark-anslutaren inte direkta beroenden för Databricks eller någon annan Spark-distribution.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Skapa ett Azure Datautforskaren-kluster och-databas](/azure/data-explorer/create-cluster-database-portal) 
 * Skapa ett Spark-kluster
-* Installera Azure Datautforskaren Connector-biblioteket och bibliotek som visas i [beroenden](https://github.com/Azure/azure-kusto-spark#dependencies) , inklusive följande [Kusto Java SDK](/azure/kusto/api/java/kusto-java-client-library) -bibliotek:
-    * [Kusto data klient](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
-    * [Kusto-klient](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
-* Färdiga bibliotek för [Spark 2,4, Scala 2,11](https://github.com/Azure/azure-kusto-spark/releases) och [maven lagrings platsen](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/spark-kusto-connector)
-
-## <a name="how-to-build-the-spark-connector"></a>Så här skapar du Spark-anslutningen
-
-Spark-anslutningen kan skapas från [källor](https://github.com/Azure/azure-kusto-spark) som beskrivs nedan.
-
-> [!NOTE]
-> Det här steget är valfritt. Om du använder färdiga bibliotek går du till konfiguration av [Spark-kluster](#spark-cluster-setup).
-
-### <a name="build-prerequisites"></a>Versions krav
-
-* Java 1,8 SDK installerat
+* Installera Azure Datautforskaren anslutnings bibliotek:
+    * Färdiga bibliotek för [Spark 2,4, Scala 2,11](https://github.com/Azure/azure-kusto-spark/releases) 
+    * [Maven lagrings platsen](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/spark-kusto-connector)
 * [Maven 3. x](https://maven.apache.org/download.cgi) installerat
-* Apache Spark version 2.4.0 eller senare
 
 > [!TIP]
 > 2.3. x-versioner stöds också, men kan kräva vissa ändringar i Pom. XML-beroenden.
 
-För Scala/Java-program med Maven-projekt definitioner länkar du ditt program med följande artefakt (den senaste versionen kan skilja sig):
+## <a name="how-to-build-the-spark-connector"></a>Så här skapar du Spark-anslutningen
 
-```Maven
-   <dependency>
-     <groupId>com.microsoft.azure</groupId>
-     <artifactId>spark-kusto-connector</artifactId>
-     <version>1.0.0-Beta-02</version>
-   </dependency>
-```
+> [!NOTE]
+> Det här är valfritt. Om du använder färdiga bibliotek går du till konfiguration av [Spark-kluster](#spark-cluster-setup).
+
+### <a name="build-prerequisites"></a>Versions krav
+
+1. Installera biblioteken som listas i [beroenden](https://github.com/Azure/azure-kusto-spark#dependencies) , inklusive följande [Kusto Java SDK](/azure/kusto/api/java/kusto-java-client-library) -bibliotek:
+    * [Kusto data klient](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
+    * [Kusto-klient](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
+
+1. Referera till [den här källan](https://github.com/Azure/azure-kusto-spark) för att skapa Spark-anslutningsprogrammet.
+
+1. För Scala/Java-program med Maven-projekt definitioner länkar du ditt program med följande artefakt (den senaste versionen kan skilja sig):
+    
+    ```Maven
+       <dependency>
+         <groupId>com.microsoft.azure</groupId>
+         <artifactId>spark-kusto-connector</artifactId>
+         <version>1.1.0</version>
+       </dependency>
+    ```
 
 ### <a name="build-commands"></a>Build-kommandon
 
@@ -80,27 +81,35 @@ Mer information finns i [kopplings användning](https://github.com/Azure/azure-k
 ## <a name="spark-cluster-setup"></a>Konfiguration av Spark-kluster
 
 > [!NOTE]
-> Vi rekommenderar att du använder den senaste versionen av Azure Datautforskaren Spark Connector när du utför följande steg:
+> Vi rekommenderar att du använder den senaste versionen av Azure Datautforskaren Spark Connector när du utför följande steg.
 
-1. Ange följande inställningar för Spark-kluster baserat på Azure Databricks kluster med Spark 2.4.4 och Scala 2,11: 
+1. Konfigurera följande inställningar för Spark-kluster baserat på Azure Databricks kluster med Spark 2.4.4 och Scala 2,11:
 
     ![Databricks kluster inställningar](media/spark-connector/databricks-cluster.png)
     
 1. Installera det senaste Spark-kusto-Connector-biblioteket från maven:
-
-    ![Importera Azure Datautforskaren-bibliotek](media/spark-connector/db-create-library.png)
+    
+    ![importera bibliotek](media/spark-connector/db-libraries-view.png) ![väljer Spark-Kusto-Connector](media/spark-connector/db-dependencies.png)
 
 1. Kontrol lera att alla nödvändiga bibliotek är installerade:
 
     ![Verifiera installerade bibliotek](media/spark-connector/db-libraries-view.png)
 
+1. Om du vill installera med en JAR-fil kontrollerar du att ytterligare beroenden har installerats:
+
+    ![Lägg till beroenden](media/spark-connector/db-not-maven.png)
+
 ## <a name="authentication"></a>Autentisering
 
-Med Azure Datautforskaren Spark Connector kan du autentisera med Azure Active Directory (Azure AD) med hjälp av ett [Azure AD-program](#azure-ad-application-authentication), [Azure AD-åtkomsttoken](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), [enhetsautentisering](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (för icke-produktions scenarier) eller [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault). Användaren måste installera Azure-proxy-paketet och ange programautentiseringsuppgifter för att få åtkomst till Key Vault resursen.
+Med Azure Datautforskaren Spark Connector kan du autentisera med Azure Active Directory (Azure AD) med någon av följande metoder:
+* Ett [Azure AD-program](#azure-ad-application-authentication)
+* En [Azure AD-åtkomsttoken](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token)
+* [Enhetsautentisering](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (för scenarier utan produktion)
+* En [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault) för att få åtkomst till Key Vault-resursen, installera paketet Azure-proxy och ange autentiseringsuppgifter för programmet.
 
 ### <a name="azure-ad-application-authentication"></a>Azure AD Application Authentication
 
-Den enklaste och vanliga autentiseringsmetoden. Den här metoden rekommenderas för användning av Azure Datautforskaren Spark-anslutning.
+Azure AD Application Authentication är den enklaste och vanligaste autentiseringsmetoden och rekommenderas för Azure Datautforskaren Spark-anslutaren.
 
 |Egenskaper  |Beskrivning  |
 |---------|---------|
@@ -110,10 +119,10 @@ Den enklaste och vanliga autentiseringsmetoden. Den här metoden rekommenderas f
 
 ### <a name="azure-data-explorer-privileges"></a>Azure Datautforskaren-behörigheter
 
-Följande behörigheter måste beviljas i ett Azure Datautforskaren-kluster:
+Ge följande behörigheter för ett Azure Datautforskaren-kluster:
 
-* För läsning (data källa) måste Azure AD-programmet ha *visnings* privilegier för mål databasen eller *Administratörs* behörighet för mål tabellen.
-* För att skriva (data mottagare) måste Azure AD-programmet *ha* inmatnings behörigheter för mål databasen. Det måste också ha *användar* behörighet på mål databasen för att skapa nya tabeller. Om mål tabellen redan finns kan *Administratörs* behörighet för mål tabellen konfigureras.
+* För läsning (data källa) måste Azure AD-identiteten ha *visnings* privilegier för mål databasen eller *Administratörs* behörighet för mål tabellen.
+* För att skriva (data mottagare) måste Azure AD-identiteten ha *insugnings* behörighet för mål databasen. Det måste också ha *användar* behörighet på mål databasen för att skapa nya tabeller. Om mål tabellen redan finns måste du konfigurera *Administratörs* behörighet för mål tabellen.
  
 Mer information om Azure Datautforskaren huvud roller finns i [rollbaserad auktorisering](/azure/kusto/management/access-control/role-based-authorization). Information om hur du hanterar säkerhets roller finns i [hantering av säkerhets roller](/azure/kusto/management/security-roles).
 
@@ -170,10 +179,9 @@ Mer information om Azure Datautforskaren huvud roller finns i [rollbaserad aukto
     import java.util.concurrent.TimeUnit
     import org.apache.spark.sql.streaming.Trigger
 
-    // Set up a checkpoint and disable codeGen. Set up a checkpoint and disable codeGen as a workaround for an known issue 
+    // Set up a checkpoint and disable codeGen. 
     spark.conf.set("spark.sql.streaming.checkpointLocation", "/FileStore/temp/checkpoint")
-    spark.conf.set("spark.sql.codegen.wholeStage","false") // Use in case a NullPointerException is thrown inside codegen iterator
-    
+        
     // Write to a Kusto table from a streaming source
     val kustoQ = df
           .writeStream
@@ -186,7 +194,7 @@ Mer information om Azure Datautforskaren huvud roller finns i [rollbaserad aukto
 
 ## <a name="spark-source-reading-from-azure-data-explorer"></a>Spark-Källa: läser från Azure Datautforskaren
 
-1. När du läser små mängder data definierar du data frågan:
+1. När du läser [små mängder data](/azure/kusto/concepts/querylimits)definierar du data frågan:
 
     ```scala
     import com.microsoft.kusto.spark.datasource.KustoSourceOptions
@@ -215,7 +223,8 @@ Mer information om Azure Datautforskaren huvud roller finns i [rollbaserad aukto
     display(df2)
     ```
 
-1. Vid läsning av stora mängder data måste tillfälliga blob-lagring tillhandahållas. Ange SAS-nyckel för lagrings behållare, eller lagrings konto namn, konto nyckel och behållar namn. Det här steget krävs endast för den aktuella för hands versionen av Spark-anslutaren.
+1. Valfritt: om **du** anger den tillfälliga blob-lagringen (och inte Azure datautforskaren) skapas Blobbarna under anroparens ansvar. Detta omfattar etablering av lagring, rotation av åtkomst nycklar och borttagning av tillfälliga artefakter. 
+    KustoBlobStorageUtils-modulen innehåller hjälp funktioner för att ta bort blobar baserat på konto-och container-koordinater och kontoautentiseringsuppgifter, eller en fullständig SAS-URL med behörigheterna Skriv, läsa och lista. När motsvarande RDD inte längre behövs lagrar varje transaktion tillfälliga BLOB-artefakter i en separat katalog. Den här katalogen samlas in som en del av informationen om Läs transaktioner som rapporteras i noden Spark-drivrutin.
 
     ```scala
     // Use either container/account-key/account name, or container SaS
@@ -225,28 +234,41 @@ Mer information om Azure Datautforskaren huvud roller finns i [rollbaserad aukto
     // val storageSas = dbutils.secrets.get(scope = "KustoDemos", key = "blobStorageSasUrl")
     ```
 
-    I exemplet ovan kommer vi inte åt Key Vault med hjälp av kopplings gränssnittet. Alternativt använder vi en enklare metod för att använda Databricks hemligheter.
+    I exemplet ovan går det inte att komma åt Key Vault med hjälp av kopplings gränssnittet. en enklare metod för att använda Databricks hemligheter används.
 
-1. Läs från Azure Datautforskaren:
+1. Läs från Azure Datautforskaren.
 
-    ```scala
-     val conf3 = Map(
-          KustoSourceOptions.KUSTO_AAD_CLIENT_ID -> appId,
-          KustoSourceOptions.KUSTO_AAD_CLIENT_PASSWORD -> appKey
-          KustoSourceOptions.KUSTO_BLOB_STORAGE_SAS_URL -> storageSas)
-    val df2 = spark.read.kusto(cluster, database, "ReallyBigTable", conf3)
+    * Om **du** anger den tillfälliga blob-lagringen läser du från Azure datautforskaren enligt följande:
+
+        ```scala
+         val conf3 = Map(
+              KustoSourceOptions.KUSTO_AAD_CLIENT_ID -> appId,
+              KustoSourceOptions.KUSTO_AAD_CLIENT_PASSWORD -> appKey
+              KustoSourceOptions.KUSTO_BLOB_STORAGE_SAS_URL -> storageSas)
+        val df2 = spark.read.kusto(cluster, database, "ReallyBigTable", conf3)
+        
+        val dfFiltered = df2
+          .where(df2.col("ColA").startsWith("row-2"))
+          .filter("ColB > 12")
+          .filter("ColB <= 21")
+          .select("ColA")
+        
+        display(dfFiltered)
+        ```
+
+    * Om **azure datautforskaren** tillhandahåller den tillfälliga blob-lagringen läser du från Azure datautforskaren enligt följande:
     
-    val dfFiltered = df2
-      .where(df2.col("ColA").startsWith("row-2"))
-      .filter("ColB > 12")
-      .filter("ColB <= 21")
-      .select("ColA")
-    
-    display(dfFiltered)
-    ```
+        ```scala
+        val dfFiltered = df2
+          .where(df2.col("ColA").startsWith("row-2"))
+          .filter("ColB > 12")
+          .filter("ColB <= 21")
+          .select("ColA")
+        
+        display(dfFiltered)
+        ```
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om [Azure datautforskaren Spark-anslutaren](https://github.com/Azure/azure-kusto-spark/tree/master/docs)
-* [Exempelkod](https://github.com/Azure/azure-kusto-spark/tree/master/samples/src/main)
-
+* [Exempel kod för Java och python](https://github.com/Azure/azure-kusto-spark/tree/master/samples/src/main)

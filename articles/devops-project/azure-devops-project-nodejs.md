@@ -1,36 +1,35 @@
 ---
-title: Skapa en CI/CD-pipeline för Node. js med Azure DevOps Projects
+title: Skapa en CI/CD-pipeline för en PWA med GatsbyJS och Azure DevOps Projects
 description: DevOps Projects gör det enkelt att komma igång med Azure. Det hjälper dig att starta en app på en Azure-tjänst med några enkla få steg.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
-author: mlearned
-manager: gwallace
+author: arob98
+manager: angrobe
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 07/09/2018
-ms.author: mlearned
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.date: 02/24/2020
+ms.author: angrobe
+ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 35eebeaa393ff75ada11752aaf9f195efddfa12b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 508a61d6bbb00692855e09601aed67ab3be9cc8d
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049802"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78209075"
 ---
 #  <a name="quickstart-create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-projects"></a>Snabb start: skapa en CI/CD-pipeline i Azure-pipelines för Node. js med Azure DevOps Projects
-
-I den här snabb starten använder du den förenklade Azure DevOps Projects upplevelsen för att ställa in en pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD) för Node. js-appen i Azure-pipelines. Du kan använda Azure DevOps Projects för att ställa in allt du behöver för att utveckla, distribuera och övervaka din app. 
+I den här snabb starten skapar du en NodeJS progressiv webbapp (PWA) med [GatsbyJS](https://www.gatsbyjs.org/) och den förenklade Azure DevOps-projektets skapande upplevelse. När du är färdig har du en pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD) för din PWA i Azure-pipelines. Azure DevOps Projects konfigurerar vad du behöver för att utveckla, distribuera och övervaka.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
-- Ett [Azure DevOps](https://azure.microsoft.com/services/devops/) -konto och en organisation.
+- En [Azure DevOps](https://azure.microsoft.com/services/devops/) -organisation.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -40,42 +39,121 @@ DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny A
 
    ![Skapa en Azure-resurs i Azure Portal](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
-1. Sök efter och välj **DevOps Projects**och välj sedan **skapa**.
+2. Sök efter och välj **DevOps Projects**och välj sedan **skapa**.
+
+ ![Skapa ett DevOps-projekt](_img/azure-devops-project-nodejs/create-devops-project.png) 
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Välj ett exempelprogram och en Azure-tjänst
 
-1. Välj Node.js-exempelprogrammet.  
-    Node.js-exemplet innehåller ett val av flera programramverk.
+1. Välj Node.js-exempelprogrammet.   
 
-1. Exempelramverket som är standard är Express.js. Låt standardinställningen vara och välj **Nästa**.  
-    **Web App på Windows** är distributionsmålet som är standard.  Det programramverk som du valde tidigare avgör vilken typ av distributionsmål som finns tillgängliga för Azure-tjänsten här.  
+ ![Välj Node. js-exemplet](_img/azure-devops-project-nodejs/select-nodejs-devops-project.png) 
 
-2. Låt standardinställningen för tjänsten vara och välj **Nästa**.
- 
-## <a name="configure-azure-devops-and-an-azure-subscription"></a>Konfigurera Azure DevOps och en Azure-prenumeration 
+2. Exempelramverket som är standard är **Express.js**. Ändra valet till **enkel Node. js-app** och välj sedan **Nästa**. 
 
-1. Skapa en ny Azure DevOps-organisation eller använd en befintlig organisation. 
-   
-   1. Ange ett namn för projektet.
-      
-   1. Välj din Azure-prenumeration och plats, ange ett namn för programmet och välj sedan **Klar**.  
-      Efter några minuter visas DevOps Projects-instrumentpanelen i Azure-portalen. Ett exempelprogram konfigureras i en lagringsplats i din Azure DevOps-organisation, en version körs och programmet distribueras till Azure. Den här instrumentpanelen ger insyn i kodlagringsplatsen, CI/CD-pipelinen och ditt program i Azure.
-   
-1. Visa ditt körande program genom att välja **Bläddra**.
-   
-   ![Vyn instrument panel för CI/CD-pipeline](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
+ ![Välj den enkla Node. js-appen](_img/azure-devops-project-nodejs/simple-nodejs-project.png) 
 
-DevOps Projects konfigurerar automatiskt en CI-version och släpper utlösaren.  Nu är du redo att samarbeta med ett team på en Node.js-app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats.
+3. De distributions mål som är tillgängliga i det här steget styrs av program ramverket som valts i steg 2.  I det här exemplet är **Windows Web Apps** standard distributions målet.  Lämna **Web App for containers** ange och välj **Nästa**.
 
-## <a name="commit-code-changes-and-execute-cicd"></a>Genomför ändringar i koden och kör CI/CD
+ ![Välj distributions mål](_img/azure-devops-project-nodejs/select-web-server.png) 
 
-DevOps Projects skapar en Git-lagringsplats i Azure Repos eller GitHub. Följ stegen nedan för att visa lagringsplatsen och gör ändringar i koden i programmet.
+## <a name="configure-a-project-name-and-an-azure-subscription"></a>Konfigurera ett projekt namn och en Azure-prenumeration
 
-1. Till vänster om DevOps Projects-instrumentpanelen väljer du länken för din huvudgren.  
-Den här länken öppnar en vy till den nyligen skapade Git-lagringsplatsen.
+1. I det sista steget i arbets flödet för skapande av DevOps-projekt tilldelar du ett projekt namn, väljer en Azure-prenumeration och väljer **klar**.  
 
-1. Om du vill visa webbadressen för den klonade lagringsplatsen väljer du **Klona** längst upp till höger i webbläsaren.   
-    Du kan klona Git-lagringsplatsen till din favorit-IDE. I kommande steg kan du använda webbläsaren för att göra och checka in ändringar i koden direkt till huvudgrenen.
+ ![Tilldela ett projekt namn och välj en prenumeration](_img/azure-devops-project-nodejs/assign-project-name.png) 
+
+2. En sammanfattnings sida visas när projektet har skapats och programmet distribueras till Azure. Efter en kort period skapas ett projekt i din [Azure DevOps-organisation](https://dev.azure.com/) som innehåller en git-lagrings platsen, ett kanban-kort, en distributions pipeline, test planer och de artefakter som krävs av din app.  
+
+## <a name="managing-your-project"></a>Hantera ditt projekt
+
+1. Navigera till **alla resurser** och hitta ditt DevOps-projekt. Välj ditt **DevOps-projekt**.
+
+![Azure DevOps-instrumentpanel i resurs lista](_img/azure-devops-project-nodejs/azure-devops-project-in-resource-list.png)
+
+2. Du dirigeras till en instrument panel som ger insyn i projektets start sida, kod lagrings plats, CI/CD-pipeline och en länk till appen som körs. Välj **Start sidan för projektet** om du vill visa ditt program i **Azure DevOps** och i en annan webbläsare väljer du **programmets slut punkt** för att Visa Live Sample-appen.  Vi ändrar det här exemplet senare för att använda GatsbyJS-genererade PWA.
+
+![Azure DevOps-instrumentpanel](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
+
+3. Från ditt Azure DevOps-projekt kan du bjuda in team medlemmar att samar beta och upprätta en Kanban-tavla för att börja spåra ditt arbete.  Mer information finns [här](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops?view=azure-devops).
+
+![Översikt över Azure DevOps](_img/azure-devops-project-nodejs/azure-devops-overview.png)
+
+## <a name="clone-the-repo-and-install-your-gatsby-pwa"></a>Klona lagrings platsen och installera din Gatsby-PWA
+
+DevOps Projects skapar en git-lagringsplats i Azure databaser eller GitHub. I det här exemplet har du skapat en Azure-lagrings platsen.  Nästa steg är att klona lagrings platsen och göra ändringar.
+
+1. Välj **databaser** från ditt **DevOps-projekt** och klicka sedan på **klona**.  Det finns olika mekanismer för att klona git-lagrings platsen till Skriv bordet.  Välj den som passar din utvecklings upplevelse.  
+
+![Klona lagringsplatsen](_img/azure-devops-project-nodejs/clone-the-repo.png)
+
+2. När lagrings platsen har klonat till Skriv bordet gör du några ändringar i Start mal len. Börja med att installera GatsbyJS CLI från terminalen.
+```powershell
+npm install -g gatsby
+```
+
+3. Från terminalen navigerar du till roten för din lagrings platsen. Den bör innehålla tre mappar som ser ut så här:
+```powershell
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        2/23/2020  10:42 PM                Application
+d-----        2/23/2020   3:05 PM                ArmTemplates
+d-----        2/23/2020   3:05 PM                Tests
+```
+
+4. Vi vill inte att alla filer ska finnas i programmappen eftersom vi kommer att ersätta den med en Gatsby-StartStart. Kör följande kommandon, i ordning, för att trimma det nedåt.
+```powershell
+cp .\Application\Dockerfile .
+rmdir Application
+```
+
+5. Använd Gatsby CLI för att generera en PWA-exempel. Kör `gatsby new` från terminalen för att starta PWA-guiden och välj `gatsby-starter-blog` för din start-mall. Det bör likna det här exemplet:
+```powershell
+c:\myproject> gatsby new
+√ What is your project called? ... my-gatsby-project
+? What starter would you like to use? » - Use arrow-keys. Return to submit.
+    gatsby-starter-default
+    gatsby-starter-hello-world
+>   gatsby-starter-blog
+    (Use a different starter)
+```
+
+6. Nu har du en mapp med namnet `my-gatsby-project`. Byt namn på den till `Application` och kopiera `Dockerfile` till den.
+```powershell
+mv my-gatsby-project Application
+mv Dockerfile Application
+```
+
+7. Öppna Dockerfile i din favorit redigerare och ändra den första raden från `FROM node:8` till `FROM node:12`. Den här ändringen säkerställer att din behållare använder Node. js version 12. x i stället för version 8. x. GatsbyJS kräver fler moderna versioner av Node. js.
+
+8. Öppna sedan Package. JSON-filen i programmappen och redigera [fältet skript](https://docs.npmjs.com/files/package.json#scripts) för att se till att utvecklings-och produktions servrarna lyssnar på alla tillgängliga nätverks gränssnitt (till exempel 0.0.0.0) och port 80. Utan de här inställningarna kan behållar App Service inte dirigera trafik till din Node. js-app som körs i din behållare. Fältet `scripts` bör se ut ungefär så här. Mer specifikt vill du ändra `develop`, `serve`och `start` mål från standardvärdena.
+```json
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop  -H 0.0.0.0 -p 80",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run serve",
+    "serve": "npm run build && gatsby serve -H 0.0.0.0 -p 80",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  }
+```
+
+## <a name="edit-your-cicd-pipelines"></a>Redigera dina CI/CD-pipeliner
+
+1. Innan du genomför koden i föregående avsnitt gör du några ändringar i pipelinen för build och release. Redigera din "Build pipeline" och uppdatera noden så att Node. js version 12. x används. Ange fältet **aktivitets version** till 1. x och **versions** fältet till 12. x.
+![uppdatera Node. js till 12. x](_img/azure-devops-project-nodejs/build-pipeline-update-node.png)
+
+2. I den här snabb starten skapar vi inte enhets test och vi inaktiverar de här stegen i vår versions pipeline. När du skriver tester kan du återaktivera de här stegen. Högerklicka för att välja de aktiviteter som är märkta med **Installera test beroenden** och **Kör enhets test** och inaktivera dem.
+
+![Inaktivera Bygg test](_img/azure-devops-project-nodejs/disable-build-unittests.png)
+
+3. Redigera din versions pipeline.
+![redigera pipelinen för version](_img/azure-devops-project-nodejs/edit-release-pipeline.png)
+
+4. Som med build-pipeline ändrar du nodens aktivitet så att 12. x används och inaktiverar de två test uppgifterna. Din utgåva bör likna den här skärm bilden.
+
+![Pipeline för slutförd version](_img/azure-devops-project-nodejs/release-pipeline-complete.png)
 
 1. På vänster sida i webbläsaren går du till filen **views/index.pug**.
 
@@ -85,77 +163,36 @@ Den här länken öppnar en vy till den nyligen skapade Git-lagringsplatsen.
 1. Välj **Checka in** och spara sedan ändringarna.
 
 1. I webbläsaren går du till DevOps Projects-instrumentpanelen.   
-Du bör nu se att en version håller på att skapas. De ändringar du just utfört skapas och distribueras automatiskt via en CI/CD-pipeline.
+Du bör nu se att en version håller på att skapas. De ändringar du gjort skapas automatiskt och distribueras via en CI/CD-pipeline.
 
-## <a name="examine-the-azure-cicd-pipeline"></a>Granska Azure-CI/CD-pipelinen
+## <a name="commit-your-changes-and-examine-the-azure-cicd-pipeline"></a>Genomför ändringarna och granska Azure CI/CD-pipeline
 
-I föregående steg konfigurerade DevOps Projects automatiskt en fullständig CI/CD-pipeline. Utforska och anpassa pipelinen efter behov. Utför följande steg för att bekanta dig med bygg- och versionspipelines.
+I de föregående två stegen lade du till en Gatsby-genererad PWA till git-lagrings platsen och redigerade pipelines för att skapa och distribuera koden. Vi kan genomföra koden och se hur den fortskrider genom att bygga och släppa pipelinen.
 
-1. Välj **Bygg-pipelines** längst upp på DevOps Projects-instrumentpanelen.  
-Länken öppnar en webbläsarflik och bygg-pipelinen för det nya projektet.
+1. Från roten av ditt projekts git-lagrings platsen i en Terminal kör du följande kommandon för att skicka koden till ditt Azure DevOps-projekt:
+```powershell
+git add .
+git commit -m "My first Gatsby PWA"
+git push
+```
 
-1. Peka på fältet **Status** och välj ellipsen (...).  
-    Den här åtgärden öppnar en meny där du kan starta flera aktiviteter, till exempel lägga till en ny version i en kö, pausa en version och redigera bygg-pipelinen.
+2. En version startas så snart `git push` slutförts. Du kan följa förloppet från **Azure DevOps-instrumentpanelen**.
 
-1. Välj **Redigera**.
+![Azure DevOps-instrumentpanel i resurs lista](_img/azure-devops-project-nodejs/azure-devops-project-in-resource-list.png)
 
-1. I det här fönstret kan du granska de olika uppgifterna för bygg-pipelinen.  
-Versionen utför olika uppgifter som att hämta källor från Git-lagringsplatsen, återställa beroenden och publicera utdata som används för distributioner.
-
-1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
-
-1. Ändra på din bygg-pipeline till något mer beskrivande och välj alternativet för att **spara och placera i kö**. Välj sedan **Spara**.
-
-1. Under ditt bygg-pipelinenamn väljer du **Historik**.   
-I fönsterrutan **Historik** ser du en spårningslogg över de senaste ändringarna för versionen.  Azure Pipelines spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
-
-1. Välj **utlösare**.   
- DevOps Projects skapade automatiskt en CI-utlösare, och varje incheckning till lagringsplatsen startar en ny version.  Du kan välja att inkludera eller exkludera grenar från CI-processen.
-
-1. Välj **kvarhållning**.   
-Beroende på ditt scenario kan du ange principer för att behålla eller ta bort ett visst antal versioner.
-
-1. Välj **Build and Release** (Build-versioner och versioner) och sedan **Versioner**.  
- DevOps Projects skapar en versionspipeline för att hantera distributioner till Azure.
-
-1. Välj ellipsen (...) till vänster bredvid din releasepipeline och välj sedan **Redigera**.  
-Versionspipelinen definierar versionsprocessen.
-
-12. Under **Artefakter** väljer du **Släpp**.  
-    Den bygg-pipeline du undersökte i de föregående stegen skapar de utdata som används för artefakten. 
-
-1. Intill ikonen **Släpp** väljer du **Utlösare av kontinuerlig distribution**.  
-Den här versionspipelinen har en aktiverad CD-utlösare som kör en distribution varje gång en ny versionsartefakt är tillgänglig. Du kan även inaktivera utlösaren så att dina distributioner kräver manuell körning. 
+3. Efter några minuter bör dina pipeliner för build och release avslutas och din PWA bör distribueras till en behållare. Klicka på länken för **program slut punkten** från instrument panelen ovan så visas ett Gatsby start projekt för Bloggar.
 
 
-1. Till vänster väljer du **Uppgifter**.   
-Uppgifter är de aktiviteter som distributionsprocessen utför. I det här exemplet skapades en uppgift för att distribuera till Azure App-tjänsten.
-
-
-1. Till höger väljer du alternativet för att **visa versioner**.  
-Den här vyn visar en historik över versioner.
-
-1. Välj ellipsen (...) bredvid en av versionerna och välj **Öppna**.  
-Det finns flera menyer att utforska, till exempel en versionssammanfattning, tillhörande arbetsobjekt och tester.
-
-1. Välj **Incheckningar**.   
-Den här vyn visar kodincheckningar som är associerade med den specifika distributionen.
-
-1. Välj **Loggar**.  
-Loggarna innehåller användbar information om distributionsprocessen. De kan visas både under och efter distributionerna.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan ta bort Azure App Service och andra relaterade resurser som du skapade när de inte längre behövs. Använd funktionen **Ta bort** på DevOps Projects-instrumentpanelen.
+Du kan ta bort Azure App Service och andra relaterade resurser som du har skapat när du inte behöver resurserna längre. Använd funktionen **Ta bort** på DevOps Projects-instrumentpanelen.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du konfigurerade CI/CD-processen skapades bygg- och versionspipelines automatiskt. Du kan ändra dessa bygg- och versionspipelines för att tillgodose ditt teams behov. Mer information om CI/CD-pipelinen finns i:
+När du konfigurerar din CI/CD-process skapas automatiskt build-och release-pipeliner. Du kan ändra de här bygg-och release-pipelinen för att uppfylla ditt teams behov. Mer information om CI/CD-pipelinen finns i:
 
 > [!div class="nextstepaction"]
 > [Anpassa CD-process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
-## <a name="videos"></a>Videoklipp
-
-> [!VIDEO https://www.youtube.com/embed/3etwjubReJs]

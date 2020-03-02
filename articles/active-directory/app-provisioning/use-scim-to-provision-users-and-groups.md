@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 03/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11e4768c5cf6df784c8f32aff2f884adfa6b68ab
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: a2fda5d1bdd00a601df363bd930e5f2f6d610c7f
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78204862"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208720"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure Active Directory (Azure AD)
 
@@ -133,7 +133,7 @@ Du kan sedan använda tabellen nedan för att förstå hur attributen som progra
 Det finns flera slut punkter definierade i SCIM RFC. Du kan komma igång med/User-slutpunkten och sedan expandera därifrån. /Schemas-slutpunkten är användbar när du använder anpassade attribut eller om schemat ändras ofta. Det gör det möjligt för en klient att hämta det mest uppdaterade schemat automatiskt. /Bulk-slutpunkten är särskilt användbar när du har stöd för grupper. Tabellen nedan beskriver de olika slut punkter som definieras i SCIM-standarden. /Schemas-slutpunkten är användbar när du använder anpassade attribut eller om schemat ändras ofta. Det gör att en klient kan hämta det mest uppdaterade schemat automatiskt. /Bulk-slutpunkten är särskilt användbar när du har stöd för grupper. Tabellen nedan beskriver de olika slut punkter som definieras i SCIM-standarden. 
  
 ### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>Tabell 4: Bestäm de slut punkter som du vill utveckla
-|ENDPOINT|BESKRIVNING|
+|ENDPOINT|BESKRIVNIG|
 |--|--|
 |/User|Utföra CRUD-åtgärder på ett användar objekt.|
 |/Grupp|Utföra CRUD-åtgärder på ett grupp objekt.|
@@ -229,7 +229,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="create-user"></a>Skapa användare
 
-###### <a name="request"></a>Förfrågan
+###### <a name="request"></a>Begäran
 
 *POST-/users*
 ```json
@@ -317,7 +317,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-###### <a name="request"></a>Förfrågan
+###### <a name="request"></a>Begäran
 *Hämta/Users/5171a35d82074e068ce2* 
 
 ###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Svar (användaren hittades inte. Observera att detalj nivån inte är obligatorisk, endast status.)
@@ -755,72 +755,7 @@ Minsta fält för TLS 1,2 cipher-paket:
 Nu när du har desidned schemat och förstått Azure AD SCIM-implementeringen kan du komma igång med att utveckla din SCIM-slutpunkt. I stället för att börja från början och skapa implementeringen helt och hållet, kan du lita på ett antal SCIM-bibliotek med öppen källkod som publicerats av SCIM-commuinty.  
 Den öppna käll-och [referens koden](https://aka.ms/SCIMReferenceCode) för .net Core som publicerats av Azure AD Provisioning-teamet är en sådan resurs som kan leda till att du börjar utveckla. När du har skapat din SCIM-slutpunkt vill du testa den. Du kan använda samlingen med [Postman-tester](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) som ingår i referens koden eller köra genom exempel begär Anden/svar som anges [ovan](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations).  
 
-Så fungerar här det:
-
-1. Azure AD tillhandahåller ett CLI-bibliotek (Common Language Infrastructure) med namnet Microsoft. SystemForCrossDomainIdentityManagement, som ingår i kod exemplen beskrivs nedan. System integrerare och utvecklare kan använda det här biblioteket för att skapa och distribuera en SCIM webb tjänst slut punkt som kan ansluta Azure AD till ett programs identitets lager.
-2. Mappningar implementeras i webbtjänsten för att mappa det standardiserade användarschemat till användarschemat och protokoll som krävs av programmet. 
-3. Slutpunkts-URL är registrerad i Azure AD som en del av ett anpassat program i programgalleriet.
-4. Användare och grupper har tilldelats det här programmet i Azure AD. Vid tilldelning placeras de i en kö som ska synkroniseras till mål programmet. Hantering av kön synkroniseringsprocessen körs varje 40 minuter.
-
-### <a name="code-samples"></a>Kodexempel
-
-För att göra den här processen enklare, tillhandahålls [kod exempel](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) , som skapar en scim-webbtjänst-slutpunkt och demonstrerar automatisk etablering. Exemplet är en provider som upprätthåller en fil med rader som är kommaavgränsade värden som representerar användare och grupper.
-
-**Förutsättningar**
-
-* Visual Studio 2013 eller senare
-* [Azure SDK för .NET](https://azure.microsoft.com/downloads/)
-* Windows dator som har stöd för ASP.NET framework 4.5 som ska användas som SCIM-slutpunkt. Den här datorn måste vara tillgänglig från molnet.
-* [En Azure-prenumeration med en utvärderings version eller licensierad version av Azure AD Premium](https://azure.microsoft.com/services/active-directory/)
-
-### <a name="getting-started"></a>Komma igång
-
-Det enklaste sättet att implementera en SCIM-slutpunkt som kan ta emot etableringsbegäranden från Azure AD är att skapa och distribuera kodexemplet som visar de etablerade användarna till en fil med kommaavgränsade värden (CSV).
-
-#### <a name="to-create-a-sample-scim-endpoint"></a>Skapa en exempel SCIM-slutpunkt
-
-1. Ladda ned kod exempel paketet på [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
-1. Packa upp paketet och placera den på din Windows-dator på en plats, till exempel C:\AzureAD-BYOA-Provisioning-Samples\.
-1. Starta FileProvisioning\Host\FileProvisioningService.csproj-projekt i Visual Studio i den här mappen.
-1. Välj **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**och kör följande kommandon för FileProvisioningService-projektet för att lösa lösnings referenserna:
-
-   ```powershell
-    Update-Package -Reinstall
-   ```
-
-1. Skapa FileProvisioningService-projektet.
-1. Starta kommando tolken i Windows (som administratör) och Använd **CD-** kommandot för att ändra katalogen till **\AzureAD-BYOA-Provisioning-Samples\FileProvisioning\Host\bin\Debug** -mappen.
-1. Kör följande kommando och ersätt `<ip-address>` med IP-adressen eller domän namnet för Windows-datorn:
-
-   ```
-    FileSvc.exe http://<ip-address>:9000 TargetFile.csv
-   ```
-
-1. I Windows under **Windows-inställningar** > **nätverks & Internet inställningar**väljer du **Windows-brandväggen** > **Avancerade inställningar**och skapar en **regel för inkommande trafik** som tillåter inkommande åtkomst till port 9000.
-1. Om Windows-datorn ligger bakom en router måste routern konfigureras för att köra översättning av nätverks åtkomst mellan port 9000 som exponeras för Internet och port 9000 på Windows-datorn. Den här konfigurationen krävs för att Azure AD ska få åtkomst till den här slut punkten i molnet.
-
-#### <a name="to-register-the-sample-scim-endpoint-in-azure-ad"></a>Registrera exempel SCIM-slutpunkten i Azure AD
-
-1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com). 
-1. Välj **företags program** i det vänstra fönstret. En lista över alla konfigurerade appar visas, inklusive appar som har lagts till från galleriet.
-1. Välj **+ ny program** > **alla** > **icke-galleriprogram**.
-1. Ange ett namn för ditt program och välj **Lägg till** för att skapa ett app-objekt. Det programobjekt som skapas är avsedd att representera målappen du skulle etablering för och implementera enkel inloggning för och inte bara SCIM-slutpunkten.
-1. På skärmen hantering av appar väljer du **etablering** i den vänstra panelen.
-1. I menyn **etablerings läge** väljer du **Automatisk**.    
-1. I fältet **klient-URL** anger du URL: en för programmets scim-slutpunkt. Exempel: https://api.contoso.com/scim/
-
-1. Om SCIM-slutpunkten kräver en OAuth Bearer-token från en annan utfärdare än Azure AD kopierar du den obligatoriska OAuth Bearer-token till fältet valfritt **hemligt token** . Om det här fältet lämnas tomt innehåller Azure AD en OAuth Bearer-token som utfärdats från Azure AD med varje begäran. Appar som använder Azure AD som en identitetsprovider kan verifiera den här Azure AD-utfärdade token.
-1. Välj **test anslutning** för att Azure Active Directory försöka ansluta till scim-slutpunkten. Om försöket Miss lyckas visas fel information.  
-
-    > [!NOTE]
-    > **Test anslutning** frågar scim-slutpunkten för en användare som inte finns med ett slumpmässigt GUID som den matchande egenskap som valts i Azure AD-konfigurationen. Det förväntade korrekta svaret är HTTP 200 OK med ett tomt SCIM ListResponse-meddelande
-1. Om försöket att ansluta till programmet lyckas väljer du **Spara** för att spara administratörens autentiseringsuppgifter.
-1. I avsnittet **mappningar** finns det två valbara uppsättningar av mappningar för attribut: en för användar objekt och en för grupp objekt. Välj var och en att granska de attribut som synkroniseras från Azure Active Directory till din app. Attributen som väljs som **matchande** egenskaper används för att matcha användare och grupper i appen för uppdaterings åtgärder. Välj **Spara** för att genomföra ändringarna.
-1. Under **Inställningar**definierar fältet **omfattning** vilka användare och eller grupper som ska synkroniseras. Välj **"synkronisera endast tilldelade användare och grupper** (rekommenderas) för att endast synkronisera användare och grupper som tilldelats på fliken **användare och grupper** .
-1. När konfigurationen är klar ställer du in **etablerings statusen** **på på**.
-1. Välj **Spara** för att starta Azure AD Provisioning-tjänsten.
-1. Om du bara synkroniserar tilldelade användare och grupper (rekommenderas), måste du välja fliken **användare och grupper** och tilldela de användare eller grupper som du vill synkronisera. När den första cykeln har startat kan du välja **gransknings loggar** i den vänstra panelen för att övervaka förloppet, vilket visar alla åtgärder som utförs av etablerings tjänsten i din app. Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](check-status-user-account-provisioning.md).
-Det sista steget i att verifiera exemplet är att öppna filen TargetFile.csv i mappen \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug på din Windows-dator. När etableringen har körts, innehåller den här filen information om alla tilldelade och etablerat användare och grupper.
+Obs! referens koden är avsedd att hjälpa dig att komma igång med att skapa din SCIM-slutpunkt och tillhandahålls "i befintligt skick". Bidrag från communityn är välkommen att hjälpa till att bygga och underhålla koden. 
 
 ## <a name="step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client"></a>Steg 4: integrera din SCIM-slutpunkt med Azure AD SCIM-klienten
 

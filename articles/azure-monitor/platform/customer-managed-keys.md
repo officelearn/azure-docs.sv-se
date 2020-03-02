@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 02/24/2020
-ms.openlocfilehash: 6a999df6daf2fde5133143fe9b22a65d628ecfb2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b3e110766b2e131330f3108b7938e9e5e01e48a4
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663955"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208567"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Azure Monitor kundhanterad nyckel konfiguration 
 
@@ -94,7 +94,7 @@ Proceduren stöds för närvarande inte i användar gränssnittet och etablering
 > [!IMPORTANT]
 > Alla API-förfrågningar måste innehålla en token Authorization-token i begär ande huvudet.
 
-Några exempel:
+Exempel:
 
 ```rst
 GET
@@ -184,7 +184,7 @@ Authorization: Bearer <token>
   "identity": {
     "type": "SystemAssigned",
     "tenantId": "tenant-id",
-    "principalId": "principal-Id"
+    "principalId": "principal-id"
     },
   "properties": {
     "provisioningState": "Succeeded",
@@ -198,10 +198,10 @@ Authorization: Bearer <token>
   }
 ```
 
-"principalId" är ett GUID som genereras av den hanterade identitets tjänsten för *kluster* resursen.
+"huvud-ID" är ett GUID som genereras av den hanterade identitets tjänsten för *kluster* resursen.
 
 > [!IMPORTANT]
-> Kopiera och behåll värdet "Cluster-ID" eftersom du kommer att behöva det i nästa steg.
+> Kopiera och behåll värdet "kapital-ID" eftersom du kommer att behöva det i nästa steg.
 
 
 ### <a name="grant-key-vault-permissions"></a>bevilja Key Vault behörigheter
@@ -213,7 +213,7 @@ Uppdatera din Key Vault med en ny åtkomst princip som beviljar behörigheter ti
 Öppna din Key Vault i Azure Portal och klicka på "åtkomst principer" och sedan "+ Lägg till åtkomst princip" för att skapa en ny princip med följande inställningar:
 
 - Nyckel behörigheter: Välj get-, wrap-och unwrap Key-behörigheter.
-- Välj huvud namn: Ange det kluster-ID-värde som returnerades i svaret i föregående steg.
+- Välj huvud namn: Ange det huvud-ID-värde som returnerades i svaret i föregående steg.
 
 ![bevilja Key Vault behörigheter](media/customer-managed-keys/grant-key-vault-permissions.png)
 
@@ -227,7 +227,7 @@ Det här steget gäller för framtida viktiga versions uppdateringar i din Key V
 
 Uppdatera *kluster* resursens KeyVaultProperties med information om nyckel identifierare.
 
-**Uppdatera**
+**Uppdatering**
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
@@ -528,10 +528,10 @@ Identiteten tilldelas till *kluster* resursen vid skapande tillfället.
   "location": "region-name"
 }
 ```
-"principalId" är ett GUID som genererades av den hanterade identitets tjänsten.
+"princip-ID" är ett GUID som genererades av den hanterade identitets tjänsten.
 
 > [!IMPORTANT]
-> Kopiera och behåll värdet "Cluster-ID" eftersom du kommer att behöva det i nästa steg.
+> Kopiera och behåll värdet "princip-ID" eftersom du kommer att behöva det i nästa steg.
 
 ### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>Associera en komponent till en *kluster* resurs med hjälp av [komponenter – skapa eller uppdatera](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
 

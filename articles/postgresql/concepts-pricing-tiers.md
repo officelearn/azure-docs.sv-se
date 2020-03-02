@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 635a66f0275d4df4f858bff61be80900dc58c6fb
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 2e5b01a271eb290229904fc98d1268760e01620d
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164482"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208890"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Pris nivåer i Azure Database for PostgreSQL-enskild server
 
@@ -67,7 +67,7 @@ Du kan övervaka i/O-förbrukningen i Azure Portal eller genom att använda Azur
 
 ### <a name="reaching-the-storage-limit"></a>Nått lagrings gränsen
 
-Servrar med mindre än lika med 10 GB allokerat lagrings utrymme markeras som skrivskyddade om det lediga lagrings utrymmet är mindre än 512 MB av den allokerade lagrings storleken. Servrar med mindre än lika med 100 GB allokerat lagrings utrymme markeras som skrivskyddade om det lediga lagrings utrymmet är mindre än 5% av den allokerade lagrings storleken. Servrar med mer än 100 GB allokerat lagringsutrymme markeras bara som skrivskyddade när det lediga lagringsutrymmet är mindre än 5 GB.
+Servrar med mindre än lika med 100 GB allokerat lagrings utrymme markeras som skrivskyddade om det lediga lagrings utrymmet är mindre än 512 MB eller 5% av den allokerade lagrings storleken. Servrar med mer än 100 GB allokerat lagringsutrymme markeras bara som skrivskyddade när det lediga lagringsutrymmet är mindre än 5 GB.
 
 Om du till exempel har allokerat 110 GB lagrings utrymme och den faktiska användningen går över 105 GB, är servern markerad som skrivskyddad. Alternativt, om du har allokerat 5 GB lagring, markeras servern som skrivskyddad när den kostnads fria lagrings platsen når mindre än 512 MB.
 
@@ -85,7 +85,7 @@ Om du till exempel har allokerat 1000 GB lagrings utrymme och den faktiska anvä
 
 Kom ihåg att lagringen bara kan skalas upp, inte nedåt.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Säkerhetskopiering
 
 Tjänsten tar automatiskt säkerhets kopior av servern. Du kan välja en kvarhållningsperiod från mellan 7 och 35 dagar. Generell användning-och Minnesoptimerade servrar kan välja att ha Geo-redundant lagring för säkerhets kopiering. Läs mer om säkerhets kopieringar i [artikeln begrepp](concepts-backup.md).
 

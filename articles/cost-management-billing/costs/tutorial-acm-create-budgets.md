@@ -4,17 +4,17 @@ description: Den här självstudien hjälper dig att planera och ta hänsyn till
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/10/2020
+ms.date: 02/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 9900a2f7a41a6b35be75326b9412ec628328e39b
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 3b479f85475be6409a6fa6621357400e954d22c8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132092"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582404"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudier: Skapa och hantera Azure-budgetar
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Skapa en budget i Azure-portalen
 > * Skapa och redigera budgetar med PowerShell
-> * Redigera en budget
+> * Skapa en budget med en Azure Resource Manager-mall
 
 ## <a name="prerequisites"></a>Krav
 
@@ -160,6 +160,16 @@ $ActionGroupId = (Set-AzureRmActionGroup -ResourceGroupName YourResourceGroup -N
 
 New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
 ```
+## <a name="create-a-budget-with-an-azure-resource-manager-template"></a>Skapa en budget med en Azure Resource Manager-mall
+
+Du kan skapa en budget med hjälp av en Azure Resource Manager-mall. Mallen hjälper dig att skapa en budget under en resursgrupp. Mallen är endast avsedd för Enterprise-avtalskunder.
+
+Logga in på Azure-portalen och öppna mallen genom att välja följande bild:
+
+[![Distribuera mallen Skapa budget till Azure](./media/tutorial-acm-create-budgets/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fcreate-budget%2fazuredeploy.json)
+
+En lista över alla mallparametrar och tillhörande beskrivningar finns i mallen [Skapa en budget](https://azure.microsoft.com/resources/templates/create-budget/).
+
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -168,7 +178,7 @@ I den här självstudiekursen lärde du dig att:
 > [!div class="checklist"]
 > * Skapa en budget i Azure-portalen
 > * Skapa och redigera budgetar med PowerShell
-> * Redigera en budget
+> * Skapa en budget med en Azure Resource Manager-mall
 
 Gå vidare till nästa självstudie för att skapa en återkommande export för dina kostnadshanteringsdata.
 

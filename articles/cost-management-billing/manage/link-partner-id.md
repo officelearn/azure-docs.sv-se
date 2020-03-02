@@ -7,12 +7,12 @@ ms.author: banders
 ms.date: 02/13/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.openlocfilehash: 4e4b039b6ad6fad8a414fc9703309fa76853ef09
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 761f4345c591864b8158d7216d737ac287692252
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199678"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651397"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Länka ett partner-ID till dina Azure-konton
 
@@ -29,6 +29,8 @@ Innan du länkar ditt partner-ID måste kunden ge dig åtkomst till sina Azure-r
 - **Katalogkonto**: Kunden kan skapa ett användarkonto åt dig i en egen katalog och tilldela valfri roll för rollbaserad åtkomst.
 
 - **Tjänstens huvudnamn**: Kunden kan lägga till en app eller ett skript från din organisation i katalogen och tilldela en roll för rollbaserad åtkomstkontroll. Appens eller skriptets identitet kallas för tjänstens huvudnamn.
+
+- **Azure Lighthouse**: Kunden kan delegera en prenumeration (eller resursgrupp) så att användarna kan arbeta med den inifrån din klientorganisation. Mer information finns i [Azure-delegerad resurshantering](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management).
 
 ## <a name="link-to-a-partner-id"></a>Länka till ett partner-ID
 
@@ -154,3 +156,7 @@ Om du inte ser kunden i rapporterna kan det bero på något av följande
 **Fungerar länkningen av partner-ID:n med Azure Stack?**
 
 Ja, du kan länka ditt partner-ID för Azure Stack.
+
+**Hur gör jag för att länka mitt partner-ID om mitt företag använder [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) för att komma åt kundresurser?**
+
+Om du registrerar kunder i Azure-delegerad resurshantering genom att [publicera ett erbjudande om hanterade tjänster på Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers) associeras ditt MPN-ID automatiskt. Om du [registrerar kunder genom att distribuera Azure Resource Manager-mallar](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer) måste du associera ditt MPN-ID (Microsoft Partner Network) med minst ett användarkonto som har åtkomst till var och en av dina registrerade prenumerationer. Observera att du måste göra detta i klientorganisationen för din tjänstleverantör. För enkelhetens skull rekommenderar vi att du skapar ett tjänstobjektskonto i din klientorganisation som är kopplat till ditt MPN-ID och att du ger det läsåtkomst för alla kunder som du registrerar.

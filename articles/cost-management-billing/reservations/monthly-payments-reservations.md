@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.author: banders
-ms.openlocfilehash: 2689bdeb003cec0050141374165142a62f9ea337
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 77d663fa01e24acf63acd68d0b8d7cf4cc741055
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200409"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587098"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>Betala för reservationer via månadsbetalningar
 
@@ -62,7 +62,7 @@ Precis som med andra reservationer kan du återbetala eller byta ut reservatione
 
 När du byter ut en reservation som du betalar för månadsvis måste den totala livstidskostnaden för det nya köpet vara större än de överblivna betalningar som ställs in för den returnerade reservationen. Det finns inga andra gränser och tillkommer inga andra avgifter för byten. Du kan byta ut en reservation som betalats i förväg till en ny reservation som faktureras per månad. Livstidsvärdet för den nya reservationen måste dock vara större än det beräknade värdet för reservationen som returneras.
 
-Om du avbryter en reservation som betalas per månad kan Microsoft ta ut en uppsägningsavgift för de framtida betalningar som ställs in. Återstående åtagna betalningar räknas av mot återbetalningsgränsen på 50 000 USD.
+Om du annullerar en reservation som betalas månadsvis kan Microsoft debitera en annulleringsavgift på 12 % för de annullerade åtagna betalningarna. Microsoft debiterar dock inte straffavgiften för närvarande. Annullerade åtagna betalningar räknas av mot återbetalningsgränsen på 50 000 USD. Om en annulleringsavgift debiteras påverkar det inte återbetalningsgränsen.
 
 Du kan läsa mer om byten och återbetalningar i [Självservice vid byten och återbetalningar för Azure-reservationer](exchange-and-refund-azure-reservations.md).
 

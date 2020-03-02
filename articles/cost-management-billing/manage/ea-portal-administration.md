@@ -3,16 +3,16 @@ title: Administration i Azure EA-portalen
 description: I den här artikeln förklaras några vanliga uppgifter som administratörer utför i Azure EA-portalen.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 142ef421599cef4083efdf8b9ed700d2baa152b3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1da26b3a1c028a49655b9089ac0119e3274e37a4
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199780"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598399"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration i Azure EA-portalen
 
@@ -118,6 +118,8 @@ Dev/Test-erbjudandet gäller för närvarande inte för Azure Gov-kunder.
 
 Vid en kontoöverföring flyttas en kontoägare från en registrering till en annan. Alla relaterade prenumerationer under kontoägaren flyttas till målregistreringen. Detta sker om det finns flera aktiva registreringar och du bara vill flytta specifika kontoägare.
 
+Det här avsnittet tillhandahålls endast i informationssyfte eftersom åtgärden inte kan utföras av en företagsadministratör. Det krävs en supportbegäran för att överföra ett företagskonto till en ny registrering.
+
 Tänk på följande när du ska överföra ett företagskonto till en ny registrering:
 
 - Det är bara de konton som anges i förfrågan som överförs. Om du väljer alla konton så överförs samtliga.
@@ -147,6 +149,8 @@ En registreringsöverföring är lämpligt när:
 - Åtagandeperioden för en aktuell registrering har gått ut.
 - En registrering har status som förfallen/förlängd och ett nytt avtal förhandlas.
 - Om du har flera registreringar och vill konsolidera alla konton och faktureringen under en enda registrering.
+
+Det här avsnittet tillhandahålls endast i informationssyfte eftersom åtgärden inte kan utföras av en företagsadministratör. Det krävs en supportbegäran för att överföra en företagsregistrering till en ny.
 
 När du begär att en hel företagsregistrering ska överföras till en ny registrering utförs följande åtgärder:
 

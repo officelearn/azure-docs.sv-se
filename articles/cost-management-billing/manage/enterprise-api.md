@@ -7,15 +7,17 @@ ms.service: cost-management-billing
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: banders
-ms.openlocfilehash: a5a158ce67d2d0c7dd947f7b35a96d12429c8ec9
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 9f9552c134fa7653e4100cae3c731e4c670d44e3
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200684"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560549"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Översikt över rapporterings-API:er för Enterprise-kunder
 Med rapporterings-API:erna kan Enterprise-kunder hämta förbruknings- och faktureringsdata till önskade dataanalysverktyg. Enterprise-kunder har signerat [ett Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) med Azure om särskilda betalningsåtaganden som berättigar till anpassade priser för Azure-resurser.
+
+Alla datum- och tidsparametrar som krävs för API:er måste anges som kombinerade UTC-värden (Coordinated Universal Time). Värden som returneras av API:er visas i UTC-format.
 
 ## <a name="enabling-data-access-to-the-api"></a>Aktivera dataåtkomst till API:et
 * **Generera eller hämta API-nyckeln** – Logga in på Enterprise Portal och gå till Rapporter > Hämta användning > API-åtkomstnyckel för att generera eller hämta API-nyckeln.

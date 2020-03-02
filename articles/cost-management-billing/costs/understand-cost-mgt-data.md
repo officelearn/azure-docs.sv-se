@@ -4,17 +4,17 @@ description: Den här artikeln hjälper dig att bättre förstå data som ingår
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 39f2aab72491ffdf2b583879181a247d3653647f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 44953a3986b5c03afa9cc4668e2563c5c5cd6c46
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199899"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560617"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
@@ -135,9 +135,9 @@ Här följer några tips för att arbeta med taggar:
 - Använd Tags-API:t med Query eller UsageDetails om du vill hämta alla kostnader baserat på de aktuella taggarna.
 
 
-**Uppgradering från kostnadsfri utvärderingsversion till Betala per användning**
+## <a name="free-trial-to-pay-as-you-go-upgrade"></a>Uppgradering från kostnadsfri utvärderingsversion till Betala per användning
 
-Kunder med ett erbjudande för kostnadsfri utvärderingsversion (044P) som konverterar till PAYG-erbjudandet (003P) kan se sin användning under perioden för den kostnadsfria utvärderingsversionen. De förlorar dock insyn i användning av kostnadsfri utvärderingsversion efter konverteringen. Efter konverteringen visas endast PAYG-användning och -kostnader i Cost Management.
+Information om tillgängligheten av tjänster på kostnadsfri nivå efter uppgradering till Betala per användning från en kostnadsfri utvärderingsversion finns i [avsnittet med vanliga frågor och svar](https://azure.microsoft.com/free/free-account-faq/).
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Schema för datauppdatering för klassificerad användning
 
@@ -157,6 +157,17 @@ Betala per användning-prenumerationer – om faktureringsmånaden upphör den 1
 ### <a name="rerated-data"></a>Omklassificerade data
 
 Oavsett om du använder [Cost Management-API:er](../index.yml), Power BI eller Azure-portalen för att hämta data bör du förvänta dig att den aktuella faktureringsperiodens avgifter omklassificeras och därför ändras fram till att fakturan stängs.
+
+## <a name="cost-rounding"></a>Kostnadsavrundning
+
+Kostnaderna som visas i Cost Management avrundas. Kostnaderna som returneras av fråge-API:et avrundas inte. Ett exempel:
+
+- Kostnadsanalys på Azure-portalen – avgifterna avrundas med standardavrundningsregler: värden från 0,5 och högre avrundas uppåt, annars avrundas kostnaderna nedåt. Avrundning görs endast när värden visas. Ingen avrundning görs under databearbetning och aggregering. Till exempel aggregeras kostnader i en kostnadsanalys så här:
+  - Kostnad 1: 0,004 USD
+  - Kostnad 2: 0,004 USD
+  - Den aggregerade kostnaden blir: 0,004 + 0,004 = 0,008. Kostnaden som visas är 0,01.
+- Fråge-API – kostnader visas med åtta decimaler och ingen avrundning görs.
+
 
 ## <a name="usage-data-update-frequency-varies"></a>Uppdateringsfrekvensen för användningsdata varierar
 

@@ -4,16 +4,16 @@ description: I den här artikeln beskrivs hur du hämtar resultat från vanliga 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 2102e3af26c8f5c4ed85543bc19360a923d070f3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1d9a498185e76f9771ec98656b1cad914b0f3214
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199984"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562589"
 ---
 # <a name="common-cost-analysis-uses"></a>Vanlig användning av kostnadsanalyser
 
@@ -83,6 +83,9 @@ Rapportfilen med användningsinformationen (i CSV-format) innehåller en uppdeln
 ## <a name="view-monthly-ea-cost-breakdown"></a>Visa månatlig EA-kostnadsuppdelning
 
 Din EA-registrering medför kostnader för hela organisationen. Att förstå hur kostnader uppstår och faktureras över tid hjälper dig att hitta lämpliga intressenter som kan säkerställa att kostnaderna hanteras på ett ansvarsfullt sätt.
+
+Kostnaderna visas bara för din aktiva registrering. Om du överförde en registrering (inaktiv) till en ny (aktiv) visas inte kostnader för den föregående registreringen i Cost Management.
+
 
 1. Gå till **Cost Management och fakturering** > **Översikt** i Azure-portalen.
 1. Klicka på **Uppdelning** för den aktuella månaden och se uppdelningen av ditt ekonomiska åtagande.  

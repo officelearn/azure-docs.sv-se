@@ -3,16 +3,16 @@ title: Reserverade instanser av virtuella Azure EA-datorer
 description: I den här artikeln går vi igenom hur du kan spara pengar i din företagsregistrering med hjälp av reserverade VM-instanser i Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/14/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 3eceef9dc0bc29f7e105ac0b110bd2550413fa61
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 53af5e69a90eb376c28ef364e7d9c5b29287790c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200718"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560585"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Reserverade instanser av virtuella Azure EA-datorer
 
@@ -57,10 +57,12 @@ Du kan visa köpinformationen om reserverade instanser via menyn _Reservationer_
 
 ### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>Hur ändrar jag prenumerationen som är kopplad till reserverad instans eller överföra mina reserverad instans-förmåner till en prenumeration under samma konto?
 
-Vid en specifik tidpunkt kan bara en prenumeration ta emot reserverad instans-förmåner. Du kan ändra den prenumeration som tar emot reserverad instans-förmåner genom att göra följande:
+Du kan ändra den prenumeration som tar emot reserverad instans-förmåner genom att göra följande:
 
 - Logga in på [Azure-portalen](https://aka.ms/reservations).
 - Uppdatera det tillämpade prenumerationsomfånget genom ett koppla en annan prenumeration under samma konto.
+
+Mer information om hur du ändrar omfånget för en reservation finns i [Ändra reservationens omfång](../reservations/manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 ### <a name="how-to-view-reserved-instance-usage-details"></a>Så här visar du användningsinformation om reserverade instanser
 

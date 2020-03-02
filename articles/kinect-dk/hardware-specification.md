@@ -14,12 +14,12 @@ ms.custom:
 audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
-ms.openlocfilehash: dbe4cac64e324c1188ec5a01b4da3935a5d5b479
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: e0d42a3ce1dd9deb5e73500371c367134ca852e1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371287"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619967"
 ---
 # <a name="azure-kinect-dk-hardware-specifications"></a>Maskinvaruspecifikationer för Azure Kinect DK
 
@@ -71,7 +71,7 @@ Azure Kinect DK integrerar en Microsoft-designad 1-megapixel ToF-djupkamera (Tim
 | WFOV (ej intervall)   | 1 024 × 1 024  | 120 ° × 120 ° | 0, 5, 15           | 0,25–2,21 m      | 20,3 ms        |
 | Passiv IR      | 1 024 × 1 024  | Ej tillämpligt       | 0, 5, 15, 30       | Ej tillämpligt              | 1,6 ms         |
 
-\*15 % till 95 % reflektans vid 850 nm, 2,2 μW/cm<sup>2</sup>/nm, standardavvikelse för slumpfel. ≤ 17 mm, typiskt systematiskt fel < 11 mm + 0,1 % av avståndet utan flervägsstörning. Djup utanför angivet intervall beroende på objektets reflektans.
+\*15 % till 95 % reflektans vid 850 nm, 2,2 μW/cm<sup>2</sup>/nm, standardavvikelse för slumpfel. ≤ 17 mm, typiskt systematiskt fel < 11 mm + 0,1 % av avståndet utan flervägsstörning. Djupet kan anges utanför det angivna driftintervallet ovan. Det beror på ett objekts reflektivitet.
 
 ## <a name="color-camera-supported-operating-modes"></a>Driftlägen som stöds av färgkameran
 

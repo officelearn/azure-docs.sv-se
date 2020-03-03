@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4070b004ee791a433b5aeb9e3e0cdd9662fb0429
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 6a51e57bd2411c19dfd5e7740f9e918d0bd09e27
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191154"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226481"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -152,11 +152,11 @@ Start-AzAutomationRunbook `
 
 I det här avsnittet beskrivs några sätt att hantera undantag eller tillfälliga problem i dina runbooks.
 
-#### <a name="erroractionpreference"></a>$ErrorActionPreference
+#### <a name="erroractionpreference"></a>ErrorActionPreference
 
-Variabeln [$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) anger hur PowerShell svarar på ett icke-avslutande fel. Avslutande fel avslutas alltid och påverkas inte av *$ErrorActionPreference*.
+[Erroractionpreference satt](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) -variabeln avgör hur PowerShell svarar på ett icke-avslutande fel. Avslutande fel avslutas alltid och påverkas inte av *erroractionpreference satt*.
 
-När en Runbook använder *$ErrorActionPreference*kan ett vanligt icke-avslutande fel, till exempel **PathNotFound** från cmdleten **Get-ChildItem** , stoppa Runbook från att slutföras. I följande exempel visas användningen av *$ErrorActionPreference*. Det slutliga kommandot **Write-output** körs aldrig, eftersom skriptet slutar.
+När en Runbook använder *erroractionpreference satt*, kan ett vanligt icke-avslutande fel, till exempel **PathNotFound** från **Get-ChildItem** -cmdleten, stoppa Runbook från att slutföras. I följande exempel visas användningen av *erroractionpreference satt*. Det slutliga kommandot **Write-output** körs aldrig, eftersom skriptet slutar.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'

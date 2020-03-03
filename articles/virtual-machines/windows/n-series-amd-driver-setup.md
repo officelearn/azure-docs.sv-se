@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: fdc6834f3fb5ee97f27a6397645b965863e90a6b
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 6dc8c54b9d138ab62e086cca59cd5b4801fa6130
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190542"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228345"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installera AMD GPU-drivrutiner för virtuella datorer i N-serien som kör Windows
 
@@ -31,13 +31,18 @@ Grundläggande specifikationer, lagrings kapacitet och disk information finns i 
 
 | Operativsystem | Drivrutin |
 | -------- |------------- |
-| Windows 10-EVD – build 1903 <br/><br/>Windows 10 – build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [19. q 4.1](https://download.microsoft.com/download/7/e/5/7e558ac0-3fff-413d-af62-800285a2fc53/Radeon-Pro-Software-for-Enterprise-19.Q4.1-Technical-Preview.exe) (. exe) |
+| Windows 10-EVD – build 1903 <br/><br/>Windows 10 – build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20. q 1.1](https://download.microsoft.com/download/3/8/9/3893407b-e8aa-4079-8592-735d7dd1c19a/Radeon-Pro-Software-for-Enterprise-GA.exe) (. exe) |
+
 
 ## <a name="driver-installation"></a>Driv rutins installation
 
 1. Anslut via fjärr skrivbord till varje virtuell NVv4-serien.
 
-1. Hämta och Extrahera installationsfilerna för driv rutinen. Navigera till mappen och kör setup. exe för att installera driv rutinen som stöds för ditt Windows-operativsystem.
+2. Om du är en NVv4 för hands version stoppar du den virtuella datorn och väntar på att den ska flyttas till stoppat (friallokerat) tillstånd.
+
+3. Starta den virtuella datorn och avinstallera sedan Preview-drivrutinen genom att köra "amdcleanuputility-x64. exe" i mappen ". ..\AMDCleanUninstallUtility". Den exakta sökvägen varierar beroende på var de tidigare installationsfilerna för driv rutinen finns.  
+
+4. Hämta och installera den senaste driv rutinen.
 
 ## <a name="verify-driver-installation"></a>Verifiera installation av driv rutin
 

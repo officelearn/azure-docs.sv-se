@@ -4,15 +4,19 @@ description: Lär dig hur Azure Monitor och Log Analytics hjälper dig att över
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
-ms.date: 1/29/2019
-ms.openlocfilehash: c0df972d893e82d7b49d5b3ed2a2bbf7067548c2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.date: 2/28/2020
+ms.openlocfilehash: c4aee7c7e78c6799874194697fb3bc9c4aa33b38
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78201817"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227981"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Självstudie: Felsöka en App Service-app med Azure Monitor
+
+> [!NOTE]
+> Azure Monitor-integrering med App Service är i för [hands version](https://aka.ms/appsvcblog-azmon).
+>
 
 Med [App Service på Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) maximerar tillgängligheten och prestandan för dina program och tjänster genom att leverera en omfattande lösning för att samla in, analysera och agera på telemetri från molnet och lokala miljöer.
 
@@ -53,7 +57,7 @@ git remote add azure <url_from_previous_step>
 git push azure master
 ```
 
-## <a name="configure-azure-monitor"></a>Konfigurera Azure Monitor
+## <a name="configure-azure-monitor-preview"></a>Konfigurera Azure Monitor (för hands version)
 
 ### <a name="create-a-log-analytics-workspace"></a>Skapa en Log Analytics arbets yta
 

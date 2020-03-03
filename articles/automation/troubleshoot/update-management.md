@@ -4,16 +4,16 @@ description: Lär dig hur du felsöker och löser problem med Uppdateringshanter
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/31/2019
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 5ee1a20d4a3c46cab484b03b5fcc212a79d19047
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 1b0047cda3664759f4f1b6499c8a54ee22f98ab3
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513277"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227457"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Fel sökning av problem med Uppdateringshantering
 
@@ -24,6 +24,36 @@ Det finns en agent fel sökare för Hybrid Worker agenten för att fastställa d
 Om du stöter på problem när du försöker publicera lösningen på en virtuell dator (VM) kontrollerar du **Operations Manager** loggen under **program-och tjänst loggar** på den lokala datorn efter händelser med händelse-ID 4502 och händelse information som innehåller **Microsoft. EnterpriseManagement. HealthService. AzureAutomation. HybridAgent**.
 
 I följande avsnitt beskrivs de olika fel meddelandena och möjliga lösningar för var och en. Information om andra onboarding-problem finns i [Felsöka lösning onboarding](onboarding.md).
+
+## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>Scenario: ersatt uppdatering anges som saknas i Uppdateringshantering
+
+### <a name="issue"></a>Problem
+
+Gamla uppdateringar visas i Uppdateringshantering i Azure-kontot som saknade trots att de har ersatts. En ersatt uppdatering är en som inte behöver installeras eftersom det finns en senare uppdatering som korrigerar samma sårbarhet. Uppdateringshantering ignorerar den ersatta uppdateringen och gör den inte tillämplig till förmån för den ersatta uppdateringen. Information om ett relaterat problem finns i [Uppdatera ersätts](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
+
+### <a name="cause"></a>Orsak
+
+Ersatta uppdateringar anges inte korrekt som nekade, så att de kan betraktas som ej tillämpliga.
+
+### <a name="resolution"></a>Lösning
+
+När en ersatt uppdatering blir 100 procent inte tillämplig, bör du ändra godkännande tillstånd för den uppdateringen till **nekad**. Gör detta för alla uppdateringar:
+
+1. I Automation-kontot väljer du **uppdateringshantering** för att Visa dator status. Se [Visa uppdaterings bedömningar](../manage-update-multi.md#view-an-update-assessment).
+
+2. Kontrol lera att den ersatta uppdateringen är 100 procent inte tillämplig. 
+
+3. Markera uppdateringen som nekad om du inte har någon fråga om uppdateringen. 
+
+4. Välj datorer och tvinga en ny sökning efter kompatibilitet i kolumnen efterlevnad. Se [Hantera uppdateringar för flera datorer](../manage-update-multi.md).
+
+5. Upprepa stegen ovan för andra ersatta uppdateringar.
+
+6. Kör rensnings guiden för att ta bort filer från de nekade uppdateringarna. 
+
+7. För WSUS rensar du alla ersatta uppdateringar manuellt för att uppdatera infrastrukturen.
+
+8. Upprepa proceduren regelbundet för att korrigera visnings problemet och minimera mängden disk utrymme som används för uppdaterings hantering.
 
 ## <a name="nologs"></a>Scenario: datorer visas inte i portalen under Uppdateringshantering
 
@@ -45,7 +75,7 @@ Du kanske måste registrera om och installera om Hybrid Runbook Worker.
 
 Du kan ha definierat en kvot på din arbets yta som har nåtts och som förhindrar ytterligare data lagring.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 * Kör fel sökaren för [Windows](update-agent-issues.md#troubleshoot-offline) eller [Linux](update-agent-issues-linux.md#troubleshoot-offline), beroende på vilket operativ system du har.
 
@@ -86,7 +116,7 @@ Error details: Unable to register Automation Resource Provider for subscriptions
 
 Den automatiska resurs leverantören är inte registrerad i prenumerationen.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Registrera automatiserings resurs leverantören genom att följa de här stegen i Azure Portal:
 
@@ -113,7 +143,7 @@ Det här felet kan inträffa av följande orsaker:
 - Kommunikation med Automation-kontot blockeras.
 - Den virtuella dator som har publicerats kan ha kommit från en klonad dator som inte är Sysprep med Microsoft Monitoring Agent (MMA) installerad.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 1. Gå till [nätverks planering](../automation-hybrid-runbook-worker.md#network-planning) och lär dig om vilka adresser och portar som måste tillåtas för att uppdateringshantering ska fungera.
 2. Om du använder en klonad avbildning:
@@ -136,7 +166,7 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 Det här felet uppstår när du skapar en uppdaterings distribution med virtuella Azure-datorer i en annan klient som ingår i en uppdaterings distribution.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Använd följande lösning för att få de här objekten schemalagda. Du kan använda cmdleten [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) med växeln `-ForUpdate` för att skapa ett schema. Använd sedan cmdleten [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) och skicka datorerna i den andra klienten till `-NonAzureComputer`-parametern. I följande exempel visas hur du gör detta:
@@ -161,7 +191,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 Windows Update kan ändras av flera register nycklar, vilken som helst kan ändra omstarts beteendet.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Granska register nycklarna under [Konfigurera automatiska uppdateringar genom att redigera register](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) -och [register nycklar som används för att hantera omstart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) för att kontrol lera att datorerna är korrekt konfigurerade.
 
@@ -185,7 +215,7 @@ Felet kan uppstå på grund av någon av följande orsaker:
 * En uppdatering har gjorts till MMA som ändrade SourceComputerId.
 * Uppdaterings körningen begränsades om du träffar gränsen på 2 000 samtidiga jobb i ett Automation-konto. Varje distribution betraktas som ett jobb, och varje dator i en uppdaterings distribution räknas som ett jobb. Alla andra automatiserings jobb eller uppdaterings distributioner som körs i ditt Automation-konto räknas mot gränsen för samtidiga jobb.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Använd [dynamiska grupper](../automation-update-management-groups.md) för dina uppdaterings distributioner när det är tillämpligt. Dessutom:
 
@@ -208,7 +238,7 @@ När du registrerar en Windows-dator i Uppdateringshantering visas uppdateringar
 
 I Windows installeras uppdateringar automatiskt så snart de är tillgängliga. Det här beteendet kan orsaka förvirring om du inte schemalägger en uppdatering så att den distribueras till datorn.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Register nyckeln `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` har standardinställningen 4: **Hämta och installera automatiskt**.
 
@@ -230,7 +260,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 Datorn har redan publicerats till en annan arbets yta för Uppdateringshantering.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 1. Följ stegen under [datorer som inte visas i portalen under uppdateringshantering](#nologs) för att kontrol lera att datorn rapporterar till rätt arbets yta.
 2. Rensa gamla artefakter på datorn genom [att ta bort hybrid Runbook-gruppen](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group)och försök sedan igen.
@@ -261,7 +291,7 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 En proxy, gateway eller brand vägg kan blockera nätverkskommunikation. 
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Granska nätverket och kontrol lera att rätt portar och adresser är tillåtna. Se [nätverks krav](../automation-hybrid-runbook-worker.md#network-planning) för en lista över portar och adresser som krävs av uppdateringshantering och hybrid Runbook Worker.
 
@@ -279,7 +309,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 Det gick inte att skapa ett självsignerat certifikat i Hybrid Runbook Worker.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Kontrol lera att system-kontot har Läs behörighet till mappen **C:\ProgramData\Microsoft\Crypto\RSA** och försök igen.
 
@@ -289,7 +319,7 @@ Kontrol lera att system-kontot har Läs behörighet till mappen **C:\ProgramData
 
 Standard underhålls perioden för uppdateringar är 120 minuter. Du kan öka underhålls perioden till högst 6 timmar eller 360 minuter.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Redigera eventuella misslyckade schemalagda uppdaterings distributioner och öka underhålls perioden.
 
@@ -307,7 +337,7 @@ Mer information om underhålls perioder finns i [Installera uppdateringar](../au
 
 Uppdaterings agenten (Windows Update agenten i Windows, paket hanteraren för en Linux-distribution) är inte korrekt konfigurerad. Uppdateringshantering är beroende av datorns uppdaterings agent för att tillhandahålla de uppdateringar som behövs, status för korrigeringen och resultaten av distribuerade uppdateringar. Utan den här informationen kan Uppdateringshantering inte korrekt rapportera om de korrigeringar som behövs eller är installerade.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Försök att utföra uppdateringar lokalt på datorn. Om detta Miss lyckas betyder det vanligt vis att det finns ett konfigurations fel med uppdaterings agenten.
 
@@ -355,7 +385,7 @@ Möjliga orsaker:
 * Datorn kan inte kontaktas.
 * Uppdateringar hade beroenden som inte lösts.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Om fel inträffar när en uppdatering körs när den har startats, [kontrollerar du jobbets utdata](../manage-update-multi.md#view-results-of-an-update-deployment) från den berörda datorn i körnings processen. Du kan hitta vissa fel meddelanden från dina datorer som du kan söka efter och vidta åtgärder för. Uppdateringshantering kräver att paket hanteraren är felfri för lyckade uppdaterings distributioner.
 

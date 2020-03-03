@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 429c221609005136663d5e64a1b8650027cba411
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 231c5f1bc6fd76f4f9e89d2d53639e9abe6cde0e
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588747"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228327"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Snabb start: skapa en NAT-gateway med hjälp av Azure Portal
 
@@ -30,29 +30,26 @@ Den här snabb starten visar hur du använder Azure Virtual Network NAT-tjänste
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
-### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
+## <a name="virtual-network-and-parameters"></a>Virtuellt nätverk och parametrar
 
-Innan du distribuerar en virtuell dator och kan använda din NAT-gateway måste du skapa resurs gruppen och det virtuella nätverket.  
+Innan du distribuerar en virtuell dator och kan använda din NAT-gateway måste du skapa resurs gruppen och det virtuella nätverket.
 
-1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs** > **nätverk** > **virtuellt nätverk**, eller Sök efter **virtuellt nätverk** i Marketplace-sökningen.
+I det här avsnittet måste du ersätta följande parametrar i stegen med informationen nedan:
 
-2. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
+| Parameter                   | Värde                |
+|-----------------------------|----------------------|
+| **\<resurs-grupp-namn >**  | myResourceGroupNAT |
+| **\<virtuella-nätverks namn >** | myVNet          |
+| **\<region – namn >**          | USA, östra 2      |
+| **> för \<IPv4-adress utrymme**   | 192.168.0.0 \ 16          |
+| **\<under nätets namn >**          | mySubnet        |
+| **\<undernät – adress intervall >** | 192.168.0.0 \ 24          |
 
-    | Inställning | Värde |
-    | ------- | ----- |
-    | Namn | Ange **myVNet**. |
-    | Adressutrymme | Ange **192.168.0.0/16**. |
-    | Prenumeration | Välj din prenumeration.|
-    | Resursgrupp | Välj Skapa New- **myResourceGroupNAT**. |
-    | plats. | Välj **USA, östra 2**.|
-    | Undernät – namn | Ange **undernät**. |
-    | Undernät – adressintervall | Ange **192.168.0.0/24**. |
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-3. Lämna resten av standardinställningarna och välj **Skapa**.
-
-### <a name="create-a-vm-to-use-the-nat-gateway"></a>Skapa en virtuell dator för att använda NAT-gatewayen
+## <a name="create-a-vm-to-use-the-nat-gateway"></a>Skapa en virtuell dator för att använda NAT-gatewayen
 
 Nu ska vi skapa en virtuell dator för att använda NAT-tjänsten. Den här virtuella datorn har en offentlig IP-adress som kan användas som en offentlig IP-adress på instans nivå för att få åtkomst till den virtuella datorn. NAT-tjänsten är en flödes riktning som är medveten om och kommer att ersätta standard målet för Internet i ditt undernät. Den virtuella datorns offentliga IP-adress används inte för utgående anslutningar.
 
@@ -100,10 +97,10 @@ I det här avsnittet beskrivs hur du kan skapa och konfigurera följande kompone
     | ------- | ----- |
     | IP-version | Välj **IPv4**.
     | SKU | Välj **standard**.
-    | Namn | Ange **myPublicIP**. |
+    | Name | Ange **myPublicIP**. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **myResourceGroupNAT**. |
-    | plats. | Välj **USA, östra 2**.|
+    | Plats | Välj **USA, östra 2**.|
 
 3. Lämna resten av standardinställningarna och välj **Skapa**.
 

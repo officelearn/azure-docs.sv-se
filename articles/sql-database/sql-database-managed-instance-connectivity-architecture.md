@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 1b5a48a686a238d724680e806daaed431107ec72
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: ec1430e7dd79378473cce9dbb77bedecd14600c8
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894829"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228267"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutnings arkitektur för en hanterad instans i Azure SQL Database
 
@@ -277,7 +277,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätve
 |mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
 ||||
 
-\* MI-UNDERNÄT refererar till under nätets IP-adressintervall i formatet 10. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
+\* MI-UNDERNÄT refererar till under nätets IP-adressintervall i formatet x. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
 
 Dessutom kan du lägga till poster i routningstabellen för att dirigera trafik som har lokala privata IP-adressintervall som mål via den virtuella Nätverksgatewayen eller Virtual Network-apparaten (NVA).
 
@@ -314,7 +314,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i det virtuella nätve
 > [!IMPORTANT]
 > Se till att det bara finns en regel för inkommande trafik för portarna 9000, 9003, 1438, 1440, 1452 och en utgående regel för portarna 443, 12000. Hantering av hanterade instanser via Azure Resource Manager-distributioner Miss fungerar om inkommande och utgående regler har kon figurer ATS separat för varje port. Om de här portarna finns i separata regler fungerar inte distributionen med felkoden `VnetSubnetConflictWithIntendedPolicy`
 
-\* MI-UNDERNÄT refererar till under nätets IP-adressintervall i formatet 10. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
+\* MI-UNDERNÄT refererar till under nätets IP-adressintervall i formatet x. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
 
 > [!IMPORTANT]
 > Även om de obligatoriska inkommande säkerhets reglerna tillåter trafik från vilken källa som _helst_ på portarna 9000, 9003, 1438, 1440 och 1452, skyddas dessa portar av en inbyggd brand vägg. Mer information finns i [ta reda på hanterings slut punktens adress](sql-database-managed-instance-find-management-endpoint-ip-address.md).

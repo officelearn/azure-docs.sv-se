@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 310bf168b701ba6c37f71bc968da8e9114458e6f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 120caf459a7a8ca4e60d5e447a1e4130c0bce389
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425315"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226335"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Lägg till ett SSL-certifikat i Azure App Service
 
@@ -21,7 +21,7 @@ När certifikatet har lagts till i din App Service app eller [Function-app](http
 
 I följande tabell visas de alternativ som du har för att lägga till certifikat i App Service:
 
-|Alternativ|Beskrivning|
+|Alternativ|Description|
 |-|-|
 | Skapa ett kostnads fritt App Service-hanterat certifikat (förhands granskning) | Ett privat certifikat som är enkelt att använda om du bara behöver skydda din `www` [anpassade domän](app-service-web-tutorial-custom-domain.md) eller någon annan icke-blott domän i App Service. |
 | Köp ett App Service-certifikat | Ett privat certifikat som hanteras av Azure. Den kombinerar den automatiserade certifikat hanteringen och flexibiliteten i förnyelse-och export alternativen. |
@@ -113,9 +113,9 @@ Starta en App Service certifikat ordning på <a href="https://portal.azure.com/#
 
 Använd följande tabell som hjälp för att konfigurera certifikatet. Klicka på **Skapa** när du är klar.
 
-| Inställning | Beskrivning |
+| Inställning | Description |
 |-|-|
-| Namn | Ett eget namn på ditt App Service certifikat. |
+| Name | Ett eget namn på ditt App Service certifikat. |
 | Värddator namn för blott-domän | Ange rot domänen här. Det utfärdade certifikatet skyddar *både* rot domänen och under domänen `www`. I det utfärdade certifikatet innehåller fältet eget namn rot domänen och fältet Alternativt namn på certifikat mottagare innehåller `www`-domänen. Om du bara vill skydda en under domän anger du det fullständigt kvalificerade domän namnet för under domänen här (till exempel `mysubdomain.contoso.com`).|
 | Prenumeration | Den prenumeration som ska innehålla certifikatet. |
 | Resursgrupp | Den resurs grupp som ska innehålla certifikatet. Du kan använda en ny resurs grupp eller välja samma resurs grupp som App Service-appen, till exempel. |
@@ -134,11 +134,11 @@ Välj certifikatet på sidan [app service certifikat](https://portal.azure.com/#
 
 På sidan **Key Vault status** klickar du på **Key Vault lagrings plats** för att skapa ett nytt valv eller välja ett befintligt valv. Om du väljer att skapa ett nytt valv använder du följande tabell som hjälp för att konfigurera valvet och klicka på Skapa. Skapa den nya Key Vault inuti samma prenumeration och resurs grupp som din App Service-app.
 
-| Inställning | Beskrivning |
+| Inställning | Description |
 |-|-|
-| Namn | Ett unikt namn som består av alfanumeriska tecken och bindestreck. |
+| Name | Ett unikt namn som består av alfanumeriska tecken och bindestreck. |
 | Resursgrupp | Som en rekommendation väljer du samma resurs grupp som ditt App Service certifikat. |
-| plats. | Välj samma plats som App Service-appen. |
+| Plats | Välj samma plats som App Service-appen. |
 | Prisnivå | Mer information finns [Azure Key Vault pris information](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Åtkomstprinciper| Definierar program och tillåten åtkomst till valv resurserna. Du kan konfigurera den senare genom att följa stegen i [bevilja flera program åtkomst till ett nyckel valv](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Virtual Network åtkomst | Begränsa valv åtkomst till vissa virtuella Azure-nätverk. Du kan konfigurera den senare genom att följa stegen i [konfigurera Azure Key Vault brand väggar och virtuella nätverk](../key-vault/key-vault-network-security.md) |
@@ -191,7 +191,7 @@ Välj **TLS/SSL-inställningar** > **privata nyckel certifikat (. pfx)** i den v
 
 Använd följande tabell för att få hjälp att välja certifikatet.
 
-| Inställning | Beskrivning |
+| Inställning | Description |
 |-|-|
 | Prenumeration | Den prenumeration som Key Vault tillhör. |
 | Key Vault | Valvet med det certifikat som du vill importera. |
@@ -349,7 +349,7 @@ Den hämtade *appservicecertificate. pfx* -filen är en RAW PKCS12-fil som inneh
 
 ### <a name="delete-certificate"></a>Ta bort certifikat 
 
-Att ta bort ett App Service certifikat är slutgiltigt och oåterkalleligt. Alla bindningar i App Service med det här certifikatet blir ogiltiga. För att förhindra oavsiktlig borttagning sätter Azure ett lås på certifikatet. Om du vill ta bort ett App Service-certifikat måste du först ta bort borttagnings låset för certifikatet.
+Att ta bort ett App Service certifikat är slutgiltigt och oåterkalleligt. Borttagning av en App Service Certificate resurs resulterar i att certifikatet återkallas. Alla bindningar i App Service med det här certifikatet blir ogiltiga. För att förhindra oavsiktlig borttagning sätter Azure ett lås på certifikatet. Om du vill ta bort ett App Service-certifikat måste du först ta bort borttagnings låset för certifikatet.
 
 Välj certifikatet på sidan [app service certifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) och välj sedan **Lås** i det vänstra navigerings fältet.
 

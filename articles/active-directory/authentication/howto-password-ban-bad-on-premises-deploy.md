@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f61ab87a3eb1bd4b81a8e67a182a4cb6a09aa069
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 4a3eb121b68311084fd516c6abb7e00ad70eba8b
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888966"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226838"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuera Azure AD-lösenordsskydd
 
@@ -32,7 +32,7 @@ I gransknings fasen tar många organisationer reda på följande:
 * Användarna använder ofta oskyddade lösen ord.
 * De måste informera användarna om den kommande ändringen av säkerheten, eventuellt påverka dem och hur man väljer säkrare lösen ord.
 
-Det är också möjligt att använda starkare lösen ords verifiering för att påverka din befintliga Active Directory distribution av domänkontrollantens distributions automatisering. Vi rekommenderar att minst en befordran av DOMÄNKONTROLLANTen och en degradering av en DOMÄNKONTROLLANT sker under utvärderings perioden för gransknings perioden för att hjälpa till att få ut sådana problem i förväg.  Mer information finns här:
+Det är också möjligt att använda starkare lösen ords verifiering för att påverka din befintliga Active Directory distribution av domänkontrollantens distributions automatisering. Vi rekommenderar att minst en befordran av DOMÄNKONTROLLANTen och en degradering av en DOMÄNKONTROLLANT sker under utvärderings perioden för gransknings perioden för att hjälpa till att få ut sådana problem i förväg.  Mer information finns i:
 
 * [Ntdsutil. exe kan inte ange ett svagt lösen ord för reparations läge för katalog tjänster](howto-password-ban-bad-on-premises-troubleshoot.md#ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [Befordran av replik på domänkontrollant Miss lyckas på grund av ett svagt lösen ord för reparations läge för katalog tjänster](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
@@ -55,7 +55,7 @@ När funktionen har körts i gransknings läge under en rimlig period, kan du v�
 * Nätverks anslutningen måste finnas mellan minst en domänkontrollant i varje domän och minst en server som är värd för-proxyservern för lösen ords skydd. Den här anslutningen måste tillåta att domänkontrollanten får åtkomst till RPC Endpoint Mapper port 135 och RPC-serverport på proxyservern. Som standard är RPC-Server porten en dynamisk RPC-port, men den kan konfigureras att [använda en statisk port](#static).
 * Alla datorer där Azure AD Password Protection-proxytjänsten ska installeras måste ha nätverks åtkomst till följande slut punkter:
 
-    |**Slutpunkt**|**Syfte**|
+    |**Endpoint**|**Syfte**|
     | --- | --- |
     |`https://login.microsoftonline.com`|Autentiseringsbegäranden|
     |`https://enterpriseregistration.windows.net`|Funktioner för lösen ords skydd i Azure AD|
@@ -96,7 +96,7 @@ Följande diagram visar hur de grundläggande komponenterna i Azure AD Password 
 
 Det är en bra idé att granska hur program varan fungerar innan du distribuerar den. Se [Konceptuell översikt över lösen ords skydd i Azure AD](concept-password-ban-bad-on-premises.md).
 
-### <a name="download-the-software"></a>Ladda ned programvaran
+### <a name="download-the-software"></a>Ladda ned program varan
 
 Det finns två installations program som krävs för lösen ords skydd i Azure AD. De är tillgängliga från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -106,6 +106,7 @@ Det finns två installations program som krävs för lösen ords skydd i Azure A
    * Varje sådan tjänst kan bara tillhandahålla lösen ords principer för en enda skog. Värd datorn måste vara ansluten till en domän i den skogen. Både rot-och underordnade domäner stöds. Du behöver en nätverks anslutning mellan minst en DOMÄNKONTROLLANT i varje domän i skogen och på datorn med lösen ords skydd.
    * Du kan köra proxy-tjänsten på en domänkontrollant för testning. Men domänkontrollanten kräver sedan Internet anslutning, vilket kan vara en säkerhets risk. Vi rekommenderar den här konfigurationen endast för testning.
    * Vi rekommenderar minst två proxyservrar för redundans. Se [hög tillgänglighet](howto-password-ban-bad-on-premises-deploy.md#high-availability).
+   * Det finns inte stöd för att köra proxy-tjänsten på en skrivskyddad domänkontrollant.
 
 1. Installera Proxy-tjänsten för lösen ords skydd för Azure AD med hjälp av installations programmet för `AzureADPasswordProtectionProxySetup.exe`.
    * Program varu installationen kräver ingen omstart. Program varu installationen kan automatiseras med hjälp av standard-MSI-procedurer, till exempel:
@@ -133,11 +134,11 @@ Det finns två installations program som krävs för lösen ords skydd i Azure A
 
      `Register-AzureADPasswordProtectionProxy`
 
-     Denna cmdlet kräver globala administratörsautentiseringsuppgifter för din Azure-klient. Du måste också ha lokala Active Directory domän administratörs behörighet i skogs rots domänen. Du måste också köra denna cmdlet med ett konto med lokal administratörs behörighet.
+     Denna cmdlet kräver globala administratörsautentiseringsuppgifter för din Azure-klient. Du måste också ha lokala Active Directory domän administratörs behörighet i skogs rots domänen. Denna cmdlet måste också köras med ett konto med lokal administratörs behörighet.
 
      När det här kommandot har slutförts en gång för en proxyserver kommer ytterligare anrop att lyckas, men är onödigt.
 
-      `Register-AzureADPasswordProtectionProxy`-cmdleten stöder följande tre autentiseringsläge. De två första lägena har stöd för Azure Multi-Factor Authentication men det tredje läget fungerar inte. Mer information finns i kommentarerna nedan.
+      `Register-AzureADPasswordProtectionProxy`-cmdleten stöder följande tre autentiseringsläge. De två första lägena har stöd för Azure Multi-Factor Authentication men det tredje läget fungerar inte. Se kommentarerna nedan för mer information.
 
      * Interaktivt autentiseringsläge:
 
@@ -179,11 +180,11 @@ Det finns två installations program som krävs för lösen ords skydd i Azure A
    > Det kan finnas en märkbar fördröjning före slut för ande första gången den här cmdleten körs för en viss Azure-klient. Om inte ett haveri rapporteras behöver du inte bekymra dig om den här fördröjningen.
 
 1. Registrera skogen.
-   * Du måste initiera den lokala Active Directory skogen med de autentiseringsuppgifter som krävs för att kommunicera med Azure med hjälp av `Register-AzureADPasswordProtectionForest` PowerShell-cmdleten.
+   * Initiera den lokala Active Directory skogen med de autentiseringsuppgifter som krävs för att kommunicera med Azure med hjälp av `Register-AzureADPasswordProtectionForest` PowerShell-cmdleten.
 
       Cmdleten kräver autentiseringsuppgifter för global administratör för din Azure-klient.  Du måste också köra denna cmdlet med ett konto med lokal administratörs behörighet. Det kräver också lokala Active Directory företags administratörs behörighet. Det här steget körs en gång per skog.
 
-      `Register-AzureADPasswordProtectionForest`-cmdleten stöder följande tre autentiseringsläge. De två första lägena har stöd för Azure Multi-Factor Authentication men det tredje läget fungerar inte. Mer information finns i kommentarerna nedan.
+      `Register-AzureADPasswordProtectionForest`-cmdleten stöder följande tre autentiseringsläge. De två första lägena har stöd för Azure Multi-Factor Authentication men det tredje läget fungerar inte. Se kommentarerna nedan för mer information.
 
      * Interaktivt autentiseringsläge:
 
@@ -266,7 +267,7 @@ Det finns två installations program som krävs för lösen ords skydd i Azure A
    Proxy-tjänsten stöder inte användning av autentiseringsuppgifter för att ansluta till en HTTP-proxy.
 
 1. Valfritt: Konfigurera proxy-tjänsten för lösen ords skydd för att lyssna på en angiven port.
-   * DC-agentens program vara för lösen ords skydd på domän kontrol Lanterna använder RPC över TCP för att kommunicera med proxy-tjänsten. Som standard lyssnar proxy tjänsten på en tillgänglig dynamisk RPC-slutpunkt. Men du kan konfigurera tjänsten så att den lyssnar på en angiven TCP-port, om detta är nödvändigt på grund av nätverkets topologi eller brand Väggs krav i din miljö.
+   * DC-agentens program vara för lösen ords skydd på domän kontrol Lanterna använder RPC över TCP för att kommunicera med proxy-tjänsten. Som standard lyssnar proxy tjänsten på en tillgänglig dynamisk RPC-slutpunkt. Du kan konfigurera tjänsten så att den lyssnar på en angiven TCP-port, om det behövs på grund av nätverkets topologi eller brand Väggs krav i din miljö.
       * <a id="static" /></a>för att konfigurera tjänsten så att den körs under en statisk port använder du `Set-AzureADPasswordProtectionProxyConfiguration`-cmdleten.
 
          ```powershell
@@ -306,7 +307,7 @@ Det finns två installations program som krävs för lösen ords skydd i Azure A
 
    Du kan installera DC-agenttjänsten på en dator som ännu inte är en domänkontrollant. I det här fallet startar och körs tjänsten men förblir inaktiv tills datorn uppgraderas till en domänkontrollant.
 
-   Du kan automatisera program varu installationen med hjälp av standard-MSI-procedurer. Ett exempel:
+   Du kan automatisera program varu installationen med hjälp av standard-MSI-procedurer. Exempel:
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 
@@ -343,6 +344,8 @@ Det finns inga ytterligare krav för att distribuera lösen ords skydd i Azure A
 ## <a name="read-only-domain-controllers"></a>Skrivskyddade domänkontrollanter
 
 Lösen ords ändringar/uppsättningar bearbetas inte och sparas inte på skrivskyddade domänkontrollanter (RODC). De vidarebefordras till skrivbara domänkontrollanter. Så du behöver inte installera program varan för DC-agenten på RODC.
+
+Det finns inte stöd för att köra proxy-tjänsten på en skrivskyddad domänkontrollant.
 
 ## <a name="high-availability"></a>Hög tillgänglighet
 

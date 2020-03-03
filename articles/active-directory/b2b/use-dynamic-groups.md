@@ -1,49 +1,79 @@
 ---
-title: Dynamiska grupper och B2B - samarbete i Azure Active Directory | Microsoft Docs
-description: Visar hur du använder dynamiska grupper i Azure AD med Azure Active Directory B2B-samarbete
+title: Dynamiska grupper och B2B-samarbete – Azure Active Directory | Microsoft Docs
+description: Visar hur du använder dynamiska Azure AD-grupper med Azure Active Directory B2B-samarbete
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 02/28/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4e3f64cb6aefb35c3f85bafc2bb408f998626d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41e8b81bc3594c6a378757636f70058510a38cc7
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112821"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226899"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Dynamiska grupper och Azure Active Directory B2B-samarbete
 
 ## <a name="what-are-dynamic-groups"></a>Vad är dynamiska grupper?
-Dynamisk konfiguration av medlemskap i säkerhetsgrupper för Azure Active Directory (Azure AD) är tillgänglig i [Azure-portalen](https://portal.azure.com). Administratörer kan ange regler för att fylla i grupper som har skapats i Azure AD baserat på användarattribut (till exempel userType, avdelning eller land/region). Medlemmar kan automatiskt läggas till eller tas bort från en grupp baserat på deras attribut. Dessa grupper kan ge åtkomst till program eller molnresurser (SharePoint-webbplatser, dokument) och tilldela licenser till medlemmar. Läs mer om dynamiska grupper i [dedikerade grupper i Azure Active Directory](../active-directory-accessmanagement-dedicated-groups.md).
+Dynamisk konfiguration av säkerhets grupp medlemskap för Azure Active Directory (Azure AD) finns i [Azure Portal](https://portal.azure.com). Administratörer kan ange regler för att fylla i grupper som skapas i Azure AD baserat på användarattribut (till exempel userType, avdelning eller land/region). Medlemmar kan läggas till eller tas bort automatiskt från en säkerhets grupp baserat på deras attribut. Dessa grupper kan ge åtkomst till program eller moln resurser (SharePoint-webbplatser, dokument) och tilldela licenser till medlemmar. Läs mer om dynamiska grupper i [dedikerade grupper i Azure Active Directory](../active-directory-accessmanagement-dedicated-groups.md).
 
-Den aktuella [Azure AD Premium P1 eller P2 licensiering](https://azure.microsoft.com/pricing/details/active-directory/) krävs för att skapa och använda dynamiska grupper. Mer information finns i artikeln [skapa attributbaserade regler för dynamiskt gruppmedlemskap i Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md).
+Lämplig [Azure AD Premium P1-eller P2-licens](https://azure.microsoft.com/pricing/details/active-directory/) krävs för att skapa och använda dynamiska grupper. Läs mer i artikeln [skapa attribut-baserade regler för dynamiska grupp medlemskap i Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md).
 
-## <a name="what-are-the-built-in-dynamic-groups"></a>Vad är de inbyggda dynamiska grupperna?
-Den **alla användare** dynamisk grupp gör det möjligt för administratörer av klientorganisationer att skapa en grupp som innehåller alla användare i klientorganisationen med ett enda klick. Som standard den **alla användare** gruppen omfattar alla användare i katalogen, inklusive medlemmar och gäster.
-I den nya Azure Active Directory-administrationsportalen, kan du aktivera den **alla användare** i vyn gruppinställningar.
+## <a name="creating-an-all-users-dynamic-group"></a>Skapa en dynamisk grupp för alla användare
+Du kan skapa en grupp som innehåller alla användare i en klient som använder en medlemskaps regel. När användare läggs till eller tas bort från klienten i framtiden, justeras gruppens medlemskap automatiskt.
 
-![Visar aktivera gruppen Alla användare som ställts in på Ja](media/use-dynamic-groups/enable-all-users-group.png)
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är tilldelat rollen global administratör eller användar administratör i klienten.
+1. Välj **Azure Active Directory**.
+2. Under **Hantera**, Välj **grupper**och välj sedan **ny grupp**.
+1. Välj **säkerhet**under **grupptyp**på sidan **ny grupp** . Ange ett **grupp namn** och en **grupp Beskrivning** för den nya gruppen. 
+2. Under **medlemskaps typ**väljer du **dynamisk användare**och väljer sedan **Lägg till dynamisk fråga**. 
+4. I text rutan **syntax för regel** väljer du **Redigera**. På sidan **Redigera regeltyp** skriver du följande uttryck i text rutan:
 
-## <a name="hardening-the-all-users-dynamic-group"></a>Härdning av den dynamiska gruppen som har alla användare
-Som standard den **alla användare** gruppen innehåller användare samt dina B2B-samarbete (Gäst). Du kan ytterligare skydda din **alla användare** gruppen med hjälp av en regel för att ta bort gästanvändare. I följande bild visas den **alla användare** grupp har ändrats för att exkludera gäster.
+   ```
+   user.objectId -ne null
+   ```
+1. Välj **OK**. Regeln visas i rutan syntax för regel:
 
-![Visar regeln där användaren inte är lika med gästen](media/use-dynamic-groups/exclude-guest-users.png)
+   ![Regel-syntax för alla användares dynamiska grupp](media/use-dynamic-groups/all-user-rule-syntax.png)
 
-Det kan också vara bra att skapa en dynamisk grupp som innehåller endast gästanvändare, så att du kan tillämpa principer (till exempel Azure AD villkorliga åtkomstprinciper) till dem.
-Hur sådan grupp kan se ut:
+1.  Välj **Spara**. Den nya dynamiska gruppen kommer nu att innehålla B2B-gäst användare samt medlems användare.
 
-![Visar regeln där användartyp är lika med gästen](media/use-dynamic-groups/only-guest-users.png)
+
+1. Skapa gruppen genom att välja **skapa** på sidan **ny grupp** .
+
+## <a name="creating-a-group-of-members-only"></a>Endast skapa en grupp med medlemmar
+
+Om du vill att din grupp ska undanta gäst användare och bara inkludera medlemmar i din klient organisation, skapar du en dynamisk grupp enligt beskrivningen ovan, men i rutan **syntax för regel** anger du följande uttryck:
+
+```
+(user.objectId -ne null) and (user.userType -eq "Member")
+```
+
+Följande bild visar regel syntaxen för en dynamisk grupp som har ändrats för att inkludera endast medlemmar och exkludera gäster.
+
+![Visar regel där användar typen är lika med medlem](media/use-dynamic-groups/all-member-user-rule-syntax.png)
+
+## <a name="creating-a-group-of-guests-only"></a>Skapa en grupp med endast gäster
+
+Du kanske också är användbar att skapa en ny dynamisk grupp som bara innehåller gäst användare, så att du kan tillämpa principer (till exempel principer för villkorlig åtkomst i Azure AD). Skapa en dynamisk grupp enligt beskrivningen ovan, men ange följande uttryck i rutan **regeltyp** :
+
+```
+(user.objectId -ne null) and (user.userType -eq "Guest")
+```
+
+Följande bild visar regel syntaxen för en dynamisk grupp som har ändrats för att endast omfatta gäster och utesluta medlems användare.
+
+![Visar regel där användar typen är lika med gäst](media/use-dynamic-groups/all-guest-user-rule-syntax.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Användaregenskaper för B2B-samarbete](user-properties.md)
-- [Att lägga till en B2B-användare till en roll](add-guest-to-role.md)
-- [Villkorlig åtkomst för användare i B2B-samarbetet](conditional-access.md)
+- [Lägga till en B2B-samarbets användare till en roll](add-guest-to-role.md)
+- [Villkorlig åtkomst för B2B-samarbets användare](conditional-access.md)
 

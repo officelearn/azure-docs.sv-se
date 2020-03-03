@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: f07c4d8b440216cb676484ae2f510b2736b7d17c
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: faea0759f86e9d12530df6c647d903eacdade5c4
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443915"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228049"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Snabb start: skapa en Java-app på Azure App Service på Linux
 
@@ -95,7 +95,7 @@ Confirm (Y/N)? : Y
 
 Navigera till `pom.xml` igen om du vill se att plugin-konfigurationen har uppdaterats, kan du ändra andra konfigurationer för App Service direkt i Pom-filen om det behövs, några vanliga i listan nedan:
 
- Egenskap | Krävs | Beskrivning | Version
+ Egenskap | Krävs | Description | Version
 ---|---|---|---
 `<schemaVersion>` | false | Ange konfigurations schemats version. Värden som stöds är: `v1``v2`. | 1.5.2
 `<resourceGroup>` | true | Azure-resurs grupp för din webbapp. | 0.1.0 +
@@ -136,6 +136,15 @@ az group delete --name <your resource group name; for example: helloworld-155840
 Det kan några minuter att köra kommandot.
 
 ## <a name="next-steps"></a>Nästa steg
+
+> [!div class="nextstepaction"]
+> [Ansluta till Azure SQL Database med Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+
+> [!div class="nextstepaction"]
+> [Ansluta till Azure DB för MySQL med Java](/azure/mysql/connect-java?toc=/azure/java/toc.json)
+
+> [!div class="nextstepaction"]
+> [Ansluta till Azure DB för PostgreSQL med Java](/azure/postgresql/connect-java?toc=/azure/java/toc.json)
 
 > [!div class="nextstepaction"]
 > [Konfigurera java-app](configure-custom-container.md)

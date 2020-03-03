@@ -1,17 +1,17 @@
 ---
-title: Felsök med Visual Studio
+title: Felsöka med Visual Studio
 description: Lär dig hur du felsöker en App Service-app med hjälp av fjärr fel sökning, spårning och loggnings verktyg som är inbyggda i Visual Studio 2013.
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 5c0a236dc6ebf02c859d9db3f25f0e9016ac35ab
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688373"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227898"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Felsöka en app i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt
@@ -340,11 +340,11 @@ Med `WebPageTraceListener` kan du Visa spårningsutdata genom att bläddra till 
 1. Lägg till *trace. AXD* i webb adressen i adress fältet i webbläsarfönstret och tryck sedan på RETUR (URL: en liknar `http://localhost:53370/trace.axd`).
 1. På sidan **program spårning** klickar du på **Visa information** på den första raden (inte på BrowserLink-raden).
 
-    ![Trace. AXD](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
+    ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
     Sidan **information om begäran** visas och i avsnittet **Spåra information** visas utdata från de spårnings instruktioner som du har lagt till i metoden `Index`.
 
-    ![Trace. AXD](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
+    ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
 
     Som standard är `trace.axd` endast tillgängligt lokalt. Om du vill göra den tillgänglig från en fjärran sluten app kan du lägga till `localOnly="false"` i `trace`-elementet i *Web. config* -filen, som du ser i följande exempel:
 
@@ -620,7 +620,7 @@ Mer information om fel sökning av appar i Azure App Service finns i följande r
 Om du behöver hjälp med en detaljerad fel söknings fråga startar du en tråd i något av följande Forum:
 
 * [Azure-forumet på ASP.NET-webbplatsen](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
-* [Azure-forumet på MSDN](https://social.msdn.microsoft.com/Forums/windowsazure/).
+* [Azure-forumet på Microsoft Q & A](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Fel sökning i Visual Studio

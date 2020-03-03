@@ -3,15 +3,15 @@ title: Specifikationer för Microsoft Azure FXT Edge | Microsoft Docs
 description: Fysiska och miljömässiga specifikationer för maskin vara från Azure FXT Edge-filer
 author: ekpgh
 ms.service: fxt-edge-filer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 90d56ad0cec3d187d4c7307f8c004b14c3860390
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254707"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227479"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Specifikationer för Azure FXT Edge-filer
 
@@ -21,9 +21,9 @@ I den här artikeln beskrivs maskin varu specifikationerna för maskin varu node
 
 | Komponent | FXT 6600 | FXT 6400 |
 |----------|-----------|-----------|
-| CPU-kärnor |  16 | 16 |
-| DYNAMISKA  | 1536 GB | 768 GB |
-| Nätverksportar | 6 x 25/10 GB + 2 x 1 GB | 6 x 25/10 GB + 2 x 1 GB |
+| Processorkärnor |  16 | 16 |
+| DRAM  | 1536 GB | 768 GB |
+| Nätverks portar | 6 x 25/10 GB + 2 x 1 GB | 6 x 25/10 GB + 2 x 1 GB |
 | NVMe SSD-kapacitet | 25,6 TB | 12,8 TB |
 
 ## <a name="drive-specifications"></a>Enhets specifikationer
@@ -36,7 +36,7 @@ Enhets nummer skrivs ut på utrymmet mellan enheter. I Azure FXT Edge-filer är 
 
 | Enhets nummer    |  Användning   |  Specifikationer |
 |------------------|--------|-----------------|
-| 0, 1             | OS     | 480 GB SATA SSD |
+| 0, 1             | Operativsystem     | 480 GB SATA SSD |
 | 2, 3, 4, 5, 6, 7, 8, 9 | Data   | FXT 6600:3,2 TB NVMe SSD <br> FXT 6400:1,6 TB NVMe SSD |
 
 
@@ -48,7 +48,7 @@ Azure FXT Edge-filer har utformats för att passa i ett standardiserat "utrustni
 
 | Filter för filer           |                          |
 |-----------------------------|--------------------------|
-| Våghöjd                      | 42,8 mm (1,68 tum)    |
+| Höjd                      | 42,8 mm (1,68 tum)    |
 | Bredd (inklusive rack öron) | 482,0 mm (18,97 tum)  |
 | Bredd – huvud hölje      | 434,0 mm (17,08 tum) |
 | Djup – rack öron över huvud kabinettet                   | 733,82 mm (29,61 tum) |
@@ -64,10 +64,10 @@ Azure FXT Edge-filer har utformats för att passa i ett standardiserat "utrustni
 
 ### <a name="shipping-dimensions"></a>Leverans dimensioner
 
-| Paket dimension | Millimeter | Mm |
+| Paket dimension | Millimeter | mm |
 |-------------------|-------------|--------|
-| Våghöjd            | 311,2       | 12,25 " |
-| LED             | 642,8       | 25,31 " |
+| Höjd            | 311,2       | 12,25 " |
+| Bredd             | 642,8       | 25,31 " |
 | Längd            | 1 051,1     | 41,38 " |
 
 ## <a name="power-and-thermal-specifications"></a>Energi-och termisk-specifikationer
@@ -104,7 +104,7 @@ De här diagrammen ger mått för strömförbrukning och termiska utdata för va
 |---------|---|---|---|---|---|
 | Spänning (V) | 100 |120 | 208 | 230 | 240| 
 | Frekvens (Hz) | 60 | 60 | 60 | 50 | 50 |
-| Aktuell (A) | 5,98 | 5,01 | 2,81 | 2,55 | 2,48 |
+| Aktuell (A) | 5,98 | 5,01 | 2,81 | 2.55 | 2,48 |
 | Synbar ström (VA) | 598 | 601 | 584 | 587 | 595 |
 | Effekt faktor | 0,99 | 0,99 | 0,98 | 0,98 | 0,98 |
 | Verklig effekt (W) | 592 | 595 | 573 | 575 | 583 |
@@ -124,7 +124,7 @@ De här diagrammen ger mått för strömförbrukning och termiska utdata för va
 |---------|---|---|---|---|---|
 | Spänning (V) | 100 | 120 | 208 | 230 | 240 |
 | Frekvens (Hz) | 60 | 60 | 60 | 50 | 50 |
-| Aktuell (A) | 5,15 | 4,28 | 2,48 | 2,28 | 2,13 |
+| Aktuell (A) | 5.15 | 4,28 | 2,48 | 2,28 | 2,13 |
 | Synbar ström (VA) | 515 | 514 | 516 | 524 | 511 |
 | Effekt faktor | 0,99 | 0,99 | 0,98 | 0,98 | 0,98 |
 | Verklig effekt (W) | 510 | 508 | 506 | 514 | 501 |

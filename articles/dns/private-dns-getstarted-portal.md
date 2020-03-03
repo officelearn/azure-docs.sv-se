@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 10/11/2019
 ms.author: rohink
-ms.openlocfilehash: 8391d92a2e2970378c11c043ca9f5d4f6dc44696
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 8acdaabc9f12f7e1bf85cfd8c727369462fe47e4
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939370"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227415"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Snabb start: skapa en privat Azure-DNS-zon med hjälp av Azure Portal
 
 Den här snabb starten vägleder dig genom stegen för att skapa din första privata DNS-zon och-post med hjälp av Azure Portal.
 
-En DNS-zon används som värd för DNS-poster för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  Dessa kallas *länkade* virtuella nätverk. När autoregistrering har Aktiver ATS uppdaterar Azure DNS även zon posterna när en virtuell dator skapas, ändrar dess IP-adress eller raderas.
+En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  Dessa kallas *länkade* virtuella nätverk. När autoregistrering har Aktiver ATS uppdaterar Azure DNS även zon posterna när en virtuell dator skapas, ändrar dess IP-adress eller raderas.
 
 I den här snabbstarten lär du dig att:
 
@@ -48,7 +48,7 @@ En DNS-zon innehåller DNS-poster för en domän. Om du vill låta Azure DNS var
 
 1. På sidan **skapa privat DNS zon** skriver eller väljer du följande värden:
 
-   - **Resurs grupp**: Välj **Skapa ny**, ange *MyAzureResourceGroup*och välj **OK**. Resursgruppens namn måste vara unikt inom Azure-prenumerationen. 
+   - **Resurs grupp**: Välj **Skapa ny**, ange *MyAzureResourceGroup*och välj **OK**. Resursgruppens namn måste vara unikt inom Azure-prenumerationen.
    -  **Namn**: Skriv *Private.contoso.com* i det här exemplet.
 1. För **resurs gruppens plats**väljer du **västra centrala USA**.
 
@@ -58,13 +58,21 @@ En DNS-zon innehåller DNS-poster för en domän. Om du vill låta Azure DNS var
 
 Det kan ta några minuter att skapa zonen.
 
-## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
+## <a name="virtual-network-and-parameters"></a>Virtuellt nätverk och parametrar
 
-1. På Portal sidan längst upp till vänster väljer du **skapa en resurs**, sedan **nätverk**och välj sedan **virtuellt nätverk**.
-2. I **namn**skriver du **myAzureVNet**.
-3. För **resurs grupp**väljer du **MyAzureResourceGroup**.
-4. För **plats**väljer du **västra centrala USA**.
-5. Godkänn de andra standardvärdena och välj **skapa**.
+I det här avsnittet måste du ersätta följande parametrar i stegen med informationen nedan:
+
+| Parameter                   | Värde                |
+|-----------------------------|----------------------|
+| **\<resurs-grupp-namn >**  | MyAzureResourceGroup |
+| **\<virtuella-nätverks namn >** | MyAzureVNet          |
+| **\<region – namn >**          | Västra centrala USA      |
+| **> för \<IPv4-adress utrymme**   | 10.2.0.0 \ 16          |
+| **\<under nätets namn >**          | MyAzureSubnet        |
+| **\<undernät – adress intervall >** | 10.2.0.0 \ 24          |
+
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="link-the-virtual-network"></a>Länka det virtuella nätverket
 
@@ -88,9 +96,8 @@ Nu skapar du två virtuella datorer så att du kan testa din privata DNS-zon:
 1. Välj **MyAzureResourceGroup** för resurs gruppen.
 1. Skriv **myVM01** – för namnet på den virtuella datorn.
 1. Välj **västra centrala USA** för **regionen**.
-1. Skriv **azureadmin** som administratörs användar namn.
-2. Skriv **Azure12345678** som lösen ord och bekräfta lösen ordet.
-
+1. Ange ett namn på administratörs användar namnet.
+2. Ange ett lösen ord och bekräfta lösen ordet.
 5. För **offentliga inkommande portar**väljer du **Tillåt valda portar**och väljer sedan **RDP (3389)** för **Välj inkommande portar**.
 10. Godkänn de andra standardvärdena för sidan och klicka sedan på **Nästa: diskar >** .
 11. Godkänn standardvärdena på sidan **diskar** och klicka sedan på **nästa: nätverks >** .

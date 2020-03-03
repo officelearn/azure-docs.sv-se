@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: dapine
-ms.openlocfilehash: c4a27db8bec6dbbd2f1b2be8acfdd034d45d37d5
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 499770b664757ec0f3a0bd3b26e0de36007741b6
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561928"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228069"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Förbättra syntesen med SSML (Speech syntes Markup Language)
 
@@ -57,9 +57,9 @@ Varje SSML-dokument skapas med SSML-element (eller taggar). Dessa element använ
 
 | Attribut | Beskrivning | Obligatoriskt / valfritt |
 |-----------|-------------|---------------------|
-| `version` | Anger den version av SSML-specifikationen som används för att tolka dokument markeringen. Den aktuella versionen är 1,0. | Obligatoriskt |
-| `xml:lang` | Anger språket för rot dokumentet. Värdet får innehålla gemener, versaler, två bokstäver (till exempel `en`) eller språk koden och det stora landet/regionen (till exempel `en-US`). | Obligatoriskt |
-| `xmlns` | Anger den URI till dokumentet som definierar ord listan (element typerna och attributnamnet) för SSML-dokumentet. Aktuell URI är https://www.w3.org/2001/10/synthesis. | Obligatoriskt |
+| `version` | Anger den version av SSML-specifikationen som används för att tolka dokument markeringen. Den aktuella versionen är 1,0. | Krävs |
+| `xml:lang` | Anger språket för rot dokumentet. Värdet får innehålla gemener, versaler, två bokstäver (till exempel `en`) eller språk koden och det stora landet/regionen (till exempel `en-US`). | Krävs |
+| `xmlns` | Anger den URI till dokumentet som definierar ord listan (element typerna och attributnamnet) för SSML-dokumentet. Aktuell URI är https://www.w3.org/2001/10/synthesis. | Krävs |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Välj röst för text till tal
 
@@ -77,7 +77,7 @@ Varje SSML-dokument skapas med SSML-element (eller taggar). Dessa element använ
 
 | Attribut | Beskrivning | Obligatoriskt / valfritt |
 |-----------|-------------|---------------------|
-| `name` | Identifierar rösten som används för text till tal-utdata. En fullständig lista över vilka röster som stöds finns i [språk stöd](language-support.md#text-to-speech). | Obligatoriskt |
+| `name` | Identifierar rösten som används för text till tal-utdata. En fullständig lista över vilka röster som stöds finns i [språk stöd](language-support.md#text-to-speech). | Krävs |
 
 **Exempel**
 
@@ -100,7 +100,7 @@ I `speak`-elementet kan du ange flera röster för text till tal-utdata. Dessa r
 
 | Attribut | Beskrivning | Obligatoriskt / valfritt |
 |-----------|-------------|---------------------|
-| `name` | Identifierar rösten som används för text till tal-utdata. En fullständig lista över vilka röster som stöds finns i [språk stöd](language-support.md#text-to-speech). | Obligatoriskt |
+| `name` | Identifierar rösten som används för text till tal-utdata. En fullständig lista över vilka röster som stöds finns i [språk stöd](language-support.md#text-to-speech). | Krävs |
 
 > [!IMPORTANT]
 > Flera röster är inkompatibla med ord gränsens funktion. Ord gränsen måste inaktive ras för att flera röster ska kunna användas.
@@ -348,6 +348,103 @@ Fonetiska alfabet består av telefoner, som består av bokstäver, siffror eller
 </speak>
 ```
 
+## <a name="use-custom-lexicon-to-improve-pronunciation"></a>Använd anpassat lexikon för att förbättra uttal
+
+Ibland kan inte TTS uttala ett ord, till exempel ett företags-eller främmande namn. Utvecklare kan definiera läsningen av dessa entiteter i SSML med hjälp av `phoneme` och `sub` tag eller definiera läsningen av flera entiteter genom att referera till en anpassad lexikon fil med `lexicon`-tagg.
+
+**Uttryck**
+
+```XML
+<lexicon uri="string"/>
+```
+
+**Dokumentattribut**
+
+| Attribut | Beskrivning | Obligatoriskt / valfritt |
+|-----------|-------------|---------------------|
+| `uri` | Adressen för det externa PLS-dokumentet. | Krävs. |
+
+**Användning**
+
+Steg 1: definiera anpassat lexikon 
+
+Du kan definiera hur entiteter ska läsas av en lista med anpassade lexikon objekt, lagrade som en XML-eller pls-fil.
+
+**Exempel**
+
+```xml
+<?xml version="1.0" encoding="UTF-16"?>
+<lexicon version="1.0" 
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon 
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="ipa" xml:lang="en-US">
+  <lexeme>
+    <grapheme>BTW</grapheme> 
+    <alias>By the way</alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme> Benigni </grapheme> 
+    <phoneme> bɛˈniːnji</phoneme>
+  </lexeme>
+</lexicon>
+```
+
+Varje `lexeme`-element är ett lexikon objekt. `grapheme` innehåller text som beskriver orthograph för `lexeme`. Du kan ange ett utläsnings format som `alias`. Telefon strängen kan anges i `phoneme`-elementet.
+
+`lexicon`-elementet innehåller minst ett `lexeme`-element. Varje `lexeme`-element innehåller minst ett `grapheme`-element och ett eller flera `grapheme`-, `alais`-och `phoneme`-element. `grapheme`-elementet innehåller text som beskriver <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">Orthography <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>. `alias` element används för att ange uttal av en akronym eller en förkortad term. `phoneme`-elementet innehåller text som beskriver hur `lexeme` uttalas.
+
+Mer information om den anpassade lexikon filen finns i avsnittet uttal av ord listan [(pls) Version 1,0](https://www.w3.org/TR/pronunciation-lexicon/) på W3C-webbplatsen.
+
+Steg 2: Ladda upp den anpassade lexikon filen som skapades i steg 1 online kan du lagra den var som helst, och vi föreslår att du lagrar den i Microsoft Azure, till exempel [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+
+Steg 3: referera till den anpassade lexikon filen i SSML
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
+          xmlns:mstts="http://www.w3.org/2001/mstts" 
+          xml:lang="en-US">
+<lexicon uri="http://www.example.com/customlexicon.xml"/>
+BTW, we will be there probably 8:00 tomorrow morning.
+Could you help leave a message to Robert Benigni for me?
+</speak>
+```
+"BTW" kommer att läsas som "på väg". "Oskadligi" kommer att läsas med den tillhandahållna IPA "bɛ ˈ ni ː Nji".  
+
+**Begränsning**
+- Fil storlek: den maximala storleks gränsen för den anpassade fil storleken är 100 KB, om den överskrider den här storleken kommer syntes förfrågan att Miss förväntas.
+- Uppdatering av lexikon-cache: anpassat lexikon cachelagras med URI som nyckel på TTS-tjänst när den läses in första gången. Det går inte att läsa in ett lexikon med samma URI inom 15 minuter, så den anpassade lexikon ändringen måste vänta högst 15 minuter innan den börjar gälla.
+
+**Konfiguration av SAPI-telefon**
+
+I exemplet ovan använder vi IPA-standarduppsättningen (International fonetisk Association). Vi rekommenderar utvecklare att använda IPA, eftersom IPA är den internationella standarden. 
+
+Med tanke på att IPA inte är lätt att komma ihåg, definierar Microsoft SAPI-telefon uppsättning för sju språk (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`och `zh-TW`). Mer information om alfabet finns i den [fonetiska alfabet referensen](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx).
+
+Du kan använda SAPI Phone-uppsättningen med anpassade lexikon som visas nedan. Ange värdet för alfabetet med **SAPI**.
+
+```xml
+<?xml version="1.0" encoding="UTF-16"?>
+<lexicon version="1.0" 
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon 
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="sapi" xml:lang="en-US">
+  <lexeme>
+    <grapheme>BTW</grapheme> 
+    <alias> By the way </alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme> Benigni </grapheme>
+    <phoneme> b eh 1 - n iy - n y iy </phoneme>
+  </lexeme>
+</lexicon>
+```
+
+Mer information om det detaljerade SAPI alfabetet finns i [SAPI alfabet-referensen](sapi-phoneset-usage.md).
+
 ## <a name="adjust-prosody"></a>Justera prosody
 
 `prosody`-elementet används för att ange förändringar i bredd, countour, intervall, hastighet, varaktighet och volym för text till tal-utdata. `prosody`-elementet kan innehålla text och följande element: `audio`, `break`, `p`, `phoneme`, `prosody`, `say-as`, `sub`och `s`.
@@ -447,7 +544,7 @@ Du kan ändra bredden på standard-röster på ord-eller menings nivå. Föränd
 
 | Attribut | Beskrivning | Obligatoriskt / valfritt |
 |-----------|-------------|---------------------|
-| `interpret-as` | Anger innehålls typen för elementets text. En lista med typer finns i tabellen nedan. | Obligatoriskt |
+| `interpret-as` | Anger innehålls typen för elementets text. En lista med typer finns i tabellen nedan. | Krävs |
 | `format` | Innehåller ytterligare information om den exakta formateringen av elementets text för innehålls typer som kan ha tvetydiga format. SSML definierar format för innehålls typer som använder dem (se tabellen nedan). | Valfri |
 | `detail` | Anger detalj nivån som ska läsas. Det här attributet kan till exempel begära att tal syntes motorn uttalar skiljetecken. Det finns inga standardvärden definierade för `detail`. | Valfri |
 

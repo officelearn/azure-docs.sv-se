@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 1/14/2020
 ms.author: cbasoglu
-ms.openlocfilehash: 00617fc09f471eaf3dc13a5aa691c4aab2e1e2ec
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: b41967033b00144ca5bd52ce23cf8aabcea6749e
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424923"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228083"
 ---
 # <a name="speech-services-with-sovereign-clouds"></a>Tal tjänster med suveräna moln
 
@@ -56,7 +56,7 @@ I Kina är ett Azure-datacenter med direkt åtkomst till Kina, mobil, telekom, K
 - TTS i SpeechSDK: *config. FromHost ("https[]()://chinaeast2.TTS.Speech.Azure.cn", "\<din nyckel\>");*
 - Autentiseringstoken: https[]()://chinaeast2.API.Cognitive.Azure.cn/STS/v1.0/issueToken
 - Azure Portal: https://portal.azure.cn
-- Custom Speech Portal: https://chinaeast2.cris.azure.cn/Home/CustomSpeech
+- Custom Speech Portal: https://speech.azure.cn/CustomSpeech
 - Tillgängliga SKU: er: S0
 - Funktioner som stöds:
   - Tal till text

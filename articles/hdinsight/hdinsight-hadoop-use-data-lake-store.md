@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 02/05/2020
-ms.openlocfilehash: c67fb21783a926f813d165528520b9d088154412
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.date: 03/01/2020
+ms.openlocfilehash: fddffee001266b96bc341738293bbdb42115a978
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162420"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228193"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Använda Data Lake Storage Gen1 med Azure HDInsight-kluster
 
@@ -31,7 +31,7 @@ I den här artikeln får du lära dig hur Data Lake Storage Gen1 fungerar med HD
 
 ## <a name="availability-for-hdinsight-clusters"></a>Tillgänglighet för HDInsight-kluster
 
-Apache Hadoop stöder en begreppet standard fil system. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. När du skapar HDInsight-kluster kan du ange en BLOB-behållare i Azure Storage som standard fil system, eller med HDInsight 3,5 och nyare versioner, kan du välja antingen Azure Storage eller Azure Data Lake Storage Gen1 som standard fil system med en några undantag.
+Apache Hadoop stöder en begreppet standard fil system. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. När du skapar HDInsight-kluster kan du ange en BLOB-behållare i Azure Storage som standard fil system, eller med HDInsight 3,5 och nyare versioner, kan du välja antingen Azure Storage eller Azure Data Lake Storage Gen1 som standard fil system med en några undantag. Observera att klustret och lagrings kontot måste finnas i samma region.
 
 HDInsight-kluster kan använda Data Lake Storage Gen1 på två sätt:
 
@@ -108,13 +108,13 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-data-lake-storage-gen1-as-additional-storage"></a>Använd Data Lake Storage Gen1 som ytterligare lagrings utrymme
 
-Du kan också använda Data Lake Storage Gen1 som ytterligare lagring för klustret. I sådana fall kan klustrets standard lagring antingen vara ett Azure Storage Blob eller ett Data Lake Storage konto. Om du kör HDInsight-jobb mot data som lagras i Data Lake Storage som ytterligare lagrings utrymme måste du använda den fullständigt kvalificerade sökvägen till filerna. Några exempel:
+Du kan också använda Data Lake Storage Gen1 som ytterligare lagring för klustret. I sådana fall kan klustrets standard lagring antingen vara ett Azure Storage Blob eller ett Data Lake Storage konto. Om du kör HDInsight-jobb mot data som lagras i Data Lake Storage som ytterligare lagrings utrymme måste du använda den fullständigt kvalificerade sökvägen till filerna. Exempel:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Observera att det inte finns någon **cluster_root_path** i URL-adressen nu. Det beror på att Data Lake Storage inte är ett standard lagrings utrymme i det här fallet, så allt du behöver göra är att ange sökvägen till filerna.
 
-För att kunna använda en Data Lake Storage Gen1 som ytterligare lagrings utrymme behöver du bara ge tjänstens huvud namn åtkomst till Sök vägarna där filerna lagras.  Några exempel:
+För att kunna använda en Data Lake Storage Gen1 som ytterligare lagrings utrymme behöver du bara ge tjänstens huvud namn åtkomst till Sök vägarna där filerna lagras.  Exempel:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 

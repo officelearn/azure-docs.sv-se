@@ -6,17 +6,17 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 87c95d8bbf199f232eca5475f4d8f0c64427a198
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 1945730acaddb0c1c7ee1b28eeb926635efad643
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680893"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227889"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Översikt över Azure App Service lokal cache
 
 > [!NOTE]
-> Local cache stöds inte i Function Apps eller i behållare App Service appar, t. ex. på [app service på Linux](containers/app-service-linux-intro.md).
+> Local cache stöds inte i Function Apps eller i behållare App Service appar, t. ex. i [Windows-behållare](app-service-web-get-started-windows-container.md) eller på [App Service i Linux](containers/app-service-linux-intro.md).
 
 
 Azure App Service innehåll lagras på Azure Storage och placeras på ett hållbart sätt som en innehålls resurs. Den här designen är avsedd att användas med en mängd olika appar och har följande attribut:  
@@ -48,7 +48,7 @@ Den Azure App Service Local cache-funktionen tillhandahåller en webbrolls visni
 ## <a name="enable-local-cache-in-app-service"></a>Aktivera lokal cache i App Service
 Du konfigurerar lokal cache genom att använda en kombination av reserverade appinställningar. Du kan konfigurera dessa inställningar för appar med hjälp av följande metoder:
 
-* [Azure-portalen](#Configure-Local-Cache-Portal)
+* [Azure Portal](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Konfigurera lokal cache med hjälp av Azure Portal
@@ -102,13 +102,13 @@ Om din app behöver ett högpresterande, tillförlitligt innehålls lager, anvä
 ### <a name="how-can-i-tell-if-my-site-has-switched-to-using-local-cache"></a>Hur vet jag om min webbplats har växlat till att använda det lokala cacheminnet?
 Om du använder funktionen Local cache med mellanlagrings miljöer slutförs inte växlings åtgärden förrän den lokala cachen har värmts upp. Om du vill kontrol lera om platsen körs mot lokal cache kan du kontrol lera variabeln för arbets process miljön `WEBSITE_LOCALCACHE_READY`. Använd instruktionerna på sidan [arbets process miljö variabel](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) för att komma åt variabeln för arbets process miljön på flera instanser.  
 
-### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>Jag publicerade bara nya ändringar, men appen verkar inte ha dem. Varför det?
+### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>Jag publicerade bara nya ändringar, men appen verkar inte ha dem. Varför?
 Om din app använder lokal cache måste du starta om platsen för att få de senaste ändringarna. Vill du inte publicera ändringar på en produktions plats? Se plats alternativen i avsnittet tidigare metod tips.
 
 ### <a name="where-are-my-logs"></a>Var finns mina loggar?
 Med lokal cache ser dina loggar och datamapparna lite annorlunda ut. Strukturen i undermapparna förblir dock densamma, förutom att undermapparna är Nestled under en undermapp med formatet "unik VM-identifierare" + tidsstämpel.
 
-### <a name="i-have-local-cache-enabled-but-my--app-still-gets-restarted-why-is-that-i-thought-local-cache-helped-with-frequent-app-restarts"></a>Lokal cache är aktive rad, men appen startas fortfarande om. Vad beror det på? Jag trodde lokal cache som hjälpte med att starta om appar.
+### <a name="i-have-local-cache-enabled-but-my--app-still-gets-restarted-why-is-that-i-thought-local-cache-helped-with-frequent-app-restarts"></a>Lokal cache är aktive rad, men appen startas fortfarande om. Varför är det? Jag trodde lokal cache som hjälpte med att starta om appar.
 Lokalt cacheminne bidrar till att förhindra att Storage-relaterade appar startas om. Din app kan dock fortfarande genomgå omstart under uppgraderingen av planerade infrastrukturer på den virtuella datorn. Den övergripande appen startas om och du får färre lokala cache-aktiverade.
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>Utesluter lokal cache eventuella kataloger från att kopieras till den snabbare lokala enheten?

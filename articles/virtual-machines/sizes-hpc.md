@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jonbeck
-ms.openlocfilehash: a5b0eb0c8bd56a28889945480e95b6413dc9b4dd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b900a95df00ccdd0ad9b5bee3887364195c7d1c2
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77660027"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226736"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Storlekar för beräkning av virtuella datorer med höga prestanda
 
@@ -46,6 +46,10 @@ Virtuella Azure-datorer i H-serien (VM: ar) har utformats för att leverera pres
   
 - **Virtuellt nätverk** – ett virtuellt Azure- [nätverk](https://azure.microsoft.com/documentation/services/virtual-network/) krävs inte för att använda beräknings intensiva instanser. För många distributioner behöver du dock minst ett molnbaserad virtuellt Azure-nätverk eller en plats-till-plats-anslutning om du behöver åtkomst till lokala resurser. När det behövs skapar du ett nytt virtuellt nätverk för att distribuera instanserna. Det går inte att lägga till beräknings intensiva virtuella datorer i ett virtuellt nätverk i en tillhörighets grupp.
 - **Ändra storlek** – på grund av deras specialiserade maskin vara kan du bara ändra storlek på beräknings intensiva instanser inom samma storleks familj (H-serien eller beräknings intensiva a-serien). Du kan till exempel bara ändra storlek på en virtuell dator i H-serien från en storlek på H-serien till en annan. Det går inte heller att ändra storlek på en icke-Compute-intensiv storlek till en beräknings intensiv storlek.  
+
+> [!NOTE]
+> De virtuella datorerna A8 – A11 planeras för att dra på 3/2021. Mer information finns i [Guide för HPC-migrering](https://azure.microsoft.com/resources/hpc-migration-guide/).
+
 ## <a name="rdma-capable-instances"></a>RDMA-kompatibla instanser
 
 En del av beräknings intensiva instanserna (A8, A9, H16r, H16mr, HB och HC) är ett nätverks gränssnitt för anslutning till fjärrminne (RDMA). De valda N-serie storlekarna som anges med r, till exempel NC24rs-konfigurationer (NC24rs_v2 och NC24rs_v3) är också RDMA-kompatibla. Det här gränssnittet är förutom standard nätverks gränssnittet i Azure tillgängligt för andra VM-storlekar.
@@ -99,7 +103,7 @@ Azure innehåller flera alternativ för att skapa kluster med virtuella Windows 
 
 - **Skalnings uppsättningar för virtuella datorer** – i en skalnings uppsättning för virtuella datorer, se till att du begränsar distributionen till en enda placerings grupp. I en Resource Manager-mall anger du till exempel egenskapen `singlePlacementGroup` som `true`. 
 
-- **MPI mellan virtuella datorer** – om MPI kommunikation krävs mellan virtuella datorer (VM) kontrollerar du att de virtuella datorerna finns i samma tillgänglighets uppsättning eller på den virtuella datorn med samma skalnings uppsättning.
+- **MPI mellan virtuella datorer** – om MPI kommunikation krävs mellan virtuella datorer (VM) kontrollerar du att de virtuella datorerna finns i samma tillgänglighets uppsättning eller den virtuella datorn samma skalnings uppsättning.
 
 - **Azure-CycleCloud** – skapa ett HPC-kluster i [Azure CycleCloud](/azure/cyclecloud/) för att köra MPI-jobb på Windows-noder.
 

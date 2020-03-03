@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/27/2020
+ms.date: 03/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a64af5d2b19b05ec9a5eda97c43e278cdfb8b4ff
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: bdea51c6cb53222f31a07906785a94073a0293a1
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189114"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226798"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Hantering av enkel inloggning i Azure Active Directory B2C
 
@@ -124,20 +124,19 @@ Den här providern används för att utelämna skärmen "Välj identitetsprovide
 
 ### <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
 
-Den här providern används för att hantera Azure AD B2C SAML-sessioner mellan ett förlitande parts program eller en federerad SAML-identitetsprovider. När du använder SSO-providern för att lagra en SAML-identitetsprovider, måste `IncludeSessionIndex` och `RegisterServiceProviders` anges till `false`. Följande `SM-Saml-idp` teknisk profil används av den [tekniska SAML-profilen](saml-technical-profile.md).
+Den här providern används för att hantera Azure AD B2C SAML-sessioner mellan ett förlitande parts program eller en federerad SAML-identitetsprovider. När du använder SSO-providern för att lagra en SAML-identitetsprovider måste `RegisterServiceProviders` anges till `false`. Följande `SM-Saml-idp` teknisk profil används av den [tekniska SAML-profilen](saml-technical-profile.md).
 
 ```XML
 <TechnicalProfile Id="SM-Saml-idp">
   <DisplayName>Session Management Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <Metadata>
-    <Item Key="IncludeSessionIndex">false</Item>
     <Item Key="RegisterServiceProviders">false</Item>
   </Metadata>
 </TechnicalProfile>
 ```
 
-När du använder providern för att lagra B2C SAML-sessionen måste `IncludeSessionIndex` och `RegisterServiceProviders` anges till `true`. Utloggningen av SAML-sessionen kräver att `SessionIndex` och `NameID` har slutförts.
+När du använder providern för att lagra B2C SAML-sessionen måste `RegisterServiceProviders` anges till `true`. Utloggningen av SAML-sessionen kräver att `SessionIndex` och `NameID` har slutförts.
 
 Följande `SM-Saml-idp` teknisk profil används av den [tekniska profilen för SAML-utfärdaren](connect-with-saml-service-providers.md)
 
@@ -151,7 +150,7 @@ Följande `SM-Saml-idp` teknisk profil används av den [tekniska profilen för S
 
 | Attribut | Krävs | Beskrivning|
 | --- | --- | --- |
-| IncludeSessionIndex | Nej | Anger vilken provider som ska lagras i sessionens index. Möjliga värden: `true` (standard) eller `false`.|
+| IncludeSessionIndex | Nej | Används inte för närvarande, kan ignoreras.|
 | RegisterServiceProviders | Nej | Anger att leverantören ska registrera alla SAML-tjänstleverantörer som har utfärdat en kontroll. Möjliga värden: `true` (standard) eller `false`.|
 
 

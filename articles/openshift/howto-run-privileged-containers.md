@@ -7,14 +7,14 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: Aro, OpenShift, aquasec, twistlock, Red Hat
-ms.openlocfilehash: 4241296a991283f14fbb294fdc059ecde58d6d75
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: 5d28a19126c9b7ae4ef7afe2a6b69bd4a13e0c83
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069667"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228246"
 ---
-# <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Kör privilegierade behållare i ett kluster med OpenShift i Azure Red Hat
+# <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Köra privilegierade containers i ett Azure Red Hat OpenShift-kluster
 
 Du kan inte köra godtyckliga privilegierade behållare i Azure Red Hat OpenShift-kluster.
 Två lösningar för säkerhetsövervakning och efterlevnad får köras på ARO-kluster.
@@ -111,22 +111,27 @@ oc get route aqua-web -n aqua-security
 ### <a name="step-4-deploy-aqua-enforcers"></a>Steg 4: Distribuera turkosa genomdrivor
 Ange följande fält vid distribution av Genomdrivare:
 
-| Fält          | Värde         |
+| Field          | Värde         |
 | -------------- | ------------- |
 | Dirigering   | OpenShift     |
 | ServiceAccount | turkos – konto  |
-| Projekt        | turkos – säkerhet |
+| Project        | turkos – säkerhet |
 
 ## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Produktspecifika steg för Prisma Cloud/twistlock
 
 De grundläggande anvisningar som vi ska ändra finns i [dokumentationen för Prisma Cloud Deployment](https://docs.paloaltonetworks.com/prisma/prisma-cloud/19-11/prisma-cloud-compute-edition-admin/install/install_openshift.html)
 
-Börja med att skapa ett nytt OpenShift-projekt
+Börja med att installera `twistcli`-verktyget enligt beskrivningen i avsnittet "installera Prisma Cloud" och "Ladda ned Prisma Cloud Software".
+
+Skapa ett nytt OpenShift-projekt
 ```
 oc new-project twistlock
 ```
 
-Du kan följa dokumentationen tills avsnittet "installera konsol" används med Prisma Cloud container Registry i stället för att skapa ett internt.
+Hoppa över det valfria avsnittet "push The Prisma Cloud images to a Private Registry". Den fungerar inte i Azure Red Hat OpenShift. Använd online-registret i stället.
+
+Du kan följa den officiella dokumentationen när du använder korrigeringarna som beskrivs nedan.
+Börja med avsnittet "installera konsol".
 
 ### <a name="install-console"></a>Installera konsol
 

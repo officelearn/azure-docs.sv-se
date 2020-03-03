@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 00e8cdbbd765d6baf83f64848030d08d6e712ca1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 600ca893e6d6b81fe24626a99cc1f6de80efb3e8
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661353"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228132"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 
@@ -98,7 +98,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Konfiguration
 De flesta konfigurations fälten får ett namn som är förfalskade som standard. Alla fält är valfria förutom för `instrumentationKey`.
 
-| Namn | Standard | Beskrivning |
+| Namn | Default | Beskrivning |
 |------|---------|-------------|
 | InstrumentationKey | null | **Kunna**<br>Instrumentation-nyckel som du fick från Azure Portal. |
 | accountId | null | Ett valfritt konto-ID, om din app grupperar användare till konton. Inga blank steg, kommatecken, semikolon, likheter eller lodräta staplar |
@@ -214,10 +214,12 @@ Körbara-exempel finns i [Application Insights JavaScript SDK-exempel](https://g
 ## <a name="upgrading-from-the-old-version-of-application-insights"></a>Uppgradera från den gamla versionen av Application Insights
 
 Bryta ändringar i SDK v2-versionen:
-- Vissa API-anrop, till exempel trackPageView, trackException har uppdaterats för att möjliggöra bättre API-signaturer. Det finns inte stöd för att köra i IE8 eller lägre versioner av webbläsaren.
-- Telemetri-kuvert har fält namn och struktur ändringar på grund av data schema uppdateringar.
-- Flyttade `context.operation` till `context.telemetryTrace`. Vissa fält ändrades också (`operation.id` --> `telemetryTrace.traceID`)
-  - Om du vill uppdatera aktuellt sid visningar-ID manuellt (till exempel i SPA-appar) kan du göra det med `appInsights.properties.context.telemetryTrace.traceID = Util.newId()`
+- Vissa API-anrop, till exempel trackPageView och trackException, har uppdaterats för att möjliggöra bättre API-signaturer. Det finns inte stöd för att köra i Internet Explorer 8 och tidigare versioner av webbläsaren.
+- Telemetri-kuvertet har fält namn och struktur ändringar på grund av data schema uppdateringar.
+- Flyttade `context.operation` till `context.telemetryTrace`. Vissa fält ändrades också (`operation.id` --> `telemetryTrace.traceID`).
+  - Använd `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()`om du vill uppdatera aktuellt sid visningar-ID manuellt (till exempel i SPA-appar).
+    > [!NOTE]
+    > Om du vill behålla spårnings-ID: t unikt, där du tidigare använde `Util.newId()`, använder du nu `Util.generateW3CId()`. Båda i slut ändan är åtgärds-ID.
 
 Om du använder den aktuella Application Insights PRODUCTion SDK (1.0.20) och vill se om den nya SDK: n fungerar i körnings miljön uppdaterar du URL: en beroende på ditt aktuella SDK-inläsnings scenario.
 

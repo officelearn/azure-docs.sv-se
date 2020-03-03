@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Lär dig hur du felsöker och löser vanliga problem när du aktiverar och använder Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 061f812e7567d96bba092ebc9625756c14c46940
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: HT
+ms.openlocfilehash: 2b5a6f14899ec41b1740563f4e8174f65aa679c7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662475"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198005"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Fel sökning av Azure dev Spaces
 
@@ -52,13 +52,13 @@ az aks use-dev-spaces -g <resource group name> -n <cluster name>
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Styrenheten kunde inte skapas på grund av kontrollantens namn längd
 
-Ett namn på en Azure dev-enhet får inte vara längre än 31 tecken. Om namnet på din kontrollant överstiger 31 tecken när du aktiverar dev Spaces i ett AKS-kluster eller skapar en kontrollant får du ett fel meddelande. Några exempel:
+Ett namn på en Azure dev-enhet får inte vara längre än 31 tecken. Om namnet på din kontrollant överstiger 31 tecken när du aktiverar dev Spaces i ett AKS-kluster eller skapar en kontrollant får du ett fel meddelande. Exempel:
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-Åtgärda problemet genom att skapa en kontrollant med ett alternativt namn. Några exempel:
+Åtgärda problemet genom att skapa en kontrollant med ett alternativt namn. Exempel:
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -159,7 +159,7 @@ Anta till exempel att du använder ett Helm-kommando för att köra hela program
 
 Azure dev Spaces kan konfigureras så att de pekar på en viss _Dockerfile_ i ditt projekt. Om det verkar som om Azure dev Spaces inte använder den _Dockerfile_ som du förväntar dig att bygga dina behållare, kan du uttryckligen behöva berätta om Azure dev Spaces som Dockerfile ska använda. 
 
-Lös problemet genom att öppna den _azds. yaml_ -fil som Azure dev-utrymmen genererar i projektet. Uppdatera *konfigurationer: utveckla: skapa: Dockerfile* för att peka på den Dockerfile som du vill använda. Några exempel:
+Lös problemet genom att öppna den _azds. yaml_ -fil som Azure dev-utrymmen genererar i projektet. Uppdatera *konfigurationer: utveckla: skapa: Dockerfile* för att peka på den Dockerfile som du vill använda. Exempel:
 
 ```yaml
 ...
@@ -206,7 +206,7 @@ install:
 
 Det här felet kan uppstå när koden för tjänsten inte startar. Orsaken är ofta i användarkod. Om du vill ha mer diagnostikinformation aktiverar du mer detaljerad loggning när du startar tjänsten.
 
-Använd `--verbose` för att aktivera mer detaljerad loggning från kommando raden. Du kan också ange ett format för utdata med `--output`. Några exempel:
+Använd `--verbose` för att aktivera mer detaljerad loggning från kommando raden. Du kan också ange ett format för utdata med `--output`. Exempel:
 
 ```cmd
 azds up --verbose --output json
@@ -335,7 +335,7 @@ Så här åtgärdar du problemet:
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>Auktoriseringsfel "Microsoft. DevSpaces/register/Action"
 
-Du behöver *ägar* -eller *deltagar* åtkomst i din Azure-prenumeration för att kunna hantera Azure dev Spaces. Om du försöker hantera dev Spaces och du inte har *ägare* eller *deltagar* åtkomst till den associerade Azure-prenumerationen kan du se ett auktoriseringsfel. Några exempel:
+Du behöver *ägar* -eller *deltagar* åtkomst i din Azure-prenumeration för att kunna hantera Azure dev Spaces. Om du försöker hantera dev Spaces och du inte har *ägare* eller *deltagar* åtkomst till den associerade Azure-prenumerationen kan du se ett auktoriseringsfel. Exempel:
 
 ```console
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
@@ -422,9 +422,8 @@ Du kan se det här felet när du försöker komma åt tjänsten. Till exempel n�
 Så här åtgärdar du problemet:
 
 1. Om behållaren håller på att bygger/distribueras, kan du vänta 2-3 sekunder och testa åtkomst till tjänsten igen. 
-1. Kontrollera i portkonfigurationen. De angivna port numren måste vara **identiska** i samtliga följande till gångar:
-    * **Dockerfile:** Anges av `EXPOSE` instruktionen.
-    * **[Helm-diagram](https://docs.helm.sh):** Anges av `externalPort` och `internalPort` värden för en tjänst (ofta finns i en `values.yml` fil),
+1. Kontrol lera port konfigurationen i följande till gångar:
+    * **[Helm-diagram](https://docs.helm.sh):** Anges av kommandot `service.port` och `deployment.containerPort` i Values. yaml autogenererade by `azds prep`.
     * Alla portar som öppnas i program kod, till exempel i Node. js: `var server = app.listen(80, function () {...}`
 
 ### <a name="the-type-or-namespace-name-mylibrary-couldnt-be-found"></a>Det gick inte att hitta typen eller namn områdets namn "Mina bibliotek"
@@ -489,7 +488,7 @@ Så här åtgärdar du problemet:
 
 När [du har roterat certifikaten i ditt AKS-kluster](../aks/certificate-rotation.md)kommer vissa åtgärder, till exempel `azds space list` och `azds up` att Miss Miss förfallit. Du måste också uppdatera certifikaten på Azure dev Spaces-kontrollanten när du har roterat certifikaten i klustret.
 
-Åtgärda problemet genom att se till att *kubeconfig* har de uppdaterade certifikaten med hjälp av `az aks get-credentials` kör sedan `azds controller refresh-credentials` kommandot. Några exempel:
+Åtgärda problemet genom att se till att *kubeconfig* har de uppdaterade certifikaten med hjälp av `az aks get-credentials` kör sedan `azds controller refresh-credentials` kommandot. Exempel:
 
 ```azurecli
 az aks get-credentials -g <resource group name> -n <cluster name>

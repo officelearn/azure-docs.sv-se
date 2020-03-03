@@ -362,18 +362,21 @@
         - name: Azure-pipelines för CI/CD
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
-        - name: 'Designer: Omträna med publicerade pipelines'
+        - name: Omträna med publicerade pipelines i Designer
           displayName: 'retrain, designer, published pipeline'
           href: how-to-retrain-designer.md
+        - name: Batch-förutsägelser i Designer
+          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+          href: how-to-run-batch-predictions-designer.md
+        - name: Köra Python-kod i Designer
+          displayName: 'feature extraction, feature engineering'
+          href: how-to-designer-python.md
         - name: Använda parallella körningssteg
           displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-use-parallel-run-step.md
         - name: Felkorrigera och felsöka parallella körningssteg
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
-        - name: Batch-förutsägelser i Designer
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-          href: how-to-run-batch-predictions-designer.md
     - name: Hantera resurskvoter
       displayName: limits
       href: how-to-manage-quotas.md

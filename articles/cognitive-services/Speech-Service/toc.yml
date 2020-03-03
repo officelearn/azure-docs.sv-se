@@ -193,6 +193,10 @@
           items:
             - name: Text-till-tal (REST API)
               href: rest-text-to-speech.md
+        - name: Användning av telefonuppsättning
+          items:
+            - name: Speech API (SAPI) – användning av telefonuppsättning
+              href: sapi-phoneset-usage.md
     - name: Resurser
       items:
         - name: Vanliga frågor och svar om text-till-tal

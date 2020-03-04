@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Lär dig hur du felsöker och löser vanliga problem när du aktiverar och använder Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 2b5a6f14899ec41b1740563f4e8174f65aa679c7
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 0cf8eb7b07622a989bc78637b1601ba68b9b5f6f
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78198005"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251113"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Fel sökning av Azure dev Spaces
 
@@ -44,7 +44,7 @@ Använd Azure dev Spaces CLI för att ta bort en kontrollant. Det går inte att 
 
 Om du inte har installerat Azure dev Spaces CLI kan du först installera det med hjälp av följande kommando och sedan ta bort din styrenhet:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
@@ -80,8 +80,8 @@ Azure dev Spaces kunde inte skapa en kontrollant i ditt AKS-kluster eftersom det
 
 En uppdatering av Azure dev Spaces CLI ändrade installations Sök vägen. Om du använder en tidigare version av Azure CLI än 2.0.63 kan du se det här felet. Använd `az --version`om du vill visa din version av Azure CLI.
 
-```bash
-$ az --version
+```azurecli
+az --version
 azure-cli                         2.0.60 *
 ...
 ```
@@ -223,7 +223,7 @@ I Visual Studio:
 
 Du får ett fel meddelande om att *tjänsten inte kan startas* när du försöker köra om en tjänst när du har tagit bort och återskapat den Azure dev Spaces-styrenhet som är associerad med det här klustret. I den här situationen innehåller utförliga utdata följande text:
 
-```cmd
+```output
 Installing Helm chart...
 Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
 Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
@@ -329,7 +329,7 @@ Så här åtgärdar du problemet:
 1. Kontrol lera platsen% ProgramFiles%/Microsoft SDKs\Azure\Azure dev Spaces CLI för `azds.exe`. Om det är det lägger du till den platsen att miljövariabeln PATH.
 2. Om `azds.exe` inte är installerat kör du följande kommando:
 
-    ```cmd
+    ```azurecli
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
     ```
 
@@ -337,13 +337,13 @@ Så här åtgärdar du problemet:
 
 Du behöver *ägar* -eller *deltagar* åtkomst i din Azure-prenumeration för att kunna hantera Azure dev Spaces. Om du försöker hantera dev Spaces och du inte har *ägare* eller *deltagar* åtkomst till den associerade Azure-prenumerationen kan du se ett auktoriseringsfel. Exempel:
 
-```console
+```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
 ```
 
 Du kan åtgärda det här problemet genom att använda ett konto med *ägar* -eller *deltagar* åtkomst till Azure-prenumerationen genom att registrera `Microsoft.DevSpaces` namn rymden manuellt:
 
-```console
+```azurecli
 az provider register --namespace Microsoft.DevSpaces
 ```
 
@@ -359,7 +359,7 @@ Det här problemet kan påverka poddar i *alla namn områden* i klustret, inklus
 
 Åtgärda problemet genom att [Uppdatera dev Spaces CLI till den senaste versionen](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) och sedan ta bort *azds-InitializerConfiguration* från Azure dev Spaces-styrenheten:
 
-```bash
+```azurecli
 az aks get-credentials --resource-group <resource group name> --name <cluster name>
 kubectl delete InitializerConfiguration azds
 ```
@@ -456,9 +456,12 @@ Du kan ha ett befintligt AKS-kluster och-namnrymd med poddar där du vill aktive
 
 Om du vill aktivera Azure dev Spaces i ett befintligt namn område i ett AKS-kluster kör du `use-dev-spaces` och använder `kubectl` för att starta om alla poddar i namn området.
 
-```console
+```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space my-namespace --yes
+```
+
+```console
 kubectl -n my-namespace delete pod --all
 ```
 

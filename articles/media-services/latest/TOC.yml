@@ -103,12 +103,14 @@
           href: live-event-cloud-dvr.md
         - name: Live transkription
           href: live-transcription.md
-        - name: Jämför funktioner
+        - name: Jämförelse mellan typer av livehändelser
           href: live-event-types-comparison.md
         - name: Tillstånd och fakturering
           href: live-event-states-billing.md
         - name: Svarstid
           href: live-event-latency.md
+        - name: Bli en lokal kodarpartner
+          href: become-on-premises-encoder-partner.md
         - name: Felkoder för livehändelser
           href: live-event-error-codes.md
     - name: Paketering och leverans

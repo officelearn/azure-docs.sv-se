@@ -5,6 +5,7 @@
     - name: Vad är Azure Front Door Service?
       href: front-door-overview.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Skapa en Front Door
       href: quickstart-create-front-door.md
@@ -48,7 +49,7 @@
       href: front-door-url-rewrite.md
     - name: URL-omdirigering
       href: front-door-url-redirect.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Omdirigera trafik
       items:

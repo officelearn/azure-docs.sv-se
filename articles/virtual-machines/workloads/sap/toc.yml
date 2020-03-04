@@ -112,8 +112,6 @@
       href: sap-hana-backup-guide.md
     - name: Säkerhetskopiering av SAP HANA-filnivå
       href: sap-hana-backup-file-level.md
-    - name: Säkerhetskopior av ögonblicksbilder i SAP HANA-lagring
-      href: sap-hana-backup-storage-snapshots.md
 - name: SAP NetWeaver och Business One på Azure Virtual Machines
   items:
     - name: Planera för SAP-arbetsbelastning och checklista för distribution

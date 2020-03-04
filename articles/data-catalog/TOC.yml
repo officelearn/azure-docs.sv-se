@@ -4,7 +4,7 @@
   items:
     - name: Vad är Data Catalog?
       href: overview.md
-- name: Snabbstart
+- name: Snabbstarter
   items:
     - name: Skapa Azure Data Catalog
       href: data-catalog-get-started.md
@@ -20,7 +20,7 @@
       href: data-catalog-dsr.md
     - name: Börja använda Azure Data Catalog
       href: data-catalog-adopting-data-catalog.md
-    - name: Nödvändiga komponenter
+    - name: Krav
       href: data-catalog-prerequisites.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: data-catalog-frequently-asked-questions.md

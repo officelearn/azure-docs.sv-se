@@ -45,6 +45,12 @@
               href: nat-overview.md
             - name: Resurs
               href: nat-gateway-resource.md
+            - name: Mått och aviseringar
+              href: nat-metrics.md
+            - name: Felsöka
+              href: troubleshoot-nat.md
+        - name: Routning
+          href: virtual-networks-udr-overview.md
         - name: Interoperabilitet för serverdelsanslutning
           items:
             - name: Prefix och testinstallation
@@ -75,20 +81,20 @@
           href: ipv6-public-ip-address-prefix.md
     - name: Säkerhet
       items:
-        - name: DDoS-skydd
-          href: ddos-protection-overview.md
-        - name: Nätverksprinciper för Kubernetes
-          href: kubernetes-network-policies.md
-        - name: Routning
-          href: virtual-networks-udr-overview.md
-        - name: Säkerhetsgrupper
+        - name: Nätverkssäkerhetsgrupper
           href: security-overview.md
+        - name: Programsäkerhetsgrupper
+          href: application-security-groups.md
         - name: Tjänsttaggar
           href: service-tags-overview.md
         - name: Tjänstslutpunkter
           href: virtual-network-service-endpoints-overview.md
         - name: Principer för tjänstslutpunkter
           href: virtual-network-service-endpoint-policies-overview.md
+        - name: Nätverksprinciper för Kubernetes
+          href: kubernetes-network-policies.md
+        - name: DDoS-skydd
+          href: ddos-protection-overview.md
         - name: Virtual Network TAP
           href: virtual-network-tap-overview.md
     - name: Undernät
@@ -131,6 +137,18 @@
               href: tutorial-create-validate-nat-gateway-powershell.md
             - name: Skapa och verifiera en NAT-gateway – CLI
               href: tutorial-create-validate-nat-gateway-cli.md
+        - name: Dirigera nätverkstrafik
+          items:
+            - name: Azure Portal
+              href: tutorial-create-route-table-portal.md
+            - name: Azure PowerShell
+              href: tutorial-create-route-table-powershell.md
+            - name: Azure CLI
+              href: tutorial-create-route-table-cli.md
+            - name: Ansible
+              href: /azure/ansible/ansible-create-configure-route-table
+            - name: Hantera routningstabeller
+              href: manage-route-table.md
         - name: 'Hantera NIC:er'
           href: virtual-network-network-interface.md
         - name: Hantera virtuellt nätverk
@@ -257,18 +275,6 @@
                   href: virtual-network-service-endpoint-policies-powershell.md
                 - name: Azure CLI
                   href: virtual-network-service-endpoint-policies-cli.md
-        - name: Dirigera nätverkstrafik
-          items:
-            - name: Azure Portal
-              href: tutorial-create-route-table-portal.md
-            - name: Azure PowerShell
-              href: tutorial-create-route-table-powershell.md
-            - name: Azure CLI
-              href: tutorial-create-route-table-cli.md
-            - name: Ansible
-              href: /azure/ansible/ansible-create-configure-route-table
-            - name: Hantera routningstabeller
-              href: manage-route-table.md
         - name: Hantera DDOS-skydd
           href: manage-ddos-protection.md
         - name: Registrera partner till DDoS Protection Standard

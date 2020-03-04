@@ -84,7 +84,7 @@
             - name: Starta ett Runbook-flöde från en webhook
               href: automation-webhooks.md
             - name: Konfigurera indataparametrar för Runbook
-              href: automation-runbook-input-parameters.md
+              href: runbook-input-parameters.md
             - name: Underordnade Runbooks
               href: automation-child-runbooks.md
             - name: Skicka ett JSON-objekt till en Azure Automation-runbook

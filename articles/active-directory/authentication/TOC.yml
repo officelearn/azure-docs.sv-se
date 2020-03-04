@@ -13,6 +13,8 @@
       href: tutorial-enable-azure-mfa.md
     - name: Aktivera tillbakaskrivning av lösenord för lokala
       href: tutorial-enable-sspr-writeback.md
+    - name: Konfigurera anpassade listor över förbjudna lösenord
+      href: tutorial-configure-custom-password-protection.md
     - name: Integrera Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
 - name: Begrepp
@@ -108,8 +110,6 @@
           href: howto-registration-mfa-sspr-combined-troubleshoot.md
     - name: Azure AD-lösenordsskydd
       items:
-        - name: Konfigurera listan med förbjudna lösenord
-          href: howto-password-ban-bad-configure.md
         - name: Lokal integration
           items:
             - name: Distribuera Azure AD-lösenordsskydd

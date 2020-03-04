@@ -109,7 +109,7 @@
           href: connect-virtual-network-vnet-isolated-environment.md
         - name: Konfigurera åtkomst för flera integreringstjänstmiljöer
           href: connect-virtual-network-vnet-set-up-single-ip-address.md
-        - name: Lägga till artefakter i integreringstjänstmiljöer
+        - name: Lägga till resurser i integreringstjänstmiljöer
           href: add-artifacts-integration-service-environment-ise.md
         - name: Konfigurera kundbaserade krypteringsnycklar för integreringstjänstmiljöer
           href: customer-managed-keys-integration-service-environment.md
@@ -221,8 +221,6 @@
           href: ../connectors/connectors-create-api-ftp.md
         - name: GitHub
           href: ../connectors/connectors-create-api-github.md
-        - name: Google Drive
-          href: ../connectors/connectors-create-api-googledrive.md
         - name: HTTP
           href: ../connectors/connectors-native-http.md
         - name: HTTP + Swagger

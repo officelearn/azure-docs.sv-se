@@ -5,12 +5,12 @@ author: mumian
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 895d82eb79e4674ca95b9052d2384a257b296bf5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 189d54454a1259d08400e3762b3fbf1c633474bd
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980665"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250049"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Självstudie: Använda villkor i Azure Resource Manager-mallar
 
@@ -28,7 +28,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Distribuera mallen
 > * Rensa resurser
 
-Den här kursen täcker bara ett grundläggande scenario med att använda villkor. Mer information finns här:
+Den här kursen täcker bara ett grundläggande scenario med att använda villkor. Mer information finns i:
 
 * [Mallens fil struktur: villkor](conditional-resource-deployment.md).
 * [Distribuera en resurs villkorligt i en Azure Resource Manager-mall](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
@@ -37,14 +37,14 @@ Den här kursen täcker bara ett grundläggande scenario med att använda villko
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa stegen i den här artikeln behöver du:
 
 * Visual Studio Code med Resource Manager Tools-tillägg. [Skapa Azure Resource Manager mallar i använda Visual Studio Code](use-vs-code-to-create-template.md).
 * För att förbättra säkerheten bör du använda ett genererat lösenord för den virtuella datorns administratörskonto. Här är ett exempel för att generera ett lösenord:
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
 
@@ -70,7 +70,7 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
    * `Microsoft.Network/networkInterfaces`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
    * `Microsoft.Compute/virtualMachines`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
-     Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
+     Det är bra att få lite grundläggande förståelse av mallen innan den anpassas.
 5. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
 
 ## <a name="modify-the-template"></a>Ändra mallen

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: eab8298362bfb3ad790d13fcbf47e0fe624ed3fd
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 2477d91ac885d4ef39df7b9246f7272d66c3f7ee
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470198"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251866"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabb start: skapa en Load Balancer för att belastningsutjämna virtuella datorer med Azure Portal
 
@@ -110,21 +110,20 @@ En lastbalanseringsregel används för att definiera hur trafiken ska distribuer
 
 I det här avsnittet skapar du ett virtuellt nätverk, skapar tre virtuella datorer för den Load Balancerens backend-pool och installerar sedan IIS på de virtuella datorerna för att testa Load Balancer.
 
-### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
+## <a name="virtual-network-and-parameters"></a>Virtuellt nätverk och parametrar
 
-1. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
+I det här avsnittet måste du ersätta följande parametrar i stegen med informationen nedan:
 
-    | Inställning | Värde |
-    | ------- | ----- |
-    | Namn | Ange *myVNet*. |
-    | Adressutrymme | Ange *10.1.0.0/16*. |
-    | Prenumeration | Välj din prenumeration.|
-    | Resursgrupp | Välj befintlig resurs- *myResourceGroupSLB*. |
-    | plats. | Välj **Europa, västra**.|
-    | Undernät – Namn | Ange *myBackendSubnet*. |
-    | Undernät – adressintervall | Ange *10.1.0.0/24*. |
-1. Lämna resten av standardinställningarna och välj **Skapa**.
+| Parameter                   | Värde                |
+|-----------------------------|----------------------|
+| **\<resurs-grupp-namn >**  | myResourceGroupSLB |
+| **\<virtuella-nätverks namn >** | myVNet          |
+| **\<region – namn >**          | Europa, västra      |
+| **\<IPv4-adress utrymme >**   | 10.1.0.0 \ 16          |
+| **\<under nätets namn >**          | myBackendSubnet        |
+| **\<undernät – adress intervall >** | 10.1.0.0 \ 24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machines"></a>Skapa virtuella datorer
 Offentliga IP-SKU: er och Load Balancer SKU: er måste matcha. För Standard Load Balancer använder du virtuella datorer med standard-IP-adresser i backend-poolen. I det här avsnittet ska du skapa tre virtuella datorer (*myVM1*, *myVM2* och *MyVM3*) med en offentlig standard-IP-adress i tre olika zoner (*zon 1*, *zon 2*och *Zon 3*) som senare läggs till i backend-poolen för Load Balancer som skapades tidigare. Om du har valt grundläggande använder du virtuella datorer med grundläggande IP-adresser.

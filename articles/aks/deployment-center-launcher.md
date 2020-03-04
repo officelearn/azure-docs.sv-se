@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
 monikerRange: vsts
-ms.openlocfilehash: 84e5533a17dc70fb5c835089f3a3cec1a86e35bf
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: eecb4dba39ff847515a4a312b7cb74698867c693
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596087"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247909"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Distributions Center för Azure-Kubernetes
 
@@ -27,7 +27,7 @@ I den här kursen ska du:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Du kan få en kostnadsfri [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+* En Azure-prenumeration. Du kan få en kostnadsfritt med [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 * Ett Azure Kubernetes service-kluster (AKS).
 
@@ -39,7 +39,7 @@ I den här kursen ska du:
 
 1. Kör följande kommandon för att skapa AKS-klustret:
 
-    ```cmd
+    ```azurecli
     # Create a resource group in the South India location:
 
     az group create --name azooaks --location southindia
@@ -63,7 +63,7 @@ I den här kursen ska du:
 
     - **Azure-databaser**: Välj en lagrings plats från ditt befintliga projekt och din organisation.
 
-        ![Azure-databaser](media/deployment-center-launcher/azure-repos.gif)
+        ![Azure-lagringsplatser](media/deployment-center-launcher/azure-repos.gif)
 
     - **GitHub**: auktorisera och välj lagrings plats för ditt GitHub-konto.
 

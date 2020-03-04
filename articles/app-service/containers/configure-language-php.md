@@ -4,12 +4,12 @@ description: Lär dig hur du konfigurerar en fördefinierad PHP-behållare för 
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: e805487075499bd4e461a21fffb4c44156ce192b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ad121d605e521704597471b446fa79cb43dfccc7
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913879"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255835"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Konfigurera en Linux PHP-app för Azure App Service
 
@@ -116,7 +116,7 @@ Om du behöver göra ändringar i din PHP-installation kan du ändra något av [
 
 Om du vill anpassa PHP_INI_USER, PHP_INI_PERDIR och PHP_INI_ALL direktiv (se [php. ini-direktiv](https://www.php.net/manual/ini.list.php)) lägger du till en *. htaccess* -fil i rot katalogen för din app.
 
-I *htaccess* -filen lägger du till direktiven med hjälp av syntaxen `php_value <directive-name> <value>`. Några exempel:
+I *htaccess* -filen lägger du till direktiven med hjälp av syntaxen `php_value <directive-name> <value>`. Exempel:
 
 ```
 php_value upload_max_filesize 1000M
@@ -198,21 +198,13 @@ Starta om appen för att ändringarna ska börja gälla.
 Prova följande när en fungerande PHP-app fungerar annorlunda i App Service eller innehåller fel:
 
 - [Åtkomst till logg strömmen](#access-diagnostic-logs).
-- Testa appen lokalt i produktions läge. App Service kör Node. js-appar i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Några exempel:
+- Testa appen lokalt i produktions läge. App Service kör Node. js-appar i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Exempel:
     - Beroende på din *Composer. JSON*kan olika paket installeras i produktions läge (`require` jämfört med `require-dev`).
     - Vissa webb ramverk kan distribuera statiska filer på ett annat sätt i produktions läge.
     - Vissa webb ramverk kan använda anpassade Start skript när de körs i produktions läge.
 - Kör appen i App Service i fel söknings läge. I [Laravel](https://meanjs.org/)kan du till exempel konfigurera appen så att den utvärderar fel söknings meddelanden i produktion genom [att ställa in `APP_DEBUG` app-inställningen på `true`](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
-### <a name="robots933456"></a>robots933456
-
-Följande meddelande kan visas i behållar loggarna:
-
-```
-2019-04-08T14:07:56.641002476Z "-" - - [08/Apr/2019:14:07:56 +0000] "GET /robots933456.txt HTTP/1.1" 404 415 "-" "-"
-```
-
-Du kan ignorera det här meddelandet på ett säkert sätt. `/robots933456.txt` är en URL-sökväg till dummy som App Service använder för att kontrol lera om behållaren kan betjäna begär Anden. Ett 404-svar anger helt enkelt att sökvägen inte finns, men det låter App Service veta att behållaren är felfri och redo att svara på begär Anden.
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

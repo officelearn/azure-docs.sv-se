@@ -4,12 +4,12 @@ description: Lär dig hur du hämtar behållar loggar och händelser i Azure Con
 ms.topic: article
 ms.date: 12/30/2019
 ms.custom: mvc
-ms.openlocfilehash: fe30ab875aa6cd7f465ffe69672a771e18134e1c
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 0991b9cb1f99606910dbdf2c87b111f67da6da7b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664743"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250002"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Hämta behållar loggar och händelser i Azure Container Instances
 
@@ -21,8 +21,11 @@ Om du vill visa loggar från din program kod i en behållare kan du använda kom
 
 Följande är en logg utmatning från exempel uppgiftsbaserade behållare i [ange kommando raden i en behållar instans](container-instances-start-command.md#azure-cli-example), efter att ha angett en ogiltig URL med hjälp av en kommando rads åsidosättning:
 
-```console
-$ az container logs --resource-group myResourceGroup --name mycontainer
+```azurecli
+az container logs --resource-group myResourceGroup --name mycontainer
+```
+
+```output
 Traceback (most recent call last):
   File "wordcount.py", line 11, in <module>
     urllib.request.urlretrieve (sys.argv[1], "foo.txt")
@@ -49,8 +52,11 @@ Kommandot [AZ container Attach][az-container-attach] innehåller diagnostikinfor
 
 Här är till exempel utdata från uppgiftsbaserade behållare i [ange kommando raden i en behållar instans](container-instances-start-command.md#azure-cli-example), efter att ha angett en giltig URL för en stor textfil som ska bearbetas:
 
-```console
-$ az container attach --resource-group myResourceGroup --name mycontainer
+```azurecli
+az container attach --resource-group myResourceGroup --name mycontainer
+```
+
+```output
 Container 'mycontainer' is in state 'Unknown'...
 Container 'mycontainer' is in state 'Waiting'...
 Container 'mycontainer' is in state 'Running'...

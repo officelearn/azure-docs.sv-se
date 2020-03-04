@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services LiveEvent-typer | Microsoft Docs
-description: I Azure Media Services kan en Live-händelse vara en av två typer, direktsänd kodning och genom strömning. Den här artikeln innehåller en detaljerad tabell som jämför aktiva händelse typer.
+description: I Azure Media Services kan en Live-händelse ställas in på antingen en *direkt-* eller *direktsänd kodning*. Den här artikeln innehåller en detaljerad tabell som jämför aktiva händelse typer.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,16 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 2dd3b3ffae39d43a3b865804af2e743bad87f8ea
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: a28d4d96f643c12eeb6aa542db2c6af06f4fd954
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543060"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78244642"
 ---
 # <a name="live-event-types-comparison"></a>Jämförelse av händelse typer i real tid
 
-I Azure Media Services kan en [Live-händelse](https://docs.microsoft.com/rest/api/media/liveevents) vara en av två typer: Live encoding och genom strömning. 
+I Azure Media Services kan en [Live-händelse](https://docs.microsoft.com/rest/api/media/liveevents) ställas in på antingen en *direkt* uppspelning (en lokal Live-kodare) som skickar en data ström med flera bit hastigheter eller *direktsänd kodning* (en lokal Live-kodare skickar en data ström med en bit hastighet). 
+
+I den här artikeln jämförs funktionerna i de olika typerna av Live-händelser.
 
 ## <a name="types-comparison"></a>Jämförelse mellan typer 
 
@@ -34,13 +36,13 @@ I följande tabell jämförs funktionerna i de olika typerna av Live-händelser.
 
 | Funktion | Direkt sändnings händelse | Standard-eller Premium1080p Live-händelse |
 | --- | --- | --- |
-| Inmatade enstaka bit hastighet kodas till flera bit hastigheter i molnet |Inga |Ja |
+| Inmatade enstaka bit hastighet kodas till flera bit hastigheter i molnet |Nej |Ja |
 | Maximal video upplösning för bidrags flöden |4K (4096x2160 vid 60 bild rutor/SEK) |1080p (1920x1088 vid 30 bild rutor/SEK)|
 | Rekommenderade högsta skikt i bidrags flödet|Upp till 12|Ett ljud|
 | Maximalt antal lager i utdata| Samma som indatamängden|Upp till 6 (se system för inställningar nedan)|
-| Maximal sammanställd bandbredd för bidrags flödet|60 Mbit/s|Gäller inte|
+| Maximal sammanställd bandbredd för bidrags flödet|60 Mbit/s|Ej tillämpligt|
 | Högsta bit hastighet för ett enskilt lager i bidraget |20 Mbit/s|20 Mbit/s|
-| Stöd för flera språk ljud spår|Ja|Inga|
+| Stöd för flera språk ljud spår|Ja|Nej|
 | Codecs för inkompatibla video |H. 264/AVC och H. 265/HEVC|H. 264/AVC|
 | Video-codecar som stöds|Samma som indatamängden|H. 264/AVC|
 | Video bitdjup, indata och utdata som stöds|Upp till 10 bitar, inklusive HDR 10/HLG|8-bitars|
@@ -53,13 +55,13 @@ I följande tabell jämförs funktionerna i de olika typerna av Live-händelser.
 | Maximal kör tid| 24 timmar x 365 dagar, direkt linjärt | 24 timmar x 365 dagar, direkt linjärt (för hands version)|
 | Möjlighet att gå igenom inbäddade CEA 608/708-textning|Ja|Ja|
 | Möjlighet att aktivera direkt avskrift|Ja|Ja|
-| Stöd för att infoga mellanliggande|Inga|Inga|
-| Stöd för AD-signalering via API| Inga|Inga|
+| Stöd för att infoga mellanliggande|Nej|Nej|
+| Stöd för AD-signalering via API| Nej|Nej|
 | Stöd för AD-signalering via SCTE-35-meddelanden på band|Ja|Ja|
 | Möjlighet att återställa från korta bås i bidrags flödet|Ja|Delvis|
 | Stöd för icke-uniform GOPs|Ja|Nej – indatatyper måste ha fast GOP varaktighet|
 | Stöd för variabla bild Rute frekvens inmatade|Ja|Nej – indatatyper måste vara fasta bild hastigheter. Mindre variationer tolereras, till exempel vid hög rörelse i bakgrunden. Men bidrags flödet kan inte släppa bild Rute frekvensen (till exempel till 15 bild rutor per sekund).|
-| Shutoff av direkt sändning när inmatnings flöde förloras|Inga|Efter 12 timmar, om ingen LiveOutput körs|
+| Shutoff av direkt sändning när inmatnings flöde förloras|Nej|Efter 12 timmar, om ingen LiveOutput körs|
 
 ## <a name="system-presets"></a>System för inställningar
 

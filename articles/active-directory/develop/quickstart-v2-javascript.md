@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
-ms.openlocfilehash: 9fc77b876474c89014998ce789f91f098fb3735c
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 9077d5c471911c9967c327c457d683b06856b920
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161057"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249056"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA
 
@@ -26,8 +26,9 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Node.js](https://nodejs.org/en/download/).
+* [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) (för att redigera projektfiler)
+
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Registrera och ladda ned snabbstartsprogrammet
@@ -71,38 +72,39 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 
 #### <a name="step-2-download-the-project"></a>Steg 2: Ladda ned projektet
 
-Välj det alternativ som passar din utvecklings miljö:
+> [!div renderon="docs"]
+> Om du vill köra projektet med en webb server med hjälp av Node. js [laddar du ned de centrala projektfilerna](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 
-* Om du vill köra projektet med en webb server med hjälp av Node. js [laddar du ned de centrala projektfilerna](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip). Öppna filerna med ett redigerings program, till exempel [Visual Studio Code](https://code.visualstudio.com/).
+> [!div renderon="portal"]
+> Köra projektet med en webb server med hjälp av Node. js
 
-#### <a name="step-3-configure-your-javascript-app"></a>Steg 3: Konfigurera din JavaScript-app
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Ladda ned kod exemplet]()
 
 > [!div renderon="docs"]
+> #### <a name="step-3-configure-your-javascript-app"></a>Steg 3: Konfigurera din JavaScript-app
+>
 > I mappen *JavaScriptSPA* redigerar du *authConfig. js*och anger `clientID` och `authority` värden under `msalConfig`.
+> ```javascript
+>
+>  // Config object to be passed to Msal on creation
+>  const msalConfig = {
+>    auth: {
+>      clientId: "Enter_the_Application_Id_Here",
+>      authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
+>      redirectUri: "Enter_the_Redirect_Uri_Here",
+>    },
+>    cache: {
+>      cacheLocation: "sessionStorage", // This configures where your cache will be stored
+>      storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
+>      forceRefresh: false // Set this to "true" to skip a cached token and go to the server to get a new
+>    }
+>  };  
+> ```
 
-> [!div class="sxs-lookup" renderon="portal"]
-> I mappen *JavaScriptSPA* redigerar du *authConfig. js*och ersätter `msalConfig` med följande kod:
-
-```javascript
-
-  // Config object to be passed to Msal on creation
-  const msalConfig = {
-    auth: {
-      clientId: "Enter_the_Application_Id_Here",
-      authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
-      redirectUri: "Enter_the_Redirect_Uri_Here",
-    },
-    cache: {
-      cacheLocation: "sessionStorage", // This configures where your cache will be stored
-      storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
-      forceRefresh: false // Set this to "true" to skip a cached token and go to the server to get a new
-    }
-  };  
-
-```
 > [!div renderon="portal"]
 > > [!NOTE]
-> > Den här snabb starten stöder Enter_the_Supported_Account_Info_Here.
+> > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
 >
@@ -117,19 +119,22 @@ Välj det alternativ som passar din utvecklings miljö:
 > > [!TIP]
 > > För att hitta värdena för **program-ID (klient)** , **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
 >
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: appen har kon figurer ATS och är redo att köras
+> Vi har konfigurerat ditt projekt med värdena för appens egenskaper. 
 
-#### <a name="step-4-run-the-project"></a>Steg 4: kör projektet
+> [!div renderon="docs"]
+> #### <a name="step-4-run-the-project"></a>Steg 4: kör projektet
 
-Om du använder [Node. js](https://nodejs.org/en/download/):
+Kör projektet med en webb server med hjälp av [Node. js](https://nodejs.org/en/download/):
 
 1. Starta-servern genom att köra följande kommando från projekt katalogen:
-
-   ```batch
-   npm install
-   npm start
-   ```
-
+    ```batch
+    npm install
+    npm start
+    ```
 1. Öppna en webbläsare och gå till `http://localhost:3000/`.
+
 1. Välj **Logga** in för att starta inloggningen och anropa Microsoft Graph API.
 
 När webbläsaren har läst in programmet väljer du **Logga**in. Första gången du loggar in uppmanas du att ange ditt medgivande för att ge programmet åtkomst till din profil och att logga in dig. När du har loggat in visas din användar profil information på sidan.
@@ -243,7 +248,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en token interaktivt
 
-Det finns situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Några exempel:
+Det finns situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Exempel:
 * Användare kan behöva ange sina autentiseringsuppgifter på grund av att deras lösen ord har upphört att gälla.
 * Ditt program begär åtkomst till ytterligare resurs omfattningar som användaren behöver godkänna.
 * Tvåfaktorautentisering krävs.

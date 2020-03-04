@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 500e07296040305f1e469fde78988f2551440e58
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 27ac4b67aa19aa59abe80ccf9409acf7b587a22b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472627"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250101"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Självstudie: Importera SQL BACPAC-filer med Azure Resource Manager-mallar
 
@@ -29,14 +29,14 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa stegen i den här artikeln behöver du:
 
 * Visual Studio Code med tillägget Resource Manager-verktyg. [Skapa Azure Resource Manager mallar i använda Visual Studio Code](./use-vs-code-to-create-template.md).
 * Om du vill öka säkerheten använder du ett genererat lösen ord för administratörs kontot för Azure-SQL Server. Här är ett exempel som du kan använda för att generera ett lösen ord:
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
 
@@ -242,7 +242,7 @@ För att få åtkomst till SQL Server från klient datorn måste du lägga till 
 
 I Azure Portal väljer du SQL-databasen från den nyligen distribuerade resurs gruppen. Välj **Frågeredigerare (förhandsversion)** och ange administratörsautentiseringsuppgifterna. Du ser två tabeller som importer ATS till-databasen.
 
-![Frågeredigerare (förhandsgranskning)](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
+![Frågeredigeraren (för hands version)](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -5,12 +5,12 @@ author: rloutlaw
 ms.topic: quickstart
 ms.date: 08/10/2018
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: f226736050319d57cd0bc123fdb2211e0faeae11
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 262afc2aa51aea260d5bd810b12e09de60b0c371
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208854"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249583"
 ---
 # <a name="quickstart-use-java-and-maven-to-create-and-publish-a-function-to-azure"></a>Snabb start: Använd Java och Maven för att skapa och publicera en funktion i Azure
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du skapar och publicerar en Java-funktion för att A
 För att kunna utveckla funktioner med hjälp av Java måste du ha följande installerat:
 
 - [Java Developer Kit](https://aka.ms/azure-jdks), version 8
-- [Apache maven](https://maven.apache.org), version 3,0 eller senare
+- [Apache Maven](https://maven.apache.org), version 3.0 eller senare
 - [Azure CLI]
 - [Azure Functions Core tools](./functions-run-local.md#v2) version 2.6.666 eller senare
 
@@ -98,7 +98,7 @@ mvn azure-functions:run
 
 Du ser utdata som följande från Azure Functions Core Tools när du kör projektet lokalt:
 
-```Output
+```output
 ...
 
 Now listening on: http://0.0.0.0:7071
@@ -116,7 +116,7 @@ Utlös funktionen från kommando raden med hjälp av sväng i ett nytt terminalf
 curl -w "\n" http://localhost:7071/api/HttpTrigger-Java --data AzureFunctions
 ```
 
-```Output
+```output
 Hello AzureFunctions!
 ```
 [Funktions nyckeln](functions-bindings-http-webhook-trigger.md#authorization-keys) är inte obligatorisk när den körs lokalt. Använd `Ctrl+C` i terminalen för att stoppa funktionskoden.
@@ -137,7 +137,7 @@ az login
 
 Använd följande maven-kommando för att distribuera projektet till en ny function-app. 
 
-```azurecli
+```console
 mvn azure-functions:deploy
 ```
 
@@ -175,13 +175,13 @@ Nu kan du använda den kopierade URL: en för att få åtkomst till din funktion
 
 Om du vill kontrol lera att Function-appen körs på Azure med hjälp av `cURL`ersätter du URL: en från exemplet nedan med den URL som du kopierade från portalen.
 
-```azurecli
+```console
 curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/HttpTrigger-Java?code=zYRohsTwBlZ68YF.... --data AzureFunctions
 ```
 
 Detta skickar en POST-begäran till funktions slut punkten med `AzureFunctions` i bröd texten i begäran. Du ser följande svar.
 
-```Output
+```output
 Hello AzureFunctions!
 ```
 

@@ -5,15 +5,15 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 07/08/2019
+ms.date: 03/03/2020
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 2dd1eddc841cc484957c2124de3419799c4e59b7
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 8f982dbb10a15a1e02a62a97431cdd1b7015472c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206844"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252293"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Skapa och köra ett jobb i ditt Azure IoT Central-program
 
@@ -27,51 +27,40 @@ I det här avsnittet visas hur du skapar och kör ett jobb. Det visar hur du st�
 
 2. Välj **+ nytt** för att skapa ett nytt jobb:
 
-    > [!div class="mx-imgBorder"]
-    > ![skapa nytt jobb](./media/howto-run-a-job/createnewjob.png)
+    ![Skapa nytt jobb](./media/howto-run-a-job/createnewjob.png)
 
 3. Ange ett namn och en beskrivning för att identifiera det jobb som du skapar.
 
 4. Välj den mål enhets grupp som du vill att jobbet ska gälla för. Du kan se hur många enheter din jobb konfiguration gäller i avsnittet **Sammanfattning** .
 
-5. Välj sedan antingen **Property** eller **Command** som den typ av jobb som ska konfigureras. Om du vill konfigurera en konfiguration av en **egenskaps** jobb väljer du en egenskap och anger dess nya värde. Om du vill konfigurera ett **kommando**eller väljer du kommandot som ska köras. Ett egenskaps jobb kan ange flera egenskaper:
+5. Välj sedan antingen **moln egenskap**, **egenskap** eller **kommando** som den typ av jobb som ska konfigureras. Om du vill konfigurera en konfiguration av en **egenskaps** jobb väljer du en egenskap och anger dess nya värde. Om du vill konfigurera ett **kommando**väljer du kommandot som ska köras. Ett egenskaps jobb kan ange flera egenskaper:
 
-    > [!div class="mx-imgBorder"]
-    > ![konfigurera jobb](./media/howto-run-a-job/configurejob.png)
+    ![Konfigurera jobb](./media/howto-run-a-job/configurejob.png)
 
-6. När du har valt enheter väljer du **Kör** eller **Spara**. Jobbet visas nu på sidan med huvud **jobb** . På den här sidan kan du se jobbet som körs och historiken för tidigare körningar eller sparade jobb. Du kan öppna ditt sparade jobb igen när som helst för att fortsätta redigera det eller köra det:
+6. När du har skapat jobbet väljer du **Kör** eller **Spara**. Jobbet visas nu på sidan med huvud **jobb** . På den här sidan kan du se jobbet som körs och historiken för tidigare körningar eller sparade jobb. Du kan öppna ditt sparade jobb igen när som helst för att fortsätta redigera det eller köra det:
 
-    > [!div class="mx-imgBorder"]
-    > ![Visa jobb](./media/howto-run-a-job/viewjob.png)
+    ![Visa jobb](./media/howto-run-a-job/viewjob.png)
 
     > [!NOTE]
     > Du kan visa 30 dagars historik för dina jobb som körs tidigare.
 
 7. Om du vill få en översikt över jobbet väljer du det jobb som ska visas i listan. Den här översikten innehåller värdena för jobb information, enheter och enhets status. I den här översikten kan du också välja **Hämta jobb information** för att ladda ned en CSV-fil med jobb information, inklusive enheterna och deras status värden. Den här informationen kan vara användbar vid fel sökning:
 
-    > [!div class="mx-imgBorder"]
-    > ![Visa enhets status](./media/howto-run-a-job/downloaddetails.png)
+    ![Visa enhetsstatus](./media/howto-run-a-job/downloaddetails.png)
 
-### <a name="stop-a-running-job"></a>Stoppa ett pågående jobb
+### <a name="manage-a-job"></a>Hantera ett jobb
 
-Om du vill stoppa ett pågående jobb öppnar du det och väljer **stoppa**. Jobbets status ändras för att visa att jobbet stoppas. I **sammanfattnings** avsnittet visas vilka enheter som har slutförts, misslyckats eller som fortfarande väntar:
+Om du vill stoppa ett pågående jobb öppnar du det och väljer **stoppa**. Jobbets status ändras för att visa att jobbet stoppas. I **sammanfattnings** avsnittet visas vilka enheter som har slutförts, misslyckats eller som fortfarande väntar.
 
-    > [!div class="mx-imgBorder"]
-    > ![Stop job](./media/howto-run-a-job/stopjob.png)
+Om du vill köra ett jobb som är stoppat markerar du det och väljer sedan **Kör**. Jobbets status ändras för att återspegla jobbet körs nu igen. Avsnittet **Sammanfattning** fortsätter att uppdateras med den senaste förloppet.
 
-### <a name="run-a-stopped-job"></a>Köra ett stoppat jobb
-
-Om du vill köra ett jobb som är stoppat markerar du det och väljer sedan **Kör**. Jobbets status ändras för att återspegla jobbet körs nu igen. Avsnittet **Sammanfattning** fortsätter att uppdateras med den senaste förloppet:
-
-    > [!div class="mx-imgBorder"]
-    > ![Resumed job](./media/howto-run-a-job/resumejob.png)
+![Hantera jobb](./media/howto-run-a-job/managejob.png)
 
 ## <a name="copy-a-job"></a>Kopiera ett jobb
 
-Kopiera ett av dina befintliga jobb genom att öppna det och välja **Kopiera**. En kopia av jobb konfigurationen öppnas så att du kan redigera den, och **kopian** läggs till i slutet av jobb namnet. Du kan spara eller köra det nya jobbet:
+Om du vill kopiera ett befintligt jobb väljer du det på sidan **jobb** och väljer **Kopiera**. En kopia av jobb konfigurationen öppnas och du kan redigera den och **Kopiera** den till jobb namnet. Du kan spara eller köra det nya jobbet:
 
-    > [!div class="mx-imgBorder"]
-    > ![Copy job](./media/howto-run-a-job/copyjob.png)
+![Kopiera jobb](./media/howto-run-a-job/copyjob.png)
 
 ## <a name="view-the-job-status"></a>Visa jobb status
 
@@ -94,7 +83,7 @@ Status meddelandet följs av en översikt över enheterna i jobbet. I följande 
 
 ### <a name="view-the-device-status"></a>Visa enhetens status
 
-Om du vill visa status för jobbet och alla berörda enheter väljer du jobbet. Om du vill ladda ned en CSV-fil som innehåller jobb information, inklusive listan över enheter och deras status värden, väljer du **Hämta jobb information**. Bredvid varje enhets namn ser du något av följande status meddelanden:
+Om du vill visa status för jobbet och alla berörda enheter öppnar du jobbet. Om du vill ladda ned en CSV-fil som innehåller jobb information, inklusive listan över enheter och deras status värden, väljer du **Hämta jobb information**. Bredvid varje enhets namn ser du något av följande status meddelanden:
 
 | Statusmeddelande       | Status betydelse                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |

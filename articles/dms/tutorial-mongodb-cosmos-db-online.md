@@ -3,8 +3,8 @@ title: 'Självstudie: Migrera MongoDB online till Azure Cosmos DB API för Mongo
 titleSuffix: Azure Database Migration Service
 description: Lär dig att migrera från MongoDB lokalt till Azure Cosmos DB API för MongoDB online genom att använda Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: 896ae35e1039548ea56967ff73d6a1781aa3c8a6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 66375d83dca4edef17919e3b493d5e45be37cc40
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751392"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255627"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Självstudie: Migrera MongoDB till Azure Cosmos DB s API för MongoDB online med DMS
 
 Du kan använda Azure Database Migration Service för att utföra en migrering online (minimal nedtid) av databaser från en lokal eller moln instans av MongoDB till Azure Cosmos DB s API för MongoDB.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 >
 > * Skapa en instans av Azure Database Migration Service.
@@ -44,7 +44,7 @@ I den här självstudien migrerar du en data uppsättning i MongoDB som finns p�
 
 I den här artikeln beskrivs en onlinemigrering från MongoDB till Azure Cosmos DB:s API för MongoDB. Läs mer i [Migrera MongoDB till Azure Cosmos DB:s API för MongoDB offline med DMS](tutorial-mongodb-cosmos-db.md) om offlinemigrering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -67,7 +67,7 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration
 
-1. Logga in på Azure Portal och välj **Alla tjänster** och sedan **Prenumerationer**.
+1. Logga in på Azure-portalen och välj **Alla tjänster** och sedan **Prenumerationer**.
 
    ![Visa portalprenumerationer](media/tutorial-mongodb-to-cosmosdb-online/portal-select-subscription1.png)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7c4a0e64e1f08bb3e80eaf67937da10906bfce0
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: bae957eba627be7fa3b968585a03d28aa5b0af56
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591616"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255004"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Gör så här: planera din hybrid Azure Active Directory delta-implementering
 
@@ -79,6 +79,8 @@ Som första planerings steg bör du granska din miljö och avgöra om du behöve
 - Hybrid Azure AD Join stöds inte för Windows Server som kör rollen domänkontrollant (DC).
 
 - Hybrid Azure AD-anslutning stöds inte på Windows-enheter med äldre versioner vid användning av centrala autentiseringsuppgifter eller centrala profiler för användar profiler.
+
+- Server Core OS stöder inte någon typ av enhets registrering.
 
 ### <a name="os-imaging-considerations"></a>Överväganden för OS-avbildningar
 - Om du förlitar dig på system förberedelse verktyget (Sysprep) och om du använder en avbildning med **tidigare versioner än Windows 10 1809** för installation kontrollerar du att avbildningen inte är från en enhet som redan har registrerats med Azure AD som en hybrid Azure AD-anslutning.

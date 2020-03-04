@@ -4,12 +4,12 @@ description: Lär dig hur du distribuerar till Azure Functions med hjälp av Jen
 keywords: jenkins, azure, devops, java, azure functions
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: edf8c763a46a6f519175842a6525b2c1b314fb66
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 731bac13a596bbeaf970b3f6ce976a582d1f11ae
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470674"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250912"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>Distribuera till Azure Functions med hjälp av plugin-programmet Jenkins Azure Functions
 
@@ -31,19 +31,19 @@ Följande steg visar hur du skapar en Java-funktion med Azure CLI:
 
 1. Skapa en resursgrupp som ersätter platshållaren **&lt;resource_group >** med resursgruppens namn.
 
-    ```cli
+    ```azurecli
     az group create --name <resource_group> --location eastus
     ```
 
 1. Skapa ett Azure Storage-konto som ersätter platshållarna med lämpliga värden.
  
-    ```cli
+    ```azurecli
     az storage account create --name <storage_account> --location eastus --resource-group <resource_group> --sku Standard_LRS    
     ```
 
 1. Skapa testfunktionsappen som ersätter platshållarna med lämpliga värden.
 
-    ```cli
+    ```azurecli
     az functionapp create --resource-group <resource_group> --consumption-plan-location eastus --name <function_app> --storage-account <storage_account>
     ```
 
@@ -148,7 +148,7 @@ Nu är det dags att köra Jenkins-jobbet.
 
 Om du inte planerar att fortsätta använda det här programmet tar du bort de resurser som du skapade med följande steg:
 
-```cli
+```azurecli
 az group delete -y --no-wait -n <resource_group>
 ```
 

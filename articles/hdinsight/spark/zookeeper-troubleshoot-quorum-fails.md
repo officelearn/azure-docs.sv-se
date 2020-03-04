@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/20/2019
-ms.openlocfilehash: a0874826529b5c9ca5d6d4107fe820cd522d81d0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 4e46efaf17ae9bad5df6f1f61f401d3e6de58a85
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894035"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250243"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>Apache ZooKeeper servern kan inte bilda ett kvorum i Azure HDInsight
 
@@ -20,24 +20,31 @@ Den här artikeln beskriver fel söknings steg och möjliga lösningar för prob
 
 ## <a name="issue"></a>Problem
 
-Apache ZooKeeper servern inte är felfri kan symptomen innehålla: både resurs hanterare/namnservrar är i vänte läge, enkla HDFS-åtgärder fungerar inte, `zkFailoverController` har stoppats och kan inte startas, garn/Spark/livy-jobb fungerar inte på grund av Zookeeper-fel. Du kan se ett fel meddelande som liknar:
+Apache ZooKeeper servern inte är felfri kan symptomen innehålla: både resurs hanterare/namnservrar är i vänte läge, enkla HDFS-åtgärder fungerar inte, `zkFailoverController` har stoppats och kan inte startas, garn/Spark/livy-jobb fungerar inte på grund av Zookeeper-fel. Det kan också hända att LLAP daemon inte startar på säkra Spark-eller Interactive Hive-kluster. Du kan se ett fel meddelande som liknar:
 
 ```
 19/06/19 08:27:08 ERROR ZooKeeperStateStore: Fatal Zookeeper error. Shutting down Livy server.
 19/06/19 08:27:08 INFO LivyServer: Shutting down Livy server.
 ```
 
+I Zookeeper-servern loggar in på en Zookeeper-värd vid/var/log/Zookeeper/Zookeeper-Zookeeper-Server-\*. out, kan du också se följande fel:
+
+```
+2020-02-12 00:31:52,513 - ERROR [CommitProcessor:1:NIOServerCnxn@178] - Unexpected Exception:
+java.nio.channels.CancelledKeyException
+```
+
 ## <a name="cause"></a>Orsak
 
 När volymen av Snapshot-filer är skadad, kommer ZooKeeper-servern inte att kunna bilda ett kvorum, vilket medför att ZooKeeper relaterade tjänster inte är felfria. ZooKeeper-servern tar inte bort gamla Snapshot-filer från dess data katalog, i stället är det en regelbunden uppgift som ska utföras av användare för att underhålla healthiness för ZooKeeper. Mer information finns i [ZooKeeper-styrkor och begränsningar](https://zookeeper.apache.org/doc/r3.3.5/zookeeperAdmin.html#sc_strengthsAndLimitations).
 
-## <a name="resolution"></a>Upplösning
+## <a name="resolution"></a>Lösning
 
-Kontrol lera ZooKeeper data katalog `/hadoop/zookeeper/version-2` och `/hadoop/hdinsight-zookeepe/version-2` för att ta reda på om ögonblicks bildens fil storlek är stor. Utför följande steg om det finns stora ögonblicks bilder:
+Kontrol lera ZooKeeper data katalog `/hadoop/zookeeper/version-2` och `/hadoop/hdinsight-zookeeper/version-2` för att ta reda på om ögonblicks bildens fil storlek är stor. Utför följande steg om det finns stora ögonblicks bilder:
 
-1. Säkerhetskopiera ögonblicks bilder i `/hadoop/zookeeper/version-2` och `/hadoop/hdinsight-zookeepe/version-2`.
+1. Säkerhetskopiera ögonblicks bilder i `/hadoop/zookeeper/version-2` och `/hadoop/hdinsight-zookeeper/version-2`.
 
-1. Rensa ögonblicks bilder i `/hadoop/zookeeper/version-2` och `/hadoop/hdinsight-zookeepe/version-2`.
+1. Rensa ögonblicks bilder i `/hadoop/zookeeper/version-2` och `/hadoop/hdinsight-zookeeper/version-2`.
 
 1. Starta om alla ZooKeeper-servrar från Apache Ambari UI.
 

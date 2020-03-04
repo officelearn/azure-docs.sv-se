@@ -1,6 +1,6 @@
 ---
-title: Enhetssimulering med IoT fjärrövervakning – Azure | Microsoft Docs
-description: Den här guiden visar hur du använder enhetssimulatorn med den lösningsacceleratorn för fjärrövervakningen.
+title: Enhets simulering med IoT-fjärrövervakning – Azure | Microsoft Docs
+description: Den här instruktions guiden visar hur du använder enhets simulatorn med lösnings acceleratorn för fjärrövervakning.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,140 +8,140 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5044f8b85e59911633a4ffab509efc000948144a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb8b23513738a6696d65bf7f06a741be2ada7a93
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65832585"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250257"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Skapa och testa en ny simulerad enhet
 
-Lösningsacceleratorn för fjärrövervakning kan du definiera egna simulerade enheter. Den här artikeln visar hur du definierar en ny simulerad glödlampan-enhet och sedan testa den lokalt. Solution accelerator omfattar simulerade enheter, till exempel chillers och lastbilar. Du kan också definiera egna simulerade enheter för att testa dina IoT-lösningar innan du distribuerar verkliga enheter.
+Med hjälp av lösningen för fjärr styrning kan du definiera dina egna simulerade enheter. Den här artikeln visar hur du definierar en ny simulerad glöd lampan-enhet och sedan testar den lokalt. Solution Accelerator innehåller simulerade enheter som kyl-och Last bilar. Du kan dock definiera egna simulerade enheter för att testa dina IoT-lösningar innan du distribuerar riktiga enheter.
 
 > [!NOTE]
-> Den här artikeln beskriver hur du använder simulerade enheter i device simulering-tjänsten. Om du vill skapa en riktig enhet Se [ansluta enheten till lösningsacceleratorn för fjärrövervakning](iot-accelerators-connecting-devices.md).
+> Den här artikeln beskriver hur du använder simulerade enheter som finns i enhets simulerings tjänsten. Om du vill skapa en riktig enhet kan du läsa [Anslut din enhet till-acceleratorn för fjärr styrning](iot-accelerators-connecting-devices.md).
 
-Den här guiden visar hur du anpassar enheten simulering mikrotjänst. Den här mikrotjänst är en del av lösningsacceleratorn för fjärrövervakning. För att visa enheten simuleringsfunktioner, använder i den här guiden två scenarier i Contoso-IoT-program:
+Den här instruktions guiden visar hur du anpassar enhets simuleringens mikrotjänst. Den här mikrotjänsten är en del av lösnings acceleratorn för fjärrövervakning. För att visa funktioner för enhets simulering använder den här instruktions guiden två scenarier i Contoso IoT-program:
 
-I det första scenariot lägger du till en ny typ av telemetri till Contoso befintliga **kylaggregat** enhetstyp.
+I det första scenariot lägger du till en ny typ av telemetri till Contosos befintliga **kyl** enhets typ.
 
-I det andra scenariot vill Contoso testa en ny smart glödlampan-enhet. Om du vill köra testerna skapar du en ny simulerad enhet med följande egenskaper:
+I det andra scenariot vill contoso testa en ny smart glöd lampan-enhet. För att köra testerna skapar du en ny simulerad enhet med följande egenskaper:
 
-*Egenskaper*
+*Egenskaperna*
 
 | Namn                     | Värden                      |
 | ------------------------ | --------------------------- |
-| Färg                    | White, Red, Blue            |
-| Ljusstyrka               | 0 till 100                    |
-| Beräknad återstående livslängd | Nedräkning från 10 000 timmar |
+| Färg                    | Vit, röd, blå            |
+| Ljus styrka               | 0 till 100                    |
+| Uppskattad återstående livs längd | Nedräkning från 10 000 timmar |
 
-*Telemetri*
+*Telemetridata*
 
-I följande tabell visas data på glödlampan rapporterar till molnet som en dataström:
+I följande tabell visas de data som glöd lampan rapporterar till molnet som en data ström:
 
 | Namn   | Värden      |
 | ------ | ----------- |
 | Status | "on", "off" |
 | Temperatur | Grader F |
-| online | SANT, FALSKT |
+| Onlinemallar | true, false |
 
 > [!NOTE]
-> Den **online** telemetrivärde är obligatoriskt för alla simulerade typer.
+> Värdet **online** för telemetri är obligatoriskt för alla simulerade typer.
 
-*Methods*
+*Indatametod*
 
-I följande tabell visas de åtgärder som har stöd för den nya enheten:
+Följande tabell visar de åtgärder som den nya enheten stöder:
 
 | Namn        |
 | ----------- |
-| Aktivera   |
-| Stänga av  |
+| Växla på   |
+| Stäng av  |
 
-*Starttillstånd*
+*Initialt tillstånd*
 
-I följande tabell visas den första statusen för enheten:
+I följande tabell visas enhetens initiala status:
 
 | Namn                     | Värden |
 | ------------------------ | -------|
-| Inledande färg            | Vit  |
-| Inledande ljusstyrka       | 75     |
-| Inledande återstående livslängd   | 10 000 |
-| Inledande telemetri status | ”on”   |
+| Ursprunglig färg            | Vit  |
+| Inledande ljus styrka       | 75     |
+| Ursprunglig återstående livs längd   | 10 000 |
+| Status för inledande telemetri | för   |
 | Inledande telemetri temperatur | 200   |
 
-För att slutföra stegen i den här guiden behöver du en aktiv Azure-prenumeration.
+För att slutföra stegen i den här instruktions guiden behöver du en aktiv Azure-prenumeration.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill följa den här guiden behöver du:
+Om du vill följa den här instruktions guiden behöver du:
 
-* Visual Studio Code. Du kan [ladda ned Visual Studio Code för Mac, Linux och Windows](https://code.visualstudio.com/download).
-* .NET Core. Du kan ladda ned [.NET Core för Mac, Linux och Windows](https://www.microsoft.com/net/download).
+* Visual Studio Code. Du kan [Hämta Visual Studio Code för Mac, Linux och Windows](https://code.visualstudio.com/download).
+* .NET Core. Du kan ladda ned [.net Core för Mac, Linux och Windows](https://www.microsoft.com/net/download).
 * [C# för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-* Postman. Du kan ladda ned [Postman för Mac, Windows eller Linux](https://www.getpostman.com/apps).
-* En [IoT hub som är distribuerad på Azure-prenumerationen](../../articles/iot-hub/iot-hub-create-through-portal.md). Du behöver anslutningssträngen för IoT-hubben att slutföra stegen i den här guiden. Du kan hämta anslutningssträngen från Azure-portalen.
-* En Cosmos DB-databas som använder SQL-API och som är konfigurerad för [stark konsekvens](../../articles/cosmos-db/how-to-manage-database-account.md). Du behöver anslutningssträngen för Cosmos DB-databasen för att slutföra stegen i den här guiden. Du kan hämta anslutningssträngen från Azure-portalen.
+* Postman. Du kan hämta [Postman för Mac, Windows eller Linux](https://www.getpostman.com/apps).
+* En [IoT-hubb som distribueras till din Azure-prenumeration](../../articles/iot-hub/iot-hub-create-through-portal.md). Du behöver IoT-hubbens anslutnings sträng för att slutföra stegen i den här hand boken. Du kan hämta anslutnings strängen från Azure Portal.
+* En Cosmos DB databas som använder SQL API och som har kon figurer ATS för [stark konsekvens](../../articles/cosmos-db/how-to-manage-database-account.md). Du behöver Cosmos DB databasens anslutnings sträng för att slutföra stegen i den här hand boken. Du kan hämta anslutnings strängen från Azure Portal.
 
 ## <a name="prepare-your-development-environment"></a>Förbereda utvecklingsmiljön
 
-Utför följande uppgifter för att förbereda utvecklingsmiljön:
+Utför följande uppgifter för att förbereda utvecklings miljön:
 
-* Hämta källan för enheten simulering mikrotjänst.
-* Hämta källan för storage nätverkskort mikrotjänst.
-* Köra storage nätverkskort mikrotjänster lokalt.
+* Hämta källan för mikrotjänsten Device simulering.
+* Ladda ned källan för Storage adapter-mikrotjänsten.
+* Kör Storage adapter-mikrotjänsten lokalt.
 
-Anvisningarna i den här artikeln förutsätter att du använder Windows. Om du använder ett annat operativsystem kan du behöva justera några av de sökvägar och kommandon för att de passar din miljö.
+I instruktionerna i den här artikeln förutsätter vi att du använder Windows. Om du använder ett annat operativ system kan du behöva justera några av fil Sök vägarna och kommandona för att passa din miljö.
 
 ### <a name="download-the-microservices"></a>Ladda ned mikrotjänster
 
-Hämta och packa upp den [mikrotjänster för fjärrövervakning](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) från GitHub till en lämplig plats på den lokala datorn. Artikeln förutsätter vi att namnet på den här mappen är **remote-monitoring-services-dotnet-master**.
+Ladda ned och zippa upp [mikrotjänsterna för fjärrövervakning](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) från GitHub till en lämplig plats på den lokala datorn. Artikeln förutsätter att namnet på den här mappen är **fjärrövervakning-tjänster-dotNet-Master**.
 
-Hämta och packa upp den [enheten simulering mikrotjänst](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) från GitHub till en lämplig plats på den lokala datorn. Artikeln förutsätter vi att namnet på den här mappen är **enhet-simulering-dotnet-master**.
+Ladda ned och zippa upp [mikrotjänsten för enhets simulering](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) från GitHub till en lämplig plats på den lokala datorn. Artikeln förutsätter att namnet på den här mappen är **Device-simulering-dotNet-Master**.
 
-### <a name="run-the-storage-adapter-microservice"></a>Kör storage nätverkskort mikrotjänst
+### <a name="run-the-storage-adapter-microservice"></a>Köra mikrotjänsten Storage adapter
 
-Öppna den **remote-monitoring-services-dotnet-master\storage-adapter** mappen i Visual Studio Code. Klicka på någon **återställa** knappar för att åtgärda eventuella olöst beroenden.
+Öppna mappen **Remote-Monitoring-Services-dotNet-master\storage-adapter** i Visual Studio Code. Klicka på alla **återställnings** knappar för att åtgärda eventuella olösta beroenden.
 
-Öppna den **storage-adapter/WebService/appsettings.ini** fil och tilldela din Cosmos DB-anslutningssträngen till den **documentDBConnectionString** variabeln.
+Öppna filen **Storage-adapter/WebService/appSettings. ini** och tilldela Cosmos DB anslutnings strängen till **documentDBConnectionString** -variabeln.
 
-Om du vill köra mikrotjänst lokalt, klickar du på **Felsök > Starta felsökning**.
+Kör mikrotjänsten lokalt genom att klicka på **felsök > starta fel sökning**.
 
-Den **Terminal** fönstret i Visual Studio Code visas utdata från körs mikrotjänst, inklusive en URL för web service-hälsokontroll: [ http://127.0.0.1:9022/v1/status ](http://127.0.0.1:9022/v1/status). När du navigerar till den här adressen statusen ska vara ”OK: Alive och väl ”.
+**Terminalfönstret** i Visual Studio Code visar utdata från den aktiva mikrotjänsten inklusive en URL för webb tjänstens hälso kontroll: [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). När du navigerar till den här adressen ska statusen vara "OK: Alive".
 
-Lämna storage adapter-mikrotjänster som körs i den här instansen av Visual Studio Code när du slutför nästa steg.
+Lämna den mikrotjänsten Storage adapter som körs i den här instansen av Visual Studio Code medan du slutför nästa steg.
 
-## <a name="modify-the-chiller"></a>Ändra kylaggregat
+## <a name="modify-the-chiller"></a>Ändra kylning
 
-I det här avsnittet ska du lägga till en ny **intern temperatur** typ av telemetri i den befintliga **kylaggregat** enhetstyp:
+I det här avsnittet lägger du till en ny typ av telemetri för **intern temperatur** till den befintliga typen av **kylnings** enhet:
 
-1. Skapa en ny mapp **C:\temp\devicemodels** på den lokala datorn.
+1. Skapa en ny mapp **C:\temp\devicemodels** på din lokala dator.
 
-1. Kopiera följande filer till den nya mappen från hämtade kopian av enheten simulering mikrotjänst:
+1. Kopiera följande filer till den nya mappen från den hämtade kopian av mikrotjänsten Device simulering:
 
-    | source | Mål |
+    | Källa | Mål |
     | ------ | ----------- |
     | Services\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
     | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
-    | Services\data\devicemodels\scripts\Reboot-method.js | C:\temp\devicemodels\scripts\Reboot-Method.js |
-    | Services\data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-Method.js |
+    | Services\data\devicemodels\scripts\Reboot-method.js | C:\temp\devicemodels\scripts\Reboot-method.js |
+    | Services\data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-method.js |
     | Services\data\devicemodels\scripts\EmergencyValveRelease-method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-method.js |
     | Services\data\devicemodels\scripts\IncreasePressure-method.js | C:\temp\devicemodels\scripts\IncreasePressure-method.js |
 
-1. Öppna den **C:\temp\devicemodels\chiller-01.json** fil.
+1. Öppna filen **C:\temp\devicemodels\chiller-01.JSON** .
 
-1. I den **InitialState** lägger du till följande två definitioner:
+1. I avsnittet **InitialState** lägger du till följande två definitioner:
 
     ```json
     "internal_temperature": 65.0,
     "internal_temperature_unit": "F",
     ```
 
-1. I den **telemetri** kan lägga till följande definition:
+1. Lägg till följande definition i **telemetri** -matrisen:
 
     ```json
     {
@@ -158,18 +158,18 @@ I det här avsnittet ska du lägga till en ny **intern temperatur** typ av telem
     },
     ```
 
-1. Spara den **C:\temp\devicemodels\chiller-01.json** fil.
+1. Spara filen **C:\temp\devicemodels\chiller-01.JSON** .
 
-1. Öppna den **C:\temp\devicemodels\scripts\chiller-01-state.js** fil.
+1. Öppna filen **C:\temp\devicemodels\scripts\chiller-01-State.js** .
 
-1. Lägg till följande fält i den **tillstånd** variabeln:
+1. Lägg till följande fält i **delstaten** -variabeln:
 
     ```js
     internal_temperature: 65.0,
     internal_temperature_unit: "F",
     ```
 
-1. Uppdatera den **huvudsakliga** fungerar på följande sätt:
+1. Uppdatera **huvud** funktionen enligt följande:
 
     ```js
     function main(context, previousState, previousProperties) {
@@ -201,13 +201,13 @@ I det här avsnittet ska du lägga till en ny **intern temperatur** typ av telem
     }
     ```
 
-1. Spara den **C:\temp\devicemodels\scripts\chiller-01-state.js** fil.
+1. Spara filen **C:\temp\devicemodels\scripts\chiller-01-State.js** .
 
-## <a name="create-the-lightbulb"></a>Skapa glödlampan
+## <a name="create-the-lightbulb"></a>Skapa glöd lampan
 
-I det här avsnittet definierar du en ny **glödlampan** enhetstyp:
+I det här avsnittet definierar du en ny **glöd lampan** enhets typ:
 
-1. Skapa en fil **C:\temp\devicemodels\lightbulb-01.json** och Lägg till följande innehåll:
+1. Skapa en fil **C:\temp\devicemodels\lightbulb-01.JSON** och Lägg till följande innehåll:
 
     ```json
     {
@@ -271,9 +271,9 @@ I det här avsnittet definierar du en ny **glödlampan** enhetstyp:
     }
     ```
 
-    Spara ändringarna i **C:\temp\devicemodels\lightbulb-01.json**.
+    Spara ändringarna i **C:\temp\devicemodels\lightbulb-01.JSON**.
 
-1. Skapa en fil **C:\temp\devicemodels\scripts\lightbulb-01-state.js** och Lägg till följande innehåll:
+1. Skapa en fil **C:\temp\devicemodels\scripts\lightbulb-01-State.js** och Lägg till följande innehåll:
 
     ```javascript
     "use strict";
@@ -360,9 +360,9 @@ I det här avsnittet definierar du en ny **glödlampan** enhetstyp:
     }
     ```
 
-    Spara ändringarna i **C:\temp\devicemodels\scripts\lightbulb-01-state.js**.
+    Spara ändringarna i **C:\temp\devicemodels\scripts\lightbulb-01-State.js**.
 
-1. Skapa en fil **C:\temp\devicemodels\scripts\SwitchOn-method.js** och Lägg till följande innehåll:
+1. Skapa en fil **C:\temp\devicemodels\scripts\SwitchOn-Method.js** och Lägg till följande innehåll:
 
     ```javascript
     "use strict";
@@ -386,9 +386,9 @@ I det här avsnittet definierar du en ny **glödlampan** enhetstyp:
     }
     ```
 
-    Spara ändringarna i **C:\temp\devicemodels\scripts\SwitchOn-method.js**.
+    Spara ändringarna i **C:\temp\devicemodels\scripts\SwitchOn-Method.js**.
 
-1. Skapa en fil **C:\temp\devicemodels\scripts\SwitchOff-method.js** och Lägg till följande innehåll:
+1. Skapa en fil **C:\temp\devicemodels\scripts\SwitchOff-Method.js** och Lägg till följande innehåll:
 
     ```javascript
     "use strict";
@@ -412,19 +412,19 @@ I det här avsnittet definierar du en ny **glödlampan** enhetstyp:
     }
     ```
 
-    Spara ändringarna i **C:\temp\devicemodels\scripts\SwitchOff-method.js**.
+    Spara ändringarna i **C:\temp\devicemodels\scripts\SwitchOff-Method.js**.
 
-Nu har du skapat en anpassad version av den **kylaggregat** enhetstyp och skapat en ny **glödlampan** enhetstyp.
+Nu har du skapat en anpassad version av **kyl** enhets typen och skapat en ny **glöd lampan** -enhets typ.
 
 ## <a name="test-the-devices"></a>Testa enheterna
 
-I det här avsnittet ska testa du de enhetstyper som du skapade i föregående avsnitt lokalt.
+I det här avsnittet testar du de enhets typer som du skapade i föregående avsnitt lokalt.
 
-### <a name="run-the-device-simulation-microservice"></a>Kör enheten simulering mikrotjänst
+### <a name="run-the-device-simulation-microservice"></a>Kör mikrotjänsten enhets simulering
 
-Öppna den **enhet-simulering-dotnet-master** mapp som du laddade ned från GitHub i en ny instans av Visual Studio Code. Klicka på någon **återställa** knappar för att åtgärda eventuella olöst beroenden.
+Öppna mappen **Device-simulering-dotNet-Master** som du laddade ned från GitHub i en ny instans av Visual Studio Code. Klicka på alla **återställnings** knappar för att åtgärda eventuella olösta beroenden.
 
-Öppna den **WebService/appsettings.ini** fil och tilldela din Cosmos DB-anslutningssträngen till den **documentdb_connstring** variabeln och även ändra följande inställningar:
+Öppna filen **WebService/appSettings. ini** och tilldela Cosmos DB anslutnings sträng till **documentdb_connstring** -variabeln och ändra inställningarna enligt följande:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\
@@ -432,74 +432,74 @@ device_models_folder = C:\temp\devicemodels\
 device_models_scripts_folder = C:\temp\devicemodels\scripts\
 ```
 
-Om du vill köra mikrotjänst lokalt, klickar du på **Felsök > Starta felsökning**.
+Kör mikrotjänsten lokalt genom att klicka på **felsök > starta fel sökning**.
 
-Den **Terminal** utdata från körs mikrotjänst visas i fönstret i Visual Studio Code.
+**Terminalfönstret** i Visual Studio Code visar utdata från den aktiva mikrotjänsten.
 
-Lämna enheten simulering mikrotjänster som körs i den här instansen av Visual Studio Code när du slutför nästa steg.
+Lämna mikrotjänsten för enhets simulering som körs i den här instansen av Visual Studio Code medan du slutför nästa steg.
 
-### <a name="set-up-a-monitor-for-device-events"></a>Konfigurera en Övervakare för enhetshändelser
+### <a name="set-up-a-monitor-for-device-events"></a>Konfigurera en Övervakare för enhets händelser
 
-I det här avsnittet använder du Azure CLI för att ställa in en Händelseövervakare visar den telemetri som skickas från enheter som är anslutna till din IoT hub.
+I det här avsnittet använder du Azure CLI för att konfigurera en händelse Övervakare för att Visa telemetri som skickas från enheter som är anslutna till din IoT-hubb.
 
-Skriptet nedan förutsätter att namnet på din IoT-hubb **enhet-simulering-test**.
+Följande skript förutsätter att namnet på din IoT Hub är **Device-simulering-test**.
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Monitor telemetry sent to your hub
 az iot hub monitor-events --hub-name device-simulation-test
 ```
 
-Lämna Händelseövervakare som körs medan du testa de simulerade enheterna.
+Lämna händelse övervakaren igång medan du testar de simulerade enheterna.
 
-### <a name="create-a-simulation-with-the-updated-chiller-device-type"></a>Skapa en simulering med den uppdaterade kylaggregat typ av enhet
+### <a name="create-a-simulation-with-the-updated-chiller-device-type"></a>Skapa en simulering med den uppdaterade typen av kylnings enhet
 
-I det här avsnittet ska använda du verktyget Postman för att begära enheten simulering mikrotjänst att köra en simulering med uppdaterade kylaggregat enhetstyp. Postman är ett verktyg som låter dig skicka REST-begäranden till en webbtjänst. Postman configuration-filer som du behöver finns i den lokala kopian av den **enhet-simulering-dotnet** lagringsplats.
+I det här avsnittet ska du använda Postman-verktyget för att begära mikrotjänsten för enhets simulering för att köra en simulering med hjälp av den uppdaterade typen av kylnings enhet. Postman är ett verktyg som du kan använda för att skicka REST-begäranden till en webb tjänst. De Postman-konfigurationsfiler du behöver finns i din lokala kopia av **enhets simulering-dotNet-** lagringsplatsen.
 
-Konfigurera Postman:
+Så här konfigurerar du Postman:
 
 1. Öppna Postman på den lokala datorn.
 
-1. Klicka på **fil > Import**. Klicka sedan på **Välj filer**.
+1. Klicka på **fil > importera**. Klicka sedan på **Välj filer**.
 
-1. Navigera till den **enhet-simulering-dotnet-master/docs/postman** mapp. Välj **Enhetssimulering för Azure IoT-lösning accelerator.postman_collection** och **Enhetssimulering för Azure IoT-lösning accelerator.postman_environment** och klicka på **öppna**.
+1. Navigera till mappen **Device-simulering-dotNet-Master/dokument/Postman** . Välj **Azure IoT Device simulering Solution Accelerator. postman_collection** och **Azure IoT Device simulering solution Accelerator. postman_environment** och klicka på **Öppna**.
 
-1. Expandera den **Azure IoT-Enhetssimulering lösningsaccelerator** begäranden som du kan skicka.
+1. Expandera **Solution Accelerator för Azure IoT Device simulering** till de begär Anden som du kan skicka.
 
-1. Klicka på **nr miljö** och välj **Azure IoT-Enhetssimulering lösningsaccelerator**.
+1. Klicka på **ingen miljö** och välj **Azure IoT Device simulering Solution Accelerator**.
 
-Nu har du en samling och läses in i din Postman-arbetsyta som du kan använda för att interagera med enheten simulering mikrotjänst-miljö.
-
-Konfigurera och köra simuleringen:
-
-1. Välj i Postman-samlingen **skapa ändras kylaggregat simulering** och klicka på **skicka**. Den här begäran skapar fyra instanser av den simulerade kylaggregat enhetstypen.
-
-1. Händelsen övervaka utdata i Azure CLI-fönstret visas telemetri från simulerade enheter, inklusive den nya **internal_temperature** värden.
-
-Om du vill stoppa simuleringen, Välj den **stoppa simulering** begäran i Postman och klicka på **skicka**.
-
-### <a name="create-a-simulation-with-the-lightbulb-device-type"></a>Skapa en simulering med glödlampan enhetstyp
-
-I det här avsnittet ska använda du verktyget Postman för att begära enheten simulering mikrotjänst att köra en simulering med glödlampan enhetstyp. Postman är ett verktyg som låter dig skicka REST-begäranden till en webbtjänst.
+Nu har du en samling och en miljö som har lästs in i Postman-arbetsytan som du kan använda för att interagera med mikrotjänsten Device simulering.
 
 Konfigurera och köra simuleringen:
 
-1. Välj i Postman-samlingen **glödlampan simulera** och klicka på **skicka**. Den här begäran skapar två instanser av den simulerade glödlampa enhetstypen.
+1. I Postman-samlingen väljer du **skapa ändrad kylnings simulering** och klickar på **Skicka**. Den här begäran skapar fyra instanser av den simulerade kyl enhets typen.
 
-1. Händelsen övervaka utdata i Azure CLI-fönstret visas telemetri från simulerade lightbulbs.
+1. Händelse övervakarens utdata i fönstret Azure CLI visar Telemetrin från de simulerade enheterna, inklusive de nya **internal_temperature** värdena.
 
-Om du vill stoppa simuleringen, Välj den **stoppa simulering** begäran i Postman och klicka på **skicka**.
+Stoppa simuleringen genom att välja begäran **stoppa simulering** i Postman och klicka på **Skicka**.
+
+### <a name="create-a-simulation-with-the-lightbulb-device-type"></a>Skapa en simulering med enhets typen glöd lampan
+
+I det här avsnittet ska du använda Postman-verktyget för att begära mikrotjänsten för enhets simulering för att köra en simulering med enhets typen glöd lampan. Postman är ett verktyg som du kan använda för att skicka REST-begäranden till en webb tjänst.
+
+Konfigurera och köra simuleringen:
+
+1. I Postman-samlingen väljer du **skapa glöd lampan-simulering** och klickar på **Skicka**. Den här begäran skapar två instanser av enhets typen simulerad glöd lampan.
+
+1. Händelse övervakarens utdata i fönstret Azure CLI visar Telemetrin från den simulerade lightbulbs.
+
+Stoppa simuleringen genom att välja begäran **stoppa simulering** i Postman och klicka på **Skicka**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan stoppa två som körs lokalt mikrotjänster i sina Visual Studio Code-instanser (**Felsök > Stoppa felsökning**).
+Du kan stoppa de två lokalt använda mikrotjänster i sina Visual Studio Code-instanser (**felsök > stoppa fel sökning**).
 
-Om du behöver inte längre IoT Hub och Cosmos DB-instanser kan du ta bort dem från Azure-prenumerationen för att undvika onödiga kostnader.
+Om du inte längre behöver IoT Hub och Cosmos DB instanser tar du bort dem från din Azure-prenumeration för att undvika onödiga kostnader.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här guiden visar hur du skapar en anpassad simulerad enhet typer och testa dem genom att köra enheten simulering mikrotjänster lokalt.
+Den här guiden visar hur du skapar en anpassad simulerad enhets typ och testar dem genom att köra mikrotjänsten Device simulering lokalt.
 
-Föreslagna nästa steg är att lära dig hur du distribuerar din anpassade simulerade enhetstyper till den [lösningsacceleratorn för fjärrövervakning](iot-accelerators-remote-monitoring-deploy-simulated-device.md).
+Det föreslagna nästa steg är att lära dig hur du distribuerar dina anpassade simulerade enhets typer till en [lösnings Accelerator för fjärr styrning](iot-accelerators-remote-monitoring-deploy-simulated-device.md).

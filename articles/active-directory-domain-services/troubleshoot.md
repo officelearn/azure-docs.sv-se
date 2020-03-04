@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 3cb57fae2b1c67ece321a294e56612f49358405a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: c4b2dea05b459d6e9ae4eb086fa127d88a84a768
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612728"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249213"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Vanliga fel och fel söknings steg för Azure Active Directory Domain Services
 
@@ -138,7 +138,7 @@ Om en eller flera användare i din Azure AD-klient inte kan logga in på den han
       * Du har distribuerat eller uppdaterat till, den [senaste rekommenderade versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
       * Du har konfigurerat Azure AD Connect att [utföra en fullständig synkronisering][hybrid-phs].
       * Beroende på katalogens storlek kan det ta en stund innan användar konton och inloggnings-hashar är tillgängliga i Azure AD DS. Se till att du väntar tillräckligt länge innan du försöker autentisera mot den hanterade domänen.
-      * Om problemet kvarstår när du har verifierat föregående steg kan du försöka starta om *tjänsten Microsoft Azure AD Sync*. Från din [virtuella hanterings dator][management-vm]öppnar du en kommando tolk och kör följande kommandon:
+      * Om problemet kvarstår när du har verifierat föregående steg kan du försöka starta om *tjänsten Microsoft Azure AD Sync*. Från Azure AD Connect-servern öppnar du en kommando tolk och kör följande kommandon:
     
         ```console
         net stop 'Microsoft Azure AD Sync'

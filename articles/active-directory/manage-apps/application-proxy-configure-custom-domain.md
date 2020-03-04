@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f1656d730d55d4c5ab7fb963e49a8057ad88c9f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 80f8d66795971c6a5c84be7088387e63d7acd7a7
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185544"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248688"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Konfigurera anpassade domäner med Azure AD-programproxy
 
@@ -130,9 +130,9 @@ Det finns ingen begränsning för certifikatets signatur metoder. Elliptic Curve
 
 Du kan använda certifikat med jokertecken så länge jokertecknet matchar den externa URL: en. Du måste använda certifikat med jokertecken för [program med jokertecken](application-proxy-wildcard.md). Om du vill använda certifikatet till att även komma åt under domäner måste du lägga till jokertecken för underdomäner som alternativa namn i samma certifikat. Ett certifikat för *\*. Adventure-Works.com* fungerar till exempel inte för *\*. Apps.Adventure-Works.com* om du inte lägger till *\*. Apps.Adventure-Works.com* som ett alternativt namn för certifikat mottagare. 
 
-Du kan använda certifikat som utfärdats av din egen infrastruktur för offentliga nycklar (PKI) om certifikat kedjan är installerad på klient enheterna. Intune kan distribuera dessa certifikat till hanterade enheter. För icke-hanterade enheter måste du installera dessa certifikat manuellt.
+Du kan använda certifikat som utfärdats av din egen infrastruktur för offentliga nycklar (PKI) om certifikat kedjan är installerad på klient enheterna. Intune kan distribuera dessa certifikat till hanterade enheter. För icke-hanterade enheter måste du installera dessa certifikat manuellt. 
 
-Det är ingen bra idé att använda en privat rot certifikat utfärdare. Den privata rot certifikat utfärdaren måste också skickas till klient datorer, vilket ger många utmaningar. 
+Vi rekommenderar inte att du använder en privat rot certifikat utfärdare eftersom den privata rot certifikat utfärdaren också måste skickas till klient datorer, vilket kan medföra många utmaningar.
 
 ### <a name="certificate-management"></a>Certifikathantering
 

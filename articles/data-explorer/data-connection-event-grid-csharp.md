@@ -7,17 +7,17 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 0accf502df3616a686a34fc6c96cb2cfc47e6db1
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 03963f60cc364dd36ad55c0a28e92e3b585bb38d
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667831"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255085"
 ---
 # <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-c"></a>Skapa en Event Grid data anslutning för Azure Datautforskaren genom att användaC#
 
 > [!div class="op_single_selector"]
-> * [Portalen](ingest-data-event-grid.md)
+> * [Portal](ingest-data-event-grid.md)
 > * [C#](data-connection-event-grid-csharp.md)
 > * [Python](data-connection-event-grid-python.md)
 > * [Azure Resource Manager-mall](data-connection-event-grid-resource-manager.md)
@@ -25,7 +25,7 @@ ms.locfileid: "74667831"
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Datautforskaren erbjuder inmatning (data inläsning) från Event Hubs, IoT-hubbar och blobbar skrivna till BLOB-behållare. I den här artikeln skapar du en Event Grid data anslutning för Azure Datautforskaren med hjälp C#av.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
@@ -94,5 +94,37 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 | storageAccountResourceId | *Resurs-ID* | Resurs-ID för ditt lagrings konto som innehåller data för inmatning. |
 | consumerGroup | *$Default* | Konsument gruppen för Händelsehubben.|
 | location | *USA, centrala* | Platsen för data anslutnings resursen.|
+
+## <a name="generate-sample-data"></a>Generera exempeldata
+
+Nu när Azure Datautforskaren och lagrings kontot är anslutna kan du skapa exempel data och ladda upp det till blob-lagringen.
+
+Det här skriptet skapar en ny behållare i ditt lagrings konto, laddar upp en befintlig fil (som en BLOB) till behållaren och listar sedan blobarna i behållaren.
+
+```csharp
+var azureStorageAccountConnectionString=<storage_account_connection_string>;
+
+var containerName=<container_name>;
+var blobName=<blob_name>;
+var localFileName=<file_to_upload>;
+
+// Creating the container
+var azureStorageAccount = CloudStorageAccount.Parse(azureStorageAccountConnectionString);
+var blobClient = azureStorageAccount.CreateCloudBlobClient();
+var container = blobClient.GetContainerReference(containerName);
+container.CreateIfNotExists();
+
+// Set metadata and upload file to blob
+var blob = container.GetBlockBlobReference(blobName);
+blob.Metadata.Add("rawSizeBytes", "4096‬"); // the uncompressed size is 4096 bytes
+blob.Metadata.Add("kustoIngestionMappingReference", "mapping_v2‬");
+blob.UploadFromFile(localFileName);
+
+// List blobs
+var blobs = container.ListBlobs();
+```
+
+> [!NOTE]
+> Azure Datautforskaren tar inte bort blobar efter inmatning. Behåll Blobbarna i tre till fem dagar med [Azure Blob Storage-livscykeln](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal) för att hantera BLOB-borttagning.
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-csharp](../../includes/data-explorer-data-connection-clean-resources-csharp.md)]

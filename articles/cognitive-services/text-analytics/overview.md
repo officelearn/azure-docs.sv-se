@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 11/07/2019
 ms.author: aahi
-ms.openlocfilehash: 0f16c687f9816e99e05c2495a05596bd988ca9d2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 66bc1e5441210b8d9153812c826643159fe53d50
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827309"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251317"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Vad är API för textanalys?
 
-API för textanalys är en molnbaserad tjänst som tillhandahåller avancerad bearbetning av naturligt språk över rå text och innehåller fyra huvud funktioner: sentiment analys, extrahering av nyckel fraser, språk identifiering och enhets igenkänning.
+API för textanalys är en molnbaserad tjänst som tillhandahåller avancerad bearbetning av naturligt språk över rå text och innehåller fyra huvud funktioner: sentiment analys, extrahering av nyckel fraser, språk identifiering och identifiering av namngivna enheter.
 
 API:et är en del av [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), en samling maskininlärnings- och AI-algoritmer i molnet för dina utvecklingsprojekt.
 
@@ -51,7 +51,7 @@ Arbetsflödet är enkelt: du skickar data för analys och hanterar utdata i din 
 
 2. [Formulera en begäran](how-tos/text-analytics-how-to-call-api.md#json-schema) som innehåller dina data som rå ostrukturerad text, i JSON.
 
-3. Publicera begäran till slutpunkten som etablerades vid registreringen och lägg till önskad resurs: attitydanalys, extrahering av diskussionsämne, språkidentifiering och entitetsidentifiering.
+3. Publicera begäran till den slut punkt som upprättats vid registreringen, Lägg till önskad resurs: sentiment analys, extrahering av nyckel fraser, språk identifiering eller identifiering av namngiven entitet.
 
 4. Strömma eller lagra svaret lokalt. Beroende på begäran är resultatet attitydpoäng, en samling extraherade nyckelfraser eller en språkkod.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: a314af3d53936a58f9dfb3694ec1114ecdc3d521
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 4baf12533bed523c81ff41a81975f5bf5b918ac2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587013"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250810"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Självstudie: skapa en NAT-gateway med hjälp av Azure Portal och testa NAT-tjänsten
 
@@ -30,33 +30,30 @@ I den här självstudien skapar du en NAT-gateway för att tillhandahålla utgå
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="prepare-the-source-for-outbound-traffic"></a>Förbered källan för utgående trafik
 
 Vi vägleder dig genom konfigurationen av en fullständig test miljö och körningen av testerna i nästa steg. Vi kommer att börja med källan, som använder NAT-gatewayens resurs som vi skapar i senare steg.
 
-### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
+## <a name="virtual-network-and-parameters"></a>Virtuellt nätverk och parametrar
 
 Innan du distribuerar en virtuell dator och kan använda din NAT-gateway måste du skapa resurs gruppen och det virtuella nätverket.
 
-1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs** > **nätverk** > **virtuellt nätverk**eller söker efter **Virtual Network** i Marketplace-sökningen.
+I det här avsnittet måste du ersätta följande parametrar i stegen med informationen nedan:
 
-2. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
+| Parameter                   | Värde                |
+|-----------------------------|----------------------|
+| **\<resurs-grupp-namn >**  | myResourceGroupNAT |
+| **\<virtuella-nätverks namn >** | myVNetsource          |
+| **\<region – namn >**          | USA, östra 2      |
+| **\<IPv4-adress utrymme >**   | 192.168.0.0 \ 16          |
+| **\<under nätets namn >**          | mySubnetsource        |
+| **\<undernät – adress intervall >** | 192.168.0.0 \ 24          |
 
-    | Inställning | Värde |
-    | ------- | ----- |
-    | Namn | Ange **myVNetsource**. |
-    | Adressutrymme | Ange **192.168.0.0/16**. |
-    | Prenumeration | Välj din prenumeration.|
-    | Resursgrupp | Välj Skapa New- **myResourceGroupNAT**. |
-    | plats. | Välj **USA, östra 2**.|
-    | Undernät – namn | Ange **mySubnetsource**. |
-    | Undernät – adressintervall | Ange **192.168.0.0/24**. |
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-3. Lämna resten av standardinställningarna och välj **Skapa**.
-
-### <a name="create-source-virtual-machine"></a>Skapa virtuell käll dator
+## <a name="create-source-virtual-machine"></a>Skapa virtuell käll dator
 
 Nu ska vi skapa en virtuell dator för att använda NAT-tjänsten. Den här virtuella datorn har en offentlig IP-adress som kan användas som en offentlig IP-adress på instans nivå för att få åtkomst till den virtuella datorn. NAT-tjänsten är en flödes riktning som är medveten om och kommer att ersätta standard målet för Internet i ditt undernät. Den virtuella datorns offentliga IP-adress används inte för utgående anslutningar.
 
@@ -161,25 +158,25 @@ All utgående trafik till Internet-destinationer använder nu NAT-tjänsten.  De
 
 Nu ska vi skapa ett mål för den utgående trafik som översätts av NAT-tjänsten så att du kan testa den.
 
-### <a name="configure-virtual-network-for-destination"></a>Konfigurera virtuellt nätverk för mål
+
+## <a name="virtual-network-and-parameters-for-destination"></a>Virtuellt nätverk och parametrar för mål
 
 Innan du distribuerar en virtuell dator för målet måste vi skapa ett virtuellt nätverk där den virtuella mål datorn kan finnas. Följande är samma steg som för den virtuella käll datorn med några små ändringar för att exponera mål slut punkten.
 
-1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
+I det här avsnittet måste du ersätta följande parametrar i stegen med informationen nedan:
 
-2. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
+| Parameter                   | Värde                |
+|-----------------------------|----------------------|
+| **\<resurs-grupp-namn >**  | myResourceGroupNAT |
+| **\<virtuella-nätverks namn >** | myVNetdestination          |
+| **\<region – namn >**          | USA, östra 2      |
+| **\<IPv4-adress utrymme >**   | 192.168.0.0 \ 16          |
+| **\<under nätets namn >**          | mySubnetdestination        |
+| **\<undernät – adress intervall >** | 192.168.0.0 \ 24          |
 
-    | Inställning | Värde |
-    | ------- | ----- |
-    | Namn | Ange **myVNetdestination**. |
-    | Adressutrymme | Ange **192.168.0.0/16**. |
-    | Prenumeration | Välj din prenumeration.|
-    | Resursgrupp | Välj Skapa New- **myResourceGroupNAT**. |
-    | plats. | Välj **USA, östra 2**.|
-    | Undernät – namn | Ange **mySubnetdestination**. |
-    | Undernät – adressintervall | Ange **192.168.0.0/24**. |
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-### <a name="create-destination-virtual-machine"></a>Skapa en virtuell mål dator
+## <a name="create-destination-virtual-machine"></a>Skapa en virtuell mål dator
 
 1. Välj **skapa en resurs** > **Compute** > **Ubuntu Server 18,04 LTS**på den övre vänstra sidan i portalen, eller Sök efter **Ubuntu Server 18,04 LTS** i Marketplace-sökningen.
 

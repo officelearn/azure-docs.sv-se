@@ -3,8 +3,8 @@ title: 'Självstudie: Migrera MongoDB offline till Azure Cosmos DB API för Mong
 titleSuffix: Azure Database Migration Service
 description: Lär dig att migrera från MongoDB lokalt till Azure Cosmos DB API för MongoDB offline med hjälp av Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: f90ece0f6aa95dd643cca65b42e284faba8e5be8
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 08fa94dbe71299a6653df0b40aa5083375526172
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746995"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255580"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Självstudie: Migrera MongoDB till Azure Cosmos DB s API för MongoDB offline med DMS
 
 Du kan använda Azure Database Migration Service för att utföra en migrering offline (eng ång slö sen) av databaser från en lokal eller moln instans av MongoDB till Azure Cosmos DB s API för MongoDB.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 >
 > * Skapa en instans av Azure Database Migration Service.
@@ -33,7 +33,7 @@ I den här guiden får du lära dig hur man:
 
 I den här självstudien migrerar du en data uppsättning i MongoDB som finns på en virtuell Azure-dator till Azure Cosmos DB API för MongoDB med hjälp av Azure Database Migration Service. Om du inte har konfigurerat någon MongoDB-källa, kan du läsa artikeln [Installera och konfigurera MongoDB på en virtuell Windows-dator i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -56,7 +56,7 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration
 
-1. Logga in på Azure Portal och välj **Alla tjänster** och sedan **Prenumerationer**.
+1. Logga in på Azure-portalen och välj **Alla tjänster** och sedan **Prenumerationer**.
 
    ![Visa portalprenumerationer](media/tutorial-mongodb-to-cosmosdb/portal-select-subscription1.png)
 

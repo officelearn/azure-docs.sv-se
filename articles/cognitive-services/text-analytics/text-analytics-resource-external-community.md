@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/02/2019
 ms.author: aahi
-ms.openlocfilehash: 51263af978ed599d7a7b8a2159c0c9c3c25b33a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4cdf58974cd8fa9d7813df7e970caea260409225
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558814"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251312"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Externt & community-innehåll för tjänsten Textanalys kognitivt
 
@@ -33,9 +33,13 @@ ms.locfileid: "68558814"
 
 + [Sentiment analys med Dynamics 365 CRM Online (MSDN-bloggen)](https://blogs.msdn.microsoft.com/geoffreyinnis/2016/07/11/sentiment-analysis-in-usd-with-cognitive-services-text-analytics/) 
 
-+ PowerBI-blogg: Extrahering av nyckel fraser från Facebook-meddelanden: [Del 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) och [del 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
++ Power BI blogg: extrahering av nyckel fraser från Facebook-meddelanden: [del 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) och [del 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
-## <a name="videos"></a>Videor
++ [Identifiera sentiment av kommentarer i en Yammer-grupp med MS Flow (Microsoft Tech community)](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
+
+
+
+## <a name="videos"></a>Videoklipp
 
 + [Logic app för att identifiera sentiment och extrahera nyckel fraser från din text](https://www.youtube.com/watch?v=jVN9NObAzgk)
 
@@ -47,7 +51,7 @@ ms.locfileid: "68558814"
 
 Letar du efter information om en funktion eller ett användnings fall som vi inte avser? Överväg att begära eller rösta på det på [UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
- [StackOverflow Azure-API för textanalys](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow Azure-Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [StackOverflow: Azure API för textanalys](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ [StackOverflow: Azure Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

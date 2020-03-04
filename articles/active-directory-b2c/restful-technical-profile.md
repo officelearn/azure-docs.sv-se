@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 03/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b24a08ee0367cc3dbb1c845854a0fbc91e0f1d2c
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 4638b5bfc3ff31d0d2149e7ee227c46d3360a306
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227083"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254998"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en RESTful teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -127,7 +127,7 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 | AuthenticationType | Ja | Den typ av autentisering som utförs av RESTful-anspråks leverantören. Möjliga värden: `None`, `Basic`, `Bearer`eller `ClientCertificate`. Värdet `None` anger att REST API inte är anonymt. Värdet `Basic` anger att REST API skyddas med HTTP Basic-autentisering. Endast verifierade användare, inklusive Azure AD B2C, har åtkomst till ditt API. Värdet `ClientCertificate` (rekommenderas) anger att REST API begränsar åtkomsten genom att använda autentisering med klient certifikat. Endast tjänster som har rätt certifikat, till exempel Azure AD B2C, har åtkomst till ditt API. Värdet `Bearer` anger att REST API begränsar åtkomsten med hjälp av klientens OAuth2 Bearer-token. |
 | AllowInsecureAuthInProduction| Nej| Anger om `AuthenticationType` kan anges till `none` i produktions miljön (`DeploymentMode` för [TrustFrameworkPolicy](trustframeworkpolicy.md) är inställt på `Production`eller inte angivet). Möjliga värden: true eller false (standard). |
 | SendClaimsIn | Nej | Anger hur inloggade anspråk skickas till RESTful-anspråks leverantören. Möjliga värden: `Body` (standard), `Form`, `Header`eller `QueryString`. `Body`-värdet är det inloggade anspråk som skickas i begär ande texten i JSON-format. `Form`-värdet är det inloggade anspråk som skickas i begär ande texten i ett et-tecken av typen & "avgränsat nyckel värde". `Header`-värdet är det inloggade anspråk som skickas i begär ande huvudet. `QueryString`-värdet är det inloggade anspråk som skickas i frågesträngen för begäran. HTTP-verben som anropas av var och en är följande:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: Hämta</li><li>`QueryString`: Hämta</li></ul> |
-| ClaimsFormat | Nej | Anger formatet för de utgående anspråken. Möjliga värden: `Body` (standard), `Form`, `Header`eller `QueryString`. `Body`-värdet är det utgående anspråket som skickas i begär ande texten i JSON-format. `Form`-värdet är det utgående anspråket som skickas i begär ande texten i ett et-tecken med formatet & "avgränsat nyckel värde". `Header`-värdet är det utgående anspråket som skickas i begär ande huvudet. `QueryString`-värdet är det utgående anspråket som skickas i frågesträngen för begäran. |
+| ClaimsFormat | Nej | Används inte för närvarande, kan ignoreras. |
 | ClaimUsedForRequestPayload| Nej | Namn på ett sträng anspråk som innehåller nytto lasten som ska skickas till REST API. |
 | DebugMode | Nej | Kör den tekniska profilen i fel söknings läge. Möjliga värden: `true`eller `false` (standard). I fel söknings läge kan REST API returnera mer information. Se avsnittet [returnera fel meddelande](#returning-error-message) . |
 | IncludeClaimResolvingInClaimsHandling  | Nej | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true`eller `false` (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true`. |

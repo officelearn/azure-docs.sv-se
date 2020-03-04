@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2020
 ms.author: yelevin
-ms.openlocfilehash: b00f9c9e7de9568a29d2b7a7f4ef84c022ef5679
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 43eba727b1dc724aae6eea3ec77de1363c5db73f
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588169"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252518"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Anslut data från Office 365-loggar
 
@@ -33,9 +33,9 @@ Du kan strömma gransknings loggar från [Office 365](https://docs.microsoft.com
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste vara global administratör eller säkerhets administratör för din klient.
-- Om din klient organisation inte har en Office 365 E3-eller Office 365 E5-licens måste du aktivera enhetlig granskning på din klient med hjälp av någon av följande processer:
+- Klienten måste ha enhetlig granskning aktive rad. Klienter med Office 365 E3-eller E5-licenser har enhetlig granskning aktiverat som standard. <br>Om din klient organisation saknar någon av dessa licenser måste du aktivera enhetlig granskning på din klient med hjälp av någon av följande metoder:
     - [Använd cmdleten Set-AdminAuditLogConfig](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) och aktivera parametern "UnifiedAuditLogIngestionEnabled").
-    - [Eller med hjälp av säkerhets-och EFTERLEVNADSCENTER gränssnittet](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
+    - [Använda säkerhets-och Efterlevnadscenter användar gränssnitt](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
 
 ## <a name="connect-to-office-365"></a>Ansluta till Office 365
 

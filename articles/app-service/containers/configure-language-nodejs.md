@@ -4,12 +4,12 @@ description: Lär dig hur du konfigurerar en fördefinierad Node. js-behållare 
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 45d7d141bc2ab85ab33be455fc3da5570b0e7f51
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: fdc5129fc395f99cb4c244414ea952b2776dc4dc
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920033"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255859"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Konfigurera en Linux Node. js-app för Azure App Service
 
@@ -88,7 +88,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Kör NPM-start
 
-För att starta din app med hjälp av `npm start`kontrollerar du bara att ett `start`-skript finns i *Package. JSON* -filen. Några exempel:
+För att starta din app med hjälp av `npm start`kontrollerar du bara att ett `start`-skript finns i *Package. JSON* -filen. Exempel:
 
 ```json
 {
@@ -136,7 +136,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 Du kan felsöka Node. js-appen via fjärr anslutning i [Visual Studio Code](https://code.visualstudio.com/) om du konfigurerar den att [köras med PM2](#run-with-pm2), förutom när du kör den med hjälp av *. config. js, *. yml eller *. yaml*.
 
-I de flesta fall krävs ingen extra konfiguration för din app. Om din app körs med en *process. JSON* -fil (standard eller anpassad), måste den ha en `script`-egenskap i JSON-roten. Några exempel:
+I de flesta fall krävs ingen extra konfiguration för din app. Om din app körs med en *process. JSON* -fil (standard eller anpassad), måste den ha en `script`-egenskap i JSON-roten. Exempel:
 
 ```json
 {
@@ -164,7 +164,7 @@ process.env.NODE_ENV
 
 Kudu kör som standard `npm install --production` när den identifierar en Node. js-app distribueras. Om din app kräver något av de populära automatiserings verktygen, till exempel grunt, Bower eller Gulp, måste du ange ett [anpassat distributions skript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) för att köra det.
 
-Om du vill göra det möjligt för lagrings platsen att köra dessa verktyg måste du lägga till dem i beroenden i *Package. JSON.* Några exempel:
+Om du vill göra det möjligt för lagrings platsen att köra dessa verktyg måste du lägga till dem i beroenden i *Package. JSON.* Exempel:
 
 ```json
 "dependencies": {
@@ -243,7 +243,7 @@ fi
 
 I App Service sker [SSL-avslutning](https://wikipedia.org/wiki/TLS_termination_proxy) på lastbalanserare för nätverk, så alla HTTPS-begäranden når din app som okrypterade HTTP-begäranden. Om din applogik behöver kontrollera om användarbegäranden är krypterade eller inte kan du kontrollera `X-Forwarded-Proto`-rubriken.
 
-Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standardappens mönster. I [Express](https://expressjs.com/)kan du använda [betrodda proxyservrar](https://expressjs.com/guide/behind-proxies.html). Några exempel:
+Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standardappens mönster. I [Express](https://expressjs.com/)kan du använda [betrodda proxyservrar](https://expressjs.com/guide/behind-proxies.html). Exempel:
 
 ```javascript
 app.set('trust proxy', 1)
@@ -266,11 +266,13 @@ if (req.secure) {
 Prova följande när en fungerande Node. js-app fungerar annorlunda i App Service eller innehåller fel:
 
 - [Åtkomst till logg strömmen](#access-diagnostic-logs).
-- Testa appen lokalt i produktions läge. App Service kör Node. js-appar i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Några exempel:
+- Testa appen lokalt i produktions läge. App Service kör Node. js-appar i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Exempel:
     - Beroende på *Package. JSON*kan olika paket installeras i produktions läge (`dependencies` jämfört med `devDependencies`).
     - Vissa webb ramverk kan distribuera statiska filer på ett annat sätt i produktions läge.
     - Vissa webb ramverk kan använda anpassade Start skript när de körs i produktions läge.
 - Kör din app i App Service i utvecklings läge. I [Mean. js](https://meanjs.org/)kan du till exempel ställa in appen i utvecklings läge i körningen genom [att ange inställningen `NODE_ENV` app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
+
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

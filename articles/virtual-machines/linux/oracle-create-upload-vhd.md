@@ -3,7 +3,7 @@ title: Skapa och ladda upp en Oracle Linux VHD
 description: Lär dig att skapa och ladda upp en virtuell Azure-hårddisk (VHD) som innehåller ett Oracle Linux operativ system.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: tysonn
 tags: azure-service-management,azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: e0250737f1f2934548a16ee42e9ff582f2403c48
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 240333e55f23f2536d3cf14d2bb817e5776c8139
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747738"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251598"
 ---
-# <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Förbered en virtuell Oracle Linux-dator för Azure
+# <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Förbereda en Oracle Linux virtuell dator för Azure
 
 Den här artikeln förutsätter att du redan har installerat ett Oracle Linux operativ system på en virtuell hård disk. Det finns flera verktyg för att skapa. VHD-filer, till exempel en virtualiseringslösning som Hyper-V. Anvisningar finns i [Installera Hyper-V-rollen och konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
 

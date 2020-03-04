@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: 93005b181075ac671af6c8d73a3f2a06ed9eb0d8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b366262ce7849658eb84444d873956c25ab38804
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977751"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78244667"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Direktsänd strömning med Azure Media Services v3
 
@@ -52,7 +52,7 @@ Dynamisk filtrering används för att styra antalet spår, format, bit hastighet
 
 ## <a name="live-event-types"></a>Direktsända händelse typer
 
-[Livehändelser](https://docs.microsoft.com/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsända videofeeds. En Live-händelse kan vara en av två typer: direkt kodning och Live-kodning. Mer information om Direktsänd strömning i Media Services v3 finns i [Live-händelser och Live-utdata](live-events-outputs-concept.md).
+[Livehändelser](https://docs.microsoft.com/rest/api/media/liveevents) ansvarar för att mata in och bearbeta direktsända videofeeds. En Live-händelse kan ställas in till antingen en *direkt* uppspelning (en lokal Live-kodare som skickar en data ström med flera bit hastigheter) eller *direktsänd kodning* (en lokal Live-kodare skickar en data ström med en bit hastighet). Mer information om Direktsänd strömning i Media Services v3 finns i [Live-händelser och Live-utdata](live-events-outputs-concept.md).
 
 ### <a name="pass-through"></a>Direkt
 

@@ -1,18 +1,18 @@
 ---
 title: Apache Spark & Hive – Hive lager koppling – Azure HDInsight
 description: Lär dig hur du integrerar Apache Spark och Apache Hive med Hive Warehouse Connector på Azure HDInsight.
-author: nakhanha
-ms.author: nakhanha
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/08/2019
-ms.openlocfilehash: 765bbc352c493124c1adec68eff456f4d0de3d49
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 03/02/2020
+ms.openlocfilehash: f386530ffb3a074a5c1db1d9f28535d28c8b1284
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75744868"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252410"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrera Apache Spark och Apache Hive med Hive-lagrets koppling
 
@@ -54,17 +54,17 @@ Kopiera Node-informationen från `/etc/hosts`-filen på headnode0 av ditt intera
 
 #### <a name="from-your-interactive-query-cluster"></a>Från ditt interaktiva Query-kluster
 
-1. Gå till klustrets start sida för Apache-Ambari med `https://LLAPCLUSTERNAME.azurehdinsight.net` där `LLAPCLUSTERNAME` är namnet på ditt interaktiva fråga-kluster.
+1. Gå till kluster sidan Apache Ambari Hive med `https://LLAPCLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/configs` där `LLAPCLUSTERNAME` är namnet på ditt interaktiva fråga-kluster.
 
-1. Navigera till **Hive** - > **konfiguration** > **Avancerad** > **Avancerad Hive-site** > **Hive. Zookeeper. kvorum** och anteckna värdet. Värdet kan vara ungefär så här: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
+1. Gå till **avancerad** > **Allmänt** > **Hive. metaarkiv. URI: er** och anteckna värdet. Värdet kan vara ungefär så här: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
 
-1. Navigera till **Hive** - > **config** > **Advanced** > **General** > **Hive. metaarkiv. URI: er** och anteckna värdet. Värdet kan vara ungefär så här: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
+1. Gå till **avancerad** > **Avancerad hive-site** > **Hive. Zookeeper. kvorum** och anteckna värdet. Värdet kan vara ungefär så här: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
 
 #### <a name="from-your-apache-spark-cluster"></a>Från Apache Spark-klustret
 
-1. Gå till klustrets start sida för Apache-Ambari med `https://SPARKCLUSTERNAME.azurehdinsight.net` där `SPARKCLUSTERNAME` är namnet på ditt Apache Spark-kluster.
+1. Gå till kluster sidan Apache Ambari Hive med `https://SPARKCLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/configs` där `SPARKCLUSTERNAME` är namnet på ditt Apache Spark-kluster.
 
-1. Navigera till **Hive** - > **konfigurations** > **Avancerad** > **Avancerad Hive – interaktiv plats** > **Hive. LLAP. daemon. service. hosts** och anteckna värdet. Värdet kan vara ungefär så här: `@llap0`.
+1. Gå till **avancerad** > **Advanced Hive – interaktiv plats** > **Hive. LLAP. daemon. service. hosts** och anteckna värdet. Värdet kan vara ungefär så här: `@llap0`.
 
 ### <a name="configure-spark-cluster-settings"></a>Konfigurera inställningar för Spark-kluster
 
@@ -174,7 +174,7 @@ Spark stöder inte internt skrivning till Hive-tabeller med hanterade syror. Med
     ```scala
     hive.table("sampletable_colorado").show()
     ```
-    
+
     ![Hive-dist. lager koppling visar Hive-tabell](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
 
 ### <a name="structured-streaming-writes"></a>Strukturerade strömmande skrivningar
@@ -261,5 +261,5 @@ Använd **CTRL + C** för att stoppa netcat på den andra SSH-sessionen. Använd
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda Interactive Query i HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
+* [Använda Interactive Query i HDInsight](./apache-interactive-query-get-started.md)
 * [Exempel på interaktion med Hive-anslutningsprogrammet med Zeppelin, livy, Spark-Submit och pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)

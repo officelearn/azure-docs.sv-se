@@ -3,8 +3,8 @@ title: Nätverkstopologier för migrering av SQL-hanterade instanser
 titleSuffix: Azure Database Migration Service
 description: Lär dig om käll-och mål konfigurationerna för Azure SQL Database migrering av hanterade instanser med hjälp av Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 9a313ea798519273ce57961544ec5b37c4d9c5ca
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 48485b7ba0f846afa737454b092a6c1ee986b737
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749267"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254962"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-azure-database-migration-service"></a>Nätverkstopologier för Azure SQL DB Managed instance-migreringar med hjälp av Azure Database Migration Service
 
@@ -75,13 +75,13 @@ Använd den här nätverks sto pol Ogin om din miljö kräver ett eller flera av
 
 ## <a name="inbound-security-rules"></a>Ingående säkerhetsregler
 
-| **Namn**   | **LASTNING** | **PROTOKOLLHANTERARE** | **KÄLLA** | **MÅL** | **TGÄRD** |
+| **Namn**   | **LASTNING** | **PROTOKOLLHANTERARE** | **KÄLLICENSSERVERN** | **MÅL** | **TGÄRD** |
 |------------|----------|--------------|------------|-----------------|------------|
 | DMS_subnet | Alla      | Alla          | DMS-UNDERNÄT | Alla             | Tillåt      |
 
-## <a name="outbound-security-rules"></a>Utgående säkerhetsregler
+## <a name="outbound-security-rules"></a>Utgående säkerhets regler
 
-| **Namn**                  | **LASTNING**                                              | **PROTOKOLLHANTERARE** | **KÄLLA** | **MÅL**           | **TGÄRD** | **Orsak för regel**                                                                                                                                                                              |
+| **Namn**                  | **LASTNING**                                              | **PROTOKOLLHANTERARE** | **KÄLLICENSSERVERN** | **MÅL**           | **TGÄRD** | **Orsak för regel**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | management                | 443, 9354                                              | TCP          | Alla        | Alla                       | Tillåt      | Hanterings Plans kommunikation via Service Bus och Azure Blob Storage. <br/>(Om Microsoft-peering har Aktiver ATS kanske du inte behöver den här regeln.)                                                             |
 | Diagnostik               | 12000                                                 | TCP          | Alla        | Alla                       | Tillåt      | DMS använder den här regeln för att samla in diagnostikinformation i fel söknings syfte.                                                                                                                      |
@@ -90,7 +90,7 @@ Använd den här nätverks sto pol Ogin om din miljö kräver ett eller flera av
 | SMB-resurs                 | 445                                                   | TCP          | Alla        | Lokalt adressutrymme | Tillåt      | SMB-nätverks resurs för DMS för lagring av säkerhetskopierade databasfiler för migrering till Azure SQL Database MI-och SQL-servrar på den virtuella Azure-datorn <br/>(Om du har plats-till-plats-anslutning kanske du inte behöver den här regeln). |
 | DMS_subnet                | Alla                                                   | Alla          | Alla        | DMS_Subnet                | Tillåt      |                                                                                                                                                                                                  |
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Migrera SQL Server till Azure SQL Database Hanterad instans](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)
 - [Översikt över krav för att använda Azure Database Migration Service](https://docs.microsoft.com/azure/dms/pre-reqs)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3173fe010106963b9079bf151c92957735253e84
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ddf011724f72a8a5eaf4e6398c28b28fffa5bfac
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898770"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247013"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-stöd för Azure App Service på Linux
 
@@ -52,7 +52,7 @@ az webapp create-remote-connection --subscription <subscription-id> --resource-g
 
 Kommandots utdata ger dig den information du behöver för att öppna en SSH-session.
 
-```
+```output
 Port 21382 is open
 SSH is available { username: root, password: Docker! }
 Start your favorite client and connect to port 21382
@@ -60,20 +60,20 @@ Start your favorite client and connect to port 21382
 
 Öppna en SSH-session med din behållare med den valda klienten med hjälp av den lokala porten. I följande exempel används standard- [SSH](https://ss64.com/bash/ssh.html) -kommandot:
 
-```azurecli-interactive
+```bash
 ssh root@127.0.0.1 -p <port>
 ```
 
 När du uppmanas till det skriver du `yes` för att fortsätta ansluta. Du uppmanas sedan att ange lösen ordet. Använd `Docker!`som visades tidigare.
 
-```
+```output
 Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.
 root@127.0.0.1's password:
 ```
 
 När du har autentiserats bör du se välkomst skärmen för sessionen.
 
-```
+```output
   _____
   /  _  \ __________ _________   ____
  /  /_\  \___   /  |  \_  __ \_/ __ \
@@ -89,7 +89,7 @@ Du är nu ansluten till din anslutning.
 
 Försök köra det [översta](https://ss64.com/bash/top.html) kommandot. Du bör kunna se appens process i process listan. I exemplet nedan är det en med `PID 263`.
 
-```
+```output
 Mem: 1578756K used, 127032K free, 8744K shrd, 201592K buff, 341348K cached
 CPU:   3% usr   3% sys   0% nic  92% idle   0% io   0% irq   0% sirq
 Load average: 0.07 0.04 0.08 4/765 45738

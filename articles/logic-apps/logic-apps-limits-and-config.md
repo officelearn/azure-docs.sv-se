@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 02/20/2020
-ms.openlocfilehash: 7157d9c0b96dbb31a158f599efd5489e8059f6ba
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.date: 02/28/2020
+ms.openlocfilehash: 4912b07c60ecc8a2db65d3b8ffb339cf83909396
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163445"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250853"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurations information för Azure Logic Apps
 
@@ -195,7 +195,7 @@ Här är gränserna för anpassade anslutningar som du kan skapa från webb-API:
 | Namn | Gräns |
 |------|-------|
 | Hanterade identiteter per Logic app | Antingen en tilldelad identitet eller en användardefinierad identitet |
-| Antal Logic Apps som har en hanterad identitet i en Azure-prenumeration per region | 100 |
+| Antal Logic Apps som har en hanterad identitet i en Azure-prenumeration per region | 250 |
 |||
 
 <a name="integration-account-limits"></a>

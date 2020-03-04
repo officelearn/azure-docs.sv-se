@@ -3,14 +3,14 @@ title: Azure Automation Linux Hybrid Runbook Worker
 description: Den här artikeln innehåller information om hur du installerar en Azure Automation Hybrid Runbook Worker så att du kan köra Runbooks på Linux-baserade datorer i ditt lokala data Center eller i moln miljön.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/28/2018
+ms.date: 03/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 838c7450de1364588fb287c9d9804666a325cdf3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2579748d9c68512e51fe46ec70084c30d06953bc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421925"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246297"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera ett Linux-Hybrid Runbook Worker
 
@@ -27,7 +27,7 @@ Funktionen Hybrid Runbook Worker stöder följande distributioner:
 * Oracle Linux 5, 6, och 7 (x86/x64)
 * Red Hat Enterprise Linux Server 5, 6, och 7 (x86/x64)
 * Debian GNU/Linux 6, 7 och 8 (x86/x64)
-* Ubuntu 12,04 LTS, 14,04 LTS och 16,04 LTS (x86/x64)
+* Ubuntu 12,04 LTS, 14,04 LTS, 16,04 LTS och 18,04 (x86/x64)
 * SUSE Linux Enterprise Server 11 och 12 (x86/x64)
 
 ## <a name="installing-a-linux-hybrid-runbook-worker"></a>Installera en Linux-Hybrid Runbook Worker
@@ -37,7 +37,7 @@ Om du vill installera och konfigurera en Hybrid Runbook Worker på Linux-datorn 
 Minimi kraven för en Linux-Hybrid Runbook Worker är:
 
 * Två kärnor
-* 4 GB RAM
+* 4 GB RAM-minne
 * Port 443 (utgående)
 
 ### <a name="package-requirements"></a>Paket krav
@@ -46,7 +46,7 @@ Minimi kraven för en Linux-Hybrid Runbook Worker är:
 |--------------------- | --------------------- | -------------------|
 |Glibc |GNU C-bibliotek| 2.5-12 |
 |Openssl| OpenSSL-bibliotek | 1,0 (TLS 1,1 och TLS 1,2 stöds|
-|Curl | webb klient för sväng | 7.15.5|
+|Klammerparentes | webb klient för sväng | 7.15.5|
 |Python – ctypes | Python 2. x krävs |
 |PAM | Pluggable Authentication Modules|
 | **Valfritt paket** | **Beskrivning** | **Lägsta version**|

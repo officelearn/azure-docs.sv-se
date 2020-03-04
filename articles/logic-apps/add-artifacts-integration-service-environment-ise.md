@@ -1,27 +1,29 @@
 ---
-title: Lägga till artefakter i integreringstjänstmiljöer
+title: Lägga till resurser i integrerings tjänst miljöer
 description: Lägg till logi Kap par, integrations konton, anpassade anslutningar och hanterade anslutningar i integrerings tjänst miljön (ISE)
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: e2505d8ee8b8539f158c0a549bedfcd69a954e24
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/28/2020
+ms.openlocfilehash: d6e5eb8875e6b7d930a002708079dab0e357297f
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191705"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250927"
 ---
-# <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Lägga till artefakter i integrerings tjänst miljön (ISE) i Azure Logic Apps
+# <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Lägg till resurser i integrerings tjänst miljön (ISE) i Azure Logic Apps
 
-När du har skapat en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)lägger du till artefakter som Logi Kap par, integrations konton och anslutningar så att de kan komma åt resurserna i ditt virtuella Azure-nätverk. Till exempel visas inte hanterade ISE-kopplingar som blir tillgängliga efter att du har skapat din ISE automatiskt i Logic App Designer. Innan du kan använda dessa ISE-kopplingar måste du manuellt [lägga till och distribuera dessa anslutningar till ISE](#add-ise-connectors-environment) så att de visas i Logic App Designer.
+När du har skapat en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)lägger du till resurser som Logi Kap par, integrations konton och anslutningar så att de kan komma åt resurserna i ditt virtuella Azure-nätverk. Till exempel visas inte hanterade ISE-kopplingar som blir tillgängliga efter att du har skapat din ISE automatiskt i Logic App Designer. Innan du kan använda dessa ISE-kopplingar måste du manuellt [lägga till och distribuera dessa anslutningar till ISE](#add-ise-connectors-environment) så att de visas i Logic App Designer.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
 * Den ISE som du skapade för att köra dina Logic Apps. Om du inte har någon ISE måste du [först skapa en ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+
+* Om du vill skapa, lägga till eller uppdatera resurser som distribueras till en ISE måste du tilldela rollen ägare eller deltagare på denna ISE, eller så har du behörigheter som ärvts via Azure-prenumerationen eller Azure-resurs gruppen som är associerad med ISE. För personer som inte har ägare, deltagare eller ärvda behörigheter kan de tilldelas rollen som Integration Service Environment deltagare eller rollen Integration Service Environment utvecklare. Mer information om rollbaserad åtkomst kontroll (RBAC) finns i [Vad är rollbaserad åtkomst kontroll (RBAC) för Azure-resurser](../role-based-access-control/overview.md)?
 
 <a name="create-logic-apps-environment"></a>
 
@@ -37,7 +39,7 @@ Följ dessa steg om du vill skapa Logi Kap par som körs i integrerings tjänst 
 
    ![Välj integrerings tjänst miljö](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
-   | Egenskap | Obligatoriskt | Beskrivning |
+   | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Namn** | Ja | Namnet på den Logic app som ska skapas |
    | **Prenumeration** | Ja | Namnet på den Azure-prenumeration som ska användas |
@@ -69,7 +71,7 @@ Följ dessa steg om du vill skapa ett integrations konto som använder en ISE:
 
    ![Välj integrerings tjänst miljö](./media/add-artifacts-integration-service-environment-ise/create-integration-account-integration-service-environment.png)
 
-   | Egenskap | Obligatoriskt | Beskrivning |
+   | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Namn** | Ja | Namnet på det integrations konto som du vill skapa |
    | **Prenumeration** | Ja | Namnet på den Azure-prenumeration som du vill använda |
@@ -82,7 +84,7 @@ Följ dessa steg om du vill skapa ett integrations konto som använder en ISE:
 
 1. [Länka din Logic app till ditt integrations konto på vanligt sätt](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-1. Fortsätt genom att lägga till artefakter till ditt integrations konto, till exempel [handels partner](../logic-apps/logic-apps-enterprise-integration-partners.md) och [avtal](../logic-apps/logic-apps-enterprise-integration-agreements.md).
+1. Fortsätt genom att lägga till resurser till ditt integrations konto, till exempel [handels partner](../logic-apps/logic-apps-enterprise-integration-partners.md) och [avtal](../logic-apps/logic-apps-enterprise-integration-agreements.md).
 
 1. Information om hur du hanterar integrations konton i din ISE finns i [Hantera integrerings tjänst miljön](../logic-apps/ise-manage-integration-service-environment.md).
 

@@ -3,12 +3,12 @@ title: Aktivera disk kryptering för Windows-kluster
 description: I den här artikeln beskrivs hur du aktiverar disk kryptering för Azure Service Fabric klusternoder genom att använda Azure Key Vault i Azure Resource Manager.
 ms.topic: article
 ms.date: 03/22/2019
-ms.openlocfilehash: 24405c3c34bfd7b88932101c42a8d0fc96c90fa1
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: b08cdb63aa6f334c5a6f7c230b1624d232206c3b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614459"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251824"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Aktivera disk kryptering för Azure Service Fabric klusternoder i Windows 
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ Guiden omfattar följande ämnen:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 **Själv registrering** 
 
@@ -200,7 +200,7 @@ Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssNam
 
 ```
 
-```CLI
+```azurecli
 
 az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 

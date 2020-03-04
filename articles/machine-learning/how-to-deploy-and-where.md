@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 02/27/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: d3353451057037e5f3fd94347a007a9d3b2c0e15
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 388f1cf0231d0a7eae7b059656186b067f537d2e
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78193092"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250972"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -159,12 +159,6 @@ Mer information om hur du arbetar med modeller som har tränats utanför Azure M
 
 <a name="target"></a>
 
-## <a name="choose-a-compute-target"></a>Välj ett beräknings mål
-
-Du kan använda följande beräknings mål eller beräknings resurser för att vara värd för webb tjänst distributionen:
-
-[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
-
 ## <a name="single-versus-multi-model-endpoints"></a>En eller flera slut punkter i flera modeller
 Azure ML stöder distribution av en eller flera modeller bakom en enda slut punkt.
 
@@ -172,9 +166,9 @@ Slut punkter för flera modeller använder en delad behållare som värd för fl
 
 Ett E2E-exempel som visar hur du använder flera modeller bakom en enda behållares slut punkt finns i [det här exemplet](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model)
 
-## <a name="prepare-deployment-artifacts"></a>Förbered distributions artefakter
+## <a name="prepare-to-deploy"></a>Förbered distributionen
 
-Om du vill distribuera modellen behöver du följande:
+Om du vill distribuera modellen som en tjänst behöver du följande komponenter:
 
 * **Start skript & käll kods beroenden**. Det här skriptet accepterar begär Anden, visar förfrågningarna med hjälp av modellen och returnerar resultatet.
 
@@ -187,11 +181,9 @@ Om du vill distribuera modellen behöver du följande:
     >
     >   Ett alternativ som kan fungera för ditt scenario är [batch-förutsägelse](how-to-use-parallel-run-step.md), vilket ger åtkomst till data lager under poängsättningen.
 
-* **Miljö för störningar**. Bas avbildningen med installerade paket beroenden som krävs för att köra modellen.
+* **Konfiguration av härledning**. Konfiguration av härlednings miljö anger miljö konfigurationen, start skriptet och andra komponenter som behövs för att köra modellen som en tjänst.
 
-* **Distributions konfiguration** för det beräknings mål som är värd för den distribuerade modellen. Den här konfigurationen beskriver saker som minnes-och processor krav som krävs för att köra modellen.
-
-Dessa objekt kapslas in i en *konfiguration* för konfiguration och *distribution*. Konfigurations konfigurationen refererar till Start skriptet och andra beroenden. Du definierar dessa konfigurationer program mässigt när du använder SDK: n för att utföra distributionen. Du definierar dem i JSON-filer när du använder CLI.
+När du har de nödvändiga komponenterna kan du profilera tjänsten som skapas på grund av distributionen av din modell för att förstå processor-och minnes kraven.
 
 ### <a id="script"></a>1. definiera ditt post skript och beroenden
 
@@ -267,33 +259,7 @@ Dessa typer stöds för närvarande:
 * `pyspark`
 * Standard python-objekt
 
-Om du vill använda schema generering inkluderar du `inference-schema`-paketet i din Conda-miljö fil. Mer information om det här paketet finns [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema).
-
-##### <a name="example-dependencies-file"></a>Exempel beroende fil
-
-Följande YAML är ett exempel på en fil för Conda-beroenden. Observera att du måste ange azureml-defaults med version > = 1.0.45 som ett pip-beroende, eftersom det innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst.
-
-```YAML
-name: project_environment
-dependencies:
-  - python=3.6.2
-  - scikit-learn=0.20.0
-  - pip:
-      # You must list azureml-defaults as a pip dependency
-    - azureml-defaults>=1.0.45
-    - inference-schema[numpy-support]
-```
-
-> [!IMPORTANT]
-> Om beroendet är tillgängligt via både Conda och pip (från PyPi) rekommenderar Microsoft att du använder Conda-versionen, eftersom Conda-paket vanligt vis levereras med färdiga binärfiler som gör installationen mer tillförlitlig.
->
-> Mer information finns i [förstå Conda och pip](https://www.anaconda.com/understanding-conda-and-pip/).
->
-> Om du vill kontrol lera om beroendet är tillgängligt via Conda, använder du kommandot `conda search <package-name>` eller så använder du paket indexen på [https://anaconda.org/anaconda/repo](https://anaconda.org/anaconda/repo) och [https://anaconda.org/conda-forge/repo](https://anaconda.org/conda-forge/repo).
-
-Om du vill använda automatisk schema generering måste du importera `inference-schema`-paketen med ditt Entry-skript.
-
-Definiera exempel formaten indata och utdata i `input_sample` och `output_sample` variabler som representerar formatet för begäran och svar för webb tjänsten. Använd de här exemplen i funktionen indata och utdata dekoratörer i funktionen `run()`. Följande scikit – lära använder schema generering.
+Om du vill använda schema generering inkluderar du `inference-schema`-paketet i din beroende fil. Mer information om det här paketet finns [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema). Definiera exempel formaten indata och utdata i `input_sample` och `output_sample` variabler som representerar formatet för begäran och svar för webb tjänsten. Använd de här exemplen i funktionen indata och utdata dekoratörer i funktionen `run()`. Följande scikit – lära använder schema generering.
 
 ##### <a name="example-entry-script"></a>Exempel på post skript
 
@@ -485,24 +451,52 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
-### <a name="2-define-your-inference-environment"></a>2. definiera din härlednings miljö
+### <a name="2-define-your-inference-configuration"></a>2. definiera konfigurationen för konfigurationen
 
-Konfigurations konfigurationen beskriver hur du konfigurerar modellen för att göra förutsägelser. Den här konfigurationen ingår inte i ditt Entry-skript. Den refererar till ditt Entry-skript och används för att hitta alla resurser som krävs för distributionen. Den används senare när du distribuerar modellen.
+Konfiguration av konfigurations nivå beskriver hur du konfigurerar webb tjänsten som innehåller din modell. Den ingår inte i ditt Entry-skript. Den refererar till ditt Entry-skript och används för att hitta alla resurser som krävs för distributionen. Den används senare när du distribuerar modellen.
 
-Konfiguration av konfigurations miljön använder Azure Machine Learning miljöer för att definiera de program beroenden som behövs för distributionen. Med miljöer kan du skapa, hantera och återanvända program beroenden som krävs för utbildning och distribution. I följande exempel visas hur du läser in en miljö från arbets ytan och sedan använder den med konfigurations konfigurationen:
+Konfiguration av konfigurations miljön använder Azure Machine Learning miljöer för att definiera de program beroenden som behövs för distributionen. Med miljöer kan du skapa, hantera och återanvända program beroenden som krävs för utbildning och distribution. Du kan skapa en miljö från anpassade beroende filer eller använda någon av de granskade Azure Machine Learning miljöerna. Följande YAML är ett exempel på en fil för Conda-beroenden. Observera att du måste ange azureml-defaults med version > = 1.0.45 som ett pip-beroende, eftersom det innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst. Om du vill använda automatisk schema generering måste du också importera `inference-schema`-paketen med ditt Entry-skript.
+
+```YAML
+name: project_environment
+dependencies:
+  - python=3.6.2
+  - scikit-learn=0.20.0
+  - pip:
+      # You must list azureml-defaults as a pip dependency
+    - azureml-defaults>=1.0.45
+    - inference-schema[numpy-support]
+```
+
+> [!IMPORTANT]
+> Om beroendet är tillgängligt via både Conda och pip (från PyPi) rekommenderar Microsoft att du använder Conda-versionen, eftersom Conda-paket vanligt vis levereras med färdiga binärfiler som gör installationen mer tillförlitlig.
+>
+> Mer information finns i [förstå Conda och pip](https://www.anaconda.com/understanding-conda-and-pip/).
+>
+> Om du vill kontrol lera om beroendet är tillgängligt via Conda, använder du kommandot `conda search <package-name>` eller så använder du paket indexen på [https://anaconda.org/anaconda/repo](https://anaconda.org/anaconda/repo) och [https://anaconda.org/conda-forge/repo](https://anaconda.org/conda-forge/repo).
+
+Du kan använda beroende filen för att skapa ett miljö objekt och spara det på din arbets yta för framtida bruk:
+
+```python
+from azureml.core.environment import Environment
+
+
+myenv = Environment.from_conda_specification(name = 'myenv',
+                                             file_path = 'path-to-conda-specification-file'
+myenv.register(workspace=ws)
+```
+
+I följande exempel visas hur du läser in en miljö från arbets ytan och sedan använder den med konfigurations konfigurationen:
 
 ```python
 from azureml.core.environment import Environment
 from azureml.core.model import InferenceConfig
 
-myenv = Environment.get(workspace=ws, name="myenv", version="1")
-inference_config = InferenceConfig(entry_script="x/y/score.py",
+
+myenv = Environment.get(workspace=ws, name='myenv', version='1')
+inference_config = InferenceConfig(entry_script='path-to-score.py',
                                    environment=myenv)
 ```
-
-Mer information om miljöer finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md).
-
-Du kan också ange beroenden direkt utan att använda en miljö. Följande exempel visar hur du skapar en konfigurations konfiguration som laddar program varu beroenden från en Conda-fil:
 
 Mer information om miljöer finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md).
 
@@ -510,7 +504,7 @@ Mer information om konfiguration av konfiguration finns i [InferenceConfig](http
 
 Information om hur du använder en anpassad Docker-avbildning med en konfigurations konfiguration finns i [distribuera en modell med hjälp av en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md).
 
-### <a name="cli-example-of-inferenceconfig"></a>CLI-exempel på InferenceConfig
+#### <a name="cli-example-of-inferenceconfig"></a>CLI-exempel på InferenceConfig
 
 [!INCLUDE [inference config](../../includes/machine-learning-service-inference-config.md)]
 
@@ -528,7 +522,93 @@ I det här exemplet anger konfigurationen följande inställningar:
 
 Information om hur du använder en anpassad Docker-avbildning med en konfigurations konfiguration finns i [distribuera en modell med hjälp av en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md).
 
-### <a name="3-define-your-deployment-configuration"></a>3. definiera distributions konfigurationen
+### <a id="profilemodel"></a>3. profilera din modell för att fastställa resursutnyttjande
+
+När du har registrerat din modell och för berett de andra komponenterna som krävs för distributionen kan du fastställa den processor och det minne som den distribuerade tjänsten kommer att behöva. Profilering testar tjänsten som kör din modell och returnerar information som processor användning, minnes användning och svars fördröjning. Den innehåller också en rekommendation för CPU och minne baserat på resursanvändningen.
+
+För att du ska kunna profilera din modell behöver du:
+* En registrerad modell.
+* En konfigurations konfiguration som baseras på definitionen av ditt Start skript och en härlednings miljö.
+* En tabell data uppsättning med en kolumn, där varje rad innehåller en sträng som representerar exempel begär ande data.
+
+> [!IMPORTANT]
+> Nu stöder vi bara profilering av tjänster som förväntar sig att deras begär ande data ska vara en sträng, till exempel: sträng serialiserad JSON, text, sträng serialiserad bild osv. Innehållet för varje rad i data uppsättningen (sträng) placeras i bröd texten i HTTP-begäran och skickas till tjänsten som kapslar in modellen för poängsättning.
+
+Nedan visas ett exempel på hur du kan skapa en indata-datauppsättning för att profilera en tjänst som förväntar sig att dess inkommande begär ande data ska innehålla serialiserad JSON. I det här fallet skapade vi en data uppsättning baserade 100 instanser av samma data innehåll för begäran. I verkliga scenarier rekommenderar vi att du använder större data uppsättningar som innehåller olika indata, särskilt om din resursanvändning/beteende för modellen är indata beroende.
+
+```python
+import json
+from azureml.core import Datastore
+from azureml.core.dataset import Dataset
+from azureml.data import dataset_type_definitions
+
+input_json = {'data': [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                       [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
+# create a string that can be utf-8 encoded and
+# put in the body of the request
+serialized_input_json = json.dumps(input_json)
+dataset_content = []
+for i in range(100):
+    dataset_content.append(serialized_input_json)
+dataset_content = '\n'.join(dataset_content)
+file_name = 'sample_request_data.txt'
+f = open(file_name, 'w')
+f.write(dataset_content)
+f.close()
+
+# upload the txt file created above to the Datastore and create a dataset from it
+data_store = Datastore.get_default(ws)
+data_store.upload_files(['./' + file_name], target_path='sample_request_data')
+datastore_path = [(data_store, 'sample_request_data' +'/' + file_name)]
+sample_request_data = Dataset.Tabular.from_delimited_files(
+    datastore_path, separator='\n',
+    infer_column_types=True,
+    header=dataset_type_definitions.PromoteHeadersBehavior.NO_HEADERS)
+sample_request_data = sample_request_data.register(workspace=ws,
+                                                   name='sample_request_data',
+                                                   create_new_version=True)
+```
+
+När du har data uppsättningen som innehåller exempel på begär ande data, skapar du en konfigurations konfiguration. Konfigurationen av konfigurationen baseras på score.py och miljö definitionen. Följande exempel visar hur du skapar en konfiguration för konfiguration och körning av en konfigurations profil:
+
+```python
+from azureml.core.model import InferenceConfig, Model
+from azureml.core.dataset import Dataset
+
+
+model = Model(ws, id=model_id)
+inference_config = InferenceConfig(entry_script='path-to-score.py',
+                                   environment=myenv)
+input_dataset = Dataset.get_by_name(workspace=ws, name='sample_request_data')
+profile = Model.profile(ws,
+            'unique_name',
+            [model],
+            inference_config,
+            input_dataset=input_dataset)
+
+profile.wait_for_completion(True)
+
+# see the result
+details = profile.get_details()
+```
+
+Följande kommando visar hur du profilerar en modell med hjälp av CLI:
+
+```azurecli-interactive
+az ml model profile -g <resource-group-name> -w <workspace-name> --inference-config-file <path-to-inf-config.json> -m <model-id> --idi <input-dataset-id> -n <unique-name>
+```
+
+## <a name="deploy-to-target"></a>Distribuera till mål
+
+Distributionen använder distributions konfigurationen för konfigurations konfiguration för att distribuera modellerna. Distributions processen är liknande oavsett beräknings målet. Distribution till AKS är något annorlunda eftersom du måste ange en referens till AKS-klustret.
+
+### <a name="choose-a-compute-target"></a>Välj ett beräknings mål
+
+Du kan använda följande beräknings mål eller beräknings resurser för att vara värd för webb tjänst distributionen:
+
+[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+### <a name="define-your-deployment-configuration"></a>Definiera distributions konfigurationen
 
 Innan du distribuerar din modell måste du definiera distributions konfigurationen. *Distributions konfigurationen är specifika för det beräknings mål som ska vara värd för webb tjänsten.* Om du till exempel distribuerar en modell lokalt måste du ange den port där tjänsten accepterar begär Anden. Distributions konfigurationen ingår inte i ditt Entry-skript. Den används för att definiera egenskaperna för det beräknings mål som ska vara värd för modell-och registrerings skriptet.
 
@@ -547,10 +627,6 @@ Klasserna för lokala, Azure Container Instances-och AKS-webbtjänster kan impor
 ```python
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
-
-## <a name="deploy-to-target"></a>Distribuera till mål
-
-Distributionen använder distributions konfigurationen för konfigurations konfiguration för att distribuera modellerna. Distributions processen är liknande oavsett beräknings målet. Distribution till AKS är något annorlunda eftersom du måste ange en referens till AKS-klustret.
 
 ### <a name="securing-deployments-with-ssl"></a>Skydda distributioner med SSL
 
@@ -594,7 +670,7 @@ I följande tabell beskrivs de olika tjänst tillstånden:
 | Webservice-tillstånd | Beskrivning | Slutligt tillstånd?
 | ----- | ----- | ----- |
 | Övergår | Tjänsten håller på att distribueras. | Nej |
-| Skadad | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | Nej |
+| Ohälsosamt | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | Nej |
 | Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | Nej |
 | Misslyckades | Det gick inte att distribuera tjänsten på grund av ett fel eller en krasch. | Ja |
 | Felfri | Tjänsten är felfri och slut punkten är tillgänglig. | Ja |
@@ -958,7 +1034,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Några exempel: 
+När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Exempel: 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 
@@ -1076,7 +1152,7 @@ Mer information finns i dokumentationen för [WebService. Delete ()](https://doc
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Distributions fel sökning](how-to-troubleshoot-deployment.md)
 * [Skydda Azure Machine Learning webb tjänster med SSL](how-to-secure-web-service.md)
-* [Använda en Azure Machine Learning modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
+* [Konsumera en Azure Machine Learning-modell som distribuerats som en webbtjänst](how-to-consume-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
 

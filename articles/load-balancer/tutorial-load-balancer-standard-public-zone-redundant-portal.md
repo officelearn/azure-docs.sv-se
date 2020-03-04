@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 99ba530d4857520693060d83ad78a7f127003a3d
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: f521cc68476e2f9df1cc8288cf41156da3851cd0
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732338"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251883"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Självstudiekurs: Lastbalansera virtuella datorer i flera tillgänglighetszoner med Standard Load Balancer med hjälp av Azure Portal
 
@@ -57,7 +57,7 @@ En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLBAZ* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
-    | Region         | Välj **Västeuropa**.                                        |
+    | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentligt**.                                        |
     | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
@@ -69,16 +69,20 @@ En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du
 
 I det här avsnittet skapar du ett virtuellt nätverk, virtuella datorer i olika zoner för regionen och installerar sedan IIS på de virtuella datorerna för att testa den zonredundanta lastbalanseraren. Om en zon misslyckas så misslyckas därför hälsoavsökningen för virtuell dator i samma zon och trafiken fortsätter att fungera med virtuella datorer i andra zoner.
 
-### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-Skapa ett virtuellt nätverk för distribution av serverdelsservrar.
+## <a name="virtual-network-and-parameters"></a>Virtuellt nätverk och parametrar
 
-1. Klicka på **Skapa en resurs** > **Nätverk** > **Virtuella nätverk** överst till vänster på skärmen och ange följande värden för det virtuella nätverket:
-    - *myVnet* – det virtuella nätverkets namn.
-    - *myResourceGroupLBAZ* – för namnet på den befintliga resursgruppen
-    - *myBackendSubnet* – för undernätsnamnet.
-2. Skapa det virtuella nätverket genom att klicka på **Skapa**.
+I det här avsnittet måste du ersätta följande parametrar i stegen med informationen nedan:
 
-    ![Skapa ett virtuellt nätverk](./media/load-balancer-standard-public-availability-zones-portal/2-load-balancer-virtual-network.png)
+| Parameter                   | Värde                |
+|-----------------------------|----------------------|
+| **\<resurs-grupp-namn >**  | myResourceGroupLBAZ (Välj en befintlig resurs grupp) |
+| **\<virtuella-nätverks namn >** | myVNet          |
+| **\<region – namn >**          | Europa, västra      |
+| **\<IPv4-adress utrymme >**   | 10.0.0.0 \ 16          |
+| **\<under nätets namn >**          | myBackendSubnet        |
+| **\<undernät – adress intervall >** | 10.0.0.0 \ 24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
@@ -106,7 +110,7 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
     - *100* för **Prioritet**
     - *myHTTPRule* för lastbalanseringsregelns namn.
     - *Tillåt HTTP* – för beskrivning av lastbalanseringsregeln.
-4. Klicka på **OK**.
+4. Klicka på **OK**
  
    ![Skapa ett virtuellt nätverk](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Skapa, genom att upprepa steg 2 till 4, en annan regel med namnet *myRDPRule* som tillåter att en inkommande RDP-anslutning använder port 3389 med följande värden:
@@ -123,11 +127,11 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
 
 Skapa virtuella datorer i olika zoner (zon 1, zon 2 och zon 3) för den region som kan fungera som serverdelsservrar för lastbalanseraren.
 
-1. Klicka på **Skapa en resurs** > **Beräkna** > **Windows Server 2016 Datacenter** överst till vänster på skärmen och ange följande värden för den virtuella datorn:
+1. Klicka på **Skapa en resurs** > **Compute** > **Windows Server 2016 Datacenter** överst till vänster på skärmen och ange följande värden för den virtuella datorn:
     - *myVM1* – för den virtuella datorns namn.        
-    - *azureuser* – för administratörens användarnamn.    
+    - *azureuser* – administratörens användarnamn.    
     - *myResourceGroupLBAZ* – för **Resursgrupp**väljer du **Använd befintlig**, och väljer sedan *myResourceGroupLBAZ*.
-2. Klicka på **OK**.
+2. Klicka på **OK**
 3. Välj **DS1_V2** som storlek på den virtuella datorn och klicka på **Välj**.
 4. Ange dessa värden för VM-inställningarna:
     - *zon 1* – för den zon där du placerar den virtuella datorn.
@@ -197,7 +201,7 @@ Om du vill att lastbalanseraren ska övervaka status för din app kan du använd
     - *80* – för portnumret.
     - *15* – för antalet **intervall** i sekunder mellan avsökningsförsöken.
     - *2* – för antalet **tröskelvärden för ohälsosamt värde** eller antalet avsökningsfel i följd som måste inträffa innan en virtuell dator anses vara felaktig.
-4. Klicka på **OK**.
+4. Klicka på **OK**
 
    ![Lägga till en avsökning](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
 
@@ -214,7 +218,7 @@ En lastbalanseringsregel används för att definiera hur trafiken ska distribuer
     - *80* – för serverdelsporten.
     - *myBackendPool* – för serverdelspoolens namn.
     - *myHealthProbe* – för hälsoavsökningens namn.
-4. Klicka på **OK**.
+4. Klicka på **OK**
     
     
     ![Lägga till en belastningsutjämningsregel](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)

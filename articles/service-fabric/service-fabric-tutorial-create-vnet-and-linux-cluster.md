@@ -4,22 +4,22 @@ description: Lär dig att distribuera ett Linux Service Fabric-kluster till ett 
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: 059f0f4b1eac9546f1adc05bf1f2799affc0dd8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f5788f07dd4a4f03a95efaea4b741cd64c930ac5
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465410"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251785"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuera ett Service Fabric-kluster i Linux till ett virtuellt Azure-nätverk
 
-I den här artikeln får du lära dig hur du distribuerar ett Linux Service Fabric-kluster till ett [virtuellt Azure-nätverk (VNet)](../virtual-network/virtual-networks-overview.md) med Azure CLI och en mall. När du är klar körs ett kluster i molnet som du kan distribuera program till. Om du vill skapa ett Windows-kluster med PowerShell läser du informationen om att [skapa ett säkert Windows-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+I den här artikeln får du lära dig hur du distribuerar ett Linux Service Fabric-kluster till ett [virtuellt Azure-nätverk (VNet)](../virtual-network/virtual-networks-overview.md) med Azure CLI och en mall. När du är färdig körs ett kluster i molnet som du kan distribuera program till. Om du vill skapa ett Windows-kluster med PowerShell läser du informationen om att [skapa ett säkert Windows-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
-* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installera [Service Fabric CLI](service-fabric-cli.md)
 * Installera [Azure CLI](/cli/azure/install-azure-cli)
 * Läs [Översikt över Azure-kluster](service-fabric-azure-clusters-overview.md) för att lära dig viktiga begrepp i kluster
@@ -43,8 +43,8 @@ I resursen **Microsoft.ServiceFabric/clusters** distribueras ett Linux-kluster m
 * tre nodtyper
 * fem noder i den primära nodtypen (kan konfigureras i mallparametrar), en nod i var och en av de andra Node-typerna
 * OS: Ubuntu 16.04 LTS (kan konfigureras i mallparametrarna)
-* skyddat med certifikat (kan konfigureras i mallparametrarna)
-* [DNS-tjänsten](service-fabric-dnsservice.md) är aktiverad
+* skyddat certifikat (kan konfigureras i mallparametrarna)
+* [DNS-tjänst](service-fabric-dnsservice.md) är aktiverad
 * [Hållbarhetsnivå](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Brons (kan konfigureras i mallparametrarna)
 * [Tillförlitlighetsnivå](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (kan konfigureras i mallparametrarna)
 * slutpunkt för klientanslutning: 19000 (kan konfigureras i mallparametrarna)
@@ -86,7 +86,7 @@ Parameter filen [AzureDeploy. Parameters][parameters] deklarerar många värden 
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Distribuera det virtuella nätverket och klustret
 
-Konfigurera sedan nätverkstopologin och distribuera Service Fabric-klustret. Resource Manager-mallen [AzureDeploy. JSON][template] skapar ett virtuellt nätverk (VNet) och ett undernät för Service Fabric. Mallen distribuerar också ett kluster med certifikatsäkerhet aktiverad.  För produktionskluster ska du använda ett certifikat från en certifikatutfärdare som klustercertifikat. Ett självsignerat certifikat kan användas för att skydda testkluster.
+Konfigurera därefter nätverkstopologi och distribuera Service Fabric-klustret. Resource Manager-mallen [AzureDeploy. JSON][template] skapar ett virtuellt nätverk (VNet) och ett undernät för Service Fabric. Mallen distribuerar också ett kluster med certifikatsäkerhet aktiverat.  För produktionskluster ska du använda ett certifikat från en certifikatutfärdare som klustercertifikat. Ett självsignerat certifikat kan användas för att skydda testkluster.
 
 Mallen i den här artikeln distribuerar ett kluster som använder certifikatets tumavtryck för att identifiera kluster certifikatet.  Två certifikat kan inte ha samma tumavtryck, vilket gör certifikathantering svårare. Om ett distribuerat kluster växlas från att använda certifikattumavtryck till att använda vanliga certifikatnamn blir certifikathanteringen mycket enklare.  Du kan lära dig att uppdatera klustret till att använda vanliga certifikatnamn för certifikathantering genom att läsa avsnittet om att [ändra kluster till vanligt certifikatnamn för hantering](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
@@ -129,21 +129,25 @@ VaultName="linuxclusterkeyvault"
 VaultGroupName="linuxclusterkeyvaultgroup"
 CertPath="C:\MyCertificates"
 
-az sf cluster create --resource-group $ResourceGroupName --location $Location --cluster-name $ClusterName --template-file C:\temp\cluster\AzureDeploy.json --parameter-file C:\temp\cluster\AzureDeploy.Parameters.json --certificate-password $Password --certificate-output-folder $CertPath --certificate-subject-name $ClusterName.$Location.cloudapp.azure.com --vault-name $VaultName --vault-resource-group $ResourceGroupName
+az sf cluster create --resource-group $ResourceGroupName --location $Location \
+   --cluster-name $ClusterName --template-file C:\temp\cluster\AzureDeploy.json \
+   --parameter-file C:\temp\cluster\AzureDeploy.Parameters.json --certificate-password $Password \
+   --certificate-output-folder $CertPath --certificate-subject-name $ClusterName.$Location.cloudapp.azure.com \
+   --vault-name $VaultName --vault-resource-group $ResourceGroupName
 ```
 
-## <a name="connect-to-the-secure-cluster"></a>Ansluta till det skyddade klustret
+## <a name="connect-to-the-secure-cluster"></a>Ansluta till det säkra klustret
 
 Anslut till klustret med Service Fabric CLI `sfctl cluster select`-kommandot med din nyckel.  Använd enbart alternativet **--no-verify** för ett självsignerat certifikat.
 
-```azurecli
+```console
 sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
 Kontrollera att du är ansluten och att klustret är felfritt med kommandot `sfctl cluster health`.
 
-```azurecli
+```console
 sfctl cluster health
 ```
 

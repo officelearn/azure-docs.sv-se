@@ -4,12 +4,12 @@ description: Lär dig använda plugin-programmet Jenkins i Azure App Service fö
 keywords: jenkins, azure, devops, app service
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: de1bf0ea06210c86ff1da21dcac667754f11d7f4
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: fcaf45003e865cc5aac3f6bd4580479a27d38b50
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158510"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251467"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Distribuera till Azure App Service med plugin-programmet Jenkins 
 
@@ -17,7 +17,7 @@ Om du vill distribuera en Java-webbapp till Azure kan du använda Azure CLI i [J
 * filuppladdning.
 * Docker för Web Apps på Linux.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Konfigurera Jenkins för distribution av Web Apps via filuppladdning.
 > * Konfigurera Jenkins för distribution av Web App for Containers.
@@ -67,7 +67,7 @@ För att distribuera projektet till Web Apps kan du ladda upp dina byggartefakte
 Innan du konfigurerar jobbet i Jenkins behöver du en Azure App Service-plan och en webbapp för att köra Java-appen.
 
 
-1. Skapa en Azure App Service-plan med den **kostnadsfria** prisnivån med `az appservice plan create` [Azure CLI-kommandot](/cli/azure/appservice/plan#az-appservice-plan-create). I App Service-planen definieras de fysiska resurser som används som värd för dina appar. Alla program som har tilldelats en App Service-plan delar de här resurserna. Delade resurser hjälper dig att minska kostnaderna vid värdskap för flera appar.
+1. Skapa en Azure App Service-plan med den **kostnads fria** pris nivån genom att använda [kommandot `az appservice plan create` Azure CLI](/cli/azure/appservice/plan#az-appservice-plan-create). I App Service-planen definieras de fysiska resurser som används som värd för dina appar. Alla program som har tilldelats en App Service-plan delar de här resurserna. Delade resurser hjälper dig att minska kostnaderna vid värdskap för flera appar.
 2. Skapa en webbapp. Du kan använda [Azure-portalen](/azure/app-service/configure-common) eller följande `az` Azure CLI-kommando:
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
@@ -207,10 +207,13 @@ För värdet **URL för Docker-register** anger du webbadressen i formatet https
 ### <a name="for-azure-app-service-on-linux"></a>För Azure App Service i Linux
 
 1. Verifiera din webbapp genom att köra följande kommando i Azure CLI:
-    ```CLI
+    
+    ```azurecli
     az acr repository list -n <myRegistry> -o json
     ```
+    
     Följande meddelande visas:
+    
     ```CLI
     ["calculator"]
     ```

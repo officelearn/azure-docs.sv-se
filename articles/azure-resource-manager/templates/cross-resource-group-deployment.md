@@ -3,12 +3,12 @@ title: Distribuera resurser mellan prenumerationer & resurs grupp
 description: Visar hur du riktar in mer än en Azure-prenumeration och resurs grupp under distributionen.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 8f5fbd51456003059f6a32fc32b32194a936434a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 47573fedd7915d95d6ed98e3fd0aaf840331552b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154218"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250611"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp
 
@@ -119,7 +119,7 @@ Om du anger `resourceGroup` till namnet på en resurs grupp som inte finns, Miss
 
 Testa föregående mall och se resultatet med PowerShell eller Azure CLI.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Om du vill distribuera två lagrings konton till två resurs grupper i **samma prenumeration**använder du:
 
@@ -162,7 +162,7 @@ New-AzResourceGroupDeployment `
   -secondSubscriptionID $secondSub
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Om du vill distribuera två lagrings konton till två resurs grupper i **samma prenumeration**använder du:
 
@@ -209,11 +209,11 @@ Funktionerna [resourceGroup ()](template-functions-resource.md#resourcegroup) oc
 
 Följande tabell visar om funktionerna matchas med den överordnade eller inbäddade resurs gruppen och prenumerationen.
 
-| Malltyp | Omfång | Upplösning |
+| Malltyp | Omfång | Lösning |
 | ------------- | ----- | ---------- |
 | Nest        | yttre (standard) | Överordnad resurs grupp |
 | Nest        | innersta | Under resurs grupp |
-| länkade        | Gäller inte   | Under resurs grupp |
+| länkade        | Ej tillämpligt   | Under resurs grupp |
 
 Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) visar:
 
@@ -317,7 +317,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Testa föregående mall och se resultatet med PowerShell eller Azure CLI.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name parentGroup -Location southcentralus
@@ -340,7 +340,7 @@ Utdata från föregående exempel är:
  linkedRG         String                     Linked resource group is linkedgroup
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create --name parentGroup --location southcentralus
@@ -355,7 +355,7 @@ az group deployment create \
 
 Utdata från föregående exempel är:
 
-```azurecli
+```output
 "outputs": {
   "defaultScopeRG": {
     "type": "String",

@@ -6,12 +6,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7d27256f64e09a4d4ba3dbf1544eaec4715f6d88
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: a2b66cdc7a0704cd3560c0776a0ca5302dc689d2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669921"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250759"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Konfigurera Azure Monitor för din python-app (för hands version)
 
@@ -24,7 +24,7 @@ Azure Monitor stöder distribuerad spårning, Metric-insamling och loggning av p
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-application-insights-resource-in-azure-monitor"></a>Skapa en Application Insights resurs i Azure Monitor
 
@@ -132,11 +132,20 @@ Här är de exportörer som openräkning tillhandahåller mappat till de typer a
         main()
     ```
 
-4. Nu när du kör python-skriptet bör du fortfarande uppmanas att ange värden, men bara värdet skrivs ut i gränssnittet. Den skapade `SpanData` skickas till Azure Monitor. Du hittar de utgivna span-data under `dependencies`.
+4. Nu när du kör python-skriptet bör du fortfarande uppmanas att ange värden, men bara värdet skrivs ut i gränssnittet. Den skapade `SpanData` skickas till Azure Monitor. Du hittar de utgivna span-data under `dependencies`. Mer information om utgående begär Anden finns i openräkningar python- [beroenden](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-dependency).
+Mer information om inkommande begär Anden finns i openräkningar python- [begäranden](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-request).
 
-5. Om du vill ha mer information om sampling i openinventering kan du titta på [sampling i openräkning](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications).
+#### <a name="sampling"></a>Samling
 
-6. Om du vill ha mer information om telemetri-korrelation i dina spårnings data kan du ta en titt på [telemetri](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)för openräkning.
+Om du vill ha mer information om sampling i openinventering kan du titta på [sampling i openräkning](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications).
+
+#### <a name="trace-correlation"></a>Spåra korrelation
+
+Om du vill ha mer information om telemetri-korrelation i dina spårnings data kan du ta en titt på python- [korrelationen](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)i openräkning.
+
+#### <a name="modify-telemetry"></a>Ändra telemetri
+
+Mer information om hur du ändrar spårad telemetri innan det skickas till Azure Monitor finns i openräkningar python [telemetri-processorer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
 
 ### <a name="metrics"></a>Mått
 
@@ -240,6 +249,32 @@ Här är de exportörer som openräkning tillhandahåller mappat till de typer a
     ```
 
 4. Export verktyget skickar mått data till Azure Monitor med ett fast intervall. Standardvärdet är var 15: e sekund. Vi spårar ett enda mått, så dessa mått data, med det värde och den tidsstämpel som den innehåller, kommer att skickas varje intervall. Du kan hitta data under `customMetrics`.
+
+#### <a name="standard-metrics"></a>Standard mått
+
+Som standard skickar mått export verktyget en uppsättning standard mått till Azure Monitor. Du kan inaktivera detta genom att ställa in flaggan `enable_standard_metrics` till `False` i konstruktorn för mått exporten.
+
+    ```python
+    ...
+    exporter = metrics_exporter.new_metrics_exporter(
+      enable_standard_metrics=False,
+      connection_string='InstrumentationKey=<your-instrumentation-key-here>')
+    ...
+    ```
+Nedan visas en lista över standard mått som har skickats för närvarande:
+
+- Tillgängligt minne (byte)
+- PROCESSOR processor tid (i procent)
+- Frekvens för inkommande begäran (per sekund)
+- Genomsnittlig körnings tid för inkommande begäran (millisekunder)
+- Utgående begär ande frekvens (per sekund)
+- Processor användning för processor (procent andel)
+- Privata byte för process (byte)
+
+Du bör kunna se dessa mått i `performanceCounters`. Antalet inkommande begär anden skulle vara under `customMetrics`.
+#### <a name="modify-telemetry"></a>Ändra telemetri
+
+Mer information om hur du ändrar spårad telemetri innan det skickas till Azure Monitor finns i openräkningar python [telemetri-processorer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
 
 ### <a name="logs"></a>Loggar
 
@@ -360,8 +395,17 @@ Här är de exportörer som openräkning tillhandahåller mappat till de typer a
     except Exception:
     logger.exception('Captured an exception.', extra=properties)
     ```
+#### <a name="sampling"></a>Samling
 
-7. Mer information om hur du kan utöka dina loggar med spårnings kontext data finns i openräkningar python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation).
+Om du vill ha mer information om sampling i openinventering kan du titta på [sampling i openräkning](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications).
+
+#### <a name="log-correlation"></a>Logg korrelation
+
+Mer information om hur du kan utöka dina loggar med spårnings kontext data finns i openräkningar python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation).
+
+#### <a name="modify-telemetry"></a>Ändra telemetri
+
+Mer information om hur du ändrar spårad telemetri innan det skickas till Azure Monitor finns i openräkningar python [telemetri-processorer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
 
 ## <a name="view-your-data-with-queries"></a>Visa dina data med frågor
 

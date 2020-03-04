@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 85b59c6549a62f7d9945f5739d1d0fde8c0fa3b8
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 44d8a9e71b0415dc5dc7f5d31441bdc1e2aeb372
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158918"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252649"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Använda privata slut punkter för Azure Storage (för hands version)
 
@@ -136,4 +136,4 @@ Den här begränsningen beror på DNS-ändringar som gjorts när konto a2 skapar
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regler för nätverks säkerhets grupper för undernät med privata slut punkter
 
-För närvarande kan du inte konfigurera regler för [nätverks säkerhets grupper](../../virtual-network/security-overview.md) (NSG) för undernät med privata slut punkter. En begränsad lösning för det här problemet är att implementera åtkomst regler för privata slut punkter på käll under näten, även om den här metoden kan kräva en högre hanterings kostnad.
+För närvarande kan du inte konfigurera regler för [nätverks säkerhets grupper](../../virtual-network/security-overview.md) (NSG) och användardefinierade vägar för privata slut punkter. NSG-regler som tillämpas på det undernät som är värd för den privata slut punkten tillämpas på den privata slut punkten. En begränsad lösning för det här problemet är att implementera åtkomst regler för privata slut punkter på käll under näten, även om den här metoden kan kräva en högre hanterings kostnad.

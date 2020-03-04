@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 6dda01543a6a7f447adefcc6cc3cfa3ea5da5492
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: e740a65d453a69a987e938a5170ae8e04c7bfe40
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048851"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249883"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Självstudie: Konfigurera vidarebefordran av portar i Azure Load Balancer med hjälp av portalen
 
@@ -52,7 +52,7 @@ Börja med att skapa en offentlig standardlastbalanserare som kan balansera traf
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
-    | Region         | Välj **Västeuropa**.                                        |
+    | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentligt**.                                        |
     | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
@@ -68,19 +68,20 @@ Börja med att skapa en offentlig standardlastbalanserare som kan balansera traf
 
 Skapa ett virtuellt nätverk med två virtuella datorer för serverdelspoolen för din lastbalanserare. 
 
-### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
+## <a name="virtual-network-and-parameters"></a>Virtuellt nätverk och parametrar
 
-1. Uppe till vänster i portalen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
-   
-1. I fönsterrutan **Skapa virtuellt nätverk** skriver eller väljer du dessa värden:
-   
-   - **Namn**: Skriv *MyVNet*.
-   - **ResourceGroup**: i listrutan **Välj befintlig** väljer du **MyResourceGroupLB**. 
-   - **Undernät** > **Namn**: Skriv *MyBackendSubnet*.
-   
-1. Välj **Skapa**.
+I det här avsnittet måste du ersätta följande parametrar i stegen med informationen nedan:
 
-   ![Skapa ett virtuellt nätverk](./media/tutorial-load-balancer-port-forwarding-portal/2-load-balancer-virtual-network.png)
+| Parameter                   | Värde                |
+|-----------------------------|----------------------|
+| **\<resurs-grupp-namn >**  | myResourceGroupLB (Välj en befintlig resurs grupp) |
+| **\<virtuella-nätverks namn >** | myVNet          |
+| **\<region – namn >**          | Europa, västra      |
+| **\<IPv4-adress utrymme >**   | 10.3.0.0 \ 16          |
+| **\<under nätets namn >**          | myBackendSubnet        |
+| **\<undernät – adress intervall >** | 10.3.0.0 \ 24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-vms-and-add-them-to-the-load-balancer-back-end-pool"></a>Skapa virtuella datorer och lägg till dem i lastbalanseraren för serverdelsadresspoolen
 

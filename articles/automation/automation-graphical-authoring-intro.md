@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7a0d94522e478a69f70167183e4c0d60d0d85060
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 15f63544a98c6d7bb7171081d9c3e084890e15ec
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226540"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78256002"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisk redigering i Azure Automation
 
@@ -249,7 +249,7 @@ Kontroll punkter är bara aktiverade i grafiska PowerShell Workflow-Runbooks och
 
 ## <a name="runbook-input-and-output"></a>Indata och utdata för Runbook
 
-### < ett namn – "Runbook-inmatat" ></a>inmatade Runbook
+### Inmatade Runbook<a name="runbook-input"></a>
 
 En Runbook kräver indata från en användare som startar runbooken via Azure Portal eller från en annan Runbook, om den aktuella används som underordnad. För en Runbook som skapar en virtuell dator kan användaren till exempel behöva ange sådan information som namnet på den virtuella datorn och andra egenskaper varje gången Runbook startar.
 

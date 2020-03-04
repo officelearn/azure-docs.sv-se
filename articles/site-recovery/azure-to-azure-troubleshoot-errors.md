@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: rochakm
-ms.openlocfilehash: 3f97975f09d846cd3277bb8a53a4ad922f1b5b69
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 32d826f3c27cea3d0993c47e8562360315b7bd2e
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902558"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78256051"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Felsöka fel med Azure-till-Azure VM-replikering
 
-Den här artikeln beskriver hur du felsöker vanliga fel i Azure Site Recovery vid replikering och återställning av virtuella Azure-datorer (VM) från en region till en annan. Mer information om konfigurationer som stöds finns i den [stöd matrix för att replikera virtuella Azure-datorer](site-recovery-support-matrix-azure-to-azure.md).
+Den här artikeln beskriver hur du felsöker vanliga fel i Azure Site Recovery vid replikering och återställning av virtuella Azure-datorer (VM) från en region till en annan. Mer information om konfigurationer som stöds finns i [support mat ris för replikering av virtuella Azure-datorer](site-recovery-support-matrix-azure-to-azure.md).
 
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Problem med resurs kvoter i Azure (felkod 150097)
 
@@ -80,7 +80,7 @@ Eftersom SUSE Linux använder symboliska länkar (eller *symlinks*) för att und
 
 1. Om Symantecs CA-certifikat inte hittas kör du följande kommando för att ladda ned filen. Kontrol lera om det finns några fel och följ rekommenderade åtgärder för nätverks fel.
 
-    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
+    **# wget https://docs.broadcom.com/docs-and-downloads/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem-O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
 
 1. Kontrol lera om Baltimore rot certifikat finns:
 
@@ -88,7 +88,7 @@ Eftersom SUSE Linux använder symboliska länkar (eller *symlinks*) för att und
 
 1. Om Baltimore inte hittas kör du det här kommandot för att ladda ned certifikatet:
 
-    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root. pem**
+    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem-O Baltimore_CyberTrust_Root. pem**
 
 1. Kontrol lera om DigiCert_Global_Root_CA certifikatet finns:
 
@@ -106,7 +106,7 @@ Eftersom SUSE Linux använder symboliska länkar (eller *symlinks*) för att und
 
 1. Kör dessa kommandon för att kontrol lera om ämnes-hashar som symlinks har skapats för certifikaten:
 
-    - Kommando:
+    - Kommandoprompt
 
         **# ls-l | grep-Baltimore**
 
@@ -116,7 +116,7 @@ Eftersom SUSE Linux använder symboliska länkar (eller *symlinks*) för att und
 
         `-rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem`
 
-    - Kommando:
+    - Kommandoprompt
 
         **# ls-l | grep-VeriSign_Class_3_Public_Primary_Certification_Authority_G5**
 
@@ -126,7 +126,7 @@ Eftersom SUSE Linux använder symboliska länkar (eller *symlinks*) för att und
 
         `lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem`
 
-    - Kommando:
+    - Kommandoprompt
 
         **# ls-l | grep-DigiCert_Global_Root**
 
@@ -150,7 +150,7 @@ Eftersom SUSE Linux använder symboliska länkar (eller *symlinks*) för att und
 
 1. Kontrol lera om filerna finns:
 
-    - Kommando:
+    - Kommandoprompt
 
         **# ls-l 653b494a. 0 b204d74a. 0 3513523f. 0**
 
@@ -381,14 +381,14 @@ Se fel söknings stegen i [etablerings statusen för den virtuella datorn är in
 Om du vill aktivera replikering på den virtuella datorn måste etablerings statusen vara **klar**. Följ de här stegen för att kontrol lera etablerings statusen:
 
 1. I Azure Portal väljer du **Resursläsaren** från **alla tjänster**.
-1. Expandera den **prenumerationer** listan och välj din prenumeration.
-1. Expandera den **ResourceGroups** listan och välj resursgruppen för den virtuella datorn.
+1. Expandera listan **prenumerationer** och välj din prenumeration.
+1. Expandera listan **ResourceGroups** och välj den virtuella datorns resurs grupp.
 1. Expandera listan **resurser** och välj den virtuella datorn.
 1. Kontrol lera fältet **provisioningState** i instans visning på höger sida.
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 
-- Om **provisioningState** är **misslyckades**, kontakta supporten med information om hur du felsöker.
+- Om **ProvisioningState** **Miss lyckas**kan du kontakta supporten med information om fel sökning.
 - Om **ProvisioningState** **uppdateras**kan ett annat tillägg distribueras. Kontrol lera om det finns pågående åtgärder på den virtuella datorn, vänta tills de har slutförts och försök sedan att aktivera replikering för det Site Recovery misslyckade jobbet.
 
 ## <a name="unable-to-select-target-vm-network-selection-tab-is-unavailable"></a>Det går inte att välja den virtuella mål datorn (fliken nätverks val är inte tillgänglig)
@@ -466,7 +466,7 @@ Följande exempel är rader från GRUB-filer där enhets namn (visas i fetstil) 
 
 Ersätt varje enhets namn med motsvarande UUID:
 
-1. Hitta enhetens UUID genom att köra kommandot **blkid** ***enhets namn***. Ett exempel:
+1. Hitta enhetens UUID genom att köra kommandot **blkid** ***enhets namn***. Exempel:
 
     ```
     blkid /dev/sda1

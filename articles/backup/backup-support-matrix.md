@@ -3,12 +3,12 @@ title: Stödmatris för Azure Backup
 description: Innehåller en sammanfattning av stödinställningar och begränsningar för Azure Backup-tjänsten.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: dd4ec646c786ee686567aa137845e583a4cf47e3
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 788da5708178cfa533d4382a4a417cef73f46a5e
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206664"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254913"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
 
@@ -32,7 +32,7 @@ I följande tabell beskrivs funktionerna i Recovery Services-valv:
 --- | ---
 **Valv i prenumerationen** | Upp till 500 Recovery Services-valv i en enstaka prenumeration.
 **Datorer i ett valv** | Upp till 1 000 virtuella Azure-datorer i ett enda valv.<br/><br/> Upp till 50 MABS-servrar kan registreras i ett enda valv.
-**Data källor i valv lagring** | Maximalt 54 400 GB. Det finns ingen gräns för säkerhetskopieringar av virtuella Azure-datorer.
+**Data källor** | Den maximala storleken för en enskild [data källa](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) är 54 400 GB. Den här begränsningen gäller inte för virtuella Azure-säkerhetskopieringar. Inga gränser gäller för den totala mängden data som du kan säkerhetskopiera till valvet.
 **Säkerhets kopieringar till valv** | **Virtuella Azure-datorer:** En gång om dagen.<br/><br/>**Datorer som skyddas av DPM/Mabs:** Två gånger om dagen.<br/><br/> **Datorer som har säkerhetskopierats direkt med hjälp av mars-agenten:** Tre gånger per dag.
 **Säkerhets kopieringar mellan valv** | Säkerhets kopiering är inom en region.<br/><br/> Du behöver ett valv i varje Azure-region som innehåller de virtuella datorer som du vill säkerhetskopiera. Du kan inte säkerhetskopiera till en annan region.
 **Flytta valv** | Du kan [Flytta valv](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) mellan prenumerationer eller mellan resurs grupper i samma prenumeration. Det finns dock inte stöd för att flytta valv mellan regioner.
@@ -155,8 +155,6 @@ Azure Backup har lagt till funktionen för återställning av kors region för a
 | MARS-agent/lokalt | Nej                                                           | Ej tillämpligt               |
 | SQL-/SAP HANA          | Nej                                                           | Ej tillämpligt               |
 | DATABASSERVER                    | Nej                                                           | Ej tillämpligt               |
-
-
 
 ## <a name="next-steps"></a>Nästa steg
 

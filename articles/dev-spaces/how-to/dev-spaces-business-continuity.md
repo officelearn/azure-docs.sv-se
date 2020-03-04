@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Lär dig att använda Azure dev Spaces och Azure Kubernetes Services för att ge affärs kontinuitet och förbereda för haveri beredskap
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
 manager: gwallace
-ms.openlocfilehash: 8a223e9610d2b243cd78bf8b674262d6438421a9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8561486bcf8524d309ba46fcbb4b4d3e180d7c72
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438511"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252390"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Verksamhets kontinuitet och haveri beredskap i Azure dev Spaces
 
@@ -41,7 +41,7 @@ Upprepa den här processen för varje kluster.
 
 Du kan också aktivera dev Spaces på kommando raden:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
@@ -57,7 +57,7 @@ När du har konfigurerat ett säkerhets kopierings kluster som kör din grupps b
 
 Välj ett annat kluster med följande CLI-kommando:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <new resource group name> -n <new cluster name>
 ```
 

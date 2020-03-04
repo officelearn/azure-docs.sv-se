@@ -5,12 +5,12 @@ author: mumian
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 82b6e3c1a3c17c624dec67093379e8a493b7264f
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 30b7aeaed0bfc2621cb2c71ab3f5e618771a1c26
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561535"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250075"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Självstudie: Distribuera tillägg för virtuell dator med Azure Resource Manager-mallar
 
@@ -23,7 +23,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Öppna en snabbstartsmall
 > * Redigera mallen
 > * Distribuera mallen
-> * Kontrollera distributionen
+> * Verifiera distributionen
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -34,7 +34,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 * Visual Studio Code med Resource Manager Tools-tillägg. [Skapa Azure Resource Manager mallar i använda Visual Studio Code](use-vs-code-to-create-template.md).
 * För att förbättra säkerheten bör du använda ett genererat lösenord för den virtuella datorns administratörskonto. Här är ett exempel för att generera ett lösenord:
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
 
@@ -109,7 +109,7 @@ Mer information om den här resursdefinitionen finns i [tilläggsreferensen](htt
 
 Information om distributions proceduren finns i avsnittet "distribuera mallen" i [Självstudier: skapa Azure Resource Manager mallar med beroende resurser](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Du bör använda ett genererat lösenord för den virtuella datorns administratörskonto. Läs mer i avsnittet om [förutsättningar](#prerequisites) i den här artikeln.
 
-## <a name="verify-the-deployment"></a>Kontrollera distributionen
+## <a name="verify-the-deployment"></a>Verifiera distributionen
 
 1. Välj den virtuella datorn i Azure Portal.
 1. I översikten för den virtuella datorn kopierar du IP-adressen genom att välja **Klicka för att kopiera**och klistra in den i en webbläsare-flik. Välkomst sidan för standard Internet Information Services (IIS) öppnas:

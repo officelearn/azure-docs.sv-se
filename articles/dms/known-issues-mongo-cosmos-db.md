@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 6cdca78d09c9ca128119a58cb4feaf66bad111bd
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 194da036260a78b27748dfc7f755212ab4f30b1e
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78165041"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78256036"
 ---
 # <a name="known-issuesmigration-limitations-with-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Kända problem/migrerings begränsningar med migreringar från MongoDB till Azure Cosmos DB s API för MongoDB
 
@@ -40,6 +40,8 @@ Kända problem och begränsningar som är kopplade till migreringar från MongoD
 | Lagrings kontots anslutnings sträng saknar SAS-information och kan därför inte autentiseras. | Skapa SAS på BLOB-behållaren i Storage Explorer och Använd URL: en med SAS-information för behållare som källans informations anslutnings sträng.<br><br> |
 
 ## <a name="using-an-unsupported-version-of-the-database"></a>Använda en version av databasen som inte stöds
+
+* **Symptom**: migreringen Miss lyckas.
 
 | Orsak         | Lösning |
 | ------------- | ------------- |

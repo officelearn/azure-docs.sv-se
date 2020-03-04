@@ -3,12 +3,12 @@ title: Kvot fel
 description: Beskriver hur du löser resurs kvot fel när du distribuerar resurser med Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.openlocfilehash: d36f7d12f432839760b68c85e1c5761e0caf8d85
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 9b5cce3258a29b6ac6a3db50f880e3242c4d5e8c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659363"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250144"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Lösa fel för resurs kvoter
 
@@ -40,7 +40,7 @@ please delete some resources of this type before creating a new one.
 Kvoter tillämpas per resursgrupp, prenumerationer, konton och andra omfång. Din prenumeration kan till exempel konfigureras så att antalet kärnor för en region begränsas. Om du försöker distribuera en virtuell dator med fler kärnor än det tillåtna antalet visas ett felmeddelande om att kvoten har överskridits.
 Fullständig kvot information finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -52,7 +52,7 @@ az vm list-usage --location "South Central US"
 
 Returnerar:
 
-```azurecli
+```output
 [
   {
     "currentValue": 0,
@@ -99,7 +99,7 @@ Om du vill begära en kvot ökning går du till portalen och filen ett support �
 
 2. Välj den prenumeration som behöver en ökad kvot.
 
-   ![Välj prenumeration](./media/error-resource-quota/select-subscription.png)
+   ![Välj en prenumeration](./media/error-resource-quota/select-subscription.png)
 
 3. Välj **användning + kvoter**
 

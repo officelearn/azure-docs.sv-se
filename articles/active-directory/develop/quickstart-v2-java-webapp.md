@@ -11,27 +11,24 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 59c2b3b910a9585362643bfcf7cdf9fa2df977bc
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3bfcc1ef8c58f71811af604fbc07736a13102e83
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77611997"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249086"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en Java-webbapp
 
 I den här snabb starten får du lära dig hur du integrerar ett Java-webbprogram med Microsoft Identity Platform. Din app kommer att logga in en användare, hämta en åtkomsttoken för att anropa Microsoft Graph-API: et och göra en begäran till Microsoft Graph API.
 
-När du har slutfört den här snabb starten kommer ditt program att godkänna inloggningar av personliga Microsoft-konton (inklusive outlook.com, live.com och andra) och arbets-eller skol konton från alla företag eller organisationer som använder Azure Active Directory.
-
-![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-java-webapp/java-quickstart.svg)
+När du har slutfört den här snabb starten kommer ditt program att godkänna inloggningar av personliga Microsoft-konton (inklusive outlook.com, live.com och andra) och arbets-eller skol konton från alla företag eller organisationer som använder Azure Active Directory. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill köra det här exemplet behöver du:
 
 - [Java Development Kit (JDK)](https://openjdk.java.net/) 8 eller senare och [maven](https://maven.apache.org/).
-- En Azure Active Directory-klient (Azure AD). Mer information om hur du skaffar en Azure AD-klient finns i [så här skaffar du en Azure AD-klient](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
@@ -73,7 +70,7 @@ Om du vill köra det här exemplet behöver du:
 >
 > För att kod exemplet för den här snabb starten ska fungera måste du:
 >
-> 1. Lägg till svars-URL: er som `https://localhost:8080/msal4jsamples/secure/aad` och `https://localhost:8080/msal4jsamples/graph/me`.
+> 1. Lägg till svars-URL: er som `https://localhost:8080/msal4jsample/secure/aad` och `https://localhost:8080/msal4jsample/graph/me`.
 > 1. Skapa en klient hemlighet.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör ändringarna åt mig]()
@@ -82,46 +79,65 @@ Om du vill köra det här exemplet behöver du:
 > > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Appen konfigureras med de här attributen.
 
 #### <a name="step-2-download-the-code-sample"></a>Steg 2: Hämta kod exemplet
+> [!div renderon="docs"]
+> [Ladda ned kod exemplet](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
- [Ladda ned kod exemplet](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
+> [!div class="sxs-lookup" renderon="portal"]
+> Hämta projektet och extrahera zip-filen till en lokal mapp närmare rotmappen – till exempel **C:\Azure-samples**
+> 
+> Om du vill använda https med localhost, fyller du i egenskaperna Server. SSL. nyckel. Om du vill skapa ett självsignerat certifikat använder du verktyget för verktyg (ingår i JRE).
+>
+>  ```
+>   Example:
+>   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
+>
+>   server.ssl.key-store-type=PKCS12  
+>   server.ssl.key-store=classpath:keystore.p12  
+>   server.ssl.key-store-password=password  
+>   server.ssl.key-alias=testCert
+>   ```
+>   Placera den genererade nyckel lagrings filen i mappen "resurser".
+   
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Ladda ned kod exemplet]()
 
-#### <a name="step-3-configure-the-code-sample"></a>Steg 3: Konfigurera kod exemplet
+> [!div renderon="docs"]
+> #### <a name="step-3-configure-the-code-sample"></a>Steg 3: Konfigurera kod exemplet
+> 1. Extrahera zip-filen till en lokal mapp.
+> 1. Om du använder en Integrated Development Environment öppnar du exemplet i din favorit IDE (valfritt).
+> 1. Öppna filen Application. properties, som finns i src/main/Resources/Folder och Ersätt värdet för fälten *AAD. clientId*, *AAD. Authority* och *AAD. SecretKey* med respektive värde för **program-ID**, **klient-ID** och **klient hemlighet** som följande:
+>
+>    ```file
+>    aad.clientId=Enter_the_Application_Id_here
+>    aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
+>    aad.secretKey=Enter_the_Client_Secret_Here
+>    aad.redirectUriSignin=https://localhost:8080/msal4jsample/secure/aad
+>    aad.redirectUriGraph=https://localhost:8080/msal4jsample/graph/me
+>    aad.msGraphEndpointHost="https://graph.microsoft.com/"
+>    ```
+> Där:
+>
+> - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
+> - `Enter_the_Client_Secret_Here` – är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
+> - `Enter_the_Tenant_Info_Here`-är **katalog-ID** -värdet för det program som du har registrerat.
+> 1. Om du vill använda https med localhost, fyller du i egenskaperna Server. SSL. nyckel. Om du vill skapa ett självsignerat certifikat använder du verktyget för verktyg (ingår i JRE).
+>
+>  ```
+>   Example:
+>   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
+>
+>   server.ssl.key-store-type=PKCS12  
+>   server.ssl.key-store=classpath:keystore.p12  
+>   server.ssl.key-store-password=password  
+>   server.ssl.key-alias=testCert
+>   ```
+>   Placera den genererade nyckel lagrings filen i mappen "resurser".
 
- 1. Extrahera zip-filen till en lokal mapp.
- 1. Om du använder en Integrated Development Environment öppnar du exemplet i din favorit IDE (valfritt).
- 1. Öppna filen Application. properties, som finns i src/main/Resources/Folder och Ersätt värdet för fälten *AAD. clientId*, *AAD. Authority* och *AAD. SecretKey* med respektive värde för **program-ID**, **klient-ID** och **klient hemlighet** som följande:
 
-    ```file
-    aad.clientId=Enter_the_Application_Id_here
-    aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
-    aad.secretKey=Enter_the_Client_Secret_Here
-    aad.redirectUriSignin=https://localhost:8080/msal4jsample/secure/aad
-    aad.redirectUriGraph=https://localhost:8080/msal4jsample/graph/me
-    aad.msGraphEndpointHost="https://graph.microsoft.com/"
-    ```
-
-    > [!div renderon="docs"]
-    > Där:
-    >
-    > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
-    > - `Enter_the_Client_Secret_Here` – är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
-    > - `Enter_the_Tenant_Info_Here`-är **katalog-ID** -värdet för det program som du har registrerat.
-
- 1. Om du vill använda https med localhost, fyller du i egenskaperna Server. SSL. nyckel. Om du vill skapa ett självsignerat certifikat använder du verktyget för verktyg (ingår i JRE).
-
-   ```
-   Example:
-   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
-
-   server.ssl.key-store-type=PKCS12  
-   server.ssl.key-store=classpath:keystore.p12  
-   server.ssl.key-store-password=password  
-   server.ssl.key-alias=testCert
-   ```
-
-   Placera den genererade nyckel lagrings filen i mappen "resurser".
-
-#### <a name="step-4-run-the-code-sample"></a>Steg 4: kör kod exemplet
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-run-the-code-sample"></a>Steg 3: kör kod exemplet
+> [!div renderon="docs"]
+> #### <a name="step-4-run-the-code-sample"></a>Steg 4: kör kod exemplet
 
 Om du vill köra projektet kan du antingen:
 
@@ -137,10 +153,15 @@ Om du kör webb programmet från en IDE klickar du på Kör och navigerar sedan 
     - *Logga ut*: loggar den aktuella användaren från programmet och dirigerar om dem till start sidan.
     - *Visa användar information*: hämtar en token för Microsoft Graph och anropar Microsoft Graph med en begäran som innehåller token, som returnerar grundläggande information om den inloggade användaren.
 
+
+   
 > [!IMPORTANT]
 > Det här snabbstartsprogrammet använder en klienthemlighet för att identifiera sig som en konfidentiell klient. Eftersom klient hemligheten läggs till som oformaterad text till dina projektfiler, rekommenderar vi av säkerhets skäl att du använder ett certifikat i stället för en klient hemlighet innan du överväger programmet som produktions program. Mer information om hur du använder ett certifikat finns i [autentiseringsuppgifter för certifikat för programautentisering](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
 
 ## <a name="more-information"></a>Mer information
+
+### <a name="how-the-sample-works"></a>Så här fungerar exemplet
+![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
 ### <a name="getting-msal"></a>Hämtar MSAL
 

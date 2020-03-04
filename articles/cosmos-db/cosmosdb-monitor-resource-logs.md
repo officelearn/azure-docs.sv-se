@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: sngun
-ms.openlocfilehash: 670797eb833b0a145a18e20c6bba711ca11609bc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 184fc65dae57292243be9abdca71a129512b3d0b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483289"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252060"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Övervaka Azure Cosmos DB data med hjälp av diagnostiska inställningar i Azure
 
@@ -26,7 +26,7 @@ Plattforms mått och aktivitets loggar samlas in automatiskt, medan du måste sk
 
 1. Fyll i formuläret med följande information i fönstret **diagnostiska inställningar** : 
 
-    * **Namn på**: Ange ett namn för loggarna för att skapa.
+    * **Namn**: Ange ett namn för loggarna som ska skapas.
 
     * Du kan lagra loggarna för att **arkivera i ett lagrings konto**, **strömma till en händelsehubben** eller **Skicka till Log Analytics**
 
@@ -99,7 +99,7 @@ Detaljerad information om hur du skapar en diagnostisk inställning med hjälp a
    | summarize count = count()  by OperationName, requestResourceType_s, bin(TimeGenerated, 1h) 
    ```
 
-1. Vad är det maximala data flödet som en partition tillhandahåller?
+1. Vad är det maximala data flödet som en partition har använt?
 
    ```Kusto
    AzureDiagnostics

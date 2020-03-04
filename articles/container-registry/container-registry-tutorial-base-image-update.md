@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du konfigurerar en A
 ms.topic: tutorial
 ms.date: 01/22/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 23f77cb4f4c14f052d8ecdb23beed21263623d3e
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3870bc70e9d18a3c1c854055cb0c27018554a556
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617504"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249988"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Självstudie: automatisera behållar avbildningar skapar när en bas avbildning uppdateras i ett Azure Container Registry 
 
@@ -51,7 +51,9 @@ Om du inte redan har gjort det, slutför du följande självstudier innan du for
 
 Fyll i de här gränssnittsmiljövariablerna med värden som är lämpliga för din miljö. Det här steget är inte obligatoriskt, men det gör det lite enklare att köra de flerradiga Azure CLI-kommandona i den här självstudien. Om du inte fyller i de här miljövariablerna måste du ersätta varje värde manuellt var det visas i exempel kommandona.
 
-```azurecli-interactive
+[![Bädda in start](https://shell.azure.com/images/launchcloudshell.png "Starta Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
 GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
@@ -80,7 +82,7 @@ Börja med att skapa en bas avbildning med en *snabb uppgift*för ACR uppgifter 
 az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base .
 ```
 
-## <a name="create-a-task"></a>Skapa en uppgift
+## <a name="create-a-task"></a>Skapa en aktivitet
 
 Skapa sedan en uppgift med [AZ ACR Task Create][az-acr-task-create]:
 
@@ -131,7 +133,7 @@ docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-
 
 Gå till `http://localhost:8080` i webbläsaren. Du bör nu se versionsnumret för Node.js som återgavs på webbsidan, liknande nedan. I ett senare steg ökar du versionen genom att lägga till ett ”a” i versionssträngen.
 
-![Skärmbild av exempelprogram som visas i en webbläsare][base-update-01]
+![Skärmbild av ett exempelprogram som återges i en webbläsare][base-update-01]
 
 Kör följande kommando för att stoppa och ta bort behållaren:
 
@@ -215,7 +217,7 @@ docker run -d -p 8081:80 --name updatedapp --rm $ACR_NAME.azurecr.io/helloworld:
 
 Gå till http://localhost:8081 i webbläsaren. Du bör nu se det uppdaterade versionsnumret för Node.js (med ett ”a”) på webbsidan:
 
-![Skärmbild av exempelprogram som visas i en webbläsare][base-update-02]
+![Skärmbild av ett exempelprogram som återges i en webbläsare][base-update-02]
 
 Observera att du har uppdaterat din **basavbildning** med ett nytt versionsnummer, men den senaste skapade **programavbildningen** visar den nya versionen. ACR Tasks hämtade din ändring av basavbildningen och återskapade din programavbildning automatiskt.
 

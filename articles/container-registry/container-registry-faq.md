@@ -1,16 +1,16 @@
 ---
-title: Vanliga frågor
+title: Vanliga frågor och svar
 description: Svar på vanliga frågor som rör Azure Container Registry tjänsten
 author: sajayantony
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 74863823f3e8ef32565e01981d3a742d696a8165
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 699ee2c2c3b1a90231f24663619cc590aae9889d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708316"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252070"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
@@ -114,13 +114,13 @@ ACR stöder Docker Registry HTTP API v2. API: er kan nås på `https://<your reg
 
 Om du använder Bash:
 
-```bash
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
 ```
 
 För PowerShell:
 
-```powershell
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
@@ -151,13 +151,13 @@ docker push myregistry.azurecr.io/1gb:latest
 
 Du bör kunna se att lagrings användningen har ökat i Azure Portal, eller så kan du fråga användningen med hjälp av CLI.
 
-```bash
+```azurecli
 az acr show-usage -n myregistry
 ```
 
 Ta bort avbildningen med hjälp av Azure CLI eller portalen och kontrol lera den uppdaterade användningen på några få minuter.
 
-```bash
+```azurecli
 az acr repository delete -n myregistry --image 1gb
 ```
 
@@ -188,7 +188,7 @@ Aktivera TLS 1,2 med hjälp av en senaste docker-klient (version 18.03.0 och sen
 > [!IMPORTANT]
 > Från och med 13 januari 2020 kräver Azure Container Registry alla säkra anslutningar från servrar och program för att använda TLS 1,2. Stöd för TLS 1,0 och 1,1 kommer att dras tillbaka.
 
-### <a name="does-azure-container-registry-support-content-trust"></a>Stödjer Azure Container Registry innehållsförtroende?
+### <a name="does-azure-container-registry-support-content-trust"></a>Har Azure Container Registry stöd för innehålls förtroende?
 
 Ja, du kan använda betrodda avbildningar i Azure Container Registry, eftersom [Docker-Notary](https://docs.docker.com/notary/getting_started/) har integrerats och kan aktive ras. Mer information finns [i innehålls förtroende i Azure Container Registry](container-registry-content-trust.md).
 
@@ -216,12 +216,12 @@ ACR stöder [anpassade roller](container-registry-roles.md) som ger olika behör
   Sedan kan du tilldela `AcrPull`-eller `AcrPush` rollen till en användare (följande exempel använder `AcrPull`):
 
   ```azurecli
-    az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
-    ```
+  az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
+  ```
 
   Eller tilldela rollen till en tjänst princip som identifieras av dess program-ID:
 
-  ```
+  ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
   ```
 
@@ -239,9 +239,9 @@ Den tilldelas sedan kan autentisera och komma åt avbildningar i registret.
   az acr repository list -n myRegistry
   ```
 
- Hämta en avbildning:
-    
-  ```azurecli
+* Hämta en avbildning:
+
+  ```console
   docker pull myregistry.azurecr.io/hello-world
   ```
 
@@ -275,9 +275,10 @@ Information om fel sökning av vanliga problem med miljö och register finns i [
  - Om `docker pull` Miss lyckas kontinuerligt kan det uppstå problem med Docker-daemonen. Problemet kan vanligt vis minimeras genom att du startar om Docker daemon. 
  - Om du fortsätter att se det här problemet efter att du har startat om Docker daemon, kan problemet vara problem med nätverks anslutningen på datorn. Kontrol lera om det allmänna nätverket på datorn är felfritt genom att köra följande kommando för att testa slut punkts anslutningen. Den lägsta `az acr` versionen som innehåller den här anslutnings kontroll kommandot är 2.2.9. Uppgradera Azure CLI om du använder en äldre version.
  
-   ```azurecli
-    az acr check-health -n myRegistry
-    ```
+  ```azurecli
+  az acr check-health -n myRegistry
+  ```
+
  - Du bör alltid ha en mekanism för återförsök på alla Docker-klient åtgärder.
 
 ### <a name="docker-pull-is-slow"></a>Docker pull är långsamt
@@ -308,7 +309,7 @@ unauthorized: authentication required
 ```
 
 Så här löser du felet:
-1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker`. Ett exempel:
+1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker`. Exempel:
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
@@ -437,7 +438,7 @@ Här följer några scenarier där åtgärder kanske inte tillåts:
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Hur gör jag för att samla in http-spårningar i Windows?
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 
 - Aktivera dekryptering av https i Fiddler: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Aktivera Docker för att använda en proxy via Docker UI: <https://docs.docker.com/docker-for-windows/#proxies>
@@ -493,8 +494,8 @@ Vi stöder för närvarande inte GitLab för käll utlösare.
 |---|---|---|---|
 | GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | Ja | Ja |
 | Azure-lagringsplatser | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Ja | Ja |
-| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Ja | Inga |
-| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Ja | Inga |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Ja | Nej |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Ja | Nej |
 
 ## <a name="run-error-message-troubleshooting"></a>Köra fel meddelande fel sökning
 

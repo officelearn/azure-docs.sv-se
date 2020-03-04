@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 02/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 11a6a668b1028ba1640ef076606d4aeb4c3aae6e
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 82866d452289a29dcdcacc12db8048acb7a351ba
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589376"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250864"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: modell hantering, distribution och övervakning med Azure Machine Learning
 
@@ -71,6 +71,11 @@ Registrerade modeller identifieras med namn och version. Varje gång du registre
 Du kan inte ta bort en registrerad modell som används i en aktiv distribution.
 Mer information finns i avsnittet registrera modell i [Distribuera modeller](how-to-deploy-and-where.md#registermodel).
 
+### <a name="profile-models"></a>Profil modeller
+
+Azure Machine Learning kan hjälpa dig att förstå processor-och minnes kraven för tjänsten som skapas när du distribuerar din modell. Profilering testar tjänsten som kör din modell och returnerar information som processor användning, minnes användning och svars fördröjning. Det ger också en processor-och minnes rekommendation baserat på resursanvändningen.
+Mer information finns i avsnittet profilering i [Distribuera modeller](how-to-deploy-and-where.md#profilemodel).
+
 ### <a name="package-and-debug-models"></a>Paket-och fel söknings modeller
 
 Innan du distribuerar en modell till produktion paketeras den i en Docker-avbildning. I de flesta fall sker bild skapande automatiskt i bakgrunden under distributionen. Du kan ange avbildningen manuellt.
@@ -78,10 +83,6 @@ Innan du distribuerar en modell till produktion paketeras den i en Docker-avbild
 Om du stöter på problem med distributionen kan du distribuera i din lokala utvecklings miljö för fel sökning och fel sökning.
 
 Mer information finns i [Distribuera modeller](how-to-deploy-and-where.md#registermodel) och [Felsöka distributioner](how-to-troubleshoot-deployment.md).
-
-### <a name="validate-and-profile-models"></a>Validera och profilera modeller
-
-Azure Machine Learning kan använda profilering för att fastställa de idealiska processor-och minnes inställningar som ska användas när du distribuerar din modell. Modell valideringen sker som en del av den här processen, med hjälp av data som du anger för profilerings processen.
 
 ### <a name="convert-and-optimize-models"></a>Omvandla och optimera modeller
 

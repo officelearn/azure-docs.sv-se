@@ -6,16 +6,16 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 554590a065214c17de0acdea3207876f113b3caf
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614034"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252753"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Självstudie: Paketera och distribuera containers som en Service Fabric-app med Yeoman
 
-Den här självstudien är del två i en serie. I den här självstudien används ett verktyg för mallgenerering (Yeoman) för att skapa en Service Fabric-programdefinition. Programmet kan sedan användas för att distribuera containrar till Service Fabric. I den här guiden får du lära du dig hur man:
+Den här självstudien är del två i en serie. I den här självstudien används ett verktyg för mallgenerering (Yeoman) för att skapa en Service Fabric-programdefinition. Programmet kan sedan användas för att distribuera containrar till Service Fabric. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Installera Yeoman
@@ -25,7 +25,7 @@ Den här självstudien är del två i en serie. I den här självstudien använd
 > * Distribuera och köra programmet
 > * Rensa programmet
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * De behållaravbildningar som överfördes till det Azure Container Registry som skapades i [del 1](service-fabric-tutorial-create-container-images.md) av denna självstudie används.
 * [Konfigurerad](service-fabric-tutorial-create-container-images.md) Linux-utvecklingsmiljö.
@@ -114,7 +114,7 @@ Service Fabric behöver autentiseringsuppgifter för att hämta behållaravbildn
 
 Logga in på din ACR-instans. Använd kommandot **az acr login** till att slutföra åtgärden. Ange det unika namn du angav för containerregistret när det skapades.
 
-```bash
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -122,7 +122,7 @@ Du får ett meddelande om att **inloggningen lyckades** när inloggningen är kl
 
 Kör sedan följande kommando för att hämta lösenordet för containerregistret. Lösenordet används av Service Fabric för att autentisera med ACR och hämta containeravbildningarna.
 
-```bash
+```azurecli
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
@@ -199,7 +199,7 @@ Service Fabric kan inte tilldela DNS-namnet till serverdelstjänsten om namnet i
 
 Klientdelstjänsten läser en miljövariabel för att ta reda på Redis-instansens DNS-namn. Miljövariabeln är redan definierad i den Dockerfile som användes för att skapa Docker-avbildningen. Inga åtgärder krävs.
 
-```Dockerfile
+```dockerfile
 ENV REDIS redisbackend.testapp
 ```
 
@@ -217,7 +217,7 @@ Mallen för ett tjänstepaketprogram är nu tillgänglig för distribuering till
 
 ## <a name="create-a-service-fabric-cluster"></a>Skapa ett Service Fabric-kluster
 
-Om du vill distribuera programmet till Azure behöver du ett Service Fabric-kluster som kör programmet. Följande kommandon skapar ett kluster med fem noder i Azure.  Kommandona skapar även ett självsignerat certifikat, lägger till det i ett nyckelvalv och laddar ned certifikatet lokalt som en PEM-fil. Det nya certifikatet används för att skydda klustret när distribueras och används för att autentisera klienter.
+Om du vill distribuera programmet till Azure behöver du ett Service Fabric-kluster som kör programmet. Följande kommandon skapar ett kluster med fem noder i Azure.  Kommandona skapar även ett självsignerat certifikat, lägger till det i ett nyckelvalv och laddar ned certifikatet lokalt som en PEM-fil. Det nya certifikatet används för att skydda klustret när det distribueras och används för att autentisera klienter.
 
 ```azurecli
 #!/bin/bash

@@ -4,16 +4,16 @@ description: Lär dig att distribuera till Azure Kubernetes Service (AKS) med hj
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, kontinuerlig leverans, cd
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: ae9c496cd820bf1263cac50fb676990ed65ed0ba
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 9d6551f910bd99322f844b44130ebb03732df83c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158549"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251480"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Distribuera till Azure Kubernetes Service (AKS) med hjälp av Jenkins och distributionsmönstret blå/grön
 
-Azure Kubernetes Service (AKS) hanterar din värdmiljö för Kubernetes, vilket gör det enkelt att snabbt distribuera och hantera containerbaserade program. Du behöver inte ha expertkunskaper om behållarorkestrering. AKS eliminerar också problem med kontinuerliga åtgärder och underhåll genom att etablering, uppgradering och skalning av resurser på begäran. Du behöver inte ta dina program offline. Mer information om AKS finns i [AKS-dokumentationen](/azure/aks/).
+Azure Kubernetes Service (AKS) hanterar din värdmiljö för Kubernetes, vilket gör det enkelt att snabbt distribuera och hantera containerbaserade program. Du behöver inte ha expertkunskaper om containerorkestrering. AKS eliminerar också problem med kontinuerliga åtgärder och underhåll genom att etablering, uppgradering och skalning av resurser på begäran. Du behöver inte ta dina program offline. Mer information om AKS finns i [AKS-dokumentationen](/azure/aks/).
 
 Blå/grön distribution är ett mönster för kontinuerlig leverans för Azure DevOps förlitar sig på att hålla en befintlig (blå) version live, medan en ny (grön) distribueras. Det här mönstret används vanligtvis för belastningsutjämning för att dirigera ökade trafikmängder till grön distribution. Om övervakningen upptäcker en incident kan trafiken dirigeras om till den blå distributionen, som fortfarande är igång. Läs mer om kontinuerlig leverans i [Vad är Kontinuerlig leverans](/azure/devops/what-is-continuous-delivery).
 
@@ -26,7 +26,7 @@ I den här självstudien utför du följande åtgärder:
 > * Konfigurera ett Kubernetes-kluster manuellt
 > * Skapa och kör ett Jenkins-jobb
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - [GitHub-konto](https://github.com): du behöver ett GitHub-konto för att kunna klona lagringsplatsexemplet.
 - [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest): du använder Azure CLI 2.0 för att skapa Kubernetes-klustret.
 - [Chocolatey](https://chocolatey.org): en pakethanterare som du använder för att installera kubectl.
@@ -84,19 +84,19 @@ Se till att du använder Azure CLI version 2.0.25 eller senare för att skapa et
 
 1. Logga in på ditt Azure-konto. När du har angett följande kommando får du instruktioner som förklarar hur du slutför inloggningen. 
     
-    ```bash
+    ```azurecli
     az login
     ```
 
 1. När du kör kommandot `az login` i föregående steg visas en lista över alla dina Azure-prenumerationer (tillsammans med tillhörande prenumerations-ID). I det här steget anger du Azure-standardprenumerationen. Byt ut platshållaren &lt;ditt-prenumerations-id > mot ID för önskad Azure-prenumeration. 
 
-    ```bash
+    ```azurecli
     az account set -s <your-subscription-id>
     ```
 
 1. Skapa en resursgrupp. Byt ut platshållaren &lt;ditt-resursgruppsnamn> mot namnet på din nya resursgrupp, och byt ut platshållaren &lt;din-plats > mot platsen. Kommandot `az account list-locations` visar alla Azure-platser. I förhandsversionen AKS är inte alla platser tillgängliga. Om du anger en plats som inte är giltig just nu, visas ett felmeddelande med tillgängliga platser.
 
-    ```bash
+    ```azurecli
     az group create -n <your-resource-group-name> -l <your-location>
     ```
 
@@ -129,7 +129,7 @@ Du kan ställa in en blå/grön distribution i AKS manuellt eller med ett konfig
 #### <a name="set-up-a-kubernetes-cluster-manually"></a>Konfigurera ett Kubernetes-kluster manuellt 
 1. Ladda ned Kubernetes-konfigurationen till din profilmapp.
 
-    ```bash
+    ```azurecli
     az aks get-credentials -g <your-resource-group-name> -n <your-kubernetes-cluster-name> --admin
     ```
 
@@ -157,13 +157,13 @@ Du kan ställa in en blå/grön distribution i AKS manuellt eller med ett konfig
     
     Uppdatera DNS-namnet för motsvarande IP-adress med följande kommando:
 
-    ```bash
+    ```azurecli
     az network public-ip update --dns-name aks-todoapp --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
     ```
 
     Upprepa anropet för `todoapp-test-blue` och `todoapp-test-green`:
 
-    ```bash
+    ```azurecli
     az network public-ip update --dns-name todoapp-blue --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
 
     az network public-ip update --dns-name todoapp-green --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
@@ -175,13 +175,13 @@ Du kan ställa in en blå/grön distribution i AKS manuellt eller med ett konfig
 
 1. Kör kommandot `az acr create` för att skapa en Container Registry-instans. I nästa avsnitt kan du sedan använda `login server` som URL för Docker-registret.
 
-    ```bash
+    ```azurecli
     az acr create -n <your-registry-name> -g <your-resource-group-name>
     ```
 
 1. Kör kommandot `az acr credential` för att visa dina autentiseringsuppgifter för Container Registry. Skriv ner användarnamn och lösenord för Docker-registret eftersom du behöver dem i nästa avsnitt.
 
-    ```bash
+    ```azurecli
     az acr credential show -n <your-registry-name>
     ```
 
@@ -276,7 +276,7 @@ Mer information om distribution utan stilleståndstid finns i det här [snabbsta
 
 När du inte längre behöver de resurser som skapades i den här självstudien kan du ta bort dem.
 
-```bash
+```azurecli
 az group delete -y --no-wait -n <your-resource-group-name>
 ```
 

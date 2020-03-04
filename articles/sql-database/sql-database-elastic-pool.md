@@ -11,16 +11,16 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 0cda55d42f0d89d61919b751335ec95ef8143274
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 3c476393153f6bc1d18d5c163bcd69484583eb15
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901176"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252708"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastiska pooler hjälper dig att hantera och skala flera Azure SQL-databaser
 
-Elastiska pooler i SQL Database är en enkel och kostnadseffektiv lösning för att hantera och skala flera databaser med varierande och oförutsägbara användningskrav. Databaserna i en elastisk pool finns på en enda Azure SQL Database-server och delar ett bestämt antal resurser till ett fast pris. Med elastiska pooler i Azure SQL Database kan SaaS-utvecklare optimera prisprestanda för en grupp med databaser inom en fastställd budget samtidigt som de levererar flexibla prestanda för varje databas.
+Elastiska pooler i SQL Database är en enkel och kostnadseffektiv lösning för att hantera och skala flera databaser med varierande och oförutsägbara användningskrav. Databaserna i en elastisk pool finns på en enda Azure SQL Database Server och delar ett visst antal resurser till ett visst pris. Med elastiska pooler i Azure SQL Database kan SaaS-utvecklare optimera prisprestanda för en grupp med databaser inom en fastställd budget samtidigt som de levererar flexibla prestanda för varje databas.
 
 ## <a name="what-are-sql-elastic-pools"></a>Vad är elastiska SQL-pooler
 
@@ -222,6 +222,7 @@ Mer information finns i [skapa SQL Database aviseringar i Azure Portal](sql-data
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Information om priser finns i [priser för elastisk pool](https://azure.microsoft.com/pricing/details/sql-database/elastic).
 - Om du vill skala elastiska pooler, se [skala elastiska pooler](sql-database-elastic-pool-scale.md) och [skala en elastisk pool – exempel kod](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 - För en video, se [Microsoft Virtual Academy video kurs på Azure SQL Database elastiska funktioner](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 - Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).

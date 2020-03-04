@@ -7,12 +7,12 @@ ms.date: 08/23/2019
 ms.custom: seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: c02caf7c70dfe88bd3312742fce08137bc360a2e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 585eb1f11a285722e34c6dd084f4c6cb26a06249
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671409"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247624"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure
 
@@ -34,7 +34,7 @@ Du kan följa stegen här på en Mac-, Windows- eller Linux-dator. Det tar cirka
 
 Skapa en snabbstartskatalog i Cloud Shell och ändra sedan till den.
 
-```azurecli-interactive
+```console
 mkdir quickstart
 
 cd $HOME/quickstart
@@ -42,13 +42,13 @@ cd $HOME/quickstart
 
 Kör sedan följande kommando för att klona lagringsplatsen för exempelprogrammet till din snabbstartskatalog.
 
-```azurecli-interactive
+```console
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
 
 Medan det körs visas information liknande den i följande exempel:
 
-```bash
+```output
 Cloning into 'nodejs-docs-hello-world'...
 remote: Counting objects: 40, done.
 remote: Total 40 (delta 0), reused 0 (delta 0), pack-reused 40
@@ -64,7 +64,7 @@ Checking connectivity... done.
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-scus.md)]
 
-## <a name="create-a-web-app"></a>Skapa ett webbprogram
+## <a name="create-a-web-app"></a>Skapa en webbapp
 
 I Cloud Shell skapar du en webbapp i `myAppServicePlan` App Service-planen med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create).
 
@@ -93,7 +93,7 @@ När webbappen har skapats visar Azure CLI utdata liknande den i följande exemp
 
 ### <a name="set-nodejs-runtime"></a>Ange Node.js-körning
 
-Ange Node-körningen till 10.14.1. Om du vill se alla körningar som stöds ska du köra [ `az webapp list-runtimes` ](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
+Ange Node-körningen till 10.14.1. Om du vill se alla körningar som stöds ska du köra [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
 
 ```azurecli-interactive
 # Bash and Powershell
@@ -102,7 +102,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 Bläddra till webbappen som precis skapades. Ersätt `<app_name>` med ett unikt appnamn.
 
-```
+```http
 http://<app_name>.azurewebsites.net
 ```
 
@@ -112,7 +112,7 @@ Så här bör din nya webbapp se ut: ![tom webbapp](media/app-service-web-get-st
 
 I Cloud Shell går du till programmets rotkatalog och skapar en ny ZIP-fil för exempelprojektet.
 
-```azurecli-interactive
+```console
 cd nodejs-docs-hello-world  
 
 zip -r myUpdatedAppFiles.zip *.*
@@ -130,7 +130,7 @@ Det här kommandot distribuerar filer och kataloger från ZIP-filen till standar
 
 Bläddra till den distribuerade appen via webbläsaren.
 
-```
+```http
 http://<app_name>.azurewebsites.net
 ```
 

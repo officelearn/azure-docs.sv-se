@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 9e1a7f7cd2643aae61e60d77ad74f4a08266a977
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: b646ee9b727d5adf4ec1c8b5c769b3d8f5c0fc1c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863605"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252037"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure Data Box Edge tekniska specifikationer
 
@@ -23,7 +23,7 @@ Maskin varu komponenterna i din Microsoft Azure Data Box Edge-enhet följer de t
 
 Den Data Box Edge enheten har följande specifikationer för beräkning och minne:
 
-| Specifikation           | Värde                  |
+| Transaktionsspecifikationen           | Värde                  |
 |-------------------------|----------------------------|
 | Processor    | 2 X 10 kärnor                     |
 | Minne              | 128 GB RAM-minne                  |
@@ -33,7 +33,7 @@ Den Data Box Edge enheten har följande specifikationer för beräkning och minn
 
 En fält programmerbar grind mat ris (FPGA) ingår på varje Data Box Edge enhet som möjliggör Machine Learning-scenarier (ML). 
 
-| Specifikation           | Värde                  |
+| Transaktionsspecifikationen           | Värde                  |
 |-------------------------|----------------------------|
 | FPGA   | Intel Arria 10 <br> Tillgängliga DNN-modeller (djup neurala Network) är desamma som de som [stöds av moln FPGA instanser](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
 
@@ -42,7 +42,7 @@ En fält programmerbar grind mat ris (FPGA) ingår på varje Data Box Edge enhet
 
 Data Box Edges enheten har två 100-240 V-enheter för strömförsörjning med höga prestanda (PSUs). De två PSUs ger en redundant energi konfiguration. Om ett PSU Miss lyckas fortsätter enheten att fungera normalt på den andra PSU tills den felaktiga modulen har ersatts. I följande tabell visas de tekniska specifikationerna för PSUs.
 
-| Specifikation           | 750 W PSU                  |
+| Transaktionsspecifikationen           | 750 W PSU                  |
 |-------------------------|----------------------------|
 | Maximal uteffekt    | 750 W                     |
 | Frequency               | 50/60 Hz                   |
@@ -53,11 +53,19 @@ Data Box Edges enheten har två 100-240 V-enheter för strömförsörjning med h
 
 The following table lists the typical power consumption data (actual values may vary from the published) for the Data Box Edge device.-->
 
+## <a name="network-interface-specifications"></a>Specifikationer för nätverks gränssnitt
+
+Du Data Box Edge enheten har 6 nätverks gränssnitt, PORT1-PORT6.
+
+| Transaktionsspecifikationen           | Beskrivning                 |
+|-------------------------|----------------------------|
+|  Nätverksgränssnitt    | 2 x 1 GbE-gränssnitt – 1 för hantering som inte kan konfigureras av användaren används för installationen. Det andra gränssnittet kan konfigureras av användaren, kan användas för dataöverföring och är DHCP som standard. <br>2 x 25 GbE-gränssnitt – dessa kan även fungera som 10 GbE-gränssnitt. Dessa datagränssnitt kan konfigureras av användaren som DHCP (standard) eller statiska. <br> 2 x 25 GbE-gränssnitt – dessa datagränssnitt kan konfigureras av användaren som DHCP (standard) eller statiska.                  |
+
 ## <a name="storage-specifications"></a>Storage-specifikationer
 
 De Data Box Edge enheterna har 9 X 2,5 "NVMe-SSD, med en kapacitet på 1,6 TB. Av dessa SSD, 1 är en operativ system disk och de andra 8 är data diskar. Den totala användbara kapaciteten för enheten är ungefär 12,5 TB. I följande tabell finns information om enhetens lagrings kapacitet.
 
-|     Specifikation                          |     Värde             |
+|     Transaktionsspecifikationen                          |     Värde             |
 |--------------------------------------------|-----------------------|
 |    Antal solid state-hårddiskar (SSD)     |    8                  |
 |    Kapacitet för enskild SSD                     |    1,6 TB             |
@@ -74,7 +82,7 @@ I följande tabeller visas de olika specifikationerna för inne slutning för di
 
 I följande tabell visas storleken på höljet i millimeter och tum.
 
-|     Hölje     |     Millimeter     |     Mm     |
+|     Hölje     |     Millimeter     |     mm     |
 |-------------------|---------------------|----------------|
 |    Höjd         |    44,45            |    1,75 "          |
 |    Bredd          |    434,1           |    17,09 "          |
@@ -82,7 +90,7 @@ I följande tabell visas storleken på höljet i millimeter och tum.
 
 I följande tabell visas måtten för leverans paketet i millimeter och tum.
 
-|     Paket     |     Millimeter     |     Mm     |
+|     Paket     |     Millimeter     |     mm     |
 |-------------------|---------------------|----------------|
 |    Höjd         |    311,2            |    12,25 "          |
 |    Bredd          |    642,8          |    25,31 "          |

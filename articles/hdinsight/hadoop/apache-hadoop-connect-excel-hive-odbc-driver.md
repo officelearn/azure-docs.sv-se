@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 12/11/2019
-ms.openlocfilehash: 883192e1d041014c23445b7a2fa0ece45eb76f10
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/02/2020
+ms.openlocfilehash: f356009197c0446efa2ea2d7f0e90040229df47b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435820"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251074"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ansluta Excel till Apache Hadoop i Azure HDInsight med Microsoft Hive ODBC-drivrutin
 
@@ -23,7 +23,7 @@ Microsofts Big data-lösning integrerar Microsoft Business Intelligence-komponen
 
 Det är också möjligt att ansluta data som är associerade med ett HDInsight-kluster och andra data källor, inklusive andra (icke-HDInsight) Hadoop-kluster från Excel med hjälp av Microsoft Power Query-tillägget för Excel. Information om hur du installerar och använder Power Query finns i [ansluta Excel till HDInsight med Power Query](../hdinsight-connect-excel-power-query.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här artikeln måste du ha följande objekt:
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d53a3f270c1de3c8d533b5886e0051f6aa1ef10d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 961d10f3a0bc4be25a2981e5411cc6a8a75d2105
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776746"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255086"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Välj rätt MariaDB Server-alternativ i Azure
 
@@ -33,7 +33,7 @@ De huvudsakliga skillnaderna mellan dessa alternativ visas i följande tabell:
 
 |            | Azure-databas för MariaDB | MariaDB på virtuella Azure-datorer    |
 |:-------------------|:-----------------------------|:--------------------|
-| Serviceavtal (SLA)                | Erbjuder SLA med 99,99% tillgänglighet| Upp till 99,95% tillgänglighet med två eller fler instanser i samma tillgänglighets uppsättning.<br/><br/>99,9% tillgänglighet med en enskild instans av en virtuell dator med Premium Storage.<br/><br/>99,99% med Tillgänglighetszoner med flera instanser i flera tillgänglighets uppsättningar.<br/><br/>Se [Virtual Machines service avtal](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
+| Service nivå avtal (SLA)                | Erbjuder SLA med 99,99% tillgänglighet| Upp till 99,95% tillgänglighet med två eller fler instanser i samma tillgänglighets uppsättning.<br/><br/>99,9% tillgänglighet med en enskild instans av en virtuell dator med Premium Storage.<br/><br/>99,99% med Tillgänglighetszoner med flera instanser i flera tillgänglighets uppsättningar.<br/><br/>Se [Virtual Machines service avtal](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
 | Uppdatering av operativ system        | Automatisk  | Hanteras av kunder |
 | MariaDB korrigering     | Automatisk  | Hanteras av kunder |
 | Hög tillgänglighet | Modellen med hög tillgänglighet (HA) baseras på inbyggda funktioner för redundansväxling för när ett avbrott på nod-nivå sker. I sådana fall skapar tjänsten automatiskt en ny instans och kopplar lagring till den här instansen. | Kunders arkitekt, implementera, testa och underhålla hög tillgänglighet. Funktioner kan omfatta Always on-redundanskluster, Always on-gruppreplikering, logg överföring eller transaktionell replikering.|
@@ -82,7 +82,7 @@ I följande lista beskrivs administrativa överväganden för varje alternativ:
 
   - Databaser
   - Logga in
-  - Indexjustering
+  - Index justering
   - Fråga-justering
   - Granskning
   - Säkerhet
@@ -102,4 +102,4 @@ I följande lista beskrivs administrativa överväganden för varje alternativ:
 ## <a name="next-steps"></a>Nästa steg
 
 * Se [Azure Database for MariaDB prissättning](https://azure.microsoft.com/pricing/details/MariaDB/).
-* Komma igång genom att [skapa din första server](https://review.docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal).
+* Komma igång genom att [skapa din första server](https://docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal).

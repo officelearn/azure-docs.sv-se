@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a5e4f9853a68b7b4d8b97cc76032cfa88708c097
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ef7161e653ec582708f242b67c643d960d75e27f
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842690"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255460"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>SAP HANA tillgänglighet inom en Azure-region
 I den här artikeln beskrivs flera tillgänglighets scenarier i en Azure-region. Azure har många regioner, sprids över hela världen. En lista över Azure-regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/). För att distribuera SAP HANA på virtuella datorer inom en Azure-region, erbjuder Microsoft distribution av en enskild virtuell dator med en HANA-instans. För ökad tillgänglighet kan du distribuera två virtuella datorer med två HANA-instanser i en [Azures tillgänglighets uppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) som använder Hana-systemreplikering för tillgänglighet. 
@@ -108,7 +108,7 @@ I det här scenariot är data som replikeras till HANA-instansen i den andra vir
 
 ### <a name="sap-hana-system-replication-with-automatic-failover"></a>SAP HANA system replikering med automatisk redundans
 
-I den standard-och den vanligaste tillgänglighets konfigurationen inom en Azure-region, har två virtuella Azure-datorer som kör SLES Linux ett redundanskluster definierat. SLES Linux-klustret är baserat på [pacemaker](http://www.linux-ha.org/wiki/Pacemaker) -ramverket, tillsammans med en [STONITH](http://www.linux-ha.org/wiki/STONITH) -enhet. 
+I den standard-och den vanligaste tillgänglighets konfigurationen inom en Azure-region, har två virtuella Azure-datorer som kör SLES Linux ett redundanskluster definierat. SLES Linux-klustret är baserat på [pacemaker](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) -ramverket, tillsammans med en [STONITH](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) -enhet. 
 
 Från ett SAP HANA perspektiv synkroniseras replikeringsläget som används och en automatisk redundans konfigureras. I den andra virtuella datorn fungerar SAP HANA-instansen som en nod för snabb växling. Noden vänte läge får en synkron ström av ändrings poster från den primära SAP HANA-instansen. När transaktionerna allokeras av programmet på den primära HANA-noden, väntar den primära HANA-noden att bekräfta incheckningen av programmet tills den sekundära SAP HANA-noden bekräftar att posten har mottagits. SAP HANA erbjuder två synkrona replikeringsinställningar. Mer information och en beskrivning av skillnaderna mellan dessa två lägen för synkron replikering finns i [replikerings lägen för SAP-artiklar för SAP HANA system replikering](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html).
 

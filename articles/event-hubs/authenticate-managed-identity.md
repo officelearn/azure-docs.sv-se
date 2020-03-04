@@ -9,12 +9,12 @@ manager: ''
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: c5418f8c5e759ad0e5c388e0925fa724fe148797
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 672b663a9cab72d465ea00e0a5ade364eadbf64e
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368524"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251533"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Event Hubs resurser
 Azure Event Hubs stöder Azure Active Directory (Azure AD)-autentisering med [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md). Hanterade identiteter för Azure-resurser kan ge åtkomst till Event Hubs resurser med hjälp av Azure AD-autentiseringsuppgifter från program som körs i Azure Virtual Machines (VM), Function-appar, Virtual Machine Scale Sets och andra tjänster. Genom att använda hanterade identiteter för Azure-resurser tillsammans med Azure AD-autentisering kan du undvika att lagra autentiseringsuppgifter med dina program som körs i molnet.
@@ -79,10 +79,13 @@ När du har tilldelat rollen får webb programmet åtkomst till Event Hubs resur
 4. Tilldela den här identiteten till rollen **Event Hubs data ägare** på namn områdes nivå eller händelse navnivå. 
 5. Kör webb programmet, ange namn på namnrymd och namn på händelsehubben, ett meddelande och välj **Skicka**. Om du vill ta emot händelsen väljer du **ta emot**. 
 
-#### <a name="azuremessagingeventhubs-latesttablatest"></a>[Azure. Messaging. EventHubs (senaste)](#tab/latest)
+#### <a name="azuremessagingeventhubs-latest"></a>[Azure. Messaging. EventHubs (senaste)](#tab/latest)
 Nu kan du starta ditt webb program och peka webbläsaren på exempel-aspx-sidan. Du kan hitta det exempel webb program som skickar och tar emot data från Event Hubs resurser i [GitHub-lagrings platsen](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp).
 
-Installera det senaste paketet från [NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/)och börja skicka händelser till Event Hubs att använda **EventHubProducerClient** och ta emot händelser med hjälp av **EventHubConsumerClient**.  
+Installera det senaste paketet från [NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/)och börja skicka händelser till Event Hubs att använda **EventHubProducerClient** och ta emot händelser med hjälp av **EventHubConsumerClient**. 
+
+> [!NOTE]
+> Ett Java-exempel som använder en hanterad identitet för att publicera händelser till en händelsehubben finns i [publicera händelser med Azure Identity-exempel på GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs).
 
 ```csharp
 protected async void btnSend_Click(object sender, EventArgs e)
@@ -127,7 +130,7 @@ protected async void btnReceive_Click(object sender, EventArgs e)
 }
 ```
 
-#### <a name="microsoftazureeventhubs-legacytabold"></a>[Microsoft. Azure. EventHubs (bakåtkompatibelt)](#tab/old)
+#### <a name="microsoftazureeventhubs-legacy"></a>[Microsoft. Azure. EventHubs (bakåtkompatibelt)](#tab/old)
 Nu kan du starta ditt webb program och peka webbläsaren på exempel-aspx-sidan. Du kan hitta det exempel webb program som skickar och tar emot data från Event Hubs resurser i [GitHub-lagrings platsen](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp).
 
 Installera det senaste paketet från [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)och börja skicka till och ta emot data från Event Hub med hjälp av EventHubClient som visas i följande kod: 
@@ -141,11 +144,12 @@ var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHub
 Du kan använda Apache Kafka program för att skicka meddelanden till och ta emot meddelanden från Azure Event Hubs med hanterad identitet OAuth. Se följande exempel på GitHub: [Event Hubs för Kafka – skicka och ta emot meddelanden med hanterad identitet OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity).
 
 ## <a name="samples"></a>Exempel
+- Exempel för **Azure. Messaging. EventHubs**
+    - [.NET](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
+    - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
 - [Microsoft. Azure. EventHubs-exempel](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
     I de här exemplen används det gamla biblioteket **Microsoft. Azure. EventHubs** , men du kan enkelt uppdatera det så att det använder det senaste **Azure. Messaging. EventHubs** -biblioteket. Om du vill flytta exemplet från att använda det gamla biblioteket till ett nytt, se [guiden för att migrera från Microsoft. Azure. EventHubs till Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
-- [Exempel för Azure. Messaging. EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
-
     Det här exemplet har uppdaterats för att använda det senaste **Azure. Messaging. EventHubs** -biblioteket.
 - [Event Hubs för Kafka – skicka och ta emot meddelanden med hanterad identitet OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity)
 

@@ -3,7 +3,7 @@ title: Konfigurera LVM på en virtuell dator som kör Linux
 description: Lär dig hur du konfigurerar LVM i Linux i Azure.
 services: virtual-machines-linux
 documentationcenter: na
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: mimckitt
 ms.subservice: disks
-ms.openlocfilehash: 4fdb3af0433cc32aa7cdbee3c8ca9bdb85031135
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 2c245d56b0fa0a09da04b83db11391a9291d3856
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045340"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251736"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Konfigurera LVM på en virtuell Linux-dator i Azure
 Det här dokumentet beskriver hur du konfigurerar LVM (Logical Volume Manager) på din virtuella Azure-dator. LVM kan användas på operativ system disken eller data diskarna på virtuella Azure-datorer, men som standard har de flesta moln avbildningarna inte LVM konfigurerade på OS-disken. Stegen nedan fokuserar på att konfigurera LVM för dina data diskar.
@@ -102,7 +102,7 @@ I den här guiden kommer vi att anta att du har kopplat tre data diskar, som vi 
 
 ## <a name="add-the-new-file-system-to-etcfstab"></a>Lägg till det nya fil systemet i/etc/fstab
 > [!IMPORTANT]
-> Felaktig redigering av filen `/etc/fstab` kan leda till att systemet inte kan startas. Om du är osäker läser du distributionens dokumentation för att få information om hur du redigerar filen på rätt sätt. Vi rekommenderar också att du skapar en säkerhets kopia av `/etc/fstab`-filen innan du redigerar.
+> Om du har redigerat `/etc/fstab` filen på ett felaktigt sätt kan det leda till ett system som inte kan startas. Om du vill veta mer om hur du redigerar den här filen i distributionens dokumentation. Vi rekommenderar också att du skapar en säkerhets kopia av `/etc/fstab`-filen innan du redigerar.
 
 1. Skapa önskad monterings punkt för det nya fil systemet, till exempel:
 

@@ -3,12 +3,12 @@ title: Data kvarhållning och lagring i Azure Application Insights | Microsoft D
 description: Policy för kvarhållning och sekretess policy
 ms.topic: conceptual
 ms.date: 09/29/2019
-ms.openlocfilehash: 0b266eb0674f6de7dfb20311bba95bc7f4697f61
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669666"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254879"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Data insamling, kvarhållning och lagring i Application Insights
 
@@ -171,6 +171,12 @@ Som standard används `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` för att sp
 
 Prefixet `appInsights-node` kan åsidosättas genom att ändra körnings värdet för den statiska variabeln `Sender.TEMPDIR_PREFIX` som finns i [Sender. TS](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
 
+### <a name="javascript-browser"></a>Java Script (webbläsare)
+
+[HTML5-session lagring](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) används för att bevara data. Två separata buffertar används: `AI_buffer` och `AI_sent_buffer`. Telemetri som är batch-och väntar på att skickas lagras i `AI_buffer`. Telemetri som precis har skickats placeras i `AI_sent_buffer` tills inmatnings servern svarar på att den har tagits emot. När telemetri har tagits emot tas den bort från alla buffertar. När ett tillfälligt fel (till exempel en användare förlorar nätverks anslutningen) är telemetri kvar i `AI_buffer` tills den har tagits emot eller om inmatnings servern svarar att Telemetrin är ogiltig (felaktigt schema eller för gammal, till exempel).
+
+Telemetri-buffertar kan inaktive ras genom att ställa in [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) att `false`. När session Storage är inaktiverat, används en lokal matris i stället som beständig lagring. Eftersom JavaScript SDK körs på en klient enhet har användaren åtkomst till den här lagrings platsen via deras utvecklarverktyg.
+
 ### <a name="opencensus-python"></a>Python-räkningar
 
 Som standard använder du python SDK för den aktuella användaren `%username%/.opencensus/.azure/`. Behörigheter för åtkomst till den här mappen är begränsade till den aktuella användaren och administratörerna. (Se [implementering](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) här.) Mappen med dina sparade data kommer att namnges efter den python-fil som skapade Telemetrin.
@@ -207,7 +213,7 @@ Vi rekommenderar inte att du uttryckligen anger att ditt program ska använda TL
 | Windows Server 2012-2016 | Stöds och aktiverat som standard. | Bekräfta att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men inte är aktiverad som standard. | På sidan [Transport Layer Security (TLS) register inställningar](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) finns mer information om hur du aktiverar.  |
 | Windows Server 2008 SP2 | Stöd för TLS 1.2 kräver en uppdatering. | Se [Uppdatera för att lägga till stöd för TLS 1,2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) i Windows Server 2008 SP2. |
-|Windows Vista | Stöds inte. | Saknas
+|Windows Vista | Stöds inte. | Ej tillämpligt
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Kontrol lera vilken version av OpenSSL som din Linux-distribution körs på
 
@@ -249,7 +255,7 @@ SDK: erna varierar mellan olika plattformar och det finns flera komponenter som 
 | [Anropa TrackMetric][api] |Numeriska värden<br/>**Egenskaperna** |
 | [Samtals spår *][api] |Händelsenamn<br/>**Egenskaperna** |
 | [Anropa TrackException][api] |**Undantag**<br/>Stackdump<br/>**Egenskaperna** |
-| SDK kan inte samla in data. Några exempel: <br/> -Det går inte att komma åt perf-räknare<br/> – undantag i telemetri initierare |SDK-diagnostik |
+| SDK kan inte samla in data. Exempel: <br/> -Det går inte att komma åt perf-räknare<br/> – undantag i telemetri initierare |SDK-diagnostik |
 
 För [SDK: er för andra plattformar][platforms], se deras dokument.
 

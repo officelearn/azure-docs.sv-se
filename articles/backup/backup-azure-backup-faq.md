@@ -1,14 +1,14 @@
 ---
 title: Svar på vanliga frågor
-description: 'Svar på vanliga frågor om: Azure Backup-funktioner såsom Recovery Services-valvet, vad det kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
+description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: c8449ef27ca73cd6e0c2908ce4cbebea2c513dbc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: db09a31154b680097b6b46e8f9e2cce2ad09d108
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450096"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255026"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Vanliga frågor och svar
 
@@ -123,7 +123,7 @@ BMR/systemtillstånd |Varje enskild kopia av BMR eller systemtillstånd på den 
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Finns det en gräns för den mängd data som säkerhetskopieras med ett Recovery Services-valv?
 
-Det finns ingen gräns för den mängd data som du kan säkerhetskopiera med hjälp av ett Recovery Services-valv.
+Det finns ingen gräns för den totala mängden data som du kan säkerhetskopiera med ett Recovery Services-valv. Enskilda data källor (andra än virtuella Azure-datorer) kan vara högst 54 400 GB stora. Mer information om gränser finns i [avsnittet valv gränser i support mat ris](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Varför är storleken på data som överförs till Recovery Services-valvet mindre än de data som valts för säkerhetskopiering?
 

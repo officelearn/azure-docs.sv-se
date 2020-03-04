@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Hitta svar på några vanliga frågor om Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 964fa9ec4948bf178c310af8e35913fda5f70c0f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 285fdb7892d2da40dd50e025cb1dd7644ec17ae0
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934183"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255715"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Vanliga frågor och svar om Azure dev Spaces
 
@@ -64,6 +64,14 @@ Ja, du kan använda Azure dev Spaces på AKS-kluster med [autentiserade IP-adres
 ## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-restricted-egress-traffic-for-cluster-nodes"></a>Kan jag använda Azure dev Spaces på AKS-kluster med begränsad utgående trafik för klusternoder?
 
 Ja, du kan använda Azure dev Spaces på AKS-kluster med [begränsad utgående trafik för klusternoder][aks-restrict-egress-traffic] aktiverade när rätt fullständiga domän namn har tillåtits. Mer information om hur du använder ett AKS-kluster med begränsad utgående trafik för klusternoder som är aktiverade med Azure dev Spaces finns [här](configure-networking.md#ingress-and-egress-network-traffic-requirements).
+
+## <a name="can-i-use-azure-dev-spaces-on-rbac-enabled-aks-clusters"></a>Kan jag använda Azure dev Spaces på RBAC-aktiverade AKS-kluster?
+
+Ja, du kan använda Azure dev Spaces på AKS-kluster med eller utan RBAC-aktiverat.
+
+## <a name="what-happens-when-i-enable-ingress-for-project-in-visual-studio"></a>Vad händer när jag aktiverar ingress för projekt i Visual Studio?
+
+När du använder Visual Studio för att förbereda ditt projekt har du möjlighet att aktivera ingångar för din tjänst. Genom att aktivera ingångar skapas en offentlig slut punkt för att komma åt tjänsten när den körs på ditt AKS-kluster, vilket är valfritt. Om du inte aktiverar ingress är din tjänst bara tillgänglig i AKS-klustret.
 
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled

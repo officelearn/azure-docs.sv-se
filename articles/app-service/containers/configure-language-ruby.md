@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 74b0f83500903170616034d9d18d8ad31fa7065c
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 2b096725575598bd44d7da39f77f85dee5b5e40e
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834323"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255810"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Konfigurera en Linux Ruby-app för Azure App Service
 
@@ -82,7 +82,7 @@ Om den här inställningen definieras kör distributions motorn `bundle install`
 
 ### <a name="precompile-assets"></a>Förkompilera till gångar
 
-Stegen efter distributionen förkompilerar inte till gångar som standard. Aktivera för inkompilering av till gångar genom att ange `ASSETS_PRECOMPILE` [app-inställningen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till `true`. Sedan körs kommandot `bundle exec rake --trace assets:precompile` i slutet av stegen efter distribution. Ett exempel:
+Stegen efter distributionen förkompilerar inte till gångar som standard. Aktivera för inkompilering av till gångar genom att ange `ASSETS_PRECOMPILE` [app-inställningen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till `true`. Sedan körs kommandot `bundle exec rake --trace assets:precompile` i slutet av stegen efter distribution. Exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASSETS_PRECOMPILE=true
@@ -111,7 +111,7 @@ Du kan anpassa start processen på följande sätt:
 Räler-servern i ruby-behållaren körs som standard i produktions läge och [förutsätter att till gångar är förkompilerade och betjänas av webb servern](https://guides.rubyonrails.org/asset_pipeline.html#in-production). Om du vill hantera statiska till gångar från räler-servern måste du göra två saker:
 
 - **Förkompilera till gångarna** - [förkompilera statiska till gångar lokalt](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) och distribuera dem manuellt. Eller låt distributions motorn hantera den i stället (se [förkompilera till gångar](#precompile-assets).
-- **Aktivera betjäning av statiska filer** – för att betjäna statiska till gångar från ruby-behållaren [anger du `RAILS_SERVE_STATIC_FILES` app-inställningen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till `true`. Ett exempel:
+- **Aktivera betjäning av statiska filer** – för att betjäna statiska till gångar från ruby-behållaren [anger du `RAILS_SERVE_STATIC_FILES` app-inställningen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) till `true`. Exempel:
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_SERVE_STATIC_FILES=true
@@ -125,7 +125,7 @@ Räler-servern körs som standard i produktions läge. Om du vill köra i utveck
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_ENV="development"
 ```
 
-Den här inställningen gör dock att räler-servern startar i utvecklings läge, som enbart accepterar localhost-begäranden och inte är tillgänglig utanför behållaren. Om du vill acceptera förfrågningar om fjärrklienter ställer du in `APP_COMMAND_LINE` [app-inställningen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) på `rails server -b 0.0.0.0`. Med den här inställningen för appen kan du köra ett anpassat kommando i ruby-behållaren. Ett exempel:
+Den här inställningen gör dock att räler-servern startar i utvecklings läge, som enbart accepterar localhost-begäranden och inte är tillgänglig utanför behållaren. Om du vill acceptera förfrågningar om fjärrklienter ställer du in `APP_COMMAND_LINE` [app-inställningen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) på `rails server -b 0.0.0.0`. Med den här inställningen för appen kan du köra ett anpassat kommando i ruby-behållaren. Exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings APP_COMMAND_LINE="rails server -b 0.0.0.0"
@@ -133,7 +133,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ### <a name="set-secret_key_base-manually"></a>Ange secret_key_base manuellt
 
-Om du vill använda ett eget `secret_key_base` värde i stället för att låta App Service generera ett åt dig, ställer du in inställningen för `SECRET_KEY_BASE` [app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) med det värde som du vill använda. Ett exempel:
+Om du vill använda ett eget `secret_key_base` värde i stället för att låta App Service generera ett åt dig, ställer du in inställningen för `SECRET_KEY_BASE` [app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) med det värde som du vill använda. Exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings SECRET_KEY_BASE="<key-base-value>"
@@ -146,6 +146,8 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ## <a name="open-ssh-session-in-browser"></a>Öppna SSH-session i webbläsare
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
+
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

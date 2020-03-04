@@ -6,16 +6,16 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: fa7f7a57e16b6ba70535d3f07ebd69abf0784171
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fe06da759a1ad42ef5cef888f98c440cdfb9569c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465433"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252788"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Självstudie: Skapa containeravbildningar i ett Service Fabric-kluster i Linux
 
-Den här självstudien ingår i en serie som visar hur du använder containrar i ett Linux Service Fabric-kluster. I den här självstudien förbereds ett program med flera container för användning med Service Fabric. I efterföljande självstudier används de här avbildningarna som en del i ett Service Fabric-program. I den här guiden får du lära du dig hur man:
+Den här självstudien ingår i en serie som visar hur du använder containrar i ett Linux Service Fabric-kluster. I den här självstudien förbereds ett program med flera container för användning med Service Fabric. I efterföljande självstudier används de här avbildningarna som en del i ett Service Fabric-program. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * klona programmets källkod från GitHub
@@ -31,7 +31,7 @@ I den här självstudieserien får du lära du dig att:
 > * [skapa och köra ett Service Fabric-program med containrar](service-fabric-tutorial-package-containers.md)
 > * [hantera redundans och skalning i Service Fabric](service-fabric-tutorial-containers-failover.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Linux-utvecklingsmiljö konfigurerad för Service Fabric. Följ instruktionerna [här](service-fabric-get-started-linux.md) för att konfigurera din Linux-miljö.
 * I den här självstudien krävs att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
@@ -80,13 +80,13 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 Kör först kommandot **AZ login** för att logga in på ditt Azure-konto.
 
-```bash
+```azurecli
 az login
 ```
 
 Använd sedan kommandot **az account** till att välja din prenumeration och skapa Azure-containerregistret. Du måste ange ID:t för din Azure-prenumeration i stället för <subscription_id>.
 
-```bash
+```azurecli
 az account set --subscription <subscription_id>
 ```
 
@@ -94,13 +94,13 @@ När du distribuerar ett Azure Container Registry behöver du först en resursgr
 
 Skapa en resursgrupp med kommandot **az group create**. I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* i regionen *westus*.
 
-```bash
+```azurecli
 az group create --name <myResourceGroup> --location westus
 ```
 
 Skapa ett Azure-containerregister med kommandot **az acr create**. Ersätt \<acrName&gt; med namnet på containerregistret du vill skapa i din prenumeration. Det här namnet måste vara alfanumeriskt och unikt.
 
-```bash
+```azurecli
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
@@ -110,7 +110,7 @@ I resten av den här självstudien använder vi acrName som platshållare för d
 
 Logga in på din ACR-instans innan du skickar avbildningar till den. Använd kommandot **az acr login** till att slutföra åtgärden. Ange det unika namn du angav för containerregistret när det skapades.
 
-```bash
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -136,13 +136,13 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 Du hämtar namnet på inloggningsservern genom att köra följande kommando:
 
-```bash
+```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
 Utdata är en tabell med följande resultat. Resultatet kommer att användas när du ska tagga avbildningen **azure-vote-front** innan du push-överför den till containerregistret i nästa steg.
 
-```bash
+```output
 Result
 ------------------
 <acrName>.azurecr.io
@@ -158,7 +158,7 @@ När taggningen är färdig verifierar du åtgärden genom att köra ”docker i
 
 Resultat:
 
-```bash
+```output
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
 <acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
@@ -182,13 +182,13 @@ Docker push-kommandona tar ett par minuter att slutföra.
 
 Du kan returnera en lista med avbildningar som push-överförts till Azure-containerregistret med kommandot [az acr repository list](/cli/azure/acr/repository). Uppdatera kommandot med namnet på ACR-instansen.
 
-```bash
+```azurecli
 az acr repository list --name <acrName> --output table
 ```
 
 Resultat:
 
-```bash
+```output
 Result
 ----------------
 azure-vote-front

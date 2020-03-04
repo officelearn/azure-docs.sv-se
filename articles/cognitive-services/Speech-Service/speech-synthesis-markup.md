@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: dapine
-ms.openlocfilehash: 499770b664757ec0f3a0bd3b26e0de36007741b6
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: b39b8712f3e8b869d7dbe496dd30f0599aa4150d
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228069"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254796"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Förbättra syntesen med SSML (Speech syntes Markup Language)
 
@@ -195,6 +195,7 @@ Som standard används text-till-tal-tjänsten för att syntetisera text med ett 
 
 För närvarande stöds anpassning av format justeringar för dessa neurala-röster:
 * `en-US-JessaNeural`
+* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 
 Ändringarna tillämpas på menings nivå och format varierar med röst. Om en stil inte stöds returnerar tjänsten tal i standardformat för neutralt tal.
@@ -220,6 +221,7 @@ Använd den här tabellen för att avgöra vilka tal format som stöds för varj
 | | `type="chat"` | Tala i en vardaglig, avslappnad ton |
 | | `type="newscast"` | Uttrycker en formell ton som liknar nyhets sändningar |
 | | `type="customerservice"` | Tala i ett eget och patient sätt som kund tjänst |
+| `pt-BR-FranciscaNeural` | `type="cheerful"` | Uttrycker en känslo som är positiv och glad |
 | `zh-CN-XiaoxiaoNeural` | `type="newscast"` | Uttrycker en formell ton som liknar nyhets sändningar |
 | | `type="sentiment"` | Förmedlar ett touch-meddelande eller en berättelse |
 

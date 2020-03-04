@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Den här snabb starten visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett Java-program i Azure Kubernetes-tjänsten
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, behållare, Java, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: c0062d7cda79cbe91dc7485baa33b60d318a8af0
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 5dcfff94d3a5296ed4462360ce85732c07b21cf5
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605317"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245101"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>Snabb start: Felsöka och iterera på Kubernetes med Visual Studio Code och Java-Azure dev Spaces
 
@@ -31,7 +31,7 @@ I den här snabb starten ställer du in Azure dev Spaces med ett hanterat Kubern
 
 Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Följande kommandon skapar en resurs grupp med namnet *MyResourceGroup* och ett AKS-kluster som kallas *MyAKS*.
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
@@ -43,10 +43,11 @@ Använd kommandot `use-dev-spaces` för att aktivera dev Spaces i ditt AKS-klust
 > [!NOTE]
 > Kommandot `use-dev-spaces` installerar även Azure dev Spaces CLI om det inte redan är installerat. Du kan inte installera Azure dev Spaces CLI i Azure Cloud Shell.
 
-```cmd
-$ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```
 
-
+```output
 'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
 
 Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
@@ -112,7 +113,7 @@ Välj **Felsök** och **stoppa** fel sökningen för att stoppa fel söknings pr
 
 ## <a name="update-code"></a>Uppdatera kod
 
-Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra **starta Java-program (AZDS)** igen. Några exempel:
+Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra **starta Java-program (AZDS)** igen. Exempel:
 
 1. Om programmet fortfarande körs väljer du **Felsök** och stoppar sedan **fel sökningen** för att stoppa det.
 1. Uppdatera [rad 19 i `src/main/java/com/ms/sample/webfrontend/Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) till:
@@ -140,7 +141,7 @@ Ta bort Bryt punkten genom att placera markören på rad 19 i *src/main/Java/com
 
 ## <a name="update-code-from-visual-studio-code"></a>Uppdatera kod från Visual Studio Code
 
-När tjänsten körs i fel söknings läge uppdaterar du rad 19 i *src/main/Java/com/MS/Sample/webfrontend/Application. java*. Några exempel:
+När tjänsten körs i fel söknings läge uppdaterar du rad 19 i *src/main/Java/com/MS/Sample/webfrontend/Application. java*. Exempel:
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```
@@ -155,7 +156,7 @@ I stället för att bygga om och omdistribuera en ny behållar avbildning varje 
 
 ## <a name="clean-up-your-azure-resources"></a>Rensa dina Azure-resurser
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

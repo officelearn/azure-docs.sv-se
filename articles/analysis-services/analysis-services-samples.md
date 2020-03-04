@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 743061c1e32d9ca86e90733dbfd66575d2085dbc
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2b5b95349b8a84cc8294dbcf9ab80eff8c7b86b9
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572306"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247844"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services exempel
 
@@ -26,6 +26,9 @@ Använd följande exempel resurser för att få hjälp att lära dig om och test
 
 [Adventure Works för Analysis Services](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks-analysis-services) på GitHub är det vanligaste exemplet tabell modell projekt. Du kan ladda ned ett VS-projekt eller en slutförd exempel tabell modell databas.
 
+## <a name="sample-database-on-azure"></a>Exempel databas på Azure
+
+Azure Synapse Analytics (SQL Data Warehouse) innehåller ett exempel på en AdventureWorksDW-databas som kan ingå i en etablerad resurs. Mer information finns i [snabb start: skapa och fråga en Azure Synapse Analytics SQL-pool](/azure/sql-data-warehouse/create-data-warehouse-portal).
 
 ## <a name="sample-databases-on-github"></a>Exempel databaser på GitHub
 

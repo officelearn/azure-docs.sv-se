@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 03/03/2020
 ms.author: erhopf
-ms.openlocfilehash: 26fe995f45a97a5863bfc20fd1564df89124ed88
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 873898ce321100edbaa800d2436d0413c06ce175
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168321"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255676"
 ---
 # <a name="speech-to-text-rest-api"></a>REST API för tal-till-text
 
@@ -54,6 +54,7 @@ Dessa parametrar kan ingå i frågesträngen för REST-begäran.
 | `language` | Identifierar talat språk som tolkas. Se [vilka språk som stöds](language-support.md#speech-to-text). | Krävs |
 | `format` | Anger resultatformatet. Godkända värden är `simple` och `detailed`. Enkla resultat är `RecognitionStatus`, `DisplayText`, `Offset`och `Duration`. Detaljerad respons omfattar flera resultat med tillförsikt värden och fyra olika representationer. Standardvärdet är `simple`. | Valfri |
 | `profanity` | Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `masked`, vilket ersätter svordomar med asterisker, `removed`, vilket tar bort alla svordomar från resultatet, eller `raw`, som innehåller svordomarna i resultatet. Standardvärdet är `masked`. | Valfri |
+| `cid` | När du använder [Custom Speech Portal](how-to-custom-speech.md) för att skapa anpassade modeller kan du använda anpassade modeller via deras **slut punkts-ID** som finns på **distributions** sidan. Använd **slut punkts-ID** som argument för parametern `cid` frågesträng. | Valfri |
 
 ## <a name="request-headers"></a>Begärandehuvud
 
@@ -72,10 +73,10 @@ Den här tabellen innehåller obligatoriska och valfria rubriker för tal till t
 
 Ljud skickas i bröd texten i HTTP-`POST`-begäran. Det måste vara i något av formaten i den här tabellen:
 
-| Format | Codec | Bithastighet | Samplingshastighet |
-|--------|-------|---------|-------------|
-| WAV | PCM | 16-bitars | 16 kHz, mono |
-| OGG | OPUS | 16-bitars | 16 kHz, mono |
+| Format | Codec | Bithastighet | Samplingshastighet  |
+|--------|-------|---------|--------------|
+| WAV    | PCM   | 16-bitars  | 16 kHz, mono |
+| OGG    | OPUS  | 16-bitars  | 16 kHz, mono |
 
 >[!NOTE]
 >Ovanstående format stöds via REST API och WebSocket i tal-tjänsten. [Talet SDK](speech-sdk.md) stöder för närvarande WAV-formatet med PCM-kodek och [andra format](how-to-use-codec-compressed-audio-input-streams.md).
@@ -100,50 +101,43 @@ HTTP-statuskod för varje svar anger lyckad eller vanliga fel.
 
 | HTTP-statuskod | Beskrivning | Möjlig orsak |
 |------------------|-------------|-----------------|
-| 100 | Fortsätt | Den första begäran har godkänts. Gå vidare med att skicka resten av data. (Används med segmentvis överföring). |
-| 200 | OK | Begäran lyckades. svarstexten är ett JSON-objekt. |
-| 400 | Felaktig förfrågan | Språk koden har inte angetts, inte ett språk som stöds, ogiltig ljudfil osv. |
-| 401 | Behörighet saknas | Prenumerationsnyckel eller auktorisering token är ogiltig i regionen eller ogiltig slutpunkt. |
-| 403 | Förbjudet | Prenumerationsnyckel eller auktorisering saknas token. |
+| `100` | Fortsätt | Den första begäran har godkänts. Gå vidare med att skicka resten av data. (Används med segmenterad överföring) |
+| `200` | OK | Begäran lyckades. svarstexten är ett JSON-objekt. |
+| `400` | Felaktig förfrågan | Språk koden har inte angetts, inte ett språk som stöds, ogiltig ljudfil osv. |
+| `401` | Behörighet saknas | Prenumerationsnyckel eller auktorisering token är ogiltig i regionen eller ogiltig slutpunkt. |
+| `403` | Förbjudet | Prenumerationsnyckel eller auktorisering saknas token. |
 
 ## <a name="chunked-transfer"></a>Segmentvis överföring
 
 Segment överföring (`Transfer-Encoding: chunked`) hjälper till att minska svars tiden för igenkänning. Det gör att röst tjänsten kan börja bearbeta ljud filen medan den överförs. REST API: et tillhandahåller inte partiell eller mellanliggande resultat.
 
-Detta kodexempel visar hur du skickar ljud i segment. Endast det första segmentet ska innehålla ljud filens huvud. `request` är ett HTTPWebRequest-objekt som är anslutet till lämplig REST-slutpunkt. `audioFile` är sökvägen till en ljudfil på disk.
+Detta kodexempel visar hur du skickar ljud i segment. Endast det första segmentet ska innehålla ljud filens huvud. `request` är ett `HttpWebRequest`-objekt som är kopplat till lämplig REST-slutpunkt. `audioFile` är sökvägen till en ljudfil på disk.
 
 ```csharp
+var request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
+request.SendChunked = true;
+request.Accept = @"application/json;text/xml";
+request.Method = "POST";
+request.ProtocolVersion = HttpVersion.Version11;
+request.Host = host;
+request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
+request.Headers["Ocp-Apim-Subscription-Key"] = "YOUR_SUBSCRIPTION_KEY";
+request.AllowWriteStreamBuffering = false;
 
-    HttpWebRequest request = null;
-    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
-    request.SendChunked = true;
-    request.Accept = @"application/json;text/xml";
-    request.Method = "POST";
-    request.ProtocolVersion = HttpVersion.Version11;
-    request.Host = host;
-    request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
-    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
-    request.AllowWriteStreamBuffering = false;
-
-using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
+using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 {
-    /*
-    * Open a request stream and write 1024 byte chunks in the stream one at a time.
-    */
+    // Open a request stream and write 1024 byte chunks in the stream one at a time.
     byte[] buffer = null;
     int bytesRead = 0;
-    using (Stream requestStream = request.GetRequestStream())
+    using (var requestStream = request.GetRequestStream())
     {
-        /*
-        * Read 1024 raw bytes from the input audio file.
-        */
+        // Read 1024 raw bytes from the input audio file.
         buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
         while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
         {
             requestStream.Write(buffer, 0, bytesRead);
         }
 
-        // Flush
         requestStream.Flush();
     }
 }

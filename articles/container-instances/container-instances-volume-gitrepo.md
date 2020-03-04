@@ -3,12 +3,12 @@ title: Montera gitRepo-volym till behållar grupp
 description: Lär dig hur du monterar en gitRepo-volym för att klona en git-lagringsplats till dina behållar instanser
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 708fca185227292e7cdf33952bde6f42b3d4951f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 405cacd7a1649f95640a8dabf476729e101d03f8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533219"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252089"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montera en gitRepo volym i Azure Container Instances
 
@@ -48,8 +48,11 @@ az container create \
 
 För att kontrol lera att gitRepo-volymen har monterats startar du ett gränssnitt i behållaren med [AZ container exec][az-container-exec] och listar katalogen:
 
-```console
-$ az container exec --resource-group myResourceGroup --name hellogitrepo --exec-command /bin/sh
+```azurecli
+az container exec --resource-group myResourceGroup --name hellogitrepo --exec-command /bin/sh
+```
+
+```output
 /usr/src/app # ls -l /mnt/aci-helloworld/
 total 16
 -rw-r--r--    1 root     root           144 Apr 16 16:35 Dockerfile
@@ -82,13 +85,13 @@ Om du vill montera en gitRepo-volym för en privat git-lagringsplats anger du au
 
 Till exempel skulle Azure CLI `--gitrepo-url`-parametern för en privat GitHub-lagringsplats att se ut ungefär så här (där "gituser" är GitHub användar namn och "abcdef1234fdsa4321abcdef" är användarens personliga åtkomsttoken):
 
-```azurecli
+```console
 --gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
 ```
 
 För en Azure databaser git-lagringsplats anger du ett användar namn (du kan använda "azurereposuser" som i följande exempel) i kombination med en giltig PAT:
 
-```azurecli
+```console
 --gitrepo-url https://azurereposuser:abcdef1234fdsa4321abcdef@dev.azure.com/your-org/_git/some-private-repository
 ```
 

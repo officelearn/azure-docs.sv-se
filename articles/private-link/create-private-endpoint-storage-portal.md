@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: bb1913d77616869c889c464a41e8166b3a88b03c
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 8c76333d5a2be8a2c589dbe54389b023fef34854
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028868"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252536"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Anslut privat till ett lagrings konto med hjälp av Azures privata slut punkt
 Den privata Azure-slutpunkten är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. virtuella datorer, att kommunicera privat med privata länk resurser.
@@ -29,24 +29,22 @@ Logga in på Azure Portal på https://portal.azure.com.
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som är värd för den virtuella datorn som används för att komma åt din privata länk resurs (ett lagrings konto i det här exemplet).
 
-### <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
+## <a name="virtual-network-and-parameters"></a>Virtuellt nätverk och parametrar
 
 I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som är värd för den virtuella datorn som används för åtkomst till din privata länk resurs.
 
-1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
-1. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
+I det här avsnittet måste du ersätta följande parametrar i stegen med informationen nedan:
 
-    | Inställning | Värde |
-    | ------- | ----- |
-    | Namn | Ange *MyVirtualNetwork*. |
-    | Adressutrymme | Ange *10.1.0.0/16*. |
-    | Prenumeration | Välj din prenumeration.|
-    | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
-    | Location | Välj **WestCentralUS**.|
-    | Undernät – Namn | Ange *undernät*. |
-    | Undernät – adressintervall | Ange *10.1.0.0/24*. |
-    |||
-1. Lämna resten som standard och välj **skapa**.
+| Parameter                   | Värde                |
+|-----------------------------|----------------------|
+| **\<resurs-grupp-namn >**  | myResourceGroup |
+| **\<virtuella-nätverks namn >** | myVirtualNetwork          |
+| **\<region – namn >**          | USA, västra centrala      |
+| **\<IPv4-adress utrymme >**   | 10.1.0.0 \ 16          |
+| **\<under nätets namn >**          | mySubnet        |
+| **\<undernät – adress intervall >** | 10.1.0.0 \ 24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 
 ### <a name="create-virtual-machine"></a>Skapa en virtuell dator
@@ -80,7 +78,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 
 1. Lämna standardvärdena i **skapa en virtuell dator – diskar**och välj **Nästa: nätverk**.
 
-1. I **Skapa en virtuell dator – Nätverk** väljer du följande information:
+1. I **Skapa en virtuell dator – nätverk** väljer du följande information:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -126,7 +124,7 @@ I det här avsnittet ska du skapa ett privat lagrings konto med en privat slut p
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
-    |Location|Välj **WestCentralUS**.|
+    |plats.|Välj **WestCentralUS**.|
     |Namn|Ange *myPrivateEndpoint*.  |
     |Lagrings under resurs|Lämna standard- **bloben**. |
     | **NÄTVERK** |  |
@@ -143,7 +141,7 @@ I det här avsnittet ska du skapa ett privat lagrings konto med en privat slut p
 11. Välj **åtkomst nycklar** på menyn till vänster innehåll.
 12. Välj **Kopiera** i anslutnings strängen för KEY1.
  
-## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från Internet
+## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från internet
 
 Anslut till VM- *myVm* från Internet på följande sätt:
 

@@ -3,14 +3,14 @@ title: Uppgradera Azure dev Spaces-verktyg
 services: azure-dev-spaces
 ms.date: 07/03/2018
 ms.topic: conceptual
-description: Lär dig hur du uppgraderar kommando rads verktyg för Azure dev Spaces, Visual Studo Code extension och Visual Studio-tillägget
+description: Lär dig hur du uppgraderar kommando rads verktyg för Azure dev Spaces, Visual Studio Code extension och Visual Studio extension
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
-ms.openlocfilehash: 07d55689ac94a865527f4b595765d67b28ddb97a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 748ed4699591a21a5a09da924e093011b0813b46
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438407"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252354"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Uppgradera Azure dev Spaces-verktyg
 
@@ -27,7 +27,7 @@ Du behöver inte avinstallera den tidigare versionen. du hittar bara lämplig ne
 
 Kör följande kommando:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -n <your-aks-cluster> -g <your-aks-cluster-resource-group> --update
 ```
 

@@ -8,18 +8,18 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, 
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: de830d07010037793eaf7471fc1147a42081b09c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 5deebf7a51917a2b199ad525ab087fd5b0268c18
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770602"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245037"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Snabb start: Felsöka och iterera på Kubernetes: Visual Studio & .NET Core – Azure dev Spaces
 
 I den här guiden får du lära dig hur du:
 
-- Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+- Ställer in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 - Iterativt utvecklar kod i containrar med Visual Studio.
 - Felsöka kod som körs i klustret med Visual Studio.
 
@@ -28,7 +28,7 @@ Med Azure dev Spaces kan du också felsöka och iterera med:
 - [Node. js och Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core och Visual Studio Code](quickstart-netcore.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har någon, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 - Visual Studio 2019 på Windows med arbets belastningen Azure Development installerad. Du kan också använda Visual Studio 2017 i Windows med arbets belastningen webb utveckling och [Visual Studio Tools för Kubernetes](https://aka.ms/get-vsk8stools) installerat. Om du inte har Visual Studio installerat kan du ladda ned det [här](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -68,11 +68,11 @@ I projektet väljer du **Azure dev Spaces** från List rutan Start inställninga
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
-I dialog rutan Azure dev Spaces väljer du din *prenumeration* och *Azure Kubernetes-kluster*. Lämna *utrymme* inställt på *standard* och aktivera kryss rutan *offentligt tillgänglig* . Klicka på *OK*.
+I dialog rutan Azure dev Spaces väljer du din *prenumeration* och *Azure Kubernetes-kluster*. Lämna *utrymme* inställt på *standard* och aktivera kryss rutan *offentligt tillgänglig* . Klicka på *OK*
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
-Den här processen distribuerar tjänsten till *standard* dev-utrymmet med en offentligt tillgänglig URL. Om du väljer ett kluster som inte har konfigurerats för användning med Azure Dev Spaces tillfrågas du om du vill konfigurera det. Klicka på *OK*.
+Den här processen distribuerar tjänsten till *standard* dev-utrymmet med en offentligt tillgänglig URL. Om du väljer ett kluster som inte har konfigurerats för användning med Azure Dev Spaces tillfrågas du om du vill konfigurera det. Klicka på *OK*
 
 ![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
@@ -124,7 +124,7 @@ Ta bort Bryt punkten genom att placera markören på rad 20 i `Controllers/HomeC
 
 Navigera till din resurs grupp i Azure Portal och klicka på *ta bort resurs grupp*. Du kan också använda kommandot [AZ AKS Delete](/cli/azure/aks#az-aks-delete) :
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

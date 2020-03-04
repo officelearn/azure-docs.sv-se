@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 60a4646b77f083590a6eb8a8648d6dea932f0bdd
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 263b4e76d334aab82f6bbac9aa268a50f4dd3784
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849759"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255183"
 ---
 # <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>Skydda ett anpassat DNS-namn med en SSL-bindning i Azure App Service
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 > * Använda TLS 1.1/1.2
 > * Automatisera hantering av TLS med skript
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa den här instruktions guiden:
 
@@ -81,7 +81,7 @@ Använd följande tabell som hjälp för att konfigurera SSL-bindningen i dialog
 
 | Inställning | Beskrivning |
 |-|-|
-| Egen domän | Domän namnet som SSL-bindningen ska läggas till för. |
+| Anpassad domän | Domän namnet som SSL-bindningen ska läggas till för. |
 | Tumavtryck för privat certifikat | Certifikatet som ska bindas. |
 | TLS/SSL-typ | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** -flera SNI SSL-bindningar kan läggas till. Med det här alternativet kan flera SSL-certifikat skydda flera domäner på samma IP-adress. De flesta moderna webbläsare (inklusive Internet Explorer, Chrome, Firefox och Opera) stöder SNI (mer information finns i [servernamnindikator](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP SSL** -det går bara att lägga till en IP SSL-bindning. Med det här alternativet tillåts endast ett SSL-certifikat för att skydda en dedikerad offentlig IP-adress. När du har konfigurerat bindningen följer du stegen i [mappa om en post för IP SSL](#remap-a-record-for-ip-ssl).<br/>IP SSL stöds endast i produktions-eller isolerade nivåer. </li></ul> |
 
@@ -146,6 +146,12 @@ Välj **SSL-inställningar** i den vänstra navigeringen på din appsida. I **TL
 ![Kräv TLS 1.1 eller 1.2](./media/configure-ssl-bindings/enforce-tls1-2.png)
 
 När åtgärden är klar avvisar appen alla anslutningar med lägre TLS-version.
+
+## <a name="handle-ssl-termination"></a>Hantera SSL-avslutning
+
+I App Service sker [SSL-avslutning](https://wikipedia.org/wiki/TLS_termination_proxy) på lastbalanserare för nätverk, så alla HTTPS-begäranden når din app som okrypterade HTTP-begäranden. Om din applogik behöver kontrollera om användarbegäranden är krypterade eller inte kan du kontrollera `X-Forwarded-Proto`-rubriken.
+
+Språkspecifika konfigurations guider, till exempel [konfigurations guiden för Linux Node. js](containers/configure-language-nodejs.md#detect-https-session) , visar hur du identifierar en https-session i program koden.
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 

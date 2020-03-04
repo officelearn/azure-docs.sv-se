@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2019
-ms.openlocfilehash: 236d5a28b167e16c9614119a59fd8a99e012e9dd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: e28a5dce4dda677ef4e5eb0ed08c42ec1f03c308
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656559"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251445"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Aktivera Azure Monitor for VMs (för hands version) med hjälp av Azure PowerShell-eller Resource Manager-mallar
 
@@ -99,7 +99,7 @@ Om du vill använda Azure CLI måste du först installera och använda CLI lokal
 
         Konfigurations ändringen kan ta några minuter att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
 
-        ```powershell
+        ```output
         provisioningState       : Succeeded
         ```
 
@@ -113,7 +113,7 @@ Om du vill använda Azure CLI måste du först installera och använda CLI lokal
 
         Konfigurations ändringen kan ta några minuter att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
 
-        ```azurecli
+        ```output
         provisioningState       : Succeeded
         ```
 
@@ -154,7 +154,7 @@ New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceG
 ```
 Konfigurations ändringen kan ta några minuter att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
 
-```powershell
+```output
 provisioningState       : Succeeded
 ```
 
@@ -170,7 +170,7 @@ az group deployment create --resource-group <ResourceGroupName> --template-file 
 
 Resultatet ser ut ungefär så här:
 
-```azurecli
+```output
 provisioningState       : Succeeded
 ```
 

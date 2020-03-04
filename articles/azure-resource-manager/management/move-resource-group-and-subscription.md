@@ -2,13 +2,13 @@
 title: Flytta resurser till en ny prenumeration eller resurs grupp
 description: Använd Azure Resource Manager för att flytta resurser till en ny resursgrupp eller prenumeration.
 ms.topic: conceptual
-ms.date: 11/08/2019
-ms.openlocfilehash: c91081ee25a3b98fa25b8b9b9047da186b22181b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/02/2020
+ms.openlocfilehash: 40432c55a7f7e289d2e5cbc8afe94847074e4ca8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891360"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250171"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Flytta resurser till en ny resurs grupp eller prenumeration
 
@@ -24,7 +24,7 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
 
 1. De resurser som du vill flytta måste stödja flytt åtgärden. En lista över vilka resurser som stöder flytta finns i [Flytta åtgärds stöd för resurser](move-support-resources.md).
 
-1. Vissa tjänster har särskilda begränsningar eller krav när du flyttar resurser. Om du har flyttat någon av följande tjänster, kontrol lera den här vägledningen innan du flyttar.
+1. Vissa tjänster har särskilda begränsningar eller krav när du flyttar resurser. Om du flyttar någon av följande tjänster, kontrol lera att du har den vägledningen innan du flyttar.
 
    * [Vägledning för App Services flytt](./move-limitations/app-service-move-limitations.md)
    * [Vägledning för flytt av Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
@@ -33,9 +33,9 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
    * [Vägledning för Recovery Services flytt](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Vägledning för Virtual Machines flytt](./move-limitations/virtual-machines-move-limitations.md)
 
-1. Käll-och mål prenumerationerna måste vara aktiva. Om du har problem med att aktivera ett konto som har inaktiverats [skapar du en support förfrågan för Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Välj **prenumerationshantering** för typ av ärende.
+1. Käll-och mål prenumerationerna måste vara aktiva. Om du har problem med att aktivera ett konto som har inaktiverats [skapar du en support förfrågan för Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Välj **prenumerations hantering** för typ av problem.
 
-1. Käll- och målprenumerationer måste finnas inom samma [Azure Active Directory-klient](../../active-directory/develop/quickstart-create-new-tenant.md). Om du vill kontrollera att båda prenumerationerna har samma klient-ID, använder du Azure PowerShell eller Azure CLI.
+1. Käll-och mål prenumerationerna måste finnas inom samma [Azure Active Directory-klient](../../active-directory/develop/quickstart-create-new-tenant.md). Om du vill kontrollera att båda prenumerationerna har samma klient-ID, använder du Azure PowerShell eller Azure CLI.
 
    Använd för Azure PowerShell:
 
@@ -56,7 +56,7 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
    * [Överföra ägarskap för en Azure-prenumeration till ett annat konto](../../billing/billing-subscription-transfer.md)
    * [Så här associerar du eller lägger till en prenumeration i din Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-1. Målprenumerationen måste vara registrerad för resursprovidern för den resurs som flyttas. Om inte, du får ett felmeddelande om att den **prenumerationen har inte registrerats för en resurstyp**. Du kanske ser det här felet när du flyttar en resurs till en ny prenumeration, men prenumerationen har aldrig använts med den resurs typen.
+1. Målprenumerationen måste vara registrerad för resursprovidern för den resurs som flyttas. Annars visas ett fel meddelande om att **prenumerationen inte är registrerad för en resurs typ**. Du kanske ser det här felet när du flyttar en resurs till en ny prenumeration, men prenumerationen har aldrig använts med den resurs typen.
 
    Använd följande kommandon för att hämta registreringsstatus PowerShell:
 
@@ -86,10 +86,10 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
 
 1. Det konto som flyttar resurser måste ha minst följande behörigheter:
 
-   * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** på resursgrupp för källa.
-   * **Microsoft.Resources/subscriptions/resourceGroups/write** på målresursgruppen.
+   * **Microsoft. Resources/Subscriptions/resourceGroups/moveResources/åtgärd** för käll resurs gruppen.
+   * **Microsoft. Resources/Subscriptions/resourceGroups/Write** på mål resurs gruppen.
 
-1. Kontrollera prenumerationskvoter för den prenumeration som du flyttar resurser till innan du flyttar resurser. Om du flytta resurserna innebär prenumerationen kommer att överskrida gränsen, måste du granska om du kan begära en ökning av kvoten. En lista över begränsningar och hur du begär en ökning, se [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+1. Kontrollera prenumerationskvoter för den prenumeration som du flyttar resurser till innan du flyttar resurser. Om du flytta resurserna innebär prenumerationen kommer att överskrida gränsen, måste du granska om du kan begära en ökning av kvoten. En lista över gränser och hur du begär en ökning finns i [Azure-prenumerationer, tjänst gränser, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 1. **För att flytta över prenumerationer måste resursen och dess beroende resurser finnas i samma resurs grupp och de måste flyttas tillsammans.** En virtuell dator med Managed disks skulle till exempel kräva att den virtuella datorn och de hanterade diskarna flyttas tillsammans, tillsammans med andra beroende resurser.
 
@@ -111,12 +111,12 @@ I illustrations syfte har vi bara en beroende resurs.
 
 ## <a name="validate-move"></a>Verifiera flytt
 
-Den [verifiera flyttåtgärden](/rest/api/resources/resources/validatemoveresources) kan du testa ditt move-scenario utan att faktiskt flytta resurserna. Använd den här åtgärden för att kontrol lera om flytten kommer att lyckas. Verifiering anropas automatiskt när du skickar en flyttnings förfrågan. Använd endast den här åtgärden när du måste för att fastställa resultaten. Om du vill köra den här åtgärden, måste den:
+Med [åtgärden verifiera flytt](/rest/api/resources/resources/validatemoveresources) kan du testa flytt scenariot utan att faktiskt flytta resurserna. Använd den här åtgärden för att kontrol lera om flytten kommer att lyckas. Verifiering anropas automatiskt när du skickar en flyttnings förfrågan. Använd endast den här åtgärden när du måste för att fastställa resultaten. Om du vill köra den här åtgärden, måste den:
 
 * namn på resursgrupp för källa
 * resurs-ID för målresursgruppen
 * resurs-ID för varje resurs att flytta
-* den [åtkomsttoken](/rest/api/azure/#acquire-an-access-token) för ditt konto
+* åtkomsttoken [för ditt](/rest/api/azure/#acquire-an-access-token) konto
 
 Skicka följande begäran:
 
@@ -147,7 +147,7 @@ retry-after: 15
 ...
 ```
 
-202 statuskoden anger verifieringsförfrågan togs emot, men den inte har fastställt om flyttåtgärden lyckas. Den `location` värdet innehåller en URL som används för att kontrollera statusen för långvarig åtgärd.  
+202 statuskoden anger verifieringsförfrågan togs emot, men den inte har fastställt om flyttåtgärden lyckas. `location`-värdet innehåller en URL som du använder för att kontrol lera status för den tids krävande åtgärden.  
 
 Om du vill kontrollera statusen genom att skicka följande begäran:
 
@@ -156,7 +156,7 @@ GET <location-url>
 Authorization: Bearer <access-token>
 ```
 
-Medan åtgärden körs, fortsätta att ta emot 202 statuskoden. Vänta antalet sekunder som anges i den `retry-after` värdet innan du försöker igen. Om åtgärden för att flytta verifieras felmeddelandet 204 statuskoden. Om flytten valideringen misslyckas visas ett felmeddelande som:
+Medan åtgärden körs, fortsätta att ta emot 202 statuskoden. Vänta antalet sekunder som anges i `retry-after` svärdet innan du försöker igen. Om åtgärden för att flytta verifieras felmeddelandet 204 statuskoden. Om flytten valideringen misslyckas visas ett felmeddelande som:
 
 ```json
 {"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
@@ -174,7 +174,7 @@ Välj resurser att flytta och målresursgruppen. Bekräfta att du behöver uppda
 
 ![Välj mål](./media/move-resource-group-and-subscription/select-destination.png)
 
-I **meddelanden**, du ser att flyttåtgärden körs.
+I **aviseringar**ser du att flytt åtgärden körs.
 
 ![Visa flytta status](./media/move-resource-group-and-subscription/show-status.png)
 
@@ -184,7 +184,7 @@ När den har slutförts meddelas du om resultatet.
 
 Om du får ett fel meddelande kan du läsa mer i [Felsöka flytt av Azure-resurser till en ny resurs grupp eller prenumeration](troubleshoot-move.md).
 
-## <a name="use-azure-powershell"></a>Använd Azure PowerShell
+## <a name="use-azure-powershell"></a>Använda Azure PowerShell
 
 Om du vill flytta befintliga resurser till en annan resurs grupp eller prenumeration använder du kommandot [Move-AzResource](/powershell/module/az.resources/move-azresource) . I följande exempel visas hur du flyttar flera resurser till en ny resurs grupp.
 
@@ -194,13 +194,13 @@ $plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
 Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
-Om du vill flytta till en ny prenumeration kan innehålla ett värde för den `DestinationSubscriptionId` parametern.
+Om du vill flytta till en ny prenumeration anger du ett värde för parametern `DestinationSubscriptionId`.
 
 Om du får ett fel meddelande kan du läsa mer i [Felsöka flytt av Azure-resurser till en ny resurs grupp eller prenumeration](troubleshoot-move.md).
 
 ## <a name="use-azure-cli"></a>Använda Azure CLI
 
-Flytta befintliga resurser till en annan resursgrupp eller prenumeration genom att använda den [az resursflytt](/cli/azure/resource?view=azure-cli-latest#az-resource-move) kommando. Ange resurs-ID resurser att flytta. I följande exempel visas hur du flyttar flera resurser till en ny resurs grupp. I den `--ids` parameter, ange en blankstegsavgränsad lista med resurs-ID för att flytta.
+Om du vill flytta befintliga resurser till en annan resurs grupp eller prenumeration använder du kommandot [AZ Resource Move](/cli/azure/resource?view=azure-cli-latest#az-resource-move) . Ange resurs-ID resurser att flytta. I följande exempel visas hur du flyttar flera resurser till en ny resurs grupp. I parametern `--ids` anger du en blankstegsavgränsad lista över resurs-ID: n som ska flyttas.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
@@ -208,11 +208,11 @@ plan=$(az resource show -g OldRG -n ExamplePlan --resource-type "Microsoft.Web/s
 az resource move --destination-group newgroup --ids $webapp $plan
 ```
 
-Om du vill flytta till en ny prenumeration, ange den `--destination-subscription-id` parametern.
+Om du vill flytta till en ny prenumeration anger du parametern `--destination-subscription-id`.
 
 Om du får ett fel meddelande kan du läsa mer i [Felsöka flytt av Azure-resurser till en ny resurs grupp eller prenumeration](troubleshoot-move.md).
 
-## <a name="use-rest-api"></a>Använd REST-API
+## <a name="use-rest-api"></a>Använda REST-API
 
 Om du vill flytta befintliga resurser till en annan resurs grupp eller prenumeration använder du åtgärden [Flytta resurser](/rest/api/resources/Resources/MoveResources) .
 
@@ -231,7 +231,7 @@ I begärandetexten anger du målresursgruppen och resurser för att flytta.
 
 Om du får ett fel meddelande kan du läsa mer i [Felsöka flytt av Azure-resurser till en ny resurs grupp eller prenumeration](troubleshoot-move.md).
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **Fråga: min resurs flytt åtgärd, som vanligt vis tar några minuter, har körts i nästan en timme. Finns det något fel?**
 

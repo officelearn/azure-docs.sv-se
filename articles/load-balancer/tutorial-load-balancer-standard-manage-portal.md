@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 4d4703ccb4ee96eb69a780f91eae1eb6da9e1578
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5b39186a39fbd2398fb4045ba62797e321fc3284
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225185"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249854"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Självstudie: Belastningsutjämna internettrafik till virtuella datorer med hjälp av Azure-portalen
 
@@ -52,8 +52,8 @@ I det här avsnittet skapar du en Standard Load Balancer som hjälper till att b
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv *myResourceGroupSLB* i text rutan.|
     | Namn                   | *myLoadBalancer*                                   |
-    | Region         | Välj **Västeuropa**.                                        |
-    | Typ          | Välj **Offentlig**.                                        |
+    | Region         | Välj **Europa, västra**.                                        |
+    | Typ          | Välj **Offentligt**.                                        |
     | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
@@ -116,22 +116,20 @@ En lastbalanseringsregel används för att definiera hur trafiken ska distribuer
 
 I det här avsnittet skapar du ett virtuellt nätverk, skapar tre virtuella datorer för den Load Balancerens backend-pool och installerar sedan IIS på de virtuella datorerna för att testa Load Balancer.
 
-### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
+## <a name="virtual-network-and-parameters"></a>Virtuellt nätverk och parametrar
 
-1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
-2. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
+I det här avsnittet måste du ersätta följande parametrar i stegen med informationen nedan:
 
-    | Inställning | Värde |
-    | ------- | ----- |
-    | Namn | Ange *myVNet*. |
-    | Adressutrymme | Ange *10.1.0.0/16*. |
-    | Prenumeration | Välj din prenumeration.|
-    | Resursgrupp | Välj befintlig resurs- *myResourceGroupSLB*. |
-    | Plats | Välj **Västeuropa**.|
-    | Undernät – namn | Ange *myBackendSubnet*. |
-    | Undernät – adressintervall | Ange *10.1.0.0/24*. |
-    
-3. Lämna resten av standardinställningarna och välj **Skapa**.
+| Parameter                   | Värde                |
+|-----------------------------|----------------------|
+| **\<resurs-grupp-namn >**  | myResourceGroupSLB (Välj en befintlig resurs grupp) |
+| **\<virtuella-nätverks namn >** | myVNet          |
+| **\<region – namn >**          | Europa, västra      |
+| **\<IPv4-adress utrymme >**   | 10.1.0.0 \ 16          |
+| **\<under nätets namn >**          | mySubnet        |
+| **\<undernät – adress intervall >** | 10.1.0.0 \ 24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machines"></a>Skapa virtuella datorer
 

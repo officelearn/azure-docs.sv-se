@@ -4,12 +4,12 @@ description: Lär dig hur du använder Ansible för att hantera dina dynamiska A
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: d2ebf202cfc9f94b28fc7a512e1fea452401aec6
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: cd225dcf8a0c307d49e985817b71c491559edb14
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77193607"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247859"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Självstudie: Konfigurera dynamiska lager för dina Azure-resurser med Ansible
 
@@ -32,7 +32,7 @@ Ansible kan användas för att hämta lagerinformation från olika källor (där
 
 ## <a name="create-the-test-vms"></a>Skapa de virtuella test datorerna
 
-1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Öppna [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
@@ -91,25 +91,25 @@ Ansible innehåller ett Python-skript med namnet [azure_rm. py](https://github.c
 
 1. Använd GNU-kommandot `wget` för att hämta skriptet `azure_rm.py`:
 
-    ```azurecli-interactive
+    ```python
     wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
     ```
 
 1. Använd kommandot `chmod` för att ändra åtkomstbehörigheterna till skriptet `azure_rm.py`. Följande kommando använder parametern `+x` för att tillåta körning av den angivna filen (`azure_rm.py`):
 
-    ```azurecli-interactive
+    ```python
     chmod +x azure_rm.py
     ```
 
 1. Använd [ansible-kommandot](https://docs.ansible.com/ansible/2.4/ansible.html) för att ansluta till din resursgrupp: 
 
-    ```azurecli-interactive
+    ```python
     ansible -i azure_rm.py ansible-inventory-test-rg -m ping 
     ```
 
 1. När anslutningen har upprättats ser du resultat som liknar följande utdata:
 
-    ```Output
+    ```output
     ansible-inventory-test-vm1 | SUCCESS => {
         "changed": false,
         "failed": false,
@@ -147,7 +147,7 @@ Från och med Ansible 2,8 tillhandahåller Ansible ett [plugin-program för Azur
 
 1. När du kör föregående kommando kan du få följande fel meddelande:
 
-    ```Output
+    ```output
     Failed to connect to the host via ssh: Host key verification failed.
     ```
     
@@ -159,7 +159,7 @@ Från och med Ansible 2,8 tillhandahåller Ansible ett [plugin-program för Azur
 
 1. När du kör Spelbok visas resultat som liknar följande utdata:
   
-    ```Output
+    ```output
     ansible-inventory-test-vm1_0324 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
     ansible-inventory-test-vm2_8971 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
     ```
@@ -170,7 +170,7 @@ Från och med Ansible 2,8 tillhandahåller Ansible ett [plugin-program för Azur
 
 - När du har angett en tagg måste du "Aktivera" den taggen. Ett sätt att aktivera en tagg är genom att exportera taggen till en miljö variabel `AZURE_TAGS` via kommandot `export`:
 
-    ```azurecli-interactive
+    ```console
     export AZURE_TAGS=nginx
     ```
     
@@ -182,7 +182,7 @@ Från och med Ansible 2,8 tillhandahåller Ansible ett [plugin-program för Azur
     
     Nu visas bara en virtuell dator (den vars tagg matchar värdet som exporteras till `AZURE_TAGS` miljövariabeln):
 
-    ```Output
+    ```output
        ansible-inventory-test-vm1 | SUCCESS => {
         "changed": false,
         "failed": false,
@@ -194,7 +194,7 @@ Från och med Ansible 2,8 tillhandahåller Ansible ett [plugin-program för Azur
 
 - Kör kommandot `ansible-inventory -i myazure_rm.yml --graph` för att få följande utdata:
 
-    ```Output
+    ```output
         @all:
           |--@tag_Ansible_nginx:
           |  |--ansible-inventory-test-vm1_9e2f
@@ -215,7 +215,7 @@ Syftet med taggar är att göra det möjligt att snabbt och enkelt arbeta med un
 
 1. Skapa en fil med namnet `nginx.yml`:
 
-   ```azurecli-interactive
+   ```console
    code nginx.yml
    ```
 
@@ -255,7 +255,7 @@ Syftet med taggar är att göra det möjligt att snabbt och enkelt arbeta med un
 
 1. När du har kört Spelbok visas utdata som liknar följande resultat:
 
-    ```Output
+    ```output
     PLAY [Install and start Nginx on an Azure virtual machine] 
 
     TASK [Gathering Facts] 
@@ -285,13 +285,13 @@ Det här avsnittet illustrerar en metod för att testa att Nginx är installerat
 
 1. När du är ansluten till den virtuella datorn `ansible-inventory-test-vm1` kör du kommandot [nginx -v](https://nginx.org/en/docs/switches.html) för att avgöra huruvida Nginx är installerat.
 
-    ```azurecli-interactive
+    ```console
     nginx -v
     ```
 
 1. När du kör kommandot `nginx -v` ser du den Nginx-version (andra raden) som anger att Nginx är installerat.
 
-    ```Output
+    ```output
     tom@ansible-inventory-test-vm1:~$ nginx -v
 
     nginx version: nginx/1.10.3 (Ubuntu)
@@ -303,7 +303,7 @@ Det här avsnittet illustrerar en metod för att testa att Nginx är installerat
 
 1. Genom att utföra föregående steg för `ansible-inventory-test-vm2` virtuella datorn får du ett informations meddelande som anger var du kan hämta nginx (vilket innebär att du inte har det installerat i den här punkten):
 
-    ```Output
+    ```output
     tom@ansible-inventory-test-vm2:~$ nginx -v
     The program 'nginx' can be found in the following packages:
     * nginx-core

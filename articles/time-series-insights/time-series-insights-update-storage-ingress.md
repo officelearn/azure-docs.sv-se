@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 44c942e43cd4be1d04f56e828e3e17c58713a706
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 2f12cf303c58f0fa614c59ffe643c6c2ee5d2415
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77559852"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246192"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Data lagring och Inträng i Azure Time Series Insights för hands version
 
@@ -159,10 +159,10 @@ Se följande resurser för att lära dig mer om hur du optimerar hubben och part
 
 När du skapar en Time Series Insights för hands version av SKU-miljö ( *betala per* användning) skapar du två Azure-resurser:
 
-* En Azure Time Series Insights för hands versions miljö som kan konfigureras för varm lagring.
+* En Azure Time Series Insights för hands versions miljö som kan konfigureras för varm data lagring.
 * Ett Azure Storage generella v1 BLOB-konto för kall data lagring.
 
-Data i det varmt arkivet är bara tillgängliga via [Time Series-frågan](./time-series-insights-update-tsq.md) och [Azure Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md). 
+Data i det varmt arkivet är bara tillgängliga via [Time Series-frågan](./time-series-insights-update-tsq.md) och [Azure Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md). Ditt varma Store kommer att innehålla senaste data inom den [kvarhållningsperiod](./time-series-insights-update-plan.md#the-preview-environment) som väljs när du skapar Time Series Insightss miljön.
 
 Time Series Insights för hands version sparar dina kall data till Azure Blob Storage i [fil formatet Parquet](#parquet-file-format-and-folder-structure). Time Series Insights för hands versionen hanterar den här kall lagrings informationen exklusivt, men den är tillgänglig så att du kan läsa direkt som standard Parquet-filer.
 
@@ -186,12 +186,7 @@ En utförlig beskrivning av Azure Blob Storage finns i Introduktion till [Storag
 
 När du skapar en Azure Time Series Insights för hands versions PAYG-miljö skapas ett Azure Storage allmänt v1-BLOB-konto som ditt långsiktiga kall arkiv.  
 
-Azure Time Series Insights för hands version publicerar upp till två kopior av varje händelse i ditt Azure Storage-konto. Den ursprungliga kopian har händelser sorterade efter Inhämtnings tid. Den händelse ordningen **bevaras alltid** så att andra tjänster kan komma åt dina händelser utan sekvensering av problem. 
-
-> [!NOTE]
-> Du kan också använda Spark, Hadoop och andra välbekanta verktyg för att bearbeta RAW Parquet-filerna. 
-
-Time Series Insights Preview partitionerar också om de Parquet-filer som ska optimeras för Time Series Insightss frågan. Den här ompartitionerade kopian av data sparas också. 
+Azure Time Series Insights för hands versionen behåller upp till två kopior av varje händelse i ditt Azure Storage-konto. En kopia lagrar händelser sorterade efter Inhämtnings tid, och tillåter alltid åtkomst till händelser i en tidsordnad sekvens. Med tiden skapar Time Series Insights för hands versionen även en ompartitionerad kopia av data för att optimera för att genomföra Time Series Insights fråga. 
 
 Under den offentliga för hands versionen lagras data på obestämd tid i ditt Azure Storage-konto.
 
@@ -199,15 +194,11 @@ Under den offentliga för hands versionen lagras data på obestämd tid i ditt A
 
 För att säkerställa frågornas prestanda och data tillgänglighet ska du inte redigera eller ta bort blobbar som Time Series Insights för hands versionen skapar.
 
-#### <a name="accessing-and-exporting-data-from-time-series-insights-preview"></a>Komma åt och exportera data från Time Series Insights för hands version
+#### <a name="accessing-time-series-insights-preview-cold-store-data"></a>Komma åt Time Series Insights för hands version av data 
 
-Du kanske vill komma åt data som visas i Time Series Insights Preview Explorer som används tillsammans med andra tjänster. Du kan till exempel använda dina data för att skapa en rapport i Power BI eller för att träna en maskin inlärnings modell med hjälp av Azure Machine Learning Studio. Eller så kan du använda dina data för att transformera, visualisera och modellera i dina Jupyter-anteckningsböcker.
+Förutom att komma åt dina data från den [Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md) -och [Time Series-frågan](./time-series-insights-update-tsq.md), kan du också vilja komma åt dina data direkt från Parquet-filerna som lagras i kyl lagret. Du kan till exempel läsa, transformera och rensa data i en Jupyter Notebook och sedan använda den för att träna din Azure Machine Learning-modell i samma Spark-arbetsflöde.
 
-Du kan komma åt dina data på tre sätt:
-
-* I Time Series Insights Preview Explorer. Du kan exportera data som en CSV-fil från Utforskaren. Mer information finns i [Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md).
-* Från Time Series Insights för hands versions-API med Get Events-frågan. Om du vill veta mer om detta API, Läs [tids serie fråga](./time-series-insights-update-tsq.md).
-* Direkt från ett Azure Storage-konto. Du behöver Läs behörighet till det konto som du använder för att komma åt dina Time Series Insights för hands versions data. Mer information finns i [Hantera åtkomst till dina lagrings konto resurser](../storage/blobs/storage-manage-access-to-resources.md).
+Om du vill komma åt data direkt från ditt Azure Storage-konto behöver du Läs behörighet till det konto som används för att lagra Time Series Insights för hands versions data. Du kan sedan läsa valda data baserat på skapande tiden för den Parquet-fil som finns i mappen `PT=Time` som beskrivs nedan i avsnittet [fil format för Parquet](#parquet-file-format-and-folder-structure) .  Mer information om hur du aktiverar Läs åtkomst till ditt lagrings konto finns i [Hantera åtkomst till dina lagrings konto resurser](../storage/blobs/storage-manage-access-to-resources.md).
 
 #### <a name="data-deletion"></a>Borttagning av data
 
@@ -215,21 +206,21 @@ Ta inte bort Time Series Insights för hands versions filerna. Hantera endast re
 
 ### <a name="parquet-file-format-and-folder-structure"></a>Parquet-filformat och mappstruktur
 
-Parquet är ett kolumn fil format med öppen källkod som har utformats för effektiv lagring och prestanda. Time Series Insights för hands version använder Parquet av dessa orsaker. Den partitionerar data efter tids serie-ID för frågans prestanda i skala.  
+Parquet är ett kolumn fil format med öppen källkod som utformats för effektiv lagring och prestanda. Time Series Insights för hands versionen använder Parquet för att aktivera Time Series ID-baserade frågeresultat i stor skala.  
 
 Mer information om filtypen Parquet finns i [Parquet-dokumentationen](https://parquet.apache.org/documentation/latest/).
 
 Time Series Insights för hands version lagrar kopior av dina data på följande sätt:
 
-* Den första kopian partitioneras efter inmatnings tiden och lagrar data ungefär i den ordning de anländer. Informationen finns i mappen `PT=Time`:
+* Den första kopian partitioneras efter inmatnings tiden och lagrar data ungefär i den ordning de anländer. Dessa data finns i mappen `PT=Time`:
 
   `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-* Den andra partitionerade kopian partitioneras av en gruppering av Time Series-ID: n och finns i mappen `PT=TsId`:
+* Den andra ompartitionerade kopian grupperas efter Time Series-ID: n och finns i mappen `PT=TsId`:
 
   `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-I båda fallen motsvarar tids värdena skapande tid för BLOB. Data i `PT=Time`-mappen bevaras. Data i `PT=TsId` mapp kommer att optimeras för frågor över tid och kommer inte att vara statiska.
+I båda fallen motsvarar egenskapen Time för Parquet-filen den tid då bloben skapades. Data i mappen `PT=Time` bevaras utan ändringar när de skrivs till filen. Data i `PT=TsId`-mappen optimeras för frågor över tid och är inte statisk.
 
 > [!NOTE]
 > * `<YYYY>` mappar till en 4-siffrig års representation.
@@ -239,10 +230,10 @@ I båda fallen motsvarar tids värdena skapande tid för BLOB. Data i `PT=Time`-
 Time Series Insights för hands versions händelser mappas till fil innehållet i Parquet på följande sätt:
 
 * Varje händelse mappas till en enda rad.
-* Varje rad **innehåller kolumnen tidsstämpel med** en tids stämpling för händelsen. Egenskapen Time-stämpel är aldrig null. Den är som standard **händelse i kö** om egenskapen Time-stämpel inte anges i händelse källan. Tidstämpeln är alltid i UTC.
-* Varje rad innehåller Time Series ID-kolumn (er) som definieras när Time Series Insightss miljön skapas. Egenskaps namnet innehåller `_string` suffixet.
+* Varje rad **innehåller kolumnen tidsstämpel med** en tids stämpling för händelsen. Egenskapen Time-stämpel är aldrig null. Den är som standard **händelse i kö** om egenskapen Time-stämpel inte anges i händelse källan. Den lagrade tidstämpeln är alltid i UTC.
+* Varje rad innehåller Time Series-ID: n (TSID) som definieras när Time Series Insightss miljön skapas. TSID-egenskapens namn innehåller `_string` suffixet.
 * Alla andra egenskaper som skickas som telemetridata mappas till kolumn namn som slutar med `_string` (sträng), `_bool` (Boolean), `_datetime` (datetime) eller `_double` (Double), beroende på egenskaps typen.
-* Det här mappnings schemat gäller för den första versionen av fil formatet som refereras till som **V = 1**. När den här funktionen utvecklas kan namnet ökas.
+* Det här mappnings schemat gäller för den första versionen av fil formatet som refereras till som **V = 1** och lagras i Bask-mappen med samma namn. När den här funktionen utvecklas kan det här mappnings schemat ändras och referens namnet ökas.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: 940f27612b26c5baace7a19d2212fa6d8899e6e5
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: ddd08f87fb7847a81b28b18c1dedc1c4f0a7a169
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834917"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246226"
 ---
 # <a name="azure-dedicated-hosts"></a>Dedikerade Azure-värdar
 
@@ -32,3 +32,5 @@ Den dedikerade Azure-värden är en tjänst som tillhandahåller fysiska servrar
 - Mer information finns i Översikt över [dedikerade värdar](dedicated-hosts.md) .
 
 - Det finns en exempel mall som du hittar [här](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), som använder både zoner och fel domäner för maximal återhämtning i en region.
+
+- Du kan också spara pengar med en [reserverad instans av Azure-dedikerade värdar](../prepay-dedicated-hosts-reserved-instances.md).

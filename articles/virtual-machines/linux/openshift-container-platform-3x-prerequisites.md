@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 069561c4bed55bf6021b594d693e076ef8d313bd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 76e7a9aa9c0f17501885c8bd06c6997fdc8d2104
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035474"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255694"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Vanliga krav för distribution av OpenShift container Platform 3,11 i Azure
 
@@ -102,9 +102,9 @@ OpenShift kommunicerar med Azure med hjälp av ett användar namn och lösen ord
 
 Skapa ett huvud namn för tjänsten med [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp) och generera de autentiseringsuppgifter som OpenShift behöver.
 
-I följande exempel skapas ett huvud namn för tjänsten som tilldelar den behörighet till en resurs grupp med namnet openshiftrg.
+I följande exempel skapas ett huvud namn för tjänsten som tilldelar den behörighet till en resurs grupp med namnet *openshiftrg*.
 
-Skapa först resurs gruppen med namnet openshiftrg:
+Skapa först resurs gruppen med namnet *openshiftrg*:
 
 ```azurecli
 az group create -l eastus -n openshiftrg

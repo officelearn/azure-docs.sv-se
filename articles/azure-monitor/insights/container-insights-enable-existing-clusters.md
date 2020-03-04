@@ -3,12 +3,12 @@ title: Övervaka ett Azure Kubernetes service (AKS)-kluster distribuerat | Micro
 description: Lär dig hur du aktiverar övervakning av ett Azure Kubernetes service-kluster (AKS) med Azure Monitor för behållare som redan har distribuerats i din prenumeration.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 57d492778828254da7a6899641ab9dbd19a40154
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8589ea71b5c7affadc61d5e4543f734a660ab543
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977799"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250630"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Aktivera övervakning av AKS-kluster (Azure Kubernetes service) redan distribuerat
 
@@ -23,7 +23,7 @@ Du kan aktivera övervakning av ett AKS-kluster som redan har distribuerats med 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="enable-using-azure-cli"></a>Aktivera med hjälp av Azure CLI
 
@@ -35,7 +35,7 @@ az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMana
 
 Utdata ska likna följande:
 
-```azurecli
+```output
 provisioningState       : Succeeded
 ```
 
@@ -51,7 +51,7 @@ Om du hellre vill integrera med en befintlig arbets yta utför du följande steg
 
     Utdata ska likna följande:
 
-    ```azurecli
+    ```output
     Name                                  CloudName    SubscriptionId                        State    IsDefault
     ------------------------------------  -----------  ------------------------------------  -------  -----------
     Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
@@ -67,7 +67,7 @@ Om du hellre vill integrera med en befintlig arbets yta utför du följande steg
 
 3. I följande exempel visas listan över arbets ytor i dina prenumerationer i standardformatet JSON.
 
-    ```
+    ```azurecli
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
@@ -81,13 +81,13 @@ Om du hellre vill integrera med en befintlig arbets yta utför du följande steg
 
     Utdata ska likna följande:
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 
 ## <a name="enable-using-terraform"></a>Aktivera med hjälp av Terraform
 
-1. Lägg till den **oms_agent** tillägg profil i den befintliga [azurerm_kubernetes_cluster resurs](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile)
+1. Lägg till profilen för **oms_agent** -tillägg i den befintliga [azurerm_kubernetes_cluster resursen](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile)
 
    ```
    addon_profile {
@@ -98,27 +98,27 @@ Om du hellre vill integrera med en befintlig arbets yta utför du följande steg
    }
    ```
 
-2. Lägg till den [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) följa stegen i Terraform-dokumentationen.
+2. Lägg till [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) följa stegen i terraform-dokumentationen.
 
 ## <a name="enable-from-azure-monitor-in-the-portal"></a>Aktivera från Azure Monitor i portalen
 
 Om du vill aktivera övervakning av AKS-kluster i Azure-portalen från Azure Monitor, gör du följande:
 
-1. I Azure-portalen väljer du **övervakaren**.
+1. I Azure Portal väljer du **övervaka**.
 
 2. Välj **behållare** i listan.
 
-3. På den **skärm – behållare** väljer **icke-övervakas kluster**.
+3. På sidan **Monitor-containers** väljer du **icke-övervakade kluster**.
 
-4. Från listan över ej övervakade kluster, hitta behållaren i listan och klicka på **aktivera**.   
+4. I listan över icke-övervakade kluster letar du reda på behållaren i listan och klickar på **Aktivera**.   
 
-5. På den **Kom igång med Azure Monitor för behållare** om du har en befintlig Log Analytics-arbetsyta i samma prenumeration som klustret, markerar du den i den nedrullningsbara listan.  
+5. På sidan **onboarding to Azure Monitor for containers** , om du har en befintlig Log Analytics arbets yta i samma prenumeration som klustret, väljer du den i list rutan.  
     Listan förväljer standardarbetsytan och plats som AKS-behållare distribueras till i prenumerationen.
 
     ![Aktivera AKS behållareinsikter övervakning](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
 
     >[!NOTE]
-    >Om du vill skapa en ny Log Analytics-arbetsyta för att lagra övervakningsdata från klustret, följer du anvisningarna i [skapa en Log Analytics-arbetsyta](../../azure-monitor/learn/quick-create-workspace.md). Var noga med att skapa arbetsytan i samma prenumeration som AKS-behållare distribueras till.
+    >Om du vill skapa en ny Log Analytics-arbetsyta för lagring av övervaknings data från klustret, följer du anvisningarna i [skapa en Log Analytics arbets yta](../../azure-monitor/learn/quick-create-workspace.md). Var noga med att skapa arbetsytan i samma prenumeration som AKS-behållare distribueras till.
 
 När du har aktiverat övervakning, kan det ta ungefär 15 minuter innan du kan visa hälsomått för klustret.
 
@@ -128,7 +128,7 @@ Gör så här för att aktivera övervakning direkt från ett av dina AKS-kluste
 
 1. Välj **Alla tjänster** i Azure-portalen.
 
-2. I listan över resurser, börjar du skriva **behållare**.  Filtreras listan baserat på dina indata.
+2. Börja skriva **behållare**i listan över resurser.  Filtreras listan baserat på dina indata.
 
 3. Välj **Kubernetes-tjänster**.  
 
@@ -136,15 +136,15 @@ Gör så här för att aktivera övervakning direkt från ett av dina AKS-kluste
 
 4. I listan över behållare, väljer du en behållare.
 
-5. På översiktssidan behållaren väljer **övervaka behållare**.  
+5. På sidan behållar översikt väljer du **övervaka behållare**.  
 
-6. På den **Kom igång med Azure Monitor för behållare** om du har en befintlig Log Analytics-arbetsyta i samma prenumeration som klustret, markerar du den i den nedrullningsbara listan.  
+6. På sidan **onboarding to Azure Monitor for containers** , om du har en befintlig Log Analytics arbets yta i samma prenumeration som klustret, väljer du den i list rutan.  
     Listan förväljer standardarbetsytan och plats som AKS-behållare distribueras till i prenumerationen.
 
     ![Aktivera hälsoövervakning för AKS-behållare](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
 
     >[!NOTE]
-    >Om du vill skapa en ny Log Analytics-arbetsyta för att lagra övervakningsdata från klustret, följer du anvisningarna i [skapa en Log Analytics-arbetsyta](../../azure-monitor/learn/quick-create-workspace.md). Var noga med att skapa arbetsytan i samma prenumeration som AKS-behållare distribueras till.
+    >Om du vill skapa en ny Log Analytics-arbetsyta för lagring av övervaknings data från klustret, följer du anvisningarna i [skapa en Log Analytics arbets yta](../../azure-monitor/learn/quick-create-workspace.md). Var noga med att skapa arbetsytan i samma prenumeration som AKS-behållare distribueras till.
 
 När du har aktiverat övervakning, kan det ta ungefär 15 minuter innan du kan visa användningsdata för klustret.
 
@@ -159,7 +159,7 @@ Den här metoden innehåller två JSON-mallar. En mall anger konfigurationen fö
 >Mallen måste distribueras i samma resursgrupp som klustret.
 >
 
-Log Analytics arbets ytan måste skapas innan du aktiverar övervakning med Azure PowerShell eller CLI. För att skapa arbetsytan, du kan konfigurera det via [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), via [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), eller i den [Azure-portalen](../../azure-monitor/learn/quick-create-workspace.md).
+Log Analytics arbets ytan måste skapas innan du aktiverar övervakning med Azure PowerShell eller CLI. Om du vill skapa arbets ytan kan du konfigurera den genom [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), via [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)eller i [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
 
 Om du inte är bekant med begreppet att distribuera resurser med hjälp av en mall, se:
 
@@ -167,7 +167,7 @@ Om du inte är bekant med begreppet att distribuera resurser med hjälp av en ma
 
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. Du kan identifiera din version genom att köra `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-and-execute-a-template"></a>Skapa och köra en mall
 
@@ -227,7 +227,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
     }
     ```
 
-2. Spara filen som **existingClusterOnboarding.json** till en lokal mapp.
+2. Spara filen som **existingClusterOnboarding. JSON** i en lokal mapp.
 
 3. Klistra in följande JSON-syntax i filen:
 
@@ -256,11 +256,11 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
     }
     ```
 
-4. Redigera värdena för **aksResourceId** och **aksResourceLocation** med hjälp av värdena på **AKS översikts** sida för AKS-klustret. Värdet för **workspaceResourceId** är fullständiga resurs-ID för Log Analytics-arbetsytan, som innehåller namnet på arbetsytan.
+4. Redigera värdena för **aksResourceId** och **aksResourceLocation** med hjälp av värdena på **AKS översikts** sida för AKS-klustret. Värdet för **workspaceResourceId** är det fullständiga resurs-ID: t för din Log Analytics-arbetsyta, som innehåller namnet på arbets ytan.
 
     Redigera värdena för **aksResourceTagValues** så att de matchar de befintliga taggvärde som angetts för AKS-klustret.
 
-5. Spara filen som **existingClusterParam.json** till en lokal mapp.
+5. Spara filen som **existingClusterParam. JSON** i en lokal mapp.
 
 6. Nu är det dags att distribuera den här mallen.
 
@@ -272,7 +272,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
 
        Konfigurationsändringen kan ta några minuter att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
 
-       ```powershell
+       ```output
        provisioningState       : Succeeded
        ```
 
@@ -286,7 +286,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
 
        Konfigurationsändringen kan ta några minuter att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
 
-       ```azurecli
+       ```output
        provisioningState       : Succeeded
        ```
 
@@ -294,7 +294,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
 
 ## <a name="verify-agent-and-solution-deployment"></a>Kontrollera distributionen av agenten och lösning
 
-Med agentversion *06072018* eller senare, kan du kontrollera att både agenten och lösningen har distribuerats. Du kan kontrollera endast agentdistribution med tidigare versioner av agenten.
+Med agent version *06072018* eller senare kan du kontrol lera att både agenten och lösningen har distribuerats. Du kan kontrollera endast agentdistribution med tidigare versioner av agenten.
 
 ### <a name="agent-version-06072018-or-later"></a>Agentversion 06072018 eller senare
 
@@ -306,7 +306,7 @@ kubectl get ds omsagent --namespace=kube-system
 
 Utdata bör likna följande, vilket betyder att den har distribuerats korrekt:
 
-```
+```output
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
@@ -320,7 +320,7 @@ kubectl get deployment omsagent-rs -n=kube-system
 
 Utdata bör likna följande, vilket betyder att den har distribuerats korrekt:
 
-```
+```output
 User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system
 NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
 omsagent   1         1         1            1            3h
@@ -328,7 +328,7 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>Tidigare än 06072018 agentversion
 
-Verifiera att agentversionen Log Analytics som publicerades före *06072018* har distribuerats korrekt, kör du följande kommando:  
+Kör följande kommando för att kontrol lera att den Log Analytics agent version som släpptes innan *06072018* distribueras korrekt:  
 
 ```
 kubectl get ds omsagent --namespace=kube-system
@@ -336,7 +336,7 @@ kubectl get ds omsagent --namespace=kube-system
 
 Utdata bör likna följande, vilket betyder att den har distribuerats korrekt:  
 
-```
+```output
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
@@ -344,7 +344,7 @@ omsagent   2         2         2         2            2           beta.kubernete
 
 ## <a name="view-configuration-with-cli"></a>Visa konfiguration med CLI
 
-Använd den `aks show` för att hämta information om sådana som är den lösning som har aktiverats eller inte, vad är Log Analytics-arbetsyta resourceID och sammanfattningsinformation om klustret.  
+Använd kommandot `aks show` för att få information om till exempel att lösningen är aktive rad eller inte, vad är inställningen för Log Analytics-arbetsytan och sammanfattningen av klustret.  
 
 ```azurecli
 az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
@@ -352,7 +352,7 @@ az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 
 Efter ett par minuter kommandot har slutförts och returnerar JSON-formaterad information om lösningen.  Resultatet av kommandot ska visa övervakning tillägg profilen och liknar följande Exempelutdata:
 
-```
+```output
 "addonProfiles": {
     "omsagent": {
       "config": {
@@ -365,6 +365,6 @@ Efter ett par minuter kommandot har slutförts och returnerar JSON-formaterad in
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om det uppstår problem vid försök att publicera lösningen kan du granska den [felsökningsguide](container-insights-troubleshoot.md)
+* Läs [fel söknings guiden](container-insights-troubleshoot.md) om du får problem när du försöker publicera lösningen
 
 * När övervakning har Aktiver ATS för att samla in hälso-och resursutnyttjande för ditt AKS-kluster och arbets belastningar som körs på dem, lär [du dig hur du använder](container-insights-analyze.md) Azure Monitor för behållare.

@@ -4,12 +4,12 @@ description: Vanliga frågor och svar om Service Fabric, inklusive funktioner, a
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 17c1d05e119df8207c0599283f1d04b869e8297b
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293529"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254890"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor och svar om Service Fabric
 
@@ -22,7 +22,7 @@ Det finns många vanliga frågor om vad Service Fabric kan göra och hur det ska
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Hur gör jag för att återställa min Service Fabric kluster certifikat?
 
-Att återställa all uppgradering till programmet kräver identifiering av hälso tillstånd innan ditt Service Fabric-klusterkvorum genomför ändringen. genomförda ändringar kan bara vidarebefordras. Det kan vara nödvändigt att återställa klustret med hjälp av kund support tjänster, om en oövervakad ändring av certifikatet har introducerats.  [Service Fabric programmets program uppgradering](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) tillämpar [parametrarna för program uppgradering](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)och ger noll avbrotts löfte.  Efter den rekommenderade program uppgraderingens övervakade läge baseras automatisk förloppet via uppdaterings domäner på hälso kontroller som passerar, och återställs automatiskt om det inte går att uppdatera en standard tjänst.
+Att återställa all uppgradering till programmet kräver identifiering av hälso tillstånd innan ditt Service Fabric-klusterkvorum genomför ändringen. genomförda ändringar kan bara vidarebefordras. Det kan vara nödvändigt att återställa klustret med hjälp av kund support tjänster, om en oövervakad ändring av certifikatet har introducerats.  [Service Fabric programmets program uppgradering](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) tillämpar [parametrarna för program uppgradering](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)och ger noll avbrotts löfte.  Efter den rekommenderade program uppgraderingens övervakade läge baseras automatisk förloppet via uppdaterings domäner på hälso kontroller som passerar, och återställs automatiskt om det inte går att uppdatera en standard tjänst.
  
 Om klustret fortfarande använder den klassiska certifikatets tumavtryck-egenskap i din Resource Manager-mall, rekommenderar vi att du [ändrar klustret från certifikatets tumavtryck till ett eget namn](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), för att utnyttja moderna hemligheter-hanterings funktioner.
 
@@ -34,7 +34,7 @@ Kärn Service Fabric klustring teknik kan användas för att kombinera datorer s
 
 Om du är intresse rad av det här scenariot, uppmuntrar vi dig att kontakta antingen via [listan Service Fabric GitHub-problem](https://github.com/azure/service-fabric-issues) eller genom support representanten för att få ytterligare vägledning. Service Fabrics teamet arbetar för att ge ytterligare klarhet, vägledning och rekommendationer för det här scenariot. 
 
-Några saker som du bör tänka på: 
+Några saker att tänka på: 
 
 1. Service Fabric kluster resursen i Azure är regional idag, precis som de virtuella datorernas skalnings uppsättningar som klustret bygger på. Det innebär att om ett regionalt fel uppstår kan du förlora möjligheten att hantera klustret via Azure Resource Manager eller Azure Portal. Detta kan inträffa även om klustret fortfarande körs och du kommer att kunna interagera med det direkt. Dessutom erbjuder Azure idag inte möjligheten att ha ett enda virtuellt nätverk som kan användas i olika regioner. Det innebär att ett kluster med flera regioner i Azure kräver antingen [offentliga IP-adresser för varje virtuell dator i VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) eller [Azure VPN-gatewayer](../vpn-gateway/vpn-gateway-about-vpngateways.md). De här nätverks valen har olika konsekvenser för kostnader, prestanda och en viss grad av program design, så noggrann analys och planering krävs innan du står inför en sådan miljö.
 2. Underhåll, hantering och övervakning av de här datorerna kan bli krångligt, särskilt när de sträcker sig över olika _typer_ av miljöer, till exempel mellan olika moln leverantörer eller mellan lokala resurser och Azure. Det måste vara viktigt att se till att uppgraderingar, övervakning, hantering och diagnostik förstås för både klustret och programmen innan du kör produktions arbets belastningar i en sådan miljö. Om du redan har erfarenhet av att lösa dessa problem i Azure eller i dina egna data Center, är det troligt att samma lösningar kan användas när du skapar eller kör Service Fabric klustret. 
@@ -101,13 +101,13 @@ Nej. Virtuella datorer med låg prioritet stöds inte.
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Vad är de kataloger och processer som jag behöver undanta när jag kör ett antivirus program i mitt kluster?
 
-| **Antivirus uteslutna kataloger** |
+| **Undantagna Antivirus kataloger** |
 | --- |
 | Program Files\Microsoft Service Fabric |
 | FabricDataRoot (från klusterkonfiguration) |
 | FabricLogRoot (från klusterkonfiguration) |
 
-| **Antivirus undantagna processer** |
+| **Undantagna Antivirus processer** |
 | --- |
 | Fabric.exe |
 | FabricHost.exe |

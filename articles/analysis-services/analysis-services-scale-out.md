@@ -4,15 +4,15 @@ description: Replikera Azure Analysis Services-servrar med skalbarhet. Klient fr
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 03/02/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fd91701a20b8a760eadcafe6f93f9ba5857a1c9f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310194"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247997"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Utskalning för Azure Analysis Services
 
@@ -30,7 +30,7 @@ Oavsett hur många repliker av frågan som du har i en frågenod, distribueras i
 
 Vid utskalning kan det ta upp till fem minuter innan nya repliker av frågan läggs till i frågesyntaxen. När alla nya repliker av repliker är igång är nya klient anslutningar belastningsutjämnade över resurser i frågesyntaxen. Befintliga klient anslutningar ändras inte från den resurs som de för närvarande är anslutna till. Vid skalning i avslutas alla befintliga klient anslutningar till en resurs för en frågegrupp som tas bort från lagringspoolen. Klienterna kan återansluta till en återstående resurs för frågearkivet.
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
 När du konfigurerar utskalning första gången synkroniseras modell databaser på den primära servern *automatiskt* med nya repliker i en ny frågenod. Automatisk synkronisering sker bara en gång. Under den automatiska synkroniseringen kopieras den primära serverns datafiler (krypterade i vila i blob-lagring) till en annan plats, som också krypteras i vila i Blob Storage. Repliker i Frågeredigeraren har sedan *dehydratiseras* med data från den andra uppsättningen filer. 
 
@@ -74,19 +74,23 @@ För högsta prestanda för både bearbetnings-och fråge åtgärder kan du väl
 
 ## <a name="monitor-qpu-usage"></a>Övervaka QPU-användning
 
-Du kan kontrol lera om det är nödvändigt genom att övervaka servern i Azure Portal med hjälp av mått. Om din QPU regelbundet maxas ut, innebär det att antalet frågor mot dina modeller överskrider gränsen för QPU för ditt abonnemang. Längd måttet för programpoolstillstånd ökar också när antalet frågor i kön för trådpoolen överskrider tillgänglig QPU. 
+Du kan kontrol lera om det är nödvändigt genom att [övervaka servern](analysis-services-monitor.md) i Azure Portal med hjälp av mått. Om din QPU regelbundet maxas ut, innebär det att antalet frågor mot dina modeller överskrider gränsen för QPU för ditt abonnemang. Längd måttet för programpoolstillstånd ökar också när antalet frågor i kön för trådpoolen överskrider tillgänglig QPU. 
 
 Ett annat mått att titta på är genomsnittlig QPU av ServerResourceType. Det här måttet jämför genomsnittlig QPU för den primära servern med Query-poolen. 
 
 ![Fråga för att skala ut mått](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
-### <a name="to-configure-qpu-by-serverresourcetype"></a>Konfigurera QPU av ServerResourceType
+**Konfigurera QPU av ServerResourceType**
+
 1. Klicka på **Lägg till mått**i ett mått linje diagram. 
 2. I **resurs**väljer du din server, sedan i **mått namn område**, väljer **Analysis Services standard mått**, sedan i **mått**väljer du **QPU**och väljer sedan **Gmsn**i **agg regering**. 
 3. Klicka på **Använd delning**. 
 4. I **värden**väljer du **ServerResourceType**.  
 
-Läs [Övervaka servermått](analysis-services-monitor.md) för mer information.
+### <a name="detailed-diagnostic-logging"></a>Detaljerad diagnostisk loggning
+
+Använd Azure Monitor loggar för mer detaljerad diagnostik för skalbara server resurser. Med loggar kan du använda Log Analytics frågor för att bryta ut QPU och minne av Server och replik. Läs mer i exempel frågor i [Analysis Services diagnostikloggning](analysis-services-logging.md#example-queries).
+
 
 ## <a name="configure-scale-out"></a>Konfigurera utskalning
 
@@ -112,7 +116,7 @@ I **översikt** > modell > **Synkronisera modell**.
 
 ![Skjutreglage för skala ut](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 
 Använd **synkroniseringsåtgärden** .
 
@@ -127,13 +131,13 @@ Använd **synkroniseringsåtgärden** .
 Retur status koder:
 
 
-|Programmera  |Beskrivning  |
+|Kod  |Beskrivning  |
 |---------|---------|
 |-1     |  Ogiltig       |
 |0     | Replikera        |
 |1     |  Återuppväcks       |
 |2     |   Slutfört       |
-|3     |   Misslyckad      |
+|3     |   Misslyckades      |
 |4     |    Slutför     |
 |||
 
@@ -166,7 +170,7 @@ För SSMS, Visual Studio och anslutnings strängar i PowerShell, Azure Function-
 
 Du kan ändra pris nivån på en server med flera repliker. Samma pris nivå gäller för alla repliker. En skalnings åtgärd förflyttar först alla repliker på en gång och hämtar alla repliker på den nya pris nivån.
 
-## <a name="troubleshoot"></a>Felsökning
+## <a name="troubleshoot"></a>Felsöka
 
 **Problem:** Fel vid hämtning av användare **det går inte att hitta serverns\<namnet på server > instansen i anslutnings läget ReadOnly.**
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/23/2020
 ms.author: juliako
-ms.openlocfilehash: 3984f33cd97ada9b3d5301e45fe3506966880848
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: dac5f75216a8addcaa65407d945a06363e4cbf9d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719678"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251381"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamisk paketering i Media Services v3
 
@@ -44,7 +44,7 @@ Om du planerar att skydda ditt innehåll med hjälp av Media Services dynamisk k
 
 Den strömmande klienten kan ange följande HLS-format:
 
-|Protocol|Exempel|
+|Protokoll|Exempel|
 |---|---|
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`||
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`||
@@ -54,7 +54,7 @@ Den strömmande klienten kan ange följande HLS-format:
 
 Den strömmande klienten kan ange följande MPEG-streck-format:
 
-|Protocol|Exempel|
+|Protokoll|Exempel|
 |---|---|
 |MPEG-STRECK – CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` ||
 |MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` ||
@@ -63,7 +63,7 @@ Den strömmande klienten kan ange följande MPEG-streck-format:
 
 Den strömmande klienten kan ange följande Smooth Streaming Format:
 
-|Protocol|Anteckningar/exempel| 
+|Protokoll|Anteckningar/exempel| 
 |---|---|
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`||
 |Smooth Streaming 2,0 (bakåtkompatibelt manifest)|Som standard innehåller Smooth Streaming manifest formatet REPEAT-taggen (r-tag). Vissa spelare har dock inte stöd för `r-tag`. Klienter med dessa spelare kan använda ett format som inaktiverar r-taggen:<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|
@@ -93,7 +93,7 @@ Se listan med Media Encoder Standard [format och codec](media-encoder-standard-f
 
 ## <a name="live-streaming-workflow"></a>Live streaming-arbetsflöde
 
-En Live-händelse kan vara en av två typer: direkt-eller Live-kodning. 
+En Live-händelse kan ställas in till antingen en *direkt* uppspelning (en lokal Live-kodare som skickar en data ström med flera bit hastigheter) eller *direktsänd kodning* (en lokal Live-kodare skickar en data ström med en bit hastighet). 
 
 Här är ett vanligt arbets flöde för direktsänd strömning med dynamisk paketering:
 

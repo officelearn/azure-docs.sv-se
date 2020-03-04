@@ -10,18 +10,56 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 11b8ade765a2b1c1ee25421073983b96c34e5d15
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 6f244fc057638bc94a94c150d9333435c0197a74
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462181"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249750"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
 I den här artikeln får du lära dig mer om Azure Machine Learning-versioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) -referens.
 
 Se [listan över kända problem](resource-known-issues.md) för att lära dig om kända buggar och lösningar.
+
+## <a name="2020-03-02"></a>2020-03-02
+
+### <a name="azure-machine-learning-sdk-for-python-v112rc0"></a>Azure Machine Learning SDK för python v 1.1.2 RC0
+
++ **Fel korrigeringar och förbättringar**
+  + **azureml-automl-Core**
+    + Aktive rad i batch-lägets härledning (tar flera rader en gång) för automl ONNX-modeller
+    + Förbättrad identifiering av frekvenser för data uppsättningar, data som saknas eller innehåller oregelbundna data punkter
+    + Har lagt till möjligheten att ta bort data punkter som inte uppfyller de dominerande frequrncy.
+  + **azureml-automl-runtime**
+    + Åtgärda problemet med det fel som har utlösts om kornig het som inte fanns i inlärnings uppsättningen visades i test uppsättningen
+    + Y_querys kravet har tagits bort under poängsättning i prognos tjänsten
+  + **azureml-contrib-Mir**
+    + Lägger till funktioner i MirWebservice-klassen för att hämta åtkomsttoken
+  + **azureml – kärna**
+    + Distribuerade AzureML-webbtjänster kommer nu att användas som standard för att `INFO` loggning. Detta kan styras genom att ange `AZUREML_LOG_LEVEL`-miljövariabeln i den distribuerade tjänsten.
+    + Åtgärda att du går igenom `Dataset.get_all` att returnera alla data uppsättningar som är registrerade i arbets ytan.
+    + Förbättra fel meddelandet när en ogiltig typ skickas till `path` argument för att skapa API: er för data uppsättning.
+    + Python SDK använder identifierings tjänsten för att använda "API"-slut punkten i stället för "pipeliner".
+    + Växla till de nya vägarna i alla SDK-anrop
+    + Ändrar routning av anrop till ModelManagementService till en ny enhetlig struktur
+      + Uppdaterings metoden för arbets ytan har gjorts offentligt tillgänglig.
+      + Image_build_compute parameter har lagts till i uppdaterings metoden för arbets ytan så att användaren kan uppdatera beräkningarna för avbildnings versionen
+    +  Utfasnings meddelanden har lagts till i det gamla profilerings flödet. Fast profilering av processor-och minnes gränser
+  + **azureml – tolka**
+    + uppdatera azureml – tolka till tolka – community 0,6. *
+  + **azureml – mlflow**
+    + Lägg till stöd för suveräna moln till azureml. mlflow
+  + **azureml-pipeline – steg**
+    + Flyttade `AutoMLStep` till `azureml-pipeline-steps package`. Föråldrade `AutoMLStep` inom `azureml-train-automl-runtime`.
+  + **azureml-träna-automl-client**
+    + Ett problem har åtgärd ATS där vissa paket kan installeras vid felaktiga versioner av fjärrkörningar.
+  + **azureml-träna-automl-runtime**
+    + Åtgärdade problemet med frekvens identifiering i fjärrkörningar
+    + Flyttade `AutoMLStep` till `azureml-pipeline-steps package`. Föråldrade `AutoMLStep` inom `azureml-train-automl-runtime`.
+  + **azureml-träna-Core**
+    + Flyttade `AutoMLStep` till `azureml-pipeline-steps package`. Föråldrade `AutoMLStep` inom `azureml-train-automl-runtime`.
 
 ## <a name="2020-02-18"></a>2020-02-18
 
@@ -830,7 +868,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
   + Prestanda för `read_parquet` har förbättrats avsevärt när de kördes i Spark.
   + Ett problem har åtgärd ATS där `column_type_builder` misslyckades om det skulle finnas en enstaka kolumn med tvetydiga datum format.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 + **Förhands gransknings funktion**
   + Logg-och utdatafilen är nu tillgängliga för att köra informations sidor. Filerna strömmar uppdateringar i real tid när växling vid förhands visning är aktive rad.
   + Möjligheten att ange kvot på en arbets ytans nivå släpps i för hands versionen. AmlCompute kvoter tilldelas på prenumerations nivå, men nu kan du distribuera den kvoten mellan arbets ytor och tilldela den till en rättvis delning och styrning. Klicka bara på bladet **användning och kvoter** i det vänstra navigerings fältet på arbets ytan och välj fliken **Konfigurera kvoter** . Observera att du måste vara prenumerations administratör för att kunna ange kvoter på arbets ytans nivå eftersom detta är en åtgärd över arbets ytan.
@@ -1201,7 +1239,7 @@ Vi har återställt en ändring som förbättrade prestanda, eftersom det orsaka
 
 ## <a name="2019-05-06"></a>2019-05-06
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 I Azure Portal kan du nu:
 + Skapa och kör automatiserade ML-experiment
@@ -1320,7 +1358,7 @@ Obs! data prepare för prepare installation kommer inte längre att installeras 
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
   + Nu kan du skicka om ett befintligt skript som körs på ett befintligt fjärrberäknings kluster.
   + Nu kan du köra en publicerad pipeline med nya parametrar på fliken pipeliner.
   + Körnings informationen stöder nu ett nytt visnings program för Snapshot-filen. Du kan visa en ögonblicks bild av katalogen när du skickade en speciell körning. Du kan också hämta den antecknings bok som har skickats för att starta körningen.
@@ -1415,7 +1453,7 @@ Obs! data prepare för prepare installation kommer inte längre att installeras 
 + **Fel korrigeringar och förbättringar**
   + Vi har lagt till stöd i Azure Machine Learning pipelines för att ställa in source_directory_data_store-egenskapen till ett önskat data lager (till exempel en blob-lagring) på [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) som anges i [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Som standard använder Azure File Store som lagrings data lager, som kan köra begränsnings problem när ett stort antal steg körs samtidigt.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 + **Nya funktioner**
   + Ny dra och släpp tabell redigerings miljö för rapporter. Användare kan dra en kolumn från en källa till tabell området där en förhands granskning av tabellen kommer att visas. Kolumnerna kan ordnas om.
@@ -1640,7 +1678,7 @@ Läs mer om data prepare SDK genom att läsa [referens dokument](https://aka.ms/
 
 ## <a name="2018-11-05"></a>2018-11-05
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 Azure Portal för Azure Machine Learning har följande uppdateringar:
   * En ny fliken **pipelines** för publicerade pipeliner.
   * Stöd har lagts till för att bifoga ett befintligt HDInsight-kluster som en beräkningsmål.

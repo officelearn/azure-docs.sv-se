@@ -6,18 +6,18 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 354f7db2a634ae2adee2f2fa0e2a6055c1c20613
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b7754a289c06dff37aedcf8da76d35dfac4b183d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465291"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252807"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Självstudie: Distribuera en Java-tillämpning till ett Service Fabric-kluster i Azure
 
 Den här självstudien är del tre i en serie. Här får du se hur du distribuerar en Service Fabric-tillämpning till ett kluster i Azure.
 
-I den tredje delen i serien får du lära dig hur du:
+I den tredje delen i serien får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett säkert Linux-kluster i Azure
@@ -26,17 +26,17 @@ I den tredje delen i serien får du lära dig hur du:
 I den här självstudieserien får du lära du dig att:
 
 > [!div class="checklist"]
-> * [Skapa ett Java Service Fabric Reliable Services-program](service-fabric-tutorial-create-java-app.md)
-> * [distribuera och felsöka programmet på ett lokalt kluster](service-fabric-tutorial-debug-log-local-cluster.md)
+> * [Skapa ett Java Service Fabric-program (tillförlitliga tjänster)](service-fabric-tutorial-create-java-app.md)
+> * [Distribuera och felsöka programmet på ett lokalt kluster](service-fabric-tutorial-debug-log-local-cluster.md)
 > * Distribuera programmet till ett Azure-kluster
-> * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
-> * [konfigurera CI/CD](service-fabric-tutorial-java-jenkins.md)
+> * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
+> * [Konfigurera CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
-* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Installera Service Fabric SDK för [Mac](service-fabric-get-started-mac.md) eller [Linux](service-fabric-get-started-linux.md)
 * [Installera Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
@@ -53,13 +53,13 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
 
 2. Logga in på ditt Azure-konto
 
-    ```bash
+    ```azurecli
     az login
     ```
 
 3. Ange vilken Azure-prenumeration som du vill använda för att skapa resurserna
 
-    ```bash
+    ```azurecli
     az account set --subscription [SUBSCRIPTION-ID]
     ```
 
@@ -73,7 +73,7 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
 
     Föregående kommando returnerar följande information, som bör antecknas för användning senare.
 
-    ```
+    ```output
     Source Vault Resource Id: /subscriptions/<subscription_id>/resourceGroups/testkeyvaultrg/providers/Microsoft.KeyVault/vaults/<name>
     Certificate URL: https://<name>.vault.azure.net/secrets/<cluster-dns-name-for-certificate>/<guid>
     Certificate Thumbprint: <THUMBPRINT>
@@ -81,7 +81,7 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
 
 5. Skapa en resursgrupp för lagringskontot där dina loggar sparas
 
-    ```bash
+    ```azurecli
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
     Example: az group create --location westus --name teststorageaccountrg
@@ -89,7 +89,7 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
 
 6. Skapa ett lagringskonto som ska användas för att spara de loggar som skapas
 
-    ```bash
+    ```azurecli
     az storage account create -g [RESOURCE-GROUP-NAME] -l [REGION] --name [STORAGE-ACCOUNT-NAME] --kind Storage
 
     Example: az storage account create -g teststorageaccountrg -l westus --name teststorageaccount --kind Storage
@@ -101,13 +101,13 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
 
 8. Kopiera kontots SAS-URL och ha den tillgänglig när du skapar ditt Service Fabric-kluster. Den liknar följande URL:
 
-    ```
+    ```output
     ?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
     ```
 
 9. Skapa en resursgrupp som innehåller Event Hub-resurserna. Event Hubs används för att skicka meddelanden från Service Fabric till den server som kör ELK-resurserna.
 
-    ```bash
+    ```azurecli
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
     Example: az group create --location westus --name testeventhubsrg
@@ -115,7 +115,7 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
 
 10. Skapa en resurs för Event Hubs med hjälp av följande kommando. Följ anvisningarna för att fylla i information för namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule och receiveAuthorizationRule.
 
-    ```bash
+    ```azurecli
     az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
 
     Example:
@@ -158,7 +158,7 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
 
     Kopiera värdet från fältet **sr** i den JSON som returneras. Fältvärdet **sr** används som SAS-token för EventHubs. Följande URL är ett exempel på fältet **sr**:
 
-    ```bash
+    ```output
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
@@ -185,7 +185,7 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
 
 14. Kör följande kommando för att skapa Service Fabric-klustret
 
-    ```bash
+    ```azurecli
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
     ```
 

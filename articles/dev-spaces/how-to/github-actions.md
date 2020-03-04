@@ -6,12 +6,12 @@ ms.topic: conceptual
 description: Granska och testa ändringar från en pull-begäran direkt i Azure Kubernetes-tjänsten med hjälp av GitHub-åtgärder och Azure dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, GitHub Actions, Helm, service nät, service mask-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: e2b6f47483d2c7b6c4970dac531bada1cecd279e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 49715e38f36d4421b7327640ec8392a83b3c2996
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196560"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252380"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub-åtgärder & Azure Kubernetes service (för hands version)
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig hur du:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 * [Azure CLI installerat][azure-cli-installed].
 * [Helm 3 är installerat][helm-installed].
 * Ett GitHub-konto med [aktiverade GitHub-åtgärder][github-actions-beta-signup].
@@ -39,7 +39,7 @@ I den här guiden får du lära dig hur du:
 
 Skapa en Azure Container Registry (ACR):
 
-```cmd
+```azurecli
 az acr create --resource-group MyResourceGroup --name <acrName> --sku Basic
 ```
 
@@ -50,9 +50,9 @@ Spara *namnet* -värdet från utdata eftersom det används i ett senare steg.
 
 ## <a name="create-a-service-principal-for-authentication"></a>Skapa ett huvud namn för tjänsten för autentisering
 
-Använd [AZ AD SP Create-for-RBAC][az-ad-sp-create-for-rbac] för att skapa ett huvud namn för tjänsten. Några exempel:
+Använd [AZ AD SP Create-for-RBAC][az-ad-sp-create-for-rbac] för att skapa ett huvud namn för tjänsten. Exempel:
 
-```cmd
+```azurecli
 az ad sp create-for-rbac --sdk-auth --skip-assignment
 ```
 
@@ -60,19 +60,19 @@ Spara JSON-utdata eftersom det används i ett senare steg.
 
 Använd [AZ AKS show][az-aks-show] för att visa *ID: t* för ditt AKS-kluster:
 
-```cmd
+```azurecli
 az aks show -g MyResourceGroup -n MyAKS  --query id
 ```
 
 Använd [AZ ACR show][az-acr-show] för att visa *ID: t* för ACR:
 
-```cmd
+```azurecli
 az acr show --name <acrName> --query id
 ```
 
 Använd [AZ roll tilldelning skapa][az-role-assignment-create] för att ge *deltagar* åtkomst till ditt AKS-kluster och *AcrPush* åtkomst till din ACR.
 
-```cmd
+```azurecli
 az role assignment create --assignee <ClientId> --scope <AKSId> --role Contributor
 az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 ```
@@ -158,7 +158,7 @@ Om du sammanfogar dina ändringar i *huvud* grenen i din förgrening, kommer en 
 
 ## <a name="clean-up-your-azure-resources"></a>Rensa dina Azure-resurser
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

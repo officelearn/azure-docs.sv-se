@@ -10,12 +10,12 @@ ms.author: msangapu
 ms.custom: seo-python-october2019
 experimental: false
 experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 9a45353d3223844d828ffc4a8ac248a0ff68f781
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 68dc36ce96737fe8395280c3a833e359084d2fee
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030045"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246845"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Snabb start: skapa en python-app i Azure App Service på Linux
 
@@ -23,7 +23,7 @@ I den här snabb starten distribuerar du en python-webbapp till [app service på
 
 Om du föredrar att distribuera appar via en IDE, se [distribuera python-appar till App Service från Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - <a href="https://www.python.org/downloads/" target="_blank">Python 3,7</a> (python 3,6 stöds också)
@@ -52,7 +52,7 @@ Azure CLI innehåller många praktiska kommandon som du använder från en lokal
 
 Om du vill köra Azure-kommandon i Azure CLI måste du först logga in med kommandot `az login`. Det här kommandot öppnar en webbläsare för att samla in dina autentiseringsuppgifter.
 
-```terminal
+```azurecli
 az login
 ```
 
@@ -63,7 +63,7 @@ az login
 Kör följande `az webapp up` kommando i mappen *python-dok-Hello-World* som innehåller exempel koden. Ersätt `<app-name>` med ett globalt unikt namn på appen (*giltiga tecken är `a-z`, `0-9`och `-`* ). Ersätt också `<location-name>` med en Azure-region, till exempel **Central**, **asienöstra**, **westeurope**, **koreasödra**, **centrala**, **Kanada**och så vidare. (Du kan hämta en lista över tillåtna regioner för ditt Azure-konto genom att köra kommandot [`az account locations-list`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) .)
 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
@@ -110,7 +110,7 @@ Python-exempel koden kör en Linux-behållare i App Service med hjälp av en inb
 
 Använd följande kommandon i ett terminalfönster (efter behov för operativ systemet) för att installera de nödvändiga beroendena och starta den inbyggda utvecklings servern. 
 
-# <a name="bashtabbash"></a>[Bash](#tab/bash)
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```bash
 python3 -m venv venv
@@ -120,7 +120,7 @@ FLASK_APP=application.py
 flask run
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 py -3 -m venv env
@@ -130,7 +130,7 @@ Set-Item Env:FLASK_APP ".\application.py"
 flask run
 ```
 
-# <a name="cmdtabcmd"></a>[Kommandot](#tab/cmd)
+# <a name="cmd"></a>[Kommandot](#tab/cmd)
 
 ```cmd
 py -3 -m venv env
@@ -161,7 +161,7 @@ Spara dina ändringar och avsluta redigeraren.
 
 Distribuera om appen med följande `az webapp up` kommando med samma kommando som du använde för att distribuera appen första gången, och ersätta `<app-name>` och `<location-name>` med samma namn som du använde tidigare. 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
@@ -178,13 +178,13 @@ Du kan komma åt konsol loggarna som genereras inifrån appen och den behållare
 
 Börja med att aktivera behållar loggning genom att köra följande kommando i en Terminal, och ersätt `<app-name>` med namnet på din app och `<resource-group-name>` med namnet på den resurs grupp som visas i utdata för `az webapp up` kommandot som du använde (till exempel "appsvc_rg_Linux_centralus"):
 
-```terminal
+```azurecli
 az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
 ```
 
 När behållar loggning har Aktiver ATS kör du följande kommando för att Visa logg strömmen:
 
-```terminal
+```azurecli
 az webapp log tail --name <app-name> --resource-group <resource-group-name>
 ```
 
@@ -209,7 +209,7 @@ Välj namnet på din Azure-App.
 
 ![Navigera till python-appen i App Services i Azure Portal](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
 
-Nu visas översiktssidan för din app. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
+Du ser din apps översiktssida. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
 
 ![Hantera din python-app på sidan Översikt i Azure Portal](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
 
@@ -221,7 +221,7 @@ I de föregående stegen skapade du Azure-resurser i en resursgrupp. Resurs grup
 
 Om du inte tror att du behöver dessa resurser i framtiden tar du bort resurs gruppen genom att köra följande kommando och ersätter `<resource-group-name>` med resurs gruppen som visas i utdata från kommandot `az webapp up`, till exempel "appsvc_rg_Linux_centralus". Det kan ta en minut att slutföra kommandot.
 
-```terminal
+```azurecli
 az group delete -n <resource-group-name>
 ```
 

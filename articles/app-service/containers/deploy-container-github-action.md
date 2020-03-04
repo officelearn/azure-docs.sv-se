@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: f32ea2ae0be66259ff153c24bfd10e179fddbbe5
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: d5f175d887cec1d5b5e567d3f716e6492f4516dd
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77559036"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246976"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Distribuera en anpassad behållare för att App Service med GitHub-åtgärder
 
@@ -25,7 +25,7 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 För ett arbets flöde för Azure App Service container har filen tre delar:
 
-|Sektion  |Uppgifter  |
+|Section  |Aktiviteter  |
 |---------|---------|
 |**Autentisering** | 1. definiera ett huvud namn för tjänsten. <br /> 2. skapa en GitHub-hemlighet. |
 |**Konstruktion** | 1. Konfigurera miljön. <br /> 2. Bygg behållar avbildningen. |
@@ -40,12 +40,12 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
                             --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
                             --sdk-auth
                             
-  # Replace {subscription-id}, {resource-group} with the subscription, resource group details of the WebApp
+# Replace {subscription-id}, {resource-group} with the subscription, resource group details of the WebApp
 ```
 
 Utdata är ett JSON-objekt med roll tilldelningens autentiseringsuppgifter som ger åtkomst till din App Service-app på liknande sätt som nedan. Kopiera det här JSON-objektet för att autentisera från GitHub.
 
- ```azurecli 
+ ```output 
   {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",

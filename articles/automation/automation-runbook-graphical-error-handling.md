@@ -5,14 +5,14 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 153df77c030180402b1e30bc456d681c232c390b
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 4f975af233973ce5fac75ca46e334af5d91e8edc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226525"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246280"
 ---
-# <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Fel hantering i Azure Automation grafiska runbooks
+# <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Felhantering i Azure Automation grafiska runbooks
 
 En viktig design princip för din Azure Automation grafiska Runbook är identifieringen av problem som kan uppstå under körningen av runbooken. De här problemen kan omfatta lyckade åtgärder, förväntade feltillstånd och oväntade feltillstånd.
 
@@ -66,6 +66,6 @@ Fel länkar flödar från dessa aktiviteter till en enskild **fel hanterings** k
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om länkar och länk typer i grafiska runbooks finns i [grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow).
+* Om du vill veta mer om länkar och länktyper i grafiska runbooks kan du läsa [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow) (Grafisk redigering i Azure Automation).
 
 * Om du vill veta mer om Runbook-körning, övervakning av Runbook-jobb och annan teknisk information, se [Runbook-körning i Azure Automation](automation-runbook-execution.md).

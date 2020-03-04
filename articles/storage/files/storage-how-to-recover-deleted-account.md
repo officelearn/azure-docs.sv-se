@@ -1,6 +1,6 @@
 ---
-title: Använd en Azure-filresurs med Azure Storage | Microsoft Docs
-description: Lär dig hur du använder en Azure-filresurs med Windows och Windows Server.
+title: Återställa ett borttaget lagrings konto
+description: Lär dig hur du återställer ett borttaget lagrings konto
 author: todmccoy
 manager: dcscontentpm
 ms.service: storage
@@ -10,12 +10,12 @@ ms.author: rogarana
 ms.subservice: files
 services: storage
 tags: ''
-ms.openlocfilehash: e1e581134b4e3821659c43bb7f55003239594bd9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 05465d4a03335ac607ba8981116c66fd6dac9416
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233797"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252636"
 ---
 # <a name="how-to-recover-a-deleted-storage-account"></a>Återställa ett borttaget lagrings konto
 

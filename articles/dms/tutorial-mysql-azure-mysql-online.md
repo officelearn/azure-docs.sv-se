@@ -3,8 +3,8 @@ title: 'Självstudie: Migrera MySQL online till Azure Database for MySQL'
 titleSuffix: Azure Database Migration Service
 description: Lär dig att utföra en online-migrering från MySQL lokalt för att Azure Database for MySQL med hjälp av Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 77887f440da73436a995e0916c529f9df76e7d6f
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: e0a2c9f4dd229353ef3d4dc06f7bb965d15814d9
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746967"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255560"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Självstudie: Migrera MySQL till Azure Database for MySQL online med DMS
 
 Du kan använda Azure Database Migration Service för att migrera databaserna från en lokal MySQL-instans till [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) med minimal stillestånds tid. Du kan med andra ord migrera med minimal stilleståndstid i programmet. I den här självstudien migrerar du exempel databasen **anställda** från en lokal instans av MySQL 5,7 till Azure Database for MySQL med hjälp av en online-migrering i Azure Database migration service.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 >
 > * Migrera exempelschemat med verktyget mysqldump.
@@ -38,7 +38,7 @@ I den här guiden får du lära dig hur man:
 > [!IMPORTANT]
 > För en optimal migrering rekommenderar Microsoft att du skapar en instans av Azure Database Migration Service i samma Azure-region som mål databasen. Att flytta data mellan regioner eller geografiska områden kan göra migreringsprocessen långsammare och leda till fel.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -93,7 +93,7 @@ Förutsatt att du har MySQL- **anställda** exempel databas i det lokala systeme
 mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
 ```
 
-Ett exempel:
+Exempel:
 
 ```
 mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\employees.sql
@@ -105,7 +105,7 @@ Om du vill importera schemat till Azure Database for MySQL-mål kör du följand
 mysql.exe -h [servername] -u [username] -p[password] [database]< [schema file path]
  ```
 
-Ett exempel:
+Exempel:
 
 ```
 mysql.exe -h shausample.mysql.database.azure.com -u dms@shausample -p employees < d:\employees.sql
@@ -146,7 +146,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration
 
-1. Logga in på Azure Portal och välj **Alla tjänster** och sedan **Prenumerationer**.
+1. Logga in på Azure-portalen och välj **Alla tjänster** och sedan **Prenumerationer**.
 
    ![Visa portalprenumerationer](media/tutorial-mysql-to-azure-mysql-online/portal-select-subscriptions.png)
 

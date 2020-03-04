@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: a35239354d23f75361d5577d6b7efc8254943147
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e9e2fe92939088420f973c5ca112b5f59d07f212
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906588"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252689"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Statisk webbplats som är värd för i Azure Storage
 
@@ -50,9 +50,9 @@ Du kan använda något av dessa verktyg för att ladda upp innehåll till **$Web
 
 Användare kan visa webbplats innehåll från en webbläsare med hjälp av den offentliga URL: en för webbplatsen. Du kan hitta URL: en med hjälp av Azure Portal, Azure CLI eller PowerShell. Använd den här tabellen som en guide.
 
-|Verktyg| Vägledning |
+|Verktyg| Riktlinjer |
 |----|----|
-|**Azure-portalen** | [Hitta webbplats-URL: en med hjälp av Azure Portal](storage-blob-static-website-how-to.md#portal-find-url) |
+|**Azure Portal** | [Hitta webbplats-URL: en med hjälp av Azure Portal](storage-blob-static-website-how-to.md#portal-find-url) |
 |**Azure CLI** | [Hitta webbplats-URL: en med hjälp av Azure CLI](storage-blob-static-website-how-to.md#cli-find-url) |
 |**Azure PowerShell modul** | [Hitta webbplats-URL: en med hjälp av PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
 
@@ -92,7 +92,13 @@ Om lagrings kontot har kon figurer ATS för att [kräva säker överföring](../
 > [!TIP]
 > Överväg att vara värd för din domän på Azure. Mer information finns i vara [värd för din domän i Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
 
-## <a name="pricing"></a>Prissättning
+## <a name="adding-http-headers"></a>Lägger till HTTP-huvuden
+
+Det finns inget sätt att konfigurera rubriker som en del av den statiska webbplats funktionen. Du kan dock använda Azure CDN för att lägga till rubriker och lägga till (eller överskrivna) huvud värden. Se [referens för standard regel motor för Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference).
+
+Om du vill använda huvuden för att styra cachelagring, se [kontroll Azure CDN cachelagring med regler för cachelagring](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
+
+## <a name="pricing"></a>Priser
 
 Du kan aktivera statisk webbplats värd utan kostnad. Du faktureras bara för den blob-lagring som webbplatsen använder och drifts kostnader. Mer information om priser för Azure-Blob Storage finns på sidan med [priser för azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -107,6 +113,6 @@ Om du vill aktivera mått på dina statiska webbplats sidor, se [Aktivera mått 
 * [Vara värd för en statisk webbplats i Azure Storage](storage-blob-static-website-how-to.md)
 * [Mappa en anpassad domän till en Azure Blob Storage-slutpunkt](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure App Service](/azure/app-service/overview)
+* [Azure Apptjänst](/azure/app-service/overview)
 * [Bygg din första server lös webbapp](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [Självstudie: vara värd för din domän i Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

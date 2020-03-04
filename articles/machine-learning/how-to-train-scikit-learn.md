@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7e4a916b3765007a130c6ae84b317c2c7b700f2e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: d61e33568297e6f72aca0ab736f8a14f1758ffa1
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834883"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255131"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Bygg scikit – lär dig modeller i stor skala med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Exempel skripten i den här artikeln används för att klassificera Iris blomma-
 
 Oavsett om du tränar en Machine Learning-scikit – lär dig modell från grunden eller om du använder en befintlig modell i molnet, kan du använda Azure Machine Learning för att skala ut utbildnings jobb med öppen källkod med elastiska moln beräknings resurser. Du kan bygga, distribuera, hantera och övervaka modeller av produktions klass med Azure Machine Learning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kör den här koden i någon av följande miljöer:
  - Azure Machine Learning beräknings instans – inga hämtningar eller installationer behövs
@@ -74,7 +74,7 @@ Skapa ett objekt i arbets ytan från `config.json`-filen som skapats i [avsnitte
 ws = Workspace.from_config()
 ```
 
-### <a name="create-a-machine-learning-experiment"></a>Skapa ett maskininlärningsexperiment
+### <a name="create-a-machine-learning-experiment"></a>Skapa ett Machine Learning-experiment
 
 Skapa ett experiment och en mapp för att lagra dina utbildnings skript. I det här exemplet skapar du ett experiment med namnet "sklearn-Iris".
 
@@ -187,7 +187,7 @@ from azureml.core import Model
 from azureml.core.resource_configuration import ResourceConfiguration
 
 model = run.register_model(model_name='sklearn-iris', 
-                           model_path='model.joblib',
+                           model_path='outputs/model.joblib',
                            model_framework=Model.Framework.SCIKITLEARN,
                            model_framework_version='0.19.1',
                            resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))
@@ -221,6 +221,6 @@ Den fullständiga [instruktionen att](how-to-deploy-and-where.md) distribuera i 
 
 I den här artikeln har du tränat och registrerat en scikit-modell och lärt dig om distributions alternativ. Mer information om Azure Machine Learning finns i de här artiklarna.
 
-* [Spåra kör mått vid träning](how-to-track-experiments.md)
-* [Justering av hyperparametrar](how-to-tune-hyperparameters.md)
+* [Spåra körnings mått under träning](how-to-track-experiments.md)
+* [Justera disponeringsparametrarna](how-to-tune-hyperparameters.md)
 * [Referens arkitektur för distribuerad djup inlärnings utbildning i Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f5bd6b741f85f35fe03c941ed09728354d6b3d2d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 859f8a9c2bf644461c8945255de9f925b4e943f4
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905715"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251854"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,7 +57,7 @@ Interna Time Series-läraare tillhandahålls också som en del av automatiserad 
 
 Autoregressivt Integrated glidande medelvärde (ARIMA) är en populär statistisk metod för tids serie prognoser. Den här metoden för Prognosticering används ofta på kort sikts scenarier där data visar bevis på trender, till exempel cykler, som kan vara oförutsägbara och svåra för modeller eller prognoser. AutoARIMA omvandlar dina data till station ära data för att få konsekventa, pålitliga resultat.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning arbets yta](how-to-manage-workspace.md).
 * I den här artikeln förutsätter vi att du har konfigurerat ett automatiserat experiment för maskin inlärning. Följ [själv studie kursen](tutorial-auto-train-models.md) eller [anvisningar](how-to-configure-auto-train.md) för att se design mönster för det grundläggande automatiserade maskin inlärnings experimentet.
@@ -178,13 +178,14 @@ Se [exempel antecknings böcker för Prognosticering](https://github.com/Azure/M
 ### <a name="configure-a-dnn-enable-forecasting-experiment"></a>Konfigurera en DNN aktivera prognos experiment
 
 > [!NOTE]
-> DNN-stöd för Prognosticering i automatiserade Machine Learning är en för hands version.
+> DNN-stöd för Prognosticering i automatiserade Machine Learning är i för hands version och stöds inte för lokala körningar.
 
 För att kunna utnyttja Hyperoptimerade för prognostisering måste du ange parametern `enable_dnn` i AutoMLConfig till true. 
 
-För att kunna använda Hyperoptimerade rekommenderar vi att du använder ett AML beräknings kluster med GPU SKU: er och minst två noder som beräknings mål. Mer information finns i [AML Compute-dokumentationen](how-to-set-up-training-targets.md#amlcompute). Se [GPU-optimerade storlekar på virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) för mer information om VM-storlekar som innehåller GPU: er.
+Vi rekommenderar att du använder ett AML beräknings kluster med GPU SKU: er och minst två noder som beräknings mål. För att få tillräckligt med tid för att DNN-utbildningen ska slutföras rekommenderar vi att du ställer in experiment tids gränsen på minst ett par timmar.
+Mer information om AML-beräkning och VM-storlekar som innehåller GPU: n finns i [AML Compute-dokumentationen](how-to-set-up-training-targets.md#amlcompute) och [GPU-optimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
 
-För att få tillräckligt med tid för att DNN-utbildningen ska slutföras rekommenderar vi att du ställer in experiment tids gränsen på minst ett par timmar.
+Visa [Notebook Production Forecasting-anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) för ett detaljerat kod exempel som utnyttjar hyperoptimerade.
 
 ### <a name="view-feature-engineering-summary"></a>Visa sammanfattning av funktions teknik
 

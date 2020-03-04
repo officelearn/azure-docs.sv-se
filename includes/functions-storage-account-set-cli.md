@@ -4,19 +4,19 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/26/2019
 ms.author: glenga
-ms.openlocfilehash: 07780c94960c581ce69e4fdd45b346c75ab8b098
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4ace70abe0112e0fe27d177c02bcb697746c92cc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329575"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78262228"
 ---
 ### <a name="set-the-storage-account-connection"></a>Ange lagrings konto anslutningen
 
-Öppna filen Local. Settings. JSON och kopiera värdet för `AzureWebJobsStorage`, vilket är anslutnings strängen för lagrings kontot. Ange miljövariabeln `AZURE_STORAGE_CONNECTION_STRING` till anslutnings strängen med hjälp av detta bash-kommando:
+Öppna filen Local. Settings. JSON och kopiera värdet för `AzureWebJobsStorage`, vilket är anslutnings strängen för lagrings kontot. Ange den `AZURE_STORAGE_CONNECTION_STRING` miljövariabeln till anslutnings strängen genom att använda det här bash-kommandot:
 
-```azurecli-interactive
+```bash
 AZURE_STORAGE_CONNECTION_STRING="<STORAGE_CONNECTION_STRING>"
 ```
 
-När du ställer in anslutnings strängen i miljövariabeln `AZURE_STORAGE_CONNECTION_STRING`, kan du komma åt ditt lagrings konto utan att behöva tillhandahålla autentisering varje gång.
+När du anger anslutnings strängen i `AZURE_STORAGE_CONNECTION_STRING`-miljövariabeln, kan du komma åt ditt lagrings konto utan att behöva tillhandahålla autentisering varje gång.

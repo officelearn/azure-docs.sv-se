@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d593e5f27dbcd676e2b42975251778a6c48a7d79
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 594f0ed55b5ce5c31e87fd2011f3bc1522a12380
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76511883"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249039"
 ---
 # <a name="what-is-a-device-identity"></a>Vad är en enhetsidentitet?
 
@@ -37,16 +37,16 @@ Enhets identitets hantering är grunden för [enhets-baserad villkorlig åtkomst
 För att få en enhet i Azure AD har du flera alternativ:
 
 - **Azure AD har registrerats**
-   - Enheter som är registrerade i Azure AD är vanligt vis personligt ägda eller mobila enheter och är inloggade på med en personlig Microsoft-konto eller ett annat lokalt konto.
+   - Enheter som är registrerade i Azure AD är vanligt vis personligt ägda eller mobila enheter och är inloggade med en personlig Microsoft-konto eller ett annat lokalt konto.
       - Windows 10
       - iOS
       - Android
       - MacOS
 - **Azure AD-ansluten**
-   - Enheter som är Azure AD-anslutna ägs av en organisation och är inloggade på med ett Azure AD-konto som tillhör den organisationen. De finns bara i molnet.
+   - Enheter som är Azure AD-anslutna ägs av en organisation och är inloggade med ett Azure AD-konto som tillhör den organisationen. De finns bara i molnet.
       - Windows 10 
 - **Hybrid Azure AD-ansluten**
-   - Enheter som är hybrid Azure AD-anslutna ägs av en organisation och är inloggade på med ett Azure AD-konto som tillhör den organisationen. De finns i molnet och lokalt.
+   - Enheter som är hybrid Azure AD-anslutna ägs av en organisation och är inloggade med ett Azure AD-konto som tillhör den organisationen. De finns i molnet och lokalt.
       - Windows 7, 8,1 eller 10
       - Windows Server 2008 eller senare
 
@@ -65,15 +65,15 @@ Att registrera och ansluta enheter till Azure AD ger användarna sömlös inlogg
 
 Enheter som är Azure AD-anslutna eller hybrid Azure AD-anslutna fördelar från SSO till din organisations lokala resurser samt moln resurser. Mer information finns i artikeln [hur SSO till lokala resurser fungerar på Azure AD-anslutna enheter](azuread-join-sso.md).
 
-## <a name="device-security"></a>Enhetssäkerhet
+## <a name="device-security"></a>Enhets säkerhet
 
 - **Registrerade Azure AD-enheter** använder ett konto som hanteras av slutanvändaren. det här kontot är antingen en Microsoft-konto eller en annan lokalt hanterad autentiseringsuppgift som skyddas med ett eller flera av följande.
-   - Lösenord
-   - FÄST
+   - lösenord
+   - PUK
    - Mönster
    - Windows Hello
 - **Azure AD-anslutna eller hybrid Azure AD-anslutna enheter** använder ett organisations konto i Azure AD som skyddas med en eller flera av följande.
-   - Lösenord
+   - lösenord
    - Windows Hello för företag
 
 ## <a name="provisioning"></a>Etablering

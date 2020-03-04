@@ -9,12 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: e645be5ddd51a4fe7e7610e7f639407d5638f746
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 3c21e2fcdde9bffac91af56d49dfa0bf336e8c0c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920920"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246238"
 ---
 # <a name="secure-assets-in-azure-automation"></a>Skydda till gångar i Azure Automation
 
@@ -30,42 +30,44 @@ Varje säker till gång krypteras och lagras i Azure Automation med hjälp av en
 
 ## <a name="customer-managed-keys-with-key-vault-preview"></a>Kundhanterade nycklar med Key Vault (för hands version)
 
-Du kan hantera kryptering av säkra till gångar i Azure Automation på nivån för ett Automation-konto med dina egna nycklar. När du anger en kundhanterad nyckel på nivån för Automation-kontot används nyckeln för att skydda och kontrol lera åtkomsten till konto krypterings nyckeln för Automation-kontot, som i sin tur används för att kryptera och dekryptera alla säkra till gångar. Kundhanterade nycklar ger större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska de krypterings nycklar som används för att skydda dina säkra till gångar. 
+Du kan hantera kryptering av säkra till gångar för ditt Automation-konto med dina egna nycklar. När du anger en kundhanterad nyckel på nivån för Automation-kontot används nyckeln för att skydda och kontrol lera åtkomsten till konto krypterings nyckeln för Automation-kontot. Detta används i sin tur för att kryptera och dekryptera alla säkra till gångar. Kundhanterade nycklar ger större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska de krypterings nycklar som används för att skydda dina säkra till gångar.
 
-Du måste använda Azure Key Vault för att lagra Kundhanterade nycklar. Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault API: er för att generera nycklar.  Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../key-vault/key-vault-overview.md)
+Använd Azure Key Vault för att lagra Kundhanterade nycklar. Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault API: er för att generera nycklar.  Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../key-vault/key-vault-overview.md)
 
 ## <a name="enable-customer-managed-keys-for-an-automation-account"></a>Aktivera Kundhanterade nycklar för ett Automation-konto
 
-När du aktiverar kryptering med Kundhanterade nycklar för ett Automation-konto omsluter Azure Automation konto krypterings nyckeln med den Kundhanterade nyckeln i det associerade nyckel valvet. Att aktivera Kundhanterade nycklar påverkar inte prestanda och kontot krypteras med den nya nyckeln omedelbart utan tids fördröjning.
+När du aktiverar kryptering med Kundhanterade nycklar för ett Automation-konto omsluter Azure Automation konto krypterings nyckeln med den Kundhanterade nyckeln i det associerade nyckel valvet. Att aktivera Kundhanterade nycklar påverkar inte prestanda och kontot krypteras med den nya nyckeln omedelbart utan fördröjning.
 
 Ett nytt Automation-konto krypteras alltid med Microsoft-hanterade nycklar. Det går inte att aktivera Kundhanterade nycklar vid den tidpunkt då kontot skapas. Kundhanterade nycklar lagras i Azure Key Vault och nyckel valvet måste tillhandahållas med åtkomst principer som ger nyckel behörigheter till den hanterade identitet som är associerad med Automation-kontot. Den hanterade identiteten är bara tillgänglig när lagrings kontot har skapats.
 
-När du ändrar nyckeln som används för Azure Automation säker till gångs kryptering genom att aktivera eller inaktivera Kundhanterade nycklar, uppdatera nyckel versionen eller ange en annan nyckel ändras krypteringen av konto krypterings nyckeln, men de säkra till gångarna i ditt Azure Automation-konto behöver du inte krypteras igen.
+När du ändrar nyckeln som används för Azure Automation säker till gångs kryptering, genom att aktivera eller inaktivera Kundhanterade nycklar, uppdatera nyckel versionen eller ange en annan nyckel, ändras krypteringen av kontots krypterings nyckel, men skyddade till gångar i ditt Azure Automation-konto behöver inte krypteras igen.
 
 I följande tre avsnitt beskrivs Mechanics för att aktivera Kundhanterade nycklar för ett Automation-konto. 
 
 > [!NOTE] 
-> Om du vill aktivera Kundhanterade nycklar måste du för närvarande göra Azure Automation REST API samtal med API-version 2020-01-13-för hands version
+> Om du vill aktivera Kundhanterade nycklar måste du göra Azure Automation REST API samtal med API-version 2020-01-13-för hands version
 
 ### <a name="pre-requisites-for-using-customer-managed-keys-in-azure-automation"></a>Krav för att använda Kundhanterade nycklar i Azure Automation
 
-Innan du aktiverar Kundhanterade nycklar för ett Automation-konto måste du se till att följande krav uppfylls
+Innan du aktiverar Kundhanterade nycklar för ett Automation-konto måste du se till att följande krav uppfylls:
 
  - Kund-hanterade-nyckeln lagras i en Azure Key Vault. 
- - Du måste aktivera både den **mjuka borttagningen** och **Rensa inte** egenskaperna i nyckel valvet. Dessa funktioner krävs för att kunna återställa nycklar i händelse av oavsiktlig borttagning.
+ - Aktivera både den **mjuka borttagningen** och **Rensa inte** egenskaperna i nyckel valvet. Dessa funktioner krävs för att kunna återställa nycklar i händelse av oavsiktlig borttagning.
  - Endast RSA-nycklar stöds med Azure Automation kryptering. Mer information om nycklar finns i [om Azure Key Vault nycklar, hemligheter och certifikat](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
-- Automation-kontot och nyckel valvet kan finnas i olika prenumerationer men måste vara i samma Azure Active Directory-klient.
+- Automation-kontot och nyckel valvet kan finnas i olika prenumerationer, men måste vara i samma Azure Active Directory-klient.
 
 ### <a name="assign-an-identity-to-the-automation-account"></a>Tilldela ett Automation-konto en identitet
 
-Om du vill använda Kundhanterade nycklar med ett Automation-konto måste ditt Automation-konto autentisera mot nyckel valvet som lagrar Kundhanterade nycklar. Azure Automation använder systemtilldelade hanterade identiteter för att autentisera kontot med Key Vault. Mer information om hanterade identiteter finns i [Vad är hanterade identiteter för Azure-resurser?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Om du vill använda Kundhanterade nycklar med ett Automation-konto måste ditt Automation-konto autentisera mot nyckel valvet som lagrar Kundhanterade nycklar. Azure Automation använder systemtilldelade hanterade identiteter för att autentisera kontot med Azure Key Vault. Mer information om hanterade identiteter finns i [Vad är hanterade identiteter för Azure-resurser?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-Konfigurera en systemtilldelad hanterad identitet till Automation-kontot med följande REST API-anrop
+Konfigurera en systemtilldelad hanterad identitet till Automation-kontot med följande REST API anrop:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
 ```
-Begärandetext
+
+Begärandetext:
+
 ```json
 { 
  "identity": 
@@ -73,9 +75,9 @@ Begärandetext
   "type": "SystemAssigned" 
   } 
 }
-```    
+```
 
-Tilldelad identitet för Automation-kontot returneras i svaret
+Tilldelad identitet för Automation-kontot returneras i ett svar som liknar följande:
 
 ```json
 {
@@ -93,14 +95,15 @@ Tilldelad identitet för Automation-kontot returneras i svaret
 
 ### <a name="configure-the-key-vault-access-policy"></a>Konfigurera Key Vault åtkomst princip
 
-När en hanterad identitet har tilldelats Automation-kontot kan du konfigurera åtkomst till Key Vault som lagrar Kundhanterade nycklar. Azure Automation kräver **Get**, **Recover**, **wrapKey**, **UnwrapKey** på kundens hanterade nycklar.
+När en hanterad identitet har tilldelats Automation-kontot konfigurerar du åtkomst till nyckel valvet som lagrar Kundhanterade nycklar. Azure Automation kräver **Get**, **Recover**, **wrapKey**, **UnwrapKey** på kundens hanterade nycklar.
 
-En sådan åtkomst princip kan anges med följande REST API-anrop.
+En sådan åtkomst princip kan anges med följande REST API anrop:
 
 ```http
 PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault/accessPolicies/add?api-version=2018-02-14
 ```
-Begärandetext
+
+Begärandetext:
 
 ```json
 {
@@ -125,17 +128,18 @@ Begärandetext
 }
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > **TenantId** -och **ObjectID** -fälten måste anges med värdena **Identity. tenantId** och **Identity. principalId** från svar på hanterad identitet för Automation-kontot.
 
 ### <a name="change-the-configuration-of-automation-account-to-use-customer-managed-key"></a>Ändra konfigurationen för Automation-kontot så att den använder kundhanterad nyckel
 
-Slutligen kan du växla ditt Automation-konto från Microsft-hanterade nycklar till Kundhanterade nycklar med hjälp av följande REST API-anrop.
+Slutligen kan du växla ditt Automation-konto från Microsft-hanterade nycklar till Kundhanterade nycklar med hjälp av följande REST API anrop:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
 ```
-Begärandetext
+
+Begärandetext:
 
 ```json
  {
@@ -151,6 +155,7 @@ Begärandetext
     }
   }
 ```
+
 Exempelsvar
 
 ```json
@@ -177,9 +182,9 @@ Exempelsvar
 
 ### <a name="rotate-customer-managed-keys"></a>Rotera Kundhanterade nycklar
 
-Du kan rotera en kundhanterad nyckel i Azure Key Vault enligt efterlevnadsprinciper. När nyckeln roteras måste du uppdatera Automation-kontot för att använda den nya nyckel-URI: n. 
+Du kan rotera en kundhanterad nyckel i Azure Key Vault enligt efterlevnadsprinciper. När nyckeln roteras måste du uppdatera Automation-kontot för att använda den nya nyckel-URI: n.
 
-Rotation av nyckeln utlöser inte Omkryptering av skyddade till gångar i Automation-kontot. Det krävs ingen ytterligare åtgärd från användaren.
+Rotation av nyckeln utlöser inte Omkryptering av skyddade till gångar i Automation-kontot. Ingen ytterligare åtgärd krävs.
 
 ### <a name="revoke-access-to-customer-managed-keys"></a>Återkalla åtkomst till Kundhanterade nycklar
 
@@ -187,7 +192,10 @@ Om du vill återkalla åtkomsten till Kundhanterade nycklar använder du PowerSh
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vad är Azure Key Vault?](../key-vault/key-vault-overview.md) 
+- [Vad är Azure Key Vault?](../key-vault/key-vault-overview.md)
+
 - [Certifikattillgångar i Azure Automation](shared-resources/certificates.md)
+
 - [Autentiseringsuppgiftstillgångar i Azure Automation](shared-resources/credentials.md)
+
 - [Variabeltillgångar i Azure Automation](shared-resources/variables.md)

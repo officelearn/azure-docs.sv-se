@@ -6,14 +6,14 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 351ed146511409fb4c6cc49705c7051b89ea0212
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: b891c8a7bbb33e3a3f18adbbc723d4bc9aa99a3a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226493"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246468"
 ---
-# <a name="my-first-graphical-runbook"></a>Min första grafiska Runbook
+# <a name="my-first-graphical-runbook"></a>Min första grafiska runbook
 
 > [!div class="op_single_selector"]
 > * [Grafisk](automation-first-runbook-graphical.md)
@@ -22,7 +22,7 @@ ms.locfileid: "78226493"
 > * [Python](automation-first-runbook-textual-python2.md)
 > 
 
-Den här självstudien vägleder dig genom skapandet av en [grafisk Runbook](automation-runbook-types.md#graphical-runbooks) i Azure Automation. Börja med en enkel Runbook som testar och publicerar, och lär dig hur du spårar statusen för Runbook-jobbet. Ändra sedan runbooken till att hantera Azure-resurser i det här fallet genom att starta en virtuell Azure-dator. Slutför självstudien för att göra runbooken mer robust genom att lägga till Runbook-parametrar och villkorliga länkar.
+Den här självstudien beskriver steg för steg hur du skapar en [grafisk runbook](automation-runbook-types.md#graphical-runbooks) i Azure Automation. Börja med en enkel Runbook som testar och publicerar, och lär dig hur du spårar statusen för Runbook-jobbet. Ändra sedan runbooken till att hantera Azure-resurser i det här fallet genom att starta en virtuell Azure-dator. Slutför självstudien för att göra runbooken mer robust genom att lägga till Runbook-parametrar och villkorliga länkar.
 
 >[!NOTE]
 >Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).

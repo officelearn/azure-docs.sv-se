@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 79517ffd68c501203ea9c02f3a3276973d4a8a56
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bc08cd5183bcaac6cb77ccb0938b07893f082862
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982149"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250215"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialisera telemetri med hjälp av Protocol buffrar
 
@@ -32,7 +32,7 @@ Stegen i den här instruktions guiden visar hur du:
 1. Generera protobuf-klasser
 1. Testa lokalt
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa stegen i den här instruktions guiden behöver du:
 
@@ -174,7 +174,7 @@ När du har en **proto** -fil är nästa steg att generera de klasser som behöv
 
 1. [Ladda ned protobuf-kompilatorn från GitHub](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)
 
-1. Kör kompilatorn, ange käll katalogen, mål katalogen och namnet på din **proto** -fil. Ett exempel:
+1. Kör kompilatorn, ange käll katalogen, mål katalogen och namnet på din **proto** -fil. Exempel:
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -206,7 +206,7 @@ I det här avsnittet testar du den till gångs spårnings enhet som du skapade i
 
 Som standard kopieras inte dina nya enhets modell-JSON-och JS-filer till den färdiga lösningen. Du måste uttryckligen inkludera dem.
 
-Lägg till en post i **services\services.CSPROJ** -filen för varje fil som du vill inkludera. Ett exempel:
+Lägg till en post i **services\services.CSPROJ** -filen för varje fil som du vill inkludera. Exempel:
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">
@@ -231,7 +231,7 @@ Följande skript förutsätter att namnet på din IoT Hub är **Device-simulerin
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Monitor telemetry sent to your hub
 az iot hub monitor-events --hub-name device-simulation-test

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3df906936cc4e47ee1f43adb0fcbaa0e8c04b0f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 10d3f18fb11dc54f560d867e2b5ff87251e2c836
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656321"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249111"
 ---
 # <a name="conditional-access-grant"></a>Villkorlig åtkomst: bevilja
 
@@ -67,35 +67,7 @@ Organisationer kan välja att använda enhets identiteten som en del av den vill
 
 Organisationer kan kräva att ett åtkomst försök till de valda molnappar måste göras från en godkänd klient app. Dessa godkända klient program har stöd för [Intune App Protection-principer](/intune/app-protection-policy) oberoende av alla lösningar för hantering av mobila enheter (MDM).
 
-Den här inställningen gäller för följande klient program:
-
-- Microsoft Azure Information Protection
-- Microsoft-bokningar
-- Microsoft Cortana
-- Microsoft Dynamics 365
-- Microsoft Edge
-- Microsoft Excel
-- Microsoft Flow
-- Microsoft Intune Managed Browser
-- Microsoft fakturering
-- Microsoft Kaizala
-- Startprogram för Microsoft
-- Microsoft OneDrive
-- Microsoft OneNote
-- Microsoft Outlook
-- Microsoft Planner
-- Microsoft PowerApps
-- Microsoft Power BI
-- Microsoft PowerPoint
-- Microsoft SharePoint
-- Microsoft Skype för företag
-- Microsoft StaffHub
-- Microsoft Stream
-- Microsoft Teams
-- Microsoft To-Do
-- Microsoft Visio
-- Microsoft Word
-- Microsoft Yammer
+Program som stöds finns i artikeln [Microsoft Intune skyddade appar](/intune/apps/apps-supported-intune-apps).
 
 **Kommentarer**
 
@@ -108,12 +80,7 @@ Den här inställningen gäller för följande klient program:
 
 I din princip för villkorlig åtkomst kan du kräva att en [Intune App Protection-princip](/intune/app-protection-policy) finns i klient programmet innan åtkomst är tillgänglig för de valda molnappar. 
 
-Den här inställningen gäller för följande klient program:
-
-- Microsoft Cortana
-- Microsoft OneDrive
-- Microsoft Outlook
-- Microsoft Planner
+Program som stöds finns i artikeln [Microsoft Intune skyddade appar](/intune/apps/apps-supported-intune-apps).
 
 **Kommentarer**
 

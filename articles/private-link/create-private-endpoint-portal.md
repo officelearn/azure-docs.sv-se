@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 491ba986c6ca71be0bc5b13e2f9f0717ffec99a4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 485eb14938fc7e490ea2d68c9090cdfdbf01cc8f
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028891"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252561"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Snabb start: skapa en privat slut punkt med hjälp av Azure Portal
 
-En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. Virtual Machines (VM), att kommunicera privat med privata länk resurser. I den här snabb starten får du lära dig hur du skapar en virtuell dator på en Azure-Virtual Network, en SQL Database-Server med en privat Azure-slutpunkt med Azure Portal. Sedan kan du på ett säkert sätt komma åt SQL Database-servern från den virtuella datorn.
+En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. Virtual Machines (VM), att kommunicera privat med privata länk resurser. I den här snabb starten får du lära dig hur du skapar en virtuell dator på en Azure-Virtual Network, en SQL Database-Server med en privat Azure-slutpunkt med hjälp av Azure Portal. Sedan kan du på ett säkert sätt komma åt SQL Database-servern från den virtuella datorn.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -28,26 +28,22 @@ Logga in på Azure Portal på https://portal.azure.com.
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 I det här avsnittet skapar du ett virtuellt nätverk och under nätet som är värd för den virtuella datorn som används för åtkomst till din privata länk resurs (en SQL-Server i Azure i det här exemplet).
 
-### <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
-
+## <a name="virtual-network-and-parameters"></a>Virtuellt nätverk och parametrar
 
 I det här avsnittet ska du skapa en Virtual Network och under nätet som är värd för den virtuella datorn som används för åtkomst till din privata länk resurs.
 
-1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
-1. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
+I det här avsnittet måste du ersätta följande parametrar i stegen med informationen nedan:
 
-    | Inställning | Värde |
-    | ------- | ----- |
-    | Namn | Ange *MyVirtualNetwork*. |
-    | Adressutrymme | Ange *10.1.0.0/16*. |
-    | Prenumeration | Välj din prenumeration.|
-    | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
-    | Location | Välj **WestCentralUS**.|
-    | Undernät – Namn | Ange *undernät*. |
-    | Undernät – adressintervall | Ange *10.1.0.0/24*. |
-    |||
-1. Lämna resten som standard och välj **skapa**.
+| Parameter                   | Värde                |
+|-----------------------------|----------------------|
+| **\<resurs-grupp-namn >**  | myResourceGroup |
+| **\<virtuella-nätverks namn >** | myVirtualNetwork          |
+| **\<region – namn >**          | USA, västra centrala    |
+| **\<IPv4-adress utrymme >**   | 10.1.0.0 \ 16          |
+| **\<under nätets namn >**          | mySubnet        |
+| **\<undernät – adress intervall >** | 10.1.0.0 \ 24          |
 
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machine"></a>Skapa virtuell dator
 
@@ -80,7 +76,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
 
 1. Lämna standardvärdena i **skapa en virtuell dator – diskar**och välj **Nästa: nätverk**.
 
-1. I **Skapa en virtuell dator – Nätverk** väljer du följande information:
+1. I **Skapa en virtuell dator – nätverk** väljer du följande information:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -120,14 +116,14 @@ I det här avsnittet ska du skapa en SQL Database-Server i Azure.
     |servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
     | inloggning för serveradministratör| Ange ett administratörs namn som du väljer. |
     | lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
-    | Location | Välj en Azure-region där du vill att din SQL Server ska finnas. |
+    | plats. | Välj en Azure-region där du vill att din SQL Server ska finnas. |
     
 7. Välj **OK**. 
 8. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
 9. När du ser meddelandet valideringen har skickats väljer du **skapa**. 
 10. När du ser meddelandet valideringen har skickats väljer du skapa. 
 
-## <a name="create-a-private-endpoint"></a>Skapa en privat slut punkt
+## <a name="create-a-private-endpoint"></a>Skapa en privat slutpunkt
 
 I det här avsnittet ska du skapa en SQL-Server och lägga till en privat slut punkt i den. 
 
@@ -222,7 +218,7 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
     | servernamn| Välj *myserver.Database.Windows.net* |
     | Användarnamn | Ange användar namn som username@servername som anges när SQL-servern skapas. |
     |lösenord |Ange ett lösen ord som du angav när du skapade SQL-servern. |
-    |Kom ihåg lösenordet|Välj **Ja**.|
+    |Kom ihåg lösen ord|Välj **Ja**.|
     |||
 1. Välj **Anslut**.
 2. Bläddra bland databaser från menyn till vänster.

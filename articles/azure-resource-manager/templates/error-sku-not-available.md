@@ -3,14 +3,14 @@ title: SKU är inte tillgängliga, fel
 description: Beskriver hur du felsöker fel meddelandet SKU är inte tillgängligt när du distribuerar resurser med Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 02/18/2020
-ms.openlocfilehash: be341a5ed5321fe71b0e3b34ba5f6cc823958c8b
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 5d055540b4c0d8f2900d2ede6735662801be5974
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462300"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250645"
 ---
-# <a name="resolve-errors-for-sku-not-available"></a>Lösa fel för SKU: n är inte tillgänglig
+# <a name="resolve-errors-for-sku-not-available"></a>Åtgärda fel med otillgänglig SKU
 
 Den här artikeln beskriver hur du löser **SkuNotAvailable** -felet. Om du inte kan hitta en lämplig SKU i regionen/zonen eller en alternativ region/zon som uppfyller dina affärs behov skickar du en SKU- [begäran](https://aka.ms/skurestriction) till Azure-supporten.
 
@@ -70,7 +70,7 @@ az vm list-skus --location southcentralus --size Standard_F --output table
 
 Kommandot returnerar resultat som:
 
-```azurecli
+```output
 ResourceType     Locations       Name              Zones    Capabilities    Restrictions
 ---------------  --------------  ----------------  -------  --------------  --------------
 virtualMachines  southcentralus  Standard_F1                ...             None

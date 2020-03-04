@@ -1,9 +1,9 @@
 ---
-title: Linux-distributioner som är godkända på Azure
+title: Linux-distributioner som har godkänts på Azure
 description: Lär dig mer om Linux på Azure-godkända distributioner, inklusive rikt linjer för Ubuntu, CentOS, Oracle och SUSE.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: tysonn
 tags: azure-service-management,azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: mimckitt
-ms.openlocfilehash: 8f12224f6ea2b9b4cecce79809389419e0159217
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 7318095dce77856087ad7dd949e91e0eb7936294
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748055"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251650"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Signerade Linux-distributioner på Azure
 Partner tillhandahåller linux-avbildningar på Azure Marketplace. Vi arbetar med olika Linux-communities för att lägga till ännu fler varianter i den godkända distributions listan. Under tiden kan du för distributioner som inte är tillgängliga från Marketplace alltid ta med din egen Linux genom att följa rikt linjerna i [skapa och ladda upp en virtuell hård disk som innehåller Linux-operativsystemet](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
@@ -81,7 +81,7 @@ Credativ är ett oberoende konsult-och tjänste företag som specialiserar sig p
 ### <a name="oracle"></a>Oracle
 [https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)
 
-Oracle-strategin är att erbjuda en bred portfölj med lösningar för offentliga och privata moln. Strategin ger kunderna valmöjligheter och flexibilitet i hur de distribuerar Oracle-programvara i Oracle-moln och andra moln. Oracles partnerskap med Microsoft gör att kunderna kan distribuera Oracle-program i Microsofts offentliga och privata moln med certifiering och support från Oracle.  Oracles åtagande och investering i offentliga och privata moln lösningar i Oracle är oförändrade.
+Oracle-strategin är att erbjuda en bred portfölj med lösningar för offentliga och privata moln. Strategin ger kunderna valmöjligheter och flexibilitet i hur de distribuerar Oracle-programvara i Oracle-moln och andra moln. Oracle: s partnerskap med Microsoft gör det möjligt för kunder att distribuera Oracle-program i Microsofts offentliga och privata moln med förtroende för certifiering och support från Oracle.  Oracles åtagande och investering i offentliga och privata moln lösningar i Oracle är oförändrade.
 
 ### <a name="red-hat"></a>Red Hat
 [https://www.redhat.com/en/partners/strategic-alliance/microsoft](https://www.redhat.com/en/partners/strategic-alliance/microsoft)

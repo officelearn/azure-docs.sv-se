@@ -3,12 +3,12 @@ title: Så här stoppar du övervakningen av ditt Azure Red Hat OpenShift-kluste
 description: Den här artikeln beskriver hur du kan stoppa övervakningen av ditt Azure Red Hat OpenShift-kluster med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 97ca333f724dc4914dabda2912c4512a40520253
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: eff5203aeedd3c7ad283b55ba12f0e45a556460d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977776"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250721"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>Så här stoppar du övervakningen av ditt Azure Red Hat OpenShift-kluster med Azure Monitor för behållare
 
@@ -22,7 +22,7 @@ Om du inte är bekant med begreppet att distribuera resurser med hjälp av en ma
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.65 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.65 eller senare. Du kan identifiera din version genom att köra `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-template"></a>Skapa mallen
 
@@ -65,7 +65,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
     }
     ```
 
-2. Spara filen som **OptOutTemplate.json** till en lokal mapp.
+2. Spara filen som **OptOutTemplate. JSON** i en lokal mapp.
 
 3. Klistra in följande JSON-syntax i filen:
 
@@ -88,7 +88,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
 
     ![Egenskapssidan för behållare](media/container-insights-optout-openshift/cluster-properties-page.png)
 
-5. Spara filen som **OptOutParam.json** till en lokal mapp.
+5. Spara filen som **OptOutParam. JSON** i en lokal mapp.
 
 6. Nu är det dags att distribuera den här mallen.
 
@@ -104,7 +104,7 @@ az group deployment create --resource-group <ResourceGroupName> --template-file 
 
 Konfigurationsändringen kan ta några minuter att slutföra. När det är klart, returneras ett meddelande som liknar följande som innehåller resultatet:
 
-```azurecli
+```output
 ProvisioningState       : Succeeded
 ```
 
@@ -122,7 +122,7 @@ New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupNam
 
 Konfigurationsändringen kan ta några minuter att slutföra. När det är klart, returneras ett meddelande som liknar följande som innehåller resultatet:
 
-```powershell
+```output
 ProvisioningState       : Succeeded
 ```
 

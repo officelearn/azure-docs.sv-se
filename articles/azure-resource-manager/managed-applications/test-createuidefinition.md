@@ -5,18 +5,18 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: fe6fbb2c27dcc18cca114e6d10cd382d376a27e2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e2d075a58872f9337c7d1faa642a48047e2f9ddf
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75651311"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250184"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Testa Portal gränssnittet för Azure Managed Applications
 
 När du har [skapat createUiDefinition. JSON-filen](create-uidefinition-overview.md) för ditt hanterade program måste du testa användar upplevelsen. För att förenkla testningen använder du en sandbox-miljö som läser in din fil i portalen. Du behöver inte distribuera ditt hanterade program. Sand boxen visar ditt användar gränssnitt i den aktuella, kompletta Portal upplevelsen. Eller så kan du använda ett skript för att testa gränssnittet. Båda metoderna visas i den här artikeln. Sand boxen är det rekommenderade sättet att förhandsgranska gränssnittet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En **createUiDefinition. JSON** -fil. Om du inte har den här filen kopierar du [exempel filen](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
 
@@ -36,7 +36,7 @@ När du har [skapat createUiDefinition. JSON-filen](create-uidefinition-overview
 
    ![Visa formulär](./media/test-createuidefinition/show-ui-form.png)
 
-### <a name="troubleshooting"></a>Felsöka
+### <a name="troubleshooting"></a>Felsökning
 
 Om formuläret inte visas när du har valt för **hands version**kan du ha ett syntaxfel. Leta upp den röda indikatorn i den högra rullnings listen och navigera till den.
 
@@ -68,7 +68,7 @@ Om du använder PowerShell använder du:
 
 Om du använder Azure CLI använder du:
 
-```azurecli
+```bash
 ./sideload-createuidef.sh \
   -l southcentralus \
   -a .\100-Marketplace-Sample
@@ -84,7 +84,7 @@ Om du använder PowerShell använder du:
 
 Om du använder Azure CLI använder du:
 
-```azurecli
+```bash
 ./sideload-createuidef.sh
 ```
 

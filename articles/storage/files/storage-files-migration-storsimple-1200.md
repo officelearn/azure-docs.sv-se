@@ -4,25 +4,19 @@ description: Lär dig hur du migrerar en virtuell StorSimple 1200-serie till Azu
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 2/14/2020
+ms.date: 03/02/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 815fda861748f1011eab22ef75fa7e933ca64c55
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 184101db34edbf5391b37c43770e8393316fe2fc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78209485"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252666"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200-migrering till Azure File Sync
 
-StorSimple 1200-serien är en virtuell installation som körs i ett lokalt Data Center.
-Med den meddelade tjänste livstiden för StorSimple produkt linje i december 31 2022 kommer moln tjänsten som den här virtuella installationen att sluta fungera att sluta fungera.
-
-Det är absolut nödvändigt att migrera från en StorSimple-enhet med gott om tid till reserv.
-Azure File Sync är den naturliga efterföljande tekniken, med fler funktioner och mer flexibilitet än StorSimple-erbjudanden.
-
-Den här artikeln innehåller de steg som krävs för att migrera till Azure File Sync.
+StorSimple 1200-serien är en virtuell installation som körs i ett lokalt Data Center. Det är möjligt att migrera data från den här enheten till en Azure File Sync miljö. Den här artikeln innehåller de steg som krävs för att migrera till Azure File Sync.
 
 ## <a name="azure-file-sync"></a>Azure File Sync
 

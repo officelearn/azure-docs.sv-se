@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Den här snabb starten visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett .NET Core-program i Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: c2d84e823d028f542c5ab852be2ea68a5abafe93
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: f3e91ec11e054e0a069eb97a3700b051476be0a1
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605281"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251990"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Snabb start: Felsöka och iterera på Kubernetes: Visual Studio Code och .NET Core – Azure dev Spaces
 
@@ -37,7 +37,7 @@ Med Azure dev Spaces kan du också felsöka och iterera med:
 
 Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Kommandona nedan skapar en resurs grupp med namnet *MyResourceGroup* och ett AKS-kluster som kallas *MyAKS*.
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
@@ -49,9 +49,11 @@ Använd kommandot `use-dev-spaces` för att aktivera dev Spaces i ditt AKS-klust
 > [!NOTE]
 > Kommandot `use-dev-spaces` installerar även Azure dev Spaces CLI om det inte redan är installerat. Det går inte att installera Azure dev Spaces CLI i Azure Cloud Shell.
 
-```cmd
-$ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```
 
+```output
 'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
 
 Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
@@ -113,7 +115,7 @@ Klicka på *Felsök* och *stoppa* fel sökningen för att stoppa fel söknings p
 
 ## <a name="update-code"></a>Uppdatera kod
 
-Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra *.net Core Launch (AZDS)* igen. Några exempel:
+Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra *.net Core Launch (AZDS)* igen. Exempel:
 
 1. Om programmet fortfarande körs klickar du på *Felsök* och *stoppar sedan fel sökningen* för att stoppa det.
 1. Uppdatera [rad 22 i `Controllers/HomeController.cs`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L22) till:
@@ -142,7 +144,7 @@ Ta bort Bryt punkten genom att placera markören på rad 22 i `Controllers/HomeC
 
 ## <a name="update-code-from-visual-studio-code"></a>Uppdatera kod från Visual Studio Code
 
-När tjänsten körs i fel söknings läge uppdaterar du rad 22 i `Controllers/HomeController.cs`. Några exempel:
+När tjänsten körs i fel söknings läge uppdaterar du rad 22 i `Controllers/HomeController.cs`. Exempel:
 
 ```csharp
 ViewData["Message"] = "Your application description page in Azure while debugging!";
@@ -158,7 +160,7 @@ I stället för att bygga om och omdistribuera en ny behållar avbildning varje 
 
 ## <a name="clean-up-your-azure-resources"></a>Rensa dina Azure-resurser
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

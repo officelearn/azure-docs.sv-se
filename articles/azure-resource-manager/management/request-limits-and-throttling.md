@@ -1,15 +1,15 @@
 ---
-title: Begär ande gränser och begränsning
+title: Begärandebegränsningar och begränsningar
 description: Beskriver hur du använder begränsningar med Azure Resource Manager-begäranden när prenumerationsbegränsningar har uppnåtts.
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 129ca3ba32d48345bde931c6bd2084c3da79be39
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 43ccf4f2e8098f6577f18943c4ab4132884b66f2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659380"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251347"
 ---
 # <a name="throttling-resource-manager-requests"></a>Begränsningsbegäranden Resource Manager
 
@@ -25,13 +25,13 @@ Alla åtgärder på prenumerations nivå och klient nivå är föremål för beg
 
 Standard begränsningarna för begränsning per timme visas i följande tabell.
 
-| Omfång | Operations | Gräns |
+| Omfång | Åtgärder | Gräns |
 | ----- | ---------- | ------- |
-| Prenumeration | läsoperationer | 12000 |
+| Prenumeration | Databasläsningar | 12000 |
 | Prenumeration | text | 15 000 |
-| Prenumeration | skriver | 1200 |
-| Klientorganisation | läsoperationer | 12000 |
-| Klientorganisation | skriver | 1200 |
+| Prenumeration | Skriver | 1200 |
+| Klientorganisation | Databasläsningar | 12000 |
+| Klientorganisation | Skriver | 1200 |
 
 De här gränserna gäller det säkerhetsobjekt (användare eller program) som skickar förfrågningarna och prenumerationens eller klientorganisationens ID. Om dina förfrågningar kommer från fler än ett säkerhetsobjekt är begränsningen för prenumerationen eller klientorganisationen högre än 12 000 respektive 1 200 per timme.
 
@@ -47,7 +47,7 @@ I det här avsnittet beskrivs begränsnings gränserna för vissa vanliga resurs
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
-### <a name="network-throttling"></a>Nätverksbegränsning
+### <a name="network-throttling"></a>Nätverks begränsning
 
 Microsoft. Network Resource-providern tillämpar följande begränsningar:
 
@@ -72,7 +72,7 @@ Ibland kan begränsnings begränsningar ökas. Om du vill se om begränsnings gr
 
 ## <a name="error-code"></a>Felkod
 
-När du når gränsen kan du få HTTP-statuskoden **429 för många begäranden**. Svaret innehåller ett värde för **återförsök efter** , som anger antalet sekunder som programmet ska vänta (eller vila) innan nästa förfrågan skickas. Om du skickar en begäran innan återförsöksvärdet har gått ut kan bearbeta inte din begäran och ett nytt försök värde returneras.
+När du når gränsen får du HTTP-statuskoden **429 för många begär Anden**. Svaret innehåller ett värde för **återförsök efter** , som anger antalet sekunder som programmet ska vänta (eller vila) innan nästa förfrågan skickas. Om du skickar en begäran innan återförsöksvärdet har gått ut kan bearbeta inte din begäran och ett nytt försök värde returneras.
 
 När du har väntat den angivna tiden kan du också stänga och öppna anslutningen till Azure igen. Genom att återställa anslutningen kan du ansluta till en annan instans av Azure Resource Manager.
 
@@ -101,22 +101,22 @@ Resurs leverantören kan även returnera svarshuvuden med information om återst
 
 Hämtar dessa värden i huvudet i din kod eller skript skiljer än att hämta alla huvudets värde. 
 
-Till exempel i **C#** , du hämta huvudvärde från en **HttpWebResponse** objekt med namnet **svar** med följande kod:
+I **C#** kan du till exempel hämta Head-värdet från ett **HttpWebResponse** -objekt med namnet **Response** med följande kod:
 
 ```cs
 response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
 ```
 
-I **PowerShell**, du hämta huvudets värde från en Invoke-WebRequest-åtgärd.
+I **PowerShell**hämtar du huvud värde från en Invoke-webbegäran-åtgärd.
 
 ```powershell
 $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
 $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 ```
 
-En fullständig PowerShell-exempel finns i [Kontrollera Resource Manager-gränserna för en prenumeration](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
+Ett fullständigt PowerShell-exempel finns i [kontrol lera Resource Manager-gränser för en prenumeration](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
 
-Om du vill se begäranden för felsökning kan du ange den **-felsöka** parametern på din **PowerShell** cmdlet.
+Om du vill se återstående begär Anden för fel sökning kan du ange parametern **-Debug** i **PowerShell** -cmdleten.
 
 ```powershell
 Get-AzResourceGroup -Debug
@@ -154,7 +154,7 @@ Pragma                        : no-cache
 x-ms-ratelimit-remaining-subscription-writes: 1199
 ```
 
-I **Azure CLI**, du hämta huvudets värde med hjälp av alternativet mer utförlig.
+I **Azure CLI**hämtar du huvud-värdet med hjälp av mer utförligt alternativ.
 
 ```azurecli
 az group list --verbose --debug
@@ -162,7 +162,7 @@ az group list --verbose --debug
 
 Som returnerar flera värden, inklusive följande värden:
 
-```azurecli
+```output
 msrest.http_logger : Response status: 200
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'
@@ -182,7 +182,7 @@ az group create -n myresourcegroup --location westus --verbose --debug
 
 Som returnerar flera värden, inklusive följande värden:
 
-```azurecli
+```output
 msrest.http_logger : Response status: 201
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'
@@ -195,6 +195,6 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En fullständig PowerShell-exempel finns i [Kontrollera Resource Manager-gränserna för en prenumeration](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
-* Mer information om begränsningar och kvoter finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md).
-* Läs om hur du hanterar asynkrona REST-begäranden i [spåra asynkrona åtgärder i Azure](async-operations.md).
+* Ett fullständigt PowerShell-exempel finns i [kontrol lera Resource Manager-gränser för en prenumeration](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
+* Mer information om gränser och kvoter finns i [Azure-prenumerationer, tjänst gränser, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+* Information om hur du hanterar asynkrona REST-begäranden finns i [spåra asynkrona Azure-åtgärder](async-operations.md).

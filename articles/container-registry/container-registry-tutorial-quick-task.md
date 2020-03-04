@@ -4,12 +4,12 @@ description: I den här självstudien lär du dig att skapa en avbildning av en 
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b8a45cf3a72ed8f38f6f28a2f0225d0913f906da
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 51891d7b17fad7e438cc31652b6a0769d024e8e0
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456047"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252097"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Självstudie: bygga och distribuera behållar avbildningar i molnet med Azure Container Registry uppgifter
 
@@ -32,7 +32,7 @@ I kommande självstudier får du lära dig att använda i ACR Tasks för automat
 
 Om du vill använda Azure CLI lokalt måste du ha Azure CLI-version **2.0.46** eller senare installerat och loggat in med AZ- [inloggning][az-login]. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa [Installera Azure CLI][azure-cli].
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="github-account"></a>GitHub-konto
 
@@ -52,13 +52,13 @@ När du har förgrenat lagringsplatsen kan du klona din förgrening och ange den
 
 Klona lagringsplatsen med `git`, samt ersätt **\<your-github-username\>** med ditt GitHub-användarnamn:
 
-```azurecli-interactive
+```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
 ```
 
 Ange den katalog som innehåller källkoden:
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
@@ -72,7 +72,9 @@ Nu när du har hämtat källkoden till din dator, följer du dessa steg för att
 
 För att göra det enklare att köra exempelkommandona, använder självstudierna i serien gränssnittets miljövariabler. Kör följande kommando för att ange variabeln `ACR_NAME`. Ersätt **\<registry-name\>** med ett unikt namn för ditt nya containerregister. Register namnet måste vara unikt inom Azure, får bara innehålla gemena bokstäver och innehålla 5-50 alfanumeriska tecken. De andra resurser som du skapar i självstudien baseras på det här namnet, så du behöver bara ändra den första variabeln.
 
-```azurecli-interactive
+[![Bädda in start](https://shell.azure.com/images/launchcloudshell.png "Starta Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>
 ```
 
@@ -284,7 +286,7 @@ Server running at http://localhost:80
 
 När `Server running at http://localhost:80` visas navigerar du till containerns FQDN i webbläsaren för att se programmet som körs. FQDN bör ha visats i utdatan från kommandot `az container create` du körde i föregående avsnitt.
 
-![Skärmbild av exempelprogram som visas i en webbläsare][quick-build-02-browser]
+![Skärmbild av ett exempelprogram som återges i en webbläsare][quick-build-02-browser]
 
 Om du vill ta bort konsolen från containern trycker du på `Control+C`.
 

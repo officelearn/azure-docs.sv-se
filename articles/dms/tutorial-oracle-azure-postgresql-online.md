@@ -3,8 +3,8 @@ title: 'Självstudie: Migrera Oracle online till Azure Database for PostgreSQL'
 titleSuffix: Azure Database Migration Service
 description: Lär dig att utföra en online-migrering från Oracle lokalt eller på virtuella datorer för att Azure Database for PostgreSQL genom att använda Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
-ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 14db95adccf5118321bc763cbe599e19febc7eac
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759917"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255568"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Självstudie: Migrera Oracle till Azure Database for PostgreSQL online med DMS (för hands version)
 
 Du kan använda Azure Database Migration Service för att migrera databaserna från Oracle-databaser som finns lokalt eller på virtuella datorer för att [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) med minimal stillestånds tid. Med andra ord kan du slutföra migreringen med minimal stillestånds tid för programmet. I den här självstudien migrerar du exempel databasen **HR** från en lokal eller virtuell dator instans av Oracle-11g till Azure Database for PostgreSQL med hjälp av aktiviteten online-migrering i Azure Database migration service.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 >
 > * Utvärdera migreringens ansträngning med ora2pg-verktyget.
@@ -43,7 +43,7 @@ I den här självstudiekursen får du lära du dig att:
 
 I den här artikeln beskrivs hur du utför en online-migrering från Oracle till Azure Database for PostgreSQL.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -186,7 +186,7 @@ Du kan köra ora2pg för att exportera varje databas objekt i. SQL-filer. Du kan
 psql -f [FILENAME] -h [AzurePostgreConnection] -p 5432 -U [AzurePostgreUser] -d database 
 ```
 
-Ett exempel:
+Exempel:
 
 ```
 psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database
@@ -239,21 +239,21 @@ Så här kommer du igång:
 
     Om schema namnet i Oracle-källan och matchar det i Azure Database for PostgreSQL, *skapar Azure Database migration service tabell schemat med samma Skift läge som i målet*.
 
-    Ett exempel:
+    Exempel:
 
     | Käll-Oracle-schema | Mål PostgreSQL Database. schema | DMS skapade schema. tabell. Column |
     | ------------- | ------------- | ------------- |
-    | Personal | targetHR. public | Public. länder. country_id |
-    | Personal | targetHR.trgthr | trgthr. länder. country_id |
-    | Personal | targetHR.TARGETHR | "TARGETHR"." LÄNDER "." COUNTRY_ID " |
-    | Personal | targetHR.HR | "HR". LÄNDER "." COUNTRY_ID " |
-    | Personal | targetHR.Hr | \* Det går inte att mappa blandade fall |
+    | HR | targetHR. public | Public. länder. country_id |
+    | HR | targetHR.trgthr | trgthr. länder. country_id |
+    | HR | targetHR.TARGETHR | "TARGETHR"." LÄNDER "." COUNTRY_ID " |
+    | HR | targetHR.HR | "HR". LÄNDER "." COUNTRY_ID " |
+    | HR | targetHR.Hr | \* Det går inte att mappa blandade fall |
 
     \* Om du vill skapa blandade Skift läges schema och tabell namn i mål PostgreSQL, kontaktar du [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). Vi kan tillhandahålla ett skript för att konfigurera tabell scheman för blandade fall i mål PostgreSQL-databasen.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration
 
-1. Logga in på Azure Portal och välj **Alla tjänster** och sedan **Prenumerationer**.
+1. Logga in på Azure-portalen och välj **Alla tjänster** och sedan **Prenumerationer**.
 
    ![Visa portalprenumerationer](media/tutorial-oracle-azure-postgresql-online/portal-select-subscriptions.png)
 

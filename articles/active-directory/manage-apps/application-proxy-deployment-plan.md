@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 959d959cd269884b3b75c4c23bfd0054ae64ced7
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b3278615b90fe2ef539456c3f00eb877918aa9c2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033634"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248366"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planera en Azure AD-programproxy-distribution
 
@@ -38,7 +38,7 @@ I följande avsnitt får du en översikt över de viktigaste planerings elemente
 
 Du måste uppfylla följande krav innan du påbörjar implementeringen. Du kan se mer information om hur du konfigurerar din miljö, inklusive dessa krav, i den här [självstudien](application-proxy-add-on-premises-application.md).
 
-* **Kopplingar**: Anslutningarna är lätta för agenter som du kan distribuera till:
+* **Kopplingar**: anslutningar är lättare som du kan distribuera till:
    * Fysisk maskin vara lokalt
    * En virtuell dator som finns i en hypervisor-lösning
    * En virtuell dator som finns i Azure för att aktivera utgående anslutning till Application Proxy-tjänsten.
@@ -50,7 +50,7 @@ Du måste uppfylla följande krav innan du påbörjar implementeringen. Du kan s
      * Om möjligt kan du distribuera kopplingar i [samma nätverk](application-proxy-network-topology.md) och segment som backend-webbprogram-servrarna. Det är bäst att distribuera kopplingar när du har slutfört en identifiering av program.
      * Vi rekommenderar att varje kopplings grupp har minst två kopplingar för att ge hög tillgänglighet och skalning. Att ha tre anslutningar är optimalt om du kan behöva underhålla en dator när som helst. Granska [tabellen med kopplings kapacitet](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning) för att avgöra vilken typ av dator som anslutningar ska installeras på. Ju större datorn desto mer buffert och att utföra anslutnings tjänsten är.
 
-* **Inställningar för nätverks åtkomst**: Azure AD-programproxy-anslutningar [ansluter till Azure via https (TCP-port 443) och http (TCP-port 80)](application-proxy-add-on-premises-application.md). 
+* **Nätverks åtkomst inställningar**: Azure AD-programproxy-anslutningar [ansluter till Azure via https (TCP-port 443) och http (tcp-port 80)](application-proxy-add-on-premises-application.md). 
 
    * Det finns inte stöd för att avsluta TLS-trafik för anslutning och förhindrar att anslutningar upprättar en säker kanal till sina respektive Azure App proxy-slutpunkter.
 
@@ -62,15 +62,15 @@ Du måste uppfylla följande krav innan du påbörjar implementeringen. Du kan s
 
 Följande grund krav måste uppfyllas för att du ska kunna konfigurera och implementera Azure-AD-programproxy.
 
-*  **Azure-onboarding**: Innan du distribuerar programproxyn måste användar identiteter synkroniseras från en lokal katalog eller skapas direkt i dina Azure AD-klienter. Identitetssynkronisering gör det möjligt för Azure AD att förautentisera användare innan de beviljar åtkomst till App proxy-publicerade program och att ha nödvändig information om användar-ID för att utföra enkel inloggning (SSO).
+*  **Azure onboarding**: innan du distribuerar programproxyn måste användar identiteter synkroniseras från en lokal katalog eller skapas direkt i dina Azure AD-klienter. Identitetssynkronisering gör det möjligt för Azure AD att förautentisera användare innan de beviljar åtkomst till App proxy-publicerade program och att ha nödvändig information om användar-ID för att utföra enkel inloggning (SSO).
 
-* **Krav för villkorlig åtkomst**: Vi rekommenderar inte att du använder programproxy för intranät åtkomst eftersom detta lägger till latens som påverkar användarna. Vi rekommenderar att du använder Application Proxy med förautentisering och principer för villkorlig åtkomst för fjärråtkomst från Internet.  En metod för att ge villkorlig åtkomst för intranät användning är att modernisera program så att de kan autentiseras direkt med AAD. Mer information hittar du i [resurser för att migrera program till AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) . 
+* **Krav för villkorlig åtkomst**: Vi rekommenderar inte att du använder programproxy för intranäts åtkomst eftersom detta lägger till latens som påverkar användarna. Vi rekommenderar att du använder Application Proxy med förautentisering och principer för villkorlig åtkomst för fjärråtkomst från Internet.  En metod för att ge villkorlig åtkomst för intranät användning är att modernisera program så att de kan autentiseras direkt med AAD. Mer information hittar du i [resurser för att migrera program till AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) . 
 
-* **Tjänst begränsningar**: För att skydda mot överförbrukning av resurser av enskilda klienter finns det begränsade gränser som ställts in per program och klient. För att se de här begränsningarna refererar du till [Azure AD-tjänstens gränser och begränsningar](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Dessa begränsnings gränser baseras på ett riktmärke som ligger över normal användnings volym och ger en stor buffert för en majoritet av distributionerna.
+* **Tjänst begränsningar**: för att skydda mot överförbrukning av resurser av enskilda klienter finns det begränsade gränser som anges per program och klient. För att se de här begränsningarna refererar du till [Azure AD-tjänstens gränser och begränsningar](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Dessa begränsnings gränser baseras på ett riktmärke som ligger över normal användnings volym och ger en stor buffert för en majoritet av distributionerna.
 
-* **Offentligt certifikat**: Om du använder anpassade domän namn måste du skaffa ett offentligt certifikat utfärdat av en betrodd certifikat utfärdare som inte tillhör Microsoft. Det kan ta en stund att hämta ett certifikat, beroende på organisationens krav, och vi rekommenderar att du startar processen så tidigt som möjligt. Azure Application Proxy stöder standardattribut, [jokertecken](application-proxy-wildcard.md)eller San-baserade certifikat.
+* **Offentligt certifikat**: om du använder anpassade domän namn måste du skaffa ett SSL-certifikat. Det kan ta en stund att hämta ett certifikat, beroende på organisationens krav, och vi rekommenderar att du startar processen så tidigt som möjligt. Azure Application Proxy stöder standardattribut, [jokertecken](application-proxy-wildcard.md)eller San-baserade certifikat. Mer information finns i [Konfigurera anpassade domäner med Azure AD-programproxy](application-proxy-configure-custom-domain.md).
 
-* **Domän krav**: Enkel inloggning till dina publicerade program med hjälp av Kerberos-begränsad delegering (KCD) kräver att servern som kör anslutningen och servern som kör appen är domänanslutna och delar av samma domän eller domäner med förtroende.
+* **Domän krav**: enkel inloggning till dina publicerade program med hjälp av Kerberos-begränsad delegering (KCD) kräver att servern som kör anslutningen och servern som kör appen är domänanslutna och delar av samma domän eller domäner med förtroende.
 Detaljerad information om avsnittet finns i [KCD för enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md) med programproxy. Kopplings tjänsten körs i kontexten för det lokala systemet och ska inte konfigureras för användning av en anpassad identitet.
 
 * **DNS-poster för URL: er**
@@ -93,13 +93,13 @@ Kompilera en inventering av alla omfångs program som publiceras via programprox
 
 | Informations typ| Information som ska samlas in |
 |---|---|
-| Typ av tjänst| Exempel: SharePoint, SAP, CRM, anpassat webb program, API |
+| Tjänsttyp| Exempel: SharePoint, SAP, CRM, anpassat webb program, API |
 | Program plattform | Exempel: Windows IIS, Apache på Linux, Tomcat, NGINX |
 | Domän medlemskap| Webb serverns fullständigt kvalificerade domän namn (FQDN) |
 | Program plats | Där webb servern eller Server gruppen finns i din infrastruktur |
 | Intern åtkomst | Den exakta URL: en som används vid åtkomst till programmet internt. <br> Om en Server grupp, vilken typ av belastnings utjämning används? <br> Om programmet ritar innehåll från andra källor än sig själv.<br> Ta reda på om programmet fungerar över WebSockets. |
 | Extern åtkomst | Leverantörs lösningen som programmet redan exponeras för externt. <br> Den URL som du vill använda för extern åtkomst. Om SharePoint, se till att alternativa åtkomst mappningar konfigureras enligt [den här vägledningen](https://docs.microsoft.com/SharePoint/administration/configure-alternate-access-mappings). Om inte, måste du definiera externa URL: er. |
-| Offentligt certifikat | Om du använder en anpassad domän kan du skaffa ett certifikat med ett motsvarande ämnes namn. om ett certifikat finns noterar du serie numret och platsen varifrån det kan hämtas. |
+| Offentliga certifikat | Om du använder en anpassad domän kan du skaffa ett certifikat med ett motsvarande ämnes namn. om ett certifikat finns noterar du serie numret och platsen varifrån det kan hämtas. |
 | Autentiseringstyp| Den typ av autentisering som stöds av program stödet, till exempel Basic, Windows integration-autentisering, formulärbaserade, huvudbaserade och anspråk. <br>Om programmet är konfigurerat för att köras under ett speciellt domän konto noterar du det fullständigt kvalificerade domän namnet (FQDN) för tjänst kontot.<br> Om SAML-baserade URL-adresser och svars-URL: er. <br> Om det är ett sidhuvud baserat, leverantörs lösning och särskilt krav för hantering av autentiseringstyp. |
 | Anslutnings gruppens namn | Det logiska namnet för den grupp med anslutningar som ska utses för att tillhandahålla överföring och SSO till detta Server dels program. |
 | Åtkomst till användare/grupper | De användare eller användar grupper som ska beviljas extern åtkomst till programmet. |
@@ -153,9 +153,9 @@ Följande design element bör öka framgången av pilot implementeringen direkt 
 
 * Begränsa visningen av pilot programmets ikon till en pilot grupp genom att dölja dess start ikon formulär portalen för Azure-appar. När du är redo för produktion kan du begränsa appen till dess respektive mål grupp, antingen i samma för produktions innehavare, eller genom att även publicera programmet i produktions klient organisationen.
 
-**Inställningar för enkel inloggning**: Vissa SSO-inställningar har vissa beroenden som kan ta tid att konfigurera, så undvik ändrings kontrollens fördröjning genom att se till att beroenden behandlas i förväg. Detta inkluderar domän anslutning till anslutnings värdar för att utföra SSO med Kerberos-begränsad delegering (KCD) och ta hand om andra tids krävande aktiviteter. Du kan till exempel ställa in en PING-serverinstans om du behöver ett sidhuvud baserat SSO.
+**Inställningar för enkel inloggning**: vissa SSO-inställningar har speciella beroenden som kan ta tid att konfigurera, så undvik ändrings kontrollens fördröjning genom att se till att beroenden behandlas i förväg. Detta inkluderar domän anslutning till anslutnings värdar för att utföra SSO med Kerberos-begränsad delegering (KCD) och ta hand om andra tids krävande aktiviteter. Du kan till exempel ställa in en PING-serverinstans om du behöver ett sidhuvud baserat SSO.
 
-**SSL mellan kopplings värd och mål program**: Säkerheten är ytterst viktigt, så TLS mellan kopplings värden och mål program bör alltid användas. I synnerhet om webb programmet har kon figurer ATS för formulärbaserad autentisering (FBA) överförs användarens autentiseringsuppgifter i klartext.
+**SSL mellan kopplings värd och mål program**: säkerheten är ytterst viktigt, så TLS mellan kopplings värden och mål program bör alltid användas. I synnerhet om webb programmet har kon figurer ATS för formulärbaserad autentisering (FBA) överförs användarens autentiseringsuppgifter i klartext.
 
 **Implementera stegvis och testa varje steg**. Utför grundläggande funktions testning när du har publicerat ett program för att säkerställa att alla krav på användare och företag uppfylls genom att följa anvisningarna nedan:
 
@@ -164,7 +164,7 @@ Följande design element bör öka framgången av pilot implementeringen direkt 
 3. Lägg sedan till SSO-metoden för ditt program och testa igen för att verifiera åtkomst.
 4. Använd villkorlig åtkomst och MFA-principer efter behov. Testa och verifiera åtkomst.
 
-**Fel söknings verktyg**: När du felsöker kan du alltid starta genom att verifiera åtkomst till det publicerade programmet från webbläsaren på anslutnings värden och bekräfta att programmet fungerar som förväntat. Det enklare att konfigurera, vilket är enklare att ta reda på rotor saken, så du bör försöka återskapa problem med en minimal konfiguration, till exempel bara använda en enda koppling och ingen SSO. I vissa fall kan webb fel söknings verktyg, till exempel Teleriks Fiddler, bevisa att de kan felsöka åtkomst-eller innehålls problem i program som nås via en proxy. Fiddler kan också fungera som en proxy för att spåra och felsöka trafik för mobila plattformar som iOS och Android, och nästan allt som kan konfigureras för att dirigera via en proxy. Mer information finns i [fel söknings guiden](application-proxy-troubleshoot.md) .
+**Fel söknings verktyg**: när du felsöker kan du alltid starta genom att verifiera åtkomst till det publicerade programmet från webbläsaren på kopplings värden och bekräfta att programmet fungerar som förväntat. Det enklare att konfigurera, vilket är enklare att ta reda på rotor saken, så du bör försöka återskapa problem med en minimal konfiguration, till exempel bara använda en enda koppling och ingen SSO. I vissa fall kan webb fel söknings verktyg, till exempel Teleriks Fiddler, bevisa att de kan felsöka åtkomst-eller innehålls problem i program som nås via en proxy. Fiddler kan också fungera som en proxy för att spåra och felsöka trafik för mobila plattformar som iOS och Android, och nästan allt som kan konfigureras för att dirigera via en proxy. Mer information finns i [fel söknings guiden](application-proxy-troubleshoot.md) .
 
 ## <a name="implement-your-solution"></a>Implementera din lösning
 
@@ -180,25 +180,25 @@ Du kan också publicera program med hjälp av [PowerShell](https://docs.microsof
 
 Nedan följer några metod tips som du bör följa när du publicerar ett program:
 
-* **Använd anslutnings grupper**: Tilldela en anslutnings grupp som har angetts för publicering av varje program. Vi rekommenderar att varje kopplings grupp har minst två kopplingar för att ge hög tillgänglighet och skalning. Att ha tre anslutningar är optimalt om du kan behöva underhålla en dator när som helst. Se även [Publicera program i separata nätverk och platser med anslutnings grupper](application-proxy-connector-groups.md) för att se hur du kan använda anslutnings grupper för att segmentera dina anslutningar via nätverk eller plats.
+* **Använd anslutnings grupper**: tilldela en anslutnings grupp som har angetts för publicering av varje program. Vi rekommenderar att varje kopplings grupp har minst två kopplingar för att ge hög tillgänglighet och skalning. Att ha tre anslutningar är optimalt om du kan behöva underhålla en dator när som helst. Se även [Publicera program i separata nätverk och platser med anslutnings grupper](application-proxy-connector-groups.md) för att se hur du kan använda anslutnings grupper för att segmentera dina anslutningar via nätverk eller plats.
 
-* **Ange tids gräns för backend-program**: Den här inställningen är användbar i scenarier där programmet kan kräva mer än 75 sekunder att bearbeta en klient transaktion. Till exempel när en klient skickar en fråga till ett webb program som fungerar som en klient del till en databas. Klient delen skickar den här frågan till backend-databasservern och väntar på ett svar, men när den tar emot ett svar är klient sidan av konversationen tids gräns. Om du anger tids gränsen till Long får 180 sekunder för längre transaktioner att slutföras.
+* **Ange tids gräns för backend-program**: den här inställningen är användbar i scenarier där programmet kan kräva mer än 75 sekunder att bearbeta en klient transaktion. Till exempel när en klient skickar en fråga till ett webb program som fungerar som en klient del till en databas. Klient delen skickar den här frågan till backend-databasservern och väntar på ett svar, men när den tar emot ett svar är klient sidan av konversationen tids gräns. Om du anger tids gränsen till Long får 180 sekunder för längre transaktioner att slutföras.
 
 * **Använd lämpliga cookie-typer**
 
-   * **Http-endast cookie**: Ger ytterligare säkerhet genom att låta Application Proxy innehålla HTTPOnly-flaggan i HTTP-svarshuvuden för set-cookie. Den här inställningen hjälper till att minimera utnyttjandet, till exempel Cross-Site Scripting (XSS). Lämna den här inställningen till Nej för klienter/användar agenter som behöver åtkomst till sessions-cookien. Till exempel RDP/MTSC-klienten som ansluter till en Fjärrskrivbordsgateway som publicerats via App proxy.
+   * **Http-endast cookie**: ger ytterligare säkerhet genom att låta programproxyn inkludera flaggan HTTPONLY i HTTP-svarshuvuden för set-cookie. Den här inställningen hjälper till att minimera utnyttjandet, till exempel Cross-Site Scripting (XSS). Lämna den här inställningen till Nej för klienter/användar agenter som behöver åtkomst till sessions-cookien. Till exempel RDP/MTSC-klienten som ansluter till en Fjärrskrivbordsgateway som publicerats via App proxy.
 
-   * **Säker cookie**: När en cookie anges med attributet Secure, kommer användar agenten (app på klient sidan) bara att inkludera cookien i HTTP-begäranden om begäran överförs via en TLS-skyddad kanal. På så sätt kan du minska risken för att en cookie komprometteras över rensade text kanaler, så bör vara aktive rad.
+   * **Säker cookie**: när en cookie anges med attributet Secure, kommer användar agenten (app på klient sidan) bara att inkludera cookien i HTTP-begäranden om begäran överförs via en TLS-skyddad kanal. På så sätt kan du minska risken för att en cookie komprometteras över rensade text kanaler, så bör vara aktive rad.
 
-   * **Beständig cookie**: Tillåter att sessionens cookie för programproxyn behålls mellan webbläsarens stängningar genom att det blir kvar, tills den antingen upphör att gälla eller tas bort. Används för scenarier där ett omfattande program, till exempel Office, använder ett dokument i ett publicerat webb program, utan att användaren uppmanas att ange autentisering igen. Gör det dock möjligt att, eftersom beständiga cookies, i slut ändan lämna en tjänst till risk för obehörig åtkomst, om de inte används tillsammans med andra kompensations kontroller. Den här inställningen bör endast användas för äldre program som inte kan dela cookies mellan processer. Det är bättre att uppdatera ditt program för att hantera delning av cookies mellan processer i stället för att använda den här inställningen.
+   * **Beständig cookie**: tillåter att programproxy-sessionens cookie behålls mellan webbläsarens stängningar genom att det blir kvar, tills den antingen upphör att gälla eller tas bort. Används för scenarier där ett omfattande program, till exempel Office, använder ett dokument i ett publicerat webb program, utan att användaren uppmanas att ange autentisering igen. Gör det dock möjligt att, eftersom beständiga cookies, i slut ändan lämna en tjänst till risk för obehörig åtkomst, om de inte används tillsammans med andra kompensations kontroller. Den här inställningen bör endast användas för äldre program som inte kan dela cookies mellan processer. Det är bättre att uppdatera ditt program för att hantera delning av cookies mellan processer i stället för att använda den här inställningen.
 
-* **Översätt URL: er i rubriker**: Du aktiverar detta för scenarier där intern DNS inte kan konfigureras för att matcha organisationens offentliga namn område (a. k. en delad DNS). Om programmet inte kräver den ursprungliga värd rubriken i klient förfrågan, lämna värdet inställt på Ja. Alternativet är att använda det fullständiga domän namnet i den interna URL: en för routning av den faktiska trafiken och FQDN i den externa URL: en som värd huvud. I de flesta fall bör det här alternativet tillåta att programmet fungerar som normalt, vid fjärråtkomst via fjärr anslutning, men användarna förlorar fördelarna med att ha en matchande i & utanför URL: en.
+* **Översätt URL: er i huvuden**: du aktiverar detta för scenarier där intern DNS inte kan konfigureras för att matcha organisationens offentliga namn område (a. k. en delad DNS). Om programmet inte kräver den ursprungliga värd rubriken i klient förfrågan, lämna värdet inställt på Ja. Alternativet är att använda det fullständiga domän namnet i den interna URL: en för routning av den faktiska trafiken och FQDN i den externa URL: en som värd huvud. I de flesta fall bör det här alternativet tillåta att programmet fungerar som normalt, vid fjärråtkomst via fjärr anslutning, men användarna förlorar fördelarna med att ha en matchande i & utanför URL: en.
 
-* **Översätt URL: er i program texten**: Aktivera översättning av program text länk för en app när du vill att länkarna från appen ska översättas i svar tillbaka till klienten. Om den här funktionen är aktive rad tillhandahåller den här funktionen ett bästa försök att översätta alla interna länkar som App proxy hittar i HTML-och CSS-svar som returneras till klienter. Det är användbart när du publicerar appar som innehåller antingen hårdkodade absoluta eller NetBIOS-ShortName-länkar i innehållet, eller appar med innehåll som länkar till andra lokala program.
+* **Översätt URL: er i program text**: Aktivera länk översättning för program brödtext för en app när du vill att länkarna från appen ska översättas i svar tillbaka till klienten. Om den här funktionen är aktive rad tillhandahåller den här funktionen ett bästa försök att översätta alla interna länkar som App proxy hittar i HTML-och CSS-svar som returneras till klienter. Det är användbart när du publicerar appar som innehåller antingen hårdkodade absoluta eller NetBIOS-ShortName-länkar i innehållet, eller appar med innehåll som länkar till andra lokala program.
 
 För scenarier där en publicerad app länkar till andra publicerade appar, aktivera länk översättning för varje program så att du har kontroll över användar upplevelsen på nivån per app.
 
-Anta till exempel att du har tre program som publicerats via programproxyn som alla länkar till varandra: Fördelar, utgifter och resor, plus en fjärde app, feedback, som inte har publicerats via programproxyn.
+Anta till exempel att du har tre program som publicerats via programproxyn som alla länkar till varandra: förmåner, utgifter och resor, plus en fjärde app, feedback, som inte har publicerats via programproxyn.
 
 ![Bild 1](media/App-proxy-deployment-plan/link-translation.png)
 
@@ -227,13 +227,13 @@ För lokala program som normalt är tillgängliga anonymt, vilket kräver ingen 
 
 Om du lämnar det här alternativet till Nej kan användarna få åtkomst till det lokala programmet via Azure AD App proxy utan behörigheter, så Använd med försiktighet.
 
-När ditt program har publicerats bör det vara tillgängligt genom att skriva dess externa URL i en webbläsare eller med dess ikon [https://myapps.microsoft.com](https://myapps.microsoft.com/)på.
+När ditt program har publicerats bör det vara tillgängligt genom att skriva dess externa URL i en webbläsare eller med dess ikon på [https://myapps.microsoft.com](https://myapps.microsoft.com/).
 
 ### <a name="enable-pre-authentication"></a>Aktivera förautentisering
 
 Kontrol lera att programmet kan nås via programproxyn via den externa URL: en. 
 
-1. Gå till **Azure Active Directory** > **företagsprogram** > **alla program** och välj den app som du vill hantera.
+1. Gå till **Azure Active Directory** > **företags program** > **alla program** och välj den app som du vill hantera.
 
 2. Välj **programproxy**.
 
@@ -263,15 +263,15 @@ Program säkerhet kräver en avancerad uppsättning säkerhetsfunktioner som kan
 
 Följande funktioner kan användas för att stödja Azure-AD-programproxy:
 
-* Användar-och plats-baserad villkorlig åtkomst: Skydda känsliga data genom att begränsa användar åtkomst baserat på Geo-eller IP-adresser med [platsbaserade principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
+* Användar-och plats-baserad villkorlig åtkomst: skydda känsliga data genom att begränsa användar åtkomst baserat på Geo-eller IP-adresser med [platsbaserade principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
-* Enhets baserad villkorlig åtkomst: Se till att endast registrerade, godkända och kompatibla enheter kan komma åt företags data med [enhets-baserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications).
+* Enhets-baserad villkorlig åtkomst: se till att endast registrerade, godkända och kompatibla enheter kan komma åt företags data med [enhets-baserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications).
 
-* Programbaserad villkorlig åtkomst: Arbetet måste inte stoppas när en användare inte finns i företags nätverket. [Säker åtkomst till företags molnet och lokala appar](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) och behåll kontrollen med villkorlig åtkomst.
+* Programbaserad villkorlig åtkomst: arbetet behöver inte stoppas när en användare inte finns i företags nätverket. [Säker åtkomst till företags molnet och lokala appar](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) och behåll kontrollen med villkorlig åtkomst.
 
-* Riskfylld villkorlig åtkomst: Skydda dina data från skadliga hackare med en [riskfylld princip för villkorlig åtkomst](https://www.microsoft.com/cloud-platform/conditional-access) som kan tillämpas på alla appar och alla användare, oavsett om de finns lokalt eller i molnet.
+* Riskfylld villkorlig åtkomst: skydda dina data från skadliga hackare med en [riskfylld princip för villkorlig åtkomst](https://www.microsoft.com/cloud-platform/conditional-access) som kan tillämpas på alla appar och alla användare, oavsett om de finns lokalt eller i molnet.
 
-* Azure AD-åtkomst panel: Med tjänsten Application Proxy distribuerad och program som publicerats på ett säkert sätt kan du erbjuda användarna en enkel hubb för att upptäcka och komma åt alla sina program. Öka produktiviteten med självbetjänings funktioner, till exempel möjligheten att begära åtkomst till nya appar och grupper eller hantera åtkomst till dessa resurser för andras räkning via [åtkomst panelen](https://aka.ms/AccessPanelDPDownload).
+* Azure AD-åtkomst panel: med tjänsten Application Proxy distribuerad och program som publicerats på ett säkert sätt kan du erbjuda användarna en enkel hubb för att upptäcka och komma åt alla sina program. Öka produktiviteten med självbetjänings funktioner, till exempel möjligheten att begära åtkomst till nya appar och grupper eller hantera åtkomst till dessa resurser för andras räkning via [åtkomst panelen](https://aka.ms/AccessPanelDPDownload).
 
 ## <a name="manage-your-implementation"></a>Hantera din implementering
 
@@ -281,14 +281,14 @@ Microsoft rekommenderar att du beviljar den minst möjliga behörigheten att utf
 
 | Affärs roll| Affärs uppgifter| Azure AD-roller |
 |---|---|---|
-| Support administratör | Normalt begränsad till kvalificering av slutanvändare som har rapporterat problem och utför begränsade uppgifter, till exempel ändring av användarnas lösen ord, ogiltig verifiering av uppdateringstoken och övervakning av tjänstens hälsa. | Supportavdelningsadministratör |
+| Support administratör | Normalt begränsad till kvalificering av slutanvändare som har rapporterat problem och utför begränsade uppgifter, till exempel ändring av användarnas lösen ord, ogiltig verifiering av uppdateringstoken och övervakning av tjänstens hälsa. | Support administratör |
 | Identitets administratör| Läs om inloggnings rapporter och gransknings loggar i Azure AD för att felsöka problem med App proxy.| Säkerhetsläsare |
 | Program ägare| Skapa och hantera alla aspekter av företags program, program registreringar och programproxy-inställningar.| Program administratör |
 | Infrastruktur administratör | Certifikat förnyelse ägare | Program administratör |
 
 Att minimera antalet personer som har åtkomst till säker information eller resurser bidrar till att minska risken för att en obehörig aktör får åtkomst till obehörig åtkomst, eller att en behörig användare oavsiktligt påverkar en känslig resurs. 
  
-Användare behöver dock fortfarande utföra dagliga privilegierade åtgärder, så att du tvingar just-in-Time (JIT)-baserade [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) principer att tillhandahålla privilegie rad åtkomst på begäran till Azure-resurser och Azure AD är vår rekommenderade metod för att effektivt hantera administrativ åtkomst och granskning.
+Användare behöver dock fortfarande utföra dagliga privilegierade åtgärder, så att du tvingas använda JIT (just-in-Time)-baserade [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) principer för att ge privilegie rad åtkomst på begäran till Azure-resurser och Azure AD är vår rekommenderade metod för att effektivt hantera administrativ åtkomst och granskning.
 
 ### <a name="reporting-and-monitoring"></a>Rapportering och övervakning
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: 23e04bf651c199364f23bf36f327de94c709d643
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: b7a50a2dabc9503ca5dbdd3388e29cfc69963885
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028589"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252601"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Anslut privat till ett Azure Cosmos-konto med hjälp av Azure Private Link
 
@@ -25,26 +25,22 @@ Logga in på [Azure Portal.](https://portal.azure.com)
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
-### <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
+## <a name="virtual-network-and-parameters"></a>Virtuellt nätverk och parametrar
 
 I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som är värd för den virtuella datorn som används för åtkomst till din privata länk resurs (ett Azure Cosmos-konto i det här exemplet).
 
-1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
+I det här avsnittet måste du ersätta följande parametrar i stegen med informationen nedan:
 
-1. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
+| Parameter                   | Värde                |
+|-----------------------------|----------------------|
+| **\<resurs-grupp-namn >**  | myResourceGroup|
+| **\<virtuella-nätverks namn >** | myVirtualNetwork         |
+| **\<region – namn >**          | USA, västra centrala     |
+| **\<IPv4-adress utrymme >**   | 10.1.0.0 \ 16          |
+| **\<under nätets namn >**          | mySubnet        |
+| **\<undernät – adress intervall >** | 10.1.0.0 \ 24          |
 
-    | Inställning | Värde |
-    | ------- | ----- |
-    | Namn | Ange *MyVirtualNetwork*. |
-    | Adressutrymme | Ange *10.1.0.0/16*. |
-    | Prenumeration | Välj din prenumeration.|
-    | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
-    | Location | Välj **WestCentralUS**.|
-    | Undernät – Namn | Ange *undernät*. |
-    | Undernät – adressintervall | Ange *10.1.0.0/24*. |
-    |||
-
-1. Lämna resten som standard och välj **skapa**.
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-the-virtual-machine"></a>Skapa den virtuella datorn
 
@@ -77,7 +73,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 
 1. Lämna standardvärdena i **skapa en virtuell dator – diskar**och välj **Nästa: nätverk**.
 
-1. I **Skapa en virtuell dator – Nätverk** väljer du följande information:
+1. I **Skapa en virtuell dator – nätverk** väljer du följande information:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -101,7 +97,7 @@ Skapa ett [Azure Cosmos SQL API-konto](../cosmos-db/create-cosmosdb-resources-po
 
 Skapa en privat länk för ditt Azure Cosmos-konto enligt beskrivningen i avsnittet [skapa en privat länk med hjälp av Azure Portal](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-the-azure-portal) avsnittet i den länkade artikeln.
 
-## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från Internet
+## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från internet
 
 Anslut till VM- *myVm* från Internet på följande sätt:
 

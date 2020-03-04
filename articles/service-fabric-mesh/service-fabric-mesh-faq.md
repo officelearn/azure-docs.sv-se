@@ -4,12 +4,12 @@ description: Läs om vanliga frågor och svar om Azure Service Fabric nät.
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 3fe6289ad7616dec97706c2f1779a74c508a0f76
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a5c2ea63d162eb6fb78ab702e0519f8ac25dcc7
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461989"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252496"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Vanliga frågor och svar om Service Fabric nät
 
@@ -44,10 +44,13 @@ Vi har för närvarande begränsat livs längden för ett program till två daga
 
 Om detta inträffar kan du kontrol lera att systemet stängs av genom att köra kommandot `az mesh app show` i Azure CLI. Kontrol lera om den returnerar `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
-Ett exempel: 
+Exempel: 
 
-```cli
-~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```azurecli
+az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```
+
+```output
 {
   "debugParams": null,
   "description": "Service Fabric Mesh HelloWorld Application!",
@@ -104,7 +107,7 @@ Utgående DNS-frågor från en behållare till Service Fabric DNS-tjänsten kan 
 
 - Använd Windows är Creators Update (version 1709) eller högre som din bas behållar avbildning.
 - Om enbart tjänst namnet inte fungerar, försök med det fullständiga namnet: ServiceName. ApplicationName.
-- I Docker-filen för din tjänst lägger du till `EXPOSE <port>` där porten är porten som du exponerar din tjänst på. Ett exempel:
+- I Docker-filen för din tjänst lägger du till `EXPOSE <port>` där porten är porten som du exponerar din tjänst på. Exempel:
 
 ```Dockerfile
 EXPOSE 80

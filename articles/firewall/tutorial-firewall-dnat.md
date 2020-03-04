@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 02/26/2020
+ms.date: 03/02/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 1528087ced54ddcab2e3dd44b65fb3411cae3004
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 7220e48c6103352108bdb89e107bb862ee194040
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621792"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251492"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Självstudie: filtrera inkommande Internet trafik med Azure Firewall DNAT med hjälp av Azure Portal
 
@@ -38,11 +38,11 @@ För den här självstudien skapar du två peerkopplade virtuella nätverk:
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
-2. Klicka på startsidan för Azure Portal, klicka på **Resursgrupper** och sedan på **Lägg till**.
+2. Välj **resurs grupper**på Azure Portal start sida och välj sedan **Lägg till**.
 3. I fältet **Resursgruppsnamn** anger du **RG-DNAT-Test**.
 4. I fältet **Prenumeration** väljer du din prenumeration.
 5. I fältet **Resursgruppsplats** väljer du en plats. Alla efterföljande resurser du skapar måste finnas på samma plats.
-6. Klicka på **Skapa**.
+6. Välj **Skapa**.
 
 ## <a name="set-up-the-network-environment"></a>Konfigurera nätverksmiljön
 
@@ -50,9 +50,9 @@ Skapa först de virtuella nätverken och peerkoppla dem sedan.
 
 ### <a name="create-the-hub-vnet"></a>Skapa det virtuella Hub-nätverket
 
-1. Klicka på **Alla tjänster** på startsidan i Azure Portal.
-2. Under **Nätverk** klickar du på **Virtuella nätverk**.
-3. Klicka på **Lägg till**.
+1. På Start sidan för Azure Portal väljer du **alla tjänster**.
+2. Under **nätverk**väljer du **virtuella nätverk**.
+3. Välj **Lägg till**.
 4. Som **Namn** anger du **VN-Hub**.
 5. I fältet **Adressutrymme** skriver du **10.0.0.0/16**.
 6. I fältet **Prenumeration** väljer du din prenumeration.
@@ -65,13 +65,13 @@ Skapa först de virtuella nätverken och peerkoppla dem sedan.
      > Storleken på AzureFirewallSubnet-undernätet är/26. Mer information om under näts storleken finns i [vanliga frågor och svar om Azure Firewall](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 10. För **adress intervall**skriver du **10.0.1.0/26**.
-11. Använd övriga standardinställningar och klicka på **Skapa**.
+11. Använd de andra standardinställningarna och välj sedan **skapa**.
 
 ### <a name="create-a-spoke-vnet"></a>Skapa ett virtuellt spoke-nätverk
 
-1. Klicka på **Alla tjänster** på startsidan i Azure Portal.
-2. Under **Nätverk** klickar du på **Virtuella nätverk**.
-3. Klicka på **Lägg till**.
+1. På Start sidan för Azure Portal väljer du **alla tjänster**.
+2. Under **nätverk**väljer du **virtuella nätverk**.
+3. Välj **Lägg till**.
 4. I fältet **Namn** anger du **VN-Spoke**.
 5. I fältet **Adressutrymme** skriver du **192.168.0.0/16**.
 6. I fältet **Prenumeration** väljer du din prenumeration.
@@ -81,121 +81,113 @@ Skapa först de virtuella nätverken och peerkoppla dem sedan.
 
     Servern kommer att finnas i det här undernätet.
 10. I fältet **Adressintervall** skriver du **192.168.1.0/24**.
-11. Använd övriga standardinställningar och klicka på **Skapa**.
+11. Använd de andra standardinställningarna och välj sedan **skapa**.
 
 ### <a name="peer-the-vnets"></a>Peerkoppla de virtuella nätverken
 
 Peerkoppla nu de två virtuella nätverken.
 
-#### <a name="hub-to-spoke"></a>Hub till spoke
-
-1. Klicka nu på det virtuella nätverket **VN-Hub**.
-2. Under **Inställningar** klickar du på **Peering-sessioner**.
-3. Klicka på **Lägg till**.
-4. Ange **Peer-HubSpoke** som namn.
+1. Välj det virtuella nätverket **VN-Hub** .
+2. Under **Inställningar**väljer du **peering**.
+3. Välj **Lägg till**.
+4. Skriv **peer-HubSpoke** som **namn på peer koppling från VN-hubb till VN-eker**.
 5. Välj **VN-Spoke** för det virtuella nätverket.
-6. Klicka på **OK**
-
-#### <a name="spoke-to-hub"></a>Spoke till hub
-
-1. Klicka på det virtuella nätverket **VN-Spoke**.
-2. Under **Inställningar** klickar du på **Peering-sessioner**.
-3. Klicka på **Lägg till**.
-4. Ange **Peer-SpokeHub** som namn.
-5. Välj **VN-Hub** för det virtuella nätverket.
-6. Klicka på **Tillåt vidarebefordrad trafik**.
-7. Klicka på **OK**
+6. Skriv **peer-SpokeHub** som peering- **namn från VN-eker till VN-Hub**.
+7. För **att tillåta vidarebefordrad trafik från VN-eker till VN-hubb väljer du** **aktive rad**.
+8. Välj **OK**.
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
 Skapa en virtuell arbetsbelastningsdator och placera den i undernätet **SN-Workload**.
 
-1. Klicka på **Alla tjänster** på startsidan i Azure Portal.
-2. Under **Compute** klickar du på **Virtuella datorer**.
-3. Klicka på **Lägg till**, klicka på **Windows Server**, klicka på **Windows Server 2016 Datacenter** och sedan på **Skapa**.
+1. Från Azure Portal-menyn väljer du **skapa en resurs**.
+2. Under **populär**väljer du **Windows Server 2016 Data Center**.
 
 **Grundläggande inställningar**
 
-1. I fältet **Namn** skriver du **Srv-Workload**.
-5. Ange ett användarnamn och lösenord.
-6. I fältet **Prenumeration** väljer du din prenumeration.
-7. I fältet **Resursgrupp** klickar du på **Använd befintlig** och väljer sedan **RG-DNAT-Test**.
-8. Välj samma plats som tidigare i fältet **Plats**.
-9. Klicka på **OK**
+1. I fältet **Prenumeration** väljer du din prenumeration.
+1. I fältet **Resursgrupp** väljer du **Använd befintlig** och väljer sedan **RG-DNAT-Test**.
+1. För **namn på virtuell dator**skriver du **SRV-arbets belastning**.
+1. För **region**väljer du samma plats som du använde tidigare.
+1. Ange ett användarnamn och lösenord.
+1. Välj **Nästa: diskar**.
 
-**Storlek**
+**Diskar**
+1. Välj **Nästa: nätverk**.
 
-1. Välj en lämplig storlek för den virtuella testdator som ska köra Windows Server. Exempelvis **B2ms** (8 GB RAM-minne, 16 GB lagring).
-2. Klicka på **Välj**.
+**Nätverk**
 
-**Inställningar**
-
-1. Under **Nätverk**, i fältet **Virtuellt nätverk**, väljer du **VN-Spoke**.
+1. För **virtuellt nätverk**väljer du **VN-ekrar**.
 2. I fältet **Undernät** väljer du **SN-Workload**.
-3. Klicka på **Offentlig IP-adress** och klicka sedan på **Ingen**.
-4. I fältet **Välj offentliga inkommande portar** väljer du **Inga offentliga inkommande portar**. 
-2. Lämna övriga standardvärden och klicka på **OK**.
+3. Välj **ingen**för **offentlig IP-adress** .
+4. För **offentliga inkommande portar**väljer du **ingen**. 
+2. Lämna de andra standardinställningarna och välj **Nästa: hantering**.
 
-**Sammanfattning**
+**Hantering**
 
-Granska sammanfattningen och klicka sedan på **Skapa**. Det här kan ta några minuter.
+1. För **startdiagnostik**väljer du **av**.
+1. Välj **Granska + Skapa**.
 
-När distributionen är klar antecknar du den privata IP-adressen för den virtuella datorn. Den används senare när du konfigurerar brandväggen. Klicka på namnet på den virtuella datorn. Under **Inställningar** klickar du på **Nätverk** för att hitta den privata IP-adressen.
+**Granska + skapa**
+
+Granska sammanfattningen och välj sedan **skapa**. Det här kan ta några minuter.
+
+När distributionen är klar antecknar du den privata IP-adressen för den virtuella datorn. Den används senare när du konfigurerar brandväggen. Välj namnet på den virtuella datorn och under **Inställningar**väljer du **nätverk** för att hitta den privata IP-adressen.
 
 ## <a name="deploy-the-firewall"></a>Distribuera brandväggen
 
-1. På portalens startsida klickar du på **Skapa en resurs**.
-2. Klicka på **Nätverk**, och sedan efter **Aktuella** klickar du på **Visa alla**.
-3. Klicka på **Brandvägg** och sedan på **Skapa**. 
+1. På portalens start sida väljer du **skapa en resurs**.
+2. Välj **nätverk**och efter **aktuell**väljer du **Visa alla**.
+3. Välj **brand vägg**och välj sedan **skapa**. 
 4. På sidan **Skapa en brandvägg** använder du följande tabell till att konfigurera brandväggen:
 
    |Inställning  |Värde  |
    |---------|---------|
-   |Name     |FW-DNAT-test|
+   |Namn     |FW-DNAT-test|
    |Prenumeration     |\<din prenumeration\>|
    |Resursgrupp     |**Använd befintlig**: RG-DNAT-Test |
-   |Plats     |Välj samma plats som tidigare|
+   |plats.     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintlig**: VN-Hub|
    |Offentlig IP-adress     |**Skapa ny**. Den offentliga IP-adressen måste vara Standard SKU-typen.|
 
-5. Klicka på **Granska + skapa**.
-6. Granska sammanfattningen och klicka sedan på **Skapa** för att skapa brandväggen.
+5. Välj **Granska + skapa**.
+6. Granska sammanfattningen och välj sedan **skapa** för att skapa brand väggen.
 
    Distributionen kan ta några minuter.
-7. När distributionen är klar går du till resursgruppen **RG-DNAT-Test** och klickar på brandväggen **FW-DNAT-test**.
+7. När distributionen är klar går du till resurs gruppen **RG-DNAt-test** och väljer **VB-DNAt-test-** brandväggen.
 8. Skriv ned den privata IP-adressen. Du kommer att använda den senare när du skapar standardvägen.
 
 ## <a name="create-a-default-route"></a>skapa en standardväg
 
 För undernätet **SN-Workload** ställer du in att den utgående standardvägen ska gå via brandväggen.
 
-1. Klicka på **Alla tjänster** på startsidan i Azure Portal.
-2. Under **Nätverk** klickar du på **Routningstabeller**.
-3. Klicka på **Lägg till**.
+1. På Start sidan för Azure Portal väljer du **alla tjänster**.
+2. Under **nätverk**väljer du **routningstabeller**.
+3. Välj **Lägg till**.
 4. I fältet **Namn** skriver du **RT-FWroute**.
 5. I fältet **Prenumeration** väljer du din prenumeration.
 6. I fältet **Resursgrupp** väljer du **Använd befintlig** och väljer **RG-DNAT-Test**.
 7. Välj samma plats som tidigare i fältet **Plats**.
-8. Klicka på **Skapa**.
-9. Klicka på **Uppdatera** och klicka sedan på routningstabellen **RT-FWroute**.
-10. Klicka på **Undernät** och sedan på **Associera**.
-11. Klicka på **Virtuellt nätverk** och välj sedan **VN-Spoke**.
-12. I fältet **Undernät** klickar du på **SN-Workload**.
-13. Klicka på **OK**
-14. Klicka på **Vägar** och sedan på **Lägg till**.
+8. Välj **Skapa**.
+9. Välj **Uppdatera**och välj sedan tabellen **RT-FWroute** väg.
+10. Välj **undernät**och välj sedan **associera**.
+11. Välj **virtuellt nätverk**och välj sedan **VN-eker**.
+12. I fältet **Undernät** väljer du **SN-Workload**.
+13. Välj **OK**.
+14. Välj **vägar**och välj sedan **Lägg till**.
 15. I fältet **Vägnamn** skriver du **FW-DG**.
 16. I fältet **Adressprefix** skriver du **0.0.0.0/0**.
 17. I fältet **Nästa hopptyp** väljer du **Virtuell installation**.
 
     Azure Firewall är egentligen en hanterad tjänst, men en virtuell installation fungerar i det här fallet.
 18. I fältet **Nästa hoppadress** skriver du brandväggens privata IP-adress som du skrev ned tidigare.
-19. Klicka på **OK**
+19. Välj **OK**.
 
 ## <a name="configure-a-nat-rule"></a>Konfigurera en NAT-regel
 
-1. Öppna **RG-DNAT-Test** och klicka på brandväggen **FW-DNAT-test**. 
-2. På sidan **FW-DNAT-test**, under **Inställningar** klickar du på **Regler**. 
-3. Klicka på **Lägg till NAT-regelsamling**. 
+1. Öppna **RG-DNAt-test**och välj **VB-DNAt-test-** brandväggen. 
+2. På sidan **VB-DNAt-test** går du till **Inställningar**och väljer **regler**. 
+3. Välj **Lägg till NAT-regel samling**. 
 4. I fältet **Namn** skriver du **RC-DNAT-01**. 
 5. I fältet **Prioritet** skriver du **200**. 
 6. Under **Regler**, i fältet **Namn**, skriver du **RL-01**.
@@ -205,7 +197,7 @@ För undernätet **SN-Workload** ställer du in att den utgående standardvägen
 10. I fältet **Målportar** skriver du **3389**. 
 11. I fältet **Översatt adress** skriver du den privata IP-adressen för den virtuella datorn Srv-Workload. 
 12. I fältet **Översatt port** skriver du **3389**. 
-13. Klicka på **Lägg till**. 
+13. Välj **Lägg till**. 
 
 ## <a name="test-the-firewall"></a>Testa brandväggen
 

@@ -3,12 +3,12 @@ title: Distribuera resurser med Azure CLI och mall
 description: Använd Azure Resource Manager och Azure CLI för att distribuera resurser till Azure. Resurserna definieras i en Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 242b9f2a4bc39f8aa083d9c89d3dd7ed850b3489
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 64f60a6e15a0c51e5ee506340c064804f7588693
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154303"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250667"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuera resurser med Resource Manager-mallar och Azure CLI
 
@@ -63,7 +63,7 @@ az group deployment create \
 
 Det kan ta några minuter att slutföra distributionen. När det är klart visas ett meddelande som innehåller resultatet:
 
-```azurecli
+```output
 "provisioningState": "Succeeded",
 ```
 
@@ -150,7 +150,7 @@ az group deployment create \
 
 ## <a name="handle-extended-json-format"></a>Hantera utökat JSON-format
 
-Om du vill distribuera en mall med strängar eller kommentarer med flera rader måste du använda växeln `--handle-extended-json-format`.  Ett exempel:
+Om du vill distribuera en mall med strängar eller kommentarer med flera rader måste du använda växeln `--handle-extended-json-format`.  Exempel:
 
 ```json
 {
@@ -183,7 +183,7 @@ az group deployment validate \
 
 Om inga fel upptäcks returnerar kommandot information om test distributionen. Observera **särskilt att felvärdet** är null.
 
-```azurecli
+```output
 {
   "error": null,
   "properties": {
@@ -192,7 +192,7 @@ Om inga fel upptäcks returnerar kommandot information om test distributionen. O
 
 Om ett fel upptäcks returnerar kommandot ett fel meddelande. Om du till exempel skickar ett felaktigt värde för lagrings kontots SKU returneras följande fel:
 
-```azurecli
+```output
 {
   "error": {
     "code": "InvalidTemplate",
@@ -208,7 +208,7 @@ Om ett fel upptäcks returnerar kommandot ett fel meddelande. Om du till exempel
 
 Om din mall har ett syntaxfel returnerar kommandot ett fel som anger att mallen inte kunde parsas. Meddelandet anger rad numret och positionen för tolknings felet.
 
-```azurecli
+```output
 {
   "error": {
     "code": "InvalidTemplate",

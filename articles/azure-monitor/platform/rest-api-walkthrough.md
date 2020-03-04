@@ -4,12 +4,12 @@ description: Autentisera begär Anden och Använd Azure Monitor REST API för at
 ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.openlocfilehash: bdf867d6ae21eda4f9e9f4283542e422cf4d2d94
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 42a7034c586f4e01066e989dcb2b9fae4eebfa85
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659041"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250832"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Genom gång av Azure Monitoring REST API
 
@@ -116,7 +116,7 @@ Invoke-RestMethod -Uri $request `
 
 Den resulterande JSON-svars texten liknar följande exempel: (Observera att det andra måttet har dimensioner)
 
-```JSON
+```json
 {
     "value": [
         {
@@ -254,7 +254,7 @@ Invoke-RestMethod -Uri $request `
 
 Den resulterande JSON-svars texten liknar följande exempel:
 
-```JSON
+```json
 {
   "timespan": "2018-03-01T00:00:00Z/2018-03-02T00:00:00Z",
   "value": [
@@ -327,7 +327,7 @@ Invoke-RestMethod -Uri $request `
 
 Den resulterande JSON-svars texten liknar följande exempel:
 
-```JSON
+```json
 {
   "cost": 0,
   "timespan": "2018-03-01T02:00:00Z/2018-03-01T02:05:00Z",
@@ -411,7 +411,7 @@ Invoke-RestMethod -Uri $request `
 
 Den resulterande JSON-svars texten liknar följande exempel:
 
-```JSON
+```json
 {
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricdefinitions",
   "value": [
@@ -479,7 +479,7 @@ Invoke-RestMethod -Uri $request `
 
 Den resulterande JSON-svars texten liknar följande exempel:
 
-```JSON
+```json
 {
   "value": [
     {
@@ -527,7 +527,7 @@ Invoke-RestMethod -Uri $request `
 
 Den resulterande JSON-svars texten liknar följande exempel:
 
-```JSON
+```json
 {
   "value": [
     {
@@ -587,7 +587,7 @@ En annan metod är att använda [ARMClient](https://github.com/projectkudu/armcl
 
 Om du till exempel vill hämta mått definitionerna för en speciell Logi Kap par utfärdar du följande kommando:
 
-```
+```console
 armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01
 ```
 
@@ -617,7 +617,7 @@ För att hitta resurs-ID för en önskad resurs, är det en bra idé att använd
 
 ![Alt "Azure Resource Explorer"](./media/rest-api-walkthrough/azure_resource_explorer.png)
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Resurs-ID: t kan också hämtas från Azure Portal. Det gör du genom att navigera till önskad resurs och sedan välja egenskaper. Resurs-ID visas i avsnittet egenskaper, som visas på följande skärm bild:
 
@@ -633,7 +633,7 @@ Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 
 Resultatet bör likna följande exempel:
 
-```
+```output
 Id             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets
 Name           : ContosoTweets
 Type           : Microsoft.Logic/workflows
@@ -655,13 +655,13 @@ Version        : 08586982649483762729
 
 Om du vill hämta resurs-ID för ett Azure Storage konto med hjälp av Azure CLI kör du kommandot `az storage account show`, som du ser i följande exempel:
 
-```
+```azurecli
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
 ```
 
 Resultatet bör likna följande exempel:
 
-```JSON
+```json
 {
   "accessTier": null,
   "creationTime": "2017-08-18T19:58:41.840552+00:00",

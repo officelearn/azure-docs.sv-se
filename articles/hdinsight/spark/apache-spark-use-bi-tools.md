@@ -5,27 +5,27 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 10/03/2019
-ms.openlocfilehash: 3fd1405d8421d71f52d9cd215dd055ce1595abd0
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.custom: hdinsightactive,mvc
+ms.date: 03/02/2020
+ms.openlocfilehash: d7330225ecbdc6715847821a47c140a3c2b8d1b9
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327281"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251956"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Självstudie: Analysera Apache Spark-data med Power BI i HDInsight
 
 I den här självstudien får du lära dig hur du använder [Microsoft Power BI](https://powerbi.microsoft.com/) för att visualisera data i ett Apache Spark kluster i [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Visualisera Spark-data med Power BI
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [självstudien om artikeln: Läs in data och kör frågor på ett Apache Spark kluster i Azure HDInsight](./apache-spark-load-data-run-query.md).
 
@@ -128,47 +128,47 @@ Med Power BI-tjänsten kan du dela rapporter och instrumentpaneler i din organis
 
 1. Öppna Power BI Desktop.
 
-1. På fliken **Start** klickar du på **Publicera**.
+1. På fliken **Start** väljer du **publicera**.
 
     ![Publicera från Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Publicera från Power BI Desktop")
 
-1. Välj den arbetsyta där du ska publicera datamängden och rapporten. Klicka sedan på **Välj**. I följande bild är standardinställningen **Min arbetsyta** markerad.
+1. Välj en arbets yta att publicera din data uppsättning och rapportera till och välj sedan **Välj**. I följande bild är standardinställningen **Min arbetsyta** markerad.
 
-    ![Välj arbets yta för att publicera data uppsättning och rapportera till](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Välj arbets yta för att publicera data uppsättning och rapportera till") 
+    ![Välj arbets yta för att publicera data uppsättning och rapportera till](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Välj arbets yta för att publicera data uppsättning och rapportera till")
 
-1. När publiceringen är klar klickar du på **Öppna ”BuildingTemperature.pbix” i Power BI**.
+1. När publiceringen är klar väljer du **Öppna "BuildingTemperature. pbix" i Power BI**.
 
-    ![Publicera lyckade, klicka för att ange autentiseringsuppgifter](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Publicera lyckade, klicka för att ange autentiseringsuppgifter") 
+    ![Publicera lyckade, klicka för att ange autentiseringsuppgifter](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Publicera lyckade, klicka för att ange autentiseringsuppgifter")
 
-1. I Power BI-tjänsten klickar du på **Ange autentiseringsuppgifter**.
+1. I Power BI-tjänst väljer du **ange autentiseringsuppgifter**.
 
     ![Ange autentiseringsuppgifter i Power BI-tjänst](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "Ange autentiseringsuppgifter i Power BI-tjänst")
 
-1. Klicka på **Redigera autentiseringsuppgifter**.
+1. Välj **Redigera autentiseringsuppgifter**.
 
     ![Redigera autentiseringsuppgifter i Power BI-tjänst](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "Redigera autentiseringsuppgifter i Power BI-tjänst")
 
-1. Ange kontoinformationen för HDInsight-inloggningen och klicka sedan på **Logga in**. Standardkontonamnet är *admin*.
+1. Ange inloggnings konto informationen för HDInsight och välj sedan **Logga in**. Standardkontonamnet är *admin*.
 
     ![Logga in på Spark-kluster](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Logga in på Spark-kluster")
 
-1. I den vänstra rutan går du till **Arbetsytor** > **Min arbetsyta** > **RAPPORTER**. Klicka sedan på **BuildingTemperature**.
+1. Gå till **arbets ytor** > **min arbets yta** > **rapporter**i den vänstra rutan och välj sedan **BuildingTemperature**.
 
     ![Rapport som visas under rapporter i vänster fönster](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Rapport som visas under rapporter i vänster fönster")
 
     Du bör också se **BuildingTemperature** under **DATAMÄNGDER** i den vänstra rutan.
 
-    Det visuella objektet som du skapade i Power BI Desktop är nu tillgängligt i Power BI-tjänsten. 
+    Det visuella objektet som du skapade i Power BI Desktop är nu tillgängligt i Power BI-tjänsten.
 
-1. Hovra markören över visualiseringen och klicka sedan på stiftikonen i det övre högra hörnet.
+1. Håll markören över visualiseringen och välj sedan Fäst ikonen i det övre högra hörnet.
 
     ![Rapport i Power BI-tjänst](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Rapport i Power BI-tjänst")
 
-1. Välj ”Ny instrumentpanel”, ange namnet `Building temperature` och klicka sedan på **Fäst**.
+1. Välj ny instrument panel, ange namnet `Building temperature`och välj sedan **Fäst**.
 
     ![Fäst på ny instrument panel](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "Fäst på ny instrument panel")
 
-1. I rapporten klickar du på **Gå till instrumentpanelen**.
+1. I rapporten väljer **du gå till instrument panel**.
 
 Ditt visuella objekt är fastsatt på instrumentpanelen. Du kan lägga till fler visuella objekt i rapporten och fästa dem på samma instrumentpanel. Mer information om rapporter och instrumentpaneler finns i [Rapporter i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) och [Instrumentpaneler i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 

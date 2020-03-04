@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: e316da12345c0bf1ea3682dadb1a7a65f250747b
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: f21b440ee0e2c53d9824300e85b683629c1575da
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191091"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252553"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Snabb start: skapa en privat länk-tjänst med hjälp av Azure Portal
 
@@ -29,21 +29,22 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 Skapa först ett virtuellt nätverk. Skapa sedan en intern belastningsutjämnare som ska användas med den privata länk tjänsten.
 
-### <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
+## <a name="virtual-network-and-parameters"></a>Virtuellt nätverk och parametrar
 
 I det här avsnittet skapar du ett virtuellt nätverk. Du skapar också ett undernät som är värd för belastningsutjämnaren som har åtkomst till din privata länk tjänst.
 
-1. Uppe till vänster i portalen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
+I det här avsnittet måste du ersätta följande parametrar i stegen med informationen nedan:
 
-1. I fönstret **Skapa virtuellt nätverk** anger eller väljer du följande värden:
+| Parameter                   | Värde                |
+|-----------------------------|----------------------|
+| **\<resurs-grupp-namn >**  | myResourceGroupLB |
+| **\<virtuella-nätverks namn >** | myVNet          |
+| **\<region – namn >**          | USA, östra 2      |
+| **\<IPv4-adress utrymme >**   | 10.3.0.0 \ 16          |
+| **\<under nätets namn >**          | myBackendSubnet        |
+| **\<undernät – adress intervall >** | 10.3.0.0 \ 24          |
 
-   - **Namn**: ange **myVNet**.
-   - **ResourceGroup**: Välj **Skapa ny**, ange **myResourceGroupLB**och välj **OK**.
-   - **Under näts** > **namn**: ange **myBackendSubnet**.
-
-1. Välj **Skapa**.
-
-   ![Skapa ett virtuellt nätverk](../load-balancer/media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-a-standard-load-balancer"></a>Skapa en standardlastbalanserare
 

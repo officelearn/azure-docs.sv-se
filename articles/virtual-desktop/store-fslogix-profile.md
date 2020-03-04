@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: fb473ec55ec6a5e93ba4ad22bf500414d54e4a5d
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 165e87b47deca2b7f175ec07b5c615ac25db0dd2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367199"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251754"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Lagrings alternativ för FSLogix profil behållare i Windows Virtual Desktop
 
@@ -26,6 +26,7 @@ I följande tabeller jämförs lagrings lösningarna Azure Storage erbjudanden f
 
 |Funktioner|Azure Files|Azure NetApp Files|Lagringsdirigering|
 |--------|-----------|------------------|---------------------|
+|Användningsfall|Generellt syfte|Ultra Performance eller migration från NetApp lokalt|Plattforms oberoende|
 |Plattforms tjänst|Ja, Azure – inbyggd lösning|Ja, Azure – inbyggd lösning|Ingen, egen hantering|
 |Regional tillgänglighet|Alla regioner|[Välj regioner](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Alla regioner|
 |Redundans|Lokalt redundant/zon-redundant/Geo-redundant|Lokalt redundant|Lokalt redundant/zon-redundant/Geo-redundant|
@@ -41,7 +42,7 @@ I följande tabeller jämförs lagrings lösningarna Azure Storage erbjudanden f
 |Access|Moln, lokalt och hybrid (Azure File Sync)|Moln, lokalt (via ExpressRoute)|Moln, lokalt|
 |Säkerhetskopiering|Integrering av Azure Backup-ögonblicksbild|Azure NetApp Files ögonblicks bilder|Integrering av Azure Backup-ögonblicksbild|
 |Säkerhet och efterlevnad|[Alla Azure-certifikat som stöds](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO slutförd|[Alla Azure-certifikat som stöds](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
-|Azure Active Directory-integrering|Azure Active Directory och Azure Active Directory Domain Services|[Azure Active Directory Domain Services och ursprunglig Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Interna Active Directory eller Azure Active Directory Domain Services endast stöd|
+|Azure Active Directory-integrering|[Interna Active Directory och Azure Active Directory Domain Services](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)|[Azure Active Directory Domain Services och ursprunglig Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Interna Active Directory eller Azure Active Directory Domain Services endast stöd|
 
 När du har valt din lagrings metod kan du titta på [priser för virtuella Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-desktop/) för information om våra prissättnings planer.
 

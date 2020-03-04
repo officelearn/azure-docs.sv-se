@@ -17,12 +17,12 @@ ms.date: 10/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72ae1301be4a3a3c086961aae72fb9eeb12aeda2
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 6071e6553fb1275fea63a37b4897aef2685bd509
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960231"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248781"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: konton och behörigheter
 
@@ -55,11 +55,10 @@ Förutom dessa tre konton som används för att köra Azure AD Connect behöver 
 > [!NOTE]
 > Det finns stöd för att hantera de administrativa konton som används i Azure AD Connect från en ESAE-administrativ skog (även kallad "Red skog").
 > Dedikerade administrativa skogar gör det möjligt för organisationer att vara värdar för administrativa konton, arbets stationer och grupper i en miljö som har starkare säkerhets kontroller än produktions miljön.
-> Mer information om dedikerade administrativa skogar finns i [ESAE administrativ skog design metod](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)
->>>>>>> e683a61b0ed62ae739941410f658a127534e2481
+> Mer information om dedikerade administrativa skogar finns i [ESAE administrativ skog design metod](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
 
 > [!NOTE]
-> Den globala administratörs rollen krävs inte efter den första installationen och det enda obligatoriska kontot kommer att vara roll kontot för **Directory-synkronisering** . Det innebär inte necssarily att du bara vill ta bort kontot med rollen global administratör. Det är bättre att ändra rollen till en mindre kraftfull roll eftersom helt ta bort kontot kan orsaka problem om du skulle behöva köra guiden igen. Genom att minska behörigheten för rollen kan du alltid återhöja behörigheter om du måste använda guiden Azure AD Connect igen. 
+> Den globala administratörs rollen krävs inte efter den första installationen och det enda obligatoriska kontot kommer att vara roll kontot för **Directory-synkronisering** . Det innebär inte nödvändigt vis att du bara vill ta bort kontot med rollen global administratör. Det är bättre att ändra rollen till en mindre kraftfull roll eftersom helt ta bort kontot kan orsaka problem om du skulle behöva köra guiden igen. Genom att minska behörigheten för rollen kan du alltid höja behörigheten igen om du måste använda guiden Azure AD Connect igen. 
 
 ## <a name="installing-azure-ad-connect"></a>Installerar Azure AD Connect
 Installations guiden för Azure AD Connect har två olika sökvägar:
@@ -103,7 +102,7 @@ Följande är en sammanfattning av sidorna i guiden Express installation, autent
 
 | Guide sida | Insamlade autentiseringsuppgifter | Behörigheter som krävs | Används för |
 | --- | --- | --- | --- |
-| Saknas |Användare som kör installations guiden |Administratör för den lokala servern |<li>Skapar det ADSync-tjänstkonto som används för att köra synkroniseringstjänsten. |
+| Ej tillämpligt |Användare som kör installations guiden |Administratör för den lokala servern |<li>Skapar det ADSync-tjänstkonto som används för att köra synkroniseringstjänsten. |
 | Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Global administratörs roll i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalogen.</li>  <li>Skapandet av Azure AD Connector-kontot som används för pågående synkronisering i Azure AD.</li> |
 | Anslut till AD DS |Lokala Active Directory autentiseringsuppgifter |Medlem i gruppen Enterprise administratörer (EA) i Active Directory |<li>Skapar AD DS-anslutningsprogrammet i Active Directory och beviljar behörigheter till det. Det här skapade kontot används för att läsa och skriva katalog information under synkroniseringen.</li> |
 
@@ -120,7 +119,7 @@ Följande är en sammanfattning av sidorna för anpassade installations guider, 
 
 | Guide sida | Insamlade autentiseringsuppgifter | Behörigheter som krävs | Används för |
 | --- | --- | --- | --- |
-| Saknas |Användare som kör installations guiden |<li>Administratör för den lokala servern</li><li>Om du använder en fullständig SQL Server måste användaren vara system administratör (SA) i SQL</li> |Som standard skapar det lokala kontot som används som Synkroniseringsmotorn för synkroniseringstjänsten. Kontot skapas bara när administratören inte anger något visst konto. |
+| Ej tillämpligt |Användare som kör installations guiden |<li>Administratör för den lokala servern</li><li>Om du använder en fullständig SQL Server måste användaren vara system administratör (SA) i SQL</li> |Som standard skapar det lokala kontot som används som Synkroniseringsmotorn för synkroniseringstjänsten. Kontot skapas bara när administratören inte anger något visst konto. |
 | Installera Synchronization Services, tjänst konto alternativ |Autentiseringsuppgifter för AD eller lokalt användar konto |Användare, behörigheter beviljas av installations guiden |Om administratören anger ett konto används det här kontot som tjänst konto för synkroniseringstjänsten. |
 | Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Global administratörs roll i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalogen.</li>  <li>Skapandet av Azure AD Connector-kontot som används för pågående synkronisering i Azure AD.</li> |
 | Anslut dina kataloger |Lokala Active Directory autentiseringsuppgifter för varje skog som är ansluten till Azure AD |Behörigheterna beror på vilka funktioner du aktiverar och hur du hittar dem i skapa AD DS-anslutnings kontot |Det här kontot används för att läsa och skriva katalog information under synkroniseringen. |
@@ -203,8 +202,8 @@ Mönstret
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Anpassat | Fjärr-SQL</br>Anpassat |
 | --- | --- | --- | --- |
-| **fristående/arbets grupps dator** | Stöds inte | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto |  Stöds inte |
-| **domänansluten dator** | **VSA**</br>Lokalt konto (2008) | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto</br>Domän konto</br>sMSA,gMSA | **gMSA**</br>Domän konto |
+| **fristående/arbets grupps dator** | Stöds inte | **ATTRIBUTET**</br>Lokalt konto (2008)</br>Lokalt konto |  Stöds inte |
+| **domänansluten dator** | **ATTRIBUTET**</br>Lokalt konto (2008) | **ATTRIBUTET**</br>Lokalt konto (2008)</br>Lokalt konto</br>Domänkonto</br>sMSA,gMSA | **gMSA**</br>Domänkonto |
 | **Domänkontrollant** | **Domän konto** | *gMSA*</br>**Domän konto**</br>sMSA| *gMSA*</br>**Domän konto**|
 
 #### <a name="virtual-service-account"></a>Virtuellt tjänst konto

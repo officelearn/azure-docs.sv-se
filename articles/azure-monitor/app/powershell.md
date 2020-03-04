@@ -3,12 +3,12 @@ title: Automatisera Azure Application insikter med PowerShell | Microsoft Docs
 description: Automatisera att skapa och hantera resurser, aviseringar och tillgänglighets test i PowerShell med hjälp av en Azure Resource Manager mall.
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 06fedb3d345cfe6790f7a19b88fbfdb36470638f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 9494b659b5b4357f3190c45d8cc72c4e130f0ecc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669819"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250771"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Hantera Application Insights-resurser med hjälp av PowerShell
 
@@ -128,7 +128,7 @@ Skapa en ny. JSON-fil – låt oss anropa den `template1.json` i det här exempl
             },
             "dailyQuotaResetTime": {
                 "type": "int",
-                "defaultValue": 24,
+                "defaultValue": 0,
                 "metadata": {
                     "description": "Enter daily quota reset hour in UTC (0 to 23). Values outside the range will get a random reset hour."
                 }
@@ -320,16 +320,30 @@ Använd cmdleten [set-AzApplicationInsightsPricingPlan](https://docs.microsoft.c
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> | Format-List
 ```
 
-Använd samma cmdlet för att ange egenskaper för dagligt tak. Om du t. ex. vill ange 300 GB/dag för Cap 
+Använd samma cmdlet för att ange egenskaper för dagligt tak. Om du t. ex. vill ange 300 GB/dag för Cap
 
 ```PS
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> -DailyCapGB 300
 ```
 
+Du kan också använda [ARMClient](https://github.com/projectkudu/ARMClient) för att hämta och ange dagliga Cap-parametrar.  Använd följande för att hämta de aktuella värdena:
+
+```PS
+armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
+```
+
+## <a name="set-the-daily-cap-reset-time"></a>Ange den dagliga återställnings tiden
+
+Om du vill ange den dagliga återställnings tiden kan du använda [ARMClient](https://github.com/projectkudu/ARMClient). Här är ett exempel som använder `ARMClient`för att ange återställnings tiden till en ny timme (i det här exemplet 12:00 UTC):
+
+```PS
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview "{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'ResetTime':12}}"
+```
+
 <a id="price"></a>
 ## <a name="set-the-pricing-plan"></a>Ange pris Planen 
 
-Använd cmdleten [set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) för att hämta aktuell pris sättnings plan: 
+Använd cmdleten [set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) för att hämta aktuell pris sättnings plan:
 
 ```PS
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
@@ -350,19 +364,36 @@ Du kan också ställa in pris Planen för en befintlig Application Insights resu
                -appName myApp
 ```
 
+`priceCode` definieras som:
+
 |priceCode|projektplan|
 |---|---|
 |1|Per GB (tidigare kallat Basic-planen)|
 |2|Per nod (tidigare namn företags planen)|
 
+Slutligen kan du använda [ARMClient](https://github.com/projectkudu/ARMClient) för att hämta och ange pris scheman och parametrar för dagligt tak.  Använd följande för att hämta de aktuella värdena:
+
+```PS
+armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
+```
+
+Och du kan ange alla parametrarna med:
+
+```PS
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
+"{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'Cap':200,'ResetTime':12,'StopSendNotificationWhenHitCap':true,'WarningThreshold':90,'StopSendNotificationWhenHitThreshold':true}}"
+```
+
+Detta anger den dagliga gränsen till 200 GB/dag, konfigurerar den dagliga återställnings tiden till 12:00 UTC, skickar e-post både när höljet påträffas och varnings nivån uppfylls och anger varnings tröskeln till 90% av Cap.  
+
 ## <a name="add-a-metric-alert"></a>Lägg till en måtta avisering
 
-Om du vill automatisera skapandet av mått aviseringar läser du [artikeln om mall för mått varningar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert)
+Information om hur du automatiserar skapandet av mått varningar finns i [artikeln om mall för mått varningar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert)
 
 
 ## <a name="add-an-availability-test"></a>Lägg till ett tillgänglighets test
 
-Om du vill automatisera tillgänglighets test läser du [artikeln om mall för mått varningar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert).
+Information om hur du automatiserar tillgänglighets test finns i [artikeln om mall för mått varningar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert).
 
 ## <a name="add-more-resources"></a>Lägg till fler resurser
 

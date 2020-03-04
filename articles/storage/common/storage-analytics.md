@@ -8,16 +8,16 @@ ms.date: 03/03/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: efca3dad6d8bfadbc334067b0189d2bea5aef445
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 86b399879807e480176ee9a3ca3feaba1ec5dd85
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750520"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250884"
 ---
 # <a name="storage-analytics"></a>Lagringsanalys
 
-Med Azure Storage Analytics kan du logga och skapa statistik för ett lagringskonto. Du kan använda dessa data för att spåra förfrågningar, analysera användningstrender och diagnostisera problem med lagringskontot.
+Azure-lagringsanalys utför loggning och tillhandahåller mått data för ett lagrings konto. Du kan använda dessa data för att spåra begär Anden, analysera användnings trender och diagnostisera problem med ditt lagrings konto.
 
 Om du vill använda Lagringsanalys måste du aktivera det separat för varje tjänst som du vill övervaka. Du kan aktivera den från [Azure Portal](https://portal.azure.com). Mer information finns i [övervaka ett lagrings konto i Azure Portal](storage-monitor-storage-account.md). Du kan också aktivera Lagringsanalys program mässigt via REST API eller klient biblioteket. Använd egenskaperna [Ange BLOB service](/rest/api/storageservices/set-blob-service-properties), ange egenskaper för [Queue Service](/rest/api/storageservices/set-queue-service-properties), [Ange Table service-egenskaper](/rest/api/storageservices/set-table-service-properties)och [ange åtgärder för fil tjänst egenskaper](/rest/api/storageservices/Get-File-Service-Properties) för att aktivera Lagringsanalys för varje tjänst.
 
@@ -42,7 +42,7 @@ Om du har konfigurerat en princip för data bevarande debiteras du inte för bor
 
 ### <a name="understanding-billable-requests"></a>Förstå fakturerbara förfrågningar
 
-Varje begäran som görs till ett kontos lagrings tjänst är antingen fakturerbar eller ej fakturerbar. Lagringsanalys loggar varje enskild begäran som görs till en tjänst, inklusive ett status meddelande som anger hur begäran hanterades. På samma sätt lagrar Lagringsanalys mått för både en tjänst och API-åtgärderna för tjänsten, inklusive procent andelen och antalet vissa status meddelanden. Tillsammans kan de här funktionerna hjälpa dig att analysera dina fakturerbara förfrågningar, göra förbättringar i programmet och diagnostisera problem med förfrågningar till dina tjänster. Mer information om fakturering finns i [förstå Azure Storage fakturering-bandbredd, transaktioner och kapacitet](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+Varje begäran som görs till ett kontos lagrings tjänst är antingen fakturerbar eller ej fakturerbar. Lagringsanalys loggar varje enskild begäran som görs till en tjänst, inklusive ett status meddelande som anger hur begäran hanterades. På samma sätt lagrar Lagringsanalys mått för både en tjänst och API-åtgärderna för tjänsten, inklusive procent andelen och antalet vissa status meddelanden. Tillsammans kan de här funktionerna hjälpa dig att analysera dina fakturerbara förfrågningar, göra förbättringar i programmet och diagnostisera problem med förfrågningar till dina tjänster. Mer information om fakturering finns i [förstå Azure Storage fakturering-bandbredd, transaktioner och kapacitet](https://docs.microsoft.com/archive/blogs/windowsazurestorage/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
 
 När du tittar på Lagringsanalys data kan du använda tabellerna i avsnittet [Lagringsanalys loggade åtgärder och status meddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) för att avgöra vilka förfrågningar som är fakturerbara. Sedan kan du jämföra dina loggar och mät data med status meddelanden för att se om du debiteras för en viss begäran. Du kan också använda tabellerna i föregående avsnitt för att undersöka tillgänglighet för en lagrings tjänst eller en enskild API-åtgärd.
 

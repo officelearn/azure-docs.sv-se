@@ -3,12 +3,12 @@ title: Konfigurera Azure Red Hat OpenShift-kluster med Azure Monitor för behål
 description: I den här artikeln beskrivs hur du konfigurerar övervakning av ett Kubernetes-kluster med Azure Monitor som finns i Azure Red Hat OpenShift.
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: 215835c04a1877ccdb6454c4c3902332b9dc1ab2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: c2fd3568be2c51296bb1377e91031ebfb7ca6ee3
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190078"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250700"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>Konfigurera Azure Red Hat OpenShift-kluster med Azure Monitor för behållare
 
@@ -113,7 +113,7 @@ Log Analytics arbets ytan måste skapas innan du aktiverar övervakning med Azur
 
     Resultatet ser ut ungefär så här:
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 
@@ -123,7 +123,7 @@ Utför följande steg för att aktivera övervakning av ett Azure Red Hat OpenSh
 
 ### <a name="from-the-azure-portal"></a>Från Azure-portalen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. På Azure Portal-menyn eller på Start sidan väljer du **Azure Monitor**. Under avsnittet **insikter** väljer du **behållare**.
 
@@ -197,7 +197,7 @@ Log Analytics arbets ytan måste skapas innan du aktiverar övervakning med Azur
 
     Resultatet ser ut ungefär så här:
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 

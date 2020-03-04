@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 73f490ec069ff44929ca70f4ecf2ab3aca52934d
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 37de55d671bb19cfcd9fd494c2e76f658fc7db21
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78209355"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249502"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Visa trafik data på kartan med Azure Maps Android SDK
 
-Flödes data och incident data är de två typer av trafik data som kan visas på kartan. Den här guiden visar hur du visar båda dessa trafik data. Incident data består av punkt-och linjebaserade data för sådant som konstruktioner, väg stängningar och olyckor. Flow-data visar mått för trafik flödet på resan.
+Flödes data och incident data är de två typer av trafik data som kan visas på kartan. Den här guiden visar hur du visar båda typerna av trafik data. Incident data består av punkt-och linjebaserade data för sådant som konstruktioner, väg stängningar och olyckor. Flow-data visar mått för trafik flödet på resan.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du kan visa trafik på kartan måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) och läsa in en karta.
+Innan du kan visa trafik på kartan måste du [skapa ett Azure-konto](quick-demo-map-app.md#create-an-account-with-azure-maps)och [Skaffa en prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account). Sedan måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) och läsa in en karta.
 
 ## <a name="incidents-traffic-data"></a>Incident trafik data 
 
@@ -38,7 +38,7 @@ protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     mapControl.getMapAsync(map - > {
         map.setTraffic(incidents(true));
-}
+    }
 }
 ```
 
@@ -63,8 +63,9 @@ Använd följande kodfragment för att ställa in trafik flödes data. Precis so
 ```java
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    mapControl.getMapAsync(map -> 
+    mapControl.getMapAsync(map -> {
         map.setTraffic(flow(TrafficFlow.RELATIVE)));
+    }
 }
 ```
 

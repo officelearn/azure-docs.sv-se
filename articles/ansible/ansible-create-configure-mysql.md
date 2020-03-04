@@ -4,12 +4,12 @@ description: Lär dig hur du använder Ansible för att skapa och konfigurera en
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: f068b3022c94466a20b524240dc293392b1f42ff
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 9cd574417733518b993bb242c2c168aba338e34a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603120"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247872"
 ---
 # <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Självstudie: konfigurera databaser i Azure Database for MySQL med Ansible
 
@@ -24,7 +24,7 @@ ms.locfileid: "77603120"
 > * Skapa en MySql-Server
 > * Skapa en MySql-databas
 > * Konfigurera en brand Väggs regel så att en extern app kan ansluta till servern
-> * Ansluta till MySql-servern från Azure Cloud Shell
+> * Anslut till MySql-servern från Azure Cloud Shell
 > * Fråga dina tillgängliga MySQL-servrar
 > * Visa en lista över alla databaser på dina anslutna servrar
 
@@ -157,9 +157,13 @@ ansible-playbook mysql_firewall.yml
 
 I det här avsnittet använder du Azure Cloud Shell för att ansluta till den server som du skapade tidigare.
 
-1. Välj knappen **prova** i följande kod:
+1. Öppna shell.azure.com genom att välja nedan.
 
-    ```azurecli-interactive
+   [![Bädda in start](https://shell.azure.com/images/launchcloudshell.png "Starta Azure Cloud Shell")](https://shell.azure.com)
+
+1. Ange följande kod:
+
+    ```sql
     mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
     ```
 
@@ -171,7 +175,7 @@ I det här avsnittet använder du Azure Cloud Shell för att ansluta till den se
     
     Om allt går bra ser du utdata som liknar följande resultat:
     
-    ```
+    ```output
     demo@Azure:~$ mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
     Enter password:
     Welcome to the MySQL monitor.  Commands end with ; or \g.

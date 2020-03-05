@@ -101,146 +101,311 @@
       href: identity-platform-integration-checklist.md
     - name: Programscenarier
       items:
-        - name: Logga in målgrupp
-          href: v2-supported-account-types.md
-        - name: Ensidesapp
+        - name: Enkelsidiga appar
           items:
-            - name: Översikt
-              href: scenario-spa-overview.md
-            - name: Appregistrering
-              href: scenario-spa-app-registration.md
-            - name: Konfiguration av kod
-              href: scenario-spa-app-configuration.md
-            - name: Inloggning och utloggning
-              href: scenario-spa-sign-in.md
-            - name: Hämta token för ett API
-              href: scenario-spa-acquire-token.md
-            - name: Anropa en webb-API
-              href: scenario-spa-call-api.md
-            - name: Flytta till produktion
-              href: scenario-spa-production.md
-        - name: Webbapp som loggar in användare
+            - name: JavaScript
+              href: tutorial-v2-javascript-spa.md
+        - name: Webbappar
           items:
-            - name: Översikt
-              href: scenario-web-app-sign-user-overview.md
-            - name: Appregistrering
-              href: scenario-web-app-sign-user-app-registration.md
-            - name: Konfiguration av kod
-              href: scenario-web-app-sign-user-app-configuration.md
-            - name: Inloggning och utloggning
-              href: scenario-web-app-sign-user-sign-in.md
-            - name: Flytta till produktion
-              href: scenario-web-app-sign-user-production.md
-        - name: 'Webbapp som anropar webb-API:er'
+            - name: ASP .NET
+              href: tutorial-v2-asp-webapp.md
+        - name: Mobilappar och skrivbordsappar
           items:
-            - name: Översikt
-              href: scenario-web-app-call-api-overview.md
-            - name: Appregistrering
-              href: scenario-web-app-call-api-app-registration.md
-            - name: Konfiguration av kod
-              href: scenario-web-app-call-api-app-configuration.md
-            - name: Global utloggning
-              href: scenario-web-app-call-api-sign-in.md
-            - name: Hämta token för appen
-              href: scenario-web-app-call-api-acquire-token.md
-            - name: Anropa en webb-API
-              href: scenario-web-app-call-api-call-api.md
-            - name: Flytta till produktion
-              href: scenario-web-app-call-api-production.md
-        - name: Skyddat webb-API
+            - name: Android
+              href: tutorial-v2-android.md
+            - name: iOS och macOS
+              href: tutorial-v2-ios.md
+            - name: Universell Windows-plattform
+              href: tutorial-v2-windows-uwp.md
+            - name: .NET för Windows-skrivbordet
+              href: tutorial-v2-windows-desktop.md
+            - name: Använda läge för delad enhet i Android-appen
+              href: tutorial-v2-shared-device-mode.md
+        - name: Daemon-appar
           items:
-            - name: Översikt
-              href: scenario-protected-web-api-overview.md
-            - name: Appregistrering
-              href: scenario-protected-web-api-app-registration.md
-            - name: Konfiguration av kod
-              href: scenario-protected-web-api-app-configuration.md
-            - name: Verifiering av omfattningar eller approller
-              href: scenario-protected-web-api-verification-scope-app-roles.md
-            - name: Flytta till produktion
-              href: scenario-protected-web-api-production.md
-        - name: 'Webb-API som anropar webb-API:er'
-          items:
-            - name: Översikt
-              href: scenario-web-api-call-api-overview.md
-            - name: Appregistrering
-              href: scenario-web-api-call-api-app-registration.md
-            - name: Konfiguration av kod
-              href: scenario-web-api-call-api-app-configuration.md
-            - name: Hämta en token
-              href: scenario-web-api-call-api-acquire-token.md
-            - name: Anropa en webb-API
-              href: scenario-web-api-call-api-call-api.md
-            - name: Flytta till produktion
-              href: scenario-web-api-call-api-production.md
-        - name: 'Datorprogram som anropar webb-API:er'
-          items:
-            - name: Översikt
-              href: scenario-desktop-overview.md
-            - name: Appregistrering
-              href: scenario-desktop-app-registration.md
-            - name: Konfiguration av kod
-              href: scenario-desktop-app-configuration.md
-            - name: Hämta token
-              href: scenario-desktop-acquire-token.md
-            - name: Anropa en webb-API
-              href: scenario-desktop-call-api.md
-            - name: Flytta till produktion
-              href: scenario-desktop-production.md
-        - name: Daemon-app
-          items:
-            - name: Översikt
-              href: scenario-daemon-overview.md
-            - name: Appregistrering
-              href: scenario-daemon-app-registration.md
-            - name: Konfiguration av kod
-              href: scenario-daemon-app-configuration.md
-            - name: Hämta token
-              href: scenario-daemon-acquire-token.md
-            - name: Anropa en webb-API
-              href: scenario-daemon-call-api.md
-            - name: Flytta till produktion
-              href: scenario-daemon-production.md
-        - name: 'Mobilapp att anropar webb-API:er'
-          items:
-            - name: Översikt
-              href: scenario-mobile-overview.md
-            - name: Appregistrering
-              href: scenario-mobile-app-registration.md
-            - name: Konfiguration av kod
-              href: scenario-mobile-app-configuration.md
-            - name: Specifik konfiguration för mobila plattformar
-              items:
-                - name: Läge för delad enhet för Android-enheter
-                  href: shared-device-mode.md
-                - name: Xamarin Android
-                  href: msal-net-xamarin-android-considerations.md
-                - name: Systemwebbläsare på Android
-                  href: msal-net-system-browser-android-considerations.md
-                - name: Xamarin iOS
-                  href: msal-net-xamarin-ios-considerations.md
-                - name: Använda asynkrona meddelandeköer med Xamarin iOS och Android
-                  displayName: Microsoft Authenticator Microsoft Intune
-                  href: msal-net-use-brokers-with-xamarin-apps.md
-                - name: Universell Windows-plattform
-                  href: msal-net-uwp-considerations.md
-            - name: Hämta en token för appen
-              href: scenario-mobile-acquire-token.md
-            - name: Anropa ett webb-API
-              href: scenario-mobile-call-api.md
-            - name: Flytta till produktion
-              href: scenario-mobile-production.md
-    - name: Microsoft Authentication Library (MSAL)
+            - name: ASP.NET-daemon-webbapp
+              href: tutorial-v2-aspnet-daemon-web-app.md
+    - name: Exempel
+      href: sample-v2-code.md
+    - name: Begrepp
       items:
-        - name: Översikt
-          href: msal-overview.md
-        - name: Konton och klientorganisationsprofiler (Android)
-          href: accounts-overview.md
-        - name: Auktoriseringsagenter (Android)
-          href: authorization-agents.md
-        - name: Asynkron autentisering (Android)
-          href: brokered-auth.md
-        - name: Migrering
+        - name: Grundläggande om autentisering
+          href: authentication-scenarios.md
+        - name: Autentiseringsflöden och appscenarier
+          href: authentication-flows-app-scenarios.md
+        - name: Metodtips för identitetsplattform
+          href: identity-platform-integration-checklist.md
+        - name: Programscenarier
+          items:
+            - name: Logga in målgrupp
+              href: v2-supported-account-types.md
+            - name: Ensidesapp
+              items:
+                - name: Översikt
+                  href: scenario-spa-overview.md
+                - name: Appregistrering
+                  href: scenario-spa-app-registration.md
+                - name: Konfiguration av kod
+                  href: scenario-spa-app-configuration.md
+                - name: Inloggning och utloggning
+                  href: scenario-spa-sign-in.md
+                - name: Hämta token för ett API
+                  href: scenario-spa-acquire-token.md
+                - name: Anropa en webb-API
+                  href: scenario-spa-call-api.md
+                - name: Flytta till produktion
+                  href: scenario-spa-production.md
+            - name: Webbapp som loggar in användare
+              items:
+                - name: Översikt
+                  href: scenario-web-app-sign-user-overview.md
+                - name: Appregistrering
+                  href: scenario-web-app-sign-user-app-registration.md
+                - name: Konfiguration av kod
+                  href: scenario-web-app-sign-user-app-configuration.md
+                - name: Inloggning och utloggning
+                  href: scenario-web-app-sign-user-sign-in.md
+                - name: Flytta till produktion
+                  href: scenario-web-app-sign-user-production.md
+            - name: 'Webbapp som anropar webb-API:er'
+              items:
+                - name: Översikt
+                  href: scenario-web-app-call-api-overview.md
+                - name: Appregistrering
+                  href: scenario-web-app-call-api-app-registration.md
+                - name: Konfiguration av kod
+                  href: scenario-web-app-call-api-app-configuration.md
+                - name: Global utloggning
+                  href: scenario-web-app-call-api-sign-in.md
+                - name: Hämta token för appen
+                  href: scenario-web-app-call-api-acquire-token.md
+                - name: Anropa en webb-API
+                  href: scenario-web-app-call-api-call-api.md
+                - name: Flytta till produktion
+                  href: scenario-web-app-call-api-production.md
+            - name: Skyddat webb-API
+              items:
+                - name: Översikt
+                  href: scenario-protected-web-api-overview.md
+                - name: Appregistrering
+                  href: scenario-protected-web-api-app-registration.md
+                - name: Konfiguration av kod
+                  href: scenario-protected-web-api-app-configuration.md
+                - name: Verifiering av omfattningar eller approller
+                  href: scenario-protected-web-api-verification-scope-app-roles.md
+                - name: Flytta till produktion
+                  href: scenario-protected-web-api-production.md
+            - name: 'Webb-API som anropar webb-API:er'
+              items:
+                - name: Översikt
+                  href: scenario-web-api-call-api-overview.md
+                - name: Appregistrering
+                  href: scenario-web-api-call-api-app-registration.md
+                - name: Konfiguration av kod
+                  href: scenario-web-api-call-api-app-configuration.md
+                - name: Hämta en token
+                  href: scenario-web-api-call-api-acquire-token.md
+                - name: Anropa en webb-API
+                  href: scenario-web-api-call-api-call-api.md
+                - name: Flytta till produktion
+                  href: scenario-web-api-call-api-production.md
+            - name: 'Datorprogram som anropar webb-API:er'
+              items:
+                - name: Översikt
+                  href: scenario-desktop-overview.md
+                - name: Appregistrering
+                  href: scenario-desktop-app-registration.md
+                - name: Konfiguration av kod
+                  href: scenario-desktop-app-configuration.md
+                - name: Hämta token
+                  href: scenario-desktop-acquire-token.md
+                - name: Anropa en webb-API
+                  href: scenario-desktop-call-api.md
+                - name: Flytta till produktion
+                  href: scenario-desktop-production.md
+            - name: Daemon-app
+              items:
+                - name: Översikt
+                  href: scenario-daemon-overview.md
+                - name: Appregistrering
+                  href: scenario-daemon-app-registration.md
+                - name: Konfiguration av kod
+                  href: scenario-daemon-app-configuration.md
+                - name: Hämta token
+                  href: scenario-daemon-acquire-token.md
+                - name: Anropa en webb-API
+                  href: scenario-daemon-call-api.md
+                - name: Flytta till produktion
+                  href: scenario-daemon-production.md
+            - name: 'Mobilapp att anropar webb-API:er'
+              items:
+                - name: Översikt
+                  href: scenario-mobile-overview.md
+                - name: Appregistrering
+                  href: scenario-mobile-app-registration.md
+                - name: Konfiguration av kod
+                  href: scenario-mobile-app-configuration.md
+                - name: Specifik konfiguration för mobila plattformar
+                  items:
+                    - name: Läge för delad enhet för Android-enheter
+                      href: shared-device-mode.md
+                    - name: Xamarin Android
+                      href: msal-net-xamarin-android-considerations.md
+                    - name: Systemwebbläsare på Android
+                      href: msal-net-system-browser-android-considerations.md
+                    - name: Xamarin iOS
+                      href: msal-net-xamarin-ios-considerations.md
+                    - name: Använda asynkrona meddelandeköer med Xamarin iOS och Android
+                      displayName: Microsoft Authenticator Microsoft Intune
+                      href: msal-net-use-brokers-with-xamarin-apps.md
+                    - name: Universell Windows-plattform
+                      href: msal-net-uwp-considerations.md
+                - name: Hämta en token för appen
+                  href: scenario-mobile-acquire-token.md
+                - name: Anropa ett webb-API
+                  href: scenario-mobile-call-api.md
+                - name: Flytta till produktion
+                  href: scenario-mobile-production.md
+        - name: Microsoft Authentication Library (MSAL)
+          items:
+            - name: Översikt
+              href: msal-overview.md
+            - name: Konton och klientorganisationsprofiler (Android)
+              href: accounts-overview.md
+            - name: Auktoriseringsagenter (Android)
+              href: authorization-agents.md
+            - name: Asynkron autentisering (Android)
+              href: brokered-auth.md
+            - name: Migrering
+              items:
+                - name: Migrera till MSAL.NET
+                  href: msal-net-migration.md
+                - name: Migrera till MSAL.js
+                  href: msal-compare-msal-js-and-adal-js.md
+                - name: Migrera till MSAL.Android
+                  href: migrate-android-adal-msal.md
+                - name: Migrera till MSAL.iOS/MacOS
+                  href: migrate-objc-adal-msal.md
+                - name: Migrera till MSAL Python
+                  href: migrate-python-adal-msal.md
+                - name: Migrera till MSAL för Java
+                  href: migrate-adal-msal-java.md
+                - name: Migrera Xamarin-appar med hjälp av asynkrona meddelandeköer till MSAL.NET
+                  href: msal-net-migration-ios-broker.md
+            - name: Autentiseringsflöden som stöds
+              href: msal-authentication-flows.md
+            - name: Offentliga klientappar med enstaka och flera konton (Android)
+              href: single-multi-account.md
+            - name: Hämta och cachelagra token
+              items:
+                - name: Hämta och cachelagra token
+                  href: msal-acquire-cache-tokens.md
+                - name: Omfång för v1.0-appar
+                  href: msal-v1-app-scopes.md
+            - name: Klientprogram
+              items:
+                - name: Klientprogram
+                  href: msal-client-applications.md
+                - name: Tillämpningskonfiguration
+                  href: msal-client-application-configuration.md
+                - name: Initiera program (.NET)
+                  href: msal-net-initializing-client-applications.md
+                - name: Klientförsäkran (.NET)
+                  href: msal-net-client-assertions.md
+                - name: Initiera program (JS)
+                  href: msal-js-initializing-client-applications.md
+            - name: Hantera fel och undantag
+              href: msal-handling-exceptions.md
+            - name: Loggning
+              href: msal-logging.md
+            - name: Enkel inloggning
+              items:
+                - name: Enkel inloggning med MSAL.js
+                  href: msal-js-sso.md
+                - name: Enkel inloggning med MSAL för iOS och macOS
+                  items:
+                    - name: Enkel inloggning mellan MSAL-appar
+                      href: single-sign-on-macos-ios.md
+                    - name: Enkel inloggning mellan ADAL- och MSAL-appar
+                      href: sso-between-adal-msal-apps-macos-ios.md
+            - name: Integrera med ADFS
+              items:
+                - name: ADFS-stöd i MSAL.NET
+                  href: msal-net-adfs-support.md
+                - name: ADFS-stöd i MSAL för Python
+                  href: msal-python-adfs-support.md
+                - name: ADFS-stöd i MSAL för Java
+                  href: msal-java-adfs-support.md
+            - name: Integrera med Azure AD B2C
+              items:
+                - name: Android
+                  href: msal-android-b2c.md
+                - name: JavaScript
+                  href: msal-b2c-overview.md
+                - name: .NET
+                  href: msal-net-aad-b2c-considerations.md
+                - name: iOS och macOS
+                  href: 'config-authority.md#b2c'
+            - name: Överväganden och kända problem
+              items:
+                - name: MSAL.NET
+                  items:
+                    - name: Webbläsare
+                      href: msal-net-web-browsers.md
+                - name: MSAL.js
+                  items:
+                    - name: Överväganden vid användning av IE
+                      href: msal-js-use-ie-browser.md
+                    - name: Kända problem –IE och Microsoft Edge
+                      href: msal-js-known-issues-ie-edge-browsers.md
+                    - name: Kända problem – Safari
+                      href: msal-js-known-issues-safari-browser.md
+                - name: Felsöka SSL-problem (MSAL iOS/macOS)
+                  href: ssl-issues.md
+        - name: Autentiseringsprotokoll
+          items:
+            - name: Programtyper och OAuth2.0
+              href: v2-app-types.md
+            - name: OAuth 2.0- och OpenID Connect-protokoll
+              href: active-directory-v2-protocols.md
+            - name: OpenID Connect
+              href: v2-protocols-oidc.md
+            - name: Implicit flöde för beviljande av OAuth 2.0
+              href: v2-oauth2-implicit-grant-flow.md
+            - name: Beviljande av OAuth 2.0-auktoriseringkod
+              href: v2-oauth2-auth-code-flow.md
+            - name: On-Behalf-Of-flöde för OAuth 2.0
+              href: v2-oauth2-on-behalf-of-flow.md
+            - name: Beviljande av autentiseringsuppgifter för OAuth 2.0-klient
+              href: v2-oauth2-client-creds-grant-flow.md
+            - name: Kodflöde för OAuth 2.0-enhet
+              href: v2-oauth2-device-code.md
+            - name: Beviljande via resursägarens lösenordsautentiseringsuppgifter för OAuth 2.0
+              href: v2-oauth-ropc.md
+            - name: OAuth 2.0 SAML ägartokenförsäkrat flöde
+              href: v2-saml-bearer-assertion.md
+            - name: Förnyelse av signeringsnyckel
+              href: active-directory-signing-key-rollover.md
+            - name: ID-tokens
+              href: id-tokens.md
+            - name: Åtkomsttokens
+              href: access-tokens.md
+            - name: Autentiseringsuppgifter för certifikat
+              href: active-directory-certificate-credentials.md
+        - name: Tillämpningskonfiguration
+          items:
+            - name: Program och tjänsternas huvudnamn
+              href: app-objects-and-service-principals.md
+            - name: Hur och varför program läggs till i Azure AD
+              href: active-directory-how-applications-are-added.md
+            - name: Restriktioner och begränsningar för omdirigerings-URI/svars-URL
+              href: reply-url.md
+            - name: Verifieringsskillnader av kontotyper som stöds
+              href: supported-accounts-validation.md
+            - name: Appar för enskild klient eller flera klienter
+              href: single-and-multi-tenant-apps.md
+        - name: Behörigheter och samtycke
+          displayName: Scopes
           items:
             - name: Översikt
               href: msal-migration.md
@@ -264,11 +429,19 @@
           href: single-multi-account.md
         - name: Hämta och cachelagra token
           items:
-            - name: Hämta och cachelagra token
-              href: msal-acquire-cache-tokens.md
-            - name: Omfång för v1.0-appar
-              href: msal-v1-app-scopes.md
-        - name: Klientprogram
+            - name: Översikt
+              href: authentication-national-cloud.md
+            - name: Autentisering
+              href: msal-national-cloud.md
+        - name: Automatisk användaretablering (SCIM)
+          items:
+            - name: Vad är automatisk användaretablering?
+              href: /azure/active-directory/manage-apps/user-provisioning
+            - name: Skapa och integrera en SCIM-slutpunkt
+              href: /azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups
+    - name: Anvisningar
+      items:
+        - name: Autentisering
           items:
             - name: Konfigurera rollanspråk
               href: active-directory-enterprise-app-role-management.md
@@ -284,54 +457,46 @@
               href: howto-handle-samesite-cookie-changes-chrome-browser.md
         - name: Tillämpningskonfiguration
           items:
-            - name: Klientprogram
-              href: msal-client-applications.md
-            - name: Tillämpningskonfiguration
-              href: msal-client-application-configuration.md
-            - name: Initiera program (.NET)
-              href: msal-net-initializing-client-applications.md
-            - name: Klientförsäkran (.NET)
-              href: msal-net-client-assertions.md
-            - name: Initiera program (JS)
-              href: msal-js-initializing-client-applications.md
-        - name: Hantera fel och undantag
-          href: msal-handling-exceptions.md
-        - name: Loggning
-          href: msal-logging.md
-        - name: Enkel inloggning
-          items:
-            - name: Enkel inloggning med MSAL.js
-              href: msal-js-sso.md
-            - name: Enkel inloggning med MSAL för iOS och macOS
+            - name: Ny utbildningsguide för Azure-portalappsregistreringar
+              href: app-registrations-training-guide-for-app-registrations-legacy-users.md
+            - name: Ny registrering för Azure-portalappar
+              href: app-registration-portal-training-guide.md
+            - name: Konvertera en app för en enda klient till en app för flera klienter
+              href: howto-convert-app-to-be-multi-tenant.md
+            - name: Skapa tjänstens huvudnamn
               items:
-                - name: Enkel inloggning mellan MSAL-appar
-                  href: single-sign-on-macos-ios.md
-                - name: Enkel inloggning mellan ADAL- och MSAL-appar
-                  href: sso-between-adal-msal-apps-macos-ios.md
-        - name: Integrera med ADFS
-          items:
-            - name: ADFS-stöd i MSAL.NET
-              href: msal-net-adfs-support.md
-            - name: ADFS-stöd i MSAL för Python
-              href: msal-python-adfs-support.md
-            - name: ADFS-stöd i MSAL för Java
-              href: msal-java-adfs-support.md
-        - name: Integrera med Azure AD B2C
-          items:
-            - name: Android
-              href: msal-android-b2c.md
-            - name: JavaScript
-              href: msal-b2c-overview.md
-            - name: .NET
-              href: msal-net-aad-b2c-considerations.md
-            - name: iOS och macOS
-              href: 'config-authority.md#b2c'
-        - name: Överväganden och kända problem
+                - name: Använda Azure PowerShell
+                  href: howto-authenticate-service-principal-powershell.md
+                - name: Använda Azure Portal
+                  href: howto-create-service-principal-portal.md
+            - name: Begränsa din app till en uppsättning användare
+              href: howto-restrict-your-app-to-a-set-of-users.md
+            - name: Lägg till roller i ditt program
+              href: howto-add-app-roles-in-azure-ad-apps.md
+            - name: Riktlinjer för anpassning
+              href: howto-add-branding-in-azure-ad-apps.md
+            - name: Konfigurera publisher-domän
+              href: howto-configure-publisher-domain.md
+            - name: Användningsvillkor och sekretesspolicy
+              href: howto-add-terms-of-service-privacy-statement.md
+        - name: Arbeta med Microsoft Authentication Library
           items:
             - name: MSAL.NET
               items:
-                - name: Webbläsare
-                  href: msal-net-web-browsers.md
+                - name: Hämta en token från cache
+                  href: msal-net-acquire-token-silently.md
+                - name: Serialisering för tokencache
+                  href: msal-net-token-cache-serialization.md
+                - name: Rensa tokencache
+                  href: msal-net-clear-token-cache.md
+                - name: Skapa en instans av en offentlig klientapp
+                  href: msal-net-instantiate-public-client-config-options.md
+                - name: Skapa en instans av en konfidentiell klient med alternativ
+                  href: msal-net-instantiate-confidential-client-config-options.md
+                - name: Få medgivande för flera resurser
+                  href: msal-net-user-gets-consent-for-multiple-resources.md
+                - name: Ange din egen HttpClient
+                  href: msal-net-provide-httpclient.md
             - name: MSAL.js
               items:
                 - name: Överväganden vid användning av IE
@@ -443,21 +608,21 @@
           href: howto-convert-app-to-be-multi-tenant.md
         - name: Skapa tjänstens huvudnamn
           items:
-            - name: Använda Azure PowerShell
-              href: howto-authenticate-service-principal-powershell.md
-            - name: Använda Azure Portal
-              href: howto-create-service-principal-portal.md
-        - name: Begränsa din app till en uppsättning användare
-          href: howto-restrict-your-app-to-a-set-of-users.md
-        - name: Lägg till roller i ditt program
-          href: howto-add-app-roles-in-azure-ad-apps.md
-        - name: Riktlinjer för anpassning
-          href: howto-add-branding-in-azure-ad-apps.md
-        - name: Konfigurera publisher-domän
-          href: howto-configure-publisher-domain.md
-        - name: Användningsvillkor och sekretesspolicy
-          href: howto-add-terms-of-service-privacy-statement.md
-    - name: Arbeta med Microsoft Authentication Library
+            - name: Använda den Active Directory-anslutna tjänsten
+              href: vs-active-directory-add-connected-service.md
+            - name: Komma igång med .NET MVC-projekt
+              href: vs-active-directory-dotnet-getting-started.md
+            - name: Vad hände med mitt .NET MVC-projekt?
+              href: vs-active-directory-dotnet-what-happened.md
+            - name: Komma igång med WebAPI-projekt
+              href: vs-active-directory-webapi-getting-started.md
+            - name: Vad hände med mitt WebAPI-projekt?
+              href: vs-active-directory-webapi-what-happened.md
+            - name: Diagnostisera fel under autentisering
+              href: vs-active-directory-error.md
+        - name: Använda Microsoft Graph API
+          href: microsoft-graph-intro.md
+    - name: Referenser
       items:
         - name: MSAL.NET
           items:
@@ -522,12 +687,13 @@
 - name: Referenser
   items:
     - name: Autentiseringsbibliotek
-      displayName: MSAL
+      displayName: 'MSAL, auth library, SDK'
       href: reference-v2-libraries.md
     - name: 'API:er för identitet och åtkomst i Microsoft Graph'
       href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta'
     - name: Programmanifest
       href: reference-app-manifest.md
+      displayName: app manifest
     - name: Android MSAL-konfigurationsfil
       href: msal-configuration.md
     - name: Autentisering och felkoder vid autentisering
@@ -538,18 +704,16 @@
   items:
     - name: Ordlista
       href: developer-glossary.md
-    - name: Videoklipp
-      href: identity-videos.md
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: Azure AD-blogg
       href: 'https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory'
     - name: Utvecklarblogg om Microsofts identitetsplattform
-      href: 'https://developer.microsoft.com/en-us/identity/blogs/'
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+      href: 'https://developer.microsoft.com/identity/blogs/'
     - name: Prova att logga in med Microsoft
       href: 'https://azure.microsoft.com/develop/identity/signin/'
-    - name: Hanterade identiteter för Azure-resurser
-      href: 'https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview'
     - name: Få hjälp
       displayName: 'support, help options'
       href: developer-support-help-options.md
+    - name: Hanterade identiteter för Azure-resurser
+      href: 'https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview'

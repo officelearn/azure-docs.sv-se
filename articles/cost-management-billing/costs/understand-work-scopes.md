@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 5e7d01c5383898fb14f57188cd1bee7ea64e8263
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 5e1117bdefc4916fedc5c316632641d77c2f09d3
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200973"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206035"
 ---
 # <a name="understand-and-work-with-scopes"></a>Förstå och arbeta med omfång
 
@@ -65,7 +65,7 @@ Cost Management-deltagare är den rekommenderade rollen för minsta privilegium.
 
 - **Agera när budgetar överskrids** – Cost Management-deltagare måste också ha åtkomst till att skapa och/eller hantera åtgärdsgrupper för att automatiskt kunna agera vid överförbrukning. Du kan bevilja [Övervakningsdeltagare](../../role-based-access-control/built-in-roles.md#monitoring-contributor) till en resursgrupp som innehåller den åtgärdsgrupp som ska användas när budgettrösklar överskrids. Att automatisera vissa åtgärder kräver ytterligare roller för de tjänster som används, till exempel Automation och Azure Functions.
 - **Schemalägga export av kostnadsdata** – Cost Management-deltagare behöver också åtkomst till att hantera lagringskonton för att kunna schemalägga en export som kopierar data till ett lagringskonto. Du kan bevilja [Lagringskontodeltagare](../../role-based-access-control/built-in-roles.md#storage-account-contributor) till en resursgrupp som innehåller lagringskontot dit kostnadsdata exporteras.
-- **Visa rekommendationer om kostnadsbesparingar** – Cost Management-läsare och Cost Management-deltagare har tillgång till att *visa* kostnadsrekommendationer som standard. Att kunna följa kostnadsrekommendationerna kräver dock åtkomst till enskilda resurser. Du kan bevilja en [tjänstspecifik roll](../../role-based-access-control/built-in-roles.md#built-in-role-descriptions) om du vill kunna följa en kostnadsbaserad rekommendation.
+- **Visa rekommendationer om kostnadsbesparingar** – Cost Management-läsare och Cost Management-deltagare har tillgång till att *visa* kostnadsrekommendationer som standard. Att kunna följa kostnadsrekommendationerna kräver dock åtkomst till enskilda resurser. Du kan bevilja en [tjänstspecifik roll](../../role-based-access-control/built-in-roles.md#descriptions-and-ids) om du vill kunna följa en kostnadsbaserad rekommendation.
 
 ## <a name="enterprise-agreement-scopes"></a>Omfång för Enterprise-avtal
 

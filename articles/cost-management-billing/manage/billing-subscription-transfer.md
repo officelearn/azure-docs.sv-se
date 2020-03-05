@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3eb76535a8047840a577f5b044001d85c20b13f0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188398"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245387"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Överföra faktureringsägarskap för en Azure-prenumeration till ett annat konto
 
@@ -45,7 +45,7 @@ Om du är Enterprise-avtalskund (EA) kan ditt företags administratörer överf�
 
     > [!IMPORTANT]
     >
-    > Om du väljer att flytta prenumerationen till det nya kontots Azure AD-klientorganisation kommer alla tilldelade [rollbaserade åtkomstkontroller (RBAC)](../../role-based-access-control/overview.md) för hantering av resurser i prenumerationen att tas bort permanent. Endast den användare i det nya kontot som godkänner din överföringsbegäran får åtkomst till att hantera resurser i prenumerationen. Mer information finns i [Överföra en prenumeration till en användare i en annan Azure AD-klientorganisation](../../cognitive-services/acoustics/known-issues.md). Alternativt kan du avmarkera kryssrutan för prenumerationens Azure AD-klientorganisation för att överföra faktureringsägarskapet utan att flytta prenumerationen till det nya kontots klientorganisation. Om du gör det kommer befintliga RBAC-behörigheter för att hantera Azure-resurser att behållas.
+    > Om du väljer att flytta prenumerationen till det nya kontots Azure AD-klientorganisation kommer alla tilldelade [rollbaserade åtkomstkontroller (RBAC)](../../role-based-access-control/overview.md) för hantering av resurser i prenumerationen att tas bort permanent. Endast den användare i det nya kontot som godkänner din överföringsbegäran får åtkomst till att hantera resurser i prenumerationen. Mer information finns i [Överföra en prenumeration till en användare i en annan Azure AD-klientorganisation](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories). Alternativt kan du avmarkera kryssrutan för prenumerationens Azure AD-klientorganisation för att överföra faktureringsägarskapet utan att flytta prenumerationen till det nya kontots klientorganisation. Om du gör det kommer befintliga RBAC-behörigheter för att hantera Azure-resurser att behållas.
 
     ![Sidan för att skicka överföring](./media/billing-subscription-transfer/billing-send-transfer-request.PNG)
 

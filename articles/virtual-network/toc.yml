@@ -356,6 +356,34 @@
           href: move-across-regions-publicip-portal.md
         - name: Offentliga IP-adresser – PowerShell
           href: move-across-regions-publicip-powershell.md
+    - name: Felsöka
+      items:
+        - name: Felsöka problem med peering i virtuella nätverk
+          href: virtual-network-troubleshoot-peering-issues.md
+        - name: Konfigurera och verifiera VNet- eller VPN-anslutningar
+          href: virtual-network-configure-vnet-connections.md
+        - name: Nätverkssäkerhetsgrupper
+          href: diagnose-network-traffic-filter-problem.md
+        - name: Vägar
+          href: diagnose-network-routing-problem.md
+        - name: Testning av dataflöde
+          href: virtual-network-bandwidth-testing.md
+        - name: Testa svarstid för VM-nätverk
+          href: virtual-network-test-latency.md
+        - name: Det går inte att ta bort virtuella nätverk
+          href: virtual-network-troubleshoot-cannot-delete-vnet.md
+        - name: Problem med anslutning mellan virtuella datorer
+          href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
+        - name: Konfigurera PTR för SMTP-banderollskontroll
+          href: create-ptr-for-smtp-service.md
+        - name: Felsöka checklista för virtuella installationer
+          href: virtual-network-troubleshoot-nva.md
+        - name: Felsöka utgående SMTP-anslutningar
+          href: troubleshoot-outbound-smtp-connectivity.md
+        - name: Om IP-adress 168.63.129.16
+          href: what-is-ip-address-168-63-129-16.md
+        - name: Felsöka anslutningsproblem för virtuella Azure-datorer
+          href: troubleshoot-vm-connectivity.md
     - name: Klassisk distribution
       href: 'https://docs.microsoft.com/previous-versions/azure/virtual-network/create-virtual-network-classic'
 - name: Referens

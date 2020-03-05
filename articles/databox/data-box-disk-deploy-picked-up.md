@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/19/2019
+ms.date: 03/03/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: eb9231a84295240c20e34bfad56f406317c107da
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1003b862d7fbe19545cf705570866479132c1f03
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845478"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273178"
 ---
 ::: zone target="chromeless"
 
@@ -51,7 +51,7 @@ Innan du börjar bör du slutföra följande [självstudie: Kopiera data till en
 
 Nästa steg beror på var du returnerar enheten. Instruktionerna skiljer sig för USA/Kanada, EU, Australien eller länder i Asien.
 
-### <a name="in-us-or-canadatabin-us-or-canada"></a>[I USA eller Kanada](#tab/in-us-or-canada)
+### <a name="in-us-or-canada"></a>[I USA eller Kanada](#tab/in-us-or-canada)
 
 Utför följande steg om du returnerar enheten i USA eller Kanada.
 
@@ -67,7 +67,7 @@ Utför följande steg om du returnerar enheten i USA eller Kanada.
     - Om du inte uppger spårningsnumret kräver UPS att du betalar en extra avgift vid upphämtningen.
     - I stället för att schemalägga upphämtningen kan du även lämna in Data Box Disk-enheten på närmaste inlämningsställe.
 
-### <a name="in-europetabin-europe"></a>[I Europa](#tab/in-europe)
+### <a name="in-europe"></a>[I Europa](#tab/in-europe)
 
 Utför följande steg om du returnerar enheten i Europa.
 
@@ -80,7 +80,7 @@ Utför följande steg om du returnerar enheten i Europa.
 4. Navigera till DHL-webbplatsen för ditt land/din region. Under Våra divisioner klickar du på DHL Express. Välj **Skicka > Skicka online**.    
 3. Identifiera ditt fraktsedelsnummer och klicka på **Boka upphämtning**.
 
-### <a name="in-australiatabin-australia"></a>[I Australien](#tab/in-australia)
+### <a name="in-australia"></a>[I Australien](#tab/in-australia)
 
 Azure-datacenter i Australien kräver ytterligare en säkerhetsavisering. För alla inkommande leveranser krävs en särskild avisering. Följ stegen nedan vid upphämtning i Australien.
 
@@ -88,7 +88,7 @@ Azure-datacenter i Australien kräver ytterligare en säkerhetsavisering. För a
 3. Fäst etiketten på kartongen. 
 4. Boka en upphämtning online på länken https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-### <a name="in-japantabin-japan"></a>[I Japan](#tab/in-japan)
+### <a name="in-japan"></a>[I Japan](#tab/in-japan)
 
 1. Skriv företagets namn och adressuppgifter på fraktsedeln som din avsändarinformation.
 2. Skicka ett e-postmeddelande till Quantium Solutions baserat på följande e-postmall.
@@ -115,7 +115,7 @@ Vid behov kan du kontakta Quantium Solutions support (på japanska) med följand
 - E-postadress: Customerservice.JP@quantiumsolutions.com 
 - Telefon：03-5755-0150 
 
-### <a name="in-koreatabin-korea"></a>[I Korea](#tab/in-korea)
+### <a name="in-korea"></a>[I Korea](#tab/in-korea)
 
 1. Se till att inkludera returfraktsedeln.
 2. Så här begär du upphämtning när returfraktsedeln finns:
@@ -130,7 +130,7 @@ Vid behov kan du kontakta Quantium Solutions support (på japanska) med följand
     4. Du får en muntlig bekräftelse om begäran görs via telefon.
 
 
-### <a name="in-singaporetabin-singapore"></a>[I Singapore](#tab/in-singapore)
+### <a name="in-singapore"></a>[I Singapore](#tab/in-singapore)
 
 1. Skriv ut adressetiketten och fäst den på kartongen. Om etiketten är skadad eller förlorad:
     - Gå till **Översikt > Ladda ned adressetikett** och hämta en returetikett.
@@ -157,7 +157,7 @@ Vid behov kan du kontakta Quantium Solutions support (på japanska) med följand
 
 3. Lämna över till fraktföretaget.
 
-### <a name="in-self-managedtabin-selfmanaged"></a>[I egenhanterade](#tab/in-selfmanaged)
+### <a name="in-self-managed"></a>[I egenhanterade](#tab/in-selfmanaged)
 
 Om du använder Data Box Disk i Japan, Singapore, Korea och Europa, västra, och har valt alternativet för egenhanterad frakt vid orderskapande, följer du dessa anvisningar. 
 
@@ -175,8 +175,6 @@ Om du använder Data Box Disk i Japan, Singapore, Korea och Europa, västra, och
 3. Azure Data Box-driftsteamet kontaktar dig för att organisera avlämningen på Azure-datacentret.
 
 ::: zone target="docs"
-
----
 
 ## <a name="next-steps"></a>Nästa steg
 

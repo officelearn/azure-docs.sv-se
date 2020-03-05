@@ -83,7 +83,7 @@
           href: pim-resource-roles-configure-role-settings.md
         - name: Konfigurera varningar
           href: pim-resource-roles-configure-alerts.md
-        - name: Visa aktivitets- och granskningshistorik
+        - name: Visa granskningshistorik
           href: azure-pim-resource-rbac.md
         - name: Använd anpassade roller
           href: pim-resource-roles-custom-role-policy.md

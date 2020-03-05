@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 01/30/2020
-ms.openlocfilehash: 74f69f789ecb0d529e52054eeb1ac7ccb51bd6c2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/03/2020
+ms.openlocfilehash: 27dae07328af125c25512ab9f1eb81d0f4eda99b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588833"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271326"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -39,7 +39,7 @@ Azure Search har nu bytt namn till **Azure kognitiv sökning** för att återspe
 
 + Privat åtkomst till en Sök tjänst är tillgänglig via två mekanismer, både för närvarande i för hands version:
 
-  + Du kan begränsa åtkomsten till vissa IP-adresser med hjälp av hanterings REST API `api-version=2019-10-01-Preview` för att skapa tjänsten. För hands versions-API: et har nya egenskaper för **IpRule** och **NETWORKRULESET** i [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate). Den här förhands gransknings funktionen är tillgänglig i valda regioner. Mer information finns i [så här använder du hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+  + Du kan begränsa åtkomsten till vissa IP-adresser med hjälp av hanterings REST API `api-version=2019-10-01-Preview` för att skapa tjänsten. För hands versions-API: et har nya egenskaper för **IpRule** och **NETWORKRULESET** i [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Den här förhands gransknings funktionen är tillgänglig i valda regioner. Mer information finns i [så här använder du hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
   + För närvarande tillgängligt via en begränsad till gång kan du etablera en Azure Search-tjänst som stöder Azures privata slut punkter för anslutningar från klienter i samma virtuella nätverk. Mer information finns i [skapa en privat slut punkt för en säker anslutning](service-create-private-endpoint.md).
 

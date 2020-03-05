@@ -7,18 +7,18 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 6a530c96c99a9f22f1943a5b874656bcabd9594b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c2bf401713dc7ae3b060181f1df56d0915f68aed
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906471"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269507"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Snabb start: hantera blobbar med Java Script v10 SDK i Node. js
 
 I den här snabb starten lär du dig att hantera blobbar med hjälp av Node. js. Blobbar är objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Du överför, laddar ned, listar och tar bort blobbar och hanterar behållare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett Azure Storage-konto. [Skapa ett lagringskonto](../common/storage-account-create.md).
@@ -409,4 +409,4 @@ Den här snabbstarten visar hur du hanterar blobar och containrar i Azure Blob S
 
 > [!div class="nextstepaction"]
 > [Azure Storage v10 SDK för JavaScript-lagringsplats](https://github.com/Azure/azure-storage-js)
-> [Azure Storage Java Script API-referens](/javascript/api/overview/azure/storage?view=azure-node-legacy)
+> [Azure Storage Java Script API-referens](/javascript/api/overview/azure/storage-overview)

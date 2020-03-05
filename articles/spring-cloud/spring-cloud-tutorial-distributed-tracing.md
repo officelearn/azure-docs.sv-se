@@ -6,26 +6,26 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: brendm
-ms.openlocfilehash: e4d3a7fbdb938071b754a16179bcd021985383cc
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 0815aa084462d1b829d64cd7c5d6fa7cebf534fc
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277496"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273200"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Använd distribuerad spårning med Azure våren Cloud
 
-Med de distribuerade spårnings verktygen i Azure våren-molnet kan du enkelt felsöka och övervaka komplexa problem. Azure våren Cloud integrerar [Azure våren Cloud-Sleuth](https://spring.io/projects/spring-cloud-sleuth) med azures [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Den här integrationen ger kraftfull, distribuerad spårnings funktion från Azure Portal.
+Med de distribuerade spårnings verktygen i Azure våren-molnet kan du enkelt felsöka och övervaka komplexa problem. Azure våren Cloud integrerar [våren Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) med azures [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Den här integrationen ger kraftfull, distribuerad spårnings funktion från Azure Portal.
 
 I den här artikeln lär du dig hur du:
 
 > [!div class="checklist"]
 > * Aktivera distribuerad spårning i Azure Portal.
-> * Lägg till Azure våren Cloud-Sleuth i ditt program.
+> * Lägg till vår moln Sleuth i ditt program.
 > * Visa beroende kartor för mikrotjänst program.
 > * Sök spårnings data med olika filter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du en moln tjänst för Azure våren som redan är etablerad och körs. Slutför [snabb starten när du distribuerar en app via Azure CLI](spring-cloud-quickstart-launch-app-cli.md) för att etablera och köra en moln tjänst för Azure våren.
     
@@ -39,7 +39,7 @@ För att slutföra den här självstudien behöver du en moln tjänst för Azure
 
    Efter den här ändringen kan Zipkin-avsändaren skicka till webben.
 
-1. Hoppa över det här steget om du följde vår [Guide för att förbereda ett Azure våren Cloud-program](spring-cloud-tutorial-prepare-app-deployment.md). Annars går du till din lokala utvecklings miljö och redigerar din Pom. XML-fil för att inkludera följande Azure våren Cloud Sleuth-beroende:
+1. Hoppa över det här steget om du följde vår [Guide för att förbereda ett Azure våren Cloud-program](spring-cloud-tutorial-prepare-app-deployment.md). Annars går du till din lokala utvecklings miljö och redigerar din Pom. XML-fil som innehåller följande Sleuth-beroende för fjäder molnet:
 
     ```xml
     <dependencyManagement>

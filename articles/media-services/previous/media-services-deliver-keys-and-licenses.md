@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 61a5213ea1b801b3ceeb3d9a698a20d479509811
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b1f8b158c511919a72e72629d72b0e5ff73ff7db
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974537"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268120"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Använda Media Services för att leverera DRM-licenser eller AES-nycklar 
 
 > [!NOTE]
-> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).   > Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
->
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Med Azure Media Services kan du mata in, koda, lägga till innehålls skydd och strömma ditt innehåll. Mer information finns i [använda PlayReady och/eller Widevine Dynamic common Encryption](media-services-protect-with-playready-widevine.md). Vissa kunder vill bara använda Media Services för att leverera licenser och/eller nycklar och koda, kryptera och strömma med hjälp av sina lokala servrar. Den här artikeln beskriver hur du kan använda Media Services för att leverera PlayReady-och/eller Widevine-licenser, men gör resten av dina lokala servrar. 
+
+Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information om den [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="overview"></a>Översikt
 Media Services tillhandahåller en tjänst för att leverera PlayReady-och Widevine Digital Rights Management-licenser (DRM) och AES-128-nycklar. Media Services tillhandahåller också API: er som gör att du kan konfigurera de rättigheter och begränsningar som du vill att DRM-körningen ska verkställa när en användare spelar upp DRM-skyddat innehåll. När en användare begär det skyddade innehållet begär Player en licens från Media Services licens tjänsten. Om licensen är auktoriserad, utfärdar Media Services licens tjänsten licensen till spelaren. PlayReady-och Widevine-licenserna innehåller den krypterings nyckel som kan användas av klient spelaren för att dekryptera och strömma innehållet.
@@ -348,12 +349,12 @@ namespace DeliverDRMLicenses
 
 * Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 * [Använda PlayReady och/eller Widevine Dynamic Common Encryption](media-services-protect-with-playready-widevine.md)
 * [Använda dynamisk AES-128-kryptering och tjänsten för nyckelleverans](media-services-protect-with-aes128.md)

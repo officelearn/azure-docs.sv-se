@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: b99827ff9fd01c7179a25fafd05bfc8e4ef8ae63
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 279130fa310b107bd1a016c717c48af3d905251b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921104"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270147"
 ---
 # <a name="streaming-ingestion-preview"></a>Strömnings inmatning (för hands version)
 
@@ -37,7 +37,7 @@ Använd den klassiska inmatningen (bulk) i stället för strömnings inmatning n
  
     ![strömnings inmatning på](media/ingest-data-streaming/streaming-ingestion-on.png)
  
-1. I [webb gränssnittet](https://dataexplorer.azure.com/)definierar du en [princip för strömnings](/azure/kusto/concepts/streamingingestionpolicy) inmatning för tabeller eller databaser som tar emot strömmande data. 
+1. I [webb gränssnittet](https://dataexplorer.azure.com/)definierar du en [princip för strömnings](/azure/kusto/management/streamingingestionpolicy) inmatning för tabeller eller databaser som tar emot strömmande data. 
 
     > [!NOTE]
     > * Om principen definieras på databas nivå aktive ras alla tabeller i databasen för strömnings inmatning.
@@ -63,7 +63,7 @@ Det finns två typer av streaming-inmatningar som stöds:
 > [!WARNING]
 > Det kan ta några timmar att inaktivera strömnings inmatning.
 
-1. Ta bort [princip för strömnings](/azure/kusto/concepts/streamingingestionpolicy) inmatning från alla relevanta tabeller och databaser. Borttagnings principen för strömning utlöser strömmande inmatnings data från den första lagringen till den permanenta lagringen i kolumn lagringen (omfattningar eller Shards). Data flytten kan gå mellan några sekunder till några timmar, beroende på mängden data i den första lagringen och hur CPU och minne används av klustret.
+1. Ta bort [princip för strömnings](/azure/kusto/management/streamingingestionpolicy) inmatning från alla relevanta tabeller och databaser. Borttagnings principen för strömning utlöser strömmande inmatnings data från den första lagringen till den permanenta lagringen i kolumn lagringen (omfattningar eller Shards). Data flytten kan gå mellan några sekunder till några timmar, beroende på mängden data i den första lagringen och hur CPU och minne används av klustret.
 1. I Azure Portal går du till ditt Azure Datautforskaren-kluster. I **Inställningar**väljer du **konfigurationer**. 
 1. I fönstret **konfigurationer** väljer du **av** för att inaktivera **strömnings**inmatning.
 1. Välj **Spara**.

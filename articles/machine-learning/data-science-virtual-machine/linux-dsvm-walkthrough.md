@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 529e188d1a4ee00cee7f3d023ab45a48dd0d3c5f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9883256fc801d37acd4ea10226bd9e541f9135f7
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428391"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268658"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Data vetenskap med ett Linux-Data Science Virtual Machine i Azure
 
@@ -24,7 +24,7 @@ Data vetenskaps uppgifterna demonstreras i den här genom gången följa stegen 
 
 I den här genom gången analyserar vi [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) -datauppsättningen. Spambase är en uppsättning e-postmeddelanden som marker ATS som skräp post eller Ham (inte spam). Spambase innehåller också viss statistik om e-postmeddelandets innehåll. Vi pratar om statistiken senare i genom gången.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan använda en Linux-DSVM måste du ha följande krav:
 
@@ -60,10 +60,10 @@ Data uppsättningen har flera typer av statistik för varje e-post:
 
 * Kolumner som **word\_freq\__Word_**  anger procent andelen ord i e-postmeddelandet som matchar *Word*. Om **word\_freq\_** till exempel är **1**, *gör*1% av alla ord i e-postmeddelandet.
 * Kolumner som **char\_freq\__char_**  anger procent andelen av alla tecken i e-postmeddelandet som är *char*.
-* **kapital\_kör\_längd\_längsta** är den längsta en sekvens med versaler.
-* **kapital\_kör\_längd\_genomsnittliga** är den genomsnittliga alla sekvenser av versaler.
-* **kapital\_kör\_längd\_totala** är den totala längden på alla sekvenser av versaler.
-* **skräppost** anger om e-postmeddelandet ansågs skräppost eller inte (1 = skräppost, 0 = inte skräppost).
+* **versal\_\_längd\_längst** är den längsta längden för en sekvens med versaler.
+* **genomsnittligt\_\_längd\_genomsnittet** är den genomsnittliga längden för alla sekvenser med versaler.
+* **\_för\_längd\_total** är total längden på alla sekvenser med versaler.
+* **spam** anger om e-postmeddelandet ansågs vara skräp post eller inte (1 = spam, 0 = inte skräp post).
 
 ## <a name="explore-the-dataset-by-using-r-open"></a>Utforska data uppsättningen med R Open
 
@@ -90,7 +90,7 @@ För en annan vy av data:
 
 I den här vyn visas typen av varje variabel och de första värdena i data uppsättningen.
 
-Den **skräppost** kolumnen lästes som ett heltal, men det är faktiskt en kategoriska variabeln (eller faktor). Ange dess typ:
+Kolumnen **spam** lästes som ett heltal, men det är egentligen en kategoriska variabel (eller faktor). Ange dess typ:
 
     data$spam <- as.factor(data$spam)
 
@@ -187,6 +187,8 @@ Om du vill distribuera besluts träds koden från föregående avsnitt loggar du
    ![Den primära autentiseringstoken för Azure Machine Learning Studio (klassisk)](./media/linux-dsvm-walkthrough/workspace-token.png)
 1. Läs in **azureml** -paketet och ange värden för variablerna med ditt token och arbetsyte-ID i R-sessionen på DSVM:
 
+        if(!require("devtools")) install.packages("devtools")
+        devtools::install_github("RevolutionAnalytics/AzureML")
         if(!require("AzureML")) install.packages("AzureML")
         require(AzureML)
         wsAuth = "<authorization-token>"
@@ -206,9 +208,23 @@ Om du vill distribuera besluts träds koden från föregående avsnitt loggar du
         return(colnames(predictDF)[apply(predictDF, 1, which.max)])
         }
 
+1. Skapa en Settings. JSON-fil för den här arbets ytan:
+
+        vim ~/.azureml/settings.json
+
+1. Se till att följande innehåll placeras i Settings. JSON:
+
+         {"workspace":{
+           "id": "<workspace-id>",
+           "authorization_token": "<authorization-token>",
+           "api_endpoint": "https://studioapi.azureml.net",
+           "management_endpoint": "https://management.azureml.net"
+         }
+
 
 1. Publicera **predictSpam** -funktionen till azureml med hjälp av funktionen **publishWebService** :
 
+        ws <- workspace()
         spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
 
 1. Den här funktionen använder funktionen **predictSpam** , skapar en webb tjänst med namnet **spamWebService** som har definierat indata och utdata och returnerar sedan information om den nya slut punkten.
@@ -370,11 +386,11 @@ Läsa in och konfigurera datauppsättningen:
 1. Om du vill läsa in filen väljer du fliken **data** .
 1. Välj väljaren bredvid **fil namn**och välj sedan **spambaseHeaders. data**.
 1. Läsa in filen. Välj **Kör**. Du bör se en sammanfattning av varje kolumn, inklusive den identifierade data typen. om det är en indatatyp, ett mål eller en annan typ av variabel. och antalet unika värden.
-1. Spännen korrekt har identifierat den **skräppost** kolumnen som mål. Välj kolumnen **spam** och ange sedan **mål data typen** till **Categoric**.
+1. Rattle har identifierat kolumnen **spam** som mål. Välj kolumnen **spam** och ange sedan **mål data typen** till **Categoric**.
 
 Att utforska data:
 
-1. Välj den **utforska** fliken.
+1. Välj fliken **utforska** .
 1. Om du vill se information om variabel typer och viss sammanfattnings statistik väljer du **sammanfattning** > **Kör**.
 1. Om du vill visa andra typer av statistik om varje variabel väljer du andra alternativ, t. ex. **Beskriv** eller **grunderna**.
 
@@ -388,7 +404,7 @@ Du kan också använda fliken **utforska** för att generera inblickade områden
 
 1. I **typ**väljer du **korrelation**.
 1. Välj **Kör**.
-1. Spännen varnar dig om att den rekommenderar högst 40 variabler. Välj **Ja** att visa området.
+1. Spännen varnar dig om att den rekommenderar högst 40 variabler. Välj **Ja** om du vill visa ritningen.
 
 Det finns några intressanta korrelationer som följer: _teknik_ är starkt korrelerad med _HP_ och _labb_, till exempel. Det är också starkt korrelerat med _650_ eftersom rikt numret för data uppsättnings givarna är 650.
 
@@ -413,10 +429,10 @@ Gå tillbaka till fliken **kluster** . Välj **KMeans**och ange sedan **antalet 
 
 Så här skapar du en grundläggande besluts träd Machine Learning-modell:
 
-1. Välj den **modellen** fliken
+1. Välj fliken **modell** ,
 1. I **typ**väljer du **träd**.
-1. Välj **kör** ska visas i trädet i textformat i utdatafönstret.
-1. Välj den **Rita** för att visa en grafisk version. Besluts trädet liknar det träd vi fick tidigare genom att använda rpart.
+1. Välj **Kör** för att visa trädet i text form i fönstret utdata.
+1. Välj knappen **Rita** om du vill visa en grafisk version. Besluts trädet liknar det träd vi fick tidigare genom att använda rpart.
 
 En användbar funktion i Rattle är möjligheten att köra flera Machine Learning-metoder och snabbt utvärdera dem. Här är stegen:
 
@@ -425,7 +441,7 @@ En användbar funktion i Rattle är möjligheten att köra flera Machine Learnin
 1. När Rattle är klar kan du välja valfritt **typ** värde, t. ex. **SVM**, och visa resultatet.
 1. Du kan också jämföra modellens prestanda på validerings uppsättningen med hjälp av fliken **utvärdera** . Till exempel visar **fel mat** ris urvalet visualiserings mat ris, övergripande fel och genomsnittligt klass fel för varje modell i validerings uppsättningen. Du kan också Rita ROC kurvor, köra känslighets analyser och utföra andra typer av modell utvärderingar.
 
-När du är klar med att skapa modeller väljer du fliken **logg** för att visa den R-kod som kördes av Rattle under sessionen. Du kan välja den **exportera** för att spara den.
+När du är klar med att skapa modeller väljer du fliken **logg** för att visa den R-kod som kördes av Rattle under sessionen. Du kan välja knappen **Exportera** för att spara den.
 
 > [!NOTE]
 > Den aktuella versionen av Rattle innehåller en bugg. Om du vill ändra skriptet eller använda det för att upprepa stegen senare måste du infoga ett **#** tecken framför *exporten av loggen...* i loggens text.
@@ -495,19 +511,19 @@ Konfigurera anslutningen till den lokala servern:
 1. Välj **Windows** > **Visa alias.**
 1. Välj knappen **+** om du vill skapa ett nytt alias. För det nya aliasnamnet anger du **spam-databasen**. 
 1. För **driv rutin**väljer du **postgresql**.
-1. Ange URL: en **jdbc:postgresql://localhost/spam**.
-1. Ange ditt användarnamn och lösenord.
+1. Ange URL: en till **JDBC: postgresql://localhost/spam**.
+1. Ange ditt användar namn och lösen ord.
 1. Välj **OK**.
-1. Öppna den **anslutning** fönstret dubbelklickar du på den **skräppost databasen** alias.
+1. Öppna **anslutnings** fönstret **genom att dubbelklicka på det.**
 1. Välj **Anslut**.
 
 Köra några frågor:
 
-1. Välj den **SQL** fliken.
+1. Välj fliken **SQL** .
 1. I rutan fråga högst upp på fliken **SQL** anger du en grundläggande fråga som `SELECT * from data;`.
 1. Tryck på CTRL + RETUR för att köra frågan. Som standard returnerar SQuirreL SQL de första 100 raderna från frågan.
 
-Det finns många fler frågor som du kan köra för att utforska dessa data. Hur fungerar till exempel hur ofta ordet *gör* skiljer sig åt mellan skräppost och skinka?
+Det finns många fler frågor som du kan köra för att utforska dessa data. Hur *skiljer sig* ordet ofta mellan skräp post och Ham?
 
     SELECT avg(word_freq_make), spam from data group by spam;
 
@@ -521,7 +537,7 @@ Om du vill göra Machine Learning med hjälp av data som lagras i en PostgreSQL-
 
 ### <a name="sql-data-warehouse"></a>SQL Data Warehouse
 
-Azure SQL Data Warehouse är en molnbaserad, skalbar databas som kan bearbeta stora mängder data, både relationella och icke-relationella. Mer information finns i [vad är Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Azure SQL Data Warehouse är en molnbaserad, skalbar databas som kan bearbeta stora mängder data, både relationella och icke-relationella. Mer information finns i [Vad är Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 Om du vill ansluta till datalagret och skapa tabellen, kör du följande kommando från en kommandotolk:
 

@@ -3,12 +3,12 @@ title: Arbeta med hanterings grupper – Azure-styrning
 description: Lär dig att visa, underhålla, uppdatera och ta bort en hierarki för hanterings grupper.
 ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 59f1b48e0a668d506a87ae1ef14de6df76b26ad7
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 94df67888c0ed0ea532844a92a362a181621d3d3
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751229"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267943"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera dina resurser med hanterings grupper
 
@@ -17,6 +17,12 @@ Om din organisation har många prenumerationer kan det behövas ett effektivt s�
 Hanteringsgrupper tillhandahåller hantering i företagsklass i stor skala oavsett vilken typ av prenumeration du har.  Mer information om hanterings grupper finns i [ordna dina resurser med Azures hanterings grupper](overview.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+>[!IMPORTANT]
+>Azure Resource Manager tokens och cache för hanterings grupper varar i 30 minuter innan de tvingas uppdatera.  När du har utfört en åtgärd som att flytta en hanterings grupp eller prenumeration kan det ta upp till 30 minuter att visa.  
+>Om du vill se uppdateringarna tidigare måste du uppdatera din token genom att uppdatera webbläsaren, logga in och ut eller begära en ny token.  
+
+
 
 ## <a name="change-the-name-of-a-management-group"></a>Ändra namnet på en hanterings grupp
 
@@ -121,7 +127,7 @@ Du kan visa en hanterings grupp som har en direkt eller ärvd RBAC-roll på.
 
 1. Om du vill se information om hanterings gruppen väljer du länken **(information)** bredvid rubriken för hanterings gruppen. Om den här länken inte är tillgänglig har du inte behörighet att visa den hanterings gruppen.
 
-   ![Primär](./media/main.png)
+   ![Huvudtillg](./media/main.png)
 
 ### <a name="view-in-powershell"></a>Visa i PowerShell
 

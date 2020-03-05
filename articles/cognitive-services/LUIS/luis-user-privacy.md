@@ -8,19 +8,19 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 061f019fe36e4d5495a41fc81e56d9673ad595fc
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4e3e0d04b0086905b80e26fb4f838c36b5b5545e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953461"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273366"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportera och ta bort dina kunddata i Språkförståelse (LUIS) i Cognitive Services
 
-Ta bort kund information för att säkerställa sekretess och efterlevnad. 
+Ta bort kund information för att säkerställa sekretess och efterlevnad.
 
 ## <a name="summary-of-customer-data-request-features"></a>Sammanfattning av kundens datafunktioner
 Language Understanding Intelligent Service (LUIS) bevarar kunden innehåll att driva tjänsten, men LUIS-användaren har fullständig kontroll över visa, exportera och ta bort sina data. Detta kan göras via LUIS- [webbportalen](luis-reference-regions.md) eller [Luis Authoring (kallas även programmerings programmering)](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -32,21 +32,21 @@ Kunden innehåll lagras krypterade i Microsoft regionala Azure-lagring, inklusiv
 - Användarinnehåll för kontot som samlas in vid registrering
 - Tränings data som krävs för att bygga modeller
 - Loggade användar frågor som används av [aktiv inlärning](luis-concept-review-endpoint-utterances.md) för att förbättra modellen
-  - Användare kan stänga av loggning av frågor genom att lägga till `&log=false` på begäran, beskriver [här](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
+  - Användare kan stänga av loggning av frågor genom att lägga till `&log=false` i begäran, information [här](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
 ## <a name="deleting-customer-data"></a>Tar bort kunddata
 LUIS-användare har fullständig kontroll för att ta bort alla användar innehåll, antingen via LUIS-webbportalen eller LUIS redigering (även kallat programmatisk) API: er. I följande tabell visas länkar som hjälper till med båda:
 
-| | **Användarkonto** | **Programmet** | **Exempel på uttryck** | **Slutanvändaren frågor** |
+| | **Användar konto** | **Applicering** | **Exempel på uttryck** | **Slut användar frågor** |
 | --- | --- | --- | --- | --- |
-| **Portalen** | [Länk](luis-concept-data-storage.md#delete-an-account) | [Länk](luis-how-to-start-new-app.md#delete-app) | [Länk](luis-concept-data-storage.md#utterances-in-an-intent) | [Active Learning-yttranden](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Loggade yttranden](luis-concept-data-storage.md#disable-logging-utterances) |
+| **Portal** | [Länk](luis-concept-data-storage.md#delete-an-account) | [Länk](luis-how-to-start-new-app.md#delete-app) | [Länk](luis-concept-data-storage.md#utterances-in-an-intent) | [Active Learning-yttranden](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Loggade yttranden](luis-concept-data-storage.md#disable-logging-utterances) |
 | **API:er** | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 
 ## <a name="exporting-customer-data"></a>Exportera kunddata
 LUIS-användare har fullständig kontroll för att visa data på portalen, men de måste exporteras genom LUIS-redigering (även kallat programmering). I följande tabell visas länkar som hjälper dig med data exporter via LUIS Authoring (kallas även program mässig) API: er:
 
-| | **Användarkonto** | **Programmet** | **Utterance(s)** | **Slutanvändaren frågor** |
+| | **Användar konto** | **Applicering** | **Uttryck (s)** | **Slut användar frågor** |
 | --- | --- | --- | --- | --- |
 | **API:er** | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
 
@@ -58,7 +58,7 @@ För att aktivera [aktiv inlärning](luis-how-to-review-endpoint-utterances.md#e
 * [Australien](#australia)
 * [USA](#united-states)
 
-Med undantag för aktiva inlärnings data (beskrivs nedan) följer LUIS [data lagrings metoder för regionala tjänster](https://azuredatacentermap.azurewebsites.net/). 
+Med undantag för aktiva inlärnings data (beskrivs nedan) följer LUIS [data lagrings metoder för regionala tjänster](https://azuredatacentermap.azurewebsites.net/).
 
 ### <a name="europe"></a>Europa
 
@@ -68,7 +68,7 @@ Med undantag för aktiva inlärnings data (beskrivs nedan) följer LUIS [data la
 * Frankrike
 * Storbritannien
 
-När du distribuerar till dessa Azure-geografiska områden kommer yttranden som tagits emot av slut punkten från slutanvändare av appen att lagras i Azures Europa geografi för aktiv inlärning. Du kan inaktivera aktiv inlärning i [inaktivera aktiv inlärning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Information om hur du hanterar lagrade yttranden finns i [ta bort uttryck](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+När du distribuerar till dessa Azure-geografiska områden kommer yttranden som tagits emot av slut punkten från slutanvändare av appen att lagras i Azures Europa geografi för aktiv inlärning. Du kan inaktivera aktiv inlärning i [inaktivera aktiv inlärning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Information om hur du hanterar lagrade yttranden finns i [ta bort uttryck](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 ### <a name="australia"></a>Australien
 
@@ -76,7 +76,7 @@ När du distribuerar till dessa Azure-geografiska områden kommer yttranden som 
 
 * Australien
 
-När du distribuerar till dessa Azure-geografiska områden kommer de yttranden som tas emot av slut punkten från slutanvändare av appen att lagras i Azures region för Australien för aktiv inlärning. Du kan inaktivera aktiv inlärning i [inaktivera aktiv inlärning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Information om hur du hanterar lagrade yttranden finns i [ta bort uttryck](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+När du distribuerar till dessa Azure-geografiska områden kommer de yttranden som tas emot av slut punkten från slutanvändare av appen att lagras i Azures region för Australien för aktiv inlärning. Du kan inaktivera aktiv inlärning i [inaktivera aktiv inlärning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Information om hur du hanterar lagrade yttranden finns i [ta bort uttryck](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 ### <a name="united-states"></a>USA
 
@@ -84,10 +84,10 @@ När du distribuerar till dessa Azure-geografiska områden kommer de yttranden s
 
 * Azure-geografiska områden stöds inte av redigerings regionerna Europa eller Australien
 
-När du distribuerar till dessa Azure-geografiska områden kommer yttranden som tagits emot av slut punkten från slutanvändare av appen att lagras i Azures USA geografi för aktiv inlärning. Du kan inaktivera aktiv inlärning i [inaktivera aktiv inlärning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Information om hur du hanterar lagrade yttranden finns i [ta bort uttryck](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+När du distribuerar till dessa Azure-geografiska områden kommer yttranden som tagits emot av slut punkten från slutanvändare av appen att lagras i Azures USA geografi för aktiv inlärning. Du kan inaktivera aktiv inlärning i [inaktivera aktiv inlärning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Information om hur du hanterar lagrade yttranden finns i [ta bort uttryck](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [LUIS regioner referens](./luis-reference-regions.md)
+> [Referens för LUIS-regioner](./luis-reference-regions.md)

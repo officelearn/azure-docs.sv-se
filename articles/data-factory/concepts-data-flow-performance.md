@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 02/24/2020
-ms.openlocfilehash: 9236fab332758308ceb8bde1f83a9f3ac8ee6789
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: cca22c499efde74bb1469222d2f8a6e576452aa2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587591"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273223"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
@@ -59,6 +59,9 @@ Som standard använder fel söknings programmet standard Azure integration runti
 
 ![Käll del](media/data-flow/sourcepart3.png "Käll del")
 
+> [!NOTE]
+> En praktisk guide som hjälper dig att välja antalet partitioner för din källa baseras på antalet kärnor som du har angett för din Azure Integration Runtime och multiplicerar det talet med fem. Om du till exempel omvandlar en serie filer i dina ADLS-mappar och du ska använda en Azure IR på 32 kärnor, är antalet partitioner som du skulle använda som mål 32 x 5 = 160 partitioner.
+
 ### <a name="source-batch-size-input-and-isolation-level"></a>Käll grupps storlek, Indatatyp och isolerings nivå
 
 Under **käll alternativ** i käll omvandlingen kan följande inställningar påverka prestanda:
@@ -100,7 +103,7 @@ Om du vill undvika rad-för-rad-infogningar i din DW kontrollerar du **Aktivera 
 
 Vid varje omvandling kan du ange det partitionerings schema som du vill att Data Factory ska använda på fliken optimera. Det är en bra idé att först testa filbaserade Sinks och behålla standardpartitionering och optimering.
 
-* För mindre filer kan det hända att du kan välja *en enskild partition* ibland fungerar bättre och snabbare än att be Spark att partitionera dina små filer.
+* För mindre filer kan det hända att du väljer färre partitioner kan ibland fungera bättre och snabbare än att be Spark att partitionera dina små filer.
 * Om du inte har tillräckligt med information om dina källdata väljer du *resursallokering* partitionering och anger antalet partitioner.
 * Om dina data innehåller kolumner som kan vara användbara hash-nycklar väljer du *hash-partitionering*.
 

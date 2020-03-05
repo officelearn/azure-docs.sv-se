@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43a620d32fcfa7970dbdb5bee9740cc8f8b33e50
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: a275e5ab394b54960a2340848152741762b28f8c
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155137"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269389"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>När du ska använda en Azure Multi-Factor Authentication-provider
 
@@ -41,7 +41,7 @@ Du kan inte ändra användningsmodellen (per aktiverad användare eller per aute
 
 Om du har köpt tillräckligt många licenser för att alla användare som är aktiverade för MFA, kan du ta bort MFA-providern helt.
 
-Om MFA-providern inte är kopplad till en Azure AD-klientorganisation, eller om du kopplar den nya MFA-providern till en annan Azure AD-klientorganisation, överförs inte användarinställningar eller konfigurationsalternativ. Dessutom måste befintliga Azure MFA-servrar återaktiveras med hjälp av de aktiverings referenser som genereras via MFA-providern. Om du återaktiverar MFA-servrarna för att länka dem till MFA-providern påverkas inte autentiseringen av telefonsamtal och textmeddelande, men meddelanden om mobilappar upphör att fungera för alla användare tills de återaktiverar mobilappen.
+Om MFA-providern inte är kopplad till en Azure AD-klientorganisation, eller om du kopplar den nya MFA-providern till en annan Azure AD-klientorganisation, överförs inte användarinställningar eller konfigurationsalternativ. Dessutom måste befintliga Azure MFA-servrar återaktiveras med hjälp av de aktiverings referenser som genereras via MFA-providern.
 
 ### <a name="removing-an-authentication-provider"></a>Ta bort en autentiseringsprovider
 

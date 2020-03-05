@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 3aba570bd7f80eab205fe52a731a1be933067012
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493207"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273572"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Azure Service Bus utlösare för Azure Functions
 
@@ -369,9 +369,6 @@ Service Bus utlösaren innehåller flera [Egenskaper för metadata](./functions-
 |`To`|`string`|Skicka till adress.|
 |`Label`|`string`|Den programspecifika etiketten.|
 |`CorrelationId`|`string`|Korrelations-ID|
-
-> [!NOTE]
-> Service Bus-utlösare som fungerar med sessioner aktiverade köer och prenumerationer är för närvarande en för hands version. Spåra [det här objektet](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) om du vill ha fler uppdateringar om detta. 
 
 Se [kod exempel](#example) som använder dessa egenskaper tidigare i den här artikeln.
 

@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 03/03/2020
 ms.author: jgao
-ms.openlocfilehash: e881cde36bc56c175004e8d6adb9b7b85e9b5454
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3129d4c664ec487f2def6cc0d2668b7493f4c988
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616303"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272653"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Använda distributions skript i mallar (förhands granskning)
 
@@ -170,7 +170,7 @@ De utdata som returneras ser ut så här:
 
 ## <a name="use-external-scripts"></a>Använd externa skript
 
-Förutom infogade skript kan du också använda externa skriptfiler. Endast primära PowerShell-skript med fil namns tillägget **ps1** stöds. För CLI-skript kan primära skript ha alla tillägg (eller utan tillägg), så länge skripten är giltiga bash-skript. Om du vill använda externa skriptfiler ersätter du `scriptContent` med `primaryScriptUri`. Några exempel:
+Förutom infogade skript kan du också använda externa skriptfiler. Endast primära PowerShell-skript med fil namns tillägget **ps1** stöds. För CLI-skript kan primära skript ha alla tillägg (eller utan tillägg), så länge skripten är giltiga bash-skript. Om du vill använda externa skriptfiler ersätter du `scriptContent` med `primaryScriptUri`. Exempel:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -222,10 +222,16 @@ Utdata för distributions skript måste sparas på AZ_SCRIPTS_OUTPUT_PATH plats 
 
 [JQ](https://stedolan.github.io/jq/) används i föregående exempel. Den levereras med behållar avbildningarna. Se [Konfigurera utvecklings miljö](#configure-development-environment).
 
-## <a name="handle-non-terminating-errors"></a>Hantera icke-avslutande fel
+## <a name="develop-deployment-scripts"></a>Utveckla distributions skript
+
+### <a name="handle-non-terminating-errors"></a>Hantera icke-avslutande fel
 
 Du kan styra hur PowerShell svarar på icke-avslutande fel med hjälp av [ **$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
 ) -variabeln i distributions skriptet. Distributions skript motorn anger/ändrar inte värdet.  Trots det värde som du angav för $ErrorActionPreference anger distributions skriptet resurs etablerings statusen till *misslyckades* när skriptet påträffar ett fel.
+
+### <a name="pass-secured-strings-to-deployment-script"></a>Skicka skyddade strängar till distributions skript
+
+Genom att ställa in miljövariabler i behållar instanserna kan du tillhandahålla dynamisk konfiguration av programmet eller skriptet som körs av behållaren. Distributions skriptet hanterar icke-skyddade och skyddade miljövariabler på samma sätt som Azure Container instance. Mer information finns i [Ange miljövariabler i container instances](../../container-instances/container-instances-environment-variables.md#secure-values).
 
 ## <a name="debug-deployment-scripts"></a>Felsöka distributions skript
 

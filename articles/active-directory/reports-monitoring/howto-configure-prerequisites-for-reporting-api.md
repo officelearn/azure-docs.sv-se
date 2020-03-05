@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/30/2019
+ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a9559f85e31a38c50034d6aacc8f65e4d68aec2
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f25f13c60a60e1a397e4c63443ee786a9acdf6d1
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014443"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273803"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Krav för att få åtkomst till API: et för Azure Active Directory rapportering
 
@@ -91,7 +91,7 @@ Beroende på vilket API du vill ha åtkomst till måste du ge appen följande be
 
 | API | Behörighet |
 | --- | --- |
-| Windows Azure Active Directory | Läsa katalog data |
+| Windows Azure Active Directory | Läs katalogdata |
 | Microsoft Graph | Läs alla Gransknings logg data |
 
 
@@ -189,19 +189,16 @@ Du behöver dessa värden när du konfigurerar anrop till rapporterings-API: et.
 
 ## <a name="troubleshoot-errors-in-the-reporting-api"></a>Felsöka fel i rapporterings-API: et
 
-Det här avsnittet innehåller vanliga fel meddelanden som du kan köra i när du får åtkomst till aktivitets rapporter med hjälp av MS Graph API och steg för att lösa problemet.
+I det här avsnittet visas de vanliga fel meddelanden som du kan köra i när du får åtkomst till aktivitets rapporter med hjälp av Microsoft Graph API och steg för deras lösning.
 
-### <a name="500-http-internal-server-error-while-accessing-microsoft-graph-v2-endpoint"></a>500 HTTP internt Server fel vid åtkomst till Microsoft Graph v2-slutpunkt
 
-Vi stöder för närvarande inte Microsoft Graph v2-slutpunkten – se till att få åtkomst till aktivitets loggarna med hjälp av Microsoft Graph v1-slutpunkten.
-
-### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Fel: det gick inte att hämta användar roller från AD Graph
+### <a name="error-failed-to-get-user-roles-from-microsoft-graph"></a>Fel: det gick inte att hämta användar roller från Microsoft Graph
 
  Logga in på ditt konto med hjälp av båda inloggnings knapparna i graphs användar gränssnitt för att undvika att få ett fel när du försöker logga in med Graph Explorer. 
 
 ![Graph-testaren](./media/troubleshoot-graph-api/graph-explorer.png)
 
-### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Fel: det gick inte att kontrol lera Premium-licens från AD Graph 
+### <a name="error-failed-to-do-premium-license-check-from-microsoft-graph"></a>Fel: det gick inte att checka beta licens från Microsoft Graph 
 
 Om du stöter på det här fel meddelandet när du försöker få åtkomst till inloggningar med Graph Explorer väljer du **ändra behörigheter** under ditt konto i det vänstra navigerings fältet och väljer **Tasks. readwrite** och **Directory. Read. all**. 
 
@@ -218,7 +215,7 @@ Om du stöter på det här fel meddelandet när du försöker få åtkomst till 
 
 ### <a name="error-application-missing-aad-read-directory-data-permission"></a>Fel: appen saknar AAD-behörighet för Läs katalog data 
 
-### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Fel: programmet saknar MSGraph API ' Läs alla Gransknings logg data ' behörighet
+### <a name="error-application-missing-microsoft-api-read-all-audit-log-data-permission"></a>Fel: programmet saknar Microsoft API-behörigheten läsa alla Gransknings logg data
 
 Följ stegen i [kraven för att få åtkomst till Azure Active Directory rapporterings-API: et](howto-configure-prerequisites-for-reporting-api.md) för att se till att programmet körs med rätt behörighets uppsättning. 
 

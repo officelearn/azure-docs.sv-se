@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: b314944f1ae8847470f218ca23a11beed7731f67
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1cda7032d5bfe58e9f8bcbdb8b18dd597a691441
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448415"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273530"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing SDK förC#
 
@@ -70,9 +70,10 @@ Om du vill lägga till Stavningskontroll i Bing SDK i projektet väljer du **Han
 2. Hämta det första resultatet av stavningskontrollen om det finns ett sådant. Skriv ut det första felstavade ord (token) som returnerats, tokentypen samt antalet förslag.
 
     ```csharp
-    if (firstspellCheckResult != null){
-        var firstspellCheckResult = result.Body.FlaggedTokens.FirstOrDefault();
+    var firstspellCheckResult = result.Body.FlaggedTokens.FirstOrDefault();
     
+    if (firstspellCheckResult != null)
+    {
         Console.WriteLine("SpellCheck Results#{0}", result.Body.FlaggedTokens.Count);
         Console.WriteLine("First SpellCheck Result token: {0} ", firstspellCheckResult.Token);
         Console.WriteLine("First SpellCheck Result Type: {0} ", firstspellCheckResult.Type);
@@ -102,5 +103,5 @@ Skapa och kör ditt projekt. Om du använder Visual Studio trycker du på **F5**
 > [!div class="nextstepaction"]
 > [Skapa en webbapp med en sida](tutorials/spellcheck.md)
 
-- [Vad är API:et för stavningskontroll i Bing?](overview.md)
+- [Vad är API för stavningskontroll i Bing?](overview.md)
 - [Referens C# guide för stavningskontroll i Bing SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)

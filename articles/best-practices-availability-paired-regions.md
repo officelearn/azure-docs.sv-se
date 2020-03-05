@@ -1,37 +1,54 @@
 ---
-title: Verksamhets kontinuitet & haveri beredskap – Azure-kopplade regioner
-description: Lär dig mer om regional länkning i Azure för att säkerställa att programmen är elastiska vid data Center haverier.
-author: rayne-wiselman
-manager: carmon
+title: Säkerställ verksamhets kontinuitet & haveri beredskap med Azure-kopplade regioner
+description: Säkerställ program återhämtning med Azure regional hop koppling
+author: jpconnock
+manager: angrobe
 ms.service: multiple
-ms.topic: article
-ms.date: 07/01/2019
-ms.author: raynew
-ms.openlocfilehash: c1e14db9dafc8b03acbeb1c6b97e5ac0e27cb0fd
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.topic: conceptual
+ms.date: 03/03/2020
+ms.author: jeconnoc
+ms.openlocfilehash: 0e47bde280e9483f3c265e0d3147eadcbb128612
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163056"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270997"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Verksamhets kontinuitet och haveri beredskap (BCDR): Azure-kopplade regioner
 
 ## <a name="what-are-paired-regions"></a>Vad är kopplade regioner?
 
-Azure fungerar i flera geografiska områden runtom i världen. En Azure-geografi är ett definierat område i världen som innehåller minst en Azure-region. En Azure-region är ett område inom ett geografiskt område som innehåller ett eller flera data Center.
+En Azure-region består av en uppsättning data Center som distribueras inom en latens-definierad perimeter och är ansluten via ett dedikerat nätverk med låg latens.  Detta säkerställer att Azure-tjänster inom en Azure-region erbjuder bästa möjliga prestanda och säkerhet.  
 
-Varje Azure-region är kopplad till en annan region inom samma geografi, tillsammans med ett regionalt par. Undantaget är södra Brasilien, som är länkat till en region utanför dess geografiska område. I region par i Azure serialiseras plattforms uppdateringar (planerat underhåll) så att endast en kopplad region uppdateras i taget. I händelse av ett avbrott som påverkar flera regioner prioriteras minst en region i varje par för återställning.
+Ett geografiskt område i Azure definierar ett område i världen som innehåller minst en Azure-region. Geografiska områden definierar en diskret marknad, vanligt vis med två eller flera regioner, som bevarar data placering och efterlevnad av gränser.  Hitta mer information om Azures globala infrastruktur [här](https://azure.microsoft.com/global-infrastructure/regions/)
+
+Ett regionalt par består av två regioner i samma geografi. Azure serialiserar plattforms uppdateringar (planerat underhåll) över regionala par, vilket säkerställer att endast en region i varje par uppdateringar i taget. Om ett avbrott påverkar flera regioner prioriteras minst en region i varje par för återställning.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-> [!NOTE]
-> Det går inte att ändra tilldelade Azure regionala par.
+Vissa Azure-tjänster kan dra nytta av kopplade regioner för att säkerställa affärs kontinuiteten och skydda mot data förlust.  Azure tillhandahåller flera [lagrings lösningar](/storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) som kan dra nytta av kopplade regioner för att säkerställa data tillgänglighet. [Azure Geo-redundant lagring](/storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) replikerar till exempel data till en sekundär region automatiskt, vilket säkerställer att data är varaktiga även i händelse av att det inte går att återskapa den primära regionen. 
 
-Bild 1 – regionala Azure-par
+Observera att alla Azure-tjänster inte replikerar data automatiskt, eller att alla Azure-tjänster automatiskt kommer tillbaka från en felaktig region till dess par.  I sådana fall måste återställning och replikering konfigureras av kunden.
 
-| Placering | Länkade regioner |  |
+## <a name="can-i-select-my-regional-pairs"></a>Kan jag välja mina regionala par?
+
+Nej. Vissa Azure-tjänster förlitar sig på regionala par, till exempel Azures [redundanta lagring](./storage/common/storage-redundancy.md). Dessa tjänster tillåter inte att du skapar nya regionala par.  På samma sätt kan du inte definiera egna regionala par för att dra nytta av dessa tjänster eftersom Azure styr planerat underhåll och återställnings prioritering för regionala par. Du kan dock skapa en egen lösning för haveri beredskap genom att skapa tjänster i valfritt antal regioner och dra nytta av Azure-tjänster för att para ihop dem. 
+
+Du kan till exempel använda Azure-tjänster som [AzCopy](./storage/common/storage-use-azcopy-v10.md) för att schemalägga säkerhets kopiering av data till ett lagrings konto i en annan region.  Med hjälp av [Azure DNS och Azure Traffic Manager](./networking/disaster-recovery-dns-traffic-manager.md)kan kunder utforma en elastisk arkitektur för sina program som kommer att överleva förlusten av den primära regionen.
+
+## <a name="am-i-limited-to-using-services-within-my-regional-pairs"></a>Är jag begränsad till att använda tjänster i mina regionala par?
+
+Nej. Även om en specifik Azure-tjänst kan vara beroende av ett regionalt par kan du vara värd för dina andra tjänster i valfri region som uppfyller dina affärs behov.  En Azure GRS Storage-lösning kan para ihop data i Kanada Central med en peer i Kanada, öst, samtidigt som du använder beräknings resurser som finns i USA, östra.  
+
+## <a name="must-i-use-azure-regional-pairs"></a>Måste jag använda Azures regionala par?
+
+Nej. Kunder kan använda Azure-tjänster för att skapa en elastisk tjänst utan att behöva lita på Azures regionala par.  Vi rekommenderar dock att du konfigurerar haveri beredskap för affärs kontinuitet (BCDR) i regionala par för att dra nytta av att [isolera](./security/fundamentals/isolation-choices.md) och förbättra [tillgängligheten](./availability-zones/az-overview.md). För program som har stöd för flera aktiva regioner rekommenderar vi att du använder båda regionerna i ett regions par där det är möjligt. Detta säkerställer optimal tillgänglighet för program och minimerad återställnings tid i händelse av en katastrof. När det är möjligt kan du utforma ditt program för [maximal återhämtnings kapacitet](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) och enkel [haveri beredskap](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery).
+
+## <a name="azure-regional-pairs"></a>Regionala Azure-par
+
+| Placering | Regionalt par A | Regionalt par B  |
 |:--- |:--- |:--- |
-| Asien |Asien, östra |Sydostasien |
+| Asien och Stilla havs området |Asien, östra (Hongkong) | Sydostasien (Singapore) |
 | Australien |Australien, östra |Australien, sydöstra |
 | Australien |Australien, centrala |Australien, centrala 2 |
 | Brasilien |Brasilien, södra |USA, södra centrala |
@@ -48,8 +65,10 @@ Bild 1 – regionala Azure-par
 | Nordamerika |USA, östra |USA, västra |
 | Nordamerika |USA, östra 2 |USA, centrala |
 | Nordamerika |USA, norra centrala |USA, södra centrala |
-| Nordamerika |USA, västra 2 |USA, västra centrala 
-| Sydafrika | Sydafrika, norra | Sydafrika, västra
+| Nordamerika |USA, västra 2 |USA, västra centrala |
+| Norge | Östra Norge | Norge, väst |
+| Sydafrika | Sydafrika, norra |Sydafrika, västra |
+| Schweiz | Schweiz, norra |Schweiz, västra |
 | Storbritannien |Storbritannien, västra |Storbritannien, södra |
 | Förenade Arabemiraten | Förenade Arabemiraten, norra | Förenade Arabemiraten Central
 | OSS-försvars departement |USA DoD, östra |USA DoD, centrala |
@@ -57,19 +76,13 @@ Bild 1 – regionala Azure-par
 | AMERIKANSKA myndigheter |USA Gov, Iowa |US Gov, Virginia |
 | AMERIKANSKA myndigheter |US Gov, Virginia |US Gov, Texas |
 
-Tabell 1 – mappning av regionala Azure-par
+> [!Important]
+> - Västra Indien är bara kopplad till en riktning. Den sekundära regionen västra Indien är södra Indien, men den sekundära regionen i södra Indien är central Indien.
+> - Södra Brasilien är unikt eftersom det är länkat till en region utanför dess geografi. Södra Brasilien: s sekundära region är södra centrala USA. Södra centrala USA: s sekundära region är inte Brasilien, södra.
 
-- Västra Indien är bara kopplad till en riktning. Den sekundära regionen västra Indien är södra Indien, men den sekundära regionen i södra Indien är central Indien.
-- Södra Brasilien är unikt eftersom det är länkat till en region utanför sin egen geografi. Södra Brasilien: s sekundära region är södra centrala USA. Södra centrala USA: s sekundära region är inte Brasilien, södra.
-- US Gov, Iowaens sekundära region är US Gov, Virginia.
-- US Gov, Virginiaens sekundära region är US Gov, Texas.
-- US Gov, Texas sekundär region är US Gov, Arizona.
-
-
-Vi rekommenderar att du konfigurerar haveri beredskap för affärs kontinuitet (BCDR) i regionala par för att dra nytta av Azures isolerings-och tillgänglighets principer. För program som har stöd för flera aktiva regioner rekommenderar vi att du använder båda regionerna i ett regions par där det är möjligt. Detta säkerställer optimal tillgänglighet för program och minimerad återställnings tid i händelse av en katastrof. 
 
 ## <a name="an-example-of-paired-regions"></a>Ett exempel på kopplade regioner
-Bild 2 nedan visar ett hypotetiskt program som använder det regionala paret för haveri beredskap. De gröna siffrorna markerar de olika aktiviteterna i de tre Azure-tjänsterna (Azure Compute, Storage och Database) och hur de är konfigurerade att replikeras mellan regioner. De unika fördelarna med att distribuera över kopplade områden är markerade med de orange numren.
+Bilden nedan illustrerar ett hypotetiskt program som använder det regionala paret för haveri beredskap. De gröna siffrorna markerar de olika aktiviteterna i de tre Azure-tjänsterna (Azure Compute, Storage och Database) och hur de är konfigurerade att replikeras mellan regioner. De unika fördelarna med att distribuera över kopplade områden är markerade med de orange numren.
 
 ![Översikt över fördelar med kopplade regioner](./media/best-practices-availability-paired-regions/PairedRegionsOverview2.png)
 
@@ -78,28 +91,22 @@ Bild 2 – hypotetiskt, regionalt par för Azure
 ## <a name="cross-region-activities"></a>Aktiviteter över flera regioner
 Som det hänvisas till i bild 2.
 
-![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (IaaS)** – du måste etablera ytterligare beräknings resurser i förväg för att säkerställa att resurserna är tillgängliga i en annan region under en katastrof. Mer information finns i [teknisk vägledning för Azure-återhämtning](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md).
+1. **Azure Compute (IaaS)** – du måste etablera ytterligare beräknings resurser i förväg för att säkerställa att resurserna är tillgängliga i en annan region under en katastrof. Mer information finns i [teknisk vägledning för Azure-återhämtning](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md). 
 
-![lagrings](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** – om du använder hanterade diskar kan du läsa mer om [säkerhets kopiering över flera regioner](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) med Azure Backup och [Replikera virtuella datorer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) från en region till en annan med Azure Site Recovery. Om du använder lagrings konton konfigureras Geo-redundant lagring (GRS) som standard när ett Azure Storage-konto skapas. Med GRS replikeras dina data automatiskt tre gånger inom den primära regionen och tre gånger i den kopplade regionen. Mer information finns i [Azure Storage alternativ för redundans](storage/common/storage-redundancy.md).
+2. **Azure Storage** – om du använder hanterade diskar kan du läsa mer om [säkerhets kopiering över flera regioner](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) med Azure Backup och [Replikera virtuella datorer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) från en region till en annan med Azure Site Recovery. Om du använder lagrings konton konfigureras Geo-redundant lagring (GRS) som standard när ett Azure Storage-konto skapas. Med GRS replikeras dina data automatiskt tre gånger inom den primära regionen och tre gånger i den kopplade regionen. Mer information finns i [Azure Storage alternativ för redundans](storage/common/storage-redundancy.md).
 
-![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – med Azure SQL Database geo-replikering kan du konfigurera asynkron replikering av transaktioner till vilken region som helst i världen. Vi rekommenderar dock att du distribuerar dessa resurser i en kopplad region för de flesta katastrof återställnings scenarier. Mer information finns i [geo-replikering i Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
+3. **Azure SQL Database** – med Azure SQL Database geo-replikering kan du konfigurera asynkron replikering av transaktioner till vilken region som helst i världen. Vi rekommenderar dock att du distribuerar dessa resurser i en kopplad region för de flesta katastrof återställnings scenarier. Mer information finns i [geo-replikering i Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
 
-![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager** – Resource Manager tillhandahåller en logisk isolering av komponenter i flera regioner. Det innebär att logiska försök i en region är mindre sannolika att påverka ett annat.
+4. **Azure Resource Manager** -Resource Manager tillhandahåller en logisk isolering av komponenter i flera regioner. Det innebär att logiska försök i en region är mindre sannolika att påverka ett annat.
 
 ## <a name="benefits-of-paired-regions"></a>Fördelar med kopplade regioner
-Som det hänvisas till i bild 2.  
 
-![isolering](./media/best-practices-availability-paired-regions/5Orange.png)
-**fysisk isolering** – när det är möjligt föredrar Azure minst 300 miles av separering mellan data Center i ett regionalt par, även om detta inte är praktiskt eller möjligt i alla geografiska områden. Separation av fysiskt Data Center minskar sannolikheten för natur katastrofer, civila rester, strömavbrott eller fysiska nätverks avbrott som påverkar båda regionerna samtidigt. Isoleringen omfattas av begränsningarna inom geografin (geografisk storlek, tillgänglighet för ström-/nätverks infrastruktur, regler osv.).  
+5. **Fysisk isolering** – när det är möjligt föredrar Azure minst 300 miles av separering mellan data Center i ett regionalt par, även om detta inte är praktiskt eller möjligt i alla geografiska områden. Separation av fysiskt Data Center minskar sannolikheten för natur katastrofer, civila rester, strömavbrott eller fysiska nätverks avbrott som påverkar båda regionerna samtidigt. Isoleringen omfattas av begränsningarna inom geografin (geografisk storlek, tillgänglighet för ström-/nätverks infrastruktur, regler osv.).  
 
-![replikering](./media/best-practices-availability-paired-regions/6Orange.png)
-**plattforms oberoende replikering** – vissa tjänster som Geo-redundant lagring ger automatisk replikering till den kopplade regionen.
+6. **Plattforms oberoende replikering** – vissa tjänster som Geo-redundant lagring ger automatisk replikering till den kopplade regionen.
 
-**återställnings ordning** för ![återställnings](./media/best-practices-availability-paired-regions/7Orange.png)
-– i händelse av ett stort avbrott prioriteras återställning av en region av varje par. Program som distribueras över kopplade regioner garanterar att en av regionerna återställs med prioritet. Om ett program distribueras mellan regioner som inte paras ihop, kan återställningen bli fördröjd – i värsta fall kan de valda regionerna vara de två sista som ska återställas.
+7. **Region återställnings ordning** – i händelse av ett brett avbrott prioriteras återställning av en region av varje par. Program som distribueras över kopplade regioner garanterar att en av regionerna återställs med prioritet. Om ett program distribueras mellan regioner som inte paras ihop, kan återställningen bli fördröjd – i värsta fall kan de valda regionerna vara de två sista som ska återställas.
 
-![uppdateringar](./media/best-practices-availability-paired-regions/8Orange.png)
-**sekventiella uppdateringar** – planerade Azure-systemuppdateringar distribueras till kopplade regioner sekventiellt (inte på samma gång) för att minimera drift stopp, påverkan av buggar och logiska fel i sällsynta fall av en felaktig uppdatering.
+8. **Sekventiella uppdateringar** – planerade Azure-systemuppdateringar distribueras till kopplade regioner sekventiellt (inte på samma gång) för att minimera stillestånd, påverkan av buggar och logiska fel i händelse av en felaktig uppdatering.
 
-![data](./media/best-practices-availability-paired-regions/9Orange.png)
-**data placering** – en region finns inom samma geografi som dess par (med undantag för Brasilien, södra) för att uppfylla kraven på data placering för skatte-och rättsvårds myndigheter.
+9. **Data placering** – en region finns inom samma geografiska område som dess par (med undantag för Brasilien) för att uppfylla data placering-krav för skatte-och rättsvårds syfte.

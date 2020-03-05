@@ -9,37 +9,40 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ac2c276f051155d7ba18ee91e4ca27acb0b35192
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
-ms.translationtype: MT
+ms.openlocfilehash: 7495c6b114e232a9aad0075e173abebcb3c92cd0
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167992"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273603"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variabel till gångar i Azure Automation
 
-Variabel till gångar är värden som är tillgängliga för alla Runbooks och DSC-konfigurationer i ditt Automation-konto. De kan hanteras från Azure Portal, PowerShell, i en Runbook eller DSC-konfiguration. Automationsvariabler är användbara för följande scenarier:
+Variabel till gångar är värden som är tillgängliga för alla Runbooks och DSC-konfigurationer i ditt Automation-konto. Du kan hantera dem från Azure Portal, från PowerShell, i en Runbook eller i en DSC-konfiguration.
+
+Automationsvariabler är användbara för följande scenarier:
 
 - Dela ett värde mellan flera Runbooks och DSC-konfigurationer.
 
 - Dela ett värde mellan flera jobb från samma Runbook-eller DSC-konfiguration.
 
-- Hantera ett värde från portalen eller från PowerShell-kommandoraden som används av Runbooks eller DSC-konfigurationer, till exempel en uppsättning vanliga konfigurations objekt som en speciell lista över namn på virtuella datorer, en särskild resurs grupp, ett AD-domännamn och mer.  
+- Hantera ett värde som används av Runbooks eller DSC-konfigurationer från portalen eller från PowerShell-kommandoraden. Ett exempel är en uppsättning vanliga konfigurations objekt, till exempel en lista med namn på virtuella datorer, en särskild resurs grupp, ett AD-domännamn och mer.  
 
-Eftersom Automation-variabler är sparade är de tillgängliga även om Runbook-eller DSC-konfigurationen Miss lyckas. Detta gör att ett värde kan anges av en Runbook som sedan används av en annan eller används av samma Runbook-eller DSC-konfiguration nästa gången den körs.
+Eftersom Automation-variabler är sparade är de tillgängliga även om Runbook-eller DSC-konfigurationen Miss lyckas. Med det här beteendet kan en Runbook-eller DSC-konfiguration ange ett värde som sedan används av en annan Runbook eller av samma Runbook-eller DSC-konfiguration nästa gången den körs.
 
-När en variabel skapas kan du ange att den är lagrad som krypterad. Krypterade variabler lagras på ett säkert sätt i Azure Automation och dess värde kan inte hämtas från cmdleten [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) som levereras som en del av modulen Azure PowerShell. Det enda sättet som ett krypterat värde kan hämtas från **Get-AutomationVariable** -aktiviteten i en Runbook-eller DSC-konfiguration. Om du vill ändra en krypterad variabel till icke-krypterad måste du ta bort och återskapa variabeln som okrypterad.
+När du skapar en variabel kan du ange dess kryptering och lagring genom att Azure Automation som en säker till gång. Andra säkra till gångar inkluderar autentiseringsuppgifter, certifikat och anslutningar. Azure Automation krypterar dessa till gångar och lagrar dem med hjälp av en unik nyckel som genereras för varje Automation-konto. Nyckeln lagras i systemhanterade Key Vault. Innan du lagrar en säker till gång läser Azure Automation in nyckeln från Key Vault och använder den för att kryptera till gången. 
+
+Azure Automation lagrar varje krypterad variabel på ett säkert sätt. Värdet kan inte hämtas med cmdleten [Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) som levereras som en del av modulen Azure PowerShell. Det enda sättet att hämta ett krypterat värde är genom att använda aktiviteten **Get-AutomationVariable** i en Runbook-eller DSC-konfiguration.
 
 >[!NOTE]
->Säkra till gångar i Azure Automation inkluderar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa till gångar krypteras och lagras i Azure Automation att använda en unik nyckel som genereras för varje Automation-konto. Den här nyckeln lagras i ett systemhanterat Key Vault. Innan du lagrar en säker till gång läses nyckeln in från Key Vault och används sedan för att kryptera till gången. Den här processen hanteras av Azure Automation.
+>Om du vill ta bort krypteringen för en variabel måste du ta bort variabeln och återskapa den som okrypterad.
+
+>[!NOTE]
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md).
 
 ## <a name="variable-types"></a>Variabel typer
 
-När du skapar en variabel med Azure Portal måste du ange en datatyp från List rutan så att portalen kan visa lämplig kontroll för att ange variabelvärdet. Variabeln är inte begränsad till den här data typen. Du måste ange variabeln med hjälp av Windows PowerShell om du vill ange ett värde av en annan typ. Om du anger **inte definierar**värdet för variabeln uppsättningarna till **$Null**och du måste ange värdet med cmdleten [set-AzureRMAutomationVariable](/powershell/module/AzureRM.Automation/Set-AzureRmAutomationVariable) eller **set-AutomationVariable-** aktiviteten. Du kan inte skapa eller ändra värdet för en komplex variabel typ i portalen, men du kan ange ett värde av vilken typ som helst med hjälp av Windows PowerShell. Komplexa typer returneras som en [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
-
-Du kan lagra flera värden i en enskild variabel genom att skapa en matris eller hash och spara den i variabeln.
-
-Följande är en lista över variabel typer som är tillgängliga i Automation:
+När du skapar en variabel med Azure Portal måste du ange en datatyp i list rutan så att portalen kan visa lämplig kontroll för att ange variabelvärdet. Följande är variabel typer som är tillgängliga i Azure Automation:
 
 * String
 * Integer
@@ -47,28 +50,34 @@ Följande är en lista över variabel typer som är tillgängliga i Automation:
 * Boolean
 * Null
 
-## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell-cmdletar
+Variabeln är inte begränsad till den angivna data typen. Du måste ange variabeln med hjälp av Windows PowerShell om du vill ange ett värde av en annan typ. Om du anger **inte definierad**är värdet för variabeln inställt på **Null**och du måste ange värdet med cmdleten [set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) eller aktiviteten **set-AutomationVariable** .
 
-I AzureRM används cmdletarna i följande tabell för att skapa och hantera inloggnings resurser för Automation med Windows PowerShell. De levereras som en del av [modulen AzureRM. Automation](/powershell/azure/overview), som är tillgänglig för användning i Automation-RUNBOOKS och DSC-konfigurationer.
+Du kan inte använda portalen för att skapa eller ändra värdet för en komplex variabel typ. Du kan dock ange ett värde av vilken typ som helst med hjälp av Windows PowerShell. Komplexa typer hämtas som en [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
-| Cmdletar | Beskrivning |
+Du kan lagra flera värden i en enskild variabel genom att skapa en matris eller hash och spara den i en variabel.
+
+## <a name="powershell-cmdlets-that-create-and-manage-variable-assets"></a>PowerShell-cmdletar som skapar och hanterar variabel till gångar
+
+I AZ-modulen används cmdletarna i följande tabell för att skapa och hantera Automation-variabel till gångar med Windows PowerShell. De levereras som en del av [modulen AZ. Automation](/powershell/azure/overview), som är tillgänglig för användning i Automation-RUNBOOKS och DSC-konfigurationer.
+
+| Cmdlet | Beskrivning |
 |:---|:---|
-|[Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable)|Hämtar värdet för en befintlig variabel.|
-|[New-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/New-AzureRmAutomationVariable)|Skapar en ny variabel och anger dess värde.|
-|[Remove-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationVariable)|Tar bort en befintlig variabel.|
-|[Set-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Set-AzureRmAutomationVariable)|Anger värdet för en befintlig variabel.|
+|[Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | Hämtar värdet för en befintlig variabel.|
+|[New-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationvariable?view=azps-3.5.0) | Skapar en ny variabel och anger dess värde.|
+|[Remove-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationvariable?view=azps-3.5.0)| Tar bort en befintlig variabel.|
+|[Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0)| Anger värdet för en befintlig variabel.|
 
-## <a name="activities"></a>Aktiviteter
+## <a name="activities-to-access-variables"></a>Aktiviteter för åtkomst till variabler
 
-Aktiviteterna i följande tabell används för att få åtkomst till variabler i en Runbook-och DSC-konfiguration. Skillnaden mellan get-AzureRmAutomationVariable-och get-AutomationVariable-cmdletarna visas i början av det här dokumentet.
+Aktiviteterna i följande tabell används för att få åtkomst till variabler i Runbooks och DSC-konfigurationer. Skillnaden mellan **Get-AzAutomationVariable** och **Get-AutomationVariable** förklaras för krypterade variabler i början av den här artikeln.
 
-| Aktiviteter | Beskrivning |
+| Aktivitet | Beskrivning |
 |:---|:---|
-|Get-automationvariable|Hämtar värdet för en befintlig variabel.|
-|Set-AutomationVariable|Anger värdet för en befintlig variabel.|
+|**Get-AutomationVariable**|Hämtar värdet för en befintlig variabel.|
+|**Set-AutomationVariable**|Anger värdet för en befintlig variabel.|
 
 > [!NOTE]
-> Du bör undvika att använda variabler i parametern – name för **Get-AutomationVariable** i en Runbook-eller DSC-konfiguration eftersom detta kan komplicera att identifiera beroenden mellan RUNBOOKS och DSC-konfiguration, samt automatisera variabler vid design tillfället.
+> Undvik att använda variabler i *Name* -parametern för **Get-AutomationVariable** i en Runbook-eller DSC-konfiguration. Användningen av den här parametern kan komplicera identifieringen av beroenden mellan Runbooks och DSC-konfigurationer och automation-variabler i design läge.
 
 Funktionerna i följande tabell används för att komma åt och hämta variabler i en Python2-Runbook.
 
@@ -78,37 +87,37 @@ Funktionerna i följande tabell används för att komma åt och hämta variabler
 |automationassets.set_automation_variable|Anger värdet för en befintlig variabel. |
 
 > [!NOTE]
-> Du måste importera modulen "automationassets" längst upp i din python-Runbook för att få åtkomst till till gångs funktionerna.
+> Du måste importera **automationassets** -modulen överst i din python-Runbook för att få åtkomst till till gångs funktionerna.
 
 ## <a name="creating-a-new-automation-variable"></a>Skapa en ny Automation-variabel
 
-### <a name="to-create-a-new-variable-with-the-azure-portal"></a>Så här skapar du en ny variabel med Azure Portal
+### <a name="create-a-new-variable-using-the-azure-portal"></a>Skapa en ny variabel med hjälp av Azure Portal
 
 1. Från ditt Automation-konto klickar du på panelen **till gångar** och väljer sedan **variabler**på bladet **till gångar** .
 2. På panelen **variabler** väljer du **Lägg till en variabel**.
-3. Slutför alternativen på bladet **ny variabel** och klicka på **skapa** Spara den nya variabeln.
+3. Slutför alternativen på bladet **ny variabel** och klicka sedan på **skapa** för att spara den nya variabeln.
 
-### <a name="to-create-a-new-variable-with-windows-powershell"></a>Skapa en ny variabel med Windows PowerShell
+### <a name="create-a-new-variable-with-windows-powershell"></a>Skapa en ny variabel med Windows PowerShell
 
-Cmdlet [: en New-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/New-AzureRmAutomationVariable) skapar en ny variabel och anger dess ursprungliga värde. Du kan hämta värdet med hjälp av [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable). Om värdet är en enkel typ, returneras samma typ. Om det är en komplex typ returneras en **PSCustomObject** .
+Skriptet använder cmdleten **New-AzAutomationVariable** för att skapa en ny variabel och ange dess start värde. Den kan sedan hämta värdet med hjälp av **Get-AzAutomationVariable**. Om värdet är en enkel typ hämtas samma typ. Om det är en komplex typ hämtas en **PSCustomObject** -typ.
 
-Följande exempel kommandon visar hur du skapar en variabel av typen sträng och returnerar sedan värdet.
+I följande exempel visas hur du skapar en variabel av typen sträng och sedan returnerar dess värde.
 
 ```powershell
-New-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" 
+New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" 
 –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable' `
 –Encrypted $false –Value 'My String'
-$string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
+$string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 ```
 
-Följande exempel kommandon visar hur du skapar en variabel med en komplex typ och sedan returnerar dess egenskaper. I det här fallet används ett virtuellt dator objekt från **Get-AzureRmVm** .
+I följande exempel visas hur du skapar en variabel med en komplex typ och sedan hämtar dess egenskaper. I det här fallet används ett virtuellt dator objekt från [Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) .
 
 ```powershell
-$vm = Get-AzureRmVm -ResourceGroupName "ResourceGroup01" –Name "VM01"
-New-AzureRmAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
+$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01"
+New-AzAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
 
-$vmValue = (Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
+$vmValue = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable").Value
 $vmName = $vmValue.Name
 $vmIpAddress = $vmValue.IpAddress
@@ -116,17 +125,21 @@ $vmIpAddress = $vmValue.IpAddress
 
 ## <a name="using-a-variable-in-a-runbook-or-dsc-configuration"></a>Använda en variabel i en Runbook-eller DSC-konfiguration
 
-Använd aktiviteten **set-AutomationVariable** för att ange värdet för en Automation-variabel i en PowerShell-RUNBOOK eller DSC-konfiguration och **Get-AutomationVariable** för att hämta den. Du bör inte använda cmdletarna **set-AzureRMAutomationVariable** eller **Get-AzureRMAutomationVariable** i en Runbook-eller DSC-konfiguration eftersom de är mindre effektiva än arbets flödes aktiviteterna. Du kan inte heller hämta värdet för säkra variabler med **Get-AzureRMAutomationVariable**. Det enda sättet att skapa en ny variabel från en Runbook eller DSC-konfiguration är att använda cmdleten [New-AzureRMAutomationVariable](/powershell/module/AzureRM.Automation/New-AzureRmAutomationVariable) .
+Använd aktiviteten **set-AutomationVariable** för att ange värdet för en Automation-variabel i en PowerShell-RUNBOOK eller DSC-konfiguration och **Get-AutomationVariable** för att hämta den. Du bör inte använda cmdletarna **set-AzAutomationVariable** och **Get-AzAutomationVariable** eller motsvarande AzureRM-modul i en Runbook-eller DSC-konfiguration eftersom de är mindre effektiva än arbets flödes aktiviteterna. 
+
+Observera att du inte kan hämta värdet för en säker variabel med **Get-AzAutomationVariable** eller dess AzureRM-modul motsvarande. 
+
+Det enda sättet att skapa en ny variabel från en Runbook eller DSC-konfiguration är att använda cmdleten **New-AzAutomationVariable** .
 
 ### <a name="textual-runbook-samples"></a>Text Runbook-exempel
 
-#### <a name="setting-and-retrieving-a-simple-value-from-a-variable"></a>Inställning och hämtning av ett enkelt värde från en variabel
+#### <a name="set-and-retrieve-a-simple-value-from-a-variable"></a>Ange och hämta ett enkelt värde från en variabel
 
-Följande exempel kommandon visar hur du ställer in och hämtar en variabel i en text-Runbook. I det här exemplet förutsätts att variabler av typen heltal med namnet *NumberOfIterations* och *NumberOfRunnings* och en variabel av typen String med namnet *SampleMessage* har skapats.
+Följande exempel kommandon visar hur du ställer in och hämtar en variabel i en text-Runbook. Det här exemplet förutsätter att du skapar heltals variabler med namnet *NumberOfIterations* och *NumberOfRunnings* och en String-variabel med namnet *SampleMessage*.
 
 ```powershell
-$NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
-$NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
+$NumberOfIterations = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
+$NumberOfRunnings = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
 $SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
 
 Write-Output "Runbook has been run $NumberOfRunnings times."
@@ -134,12 +147,12 @@ Write-Output "Runbook has been run $NumberOfRunnings times."
 for ($i = 1; $i -le $NumberOfIterations; $i++) {
     Write-Output "$i`: $SampleMessage"
 }
-Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
+Set-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 ```
 
-#### <a name="setting-and-retrieving-a-variable-in-python2"></a>Ställa in och hämta en variabel i Python2
+#### <a name="set-and-retrieve-a-variable-in-a-python2-runbook"></a>Ange och hämta en variabel i en Python2-Runbook
 
-Följande exempel kod visar hur du använder en variabel, ställer in en variabel och hanterar ett undantag för en obefintlig variabel i en Python2-Runbook.
+Följande exempel visar hur du använder en variabel, ställer in en variabel och hanterar ett undantag för en icke-existerande variabel i en Python2-Runbook.
 
 ```python
 import automationassets
@@ -156,24 +169,24 @@ automationassets.set_automation_variable("test-variable", "test-string")
 
 # handle a non-existent variable exception
 try:
-    value = automationassets.get_automation_variable("non-existing variable")
+    value = automationassets.get_automation_variable("nonexisting variable")
 except AutomationAssetNotFound:
     print "variable not found"
 ```
 
 ### <a name="graphical-runbook-samples"></a>Grafiska Runbook-exempel
 
-I en grafisk Runbook lägger du till **Get-AutomationVariable** eller **set-AutomationVariable** genom att högerklicka på variabeln i fönstret Bibliotek i den grafiska redigeraren och välja den aktivitet du vill använda.
+I en grafisk Runbook kan du lägga till aktiviteten **Get-AutomationVariable** eller **set-AutomationVariable** . Högerklicka bara på variabeln i fönstret Bibliotek i den grafiska redigeraren och välj den aktivitet som du vill använda.
 
 ![Lägg till variabel på arbets ytan](../media/variables/runbook-variable-add-canvas.png)
 
-#### <a name="setting-values-in-a-variable"></a>Ange värden i en variabel
+#### <a name="set-values-in-a-variable"></a>Ange värden i en variabel
 
-Följande bild visar exempel aktiviteter för att uppdatera en variabel med ett enkelt värde i en grafisk Runbook. I det här exemplet hämtar **Get-AzureRmVM** en enda virtuell Azure-dator och dator namnet sparas till en befintlig Automation-variabel med en typ av sträng. Det spelar ingen roll om [länken är en pipeline eller sekvens](../automation-graphical-authoring-intro.md#links-and-workflow) eftersom du bara förväntar dig ett enskilt objekt i utdata.
+Följande bild visar exempel aktiviteter för att uppdatera en variabel med ett enkelt värde i en grafisk Runbook. I det här exemplet hämtar **Get-AzVM** en enda virtuell Azure-dator och sparar dator namnet i en befintlig Automation-variabel med en typ av sträng. Det spelar ingen roll om [länken är en pipeline eller sekvens](../automation-graphical-authoring-intro.md#links-and-workflow) eftersom koden endast förväntar sig ett enskilt objekt i utdata.
 
 ![Ange enkel variabel](../media/variables/runbook-set-simple-variable.png)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
-- Mer information om hur du ansluter aktiviteter tillsammans i grafisk redigering finns i [länkar i grafisk redigering](../automation-graphical-authoring-intro.md#links-and-workflow)
-- Information om hur du kommer igång med grafiska runbooks finns i [Min första grafisk runbook](../automation-first-runbook-graphical.md)
+- Mer information om hur du ansluter aktiviteter i grafisk redigering finns i [länkar i grafisk redigering](../automation-graphical-authoring-intro.md#links-and-workflow).
+- För att komma igång med grafiska runbooks, se [min första grafiska Runbook](../automation-first-runbook-graphical.md).

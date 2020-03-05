@@ -8,22 +8,22 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 43fbca732bbd281ad980ae86e4a89f446fdb69bc
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 405381a2d80ee6469b2b90bcb25923004fe55882
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945851"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270254"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>Vanliga API-svars koder och deras innebörd
 
-Den [redigering](https://go.microsoft.com/fwlink/?linkid=2092087) och [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) API: er returnera HTTP-svarskoder. Svarsmeddelanden innehåller information som är specifika för en begäran, är HTTP-svarsstatuskod allmän. 
+API: erna för [redigering](https://go.microsoft.com/fwlink/?linkid=2092087) och [slut punkter](https://go.microsoft.com/fwlink/?linkid=2092356) returnerar http-svars koder. Svarsmeddelanden innehåller information som är specifika för en begäran, är HTTP-svarsstatuskod allmän.
 
 ## <a name="common-status-codes"></a>Vanliga statuskoder
-I följande tabell visas några av de vanligaste svar för HTTP-statuskoder för den [redigering](https://go.microsoft.com/fwlink/?linkid=2092087) och [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) API: er:
+I följande tabell visas några av de vanligaste HTTP-svars status koderna för [redigerings](https://go.microsoft.com/fwlink/?linkid=2092087) -och [slut punkts](https://go.microsoft.com/fwlink/?linkid=2092356) -API: erna:
 
 |Kod|API|Förklaring|
 |:--|--|--|

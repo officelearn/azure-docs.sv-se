@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 8319f2f5405271679d0c11d4ac68492cdec8fc14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1dccc42301cf73fb215d99636dfee9eef9bc59e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66148921"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274166"
 ---
 # <a name="deprecated-use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>(INAKTUELL) Använda ACR med ett DC/OS-kluster till att distribuera ditt program
 
@@ -46,7 +46,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM
 
 När registret har skapats ser utdata från Azure CLI ungefär så här: Anteckna `name` och `loginServer`, du använder dem i senare steg.
 
-```azurecli
+```output
 {
   "adminUserEnabled": false,
   "creationDate": "2017-06-06T03:40:56.511597+00:00",
@@ -93,7 +93,7 @@ FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.f
 
 Skapa en SSH-anslutning med huvudservern (eller den första huvudservern) i ditt DC/OS-baserade kluster. Uppdatera användarnamnet om du använde något annat än standardvärdet när du skapade klustret.
 
-```azurecli-interactive
+```console
 ssh azureuser@$FQDN
 ```
 
@@ -107,13 +107,13 @@ docker -H tcp://localhost:2375 login --username=myContainerRegistry23489 --passw
 
 Skapa en komprimerad fil som innehåller autentiseringsvärdena för containerregistret.
 
-```azurecli-interactive
+```console
 tar czf docker.tar.gz .docker
 ```
 
 Kopiera den här filen till klustrets delade lagring. Det här steget gör filen tillgänglig vid alla noder i DC/OS-klustret.
 
-```azurecli-interactive
+```console
 cp docker.tar.gz /mnt/share/dcosshare
 ```
 
@@ -123,25 +123,25 @@ Använd en utvecklingsdator eller något annat system där Docker installerat, s
 
 Skapa en container från Ubuntu-avbildningen.
 
-```azurecli-interactive
+```console
 docker run ubuntu --name base-image
 ```
 
-Fånga nu containern i en ny avbildning. Avbildningens namn måste innehålla `loginServer`-namnet för containerregistret på formatet `loginServer/imageName`.
+Fånga nu containern i en ny avbildning. Avbildningens namn måste innehålla `loginServer` namnet på behållar registret med formatet `loginServer/imageName`.
 
-```azurecli-interactive
+```console
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
 ```
 
 Logga in på Azure-containerregistret. Ersätt namnet med loginServer-namnet, --username med namnet på containerregistret och --password med något av de angivna lösenorden.
 
-```azurecli-interactive
+```console
 docker login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry2675.azurecr.io
 ```
 
 Ladda slutligen upp avbildningen till ACR-registret. I det här exemplet laddas en avbildning med namnet dcos-demo upp.
 
-```azurecli-interactive
+```console
 docker push mycontainerregistry30678.azurecr.io/dcos-demo
 ```
 
@@ -189,7 +189,7 @@ Om du vill använda en avbildning från ACR-registret skapar du en fil med namne
 
 Distribuera programmet med DC/OC CLI.
 
-```azurecli-interactive
+```console
 dcos marathon app add acrDemo.json
 ```
 

@@ -6,18 +6,18 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 03/03/2020
 ms.author: victorh
-ms.openlocfilehash: 4e0c7707066028996e360a342db9f8dc0fd87599
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 92fed35c828398c048d704e1ec9b537904939967
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075117"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272929"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Skapa en Programgateway med intern omdirigering med Azure PowerShell
 
-Du kan använda Azure PowerShell för att konfigurera [omdirigering av webb trafik](multiple-site-overview.md) när du skapar en [Application Gateway](overview.md). I den här självstudien definierar du en backend-pool med en skalnings uppsättning för virtuella datorer. Du kan sedan konfigurera lyssnare och regler baserat på domäner som du äger för att kontrol lera att webb trafiken kommer till rätt pool. I den här självstudien förutsätter vi att du äger flera domäner och använder exempel på *www.contoso.com* och *www\.contoso.org*.
+Du kan använda Azure PowerShell för att konfigurera [omdirigering av webb trafik](multiple-site-overview.md) när du skapar en [Application Gateway](overview.md). I den här självstudien definierar du en backend-pool med en skalnings uppsättning för virtuella datorer. Du kan sedan konfigurera lyssnare och regler baserat på domäner som du äger för att kontrol lera att webb trafiken kommer till rätt pool. I den här självstudien förutsätter vi att du äger flera domäner och använder exempel på *www\.contoso.com* och *www\.contoso.org*.
 
 I den här artikeln kan du se hur du:
 
@@ -107,7 +107,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-first-listener-and-rule"></a>Skapa den första lyssnaren och regeln
 
-Du behöver en lyssnare så att programgatewayen kan dirigera trafiken till serverdelspoolen på rätt sätt. I den här självstudien skapar du två lyssnare för de två domänerna. I det här exemplet skapas lyssnare för domänerna för *www.contoso.com* och *www\.contoso.org*.
+Du behöver en lyssnare så att programgatewayen kan dirigera trafiken till serverdelspoolen på rätt sätt. I den här självstudien skapar du två lyssnare för de två domänerna. I det här exemplet skapas lyssnare för domänerna för *www-\.contoso.com* och *www\.contoso.org*.
 
 Skapa den första lyssnaren med namnet *contosoComListener* med [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) med klient dels konfigurationen och frontend-porten som du skapade tidigare. Du måste ange en regel för lyssnaren som anger vilken serverdelspool som ska användas för inkommande trafik. Skapa en grundläggande regel med namnet *contosoComRule* med [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -247,7 +247,7 @@ Set-AzVmssStorageProfile $vmssConfig `
   -ImageReferencePublisher MicrosoftWindowsServer `
   -ImageReferenceOffer WindowsServer `
   -ImageReferenceSku 2016-Datacenter `
-  -ImageReferenceVersion latest
+  -ImageReferenceVersion latest `
   -OsDiskCreateOption FromImage
 Set-AzVmssOsProfile $vmssConfig `
   -AdminUsername azureuser `
@@ -296,7 +296,7 @@ Ange domännamnet i adressfältet i webbläsaren. Som [https://www.contoso.com](
 
 ![Testa contoso-webbplatsen i programgatewayen](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Ändra adressen till din andra domän, till exempel https://www.contoso.org så bör du se att trafiken har omdirigerats tillbaka till lyssnaren för `www.contoso.com`.
+Ändra adressen till din andra domän, till exempel https://www.contoso.org så bör du se att trafiken har omdirigerats tillbaka till lyssnaren för www-\.contoso.com.
 
 ## <a name="next-steps"></a>Nästa steg
 

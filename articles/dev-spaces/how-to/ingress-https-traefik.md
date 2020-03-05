@@ -5,12 +5,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Lär dig hur du konfigurerar Azure dev Spaces för att använda en anpassad traefik ingångs kontroll och konfigurera HTTPS med den här ingångs styrenheten
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.openlocfilehash: 9e0c726d97fc87a25d559ecc3478d3f85df4eeb8
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 6cac50ea9caeea42b0a7522dbeb5039a8461dd2c
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623166"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273157"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Använd en anpassad traefik ingångs kontroll och konfigurera HTTPS
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du konfigurerar Azure dev Spaces för att använda e
 * [Azure Kubernetes service-kluster (AKS) med Azure dev Spaces aktiverat][qs-cli].
 * [kubectl][kubectl] installerad.
 * [Helm 3 är installerat][helm-installed].
-* [En anpassad domän][custom-domain] med en [DNS-zon][dns-zone] i samma resurs grupp som ditt AKS-kluster.
+* [En anpassad domän][custom-domain] med en [DNS-zon][dns-zone]. Den här artikeln förutsätter att den anpassade domänen och DNS-zonen finns i samma resurs grupp som ditt AKS-kluster, men det går att använda en anpassad domän och DNS-zon i en annan resurs grupp.
 
 ## <a name="configure-a-custom-traefik-ingress-controller"></a>Konfigurera en anpassad traefik-kontrollant
 
@@ -260,13 +260,13 @@ Uppgradera exempel programmet med `helm`:
 helm upgrade bikesharing . --namespace dev --atomic
 ```
 
-Navigera till exempel programmet i det underordnade området *dev/azureuser1* och Observera att du omdirigeras till att använda https. Observera också att sidan läses in, men webbläsaren visar vissa fel. Om du öppnar webb läsar konsolen visas felet relaterar till en HTTPS-sida vid försök att läsa in HTTP-resurser. Några exempel:
+Navigera till exempel programmet i det underordnade området *dev/azureuser1* och Observera att du omdirigeras till att använda https. Observera också att sidan läses in, men webbläsaren visar vissa fel. Om du öppnar webb läsar konsolen visas felet relaterar till en HTTPS-sida vid försök att läsa in HTTP-resurser. Exempel:
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
 ```
 
-Åtgärda felet genom att uppdatera [BikeSharingWeb/azds. yaml][azds-yaml] för att använda *traefik* för *Kubernetes.io/ingress.class* och din anpassade domän för *$ (hostSuffix)* . Några exempel:
+Åtgärda felet genom att uppdatera [BikeSharingWeb/azds. yaml][azds-yaml] för att använda *traefik* för *Kubernetes.io/ingress.class* och din anpassade domän för *$ (hostSuffix)* . Exempel:
 
 ```yaml
 ...

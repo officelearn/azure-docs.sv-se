@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 15f63544a98c6d7bb7171081d9c3e084890e15ec
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: a50dbe4d1e100032282891ccd15a94330f7fead4
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78256002"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272973"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisk redigering i Azure Automation
 
@@ -380,7 +380,7 @@ I följande exempel används utdata från en aktivitet som kallas **Hämta Twitt
 
 ## <a name="authenticating-to-azure-resources"></a>Autentisera till Azure-resurser
 
-Runbooks i Azure Automation som hanterar Azure-resurser kräver autentisering till Azure. [Kör som-kontot](automation-create-runas-account.md), som även kallas för tjänstens huvud namn, är standard mekanismen som en Automation-Runbook använder för att få åtkomst till Azure Resource Manager resurser i din prenumeration. Du kan lägga till den här funktionen i en grafisk Runbook genom att lägga till **AzureRunAsConnection** -anslutnings till gången, som använder PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) -cmdleten på arbets ytan. Du kan också lägga till cmdleten [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) . Det här scenariot illustreras i följande exempel.
+Runbooks i Azure Automation som hanterar Azure-resurser kräver autentisering till Azure. [Kör som-kontot](automation-create-runas-account.md), som även kallas för tjänstens huvud namn, är standard mekanismen som en Automation-Runbook använder för att få åtkomst till Azure Resource Manager resurser i din prenumeration. Du kan lägga till den här funktionen i en grafisk Runbook genom att lägga till **AzureRunAsConnection** -anslutnings till gången, som använder PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) -cmdleten på arbets ytan. Du kan också lägga till cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Det här scenariot illustreras i följande exempel.
 
 ![Aktiviteter för kör som-autentisering](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 

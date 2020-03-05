@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b4b893f185ba7e205ffebd7d939b8a2aa20a3e13
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: e65ca30e4f15b6f69f39160c67813047c40ce8ee
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275551"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274131"
 ---
 # <a name="deprecated-update-an-application-in-kubernetes"></a>(INAKTUELL) Uppdatera ett program i Kubernetes
 
@@ -23,7 +23,7 @@ ms.locfileid: "76275551"
 
 När ett program har distribuerats i Kubernetes kan du uppdatera det genom att ange en ny containeravbildning eller avbildningsversion. När du gör det mellanlagras uppdateringen så att endast en del av distributionen uppdateras samtidigt. Den här mellanlagrade uppdateringen gör att programmet kan fortsätta att köras under uppdateringen. Det ger också en mekanism för återställning om ett distributionsfel inträffar. 
 
-I den här självstudien, som är del sex av sju, uppdateras Azure Vote-exempelappen. Här är några av uppgifterna:
+I den här självstudien, som är del sex av sju, uppdateras Azure Vote-exempelappen. Uppgifter som du kan slutföra inkluderar:
 
 > [!div class="checklist"]
 > * Uppdatera klientdelens programkod
@@ -37,11 +37,11 @@ I senare självstudier konfigureras Log Analytics för att övervaka Kubernetes-
 
 I tidigare självstudier paketerades ett program i en behållaravbildning, avbildningen laddades upp till Azure Container Registry och ett Kubernetes-kluster skapades. Programmet kördes därefter i Kubernetes-klustret. 
 
-En programlagringsplats klonades också, med programmets källkod och en färdig Docker Compose-fil som används i den här självstudien. Verifiera att du har skapat en klon av lagringsplatsen och att du har ändrat kataloger i den klonade katalogen. Inuti finns en katalog som heter `azure-vote` och en fil med namnet `docker-compose.yml`.
+En programlagringsplats klonades också, med programmets källkod och en färdig Docker Compose-fil som används i den här självstudien. Verifiera att du har skapat en klon av lagringsplatsen och att du har ändrat kataloger i den klonade katalogen. Inuti finns en katalog med namnet `azure-vote` och en fil med namnet `docker-compose.yml`.
 
 Om du inte har slutfört dessa steg och vill följa med återgår du till [Självstudie 1 – Skapa containeravbildningar](./container-service-tutorial-kubernetes-prepare-app.md). 
 
-## <a name="update-application"></a>Uppdatera programmet
+## <a name="update-application"></a>Uppdatera program
 
 För den här självstudien görs en ändring av programmet, och det uppdaterade programmet distribueras till Kubernetes-klustret. 
 
@@ -53,7 +53,7 @@ vi azure-vote/azure-vote/config_file.cfg
 
 Ändra värdena för `VOTE1VALUE` och `VOTE2VALUE` och spara filen.
 
-```bash
+```plaintext
 # UI Configurations
 TITLE = 'Azure Voting App'
 VOTE1VALUE = 'Blue'
@@ -109,7 +109,7 @@ kubectl get pod
 
 Resultat:
 
-```bash
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-217588096-5w632    1/1       Running   0          10m
 azure-vote-front-233282510-b5pkz   1/1       Running   0          10m
@@ -120,25 +120,25 @@ azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 Om du inte har flera poddar som kör avbildningen azure-vote skalar du `azure-vote-front`-distribueringen.
 
 
-```azurecli-interactive
+```bash
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
 När du ska uppdatera programmet använder du kommandot [kubectl set](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set). Uppdatera `<acrLoginServer>` med inloggningsservern eller värdnamnet på ditt containerregister.
 
-```azurecli-interactive
+```bash
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
 Du övervakar distributionen med kommandot [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get). Eftersom det uppdaterade programmet är distribuerat avslutas dina poddar och återskapas med den nya containeravbildningen.
 
-```azurecli-interactive
+```bash
 kubectl get pod
 ```
 
 Resultat:
 
-```bash
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2978095810-gq9g0   1/1       Running   0          5m
 azure-vote-front-1297194256-tpjlg   1/1       Running   0         1m
@@ -150,7 +150,7 @@ azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
 
 Hämta den externa IP-adressen för tjänsten `azure-vote-front`.
 
-```azurecli-interactive
+```bash
 kubectl get service azure-vote-front
 ```
 

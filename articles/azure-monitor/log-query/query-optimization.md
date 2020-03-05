@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/28/2019
-ms.openlocfilehash: 4fad7d1e3359264c647ffc2d5f67dc547c87a13a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e5c3da94cf2440b30dc59fe20bc51a34095f7d5f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196662"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269062"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimera logg frågor i Azure Monitor
 Azure Monitor loggar använder [Azure datautforskaren (ADX)](/azure/data-explorer/) för att lagra loggdata och köra frågor för att analysera data. Den skapar, hanterar och underhåller ADX-kluster åt dig, och optimerar dem för din logg analys arbets belastning. När du kör en fråga optimeras den och dirigeras till lämpligt ADX-kluster som lagrar arbets ytans data. Både Azure Monitor loggar och Azure Datautforskaren använder många automatiska metoder för optimering av frågor. Även om automatiska optimeringar ger betydande ökning, finns det i vissa fall där du kan förbättra dina frågeresultat dramatiskt. Den här artikeln beskriver prestanda överväganden och flera tekniker för att åtgärda dem.
@@ -63,7 +63,7 @@ Några av frågans kommandon och funktioner är tungt i CPU-förbrukningen. Dett
 
 Dessa funktioner förbrukar CPU i förhållande till antalet rader som de bearbetar. Den effektivaste optimeringen är att lägga till vilka villkor som är tidiga i frågan och som kan filtrera ut så många poster som möjligt innan processor intensiv funktionen körs.
 
-Följande frågor ger till exempel exakt samma resultat, men den andra är den mest effektiva som [WHERE]() -villkoret innan tolkningen utesluter många poster:
+Följande frågor ger till exempel exakt samma resultat, men den andra är den mest effektiva som [WHERE](/azure/kusto/query/whereoperator) -villkoret innan tolkningen utesluter många poster:
 
 ```Kusto
 //less efficient
@@ -230,7 +230,7 @@ Perf
 ) on Computer
 ```
 
-Ett vanligt fall där ett sådant fel inträffar är när [arg_max ()](/azure/kusto/query/arg-max-aggfunction) används för att hitta den senaste förekomsten. Några exempel:
+Ett vanligt fall där ett sådant fel inträffar är när [arg_max ()](/azure/kusto/query/arg-max-aggfunction) används för att hitta den senaste förekomsten. Exempel:
 
 ```Kusto
 Perf

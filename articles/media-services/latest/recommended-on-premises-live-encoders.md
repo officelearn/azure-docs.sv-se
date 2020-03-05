@@ -9,14 +9,14 @@ ms.author: johndeu
 ms.date: 02/10/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 43d2a56757948f6005420d2b44f9bea963613d17
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 60f9209129c75e329b283045d19b4b5140b40ec2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252177"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268200"
 ---
-# <a name="recommended-live-streaming-encoders"></a>Rekommenderade kodare för liveuppspelning
+# <a name="recommended-on-premises-live-streaming-encoders"></a>Rekommenderade lokala Live streaming-kodare
 
 I Azure Media Services representerar en [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) (kanal) en pipeline för bearbetning av direktuppspelat innehåll. Live-händelsen tar emot direktsända indata strömmar på ett av två sätt.
 

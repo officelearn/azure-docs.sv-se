@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 6dc8c54b9d138ab62e086cca59cd5b4801fa6130
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 164f07f6545c1c225814958bba5722536b11a9b4
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228345"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269425"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installera AMD GPU-drivrutiner för virtuella datorer i N-serien som kör Windows
 
@@ -43,6 +43,8 @@ Grundläggande specifikationer, lagrings kapacitet och disk information finns i 
 3. Starta den virtuella datorn och avinstallera sedan Preview-drivrutinen genom att köra "amdcleanuputility-x64. exe" i mappen ". ..\AMDCleanUninstallUtility". Den exakta sökvägen varierar beroende på var de tidigare installationsfilerna för driv rutinen finns.  
 
 4. Hämta och installera den senaste driv rutinen.
+
+5. Starta om den virtuella datorn.
 
 ## <a name="verify-driver-installation"></a>Verifiera installation av driv rutin
 

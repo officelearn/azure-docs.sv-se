@@ -8,12 +8,12 @@ ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a222f72e705184c5a7ba6701cfda41073c7eba57
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 58294c7afdf31ddd29611351d6442db1c4966157
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548755"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269035"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Förstå hur Azure IoT Edge använder certifikat
 
@@ -78,7 +78,7 @@ Eftersom tillverknings-och drift processerna är åtskilda bör du tänka på f�
 
 ## <a name="devtest-implications"></a>Konsekvenser för utveckling/testning
 
-För att underlätta utveckling och testscenarion, Microsoft tillhandahåller en uppsättning [bekvämlighet skript](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) för att skapa icke-produktion-certifikat som är lämpliga för IoT Edge i transparent gateway-scenario. Exempel på hur skripten fungerar finns i [skapa demonstrations certifikat för att testa IoT Edge enhets funktioner](how-to-create-test-certificates.md).
+För att under lätta utvecklings-och test scenarier tillhandahåller Microsoft en uppsättning [bekvämlighets skript](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) för att skapa icke-produktions certifikat som är lämpliga för IoT Edge i scenariot med transparent Gateway. Exempel på hur skripten fungerar finns i [skapa demonstrations certifikat för att testa IoT Edge enhets funktioner](how-to-create-test-certificates.md).
 
 >[!Tip]
 > Om du vill ansluta din enhet IoT ”löv” enheter och program som använder våra IoT-enhetens SDK via IoT Edge, måste du lägga till den valfria parametern GatewayHostName till slutet av enhetens anslutningssträng. När Edge Hub certifikatet skapas, den är baserad på en alltid i lägre version av värdnamnet från config.yaml, därför för som ska matcha och TLS-certifikatverifiering ska lyckas, du bör ange parametern GatewayHostName i gemener.
@@ -100,6 +100,6 @@ Du kan se hierarkin för certifikatet djup visas i skärmbilden:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Förstå Azure IoT Edge-moduler](iot-edge-modules.md)
+[Förstå Azure IoT Edge moduler](iot-edge-modules.md)
 
 [Konfigurera en IoT Edge-enhet till att fungera som en transparent gateway](how-to-create-transparent-gateway.md)

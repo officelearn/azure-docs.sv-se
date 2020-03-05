@@ -8,29 +8,29 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 8c15ebacd0fd959fe789d7f3a9b33b16ee29a1b2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 46da828b7553fdf9cdded817febd3bb95cd4cbb9
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933630"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270677"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Föråldrade fördefinierade entiteter i en LUIS-app
 Följande fördefinierade entiteter är föråldrade och går inte att lägga till nya LUIS-appar.
 
-* **Datetime**: Befintliga LUIS-appar som använder **datetime** ska migreras till **datetimeV2**, men datetime-entiteten fortsätter att fungera i befintliga appar som använder den.
-* **Geografi**: Befintliga LUIS-appar som använder **geografi** stöds till och med 2018 december.
-* **Uppslagsverk**: Befintliga LUIS-appar som använder **uppslagsverk** stöds till och med 2018 december.
+* **Datetime**: befintliga Luis-appar som använder **datetime** ska migreras till **datetimeV2**, men datetime-entiteten fortsätter att fungera i befintliga appar som använder den.
+* **Geografi**: befintliga Luis-appar som använder **geografi** stöds till och med 2018 december.
+* **Uppslagsverk**: befintliga Luis-appar som använder **uppslagsverk** stöds till och med 2018 december.
 
 ## <a name="geography-culture"></a>Geografi kultur
-**Geografi** är endast tillgängligt i den `en-us` nationella inställningar.
+**Geografi** är endast tillgängligt i `en-us`-språkvarianten.
 
 #### <a name="3-geography-subtypes"></a>3 geografi undertyper
 
-Fördefinierade entitet   |   Exempel på yttrande   |   JSON
+Fördefinierade entitet   |   Exempeluttryck   |   JSON
 ------|------|------|
 `builtin.geography.city`   |  `seattle`    |`{ "type": "builtin.geography.city", "entity": "seattle" }`|
 `builtin.geography.city`   |  `paris`    |`{ "type": "builtin.geography.city", "entity": "paris" }`|
@@ -40,10 +40,10 @@ Fördefinierade entitet   |   Exempel på yttrande   |   JSON
 `builtin.geography.pointOfInterest`   |   `sahara desert`|`{ "type": "builtin.geography.pointOfInterest", "entity": "sahara desert" }`|
 
 ## <a name="encyclopedia-culture"></a>Uppslagsverk kultur
-**Uppslagsverk** är endast tillgängligt i den `en-US` nationella inställningar.
+**Uppslagsverk** är bara tillgängligt i `en-US`-språkvarianten.
 
 #### <a name="encyclopedia-subtypes"></a>Uppslagsverk undertyper
-Den inbyggda Encyclopedia-enheten innehåller över 100 under typer i följande tabell: Dessutom mappar uppslagsverks enheter till flera olika typer. Till exempel frågan Ronald Reagan ger: 
+Uppslagsverk inbyggda entitet innehåller fler än 100 underordnade typer i följande tabell: dessutom uppslagsverk entiteter ofta mappar till flera typer. Till exempel frågan Ronald Reagan ger:
 
 ```json
 {
@@ -65,7 +65,7 @@ Den inbyggda Encyclopedia-enheten innehåller över 100 under typer i följande 
  ```
 
 
-Fördefinierade entitet   |   Fördefinierade entitet (underordnade typer)   |   Exempel på yttrande
+Fördefinierade entitet   |   Fördefinierade entitet (underordnade typer)   |   Exempeluttryck
 ------|------|------|
 `builtin.encyclopedia.people.person`| `builtin.encyclopedia.people.person`| `bryan adams` |
 `builtin.encyclopedia.people.person`| `builtin.encyclopedia.film.producer`| `walt disney` |
@@ -163,5 +163,5 @@ Fördefinierade entitet   |   Fördefinierade entitet (underordnade typer)   |  
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om den [dimension](luis-reference-prebuilt-dimension.md), [e-post](luis-reference-prebuilt-email.md) entiteter, och [nummer](luis-reference-prebuilt-number.md). 
+Lär dig mer om [dimension](luis-reference-prebuilt-dimension.md), [e-](luis-reference-prebuilt-email.md) postentiteter och [nummer](luis-reference-prebuilt-number.md).
 

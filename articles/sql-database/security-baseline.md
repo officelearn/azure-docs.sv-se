@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e1323467db875968f45557c6a7c0afdfee5e4221
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
-ms.translationtype: MT
+ms.openlocfilehash: dd9b82cbb2984386059988496c550123a8e67a3f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589940"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273083"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Azures säkerhets bas linje för Azure SQL Database
 
@@ -122,12 +122,9 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: Distribuera Network-baserad intrångs identifiering/intrångs skydd system (ID/IP-adresser)
 
-**Vägledning**: aktiverat Avancerat skydd (ATP) för Azure SQL Database.  Användare får en avisering om misstänkt databas aktiviteter, potentiella sårbarheter och SQL-injektering, samt avvikande databas åtkomst och frågor. Avancerat skydd integrerar även aviseringar med Azure Security Center.
+**Vägledning**: Aktivera avancerat skydd (ATP) för Azure SQL Database.  Användare får en avisering om misstänkt databas aktiviteter, potentiella sårbarheter och SQL-injektering, samt avvikande databas åtkomst och frågor. Avancerat skydd integrerar även aviseringar med Azure Security Center.
 
-
-Förstå och använda avancerat skydd för Azure SQL Database:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
+Förstå och använda avancerat skydd mot Azure SQL Database: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
 **Azure Security Center övervakning**: Ja
 
@@ -164,11 +161,14 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: underhåll standardkonfigurationer för nätverks enheter
 
-**Vägledning**: definiera och implementera nätverks säkerhets konfigurationerna för dina Azure SQL Database Server-instanser med Azure policy. Du kan använda namn området "Microsoft. SQL" för att definiera anpassade princip definitioner eller använda någon av de inbyggda princip definitionerna som är utformade för Azure SQL Database Server nätverks skydd. Ett exempel på en tillämplig inbyggd nätverks säkerhets princip för Azure SQL Database Server är: "SQL Server ska använda en tjänst slut punkt för virtuellt nätverk"
+**Vägledning**: definiera och implementera nätverks säkerhets konfigurationerna för dina Azure SQL Database Server-instanser med Azure policy. Du kan använda namn området "Microsoft. SQL" för att definiera anpassade princip definitioner eller använda någon av de inbyggda princip definitionerna som är utformade för Azure SQL Database Server nätverks skydd. Ett exempel på en tillämplig inbyggd nätverks säkerhets princip för Azure SQL Database Server är: "SQL Server bör använda en tjänst slut punkt för virtuellt nätverk".
+ 
 
 Använd Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Management-mallar, rollbaserad åtkomst kontroll (RBAC) och principer, i en enda skiss definition. Använd enkelt skissen på nya prenumerationer och miljöer och finjustera kontroll och hantering genom versions hantering.
 
+
 Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Så här skapar du en Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -457,13 +457,27 @@ https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getst
 
 **Vägledning**: Använd Azure Active Directory säkerhets rapporter för att skapa loggar och varningar när misstänkt eller osäker aktivitet inträffar i miljön.
 
+
+
 Använd avancerat skydd för Azure SQL Database för att identifiera avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.
 
-Så här identifierar du Azure AD-användare som har flaggats för riskfylld aktivitet: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
 
-Så här övervakar du användarnas identitets-och åtkomst aktiviteter i Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-Granska Avancerat skydd och potentiella aviseringar: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
+Så här identifierar du Azure AD-användare som har flaggats för riskfylld aktivitet:
+
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
+
+
+
+Så här övervakar du användarnas identitets-och åtkomst aktiviteter i Azure Security Center:
+
+https://docs.microsoft.com/azure/security-center/security-center-identity-access
+
+
+
+Granska Avancerat skydd och potentiella aviseringar:
+
+https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
 
 
 **Azure Security Center övervakning**: Ja
@@ -473,6 +487,7 @@ Granska Avancerat skydd och potentiella aviseringar: https://docs.microsoft.com/
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3,8: hantera endast Azure-resurser från godkända platser
 
 **Vägledning**: använda villkorlig åtkomst med namngivna platser för att tillåta åtkomst till Portal-och Azure-resurser enbart för vissa logiska grupperingar av IP-adressintervall eller länder/regioner.
+
 
 Så här konfigurerar du namngivna platser i Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
@@ -714,7 +729,7 @@ Så här skapar du aviseringar för Azure aktivitets logg händelser:
 https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -774,7 +789,7 @@ Så här exporterar du en sårbarhets utvärderings rapport i Azure Security Cen
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -796,11 +811,15 @@ Förstå Azure Security Center säkra Poäng: https://docs.microsoft.com/azure/s
 
 **Vägledning**: Använd Azure Resource Graph för att fråga och identifiera alla resurser (inklusive Azure SQL Server instanser) i dina prenumerationer.  Se till att du har rätt (Läs) behörigheter i din klient och kan räkna upp alla Azure-prenumerationer samt resurser i dina prenumerationer.
 
+
 Även om klassiska Azure-resurser kan identifieras via resurs diagram, rekommenderar vi starkt att du skapar och använder Azure Resource Manager resurser som går framåt.
+
 
 Så här skapar du frågor med Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
+
 Så här visar du dina Azure-prenumerationer: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+
 
 Förstå Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -812,7 +831,11 @@ Förstå Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/
 
 **Vägledning**: Använd taggar till Azure-resurser som ger metadata till att logiskt organisera dem i en taxonomi.
 
-Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
+
+Skapa och använda Taggar:
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -822,11 +845,23 @@ Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manag
 
 **Vägledning**: Använd taggning, hanterings grupper och separata prenumerationer, vid behov, för att organisera och spåra till gångar. Stäm av inventering regelbundet och se till att obehöriga resurser tas bort från prenumerationen inom rimlig tid.
 
-Så här skapar du ytterligare Azure-prenumerationer: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Så här skapar du Hanteringsgrupper: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Så här skapar du ytterligare Azure-prenumerationer:
+
+https://docs.microsoft.com/azure/billing/billing-create-subscription
+
+
+
+Så här skapar du Hanteringsgrupper:
+
+https://docs.microsoft.com/azure/governance/management-groups/create
+
+
+
+Skapa och använda Taggar:
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -894,6 +929,7 @@ Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/a
 
 Så här nekar du en speciell resurs typ med Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
+
 **Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
@@ -911,9 +947,7 @@ Så här nekar du en speciell resurs typ med Azure Policy: https://docs.microsof
 **Vägledning**: Använd villkorlig åtkomst i Azure för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering".
 
 
-Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -1152,7 +1186,7 @@ Förstå säkerhets kopiering och affärs kontinuitet med Azure SQL Server:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity
 
-**Azure Security Center övervakning**: inte tillämpligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvars område**: delat
 
@@ -1204,7 +1238,7 @@ Så här aktiverar du mjuk borttagning i Key Vault:
 
 https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -1292,7 +1326,7 @@ Konfigurera automatisering av arbets flöde och Logic Apps:
 
 https://docs.microsoft.com/azure/security-center/workflow-automation
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
 
 **Ansvar**: kund
 
@@ -1314,3 +1348,7 @@ Du hittar mer information om Microsofts strategi och körning av röda team inde
 
 **Ansvars område**: delat
 
+## <a name="next-steps"></a>Nästa steg
+
+- Se [Azures säkerhets benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Läs mer om [Azures säkerhets bas linjer](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

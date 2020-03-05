@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 27c359a594cec66708647d5a648c7e8414c0d92c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 949cdb4c53531a548380a6f0116fb45f91d7ba66
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917483"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268763"
 ---
 # <a name="enter-data-manually-module"></a>Ange modulen data manuellt
 
@@ -89,11 +89,9 @@ Den här modulen kan vara till hjälp i scenarier som dessa:
         |0,00016|0,004|0,999961|0,00784|1|  
         |0|0,004|0,999955|0,008615|1|  
   
-4.  Tryck på RETUR efter varje rad för att påbörja en ny rad.  
-  
-     **Se till att trycka på RETUR efter den sista raden.** 
+4.  Tryck på RETUR efter varje rad för att påbörja en ny rad.      
      
-     Om du trycker på RETUR flera gånger för att lägga till flera tomma efterföljande rader tas den sista tomma raden bort, men andra tomma rader behandlas som saknade värden.  
+     Om du trycker på RETUR flera gånger för att lägga till flera tomma efterföljande rader tas de tomma raderna bort.  
   
      Om du skapar rader med värden som saknas kan du alltid filtrera dem senare.  
   

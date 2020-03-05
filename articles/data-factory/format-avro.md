@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/03/2020
 ms.author: jingwang
-ms.openlocfilehash: 6d867ccd8704d4aba4627e7b81638394b7e1e8d3
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 1717969aeb24a153f986c70ef60db1aac5c840fb
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77423787"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267777"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Avro-format i Azure Data Factory
 
@@ -83,7 +83,11 @@ Följande egenskaper stöds i avsnittet kopierings aktivitet ***\*mottagare\****
 
 ## <a name="data-type-support"></a>Data typs stöd
 
-Avro [komplexa data typer](https://avro.apache.org/docs/current/spec.html#schema_complex) stöds inte (poster, uppräkningar, matriser, kartor, unioner och fasta).
+### <a name="copy-activity"></a>Kopieringsaktivitet
+Avro [komplexa data typer](https://avro.apache.org/docs/current/spec.html#schema_complex) stöds inte (poster, uppräkningar, matriser, kartor, unioner och fasta) i kopierings aktiviteten.
+
+### <a name="data-flows"></a>Dataflöden
+När du arbetar med Avro-filer i data flöden kan du läsa och skriva komplexa data typer, men se till att ta bort det fysiska schemat från data uppsättningen först. I data flöden kan du ange din logiska projektion och härleda kolumner som är komplexa strukturer och automatiskt mappa dessa fält till en Avro-fil.
 
 ## <a name="next-steps"></a>Nästa steg
 

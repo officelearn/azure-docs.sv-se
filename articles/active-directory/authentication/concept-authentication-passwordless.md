@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba579d6da8c759a4653b729f1a471efdedc2baa7
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: ffe3d359dffea3278337de00bea42e0b959e10f6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505768"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269522"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Lösen ords verifierings alternativ för Azure Active Directory
 
@@ -90,7 +90,7 @@ Kontakta [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com)om du ä
 - Slutanvändare kan registrera och hantera dessa metoder för lösen ords kryptering i sin konto Portal
 - Slutanvändare kan logga in med dessa metoder för lösen ords kryptering
    - Microsoft Authenticator app: fungerar i scenarier där Azure AD-autentisering används, inklusive i alla webbläsare, under installationen av OOBE-installationen (Windows 10 out of Box) och med integrerade mobilappar på alla operativ system.
-   - Säkerhets nycklar: arbeta på Lås skärmen för Windows 10 och webben i webbläsare som stöds, t. ex. Microsoft Edge.
+   - Säkerhets nycklar: arbeta på Lås skärmen för Windows 10 och webben i webbläsare som stöds, t. ex. Microsoft Edge (både äldre och nya kanter).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,25 +1,25 @@
 ---
 title: Förbyggda telefonnummer för telefonnummer – LUIS
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller fördefinierad enhets information för telefonnummer i Language Understanding (LUIS).
+description: Den här artikeln innehåller fördefinierade entitetsinformation om telefonnummer i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 1cc7469bf6b29ed864fac3955dc8770aa879f84d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4e2c8e27c6d4195252c6a5b423fa98b2a4247182
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499531"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270474"
 ---
 # <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Fördefinierad telefonnummer enhet för en LUIS-app
-`phonenumber` entiteten extraherar en rad olika telefonnummer inklusive landskod. Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden i programmet. `phonenumber` entiteten stöds endast i `en-us` kultur. 
+`phonenumber` entiteten extraherar en rad olika telefonnummer inklusive landskod. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden i programmet. `phonenumber` entiteten stöds endast i `en-us` kultur.
 
 ## <a name="types-of-a-phone-number"></a>Typer av ett telefonnummer
 `Phonenumber` hanteras från GitHub-lagringsplatsen för [identifierare – text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml)
@@ -30,7 +30,7 @@ Följande enhets objekt returneras för frågan:
 
 `my mobile is 1 (800) 642-7676`
 
-#### <a name="v3-responsetabv3"></a>[V3-svar](#tab/V3)
+#### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
 Följande JSON är med parametern `verbose` som har angetts till `false`:
 
@@ -41,7 +41,7 @@ Följande JSON är med parametern `verbose` som har angetts till `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3 utförlig Response](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
 Följande JSON är med parametern `verbose` som har angetts till `true`:
 
 ```json
@@ -68,7 +68,7 @@ Följande JSON är med parametern `verbose` som har angetts till `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[V2-svar](#tab/V2)
+#### <a name="v2-response"></a>[V2-svar](#tab/V2)
 
 I följande exempel visas upplösningen för entiteten **Builtin. telefonnummer** .
 
@@ -86,10 +86,10 @@ I följande exempel visas upplösningen för entiteten **Builtin. telefonnummer*
     }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-Lär dig mer om enheterna [procent](luis-reference-prebuilt-percentage.md), [antal](luis-reference-prebuilt-number.md)och [temperatur](luis-reference-prebuilt-temperature.md) . 
+Lär dig mer om enheterna [procent](luis-reference-prebuilt-percentage.md), [antal](luis-reference-prebuilt-number.md)och [temperatur](luis-reference-prebuilt-temperature.md) .

@@ -2,13 +2,13 @@
 title: Vad är nytt i Azure Site Recovery
 description: Innehåller en sammanfattning av nya funktioner och de senaste uppdateringarna i Azure Site Recoverys tjänsten.
 ms.topic: conceptual
-ms.date: 01/31/2020
-ms.openlocfilehash: cae653c9e51e2a497d6fa3781415a1f836053593
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 03/03/2020
+ms.openlocfilehash: abb1592bcacf025e9a052d7a9222f6fb3d2b72d6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064537"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267493"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
@@ -22,13 +22,27 @@ För Site Recovery-komponenter stöder vi N-4-versioner, där N är den senaste 
 
 **Uppdatering** |  **Enhetlig installation** | **Konfigurations Server för ägg** | **Mobilitets tjänst agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Samlad uppdatering 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [Samlad uppdatering 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
 [Samlad uppdatering 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
 [Samlad uppdatering 41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
 [Samlad uppdatering 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
-[Samlad uppdatering 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 
 [Läs mer](service-updates-how-to.md) om installation och stöd för uppdateringar.
+
+> [!NOTE]
+> Samlad uppdatering 44 visas inte i tabellen eftersom den inte inkluderade uppdateringar för Site Recovery leverantörer och agenter.
+
+## <a name="updates-march-2020"></a>Uppdateringar (mars 2020)
+
+### <a name="update-rollup-45"></a>Samlad uppdatering 45
+
+Samlad [uppdatering 45](https://support.microsoft.com/help/4550047/update-rollup-45-for-azure-site-recovery) innehåller följande uppdateringar:
+
+**Uppdatering** | **Detaljer**
+--- | ---
+**Leverantörer och agenter** | Uppdateringar till Site Recovery agenter och leverantörer enligt beskrivningen i den samlade uppdateringen.
+**Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar som beskrivs i den samlade uppdateringen.
 
 ## <a name="updates-january-2020"></a>Uppdateringar (januari 2020)
 

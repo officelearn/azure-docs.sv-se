@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b0aa78a519567a8e1ffd76e26f1d9ea3ca701fca
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 2ea8a5428c1fabdfda4f2298c0559792537df481
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274180"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273988"
 ---
 # <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(INAKTUELL) Skala ut Kubernetes-poddar och Kubernetes-infrastrukturen
 
@@ -42,13 +42,15 @@ Om du inte har gjort det här och vill följa med återgår du till [Självstudi
 
 Hittills har vi distribuerat klientdelen av Azure Vote och Redisinstansen, var och en med en enda replik. Du kan kontrollera detta genom att köra programmet [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get).
 
-```azurecli-interactive
+Gå till [https://shell.azure.com](https://shell.azure.com) för att öppna Cloud Shell i webbläsaren.
+
+```console
 kubectl get pods
 ```
 
 Resultat:
 
-```bash
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
@@ -56,19 +58,19 @@ azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 
 Ändra antalet poddar i `azure-vote-front`-distributionen manuellt med kommandot [kubectl scale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale). I det här exemplet ökas antalet till 5.
 
-```azurecli-interactive
+```console
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
 Kör [kubectl get pods](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) om du vill verifiera att Kubernetes skapar poddarna. Efter ungefär en minut körs de nya poddarna:
 
-```azurecli-interactive
+```console
 kubectl get pods
 ```
 
 Resultat:
 
-```bash
+```output
 NAME                                READY     STATUS    RESTARTS   AGE
 azure-vote-back-2606967446-nmpcf    1/1       Running   0          15m
 azure-vote-front-3309479140-2hfh0   1/1       Running   0          3m
@@ -84,7 +86,7 @@ Kubernetes har stöd för [horisontell autoskalning av poddar](https://kubernete
 
 Om du vill använda autoskalning måste poddarna ha definierade CPU-krav och CPU-gränser. I `azure-vote-front`-distributionen begär klientdelscontainern 0,25 CPU med maxgränsen 0,5 CPU. Inställningarna ser ut så här:
 
-```YAML
+```yaml
 resources:
   requests:
      cpu: 250m
@@ -95,19 +97,19 @@ resources:
 I följande exempel används kommandot [kubectl autoscale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale) till att automatiskt skala antalet poddar i `azure-vote-front`-distributionen. Om processoranvändningen överskrider 50 % ökar autoskalningen antalet poddar till högst 10.
 
 
-```azurecli-interactive
+```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
 Om du vill se status för autoskalningen kör du följande kommando:
 
-```azurecli-interactive
+```console
 kubectl get hpa
 ```
 
 Resultat:
 
-```bash
+```output
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```
@@ -126,7 +128,7 @@ az acs scale --resource-group=myResourceGroup --name=myK8SCluster --new-agent-co
 
 Utdata från kommandot visar antalet agentnoder i värdet för `agentPoolProfiles:count`:
 
-```azurecli
+```output
 {
   "agentPoolProfiles": [
     {

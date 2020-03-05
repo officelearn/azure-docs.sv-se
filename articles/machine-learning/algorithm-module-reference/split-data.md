@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 3e831e58b47d53e2924956cab13568c69bc1432e
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: d889cd3325784f564d03e5d75dde1ec760c66804
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153748"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268525"
 ---
 # <a name="split-data-module"></a>Modulen dela data
 
@@ -84,34 +84,74 @@ Den här modulen är särskilt användbar när du behöver separera data i utbil
 
     Baserat på det reguljära uttrycket som du anger är data uppsättningen uppdelad i två uppsättningar med rader: rader med värden som matchar uttrycket och alla återstående rader. 
 
+Följande exempel visar hur du delar upp en data uppsättning med alternativet för **reguljära uttryck** . 
+
+### <a name="single-whole-word"></a>Enstaka hela ord 
+
+I det här exemplet placeras alla rader i den första data uppsättningen som innehåller texten `Gryphon` i kolumnen `Text`, och andra rader placeras i det andra resultatet av **delade data**:
+
+```text
+    \"Text" Gryphon  
+```
+
+### <a name="substring"></a>Under sträng
+
+Det här exemplet söker efter den angivna strängen i valfri position i den andra kolumnen i data uppsättningen, som anges här av indexvärdet 1. Matchningen är Skift läges känslig.
+
+```text
+(\1) ^[a-f]
+```
+
+Den första resultat data uppsättningen innehåller alla rader där index-kolumnen börjar med något av följande tecken: `a`, `b`, `c`, `d`, `e`, `f`. Alla andra rader dirigeras till den andra utdata.
+
 ## <a name="relative-expression-split"></a>Delat relativt uttryck.
 
 1. Lägg till modulen [dela data](./split-data.md) i din pipeline och Anslut den som indata till den data uppsättning som du vill dela.
   
 2. För **delnings läge**väljer du **delat relativt uttryck**.
   
-3. I text rutan **Relations uttryck** skriver du ett uttryck som utför en jämförelse-åtgärd i en enskild kolumn:
+3. I text rutan **Relations uttryck** skriver du ett uttryck som utför en jämförelse i en enskild kolumn:
 
-
- - Numerisk kolumn:
-    - Kolumnen innehåller siffror av vilken numerisk datatyp som helst, inklusive datum-och tids data typer.
-
-    - Uttrycket kan referera till högst ett kolumn namn.
-
-    - Använd et-tecknet (&) för och-åtgärden och Använd pipe-tecknet (|) för åtgärden eller.
-
-    - Följande operatorer stöds: `<`, `>`, `<=`, `>=`, `==`, `!=`
-
-    - Du kan inte gruppera åtgärder med hjälp av `(` och `)`.
-
- - Sträng kolumn: 
-    - Följande operatorer stöds: `==``!=`
-
-
+   För den **numeriska kolumnen**:
+   - Kolumnen innehåller siffror av vilken numerisk datatyp som helst, inklusive datum-och tids data typer.
+   - Uttrycket kan referera till högst ett kolumn namn.
+   - Använd et-tecknet `&` för åtgärden och. Använd pipe-tecknet `|` för åtgärden eller.
+   - Följande operatorer stöds: `<`, `>`, `<=`, `>=`, `==`, `!=`.
+   - Du kan inte gruppera åtgärder med hjälp av `(` och `)`.
+   
+   För **kolumnen sträng**:
+   - Följande operatorer stöds: `==``!=`.
 
 4. Köra en pipeline.
 
     Uttrycket delar in data uppsättningen i två uppsättningar med rader: rader med värden som uppfyller villkoret och alla återstående rader.
+
+Följande exempel visar hur du delar upp en data uppsättning med alternativet **relativt uttryck** i modulen **dela data** :  
+
+### <a name="using-calendar-year"></a>Använda Kalender år
+
+Ett vanligt scenario är att dela upp en data uppsättning per år. Följande uttryck väljer alla rader där värdena i kolumnen `Year` är större än `2010`.
+
+```text
+\"Year" > 2010
+```
+
+Datum uttrycket måste vara ett konto för alla datum delar som ingår i data kolumnen och datum formatet i data kolumnen måste vara konsekvent. 
+
+I en datum kolumn med formatet `mmddyyyy`ska uttrycket exempelvis vara något som liknar detta:
+
+```text
+\"Date" > 1/1/2010
+```
+
+### <a name="using-column-indices"></a>Använda kolumn index
+
+Följande uttryck visar hur du kan använda kolumn indexet för att markera alla rader i den första kolumnen i data uppsättningen som innehåller värden som är mindre än eller lika med 30, men inte lika med 20.
+
+```text
+(\0)<=30 & !=20
+```
+
 
 ## <a name="next-steps"></a>Nästa steg
 

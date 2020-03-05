@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 737f373fb71494492f633d3297463cbef797f3d6
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2d279a2a368e606e036b24172eb94b667b3255db
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189556"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267957"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till anspråk och anpassa användarindata med anpassade principer i Azure Active Directory B2C
 
@@ -261,10 +261,10 @@ Följande element används för att definiera anspråket:
 
 ## <a name="test-the-custom-policy"></a>Testa den anpassade principen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
 3. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
-4. Välj **ramverk för identitets upplevelse (för hands version)** .
+4. Välj **ramverk för identitets upplevelse**.
 5. Välj **överför anpassad princip**och ladda upp de två principfiler som du har ändrat.
 2. Välj den registrerings-eller inloggnings princip som du laddade upp och klicka på knappen **Kör nu** .
 3. Du bör kunna registrera dig med en e-postadress.

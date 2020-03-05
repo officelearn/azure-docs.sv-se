@@ -1,31 +1,31 @@
 ---
-title: Översikt över Azures säkerhets grupper
+title: Översikt över Azure nätverks säkerhets grupper
 titlesuffix: Azure Virtual Network
-description: Lär dig om säkerhetsgrupper för nätverk och program. Med säkerhetsgrupper kan du filtrera nätverkstrafik mellan Azure-resurser.
+description: Lär dig mer om nätverks säkerhets grupper. Med nätverks säkerhets grupper kan du filtrera nätverks trafik mellan Azure-resurser.
 services: virtual-network
 documentationcenter: na
-author: malopMSFT
+author: KumudD
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/22/2020
-ms.author: malop
+ms.date: 02/27/2020
+ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: c465d86c3a284a45063b9da183e4866fde7e28e9
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 3837b2af31ddab3c35abf877a74f980bd34e933d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544522"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267472"
 ---
-# <a name="security-groups"></a>Säkerhetsgrupper
+# <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
 <a name="network-security-groups"></a>
 
-Du kan filtrera nätverkstrafik till och från Azure-resurser i ett [virtuellt nätverk](virtual-networks-overview.md) i Azure med en nätverkssäkerhetsgrupp. En nätverkssäkerhetsgrupp innehåller [säkerhetsregler](#security-rules) som tillåter eller nekar inkommande nätverkstrafik till, eller utgående nätverkstrafik från, flera typer av Azure-resurser. Information om vilka Azure-resurser du kan distribuera till ett virtuellt nätverk och associera med nätverkssäkerhetsgrupper finns i [Virtual network integration for Azure services](virtual-network-for-azure-services.md) (Integrering av virtuella nätverk för Azure-tjänster). För varje regel kan du ange källa och mål, port och protokoll.
+Du kan filtrera nätverks trafik till och från Azure-resurser i ett virtuellt Azure-nätverk med en nätverks säkerhets grupp. En nätverkssäkerhetsgrupp innehåller säkerhetsregler som tillåter eller nekar inkommande nätverkstrafik till, eller utgående nätverkstrafik från, flera typer av Azure-resurser. Information om vilka Azure-resurser du kan distribuera till ett virtuellt nätverk och associera med nätverkssäkerhetsgrupper finns i [Virtual network integration for Azure services](virtual-network-for-azure-services.md) (Integrering av virtuella nätverk för Azure-tjänster). För varje regel kan du ange källa och mål, port och protokoll.
 
-Den här artikeln beskriver vad nätverkssäkerhetsgrupper är, så att du kan använda dem så effektivt som möjligt. Om du aldrig har skapat en nätverkssäkerhetsgrupp kan du gå en snabb [självstudie](tutorial-filter-network-traffic.md) för att få lite erfarenhet. Om du redan är bekant med nätverkssäkerhetsgrupper och vill lära dig hur du hanterar dem läser du [Hantera en nätverkssäkerhetsgrupp](manage-network-security-group.md). Om du har kommunikationsproblem och behöver felsöka nätverkssäkerhetsgrupper läser du [Diagnose a virtual machine network traffic filter problem](diagnose-network-traffic-filter-problem.md) (Diagnostisera problem med filtreringen av nätverkstrafik för virtuella nätverk). Du kan aktivera [flödesloggar för nätverkssäkerhetsgrupper](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) om du vill [analysera nätverkstrafik](../network-watcher/traffic-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) till och från resurser som har en associerad nätverkssäkerhetsgrupp.
+Den här artikeln beskriver vad nätverkssäkerhetsgrupper är, så att du kan använda dem så effektivt som möjligt. Om du aldrig har skapat en nätverkssäkerhetsgrupp kan du gå en snabb [självstudie](tutorial-filter-network-traffic.md) för att få lite erfarenhet. Om du redan är bekant med nätverkssäkerhetsgrupper och vill lära dig hur du hanterar dem läser du [Hantera en nätverkssäkerhetsgrupp](manage-network-security-group.md). Om du har kommunikationsproblem och behöver felsöka nätverkssäkerhetsgrupper läser du [Diagnose a virtual machine network traffic filter problem](diagnose-network-traffic-filter-problem.md) (Diagnostisera problem med filtreringen av nätverkstrafik för virtuella nätverk). Du kan aktivera [flödes loggar för nätverks säkerhets grupper](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för att analysera nätverks trafik till och från resurser som har en associerad nätverks säkerhets grupp.
 
 ## <a name="security-rules"></a>Säkerhetsregler
 
@@ -46,57 +46,47 @@ Befintliga anslutningar kanske inte avbryts när du tar bort en säkerhetsregel 
 
 Det finns gränser för hur många säkerhetsregler du kan skapa i en nätverkssäkerhetsgrupp. Läs mer i informationen om [begränsningar för Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-## <a name="augmented-security-rules"></a>Förhöjda säkerhetsregler
-
-Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nätverk så att du kan definiera större och mer komplexa nätverkssäkerhetsprinciper med färre regler. Du kan kombinera flera portar och flera explicita IP-adresser och IP-intervall i en enda, lättbegriplig säkerhetsregel. Använd förhöjda regler i fälten för källa, mål och port för en regel. För att göra det enklare att underhålla definitionen av dina säkerhetsregler kan du kombinera förhöjda säkerhetsregler med [tjänsttaggar](service-tags-overview.md) eller [programsäkerhetsgrupper](#application-security-groups). Det finns begränsningar för antalet adresser, intervall och portar som du kan ange i en regel. Läs mer i informationen om [begränsningar för Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
-
-## <a name="service-tags"></a>Tjänsttaggar
-
-En service-tagg representerar en grupp med IP-adressprefix från en specifik Azure-tjänst. Det bidrar till att minimera komplexiteten vid frekventa uppdateringar av nätverks säkerhets regler.
-
-Mer information finns i avsnittet om [Azure Service-Taggar](service-tags-overview.md). 
-
-## <a name="default-security-rules"></a>Standardsäkerhetsregler
+### <a name="default-security-rules"></a>Standardsäkerhetsregler
 
 Azure skapar följande standardregler i varje nätverkssäkerhetsgrupp som du skapar:
 
-### <a name="inbound"></a>Inkommande
+#### <a name="inbound"></a>Inkommande
 
-#### <a name="allowvnetinbound"></a>AllowVNetInBound
+##### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Åtkomst|
+|Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Alla|Tillåt|
 
-#### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
+##### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Åtkomst|
+|Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Alla|Tillåt|
 
-#### <a name="denyallinbound"></a>DenyAllInbound
+##### <a name="denyallinbound"></a>DenyAllInbound
 
-|Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Åtkomst|
+|Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Alla|Neka|
 
-### <a name="outbound"></a>Utgående
+#### <a name="outbound"></a>Utgående
 
-#### <a name="allowvnetoutbound"></a>AllowVnetOutBound
+##### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Åtkomst |
+|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Alla | Tillåt |
 
-#### <a name="allowinternetoutbound"></a>AllowInternetOutBound
+##### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Åtkomst |
+|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Alla | Tillåt |
 
-#### <a name="denyalloutbound"></a>DenyAllOutBound
+##### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Åtkomst |
+|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Alla | Neka |
 
@@ -104,49 +94,19 @@ I kolumnerna **Källa** och **Mål** är *VirtualNetwork*, *AzureLoadBalancer*, 
  
 Du kan inte ta bort standardreglerna, men du kan åsidosätta dem genom att skapa regler med högre prioritet.
 
-## <a name="application-security-groups"></a>Programsäkerhetsgrupper
+### <a name="augmented-security-rules"></a>Förhöjda säkerhetsregler
 
-Med programsäkerhetsgrupper kan du konfigurera nätverkssäkerhet som ett naturligt tillägg till ett programs struktur, så att du kan gruppera virtuella datorer och definiera nätverkssäkerhetsprinciper baserat på dessa grupper. Du kan återanvända din säkerhetsprincip i stor skala utan manuellt underhåll av explicita IP-adresser. Plattformen hanterar komplexiteten med explicita IP-adresser och flera regeluppsättningar så att du kan fokusera på affärslogik. Följande exempel hjälper dig att bättre förstå programsäkerhetsgrupper:
+Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nätverk så att du kan definiera större och mer komplexa nätverkssäkerhetsprinciper med färre regler. Du kan kombinera flera portar och flera explicita IP-adresser och IP-intervall i en enda, lättbegriplig säkerhetsregel. Använd förhöjda regler i fälten för källa, mål och port för en regel. För att göra det enklare att underhålla definitionen av dina säkerhetsregler kan du kombinera förhöjda säkerhetsregler med [tjänsttaggar](service-tags-overview.md) eller [programsäkerhetsgrupper](#application-security-groups). Det finns begränsningar för antalet adresser, intervall och portar som du kan ange i en regel. Läs mer i informationen om [begränsningar för Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-![Programsäkerhetsgrupper](./media/security-groups/application-security-groups.png)
+#### <a name="service-tags"></a>Tjänsttaggar
 
-I föregående bild är *NIC1* och *NIC2* medlemmar i programsäkerhetsgruppen *AsgWeb*. *NIC3* är medlem i programsäkerhetsgruppen *AsgLogic*. *NIC4* är medlem i programsäkerhetsgruppen *AsgDb*. Även om varje nätverksgränssnitt i det här exemplet endast är medlem i en säkerhetsgrupp kan ett nätverksgränssnitt vara medlem i flera programsäkerhetsgrupper, upp till [gränserna i Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Inget av nätverksgränssnitten har en associerad nätverkssäkerhetsgrupp. *NSG1* är associerat med båda undernäten och innehåller följande regler:
+En service-tagg representerar en grupp med IP-adressprefix från en specifik Azure-tjänst. Det bidrar till att minimera komplexiteten vid frekventa uppdateringar av nätverks säkerhets regler.
 
-### <a name="allow-http-inbound-internet"></a>Allow-HTTP-Inbound-Internet
+Mer information finns i avsnittet om [Azure Service-Taggar](service-tags-overview.md). Ett exempel på hur du använder taggen Storage Service för att begränsa nätverks åtkomsten finns i [begränsa nätverks åtkomsten till PaaS-resurser](tutorial-restrict-network-access-to-resources.md).
 
-Den här regeln krävs för att tillåta trafik från Internet till webbservrarna. Eftersom inkommande trafik från Internet nekas av standardsäkerhetsregeln [DenyAllInbound](#denyallinbound), krävs ingen ytterligare regel för programsäkerhetsgruppen *AsgLogic* eller *AsgDb*.
+#### <a name="application-security-groups"></a>Programsäkerhetsgrupper
 
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Åtkomst |
-|---|---|---|---|---|---|---|
-| 100 | Internet | * | AsgWeb | 80 | TCP | Tillåt |
-
-### <a name="deny-database-all"></a>Deny-Database-All
-
-Eftersom standardsäkerhetsregeln [AllowVNetInBound](#allowvnetinbound) tillåter all kommunikation mellan resurser i samma virtuella nätverk, krävs den här regeln för att neka trafik från alla resurser.
-
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Åtkomst |
-|---|---|---|---|---|---|---|
-| 120 | * | * | AsgDb | 1433 | Alla | Neka |
-
-### <a name="allow-database-businesslogic"></a>Allow-Database-BusinessLogic
-
-Den här regeln tillåter trafik från programsäkerhetsgruppen *AsgLogic* till programsäkerhetsgruppen *AsgDb*. Den här regeln har högre prioritet än regeln *Deny-Database-All*. Det innebär att den här regeln bearbetas före regeln *Deny-Database-All*, så att trafik från programsäkerhetsgruppen *AsgLogic* tillåts, medan all annan trafik blockeras.
-
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Åtkomst |
-|---|---|---|---|---|---|---|
-| 110 | AsgLogic | * | AsgDb | 1433 | TCP | Tillåt |
-
-Reglerna som definierar en programsäkerhetsgrupp som källan eller målet tillämpas bara på nätverksgränssnitt som är medlemmar i programsäkerhetsgruppen. Om nätverksgränssnittet inte är medlem i en programsäkerhetsgrupp tillämpas inte regeln på nätverksgränssnittet, även om nätverkssäkerhetsgruppen är associerad med undernätet.
-
-Programmet säkerhetsgrupper har följande begränsningar:
-
--   Det finns gränser för hur många programsäkerhetsgrupper du kan ha i en prenumeration, liksom andra begränsningar som gäller för programsäkerhetsgrupper. Läs mer i informationen om [begränsningar för Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
-- Du kan ange en programsäkerhetsgrupp som källa och mål i en säkerhetsregel. Du kan inte ange flera programsäkerhetsgrupper i källan eller målet.
-- Alla nätverksgränssnitt som har tilldelats till en programsäkerhetsgrupp måste finnas i samma virtuella nätverk som det första nätverksgränssnittet som programsäkerhetsgruppen finns i. Om exempelvis det första nätverksgränssnittet som tilldelats till en programsäkerhetsgrupp som heter *AsgWeb* finns i det virtuella nätverket med namnet *VNet1*, måste alla efterföljande nätverksgränssnitt som tilldelats *AsgWeb* finnas i *VNet1*. Du kan inte lägga till nätverksgränssnitt från olika virtuella nätverk i säkerhetsgruppen för samma program.
-- Om du anger en programsäkerhetsgrupp som källa och mål i en säkerhetsregel, måste nätverksgränssnitten i bägge programsäkerhetsgrupperna finnas i samma virtuella nätverk. Om till exempel *AsgLogic* innehåller nätverksgränssnitt från *VNet1*, och *AsgDb* innehåller nätverksgränssnitt från *VNet2*, kan du inte tilldela *AsgLogic* som källan och *AsgDb* som målet i en regel. Alla nätverksgränssnitt för både käll- och målprogramsäkerhetsgrupperna måste finnas i samma virtuella nätverk.
-
-> [!TIP]
-> För att minimera antalet säkerhetsregler, och behovet av att behöva ändra reglerna, bör du tänka igenom vilka programsäkerhetsgrupper du behöver och sedan skapa regler med hjälp av tjänsttaggar eller programsäkerhetsgrupper, i stället för att använda enskilda IP-adresser eller IP-adressintervall.
+Med programsäkerhetsgrupper kan du konfigurera nätverkssäkerhet som ett naturligt tillägg till ett programs struktur, så att du kan gruppera virtuella datorer och definiera nätverkssäkerhetsprinciper baserat på dessa grupper. Du kan återanvända din säkerhetsprincip i stor skala utan manuellt underhåll av explicita IP-adresser. Mer information finns i [program säkerhets grupper](application-security-groups.md).
 
 ## <a name="how-traffic-is-evaluated"></a>Så här utvärderas trafik
 

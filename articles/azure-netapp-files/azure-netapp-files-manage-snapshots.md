@@ -1,6 +1,6 @@
 ---
-title: Hantera ögonblicksbilder med hjälp av Azure NetApp Files | Microsoft Docs
-description: Beskriver hur du skapar ögonblicksbilder för en volym eller en återställning från en ögonblicksbild till en ny volym med hjälp av Azure NetApp-filer.
+title: Hantera ögonblicks bilder med Azure NetApp Files | Microsoft Docs
+description: Beskriver hur du skapar ögonblicks bilder för en volym eller återställer från en ögonblicks bild till en ny volym med hjälp av Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,53 +12,53 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/03/2020
 ms.author: b-juche
-ms.openlocfilehash: 01387d0c219c86f33762b9c3fbf9f81cf04b4455
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48055a774808aea86452e8410b7e717f5019d172
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61086893"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267907"
 ---
-# <a name="manage-snapshots-by-using-azure-netapp-files"></a>Hantera ögonblicksbilder med hjälp av Azure NetApp filer
+# <a name="manage-snapshots-by-using-azure-netapp-files"></a>Hantera ögonblicks bilder med hjälp av Azure NetApp Files
 
-Du kan använda Azure NetApp filer om du vill skapa en ögonblicksbild av på begäran för en volym eller återställa från en ögonblicksbild till en ny volym.
+Du kan använda Azure NetApp Files för att skapa en ögonblicks bild på begäran manuellt för en volym eller återställa från en ögonblicks bild till en ny volym. Azure NetApp Files tjänsten skapar inte automatiskt ögonblicks bilder av volymen.  
 
-## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Skapa en ögonblicksbild av på begäran för en volym
+## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Skapa en ögonblicks bild på begäran för en volym
 
-Du kan skapa ögonblicksbilder endast på begäran. Principer för ögonblicksbilden stöds inte för närvarande.
+Du kan bara skapa ögonblicks bilder på begäran. Ögonblicks bilds principer stöds inte för närvarande.
 
-1.  Från bladet volym klickar du på **ögonblicksbilder**.
+1.  Klicka på **ögonblicks bilder**från volym bladet.
 
-    ![Gå till ögonblicksbilder](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
+    ![Navigera till ögonblicks bilder](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
 
-2.  Klicka på **+ Lägg till ögonblicksbild** att skapa en ögonblicksbild av på begäran för en volym.
+2.  Klicka på **+ Lägg till ögonblicks bild** för att skapa en ögonblicks bild på begäran för en volym.
 
-    ![Lägg till ögonblicksbild](../media/azure-netapp-files/azure-netapp-files-add-snapshot.png)
+    ![Lägg till ögonblicks bild](../media/azure-netapp-files/azure-netapp-files-add-snapshot.png)
 
-3.  Ange ett namn för den nya ögonblicksbild som du skapar i fönstret Ny ögonblicksbild.   
+3.  I fönstret ny ögonblicks bild anger du ett namn för den nya ögonblicks bilden som du skapar.   
 
-    ![Ny ögonblicksbild](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
+    ![Ny ögonblicks bild](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
 
-4. Klicka på **OK**. 
+4. Klicka på **OK** 
 
-## <a name="restore-a-snapshot-to-a-new-volume"></a>Återställa en ögonblicksbild till en ny volym
+## <a name="restore-a-snapshot-to-a-new-volume"></a>Återställa en ögonblicks bild till en ny volym
 
-För närvarande kan återställa du en ögonblicksbild endast till en ny volym. 
-1. Gå till den **hantera ögonblicksbilder** bladet från bladet volym för att visa listan över ögonblicksbilder. 
-2. Välj en ögonblicksbild för att återställa.  
-3. Högerklicka på namnet på ögonblicksbilden och välj **Återställ till ny volym** från menyalternativet.  
+För närvarande kan du bara återställa en ögonblicks bild till en ny volym. 
+1. Gå till bladet **Hantera ögonblicks bilder** från volym bladet för att Visa ögonblicks bild listan. 
+2. Välj en ögonblicks bild att återställa.  
+3. Högerklicka på namnet på ögonblicks bilden och välj **Återställ till ny volym** på meny alternativet.  
 
-    ![Återställ ögonblicksbild till ny volym](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
+    ![Återställ ögonblicks bild till ny volym](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
-4. Ange information för den nya volymen i fönstret Ny volym:  
+4. Ange information för den nya volymen i fönstret ny volym:  
     * **Namn**   
         Ange namnet på den volym du skapar.  
         
         Namnet måste vara unikt inom sin resursgrupp. Det måste innehålla minst tre tecken.  Du kan använda alla alfanumeriska tecken.
 
-    * **Filsökväg**     
+    * **Fil Sök väg**     
         Ange filsökvägen som ska användas för att skapa exportvägen för den nya volymen. Exportvägen används för att sätta upp och komma åt volymen.   
         
         Ett monteringsmål är slutpunkten för NFS-IP-adressen. Det skapas automatiskt.   
@@ -72,17 +72,17 @@ För närvarande kan återställa du en ögonblicksbild endast till en ny volym.
 
     *   **Virtuellt nätverk**  
         Ange från vilket virtuellt Azure-nätverk du vill komma åt volymen.  
-        Det virtuella nätverk som du anger måste ha ett undernät delegerat till Azure NetApp Files. Du kan komma åt Azure NetApp filer endast från samma virtuella nätverk eller från ett virtuellt nätverk som finns i samma region som volym via Vnet-peering. Du kan komma åt volymen från ditt lokala nätverk via Expressroute. 
+        Det virtuella nätverk som du anger måste ha ett undernät delegerat till Azure NetApp Files. Du kan endast komma åt Azure NetApp Files från samma VNet eller från ett VNet som finns i samma region som volymen via VNet-peering. Du kan komma åt volymen från ditt lokala nätverk via Express Route. 
 
     * **Undernät**  
         Ange det undernät som du vill använda för volymen.  
-        Det undernät som du anger måste delegeras till Azure NetApp Files-tjänsten. Du kan skapa ett nytt undernät genom att välja **Skapa nytt** under fältet undernät.  
+        Under nätet som du anger måste vara delegerat till Azure NetApp Files tjänsten. Du kan skapa ett nytt undernät genom att välja **Skapa nytt** under under näts fältet.  
    <!--
     ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
    -->
 
-5. Klicka på **OK**.   
-    Den nya volymen som ögonblicksbilden återställs visas i bladet volymer.
+5. Klicka på **OK**   
+    Den nya volymen som ögonblicks bilden återställs till visas på bladet volymer.
 
 ## <a name="next-steps"></a>Nästa steg
 

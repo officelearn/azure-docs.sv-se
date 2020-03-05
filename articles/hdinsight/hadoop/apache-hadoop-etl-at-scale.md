@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/27/2020
-ms.openlocfilehash: f2c18a1e858fcebf8d2c82210f2290cf4a14d061
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 03/03/2020
+ms.openlocfilehash: 8a4205002a98a5b9670839b0de7b53d81e0221a6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846011"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271936"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrahera, transformera och läsa in (ETL) i skala
 
@@ -67,7 +67,7 @@ Data matas vanligt vis in i Azure Storage antingen med PowerShell, Azure Storage
 
 ### <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
 
-Azure Data Lake Storage (ADLS) är en hanterad, storskalig lagrings plats för analys data som är kompatibla med HDFS.  ADLS använder ett design paradigm som liknar HDFS och ger obegränsad skalbarhet vad gäller total kapacitet och storleken på enskilda filer. ADLS är mycket bra när du arbetar med stora filer, eftersom en stor fil kan lagras på flera noder.  Partitionering av data i ADLS görs i bakgrunden.  Tjänsten ger massivt dataflöde och kan köra analysjobb med tusentals samtidiga körare som effektivt läser och skriver flera hundra terabyte data.
+Azure Data Lake Storage (ADLS) är en hanterad, storskalig lagrings plats för analys data som är kompatibla med HDFS.  ADLS använder ett design paradigm som liknar HDFS och ger obegränsad skalbarhet vad gäller total kapacitet och storleken på enskilda filer. ADLS är mycket bra när du arbetar med stora filer, eftersom en stor fil kan lagras på flera noder.  Partitionering av data i ADLS görs i bakgrunden.  Du får enorma data flöden för att köra analys jobb med tusentals samtidiga körningar som effektivt läser och skriver hundratals terabyte data.
 
 Data matas vanligt vis in i ADLS med hjälp av Azure Data Factory, ADLS SDK: er, AdlCopy service, Apache DistCp eller Apache Sqoop.  Vilken av dessa tjänster som ska användas i stor utsträckning beror på var datan finns.  Om data för närvarande finns i ett befintligt Hadoop-kluster kan du använda Apache DistCp, AdlCopy service eller Azure Data Factory.  Om den är i Azure Blob Storage kan du använda Azure Data Lake Storage .NET SDK, Azure PowerShell eller Azure Data Factory.
 
@@ -129,7 +129,7 @@ Apache FLUME är en distribuerad, tillförlitlig och tillgänglig tjänst för a
 
 Apache FLUME kan inte användas med Azure HDInsight.  En lokal Hadoop-installation kan använda FLUME för att skicka data till antingen Azure Storage blobbar eller Azure Data Lake Storage.  Mer information finns i [using Apache FLUME med HDInsight](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
-## <a name="transform"></a>Transformera
+## <a name="transform"></a>Transformering
 
 När data finns på den valda platsen måste du rensa den, kombinera den eller förbereda den för ett särskilt användnings mönster.  Hive, gris och Spark SQL är alla lämpliga alternativ för den typen av arbete.  De stöds i HDInsight.
 

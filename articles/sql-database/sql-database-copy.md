@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 02/24/2020
-ms.openlocfilehash: f27042679280581dc3a03113d75c5fb787bbf711
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: c221ab793fb71169b62d81341d93fb95a018cc91
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616011"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273940"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Kopiera en transaktions konsekvent kopia av en Azure SQL-databas
 
@@ -146,7 +146,7 @@ Du kan använda stegen i avsnittet [Kopiera en SQL-databas till en annan server]
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Övervaka förloppet för kopierings åtgärden
 
-Övervaka kopierings processen genom att skicka frågor till vyerna [sys. Databass](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys. dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database.md)och [sys. dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database.md) . När kopieringen pågår är kolumnen **state_desc** i vyn sys. Databass för den nya databasen som **kopia.**
+Övervaka kopierings processen genom att skicka frågor till vyerna [sys. Databass](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys. dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)och [sys. dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) . När kopieringen pågår är kolumnen **state_desc** i vyn sys. Databass för den nya databasen som **kopia.**
 
 * Om kopieringen Miss lyckas är kolumnen **state_desc** i vyn sys. Databass för den nya databasen **misstänkt**. Kör DROP-instruktionen på den nya databasen och försök igen senare.
 * Om kopieringen lyckas anges kolumnen **state_desc** i vyn sys. Databass för den nya databasen som **online**. Kopieringen är klar och den nya databasen är en vanlig databas som kan ändras oberoende av käll databasen.

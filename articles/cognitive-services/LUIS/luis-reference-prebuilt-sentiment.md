@@ -1,32 +1,32 @@
 ---
 title: Sentiment-analys – LUIS
 titleSuffix: Azure Cognitive Services
-description: Om sentiment-analysen har kon figurer ATS innehåller LUIS JSON-svaret sentiment analys.
+description: Om attitydanalys är konfigurerad, innehåller json-svar LUIS attitydanalys.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/22/2019
 ms.author: diberry
-ms.openlocfilehash: a91246e4a4b3dc98bf11d2b014478fd40252f14b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dee07859da97f76d9a2db3ccbb71ae74d8ff4846
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73508027"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270426"
 ---
-# <a name="sentiment-analysis"></a>Sentimentanalys
-Om sentiment-analysen har kon figurer ATS innehåller LUIS JSON-svaret sentiment analys. Läs mer om sentiment-analys i [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) -dokumentationen.
+# <a name="sentiment-analysis"></a>Attitydanalys
+Om attitydanalys är konfigurerad, innehåller json-svar LUIS attitydanalys. Läs mer om sentiment-analys i [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) -dokumentationen.
 
 
 ## <a name="resolution-for-sentiment"></a>Lösning för sentiment
 
-Sentiment-data är ett resultat mellan 1 och 0 som anger positiv (närmare 1) eller negativ (närmare 0) sentiment av data.
+Åsiktsdata är ett värde mellan 1 och 0 som anger vilka positiva (närmare 1) eller ett negativt (närmare 0) känsla av data.
 
-#### <a name="english-languagetabenglish"></a>[Engelskt språk](#tab/english)
+#### <a name="english-language"></a>[Engelskt språk](#tab/english)
 
 När kulturen är `en-us`är svaret:
 
@@ -37,16 +37,16 @@ När kulturen är `en-us`är svaret:
 }
 ```
 
-#### <a name="other-languagestabother-languages"></a>[Andra språk](#tab/other-languages)
+#### <a name="other-languages"></a>[Andra språk](#tab/other-languages)
 
-För alla andra kulturer är svaret:
+För alla andra kulturer och är svaret:
 
 ```JSON
 "sentimentAnalysis": {
   "score": 0.9163064
 }
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Nästa steg
 

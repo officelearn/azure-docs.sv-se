@@ -6,14 +6,14 @@ author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/26/2019
-ms.openlocfilehash: dec792dfd3a2640fa08ebccd9077c081ba9737bb
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 4fd71a7f322cb2672eb485f17e4de2619a7c2d2c
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563300"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270033"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Anslut ett kunskaps lager med Power BI
 
@@ -108,7 +108,7 @@ In the enrichment step of the wizard, attach a billable [Cognitive Services](htt
 
 ## <a name="clean-up"></a>Rensa
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen med resurser.
+När du arbetar med din egen prenumeration är det en bra idé i slutet av ett projekt för att identifiera om du fortfarande behöver de resurser som du har skapat. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

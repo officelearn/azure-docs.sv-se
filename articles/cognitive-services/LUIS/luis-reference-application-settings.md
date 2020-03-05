@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: bae4f09b539e26ca8c0d4ce97999776dc0911601
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: d1ead09f6248a6ad14646371aa70b42b57cf8e3f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961780"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270809"
 ---
 # <a name="application-settings"></a>Programinställningar
 
@@ -27,14 +27,14 @@ Dessa program inställningar lagras i den [exporterade](https://westus.dev.cogni
 |NormalizePunctuation|True|Tar bort interpunktion.|
 |NormalizeDiacritics|True|Tar bort dia kritiska tecken.|
 
-## <a name="diacritics-normalization"></a>Normalisering av dia kritiska tecken 
+## <a name="diacritics-normalization"></a>Normalisering av dia kritiska tecken
 
 Aktivera uttryck-normalisering för dia kritiska tecken till din LUIS JSON-app-fil i `settings`-parametern.
 
 ```JSON
 "settings": [
     {"name": "NormalizeDiacritics", "value": "true"}
-] 
+]
 ```
 
 Följande yttranden visar hur dia kritiska normalisering påverkar yttranden:
@@ -61,7 +61,7 @@ Följande yttranden visar hur dia kritiska normalisering påverkar yttranden:
 |`ó`|`o`|
 |`ô`|`o`|
 |`õ`|`o`|
-|`ú`|`u`| 
+|`ú`|`u`|
 |||
 
 #### <a name="dutch-nl-nl-diacritics"></a>Nederländska `nl-nl` dia kritiska tecken
@@ -77,7 +77,7 @@ Följande yttranden visar hur dia kritiska normalisering påverkar yttranden:
 |`í`|`i`|
 |`ó`|`o`|
 |`ö`|`o`|
-|`ú`|`u`| 
+|`ú`|`u`|
 |`ü`|`u`|
 |||
 
@@ -91,24 +91,24 @@ Detta inkluderar både franska och kanadensiska underkulturer.
 |`à`|`a`|
 |`è`|`e`|
 |`ù`|`u`|
-|`â`|`a`| 
-|`ê`|`e`| 
-|`î`|`i`| 
-|`ô`|`o`| 
-|`û`|`u`| 
-|`ç`|`c`| 
-|`ë`|`e`| 
-|`ï`|`i`| 
-|`ü`|`u`| 
-|`ÿ`|`y`| 
+|`â`|`a`|
+|`ê`|`e`|
+|`î`|`i`|
+|`ô`|`o`|
+|`û`|`u`|
+|`ç`|`c`|
+|`ë`|`e`|
+|`ï`|`i`|
+|`ü`|`u`|
+|`ÿ`|`y`|
 
 #### <a name="german-de-de-diacritics"></a>Tyska `de-de` dia kritiska tecken
 
 |Dia kritiska tecken har angetts till false|Dia kritiska tecken har angetts till true|
 |--|--|
 |`ä`|`a`|
-|`ö`|`o`| 
-|`ü`|`u`| 
+|`ö`|`o`|
+|`ü`|`u`|
 
 #### <a name="italian-it-it-diacritics"></a>Italienska `it-it` dia kritiska tecken
 
@@ -117,11 +117,11 @@ Detta inkluderar både franska och kanadensiska underkulturer.
 |`à`|`a`|
 |`è`|`e`|
 |`é`|`e`|
-|`ì`|`i`| 
-|`í`|`i`| 
-|`î`|`i`| 
-|`ò`|`o`| 
-|`ó`|`o`| 
+|`ì`|`i`|
+|`í`|`i`|
+|`î`|`i`|
+|`ò`|`o`|
+|`ó`|`o`|
 |`ù`|`u`|
 |`ú`|`u`|
 
@@ -133,8 +133,8 @@ Detta inkluderar både spanska och kanadensiska mexikanska.
 |-|-|
 |`á`|`a`|
 |`é`|`e`|
-|`í`|`i`| 
-|`ó`|`o`| 
+|`í`|`i`|
+|`ó`|`o`|
 |`ú`|`u`|
 |`ü`|`u`|
 |`ñ`|`u`|
@@ -147,7 +147,7 @@ Aktivera uttryck-normalisering för interpunktion till din LUIS JSON-app-fil i `
 ```JSON
 "settings": [
     {"name": "NormalizePunctuation", "value": "true"}
-] 
+]
 ```
 
 Följande yttranden visar hur interpunktion påverkar yttranden:
@@ -163,8 +163,8 @@ Följande skiljetecken tas bort med `NormalizePunctuation` har värdet true.
 
 |Skiljetecken|
 |--|
-|`-`| 
-|`.`| 
+|`-`|
+|`.`|
 |`'`|
 |`"`|
 |`\`|

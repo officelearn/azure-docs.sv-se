@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/27/2020
+ms.date: 03/03/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 64aa6dcd9d21d2102c5d61dbc050fc9aa07aa534
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 0219b3e35ed82795e9c799754cabdeb5d17096d6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163870"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267414"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -56,27 +56,19 @@ I det här avsnittet av dokumentationen beskrivs olika aspekter av SAP HANA. Som
 
 Information om HANA i Azure finns i följande artiklar och deras under artiklar:
 
-- [Snabb start: manuell installation av en instans SAP HANA på virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
-- [Distribuera SAP S/4HANA eller BW/4HANA på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)
 - [Konfigurationer och åtgärder för SAP HANA i Azure-infrastrukturer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 - [SAP HANA hög tillgänglighet för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
-- [SAP HANA tillgänglighet inom en Azure-region](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
-- [SAP HANA tillgänglighet i Azure-regioner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions)
 - [Hög tillgänglighet för SAP HANA på virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
 - [Säkerhets kopierings guide för SAP HANA på virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
-- [SAP HANA Azure Backup på filnivå](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
-- [SAP HANA säkerhets kopiering baserat på lagrings ögonblicks bilder](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
+
 
  
 
 ## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>SAP-NetWeaver distribueras på virtuella Azure-datorer
 Det här avsnittet innehåller planerings-och distributions dokumentation för SAP NetWeaver och Business One på Azure. Dokumentationen fokuserar på grunderna och användningen av icke-HANA-databaser med en SAP-arbetsbelastning på Azure. Dokument och artiklar för hög tillgänglighet är också grunden för HANA hög tillgänglighet i Azure, till exempel:
 
+- [Azures planerings guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide). 
 - [SAP Business One på virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/business-one-azure)
-- [Distribuera SAP IDE: er EHP7 SP3 för SAP ERP 6,0 på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-ides-erp6-erp7-sp3-sql)
-- [Kör SAP NetWeaver på Microsoft Azure SUSE Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart)
-- [Azure Virtual Machines planera och implementera SAP-NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
-- [Azure Virtual Machines-distribution för SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
 - [Skydda en SAP NetWeaver program distribution med flera nivåer med hjälp av Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap)
 - [SAP LaMa-anslutning för Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/lama-installation)
 
@@ -117,6 +109,8 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 
 ## <a name="change-log"></a>Ändringslogg
+- 03/03/2020: ändring i [hög tillgänglighet för SAP NW på virtuella Azure-datorer på SLES med ANF för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) för att ändra till mer effektiv ANF
+- 03/01/2020: [säkerhets kopierings guiden för SAP HANA på Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide) inkludera Azure Backup-tjänsten. Minska och kondenserat innehåll i [SAP HANA Azure Backup på filnivå](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level) och ta bort ett tredje dokument som hanterar säkerhets kopiering genom disk ögonblicks bilder. Innehållet hanteras i säkerhets kopierings guiden för SAP HANA på Azure Virtual Machines 
 - 02/27/2020: ändring i [hög tillgänglighet för SAP NW på virtuella Azure-datorer på SLES för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse), [hög tillgänglighet för SAP NW på virtuella Azure-datorer på SLES med ANF för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) och [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SLES multi-sid-guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) för att justera "On failover"-kluster parametern
 - 02/26/2020: ändra i [SAP HANA lagrings konfiguration för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) och klargör fil system val för Hana på Azure
 - 02/26/2020: ändra i [arkitektur och scenarier med hög tillgänglighet för SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) för att inkludera länken till ha för SAP NetWeaver på virtuella Azure-datorer på RHEL multi-sid-guide

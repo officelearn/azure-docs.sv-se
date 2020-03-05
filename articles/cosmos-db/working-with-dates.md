@@ -5,16 +5,17 @@ ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
-ms.date: 09/25/2019
-ms.openlocfilehash: 162b1a4ad089e75f4ad953a339b9b4c15e245a70
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.date: 03/03/2020
+ms.openlocfilehash: 92fa35fbe8e5eef4dbdc8b6c47a9055affd449a5
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869689"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273192"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Arbeta med datum i Azure Cosmos DB
-Azure Cosmos DB ger schemaflexibilitet och omfattande indexering via ett ursprungligt [JSON](https://www.json.org) datamodellen. Alla Azure Cosmos DB-resurser, inklusive databaser, behållare, dokument och lagrade procedurer modelleras och lagras som JSON-dokument. Som ett krav för att bärbara JSON (och Azure Cosmos DB) stöder bara en liten uppsättning grundläggande typer: sträng, nummer, booleskt värde, matris, objekt och Null. JSON är flexibel och tillåta utvecklare och ramverk för att representera mer komplexa typer med hjälp av dessa primitiver och skriva dem som objekt eller matriser. 
+
+Azure Cosmos DB ger flexibilitet i schema och omfattande indexering via en intern [JSON](https://www.json.org) -datamodell. Alla Azure Cosmos DB-resurser, inklusive databaser, behållare, dokument och lagrade procedurer modelleras och lagras som JSON-dokument. Som ett krav för att bärbara JSON (och Azure Cosmos DB) stöder bara en liten uppsättning grundläggande typer: sträng, nummer, booleskt värde, matris, objekt och Null. JSON är flexibel och tillåta utvecklare och ramverk för att representera mer komplexa typer med hjälp av dessa primitiver och skriva dem som objekt eller matriser.
 
 Förutom de grundläggande typerna behöver många program DateTime-typen för att representera datum och tidsstämpel. Den här artikeln beskriver hur utvecklare kan lagra, hämta och fråga efter datum i Azure Cosmos DB med .NET SDK.
 
@@ -24,13 +25,14 @@ Azure Cosmos DB stöder JSON-typer som-String, Number, Boolean, null, matris, Ob
 
 De flesta program kan använda standard-strängrepresentation för DateTime av följande skäl:
 
-* Strängar kan jämföras och relativa ordning av datum/tid-värden bevaras när de omvandlas till strängar. 
+* Strängar kan jämföras och relativa ordning av datum/tid-värden bevaras när de omvandlas till strängar.
 * Den här metoden kräver inte någon anpassad kod eller ett attribut för JSON-konvertering.
 * Datum som lagras i JSON är mänskliga läsbar.
 * Den här metoden kan dra nytta av Azure Cosmos DB-index för snabb frågeprestanda.
 
-Till exempel följande kodavsnitt lagrar en `Order` objekt som innehåller två datum/tid-egenskaper – `ShipDate` och `OrderDate` som ett dokument med hjälp av .NET-SDK:
+Följande fragment lagrar till exempel ett `Order`-objekt som innehåller två DateTime-egenskaper – `ShipDate` och `OrderDate` som ett dokument med hjälp av .NET SDK:
 
+```csharp
     public class Order
     {
         [JsonProperty(PropertyName="id")]
@@ -40,50 +42,53 @@ Till exempel följande kodavsnitt lagrar en `Order` objekt som innehåller två 
         public double Total { get; set; }
     }
 
-    await client.CreateDocumentAsync("/dbs/orderdb/colls/orders", 
-        new Order 
-        { 
+    await container.CreateItemAsync(
+        new Order
+        {
             Id = "09152014101",
             OrderDate = DateTime.UtcNow.AddDays(-30),
             ShipDate = DateTime.UtcNow.AddDays(-14), 
             Total = 113.39
         });
+```
 
 Det här dokumentet lagras i Azure Cosmos DB på följande sätt:
 
+```json
     {
         "id": "09152014101",
         "OrderDate": "2014-09-15T23:14:25.7251173Z",
         "ShipDate": "2014-09-30T23:14:25.7251173Z",
         "Total": 113.39
     }
-    
+```  
 
-Du kan också lagra datum och tid som Unix tidsstämplar, det vill säga som ett tal som representerar antalet förflutna sekunder sedan den 1 januari 1970. Azure Cosmos DB interna tidsstämpel (`_ts`) egenskapen följer den här metoden. Du kan använda den [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) klassen för att serialisera datum och tid som tal. 
-
-## <a name="indexing-datetimes-for-range-queries"></a>Indexering datum och tid för intervallfrågor
-Omfångsfrågor är vanliga med DateTime-värden. Om du behöver hitta alla beställningar som skapats sedan igår eller hitta alla beställningar som levereras under de senaste fem minuterna, måste du utföra intervallfrågor. Om du vill köra dessa frågor effektivt, måste du konfigurera din samling för intervallet indexering på strängar.
-
-    DocumentCollection collection = new DocumentCollection { Id = "orders" };
-    collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
-    await client.CreateDocumentCollectionAsync("/dbs/orderdb", collection);
-
-Du kan lära dig mer om hur du konfigurerar indexering principer på [indexera Azure Cosmos DB-principer](index-policy.md).
+Du kan också lagra datum och tid som Unix tidsstämplar, det vill säga som ett tal som representerar antalet förflutna sekunder sedan den 1 januari 1970. Azure Cosmos DB egenskapen intern tidsstämpel (`_ts`) följer den här metoden. Du kan använda klassen [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) för att serialisera datetime-värden som tal.
 
 ## <a name="querying-datetimes-in-linq"></a>Förfrågningar till datum och tid i LINQ
-SQL .NET SDK har automatiskt stöd för frågor till data som lagras i Azure Cosmos DB via LINQ. Följande kodavsnitt visar exempelvis en LINQ-frågan som filter order som levererades under de senaste tre dagarna.
 
-    IQueryable<Order> orders = client.CreateDocumentQuery<Order>("/dbs/orderdb/colls/orders")
-        .Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
-          
-    // Translated to the following SQL statement and executed on Azure Cosmos DB
+SQL .NET SDK har automatiskt stöd för frågor till data som lagras i Azure Cosmos DB via LINQ. I följande kodfragment visas till exempel en LINQ-fråga som filtrerar order som har levererats under de senaste tre dagarna:
+
+```csharp
+    IQueryable<Order> orders = container.GetItemLinqQueryable<Order>(allowSynchronousQueryExecution: true).Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
+```
+
+Översatt till följande SQL-uttryck och körs på Azure Cosmos DB:
+
+```sql
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
+```
 
-Du kan lära dig mer om Azure Cosmos DB SQL-frågespråket och LINQ-providern på [frågor till Cosmos DB](how-to-sql-query.md).
+Du kan lära dig mer om SQL-frågespråket i Azure Cosmos DB och LINQ-providern vid [frågor Cosmos db i LINQ](sql-query-linq-to-sql.md).
 
-I den här artikeln har tittat vi på hur du lagrar, index- och fråga efter datum och tid i Azure Cosmos DB.
+## <a name="indexing-datetimes-for-range-queries"></a>Indexering datum och tid för intervallfrågor
+
+Frågor är vanliga med DateTime-värden. Om du vill köra dessa frågor effektivt måste du ha ett index definierat för alla egenskaper i frågans filter.
+
+Du kan lära dig mer om hur du konfigurerar indexerings principer på [Azure Cosmos DB indexerings principer](index-policy.md). 
 
 ## <a name="next-steps"></a>Nästa steg
-* Ladda ned och kör den [kodexempel på GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Läs mer om [SQL-frågor](how-to-sql-query.md)
-* Läs mer om [indexera Azure Cosmos DB-principer](index-policy.md)
+
+* Hämta och kör [kod exemplen på GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
+* Läs mer om [SQL-frågor](sql-query-getting-started.md)
+* Läs mer om [Azure Cosmos DB indexerings principer](index-policy.md)

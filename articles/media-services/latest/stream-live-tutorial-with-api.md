@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 47d526ea410bc449c91ae4fb10913850c447f1b3
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: cb6095f1579334b9fe35a02a3006de32ff551989
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582636"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268175"
 ---
 # <a name="tutorial-stream-live-with-media-services"></a>Självstudie: strömma live med Media Services
 
@@ -39,7 +39,7 @@ Självstudien visar hur du:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att kunna genomföra vägledningen:
 
@@ -47,7 +47,7 @@ Följande krävs för att kunna genomföra vägledningen:
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).<br/>Kom ihåg att komma ihåg de värden som du använder för resurs gruppens namn och Media Services konto namnet.
 - Följ stegen i [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Få åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du måste använda dem för att få åtkomst till API: et.
 - En kamera eller en enhet (till exempel en bärbar dator) som används för att sända en händelse.
-- En live-videokodare som konverterar signaler från kameran till dataströmmar som skickas till en tjänst för liveuppspelning. Dataströmmen måste anges i **RTMP**- eller **Smooth Streaming**-format.
+- En lokal Live-kodare som konverterar signaler från kameran till strömmar som skickas till Media Services Live streaming service finns i [rekommenderade lokala Live-kodare](recommended-on-premises-live-encoders.md). Dataströmmen måste anges i **RTMP**- eller **Smooth Streaming**-format.
 
 > [!TIP]
 > Var noga att du kollar igenom [Liveuppspelning med Media Services v3](live-streaming-overview.md) innan du fortsätter. 

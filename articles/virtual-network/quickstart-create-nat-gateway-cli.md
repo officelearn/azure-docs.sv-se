@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: df1e363f31aa8c88be54454c9dc060f4ed6b7ca1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 1317ea6526a28c5d71dce1a3c25b2fd05f5e446b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588917"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271296"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-azure-cli"></a>Snabb start: skapa en NAT-gateway med Azure CLI
 
@@ -61,7 +61,7 @@ För att få åtkomst till det offentliga Internet behöver du en eller flera of
 
 ### <a name="create-a-public-ip-prefix"></a>Skapa ett offentligt IP-prefix
 
-Du kan använda en eller flera offentliga IP-adressresurser, offentliga IP-prefix eller både och med NAT-gateway. Vi "l Lägg till en resurs för offentliga IP-prefix i det här scenariot för att demonstrera.   Använd [AZ Network Public-IP prefix Create](https://docs.microsoft.com/cli/azure/network/public-ip-prefix) för att skapa en offentlig IP-prefixlängd som heter **myPublicIPprefix** i **myResourceGroupNAT**.
+Du kan använda en eller flera offentliga IP-adressresurser, offentliga IP-prefix eller både och med NAT-gateway. Vi "l Lägg till en resurs för offentliga IP-prefix i det här scenariot för att demonstrera.   Använd [AZ Network Public-IP prefix Create](https://docs.microsoft.com/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create) för att skapa en offentlig IP-prefixlängd som heter **myPublicIPprefix** i **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network public-ip prefix create \

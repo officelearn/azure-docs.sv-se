@@ -2,18 +2,19 @@
 title: Azure Marketplace-och AppSource Consulting-tjänster
 description: I den här artikeln beskrivs villkor för berättigande och publicerings krav för nya konsult tjänst erbjudanden på Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 10/29/2018
-ms.author: pabutler
-ms.openlocfilehash: cd90ae2b751a97c18dc8b6be4b8eb565a17df7a2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
-ms.translationtype: MT
+ms.date: 02/27/2020
+ms.author: evansma
+ms.openlocfilehash: 50e5be309d56f58a79fa19b5270a0b6d2fd3db92
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191132"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268238"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Konsult tjänster för Azure Marketplace och AppSource
 Konsult tjänster i Azure Marketplace och AppSource ger Microsoft-partner målet att ansluta kunder med tjänster för att stödja och utöka användningen av Azure och affärs mål. 
@@ -31,9 +32,9 @@ Marketplace-butiker justeras med mål grupper och Microsofts moln produkter som 
 |Relevans för lösning     |Tekniska appar som skapats för eller bygger på Azure|Affärsappar som utnyttjar/utökar D365, Power BI, O365, Azure. (Appar för att lägga till eller lägga till färdiga appar)|
 |Publicerings alternativ     |Kontakta mig, utvärderings version, Transact eller tjänster för Azure|Kontakta mig, utvärderings version eller tjänster för Dynamics 365 och Power BI|
 |I produkt miljö      |Hanteringsportalen för Azure|Dynamics 365, Office 365, Office-klientprogram| 
-|Andra      |Lokal publicering via Azure Stack, konsult tjänster för Azure, hanterade tjänster för Azure|Konsult tjänster för Dynamics och Power BI|
+|Annat      |Lokal publicering via Azure Stack, konsult tjänster för Azure, hanterade tjänster för Azure|Konsult tjänster för Dynamics och Power BI|
 
-Konsult tjänster erbjuder som baseras på Microsoft Dynamics 365 och Power BI är berättigade att listas på Microsoft AppSource. Mer information finns i [rikt linjer för Microsoft AppSource Consulting Services-registrering](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+Konsult tjänster erbjuder som baseras på Microsoft Dynamics 365, Power Apps och Power BI är berättigade att visas på Microsoft AppSource. Mer information finns i [rikt linjer för Microsoft AppSource Consulting Services-registrering](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 
 Konsult tjänster och hanterade tjänster är baserade på Microsoft Azure är berättigade att listas på Azure Marketplace. Mer information finns i artikeln om att [publicera en Azure-konsulttjänster](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) och [publicera ett hanterat tjänste erbjudande på Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
@@ -61,24 +62,30 @@ Partner måste ha en silver- **eller guld kompetens** i det relevanta avsnittet 
 
 |Primär produkt |Krav för berättigande |
 |---------|---------|
-| Dynamics 365 för Customer Engagement    |   Kompetens för [Customer Relations hantering](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency) i silver eller guld moln.    | 
-|Dynamics 365 för finanser och drift, Enterprise Edition  |  Silver-eller Gold- [företags resurs planerings](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) kompetens och en minimi inkomst på $25K i moln drift under de efterföljande 12 månaderna.       |
-|Dynamics 365 för finanser och drift, Business Edition  |  Tjäna som [moln tjänst leverantör (CSP)](https://partner.microsoft.com/cloud-solution-provider) eller [digital partner of Record (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) för minst en kund      |
-|Power BI Power BI anpassade visuella objekt | Uppfyller [villkoren för lösnings partner](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
-|PowerApps | Ha en [presentations](https://appsource.microsoft.com/partners) lösning med publicerad partner
+| Dynamics 365-försäljning <br> Dynamics 365-marknadsföring <br> Dynamics 365-kundtjänster <br> Dynamics 365-fälttjänster <br> Dynamics 365 personal |   Måste vara guld eller silver certifierat i [moln Business Applications kompetens](https://partner.microsoft.com/membership/cloud-business-applications-competency) för kund engagemang alternativ.    | 
+| Dynamics 365-ekonomi <br> Dynamics 365-hantering av leverans kedjan <br> Dynamics 365-handel <br> Dynamics 365 personal <br> Dynamics 365-automatisering av Project service |  Måste vara guld eller silver certifierat i [moln Business Applications kompetens](https://partner.microsoft.com/membership/cloud-business-applications-competency) för enhetliga drift alternativ.       |
+| Dynamics 365 Customer Insights | Måste ha minst 1 lyckad drifts implementering av [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) med minst 5 mått och 5 segment. |
+| Dynamics 365 Business Central | Måste vara guld eller silver certifierat i [företags resurs planerings kompetens](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) och måste vara leverantör av moln lösningar för minst tre centrala företags kunder. <br> <br> ELLER <br> <br> Måste ha publicerat ett [företags Central program i AppSource](https://appsource.microsoft.com/) |
+| Power BI | Måste anges i [Power BI partner Showcase](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=).|
+|Power Apps | Måste vara berättigad till avancerade förmåner i [PowerApps-partnerskaps programmet](https://aka.ms/PowerAppsPartner). |
+
+Ytterligare resurser och support:
+
+1. [Microsoft Cloud aktiverings skriv bord](https://aka.ms/CEDnominate) <br> Medhjälparens utformnings formulär för moln aktiverings skriv bord är att hjälpa till att tillhandahålla en moln program specialist för att tydliggör MPN-förmåner och tjäna som vägledning för kompetens uppnående.  
+2. Hur kommer du till Power BI Showcase? <br> Börja med att skicka en begäran om att bli listad, se [bli en partner](https://powerbi.microsoft.com/become-a-partner/).
 
 <b>Mer information finns i avsnittet om [kompetenser via Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).</b>
- 
 
-**SI-partner kan skicka konsult tjänst erbjudanden för följande 18 länder/regioner**
+**SI-partner kan skicka konsult tjänst erbjudanden för följande 21 länder/regioner**
 
-|Berättigade länder/regioner |   |   |   |
+|   |   |   |   |
 |---------|----------|----------|----------|
-|Australien |Frankrike  |     Mexiko          |Spanien       |
-|Belgien   |Tyskland |     Nederländerna     |Sverige       |
-|Kanada    |Indien   |     Nya Zeeland     |Storbritannien  |
-|Danmark   |Italien   |     Norge          |USA |
-|Finland   |Japan   |     Polen          
+| Australien | Belgien | Kanada | Danmark |
+| Finland  | Frankrike | Tyskland  | Indien   |
+| Italien    | Japan  |  Mexiko  |  Nederländerna  |
+|  Nya Zeeland  |  Norge  |  Polen  | Sydafrika |
+|  Spanien  | Sverige  | Schweiz  |  USA  |
+| Storbritannien  |
 
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Så här registrerar du för konsult tjänster i Azure Marketplace och AppSource
@@ -151,7 +158,7 @@ Exempel:
 
 När du ska granska erbjudande beskrivningar och erbjudande sammanfattningar, kommer teamet att tillämpa följande kriterier:
 
-|Erbjudande typ  |Obligatoriskt |Rekommenderas  |
+|Erbjudande typ  |Krävs |Rekommenderas  |
 |---------|---------|---------|
 |**Utvärdering**    |   Ta med en detaljerad agenda för flera dagar eller flera vecko bedömningar, och tydliggör vilken slut produkt som kunden kan förväntar sig      |    Optimera din erbjudande Sammanfattning med dina bästa nyckelord för sökmotor optimering     |
 |**Genom gång**    |   Tydliggör vilken slut produkt som kunden kan förväntar sig. Kom ihåg att du måste erbjuda en person. Om du tillhandahåller en virtuell tjänst väljer du en annan erbjudande typ    |  Optimera din erbjudande Sammanfattning med dina bästa nyckelord för sökmotor optimering       |

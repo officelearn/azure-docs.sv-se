@@ -208,6 +208,9 @@
         - name: Skapa datauppsättningar med etiketter
           displayName: 'data, labels, torchvision'
           href: how-to-use-labeled-dataset.md
+        - name: Datainmatning med Azure Data Factory
+          displayName: 'data, ingestion, adf'
+          href: how-to-data-ingest-adf.md
         - name: DevOps för datainmatning
           displayName: 'data, ingestion, devops'
           href: how-to-cicd-data-ingestion.md

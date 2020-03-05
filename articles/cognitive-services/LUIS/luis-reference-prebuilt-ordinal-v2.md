@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 02bc6657126cb1cf241c2ca4668e62bd49608d4b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5e852313db75e598da647ea0f985e2ee18af16de
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491258"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270490"
 ---
 # <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>Ordnings tal v2, fördefinierad entitet för en LUIS-app
 Ordnings talet v2 Number utökar [ordnings tal](luis-reference-prebuilt-ordinal.md) för att ge relativa referenser som `next`, `last`och `previous`. Dessa extraheras inte med den fördefinierade ordnings ordningen.
@@ -27,7 +27,7 @@ Följande enhets objekt returneras för frågan:
 
 `what is the second to last choice in the list`
 
-#### <a name="v3-responsetabv3"></a>[V3-svar](#tab/V3)
+#### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
 Följande JSON är med parametern `verbose` som har angetts till `false`:
 
@@ -42,7 +42,7 @@ Följande JSON är med parametern `verbose` som har angetts till `false`:
 }
 ```
 
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3 utförlig Response](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
 
 Följande JSON är med parametern `verbose` som har angetts till `true`:
 
@@ -71,7 +71,7 @@ Följande JSON är med parametern `verbose` som har angetts till `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[V2-svar](#tab/V2)
+#### <a name="v2-response"></a>[V2-svar](#tab/V2)
 
 I följande exempel visas upplösningen för entiteten **Builtin. ordinalV2** .
 
@@ -89,10 +89,10 @@ I följande exempel visas upplösningen för entiteten **Builtin. ordinalV2** .
     }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-Lär dig mer om enheterna [procent](luis-reference-prebuilt-percentage.md), [telefonnummer](luis-reference-prebuilt-phonenumber.md)och [temperatur](luis-reference-prebuilt-temperature.md) . 
+Lär dig mer om enheterna [procent](luis-reference-prebuilt-percentage.md), [telefonnummer](luis-reference-prebuilt-phonenumber.md)och [temperatur](luis-reference-prebuilt-temperature.md) .

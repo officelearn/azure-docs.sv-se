@@ -1,33 +1,33 @@
 ---
 title: Fördefinierad enhet för LUIS
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller fördefinierad enhets information för en fras i Language Understanding (LUIS).
+description: Den här artikeln innehåller keyphrase fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 51d1bd515651824545d486207ad4a74476aa7092
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 53be1b13f1e2744e143a4be0777e3a8e3135460e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491274"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270534"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>fördefinierad enhets fras för en LUIS-app
-Entiteten nyckel fras extraherar en rad olika nyckel fraser från en uttryck. Du behöver inte lägga till exempel yttranden som innehåller en-fras till programmet. Entiteten för en funktions fras stöds i [många kulturer](luis-language-support.md#languages-supported) som en del av funktionerna för [text analys](../text-analytics/overview.md) . 
+Entiteten nyckel fras extraherar en rad olika nyckel fraser från en uttryck. Du behöver inte lägga till exempel yttranden som innehåller en-fras till programmet. Entiteten för en funktions fras stöds i [många kulturer](luis-language-support.md#languages-supported) som en del av funktionerna för [text analys](../text-analytics/overview.md) .
 
-## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Lösning för fördefinierad enhet för en enhets fras
+## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Lösning för fördefinierade keyPhrase entitet
 
 Följande enhets objekt returneras för frågan:
 
 `where is the educational requirements form for the development and engineering group`
 
-#### <a name="v3-responsetabv3"></a>[V3-svar](#tab/V3)
+#### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
 Följande JSON är med parametern `verbose` som har angetts till `false`:
 
@@ -39,7 +39,7 @@ Följande JSON är med parametern `verbose` som har angetts till `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3 utförlig Response](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
 Följande JSON är med parametern `verbose` som har angetts till `true`:
 
 ```json
@@ -76,7 +76,7 @@ Följande JSON är med parametern `verbose` som har angetts till `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[V2-svar](#tab/V2)
+#### <a name="v2-response"></a>[V2-svar](#tab/V2)
 
 I följande exempel visas upplösningen för entiteten **Builtin.**
 
@@ -96,7 +96,7 @@ I följande exempel visas upplösningen för entiteten **Builtin.**
     }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Nästa steg
 

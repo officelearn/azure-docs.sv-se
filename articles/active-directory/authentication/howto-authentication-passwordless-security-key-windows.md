@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327f53fb39e58f7b70040eb41b6cd80aca18e510
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: ca6ef244a887e75a0d8b9bb663d5325a33cd1e89
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522041"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269354"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Aktivera inloggning med lösen ord utan lösen ord till Windows 10-enheter med Azure Active Directory (för hands version)
 
@@ -35,7 +35,7 @@ Det här dokumentet fokuserar på att aktivera FIDO2-säkerhetsnyckel baserad l�
 | [Kombinerad för hands version av säkerhets informations registrering](concept-registration-mfa-sspr-combined.md) | X | X |
 | Kompatibla [säkerhets nycklar för FIDO2](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | Webauthn kräver Windows 10 version 1809 eller senare | X | X |
-| [Azure AD-anslutna enheter](../devices/concept-azure-ad-join.md) kräver Windows 10 version 1809 eller senare | X |   |
+| [Azure AD-anslutna enheter](../devices/concept-azure-ad-join.md) kräver Windows 10 version 1903 eller senare | X |   |
 | [Hybrid Azure AD-anslutna enheter](../devices/concept-azure-ad-join-hybrid.md) kräver Windows 10 Insider build 18945 eller högre |   | X |
 | Fullständigt korrigerade Windows Server 2016/2019-domänkontrollanter. |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) version 1.4.32.0 eller senare |   | X |
@@ -54,6 +54,7 @@ Följande scenarier stöds inte:
 - Logga in på en server med hjälp av en säkerhets nyckel.
 - Om du inte har använt din säkerhets nyckel för att logga in på enheten när du är online kan du inte använda den för att logga in eller låsa upp offline.
 - Logga in eller låsa upp en Windows 10-enhet med en säkerhets nyckel som innehåller flera Azure AD-konton. Det här scenariot använder det senaste kontot som har lagts till i säkerhets nyckeln. Med webauthn kan användarna välja det konto de vill använda.
+- Låsa upp en enhet som kör Windows 10 version 1809. Använd Windows 10 version 1903 eller senare för bästa möjliga upplevelse.
 
 ## <a name="prepare-devices-for-preview"></a>Förbereda enheter för för hands version
 

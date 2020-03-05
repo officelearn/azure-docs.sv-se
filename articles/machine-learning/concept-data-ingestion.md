@@ -10,19 +10,19 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 3370fc72b45720e2aae5731623843a1bc498911c
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
-ms.translationtype: MT
+ms.openlocfilehash: 35c133a4d9d95dc6e942d5b8c3e8d21debb9493b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77652079"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268549"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Data inmatning i Azure Machine Learning
 
 I den här artikeln får du lära dig om för-och nack delar med följande data inmatnings alternativ som är tillgängliga med Azure Machine Learning. 
 
 1. [Azure Data Factory](#use-azure-data-factory) pipelines
-2. [Azure Machine Learning python SDK](#use-the-python-sdk)
+2. [Python-SDK för Azure Machine Learning](#use-the-python-sdk)
 
 Data inmatning är den process i vilken ostrukturerade data extraheras från en eller flera källor och sedan förbereds för utbildning av maskin inlärnings modeller. Det är också tids krävande, särskilt om du gör det manuellt, och om du har stora mängder data från flera källor. Att automatisera den här ansträngningen frigör resurser och ser till att dina modeller använder de senaste och aktuella data.
 
@@ -55,7 +55,7 @@ De här stegen och följande diagram illustrerar Azure Data Factory data inmatni
 
 ## <a name="use-the-python-sdk"></a>Använda python SDK 
 
-Med [python SDK](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py)kan du inkludera data inmatnings uppgifter i ett [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) -steg.
+Med [python SDK](https://docs.microsoft.com/python/api/overview/azure/ml)kan du inkludera data inmatnings uppgifter i ett [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) -steg.
 
 I följande tabell sammanfattas de tekniker och con för att använda SDK: n och ett ML-pipeline-steg för data inmatnings uppgifter.
 

@@ -1,34 +1,34 @@
 ---
 title: PersonName-fördefinierad entitet – LUIS
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller personName för inbyggd entitet i Language Understanding (LUIS).
+description: Den här artikeln innehåller personName fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9777c62d97c70d4f6a0d0a4d912dea3fa8decd23
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 768c719211e8a8f2133d3798343d076e795a3da0
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499541"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273422"
 ---
 # <a name="personname-prebuilt-entity-for-a-luis-app"></a>PersonName-fördefinierad entitet för en LUIS-app
-Den förinställda personName-entiteten identifierar person namn. Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden som innehåller personName till program avsikterna. personName-entiteten stöds på engelska och kinesiska [kulturer](luis-reference-prebuilt-entities.md).
+Entiteten fördefinierade personName identifierar namn på kontakter. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller personName till programmet avsikter. personName-entiteten stöds på engelska och kinesiska [kulturer](luis-reference-prebuilt-entities.md).
 
-## <a name="resolution-for-personname-entity"></a>Lösning för personName-entitet
+## <a name="resolution-for-personname-entity"></a>Lösning för personName entitet
 
 Följande enhets objekt returneras för frågan:
 
 `Is Jill Jones in Cairo?`
 
 
-#### <a name="v3-responsetabv3"></a>[V3-svar](#tab/V3)
+#### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
 
 Följande JSON är med parametern `verbose` som har angetts till `false`:
@@ -40,7 +40,7 @@ Följande JSON är med parametern `verbose` som har angetts till `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3 utförlig Response](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
 Följande JSON är med parametern `verbose` som har angetts till `true`:
 
 ```json
@@ -65,7 +65,7 @@ Följande JSON är med parametern `verbose` som har angetts till `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[V2-svar](#tab/V2)
+#### <a name="v2-response"></a>[V2-svar](#tab/V2)
 
 I följande exempel visas upplösningen för entiteten **Builtin. personName** .
 
@@ -79,10 +79,10 @@ I följande exempel visas upplösningen för entiteten **Builtin. personName** .
 }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-Lär dig mer om entiteterna [e-post](luis-reference-prebuilt-email.md), [nummer](luis-reference-prebuilt-number.md)och [ordnings tal](luis-reference-prebuilt-ordinal.md) . 
+Lär dig mer om entiteterna [e-post](luis-reference-prebuilt-email.md), [nummer](luis-reference-prebuilt-number.md)och [ordnings tal](luis-reference-prebuilt-ordinal.md) .

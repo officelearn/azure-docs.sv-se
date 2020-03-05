@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 3abcfe61f365c3c96dfb6b8eb2ca6cc9e5d3797e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c7d53ae71ac68559877561bf9fd15fe0f341e03a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572381"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273685"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Självstudie: Konfigurera serveradministratörs- och användarroller
 
@@ -27,7 +27,7 @@ ms.locfileid: "73572381"
 
 Mer information om användarsäkerhet i Azure Analysis Services finns i [Autentisering och användarbehörigheter](../analysis-services-manage-users.md). 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure Active Directory i din prenumeration.
 - Du måste ha skapat en [Azure Analysis Services-server](../analysis-services-create-server.md) i din prenumeration.
@@ -82,7 +82,7 @@ I den här uppgiften lägger du till ett användarkonto eller gruppkonto från A
 
 ## <a name="add-a-user-to-the-model-database-administrator-role"></a>Lägga till en användare i modelldatabasadministratörsrollen
 
-I den här uppgiften lägger du till ett användarkonto eller gruppkonto i rollen ”Internet Sales Administrator” (Administratör för Internetförsäljning) som redan finns i modellen. Den här rollen har fullständig behörighet (administratör) för exempelmodelldatabasen adventureworks. I uppgiften används TMSL-kommandot [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) i ett skript som skapats åt dig.
+I den här uppgiften lägger du till ett användarkonto eller gruppkonto i rollen ”Internet Sales Administrator” (Administratör för Internetförsäljning) som redan finns i modellen. Den här rollen har fullständig behörighet (administratör) för exempelmodelldatabasen adventureworks. I uppgiften används TMSL-kommandot [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) i ett skript som skapats åt dig.
 
 1. Expandera **Databases (Databaser)** adventureworks > Roles (Roller) >  i **Object Explorer**. 
 2. Högerklicka på **Internet Sales Administrator** (Administratör för Internetförsäljning) och klicka sedan på **Script Role as (Skriptroll som)**  > **CREATE OR REPLACE To (SKAPA ELLER ERSÄTT till)**  > **New Query Editor Window (Nytt frågeredigerarfönster)** .
@@ -98,7 +98,7 @@ I den här uppgiften lägger du till ett användarkonto eller gruppkonto i rolle
 
 ## <a name="add-a-new-model-database-role-and-add-a-user-or-group"></a>Lägga till en ny modelldatabasroll och lägga till en användare eller grupp
 
-I den här uppgiften använder du kommandot [Create](https://docs.microsoft.com/bi-reference/tmsl/create-command-tmsl) i ett TMSL-skript för att skapa en ny Internet Sales Global-roll (Global Internetförsäljning), anger *läsbehörighet* för rollen och lägger till ett användarkonto eller gruppkonto från Azure AD.
+I den här uppgiften använder du kommandot [Create](https://docs.microsoft.com/analysis-services/tmsl/create-command-tmsl) i ett TMSL-skript för att skapa en ny Internet Sales Global-roll (Global Internetförsäljning), anger *läsbehörighet* för rollen och lägger till ett användarkonto eller gruppkonto från Azure AD.
 
 1. I **Object Explorer** högerklickar du på **adventureworks** och klickar sedan på **New Query (Ny fråga)**  > **XMLA**. 
 2. Kopiera och klistra in följande TMSL-skript i frågeredigeraren:

@@ -4,12 +4,12 @@ description: Lär dig hur du använder Azure CLI för att skapa och Azure Active
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.openlocfilehash: fef22b1b2d81f76e95a15c0e3a746440b95df8ca
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: d17ae12beecf9d83ef6d688af799787c5ccf322b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596614"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273776"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrera Azure Active Directory med Azure Kubernetes-tjänsten med hjälp av Azure CLI
 
@@ -27,9 +27,11 @@ Följande begränsningar gäller:
 
 Du behöver Azure CLI-versionen 2.0.61 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
+Gå till [https://shell.azure.com](https://shell.azure.com) för att öppna Cloud Shell i webbläsaren.
+
 För konsekvens och för att hjälpa till att köra kommandona i den här artikeln skapar du en variabel för det önskade AKS-klustrets namn. I följande exempel används namnet *myakscluster*:
 
-```azurecli-interactive
+```console
 aksname="myakscluster"
 ```
 
@@ -209,8 +211,10 @@ kubectl get pods --all-namespaces
 Du får en inloggnings fråga för att autentisera med Azure AD-autentiseringsuppgifter med hjälp av en webbläsare. När du har autentiserat visar `kubectl`-kommandot poddar i AKS-klustret, som visas i följande exempel på utdata:
 
 ```console
-$ kubectl get pods --all-namespaces
+kubectl get pods --all-namespaces
+```
 
+```output
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BYMK7UXVD to authenticate.
 
 NAMESPACE     NAME                                    READY   STATUS    RESTARTS   AGE
@@ -229,7 +233,7 @@ Autentiseringstoken som togs emot för `kubectl` cachelagras. Du ombeds bara att
 
 Om ett fel meddelande visas när du har loggat in med en webbläsare som i följande exempel på utdata, kontrollerar du följande möjliga problem:
 
-```console
+```output
 error: You must be logged in to the server (Unauthorized)
 ```
 

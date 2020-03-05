@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: e26ae7ded47a235ecf1829946c1cc79af9a0fb8c
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 26bcd855dbe2ea85df9fb6aca74f8b52e8ce8e46
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152405"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268905"
 ---
 # <a name="create-python-model"></a>Skapa Python-modell
 
@@ -35,7 +35,7 @@ Användningen av den här modulen kräver en mellanliggande eller expert kunskap
 
 I den här artikeln visas hur du använder **create python-modellen** med en enkel pipeline. Nedan visas diagrammet i pipelinen.
 
-![Skapa python-modell](./media/module/aml-create-python-model.png)
+![Skapa python-modell](./media/module/create-python-model.png)
 
 1.  Klicka på **skapa python-modell**, redigera skriptet för att implementera modellerings-eller data hanterings processen. Du kan basera modellen på valfri elev som ingår i ett python-paket i Azure Machine Learnings miljön.
 

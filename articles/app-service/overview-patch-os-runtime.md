@@ -4,12 +4,12 @@ description: Lär dig hur Azure App Service uppdaterar operativ systemet och kö
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 02fa89305c19ee4ec5e151ad36f7f5fa3e130f63
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 597964914f4022899ab027b735ec6932105497b4
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846254"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273625"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Uppdatering av operativ system och körning i Azure App Service
 
@@ -51,7 +51,7 @@ Körnings uppdateringar och utfasningar meddelas här:
 
 ### <a name="new-patch-updates"></a>Nya uppdaterings uppdateringar
 
-Uppdaterings uppdateringar av .NET, PHP, Java SDK eller Tomcat/Jetty-versionen tillämpas automatiskt genom att den befintliga installationen skrivs över med den nya versionen. Uppdaterings uppdateringar för Node. js installeras sida vid sida med befintliga versioner (liknar de viktigaste och lägre versionerna i nästa avsnitt). Nya uppdaterings versioner för python kan installeras manuellt via [plats tillägg](https://www.siteextensions.net/packages?q=Tags%3A%22python%22)), sida vid sida med de inbyggda python-installationerna.
+Uppdaterings uppdateringar av .NET, PHP, Java SDK eller Tomcat/Jetty-versionen tillämpas automatiskt genom att den befintliga installationen skrivs över med den nya versionen. Uppdaterings uppdateringar för Node. js installeras sida vid sida med befintliga versioner (liknar de viktigaste och lägre versionerna i nästa avsnitt). Nya python-korrigeringsfiler kan installeras manuellt via [webbplats tillägg](https://azure.microsoft.com/blog/azure-web-sites-extensions/), sida vid sida med inbyggda python-installationer.
 
 ### <a name="new-major-and-minor-versions"></a>Nya högre och lägre versioner
 

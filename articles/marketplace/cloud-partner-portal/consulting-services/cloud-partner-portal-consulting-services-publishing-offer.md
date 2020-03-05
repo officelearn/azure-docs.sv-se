@@ -6,18 +6,18 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pabutler
-ms.openlocfilehash: 506b34281ba8ab5b669c87b4699fb8b138c8734a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/27/2020
+ms.author: evansma
+ms.openlocfilehash: d744c0bdcae177ca5cee5617622f04da7312e15f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819194"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268301"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Erbjudande om Azure-och Dynamics 365-konsulttjänster
 
-Den här artikeln beskriver hur du publicerar ett konsult tjänst erbjudande på antingen Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> eller <a href="https://appsource.microsoft.com">AppSource</a>. Lösningar baserade på Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>och <a href="https://powerapps.microsoft.com">PowerApps</a> kan listas på AppSource. Andra erbjudanden baserade på andra Microsoft <a href="https://azure.microsoft.com/services">Azure-tjänster</a> kan listas på Azure Marketplace.
+Den här artikeln beskriver hur du publicerar ett konsult tjänst erbjudande på antingen Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> eller <a href="https://appsource.microsoft.com">AppSource</a>. Lösningar som baseras på Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>och <a href="https://powerapps.microsoft.com">Power Apps</a> kan listas på AppSource. Andra erbjudanden baserade på andra Microsoft <a href="https://azure.microsoft.com/services">Azure-tjänster</a> kan listas på Azure Marketplace.
 
 ## <a name="publishing-benefits"></a>Publicera förmåner
 
@@ -35,11 +35,13 @@ Det här avsnittet beskriver delarna i publiceringen av ett konsult tjänst erbj
 - [Konsult tjänsternas](./cpp-consulting-service-prerequisites.md) krav listar kraven för att publicera ett konsult tjänst erbjudande för:
  
     - Microsoft Azure
-    - Dynamics 365 för Customer Engagement 
-    - Dynamics 365 för finansiering & åtgärder 
+    - Dynamics 365 kund engagemang 
+    - Dynamics 365 ekonomi & åtgärder 
+    - Dynamics 365 Customer Insights
     - Dynamics 365 Business Central 
     - Power BI 
-    - PowerApps
+    - Power Apps
+    - Power Automate
 - [Skapa ett nytt erbjudande](./cpp-consulting-service-create-offer.md) visar de steg som krävs för att skapa ett erbjudande för konsult tjänster med hjälp av Cloud Partner Portal:
     - [Definiera inställningar för erbjudandet](./cpp-consulting-service-define-offer-settings.md).
     - [Ange butik information och om du vill publicera på Azure Marketplace eller på AppSource.](./cpp-consulting-service-storefront-details.md)

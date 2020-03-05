@@ -1,20 +1,19 @@
 ---
 title: Visualisera Apache Hive data med Power BI – Azure HDInsight
 description: Lär dig hur du använder Microsoft Power BI för att visualisera Hive-data som bearbetas av Azure HDInsight.
-keywords: HDInsight, Hadoop, Hive, interaktiv fråga, interaktiv Hive, LLAP, ODBC
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: 9b99e24d00441f0caab4b55a46e5ccc8be9cdd64
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.custom: hdinsightactive
+ms.date: 03/02/2020
+ms.openlocfilehash: 5bc36c0a52515e1801886a0c3959e29c14da3fe5
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529529"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267801"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualisera Apache Hive data med Microsoft Power BI med ODBC i Azure HDInsight
 
@@ -29,13 +28,13 @@ I den här artikeln läser du in data från en `hivesampletable` Hive-tabell til
 
 Informationen gäller även för den nya [interaktiva frågans](../interactive-query/apache-interactive-query-get-started.md) kluster typ. Information om hur du ansluter till en interaktiv HDInsight-fråga med direkt frågor finns i [visualisera interaktiva frågor Hive-data med Microsoft Power BI med direkt fråga i Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du går igenom den här artikeln måste du ha följande objekt:
 
-* **HDInsight-kluster**. Klustret kan antingen vara ett HDInsight-kluster med Hive eller ett nyligen publicerat kluster för interaktiv fråga. Information om hur du skapar kluster finns i [skapa kluster](apache-hadoop-linux-tutorial-get-started.md#create-cluster).
+* HDInsight-kluster. Klustret kan antingen vara ett HDInsight-kluster med Hive eller ett nyligen publicerat kluster för interaktiv fråga. Information om hur du skapar kluster finns i [skapa kluster](apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
-* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)** . Du kan ladda ned en kopia från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
+* [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/). Du kan ladda ned en kopia från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
 
 ## <a name="create-hive-odbc-data-source"></a>Skapa Hive ODBC-datakälla
 
@@ -47,7 +46,7 @@ Se [skapa HIVE ODBC-datakälla](apache-hadoop-connect-excel-hive-odbc-driver.md#
 
 1. Starta Power BI Desktop.
 
-1. På den översta menyn går du till **start**  > **Hämta data**  > **mer.** ..
+1. På den översta menyn går du till **start** > **Hämta data** > **mer.** ..
 
     ![HDInsight Excel Power BI öppna data](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
 

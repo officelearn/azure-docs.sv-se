@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 772c16dc292d8bce4b927c9c2ce3ff6ee0ed399d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 827c76610162d74c5283177fef4989204321f44b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152133"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268710"
 ---
 # <a name="partition-and-sample-module"></a>Partition och exempel modul
 
@@ -154,9 +154,9 @@ Det här alternativet används när du har delat upp en data uppsättning i fler
 
 5. Om du arbetar med flera partitioner måste du lägga till ytterligare instanser av **partition och exempel** -modulen för att hantera varje partition.
 
-    Anta till exempel att du har partitionerat patienter i fyra vikningar med hjälp av ålder. Om du vill arbeta med varje enskild vikning behöver du fyra kopior av **partitionen och** modulen, och i varje väljer du en annan vikning, som du ser nedan. Det är inte rätt att använda alternativet **tilldela för att vika** utdata direkt.  
+    Till exempel är **partitionen och exempel** modulen på den andra raden inställd på **vikning**och modulerna på den tredje raden är inställda på att **välja vikning**.   
 
-    [![partition och exempel](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
+    ![Partitionera och ta prover](./media/module/partition-and-sample.png)
 
 5. Köra en pipeline.
 

@@ -3,12 +3,12 @@ title: Azure Application insikter om ASP.NET Core program | Microsoft Docs
 description: Övervaka ASP.NET Core webb program för tillgänglighet, prestanda och användning.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 7aa8ae7fd2742e51ab1ccfed26524241f4c11256
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 5028d95ef784b0d309880d0d05371cd42f627d7d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666266"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269220"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core program
 
@@ -103,7 +103,7 @@ Exemplet som vi ska använda här är en [MVC-app](https://docs.microsoft.com/as
 
     * `ApplicationInsights:InstrumentationKey`
 
-    Några exempel:
+    Exempel:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -159,6 +159,14 @@ Föregående steg räcker för att hjälpa dig att börja samla in telemetri på
         @Html.Raw(JavaScriptSnippet.FullScript)
         </head>
     ```
+    
+Du kan också använda `FullScript` `ScriptBody` är tillgängligt från och med SDK v 2.14. Använd detta om du behöver kontrol lera `<script>`-taggen för att ange en innehålls säkerhets princip:
+
+    ```cshtml
+        <script> // apply custom changes to this script tag.
+            @Html.Raw(JavaScriptSnippet.ScriptBody)
+        </script>
+    ```
 
 De `.cshtml` fil namnen som refereras tidigare är från en standard MVC-Programmall. Slutligen, om du vill aktivera övervakning på klient sidan för ditt program, måste JavaScript-kodfragmentet visas i avsnittet `<head>` på varje sida i programmet som du vill övervaka. Du kan utföra det här målet för den här program mal len genom att lägga till JavaScript-kodfragmentet i `_Layout.cshtml`. 
 
@@ -191,7 +199,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Fullständig lista över inställningar i `ApplicationInsightsServiceOptions`
 
-|Inställning | Beskrivning | Standard
+|Inställning | Beskrivning | Default
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Aktivera/inaktivera LiveMetrics-funktionen | true
 |EnableAdaptiveSampling | Aktivera/inaktivera adaptiv sampling | true

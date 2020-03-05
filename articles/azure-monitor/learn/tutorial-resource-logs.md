@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 9f88a69e8d24cfa8654ac2bea3344c9adf81c16a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: d356042d65c419163de4951e64a635a22ea90e6d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670414"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269197"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Självstudie: samla in och analysera resurs loggar från en Azure-resurs
 
@@ -46,7 +46,7 @@ En Log Analytics arbets yta i Azure Monitor samlar in och indexerar loggdata fr�
    - **Prenumeration**: Välj den prenumeration där du vill lagra arbets ytan. Detta behöver inte vara samma prenumeration som den resurs som övervakas.
    - **Resurs grupp**: Välj en befintlig resurs grupp eller klicka på **Skapa ny** för att skapa en ny. Detta behöver inte vara samma resurs grupp som den resurs som övervakas.
    - **Plats**: Välj en Azure-region eller skapa en ny. Det behöver inte vara samma plats som den resurs som övervakas.
-   - **Pris nivå**: Välj *kostnads fri* som ska behålla 7 dagars data. Du kan ändra den här pris nivån senare. Klicka på länken **Log Analytics priser** om du vill veta mer om olika pris nivåer.
+   - **Pris nivå**: Välj *betala per* användning som pris nivå. Du kan ändra den här pris nivån senare. Klicka på länken **Log Analytics priser** om du vill veta mer om olika pris nivåer.
 
     ![Ny arbetsyta](media/tutorial-resource-logs/new-workspace.png)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 26d7c2d8919573c4c971edd7cb0e01b06fef3012
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 51c01869e6152d8e9357644457df11f4fcf5ec5f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901486"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273705"
 ---
 # <a name="manage-database-roles-and-users"></a>Hantera databas roller och användare
 
@@ -25,7 +25,7 @@ Roll behörigheter är:
 *  **Process** -användare kan ansluta till och utföra process åtgärder på databasen och analysera modell databas data.
 *  **Read** -Users kan använda ett klient program för att ansluta till och analysera modell databas data.
 
-När du skapar ett tabell modell projekt skapar du roller och lägger till användare eller grupper i rollerna med hjälp av roll hanteraren i Visual Studio med Analysis Services projekt. När du har distribuerat till en server använder du SQL Server Management Studio (SSMS), [Analysis Services PowerShell-cmdletar](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)eller TMSL ( [tabell modell skript språk](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) ) för att lägga till eller ta bort roller och användar medlemmar.
+När du skapar ett tabell modell projekt skapar du roller och lägger till användare eller grupper i rollerna med hjälp av roll hanteraren i Visual Studio med Analysis Services projekt. När du har distribuerat till en server använder du SQL Server Management Studio (SSMS), [Analysis Services PowerShell-cmdletar](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)eller TMSL ( [tabell modell skript språk](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) ) för att lägga till eller ta bort roller och användar medlemmar.
 
 **Säkerhets grupper** måste vara [e-postaktiverade](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) med egenskapen `MailEnabled` inställd på `True`. Använd `obj:groupid@tenantid`när du anger en grupp per e-postadress.
 
@@ -44,7 +44,7 @@ När du skapar ett tabell modell projekt skapar du roller och lägger till anvä
   
     |Behörighet|Beskrivning|  
     |----------------|-----------------|  
-    |**Inga**|Medlemmar kan inte läsa eller ändra modell schemat och kan inte fråga efter data.|  
+    |**Alternativet**|Medlemmar kan inte läsa eller ändra modell schemat och kan inte fråga efter data.|  
     |**Läsa**|Medlemmar kan fråga data (baserat på rad filter) men inte ändra modell schema.|  
     |**Läsa och bearbeta**|Medlemmar kan fråga data (baserat på rad nivå filter) och köra process och bearbeta alla åtgärder, men kan inte ändra modell schemat.|  
     |**Uppgraderingen**|Medlemmar kan köra process och bearbeta alla åtgärder. Det går inte att läsa eller ändra modell schema och kan inte fråga efter data.|  
@@ -85,7 +85,7 @@ Om du vill lägga till roller och användare i en distribuerad modell databas m�
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Lägga till roller och användare med hjälp av ett TMSL-skript
 
-Du kan köra ett TMSL-skript i XMLA-fönstret i SSMS eller med hjälp av PowerShell. Använd kommandot [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) och objektet [roller](https://docs.microsoft.com/bi-reference/tmsl/roles-object-tmsl) .
+Du kan köra ett TMSL-skript i XMLA-fönstret i SSMS eller med hjälp av PowerShell. Använd kommandot [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) och objektet [roller](https://docs.microsoft.com/analysis-services/tmsl/roles-object-tmsl) .
 
 **Exempel på TMSL-skript**
 
@@ -151,5 +151,5 @@ Rad filter gäller för de angivna raderna och relaterade rader. När en tabell 
 
   [Hantera Server administratörer](analysis-services-server-admins.md)   
   [Hantera Azure Analysis Services med PowerShell](analysis-services-powershell.md)  
-  [TMSL-referens (tabell modell skript språk)](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference)
+  [TMSL-referens (tabell modell skript språk)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference)
 

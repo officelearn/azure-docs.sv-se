@@ -7,18 +7,18 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: d8dff1dc063cc3b940fbdf0698b8b328b90d60b6
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: a8f863f16888e6eca2dbc72c5dd612c38edbe46e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277834"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273380"
 ---
 # <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(INAKTUELL) Belastningsutjämna containrar i ett Azure Container Service DC/OS-kluster
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-I den här artikeln visar vi hur du skapar en intern lastbalanserare i en DC/OS-hanterad Azure Container Service med Marathon-LB. Med den här konfigurationen kan du skala program vågrätt. Du kan också använda offentliga och privata agentkluster genom att placera en lastbalanserare på det offentliga klustret och dina programcontainrar på det privata klustret. I den här kursen har du:
+I den här artikeln visar vi hur du skapar en intern lastbalanserare i en DC/OS-hanterad Azure Container Service med Marathon-LB. Med den här konfigurationen kan du skala program vågrätt. Du kan också använda offentliga och privata agentkluster genom att placera en lastbalanserare på det offentliga klustret och dina programcontainrar på det privata klustret. I den här kursen får du:
 
 > [!div class="checklist"]
 > * Konfigurera en Marathon-lastbalanserare
@@ -43,9 +43,11 @@ Det finns två lager av belastningsutjämning i ett Azure Container Service DC/O
 
 Marathon Load Balancer konfigurerar om sig själv dynamiskt baserat på de containrar som du har distribuerat. Den kan även återhämta sig automatiskt vid en eventuell förlust av en container eller agent. Om detta inträffar startar Apache Mesos om containern någon annanstans och marathon-lb anpassas automatiskt.
 
+Gå till [https://shell.azure.com](https://shell.azure.com) för att öppna Cloud Shell i webbläsaren.
+
 Kör följande kommando för att installera Marathon-lastbalanseraren på den offentliga agentens kluster.
 
-```azurecli-interactive
+```console
 dcos package install marathon-lb
 ```
 
@@ -97,7 +99,7 @@ Skapa sedan en fil med namnet *hello-web.json* and kopiera in följande innehål
 
 Använd DC/OS CLI för att köra programmet. Som standard distribuerar Marathon programmet till det privata klustret. Det innebär att ovanstående distribution bara är tillgänglig via lastbalanseraren, som normalt är det önskade beteendet.
 
-```azurecli-interactive
+```console
 dcos marathon app add hello-web.json
 ```
 

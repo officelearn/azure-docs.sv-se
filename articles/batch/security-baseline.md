@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4094ace5772b99c646a31d6a4722bbb080fbfff7
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 779b7d071b1161c53bdba08738539c4c682882d2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589888"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273545"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Azures säkerhets bas linje för batch
 
@@ -59,7 +59,7 @@ Förstå nätverks säkerhet som tillhandahålls av Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -271,7 +271,7 @@ Så här ansluter du till Azure Batch pool-noder:
 
 https://docs.microsoft.com/azure/batch/batch-api-basics#error-handling
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -323,7 +323,7 @@ https://docs.microsoft.com/azure/batch/batch-diagnostics
 
 **Vägledning**: Använd Windows Defender på dina individuella batch-noder när det gäller Windows-operativsystem eller ange en egen lösning för program mot skadlig kod om du använder Linux.
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -466,7 +466,7 @@ Så här övervakar du användarnas identitets-och åtkomst aktiviteter i Azure 
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -511,7 +511,7 @@ Så här använder du granskningar av Azure Identity Access:
 
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -524,7 +524,7 @@ Så här integrerar du Azure-aktivitets loggar i Azure Monitor:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -551,7 +551,7 @@ https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Ansvar**: kund
 
-### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3,13: ge Microsoft åtkomst till relevant kund information under support scenarier
+### <a name="313-divprovide-microsoft-with-access-to-relevant-customer-data-during-support-scenariosbrdiv"></a>3,13: <div>Ge Microsoft åtkomst till relevant kund information under support scenarier<br></div>
 
 **Vägledning**: inte tillgänglig; Customer Lockbox ännu inte stöd för Azure Batch. Lista över Customer Lockbox tjänster som stöds: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
@@ -614,9 +614,9 @@ Skydda Azure Storage-konton:
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
 
-**Ansvar**: kund
+**Ansvars område**: delat
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: kryptera all känslig information under överföring
 
@@ -654,7 +654,7 @@ Skydda Azure Storage-konton:
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
 
 **Ansvars område**: delat
 
@@ -690,7 +690,7 @@ Förstå kundens data skydd i Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Azure Security Center övervakning**: Ja
+**Azure Security Center övervakning**: för närvarande inte tillgängligt
 
 **Ansvars område**: delat
 
@@ -704,7 +704,7 @@ Hantera krypterings nycklar för Azure Storage-konton:
 
 https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -728,7 +728,7 @@ Så här aktiverar du ytterligare loggning/granskning för ett Azure Storage-kon
 
 https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -751,7 +751,7 @@ Om du har en Rapid7, Qualys eller någon annan plattforms prenumeration för så
 
 **Vägledning**: Microsoft för att underhålla och uppdatera Base Azure Batch pool Node-avbildningar. Se till att operativ systemet för Azure Batch pooler fortfarande har uppdaterats under giltighets tiden för klustrets livstid, vilket kan kräva att automatiska uppdateringar, övervakning av noderna eller regelbunden omstarter utförs.
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvars område**: delat
 
@@ -788,7 +788,7 @@ Om du har en Rapid7, Qualys eller någon annan plattforms prenumeration för så
 **Vägledning**: Använd Azure Resource Graph för att fråga/identifiera alla resurser (t. ex. data bearbetning, lagring, nätverk osv.) i din prenumeration (er). Se till att du har rätt (Läs) behörigheter i din klient och kan räkna upp alla Azure-prenumerationer samt resurser i dina prenumerationer.
 
 
-Även om klassiska Azure-resurser kan identifieras via resurs diagram, rekommenderar vi starkt att du skapar och använder Azure Resource Manager resurser som går framåt.
+Även om klassiska Azure-resurser kan identifieras via resurs diagram, rekommenderar vi starkt att du skapar och använder Azure Resource Manager ARM-resurser som går framåt.
 
 
 Så här skapar du frågor med Azure Graph:
@@ -863,9 +863,12 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 - Otillåtna resurstyper
 - Tillåtna resurstyper
 
+
 Använd Azure Resource Graph för att fråga/identifiera resurser i dina prenumerationer. Se till att alla Azure-resurser som finns i miljön är godkända.
 
+
 Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Så här skapar du frågor med Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -901,16 +904,15 @@ Så här skapar du frågor med Azure Graph: https://docs.microsoft.com/azure/gov
 
 **Vägledning**: Använd Azure policy för att ange begränsningar för den typ av resurser som kan skapas i kund prenumerationer med hjälp av följande inbyggda princip definitioner:
 
+
 - Otillåtna resurstyper
 - Tillåtna resurstyper
 
-Så här konfigurerar och hanterar du Azure Policy:
 
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Så här nekar du en speciell resurs typ med Azure Policy:
 
-https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Så här nekar du en speciell resurs typ med Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -924,14 +926,12 @@ https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-
 
 **Ansvar**: kund
 
-### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager-via-scripts"></a>6,11: begränsa användarnas möjlighet att interagera med Azure Resource Manager via skript
+### <a name="611-divlimit-users-ability-to-interact-with-azure-resource-manager-via-scriptsdiv"></a>6,11: <div>Begränsa användarnas möjlighet att interagera med Azure Resource Manager via skript</div>
 
 **Vägledning**: Använd villkorlig åtkomst i Azure för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering".
 
 
-Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -949,9 +949,7 @@ Detta gäller inte för Azure Batch, eftersom användare (icke-administratörer)
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6,13: fysiskt eller logiskt särskiljande program med hög risk
 
-**Vägledning**: inte tillgänglig,
-
-Benchmark är avsett för webb program som körs på Azure App Service-eller IaaS-instanser.
+**Vägledning**: inte tillämpligt, Benchmark är avsett för webb program som körs på Azure App Service-eller IaaS-instanser.
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -966,10 +964,14 @@ Benchmark är avsett för webb program som körs på Azure App Service-eller Iaa
 **Vägledning**: Använd Azure policy alias i namn området "Microsoft. batch" för att skapa anpassade principer som ska granskas eller tillämpa konfigurationen för dina Azure Batch-konton och pooler.
 
 
-Så här visar du tillgängliga Azure Policy alias: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Så här visar du tillgängliga Azure Policy alias:
+
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 
-Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy:
+
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -991,7 +993,9 @@ Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/a
 - Microsoft.Storage
 - Microsoft.Network
 
+
 Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Förstå Azure Policys effekter: https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
@@ -1009,11 +1013,17 @@ Förstå Azure Policys effekter: https://docs.microsoft.com/azure/governance/pol
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: Spara konfigurationen av Azure-resurser på ett säkert sätt
 
-**Vägledning**: om du använder anpassade Azure policy-definitioner för dina Azure Batch konton, pooler eller relaterade resurser använder du Azure DevOps/databaser för att lagra och hantera din kod på ett säkert sätt.
+**Vägledning**: om du använder anpassade definitioner för Azure-principer för dina Azure Batch konton, pooler eller relaterade resurser använder du Azure-databaser för att lagra och hantera din kod på ett säkert sätt.
 
-Så här lagrar du kod i Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-Dokumentation om Azure databaser: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Så här lagrar du kod i Azure DevOps:
+
+https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+
+
+Dokumentation om Azure databaser:
+
+https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1024,9 +1034,14 @@ Dokumentation om Azure databaser: https://docs.microsoft.com/azure/devops/repos/
 **Vägledning**: om du använder anpassade avbildningar för Azure Batch pooler använder du rollbaserad åtkomst kontroll (RBAC) för att se till att endast behöriga användare kan komma åt avbildningarna.
 
 
-Förstå RBAC i Azure: https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
+Förstå RBAC i Azure:
 
-Konfigurera RBAC i Azure: https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
+https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
+
+
+Konfigurera RBAC i Azure:
+
+https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -1058,8 +1073,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Vägledning**: Använd Azure policy alias i namn området "Microsoft. batch" för att skapa anpassade principer för granskning eller framtvinga konfigurationen av din Azure Batch-instans. Du kan också använda inbyggda principer som skapats specifikt för Azure Batch eller de resurser som används av Azure Batch, till exempel:
 
-- Undernät ska associeras med en nätverks säkerhets grupp
-- Lagrings konton bör använda en tjänst slut punkt för virtuellt nätverk
+- Undernät ska associeras med en nätverks säkerhets grupp-lagrings konton bör använda en tjänst slut punkt för virtuellt nätverk
 - Diagnostikloggar i batch-konton måste vara aktiverade
 
 Så här visar du tillgängliga Azure Policy alias: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
@@ -1098,7 +1112,7 @@ Så här ger Key Vault autentisering med en hanterad identitet:
 
 https://docs.microsoft.com/azure/key-vault/managed-identity
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -1187,7 +1201,7 @@ Så här säkerhetskopierar du nyckel valv nycklar i Azure:
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -1205,7 +1219,7 @@ Så här återställer du en kund hanterad nyckel med PowerShell:
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -1218,7 +1232,7 @@ Så här aktiverar du mjuk borttagning i Azure Key Vault:
 
 https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -1324,3 +1338,7 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Ansvars område**: delat
 
+## <a name="next-steps"></a>Nästa steg
+
+- Se [Azures säkerhets benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Läs mer om [Azures säkerhets bas linjer](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

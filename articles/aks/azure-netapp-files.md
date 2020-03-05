@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/26/2019
 ms.author: zarhoads
-ms.openlocfilehash: 42985e57d63c01553532928b2ba04ed5ee3dd8fb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 1c4996df66d475c63110e3d2797f55598fd85b8d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596648"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273754"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrera Azure NetApp Files med Azure Kubernetes-tjänsten
 
@@ -42,7 +42,7 @@ Följande begränsningar gäller när du använder Azure NetApp Files:
 
 Registrera *Microsoft. NetApp* -resurs leverantören:
 
-```azure-cli
+```azurecli
 az provider register --namespace Microsoft.NetApp --wait
 ```
 
@@ -52,14 +52,16 @@ az provider register --namespace Microsoft.NetApp --wait
 När du skapar ett Azure NetApp-konto som ska användas med AKS måste du skapa kontot i resurs gruppen för **noden** . Börja med att hämta resurs gruppens namn med kommandot [AZ AKS show][az-aks-show] och Lägg till parametern `--query nodeResourceGroup` fråga. I följande exempel hämtas nodens resurs grupp för AKS-klustret med namnet *myAKSCluster* i resurs grupps namnet *myResourceGroup*:
 
 ```azurecli-interactive
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+```
 
+```output
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 Skapa ett Azure NetApp Files-konto i resurs gruppen för **noden** och samma region som ditt AKS-kluster med [AZ netappfiles Account Create][az-netappfiles-account-create]. I följande exempel skapas ett konto med namnet *myaccount1* i resurs gruppen *MC_myResourceGroup_myAKSCluster_eastus* och *östra* regionen:
 
-```azure-cli
+```azurecli
 az netappfiles account create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --location eastus \
@@ -68,7 +70,7 @@ az netappfiles account create \
 
 Skapa en ny kapacitets uppsättning med [AZ netappfiles pool Create][az-netappfiles-pool-create]. I följande exempel skapas en ny pool med namnet *mypool1* med 4 TB i storleks-och *Premium* servicenivå:
 
-```azure-cli
+```azurecli
 az netappfiles pool create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --location eastus \
@@ -80,7 +82,7 @@ az netappfiles pool create \
 
 Skapa ett undernät för att [delegera till Azure NetApp Files att][anf-delegate-subnet] använda [AZ Network VNet Subnet Create][az-network-vnet-subnet-create]. *Det här under nätet måste finnas i samma virtuella nätverk som ditt AKS-kluster.*
 
-```azure-cli
+```azurecli
 RESOURCE_GROUP=MC_myResourceGroup_myAKSCluster_eastus
 VNET_NAME=$(az network vnet list --resource-group $RESOURCE_GROUP --query [].name -o tsv)
 VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
@@ -95,7 +97,7 @@ az network vnet subnet create \
 
 Skapa en volym med hjälp av [AZ netappfiles Volume Create][az-netappfiles-volume-create].
 
-```azure-cli
+```azurecli
 RESOURCE_GROUP=MC_myResourceGroup_myAKSCluster_eastus
 LOCATION=eastus
 ANF_ACCOUNT_NAME=myaccount1
@@ -125,9 +127,12 @@ az netappfiles volume create \
 ## <a name="create-the-persistentvolume"></a>Skapa PersistentVolume
 
 Visa information om din volym med hjälp av [AZ netappfiles Volume show][az-netappfiles-volume-show]
-```azure-cli
-$ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_ACCOUNT_NAME --pool-name $POOL_NAME --volume-name "myvol1"
 
+```azurecli
+az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_ACCOUNT_NAME --pool-name $POOL_NAME --volume-name "myvol1"
+```
+
+```output
 {
   ...
   "creationToken": "myfilepath2",
@@ -143,7 +148,7 @@ $ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $AN
 }
 ```
 
-Skapa en `pv-nfs.yaml` definiera en PersistentVolume. Ersätt `path` med *creationToken* och `server` med *ipAddress* från föregående kommando. Några exempel:
+Skapa en `pv-nfs.yaml` definiera en PersistentVolume. Ersätt `path` med *creationToken* och `server` med *ipAddress* från föregående kommando. Exempel:
 
 ```yaml
 ---
@@ -175,7 +180,7 @@ kubectl describe pv pv-nfs
 
 ## <a name="create-the-persistentvolumeclaim"></a>Skapa PersistentVolumeClaim
 
-Skapa en `pvc-nfs.yaml` definiera en PersistentVolume. Några exempel:
+Skapa en `pvc-nfs.yaml` definiera en PersistentVolume. Exempel:
 
 ```yaml
 apiVersion: v1
@@ -205,7 +210,7 @@ kubectl describe pvc pvc-nfs
 
 ## <a name="mount-with-a-pod"></a>Montera med en POD
 
-Skapa en `nginx-nfs.yaml` definiera en pod som använder PersistentVolumeClaim. Några exempel:
+Skapa en `nginx-nfs.yaml` definiera en pod som använder PersistentVolumeClaim. Exempel:
 
 ```yaml
 kind: Pod
@@ -245,7 +250,9 @@ Kontrol lera att volymen har monterats i pod genom att använda [kubectl exec][k
 
 ```console
 $ kubectl exec -it nginx-nfs -- bash
+```
 
+```output
 root@nginx-nfs:/# df -h
 Filesystem             Size  Used Avail Use% Mounted on
 ...

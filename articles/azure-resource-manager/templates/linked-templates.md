@@ -3,12 +3,12 @@ title: Länka mallar för distribution
 description: 'Beskriver hur du använder länkade mallar i en Azure Resource Manager-mall för att skapa en modulbaserad mall-lösning. Visar hur du skickar parametrar värden, anger du en parameterfil och dynamiskt skapade URL: er.'
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: c6a5dced0f8607e760422bebd114a08ca0a238e3
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e26b795a645ab9128dd738ba6a54b66ac0b7da2a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207612"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272581"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Med hjälp av länkade och kapslade mallar när du distribuerar Azure-resurser
 
@@ -707,7 +707,7 @@ I följande exempel visas hur du skickar en SAS-token när du länkar till en ma
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-  "containerSasToken": { "type": "string" }
+  "containerSasToken": { "type": "securestring" }
   },
   "resources": [
   {

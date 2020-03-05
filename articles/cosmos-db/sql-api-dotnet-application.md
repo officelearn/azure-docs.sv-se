@@ -8,17 +8,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: sngun
-ms.openlocfilehash: 5403725a57c68a45621d6cc509c57d864b2e0633
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 1f2051addfa1266b754d230c3804834c63f89002
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164924"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274074"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Självstudie: utveckla ett ASP.NET Core MVC-webbprogram med Azure Cosmos DB med hjälp av .NET SDK
 
 > [!div class="op_single_selector"]
-> * [NET](sql-api-dotnet-application.md)
+> * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)
@@ -197,7 +197,7 @@ Först lägger vi till en klass som innehåller logiken för att ansluta till oc
 
 1. I samma fil lägger du till följande metod **InitializeCosmosClientInstanceAsync**, som läser konfigurationen och initierar klienten.
 
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync":::
+   [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)]
 
 1. Definiera konfigurationen i projektets *appSettings. JSON* -fil som visas i följande kodfragment:
 

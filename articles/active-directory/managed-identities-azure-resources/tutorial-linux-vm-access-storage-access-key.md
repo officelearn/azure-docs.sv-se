@@ -1,5 +1,5 @@
 ---
-title: Självstudie`:` använda en hanterad identitet för att komma åt Azure Storage – Linux – Azure AD
+title: Självstudie`:` använda en hanterad identitet för att få åtkomst till Azure Storage via åtkomst nyckel – Linux-Azure AD
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för att få åtkomst till Azure Storage.
 services: active-directory
 documentationcenter: ''
@@ -12,35 +12,35 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 03/04/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35c31fbf8c7c1aa37134a1808cd3f54a559833c1
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 86f875fa80f8bb8dd33a369a23f49833162cd417
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183425"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273822"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Självstudie: Använda en systemtilldelade hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Storage via åtkomstnyckel
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-I den här självstudien lär du dig att hämta åtkomstnycklar till lagringskonton med en systemtilldelad hanterad identitet för en virtuell Linux-dator. Du kan använda en lagringsåtkomstnyckel som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien laddar vi upp och ned blobbar med hjälp av Azure CLI. Du lär dig att göra följande:
+I den här självstudien lär du dig att hämta åtkomstnycklar till lagringskonton med en systemtilldelad hanterad identitet för en virtuell Linux-dator. Du kan använda en lagringsåtkomstnyckel som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien laddar vi upp och ned blobbar med hjälp av Azure CLI. Du lär dig hur du:
 
 > [!div class="checklist"]
-> * Ge din virtuella dator åtkomst till åtkomstnycklar för lagringskonton i Resource Manager 
+> * Ger den virtuella datorn åtkomst till åtkomstnycklar för lagringskonton i Resource Manager 
 > * Få en åtkomsttoken med hjälp av den virtuella datorns identitet, och använda den och hämta lagringsåtkomstnycklarna från Resource Manager  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto 
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 
 Nu skapar du ett lagringskonto, om du inte redan har ett.  Du kan även hoppa över det här steget och ge den virtuella datorns systemtilldelade hanterade identitet åtkomst till nycklarna till ett befintligt lagringskonto. 
 
-1. Klicka på knappen **+/Skapa ny tjänst** som finns i övre vänstra hörnet i Azure-portalen.
+1. Klicka på knappen **+/Skapa ny tjänst** som finns i det övre vänstra hörnet på Azure Portal.
 2. Fönstret Skapa lagringskonto visas om du klickar på **Lagring** och sedan **Lagringskonto**.
 3. Ange ett **Namn** för lagringskonto, som du kommer att använda senare.  
 4. **Distributionsmodell** och **Typ av konto** ska vara inställda på Resurshanterare respektive Generell användning. 
@@ -58,14 +58,14 @@ Senare ska vi ladda upp och ned en fil till det nya lagringskontot. Eftersom fil
 3. När du klickar på **+Container** högst upp på sidan visas fönstret Ny container.
 4. Ge containern ett namn, välj en åtkomstnivå och klicka sedan på **OK**. Du ska använda det här namnet senare i självstudien. 
 
-    ![Skapa lagringscontainer](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Skapa en lagringscontainer](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 ## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-storage-account-access-keys"></a>Bevilja den virtuella datorns systemtilldelade hanterade identitet åtkomst till att använda lagringskontots åtkomstnycklar
 
 I det här steget ger du den virtuella datorns systemtilldelade hanterade identitet åtkomst till nycklarna till lagringskontot.   
 
 1. Gå tillbaka till det lagringskonto som du nyss skapade.
-2. Klicka på länken **åtkomstkontroll (IAM)** i vänstra panelen.  
+2. Klicka på länken **Åtkomstkontroll (IAM)** i vänstra fönstret.  
 3. Klicka på **+ Lägg till rolltilldelning** längst upp på sidan för att lägga till en ny rolltilldelning för den virtuella datorn
 4. Ställ in **Roll** på ”Tjänstroll som operatör av lagringskontonyckel”, till höger på sidan. 
 5. I nästa listruta väljer du resursen Virtuell dator under **Tilldela behörighet till**.  
@@ -76,11 +76,11 @@ I det här steget ger du den virtuella datorns systemtilldelade hanterade identi
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använd den för att anropa Azure Resource Manager
 
-Under resten av självstudiekursen arbetar vi från den virtuella datorn som vi skapade tidigare.
+Under resten av självstudien arbetar vi från den virtuella datorn som vi skapade tidigare.
 
 För att slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Använda SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [Så här skapar du säkert ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. Gå till **Virtuella datorer** på Azure Portal, gå till den virtuella Linux-datorn och klicka sedan längst upp på **Anslut** på sidan **Översikt**. Kopiera strängen för anslutning till din virtuella dator. 
+1. Gå till **Virtuella datorer** på Azure Portal, gå till den virtuella Linux-datorn och klicka sedan längst upp på **Anslut** på sidan **Översikt**. Kopiera strängen för att ansluta till din virtuella dator. 
 2. Anslut till den virtuella datorn med hjälp av SSH-klienten.  
 3. Nu uppmanas du att ange **lösenordet** som du lade till när du skapade **den virtuella Linux-datorn**. Därefter bör du loggas in.  
 4. Använd CURL och hämta en åtkomsttoken för Azure Resource Manager.  
@@ -92,7 +92,7 @@ För att slutföra de här stegen behöver du en SSH-klient. Om du använder Win
     ```
     
     > [!NOTE]
-    > I föregående begäran måste värdet för ”resource”-parametern vara en exakt matchning av vad som förväntas av Azure AD. När du använder resurs-ID:t för Azure Resource Manager måste du ta med det avslutande snedstrecket i URI:n.
+    > I föregående begäran måste värdet för resource-parametern vara en exakt matchning av vad som förväntas av Azure Active Directory. När du använder Azure Resource Manager-resurs-ID:t måste du ta med det avslutande snedstrecket i URI:n.
     > I följande svar har access_token-elementet kortats ned.
     
     ```bash
@@ -114,7 +114,7 @@ curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups
 ```
 
 > [!NOTE]
-> Eftersom texten i den tidigare URL:en är skiftlägeskänslig måste du använda samma skiftläge för dina resursgrupper. Dessutom är det viktigt att du är medveten om att det här är en POST-begäran, inte en GET-begäran, samt att du skickar ett värde för att registrera en längdbegränsning med -d som kan vara NULL.  
+> Eftersom texten i den tidigare URL:en är skiftlägeskänslig måste du använda samma skiftläge för dina resursgrupper. Dessutom är det viktigt att du är medveten om att det här är en POST-begäran och inte en GET-begäran, samt att du skickar ett värde och registrerar en längdbegränsning med -d, som kan vara NULL.  
 
 CURL-svaret returnerar listan med nycklar:  
 

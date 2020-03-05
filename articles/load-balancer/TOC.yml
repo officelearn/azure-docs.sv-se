@@ -6,15 +6,15 @@
       href: load-balancer-overview.md
 - name: Snabbstart
   items:
-    - name: Portalen
+    - name: Skapa lastbalanserare – portalen
       href: quickstart-load-balancer-standard-public-portal.md
-    - name: Azure CLI
+    - name: Skapa lastbalanserare – Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
-    - name: Azure PowerShell
+    - name: Skapa lastbalanserare – PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Azure Resource Manager-mall
+    - name: Skapa lastbalanserare – mall
       href: quickstart-load-balancer-standard-public-template.md
-      displayName: ARM
+  expanded: true
 - name: Självstudier
   items:
     - name: Belastningsutjämna Internettrafik till virtuella datorer

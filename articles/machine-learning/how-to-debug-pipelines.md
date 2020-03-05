@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 12/12/2019
-ms.openlocfilehash: 0080b64e16b979b32aa5a91f9ee497e5f9ec47fb
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: c81d4db5798c15327e06471f1cb0da4841bd61b2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485377"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268518"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Felsöka och felsöka maskin inlärnings pipeliner
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -283,7 +283,7 @@ if not (args.output_train is None):
 
 ### <a name="configure-ml-pipeline"></a>Konfigurera ML-pipeline
 
-För att tillhandahålla python-paket som krävs för att starta PTVSD och hämta körnings kontexten, skapar du en [miljö]() och anger `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`. Ändra SDK-versionen så att den matchar den som du använder. Följande kodfragment visar hur du skapar en miljö:
+För att tillhandahålla python-paket som krävs för att starta PTVSD och hämta körnings kontexten, skapar du en miljö och anger `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`. Ändra SDK-versionen så att den matchar den som du använder. Följande kodfragment visar hur du skapar en miljö:
 
 ```python
 # Use a RunConfiguration to specify some additional requirements for this step.

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ddb08f774bbb8aa3bc4b10bcd0dd213c8583465e
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 274ee0fe98281e733994f2d5df38886409cbc913
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249800"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273656"
 ---
 # <a name="runbook-input-parameters"></a>Indataparametrar för Runbook
 
@@ -148,19 +148,19 @@ I etiketten under indatatypen kan du se de egenskaper som har ställts in för a
 * **Azure Resource Manager-cmdlet: ar:** Du kan starta en Automation-Runbook som skapats i en resurs grupp med hjälp av [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.5.0
 ).
 
-```powershell
-  $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
+   ```powershell
+     $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
   
-  Start-AzAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
-```
+     Start-AzAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
+   ```
 
 * **Cmdlets för klassiska Azure-distributions modeller:** Du kan starta en Automation-Runbook som skapats i en standard resurs grupp med hjälp av [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
   
-```powershell
-  $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}
+   ```powershell
+     $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}
   
-  Start-AzureAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" -Parameters $params
-```
+     Start-AzureAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" -Parameters $params
+   ```
 
 > [!NOTE]
 > När du startar en Runbook med hjälp av PowerShell-cmdletar skapas en standard parameter, *MicrosoftApplicationManagementStartedBy*, med värdet **PowerShell**. Du kan visa den här parametern i fönstret jobb information.  
@@ -169,7 +169,7 @@ I etiketten under indatatypen kan du se de egenskaper som har ställts in för a
 
 * **Azure Resource Manager metod:** Du kan starta en Runbook med SDK för ett programmeringsspråk. Nedan visas ett C# kodfragment för att starta en Runbook i ditt Automation-konto. Du kan visa all kod på vår [GitHub-lagringsplats](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
-  ```csharp
+   ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
       {
         var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
@@ -185,11 +185,11 @@ I etiketten under indatatypen kan du se de egenskaper som har ställts in för a
          });
       return response.Job;
       }
-  ```
+   ```
 
 * **Metod för klassisk distributions modell för Azure:** Du kan starta en Runbook med SDK för ett programmeringsspråk. Nedan visas ett C# kodfragment för att starta en Runbook i ditt Automation-konto. Du kan visa all kod på vår [GitHub-lagringsplats](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
 
-  ```csharp
+   ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
     {
       var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
@@ -205,20 +205,20 @@ I etiketten under indatatypen kan du se de egenskaper som har ställts in för a
        });
       return response.Job;
     }
-  ```
+   ```
 
-  Starta den här metoden genom att skapa en ord lista för att lagra Runbook-parametrarna *VMName* och *resourceGroupName* och deras värden. Starta sedan runbooken. Nedan visas C# kodfragmentet för att anropa metoden som definieras ovan.
+   Starta den här metoden genom att skapa en ord lista för att lagra Runbook-parametrarna *VMName* och *resourceGroupName* och deras värden. Starta sedan runbooken. Nedan visas C# kodfragmentet för att anropa metoden som definieras ovan.
 
-  ```csharp
-  IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
+   ```csharp
+   IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
   
-  // Add parameters to the dictionary.
+   // Add parameters to the dictionary.
   RunbookParameters.Add("VMName", "WSVMClassic");
-  RunbookParameters.Add("resourceGroupName", "WSSC1");
+   RunbookParameters.Add("resourceGroupName", "WSSC1");
   
-  //Call the StartRunbook method with parameters
-  StartRunbook("Get-AzureVMGraphical", RunbookParameters);
-  ```
+   //Call the StartRunbook method with parameters
+   StartRunbook("Get-AzureVMGraphical", RunbookParameters);
+   ```
 
 #### <a name="start-a-runbook-using-the-rest-api-and-assign-parameters"></a>Starta en Runbook med hjälp av REST API och tilldela parametrar
 
@@ -238,7 +238,7 @@ Använd begär ande texten för att skicka parametrar till Runbook-jobbet. Den t
 
 Om du vill starta en **Get-AzureVMTextual** -Runbook som skapats tidigare med parametrarna *VMName* och *resourceGroupName* som parametrar använder du följande JSON-format för begär ande texten.
 
-   ```json
+```json
     {
       "properties":{
         "runbook":{
@@ -248,7 +248,7 @@ Om du vill starta en **Get-AzureVMTextual** -Runbook som skapats tidigare med pa
          "resourceGroupName":"ContosoSales"}
         }
     }
-   ```
+```
 
 En HTTP-statuskod 201 returneras om jobbet har skapats. Mer information om svarshuvuden och svars texten finns i [skapa ett Runbook-jobb med hjälp av REST API](/rest/api/automation/job/create).
 
@@ -330,7 +330,7 @@ Nu kan du anropa runbooken från den lokala datorn med hjälp av Azure PowerShel
     >[!NOTE]
     >För PowerShell-Runbooks är **Add-AzAccount** och **Add-AzureRMAccount** alias för **Connect-AzAccount**. Observera att dessa alias inte är tillgängliga för grafiska runbooks. En grafisk Runbook kan bara använda **Connect-AzAccount** .
 
-2. Hämta innehållet i den sparade JSON-filen och konvertera den till en sträng. `JsonPath` är sökvägen dit du sparade JSON-filen.
+1. Hämta innehållet i den sparade JSON-filen och konvertera den till en sträng. `JsonPath` är sökvägen dit du sparade JSON-filen.
 
    ```powershell
    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
@@ -354,7 +354,7 @@ Nu kan du anropa runbooken från den lokala datorn med hjälp av Azure PowerShel
    ```
 
    Observera att du anger värdet för *parametrar* till PowerShell-objektet som innehåller värdena från JSON-filen.
-1. Starta runbook
+1. Starta runbooken.
 
    ```powershell
    $job = Start-AzAutomationRunbook @RBParams

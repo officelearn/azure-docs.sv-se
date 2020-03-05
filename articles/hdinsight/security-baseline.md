@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7d6b4f8a7965a7cbcab2616650b40ed93087072b
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
-ms.translationtype: MT
+ms.openlocfilehash: 1ace4ce5b9b0fd59a69e908c1f31d1ad4853889b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589979"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271861"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Azures säkerhets bas linje för HDInsight
 
@@ -65,7 +65,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 ### <a name="13-protect-critical-web-applications"></a>1,3: skydda viktiga webb program
 
-**Vägledning**: inte tillgänglig; Benchmark är avsett för Azure Apps-tjänster eller data bearbetnings resurser som är värdar för webb program.
+**Vägledning**: ej tillämpligt; Benchmark är avsett för Azure Apps-tjänster eller data bearbetnings resurser som är värdar för webb program.
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -125,7 +125,7 @@ HDInsight-hantering IP-adresser: https://docs.microsoft.com/azure/hdinsight/hdin
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1,7: hantera trafik till webb program
 
-**Vägledning**: inte tillgänglig; Benchmark är avsett för Azure Apps-tjänster eller data bearbetnings resurser som är värdar för webb program.
+**Vägledning**: ej tillämpligt; Benchmark är avsett för Azure Apps-tjänster eller data bearbetnings resurser som är värdar för webb program.
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -331,7 +331,7 @@ Så här aviserar du om Log Analytics-loggdata:
 
 https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -491,7 +491,7 @@ Så här övervakar du användarnas identitets-och åtkomst aktiviteter i Azure 
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -713,7 +713,7 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
-**Ansvar**: kund
+**Ansvars område**: delat
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: kryptera känslig information i vila
 
@@ -779,7 +779,7 @@ Om du har en Rapid7, Qualys eller någon annan plattforms prenumeration för så
 
 Så här installerar du Rapid7-agenten manuellt:
 
-https://insightvm.help.rapid7.com/v1.0/docs/agent-installation-on-linux
+https://insightvm.help.rapid7.com/docs/azure-security-center
 
 
 Så här installerar du Qualys-agenten manuellt:
@@ -926,11 +926,12 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 - Otillåtna resurstyper
 - Tillåtna resurstyper
 
-Använd Azure Resource Graph för att fråga/identifiera resurser i dina prenumerationer.  Se till att alla Azure-resurser som finns i miljön är godkända.
+Använd Azure Resource Graph för att fråga/identifiera resurser i dina prenumerationer. Se till att alla Azure-resurser som finns i miljön är godkända.
 
 Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Så här skapar du frågor med Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -972,7 +973,9 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 - Otillåtna resurstyper
 - Tillåtna resurstyper
 
+
 Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Så här nekar du en speciell resurs typ med Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
@@ -993,9 +996,7 @@ Så här nekar du en speciell resurs typ med Azure Policy: https://docs.microsof
 **Vägledning**: Använd villkorlig åtkomst i Azure för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering".
 
 
-Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -1003,7 +1004,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6,12: begränsa användarnas möjlighet att köra skript i beräknings resurser
 
-**Vägledning**: inte tillgänglig; Detta gäller inte för Azure HDInsight eftersom användare (icke-administratörer) av klustret inte behöver åtkomst till de enskilda noderna för att köra jobb. Kluster administratören har rot åtkomst till alla klusternoder.
+**Vägledning**: ej tillämpligt; Detta gäller inte för Azure HDInsight eftersom användare (icke-administratörer) av klustret inte behöver åtkomst till de enskilda noderna för att köra jobb. Kluster administratören har rot åtkomst till alla klusternoder.
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -1011,7 +1012,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6,13: fysiskt eller logiskt särskiljande program med hög risk
 
-**Vägledning**: inte tillgänglig; Benchmark är avsett för Azure Apps-tjänster eller data bearbetnings resurser som är värdar för webb program.
+**Vägledning**: ej tillämpligt; Benchmark är avsett för Azure Apps-tjänster eller data bearbetnings resurser som är värdar för webb program.
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -1095,7 +1096,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: lagra anpassade operativ Systems avbildningar på ett säkert sätt
 
-**Vägledning**: inte tillgänglig; anpassade avbildningar som inte gäller för Azure HDInsight.
+**Vägledning**: ej tillämpligt; anpassade avbildningar som inte gäller för Azure HDInsight.
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -1343,7 +1344,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **Vägledning**: Security Center tilldelar en allvarlighets grad till aviseringar, som hjälper dig att prioritera i vilken ordning du deltar i varje avisering, så att när en resurs komprometteras kan du komma åt den direkt. Allvarlighets graden baseras på hur tillförlitlig Security Center befinner sig i att söka efter eller det analytiska som används för att utfärda aviseringen samt vilken konfidensnivå som det fanns skadlig avsikt bakom den aktivitet som ledde till aviseringen.
 
-**Azure Security Center övervakning**: för närvarande inte tillgängligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -1421,3 +1422,7 @@ Du hittar mer information om Microsofts strategi och körning av röda team inde
 
 **Ansvars område**: delat
 
+## <a name="next-steps"></a>Nästa steg
+
+- Se [Azures säkerhets benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Läs mer om [Azures säkerhets bas linjer](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

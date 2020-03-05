@@ -1,36 +1,36 @@
 ---
 title: Ordnings fördefinierad entitet – LUIS
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller fördefinierad enhets information för ordning i Language Understanding (LUIS).
+description: Den här artikeln innehåller ordningstal fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: b2a2d9e78a0b152da14bb737079cf0dfdef0dc05
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bb3bb27db48255f534e873ed4e93ac62f07016af
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491248"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273453"
 ---
 # <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Fördefinierad ordnings enhet för en LUIS-app
-Ordnings talet är en numerisk representation av ett objekt inuti en mängd: `first`, `second``third`. Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden som innehåller ordnings tal till program avsikterna. Ordnings tal enheten stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
+Ordnings talet är en numerisk representation av ett objekt inuti en mängd: `first`, `second``third`. Eftersom den här entiteten har redan tränats, behöver du inte att lägga till exempel yttranden som innehåller ordningstal till programmet avsikter. Ordnings tal enheten stöds i [många kulturer](luis-reference-prebuilt-entities.md).
 
-## <a name="types-of-ordinal"></a>Typer av ordnings tal
+## <a name="types-of-ordinal"></a>Typer av nummer
 Ordnings talet hanteras från GitHub-lagringsplatsen för [identifierare – text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45)
 
-## <a name="resolution-for-prebuilt-ordinal-entity"></a>Lösning för fördefinierad ordinal
+## <a name="resolution-for-prebuilt-ordinal-entity"></a>Lösning för fördefinierade ordningstal entitet
 
 Följande enhets objekt returneras för frågan:
 
 `Order the second option`
 
-#### <a name="v3-responsetabv3"></a>[V3-svar](#tab/V3)
+#### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
 Följande JSON är med parametern `verbose` som har angetts till `false`:
 
@@ -41,7 +41,7 @@ Följande JSON är med parametern `verbose` som har angetts till `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3 utförlig Response](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
 Följande JSON är med parametern `verbose` som har angetts till `true`:
 
 ```json
@@ -67,7 +67,7 @@ Följande JSON är med parametern `verbose` som har angetts till `true`:
 }
 ```
 
-#### <a name="v2-responsetabv2"></a>[V2-svar](#tab/V2)
+#### <a name="v2-response"></a>[V2-svar](#tab/V2)
 
 I följande exempel visas upplösningen för enheten **Builtin. ordnings tal** .
 
@@ -84,10 +84,10 @@ I följande exempel visas upplösningen för enheten **Builtin. ordnings tal** .
   }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-Lär dig mer om [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), [telefonnummer](luis-reference-prebuilt-phonenumber.md)och [temperatur](luis-reference-prebuilt-temperature.md) enheter. 
+Lär dig mer om [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), [telefonnummer](luis-reference-prebuilt-phonenumber.md)och [temperatur](luis-reference-prebuilt-temperature.md) enheter.

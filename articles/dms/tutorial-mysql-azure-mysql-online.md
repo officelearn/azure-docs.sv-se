@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: e0a2c9f4dd229353ef3d4dc06f7bb965d15814d9
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 50787a5bbfdc9baddfa4307247e8b505be6e3003
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255560"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273245"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Självstudie: Migrera MySQL till Azure Database for MySQL online med DMS
 
@@ -224,6 +224,8 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
     Om mål databasen innehåller samma databas namn som käll databasen Azure Database Migration Service väljer mål databasen som standard.
 
     ![Mappa till måldatabaser](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
+   > [!NOTE] 
+   > Du kan välja flera databaser i det här steget, men varje instans av Azure Database Migration Service stöder upp till fyra databaser för samtidig migrering. Det finns också en gräns på två instanser av Azure Database Migration Service per region i en prenumeration. Om du till exempel har 40 databaser att migrera kan du bara migrera åtta av dem samtidigt, och endast om du har skapat två instanser av Azure Database Migration Service.
 
 3. Välj **Spara**. I rutan **Aktivitetsnamn** på skärmen **Migreringssammanfattning** anger du ett namn för migreringsaktiviteten och granskar sedan sammanfattningen för att se till att informationen för källa och mål matchar det du angav tidigare.
 

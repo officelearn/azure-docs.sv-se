@@ -7,18 +7,17 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: ccafe6f317ff50684922fd4409beb42214c18858
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 0295ed7d44d64fcc1aeb68e1beaa37987b177edb
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161865"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273853"
 ---
-# <a name="nvv4-series-preview"></a>NVv4-serien (för hands version)
+# <a name="nvv4-series"></a>NVv4-serien 
 
 De virtuella datorerna i NVv4-serien drivs av [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPU-processorer och AMD EPYC 7V12 (Rom). Med NVv4-serien Azure introducerar virtuella datorer med delar av GPU: er. Välj den högra virtuella datorn för GPU-accelererade grafik program och virtuella skriv bord som börjar på 1/8 av en GPU med 2 GiB-bildruta-buffert till en fullständig GPU med 16 GiB-bildruteproportioner. Virtuella NVv4-datorer stöder för närvarande endast Windows gäst operativ system.
 
-[Registrera dig och få till gång till de här datorerna under för hands versionen](https://aka.ms/nvv4signup).
 <br>
 
 Premium Storage: stöds
@@ -42,11 +41,7 @@ Minnes bebetjänings uppdateringar: stöds inte
 
 ## <a name="supported-operating-systems-and-drivers"></a>Operativsystem och drivrutiner som stöds
 
-För att kunna dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien som kör Windows, måste NVIDIA-eller AMD GPU-drivrutinerna vara installerade.
-
-[NVidia GPU-drivrutinen](./extensions/hpccompute-gpu-windows.md) installerar lämpliga NVIDIA-CUDA eller rutnäts driv rutiner på en virtuell dator med Windows N-serien. Installera eller hantera tillägget med hjälp av Azure Portal eller verktyg som Azure PowerShell eller Azure Resource Manager mallar. Mer information om vilka operativ system och distributions steg som stöds finns i [dokumentationen för NVIDIA GPU-drivrutins tillägget](./extensions/hpccompute-gpu-windows.md) . Allmän information om VM-tillägg finns i [tillägg och funktioner för virtuella Azure-datorer](/.extensions/overview.md).
-
-Om du väljer att installera NVIDIA GPU-drivrutiner manuellt, se [N-seriens installation av GPU-drivrutiner för Windows](./windows/n-series-driver-setup.md) för operativ system, driv rutiner, installation och verifierings steg som stöds.
+För att kunna dra nytta av GPU-funktionerna i virtuella datorer med Azure NVv4-serien som kör Windows måste du installera AMD GPU-drivrutinerna.
 
 Om du vill installera AMD GPU-drivrutiner manuellt, se [N-seriens installation av AMD GPU-drivrutiner för Windows](./windows/n-series-amd-driver-setup.md) för operativ system, driv rutiner, installation och verifierings steg som stöds.
 

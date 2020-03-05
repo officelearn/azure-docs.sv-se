@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2019
+ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f19744e6c860ae315b681f5eb090cba23b153af
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: b77486064139895799ac5a48327377154f75da6d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008346"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273842"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Rapporten över riskfyllda inloggningar i Azure Active Directory-portalen
 
@@ -52,15 +52,15 @@ Information om hur du tilldelar administrativa roller till en användare i Azure
 
 Alla utgåvor av Azure AD tillhandahåller rapporter om riskfyllda inloggningar. Nivån av rapportens detaljrikedom varierar dock mellan versionerna: 
 
-- I **Azure Active Directory Free-och Basic-versioner**får du en lista över riskfyllda inloggningar. 
+- I **Azure Active Directory frees versionen**får du en lista över riskfyllda inloggningar. 
 
 - Dessutom kan du med **Azure Active Directory Premium 1** -versionen granska några av de underliggande risk identifieringarna som har identifierats för varje rapport. 
 
 - **Azure Active Directory Premium 2** -versionen ger den mest detaljerade informationen om alla underliggande risk identifieringar och du kan också konfigurera säkerhets principer som automatiskt svarar på konfigurerade risk nivåer.
 
-## <a name="risky-sign-ins-report-for-azure-ad-free-and-basic-edition"></a>Rapport över riskfyllda inloggningar för Azure AD kostnads fri och Basic Edition
+## <a name="risky-sign-ins-report-for-azure-ad-free-edition"></a>Rapport över riskfyllda inloggningar för Azure AD kostnads fri utgåva
 
-Azure AD-versionerna kostnads fri och Basic tillhandahåller en lista över riskfyllda inloggningar som har identifierats för dina användare. Varje post innehåller följande attribut:
+Den kostnads fria versionen av Azure AD tillhandahåller en lista över riskfyllda inloggningar som har identifierats för dina användare. Varje post innehåller följande attribut:
 
 - **Användare** – namnet på den användare som användes vid inloggnings åtgärden.
 - **IP** – IP-adressen för enheten som användes för att ansluta till Azure Active Directory.

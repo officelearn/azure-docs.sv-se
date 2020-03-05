@@ -4,12 +4,12 @@ description: Lär dig hur du skapar en funktion från kommando raden och sedan p
 ms.date: 01/28/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c8648a0bdfaeeb8a89ea24b0f49610e5bf5c0491
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2a02e1481d975f877508bde02948bc65561b9f13
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190892"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272749"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Snabb start: skapa en funktion i Azure som svarar på HTTP-begäranden
 
@@ -364,7 +364,7 @@ Kör [`curl`](https://curl.haxx.se/) med **ANROPs-URL: en**och Lägg till parame
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du fortsätter till nästa steg lägger du [till en Azure Storage utgående bindning för kö](functions-add-output-binding-storage-queue-python.md), behåller alla resurser på samma sätt som du skapar på det du redan har gjort.
+Om du fortsätter till nästa steg lägger du [till en Azure Storage utgående bindning för kö](functions-add-output-binding-storage-queue-cli.md), behåller alla resurser på samma sätt som du skapar på det du redan har gjort.
 
 Annars kan du använda följande kommando för att ta bort resurs gruppen och alla resurser som finns i den för att undvika ytterligare kostnader.
 

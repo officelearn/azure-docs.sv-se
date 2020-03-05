@@ -1,18 +1,18 @@
 ---
 title: Översikt över företags säkerhet i Azure HDInsight
 description: Lär dig olika metoder för att säkerställa företags säkerhet i Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: overview
-ms.date: 09/23/2019
-ms.openlocfilehash: 0e7b2db188ef6ee7d6b80ba5da4010112008ad70
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 03/03/2020
+ms.openlocfilehash: 95bfe7d7788133d8548598cb30c8084bf64a977f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122110"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267707"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Översikt över företags säkerhet i Azure HDInsight
 
@@ -36,13 +36,13 @@ Alla kluster som distribueras i ett VNET har också en privat slut punkt som mat
 
 [Enterprise Security Package](apache-domain-joined-architecture.md) från HDInsight tillhandahåller Active Directory-baserad autentisering, stöd för flera användare och rollbaserad åtkomst kontroll. Active Directory-integreringen uppnås genom användning av [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Med dessa funktioner kan du skapa ett HDInsight-kluster som är anslutet till en hanterad Active Directory-domän. Sedan kan du konfigurera en lista över anställda från företaget som kan autentisera och logga in i klustret.
 
-Med den här inställningen kan företags anställda logga in på klusternoderna genom att använda sina domänautentiseringsuppgifter. De kan också använda sina domänautentiseringsuppgifter för att autentisera med andra godkända slut punkter som Apache Ambari views, ODBC, JDBC, PowerShell och REST-API: er för att samverka med klustret. 
+Med den här inställningen kan företags anställda logga in på klusternoderna genom att använda sina domänautentiseringsuppgifter. De kan också använda sina domänautentiseringsuppgifter för att autentisera med andra godkända slut punkter som Apache Ambari views, ODBC, JDBC, PowerShell och REST-API: er för att samverka med klustret.
 
 ### <a name="authorization"></a>Auktorisering
 
 En bästa praxis som de flesta företag följer är att se till att inte alla anställda har till gång till alla företags resurser. På samma sätt kan administratören definiera rollbaserade principer för åtkomst kontroll för kluster resurserna. Detta är endast tillgängligt i ESP-klustren.
 
-Hadoop-administratören kan konfigurera rollbaserad åtkomst kontroll (RBAC) för att skydda Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) och [Kafka](apache-domain-joined-run-kafka.md) med hjälp av dessa plugin-program i Apache Ranger. Genom att konfigurera RBAC-principer kan du associera behörigheter med en roll i organisationen. Detta skikt gör det lättare att se till att människor bara har de behörigheter som krävs för att utföra sina uppgifter. Med Ranger kan du också granska data åtkomsten för anställda och eventuella ändringar som gjorts i principer för åtkomst kontroll.
+Hadoop-administratören kan konfigurera rollbaserad åtkomst kontroll (RBAC) för att skydda Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md)och [Kafka](apache-domain-joined-run-kafka.md) med hjälp av dessa plugin-program i Apache Ranger. Genom att konfigurera RBAC-principer kan du associera behörigheter med en roll i organisationen. Detta skikt gör det lättare att se till att människor bara har de behörigheter som krävs för att utföra sina uppgifter. Med Ranger kan du också granska data åtkomsten för anställda och eventuella ändringar som gjorts i principer för åtkomst kontroll.
 
 Administratören kan till exempel konfigurera [Apache Ranger](https://ranger.apache.org/) för att ange åtkomstkontrollprinciper för Hive. Den här funktionen garanterar filtrering på radnivå och på kolumn nivå (data maskning) och filtrerar känsliga data från obehöriga användare.
 
@@ -50,9 +50,9 @@ Administratören kan till exempel konfigurera [Apache Ranger](https://ranger.apa
 
 Granskning av all åtkomst till kluster resurserna och data är nödvändig för att spåra obehörig eller oavsiktlig åtkomst till resurserna. Det är lika viktigt som att skydda HDInsight-klustrets resurser från obehöriga användare och skydda data.
 
-Administratören kan visa och rapportera all åtkomst till HDInsight-kluster resurser och data. Administratören kan också visa och rapportera alla ändringar i åtkomst kontroll principerna som har skapats i Apache Ranger-stödda slut punkter. 
+Administratören kan visa och rapportera all åtkomst till HDInsight-kluster resurser och data. Administratören kan också visa och rapportera alla ändringar i åtkomst kontroll principerna som har skapats i Apache Ranger-stödda slut punkter.
 
-För att komma åt Apache Ranger och Ambari gransknings loggar samt SSH-åtkomst loggar [aktiverar Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) och visar de tabeller som innehåller gransknings poster.
+För att komma åt Apache Ranger och Ambari gransknings loggar och SSH-åtkomst loggar [aktiverar Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) och visar de tabeller som innehåller gransknings poster.
 
 ### <a name="encryption"></a>Kryptering
 
@@ -62,7 +62,7 @@ Både data lager för HDInsight-kluster, Azure Blob Storage och Azure Data Lake 
 
 ### <a name="compliance"></a>Efterlevnad
 
-Azure Compliance-erbjudanden baseras på olika typer av garantier, inklusive formella certifieringar, attesteringar, godkännanden och bedömningar som produceras av oberoende gransknings företag från tredje part, samt avtals ändringar. själv bedömningar och kund väglednings dokument som skapats av Microsoft. Information om efterlevnad av HDInsight finns i [Microsoft Trust Center](https://www.microsoft.com/trust-center) och [Översikt över Microsoft Azure efterlevnad](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
+Azure Compliance-erbjudanden baseras på olika typer av garantier, inklusive formella certifieringar, attesteringar, godkännanden och bedömningar som produceras av oberoende gransknings företag från tredje part, avtals ändringar, själv bedömningar och kund väglednings dokument som skapats av Microsoft. Information om efterlevnad av HDInsight finns i [Microsoft Trust Center](https://www.microsoft.com/trust-center) och [Översikt över Microsoft Azure efterlevnad](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
 
 ## <a name="shared-responsibility-model"></a>Delad ansvars modell
 
@@ -88,8 +88,8 @@ Följande tabell innehåller länkar till resurser för varje typ av säkerhets 
 | Nätverkssäkerhet | Konfigurera ett [virtuellt nätverk](../hdinsight-plan-virtual-network-deployment.md) |
 |  | Konfigurera [regler för inkommande nätverks säkerhets grupp (NSG)](../hdinsight-plan-virtual-network-deployment.md#networktraffic) | Kund |
 |  | Konfigurera [begränsning av utgående trafik](../hdinsight-restrict-outbound-traffic.md) med brand vägg | Kund |
-| Virtualiserad infrastruktur | Saknas | HDInsight (Cloud Provider) |
-| Säkerhet för fysisk infrastruktur | Saknas | HDInsight (Cloud Provider) |
+| Virtualiserad infrastruktur | Ej tillämpligt | HDInsight (Cloud Provider) |
+| Säkerhet för fysisk infrastruktur | Ej tillämpligt | HDInsight (Cloud Provider) |
 
 ## <a name="next-steps"></a>Nästa steg
 

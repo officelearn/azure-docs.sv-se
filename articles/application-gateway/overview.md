@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/23/2019
+ms.date: 03/03/2020
 ms.author: victorh
-ms.openlocfilehash: 1e80fa23519104c3c62f6a0bf5d65cbbe0848ae2
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: f3621feb688b3b257cd4f685a9be306d75700f4a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443830"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273616"
 ---
 # <a name="what-is-azure-application-gateway"></a>Vad är Azure Application Gateway?
 
@@ -40,15 +40,15 @@ Application Gateway stöder SSL/TLS-avslutning på gatewayen, efter vilken trafi
 
 ## <a name="autoscaling"></a>Automatisk skalning
 
-Application Gateway-eller WAF-distributioner under Standard_v2 eller WAF_v2 SKU: n stöder automatisk skalning och kan skalas upp eller ned baserat på ändrade trafik belastnings mönster. Automatisk skalning tar även bort behovet av att välja distributionsstorlek eller instansantal under etablering. Mer information om Application Gateway Standard_v2-och WAF_v2-funktioner finns i [autoskalning v2 SKU](application-gateway-autoscaling-zone-redundant.md).
+Application Gateway Standard_v2 stöder automatisk skalning och kan skalas upp eller ned baserat på ändrade trafik inläsnings mönster. Automatisk skalning tar även bort behovet av att välja distributionsstorlek eller instansantal under etablering. Mer information om Application Gateway Standard_v2 funktioner finns i avsnittet [autoskalning v2 SKU](application-gateway-autoscaling-zone-redundant.md).
 
 ## <a name="zone-redundancy"></a>Zon redundans
 
-En Application Gateway-eller WAF-distribution under Standard_v2 eller WAF_v2 SKU kan sträcka sig över flera Tillgänglighetszoner, erbjuda bättre fel återhämtning och ta bort behovet av att etablera separata programgatewayer i varje zon.
+En Application Gateway Standard_v2 kan omfatta flera Tillgänglighetszoner, vilket ger bättre fel återhämtning och tar bort behovet av att etablera separata programgatewayer i varje zon.
 
 ## <a name="static-vip"></a>Statisk VIP
 
-Programgatewayens VIP på Standard_v2 eller WAF_v2 SKU stöder enbart statisk VIP-typ. Detta säkerställer att den VIP som är associerad med Application Gateway inte ändras ens under Application Gatewayens livstid.
+Application Gateway Standard_v2 SKU stöder enbart statisk VIP-typ. Detta säkerställer att den VIP som är associerad med Application Gateway inte ändras ens under Application Gatewayens livstid.
 
 ## <a name="web-application-firewall"></a>Brandvägg för webbaserade program
 
@@ -75,7 +75,7 @@ Mer information finns i [URL-baserad routning med Application Gateway](https://d
 
 ## <a name="multiple-site-hosting"></a>Värd för flera platser
 
-Om du har flera webbplatser så kan du konfigurera fler än en webbplats inom samma programgateway-instans. Med den här funktionen kan du konfigurera en effektivare topologi för dina distributioner genom att lägga till upp till 100 webbplatser till en Application Gateway eller 40 för WAF (för optimala prestanda). Varje webbplats kan dirigeras till en egen programpool. Till exempel kan programgatewayen hantera trafik för `contoso.com` och `fabrikam.com` från två serverpooler som kallas ContosoServerPool och FabrikamServerPool.
+Om du har flera webbplatser så kan du konfigurera fler än en webbplats inom samma programgateway-instans. Med den här funktionen kan du konfigurera en effektivare topologi för dina distributioner genom att lägga till upp till 100 webbplatser till en Application Gateway (för optimala prestanda). Varje webbplats kan dirigeras till en egen programpool. Till exempel kan programgatewayen hantera trafik för `contoso.com` och `fabrikam.com` från två serverpooler som kallas ContosoServerPool och FabrikamServerPool.
 
 Begäranden om `http://contoso.com` dirigeras till ContosoServerPool och `http://fabrikam.com` dirigeras till FabrikamServerPool.
 
@@ -135,9 +135,9 @@ Mer information finns i [skriva om HTTP-huvuden](rewrite-http-headers.md).
 
 ## <a name="sizing"></a>Storlekar
 
-Application Gateway Standard_v2 och WAF_v2 SKU kan konfigureras för automatisk skalning eller distributioner med fast storlek. Dessa SKU: er erbjuder inte olika instans storlekar. Mer information om v2-prestanda och priser finns i [autoskalning v2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing).
+Application Gateway Standard_v2 kan konfigureras för automatisk skalning eller distributioner med fast storlek. Den här SKU: n erbjuder inte olika instans storlekar. Mer information om v2-prestanda och priser finns i [autoskalning v2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing).
 
-Application Gateway standard-och WAF SKU finns för närvarande i tre storlekar: **liten**, **medel**och **stor**. Smål instansstorlekar är avsedda för utvecklings- och testningsscenarier.
+Application Gateway standard erbjuds i tre storlekar: **liten**, **medel**och **stor**. Smål instansstorlekar är avsedda för utvecklings- och testningsscenarier.
 
 En fullständig lista över gränserna för programgateways finns i avsnittet om [gränser för Application Gateway-tjänsten](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 

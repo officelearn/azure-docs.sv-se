@@ -5,12 +5,12 @@ author: zr-msft
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: zarhoads
-ms.openlocfilehash: 8d727256afbe152a4f7022d0fd2454c4677b023c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 2eddedea7d626a92e21442c81aa49e00491958a1
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595611"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273024"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrera med Azure-hanterade tjänster med Open Service Broker for Azure (OSBA)
 
@@ -29,39 +29,43 @@ Tillsammans med [Kubernetes-tjänstkatalogen][kubernetes-service-catalog] gör O
 
 ## <a name="install-service-catalog"></a>Installera tjänstkatalogen
 
-Det första steget är att installera tjänstkatalogen i ditt Kubernetes-kluster med ett Helm-diagram. Uppgradera din Tiller-installation (Helm-server) i klustret med:
+Det första steget är att installera tjänstkatalogen i ditt Kubernetes-kluster med ett Helm-diagram.
 
-```azurecli-interactive
+Gå till [https://shell.azure.com](https://shell.azure.com) för att öppna Cloud Shell i webbläsaren.
+
+Uppgradera din Tiller-installation (Helm-server) i klustret med:
+
+```console
 helm init --upgrade
 ```
 
 Lägg nu till tjänstkatalogdiagrammet till Helm-lagringsplatsen:
 
-```azurecli-interactive
+```console
 helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 ```
 
 Slutligen installerar du tjänstkatalogen med Helm-diagrammet. Om klustret är RBAC-aktiverat kör du det här kommandot:
 
-```azurecli-interactive
+```console
 helm install svc-cat/catalog --name catalog --namespace catalog --set apiserver.storage.etcd.persistence.enabled=true --set apiserver.healthcheck.enabled=false --set controllerManager.healthcheck.enabled=false --set apiserver.verbosity=2 --set controllerManager.verbosity=2
 ```
 
 Om klustret inte är RBAC-aktiverat kör du det här kommandot:
 
-```azurecli-interactive
+```console
 helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set apiserver.storage.etcd.persistence.enabled=true --set apiserver.healthcheck.enabled=false --set controllerManager.healthcheck.enabled=false --set apiserver.verbosity=2 --set controllerManager.verbosity=2
 ```
 
 När Helm-diagrammet har körts verifierar du att `servicecatalog` visas i utdata från följande kommando:
 
-```azurecli-interactive
+```console
 kubectl get apiservice
 ```
 
 Du kan exempelvis se utdata som liknar följande (trunkerat här):
 
-```
+```output
 NAME                                 AGE
 v1.                                  10m
 v1.authentication.k8s.io             10m
@@ -76,7 +80,7 @@ Nästa steg är att installera [Open Service Broker for Azure][open-service-brok
 
 Börja med att lägga till Open Service Broker for Azure Helm-lagringsplatsen:
 
-```azurecli-interactive
+```console
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
@@ -88,7 +92,7 @@ az ad sp create-for-rbac
 
 Resultatet bör likna följande. Anteckna värdena `appId`, `password` och `tenant`, som du ser i nästa steg.
 
-```JSON
+```json
 {
   "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
   "displayName": "azure-cli-2017-10-15-02-20-15",
@@ -100,7 +104,7 @@ Resultatet bör likna följande. Anteckna värdena `appId`, `password` och `tena
 
 Ange följande miljövariabler med föregående värden:
 
-```azurecli-interactive
+```console
 AZURE_CLIENT_ID=<appId>
 AZURE_CLIENT_SECRET=<password>
 AZURE_TENANT_ID=<tenant>
@@ -114,7 +118,7 @@ az account show --query id --output tsv
 
 Ange följande miljövariabler med föregående värde igen:
 
-```azurecli-interactive
+```console
 AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
 ```
 
@@ -132,20 +136,20 @@ När OSBA-distributionen är klar installerar du [CLI för tjänstkatalogen][ser
 
 Kör följande kommandon för att installera CLI-binary för tjänstkatalog:
 
-```azurecli-interactive
+```console
 curl -sLO https://servicecatalogcli.blob.core.windows.net/cli/latest/$(uname -s)/$(uname -m)/svcat
 chmod +x ./svcat
 ```
 
 Ange nu installerade service brokers:
 
-```azurecli-interactive
+```console
 ./svcat get brokers
 ```
 
 Du bör se utdata som liknar följande:
 
-```
+```output
   NAME                               URL                                STATUS
 +------+--------------------------------------------------------------+--------+
   osba   http://osba-open-service-broker-azure.osba.svc.cluster.local   Ready
@@ -153,13 +157,13 @@ Du bör se utdata som liknar följande:
 
 Ange nu de tillgängliga tjänstklasserna. Tjänstklasserna som visas är de tillgängliga Azure-hanterade tjänster som kan etableras via Open Service Broker for Azure.
 
-```azurecli-interactive
+```console
 ./svcat get classes
 ```
 
 Slutligen listar du alla tillgängliga serviceplaner. Serviceplaner är tjänstnivåer för Azure-hanterade tjänster. Till exempel sträcker sig planerna för Azure Database for MySQL från `basic50` för Basic-nivån med 50 Database Transaction Units (DTU:er) till `standard800` för Standard-nivån med 800 DTU:er.
 
-```azurecli-interactive
+```console
 ./svcat get plans
 ```
 
@@ -167,20 +171,20 @@ Slutligen listar du alla tillgängliga serviceplaner. Serviceplaner är tjänstn
 
 I det här steget använder du Helm för att installera ett uppdaterat Helm-diagram för WordPress. Diagrammet etablerar en extern Azure Database for MySQL-instans som WordPress kan använda. Den här processen kan ta ett par minuter.
 
-```azurecli-interactive
+```console
 helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0 --set replicaCount=1
 ```
 
 För att verifiera att installationen har etablerat rätt resurser ska du ange en lista över de installerade tjänstinstanserna och bindningarna:
 
-```azurecli-interactive
+```console
 ./svcat get instances -n wordpress
 ./svcat get bindings -n wordpress
 ```
 
 Ange installerade hemligheter:
 
-```azurecli-interactive
+```console
 kubectl get secrets -n wordpress -o yaml
 ```
 

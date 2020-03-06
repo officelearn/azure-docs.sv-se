@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
 ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464115"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364979"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisera ditt kluster med Service Fabric Explorer
 
@@ -39,7 +39,7 @@ Använd följande länkar för att ladda ned Service Fabric Explorer som ett Skr
 
 Service Fabric Explorer finns också i ett Service Fabric klustrets HTTP Management-slutpunkt. För att starta SFX i en webbläsare, bläddra till klustrets HTTP-hanterings slut punkt från valfri webbläsare – till exempel https:\//clusterFQDN: 19080.
 
-Du kan starta Service Fabric Explorer på ditt lokala kluster genom att gå till https://localhost:19080/Explorer för installation av arbets station för utvecklare. Titta på den här artikeln för att [förbereda din utvecklings miljö](service-fabric-get-started.md).
+Du kan starta Service Fabric Explorer på ditt lokala kluster genom att gå till https://localhost:19080/Explorerför installation av arbets station för utvecklare. Titta på den här artikeln för att [förbereda din utvecklings miljö](service-fabric-get-started.md).
 
 > [!NOTE]
 > Om klustret skyddas av ett självsignerat certifikat visas ett fel meddelande från webbläsaren "den här webbplatsen är inte säker". Du kan helt enkelt gå igenom de flesta moderna webbläsare genom att åsidosätta varningen. I en produktions miljö bör klustret skyddas med ett eget namn och ett certifikat som utfärdats av en certifikat utfärdare. 
@@ -49,7 +49,7 @@ Du kan starta Service Fabric Explorer på ditt lokala kluster genom att gå till
 ## <a name="connect-to-a-service-fabric-cluster"></a>Ansluta till ett Service Fabric-kluster
 Om du vill ansluta till ett Service Fabric-kluster måste du ha slut punkten för kluster hantering (FQDN/IP) och HTTP-hanteringens slut punkts port (19080 som standard). Till exempel https\://mysfcluster.westus.cloudapp.azure.com:19080. Använd kryss rutan Anslut till localhost för att ansluta till ett lokalt kluster på din arbets Station.
 
-### <a name="connect-to-a-secure-cluster"></a>Anslut till ett säkert kluster
+### <a name="connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster
 Du kan styra klient åtkomsten till ditt Service Fabric-kluster antingen med certifikat eller med Azure Active Directory (AAD).
 
 Om du försöker ansluta till ett säkert kluster måste du, beroende på klustrets konfiguration, Visa ett klient certifikat eller logga in med AAD.

@@ -1,14 +1,14 @@
 ---
 title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
-ms.date: 02/14/2020
+ms.date: 03/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: cb484ea936bbb64b3ca3d7fcf648de0d0ef73c66
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
-ms.translationtype: HT
+ms.openlocfilehash: 42368bcbc9f15f9ff5ef957b4c88f15bf070f25b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78328688"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402080"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -37,7 +37,14 @@ Med Azure-delegerad resurs hantering kan behöriga användare logga in på tjän
 
 Du kan utföra hanterings uppgifter för delegerade resurser antingen direkt i portalen eller med hjälp av API: er och hanterings verktyg (till exempel Azure CLI och Azure PowerShell). Alla befintliga API: er kan användas när du arbetar med delegerade resurser, så länge som funktionerna stöds för hantering av flera innehavare och användaren har rätt behörigheter.
 
-Vi tillhandahåller också API: er för att utföra Azure delegerade resurs hanterings uppgifter. Mer information finns i avsnittet **referens** .
+[Cmdleten Azure PowerShell get-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) visar **tenantID** för varje prenumeration, så att du kan identifiera om en returnerad prenumeration hör till din tjänst leverantörs klient eller till en hanterad kund klient.
+
+På samma sätt visar Azure CLI-kommandon som [AZ-konto lista](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) **HomeTenantId** -och **managedByTenants** -attribut.
+
+> [!TIP]
+> Om du inte ser dessa värden när du använder Azure CLI kan du försöka rensa cacheminnet genom att köra `az account clear` följt av `az login --identity`.
+
+Vi tillhandahåller också API: er som är speciella för att utföra Azure-delegerade resurs hanterings uppgifter. Mer information finns i avsnittet **referens** .
 
 ## <a name="enhanced-services-and-scenarios"></a>Förbättrade tjänster och scenarier
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2020
 ms.author: iainfou
-ms.openlocfilehash: d15877107e49c57f8f33b8ec41caeb7d48230b91
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 05705d14db336b15a6ddf2317f9e69464c8e575b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613878"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378537"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Självstudie: ansluta en virtuell Windows Server-dator till en hanterad domän
 
@@ -39,7 +39,7 @@ För att slutföra den här självstudien behöver du följande resurser:
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
     * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
-* Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
+* Ett användar konto som är en del av den hanterade Azure AD DS-domänen.
     * Kontrol lera att Azure AD Connect hash-synkronisering av lösen ord eller lösen ords återställning via självbetjäning har utförts så att kontot kan logga in på Azure AD DS-hanterad domän.
 * En Azure skydds-värd som har distribuerats i Azure AD DS Virtual Network.
     * Om det behövs [skapar du en Azure skydds-värd][azure-bastion].
@@ -70,7 +70,7 @@ Om du redan har en virtuell dator som du vill ansluta till, kan du gå vidare ti
     | Namn på virtuell dator | Ange ett namn för den virtuella datorn, till exempel *myVM* |
     | Region               | Välj region för att skapa din virtuella dator i, t. ex. *USA, östra* |
     | Användarnamn             | Ange ett användar namn för det lokala administratörs kontot som ska skapas på den virtuella datorn, till exempel *azureuser* |
-    | Lösenord             | Ange och bekräfta sedan ett säkert lösen ord för den lokala administratören som ska skapas på den virtuella datorn. Ange inte autentiseringsuppgifter för ett domän användar konto. |
+    | lösenord             | Ange och bekräfta sedan ett säkert lösen ord för den lokala administratören som ska skapas på den virtuella datorn. Ange inte autentiseringsuppgifter för ett domän användar konto. |
 
 1. Som standard är virtuella datorer som skapats i Azure tillgängliga från Internet via RDP. När RDP är aktiverat, kommer automatiska inloggnings attacker att uppstå, vilket kan inaktivera konton med vanliga namn som *administratör* eller *administratör* på grund av flera misslyckade inloggnings försök.
 
@@ -153,7 +153,7 @@ När den virtuella datorn har skapats och en webbaserad RDP-anslutning har etabl
 
     ![Ange den Azure AD DS-hanterade domänen som ska anslutas](./media/join-windows-vm/join-domain.png)
 
-1. Ange domänautentiseringsuppgifter för att ansluta till domänen. Använd autentiseringsuppgifterna för en användare som tillhör gruppen *Azure AD DC-administratörer* . Endast medlemmar i den här gruppen har behörighet att ansluta datorer till den hanterade Azure AD DS-domänen. Kontot måste ingå i den Azure AD DS-hanterade domänen eller Azure AD-klient-konton från externa kataloger som är associerade med din Azure AD-klient kan inte autentiseras korrekt under processen för domän anslutning. Kontoautentiseringsuppgifter kan anges på något av följande sätt:
+1. Ange domänautentiseringsuppgifter för att ansluta till domänen. Använd autentiseringsuppgifterna för en användare som är en del av den hanterade domänen i Azure AD DS. Kontot måste ingå i den Azure AD DS-hanterade domänen eller Azure AD-klient-konton från externa kataloger som är associerade med din Azure AD-klient kan inte autentiseras korrekt under processen för domän anslutning. Kontoautentiseringsuppgifter kan anges på något av följande sätt:
 
     * **UPN-format** (rekommenderas) – ange suffixet User Principal Name (UPN) för användar kontot, enligt konfigurationen i Azure AD. UPN-suffixet för användar- *contosoadmin* skulle till exempel vara `contosoadmin@aaddscontoso.onmicrosoft.com`. Det finns ett par vanliga användnings fall där UPN-formatet kan användas på ett tillförlitligt sätt för att logga in på domänen snarare än *sAMAccountName* -formatet:
         * Om en användares UPN-prefix är långt, till exempel *deehasareallylongname*, kan *sAMAccountName* skapas automatiskt.
@@ -169,7 +169,7 @@ När den virtuella datorn har skapats och en webbaserad RDP-anslutning har etabl
 1. Om du vill slutföra processen för att ansluta till den hanterade Azure AD DS-domänen startar du om den virtuella datorn.
 
 > [!TIP]
-> Du kan domän ansluta till en virtuell dator med hjälp av PowerShell med cmdleten [Add-Computer][add-computer] . Följande exempel ansluter till *AADDSCONTOSO* -domänen och startar sedan om den virtuella datorn. När du uppmanas till det anger du autentiseringsuppgifterna för en användare som tillhör gruppen *Azure AD DC-administratörer* :
+> Du kan domän ansluta till en virtuell dator med hjälp av PowerShell med cmdleten [Add-Computer][add-computer] . Följande exempel ansluter till *AADDSCONTOSO* -domänen och startar sedan om den virtuella datorn. När du uppmanas till det anger du autentiseringsuppgifterna för en användare som är en del av den hanterade Azure AD DS-domänen:
 >
 > `Add-Computer -DomainName AADDSCONTOSO -Restart`
 >
@@ -218,7 +218,7 @@ Om du får en uppmaning om att ange autentiseringsuppgifter för att ansluta til
 
 Försök att ansluta den virtuella Windows Server-datorn till den hanterade domänen igen efter att ha försökt med de här fel söknings stegen.
 
-* Kontrol lera att det användar konto som du anger tillhör gruppen *AAD DC-administratörer* .
+* Kontrol lera att det användar konto som du anger tillhör den hanterade domänen i Azure AD DS.
 * Bekräfta att kontot ingår i den hanterade domänen för Azure AD DS eller Azure AD-klienten. Konton från externa kataloger som är associerade med din Azure AD-klient kan inte autentiseras korrekt under processen för domän anslutning.
 * Försök att använda UPN-formatet för att ange autentiseringsuppgifter, till exempel `contosoadmin@aaddscontoso.onmicrosoft.com`. Om det finns många användare med samma UPN-prefix i din klient organisation eller om ditt UPN-prefix är för långt, kan *sAMAccountName* för ditt konto skapas automatiskt. I dessa fall kan *sAMAccountName* -formatet för ditt konto skilja sig från vad du förväntar dig eller använder i din lokala domän.
 * Kontrol lera att du har [aktiverat][password-sync] Lösenordssynkronisering till din hanterade domän. Utan det här konfigurations steget finns de nödvändiga lösen ords-hasharna inte i den hanterade Azure AD DS-domänen för att korrekt autentisera ditt inloggnings försök.

@@ -494,6 +494,13 @@
           href: speech-devices-sdk.md
         - name: Hämta Speech Devices SDK
           href: get-speech-devices-sdk.md
+        - name: Viktig information
+          href: devices-sdk-release-notes.md
+        - name: Roobo v1-information
+          href: speech-devices-sdk-roobo-v1.md
+        - name: Information om Roobo v2
+          href: speech-devices-sdk-roobo-v2.md
+        - name: Mikrofonspecifikation
     - name: Maskinvara
       items:
         - name: Mikrofonmatrisrekommendationer

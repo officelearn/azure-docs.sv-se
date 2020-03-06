@@ -121,6 +121,7 @@
         - name: Dynamiska manifest
           href: filters-dynamic-manifest-overview.md
         - name: Filter
+          displayName: "manifest, dynamic manifest, filter, hls, dash, m3u8, mpd,\tcontent delivery"
           href: filters-concept.md
         - name: Slutpunkter för direktuppspelning
           displayName: 'origin, packager, cdn'
@@ -307,6 +308,8 @@
       items:
         - name: Publicera en tillgång – CLI
           href: cli-publish-asset.md
+        - name: 'Skapa en positionerare för direktuppspelning och skapa URL:er'
+          href: create-streaming-locator-build-url.md
         - name: Hämta resultat
           href: download-results-howto.md
         - name: Signalera beskrivande ljud

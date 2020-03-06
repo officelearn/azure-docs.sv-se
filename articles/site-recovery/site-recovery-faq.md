@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
 ms.openlocfilehash: a9d0ae4a6e60a72bbb1148aca1a75c44506b2e9e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760359"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363229"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Allmänna frågor om Azure Site Recovery
 
@@ -28,7 +28,7 @@ Site Recovery bidrar till din strategi för affärs kontinuitet och haveri bered
 
 Nej, det här är ett scenario som inte stöds.
 
-## <a name="service-providers"></a>Tjänstleverantörer
+## <a name="service-providers"></a>Tjänst leverantörer
 
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>Jag är en tjänste leverantör. Fungerar Site Recovery för dedikerade och delade infrastruktur modeller?
 Ja, Site Recovery stöder både dedikerade och delade infrastrukturmodeller.
@@ -56,7 +56,7 @@ Vi har stöd för Azure-paket, moln plattforms system och System Center-baserade
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>Finns det stöd för distributioner med ett enda Azure Pack och en enda VMM-server?
 Ja, du kan replikera virtuella Hyper-V-datorer till Azure, eller mellan Service Provider-platser.  Observera att Azure Runbook-integrering inte är tillgängligt om du replikerar mellan platser för tjänst leverantörer.
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 ### <a name="where-can-i-find-pricing-information"></a>Var kan jag hitta pris information?
 Granska [Site Recovery pris](https://azure.microsoft.com/pricing/details/site-recovery/) information.
@@ -73,13 +73,13 @@ Om du vill ha en detaljerad uppskattning av kostnader kör du verktyget Deployme
 
 Nej, det finns inga ytterligare avgifter för cachelagring. När du replikerar till ett standard lagrings konto är denna cache del av samma mål lagrings konto.
 
-### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>Jag har använt Azure Site Recovery i över en månad. Får jag ändå de första 31 dagarna kostnadsfritt för varje skyddad instans?
+### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>Jag har varit Azure Site Recovery användare under en månad. Får jag fortfarande de första 31 dagarna kostnads fritt för varje skyddad instans?
 
-Ja. Varje skyddad instans är fri från Azure Site Recovery-avgifter under de första 31 dagarna. Om du till exempel har skyddat 10 instanser under de senaste 6 månaderna och ansluter en 11: e instans till Azure Site Recovery, finns det inga avgifter för den 11: e instansen under de första 31 dagarna. De första 10 instanserna fortsätter att ådra sig Azure Site Recovery avgifter eftersom de har skyddats i mer än 31 dagar.
+Ja. Alla skyddade instanser debiteras inga Azure Site Recovery avgifter under de första 31 dagarna. Om du till exempel har skyddat 10 instanser under de senaste 6 månaderna och ansluter en 11: e instans till Azure Site Recovery, finns det inga avgifter för den 11: e instansen under de första 31 dagarna. De första 10 instanserna fortsätter att ådra sig Azure Site Recovery avgifter eftersom de har skyddats i mer än 31 dagar.
 
-### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Förekommer det några andra avgifter för Azure under de första 31 dagarna?
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Under de första 31 dagarna kommer jag att debiteras andra Azure-avgifter?
 
-Ja, även om Site Recovery är kostnads fritt under de första 31 dagarna i en skyddad instans kan du debiteras för Azure Storage, lagrings transaktioner och data överföring. En återställd virtuell dator kan också debiteras för Azure-beräkningsavgifter.
+Ja, även om Site Recovery är kostnads fritt under de första 31 dagarna i en skyddad instans kan du debiteras för Azure Storage, lagrings transaktioner och data överföring. En återställd virtuell dator kan också ådra sig Azure Compute-avgifter.
 
 
 ### <a name="is-there-a-cost-associated-to-perform-disaster-recovery-drillstest-failover"></a>Är det en kostnad som är kopplad till att utföra haveri beredskap/redundanstest?
@@ -192,7 +192,7 @@ Ja. Du kan läsa mer om hur du begränsar bandbredden i de här artiklarna:
 
 
 
-## <a name="failover"></a>växling vid fel
+## <a name="failover"></a>Redundans
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Hur får jag åtkomst till virtuella Azure-datorer efter redundansväxlingen om jag växlar över till Azure?
 
 Du kan komma åt virtuella Azure-datorer via en säker Internetanslutning, via ett plats-till-plats-VPN eller över Azure ExpressRoute. Du måste förbereda ett antal saker för att kunna ansluta. [Läs mer](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).

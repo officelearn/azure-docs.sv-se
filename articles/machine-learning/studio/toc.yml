@@ -8,19 +8,19 @@
       href: what-is-ml-studio.md
     - name: Jämför våra ML-produkter
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
-- name: Självstudier
+- name: Snabbstarter
   items:
     - name: Skapa ditt första experiment
       displayName: quickstart
       href: create-experiment.md
-    - name: Skapa en förebyggande lösning
-      items:
-        - name: 1 – Skapa experiment
-          href: tutorial-part1-credit-risk.md
-        - name: 2 – Träna och utvärdera
-          href: tutorial-part2-credit-risk-train.md
-        - name: 3 – Distribuera webbtjänst
-          href: tutorial-part3-credit-risk-deploy.md
+- name: Självstudier
+  items:
+    - name: '1: Skapa förutsägande experiment'
+      href: tutorial-part1-credit-risk.md
+    - name: '2: Träna och utvärdera lösning'
+      href: tutorial-part2-credit-risk-train.md
+    - name: '3: Distribuera webbtjänst'
+      href: tutorial-part3-credit-risk-deploy.md
 - name: Exempel
   items:
     - name: Tillgängliga datauppsättningar
@@ -44,7 +44,7 @@
     - name: Modellhantering
       displayName: 'deploy, consume, web service'
       href: deploy-consume-web-service-guide.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Hantera en arbetsyta
       items:

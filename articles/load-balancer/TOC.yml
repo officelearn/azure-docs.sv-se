@@ -12,7 +12,8 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Skapa lastbalanserare – PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Skapa lastbalanserare – mall
+    - name: Skapa lastbalanserare – ARM-mall
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
   expanded: true
 - name: Självstudier

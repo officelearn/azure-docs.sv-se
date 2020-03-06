@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 06/05/2019
 ms.openlocfilehash: 4740034bd970f42833125fa43bfdf72f710ac147
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670278"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357136"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Utföra kors resurs logg frågor i Azure Monitor  
 
@@ -52,7 +52,7 @@ Att identifiera en arbets yta kan utföras på flera sätt:
 
 * Azure-resurs-ID – den Azure-definierade unika identiteten för arbets ytan. Du använder resurs-ID: t när resurs namnet är tvetydigt.  För arbets ytor är formatet: */Subscriptions/subscriptionId/ResourceGroups/resourceGroup/providers/Microsoft. OperationalInsights/arbets ytor/componentName*.  
 
-    Några exempel:
+    Exempel:
     ``` 
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
@@ -83,7 +83,7 @@ Att identifiera ett program i Application Insights kan utföras med ett *app-utt
 
 * Azure-resurs-ID – den Azure-definierade unika identiteten för appen. Du använder resurs-ID: t när resurs namnet är tvetydigt. Formatet är: */Subscriptions/subscriptionId/ResourceGroups/resourceGroup/providers/Microsoft. OperationalInsights/Components/componentName*.  
 
-    Några exempel:
+    Exempel:
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```

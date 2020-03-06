@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
 ms.openlocfilehash: 73781418321c3932bf3e0190b646dcd3bb178195
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888064"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365045"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Behållar grupper i Azure Container Instances
 
@@ -72,7 +72,7 @@ I en behållar grupp kan behållar instanser komma åt varandra via localhost p�
 
 Du kan också distribuera behållar grupper till ett [virtuellt Azure-nätverk][virtual-network] så att behållare kan kommunicera säkert med andra resurser i det virtuella nätverket.
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 Du kan ange externa volymer som ska monteras i en behållar grupp. Volymer som stöds är:
 * [Azure-filresurs][azure-files]

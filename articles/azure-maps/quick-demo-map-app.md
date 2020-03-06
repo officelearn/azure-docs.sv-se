@@ -10,11 +10,11 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 74539a7ed74d0216f1a4bb2d719983895d8b320f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209638"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359731"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Snabb start: skapa en interaktiv Sök karta genom att använda Azure Maps
 
@@ -26,7 +26,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
@@ -35,7 +35,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 Skapa ett nytt Maps-konto med följande steg:
 
 1. Klicka på [Skapa en resurs](https://portal.azure.com) längst upp till vänster i **Azure Portal**.
-2. Skriv *Maps* i rutan **Sök i Marketplace**.
+2. Skriv *Maps* i rutan **Sök på Marketplace**.
 3. Bland *resultaten* väljer du **Maps**. Klicka på knappen **Skapa** som visas nedanför kartan.
 4. Ange följande värden på sidan **Skapa Maps-konto**:
     * Den *Prenumeration* som ska användas för det här kontot.

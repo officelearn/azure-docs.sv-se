@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: 9c5e6d5aca51bd560a46837ba47de86362665773
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861922"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379235"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Arbeta med virtuella nätverksgateway SKU: er (äldre SKU: er)
 
@@ -36,7 +36,7 @@ Du kan visa tidigare Gateway-priser i avsnittet **Virtual Network gateways** , s
 
 Du kan ändra storlek på din gateway till en gateway-SKU inom samma SKU-serie. Om du till exempel har en standard-SKU kan du ändra storlek till en HighPerformance-SKU. Du kan dock inte ändra storlek på din VPN-gateway mellan de gamla SKU: erna och de nya SKU-familjerna. Du kan till exempel inte gå från en standard-SKU till en VpnGw2-SKU eller en grundläggande SKU till VpnGw1.
 
-### <a name="resource-manager"></a>Resurshanterare
+### <a name="resource-manager"></a>Resource Manager
 
 Om du vill ändra storlek på en gateway för distributions modellen i Resource Manager med hjälp av PowerShell, använder du följande kommando:
 

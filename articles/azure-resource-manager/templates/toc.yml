@@ -1,8 +1,8 @@
-- name: Dokumentation om Azure Resource Manager-mallar
+- name: Dokumentation om ARM-mallar
   href: index.yml
 - name: Översikt
   items:
-    - name: Vad är Azure Resource Manager-mallar?
+    - name: Vad är ARM-mallar?
       href: overview.md
 - name: Snabbstarter
   items:

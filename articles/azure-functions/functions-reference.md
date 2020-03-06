@@ -5,11 +5,11 @@ ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
 ms.openlocfilehash: 7dd7ef3c4833fb9ffa3781f06faba4f40cd40cfb
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769021"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357983"
 ---
 # <a name="azure-functions-developers-guide"></a>Guide för Azure Functions utvecklare
 I Azure Functions delar specifika funktioner några viktiga tekniska koncept och komponenter, oavsett vilket språk eller vilken bindning du använder. Innan du hoppar till inlärnings information som är specifik för ett specifikt språk eller en bindning bör du läsa igenom den här översikten som gäller för alla.
@@ -19,7 +19,7 @@ Den här artikeln förutsätter att du redan har läst [Översikt över Azure Fu
 ## <a name="function-code"></a>Funktions kod
 En *funktion* är det primära konceptet i Azure Functions. En funktion innehåller två viktiga delar – din kod, som kan skrivas på en rad olika språk och vissa config, function. JSON-filen. För kompilerade språk genereras den här konfigurations filen automatiskt från anteckningar i din kod. För skript språk måste du ange konfigurations filen själv.
 
-Function. JSON-filen definierar funktionens utlösare, bindningar och andra konfigurations inställningar. Varje funktion har endast en utlösare. Körningen använder den här konfigurations filen för att bestämma vilka händelser som ska övervakas och hur data ska skickas till och returnera data från en funktions körning. Följande är en exempel funktion. JSON-fil.
+Function. JSON-filen definierar funktionens utlösare, bindningar och andra konfigurations inställningar. Varje funktion har en och endast en utlösare. Körningen använder den här konfigurations filen för att bestämma vilka händelser som ska övervakas och hur data ska skickas till och returnera data från en funktions körning. Följande är en exempel funktion. JSON-fil.
 
 ```json
 {

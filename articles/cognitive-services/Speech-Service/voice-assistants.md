@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
 ms.openlocfilehash: d687d1d353c1734c5d98121f658003afde2eb182
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74812919"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394811"
 ---
 # <a name="about-voice-assistants"></a>Om röst assistenter
 
@@ -31,7 +31,7 @@ Program ansluter till röst assistents tjänsten med Speech Software Development
 
 Det första steget för att skapa en röst assistent är att bestämma vad det ska göra. Tal tjänsten innehåller flera, kompletterande lösningar för att utforma dina assistenters interaktioner. Oavsett om du vill ha flexibilitet och mångsidighet att den [direkta linjens tal](direct-line-speech.md) kanal i bot ramverket ger eller enklast [anpassade kommandon (för hands version)](custom-commands.md) för enkla scenarier kan du komma igång genom att välja rätt verktyg.
 
-| Om du vill... | Överväg sedan... | Till exempel... |
+| Om du vill ... | Överväg sedan... | Till exempel... |
 |-------------------|------------------|----------------|
 |Öppen konversation med robust kompetens integrering och fullständig distributions kontroll | Robot Frameworks [direkta linje tal](direct-line-speech.md) kanal | <ul><li>"Jag måste gå till Seattle"</li><li>"Vilken typ av pizza kan jag beställa?"</li></ul>
 |Kommando-och kontroll-eller uppgifts riktad konversation med förenklad redigering och värd | [Anpassade kommandon (förhands granskning)](custom-commands.md) | <ul><li>"Sätt på overhead-ljus"</li><li>"Gör 5 grader till varma"</ul>
@@ -69,7 +69,7 @@ Exempel kod för att skapa en röst assistent finns på GitHub. Dessa exempel av
 * [Röst assistents exempel (SDK)](https://aka.ms/csspeech/samples)
 * [Självstudie: röst aktivera din assistent med talet SDK,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 
-## <a name="tutorial"></a>Självstudiekurs
+## <a name="tutorial"></a>Självstudier
 
 En själv studie kurs om hur du [aktiverar röst samtal till din assistent med hjälp av tal-SDK: n och den direkta rad igenkännings kanalen](tutorial-voice-enable-your-bot-speech-sdk.md).
 
@@ -80,7 +80,7 @@ Röst assistenter som skapats med röst tjänsten kan använda alla anpassnings 
 > [!NOTE]
 > Anpassnings alternativen varierar efter språk/språk (se [språk som stöds](supported-languages.md)).
 
-## <a name="reference-docs"></a>Referensdokument
+## <a name="reference-docs"></a>Referens dokument
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)

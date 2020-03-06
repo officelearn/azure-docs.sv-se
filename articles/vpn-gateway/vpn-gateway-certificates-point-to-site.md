@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: cherylmc
 ms.openlocfilehash: f28e76e9dcaf1331fd26a2321cd4deca1027e693
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151371"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393568"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Skapa och exportera certifikat för punkt-till-plats med hjälp av PowerShell
 
@@ -25,7 +25,7 @@ Om du inte har åtkomst till en dator med Windows 10 eller Windows Server 2016 k
 
 [!INCLUDE [generate and export certificates](../../includes/vpn-gateway-generate-export-certificates-include.md)]
 
-## <a name="install"></a>Installera en exporterade klientcertifikat
+## <a name="install"></a>Installera ett exporterat klient certifikat
 
 Varje klient som ansluter till VNet över en P2S-anslutning kräver att ett klient certifikat installeras lokalt.
 

@@ -39,6 +39,8 @@
   items:
     - name: Grundläggande inställningar
       items:
+        - name: Application Gateway-funktioner
+          href: features.md
         - name: Så här fungerar Application Gateway
           href: how-application-gateway-works.md
         - name: Application Gateway-komponenter

@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: 87798c93bbc1098daea2f7258a3af3e26bb4bb93
-ms.sourcegitcommit: 85d52b799621d35d7df32c2cb1e339071c619bb3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76966103"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358893"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Referens guide för att använda funktioner i uttryck för Azure Logic Apps och energi automatisering
 
@@ -1898,7 +1898,7 @@ float('<value>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*flytt ALS värde*> | Float | Flytt ALS numret för den angivna strängen |
+| <*flytt ALS värde*> | Flyttal | Flytt ALS numret för den angivna strängen |
 ||||
 
 *Exempel*
@@ -3984,7 +3984,7 @@ ticks('<timestamp>')
 
 <a name="toLower"></a>
 
-### <a name="tolower"></a>ToLower
+### <a name="tolower"></a>toLower
 
 Returnera en sträng med gemener. Om ett tecken i strängen inte har en gemen version, är det tecken oförändrat i den returnerade strängen.
 
@@ -4014,7 +4014,7 @@ Och returnerar följande resultat: `"hello world"`
 
 <a name="toUpper"></a>
 
-### <a name="toupper"></a>ToUpper
+### <a name="toupper"></a>toUpper
 
 Returnera en sträng i versal format. Om ett tecken i strängen inte har en versal version, är det tecken oförändrat i den returnerade strängen.
 
@@ -4490,7 +4490,7 @@ Och returnerar följande resultat: `"?date=today"`
 
 <a name="uriScheme"></a>
 
-### <a name="urischeme"></a>UriScheme
+### <a name="urischeme"></a>uriScheme
 
 Returnera `scheme` svärdet för en URI (Uniform Resource Identifier).
 

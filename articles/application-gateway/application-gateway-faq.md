@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 27048a8464fc7380a5c11ab6bbb543e35c089774
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 7a5ef2c2fbed6daabef6cd3c5049fcd25f478d53
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919625"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373598"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -130,7 +130,7 @@ Nej. Instanser distribueras mellan uppgraderings domäner och fel domäner.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Har Application Gateway stöd för anslutning som töms?
 
-Ja. Du kan konfigurera anslutnings tömning för att ändra medlemmar i en backend-pool utan avbrott. Mer information finns i [avsnittet om tömning av anslutningar i Application Gateway](overview.md#connection-draining).
+Ja. Du kan konfigurera anslutnings tömning för att ändra medlemmar i en backend-pool utan avbrott. Mer information finns i [avsnittet om tömning av anslutningar i Application Gateway](features.md#connection-draining).
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Kan jag ändra instans storleken från medel till stor utan avbrott?
 
@@ -410,7 +410,7 @@ Men om du vill använda Application Gateway v2 med endast privat IP kan du följ
 Exempel på NSG-konfiguration för privat IP-åtkomst: ![Application Gateway v2 NSG-konfiguration endast för privat IP-åtkomst](./media/application-gateway-faq/appgw-privip-nsg.png)
 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Stöder Application Gateway SameSite för tillhörighets-cookie?
-Ja, Chrome- [webbläsarens](https://www.chromium.org/Home) [V80-uppdatering](https://chromiumdash.appspot.com/schedule) introducerade ett mandat på HTTP cookies utan SameSite-attribut som ska behandlas som SameSite = lax. Det innebär att den Application Gateway tillhörighets-cookien inte skickas av webbläsaren i en tredjeparts Pary-kontext. För att stödja det här scenariot infogar Application Gateway en annan cookie med namnet *ApplicationGatewayAffinityCORS* förutom den befintliga *ApplicationGatewayAffinity* -cookien.  Dessa cookies liknar varandra, men cookien *ApplicationGatewayAffinityCORS* har två fler attribut som läggs till: *SameSite = none; Säker*. De här attributen upprätthåller tröga sessioner även för frågor mellan ursprung. Mer information finns i [avsnittet cookie-baserad tillhörighet](configuration-overview.md#cookie-based-affinity) .
+Ja, Chrome- [webbläsarens](https://www.chromium.org/Home) [V80-uppdatering](https://chromiumdash.appspot.com/schedule) introducerade ett mandat på HTTP cookies utan SameSite-attribut som ska behandlas som SameSite = lax. Det innebär att den Application Gateway tillhörighets-cookien inte skickas av webbläsaren i en tredjeparts kontext. För att stödja det här scenariot infogar Application Gateway en annan cookie med namnet *ApplicationGatewayAffinityCORS* förutom den befintliga *ApplicationGatewayAffinity* -cookien.  Dessa cookies liknar varandra, men cookien *ApplicationGatewayAffinityCORS* har två fler attribut som läggs till: *SameSite = none; Säker*. De här attributen upprätthåller tröga sessioner även för frågor mellan ursprung. Mer information finns i [avsnittet cookie-baserad tillhörighet](configuration-overview.md#cookie-based-affinity) .
 
 ## <a name="next-steps"></a>Nästa steg
 

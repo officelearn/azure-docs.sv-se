@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
 ms.openlocfilehash: 682935fa2324b8de4992ab2f90c7f71e05c4f8ac
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931573"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378437"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Hanterings begrepp för användar konton, lösen ord och administration i Azure Active Directory Domain Services
 
@@ -81,8 +81,8 @@ I Azure AD DS baseras tillgängliga prestanda och funktioner på SKU: n. Du väl
 | SKU-namn   | Maximalt antal objekt | Säkerhetskopieringsfrekvens | Maximalt antal utgående skogs förtroenden |
 |------------|----------------------|------------------|----|
 | Standard   | Unlimited            | Var sjunde dag     | 0  |
-| Företag | Unlimited            | Var 3 dag     | 5  |
-| Premium    | Unlimited            | Dagligen            | 10 |
+| Enterprise | Unlimited            | Var 3 dag     | 5  |
+| Premium    | Unlimited            | Varje dag            | 10 |
 
 Innan dessa Azure AD DS-SKU: er användes en fakturerings modell baserat på antalet objekt (användar-och dator konton) i den hanterade Azure AD DS-domänen. Det finns inte längre någon varierande prissättning baserat på antalet objekt i den hanterade domänen.
 

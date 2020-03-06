@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 06/01/2017
 ms.author: manayar
 ms.openlocfilehash: b427319fdba634ea3c61681baa30547450709dc1
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278089"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390460"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Design överväganden för skalnings uppsättningar
 I den här artikeln beskrivs design överväganden för Virtual Machine Scale Sets. Information om vad Virtual Machine Scale Sets finns i [Översikt över Virtual Machine Scale Sets](virtual-machine-scale-sets-overview.md).
@@ -39,7 +39,7 @@ Vissa funktioner är för närvarande endast tillgängliga i virtuella datorer:
 - Du kan migrera en enskild virtuell dator från inbyggda diskar till hanterade diskar, men du kan inte migrera virtuella dator instanser i en skalnings uppsättning.
 - Du kan tilldela offentliga IPv6-IP-adresser till enskilda virtuella nätverkskort (NIC) för virtuella datorer, men det går inte att göra detta för virtuella dator instanser i en skalnings uppsättning. Du kan tilldela offentliga IPv6-IP-adresser till belastnings utjämning framför antingen enskilda virtuella datorer eller virtuella datorers skalnings uppsättningar.
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Skalnings uppsättningar med Azure Managed Disks
 Skalnings uppsättningar kan skapas med [azure Managed disks](../virtual-machines/windows/managed-disks-overview.md) istället för traditionella Azure Storage-konton. Managed Disks ger följande fördelar:

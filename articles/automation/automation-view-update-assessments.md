@@ -6,11 +6,11 @@ ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310092"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373082"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>Visa Azure Uppdateringshantering Update-utvärderingar
 
@@ -28,7 +28,7 @@ Välj **saknade uppdateringar** om du vill visa en lista med uppdateringar som s
 
 ![Uppdateringar som saknas](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
-## <a name="update-classifications"></a>Uppdatera klassificeringar
+## <a name="update-classifications"></a>Uppdaterings klassificeringar
 
 I följande tabeller visas de uppdaterings klassificeringar som stöds i Uppdateringshantering, med en definition för varje klassificering.
 

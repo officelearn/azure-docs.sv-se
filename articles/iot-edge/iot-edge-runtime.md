@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c184972789c412406f264f725f8b94e1f7f162ce
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547055"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358669"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Förstå Azure IoT Edge-körningen och dess arkitektur
 
@@ -90,8 +90,8 @@ Varje objekt i distributions manifestet innehåller detaljerad information om en
 
   * Laddas ned
   * Körs
-  * Skadad
-  * Misslyckad
+  * Ohälsosamt
+  * Misslyckades
   * Stoppad
 
 * **restartPolicy** – hur den IoT Edge agenten startar om en modul. Möjliga värden omfattar:
@@ -125,4 +125,4 @@ Mer information om säkerhets ramverket Azure IoT Edge finns i [IoT Edge Securit
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Förstå Azure IoT Edge-moduler](iot-edge-modules.md)
+[Förstå Azure IoT Edge moduler](iot-edge-modules.md)

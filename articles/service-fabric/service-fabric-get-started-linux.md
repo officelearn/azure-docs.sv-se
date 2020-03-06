@@ -4,11 +4,11 @@ description: Installera runtime och SDK, och skapa ett lokalt utvecklingskluster
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 572b1509f45a7f5bf2c63619809f01d17c3493d1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457888"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382970"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ Stegen i den här artikeln förutsätter att du installerar internt på Linux el
 Det stöds inte att installera Service Fabric runtime och SDK på Windows-undersystem för Linux. Du kan hantera Service Fabric-entiteter som finns någon annanstans i molnet eller i den lokala infrastrukturen med kommandoradsgränssnittet (CLI) för Azure Service Fabric, som stöds. Information om hur du installerar kommandoradsgränssnittet finns i [Konfigurera Service Fabric CLI](./service-fabric-cli.md).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande operativsystemversioner stöds för utveckling:
 
@@ -36,7 +36,7 @@ Följande operativsystemversioner stöds för utveckling:
     ```bash
     sudo apt-get install apt-transport-https
     ```
-* Red Hat Enterprise Linux 7.4 (stöd för förhandsversion av Service Fabric)
+* Red Hat Enterprise Linux 7.4 (support för förhandsversion av Service Fabric)
 
 
 ## <a name="installation-methods"></a>Installationsmetoder
@@ -106,7 +106,7 @@ Om du vill installera SDK och det tillhörande runtime-paketet via kommandoradsv
     ```
 
 
-### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (stöd för förhandsversion av Service Fabric)
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (support för förhandsversion av Service Fabric)
 
 1. Öppna en terminal.
 2. Ladda ned och installera fler paket för Enterprise Linux (EPEL).
@@ -157,7 +157,7 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
-### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (stöd för förhandsversion av Service Fabric)
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (support för förhandsversion av Service Fabric)
 
 ```bash
 sudo yum install servicefabricsdkcommon
@@ -222,7 +222,7 @@ Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa Service Fa
 
 När du har installerat generatorerna skapar du körbara gästprogram eller containertjänster genom att köra `yo azuresfguest` respektive `yo azuresfcontainer`.
 
-## <a name="set-up-net-core-20-development"></a>Installera .NET Core 2.0 för utveckling
+## <a name="set-up-net-core-20-development"></a>Konfigurera .NET Core 2.0 för utveckling
 
 Installera [.NET Core 2.0 SDK för Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) om du vill börja [skapa Service Fabric-program i C#](service-fabric-create-your-first-linux-application-with-csharp.md). NuGet.org tillhandahåller paket för Service Fabric-program med .NET Core 2.0, som för närvarande finns som en förhandsversion.
 
@@ -238,7 +238,7 @@ Om du vill skapa Service Fabric tjänster med Java installerar du Gradle för at
     sdk install gradle 5.1
     ```
 
-* Red Hat Enterprise Linux 7.4 (stöd för förhandsversion av Service Fabric)
+* Red Hat Enterprise Linux 7.4 (support för förhandsversion av Service Fabric)
 
   ```bash
   sudo yum install java-1.8.0-openjdk-devel
@@ -257,7 +257,7 @@ Du måste också installera Service Fabric Yeo-generatorn för körbara Java-fil
 Du kan installera Eclipse-pluginprogrammet för Service Fabric i Eclipse IDE för Java-utvecklare eller Java EE-utvecklare. Du kan använda Eclipse för att skapa körbara Service Fabric-gästprogram och containerprogram utöver Service Fabric Java-program.
 
 > [!IMPORTANT]
-> Service Fabric plugin-programmet kräver Eclipse Neon eller en senare version. Efter den här anteckningen följer instruktioner om hur du kontrollerar din Eclipse-version. Om du har en tidigare version av Eclipse installerad kan du hämta nyare versioner från [Eclipse-webbplatsen](https://www.eclipse.org). Vi rekommenderar att du inte installerar ovanpå (skriver över) en befintlig installation av Eclipse. Ta bort den gamla versionen innan du kör installationsprogrammet eller installera den nya versionen i en annan katalog.
+> Plugin-programmet för Service Fabric kräver Eclipse Neon eller en senare version. Efter den här anteckningen följer instruktioner om hur du kontrollerar din Eclipse-version. Om du har en tidigare version av Eclipse installerad kan du hämta nyare versioner från [Eclipse-webbplatsen](https://www.eclipse.org). Vi rekommenderar att du inte installerar ovanpå (skriver över) en befintlig installation av Eclipse. Ta bort den gamla versionen innan du kör installationsprogrammet eller installera den nya versionen i en annan katalog.
 > 
 > I Ubuntu rekommenderar vi att du installerar direkt från Eclipses webbplats i stället för att använda ett installationspaket (`apt` eller `apt-get`). På så sätt kan du vara säker på att du får den senaste versionen av Eclipse. Du kan installera Eclipse IDE för Java-utvecklare eller för Java EE-utvecklare.
 
@@ -305,7 +305,7 @@ Kör följande kommandon om du vill ta bort Service Fabric SDK:erna.
     ```
 
 
-* Red Hat Enterprise Linux 7.4 (stöd för förhandsversion av Service Fabric)
+* Red Hat Enterprise Linux 7.4 (support för förhandsversion av Service Fabric)
 
     ```bash
     sudo yum remove servicefabric servicefabicsdkcommon

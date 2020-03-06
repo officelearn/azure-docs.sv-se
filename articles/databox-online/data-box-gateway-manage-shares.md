@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 9284400254860b47f3aea6de5c79ab4c2a77f199
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60755872"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384590"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Använda Azur-portalen för att hantera resurser i Azure Data Box Gateway 
 
@@ -85,7 +85,7 @@ Listan över resurser uppdateras för att återspegla borttagningen.
 Med uppdateringsfunktionen kan du uppdatera innehållet i en lokal resurs. När du uppdaterar en resurs initieras en sökning för att hitta alla Azure-objekt, inklusive blobar och filer som har lagts till i molnet sedan den senaste uppdateringen. De nya filerna används sedan för att uppdatera innehållet i den lokala resursen på enheten. 
 
 > [!NOTE]
-> Behörigheter och åtkomstkontrollistor (ACL) bevaras inte över en uppdatering. 
+> Behörigheter och åtkomst kontrol listor (ACL: er) bevaras inte i en uppdaterings åtgärd. 
 
 Utför följande steg på Azure-portalen om du vill uppdatera en resurs.
 
@@ -110,7 +110,7 @@ Utför följande steg på Azure-portalen om du vill uppdatera en resurs.
 Om ett fel uppstår genereras en avisering. Aviseringen innehåller detaljerad information om orsaken och rekommendationen för att åtgärda problemet. Aviseringen innehåller också en länk till en fil med en fullständig sammanfattning av felen, inklusive de filer som inte kunde uppdateras eller tas bort.
 
 >[!IMPORTANT]
-> I den här versionen, uppdatera inte fler än en enda resurs åt gången.
+> I den här versionen ska du inte uppdatera mer än en enskild resurs åt gången.
 
 ## <a name="sync-storage-keys"></a>Synkronisera lagringsnycklar
 
@@ -119,7 +119,7 @@ Om dina lagringskontonycklar har roterats måste du synkronisera åtkomstnycklar
 Utför följande steg i Azure-portalen för att synkronisera din lagringsåtkomstnyckel.
 
 1. Gå till **Översikt** i din resurs. 
-2. Välj från listan över resurser och klicka på en resurs som är associerad med det lagringskonto som du vill synkronisera. Klicka på **Synkronisera lagringsnyckel**. 
+2. I listan över resurser väljer du och klickar på en resurs som är kopplad till det lagrings konto som du behöver synkronisera. Klicka på **Synkronisera lagrings nyckel**. 
 
      ![Synkronisera lagringsnyckel 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 

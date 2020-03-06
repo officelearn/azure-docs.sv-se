@@ -48,6 +48,8 @@
   href: code-samples.md
 - name: Begrepp
   items:
+    - name: Metodtips för Azure AD B2C
+      href: best-practices.md
     - name: Programtyper
       href: application-types.md
     - name: Autentiseringsprotokoll

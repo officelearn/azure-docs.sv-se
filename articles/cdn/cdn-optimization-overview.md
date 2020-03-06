@@ -1,6 +1,6 @@
 ---
-title: Optimera Azure CDN för typ av leverans av innehåll
-description: Optimera Azure CDN för typ av leverans av innehåll
+title: Optimera Azure CDN för typen av innehålls leverans
+description: Optimera Azure CDN för typen av innehålls leverans
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,122 +15,122 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
 ms.openlocfilehash: da8f17da9225da1d2b92bd8515d645bce9a1bbaa
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593654"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394372"
 ---
-# <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optimera Azure CDN för typ av leverans av innehåll
+# <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optimera Azure CDN för typen av innehålls leverans
 
-När du levererar innehåll till en stor global publik är det viktigt att optimerad leverans av ditt innehåll. [Azure CDN Content Delivery Network ()](cdn-overview.md) kan optimera leverans upplevelsen beroende på vilken typ av innehåll som du har. Innehållet kan vara en webbplats, en direktsänd dataström, en video eller en stor fil för hämtning. När du skapar en CDN-slutpunkt kan du ange ett scenario i den **optimerade för** alternativet. Ditt val avgör vilka optimering tillämpas på innehållet som levereras från CDN-slutpunkten.
+När du levererar innehåll till en stor global publik är det viktigt att säkerställa optimerad leverans av ditt innehåll. [Azure Content Delivery Network (CDN)](cdn-overview.md) kan optimera leverans upplevelsen baserat på den typ av innehåll som du har. Innehållet kan vara en webbplats, en real tids ström, en video eller en stor fil för hämtning. När du skapar en CDN-slutpunkt anger du ett scenario i alternativet **optimerad för** . Ditt val bestämmer vilken optimering som ska användas för det innehåll som levereras från CDN-slutpunkten.
 
-Optimeringsalternativ är utformade för att använda bästa praxis beteenden för att förbättra prestanda för leverans av innehåll och avlastning för bättre ursprung. Valen scenario påverkar prestanda genom att ändra konfigurationer för partiella cachelagring, objektet storlekar och återförsöksprincipen ursprung fel. 
+Optimerings alternativ är utformade för att förbättra prestanda för innehåll och få bättre ursprungs avlastning. Dina scenario alternativ påverkar prestanda genom att ändra konfigurationer för partiell cachelagring, objekt segment och återförsök för ursprungs fel. 
 
-Den här artikeln innehåller en översikt över olika optimering funktioner och när du ska använda dem. Mer information om funktioner och begränsningar finns i respektive artiklar på varje enskild optimeringstyp.
-
-> [!NOTE]
-> När du skapar en CDN-slutpunkt i **optimerade för** alternativen kan variera beroende på vilken typ av slutpunkten har skapats i profilen. Azure CDN-leverantörer gäller förbättring på olika sätt, beroende på scenario. 
-
-## <a name="provider-options"></a>Leverantörsalternativ
-
-**Azure CDN Standard från Microsoft** profiler stöder följande optimeringar:
-
-* [Allmän webbleverans](#general-web-delivery). Den här metoden används också för direktuppspelning och hämta stora filer.
+Den här artikeln innehåller en översikt över olika optimerings funktioner och när du ska använda dem. Mer information om funktioner och begränsningar finns i respektive artiklar om varje enskild optimerings typ.
 
 > [!NOTE]
-> Acceleration av dynamisk webbplats från Microsoft erbjuds [Azure ytterdörren Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+> När du skapar en CDN-slutpunkt kan de **optimerade** alternativen variera beroende på vilken typ av profil som slut punkten skapas i. Azure CDN leverantörer tillämpar förbättringar på olika sätt, beroende på scenariot. 
 
-**Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** profiler stöder följande optimeringar:
+## <a name="provider-options"></a>Leverantörs alternativ
 
-* [Allmän webbleverans](#general-web-delivery). Den här metoden används också för direktuppspelning och hämta stora filer.
+**Azure CDN Standard från Microsoft** -profiler stöder följande optimeringar:
+
+* [Allmän webb leverans](#general-web-delivery). Den här optimeringen används också för medie direkt uppspelning och stor fil hämtning.
+
+> [!NOTE]
+> Den dynamiska webbplats accelerationen från Microsoft erbjuds via [Azures frontend-tjänst](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+
+**Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** -profiler stöder följande optimeringar:
+
+* [Allmän webb leverans](#general-web-delivery). Den här optimeringen används också för medie direkt uppspelning och stor fil hämtning.
 
 * [Acceleration av dynamisk webbplats](#dynamic-site-acceleration) 
 
 
-**Azure CDN Standard från Akamai** profiler stöder följande optimeringar:
+**Azure CDN Standard från Akamai** -profiler stöder följande optimeringar:
 
-* [Allmän webbleverans](#general-web-delivery) 
+* [Allmän webb leverans](#general-web-delivery) 
 
-* [Allmän mediedirektuppspelning](#general-media-streaming)
+* [Allmän medie direkt uppspelning](#general-media-streaming)
 
-* [Direktuppspelning av video på begäran](#video-on-demand-media-streaming)
+* [Video-on-demand-mediedirektuppspelning](#video-on-demand-media-streaming)
 
-* [Nedladdning av stora filer](#large-file-download)
+* [Hämtning av stora filer](#large-file-download)
 
 * [Acceleration av dynamisk webbplats](#dynamic-site-acceleration) 
 
-Microsoft rekommenderar att du testar prestanda variationer mellan olika leverantörer att välja den optimala providern för ditt leveransschema.
+Microsoft rekommenderar att du testar prestanda variationer mellan olika leverantörer för att välja den optimala leverantören för leveransen.
 
-## <a name="select-and-configure-optimization-types"></a>Välj och konfigurera optimeringstyper
+## <a name="select-and-configure-optimization-types"></a>Välj och konfigurera optimerings typer
 
-När du skapar en CDN-slutpunkt, Välj en typ av lagringsoptimering som bäst passar scenariot och typ av innehåll som du vill att slutpunkten att leverera. **Allmän webbleverans** är standardvalet. För befintliga **Azure CDN Standard från Akamai** slutpunkter, kan du uppdatera optimeringsalternativ när som helst. Den här ändringen avbryta inte leverans från Azure CDN. 
+När du skapar en CDN-slutpunkt väljer du en optimerings typ som bäst matchar det scenario och den typ av innehåll som du vill att slut punkten ska leverera. **Allmän webb leverans** är standard valet. För befintliga **Azure CDN Standard från Akamai** -slutpunkter kan du när som helst uppdatera optimerings alternativet. Den här ändringen avbryter inte leverans från Azure CDN. 
 
-1. I en **Azure CDN Standard från Akamai** profil, väljer du en slutpunkt.
+1. Välj en slut punkt i **Azure CDns profil för standard från Akamai** .
 
-    ![Val av slutpunkt](./media/cdn-optimization-overview/01_Akamai.png)
+    ![Slut punkts val](./media/cdn-optimization-overview/01_Akamai.png)
 
-2. Välj under inställningar **optimering**. Välj en typ från den **optimerade för** listrutan.
+2. Under Inställningar väljer du **optimering**. Välj sedan en typ från List rutan **optimerad för** .
 
-    ![Val av optimering och typ](./media/cdn-optimization-overview/02_Select.png)
+    ![Optimering och typ val](./media/cdn-optimization-overview/02_Select.png)
 
-## <a name="optimization-for-specific-scenarios"></a>Optimering för specifika scenarier
+## <a name="optimization-for-specific-scenarios"></a>Optimering för vissa scenarier
 
-Du kan optimera CDN-slutpunkten för en av dessa scenarier. 
+Du kan optimera CDN-slutpunkten för något av dessa scenarier. 
 
-### <a name="general-web-delivery"></a>Allmän webbleverans
+### <a name="general-web-delivery"></a>Allmän webb leverans
 
-Allmän webbleverans är det vanligaste alternativet för optimering. Den är utformad för allmänna web content optimering, till exempel webbsidor och webbprogram. Denna optimering kan också användas för fil och laddar ned video.
+Allmän webb leverans är det vanligaste optimerings alternativet. Den är utformad för allmän optimering av webb innehåll, till exempel webb sidor och webb program. Den här optimeringen kan också användas för hämtning av filer och filer.
 
-En typisk webbplats innehåller statiskt och dynamiskt innehåll. Statiskt innehåll innehåller bilder, JavaScript-bibliotek och formatmallar som kan cachelagras och levereras till olika användare. Dynamiskt innehåll anpassas för en enskild användare, till exempel news-objekt som är anpassade efter en användarprofil. Dynamiskt innehåll, till exempel i kundvagnen innehåll, cachelagras inte på grund av att det är unikt för varje användare. Allmän webbleverans kan optimera hela webbplatsen. 
-
-> [!NOTE]
-> Om du använder en **Azure CDN Standard från Akamai** profilen, Välj den här typen av slutpunktsoptimering om genomsnittliga filstorleken är mindre än 10 MB. Annars, om genomsnittliga filstorleken är större än 10 MB väljer **nedladdning av stora filer** från den **optimerade för** listrutan.
-
-### <a name="general-media-streaming"></a>Allmän mediedirektuppspelning
-
-Om du vill använda slutpunkten för liveströmning och video på begäran för direktuppspelning, välj Allmänt strömmande optimering medietyp.
-
-Direktuppspelning av Media är tidskänslig, eftersom paket som kommer sent på klienten, till exempel ofta buffras, kan orsaka tittarens upplevelse. Optimering av mediedirektuppspelning minskar svarstiden för medieinnehållet levereras och ger en jämn direktuppspelning för användare. 
-
-Det här scenariot är vanligt för Azure media service-kunder. När du använder Azure media services kan få du en enda slutpunkt för direktuppspelning som kan användas för direktuppspelning live och på begäran. Med det här scenariot behöver kunder inte växla till en annan slutpunkt när de ändrar från live att strömma på begäran. Allmän optimering av mediedirektuppspelning har stöd för den här typen av scenario.
-
-För **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon**, och **Azure CDN Premium från Verizon**, använda optimeringstypen allmän leverans till leverera Allmänt strömmande medieinnehåll.
-
-Läs mer om optimering av mediedirektuppspelning [optimering av mediedirektuppspelning](cdn-media-streaming-optimization.md).
-
-### <a name="video-on-demand-media-streaming"></a>Direktuppspelning av video på begäran
-
-Video på begäran optimering av mediedirektuppspelning förbättrar strömmande videoinnehåll. Använd det här alternativet om du använder en slutpunkt för direktuppspelning av video på begäran.
-
-För **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon**, och **Azure CDN Premium från Verizon** profiler kan använda leveransoptimering allmän Skriv för att leverera video på begäran strömmande medieinnehåll.
-
-Läs mer om optimering av mediedirektuppspelning [optimering av mediedirektuppspelning](cdn-media-streaming-optimization.md).
+En typisk webbplats innehåller statiskt och dynamiskt innehåll. Statiskt innehåll inkluderar bilder, JavaScript-bibliotek och formatmallar som kan cachelagras och levereras till olika användare. Dynamiskt innehåll anpassas för en enskild användare, till exempel nyhets objekt som är skräddarsydda för en användar profil. Dynamiskt innehåll, till exempel shopping vagns innehåll, cachelagras inte eftersom det är unikt för varje användare. Allmän webb leverans kan optimera hela webbplatsen. 
 
 > [!NOTE]
-> Om CDN-slutpunkten har främst videoinnehåll, Använd den här typen av slutpunktsoptimering. Den största skillnaden mellan den här typen av slutpunktsoptimering och allmän mediedirektuppspelning optimeringstypen är timeout för återförsök. Timeout-värde är mycket kortare ska fungera med live direktuppspelning scenarier.
+> Om du använder en **Azure CDN Standard från Akamai** profil väljer du den här optimerings typen om den genomsnittliga fil storleken är mindre än 10 MB. Annars, om den genomsnittliga fil storleken är större än 10 MB, väljer du **stor fil nedladdning** från List rutan **optimerad för** .
+
+### <a name="general-media-streaming"></a>Allmän medie direkt uppspelning
+
+Om du behöver använda slut punkten för direkt uppspelning och video på begäran, väljer du optimerings typen allmän medie uppspelning.
+
+Medie direkt uppspelning är tids känsligt, eftersom paket som kommer sent på klienten, till exempel frekvent buffring av video innehåll, kan orsaka en försämrad visnings upplevelse. Optimering av medie direkt uppspelning minskar svars tiden för leverans av medie innehåll och ger användarna en smidig strömmande upplevelse. 
+
+Det här scenariot är vanligt för Azure Media service-kunder. När du använder Azure Media Services får du en enda slut punkt för direkt uppspelning som kan användas för både Live-och on-demand-direktuppspelning. I det här scenariot behöver kunderna inte växla till en annan slut punkt när de ändras från Live till strömning på begäran. Optimering av generell medie direkt uppspelning stöder den här typen av scenario.
+
+För **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon**och **Azure CDN Premium från Verizon**, använder du den allmänna optimerings typen för webb leverans för att leverera allmänt direktuppspelande medie innehåll.
+
+Mer information om optimering av medie direkt uppspelning finns i [optimering av medie direkt uppspelning](cdn-media-streaming-optimization.md).
+
+### <a name="video-on-demand-media-streaming"></a>Video-on-demand-mediedirektuppspelning
+
+Video-on-demand-optimering av medie direkt uppspelning förbättrar innehåll på begäran. Använd det här alternativet om du använder en slut punkt för direkt uppspelning av video på begäran.
+
+För **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon**och **Azure CDN Premium från Verizon** -profiler, använder du den allmänna webb leverans optimerings typen för att leverera innehåll på begäran strömmande media.
+
+Mer information om optimering av medie direkt uppspelning finns i [optimering av medie direkt uppspelning](cdn-media-streaming-optimization.md).
+
+> [!NOTE]
+> Om CDN-slutpunkten huvudsakligen hanterar video på begäran, använder du den här optimerings typen. Den största skillnaden mellan den här optimerings typen och den allmänna optimerings typen för medie uppspelning är timeout för anslutnings försök. Timeout-tiden är mycket kortare för att fungera med direkt uppspelnings scenarier.
 >
 
-### <a name="large-file-download"></a>Nedladdning av stora filer
+### <a name="large-file-download"></a>Hämtning av stora filer
 
-För **Azure CDN Standard från Akamai** användarprofiler, stora filer nedladdningar är optimerade för innehåll som är större än 10 MB. Om din genomsnittliga filstorleken är mindre än 10 MB, Använd allmän webbleverans. Om din genomsnittliga filstorlekar är konsekvent större än 10 MB, kan det vara mer effektivt att skapa en separat slutpunkt för stora filer. Inbyggd programvara eller programuppdateringar är till exempel vanligtvis stora filer. Optimering för nedladdning av stora filer krävs för att leverera filer större än 1,8 GB.
+För **Azure CDN Standard från Akamai** -profiler optimeras stora fil hämtningar för innehåll som är större än 10 MB. Om den genomsnittliga fil storleken är mindre än 10 MB använder du allmän webb leverans. Om dina genomsnittliga fil storlekar är konsekvent större än 10 MB, kan det vara mer effektivt att skapa en separat slut punkt för stora filer. Till exempel är inbyggd program vara eller program uppdateringar vanligt vis stora filer. För att leverera filer som är större än 1,8 GB krävs den stora optimeringen av fil hämtning.
 
-För **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon**, och **Azure CDN Premium från Verizon** profiler kan använda leveransoptimering allmän Skriv för att leverera innehåll för nedladdning av stora filer. Det finns ingen begränsning för filstorlek för hämtning.
+För **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon**och **Azure CDN Premium från Verizon** -profiler, använder du den allmänna optimerings typen för webb leverans för att leverera innehåll med stor fil hämtning. Det finns ingen begränsning för fil hämtnings storlek.
 
-Läs mer om optimering av stora filer, [optimering av stora filer](cdn-large-file-optimization.md).
+Mer information om optimering av stora filer finns i [optimering av stora filer](cdn-large-file-optimization.md).
 
 ### <a name="dynamic-site-acceleration"></a>Acceleration av dynamisk webbplats
 
- Acceleration av dynamisk webbplats (DSA) är tillgänglig för **Azure CDN Standard från Akamai**, **Azure CDN Standard från Verizon**, och **Azure CDN Premium från Verizon** profiler. Denna optimering omfattar en ytterligare avgift ska användas. Mer information finns i [prissättningen för CDN](https://azure.microsoft.com/pricing/details/cdn/).
+ Tjänsten för dynamisk webbplats acceleration (DSA) är tillgänglig för **Azure CDN Standard från Akamai**, **Azure CDN Standard från Verizon**och **Azure CDN Premium från Verizon** -profiler. Den här optimeringen innebär en ytterligare avgift att använda. Mer information finns i [Content Delivery Network prissättning](https://azure.microsoft.com/pricing/details/cdn/).
 
 > [!NOTE]
-> Acceleration av dynamisk webbplats från Microsoft erbjuds [Azure ytterdörren Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) som är en global [anycast](https://en.wikipedia.org/wiki/Anycast) tjänsten att använda privata Microsofts globala nätverk för att leverera din app-arbetsbelastningar.
+> Den dynamiska webbplats accelerationen från Microsoft erbjuds via [Azures frontend-tjänst](https://docs.microsoft.com/azure/frontdoor/front-door-overview) , som är en global [anycast](https://en.wikipedia.org/wiki/Anycast) -tjänst som utnyttjar Microsofts privata globala nätverk för att leverera dina app-arbetsbelastningar.
 
-DSA innehåller olika tekniker som dra svarstid och prestanda för dynamiskt innehåll. Tekniken omfattar rutten och nätverket optimering, optimering för TCP med mera. 
+DSA innehåller olika metoder som drar svars tid och prestanda för dynamiskt innehåll. Tekniker inkluderar Routning och nätverks optimering, TCP-optimering med mera. 
 
-Du kan använda denna optimering för att påskynda en webbapp som innehåller ett stort antal svar som inte är komma. Exempel är sökresultat, Kolla in transaktioner eller data i realtid. Du kan fortsätta att använda cachelagring kärnfunktioner för Azure CDN för statiska data. 
+Du kan använda den här optimeringen för att påskynda en webbapp som innehåller många svar som inte kan cachelagras. Exempel är Sök resultat, check transaktioner eller real tids data. Du kan fortsätta att använda Core Azure CDN caching-funktioner för statiska data. 
 
-Läs mer om acceleration av dynamisk webbplats [acceleration av dynamisk webbplats](cdn-dynamic-site-acceleration.md).
+Mer information om acceleration för dynamiska platser finns i [acceleration av dynamisk webbplats](cdn-dynamic-site-acceleration.md).
 
 
 

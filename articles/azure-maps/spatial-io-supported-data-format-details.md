@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: cbeb1ccaed6ec2c62aaa731e88fcefbe84d1df02
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: fff801731c3c3a94b4039a8c65ad8ccaab7cc725
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370887"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402740"
 ---
 # <a name="supported-data-format-details"></a>Information om data format som stöds
 
@@ -391,39 +391,39 @@ Den första raden med data genomsöks efter strängar som har välkänd text for
 
 När du skannar rubrik raden kommer all typ information som finns i kolumn namnet att extraheras och användas för att omvandla cellerna i kolumnen. Här är ett exempel på ett kolumn namn som har ett typ värde: "ColumnName (typeName)". Följande Skift läges känsliga typ namn stöds:
 
-**Nummer**
+#### <a name="numbers"></a>Nummer
 
-    - EDM. Int64
-    - int
-    - long
-    - EDM. Double
-    - float
-    - double
-    - nummer
+- EDM. Int64
+- int
+- long
+- EDM. Double
+- float
+- double
+- nummer
 
-**Booleska värden**
+#### <a name="booleans"></a>Booleska värden
 
-    - EDM. Boolean
-    - booleska
-    - boolean
+- EDM. Boolean
+- booleska
+- boolean
 
-**Dagen**
+#### <a name="dates"></a>Datum
 
-    - EDM. DateTime
-    - date
-    - datetime
+- EDM. DateTime
+- date
+- datetime
 
-**Geografi**
+#### <a name="geography"></a>Placering
 
-    - EDM. geography
-    - geography
+- EDM. geography
+- geography
 
-**Strängar**
+#### <a name="strings"></a>Strängar
 
-    - EDM. String
-    - varchar
-    - text
-    - Case-sträng
+- EDM. String
+- varchar
+- text
+- Case-sträng
 
 Om ingen typ information kan extraheras från rubriken och alternativet för dynamiskt Skriv aktive ras när du läser, kommer varje cell att analyseras individuellt för att avgöra vilken data typ som passar bäst för att omvandlas till.
 

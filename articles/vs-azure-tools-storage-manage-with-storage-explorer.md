@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
 ms.openlocfilehash: 7886d5a1ad0745550767b7d6f19592ca3c84b00a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891314"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358218"
 ---
 # <a name="get-started-with-storage-explorer"></a>Kom igång med Storage Explorer
 
@@ -23,9 +23,9 @@ Microsoft Azure Storage Explorer är en fristående app som gör det enkelt att 
 
 ![Microsoft Azure Storage Explorer][0]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Följande versioner av Windows stöder Storage Explorer:
 
@@ -35,13 +35,13 @@ Följande versioner av Windows stöder Storage Explorer:
 
 För alla versioner av Windows kräver Storage Explorer .NET Framework 4.6.2 eller senare.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 Följande versioner av macOS stöder Storage Explorer:
 
 * macOS 10,12 Sierra och senare versioner
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 Storage Explorer finns i [Snap Store](https://snapcraft.io/storage-explorer) för de vanligaste distributionerna av Linux. Vi rekommenderar Snap Store för den här installationen. Snapin-modulen Storage Explorer installerar alla dess beroenden och uppdateringar när nya versioner publiceras i Snap-arkivet.
 

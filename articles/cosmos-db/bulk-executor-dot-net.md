@@ -10,11 +10,11 @@ ms.date: 09/01/2019
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: d7600267dcd196a9a5c06c29774ea21d582cd7ce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442182"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365507"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Använd Mass utförar .NET-bibliotek för att utföra Mass åtgärder i Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Den här självstudien innehåller instruktioner om hur du använder bulk utför
 
 För närvarande stöds bulk utförar-biblioteket endast av Azure Cosmos DB SQL API-och Gremlin API-konton. Den här artikeln beskriver hur du använder bulk utförar .NET-biblioteket med SQL API-konton. Mer information om hur du använder bulk utförar .NET-biblioteket med Gremlin API-konton finns i [utföra Mass åtgärder i Azure Cosmos DB GREMLIN API](bulk-executor-graph-dotnet.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte redan har Visual Studio 2019 installerat kan du ladda ned och använda [Visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Se till att aktivera "Azure-utveckling" under installationen av Visual Studio.
 
@@ -100,7 +100,7 @@ Programmet "BulkImportSample" genererar slumpmässiga dokument och Mass importer
    ```
    **BulkImportAsync-metoden accepterar följande parametrar:**
    
-   |**Parametern**  |**Beskrivning** |
+   |**ProfileServiceApplicationProxy**  |**Beskrivning** |
    |---------|---------|
    |enableUpsert    |   En flagga som aktiverar upsert-åtgärder på dokumenten. Om det redan finns ett dokument med angivet ID uppdateras det. Som standard är den inställd på falskt.      |
    |disableAutomaticIdGeneration    |    En flagga för att inaktivera automatisk generering av ID. Som standard är den inställd till true.     |
@@ -110,7 +110,7 @@ Programmet "BulkImportSample" genererar slumpmässiga dokument och Mass importer
 
    **Objekt definition för Mass import av svar** Resultatet av API-anropet för Mass import innehåller följande attribut:
 
-   |**Parametern**  |**Beskrivning**  |
+   |**ProfileServiceApplicationProxy**  |**Beskrivning**  |
    |---------|---------|
    |NumberOfDocumentsImported (lång)   |  Det totala antalet dokument som har importer ATS från det totala antalet dokument som angavs för Mass import-API-anrop.       |
    |TotalRequestUnitsConsumed (dubbel)   |   De totala begäransenheter (RU) som används av stora importera API-anrop.      |
@@ -151,7 +151,7 @@ Du kan uppdatera befintliga dokument med hjälp av BulkUpdateAsync-API. I det h�
    ```  
    **BulkUpdateAsync-metoden accepterar följande parametrar:**
 
-   |**Parametern**  |**Beskrivning** |
+   |**ProfileServiceApplicationProxy**  |**Beskrivning** |
    |---------|---------|
    |maxConcurrencyPerPartitionKeyRange    |   Den högsta graden av samtidighet per partitionsnyckel. om du anger den här parametern till null blir biblioteket att använder standardvärdet (20).   |
    |maxInMemorySortingBatchSize    |    Det maximala antalet uppdaterings objekt som hämtats från uppräkna ren uppdaterings objekt som har skickats till API-anropet i varje steg. När du anger den här parametern till null för sorterings fasen i minnet som inträffar före Mass uppdatering, kommer biblioteket att använda det minimala standardvärdet (updateItems. Count, 1000000).     |
@@ -159,7 +159,7 @@ Du kan uppdatera befintliga dokument med hjälp av BulkUpdateAsync-API. I det h�
 
    **Definition av svars objekt för Mass uppdatering** Resultatet av API-anropet för Mass uppdatering innehåller följande attribut:
 
-   |**Parametern**  |**Beskrivning** |
+   |**ProfileServiceApplicationProxy**  |**Beskrivning** |
    |---------|---------|
    |NumberOfDocumentsUpdated (lång)    |   Antalet dokument som har uppdaterats från det totala antalet dokument som angavs för Mass uppdaterings-API-anrop.      |
    |TotalRequestUnitsConsumed (dubbel)   |    Totalt antal begär ande enheter (ru: er) som används av API-anropet för Mass uppdatering.    |

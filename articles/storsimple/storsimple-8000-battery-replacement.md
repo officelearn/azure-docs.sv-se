@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: f21bbf4777aa74e84ffb8c1af903f90608d5551f
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276906"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365873"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Byt ut modulen för säkerhets kopierings batteri på din StorSimple-enhet
 
@@ -39,7 +39,7 @@ Modulen backup Battery för StorSimple-enheten är en enhet som kan bytas ut på
    
     **Bild 1** Tillbaka till primär enhet som visar PCM-och Controller-moduler
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -52,7 +52,7 @@ Modulen backup Battery för StorSimple-enheten är en enhet som kan bytas ut på
    
     **Bild 2** Bak sidan av PCM som visar övervaknings indikator lamporna
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    |:--- |:--- |
    | 1 |AC-strömavbrott |
    | 2 |Fläkt haveri |

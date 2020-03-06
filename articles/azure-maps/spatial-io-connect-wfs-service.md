@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0f50fe51f9c1cdef3c3f07c91640f5b9b9616229
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 18ac583837c7cb8b2dabbfa6f7d7210c8afe3fcb
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370965"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402766"
 ---
 # <a name="connect-to-a-wfs-service"></a>Ansluta till en WFS-tjänst
 
@@ -91,7 +91,7 @@ I följande kod används WFS-klienten för att utforska WFS Services. Välj ett 
 
 <br/>
 
-<iframe height='700' scrolling='no' title= 'WFS service Explorer' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>service Explorer</a> för pen-WFS (@azuremaps) genom att Azure Maps (<a href='https://codepen.io/azuremaps'> </a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' style='width: 100%;' scrolling='no' title= 'WFS service Explorer' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>service Explorer</a> för pen-WFS (@azuremaps) genom att Azure Maps (<a href='https://codepen.io/azuremaps'> </a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Du kan också använda en proxyserver för att läsa in resurser som finns i domäner som inte är CORs-aktiverade. Du måste först definiera en variabel som ska innehålla proxy-tjänstens URL och ange alternativet `proxyService` för WFS-klienten. Om du vill rendera ett alternativ för proxy-tjänsten för användaren lägger du till en användarindata i användar gränssnittet. Läs in tjänstens URL när du klickar på den. Följande kodfragment visar hur du använder proxy-tjänsten.

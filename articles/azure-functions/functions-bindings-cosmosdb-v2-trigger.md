@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.openlocfilehash: c006aa8c46864b78ae46aa9c351605cca1d1e425
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606586"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388585"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x"></a>Azure Cosmos DB utlösare för Azure Functions 2. x
 
@@ -218,8 +218,8 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | måste anges till `cosmosDBTrigger`. |
-|**riktning** | Saknas | måste anges till `in`. Den här parametern anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|**typ** | Saknas | Måste anges till `cosmosDBTrigger`. |
+|**riktning** | Saknas | Måste anges till `in`. Den här parametern anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Variabelnamnet som används i Funktionskoden som representerar en lista över dokument med ändringar. |
 |**connectionStringSetting**|**ConnectionStringSetting** | Namnet på en appinställning som innehåller anslutningssträngen som används för att ansluta till Azure Cosmos DB-kontot som övervakas. |
 |**Databas**|**Databas**  | Namnet på Azure Cosmos DB-databasen med den samling som övervakas. |

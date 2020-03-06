@@ -4,12 +4,12 @@ description: Skapa en HTTP-utlöst, Server lös PowerShell-funktion för att aut
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.custom: ''
-ms.openlocfilehash: 51146886e3f52cb6a60d49da0d57aea1e2c55106
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 9dbb22a2449e4c41bff802ab827da4489fc7ffeb
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196543"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331033"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Självstudie: Använd en HTTP-utlöst Azure-funktion för att skapa en behållar grupp
 
@@ -42,7 +42,7 @@ I den här artikeln förutsätter vi att du publicerar projektet med namnet *myf
 
 ## <a name="enable-an-azure-managed-identity-in-the-function-app"></a>Aktivera en Azure-hanterad identitet i Function-appen
 
-Aktivera nu en systemtilldelad [hanterad identitet](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#adding-a-system-assigned-identity) i din Function-app. PowerShell-värden som kör appen kan autentiseras automatiskt med den här identiteten, vilket gör att funktioner kan vidta åtgärder på Azure-tjänster som identiteten har beviljats åtkomst till. I den här självstudien beviljar du hanterade identitets behörigheter för att skapa resurser i Function-appens resurs grupp. 
+Aktivera nu en systemtilldelad [hanterad identitet](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#add-a-system-assigned-identity) i din Function-app. PowerShell-värden som kör appen kan autentiseras automatiskt med den här identiteten, vilket gör att funktioner kan vidta åtgärder på Azure-tjänster som identiteten har beviljats åtkomst till. I den här självstudien beviljar du hanterade identitets behörigheter för att skapa resurser i Function-appens resurs grupp. 
 
 Använd först kommandot [AZ Group show][az-group-show] för att hämta ID: t för Function-appens resurs grupp och lagra den i en miljö variabel. I det här exemplet förutsätts att du kör kommandot i ett bash-gränssnitt.
 

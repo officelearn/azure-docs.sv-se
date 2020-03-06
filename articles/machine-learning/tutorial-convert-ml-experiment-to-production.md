@@ -7,20 +7,21 @@ ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 7f5e24261fd5d006004a51186e22f6bfe1b8ab32
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 5a7c4ce6d5868efef4cfb4fbe2183ec8337ff5b6
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589189"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301853"
 ---
 # <a name="tutorial-convert-ml-experimental-code-to-production-code"></a>Självstudie: konvertera ML experimentell kod till produktions kod
 
-Ett Machine Learning-projekt kräver experimentering där Hypotheses testas med flexibla verktyg som Jupyter Notebook med hjälp av verkliga data uppsättningar. När modellen är redo för produktion ska modell koden placeras i en produktions kod lagrings plats. I vissa fall måste modell koden konverteras till Python-skript som ska placeras i produktions kod lagrings platsen. I den här självstudien beskrivs en rekommenderad metod för att exportera experiment kod till Python-skript.  
+Ett Machine Learning-projekt kräver experimentering där Hypotheses testas med flexibla verktyg som Jupyter Notebook med hjälp av verkliga data uppsättningar. När modellen är redo för produktion ska modell koden placeras i en produktions kod lagrings plats. I vissa fall måste modell koden konverteras till Python-skript som ska placeras i produktions kod lagrings platsen. I den här självstudien beskrivs en rekommenderad metod för att exportera experiment kod till Python-skript.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
+>
 > * Rensa icke-väsentlig kod
 > * ÅterJupyter Notebooks kod i functions
 > * Skapa Python-skript för relaterade aktiviteter
@@ -41,7 +42,7 @@ from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 import joblib
- 
+
 X, y = load_diabetes(return_X_y=True)
 
 X_train, X_test, y_train, y_test = train_test_split(
@@ -64,13 +65,15 @@ joblib.dump(value=reg, filename=model_name)
 ## <a name="refactor-code-into-functions"></a>Omträds kod i functions
 
 För det andra måste Jupyter-koden omstruktureras till functions. Omstrukturering av kod i funktioner gör enhets testningen enklare och gör koden mer hanterbar. I det här avsnittet kommer du att göra följande:
+
 - Diabetes Ridge regression Training Notebook (`experimentation/Diabetes Ridge Regression Training.ipynb`)
 - Antecknings boken diabetes Ridge regression poängsättning (`experimentation/Diabetes Ridge Regression Scoring.ipynb`)
 
 ### <a name="refactor-diabetes-ridge-regression-training-notebook-into-functions"></a>Diabetes Ridge regression Training Notebook in Functions
+
 I `experimentation/Diabetes Ridge Regression Training.ipynb`utför du följande steg:
 
-1. Skapa en funktion som kallas `train_model`, som tar parametrarna `data` och `alpha` och returnerar en modell. 
+1. Skapa en funktion som kallas `train_model`, som tar parametrarna `data` och `alpha` och returnerar en modell.
 1. Kopiera koden under rubrikerna "träna modell on Training set" och "validera modell på validerings uppsättning" i funktionen `train_model`.
 
 Funktionen `train_model` bör se ut som följande kod:
@@ -106,7 +109,7 @@ def main():
 
     model_name = "sklearn_regression_model.pkl"
     alpha = 0.5
-    
+
     X, y = load_diabetes(return_X_y=True)
 
     X_train, X_test, y_train, y_test = train_test_split(
@@ -147,7 +150,7 @@ def main():
 
     model_name = "sklearn_regression_model.pkl"
     alpha = 0.5
-    
+
     X, y = load_diabetes(return_X_y=True)
 
     X_train, X_test, y_train, y_test = train_test_split(
@@ -163,6 +166,7 @@ main()
 ```
 
 ### <a name="refactor-diabetes-ridge-regression-scoring-notebook-into-functions"></a>Diabetes Ridge Regressions-antecknings bok till Functions
+
 I `experimentation/Diabetes Ridge Regression Scoring.ipynb`utför du följande steg:
 
 1. Skapa en ny funktion som kallas `init`, vilket inte tar några parametrar och returnerar ingenting.
@@ -212,6 +216,7 @@ request_header = {}
 prediction = run(raw_data, request_header)
 print("Test result: ", prediction)
 ```
+
 Föregående kod ställer in variabler `raw_data` och `request_header`, anropar `run`-funktionen med `raw_data` och `request_header`och skriver ut förutsägelserna.
 
 Efter omfactoring bör `experimentation/Diabetes Ridge Regression Scoring.ipynb` se ut som följande kod utan markdown:
@@ -242,11 +247,14 @@ print("Test result: ", prediction)
 ```
 
 ## <a name="combine-related-functions-in-python-files"></a>Kombinera relaterade funktioner i python-filer
+
 Tredje, relaterade funktioner måste slås samman till python-filer för att bättre kunna använda kod åter användning. I det här avsnittet skapar du python-filer för följande antecknings böcker:
+
 - Diabetes Ridge regression Training Notebook (`experimentation/Diabetes Ridge Regression Training.ipynb`)
 - Antecknings boken diabetes Ridge regression poängsättning (`experimentation/Diabetes Ridge Regression Scoring.ipynb`)
 
 ### <a name="create-python-file-for-the-diabetes-ridge-regression-training-notebook"></a>Skapa python-fil för notebook diabetes Ridge regression Training
+
 Konvertera antecknings boken till ett körbart skript genom att köra följande instruktion i en kommando tolk som använder nbconvert-paketet och sökvägen till `experimentation/Diabetes Ridge Regression Training.ipynb`:
 
 ```
@@ -274,7 +282,7 @@ def train_model(data, alpha):
 def main():
     model_name = "sklearn_regression_model.pkl"
     alpha = 0.5
-    
+
     X, y = load_diabetes(return_X_y=True)
 
     X_train, X_test, y_train, y_test = train_test_split(
@@ -292,6 +300,7 @@ main()
 `train.py`-filen som finns i katalogen `diabetes_regression/training` i MLOpsPython-lagringsplatsen stöder kommando rads argument (dvs `build_id`, `model_name`och `alpha`). Stöd för kommando rads argument kan läggas till i `train.py`-filen för att stödja dynamiska modell namn och `alpha` värden, men det är inte nödvändigt för att koden ska kunna köras.
 
 ### <a name="create-python-file-for-the-diabetes-ridge-regression-scoring-notebook"></a>Skapa python-fil för notebook diabetes Ridge regression Poängsättning
+
 Konvertera din bärbara dator till ett körbart skript genom att köra följande instruktion i en kommando tolk som använder nbconvert-paketet och sökvägen till `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
 
 ```
@@ -344,11 +353,13 @@ def init():
 ```
 
 ## <a name="create-unit-tests-for-each-python-file"></a>Skapa enhets test för varje python-fil
+
 Fjärde måste du skapa enhets test för varje python-fil som gör kod mer robust och enklare att underhålla. I det här avsnittet ska du skapa ett enhets test för en av funktionerna i `train.py`.
 
-`train.py` innehåller två funktioner: `train_model` och `main`. Varje funktion behöver ett enhets test, men vi skapar bara ett enda enhets test för funktionen `train_model` med Pytest-ramverket i den här självstudien.  Pytest är inte det enda testnings ramverket python unit, men det är en av de som används oftast. Mer information finns på [Pytest](https://pytest.org).
+`train.py` innehåller två funktioner: `train_model` och `main`. Varje funktion behöver ett enhets test, men vi skapar bara ett enda enhets test för funktionen `train_model` med Pytest-ramverket i den här självstudien. Pytest är inte det enda testnings ramverket python unit, men det är en av de som används oftast. Mer information finns på [Pytest](https://pytest.org).
 
 Ett enhets test innehåller vanligt vis tre huvudsakliga åtgärder:
+
 - Ordna objekt – skapa och konfigurera nödvändiga objekt
 - Agera på ett objekt
 - Assert förväntat
@@ -379,29 +390,40 @@ class TestTrain:
 ```
 
 ## <a name="use-your-own-model-with-mlopspython-code-template"></a>Använd din egen modell med MLOpsPython-kod mal len
-Om du har gått igenom stegen i den här guiden har du en uppsättning skript som motsvarar de tåg-/Poäng-/test-skript som finns i MLOpsPython-lagringsplatsen.  Enligt den struktur som anges ovan går följande steg igenom vad som behövs för att använda de här filerna för ditt eget Machine Learning-projekt:  
 
-1.  Följ Komma igångs guiden
-2.  Ersätt inlärnings koden
-3.  Ersätt Poäng koden
-4.  Uppdatera utvärderings koden
+Om du har gått igenom stegen i den här guiden har du en uppsättning skript som motsvarar de tåg-/Poäng-/test-skript som finns i MLOpsPython-lagringsplatsen.  Enligt den struktur som anges ovan går följande steg igenom vad som behövs för att använda de här filerna för ditt eget Machine Learning-projekt:
+
+1. Följ MLOpsPython-guiden för [komma igång](https://github.com/microsoft/MLOpsPython/blob/master/docs/getting_started.md)
+2. Följ anvisningarna för MLOpsPython [Start](https://github.com/microsoft/MLOpsPython/blob/master/bootstrap/README.md) för att skapa projektets start punkt
+3. Ersätt inlärnings koden
+4. Ersätt Poäng koden
+5. Uppdatera utvärderings koden
 
 ### <a name="follow-the-getting-started-guide"></a>Följ Komma igångs guiden
-Följande kom igång-guide är nödvändig för att stödja infrastrukturen och pipeliner för att köra MLOpsPython.  Vi rekommenderar att du distribuerar MLOpsPython-koden i befintligt skick innan du lägger till din egen kod för att säkerställa att strukturen och pipelinen fungerar korrekt.  Det är också användbart att bekanta dig med lagrings platsens kod struktur.
+Följande [komma igångs](https://github.com/microsoft/MLOpsPython/blob/master/docs/getting_started.md) guide är nödvändig för att stödja infrastrukturen och pipeliner för att köra MLOpsPython.
+
+### <a name="follow-the-bootstrap-instructions"></a>Följ instruktionerna för start
+
+Med [Start](https://github.com/microsoft/MLOpsPython/blob/master/bootstrap/README.md) guiden för MLOpsPython-lagringsplats kan du snabbt förbereda lagrings platsen för ditt projekt.
+
+**Obs:** Eftersom bootstrap-skriptet byter namn på diabetes_regression-mappen till det valda projekt namnet, kommer vi att referera till projektet som `[project name]` när sökvägar är inblandade.
 
 ### <a name="replace-training-code"></a>Ersätt inlärnings kod
-Att ersätta den kod som används för att träna modellen och ta bort eller ersätta motsvarande enhets test krävs för att lösningen ska fungera med din egen kod.  Följ dessa steg särskilt:
 
-1. Ersätt `diabetes_regression\training\train.py`. Det här skriptet tränar din modell lokalt eller på Azure ML-beräkningen.
-1. Ta bort eller Ersätt test av utbildnings enhet som finns i `tests/unit/code_test.py`
+Att ersätta den kod som används för att träna modellen och ta bort eller ersätta motsvarande enhets test krävs för att lösningen ska fungera med din egen kod. Följ dessa steg särskilt:
+
+1. Ersätt `[project name]/training/train.py`. Det här skriptet tränar din modell lokalt eller på Azure ML-beräkningen.
+1. Ta bort eller Ersätt test av utbildnings enhet som finns i `[project name]/training/test_train.py`
 
 ### <a name="replace-score-code"></a>Ersätt Poäng kod
-För att modellen ska kunna tillhandahålla funktioner för att få real tids härledning måste Poäng koden ersättas. MLOpsPython-mallen använder poängsättnings koden för att distribuera modellen för att utföra real tids resultat på ACI, AKS eller Web Apps.  Om du vill behålla poängen ersätter du `diabetes_regression/scoring/score.py`.
+
+För att modellen ska kunna tillhandahålla funktioner för att få real tids härledning måste Poäng koden ersättas. MLOpsPython-mallen använder poängsättnings koden för att distribuera modellen för att utföra real tids resultat på ACI, AKS eller Web Apps. Om du vill behålla poängen ersätter du `[project name]/scoring/score.py`.
 
 ### <a name="update-evaluation-code"></a>Uppdatera utvärderings kod
-MLOpsPython-mallen använder evaluate_model-skriptet för att jämföra prestanda hos den nytränade modellen och den aktuella produktions modellen baserat på ett kvadratvärde i genomsnitt. Om den nya intränade modellens prestanda är bättre än den aktuella produktions modellen fortsätter pipelinerna. Annars stoppas pipelinerna. Om du vill behålla utvärderingen ersätter du alla instanser av `mse` i `diabetes_regression/evaluate/evaluate_model.py` med det mått som du vill använda. 
 
-För att få RID-utvärderingen ställer du in variabeln DevOps `RUN_EVALUATION` i `.pipelines\diabetes_regression-variables` till `false`.
+MLOpsPython-mallen använder evaluate_model-skriptet för att jämföra prestanda hos den nytränade modellen och den aktuella produktions modellen baserat på ett kvadratvärde i genomsnitt. Om den nya intränade modellens prestanda är bättre än den aktuella produktions modellen fortsätter pipelinerna. Annars avbryts pipelinerna. Om du vill behålla utvärderingen ersätter du alla instanser av `mse` i `[project name]/evaluate/evaluate_model.py` med det mått som du vill använda.
+
+För att få RID-utvärderingen ställer du in variabeln DevOps `RUN_EVALUATION` i `.pipelines/[project name]-variables-template.yml` till `false`.
 
 ## <a name="next-steps"></a>Nästa steg
 

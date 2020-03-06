@@ -2,14 +2,14 @@
 author: rothja
 ms.service: cost-management-billing
 ms.topic: include
-ms.date: 08/09/2019
+ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 83bf357fff8fd3cfb8c0e69af92b36710287898f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
-ms.translationtype: MT
+ms.openlocfilehash: 505e2d8eec20853fba3743b40cbe289585d14d61
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586740"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304998"
 ---
 | Resurs | Kostnadsfri | Delad | Basic | Standard | Premium (v2) | Isoler </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -20,10 +20,10 @@ ms.locfileid: "77586740"
 | Lagring<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup></p> |1 TB<sup>5</sup>|
 | PROCESSOR tid (5 minuter)<sup>6</sup> |3 minuter |3 minuter |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a>|
 | CPU-tid (dag)<sup>6</sup> |60 minuter |240 minuter |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |
-| Minne (1 timme) |1 024 MB per App Service plan |1 024 MB per app |Saknas |Saknas |Saknas |Saknas |
+| Minne (1 timme) |1 024 MB per App Service plan |1 024 MB per app |Ej tillämpligt |Ej tillämpligt |Ej tillämpligt |Ej tillämpligt |
 | Bandbredd |165 MB |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |
 | Programarkitektur |32-bitars |32-bitars |32-bitars/64-bitars |32-bitars/64-bitars |32-bitars/64-bitars |32-bitars/64-bitars |
-| Web Sockets per instans<sup>7</sup> |5 |35 |350 |Obegränsat |Obegränsat |Obegränsat |
+| Web Sockets per instans<sup>7</sup> |5 |35 |350 |Unlimited |Unlimited |Unlimited |
 | IP-anslutningar | 600 | 600 | Är beroende av instans storlek<sup>8</sup> | Är beroende av instans storlek<sup>8</sup> | Är beroende av instans storlek<sup>8</sup> | 16,000 |
 | Samtidiga [fel söknings anslutningar](../articles/app-service/troubleshoot-dotnet-visual-studio.md) per program |1 |1 |1 |5 |5 |5 |
 | App Service certifikat per prenumeration<sup>9</sup>| Stöds inte | Stöds inte |10 |10 |10 |10 |
@@ -36,7 +36,7 @@ ms.locfileid: "77586740"
 | [Automatisk skalning](../articles/app-service/manage-scale-up.md) | | | |X |X |X |
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>11</sup> |X |X |X |X |X |X |
 | [Slutpunktsövervakning](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
-| [Mellanlagrings platser](../articles/app-service/deploy-staging-slots.md) | | | |5 |20 |20 |
+| [Mellanlagrings platser](../articles/app-service/deploy-staging-slots.md) per app| | | |5 |20 |20 |
 | SLA | |  |99,95 %|99,95 %|99,95 %|99,95 %|  
 
 <sup>1</sup> Appar och lagrings kvoter per App Service plan om inget annat anges.  

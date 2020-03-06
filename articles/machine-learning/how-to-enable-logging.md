@@ -8,13 +8,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 07/12/2019
-ms.openlocfilehash: 65db6cfa64658edc4e604a009e672ba3aa5e86f3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/05/2020
+ms.openlocfilehash: 73b9ae6bc3c15526bfdafd74330c7b86286631b1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893984"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396151"
 ---
 # <a name="enable-logging-in-azure-machine-learning"></a>Aktivera loggning i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -101,7 +101,7 @@ Du kan också logga anpassade stack spårningar för din webb tjänst genom att 
 service.update(enable_app_insights=True)
 ```
 
-Se [anvisningar för att](how-to-enable-app-insights.md) få mer information om hur du arbetar med Application Insights i Azure Machine Learning Studio.
+Mer information finns i [övervaka och samla in data från ml webb tjänst slut punkter](how-to-enable-app-insights.md).
 
 ## <a name="python-native-logging-settings"></a>Inställningar för python-intern loggning
 
@@ -111,3 +111,7 @@ Vissa loggar i SDK kan innehålla ett fel som uppmanar dig att ange loggnings ni
 import logging
 logging.basicConfig(level=logging.DEBUG)
 ```
+
+## <a name="next-steps"></a>Nästa steg
+
+* [Övervaka och samla in data från ML webb tjänst slut punkter](how-to-enable-app-insights.md)

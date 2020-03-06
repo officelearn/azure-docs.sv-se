@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 11/04/2019
-ms.openlocfilehash: 1217028dc6c206633f13fe44951732809cd72d22
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 03/05/2020
+ms.openlocfilehash: a930dc3974536047096912505b9a786cf53c41b8
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762807"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328599"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Djup inlärning eller Machine Learning
 
@@ -76,7 +76,7 @@ Som bild igenkänning, i bild texter, för en bild måste systemet generera en b
 
 Normalt används (convolutional neurala-nätverk för att identifiera objekt i en avbildning och sedan använda ett återkommande neurala-nätverk för att omvandla etiketterna till konsekventa meningar.
 
-### <a name="machine-translation"></a>Maskinöversättning
+### <a name="machine-translation"></a>Maskin Översättning
 
 Maskin översättningen tar ord eller meningar från ett språk och översätter automatiskt dem till ett annat språk. Maskin översättning har varit runt under en längre tid, men djup inlärningen uppnår imponerande resultat i två olika områden: automatisk översättning av text (och översättning av tal till text) och automatisk översättning av bilder.
 

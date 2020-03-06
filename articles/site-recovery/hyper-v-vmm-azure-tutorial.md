@@ -8,11 +8,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 0c570702e4c3899ef2847883e6fc8649e603a787
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039694"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389638"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Konfigurera katastrof återställning av lokala virtuella Hyper-V-datorer i VMM-moln till Azure
 
@@ -20,7 +20,7 @@ I den här artikeln beskrivs hur du aktiverar replikering för lokala virtuella 
 
 Det här är den tredje självstudien i en serie som visar hur du konfigurerar haveri beredskap till Azure för lokala virtuella VMware-datorer. I den föregående själv studie kursen har vi för [berett den lokala Hyper-V-miljön](hyper-v-prepare-on-premises-tutorial.md) för haveri beredskap till Azure.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Väljer replikeringskälla och mål.
@@ -41,7 +41,7 @@ Detta är den tredje självstudien i en serie. Det förutsätter att du redan ha
 1. [Förbereda Azure](tutorial-prepare-azure.md)
 2. [Förbereda lokala Hyper-V](tutorial-prepare-on-premises-hyper-v.md)
 
-## <a name="select-a-replication-goal"></a>Välj ett replikeringsmål
+## <a name="select-a-replication-goal"></a>Väljer ett replikeringsmål
 
 1. I Azure Portal går du till **Recovery Services valv** och väljer valvet. Vi för beredde valvet **ContosoVMVault** i föregående självstudie.
 2. I **komma igång**väljer du **Site Recovery**och väljer sedan **Förbered infrastruktur**.
@@ -111,7 +111,7 @@ Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringsk
 
     ![Nätverksmappning](./media/hyper-v-vmm-azure-tutorial/network-mapping-vmm.png)
 
-## <a name="set-up-a-replication-policy"></a>Konfigurerar en replikeringsprincip
+## <a name="set-up-a-replication-policy"></a>Konfigurera en replikeringsprincip
 
 1. Välj **Förbered infrastruktur** > **replikeringsinställningar** >  **+ skapa och koppla**.
 2. I **Princip för att skapa och koppla** anger du ett principnamn. Vi använder **ContosoReplicationPolicy**.

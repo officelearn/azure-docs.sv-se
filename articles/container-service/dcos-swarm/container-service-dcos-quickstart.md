@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9efedd5b619a2a3bd592019fea3ca48b7244ca10
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 6274e24bae2e2a6eade0122fe244652eb29cacf9
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278505"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399217"
 ---
 # <a name="deprecated-deploy-a-dcos-cluster"></a>(INAKTUELL) Distribuera ett DC/OS-kluster
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-DC/OS tillhandahåller en distribuerad plattform för att köra moderna och containerbaserade program. Med Azure Container Service går det snabbt och enkelt att etablera ett produktionsklart DC/OS-kluster. Den här snabbstarten beskriver de grundläggande stegen för att distribuera ett DC/OS-kluster och köra en grundläggande arbetsbelastning.
+DC/OS tillhandahåller en distribuerad plattform för att köra moderna och containerbaserade program. Med Azure Container Service går det snabbt och enkelt att etablera ett produktionsklart DC/OS-kluster. Den här snabb starten beskriver de grundläggande stegen som krävs för att distribuera ett DC/OS-kluster och köra grundläggande arbets belastning.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -128,19 +128,19 @@ Standardmekanismen för schemaläggning av ett ACS DC/OS-kluster är Marathon. M
 
 Kör följande kommando för att schemalägga att programmet ska köras på DC/OS-klustret.
 
-```azurecli
+```console
 dcos marathon app add marathon-app.json
 ```
 
 Kör följande kommando för att se distributionsstatusen för appen.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 När kolumnvärdet **VÄNTAR** ändras från *Sant* till *Falskt* har programdistributionen slutförts.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
@@ -165,7 +165,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du distribuerat ett DC/OS-kluster och har kört en enkel Docker-container i klustret. Om du vill veta mer om Azure Container Service kan du fortsätta till självstudiekurserna om ACS.
+I den här snabb starten har du distribuerat ett DC/OS-kluster och har kört en enkel Docker-behållare i klustret. Om du vill veta mer om Azure Container Service kan du fortsätta till självstudiekurserna om ACS.
 
 > [!div class="nextstepaction"]
 > [Hantera ett ACS DC/OS-kluster](container-service-dcos-manage-tutorial.md)

@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om säkerhetskopiering av Azure Files
 description: I den här artikeln hittar du svar på vanliga frågor om hur du skyddar dina Azure-filresurser med Azure Backup-tjänsten.
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 053fe38b07fff5d289c72024ef185fbf5d647f70
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c69d4642aefbd599d3783dcdfa059a0cd9d129d9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294005"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302550"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 
@@ -83,7 +83,7 @@ Säkerhetskopieringen av Azure-filresurser är för närvarande en förhandsvers
 - NWW (Norge, västra)
 - SZN (Schweiz, norra)
 
-Skriv till [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) om du behöver använda den i ett visst område som inte anges ovan.
+Skriv till [AskAzureBackupTeam@microsoft.com](mailto:askazurebackupteam@microsoft.com) om du behöver använda den i ett visst område som inte anges ovan.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vault"></a>Hur många Azure-filresurser kan jag skydda i ett valv?
 
@@ -93,7 +93,7 @@ I förhandsversionen kan du skydda Azure-filresurser från upp till 50 lagringsk
 
 Nej. Filresurserna i ett lagringskonto kan endast skyddas med ett och samma valv.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Säkerhetskopiering
 
 ### <a name="how-many-scheduled-backups-can-i-configure-per-file-share"></a>Hur många schemalagda säkerhets kopieringar kan jag konfigurera per fil resurs?
 

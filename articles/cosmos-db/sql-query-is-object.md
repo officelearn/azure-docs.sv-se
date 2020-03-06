@@ -1,18 +1,18 @@
 ---
 title: IS_OBJECT i Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL system Function IS_OBJECT i Azure Cosmos DB.
+description: Lär dig mer om SQL system-funktionen IS_OBJECT i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8e55cda57202ce5a08257f1448adc828764ac817
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 43d8237d859249317d7b581e25ed9a2b34d39d00
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349827"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303808"
 ---
 # <a name="is_object-azure-cosmos-db"></a>IS_OBJECT (Azure Cosmos DB)
  Returnerar ett booleskt värde som anger om det angivna uttrycket är ett JSON-objekt.  
@@ -52,6 +52,10 @@ SELECT
 ```json
 [{"isObj1":false,"isObj2":false,"isObj3":false,"isObj4":false,"isObj5":true,"isObj6":false,"isObj7":false}]
 ```  
+
+## <a name="remarks"></a>Anmärkningar
+
+Den här systemfunktionen kommer att ha nytta av ett [intervall index](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Nästa steg
 

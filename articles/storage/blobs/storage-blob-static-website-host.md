@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 69acb9152d1dc30d986276939e29e8c183095b18
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 03850315a05f569d2c6ba9405b6ec38bb6b1305d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539611"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330403"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -92,8 +92,6 @@ Nu skapar du en Hello World-webbplats med Visual Studio Code och distribuerar de
 1. Välj den prenumeration som innehåller det lagringskonto som du aktiverade hantering av statisk webbplats för. Välj sedan lagringskontot när du tillfrågas.
 
 Visual Studio Code laddar nu upp filerna till webbslutpunkten och visar statusfältet för processen. Starta webbplatsen för att visa den i Azure.
-
-![Visa distribution av statisk webbplats i Azure](media/storage-blob-static-website-host/view-static-website-endpoint.png)
 
 Du har slutfört självstudien och distribuerat en statisk webbplats till Azure.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
-ms.openlocfilehash: 03a07e70c967f92fe5dcc7c951aeea299b050405
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 85fad873b6c176d2278ea48709d2892ab515a025
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71326997"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303315"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Självstudie: Implementera Data Lake Capture-mönstret för att uppdatera en Databricks delta tabell
 
@@ -30,7 +30,7 @@ I den här kursen ska du:
 
 Vi bygger den här lösningen i omvänd ordning, från och med Azure Databricks arbets ytan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -42,7 +42,7 @@ Vi bygger den här lösningen i omvänd ordning, från och med Azure Databricks 
 
   Det finns några saker som du måste göra när du utför stegen i den här artikeln.
 
-  : heavy_check_mark: när du utför stegen i avsnittet [tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) i artikeln, se till att tilldela rollen **Storage BLOB data Contributor** till tjänstens huvud namn.
+  : heavy_check_mark: när du utför stegen i avsnittet [tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) i artikeln, se till att tilldela rollen **Storage BLOB data Contributor** till tjänstens huvud namn.
 
   > [!IMPORTANT]
   > Se till att tilldela rollen i omfånget för Data Lake Storage Gen2-lagringskontot. Du kan tilldela en roll till den överordnade resursgruppen eller prenumerationen, men du får behörighetsrelaterade fel tills de rolltilldelningarna propageras till lagringskontot.
@@ -133,7 +133,7 @@ Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Da
 
 1. I den antecknings bok som du har skapat kopierar du och klistrar in följande kodblock i den första cellen, men kör inte den här koden ännu.  
 
-   Ersätt `appId`, `password` `tenant` plats hållarens värden i det här kod blocket med de värden som du samlade in när du slutförde kraven för den här själv studie kursen.
+   Ersätt `appId`, `password``tenant` plats hållarens värden i det här kod blocket med de värden som du samlade in när du slutförde kraven för den här själv studie kursen.
 
     ```Python
     dbutils.widgets.text('source_file', "", "Source File")
@@ -336,7 +336,7 @@ Skapa en Azure-funktion som kör jobbet.
     }
     ```
 
-   Den här koden analyserar information om den lagrings händelse som har Aktiver ATS och skapar sedan ett begär ande meddelande med URL för den fil som utlöste händelsen. Som en del av meddelandet skickar funktionen ett värde till **source_file** -widgeten som du skapade tidigare. funktions koden skickar meddelandet till Databricks-jobbet och använder den token som du fick tidigare som autentisering.
+   Den här koden analyserar information om den lagrings händelse som har Aktiver ATS och skapar sedan ett begär ande meddelande med URL för den fil som utlöste händelsen. Som en del av meddelandet skickar funktionen ett värde till den **source_file** widget som du skapade tidigare. funktions koden skickar meddelandet till Databricks-jobbet och använder den token som du fick tidigare som autentisering.
 
 ## <a name="create-an-event-grid-subscription"></a>Skapa en Event Grid-prenumeration
 

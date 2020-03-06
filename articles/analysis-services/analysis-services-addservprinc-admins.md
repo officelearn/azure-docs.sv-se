@@ -8,19 +8,16 @@ ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b75740e9bff714ad68c93bea7e387e60da2f1c59
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 1370f65405963ebf825e986e6801607a0d96156e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212502"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298096"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Lägg till ett huvud namn för tjänsten i Server administratörs rollen 
 
  För att automatisera obevakade PowerShell-aktiviteter måste ett huvud namn för tjänsten ha **Server administratörs** behörighet på den Analysis Services server som hanteras. Den här artikeln beskriver hur du lägger till ett huvud namn för tjänsten i rollen Server administratörer på en Azure AS-Server. Du kan göra detta med hjälp av SQL Server Management Studio eller en Resource Manager-mall.
- 
-> [!NOTE]
-> För Server åtgärder som använder Azure PowerShell-cmdlets måste tjänstens huvud namn också tillhöra rollen som **ägare** för resursen i [Azure role-based Access Control (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 Innan du slutför den här uppgiften måste du ha ett huvud namn för tjänsten som registrerats i Azure Active Directory.
@@ -96,6 +93,24 @@ Följande Resource Manager-mall distribuerar en Analysis Services-server med ett
     ]
 }
 ```
+
+## <a name="using-managed-identities"></a>Använda hanterade identiteter
+
+Du kan också lägga till en hanterad identitet i listan Analysis Services admins. Du kan till exempel ha en [Logic-app med en systemtilldelad hanterad identitet](../logic-apps/create-managed-service-identity.md)och vill ge den möjlighet att administrera Analysis Services-servern.
+
+I de flesta delar av Azure Portal och API: er identifieras hanterade identiteter med hjälp av objekt-ID för tjänstens huvud namn. Analysis Services kräver dock att de identifieras med hjälp av klient-ID. För att hämta klient-ID för ett huvud namn för tjänsten kan du använda Azure CLI:
+
+```bash
+az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o tsv
+```
+
+Du kan också använda PowerShell:
+
+```powershell
+(Get-AzureADServicePrincipal -ObjectId <ManagedIdentityServicePrincipalObjectId>).AppId
+```
+
+Du kan sedan använda det här klient-ID: t tillsammans med klient-ID: t för att lägga till den hanterade identiteten i listan Analysis Services admins, enligt beskrivningen ovan.
 
 ## <a name="related-information"></a>Relaterad information
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2e175e1ed62a4afb2a532add161dd2ab63ba9b1c
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 0eac35a91e4d5158335d6797d49a09f8f6f391e3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349771"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303757"
 ---
 # <a name="left-azure-cosmos-db"></a>VÄNSTER (Azure Cosmos DB)
  Returnerar den vänstra delen av en sträng med det angivna antalet tecken.  
@@ -48,6 +48,10 @@ SELECT LEFT("abc", 1) AS l1, LEFT("abc", 2) AS l2
 ```json
 [{"l1": "a", "l2": "ab"}]  
 ```  
+
+## <a name="remarks"></a>Anmärkningar
+
+Den här systemfunktionen kommer att ha nytta av ett [intervall index](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: afa9437a00c6f30688c7942feea94f7db7ed490a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: d3cd330001bcf53e7bd4fb9e6955c76a9ef20511
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919353"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331084"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Snabb start: asynkron syntes för lång Forms ljud i python (för hands version)
 
@@ -30,7 +30,7 @@ För den här snabbstarten krävs:
 
 * Python 2.7. x eller 3. x.
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download)eller din favorit text redigerare.
-* En Azure-prenumeration och en prenumerations nyckel för en röst tjänst. [Skapa ett Azure-konto](../../get-started.md#new-resource) och [skapa en tal resurs](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) för att hämta nyckeln. När du skapar tal resursen måste du kontrol lera att pris nivån är inställd på **S0**och att platsen är inställd på en [region som stöds](../../regions.md#standard-and-neural-voices).
+* En Azure-prenumeration och en prenumerations nyckel för en röst tjänst. [Skapa ett Azure-konto](../../get-started.md#new-resource) och [skapa en tal resurs](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-resource) för att hämta nyckeln. När du skapar tal resursen måste du kontrol lera att pris nivån är inställd på **S0**och att platsen är inställd på en [region som stöds](../../regions.md#standard-and-neural-voices).
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 

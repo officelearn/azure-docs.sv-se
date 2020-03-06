@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 02/03/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: df1602fe82b4a625dd5f01de2bd7236816fbb0ac
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 873db6315841b585aa0ba6bcb843bfe05567836f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164669"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299269"
 ---
 # <a name="azure-media-services-v3-overview"></a>Översikt över Azure Media Services v3
 
@@ -51,8 +51,8 @@ Med Media Services kan du bygga en mängd olika medie arbets flöden i molnet. N
 * Analysera inspelat video- eller ljudinnehåll. För att till exempel uppnå högre kundnöjdhet kan organisationer extrahera tal till text och skapa sökindex och instrumentpaneler. De kan sedan extrahera information kring vanliga klagomål, källor till klagomål och andra relevanta data.
 * Skapa en prenumerationsvideotjänst och strömma DRM-skyddat innehåll när en kund (till exempel en filmstudio) behöver begränsa åtkomst och användning av upphovsrättsskyddat arbete.
 * Leverera offline-innehåll för uppspelning på flygplan tåg och bilar. En kund kan behöva ladda ner innehåll till sin telefon eller surfplatta för uppspelning när de vet att de kan kopplas ned från nätverket.
-* Implementera en video plattform för e-utbildning i utbildning med Azure Media Services och [Azure API:er för Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai) för tal-till-text-textning, översättning till flera språk och så vidare.
-* Använd Azure Media Services tillsammans med [API:er för Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai) för att lägga till textning och beskrivningar till videor och därmed tillgodose en bredare publik (till exempel personer med handikapp) eller användare som vill kunna läsa på ett annat språk.
+* Implementera en video plattform för e-utbildning i utbildning med Azure Media Services och [Azure API:er för Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) för tal-till-text-textning, översättning till flera språk och så vidare.
+* Använd Azure Media Services tillsammans med [API:er för Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) för att lägga till textning och beskrivningar till videor och därmed tillgodose en bredare publik (till exempel personer med handikapp) eller användare som vill kunna läsa på ett annat språk.
 * Aktivera Azure CDN för att uppnå hög skalning för att bättre hantera omedelbara höga belastningar (till exempel start av en produktlansering).
 
 ## <a name="how-can-i-get-started-with-v3"></a>Hur kan jag komma igång med v3? 

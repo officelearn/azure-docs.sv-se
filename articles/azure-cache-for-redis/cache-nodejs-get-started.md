@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: e0458fd257942a455daef911a303437fea03b11b
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 07e2d6f174e5af4af9bdcac73dc74f5cf061ed41
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122004"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300493"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Snabb start: Använd Azure cache för Redis med Node. js
 
 I den här snabb starten införlivar du Azure cache för Redis i en Node. js-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [node_redis](https://github.com/mranney/node_redis), som du kan installera med kommandot `npm install redis`. 
@@ -55,7 +55,7 @@ Skapa inte nya anslutningar för alla åtgärder i koden. Återanvänd istället
 
 ## <a name="create-a-new-nodejs-app"></a>Skapa en ny Node.js-app
 
-Skapa en ny skriptfil med namnet *redistest.js*.
+Skapa en ny skriptfil med namnet *redistest.js*. Använd kommandot `npm install redis bluebird` för att installera nödvändiga paket.
 
 Lägg till följande JavaScript-exempel i filen. Den här koden visar hur du ansluter till en Azure Cache for Redis-instans med hjälp av cache-värdnamnet och viktiga miljövariabler. Koden lagrar och hämtar även ett strängvärde i cacheminnet. Kommandona `PING` och `CLIENT LIST` körs också. Fler exempel på hur du använder Redis med [node_redis](https://github.com/mranney/node_redis)-klienten finns på [https://redis.js.org/](https://redis.js.org/).
 
@@ -63,6 +63,7 @@ Lägg till följande JavaScript-exempel i filen. Den här koden visar hur du ans
 var redis = require("redis");
 var bluebird = require("bluebird");
 
+// Convert Redis client API to use promises, to make it usable with async/await syntax
 bluebird.promisifyAll(redis.RedisClient.prototype);
 bluebird.promisifyAll(redis.Multi.prototype);
 
@@ -104,7 +105,7 @@ Kör skriptet med Node.js.
 node redistest.js
 ```
 
-I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure Portal. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
+I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure-portalen. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
 
 ![Redis Cache app har slutförts](./media/cache-nodejs-get-started/redis-cache-app-complete.png)
 
@@ -115,7 +116,7 @@ Om du ska fortsätta till nästa självstudie kan du behålla resurserna som du 
 Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna som du skapade i snabbstarten för att undvika kostnader. 
 
 > [!IMPORTANT]
-> Det går inte att ångra borttagningen av en resursgrupp och resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
+> Det går inte att ångra borttagningen av en resursgrupp och att resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
 >
 
 Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper**.

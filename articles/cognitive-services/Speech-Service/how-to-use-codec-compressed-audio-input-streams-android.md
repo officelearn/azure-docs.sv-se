@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 01135229167dde3784137ab1b06dfc931766a2e0
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 1539ca9aa18892f617f278e67c8b6141f5f6d880
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805849"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331135"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>Gör så här: Använd codec-komprimerad ljud inspelning med talet SDK på Android
 
 Talet SDK: s **komprimerade ljud inspelnings** -API ger ett sätt att strömma komprimerat ljud till tal tjänsten med hjälp av PullStream eller PushStream.
 
 > [!IMPORTANT]
-> Strömmande komprimerade indata-ljud stöds för närvarande för [ C++, C#och Java på Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9)](how-to-use-codec-compressed-audio-input-streams.md). Det finns också stöd för java i Android och [mål-C på iOS-](how-to-use-codec-compressed-audio-input-streams-ios.md) plattformen.
+> Strömmande komprimerade indata-ljud stöds för närvarande för [ C++, C#och Java på Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8)](how-to-use-codec-compressed-audio-input-streams.md). Det finns också stöd för java i Android och [mål-C på iOS-](how-to-use-codec-compressed-audio-input-streams-ios.md) plattformen.
 > Tal SDK-version 1.7.0 eller högre krävs.
 
 För WAV/PCM ser du Mainline tal-dokumentationen. Utanför WAV/PCM stöds följande codec-komprimerade indataformat:
@@ -37,7 +37,7 @@ För WAV/PCM ser du Mainline tal-dokumentationen. Utanför WAV/PCM stöds följa
 
 Codec-komprimerat ljud implementeras med [gstreamer](https://gstreamer.freedesktop.org). Av licens skäl kompileras inte gstreamer-binärfiler med SDK. Du måste använda färdiga binärfiler för Android. Information om hur du hämtar färdiga bibliotek finns i [Installera för Android-utveckling](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
-`libgstreamer_android.so` måste anges. Kontrol lera att dina GStreamer-plugin-program är länkade i `libgstreamer_android.so`.
+`libgstreamer_android.so` krävs. Kontrol lera att dina GStreamer-plugin-program är länkade i `libgstreamer_android.so`.
 
 ```make
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 audioresample audioparsers ogg opusparse opus wavparse alaw mulaw flac

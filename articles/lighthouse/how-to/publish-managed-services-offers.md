@@ -3,12 +3,12 @@ title: Publicera ett erbjudande för hanterade tjänster på Azure Marketplace
 description: Lär dig hur du publicerar ett hanterat tjänst erbjudande som registrerar kunder till Azure-delegerad resurs hantering.
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 841cb52791709be5649d66b72f5c18ef35b740ef
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 6ae93759073be6b05d118ccf46f6b6367fff5fc6
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155255"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328950"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicera ett erbjudande för hanterade tjänster på Azure Marketplace
 
@@ -59,7 +59,7 @@ Slutför följande avsnitt i avsnittet med **plan information** :
 |**Rubrik**     | Eget namn på planen för visning. Maximal längd på 50 tecken.        |
 |**Sammanfattning**     | Kortfattad beskrivning av planen för visning under rubriken. Maximal längd på 100 tecken.        |
 |**Beskrivning**     | Beskrivnings text som ger en mer detaljerad förklaring av planen.         |
-|**Faktureringsmodell**     | Det finns två fakturerings modeller som visas här, men du måste välja **Bring Your Own License** för Managed Services-erbjudanden. Det innebär att du debiteras kunderna direkt för kostnader som rör erbjudandet, och Microsoft debiterar inte några avgifter till dig.   |
+|**Fakturerings modell**     | Det finns två fakturerings modeller som visas här, men du måste välja **Bring Your Own License** för Managed Services-erbjudanden. Det innebär att du debiteras kunderna direkt för kostnader som rör erbjudandet, och Microsoft debiterar inte några avgifter till dig.   |
 |**Är det en privat plan?**     | Anger om SKU: n är privat eller offentlig. Standardvärdet är **no** (public). Om du lämnar det här alternativet begränsas inte din prenumeration till specifika kunder (eller till ett visst antal kunder). När du har publicerat en offentlig plan kan du inte senare ändra den till privat. Välj **Ja**om du vill att den här planen bara är tillgänglig för vissa kunder. När du gör det måste du identifiera kunderna genom att ange deras prenumerations-ID. De kan anges en i taget (för upp till 10 prenumerationer) eller genom att ladda upp en. csv-fil (för upp till 20 000 prenumerationer). Se till att ta med dina egna prenumerationer här så att du kan testa och validera erbjudandet. Mer information finns i [privata SKU: er och planer](../../marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md).  |
 
 > [!IMPORTANT]
@@ -155,9 +155,6 @@ När en kund lägger till ditt erbjudande kan de [delegera en eller flera specif
 > Delegeringen måste utföras av ett konto som inte är gäst i kundens klient organisation som har den [inbyggda rollen ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) för den prenumeration som registreras (eller som innehåller de resurs grupper som har registrerats). Om du vill se alla användare som kan delegera prenumerationen kan en användare i kundens klient välja prenumerationen i Azure Portal, öppna **åtkomst kontroll (IAM)** och [Visa alla användare med ägar rollen](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 När kunden delegerar en prenumeration (eller en eller flera resurs grupper inom en prenumeration) registreras **Microsoft. ManagedServices** Resource Provider för den prenumerationen och användare i din klient organisation kan komma åt de delegerade resurserna enligt auktoriseringarna i ditt erbjudande.
-
-> [!NOTE]
-> För närvarande kan inte prenumerationer (eller resurs grupper inom en prenumeration) delegeras om prenumerationen använder Azure Databricks. Om en prenumeration (eller resurs grupper i en prenumeration) redan har delegerats är det för närvarande inte möjligt att skapa Databricks-arbetsytor i den prenumerationen.
 
 ## <a name="next-steps"></a>Nästa steg
 

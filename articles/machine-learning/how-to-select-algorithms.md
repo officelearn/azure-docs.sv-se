@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
-ms.date: 01/21/2020
-ms.openlocfilehash: 65f43bf87e704c85d83220f4ffbc50581aafb549
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 03/05/2020
+ms.openlocfilehash: e0482bac9569a834adf3e1cdef2b3f702980eac0
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76315472"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328671"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Så här väljer du algoritmer för Azure Machine Learning
 
@@ -47,7 +47,7 @@ När du vet vad du vill göra med dina data måste du fastställa ytterligare kr
 Gör alternativ och eventuellt kompromisser för följande krav:
 
 - Noggrannhet
-- Träningstid
+- Utbildnings tid
 - Linearitet
 - Antal parametrar
 - Antal funktioner
@@ -66,7 +66,7 @@ Det finns tre sätt att använda modulen utvärdera modell:
 
 En fullständig lista över mått och metoder som du kan använda för att utvärdera maskin inlärnings modellens exakthet finns i [utvärdera modell-modulen](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-model?WT.mc_id=docs-article-lazzeri).
 
-## <a name="training-time"></a>Träningstid
+## <a name="training-time"></a>Utbildnings tid
 
 I övervakad utbildning innebär utbildningen att använda historiska data för att bygga en maskin inlärnings modell som minimerar fel. Antalet minuter eller timmar som krävs för att träna en modell är ett stort antal olika algoritmer. Utbildnings tiden är ofta nära knuten till noggrannhet. en som vanligt vis medföljer den andra. 
 

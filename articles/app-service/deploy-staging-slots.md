@@ -3,14 +3,14 @@ title: Konfigurera mellanlagrings miljöer
 description: Lär dig hur du distribuerar appar till en icke-produktions plats och en Autobyte till produktion. Öka tillförlitligheten och ta bort avbrott i appen från distributioner.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
-ms.date: 09/19/2019
+ms.date: 03/04/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 63070b2c1e6adbb0149446b218e6e58023b2d409
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 21e025088e59c7f65f848b332ecb393b05918261
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666471"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300879"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagrings miljöer i Azure App Service
 <a name="Overview"></a>
@@ -23,13 +23,13 @@ Distribution av ditt program till en icke-produktions plats har följande förde
 * Om du distribuerar en app till en plats och byter ut den till produktion ser du till att alla instanser av facket har värmts upp innan du växlar till produktion. Detta eliminerar nedtid när du distribuerar din app. Omdirigeringen av trafiken är sömlös och inga förfrågningar tas bort på grund av växlings åtgärder. Du kan automatisera hela arbets flödet genom att konfigurera [Automatisk växling](#Auto-Swap) när det inte behövs för verifiering före växling.
 * Efter en växling har facket med den tidigare mellanlagrade appen nu den tidigare produktions appen. Om ändringarna som utbyts till produktions platsen inte är som du förväntar dig kan du utföra samma växling direkt för att få tillbaka din "senast fungerande webbplats".
 
-Varje App Service plan nivå har stöd för ett annat antal distributions platser. Det kostar inget extra att använda distributions platser. För att ta reda på antalet platser som din apps-nivå stöder, se [App Service gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits). 
+Varje App Service plan nivå har stöd för ett annat antal distributions platser. Det kostar inget extra att använda distributions platser. För att ta reda på antalet platser som din apps-nivå stöder, se [App Service gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
 
 Om du vill skala din app till en annan nivå ser du till att mål nivån stöder antalet platser som appen redan använder. Om din app till exempel har fler än fem platser kan du inte skala ned den till **standard** nivån eftersom **standard** nivån endast stöder fem distributions fack. 
 
 <a name="Add"></a>
 
-## <a name="add-a-slot"></a>Lägga till en plats
+## <a name="add-a-slot"></a>Lägg till en plats
 Appen måste köras på nivån **standard**, **Premium**eller **isolerad** för att du ska kunna aktivera flera distributions platser.
 
 
@@ -40,7 +40,7 @@ Appen måste köras på nivån **standard**, **Premium**eller **isolerad** för 
 
 2. I det vänstra fönstret väljer du **distributions platser** > **Lägg till plats**.
    
-    ![Lägg till en ny distributionsplats](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
+    ![Lägg till en ny distributions plats](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
    > Om appen inte redan finns på **standard**-, **Premium**-eller den **isolerade** nivån får du ett meddelande som anger vilka nivåer som stöds för aktivering av mellanlagrad publicering. Nu har du möjlighet att välja **uppgradering** och gå till fliken **Scale (skala** ) i appen innan du fortsätter.
@@ -48,7 +48,7 @@ Appen måste köras på nivån **standard**, **Premium**eller **isolerad** för 
 
 3. I dialog rutan **Lägg till en plats** anger du platsens namn och anger om du vill klona en app-konfiguration från en annan distributions plats. Välj **Lägg till** för att fortsätta.
    
-    ![Konfigurationskälla](./media/web-sites-staged-publishing/ConfigurationSource1.png)
+    ![Konfigurations källa](./media/web-sites-staged-publishing/ConfigurationSource1.png)
    
     Du kan klona en konfiguration från en befintlig plats. Inställningar som kan klonas är inställningar för appar, anslutnings strängar, språk Ramverks versioner, Web Sockets, HTTP-version och plattforms bitness.
 
@@ -101,7 +101,7 @@ När som helst i växlings åtgärden sker allt arbete vid initiering av de väx
 
 Om du vill konfigurera en app-inställning eller anslutnings sträng för att fästa mot en angiven plats (som inte växlas) går du till sidan **konfiguration** för den platsen. Lägg till eller redigera en inställning och välj sedan **distributions plats inställning**. Om du markerar den här kryss rutan visas App Service att inställningen inte kan växlas. 
 
-![Platsinställning](./media/web-sites-staged-publishing/SlotSetting.png)
+![Plats inställning](./media/web-sites-staged-publishing/SlotSetting.png)
 
 <a name="Swap"></a>
 
@@ -206,7 +206,7 @@ Vissa appar kan kräva anpassade värme åtgärder innan växlingen. Med konfigu
         </applicationInitialization>
     </system.webServer>
 
-Mer information om hur du anpassar den `applicationInitialization` element, se [vanligaste slot swap distributionsfel och hur du åtgärdar dem](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+Mer information om hur du anpassar `applicationInitialization`-elementet finns i [de flesta vanliga växlings fel i distributions fack och hur du åtgärdar dem](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
 Du kan också anpassa det varmaste sättet med en eller båda av följande [appinställningar](configure-common.md):
 
@@ -289,7 +289,7 @@ Azure PowerShell är en modul som tillhandahåller cmdlets för att hantera Azur
 Information om hur du installerar och konfigurerar Azure PowerShell och hur du autentiserar Azure PowerShell med din Azure-prenumeration finns i [så här installerar och konfigurerar du Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 ---
-### <a name="create-a-web-app"></a>Skapa ett webbprogram
+### <a name="create-a-web-app"></a>Skapa en webbapp
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
@@ -303,7 +303,7 @@ New-AzWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot
 ---
 ### <a name="initiate-a-swap-with-a-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-the-source-slot"></a>Påbörja en växling med en förhands granskning (växling vid flera faser) och Använd destinations plats konfigurationen för käll platsen
 ```powershell
-$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+$ParametersObject = @{targetSlot  = "[slot name – e.g. "production"]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
@@ -316,7 +316,7 @@ Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType M
 ---
 ### <a name="swap-deployment-slots"></a>Växla distributions fack
 ```powershell
-$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+$ParametersObject = @{targetSlot  = "[slot name – e.g. "production"]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 

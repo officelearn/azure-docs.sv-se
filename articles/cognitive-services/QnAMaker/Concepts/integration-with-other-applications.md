@@ -3,12 +3,12 @@ title: Integrera med andra program – QnA Maker
 description: QnA Maker integreras i klient program som chatt-robotar, samt med andra språk bearbetnings tjänster som Language Understanding (LUIS).
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: f75ee92f2ecd14f5c3e017aeee2340cff0c92561
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 38b275aa2b8cf5768a2bc95634a7ff4892893eda
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843396"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300527"
 ---
 # <a name="design-knowledge-base-for-client-applications"></a>Utforma kunskaps bas för klient program
 
@@ -20,7 +20,7 @@ QnA Maker integreras med konversations klient program som [Microsoft bot Framewo
 
 ## <a name="create-a-bot-without-writing-any-code"></a>Skapa en bot utan att skriva någon kod
 
-När du har publicerat din kunskaps bas skapar du en robot från **publicerings** sidan genom att välja knappen **skapa robot** . Använd [bot-självstudien](../tutorials/create-qna-bot.md) för att lära dig vad som händer när du har valt knappen.
+När du har publicerat din kunskaps bas skapar du en robot från **publicerings** sidan genom att välja knappen **skapa robot** . Använd [bot-självstudien](../Quickstarts/create-publish-knowledge-base.md) för att lära dig vad som händer när du har valt knappen.
 
 ## <a name="providing-multi-turn-conversations"></a>Tillhandahålla flera-turn-konversationer
 

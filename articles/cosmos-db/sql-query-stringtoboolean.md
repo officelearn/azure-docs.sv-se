@@ -4,15 +4,15 @@ description: Lär dig mer om SQL system Function StringToBoolean i Azure Cosmos 
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8719857dca16585a045f8174dbac8df455f38f38
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: ce11db91eff51e669f0917fbf34b1d560d0e9f07
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349270"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296549"
 ---
 # <a name="stringtoboolean-azure-cosmos-db"></a>StringToBoolean (Azure Cosmos DB)
  Returnerar uttryck som har översatts till ett booleskt värde. Om uttrycket inte kan översättas returneras undefined.  
@@ -85,6 +85,10 @@ Här är resultatuppsättningen.
 ```json
 [{}]
 ```  
+
+## <a name="remarks"></a>Anmärkningar
+
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 

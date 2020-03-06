@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: dapine
-ms.openlocfilehash: 45719eebb9cd74b0a5c4278e87b90978dcc3790f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 6baa98d50c50146e93b4832053f63f3bead90a6d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119701"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330845"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>Snabb start: skapa en röst assistent med talet SDK, Java (för hands version)
 
 Snabb Starter är också tillgängliga för [tal-till-text](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre), [text till tal](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=jre)och [tal översättning](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre).
 
-I den här artikeln skapar du ett Java-konsol program med hjälp av [Azure Cognitive Services Speech SDK](speech-sdk.md). Programmet ansluter till en tidigare skapad robot som kon figurer ATS för att använda den direkta linjens tal kanal, skickar en röst förfrågan och returnerar en röst svars aktivitet (om den har kon figurer ATS). Programmet har skapats med maven-paketet för tal-SDK och Sol förmörkelse Java IDE på Windows, Ubuntu Linux eller macOS. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
+I den här artikeln skapar du ett Java-konsol program med hjälp av [Azure Cognitive Services Speech SDK](speech-sdk.md). Programmet ansluter till en tidigare skapad robot som kon figurer ATS för att använda den direkta linjens tal kanal, skickar en röst förfrågan och returnerar en röst svars aktivitet (om den har kon figurer ATS). Programmet har skapats med maven-paketet för tal-SDK och Sol förmörkelse Java IDE på Windows, Linux eller macOS. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
-- Operativ system: Windows (64-bitars), Ubuntu Linux 16.04/18.04 (64-bit) eller macOS 10,13 eller senare.
+- Operativ system: Windows (64-bitars), Ubuntu Linux 16.04/18.04 (64-bit), RHEL/CentOS 8 (x64) eller macOS 10,13 eller senare.
 - [Sol förmörkelse Java IDE](https://www.eclipse.org/downloads/).
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - En Azure-prenumerationsnyckel för tjänsten Speech. [Hämta ett kostnads fritt](get-started.md) eller skapa det i [Azure Portal](https://portal.azure.com).
@@ -42,6 +42,17 @@ Om du kör Ubuntu 16.04/18.04 ser du till att dessa beroenden är installerade i
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
+
+På RHEL/CentOS 8:
+
+```sh
+sudo yum update
+sudo yum groupinstall "Development tools"
+sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl wget
+```
+
+> [!NOTE]
+> På RHEL/CentOS 8 följer du anvisningarna för [hur du konfigurerar openssl för Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 Om du kör Windows (64-bitars) ser du till att du har installerat Microsoft Visual C++ Redistributable för din plattform:
 

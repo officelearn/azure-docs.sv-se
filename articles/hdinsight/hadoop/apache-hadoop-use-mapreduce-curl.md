@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
-ms.openlocfilehash: 607020f1d540e83a4d049b96b9ab9a4ebcd385f0
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: abc3cc8c526e37e18f1e67b109a9a8e15ff8c989
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157261"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302720"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Kör MapReduce-jobb med Apache Hadoop på HDInsight med REST
 
@@ -22,11 +22,11 @@ Lär dig hur du använder Apache Hive WebHCat-REST API för att köra MapReduce-
 > [!NOTE]  
 > Om du redan är bekant med att använda Linux-baserade Hadoop-servrar, men du är nybörjare på HDInsight, kan du läsa [vad du behöver veta om Linux-baserade Apache Hadoop på HDInsight-](../hdinsight-hadoop-linux-information.md) dokument.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Hadoop kluster i HDInsight. Se [skapa Apache Hadoop kluster med hjälp av Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-Antingen:
+Antingen
   * Windows PowerShell eller,
   * [Sväng](https://curl.haxx.se/) med [JQ](https://stedolan.github.io/jq/)
 
@@ -37,7 +37,7 @@ Antingen:
 >
 > REST API skyddas med hjälp av [grundläggande åtkomst-autentisering](https://en.wikipedia.org/wiki/Basic_access_authentication). Du bör alltid göra begär Anden genom att använda HTTPS för att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
 
-### <a name="curl"></a>Curl
+### <a name="curl"></a>Klammerparentes
 
 1. Ange variablerna nedan för enkel användning. Det här exemplet baseras på en Windows-miljö och ändras efter behov för din miljö.
 
@@ -171,7 +171,7 @@ Antingen:
 
 1. När jobbets tillstånd har ändrats till `SUCCEEDED`kan du hämta resultatet från Azure Blob Storage. Parametern `statusdir` som skickas med frågan innehåller platsen för utdatafilen. I det här exemplet är platsen `/example/curl`. Den här adressen lagrar utdata från jobbet i kluster standard lagringen på `/example/curl`.
 
-Du kan visa och hämta dessa filer med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Mer information om hur du arbetar med blobbar från Azure CLI finns i [använda Azure CLI med Azure Storage](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) -dokument.
+Du kan visa och hämta dessa filer med hjälp av [Azure CLI](/cli/azure/install-azure-cli). Mer information om hur du använder Azure CLI för att arbeta med Azure Blob Storage finns i [snabb start: skapa, ladda ned och lista blobar med Azure CLI](../../storage/blobs/storage-quickstart-blobs-cli.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

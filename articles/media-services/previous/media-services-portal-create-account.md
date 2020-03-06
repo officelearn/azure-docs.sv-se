@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 234c8be8c696ca7381b8860680d072e84820d424
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1904ed9707859f0d00bca3b6e3aef90d1346cea5
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431980"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331510"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Skapa ett Media Services-konto med hjälp av Azure-portalen
 
@@ -37,22 +37,18 @@ I den här artikeln beskrivs hur man skapar ett Media Services-konto i Azure-por
 > [!NOTE]
 > Information om tillgänglighet för Azure Media Services-funktioner i olika regioner finns i [tillgänglighet för AMS-funktioner i datacenter](scenarios-and-availability.md#availability).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För den här kursen behöver du ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
+Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information om den [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="create-an-ams-account"></a>Skapa ett AMS-konto
 
 Stegen i det här avsnittet visar hur du skapar ett AMS-konto.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Klicka på **+Ny** > **Webb + mobilt** > **Media Services**.
-   
-    ![Skapa Media Services](./media/media-services-create-account/media-services-new1.png)
+2. Klicka på **+ skapa en resurs** > **medie** > **Media Services**.
 3. Ange de erfordrade värdena i **SKAPA MEDIA SERVICES-KONTO**.
-   
-    ![Skapa Media Services](./media/media-services-create-account/media-services-new3.png)
-   
+
    1. Ange namnet på det nya AMS-kontot vid **Kontonamn**. Namnet på ett Media Services-konto består av gemena bokstäver eller siffror utan blanksteg och 3 till 24 tecken.
    2. Vid Prenumeration väljer du mellan de olika Azure-prenumerationer som du har åtkomst till.
    3. I **Resursgrupp** väljer du ny eller befintlig resurs.  En resursgrupp är en samling resurser som delar livscykel, behörigheter och principer. Lär dig mer [här](../../azure-resource-manager/management/overview.md#resource-groups).
@@ -72,14 +68,13 @@ Stegen i det här avsnittet visar hur du skapar ett AMS-konto.
 
 Om du vill hantera ditt AMS-konto (till exempel ansluta till AMS-API:et via programmering, överföra videoklipp, koda tillgångar, konfigurera innehållsskydd och övervaka jobbförlopp) väljer du **Inställningar** på vänster sida av portalen. I **Inställningar** navigerar du till något av de tillgängliga bladen (till exempel **API-åtkomst**, **Tillgångar**, **Jobb** eller **Innehållsskydd**).
 
-
 ## <a name="next-steps"></a>Nästa steg
 
 Du kan nu överföra filer till AMS-kontot. Mer information finns i [Överföra filer](media-services-portal-upload-files.md).
 
 Om du tänker ansluta till AMS-API:et via programmering kan du läsa [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md) (Ansluta API:et för Azure Media Services med Azure AD-autentisering).
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0273a0a729d39de27b9e417c23624992d1d55b42
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: b7ca4677507f73467dddac09050f250ae34342a9
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064416"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329477"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Kom igång med Azure Stream Analytics: identifiering av bedrägerier i real tid
 
@@ -94,7 +94,7 @@ Innan en process kan skicka data till en Event Hub måste händelsehubben ha en 
     >[!NOTE]
     >Se till att du arbetar med händelsehubben, inte Event Hub-namnområdet.
 
-3.  Lägg till en princip med namnet `sa-policy-manage-demo` och välj **Hantera**i **anspråk**.
+3.  Lägg till en princip med namnet `asa-policy-manage-demo` och välj **Hantera**i **anspråk**.
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  

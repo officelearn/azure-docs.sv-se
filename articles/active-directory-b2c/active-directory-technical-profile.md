@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 06c9e79a68540cb10557b0951b743bf841963057
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2c36a2c47605e7e672996a4a33734c9281dad042
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190270"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78397834"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en Azure Active Directory teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -28,8 +28,8 @@ Azure Active Directory B2C (Azure AD B2C) ger stöd för Azure Active Directory 
 
 Namnattributet **för** **protokoll** elementet måste anges till `Proprietary`. Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet för protokoll hanterarens sammansättning `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-Alla tekniska profiler för Azure AD inkluderar **AAD-vanliga** tekniska profiler. Följande tekniska profiler anger inte protokollet eftersom protokollet har kon figurer ATS i **AAD-common** Technical Profile:
-
+I de tekniska profilerna för [anpassade principer för start paket](custom-policy-get-started.md#custom-policy-starter-pack) för Azure AD ingår **AAD-vanliga** tekniska profiler. De tekniska profilerna för Azure AD anger inte protokollet eftersom protokollet har kon figurer ATS i **AAD-common** Technical Profile:
+ 
 - **AAD-UserReadUsingAlternativeSecurityId** och **AAD-UserReadUsingAlternativeSecurityId-noerror** – slå upp ett socialt konto i katalogen.
 - **AAD-UserWriteUsingAlternativeSecurityId** – skapa ett nytt socialt konto.
 - **AAD-UserReadUsingEmailAddress** – leta upp ett lokalt konto i katalogen.

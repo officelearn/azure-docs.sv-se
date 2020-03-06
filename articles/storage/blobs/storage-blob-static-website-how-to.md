@@ -6,13 +6,13 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 05/28/2019
-ms.openlocfilehash: 35b5a85ea6fba87e785b581a7a20d0c28f312820
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.date: 03/04/2020
+ms.openlocfilehash: e312cc0dc6c58bb33a737e1fc28dd6eb3578b764
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484153"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330298"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Vara värd för en statisk webbplats i Azure Storage
 
@@ -20,25 +20,35 @@ Du kan hantera statiskt innehåll (HTML, CSS, Java Script och bildfiler) direkt 
 
 Den här artikeln visar hur du aktiverar statisk webbplats värd med hjälp av Azure Portal, Azure CLI eller PowerShell.
 
-<a id="portal" />
+## <a name="enable-static-website-hosting"></a>Aktivera statisk webbplats värd
 
-## <a name="portal"></a>[Portal](#tab/azure-portal)
+En statisk webbplats värd är en funktion som du måste aktivera på lagrings kontot.
 
-En steg-för-steg-guide finns i [Självstudier: vara värd för en statisk webbplats på Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-När du har aktiverat statisk webbplats värd kan du visa sidorna på din webbplats från en webbläsare med hjälp av den offentliga URL: en för webbplatsen.
+1. Kom igång genom att logga in på [Azure-portalen](https://portal.azure.com/).
 
-<a id="portal-find-url" />
+2. Leta upp ditt lagringskonto och visa kontoöversikten.
 
-### <a name="find-the-website-url-by-using-the-azure-portal"></a>Hitta webbplats-URL: en med hjälp av Azure Portal
+3. Välj **Statisk webbplats** för att visa konfigurationssidan för statiska webbplatser.
 
-I rutan som visas bredvid sidan konto översikt för ditt lagrings konto väljer du **statisk webbplats**. URL: en för din webbplats visas i fältet **primär slut punkt** .
+4. Välj **Aktivera** för att aktivera hantering av statisk webbplats för lagringskontot.
 
-![Mått för Azure Storage statiska webbplatser](./media/storage-blob-static-website/storage-blob-static-website-url.png)
+5. I fältet **index dokument namn** anger du en standard index sida (till exempel: *index. html*). 
+
+   Standardindexsidan visas när en användare navigerar till roten för den statiska webbplatsen.  
+
+6. I fältet **fel dokument Sök väg** anger du en standard fel sida (till exempel: *404. html*). 
+
+   Standardfelsidan visas när en användare försöker navigera till en sida som inte finns på den statiska webbplatsen.
+
+7. Klicka på **Save** (Spara). Azure-portalen visar nu slutpunkten för den statiska webbplatsen. 
+
+    ![Aktivera hantering av statisk webbplats för ett lagringskonto](media/storage-blob-static-website-host/enable-static-website-hosting.png)
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 <a id="cli" />
-
-## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Du kan aktivera statisk webbplats som värd med hjälp av [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -64,45 +74,9 @@ Du kan aktivera statisk webbplats som värd med hjälp av [kommando rads gränss
 
    * Ersätt `<index-document-name>` plats hållaren med namnet på index dokumentet. Det här dokumentet är vanligt vis "index. html".
 
-4. Ladda upp objekt till *$Web* containern från en käll katalog.
-
-   > [!NOTE]
-   > Om du använder Azure Cloud Shell, se till att lägga till ett `\` escape-tecken när du refererar till `$web` containern (till exempel: `\$web`). Om du använder en lokal installation av Azure CLI behöver du inte använda escape-tecken.
-
-   I det här exemplet förutsätter vi att du kör kommandon från Azure Cloud Shell-sessionen.
-
-   ```azurecli-interactive
-   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
-   ```
-
-   * Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
-
-   * Ersätt `<source-path>` plats hållaren med en sökväg till platsen för de filer som du vill ladda upp.
-
-   > [!NOTE]
-   > Om du använder en plats installation av Azure CLI kan du använda sökvägen till valfri plats på den lokala datorn (till exempel: `C:\myFolder`.
-   >
-   > Om du använder Azure Cloud Shell måste du referera till en fil resurs som är synlig för Cloud Shell. Den här platsen kan vara fil resursen för själva moln resursen eller en befintlig fil resurs som du monterar från Cloud Shell. Information om hur du gör detta finns i [Spara filer i Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
-
-<a id="cli-find-url" />
-
-### <a name="find-the-website-url-by-using-the-azure-cli"></a>Hitta webbplats-URL: en med hjälp av Azure CLI
-
-Du kan visa innehåll från en webbläsare genom att använda den offentliga URL: en för webbplatsen.
-
-Hitta URL: en med hjälp av följande kommando:
-
-```azurecli-interactive
-az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
-```
-
-* Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
-
-* Ersätt `<resource-group-name>` placeholder-värdet med namnet på din resurs grupp.
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 <a id="powershell" />
-
-## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Du kan aktivera statisk webbplats värd med hjälp av Azure PowerShell-modulen.
 
@@ -152,28 +126,101 @@ Du kan aktivera statisk webbplats värd med hjälp av Azure PowerShell-modulen.
 
    * Ersätt `<index-document-name>` plats hållaren med namnet på index dokumentet. Det här dokumentet är vanligt vis "index. html".
 
-7. Ladda upp objekt till *$Web* containern från en käll katalog.
+---
 
-    ```powershell
-    # upload a file
-    set-AzStorageblobcontent -File "<path-to-file>" `
-    -Properties @{ ContentType = "text/html; charset=utf-8";} `
-    -Container `$web `
-    -Blob "<blob-name>" `
-    -Context $ctx
-     ```
+## <a name="upload-files"></a>Överföra filer 
 
-   * Ersätt `<path-to-file>` placeholder-värdet med den fullständigt kvalificerade sökvägen till den fil som du vill överföra (till exempel: `C:\temp\index.html`).
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-   * Ersätt `<blob-name>` placeholder-värdet med det namn som du vill ge den resulterande blobben (till exempel: `index.html`).
+De här anvisningarna visar hur du överför filer med hjälp av den version av Storage Explorer som visas i Azure Portal. Du kan dock också använda den version av [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) som körs utanför Azure Portal. Du kan använda [AzCopy](../common/storage-use-azcopy-v10.md), POWERSHELL, CLI eller anpassade program som kan ladda upp filer till **$Web** behållare för ditt konto. En steg-för-steg-självstudie som laddar upp filer med hjälp av Visual Studio Code finns i [självstudie: vara värd för en statisk webbplats på Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+
+1. Välj **Storage Explorer (för hands version)** .
+
+2. Expandera noden **BLOB containers** och välj sedan **$Web** container.
+
+3. Välj knappen **Ladda upp** för att ladda upp filer.
+
+   ![Överföra filer](media/storage-blob-static-website/storage-blob-static-website-upload.png)
+
+4. Om du vill att webbläsaren ska visa innehållet i filen kontrollerar du att innehålls typen för filen har angetts till `text/html`. 
+
+   ![Kontrol lera innehålls typer](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
+
+   >[!NOTE]
+   > Storage Explorer anger automatiskt den här egenskapen till att `text/html` för vanliga tillägg som `.html`. I vissa fall måste du dock ange detta själv. Om du inte anger den här egenskapen till `text/html`uppmanas användarna att ladda ned filen i stället för att återge innehållet. Om du vill ange den här egenskapen högerklickar du på filen och klickar sedan på **Egenskaper**.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Ladda upp objekt till *$Web* containern från en käll katalog.
+
+> [!NOTE]
+> Om du använder Azure Cloud Shell, se till att lägga till ett `\` escape-tecken när du refererar till `$web` containern (till exempel: `\$web`). Om du använder en lokal installation av Azure CLI behöver du inte använda escape-tecken.
+
+I det här exemplet förutsätter vi att du kör kommandon från Azure Cloud Shell-sessionen.
+
+```azurecli-interactive
+az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
+```
+
+* Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
+
+* Ersätt `<source-path>` plats hållaren med en sökväg till platsen för de filer som du vill ladda upp.
+
+> [!NOTE]
+> Om du använder en plats installation av Azure CLI kan du använda sökvägen till valfri plats på den lokala datorn (till exempel: `C:\myFolder`.
+>
+> Om du använder Azure Cloud Shell måste du referera till en fil resurs som är synlig för Cloud Shell. Den här platsen kan vara fil resursen för själva moln resursen eller en befintlig fil resurs som du monterar från Cloud Shell. Information om hur du gör detta finns i [Spara filer i Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Ladda upp objekt till *$Web* containern från en käll katalog.
+
+```powershell
+# upload a file
+set-AzStorageblobcontent -File "<path-to-file>" `
+-Properties @{ ContentType = "text/html; charset=utf-8";} `
+-Container `$web `
+-Blob "<blob-name>" `
+-Context $ctx
+```
+
+* Ersätt `<path-to-file>` placeholder-värdet med den fullständigt kvalificerade sökvägen till den fil som du vill överföra (till exempel: `C:\temp\index.html`).
+
+* Ersätt `<blob-name>` placeholder-värdet med det namn som du vill ge den resulterande blobben (till exempel: `index.html`).
+
+---
+
+## <a name="find-the-website-url-by-using-the-azure-portal"></a>Hitta webbplats-URL: en med hjälp av Azure Portal
+
+Du kan visa sidorna på din webbplats från en webbläsare med hjälp av den offentliga URL: en för webbplatsen.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+<a id="portal-find-url" />
+
+I rutan som visas bredvid sidan konto översikt för ditt lagrings konto väljer du **statisk webbplats**. URL: en för din webbplats visas i fältet **primär slut punkt** .
+
+![Mått för Azure Storage statiska webbplatser](./media/storage-blob-static-website/storage-blob-static-website-url.png)
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+<a id="cli-find-url" />
+
+Hitta den offentliga URL: en för din statiska webbplats med hjälp av följande kommando:
+
+```azurecli-interactive
+az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
+```
+
+* Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
+
+* Ersätt `<resource-group-name>` placeholder-värdet med namnet på din resurs grupp.
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 <a id="powershell-find-url" />
 
-### <a name="find-the-website-url-by-using-powershell"></a>Hitta webbplats-URL: en med hjälp av PowerShell
-
-Du kan visa innehåll från en webbläsare genom att använda den offentliga URL: en för webbplatsen.
-
-Hitta URL: en med hjälp av följande kommando:
+Hitta den offentliga URL: en för din statiska webbplats genom att använda följande kommando:
 
 ```powershell
  $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>"
@@ -184,9 +231,9 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 * Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
 
-<a id="metrics" />
-
 ---
+
+<a id="metrics" />
 
 ## <a name="enable-metrics-on-static-website-pages"></a>Aktivera mått på statiska webbplats sidor
 

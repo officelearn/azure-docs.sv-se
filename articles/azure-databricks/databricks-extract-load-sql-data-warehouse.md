@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: 9cab78e85b8644f29bfcd067b104b1b5c10c2266
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 8c7c9c2e3a1195422db30ba913b1cea3a1a360e4
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249841"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301700"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av Azure Databricks
 
@@ -59,7 +59,7 @@ Slutför de här uppgifterna innan du startar självstudien:
 
    Det finns några saker som du måste göra när du utför stegen i den här artikeln.
 
-   * När du utför stegen i avsnittet [tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) i artikeln, se till att tilldela rollen **Storage BLOB data Contributor** till tjänstens huvud namn i omfånget för det data Lake Storage Gen2 kontot. Om du tilldelar rollen till den överordnade resurs gruppen eller prenumerationen får du behörighets problem tills roll tilldelningarna sprids till lagrings kontot.
+   * När du utför stegen i avsnittet [tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) i artikeln, se till att tilldela rollen **Storage BLOB data Contributor** till tjänstens huvud namn i omfånget för det data Lake Storage Gen2 kontot. Om du tilldelar rollen till den överordnade resurs gruppen eller prenumerationen får du behörighets problem tills roll tilldelningarna sprids till lagrings kontot.
 
       Om du hellre vill använda en åtkomst kontrol lista (ACL) för att associera tjänstens huvud namn med en speciell fil eller katalog, referens [åtkomst kontroll i Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 

@@ -13,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: dbbe501b27bf7ae4d4cb4bc00501aeb1fb06819e
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 5e4c6fb91b93b1035c68350a5f77a3c16db7323f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161230"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300120"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrera med Azure Active Directory
 
@@ -38,13 +38,13 @@ Det finns flera sätt för ditt program att integrera med Azure AD. Dra nytta av
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Bläddra efter användare, hantera användar etablering och kontrol lera åtkomsten till ditt program
 
-**Bläddra efter användare i katalogen.**  Använd Graph API för att hjälpa användarna att söka efter andra personer i organisationen när de bjuder in andra eller beviljar åtkomst, i stället för att behöva skriva e-postadresser. Användare kan bläddra med hjälp av ett välbekant adress boks format gränssnitt, inklusive Visa information om organisationshierarkin. Läs mer om [Graph API](active-directory-graph-api.md).
+**Bläddra efter användare i katalogen.**  Använd Microsoft Graph-API: et för att hjälpa användarna att söka efter andra personer i organisationen när de bjuder in andra eller beviljar åtkomst, i stället för att behöva skriva e-postadresser. Användare kan bläddra med hjälp av ett välbekant adress boks format gränssnitt, inklusive Visa information om organisationshierarkin. Läs mer om [Microsoft Graph-API: et](https://docs.microsoft.com/graph/overview).
 
-**Återanvända Active Directory grupper och distributions listor som kunden redan hanterar.**  Azure AD innehåller de grupper som din kund redan använder för e-postdistribution och hantering av åtkomst. Använd Graph API och återanvänd dessa grupper i stället för att kräva att kunden skapar och hanterar en separat uppsättning grupper i ditt program. Grupp information kan också skickas till ditt program i inloggnings-token. Läs mer om [Graph API](active-directory-graph-api.md).
+**Återanvända Active Directory grupper och distributions listor som kunden redan hanterar.**  Azure AD innehåller de grupper som din kund redan använder för e-postdistribution och hantering av åtkomst. Använd Microsoft Graph-API: et och Använd dessa grupper i stället för att kräva att kunden skapar och hanterar en separat uppsättning grupper i ditt program. Grupp information kan också skickas till ditt program i inloggnings-token. Läs mer om [Microsoft Graph-API: et](https://docs.microsoft.com/graph/overview).
 
-**Använd Azure AD för att kontrol lera vem som har åtkomst till ditt program.**  Administratörer och program ägare i Azure AD kan tilldela åtkomst till program till specifika användare och grupper. Med hjälp av Graph API kan du läsa den här listan och använda den för att styra etablering och avetablering av resurser och åtkomst i ditt program.
+**Använd Azure AD för att kontrol lera vem som har åtkomst till ditt program.**  Administratörer och program ägare i Azure AD kan tilldela åtkomst till program till specifika användare och grupper. Med hjälp av Microsoft Graph API kan du läsa den här listan och använda den för att styra etablering och avetablering av resurser och åtkomst i ditt program.
 
-**Använd Azure AD för roller baserade Access Control.**  Administratörer och program ägare kan tilldela användare och grupper till roller som du definierar när du registrerar ditt program i Azure AD. Roll information skickas till programmet i inloggnings-token och kan också läsas med Graph API. Läs mer om hur du [använder Azure AD för auktorisering](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
+**Använd Azure AD för roller baserade Access Control.**  Administratörer och program ägare kan tilldela användare och grupper till roller som du definierar när du registrerar ditt program i Azure AD. Roll information skickas till programmet i inloggnings-token och kan också läsas med hjälp av Microsoft Graph API. Läs mer om hur du [använder Azure AD för auktorisering](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Få åtkomst till användarens profil, kalender, e-post, kontakter, filer med mera
 

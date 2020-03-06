@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 4811f24fb942689bddcc9d9d1bcb8c33d147c1af
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 934e804b60312a32300c4b884ea8fd15e2195870
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78256006"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302040"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Viktig information om Azure Synapse Analytics
 
@@ -38,6 +38,13 @@ Använd den version som identifierats för att bekräfta vilken version som har 
 > ```
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="february-2020"></a>Februari 2020
+
+| Förbättringar av tjänsten | Detaljer |
+| --- | --- |
+|**Kompatibilitetsnivå för databas (för hands version)**| I den här versionen kan användarna nu ange en databas kompatibilitetsnivå för att hämta Transact-SQL-språket och fråga efter bearbetnings beteenden för en specifik version av SQL Analytics-motorn. Mer information finns i [sys. database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?view=azure-sqldw-latest&branch=pr-en-us-13797) och [ändra databas omfattnings konfiguration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?view=sql-server-ver15).|
+|**Sp_describe_undeclared_parameters**| Tillåt användare att se metadata om odeklarerade parametrar i en Transact-SQL-batch. Mer information finns i [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?view=sql-server-ver15).|
 
 ## <a name="january-2020"></a>Januari 2020
 

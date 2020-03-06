@@ -8,81 +8,97 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 02/18/2020
-ms.openlocfilehash: 392c86d8ea24e59d388926d4df581305ea2b531d
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 03/05/2020
+ms.openlocfilehash: df712f48c5aff722a4f1a850788378fb78ea7335
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599306"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379575"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Flytta din Azure Kognitiv sökning-tjänst till en annan Azure-region
 
-Om du vill flytta ditt Azure-konto för kognitiva tjänster från en region till en annan skapar du en export-mall för att flytta dina prenumerationer. När du har flyttat din prenumeration måste du flytta dina data och återskapa tjänsten.
+För närvarande stöds inte att flytta en Sök tjänst till en annan region, eftersom det inte finns någon automatisering eller verktyg för att hjälpa dig med aktivitetens slut punkt till slut punkt.
 
-I den här artikeln får du lära dig att:
+I portalen skapar kommandot **Exportera mall** en grundläggande definition av en tjänst (namn, plats, nivå, replik och antal partitioner), men känner inte igen innehållet i din tjänst, inte heller via nycklar, roller eller loggar.
+
+När du flyttar en sökning från en region till en annan rekommenderar vi följande:
+
+1. Inventera din befintliga tjänst för en fullständig lista över objekt på tjänsten. Om du har aktiverat loggning kan du skapa och arkivera rapporter som du kan behöva för framtida jämförelse.
+
+1. Skapa en tjänst i den nya regionen och publicera om från käll koden eventuella befintliga index, indexerare, data källor, färdighetsuppsättningar och synonym Maps. Tjänst namn måste vara unika så du kan inte återanvända det befintliga namnet.
+
+1. Aktivera loggning och skapa säkerhets roller igen om du använder dem.
+
+1. Uppdatera klient program och test paket för att använda det nya tjänst namnet och API-nycklarna och testa alla program.
+
+1. Ta bort den gamla tjänsten när den nya tjänsten är fullt fungerande.
+
+<!-- To move your Azure Cognitive Service account from one region to another, you will create an export template to move your subscription(s). After moving your subscription, you will need to move your data and recreate your service.
+
+In this article, you'll learn how to:
 
 > [!div class="checklist"]
-> * Exportera en mall.
-> * Ändra mallen: Lägg till mål regionen, Sök-och lagrings konto namnen.
-> * Distribuera mallen för att skapa de nya Sök-och lagrings kontona.
-> * Verifiera din tjänst status i den nya regionen
-> * Rensa resurser i käll regionen.
+> * Export a template.
+> * Modify the template: adding the target region, search and storage account names.
+> * Deploy the template to create the new search and storage accounts.
+> * Verify your service status in the new region
+> * Clean up resources in the source region.
 
-## <a name="prerequisites"></a>Förutsättningar
+## Prerequisites
 
-- Kontrol lera att tjänsterna och funktionerna som ditt konto använder stöds i mål regionen.
+- Ensure that the services and features that your account uses are supported in the target region.
 
-- För för hands versions funktioner ser du till att din prenumeration är vit listas för mål regionen. Mer information om förhands gransknings funktioner finns i [kunskaps lager](https://docs.microsoft.com/azure/search/knowledge-store-concept-intro), [stegvis berikning](https://docs.microsoft.com/azure/search/cognitive-search-incremental-indexing-conceptual)och [privat slut punkt](https://docs.microsoft.com/azure/search/service-create-private-endpoint).
+- For preview features, ensure that your subscription is whitelisted for the target region. For more information about preview features, see [knowledge stores](https://docs.microsoft.com/azure/search/knowledge-store-concept-intro), [incremental enrichment](https://docs.microsoft.com/azure/search/cognitive-search-incremental-indexing-conceptual), and [private endpoint](https://docs.microsoft.com/azure/search/service-create-private-endpoint).
 
-## <a name="assessment-and-planning"></a>Utvärdering och planering
+## Assessment and planning
 
-När du flyttar din Sök tjänst till den nya regionen måste du [flytta dina data till den nya lagrings tjänsten](https://docs.microsoft.com/azure/storage/common/storage-account-move?tabs=azure-portal#configure-the-new-storage-account) och sedan återskapa dina index, färdighetsuppsättningar och kunskaps lager. Du bör registrera aktuella inställningar och kopiera JSON-filer för att göra det enklare och snabbare att skapa en tjänst.
+When you move your search service to the new region, you will need to [move your data to the new storage service](https://docs.microsoft.com/azure/storage/common/storage-account-move?tabs=azure-portal#configure-the-new-storage-account) and then rebuild your indexes, skillsets and knowledge stores. You should record current settings and copy json files to make the rebuilding of your service easier and faster.
 
-## <a name="moving-your-search-services-resources"></a>Flytta resurser för Sök tjänsten
+## Moving your search service's resources
 
-Du börjar med att exportera och sedan ändra en Resource Manager-mall.
+To start you will export and then modify a Resource Manager template.
 
-### <a name="export-a-template"></a>Exportera en mall
+### Export a template
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Gå till din resurs grupps sida.
+2. Go to your Resource Group page.
 
 > [!div class="mx-imgBorder"]
-> exempel på ![resurs grupps sida](./media/search-move-resource/export-template-sample.png)
+> ![Resource Group page example](./media/search-move-resource/export-template-sample.png)
 
-3. Välj **Alla resurser**.
+3. Select **All resources**.
 
-3. I den vänstra navigerings menyn väljer du **Exportera mall**.
+3. In the left hand navigation menu select **Export template**.
 
-4. Välj **Hämta** på sidan **Exportera mall** .
+4. Choose **Download** in the **Export template** page.
 
-5. Leta upp zip-filen som du laddade ned från portalen och zippa upp filen till en valfri mapp.
+5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
 
-Zip-filen innehåller de. JSON-filer som utgör mallen och skripten för att distribuera mallen.
+The zip file contains the .json files that comprise the template and scripts to deploy the template.
 
-### <a name="modify-the-template"></a>Ändra mallen
+### Modify the template
 
-Du ändrar mallen genom att ändra Sök-och lagrings konto namn och-regioner. Namnen måste följa reglerna för varje tjänst och region namngivnings konventioner. 
+You will modify the template by changing the search and storage account names and regions. The names must follow the rules for each service and region naming conventions. 
 
-Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är regions namnet utan blank steg, **Central usa** = **centrala**.
+To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
 
-1. I Azure-portalen väljer du **Skapa en resurs**.
+1. In the Azure portal, select **Create a resource**.
 
-2. I **Sök på Marketplace** skriver du **malldistribution** och trycker sedan på **RETUR**.
+2. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
 
-3. Välj **Malldistribution**.
+3. Select **Template deployment**.
 
-4. Välj **Skapa**.
+4. Select **Create**.
 
-5. Välj alternativet för att **skapa din egen mall i redigeringsprogrammet**.
+5. Select **Build your own template in the editor**.
 
-6. Välj **Läs in fil**och följ sedan anvisningarna för att läsa in filen **Template. JSON** som du laddade ned och zippa upp i föregående avsnitt.
+6. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded and unzipped in the previous section.
 
-7. I filen **Template. JSON** namnger du mål Sök-och lagrings kontona genom att ange standardvärdet för Sök-och lagrings konto namn. 
+7. In the **template.json** file, name the target search and storage accounts by setting the default value of the search and storage account names. 
 
-8. Redigera egenskapen **location** i filen **Template. JSON** till mål regionen för både Sök-och lagrings tjänster. I det här exemplet anges mål regionen till `centralus`.
+8. Edit the **location** property in the **template.json** file to the target region for both your search and storage services. This example sets the target region to `centralus`.
 
 ```json
 },
@@ -113,35 +129,34 @@ Information om hur du hämtar koder för regions platser finns i [Azure-platser]
             },
 ```
 
-### <a name="deploy-the-template"></a>Distribuera mallen
+### Deploy the template
 
-1. Spara filen **Template. JSON** .
+1. Save the **template.json** file.
 
-2. Ange eller Välj egenskaps värden:
+2. Enter or select the property values:
 
-- **Prenumeration**: Välj en Azure-prenumeration.
+- **Subscription**: Select an Azure subscription.
 
-- **Resursgrupp**: Välj **Skapa ny** och ge resursgruppen ett namn.
+- **Resource group**: Select **Create new** and give the resource group a name.
 
-- **Plats**: Välj en Azure-plats.
+- **Location**: Select an Azure location.
 
-3. Klicka på kryss rutan **Jag accepterar villkoren som anges ovan** och klicka sedan på knappen **Välj inköp** .
+3. Click the **I agree to the terms and conditions stated above** checkbox, and then click the **Select Purchase** button.
 
-## <a name="verifying-your-services-status-in-new-region"></a>Verifiera tjänsternas status i ny region
+## Verifying your services' status in new region
 
-Om du vill kontrol lera flyttningen öppnar du den nya resurs gruppen och dina tjänster visas i listan med den nya regionen.
+To verify the move, open the new resource group and your services will be listed with the new region.
 
-Om du vill flytta dina data från käll regionen till mål regionen kan du läsa artikeln rikt linjer för att [flytta dina data till det nya lagrings kontot](https://docs.microsoft.com/azure/storage/common/storage-account-move?tabs=azure-portal#move-data-to-the-new-storage-account).
+To move your data from your source region to the target region, please see this article's guidelines for [moving your data to the new storage account](https://docs.microsoft.com/azure/storage/common/storage-account-move?tabs=azure-portal#move-data-to-the-new-storage-account).
 
-## <a name="clean-up-resources-in-your-original-region"></a>Rensa resurser i din ursprungliga region
+## Clean up resources in your original region
 
-Ta bort käll tjänst kontot för att genomföra ändringarna och slutföra flyttningen av ditt tjänst konto.
+To commit the changes and complete the move of your service account, delete the source service account.
 
-## <a name="next-steps"></a>Nästa steg
+## Next steps
 
-[Skapa ett index](https://docs.microsoft.com/azure/search/search-get-started-portal)
+[Create an index](https://docs.microsoft.com/azure/search/search-get-started-portal)
 
-[Skapa en färdigheter](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob)
+[Create a skillset](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob)
 
-[Skapa ett kunskaps lager](https://docs.microsoft.com/azure/search/knowledge-store-create-portal)
-
+[Create a knowledge store](https://docs.microsoft.com/azure/search/knowledge-store-create-portal) -->

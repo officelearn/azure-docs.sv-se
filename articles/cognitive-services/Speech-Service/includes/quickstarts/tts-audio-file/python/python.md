@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 4af31b281f4b2e7cdd7ed217753df55ce8009fa9
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: df2c3fc2ab6f6c742f56273119923a7e02cf8e43
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446621"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383835"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumerationsnyckel för tjänsten Speech. [Skaffa en utan kostnad](~/articles/cognitive-services/Speech-Service/get-started.md).
-* [Python 3.5 eller senare](https://www.python.org/downloads/).
+* [Python 3,5 till 3,8](https://www.python.org/downloads/).
 * Python Speech SDK-paketet är tillgängligt för dessa operativsystem:
     * Windows: x64 och x86.
     * Mac: Mac OS X version 10.12 eller senare.
-    * Linux: Ubuntu 16,04, Ubuntu 18,04, Debian 9 på x64.
+    * Linux: Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8 på x64.
 * Kör de här kommandona i Linux för att installera de nödvändiga paketen:
 
   * I Ubuntu:
@@ -40,6 +40,16 @@ ms.locfileid: "77446621"
     sudo apt-get update
     sudo apt-get install build-essential libssl1.0.2 libasound2
     ```
+
+  * På RHEL/CentOS 8:
+
+    ```sh
+    sudo yum update
+    sudo yum install alsa-lib openssl python3
+    ```
+
+> [!NOTE]
+> På RHEL/CentOS 8 följer du anvisningarna för [hur du konfigurerar openssl för Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 * I Windows behöver du [Microsoft Visual C++ Redistributable för Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) för din plattform.
 
@@ -110,7 +120,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Installera och använda Speech SDK med Visual Studio Code
 
-1. Ladda ned och installera en 64-bitarsversion (3.5 eller senare) av [Python](https://www.python.org/downloads/) på din dator.
+1. Hämta och installera en 64-bitars version av [python](https://www.python.org/downloads/), 3,5 till 3,8, på din dator.
 1. Ladda ned och installera [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Öppna Visual Studio Code och installera Python-tillägget. Välj **Arkiv** > **Inställningar** > **Tillägg** på menyn. Sök efter **Python**.
 

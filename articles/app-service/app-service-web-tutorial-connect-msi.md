@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: b57ee458b857db5692f34e51f388ca8374a3c03b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: edea7a7b4dcb5ed18adcbab973f9f351543c6422
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524401"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330880"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Självstudie: Säkra Azure SQL Database-anslutningar från App Service med en hanterad identitet
 
@@ -240,6 +240,9 @@ GO
 *\<identitet-namn >* är namnet på den hanterade identiteten i Azure AD. Eftersom det har tilldelats systemet är det alltid detsamma som namnet på din App Service-app. Om du vill bevilja behörighet för en Azure AD-grupp använder du gruppens visnings namn i stället (till exempel *myAzureSQLDBAccessGroup*).
 
 Skriv `EXIT` för att återgå till Cloud Shell-prompten.
+
+> [!NOTE]
+> Backend-tjänsterna för hanterade identiteter [upprätthåller också en token cache](overview-managed-identity.md#obtain-tokens-for-azure-resources) som uppdaterar token för en mål resurs endast när den upphör att gälla. Om du gör ett fel när du konfigurerar SQL Database behörigheter och försöker ändra behörigheterna *när* du har försökt hämta en token med din app, får du faktiskt inget nytt token med de uppdaterade behörigheterna förrän den cachelagrade token upphör att gälla.
 
 ### <a name="modify-connection-string"></a>Ändra anslutningssträngen
 

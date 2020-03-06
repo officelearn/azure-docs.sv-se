@@ -17,12 +17,12 @@ ms.date: 06/22/2018
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2eb279d8f5871a0c6738ecc89fb7d01730187564
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: e4fcb7835c6315e8a67103883e1635f0ddab1098
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160312"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299762"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Referens för Azure AD SAML-token
 
@@ -156,7 +156,7 @@ Detta är ett exempel på en typisk SAML-token.
 
 ## <a name="related-content"></a>Relaterat innehåll
 
-* Mer information om hur du hanterar livs längds policyn för token via Azure AD Graph API finns i Azure AD graphs [princip åtgärder](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) och i [entiteten princip](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity).
+* Mer information om hur du hanterar livs längds policyn för token finns i den [princip resurs](https://docs.microsoft.com/graph/api/resources/policy?view=graph-rest-beta)som använder Microsoft Graph-API.
 * Mer information och exempel på hur du hanterar principer via PowerShell-cmdletar, inklusive exempel, finns i [konfigurerbara livs längder för token i Azure AD](../develop/active-directory-configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). 
 * Lägg till [anpassade och valfria anspråk](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) till token för ditt program.
 * Använd [enkel inloggning (SSO) med SAML](single-sign-on-saml-protocol.md).

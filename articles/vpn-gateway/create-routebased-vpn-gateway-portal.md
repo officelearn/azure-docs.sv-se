@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: a44bdf654842d964a02f6aebe60e3632aabcd64d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 6156d689a29ee348f9b1974d1520eb7d186a8d8d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151681"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331357"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Skapa en Route-baserad VPN-gateway med hjälp av Azure Portal
 
@@ -23,7 +23,7 @@ Stegen i den här artikeln skapar ett VNet, ett undernät, ett Gateway-undernät
 
 ## <a name="vnet"></a>Skapa ett virtuellt nätverk
 
-[!INCLUDE [create-gateway](../../includes/vpn-gateway-create-virtual-network-portal-include.md)]
+[!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="gwvalues"></a>Konfigurera och skapa gatewayen
 
@@ -31,7 +31,7 @@ I det här steget ska du skapa den virtuella nätverksgatewayen för ditt virtue
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
-[!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
+[!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 >[!NOTE]
 >Basic Gateway-SKU: n stöder inte IKEv2-eller RADIUS-autentisering. Om du planerar att låta Mac-klienter ansluta till ditt virtuella nätverk ska du inte använda den grundläggande SKU: n.

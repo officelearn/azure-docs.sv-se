@@ -7,21 +7,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 8e2f8fd7f99c359949b02959cc442f2f3d3ebfff
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: d61ca8fe7c6f5e7cc400714d7c31a0a7e50b8a88
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912162"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402786"
 ---
 # <a name="deprecation-of-tls-10-and-11-in-iot-hub-and-device-provisioning-service"></a>Utfasningen av TLS 1,0 och 1,1 i IoT Hub-och Device Provisioning-tjänsten
 
-För att tillhandahålla den bästa krypteringen, IoT Hub och Device Provisioning-tjänsten (DPS) flyttas till Transport Layer Security (TLS) 1,2 som krypterings metod för IoT-enheter och-tjänster. Därför kommer äldre stöd för TLS 1,0 och TLS 1,1 samt flera icke-rekommenderade äldre chiffer att bli föråldrade den **1 juli 2020**.
-
-
-## <a name="impact"></a>Påverkan
-Beroende på kundernas särskilda omständigheter och konfigurationer kan utfasningen av TLS 1,0 och 1,1 och icke-rekommenderade äldre chiffer vara en påverkan på dina IoT-enheter och-tjänster som kommunicerar med IoT Hub eller DPS. I vissa fall kommer enheter och tjänster som inte är kompatibla med dessa ändringar inte att kunna ansluta till IoT Hub eller DPS efter det datum då detta kapades.
-
+För att tillhandahålla den bästa krypteringen, IoT Hub och Device Provisioning-tjänsten (DPS) flyttas till Transport Layer Security (TLS) 1,2 som krypterings metod för IoT-enheter och-tjänster. 
 
 ## <a name="supported-ciphers"></a>Chiffer som stöds
 

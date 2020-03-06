@@ -4,15 +4,15 @@ description: Lär dig mer om SQL system Function ToString i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 53630a0ecd76459f23a978e98040a86152d7c0d8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 293449b1616e7124245d91c647177b958006009e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349125"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304267"
 ---
 # <a name="tostring-azure-cosmos-db"></a>ToString (Azure Cosmos DB)
  Returnerar en strängrepresentation av skalärt uttryck. 
@@ -94,6 +94,10 @@ Här är resultatuppsättningen.
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
 ``` 
+
+## <a name="remarks"></a>Anmärkningar
+
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 

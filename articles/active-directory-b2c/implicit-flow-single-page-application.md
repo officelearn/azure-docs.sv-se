@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e77e597fbd33a1f1358ecaa2d2aea3fe075a70f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 37b59c2a23a8f00e8376be2ac4a7b35a6d58aa28
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78187737"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399005"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Logga in på en enda sida med det implicita flödet för OAuth 2,0 i Azure Active Directory B2C
 
@@ -129,7 +129,7 @@ För att avgöra vilket användar flöde som användes för att signera en ID-to
 När du har köpt Metadatadokumentet från slut punkten för OpenID Connect-metadata kan du använda de offentliga RSA-256-nycklarna (finns i den här slut punkten) för att verifiera signaturen för ID-token. Det kan finnas flera nycklar i den här slut punkten vid en angiven tidpunkt, som var och en identifieras av en `kid`. Rubriken för `id_token` innehåller också ett `kid`-anspråk. Den visar vilken av dessa nycklar som användes för att signera ID-token. Mer information, inklusive information om [validering av tokens](tokens-overview.md), finns i referens för [Azure AD B2C-token](tokens-overview.md).
 <!--TODO: Improve the information on this-->
 
-När du har verifierat signaturen för ID-token kräver flera anspråk verifiering. Några exempel:
+När du har verifierat signaturen för ID-token kräver flera anspråk verifiering. Exempel:
 
 * Verifiera `nonce`-anspråk för att förhindra repetition av token-attacker. Värdet bör vara det du angav i inloggnings förfrågan.
 * Verifiera `aud`-anspråk för att säkerställa att ID-token har utfärdats för din app. Värdet ska vara appens program-ID.
@@ -223,7 +223,7 @@ ID-token och åtkomsttoken upphör att gälla efter en kort tids period. Din app
 ## <a name="send-a-sign-out-request"></a>Skicka en inloggningsbegäran
 När du vill signera användaren från appen omdirigerar du användaren till Azure AD för att logga ut. Om du inte omdirigerar användaren kan de kunna autentisera till din app igen utan att ange sina autentiseringsuppgifter igen eftersom de har en giltig enkel inloggnings-session med Azure AD.
 
-Du kan helt enkelt omdirigera användaren till den `end_session_endpoint` som anges i samma OpenID för Connect-metadata som beskrivs i [validera ID-token](#validate-the-id-token). Några exempel:
+Du kan helt enkelt omdirigera användaren till den `end_session_endpoint` som anges i samma OpenID för Connect-metadata som beskrivs i [validera ID-token](#validate-the-id-token). Exempel:
 
 ```HTTP
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -243,12 +243,12 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 ## <a name="next-steps"></a>Nästa steg
 
-### <a name="code-sample-hellojs-with-azure-ad-b2c"></a>Kod exempel: Hej. js med Azure AD B2C
+### <a name="code-sample-azure-ad-b2c-with-microsoft-authentication-library-for-javascript"></a>Kod exempel: Azure AD B2C med Microsoft Authentication Library för Java Script
 
-[En Enkels Ides applikation som bygger på Hello. js med Azure AD B2C][github-hello-js-example] (GitHub)
+[En Enkels Ides applikation som skapats med msal. js för Azure AD B2C][github-msal-js-example] (GitHub)
 
-Det här exemplet på GitHub är avsett att hjälpa dig att komma igång med Azure AD B2C i ett enkelt webb program som bygger på [Hello. js][github-hello-js] och använder autentisering med popup-format.
+Det här exemplet på GitHub är avsett för att hjälpa dig att komma igång med att Azure AD B2C i ett enkelt webb program som skapats med [msal. js][github-msal-js] och med hjälp av autentisering med popup-format.
 
 <!-- Links - EXTERNAL -->
-[github-hello-js-example]: https://github.com/Azure-Samples/active-directory-b2c-javascript-hellojs-singlepageapp
-[github-hello-js]: https://github.com/MrSwitch/hello.js
+[github-msal-js-example]: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
+[github-msal-js]: https://github.com/AzureAD/microsoft-authentication-library-for-js

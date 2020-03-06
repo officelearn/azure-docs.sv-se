@@ -4,12 +4,12 @@ description: Läs kluster operatorn metodtipsen för lagring, kryptering och sä
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: a58a42f65472a9c4b495e0cb964eefa40bf82041
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: b1336d10b091be4f3eb2a711401cafd3f58221fe
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649627"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399482"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Metodtips för lagring och säkerhetskopiering i Azure Kubernetes Service (AKS)
 
@@ -75,7 +75,7 @@ När du vill koppla lagring till poddar kan använda du beständiga volymer. Des
 
 ![Beständig volym anspråk i ett kluster i Azure Kubernetes Services (AKS)](media/concepts-storage/persistent-volume-claims.png)
 
-Ett permanent volym-anspråk (PVC) kan du dynamiskt skapa lagring efter behov. De underliggande Azure-diskarna skapas som poddar begär dem. I pod-definition begära du en volym för att skapas och ansluts till en utformade monteringssökväg
+Ett permanent volym-anspråk (PVC) kan du dynamiskt skapa lagring efter behov. De underliggande Azure-diskarna skapas som poddar begär dem. I pod-definitionen begär du att en volym ska skapas och kopplas till en angiven monterings Sök väg.
 
 Begrepp för hur du skapar och använder volymer dynamiskt finns i anspråk på [beständiga volymer][aks-concepts-storage-pvcs].
 

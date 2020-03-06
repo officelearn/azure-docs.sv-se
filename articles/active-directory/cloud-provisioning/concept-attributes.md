@@ -15,12 +15,12 @@ ms.date: 02/18/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d6d621646aaa5c8c44a20cf327cd10fa31990b0
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 4ac09fb3faf55be6c07a1e0a88b6e2032c9ab8ce
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484544"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299337"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Förstå Azure AD-schemat
 Ett objekt i Azure Active Directory (Azure AD), som vilken katalog som helst, är en program mässig data konstruktion på hög nivå som representerar till exempel användare, grupper och kontakter. När du skapar en ny användare eller kontakt i Azure AD skapar du en ny instans av objektet. Dessa instanser kan särskiljas baserat på deras egenskaper.
@@ -75,7 +75,7 @@ Följ dessa steg om du vill visa schemat och kontrol lera det.
 1.  Gå till [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1.  Logga in med ditt globala administratörs konto.
 1.  Till vänster väljer du **ändra behörigheter** och kontrollerar att **Directory. readwrite. all** har *samtyckt*.
-1.  Kör frågan https://graph.microsoft.com/beta/serviceprincipals/?$filter = StartsWith (DisplayName, Active). Den här frågan returnerar en filtrerad lista över tjänstens huvud namn.
+1.  Kör frågan `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active')`. Den här frågan returnerar en filtrerad lista över tjänstens huvud namn.
 1.  Leta upp `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` och anteckna värdet för `"id"`.
     ```
     "value": [

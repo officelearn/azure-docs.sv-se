@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 3f8d0e8996aa972aa63f31d6d5cf8b3fb3c00bd8
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 4cfea801523fbc67766920ffd2777908be5ed40b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77652158"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402625"
 ---
 Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i Node. js-programmet. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
 
@@ -25,7 +25,7 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
 * [Node.js 6](https://nodejs.org/en/download/) eller senare
 * En prenumerationsnyckel  
 
-[!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../../includes/bing-web-search-quickstart-signup.md)]
 
 
 ## <a name="set-up-your-development-environment"></a>Ställ in din utvecklingsmiljö
@@ -104,6 +104,6 @@ När du är klar med det här projektet bör du ta bort din prenumerationsnyckel
 > [!div class="nextstepaction"]
 > [Exempel med Cognitive Services SDK för Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Azure Node SDK-referens](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-websearch/)

@@ -4,12 +4,12 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 11/03/2019
 ms.author: orspodek
-ms.openlocfilehash: f8b3e541dfd55bbd613af2791329a08402cf8670
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3cd9d017429b629acad39f5b902e842886c3c818
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582008"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78305005"
 ---
 ## <a name="configure-the-data-source"></a>Konfigurera data källan
 
@@ -29,7 +29,7 @@ Du kan skapa tjänstens huvud namn i [Azure Portal](#azure-portal) eller genom a
 
 1. Följ anvisningarna i [Azure Portal dokumentationen](/azure/active-directory/develop/howto-create-service-principal-portal)för att skapa tjänstens huvud namn.
 
-    1. I avsnittet [tilldela programmet till en roll](/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) tilldelar du en roll typ **läsare** till ditt Azure datautforskaren-kluster.
+    1. I avsnittet [tilldela programmet till en roll](/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) tilldelar du en roll typ **läsare** till ditt Azure datautforskaren-kluster.
 
     1. I avsnittet [Hämta värden för signering i](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) kopierar du de tre egenskaps värden som beskrivs i stegen: **katalog-ID** (klient-ID), **program-ID**och **lösen ord**.
 

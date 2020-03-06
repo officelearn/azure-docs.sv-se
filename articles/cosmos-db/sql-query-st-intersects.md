@@ -1,18 +1,18 @@
 ---
 title: ST_INTERSECTS i Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL system Function ST_INTERSECTS i Azure Cosmos DB.
+description: Lär dig mer om SQL system-funktionen ST_INTERSECTS i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 549c6b69e9112a491060478e859338c14e977612
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: f3c3878956b90ffb45556ed819046af9eb7618f1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349385"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303145"
 ---
 # <a name="st_intersects-azure-cosmos-db"></a>ST_INTERSECTS (Azure Cosmos DB)
  Returnerar ett booleskt uttryck som anger om GeoJSON (punkt, Polygon eller LineString) det angivna objektet i det första argumentet korsar GeoJSON (punkt, Polygon eller LineString) i det andra argumentet.  
@@ -50,6 +50,10 @@ WHERE ST_INTERSECTS(a.location, {
 ```json
 [{ "id": "IntersectingPolygon" }]  
 ```  
+
+## <a name="remarks"></a>Anmärkningar
+
+Den här systemfunktionen kommer att ha nytta av ett [geospatialt index](index-policy.md#spatial-indexes).
 
 ## <a name="next-steps"></a>Nästa steg
 

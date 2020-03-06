@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: tamram
-ms.openlocfilehash: b0fe0cf0d477d1360d3789f74f30565e15cfd42e
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 58532c6eb6e01a993bce7d6e22a7b5274a465963
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206935"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298221"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Snabb start: skapa, ladda ned och lista blobar med Azure CLI
 
@@ -153,7 +153,7 @@ azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver någon av resurserna i resurs gruppen, inklusive lagrings kontot som du skapade i den här snabb starten, tar du bort resurs gruppen med kommandot [AZ Group Delete](/cli/azure/group) . Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
+Om du vill ta bort de resurser som du skapade som en del av den här snabb starten, inklusive lagrings kontot, tar du bort resurs gruppen med kommandot [AZ Group Delete](/cli/azure/group) . Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
 
 ```azurecli
 az group delete \

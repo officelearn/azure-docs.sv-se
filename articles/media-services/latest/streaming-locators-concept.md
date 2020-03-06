@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/26/2019
+ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 1cc0132cc17217c858060e107dfcfc090a3ef8a7
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 3a9568e1a0307cd1713c511ef42c065424306548
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611006"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302890"
 ---
 # <a name="streaming-locators"></a>Positionerare för direktuppspelning
 
@@ -56,7 +56,7 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
     });
 ```
 
-### <a name="encrypted"></a>Krypterad 
+### <a name="encrypted"></a>Krypterade 
 
 Om du behöver Kryptera ditt innehåll med CENC-kryptering ställer du in principen på "Predefined_MultiDrmCencStreaming". Widevine-krypteringen tillämpas på en STRECKs ström och PlayReady som är smidigare. Nyckeln skickas till en uppspelnings klient baserat på de konfigurerade DRM-licenserna.
 
@@ -98,12 +98,13 @@ Använd följande åtgärder om du vill hämta strömmande positionerare baserad
 |Java|[AssetStreamingLocator](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## <a name="also-see"></a>Se även
+## <a name="see-also"></a>Se även
 
 * [Tillgångar](assets-concept.md)
 * [Principer för direktuppspelning](streaming-policy-concept.md)
 * [Principer för innehållsnycklar](content-key-policy-concept.md)
+* [Självstudie: Ladda upp, koda och strömma videor med .NET](stream-files-tutorial-with-api.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Självstudie: Ladda upp, koda och strömma videor med .NET](stream-files-tutorial-with-api.md)
+[Så här skapar du en strömmande lokaliserare och skapar URL: er](create-streaming-locator-build-url.md)

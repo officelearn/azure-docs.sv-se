@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: dech
-ms.openlocfilehash: 2e1f0313b6e611eac6968c17cececd382a6d45fe
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 117d4a5c1c4ac00e6d6a561f7dc4254a15a24f9c
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77664091"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330693"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Snabb start: Använd Node. js för att ansluta och fråga efter data från Azure Cosmos DB SQL API-konto
 
@@ -33,9 +33,17 @@ I den här snabb starten skapar du och hanterar ett Azure Cosmos DB SQL API-kont
 - [Node. js-6.0.0 +](https://nodejs.org/).
 - [Git](https://www.git-scm.com/downloads).
 
-## <a name="create-a-database"></a>Skapa en databas
+## <a name="create-an-azure-cosmos-account"></a>Skapa ett Azure Cosmos-konto
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+I det här snabb starts syftet kan du använda alternativet [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) för att skapa ett Azure Cosmos-konto.
+
+1. Gå till sidan [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) .
+
+1. Välj **SQL** API-konto och välj **skapa**. Logga in med din Microsoft-konto, till exempel Outlook.
+
+1. När inloggningen är klar bör ditt Azure Cosmos-konto vara klart. Öppna det nyligen skapade kontot genom att välja **Öppna i Azure Portal** .
+
+Alternativet "prova Azure Cosmos DB gratis" kräver ingen Azure-prenumeration och du får ett Azure Cosmos-konto för en begränsad period på 30 dagar. Om du vill använda Azure Cosmos-kontot under en längre period bör du i stället [skapa kontot](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) i din Azure-prenumeration.
 
 ## <a name="add-a-container"></a>Lägg till en behållare
 
@@ -51,7 +59,7 @@ Du kan nu använda Datautforskaren-verktyget i Azure Portal för att skapa en da
 
     |Inställning|Föreslaget värde|Beskrivning
     |---|---|---|
-    |**Databas-ID**|Uppgifter|Ange *Uppgifter* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg. Kontrol lera **data flödes alternativet etablera databas** så att du kan dela det data flöde som har etablerats till databasen över alla behållare i databasen. Det här alternativet hjälper också till med kostnads besparingar. |
+    |**Databas-ID**|Aktiviteter|Ange *Uppgifter* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg. Kontrol lera **data flödes alternativet etablera databas** så att du kan dela det data flöde som har etablerats till databasen över alla behållare i databasen. Det här alternativet hjälper också till med kostnads besparingar. |
     |**Dataflöde**|400|Lämna data flödet på 400 enheter för programbegäran per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.| 
     |**Container-ID**|Objekt|Ange *objekt* som namn på den nya behållaren. Container-ID: n har samma teckenuppsättnings krav som databas namn.|
     |**Partitionsnyckel**| /category| Exemplet som beskrivs i den här artikeln använder */Category* som partitionsnyckel.|
@@ -145,7 +153,7 @@ Följande kodfragment är alla hämtade från filen _app.js_.
   ```
 
 > [!NOTE]
-> I både metoderna "Update" och "Delete" måste objektet väljas från databasen genom att anropa `conatiner.item()`. De två parametrarna som skickas in är ID för objektet och objektets partitionsnyckel. I det här fallet är partitionera-nyckeln värdet för fältet "kategori".
+> I både metoderna "Update" och "Delete" måste objektet väljas från databasen genom att anropa `container.item()`. De två parametrarna som skickas in är ID för objektet och objektets partitionsnyckel. I det här fallet är partitionera-nyckeln värdet för fältet "kategori".
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
@@ -173,13 +181,9 @@ Gå tillbaka till Azure Portal för att hämta information om anslutnings strän
 
 Du kan nu gå tillbaka till Datautforskaren, ändra och arbeta med dessa nya data.
 
-## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
-
-## <a name="clean-up-resources"></a>Rensa resurser
-
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

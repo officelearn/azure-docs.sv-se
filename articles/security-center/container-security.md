@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 45ce8a808efc5b882c90f99875fdde661e292774
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: fac9cba28f90f3642de660ed7d070b165c06bb2e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205984"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303264"
 ---
 # <a name="container-security-in-security-center"></a>Behållar säkerhet i Security Center
 
@@ -37,6 +37,8 @@ Instruktioner för hur du använder dessa funktioner finns i [övervaka säkerhe
 Kontrol lera att du är på Security Center standard nivå (se [prissättning](/azure/security-center/security-center-pricing)) för att övervaka ARM-baserade Azure Container Registry. Aktivera sedan de valfria paketen för behållar register. När en ny avbildning överförs, Security Center skannar avbildningen med hjälp av en skanner från den branschledande sårbara sårbarheten hos leverantören, Qualys.
 
 När problem påträffas – av Qualys eller Security Center – får du ett meddelande i Security Center instrument panel. För varje sårbarhet ger Security Center rekommendationer som kan åtgärdas, tillsammans med en allvarlighets grad och vägledning för hur du kan åtgärda problemet. Mer information om Security Centers rekommendationer för behållare finns i [referens listan för rekommendationer](recommendations-reference.md#recs-containers).
+
+Security Center filtrerar och klassificerar resultat från skannern. När en bild är felfri, Security Center Markera den som sådan. Security Center skapar endast säkerhets rekommendationer för avbildningar som har problem att lösa. Genom att meddela om det uppstår problem kan Security Center minska risken för oönskade informations aviseringar.
 
 ## <a name="environment-hardening"></a>Miljö härdning
 
@@ -61,11 +63,11 @@ AKS tillhandahåller säkerhets kontroller och insyn i säkerhets position i din
 
 Mer information om relevanta Security Center rekommendationer som kan visas för den här funktionen finns i [avsnittet container](recommendations-reference.md#recs-containers) i referens tabellen för rekommendationer.
 
-## <a name="run-time-protection---real-time-threat-protection"></a>Kör tids skydd – real tids skydd av hot
+## <a name="run-time-protection---real-time-threat-detection"></a>Kör tids skydd – real tids identifiering av hot
 
-Security Center tillhandahåller hot skydd i real tid för dina behållares miljöer och genererar aviseringar för misstänkta aktiviteter. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina containrar.
+Security Center tillhandahåller hot identifiering i real tid för dina behållares miljöer och genererar aviseringar för misstänkta aktiviteter. Du kan använda den här informationen för att snabbt åtgärda säkerhetsproblem och förbättra säkerheten för dina containrar.
 
-Vi identifierar hot på kluster nivån värd och AKS. Fullständig information finns i [hot skydd för Azure-behållare](threat-protection.md#azure-containers).
+Vi identifierar hot på kluster nivån värd och AKS. Fullständig information finns i [hot identifiering för Azure-behållare](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
 
 
 ## <a name="container-security-faq"></a>Vanliga frågor om container säkerhet
@@ -73,16 +75,18 @@ Vi identifierar hot på kluster nivån värd och AKS. Fullständig information f
 ### <a name="what-types-of-images-can-azure-security-center-scan"></a>Vilka typer av avbildningar kan Azure Security Center skanning?
 Security Center söker igenom Linux OS-baserade avbildningar som ger shell-åtkomst. 
 
-Qualys-skannern har inte stöd för Super minimalist-bilder som [Docker Scratch](https://hub.docker.com/_/scratch/) images, eller "Distroless"-avbildningar som bara innehåller ditt program och dess körnings beroenden (utan paket hanteraren, Shell eller OS).
+Qualys-skannern har inte stöd för Super minimalist-bilder som [Docker Scratch](https://hub.docker.com/_/scratch/) images, eller "Distroless"-bilder som bara innehåller ditt program och dess körnings beroenden utan paket hanteraren, Shell eller OS.
 
-### <a name="how-does-we-scan-azure-security-center-scan-an-image"></a>Hur skannar vi Azure Security Center skanna en avbildning?
-Avbildningen extraheras från registret. Den körs sedan i en isolerad sandbox med Qualys-skannern som extraherar en lista över kända sårbarheter.
+### <a name="how-does-azure-security-center-scan-an-image"></a>Hur skannar Azure Security Center en avbildning?
+Avbildningen hämtas från registret. Den körs sedan i en isolerad sandbox med Qualys-skannern som extraherar en lista över kända sårbarheter.
+
+Security Center filtrerar och klassificerar resultat från skannern. När en bild är felfri, Security Center Markera den som sådan. Security Center skapar endast säkerhets rekommendationer för avbildningar som har problem att lösa. Genom att meddela om det uppstår problem kan Security Center minska risken för oönskade informations aviseringar.
 
 ### <a name="how-often-does-azure-security-center-scan-my-images"></a>Hur ofta Azure Security Center Skanna mina bilder?
 Avbildnings genomsökningar utlöses vid varje push-överföring.
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>Kan jag få Sök resultatet via REST API?
-Ja. Resultaten är under [Underbedömningar REST API](/rest/api/securitycenter/subassessments/list/). Dessutom kan du använda Azure Resource Graph (ARG), Kusto API för alla resurser: en fråga kan hämta en speciell sökning.
+Ja. Resultaten är under [Underbedömningar REST API](/rest/api/securitycenter/subassessments/list/). Du kan också använda Azure Resource Graph (ARG), Kusto API för alla resurser: en fråga kan hämta en speciell sökning.
  
 
 ## <a name="next-steps"></a>Nästa steg

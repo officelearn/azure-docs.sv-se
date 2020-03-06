@@ -1,7 +1,7 @@
 ---
-title: Skydda webb tjänster med SSL
+title: Skydda webb tjänster med TLS
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du aktiverar HTTPS för att skydda en webb tjänst som distribueras via Azure Machine Learning.
+description: Lär dig hur du aktiverar HTTPS för att skydda en webb tjänst som distribueras via Azure Machine Learning. Azure Machine Learning använder TLS version 1,2 för att säkra modeller som distribueras som webb tjänster.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 08/12/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 34c6071a127d0fc0c967991582f629c6ae713783
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1f4b699476902fa24fa285754f13b1c61ddca8f0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905220"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355534"
 ---
-# <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Använd SSL för att skydda en webb tjänst via Azure Machine Learning
+# <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Använd TLS för att skydda en webb tjänst via Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Den här artikeln visar hur du skyddar en webb tjänst som distribueras via Azure Machine Learning.
@@ -52,7 +52,7 @@ Detta är den allmänna processen för att skydda en webb tjänst:
 
 Det finns små skillnader när du skyddar er över [distributions mål](how-to-deploy-and-where.md).
 
-## <a name="get-a-domain-name"></a>Få ett domännamn
+## <a name="get-a-domain-name"></a>Skaffa ett domännamn
 
 Om du inte redan har ett domän namn kan du köpa ett från en *domän namns registrator*. Processen och priset skiljer sig mellan registratorn. Registratorn innehåller verktyg för att hantera domän namnet. Du använder dessa verktyg för att mappa ett fullständigt kvalificerat domän namn (FQDN) (till exempel www\.contoso.com) till den IP-adress som är värd för webb tjänsten.
 
@@ -60,8 +60,8 @@ Om du inte redan har ett domän namn kan du köpa ett från en *domän namns reg
 
 Det finns många sätt att hämta ett SSL-certifikat (digitalt certifikat). Det vanligaste är att köpa en från en *certifikat utfärdare* (ca). Oavsett var du får certifikatet behöver du följande filer:
 
-* En **certifikat**. Certifikatet måste innehålla den fullständiga certifikat kedjan och måste vara "PEM-kodad".
-* En **nyckeln**. Nyckeln måste också vara PEM-kodad.
+* Ett **certifikat**. Certifikatet måste innehålla den fullständiga certifikat kedjan och måste vara "PEM-kodad".
+* En **nyckel**. Nyckeln måste också vara PEM-kodad.
 
 När du begär ett certifikat måste du ange det fullständiga domän namnet för den adress som du planerar att använda för webb tjänsten (till exempel www\.contoso.com). Adressen som stämplas in i certifikatet och den adress som klienterna använder jämförs för att verifiera webb tjänstens identitet. Om dessa adresser inte matchar får klienten ett fel meddelande.
 

@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 10/18/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f54382d652c3fc59b8ff462d41ec8c0fbdbe8498
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 474f2634e6f7ddc1840548c39ae86cb54c3bf08e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596695"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299694"
 ---
 # <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Felsöka ett problem med Privileged Identity Management
 
@@ -34,9 +34,9 @@ Som en aktiv ägare eller administratör för användar åtkomst för en Azure-r
 
 Det här problemet kan inträffa när rollen som administratör för användar åtkomst för PIM-tjänstens huvud namn har tagits bort av en prenumeration. För att Privileged Identity Managements tjänsten ska kunna få åtkomst till Azure-resurser, ska MS-PIM-tjänstens huvud namn alltid ha tilldelats [rollen administratör för användar åtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator) i Azure-prenumerationen.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
-Tilldela rollen administratör för användar åtkomst till tjänsten Privileged Identity Management-tjänstens huvud namn (MS – PIM) på prenumerations nivå. Den här tilldelningen ska tillåta att Privileged Identity Management-tjänsten får åtkomst till Azure-resurserna. Rollen kan tilldelas på en hanterings grupps nivå eller på prenumerations nivån, beroende på dina behov. Mer information om tjänstens huvud namn finns i [tilldela ett program till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role).
+Tilldela rollen administratör för användar åtkomst till tjänsten Privileged Identity Management-tjänstens huvud namn (MS – PIM) på prenumerations nivå. Den här tilldelningen ska tillåta att Privileged Identity Management-tjänsten får åtkomst till Azure-resurserna. Rollen kan tilldelas på en hanterings grupps nivå eller på prenumerations nivån, beroende på dina behov. Mer information om tjänstens huvud namn finns i [tilldela ett program till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application).
 
 ## <a name="next-steps"></a>Nästa steg
 

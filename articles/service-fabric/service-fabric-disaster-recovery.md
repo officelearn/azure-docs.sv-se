@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f23624dd0be1e700731e3f5a63c8cd7a00ec4e16
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f9bde0f81dc364aaa09dc9763f2014d83f992371
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458058"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298304"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Haveri beredskap i Azure Service Fabric
 En viktig del av att leverera hög tillgänglighet säkerställer att tjänsterna kan överleva alla olika typer av problem. Detta är särskilt viktigt för problem som är oplanerade och utanför din kontroll. I den här artikeln beskrivs några vanliga fel lägen som kan vara katastrofer om de inte är modellerade och hanterade på rätt sätt. Den diskuterar också åtgärder och åtgärder som ska vidtas om en olycka ändå har skett. Målet är att begränsa eller eliminera risken för avbrott eller data förlust när de inträffar, planeras eller annars inträffar.
@@ -80,28 +80,40 @@ Ovan har vi talat om enskilda haverier. Som du kan se är det enkelt att hantera
 
 
 ### <a name="random-failures-leading-to-service-failures"></a>Slumpmässiga problem som leder till tjänst haverier
-Anta att tjänsten hade en `InstanceCount` på 5 och att flera noder som kör instanserna på samma gång. Service Fabric svarar genom att automatiskt skapa ersättnings instanser på andra noder. Det fortsätter att skapa ersättningar tills tjänsten är tillbaka till det önskade instans antalet. Anta till exempel att det fanns en tillstånds lös tjänst med en `InstanceCount`på-1, vilket innebär att den körs på alla giltiga noder i klustret. Anta att några av dessa instanser inte kunde köras. I det här fallet Service Fabric meddelanden om att tjänsten inte har önskat tillstånd och försöker skapa instanser på noder där de saknas. 
 
-För tillstånds känsliga tjänster beror situationen på om tjänsten har sparat tillstånd eller inte. Det beror också på hur många repliker tjänsten hade och hur många fel som har misslyckats. Avgöra om en katastrof har inträffat för en tillstånds känslig tjänst och hantera den i följande tre steg:
+#### <a name="stateless-services"></a>Tillstånds lösa tjänster
+`InstanceCount` för tjänsten anger önskat antal instanser som måste köras. Om några (eller alla) instanser av instanserna Miss klar kommer Service Fabric att svara genom att automatiskt skapa ersättnings instanser på andra noder. Service Fabric fortsätter att skapa ersättningar tills tjänsten är tillbaka till det önskade instans antalet.
+Ett annat exempel är om den tillstånds lösa tjänsten har `InstanceCount` på-1, vilket innebär att en instans ska köras på varje nod i klustret. Om några av instanserna inte kunde köras identifierar Service Fabric att tjänsten inte är i det önskade läget och kommer att försöka skapa instanser på noder där de saknas.
+
+#### <a name="stateful-services"></a>Tillstånds känsliga tjänster
+Det finns två typer av tillstånds känsliga tjänster:
+1. Tillstånds känslig med beständigt tillstånd
+2. Tillstånds känslig med icke-beständig status (tillstånd lagras i minnet)
+
+Fel återställning av tillstånds känslig tjänst beror på typen av tillstånds känslig tjänst och hur många repliker tjänsten hade och hur många som misslyckades.
+
+Vad är kvorum?
+I en tillstånds känslig tjänst replikeras inkommande data mellan repliker (primär-och ActiveSecondary). Om majoriteten av replikerna tar emot data betraktas data som dedikerat (för 5 repliker, 3 är _kvorum_). Det innebär att du vid en viss tidpunkt garanterar att det finns minst kvorum med repliker med senaste data. Om replik (er) Miss lyckas (t. ex. 2 av 5 repliker misslyckades) kan vi använda ett attributvärde för att beräkna om vi kan återställa (eftersom återstående 3 av 5 repliker fortfarande är installerade, garanterar det att minst 1 replik kommer att ha fullständiga data).
+
+Vad är förlust av kvorum?
+När det inte går att kvorum med repliker, deklareras partitionen som status för kvorum. Anta att en partition har 5 repliker, vilket innebär att minst 3 garanterar fullständiga data. Om kvorum (3 ut 5) repliker inte fungerar kan Service Fabric inte avgöra om de återstående replikerna (2 ut 5) har tillräckligt med data för att återställa partitionen.
+
+Avgöra om en katastrof har inträffat för en tillstånds känslig tjänst och hantera den i följande tre steg:
 
 1. Avgöra om det har uppstått ett kvorum eller inte
-   - En förlust av kvorum är när som helst en majoritet av de repliker av en tillstånds känslig tjänst som finns på samma tidpunkt, inklusive den primära.
+    - Förlorade kvorum deklareras när en majoritet av replikerna av en tillstånds känslig tjänst är nere på samma gång.
 2. Avgöra om kvorumet kan försvinna permanent eller inte
    - Det mesta av tiden är att felen är tillfälliga. Processerna startas om, noderna startas om, virtuella datorer återstartas, nätverks partitioner laga. Ibland är felen permanenta. 
-     - För tjänster utan beständig status uppstår ett problem med ett kvorum eller flera repliker _direkt_ i permanent kvorum förlust. När Service Fabric identifierar kvorum i en tillstånds känslig tjänst, fortsätter den omedelbart till steg 3 genom att deklarera (potential) data förlust. Att gå vidare till data förlust är meningsfullt eftersom Service Fabric vet att det inte finns någon tidpunkt i väntan på att replikerna ska komma tillbaka, eftersom även om de återställdes, skulle de vara tomma.
-     - För tillstånds känsliga tjänster innebär ett fel på ett kvorum eller flera repliker att Service Fabric starta väntar på att replikerna ska komma tillbaka och återställa kvorum. Detta resulterar i avbrott i tjänsten för alla _skrivningar_ till den berörda partitionen (eller "replik uppsättningen") för tjänsten. Läsningar kan dock fortfarande vara möjliga med minskad konsekvens garanti. Standard tiden som Service Fabric väntar på att kvorum ska återställas är oändlig, eftersom det är en (potentiell) data förlust händelse och medför andra risker. Att åsidosätta standard `QuorumLossWaitDuration` svärdet är möjligt, men rekommenderas inte. I stället för den här gången bör alla ansträngningar göras för att återställa ned-replikerna. Detta kräver att noderna som är nere säkerhets kopie ras och säkerställer att de kan montera om de enheter där de har sparat det lokala beständiga läget. Om återställningen av kvorum orsakas av ett process haveri försöker Service Fabric automatiskt återskapa processerna och starta om replikerna inuti dem. Om detta Miss lyckas, Service Fabric rapporterar hälso fel. Om dessa kan lösas kommer replikerna normalt tillbaka. Ibland kan inte replikerna tas tillbaka. Enheterna kan till exempel ha misslyckats eller så har datorerna fysiskt förstörts. I dessa fall har vi nu ett permanent kvorum för förlorade händelser. Om du vill att Service Fabric ska sluta vänta på att de båda replikerna ska gå tillbaka måste en kluster administratör bestämma vilka partitioner i vilka tjänster som påverkas och anropa `Repair-ServiceFabricPartition -PartitionId`-eller `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)`-API: et.  Med detta API kan du ange ID: t för partitionen som ska flyttas från QuorumLoss och till potentiella DataLoss.
-
-   > [!NOTE]
-   > Det är _aldrig_ säkert att använda detta API förutom på ett riktat sätt mot specifika partitioner. 
-   >
-
+     - För tjänster utan beständig status uppstår ett problem med ett kvorum eller flera repliker _direkt_ i permanent kvorum förlust. När Service Fabric identifierar kvorum i en tillstånds känslig tjänst, fortsätter den omedelbart till steg 3 genom att deklarera (potential) data förlust. Att gå vidare till data förlust är meningsfullt eftersom Service Fabric vet att det inte finns någon tidpunkt i väntan på att replikerna ska komma tillbaka, eftersom även om de var återställda, på grund av icke-beständig natur för tjänsten, data har gått förlorade.
+     - För tillstånds känsliga tjänster kan ett fel i ett kvorum eller flera repliker orsaka att Service Fabric väntar på att replikerna ska komma tillbaka och återställa kvorum. Detta resulterar i avbrott i tjänsten för alla _skrivningar_ till den berörda partitionen (eller "replik uppsättningen") för tjänsten. Läsningar kan dock fortfarande vara möjliga med minskad konsekvens garanti. Standard tiden som Service Fabric väntar på att kvorum ska återställas är oändlig, eftersom det är en (potentiell) data förlust händelse och medför andra risker.
 3. Avgöra om det finns faktisk data förlust och återställning från säkerhets kopior
-   - När Service Fabric anropar `OnDataLossAsync`-metoden är det alltid på grund av _misstänkt_ data förlust. Service Fabric garanterar att anropet levereras till den _bästa_ återstående repliken. Detta är den replik som har förloppet. Orsaken till att det alltid finns _misstänkt_ data förlust är att det är möjligt att den kvarvarande repliken faktiskt har samma tillstånd som den primära startade när den gick ned. Men utan det läget för att jämföra det, finns det inget bra sätt för Service Fabric eller operatörer att känna till. I det här läget vet Service Fabric också att de andra replikerna inte kommer tillbaka. Det var beslutet som fattades när vi slutade vänta på att kvorumet skulle lösas. Den bästa åtgärden för tjänsten är vanligt vis att frysa och vänta på en speciell administrativ åtgärd. Vad gör en typisk implementering av `OnDataLossAsync`-metoden?
-   - Börja med att logga `OnDataLossAsync` har utlösts och starta eventuella nödvändiga administrativa aviseringar.
-   - Normalt i det här läget för att pausa och vänta på ytterligare beslut och manuella åtgärder som ska vidtas. Detta beror på att även om säkerhets kopieringar är tillgängliga kan de behöva förberedas. Om till exempel två olika tjänster koordinerar information kan dessa säkerhets kopieringar behöva ändras för att säkerställa att när återställningen sker att den information som de två tjänsterna bryr sig om är konsekvent. 
-   - Det finns ofta ytterligare telemetri eller avgaser från tjänsten. Dessa metadata kan finnas i andra tjänster eller i loggar. Den här informationen kan användas för att avgöra om det fanns några anrop som tagits emot och bearbetats på den primära som inte fanns i säkerhets kopian eller repliker ATS till den aktuella repliken. De kan behöva spelas upp eller läggas till i säkerhets kopian innan återställningen är möjlig.  
-   - Jämförelser av den återstående replikens tillstånd till den som finns i alla säkerhets kopior som är tillgängliga. Om du använder Service Fabric pålitliga samlingar finns det verktyg och processer som är tillgängliga för detta, som beskrivs i [den här artikeln](service-fabric-reliable-services-backup-restore.md). Målet är att se om tillstånd i repliken är tillräckligt, eller också vad säkerhets kopieringen kan saknas.
-   - När jämförelsen är klar, och om nödvändigt återställningen har slutförts, ska tjänst koden returnera True om några tillstånds ändringar gjordes. Om repliken har fastställt att det var den bästa tillgängliga kopian av statusen och inga ändringar har gjorts, returnerar du falskt. True anger att _andra_ återstående repliker kan nu vara inkonsekventa med den här. De kommer att släppas och återskapas från den här repliken. FALSE anger att inga tillstånds ändringar gjordes, så de andra replikerna kan behålla det du har. 
+   
+   När Service Fabric anropar `OnDataLossAsync`-metoden är det alltid på grund av _misstänkt_ data förlust. Service Fabric garanterar att anropet levereras till den _bästa_ återstående repliken. Detta är den replik som har förloppet. Orsaken till att det alltid finns _misstänkt_ data förlust är att det är möjligt att den kvarvarande repliken faktiskt har samma tillstånd som den primära startade när den gick ned. Men utan det läget för att jämföra det, finns det inget bra sätt för Service Fabric eller operatörer att känna till. I det här läget vet Service Fabric också att de andra replikerna inte kommer tillbaka. Det var beslutet som fattades när vi slutade vänta på att kvorumet skulle lösas. Den bästa åtgärden för tjänsten är vanligt vis att frysa och vänta på en speciell administrativ åtgärd. Vad gör en typisk implementering av `OnDataLossAsync`-metoden?
+   1. Börja med att logga `OnDataLossAsync` har utlösts och starta eventuella nödvändiga administrativa aviseringar.
+   1. Normalt i det här läget för att pausa och vänta på ytterligare beslut och manuella åtgärder som ska vidtas. Detta beror på att även om säkerhets kopieringar är tillgängliga kan de behöva förberedas. Om till exempel två olika tjänster koordinerar information kan dessa säkerhets kopieringar behöva ändras för att säkerställa att när återställningen sker att den information som de två tjänsterna bryr sig om är konsekvent. 
+   1. Det finns ofta ytterligare telemetri eller avgaser från tjänsten. Dessa metadata kan finnas i andra tjänster eller i loggar. Den här informationen kan användas för att avgöra om det fanns några anrop som tagits emot och bearbetats på den primära som inte fanns i säkerhets kopian eller repliker ATS till den aktuella repliken. De kan behöva spelas upp eller läggas till i säkerhets kopian innan återställningen är möjlig.  
+   1. Jämförelser av den återstående replikens tillstånd till den som finns i alla säkerhets kopior som är tillgängliga. Om du använder Service Fabric pålitliga samlingar finns det verktyg och processer som är tillgängliga för detta, som beskrivs i [den här artikeln](service-fabric-reliable-services-backup-restore.md). Målet är att se om tillstånd i repliken är tillräckligt, eller också vad säkerhets kopieringen kan saknas.
+   1. När jämförelsen är klar, och om nödvändigt återställningen har slutförts, ska tjänst koden returnera True om några tillstånds ändringar gjordes. Om repliken har fastställt att det var den bästa tillgängliga kopian av statusen och inga ändringar har gjorts, returnerar du falskt. True anger att _andra_ återstående repliker kan nu vara inkonsekventa med den här. De kommer att släppas och återskapas från den här repliken. FALSE anger att inga tillstånds ändringar gjordes, så de andra replikerna kan behålla det du har. 
 
 Det är mycket viktigt att tjänst författarna kan öva på potentiell data förlust och felaktiga scenarier innan tjänsterna distribueras i produktion. För att skydda mot risken för data förlust är det viktigt att regelbundet [säkerhetskopiera statusen](service-fabric-reliable-services-backup-restore.md) för alla tillstånds känsliga tjänster till en Geo-redundant lagring. Du måste också se till att du kan återställa den. Eftersom säkerhets kopieringar av många olika tjänster görs vid olika tidpunkter, måste du se till att efter en återställning av dina tjänster har en enhetlig vy av varandra. Anta till exempel en situation där en tjänst genererar ett nummer och lagrar den och skickar den sedan till en annan tjänst som också lagrar den. Efter en återställning kan du upptäcka att den andra tjänsten har numret, men det första inte innebär att det inte finns någon säkerhets kopia.
 
@@ -110,6 +122,25 @@ Om du tar reda på att de återstående replikerna inte är tillräckliga för a
 > [!NOTE]
 > System tjänster kan också drabbas av kvorum förlust, med inverkan på den aktuella tjänsten i fråga. Till exempel kan kvorumet i namngivnings tjänsten påverkar namn matchningen, medan kvorumet i tjänsten failover Manager blockerar skapande av nya tjänster och redundans. Medan Service Fabric system tjänster följer samma mönster som dina tjänster för tillstånds hantering, rekommenderar vi inte att du försöker flytta dem bort från kvorumet och till potentiell data förlust. Rekommendationen är i stället att [söka efter support](service-fabric-support.md) för att fastställa en lösning som är riktad mot din specifika situation.  Vanligt vis är det bättre att bara vänta tills de båda replikerna har returnerats.
 >
+
+#### <a name="troubleshooting-quorum-loss"></a>Felsöka kvorum
+
+Repliker kan tillfälligt stängas av på grund av ett tillfälligt haveri. Vänta en stund tills Service Fabric kommer att försöka lägga upp dem. Om repliker har varit nere i mer än förväntad varaktighet följer du nedanstående fel söknings steg.
+- Repliker kan krascha. Kontrol lera hälso rapporter på replik nivå och dina program loggar. Samla in krasch dum par och vidta nödvändiga åtgärder för att återställa.
+- Replik processen kan sluta svara. Kontrol lera program loggarna för att verifiera detta. Samla in process dumpning och avsluta den process som inte svarar. Service Fabric skapar en ersättnings process och försöker återställa repliken.
+- Noder som är värdar för replikerna kan vara nere. Starta om den underliggande virtuella datorn för att ta noderna.
+
+Det kan finnas situationer där det inte går att återställa repliker till exempel att enheterna kan ha misslyckats eller att datorerna inte svarar fysiskt. I dessa fall måste Service Fabric uppmanas att inte vänta på återställning av repliker.
+Använd inte dessa metoder om potentiell DATA förlust inte är acceptabel för att ta tjänsten online, vilket innebär att alla ansträngningar görs för att återställa fysiska datorer.
+
+Följande steg kan resultera i DataLoss – var noga med att kontrol lera innan du följer dem:
+   
+> [!NOTE]
+> Det är _aldrig_ säkert att använda dessa metoder än på ett riktat sätt mot specifika partitioner. 
+>
+
+- Använd `Repair-ServiceFabricPartition -PartitionId`-eller `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)`-API. Med detta API kan du ange ID: t för den partition som ska återställas från QuorumLoss med potentiell data förlust.
+- Om ditt kluster stöter på frekventa fel som orsakar att tjänsterna går förlorade och risken för _data förlust är acceptabla_, kan det vara bra att ange ett lämpligt [QuorumLossWaitDuration](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) -värde för att återställa tjänsten automatiskt. Service Fabric väntar på angivet QuorumLossWaitDuration (Standardvärdet är oändligt) innan återställningen utförs. Den här metoden _rekommenderas inte_ eftersom detta kan orsaka oväntade data förluster.
 
 ## <a name="availability-of-the-service-fabric-cluster"></a>Service Fabric klustrets tillgänglighet
 I allmänhet är Service Fabric själva klustret en mycket distribuerad miljö utan några enskilda fel punkter. Ett fel på en nod kan inte orsaka tillgänglighets-eller Tillförlitlighets problem för klustret, främst på grund av att Service Fabric system tjänster följer samma rikt linjer som tidigare: de körs alltid med tre eller fler repliker som standard och dessa system tjänster som är tillstånds lösa körs på alla noder. Underliggande Service Fabric nätverks-och identifierings lager är fullständigt distribuerade. De flesta system tjänster kan återskapas från metadata i klustret, eller veta hur de synkroniseras om från andra platser. Tillgängligheten för klustret kan bli komprometterad om system Services får problem med att förlora kvorum, som de som beskrivs ovan. I dessa fall kanske du inte kan utföra vissa åtgärder i klustret, t. ex. Starta en uppgradering eller distribuera nya tjänster, men själva klustret är fortfarande igång. Tjänster som redan körs fortsätter att köras under dessa villkor, om de inte kräver skrivningar till system tjänsterna för att fortsätta att fungera. Om Redundanshanteraren till exempel är i en kvorum förlust, kommer alla tjänster att fortsätta att köras, men alla tjänster som Miss lyckas kommer inte att kunna startas om automatiskt, eftersom detta kräver att Redundanshanterarens medverkan. 

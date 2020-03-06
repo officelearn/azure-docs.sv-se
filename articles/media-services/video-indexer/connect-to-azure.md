@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 08/05/2019
 ms.author: juliako
-ms.openlocfilehash: dc844392d64178cb9000db15af39f923521efc19
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 1f40f16ddbe5231dd754ad97b54e414c6ce9b9e7
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838381"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328837"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa ett Video Indexer-konto som är anslutet till Azure
 
@@ -124,8 +124,8 @@ Om anslutningen till Azure misslyckades kan du försöka felsöka problemet geno
 4. För att Video Indexer ska kunna autentiseras med Media Services API måste ett AD-program skapas. Följande steg vägleder dig genom processen för Azure AD-autentisering som beskrivs i [komma igång med Azure AD-autentisering med hjälp av Azure Portal](../previous/media-services-portal-get-started-with-aad.md):
 
     1. Välj **API-åtkomst**i det nya Media Services kontot.
-    2. Välj [autentiseringsmetod för tjänstens huvud namn](../previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).
-    3. Hämta klient-ID och klient hemlighet enligt beskrivningen i avsnittet [Hämta klient-ID och klient hemlighet](../previous/media-services-portal-get-started-with-aad.md#get-the-client-id-and-client-secret) .
+    2. Välj [autentiseringsmetod för tjänstens huvud namn](../previous/media-services-portal-get-started-with-aad.md).
+    3. Hämta klient-ID och klient hemlighet
 
         När du har valt **inställningar**->**nycklar**, Lägg till **Beskrivning**, tryck på **Spara**, fylls nyckel värdet i.
 
@@ -165,7 +165,7 @@ Följande Azure Media Services relaterade överväganden gäller:
 
 * Om du ansluter till ett nytt Media Services konto startar Video Indexer automatiskt standard **slut punkten för direkt uppspelning** i den:
 
-    ![Slut punkt för Media Services strömning](./media/create-account/ams-streaming-endpoint.png)
+    ![Slutpunkten för direktuppspelning av Media Services](./media/create-account/ams-streaming-endpoint.png)
 
     Slut punkter för direkt uppspelning har en betydande start tid. Därför kan det ta flera minuter innan du anslöt ditt konto till Azure, tills dina videor kan strömmas och bevakas i Video Indexer-webbprogrammet.
 

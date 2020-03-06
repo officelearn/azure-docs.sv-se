@@ -4,15 +4,15 @@ description: Lär dig mer om funktionen SQL system reversed i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8237918232bd8ba8edb2b8f71440ffd73a913334
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a22e1c8a5f4350bd2f966ee48f96368c648a4a1e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349556"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302176"
 ---
 # <a name="reverse-azure-cosmos-db"></a>OMVÄND (Azure Cosmos DB)
  Returnerar den omvända ordningen av ett strängvärde.  
@@ -45,6 +45,10 @@ SELECT REVERSE("Abc") AS reverse
 ```json
 [{"reverse": "cbA"}]  
 ```  
+
+## <a name="remarks"></a>Anmärkningar
+
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 

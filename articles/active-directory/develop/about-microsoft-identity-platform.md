@@ -12,18 +12,18 @@ ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
-ms.openlocfilehash: 3c18440e87cf50e370b21b5f0ca33b42e0069fc1
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 8714b7a96197cb4a59b29bada31b5559961bf8e3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161434"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300221"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Utvecklingen av Microsofts identitetsplattform
 
 Microsofts identitetsplattform är en vidareutveckling av utvecklarplattformen för Azure Active Directory (Azure AD). Det gör det möjligt för utvecklare att skapa program som loggar in användare, Hämta token för att anropa API: er, till exempel Microsoft Graph eller API: er som utvecklare har skapat. Det består av en autentiseringstjänst, bibliotek med öppen källkod, program registrering och konfiguration (via en utvecklings Portal och ett program-API), fullständig dokumentation om utvecklare, snabb starts exempel, kod exempel, självstudier, instruktions guider och annat innehåll i utvecklare. Microsoft Identity-plattformen stöder branschstandardprotokoll som OAuth 2.0 och OpenID Connect.
 
-Fram till nu har de flesta utvecklare arbetat med Azure AD v 1.0-plattformen för att autentisera arbets-och skol konton (etablerade av Azure AD) genom att begära token från Azure AD v 1.0-slutpunkten, med hjälp av Azure AD Authentication Library (ADAL), Azure Portal för program registrering och konfiguration och Azure AD-Graph API för program konfiguration.
+Fram till nu har de flesta utvecklare arbetat med Azure AD v 1.0-plattformen för att autentisera arbets-och skol konton (etablerade av Azure AD) genom att begära token från Azure AD v 1.0-slutpunkten, med hjälp av Azure AD Authentication Library (ADAL), Azure Portal för program registrering och konfiguration och Microsoft Graph-API för program konfiguration.
 
 Med den enhetliga Microsoft Identity Platform (v 2.0) kan du skriva kod en gång och autentisera alla Microsoft-identiteter i ditt program. För flera plattformar rekommenderar vi att du använder Microsoft Authentication Library (MSAL) med öppen källkod för användning mot identitets Plattformens slut punkter. MSAL är enkelt att använda, ger utmärkta funktioner för enkel inloggning (SSO) för dina användare, hjälper dig att uppnå hög tillförlitlighet och prestanda och utvecklas med Microsoft Secure Development Lifecycle (SDL). När du anropar API: er kan du konfigurera ditt program så att det utnyttjar det stegvisa godkännandet, vilket gör att du kan fördröja begäran om godkännande för mer invasiva omfattningar tills programmets användning garanterar detta vid körning.  MSAL har också stöd för Azure Active Directory B2C, så dina kunder använder sina prioriterade sociala, företags eller lokala konto identiteter för att få enkel inloggning till dina program och API: er.
 
@@ -49,7 +49,7 @@ Den Azure Portal **[Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2
 
 För integration med Azure AD B2C (vid autentisering av sociala eller lokala identiteter) måste du registrera ditt program i en Azure AD B2C-klient. Den här upplevelsen är också en del av Azure Portal.
 
-**Program-API: et i Microsoft Graph** är för närvarande en för hands version. Använd detta API för att program mässigt konfigurera dina program som är integrerade med Microsoft Identity Platform för att autentisera alla Microsoft-identiteter. Men tills det här API: et når allmän tillgänglighet bör du använda Azure AD Graph 1,6 API och applikations manifestet.
+Använd [Application API](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0) för att program mässigt konfigurera dina program som är integrerade med Microsoft Identity Platform för att autentisera alla Microsoft-identiteter.
 
 ### <a name="msal-libraries"></a>MSAL-bibliotek
 

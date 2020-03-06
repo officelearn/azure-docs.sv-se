@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b997e15b4e987b7a18890606326f52a82cb15212
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 4c3b3318e941723ec333597c7e4b3e48710152d1
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189932"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78397786"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -56,8 +56,11 @@ Elementet **claimType** innehåller följande element:
 | Streckkodsmasker | 0:1 | En valfri sträng med maskering av tecken som kan användas när anspråket visas. Telefonnumret 324-232-4343 kan till exempel maskeras som XXX-XXX-4343. |
 | UserHelpText | 0:1 | En beskrivning av anspråks typen som kan vara till hjälp för användarna att förstå syftet. Värdet kan [lokaliseras](localization.md). |
 | UserInputType | 0:1 | Den typ av inmatnings kontroll som ska vara tillgänglig för användaren när anspråks data anges manuellt för anspråks typen. Se de indatatyps typer som definierats senare på den här sidan. |
+| AdminHelpText | 0:1 | En beskrivning av anspråks typen som kan vara till hjälp för administratörer att förstå dess syfte. |
 | Begränsning | 0:1 | Värde begränsningarna för detta anspråk, till exempel ett reguljärt uttryck (regex) eller en lista med acceptabla värden. Värdet kan [lokaliseras](localization.md). |
 PredicateValidationReference| 0:1 | En referens till ett **PredicateValidationsInput** -element. Med **PredicateValidationReference** -elementen kan du utföra en verifierings process för att säkerställa att endast korrekt utformade data anges. Mer information finns i [predikat](predicates.md). |
+
+
 
 ### <a name="datatype"></a>Datatyp
 
@@ -65,8 +68,8 @@ Elementet **datatype** stöder följande värden:
 
 | Typ | Beskrivning |
 | ------- | ----------- |
-|boolesk|Representerar ett värde för boolesk (`true` eller `false`).|
-|datum| Representerar en omedelbar tid, vanligt vis uttrycks som ett datum på en dag. Värdet för datumet följer ISO 8601-konventionen.|
+|boolean|Representerar ett värde för boolesk (`true` eller `false`).|
+|date| Representerar en omedelbar tid, vanligt vis uttrycks som ett datum på en dag. Värdet för datumet följer ISO 8601-konventionen.|
 |Datum/tid|Representerar en omedelbar tid, vanligt vis uttryckt som datum och tid på dagen. Värdet för datumet följer ISO 8601-konventionen.|
 |duration|Representerar ett tidsintervall i år, månader, dagar, timmar, minuter och sekunder. Formatet för är `PnYnMnDTnHnMnS`, där `P` indikerar positiv eller `N` för negativt värde. `nY` är antalet år följt av en litteral `Y`. `nMo` är antalet månader följt av en litteral `Mo`. `nD` är antalet dagar följt av en litteral `D`. Exempel: `P21Y` representerar 21 år. `P1Y2Mo` representerar ett år och två månader. `P1Y2Mo5D` representerar ett år, två månader och fem dagar.  `P1Y2M5DT8H5M620S` representerar ett år, två månader, fem dagar, åtta timmar, fem minuter och tjugo sekunder.  |
 |phoneNumber|Representerar ett telefonnummer. |
@@ -247,7 +250,7 @@ Azure AD B2C stöder flera olika typer av användarindata, till exempel en text 
 |DropdownSingleSelect |`string` |Listruta för enkel markering. Anspråks värde är det valda värdet.|
 |E-postmeddelande | `string` |E-postfält. |
 |Paragraf | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Ett fält som endast visar text i en stycke-tagg. |
-|Lösenord | `string` |Text rutan lösen ord.|
+|lösenord | `string` |Text rutan lösen ord.|
 |RadioSingleSelect |`string` | Samling alternativ knappar. Anspråks värde är det valda värdet.|
 |ReadOnly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Skrivskyddad text ruta. |
 |TextBox |`boolean`, `int`, `string` |Text ruta med en rad. |
@@ -286,7 +289,7 @@ Indatatypen för **text Rute** användaren används för att ange en text ruta m
 </ClaimType>
 ```
 
-#### <a name="password"></a>Lösenord
+#### <a name="password"></a>lösenord
 
 **Användarens** Indatatyp används för att registrera ett lösen ord som anges av användaren.
 

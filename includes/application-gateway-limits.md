@@ -2,14 +2,14 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 6/5/2019
+ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: 6ab6c4c2051ccd2fbb22c383b9ca0af53ceb13d3
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
-ms.translationtype: MT
+ms.openlocfilehash: 48f4c7497583e872c89e4d8cd92dab52ab4f9239
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77054902"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304964"
 ---
 | Resurs | Standard/högsta gräns | Obs! |
 | --- | --- | --- |
@@ -18,7 +18,7 @@ ms.locfileid: "77054902"
 | Klient dels portar |100<sup>1</sup> | |
 | Backend-adresspooler |100<sup>1</sup> | |
 | Backend-servrar per pool |1,200 | |
-| HTTP-lyssnare |100<sup>1</sup> | |
+| HTTP-lyssnare |200<sup>1</sup> |Begränsad till 100 aktiva lyssnare som dirigerar trafik. Aktiva lyssnare = totalt antal lyssnare-lyssnare som inte är aktiva.<br>Om en standard konfiguration i en routningsprincip är inställd på att dirigera trafik (till exempel har den en lyssnare, en backend-pool och HTTP-inställningar) som också räknas som en lyssnare.|
 | Regler för belastnings utjämning i HTTP |100<sup>1</sup> | |
 | HTTP-inställningar på Server Sidan |100<sup>1</sup> | |
 | Instanser per gateway |V1 SKU – 32<br>V2 SKU – 125 | |
@@ -36,7 +36,7 @@ ms.locfileid: "77054902"
 | Maximal URL-längd|32 KB| |
 | Maximal sidhuvud storlek för HTTP/2 |4KB| |
 | Maximal fil överförings storlek, standard |2 GB | |
-| Maximal storlek för fil överföring WAF |v1 mellan WAF-gatewayer, 100 MB<br>v1 stora WAF-gatewayer, 500 MB<br>v2 WAF, 750 MB| |
+| Maximal storlek för fil överföring WAF |V1 mellan WAF-gatewayer, 100 MB<br>V1 stora WAF-gatewayer, 500 MB<br>V2 WAF, 750 MB| |
 | Storleks gräns för WAF-Body, utan filer|128 KB||
 | Maximalt antal anpassade WAF-regler|100||
 | Maximalt antal WAF-undantag|100||

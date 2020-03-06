@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 69c32370b1f7f7cabb642ab140d69dcec57fb4aa
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 58ae39e8dfdf918ae14ca9bb8dac28405828999e
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551989"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330965"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifiera ExpressRoute-anslutning
 Den här artikeln hjälper dig att kontrol lera och felsöka ExpressRoute-anslutningen. ExpressRoute utökar ett lokalt nätverk till Microsoft-molnet via en privat anslutning som ofta fören klar av en anslutnings leverantör. ExpressRoute-anslutningen omfattar vanligt vis tre olika nätverks zoner, enligt följande:
 
--   Kundnätverk
+-   Kund nätverk
 -   Leverantörs nätverk
 -   Microsoft-datacenter
 
@@ -275,7 +275,7 @@ I följande exempel visas svaret på kommandot för peering som inte finns:
 ## <a name="confirm-the-traffic-flow"></a>Bekräfta trafikflöde
 Använd följande kommando för att få en kombinerad primär och sekundär väg för trafik statistik – byte in och ut--av en peering-kontext:
 
-    Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private
+    Get-AzExpressRouteCircuitStats -ResourceGroupName $RG -ExpressRouteCircuitName $CircuitName -PeeringType 'AzurePrivatePeering'
 
 Ett exempel på utdata från kommandot är:
 
@@ -288,7 +288,7 @@ Ett exempel på utdata från kommandot för en icke-befintlig peering är:
     Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Service Key ********************* is not found.
     StatusCode: 400
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Mer information eller hjälp finns i följande länkar:
 
 - [Microsoft Support][Support]

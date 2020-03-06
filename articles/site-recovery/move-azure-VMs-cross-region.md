@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 92388c54804d85d2825a25abd0c234081670e8d4
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: dc37cb6fa05a2be56de7bf5536d7274190257d85
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092187"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303927"
 ---
 # <a name="move-azure-vms-to-another-azure-region"></a>Flytta virtuella Azure-datorer till en annan Azure-region
 
@@ -21,7 +21,7 @@ Du kanske vill flytta virtuella IaaS-datorer (Azure Infrastructure as a Service)
 
 > [!div class="checklist"]
 > * Kontrollera förutsättningar
-> * Förbereda källregionens virtuella datorer
+> * Förbereda källans virtuella datorer
 > * Förbereda målregionen
 > * Kopiera data till målregionen
 > * Testa konfigurationen
@@ -32,7 +32,7 @@ Du kanske vill flytta virtuella IaaS-datorer (Azure Infrastructure as a Service)
 > [!IMPORTANT]
 > Den här artikeln beskriver hur du flyttar virtuella Azure-datorer från en region till *en annan.* Om målet är att förbättra tillgängligheten för din infrastruktur genom att flytta virtuella datorer till tillgänglighets zoner kan du läsa mer i [flytta virtuella Azure-datorer till Tillgänglighetszoner](move-azure-vms-avset-azone.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Kontrol lera att du har virtuella Azure-datorer i Azure-regionen som du vill flytta *från*.
 - Kontrol lera att ditt val av [käll region – kombination av mål region stöds](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support)och välj sedan noga mål regionen.
@@ -46,7 +46,7 @@ Du kanske vill flytta virtuella IaaS-datorer (Azure Infrastructure as a Service)
 
   - Du måste också ha behörighet för att hantera Site Recovery åtgärder. Rollen Site Recovery Contributor har alla behörigheter som krävs för att hantera Site Recovery åtgärder i ett Azure Recovery Services-valv.
 
-## <a name="prepare-the-source-vms"></a>Förbereda källregionens virtuella datorer
+## <a name="prepare-the-source-vms"></a>Förbereda källans virtuella datorer
 
 1. Kontrol lera att de virtuella Azure-datorerna som du planerar att flytta har de senaste rot certifikaten. Om de inte gör det kan du inte aktivera data kopiering till mål regionen på grund av säkerhets begränsningar.
 
@@ -70,7 +70,7 @@ Du kanske vill flytta virtuella IaaS-datorer (Azure Infrastructure as a Service)
    - [Lastbalanserare](https://docs.microsoft.com/azure/load-balancer)
    - [Offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md)
     
-   För alla andra nätverks komponenter, se [dokumentationen om Azure-nätverk](https://docs.microsoft.com/azure/#pivot=products&panel=network). 
+   För alla andra nätverks komponenter, se [dokumentationen om Azure-nätverk](https://docs.microsoft.com/azure/?pivot=products&panel=network). 
 
 4. Om du vill testa konfigurationen innan du utför flytten kan du [skapa ett nätverk för icke-produktion](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) manuellt i mål regionen. Testning av installations programmet skapar minimal störning i produktions miljön och vi rekommenderar det.
     
@@ -114,7 +114,7 @@ Site Recovery hämtar en lista över de virtuella datorer som är associerade me
    - **Senaste program – konsekvent**: växlar över alla virtuella datorer till den senaste programkonsekventa återställnings punkten. Tidsstämpeln visas.
    - **Anpassad**: Välj en annan återställningspunkt.
 
-3. Välj målets virtuella Azure-nätverk, dit du vill flytta de virtuella Azure-datorerna för att testa konfigurationen.
+3. Välj det virtuella Azure-målnätverk dit du vill flytta de virtuella Azure-datorerna för att testa konfigurationen.
 
    > [!IMPORTANT]
    > Vi rekommenderar att du använder ett separat Azure VM-nätverk för redundanstest, inte i produktions nätverket i mål regionen.
@@ -127,7 +127,7 @@ Site Recovery hämtar en lista över de virtuella datorer som är associerade me
 
 1. Gå till valvet i **inställningar** > **replikerade objekt**, Välj den virtuella datorn och välj sedan **redundans**.
 1. Välj **senaste**för **redundans**. 
-2. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella käll datorn innan redundansväxlingen utlöses. Men redundansväxlingen fortsätter även om avstängningen Miss lyckas. Du kan följa förloppet för redundans på sidan **Jobb**.
+2. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella käll datorn innan redundansväxlingen utlöses. Men redundansväxlingen fortsätter även om avstängningen Miss lyckas. Du kan följa redundansförloppet på sidan **Jobb**.
 3. När jobbet är klart kontrollerar du att den virtuella datorn visas i Azure-regionen som förväntat.
 4. I **replikerade objekt**högerklickar du på den virtuella datorn och väljer **genomför**. Detta avslutar flyttningen. Vänta tills commit-jobbet har slutförts.
 

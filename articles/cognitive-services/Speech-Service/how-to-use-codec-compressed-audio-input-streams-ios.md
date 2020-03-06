@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 2089f4191ddd57fa8dc19862bd195756c166f2d4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5d65ac83fc8a41008971108c5b370c1d0416113b
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805866"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331527"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-ios"></a>Gör så här: Använd codec-komprimerad ljud inspelning med talet SDK på iOS
 
 Talet SDK: s **komprimerade ljud inspelnings** -API ger ett sätt att strömma komprimerat ljud till tal tjänsten med hjälp av en pull-eller push-dataström.
 
 > [!IMPORTANT]
-> Tal SDK-version 1.7.0 eller högre krävs för strömmande komprimerat ljud på iOS. Den stöds också för [ C++, C#och Java på Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9)](how-to-use-codec-compressed-audio-input-streams.md) och [java i Android.](how-to-use-codec-compressed-audio-input-streams-android.md)
+> Tal SDK-version 1.7.0 eller högre krävs för strömmande komprimerat ljud på iOS. Den stöds också för [ C++, C#och Java på Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8)](how-to-use-codec-compressed-audio-input-streams.md) och [java i Android.](how-to-use-codec-compressed-audio-input-streams-android.md)
 
 För WAV/PCM ser du Mainline tal-dokumentationen. Utanför WAV/PCM stöds följande codec-komprimerade indataformat:
 
@@ -32,7 +32,7 @@ För WAV/PCM ser du Mainline tal-dokumentationen. Utanför WAV/PCM stöds följa
 - ALAW i WAV-behållare
 - MULAW i WAV-behållare
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Hantering av komprimerat ljud implementeras med [gstreamer](https://gstreamer.freedesktop.org). Av licens skäl kan dessa funktioner inte levereras med SDK, men ett omslutnings bibliotek som innehåller dessa funktioner måste skapas av programutvecklare och levereras med apparna med hjälp av SDK.
 

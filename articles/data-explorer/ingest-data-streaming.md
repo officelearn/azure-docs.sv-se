@@ -7,18 +7,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 279130fa310b107bd1a016c717c48af3d905251b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 1857c1154af5e3de72803f297e8a3151b0dd7aeb
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78270147"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330982"
 ---
 # <a name="streaming-ingestion-preview"></a>Strömnings inmatning (för hands version)
 
-Strömnings inmatning är avsedd för scenarier som kräver låg latens med en inmatnings tid på mindre än 10 sekunder för varierande volym data. Den används för att optimera drift bearbetningen av många tabeller, i en eller flera databaser, där data strömmen i varje tabell är relativt liten (några poster per sekund), men den totala data inmatnings volymen är hög (tusentals poster per sekund).
+Använd strömnings inmatning när du behöver låg latens med en inmatnings tid på mindre än 10 sekunder för varierande volym data. Den används för att optimera drift bearbetningen av många tabeller, i en eller flera databaser, där data strömmen i varje tabell är relativt liten (några poster per sekund), men den totala data inmatnings volymen är hög (tusentals poster per sekund). 
 
-Använd den klassiska inmatningen (bulk) i stället för strömnings inmatning när mängden data växer till mer än 1 MB per sekund per tabell. Läs [Översikt över data inmatning](/azure/data-explorer/ingest-data-overview) för att lära dig mer om de olika metoderna för inmatning.
+Använd Mass inmatning i stället för strömnings inmatning när mängden data växer till mer än 1 MB per sekund per tabell. Läs [Översikt över data inmatning](/azure/data-explorer/ingest-data-overview) för att lära dig mer om de olika metoderna för inmatning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -48,7 +48,7 @@ Använd den klassiska inmatningen (bulk) i stället för strömnings inmatning n
 Det finns två typer av streaming-inmatningar som stöds:
 
 
-* [**Händelsehubben**](/azure/data-explorer/ingest-data-event-hub) används som data Källa
+* [**Händelsehubben**](/azure/data-explorer/ingest-data-event-hub), som används som en data Källa
 * För **anpassad** inmatning måste du skriva ett program som använder en av Azure datautforskaren-klient biblioteken. Se [exempel på strömnings insamling](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) för ett exempel program.
 
 ### <a name="choose-the-appropriate-streaming-ingestion-type"></a>Välj lämplig typ av strömnings inmatning
@@ -72,15 +72,12 @@ Det finns två typer av streaming-inmatningar som stöds:
 
 ## <a name="limitations"></a>Begränsningar
 
+* Strömnings inmatning stöder inte [databas markörer](/azure/kusto/management/databasecursor) eller [data mappning](/azure/kusto/management/mappings). Det finns endast stöd för data mappning som [skapats i förväg](/azure/kusto/management/tables#create-ingestion-mapping) . 
 * Strömnings kapacitet och kapacitets skalning med ökad storlek på virtuella datorer och kluster. Samtidiga inmatningar är begränsade till sex inmatningar per kärna. För till exempel 16 core-SKU: er, till exempel D14 och L16, är den maximala belastningen som stöds 96 samtidiga inmatningar. För två kärn SKU: er, till exempel D11, är den maximala belastningen 12 samtidiga inmatningar.
 * Data storleks begränsningen per inmatnings förfrågan är 4 MB.
-* Schema uppdateringar, till exempel skapande och ändring av tabeller och inmatnings mappningar, kan ta upp till 5 minuter för strömnings tjänsten.
+* Schema uppdateringar, till exempel skapande och ändring av tabeller och inmatnings mappningar, kan ta upp till fem minuter för strömnings tjänsten.
 * Att aktivera strömnings inmatning i ett kluster, även när data inte matas in via direkt uppspelning, använder en del av den lokala SSD-disken på kluster datorerna för strömnings inmatnings data och minskar lagrings utrymmet som är tillgängliga för varmt cacheminne.
 * Det går inte att ange [omfattnings etiketter](/azure/kusto/management/extents-overview#extent-tagging) för strömnings inmatnings data.
-
-Streaming-inmatningen har inte stöd för följande funktioner:
-* [Databas markörer](/azure/kusto/management/databasecursor).
-* [Data mappning](/azure/kusto/management/mappings). Det finns endast stöd för data mappning som [skapats i förväg](/azure/kusto/management/create-ingestion-mapping-command) . 
 
 ## <a name="next-steps"></a>Nästa steg
 

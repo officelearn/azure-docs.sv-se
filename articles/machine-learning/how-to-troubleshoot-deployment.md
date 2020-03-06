@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 10/25/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1645d2848c6d4b852a81042c4db8a0f6e90fd8fd
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: fab46f7d7ae74ad643ce3f122b27b0dc767f5a78
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945800"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399679"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Felsöka Azure Machine Learning Azure Kubernetes service och Azure Container Instances distribution
 
@@ -34,13 +34,13 @@ Den rekommenderade och mest aktuella metoden för modell distribution är via [M
 
 3. Distribuera modellen till Azure Container instance-tjänsten (ACI) eller till Azure Kubernetes service (AKS).
 
-Mer information om den här processen i den [modellhantering](concept-model-management-and-deployment.md) introduktion.
+Läs mer om den här processen i Introduktion till [modellhantering](concept-model-management-and-deployment.md) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-* Den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [CLI-tillägget för Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * För att felsöka lokalt måste du ha en fungerande Docker-installation på det lokala systemet.
 
@@ -183,7 +183,7 @@ print(ws.webservices['mysvc'].get_logs())
 
 ## <a name="service-launch-fails"></a>Starta tjänsten misslyckas
 
-När avbildningen har skapats försöker systemet starta en behållare med hjälp av distributions konfigurationen. Som en del i processen för att starta upp behållaren, den `init()` funktionen i din bedömningsskriptet anropas av systemet. Om det finns undantag utan felhantering i den `init()` fungerar, visas **CrashLoopBackOff** fel i felmeddelandet.
+När avbildningen har skapats försöker systemet starta en behållare med hjälp av distributions konfigurationen. Som en del av processen för container start anropas funktionen `init()` i ditt bedömnings skript av systemet. Om det finns undantag som inte har fångats i `init()`-funktionen kan du se **CrashLoopBackOff** -fel i fel meddelandet.
 
 Använd informationen i avsnittet [Granska Docker-loggen](#dockerlog) för att kontrol lera loggarna.
 
@@ -204,7 +204,7 @@ Om du ställer in loggnings nivån på fel sökning kan det leda till att ytterl
 
 ## <a name="function-fails-runinput_data"></a>Funktionen misslyckas: run(input_data)
 
-Om tjänsten har distribuerats, men den kraschar när du publicerar data till bedömnings-slutpunkten, du kan lägga till fel vid identifiering av instruktionen i din `run(input_data)` så att den returnerar detaljerat felmeddelande i stället. Ett exempel:
+Om tjänsten har distribuerats, men den kraschar när du skickar data till poäng slut punkten, kan du lägga till fel meddelande instruktion i din `run(input_data)`-funktion så att den returnerar ett detaljerat fel meddelande i stället. Exempel:
 
 ```python
 def run(input_data):
@@ -219,7 +219,11 @@ def run(input_data):
         return json.dumps({"error": result})
 ```
 
-**Obs**: returnerar felmeddelanden från den `run(input_data)` anrop görs för felsökning endast syfte. Av säkerhets skäl bör du inte returnera fel meddelanden på det här sättet i en produktions miljö.
+**Obs!** fel meddelanden som returneras från `run(input_data)`-anropet ska endast göras för fel söknings ändamål. Av säkerhets skäl bör du inte returnera fel meddelanden på det här sättet i en produktions miljö.
+
+## <a name="http-status-code-502"></a>HTTP-statuskod 502
+
+En status kod för 502 visar att tjänsten har utlöst ett undantag eller kraschat i `run()`-metoden för score.py-filen. Använd informationen i den här artikeln för att felsöka filen.
 
 ## <a name="http-status-code-503"></a>HTTP-statuskod 503
 
@@ -261,6 +265,12 @@ Det finns två saker som kan hjälpa till att förhindra 503 status koder:
     > Om du får begär ande toppar som är större än de nya minsta replikerna kan hantera kan du få 503s igen. När trafik till tjänsten ökar kan du till exempel behöva öka de lägsta replikerna.
 
 Mer information om hur du ställer in `autoscale_target_utilization`, `autoscale_max_replicas`och `autoscale_min_replicas` för finns i [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) module-referensen.
+
+## <a name="http-status-code-504"></a>HTTP-statuskod 504
+
+En status kod för 504 visar att tids gränsen för begäran har uppnåtts. Standardvärdet för timeout är 1 minut.
+
+Du kan öka tids gränsen eller försöka påskynda tjänsten genom att ändra score.py för att ta bort onödiga anrop. Om de här åtgärderna inte löser problemet kan du använda informationen i den här artikeln för att felsöka score.py-filen. Koden kan vara i ett låst tillstånd eller en oändlig loop.
 
 ## <a name="advanced-debugging"></a>Avancerad fel sökning
 
@@ -426,7 +436,7 @@ Om du vill göra ändringar i filerna i avbildningen kan du ansluta till den på
 
 1. Se till att spara ändringarna som du gör i filerna i behållaren synkroniseras med de lokala filer som VS-koden använder. Annars fungerar inte fel söknings upplevelsen som förväntat.
 
-### <a name="stop-the-container"></a>Stoppa containern
+### <a name="stop-the-container"></a>Stoppa behållaren
 
 Om du vill stoppa behållaren använder du följande kommando:
 
@@ -438,5 +448,5 @@ docker stop debug
 
 Lär dig mer om distribution:
 
-* [Hur du distribuerar och var](how-to-deploy-and-where.md)
-* [Självstudie: Skapa och distribuera modeller](tutorial-train-models-with-aml.md)
+* [Distribuera och var](how-to-deploy-and-where.md)
+* [Självstudie: träna & distribuera modeller](tutorial-train-models-with-aml.md)

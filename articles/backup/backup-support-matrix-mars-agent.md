@@ -4,11 +4,11 @@ description: I den här artikeln sammanfattas Azure Backup support när du säke
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: ef57688dd7b5ccee4e71ac0a54138ac567320aa2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582644"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392755"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -149,13 +149,13 @@ Krypterade| Stöds.
 Komprimerade | Stöds.
 Utspridda | Stöds.
 Komprimerad och sparse |Stöds.
-Hårda länkar| Stöds ej. Hoppades.
-Referens punkt| Stöds ej. Hoppades.
-Krypterad och sparse |Stöds ej. Hoppades.
-Komprimerad ström| Stöds ej. Hoppades.
-Utspridd ström| Stöds ej. Hoppades.
-OneDrive (synkroniserade filer är sparse-strömmar)| Stöds ej.
-Mappar med DFS Replication aktiverat | Stöds ej.
+Hårda länkar| Stöds inte. Hoppades.
+Referens punkt| Stöds inte. Hoppades.
+Krypterad och sparse |Stöds inte. Hoppades.
+Komprimerad ström| Stöds inte. Hoppades.
+Utspridd ström| Stöds inte. Hoppades.
+OneDrive (synkroniserade filer är sparse-strömmar)| Stöds inte.
+Mappar med DFS Replication aktiverat | Stöds inte.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Enheter eller volymer som stöds för säkerhets kopiering
 

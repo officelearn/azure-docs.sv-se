@@ -12,12 +12,12 @@ ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e0ef46d23ba267bbfc1ff539eb659fafe2b44f8e
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: d5b2ef57af112169fb39e0da7a60b095698ff504
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085695"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299838"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Omfattningar för ett webb-API som accepterar v 1.0-token
 
@@ -25,7 +25,7 @@ OAuth2-behörigheter är behörighets omfattningar som en Azure Active Directory
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Omfattningar för att begära åtkomst till specifika OAuth2-behörigheter för ett v 1.0-program
 
-Om du vill hämta tokens för specifika omfång av ett v 1.0-program (till exempel Azure AD-grafen, som är https://graph.windows.net), skapar du omfång genom att sammanfoga ett önskat resurs-ID med önskad OAuth2-behörighet för resursen.
+Om du vill hämta tokens för specifika omfång av ett v 1.0-program (till exempel Microsoft Graph-API, som är https://graph.microsoft.com), skapar du omfång genom att sammanfoga ett önskat resurs-ID med önskad OAuth2-behörighet för resursen.
 
 Till exempel för att komma åt användaren för en v 1.0 webb-API där app-ID-URI: n är `ResourceId`:
 
@@ -37,15 +37,15 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-För att läsa och skriva med MSAL.NET Azure AD med hjälp av Azure AD Graph API (https:\//graph.windows.net/), måste du skapa en lista över omfattningar som visas i följande exempel:
+För att läsa och skriva med MSAL.NET Azure AD med hjälp av Microsoft Graph API (https:\//graph.microsoft.com/), måste du skapa en lista över omfattningar som visas i följande exempel:
 
 ```csharp
-string ResourceId = "https://graph.windows.net/";
+string ResourceId = "https://graph.microsoft.com/";
 var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 
 ```javascript
-var ResourceId = "https://graph.windows.net/";
+var ResourceId = "https://graph.microsoft.com/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 

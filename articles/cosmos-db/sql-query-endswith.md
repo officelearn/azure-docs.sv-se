@@ -4,15 +4,15 @@ description: Lär dig mer om funktionen ENDSWITH SQL system i Azure Cosmos DB at
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 6b3e692877faab8a8d507a44068d4cdfdc73a916
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 37c5a8b3c44c5ac46b837e4d851d22f85aeaf39c
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873360"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299456"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
  Returnerar ett booleskt värde som anger om först stränguttryck slutar med andra.  
@@ -48,6 +48,10 @@ SELECT ENDSWITH("abc", "b") AS e1, ENDSWITH("abc", "bc") AS e2
 ```json
 [{"e1": false, "e2": true}]  
 ```  
+
+## <a name="remarks"></a>Anmärkningar
+
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 

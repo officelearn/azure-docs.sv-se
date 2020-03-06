@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: evansma
-ms.openlocfilehash: 50e5be309d56f58a79fa19b5270a0b6d2fd3db92
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: 1506a4180a5991e6f6e8ed946192bcbf10bbeac0
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268238"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296159"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Konsult tjänster för Azure Marketplace och AppSource
 Konsult tjänster i Azure Marketplace och AppSource ger Microsoft-partner målet att ansluta kunder med tjänster för att stödja och utöka användningen av Azure och affärs mål. 
@@ -39,7 +39,7 @@ Konsult tjänster erbjuder som baseras på Microsoft Dynamics 365, Power Apps oc
 Konsult tjänster och hanterade tjänster är baserade på Microsoft Azure är berättigade att listas på Azure Marketplace. Mer information finns i artikeln om att [publicera en Azure-konsulttjänster](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) och [publicera ett hanterat tjänste erbjudande på Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
 > [!Note]
-> Konsult tjänster i Azure Marketplace bör använda erbjudanden som är kopplade till en * * teknisk publik med fokus på *Azures tekniska lösningar och tjänster.* \* * Konsult tjänster i AppSource bör utnyttja erbjudanden som har stöd för deras expertis i att leverera kvalitets lösningar för Dynamics 365, Power BI eller PowerApps för att visa upp sina konsult tjänster på AppSource
+> Konsult tjänster i Azure Marketplace bör använda erbjudanden som är kopplade till en * * teknisk publik med fokus på *Azures tekniska lösningar och tjänster.* \* * Konsult tjänster i AppSource bör utnyttja erbjudanden som har stöd för deras expertis i att leverera kvalitets lösningar för Dynamics 365, Power BI eller Power Apps för att få en lista över konsult tjänsternas erbjudanden på AppSource
 > 
 > 
 > [!TIP]
@@ -67,7 +67,7 @@ Partner måste ha en silver- **eller guld kompetens** i det relevanta avsnittet 
 | Dynamics 365 Customer Insights | Måste ha minst 1 lyckad drifts implementering av [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) med minst 5 mått och 5 segment. |
 | Dynamics 365 Business Central | Måste vara guld eller silver certifierat i [företags resurs planerings kompetens](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) och måste vara leverantör av moln lösningar för minst tre centrala företags kunder. <br> <br> ELLER <br> <br> Måste ha publicerat ett [företags Central program i AppSource](https://appsource.microsoft.com/) |
 | Power BI | Måste anges i [Power BI partner Showcase](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=).|
-|Power Apps | Måste vara berättigad till avancerade förmåner i [PowerApps-partnerskaps programmet](https://aka.ms/PowerAppsPartner). |
+|Power Apps | Måste vara berättigad till avancerade förmåner i [kopplings programmet för Power Apps](https://aka.ms/PowerAppsPartner). |
 
 Ytterligare resurser och support:
 

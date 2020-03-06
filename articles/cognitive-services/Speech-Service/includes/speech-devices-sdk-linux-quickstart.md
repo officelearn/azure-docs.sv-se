@@ -5,16 +5,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: dapine
-ms.openlocfilehash: 87aa9f8201b924c1719f3ac805f79fb82631ecfd
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 81c77b2f6ae0c4f8497716c168a937657ceb57dd
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77563208"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384033"
 ---
 I den här snabb starten lär du dig att använda tal enheter SDK för Linux för att bygga en tal aktive rad produkt eller använda den som en [Avskrifts](../conversation-transcription-service.md) enhet för konversation. För närvarande stöds endast [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) .
 
-Programmet har skapats med tal-SDK-paketet och Sol förmörkelse Java IDE (v4) på 64-bitars Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9). Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
+Programmet har skapats med tal-SDK-paketet och Sol förmörkelse Java IDE (v4) på 64-bitars Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8). Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
 
 Den här guiden kräver ett [Azure Cognitive Services](../get-started.md) -konto med en tjänst resurs för tal. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
@@ -24,7 +24,7 @@ Käll koden för [exempel programmet](https://aka.ms/sdsdk-download-JRE) ingår 
 
 För den här snabbstarten krävs:
 
-* Operativ system: 64-bitars Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9)
+* Operativ system: 64-bitars Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8)
 * [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * Endast [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) .
@@ -48,6 +48,16 @@ Se till att dessa beroenden är installerade innan du startar Sol förmörkelse.
   sudo apt-get update
   sudo apt-get install libssl1.0.2 libasound2
   ```
+
+På RHEL/CentOS 8:
+
+  ```sh
+  sudo yum update
+  sudo yum install alsa-lib openssl
+  ```
+
+> [!NOTE]
+> På RHEL/CentOS 8 följer du anvisningarna för [hur du konfigurerar openssl för Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 Konversations avskrift är för närvarande endast tillgängligt för "en-US" och "zh-CN" i regionerna "Central" och "asienöstra". Du måste ha en tal nyckel i någon av dessa regioner för att kunna använda konversations avskrifter.
 
@@ -89,7 +99,7 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.9.0</version>
+             <version>1.10.0</version>
         </dependency>
     </dependencies>
    ```

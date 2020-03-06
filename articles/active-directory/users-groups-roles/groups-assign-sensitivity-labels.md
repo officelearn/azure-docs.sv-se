@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b242a76e1daec7d401d797e8c9887821117246
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 667fb39aabfec14cff01221b82a45ba8ad1d68d4
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656950"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329740"
 ---
 # <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Tilldela känslighets etiketter till Office 365-grupper i Azure Active Directory (för hands version)
 
-Azure Active Directory (Azure AD) stöder användning av känslighets etiketter som publiceras av [Microsoft 365 Compliance Center](https://sip.protection.office.com/homepage) till Office 365-grupper. Känslighets etiketter gäller för grupp över tjänster som Outlook, Microsoft Teams och SharePoint. Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion. Mer information om stöd för Office 365-appar finns i [office 365-stöd för känslighets etiketter](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-new-sensitivity-labels).
+Azure Active Directory (Azure AD) stöder användning av känslighets etiketter som publiceras av [Microsoft 365 Compliance Center](https://sip.protection.office.com/homepage) till Office 365-grupper. Känslighets etiketter gäller för grupp över tjänster som Outlook, Microsoft Teams och SharePoint. Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion. Mer information om stöd för Office 365-appar finns i [office 365-stöd för känslighets etiketter](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Om du vill konfigurera den här funktionen måste det finnas minst en aktiv Azure Active Directory Premium P1-licens i din Azure AD-organisation.

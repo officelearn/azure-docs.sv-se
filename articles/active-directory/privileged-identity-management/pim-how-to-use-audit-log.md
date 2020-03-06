@@ -1,6 +1,6 @@
 ---
-title: Visa gransknings rapport för Azure AD-roller i PIM – Azure AD | Microsoft Docs
-description: Lär dig hur du visar gransknings historiken för Azure AD-roller i Azure AD Privileged Identity Management (PIM).
+title: Visa Gransknings logg rapport för Azure AD-roller i Azure AD PIM | Microsoft Docs
+description: Lär dig hur du visar Gransknings logg historiken för Azure AD-roller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 01/07/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a2eccc02d13bf5a2dfc8bf3ceb7887e4962489
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 4b8aef68e0f61e6ca995fc2bb362d59aba73ead2
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498511"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329532"
 ---
-# <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Visa gransknings historik för Azure AD-roller i PIM
+# <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Visa gransknings historik för Azure AD-roller i Privileged Identity Management
 
 Du kan använda gransknings historiken Privileged Identity Management (PIM) för att se alla roll tilldelningar och aktiveringar under de senaste 30 dagarna för alla privilegierade roller. Om du vill se en fullständig gransknings historik för aktiviteten i din Azure Active Directory (Azure AD)-organisation, inklusive administratör, slutanvändare och synkroniseringsuppgift, kan du använda [rapporterna Azure Active Directory säkerhets-och aktivitets rapporter](../reports-monitoring/overview-reports.md).
 
@@ -32,7 +32,7 @@ Från och med november 2019 uppdateras Azure AD-rollerna i Privileged Identity M
 1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare som har rollen [privilegierad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 1. Öppna **Azure AD Privileged Identity Management**. Om du har en banderoll överst på sidan Översikt, följer du anvisningarna på fliken **ny version** i den här artikeln. Annars följer du anvisningarna på fliken **tidigare version** .
 
-    [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+    [![Ny version av Azure AD-roller](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Välj fliken för din version")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
 # <a name="new-version"></a>[Ny version](#tab/new)
 
@@ -50,7 +50,7 @@ Resurs granskning ger dig en översikt över all aktivitet som är kopplad till 
 
 1. Filtrera historiken med ett fördefinierat datum eller anpassat intervall.
 
-    ![Resurs gransknings lista med filter](media/pim-how-to-use-audit-log/resource-audit.png)
+    ![Resurs gransknings lista med filter](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 ## <a name="view-my-audit"></a>Visa min granskning
 
@@ -66,7 +66,7 @@ I min granskning kan du Visa din personliga roll aktivitet.
 
 1. Filtrera historiken med ett fördefinierat datum eller anpassat intervall.
 
-    ![Gransknings lista för den aktuella användaren](media/pim-how-to-use-audit-log/audit-time-span.png)
+    ![Gransknings lista för den aktuella användaren](media/azure-pim-resource-rbac/my-audit-time.png)
 
 # <a name="previous-version"></a>[Tidigare version](#tab/previous)
 
@@ -84,7 +84,7 @@ Följ dessa steg om du vill visa gransknings historiken för Azure AD-roller.
 
     Beroende på din gransknings historik visas ett stapeldiagram tillsammans med totalt antal aktiveringar, Max aktiveringar per dag och genomsnittlig aktivering per dag.
 
-    ![Gransknings historik för katalog roller](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+    [![Ny version av Azure AD-roller](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Visa gransknings historik för katalog roller")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
     Längst ned på sidan visas en tabell med information om varje åtgärd i den tillgängliga gransknings historiken. Kolumnerna har följande betydelser:
 
@@ -113,6 +113,28 @@ Följ dessa steg om du vill visa gransknings historiken för Azure AD-roller.
     ![Fönstret uppdatera diagram parametrar](media/pim-how-to-use-audit-log/update-chart-parameters.png)
 
 1. Välj **färdig** om du vill visa den filtrerade gransknings historiken.
+
+## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>Hämta orsak, god kännare och biljett nummer för godkännande händelser
+
+1. Logga in på [Azure Portal](https://aad.portal.azure.com) med roll behörigheten privilegierad roll administratör och öppna Azure AD.
+1. Välj **gransknings loggar**.
+1. Använd **tjänst** filtret om du endast vill visa gransknings händelser för tjänsten Privileged Identity Management. På sidan **gransknings loggar** kan du:
+
+    - Se orsaken till en gransknings händelse i kolumnen **status orsak** .
+    - I kolumnen god kännare i kolumnen **initierad av (aktör)** för händelsen "Lägg till medlem i roll förfrågan har godkänts".
+
+    [![Ny version av Azure AD-roller](media/pim-how-to-use-audit-log/filter-audit-logs.png "Filtrera gransknings loggen för PIM-tjänsten")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
+
+1. Välj en Gransknings logg händelse om du vill se biljett numret på fliken **aktivitet** i **informations** fönstret.
+  
+    [![Ny version av Azure AD-roller](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "Kontrol lera biljett numret för gransknings händelsen")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
+
+1. Du kan visa beställaren (personen som aktiverar rollen) på fliken **mål** i **informations** fönstret för en gransknings händelse. Det finns två mål typer för Azure AD-roller:
+
+    - Rollen (**typ** = roll)
+    - Beställaren (**typ** = användare)
+
+Vanligt vis är Gransknings logg händelsen omedelbart ovanför godkännande händelsen en händelse för "Lägg till medlem i rollen slutförd" där den **initierade av (aktör)** är beställaren. I de flesta fall behöver du inte hitta beställaren i begäran om godkännande från ett gransknings perspektiv.
 
 ---
 

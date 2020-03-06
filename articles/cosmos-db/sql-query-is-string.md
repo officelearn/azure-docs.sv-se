@@ -1,18 +1,18 @@
 ---
 title: IS_STRING i Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL system Function IS_STRING i Azure Cosmos DB.
+description: Lär dig mer om SQL system-funktionen IS_STRING i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: e105394765ccd8a495a0b44b0c29e0c4c0b9f59a
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a717f343b0f46522a3ce2bb56c32e3f15998d777
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349798"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303774"
 ---
 # <a name="is_string-azure-cosmos-db"></a>IS_STRING (Azure Cosmos DB)
  Returnerar ett booleskt värde som anger om det angivna uttrycket är en sträng.  
@@ -52,6 +52,10 @@ SELECT
 ```json
 [{"isStr1":false,"isStr2":false,"isStr3":true,"isStr4":false,"isStr5":false,"isStr6":false,"isStr7":false}] 
 ```  
+
+## <a name="remarks"></a>Anmärkningar
+
+Den här systemfunktionen kommer att ha nytta av ett [intervall index](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Nästa steg
 

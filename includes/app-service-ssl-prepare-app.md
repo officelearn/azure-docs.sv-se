@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 1c3f2009dc71df1a5496d585bdcba986a79ac0d0
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
-ms.translationtype: MT
+ms.openlocfilehash: 4c5c0197ab6cecbba4bac4c0bff5ef76de24b6de
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768475"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301018"
 ---
 ## <a name="prepare-your-web-app"></a>Förbereda din webbapp
 
-Om du vill binda ett anpassat SSL-certifikat (ett tredjepartscertifikat eller App Service-certifikat) till webbappen måste din [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) ha nivån **Basic**, **Standard**, **Premium** eller **Isolerad**. I det här steget ser du till att webbappen har en prisnivå som stöds.
+För att skapa anpassade säkerhets bindningar eller aktivera klient certifikat för din App Service-app, måste [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) finnas på nivån **Basic**, **standard**, **Premium**eller **isolerad** . I det här steget ser du till att webbappen har en prisnivå som stöds.
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -51,7 +51,7 @@ Anpassat SSL stöds inte på nivån **F1** eller **D1**. Om du behöver skala up
 
 Välj någon av betalnivåerna (**B1**, **B2**, **B3** eller någon nivå i kategorin **Produktion**). Klicka på **Visa ytterligare alternativ** om du vill se fler alternativ.
 
-Klicka på **Använd**.
+Klicka på **Verkställ**.
 
 ![Välja prisnivå](./media/app-service-ssl-prepare-app/choose-pricing-tier.png)
 

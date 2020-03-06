@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: b2d49eeadf068cbaacaa5e147f38025c55f33ff4
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 9595ee87801fa4ce187a50197fc58d6c448eac24
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651369"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303230"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Konfigurera en SQL Server-redundanskluster med Premium-filresurs på virtuella Azure-datorer
 
@@ -53,7 +53,7 @@ Kontrol lera din miljös IOPS-aktivitet och kontrol lera att Premium-filresurser
 
 Många arbets belastningar har burst i/o, så det är en bra idé att kontrol lera under tung användnings perioder och notera både högsta IOPS och den genomsnittliga IOPS. Premium-filresurser ger IOPS baserat på resursens storlek. Premium-filresurser ger också en kostnads fri burst-överföring som gör att du kan överföra ditt IO-värde till tre timmar.
 
-Mer information om Premium-filresursens prestanda finns i [fil resurs prestanda nivåer](https://docs.microsoft.com/azure/storage/files/storage-files-planning#file-share-performance-tiers).
+Mer information om Premium-filresursens prestanda finns i [fil resurs prestanda nivåer](https://docs.microsoft.com/azure/storage/files/storage-files-planning#storage-tiers).
 
 ### <a name="licensing-and-pricing"></a>Licensiering och priser
 
@@ -465,7 +465,7 @@ På Azure Virtual Machines stöds inte MSDTC på Windows Server 2016 eller tidig
 - Det går inte att konfigurera den klustrade MSDTC-resursen att använda delad lagring. Om du skapar en MSDTC-resurs i Windows Server 2016 visas inga delade lagrings enheter som är tillgängliga för användning, även om lagring är tillgängligt. Det här problemet har åtgärd ATS i Windows Server 2019.
 - Den grundläggande belastningsutjämnaren hanterar inte RPC-portar.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Windows kluster tekniker](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server instanser av redundanskluster](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

@@ -4,15 +4,15 @@ description: Lär dig mer om hur arcus sinus-funktionen (ARCSin) SQL system i Az
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3e790eb5ae5eb780637b199a1a65dec2dd02d1bc
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 8b70738a439b6c64a84a63adf63c83995530e92e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871746"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302703"
 ---
 # <a name="asin-azure-cosmos-db"></a>ARCSin (Azure Cosmos DB)
  Returnerar vinkeln i radianer vars sinus är det angivna numeriska uttrycket. Detta kallas också arcsinus.  
@@ -45,6 +45,10 @@ SELECT ASIN(-1) AS asin
 ```json
 [{"asin": -1.5707963267948966}]  
 ```  
+
+## <a name="remarks"></a>Anmärkningar
+
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 

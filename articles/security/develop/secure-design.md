@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 316ed596cfa49987e229004c388267286ff50927
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 889897cfd4dc8714ae3aea556f0924c9dbcd7825
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000970"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299422"
 ---
 # <a name="design-secure-applications-on-azure"></a>Utforma säkra program på Azure
 I den här artikeln presenterar vi säkerhets aktiviteter och kontroller som du bör tänka på när du utformar program för molnet. Utbildnings resurser tillsammans med säkerhets frågor och koncept som du bör tänka på under krav och design faser i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utforma ett säkrare program.
@@ -38,7 +38,7 @@ Använd följande resurser under inlärnings fasen för att bekanta dig med de A
 
   - [Kom igång-guide för Azure-utvecklare](../../guides/developer/azure-developer-guide.md) ger nödvändig information för utvecklare som vill komma igång med Azure-plattformen för deras utvecklings behov.
 
-  - [SDK: er och verktyg](https://docs.microsoft.com/azure/index#pivot=sdkstools) beskriver de verktyg som är tillgängliga i Azure.
+  - [SDK: er och verktyg](https://docs.microsoft.com/azure/index?pivot=sdkstools) beskriver de verktyg som är tillgängliga i Azure.
 
   - [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) innehåller samarbets verktyg för utveckling. Verktygen omfattar högpresterande pipelines, kostnads fria git-databaser, konfigurerbara kanban-kort och omfattande automatiserad och molnbaserad belastnings testning.
     [DevOps Resource Center](https://docs.microsoft.com/azure/devops/learn/) kombinerar våra resurser för Learning DevOps-metoder, git-, flexibla metoder, hur vi arbetar med DevOps på Microsoft och hur du kan utvärdera ditt eget DevOps-förlopp.
@@ -66,7 +66,7 @@ Ställ säkerhets frågor som:
 
   - Innehåller mitt program känsliga data?
 
-  - Samlar mitt program in eller lagrar data som kräver att jag följer bransch standarder och compliance-program som [Federal Financial institution REFFIECe-rådet](../blueprints/ffiec-analytics-overview.md) eller [betalnings kortet bransch data säkerhets standarder (PCI DSS) ](../blueprints/pcidss-analytics-overview.md)?
+  - Samlar mitt program in eller lagrar data som kräver att jag följer bransch standarder och compliance-program, till exempel [råds FFIEC (Federal Financial institution Retesting)](../blueprints/ffiec-analytics-overview.md) eller [betalnings kortet bransch data säkerhets standarder (PCI DSS)](../blueprints/pcidss-analytics-overview.md)?
 
   - Samlar mitt program in eller innehåller känslig personlig information eller kund information som kan användas, antingen på egen hand eller med annan information, för att identifiera, kontakta eller hitta en enskild person?
 
@@ -126,7 +126,7 @@ För utveckling använder du ett säkert kodnings bibliotek och ett ramverk för
 Se till att du använder den senaste versionen av ramverket och alla säkerhetsfunktioner som är tillgängliga i ramverket. Microsoft erbjuder en omfattande [uppsättning utvecklingsverktyg](https://azure.microsoft.com/product-categories/developer-tools/) för alla utvecklare, som arbetar på vilken plattform eller vilket språk som helst, för att leverera moln program. Du kan koda med valfritt språk genom att välja bland olika [SDK](https://azure.microsoft.com/downloads/): er.
 Du kan dra nytta av kompletta, integrerade utvecklings miljöer (IDE: er) och redigerare som har avancerade fel söknings funktioner och inbyggd support för Azure.
 
-Microsoft erbjuder en mängd olika [språk, ramverk och verktyg](https://docs.microsoft.com/azure/index#pivot=sdkstools&panel=sdkstools-all) som du kan använda för att utveckla program i Azure. Ett exempel är [Azure för .net och .net Core-utvecklare](https://docs.microsoft.com/dotnet/azure/). För varje språk och ramverk som vi erbjuder hittar du snabb starter, självstudier och API-referenser som hjälper dig att komma igång snabbt.
+Microsoft erbjuder en mängd olika [språk, ramverk och verktyg](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all) som du kan använda för att utveckla program i Azure. Ett exempel är [Azure för .net och .net Core-utvecklare](https://docs.microsoft.com/dotnet/azure/). För varje språk och ramverk som vi erbjuder hittar du snabb starter, självstudier och API-referenser som hjälper dig att komma igång snabbt.
 
 Azure erbjuder en mängd olika tjänster som du kan använda för att vara värd för webbplatser och webb program. Med dessa tjänster kan du utveckla på ditt favorit språk, oavsett om det är .NET, .NET Core, Java, ruby, Node. js, PHP eller python.
 [Azure App Service Web Apps](../../app-service/overview.md) (Web Apps) är en av dessa tjänster.
@@ -149,18 +149,18 @@ Hot modellering är en process för att identifiera potentiella säkerhetshot f�
 
 För att hjälpa till att under lätta processen för hot modellering utformade vi [SDL Threat Modeling Tool](threat-modeling-tool.md) med icke-säkerhetsexperter i åtanke. Det här verktyget gör det lättare att utforma hot för alla utvecklare genom att tillhandahålla tydlig vägledning om hur du skapar och analyserar hot modeller.
 
-Att utforma program designen och räkna upp [kliv](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) -hot – förfalskning, manipulering, oavvislig het, information om avslag, Denial of service och rättighets ökning – över alla förtroende gränser har visat ett effektivt sätt att fånga design fel tidigt på. I följande tabell visas en lista över kliv-hoten och ger några exempel på lösningar som använder funktioner som tillhandahålls av Azure. Dessa åtgärder fungerar inte i varje situation.
+Att modellera program designen och räkna upp [kliv](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) -hot – förfalskning, manipulering, oavvislig het, utlämnande av information, Denial of service och rättighets ökning – över alla förtroende gränser har visat ett effektivt sätt att fånga design fel tidigt. I följande tabell visas en lista över kliv-hoten och ger några exempel på lösningar som använder funktioner som tillhandahålls av Azure. Dessa åtgärder fungerar inte i varje situation.
 
-| Säkerhetshot | Säkerhets egenskap | Potentiell Azure-plattforms minskning |
+| Hot | Säkerhets egenskap | Potentiell Azure-plattforms minskning |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Förfalskning               | Authentication        | [KRÄV HTTPS-anslutningar](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
+| Förfalskning               | Autentisering        | [KRÄV HTTPS-anslutningar](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Manipulation              | Integritet             | Verifiera SSL/TLS-certifikat. Program som använder SSL/TLS måste fullständigt verifiera X. 509-certifikaten för de entiteter som de ansluter till. Använd Azure Key Vault certifikat för att [Hantera dina x509-certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
 | Avvislighet            | Oavvislig het       | Aktivera [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)i Azure.|
 | Avslöjande av information | Sekretess       | Kryptera känsliga data i [vila](../fundamentals/encryption-atrest.md) och [under överföring](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
-| Denial of Service-attack      | Tillgänglighet          | Övervaka prestanda mått för potentiella denial of service-villkor. Implementera anslutnings filter. [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md#next-steps), kombinerat med bästa praxis för program design, ger skydd mot DDoS-attacker.|
-| Upphöjning av rättigheter | Authorization         | Använd Azure Active Directory <span class="underline"></span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
+| Denial of service      | Tillgänglighet          | Övervaka prestanda mått för potentiella denial of service-villkor. Implementera anslutnings filter. [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md#next-steps), kombinerat med bästa praxis för program design, ger skydd mot DDoS-attacker.|
+| Behörighets höjning | Auktorisering         | Använd Azure Active Directory <span class="underline"></span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
 
-### <a name="reduce-your-attack-surface"></a>Minska din attackyta
+### <a name="reduce-your-attack-surface"></a>Minska attack ytan
 
 En attack yta är den totala summan av var potentiella sårbarheter kan uppstå. I det här dokumentet fokuserar vi på ett programs attack yta.
 Fokus är att skydda ett program från angrepp. Ett enkelt och snabbt sätt att minimera din attack yta är att ta bort oanvända resurser och kod från ditt program. Ju mindre ditt program är, är det mindre angrepps ytan. Ta till exempel bort:
@@ -233,7 +233,7 @@ Implementera JIT-åtkomst ( *just-in-Time* ) för att ytterligare minska exponer
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Kräv ny autentisering för viktiga transaktioner
 
-[Förfalskning av begäran mellan webbplatser](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (kallas även *XSRF* eller *CSRF*) är en attack mot webb värdbaserade appar där en skadlig webbapp påverkar interaktionen mellan en klient webbläsare och en webbapp som litar på webbläsaren. Förfalsknings angrepp mellan webbplatser är möjligt eftersom webbläsare skickar vissa typer av autentiseringstoken automatiskt till varje begäran till en webbplats.
+[Förfalskning av begäran mellan webbplatser](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (även kallat *XSRF* eller *CSRF*) är en attack mot webb värdbaserade appar där en skadlig webbapp påverkar interaktionen mellan en klient webbläsare och en webbapp som litar på webbläsaren. Förfalsknings angrepp mellan webbplatser är möjligt eftersom webbläsare skickar vissa typer av autentiseringstoken automatiskt till varje begäran till en webbplats.
 Den här typen av exploatering kallas även för ett *angrepp* eller en *session* som kan utföras på grund av att angreppet utnyttjar användarens tidigare autentiserade session.
 
 Det bästa sättet att skydda mot den här typen av angrepp är att fråga användaren om något som bara användaren kan ange före varje viktig transaktion, till exempel ett köp, konto inaktive ring eller en lösen ords ändring. Du kan be användaren att ange sitt lösen ord på nytt, slutföra en captcha eller skicka en hemlig token som bara användaren skulle ha. Den vanligaste metoden är den hemliga token.

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 11d631f6977f760c8253fbaa0dc66af05def42a2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 8e8a56fdfd57b44677cf5459eb1a4e6e46e6bdae
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184017"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399070"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en OpenID Connect-teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -77,9 +77,11 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | client_id | Ja | Program identifieraren för identitets leverantören. |
-| IdTokenAudience | Nej | Id_tokenens mål grupp. Om det här alternativet anges kontrollerar Azure AD B2C om token finns i ett anspråk som returneras av identitets leverantören och är lika med det som anges. |
-| METADATATJÄNST | Ja | En URL som pekar på ett JSON-konfigurationsobjekt formaterat enligt OpenID Connect Discovery Specification, som även kallas en välkänd OpenID konfigurations slut punkt. |
-| ProviderName | Nej | Namnet på identitets leverantören. |
+| IdTokenAudience | Nej | Id_tokenens mål grupp. Om det här alternativet anges kontrollerar Azure AD B2C om `aud`-anspråk i en token som returneras av identitets leverantören är lika med den som anges i IdTokenAudience metadata.  |
+| METADATATJÄNST | Ja | En URL som pekar på ett konfigurations dokument för OpenID Connect Identity Provider, som även kallas OpenID-känd konfigurations slut punkt. URL: en kan innehålla `{tenant}`-uttrycket, som ersätts med klient namnet.  |
+| authorization_endpoint | Nej | En URL som pekar på en OpenID ansluter till en slut punkt för konfigurering av identitets leverantör. Värdet för authorization_endpoint metadata har företräde framför de `authorization_endpoint` som anges i den välkända konfigurations slut punkten för OpenID. URL: en kan innehålla `{tenant}`-uttrycket, som ersätts med klient namnet. |
+| utfärdare | Nej | Den unika identifieraren för en OpenID Connect Identity Provider. Värdet för utfärdare metadata har företräde framför de `issuer` som anges i den välkända OpenID konfigurations slut punkten.  Om det här alternativet anges kontrollerar Azure AD B2C om `iss`-anspråk i en token som returneras av identitets leverantören är lika med den som anges i utfärdarens metadata. |
+| ProviderName | Nej | Namnet på identitets leverantören.  |
 | response_types | Nej | Svars typen enligt OpenID Connect core 1,0-specifikationen. Möjliga värden: `id_token`, `code`eller `token`. |
 | response_mode | Nej | Metoden som identitets leverantören använder för att skicka tillbaka resultatet till Azure AD B2C. Möjliga värden: `query`, `form_post` (standard) eller `fragment`. |
 | omfång | Nej | Omfattningen av begäran som definieras enligt OpenID Connect core 1,0-specifikationen. Till exempel `openid`, `profile`och `email`. |

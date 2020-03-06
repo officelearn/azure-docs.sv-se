@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 89fa06dda418f328b3bc07aada49aa347e35220a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1e18223736964b0327a4c8f6ddb73ddb4f58889a
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73182290"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78305027"
 ---
 ## <a name="rootcert"></a>Skapa ett självsignerat rot certifikat
 
@@ -28,6 +28,7 @@ Använd cmdleten New-SelfSignedCertificate för att skapa ett självsignerat rot
    -HashAlgorithm sha256 -KeyLength 2048 `
    -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
    ```
+ 3. Låt PowerShell-konsolen vara öppen om du vill skapa ett klient certifikat direkt efter att du har skapat rot certifikatet.
 
 ## <a name="clientcert"></a>Generera ett klient certifikat
 
@@ -37,7 +38,7 @@ Följande steg beskriver hur du skapar ett klient certifikat från ett självsig
 
 Exemplen använder cmdleten New-SelfSignedCertificate för att generera ett klient certifikat som upphör att gälla om ett år. För ytterligare parameter information, till exempel att ange ett annat förfallo värde för klient certifikatet, se [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-### <a name="example-1"></a>Exempel 1
+### <a name="example-1---powershell-console-session-still-open"></a>Exempel 1 – PowerShell-konsolsessionen är fortfarande öppen
 
 Använd det här exemplet om du inte har stängt PowerShell-konsolen efter att du har skapat det självsignerade rot certifikatet. Det här exemplet fortsätter från föregående avsnitt och använder den deklarerade $cert variabeln. Om du stängde PowerShell-konsolen efter att du har skapat det självsignerade rot certifikatet, eller om du skapar ytterligare klient certifikat i en ny PowerShell-konsolsession, använder du stegen i [exempel 2](#ex2).
 
@@ -51,7 +52,7 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
 -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
 ```
 
-### <a name="ex2"></a>Exempel 2
+### <a name="ex2"></a>Exempel 2 – ny PowerShell-konsolsession
 
 Använd följande steg om du skapar ytterligare klient certifikat eller inte använder samma PowerShell-session som du använde för att skapa ett självsignerat rot certifikat:
 

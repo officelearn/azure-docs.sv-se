@@ -4,12 +4,12 @@ description: Läs om kända begränsningar när du kör Windows Server-nodkonfig
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 157f890c65efd0de9fa7d8d7aa5cb43b4a902dfa
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 65c62324a27e8377a1cc9833595b15cf08c6c820
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615648"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298180"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Aktuella begränsningar för Windows Server-nodkonfigurationer och program arbets belastningar i Azure Kubernetes service (AKS)
 
@@ -69,7 +69,7 @@ Under för hands versionen stöder Windows Node-pooler inte tjänstens huvud nam
 
 ## <a name="how-many-node-pools-can-i-create"></a>Hur många noder I pooler kan jag skapa?
 
-AKS-klustret kan ha högst åtta (8) nodkonfigurationer. Du kan ha högst 400 noder i noderna. [Begränsningar för Node-pool][nodepool-limitations].
+AKS-klustret kan ha högst 10 noder i pooler. Du kan ha högst 1000 noder i noderna. [Begränsningar för Node-pool][nodepool-limitations].
 
 ## <a name="what-can-i-name-my-windows-node-pools"></a>Vad kan jag ge till mina Windows-nodkonfigurationer?
 

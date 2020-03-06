@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: b891c8a7bbb33e3a3f18adbbc723d4bc9aa99a3a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 6a967f328a4fbe17f2c451d35f413bd7fdcbc24a
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246468"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331476"
 ---
 # <a name="my-first-graphical-runbook"></a>Min första grafiska runbook
 
@@ -22,7 +22,7 @@ ms.locfileid: "78246468"
 > * [Python](automation-first-runbook-textual-python2.md)
 > 
 
-Den här självstudien beskriver steg för steg hur du skapar en [grafisk runbook](automation-runbook-types.md#graphical-runbooks) i Azure Automation. Börja med en enkel Runbook som testar och publicerar, och lär dig hur du spårar statusen för Runbook-jobbet. Ändra sedan runbooken till att hantera Azure-resurser i det här fallet genom att starta en virtuell Azure-dator. Slutför självstudien för att göra runbooken mer robust genom att lägga till Runbook-parametrar och villkorliga länkar.
+Den här självstudien beskriver steg för steg hur du skapar en [grafisk runbook](automation-runbook-types.md#graphical-runbooks) i Azure Automation. Börja med en enkel Runbook som du kan testa och publicera, samtidigt som du lär dig hur du spårar statusen för Runbook-jobbet. Ändra sedan runbooken till att hantera Azure-resurser i det här fallet genom att starta en virtuell Azure-dator. Slutför självstudien för att göra runbooken mer robust genom att lägga till Runbook-parametrar och villkorliga länkar.
 
 >[!NOTE]
 >Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
@@ -37,7 +37,7 @@ Följande krävs för att kunna genomföra kursen:
 
 ## <a name="step-1---create-runbook"></a>Steg 1 – Skapa en runbook
 
-Börja med att skapa en enkel Runbook som visar texten "Hello World".
+Börja med att skapa en enkel runbook som visar texten **Hello World**.
 
 1. Öppna ditt Automation-konto på Azure Portal. 
 
@@ -78,7 +78,7 @@ Innan du publicerar runbooken för att göra den tillgänglig i produktion bör 
 
    Jobbets status börjar i **kö**, vilket anger att jobbet väntar på att en Runbook Worker i molnet ska bli tillgänglig. Statusen ändras till att **börja** när en arbets uppgift anlitar jobbet. Slutligen blir statusen **igång** när runbooken faktiskt börjar köras.
 
-1. När Runbook-jobbet har slutförts visas utdata i test sidan. I det här fallet visas **Hello World**.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
+1. När Runbook-jobbet har slutförts visas utdata i test fönstret. I det här fallet visas **Hello World**.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
 1. Gå tillbaka till arbetsytan genom att stänga testfönstret.
 
 ## <a name="step-4---publish-and-start-the-runbook"></a>Steg 4 – Publicera och starta runbooken

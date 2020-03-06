@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: fdb4b7c370d5edadf3e0e5bc0d1ae548da6bcaa9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0446ee4fb238d2fa8447f998536c3c14d968f630
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438649"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303213"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Självstudie: förbereda för att distribuera Azure Data Box Gateway
 
@@ -22,14 +22,14 @@ Det här är den första självstudien i serien med distributionssjälvstudier s
 
 Du måste ha administratörsbehörighet för att utföra installationen och konfigurationen. Portalförberedelserna tar mindre än tio minuter.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en ny resurs
 > * Ladda ned avbildningen av den virtuella enheten
 > * Hämta aktiveringsnyckeln
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 Gå igenom följande självstudier i angiven ordning när du ska distribuera Data Box Gateway.
 
@@ -42,13 +42,13 @@ Gå igenom följande självstudier i angiven ordning när du ska distribuera Dat
 
 Nu kan du börja konfigurera Azure-portalen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Här hittar du konfigurationskraven för Data Box Gateway-resursen, Data Box Gateway-enheten och datacenternätverket.
 
 ### <a name="for-the-data-box-gateway-resource"></a>För Data Box Gateway-resursen
 
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
 - Din Microsoft Azure prenumeration bör stödjas för Data Box Gateway resurs. Prenumerationer enligt principen betala per användning stöds också.
 - Du har ägar-eller deltagar åtkomst på resurs grupps nivå för Data Box Edge/Data Box Gateway, IoT Hub och Azure Storage resurser.
@@ -69,11 +69,11 @@ Innan du distribuerar en virtuell enhet kontrollerar du att:
   - Minst 8 GB RAM.
   - Ett nätverksgränssnitt.
   - En operativsystemdisk på 250 GB.
-  - En virtuell disk på 2 TB för systemdata.
+  - En 2 TB virtuell disk för systemdata.
 
 ### <a name="for-the-datacenter-network"></a>För datacenternätverket
 
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
 - Nätverket i datacentret konfigureras enligt nätverkskraven för din Data Box Gateway-enhet. Mer information finns i [system kraven för data Box Gateway](data-box-gateway-system-requirements.md).
 
@@ -94,7 +94,7 @@ För att skapa en Data Box Gateway resurs, utför följande steg i Azure Portal.
     - Eller, Azure Government portalen på denna URL: [https://portal.azure.us](https://portal.azure.us). Mer information finns i [ansluta till Azure Government med hjälp av portalen](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. I den vänstra rutan väljer du **+ skapa en resurs**. Sök efter **data Box Edge/data Box Gateway**. Välj Data Box Edge/Data Box Gateway. Välj **Skapa**.
-3. Välj den prenumeration som du vill använda för Data Box Gateway enhet. Välj den region där du vill distribuera Data Box Gateway resursen. I den här versionen finns USA, östra, Asien, sydöstra och Västeuropa. Välj den plats som är närmast den geografiska region där du vill distribuera enheten. I alternativet **data Box Gateway** väljer du **skapa**.
+3. Välj den prenumeration som du vill använda för Data Box Gateway enhet. Välj den region där du vill distribuera Data Box Gateway resursen. För en lista över alla regioner där Azure Stack Edge-resursen är tillgänglig, se [Azure-produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Välj den plats som är närmast den geografiska region där du vill distribuera enheten. I alternativet **data Box Gateway** väljer du **skapa**.
 
     ![Leta upp Data Box Gateway-tjänsten](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
 
@@ -110,7 +110,7 @@ För att skapa en Data Box Gateway resurs, utför följande steg i Azure Portal.
     |Inställning  |Värde  |
     |---------|---------|
     |Namn   | Ett eget namn som identifierar resursen.<br>Namnet innehåller mellan 2 och 50 tecken som består av bokstäver, siffror och bindestreck.<br> Namnet börjar och slutar med en bokstav eller en siffra.        |   
-    |Region     |I den här versionen är USA, östra, Asien, sydöstra och Västeuropa, tillgängliga för att distribuera din resurs. För Azure Government är alla de myndigheter som anges i Azure- [regionerna](https://azure.microsoft.com/global-infrastructure/regions/) tillgängliga. <br> Välj den plats som är närmast den geografiska region där du vill distribuera enheten.|
+    |Region     |För en lista över alla regioner där Azure Stack Edge-resursen är tillgänglig, se [Azure-produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). För Azure Government är alla de myndigheter som anges i Azure- [regionerna](https://azure.microsoft.com/global-infrastructure/regions/) tillgängliga. <br> Välj den plats som är närmast den geografiska region där du vill distribuera enheten.|
     
     ![Skapa Data Box Gateway-resursen](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     

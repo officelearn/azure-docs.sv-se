@@ -4,12 +4,12 @@ description: Den granskade listan med de vanligaste frågorna om QnA Maker tjän
 ms.topic: troubleshooting
 ms.date: 02/21/2020
 ms.author: diberry
-ms.openlocfilehash: 37aae8e67ccc84a6e22be8ce8a304fc4884ead52
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: 4596c16a5d7c9053bf0e27af476c66fe8fa9ed35
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273387"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296107"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Fel sökning för QnA Maker
 
@@ -224,7 +224,7 @@ Om du har innehåll från flera språk, måste du skapa en separat tjänst för 
 <details>
 <summary><b>Hur gör jag för att skapa en ny robot med QnA Maker?</b></summary>
 
-**Svar**: Följ anvisningarna i [den här](./Tutorials/create-qna-bot.md) dokumentationen för att skapa din robot med Azure bot service.
+**Svar**: Följ anvisningarna i [den här](./Quickstarts/create-publish-knowledge-base.md) dokumentationen för att skapa din robot med Azure bot service.
 
 </details>
 
@@ -255,7 +255,7 @@ Kunskaps basens slut punkts nyckel är märkt `QnAAuthkey` i ABS-tjänsten.
 
 **Svar**: Följ de här stegen för att bädda in QNA Maker tjänsten som en webb chatt kontroll på din webbplats:
 
-1. Skapa din vanliga bot-robot genom att följa anvisningarna [här](./Tutorials/create-qna-bot.md).
+1. Skapa din vanliga bot-robot genom att följa anvisningarna [här](./Quickstarts/create-publish-knowledge-base.md).
 2. Aktivera webbchatten genom att följa stegen [här](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat)
 
 </details>

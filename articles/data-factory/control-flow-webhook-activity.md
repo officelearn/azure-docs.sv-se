@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 70c67a99274eaedc5592c7b90b1ef80a3a17acf8
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 8c52bb21276071581a83fb3ee6a3a4a31ba0bb4a
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77109999"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399997"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Webhook-aktivitet i Azure Data Factory
 Du kan använda en webhook-aktivitet för att styra körningen av pipeliner via din anpassade kod. Med webhook-aktiviteten kan kunder anropa en slut punkt och skicka en återanrops-URL. Pipeline-körningen väntar på att återanropet ska anropas innan nästa aktivitet fortsätter.
@@ -55,15 +55,15 @@ Du kan använda en webhook-aktivitet för att styra körningen av pipeliner via 
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namn på Web Hook-aktiviteten | Sträng | Ja |
-typ | Måste vara inställd på **webhook**. | Sträng | Ja |
+namn | Namn på Web Hook-aktiviteten | String | Ja |
+typ | Måste vara inställd på **webhook**. | String | Ja |
 metod | REST API-metod för mål slut punkten. | Sträng. Typer som stöds: POST | Ja |
 url | Mål slut punkt och sökväg | Sträng (eller uttryck med resultType för sträng). | Ja |
 sidhuvud | Huvuden som skickas till begäran. Om du till exempel vill ange språk och typ på en begäran: "huvuden": {"Accept-language": "en-US", "innehålls typ": "Application/JSON"}. | Sträng (eller uttryck med resultType för sträng) | Ja, innehålls typ rubrik krävs. "huvuden": {"Content-Type": "Application/JSON"} |
 brödtext | Representerar den nytto last som skickas till slut punkten. | Giltig JSON (eller uttryck med resultType för JSON). Se schemat för nytto lasten för begäran i [nytto Last schema](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0) avsnittet. | Ja |
 autentisering | Autentiseringsmetod som används för att anropa slut punkten. Typer som stöds är Basic eller ClientCertificate. Mer information finns i avsnittet [Authentication](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0) . Om autentisering inte krävs utelämnar du den här egenskapen. | Sträng (eller uttryck med resultType för sträng) | Nej |
-timeout | Hur länge aktiviteten ska vänta på att &#39;callBackUri&#39; anropas. Hur länge aktiviteten ska vänta tills "callBackUri" anropas. Standardvärdet är 10mins ("00:10:00"). Format är TimeSpan, t. ex. d. hh: mm: SS | Sträng | Nej |
-Rapportera status vid motringning | Tillåter användaren att rapportera den misslyckade statusen för webhook-aktiviteten som markerar aktiviteten som misslyckad | Boolesk | Nej |
+timeout | Hur länge aktiviteten ska vänta på att &#39;callBackUri&#39; anropas. Hur länge aktiviteten ska vänta tills "callBackUri" anropas. Standardvärdet är 10mins ("00:10:00"). Format är TimeSpan, t. ex. d. hh: mm: SS | String | Nej |
+Rapportera status vid motringning | Tillåter användaren att rapportera den misslyckade statusen för webhook-aktiviteten som markerar aktiviteten som misslyckad | Boolean | Nej |
 
 ## <a name="authentication"></a>Autentisering
 
@@ -116,6 +116,10 @@ Ange resurs-URI för vilken åtkomsttoken ska begäras med hjälp av den hantera
 Azure Data Factory skickar ytterligare en egenskap "callBackUri" i bröd texten till URL-slutpunkten och förväntar sig att denna URI anropas innan timeout-värdet har angetts. Om URI: n inte anropas, kommer aktiviteten att Miss förväntas med status stängningsåtgärd.
 
 Webhook-aktiviteten Miss lyckas när anropet till den anpassade slut punkten Miss lyckas. Eventuella fel meddelanden kan läggas till i bröd texten i återanropet och användas i en efterföljande aktivitet.
+
+För varje REST API anrop kommer klienten att göra en timeout om slut punkten inte svarar om 1 min. Detta är standard metod för http-användning. För att åtgärda det här problemet måste du implementera 202-mönstret i det här fallet där slut punkten returnerar 202 (accepterad) och klienten avsöker.
+
+Det finns inte något att göra med tids gränsen för 1 min-timeout för begäran. Som ska användas för att vänta på callbackUri.
 
 Texten som skickas tillbaka till återanrops-URI: n måste vara giltig JSON. Du måste ange innehålls typ rubriken till `application/json`.
 

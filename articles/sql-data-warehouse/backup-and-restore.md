@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 10/21/2019
+ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: ecaf9e007d93b3a99a7609ebf36307f3a6dad15c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2b689588bcbca640dd55b25c52c462ad1a363da5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199962"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296345"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Säkerhets kopiering och återställning i Azure Synapse SQL-poolen
 
@@ -58,7 +58,7 @@ Följande visar information om återställnings punkter för återställnings pu
 2. Ögonblicks bilder utförs inte när en SQL-pool har pausats.
 3. En återställnings punkts ålder mäts av de absoluta kalender dagarna från den tidpunkt då återställnings punkten tas, inklusive när SQL-poolen har pausats.
 4. Vid en viss tidpunkt är en SQL-pool garanterat att kunna lagra upp till 42 användardefinierade återställnings punkter och 42 automatiska återställnings punkter så länge de här återställnings punkterna inte har nått lagrings perioden på 7 dagar
-5. Om en ögonblicks bild tas pausas SQL-poolen i mer än 7 dagar, och sedan återupptas, är det möjligt att återställnings punkten är kvar tills det finns 42 totala återställnings punkter (inklusive både användardefinierad och automatisk)
+5. Om en ögonblicks bild tas pausas SQL-poolen i mer än 7 dagar och återupptas sedan återställnings punkten tills det finns 42 totala återställnings punkter (inklusive både användardefinierad och automatisk)
 
 ### <a name="snapshot-retention-when-a-sql-pool-is-dropped"></a>Kvarhållning av ögonblicks bilder när en SQL-pool släpps
 

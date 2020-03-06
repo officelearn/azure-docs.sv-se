@@ -4,12 +4,12 @@ description: Lär dig hur du säkerhetskopierar en Exchange-Server till Azure Ba
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: dbd37bbb7418560a0426ed47d7869bf9d949d2e2
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 9e623b1bdce93c340ccd0e61f9f5145e7154beff
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617574"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295852"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Säkerhetskopiera en Exchange-Server till Azure med Azure Backup Server
 
@@ -23,7 +23,7 @@ Innan du fortsätter kontrollerar du att Azure Backup Server är [installerat oc
 
 Följ dessa steg om du vill installera MABS-skyddsagenten på Exchange-servern:
 
-1. Kontrol lera att brand väggarna är korrekt konfigurerade. Se [Konfigurera brand Väggs undantag för agenten](h https://docs.microsoft.com/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
+1. Kontrol lera att brand väggarna är korrekt konfigurerade. Se [Konfigurera brand Väggs undantag för agenten](https://docs.microsoft.com/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
 2. Installera agenten på Exchange-servern genom att klicka på **hantering > agenter > installera** i Mabs administratörskonsol. Se [Installera Mabs Protection Agent](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) för detaljerade anvisningar.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Skapa en skydds grupp för Exchange-servern
@@ -68,10 +68,10 @@ Följ dessa steg om du vill installera MABS-skyddsagenten på Exchange-servern:
 11. Granska det tillgängliga disk utrymmet och klicka sedan på **Nästa**.
 12. Välj den tid då monoklonal-servern ska skapa den inledande replikeringen och klicka sedan på **Nästa**.
 13. Välj alternativ för konsekvens kontroll och klicka sedan på **Nästa**.
-14. Välj den databas som du vill säkerhetskopiera till Azure och klicka sedan på **Nästa**. Några exempel:
+14. Välj den databas som du vill säkerhetskopiera till Azure och klicka sedan på **Nästa**. Exempel:
 
     ![Ange skydds data online](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Definiera schemat för **Azure Backup**och klicka sedan på **Nästa**. Några exempel:
+15. Definiera schemat för **Azure Backup**och klicka sedan på **Nästa**. Exempel:
 
     ![Ange schemat för onlinesäkerhetskopiering](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

@@ -9,22 +9,22 @@ ms.custom: mvc
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 0c88db652efe54a497af094160fb426be7c43d16
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260845"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358266"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Snabb start: använda Azure Portal för att skapa en Service Bus kö
 I den här snabb starten beskrivs hur du skickar och tar emot meddelanden till och från en Service Bus kö med hjälp av [Azure Portal][Azure portal] för att skapa ett meddelande namn område och en kö inom denna namnrymd och för att hämta autentiseringsuppgifter för det namn området. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa de här självstudierna ska du kontrollera att du har installerat:
 
-- En Azure-prenumeration. Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt][] konto innan du börjar.
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
 - [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare. Du kan använda Visual Studio för att bygga ett exempel som skickar meddelanden till och tar emot meddelanden från en kö. Exemplet är att testa kön som du skapade med PowerShell. 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.
 
@@ -55,7 +55,7 @@ Om du vill köra koden gör du följande:
    ```
    git clone https://github.com/Azure/azure-service-bus.git
    ```
-3. Gå till exempelmappen `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
+3. Navigera till exempelmappen `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
 4. Kopiera den anslutningssträng och det könamn som du hämtade i avsnittet Hämta autentiseringsuppgifter.
 5.  Skriv följande kommando i kommandotolken:
 
@@ -219,7 +219,7 @@ I den här artikeln skapade du ett Service Bus-namnområde och andra resurser so
 > [Skicka och ta emot meddelanden](service-bus-dotnet-get-started-with-queues.md)
 
 
-[kostnadsfritt]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 

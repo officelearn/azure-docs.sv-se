@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: fc37e594984aa4c13fc9e770129a0423ba512737
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: ed593cb3f53878ceb1d4913a9244369ff4600371
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189692"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78397580"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C-kodexempel
 
@@ -46,5 +46,4 @@ Följande tabeller innehåller länkar till exempel för program, inklusive iOS,
 
 | Exempel | Beskrivning |
 |--------| ----------- |
-| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | En ensidesapplikation (SPA) som anropar ett webb-API. Autentiseringen utförs med Azure AD B2C genom att utnyttja MSAL.js. |
-| [javascript-hellojs-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-hellojs-singlepageapp) | En ensidesapplikation (SPA) som implementeras med en ASP.NET Web API-serverdel som registrerar och loggar in användare med Azure AD B2C och anropar webb-API:et med OAuth 2.0-åtkomsttoken. |
+| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | En ensidesapplikation (SPA) som anropar ett webb-API. Autentisering görs med Azure AD B2C med hjälp av MSAL. js. |

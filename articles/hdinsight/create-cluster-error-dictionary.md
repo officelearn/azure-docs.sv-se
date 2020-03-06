@@ -1,6 +1,6 @@
 ---
-title: Skapa en kluster fel ord lista
-description: Lär dig hur du skapar en kluster fel ord lista.
+title: Azure HDInsight skapa ett kluster-fel ord lista
+description: Lär dig hur du felsöker fel som uppstår när du skapar Azure HDInsight-kluster
 author: karkrish
 ms.author: v-todmc
 ms.reviewer: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
-ms.openlocfilehash: 979e83c0eeaac4555fc5144bca479f0b5656cd28
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: b0dc974185ad616d57327e9cc3743db9ecb20e54
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617529"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302737"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: fel vid skapande av kluster
 

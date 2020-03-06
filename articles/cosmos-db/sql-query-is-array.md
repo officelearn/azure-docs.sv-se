@@ -1,18 +1,18 @@
 ---
 title: IS_ARRAY i Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL system Function IS_ARRAY i Azure Cosmos DB.
+description: Lär dig mer om SQL system-funktionen IS_ARRAY i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 11ff29dcae7bf5c2e532eee658ee39d39b964e35
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: f5867850db6eb3d6552bc129cca3708ef7747072
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350973"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303893"
 ---
 # <a name="is_array-azure-cosmos-db"></a>IS_ARRAY (Azure Cosmos DB)
  Returnerar ett booleskt värde som anger om vilken typ av det angivna uttrycket är en matris.  
@@ -52,6 +52,10 @@ SELECT
 ```json
 [{"isArray1":false,"isArray2":false,"isArray3":false,"isArray4":false,"isArray5":false,"isArray6":true,"isArray7":false}]
 ```  
+
+## <a name="remarks"></a>Anmärkningar
+
+Den här systemfunktionen kommer att ha nytta av ett [intervall index](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Nästa steg
 

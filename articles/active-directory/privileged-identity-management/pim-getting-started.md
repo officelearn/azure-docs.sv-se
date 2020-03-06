@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/09/2019
+ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0ba7846b60ca6649b4342d5096e92dfd8c96601
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 733743f4680f3197a1754d87b4672641b2321907
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756301"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399342"
 ---
 # <a name="start-using-privileged-identity-management"></a>Börja använda Privileged Identity Management
 
@@ -27,7 +27,7 @@ Med Privileged Identity Management (PIM) kan du hantera, kontrol lera och överv
 
 I den här artikeln beskrivs hur du aktiverar och kommer igång med Privileged Identity Management.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda Privileged Identity Management måste du ha någon av följande licenser:
 
@@ -62,7 +62,7 @@ Om du vill börja använda Privileged Identity Management i din katalog måste d
 
     ![Välj ett konto fönster för att verifiera din identitet](./media/pim-getting-started/pick-account.png)
 
-1. Om det krävs mer information för verifieringen vägleds du genom processen. Mer information finns i [få hjälp med tvåstegsverifiering](https://go.microsoft.com/fwlink/p/?LinkId=708614).
+1. Om det krävs mer information för verifieringen vägleds du genom processen. Mer information finns i [få hjälp med tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
 
     ![Mer information krävs-fönstret om din organisation behöver mer information](./media/pim-getting-started/more-information-required.png)
 
@@ -115,7 +115,7 @@ När Privileged Identity Management har kon figurer ATS kan du starta dina ident
 
 För att göra det lättare att öppna Privileged Identity Management bör du lägga till en Privileged Identity Management panel i Azure Portal instrument panelen.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Klicka på **alla tjänster** och hitta **Azure AD Privileged Identity Management** tjänsten.
 

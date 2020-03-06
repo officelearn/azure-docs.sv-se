@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 6ba6aab1a1b4a78af1a991cbf74083a41f0c0306
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: dedab3ca330651f892a7dbd42a0201d8145256a8
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77652179"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402574"
 ---
 Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i ditt C# program. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
 
@@ -28,7 +28,7 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
   * [NuGet-pakethanteraren](https://github.com/jmrog/vscode-nuget-package-manager)
 * [.NET Core SDK](https://www.microsoft.com/net/download)
 
-[!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-install-dependencies"></a>Skapa ett projekt och installera beroenden
 
@@ -285,7 +285,7 @@ I det här exemplet används parametrarna `count` och `offset` för att begräns
     }
     ```
 
-3. Kör appen.
+3. Kör programmet.
 
 ### <a name="filter-for-news"></a>Filtrera efter nyheter
 
@@ -348,7 +348,7 @@ Det här exemplet används parametern `response_filter` för att filtrera sökre
     }
     ```
 
-3. Kör appen.
+3. Kör programmet.
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Använd säker sökning, svarsantal och befordringsfiltret
 
@@ -412,7 +412,7 @@ I det här exemplet används parametrarna `answer_count`, `promote` och `safe_se
     }
     ```
 
-3. Kör appen.
+3. Kör programmet.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -422,3 +422,4 @@ När du är klar med det här projektet bör du ta bort din prenumerationsnyckel
 
 > [!div class="nextstepaction"]
 > [Exempel med Cognitive Services SDK för Node.js](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
+                                    

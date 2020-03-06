@@ -17,16 +17,16 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f25f13c60a60e1a397e4c63443ee786a9acdf6d1
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 12abfc0d345c937ae886f9bfacfb8ce30227cc45
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273803"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399296"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Krav för att få åtkomst till API: et för Azure Active Directory rapportering
 
-[Azure Active Directory reporting API: er](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) ger programmässig åtkomst till data via en uppsättning REST-baserade API: er. Du kan anropa dessa API: er från programmeringsspråk och verktyg.
+[Azure Active Directory reporting API: er](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api) ger programmässig åtkomst till data via en uppsättning REST-baserade API: er. Du kan anropa dessa API: er från programmeringsspråk och verktyg.
 
 Rapporterings-API: et använder [OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) för att ge åtkomst till webb-API: er.
 
@@ -191,7 +191,6 @@ Du behöver dessa värden när du konfigurerar anrop till rapporterings-API: et.
 
 I det här avsnittet visas de vanliga fel meddelanden som du kan köra i när du får åtkomst till aktivitets rapporter med hjälp av Microsoft Graph API och steg för deras lösning.
 
-
 ### <a name="error-failed-to-get-user-roles-from-microsoft-graph"></a>Fel: det gick inte att hämta användar roller från Microsoft Graph
 
  Logga in på ditt konto med hjälp av båda inloggnings knapparna i graphs användar gränssnitt för att undvika att få ett fel när du försöker logga in med Graph Explorer. 
@@ -204,7 +203,6 @@ Om du stöter på det här fel meddelandet när du försöker få åtkomst till 
 
 ![Ändra behörighets gränssnitt](./media/troubleshoot-graph-api/modify-permissions.png)
 
-
 ### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>Fel: klienten är inte B2C eller så har klienten ingen Premium-licens
 
 Åtkomst till inloggnings rapporter kräver en licens för Azure Active Directory Premium 1 (P1). Om du ser det här fel meddelandet vid åtkomst till inloggningar kontrollerar du att klienten är licensierad med en Azure AD P1-licens.
@@ -215,7 +213,7 @@ Om du stöter på det här fel meddelandet när du försöker få åtkomst till 
 
 ### <a name="error-application-missing-aad-read-directory-data-permission"></a>Fel: appen saknar AAD-behörighet för Läs katalog data 
 
-### <a name="error-application-missing-microsoft-api-read-all-audit-log-data-permission"></a>Fel: programmet saknar Microsoft API-behörigheten läsa alla Gransknings logg data
+### <a name="error-application-missing-microsoft-graph-api-read-all-audit-log-data-permission"></a>Fel: programmet saknar Microsoft Graph API: et Läs alla Gransknings logg data behörighet
 
 Följ stegen i [kraven för att få åtkomst till Azure Active Directory rapporterings-API: et](howto-configure-prerequisites-for-reporting-api.md) för att se till att programmet körs med rätt behörighets uppsättning. 
 

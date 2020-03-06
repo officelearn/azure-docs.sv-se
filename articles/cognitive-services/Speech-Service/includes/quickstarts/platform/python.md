@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 218d0dca43d126c1318c273603a4980697c465af
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 9c398c755db78583b93cbba5bdef6c3cf01eb9e5
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75752121"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383914"
 ---
 Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för python.
 
@@ -26,9 +26,9 @@ Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services
 - Python Speech SDK-paketet är tillgängligt för dessa operativsystem:
   - Windows: x64 och x86
   - Mac: macOS X version 10,12 eller senare
-  - Linux: Ubuntu 16,04, Ubuntu 18,04, Debian 9 på x64
+  - Linux: Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8 på x64
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Linux-plattformar som stöds kräver vissa bibliotek installerade (`libssl` för Secure Sockets Layer-support och `libasound2` för ljud support). Se distributionen nedan för de kommandon som behövs för att installera rätt versioner av dessa bibliotek.
 
@@ -46,12 +46,22 @@ Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services
         sudo apt-get install build-essential libssl1.0.2 libasound2
         ```
 
+  - På RHEL/CentOS 8 kör du följande kommandon för att installera de nödvändiga paketen:
+
+        ```sh
+        sudo yum update
+        sudo yum install alsa-lib openssl python3
+        ```
+
+> [!NOTE]
+> På RHEL/CentOS 8 följer du anvisningarna för [hur du konfigurerar openssl för Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+
 - I Windows behöver du [Microsoft Visual C++ Redistributable för Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) för din plattform. Observera att installationen för första gången kan kräva att du startar om Windows innan du fortsätter med den här guiden.
-- Slutligen behöver du [Python 3,5, 3,6 eller 3,7](https://www.python.org/downloads/). Kontrol lera installationen genom att öppna en kommando tolk och skriva kommandot `python --version` och kontrol lera resultatet. Om den är korrekt installerad får du svaret "python 3.5.1" eller liknande.
+- Slutligen behöver du [Python 3,5 till 3,8](https://www.python.org/downloads/). Kontrol lera installationen genom att öppna en kommando tolk och skriva kommandot `python --version` och kontrol lera resultatet. Om den är korrekt installerad får du svaret "python 3.5.1" eller liknande.
 
 ## <a name="install-the-speech-sdk-using-visual-studio-code"></a>Installera tal-SDK med Visual Studio Code
 
-1. Hämta och installera den senaste versionen av [python](https://www.python.org/downloads/) som stöds för din plattform, 3,5 eller senare.
+1. Hämta och installera den senaste versionen av [python](https://www.python.org/downloads/) som stöds för din plattform, 3,5 till 3,8.
    - Windows-användare ser till att välja "Lägg till python i sökvägen" under installations processen.
 1. Ladda ned och installera [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Öppna Visual Studio Code och installera Python-tillägget. Välj **Arkiv** > **Inställningar** > **Tillägg** på menyn. Sök efter **python** och klicka på **Installera**.
@@ -78,7 +88,7 @@ Om du använder macOS kan du behöva köra följande kommando för att få `pip`
 python3 -m pip install --upgrade pip
 ```
 
-När du har använt `pip` för att installera `azure-cognitiveservices-speech`kan du använda tal-SDK: n genom att importera namn området till dina python-projekt. Ett exempel:
+När du har använt `pip` för att installera `azure-cognitiveservices-speech`kan du använda tal-SDK: n genom att importera namn området till dina python-projekt. Exempel:
 
 ```py
 import azure.cognitiveservices.speech as speechsdk

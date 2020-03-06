@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2cb7d82efd010fd7c3395a4f6a9217370d9e5779
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 758ac13530752df481d27e7e253f025f5c8d6430
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349594"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302210"
 ---
 # <a name="replace-azure-cosmos-db"></a>Ersätt (Azure Cosmos DB)
  Ersätter alla förekomster av ett angivet strängvärde med ett annat strängvärde.  
@@ -32,7 +32,7 @@ REPLACE(<str_expr1>, <str_expr2>, <str_expr3>)
    Är sträng uttrycket som ska hittas.  
   
 *str_expr3*  
-   Är sträng uttrycket för att ersätta förekomster av *str_expr2* i *str_expr1*.  
+   Är sträng uttrycket som ersätter förekomster av *str_expr2* i *str_expr1*.  
   
 ## <a name="return-types"></a>Retur typer
   
@@ -43,7 +43,7 @@ REPLACE(<str_expr1>, <str_expr2>, <str_expr3>)
   I följande exempel visas hur du använder `REPLACE` i en fråga.  
   
 ```sql
-SELECT REPLACE("This is a Test", "Test", "desk") AS replace 
+SELECT REPLACE("This is a Test", "Test", "desk") AS replace
 ```  
   
  Här är resultatuppsättningen.  
@@ -51,6 +51,10 @@ SELECT REPLACE("This is a Test", "Test", "desk") AS replace
 ```json
 [{"replace": "This is a desk"}]  
 ```  
+
+## <a name="remarks"></a>Anmärkningar
+
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: iainfou
-ms.openlocfilehash: 9a0691bd2a556219b3e3d989a3bbc465fa56b4bf
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: b97b542d11e405bab00519c68d2365dada6b6c7f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613816"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298879"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Anslut till en virtuell dator med en kärna till en Azure AD Domain Services hanterad domän
 
@@ -34,7 +34,7 @@ För att slutföra den här självstudien behöver du följande resurser och beh
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
     * Vid behov [skapar och konfigurerar][create-azure-ad-ds-instance]den första självstudien en Azure Active Directory Domain Services-instans.
-* Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
+* Ett användar konto som är en del av den hanterade Azure AD DS-domänen.
 
 ## <a name="create-and-connect-to-a-coreos-linux-vm"></a>Skapa och Anslut till en Core virtuell Linux-dator
 
@@ -134,9 +134,9 @@ När konfigurations filen för SSSD har uppdaterats, så anslut nu den virtuella
     * Kontrol lera att den virtuella datorn har distribuerats till samma eller ett peer-kopplat virtuella nätverk där Azure AD DS-hanterad domän är tillgänglig.
     * Bekräfta att DNS-serverinställningarna för det virtuella nätverket har uppdaterats så att de pekar på domän kontrol Lanterna för den hanterade domänen i Azure AD DS.
 
-1. Nu ansluter du den virtuella datorn till den Azure AD DS-hanterade domänen med hjälp av kommandot `adcli join`. Ange en användare som tillhör gruppen *AAD DC-administratörer* . Om det behövs [lägger du till ett användar konto i en grupp i Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+1. Nu ansluter du den virtuella datorn till den Azure AD DS-hanterade domänen med hjälp av kommandot `adcli join`. Ange en användare som är en del av den hanterade Azure AD DS-domänen. Om det behövs [lägger du till ett användar konto i en grupp i Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Azure AD DS-hanterade domän namnet måste anges i alla VERSALer. I följande exempel används kontot som heter `contosoadmin@aaddscontoso.com` för att initiera Kerberos. Ange ditt eget användar konto som är medlem i gruppen *AAD DC-administratörer* .
+    Azure AD DS-hanterade domän namnet måste anges i alla VERSALer. I följande exempel används kontot som heter `contosoadmin@aaddscontoso.com` för att initiera Kerberos. Ange ditt eget användar konto som är en del av den hanterade Azure AD DS-domänen.
 
     ```console
     sudo adcli join -D AADDSCONTOSO.COM -U contosoadmin@AADDSCONTOSO.COM -K /etc/krb5.keytab -H coreos.aaddscontoso.com -N coreos

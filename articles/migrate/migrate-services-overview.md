@@ -5,11 +5,11 @@ ms.topic: overview
 ms.date: 12/29/2019
 ms.custom: mvc
 ms.openlocfilehash: c336b2f95a17896edcc7eaad2b2586c6859804f9
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772201"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362142"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -37,7 +37,7 @@ Azure Migrate Hub tillhandahåller följande verktyg.
 **Azure Migrate: Server-migrering** | Migrera servrar | Migrera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar samt andra virtualiserade datorer och virtuella datorer i offentliga moln till Azure. 
 **Databas Migration Assistant (DMA)** | Utvärdera lokala SQL Server databaser för migrering till Azure SQL DB, Azure SQL-hanterad instans eller virtuella Azure-datorer som kör SQL Server. | DMA tillhandahåller information om möjliga spärrnings problem för migrering. Den identifierar funktioner som inte stöds, samt nya funktioner som du kan dra nytta av efter migreringen, och hjälper dig att identifiera rätt sökväg för migrering av databasen. [Läs mer](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
 **Database Migration Service (DMS)** | Migrera lokala databaser till virtuella Azure-datorer som kör SQL, Azure SQL DB och Azure SQL Managed instances. | [Läs mer](https://docs.microsoft.com/azure/dms/dms-overview) om DMS.
-**Förflyttat** | Utvärdera servrar | [Läs mer](#movere) om superkraft.
+**Movere** | Utvärdera servrar | [Läs mer](#movere) om superkraft.
 **Webbapp Migration Assistant** | Utvärdera och migrera lokala webbappar till Azure. |  Använd Azure App Service Migration Assistant för att utvärdera lokala webbplatser för migrering till Azure App Service.<br/><br/> Migrera .NET-och PHP-webbappar till Azure med hjälp av Azure App Service Migration Assistant. [Lär dig mer](https://appmigration.microsoft.com/) om assistenten.
 **Azure Data Box** | Migrering av data offline. | Använd Azure Data Box produkter för att flytta stora mängder data offline till Azure. [Läs mer](https://docs.microsoft.com/azure/databox/).
 

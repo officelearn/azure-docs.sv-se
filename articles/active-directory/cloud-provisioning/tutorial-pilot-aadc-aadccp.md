@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 03/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0bd53b72c334b35daea0864acf61cc432c272ae
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: aba42e6bd9b11e47d793219c0ff06b9177d609f5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442130"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298827"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Styr molnetablering för en befintlig synkroniserad AD-skog 
 
@@ -31,7 +31,7 @@ Tänk på följande innan du provar den här självstudien:
 3. Se till att objekten i pilot omfattningen har ms-DS-consistencyGUID ifyllda så att moln etablerings hårdheten matchar objekten. 
 
    > [!NOTE]
-   > Azure AD Connect Sync fyller inte i *MS-DS-consistencyGUID* som standard för grupp objekt. Följ stegen som beskrivs i [det här blogg inlägget](https://blogs.technet.microsoft.com/markrenoden/2017/10/13/choosing-a-sourceanchor-for-groups-in-multi-forest-sync-with-aad-connect/) för att fylla i *MS-DS-consistencyGUID* för grupp objekt.
+   > Azure AD Connect Sync fyller inte i *MS-DS-consistencyGUID* som standard för grupp objekt.
 
 4. Det här är ett avancerat scenario. Se till att du följer de steg som beskrivs i den här självstudien noggrant.
 
@@ -119,7 +119,7 @@ Samma steg måste följas för alla typer av objekt (användare, grupp och konta
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installera Azure AD Connect etablerings agenten
 1. Logga in på den server som du vill använda med företags administratörs behörighet.  Om du använder [Basic AD-och Azure-miljön](tutorial-basic-ad-azure.md) blir det CP1.
-2. Hämta Azure AD Connect Cloud Provisioning-agenten [här](https://go.microsoft.com/fwlink/?linkid=2109037).
+2. Hämta Azure AD Connect Cloud Provisioning agent med hjälp av stegen som beskrivs [här](how-to-install.md#install-the-agent).
 3. Kör Azure AD Connect Cloud etableringen (AADConnectProvisioningAgent. Installer)
 3. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.</br>
 ![Välkomstskärmen](media/how-to-install/install1.png)</br>

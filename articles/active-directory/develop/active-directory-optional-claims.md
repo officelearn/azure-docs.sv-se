@@ -12,12 +12,12 @@ ms.date: 12/08/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 23433c816fc7b002c3426a0aac7c0aade8cdb338
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 9ea3388cb65b18c093ffff3ec8b8c9f2764ef189
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585857"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300076"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Gör så här: tillhandahålla valfria anspråk till din Azure AD-App
 
@@ -37,7 +37,7 @@ Listor över standard anspråk finns i [åtkomsttoken](access-tokens.md) och [id
 
 | Kontotyp | v 1.0-token | v 2.0-token  |
 |--------------|---------------|----------------|
-| Personlig Microsoft-konto  | Saknas  | Stöds |
+| Personlig Microsoft-konto  | Ej tillämpligt  | Stöds |
 | Azure AD-konto      | Stöds | Stöds |
 
 ## <a name="v10-and-v20-optional-claims-set"></a>v 1.0 och v 2.0 valfria anspråks uppsättningar
@@ -122,7 +122,7 @@ Detta OptionalClaims-objekt gör att ID-token returneras till klienten för att 
 ## <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
 
 > [!IMPORTANT]
-> Åtkomsttoken skapas **alltid** med hjälp av resurs manifestet, inte klienten.  Så i begäran `...scope=https://graph.microsoft.com/user.read...` resursen är grafen.  Därför skapas åtkomsttoken med hjälp av graf-manifestet, inte klientens manifest.  Att ändra manifestet för programmet kommer aldrig att orsaka att token för Graph ser annorlunda ut.  För att verifiera att dina `accessToken` ändringar gäller, begär du en token för ditt program, inte en annan app.  
+> Åtkomsttoken skapas **alltid** med hjälp av resurs manifestet, inte klienten.  Så i begäran `...scope=https://graph.microsoft.com/user.read...` resursen Microsoft Graph-API: et.  Därför skapas åtkomsttoken med hjälp av Microsoft Graph API-manifestet, inte klientens manifest.  Att ändra manifestet för programmet kommer aldrig att orsaka att token för Microsoft Graph-API: et ser annorlunda ut.  För att verifiera att dina `accessToken` ändringar gäller, begär du en token för ditt program, inte en annan app.  
 
 Du kan konfigurera valfria anspråk för ditt program via användar gränssnittet eller applikations manifestet.
 
@@ -256,7 +256,7 @@ Det här avsnittet beskriver konfigurations alternativen under valfria anspråk 
    - "SecurityGroup"
    - "DirectoryRole"
 
-   Några exempel:
+   Exempel:
 
     ```json
         "groupMembershipClaims": "SecurityGroup"
@@ -349,7 +349,7 @@ I det här avsnittet kan du gå igenom ett scenario för att se hur du kan anvä
 Det finns flera tillgängliga alternativ för att uppdatera egenskaperna för ett programs identitets konfiguration för att aktivera och konfigurera valfria anspråk:
 -    Du kan använda användar gränssnittet för **token-konfiguration (förhands granskning)** (se exemplet nedan)
 -    Du kan använda **manifestet** (se exemplet nedan). Läs [förstå Azure AD Application manifest-dokumentet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) först för en introduktion till manifestet.
--   Det är också möjligt att skriva ett program som använder [Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) för att uppdatera ditt program. [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) -typen i referens hand boken för Graph API kan hjälpa dig att konfigurera de valfria anspråken.
+-   Det är också möjligt att skriva ett program som använder [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) för att uppdatera ditt program. [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) -typen i referens hand boken för Microsoft Graph API kan hjälpa dig att konfigurera de valfria anspråken.
 
 **Exempel:** I exemplet nedan använder du användar gränssnittet för **token-konfiguration (för hands version)** och **manifestet** för att lägga till valfria anspråk i åtkomst, ID och SAML-token som är avsedda för ditt program. Olika valfria anspråk kommer att läggas till i varje tokentyp som programmet kan ta emot:
 -    ID-token kommer nu att innehålla UPN för federerade användare i fullständig form (`<upn>_<homedomain>#EXT#@<resourcedomain>`).
@@ -381,7 +381,7 @@ Det finns flera tillgängliga alternativ för att uppdatera egenskaperna för et
     [![visar hur du konfigurerar valfria anspråk med hjälp av användar gränssnittet](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
 **Manifest konfiguration:**
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. När du har autentiserat väljer du din Azure AD-klient genom att välja den från det övre högra hörnet på sidan.
 1. Välj **Azure Active Directory** på menyn till vänster.
 1. Hitta det program som du vill konfigurera valfria anspråk för i listan och klicka på det.

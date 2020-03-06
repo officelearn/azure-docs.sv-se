@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/04/2019
-ms.openlocfilehash: c35afe6e3d6ec74e8fc7cd134f533d1e618c820e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 03/05/2020
+ms.openlocfilehash: eb4f46322bec57fb4412d3ddebb345640556ca5c
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845739"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399102"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Övervaknings Azure Machine Learning
 
@@ -30,7 +30,7 @@ I den här artikeln beskrivs övervaknings data som genereras av Azure Machine L
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-Azure Machine Learning loggar övervakning av data med hjälp av Azure Monitor, som är en fullständig stack övervaknings tjänst i Azure. Azure Monitor innehåller en fullständig uppsättning funktioner för att övervaka dina Azure-resurser. Den kan också övervaka resurser i andra moln och lokalt.
+Azure Machine Learning loggar övervakningsdata med hjälp av Azure Monitor, som är en fullständig stackövervakningstjänst i Azure. Azure Monitor innehåller en fullständig uppsättning funktioner för att övervaka dina Azure-resurser. Den kan också övervaka resurser i andra moln och lokalt.
 
 Börja med artikeln [Azure Monitor översikt](/azure/azure-monitor/overview), som ger en översikt över övervakningsfunktionerna. Följande avsnitt bygger på den här informationen genom att tillhandahålla information om hur du använder Azure Monitor med Azure Machine Learning.
 
@@ -38,7 +38,7 @@ För att förstå kostnader som är kopplade till Azure Monitor, se [användning
 
 ## <a name="monitoring-data-from-azure-machine-learning"></a>Övervaknings data från Azure Machine Learning
 
-Azure Machine Learning samlar in samma typer av övervaknings data som andra Azure-resurser, som beskrivs i [övervaka data från Azure-resurser](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data). Se [Azure Machine Learning övervaknings data referens](monitor-resource-reference.md) för en detaljerad referens för de loggar och mått som skapats av Azure Machine Learning.
+Azure Machine Learning samlar in samma typer av övervakningsdata som andra Azure-resurser, som beskrivs i [Övervaka data från Azure-resurser](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data). Se [Azure Machine Learning övervaknings data referens](monitor-resource-reference.md) för en detaljerad referens för de loggar och mått som skapats av Azure Machine Learning.
 
 ## <a name="analyzing-metric-data"></a>Analysera mått data
 

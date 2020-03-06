@@ -7,21 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/21/2020
-ms.openlocfilehash: 6eb8f86d7bfa1c140c6422753840ded8a37ce3c4
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.date: 03/05/2020
+ms.openlocfilehash: 68bc30d08d95fe8e3d20a8ecb7af6c9710951921
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616094"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399711"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster automatiskt
 
 > [!Important]
-> Funktionen automatisk skalning i Azure HDInsight släpptes för allmän tillgänglighet den 7 november 2019 för Spark-och Hadoop-kluster och inkluderar förbättringar som inte är tillgängliga i för hands versionen av funktionen. Om du har skapat ett Spark-kluster före den 7 november 2019 och vill använda funktionen för autoskalning i klustret, är den rekommenderade sökvägen att skapa ett nytt kluster och aktivera autoskalning på det nya klustret. 
+> Funktionen automatisk skalning i Azure HDInsight släpptes för allmän tillgänglighet den 7 november 2019 för Spark-och Hadoop-kluster och inkluderar förbättringar som inte är tillgängliga i för hands versionen av funktionen. Om du har skapat ett Spark-kluster före den 7 november 2019 och vill använda funktionen för autoskalning i klustret, är den rekommenderade sökvägen att skapa ett nytt kluster och aktivera autoskalning på det nya klustret.
 >
->Autoskalning för interaktiv Query (LLAP) och HBase-kluster är fortfarande i för hands version. Autoskalning är endast tillgängligt i Spark-, Hadoop-, Interactive Query-och HBase-kluster. 
-
+> Autoskalning för interaktiv Query (LLAP) och HBase-kluster är fortfarande i för hands version. Autoskalning är endast tillgängligt i Spark-, Hadoop-, Interactive Query-och HBase-kluster.
 
 Azure HDInsights kluster funktion för automatisk skalning skalar automatiskt antalet arbetsnoder i ett kluster upp och ned. Andra typer av noder i klustret kan inte skalas för närvarande.  När du skapar ett nytt HDInsight-kluster kan du ange ett minsta och högsta antal arbets noder. Autoskalning övervakar sedan resurs kraven för analys belastningen och skalar antalet arbetsnoder uppåt eller nedåt. Den här funktionen kostar inget extra.
 
@@ -59,23 +58,18 @@ Autoskalning övervakar kontinuerligt klustret och samlar in följande mått:
 
 Ovanstående mått kontrol leras var 60: e sekund. Med autoskalning kan du skala upp och skala ned beslut baserat på dessa mått.
 
-### <a name="load-based-cluster-scale-up"></a>Belastningsutjämnad kluster skalning
+### <a name="load-based-scale-conditions"></a>Belastnings beroende skalnings villkor
 
 När följande villkor upptäcks kommer autoskalning att utfärda en skalnings förfrågan:
 
-* Den totala väntande processorn är större än den totala kostnads fria processorn i mer än 3 minuter.
-* Totalt minne som väntar är större än det totala lediga minnet i mer än 3 minuter.
+|Skala upp|Skala ned|
+|---|---|
+|Den totala väntande processorn är större än den totala kostnads fria processorn i mer än 3 minuter.|Den totala väntande processorn är mindre än den totala lediga processorn i mer än 10 minuter.|
+|Totalt minne som väntar är större än det totala lediga minnet i mer än 3 minuter.|Totalt minne som väntar är mindre än det totala lediga minnet i mer än 10 minuter.|
 
 HDInsight-tjänsten beräknar hur många nya arbetsnoder som behövs för att uppfylla de aktuella processor-och minnes kraven, och utfärdar sedan en skalnings förfrågan för att lägga till antalet noder som krävs.
 
-### <a name="load-based-cluster-scale-down"></a>Belastnings Utjämnings kluster, skala ned
-
-När följande villkor upptäcks, kommer autoskalning att utfärda en nedskalning-begäran:
-
-* Den totala väntande processorn är mindre än den totala lediga processorn i mer än 10 minuter.
-* Totalt minne som väntar är mindre än det totala lediga minnet i mer än 10 minuter.
-
-Baserat på antalet AM-behållare per nod och de aktuella processor-och minnes kraven, utfärdar autoskalning en begäran om att ta bort ett visst antal noder. Tjänsten identifierar också vilka noder som ska tas bort, baserat på den aktuella jobb körningen. Åtgärden för att skala ned inaktiverar först noderna och tar sedan bort dem från klustret.
+För nedskalning, baserat på antalet AM-behållare per nod och de aktuella processor-och minnes kraven, utfärdar autoskalning en begäran om att ta bort ett visst antal noder. Tjänsten identifierar också vilka noder som ska tas bort, baserat på den aktuella jobb körningen. Åtgärden för att skala ned inaktiverar först noderna och tar sedan bort dem från klustret.
 
 ## <a name="get-started"></a>Kom igång
 

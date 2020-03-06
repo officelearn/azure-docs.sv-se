@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 19/14/2020
 ms.author: dapine
-ms.openlocfilehash: 7be9037ddfd19d82263b37fe0b824e3c2b3f5078
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: c626d794b60a129eb800085804a468dfad060d8a
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76037699"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383829"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
@@ -52,7 +52,7 @@ Eller så kan du ladda ned den här snabbstartssjälvstudien som en [Jupyter](ht
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Installera och använda Speech SDK med Visual Studio Code
 
-1. Ladda ned och installera en 64-bitarsversion (3.5 eller senare) av [Python](https://www.python.org/downloads/) på din dator.
+1. Hämta och installera en 64-bitars version av [python](https://www.python.org/downloads/), 3,5 till 3,8, på din dator.
 1. Ladda ned och installera [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Öppna Visual Studio Code och installera Python-tillägget. Välj **Arkiv** > **Inställningar** > **Tillägg** på menyn. Sök efter **Python**.
 
@@ -85,7 +85,7 @@ Om det finns problem med att följa dessa anvisningar finns den mer omfattande [
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

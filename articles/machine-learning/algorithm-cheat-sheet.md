@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
-ms.date: 11/04/2019
-ms.openlocfilehash: 82d4131170002a3d9ffd78933c9dc566c3b1d921
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 03/05/2020
+ms.openlocfilehash: 85fbb1c1d26f71903adab2eb96b0c1dd3bf74c33
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767632"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328631"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Lathund-bladet Machine Learning algorithm för Azure Machine Learning designer
 
@@ -44,11 +44,11 @@ Om du vill veta mer om algoritmerna i Azure Machine Learning går du till [algor
 
 Det finns tre huvudsakliga kategorier av Machine Learning: *övervakad utbildning*, *inövervakad inlärning*och *förstärknings inlärning*.
 
-### <a name="supervised-learning"></a>Övervakat lärande
+### <a name="supervised-learning"></a>Övervakad utbildning
 
 I övervakad utbildning är varje data punkt märkt eller associerad med en kategori eller ett värde av intresse. Ett exempel på en kategoriska-etikett tilldelar en avbildning som antingen "katt" eller "hund". Ett exempel på en värde etikett är försäljnings priset som är kopplat till en Använd bil. Målet med övervakad inlärning är att studera många märkta exempel som dessa och sedan för att kunna göra förutsägelser om framtida data punkter. Du kan till exempel identifiera nya foton med rätt djur eller tilldela korrekta försäljnings priser till andra begagnade bilar. Det här är en populär och användbar typ av maskin inlärning.
 
-### <a name="unsupervised-learning"></a>Oövervakat lärande
+### <a name="unsupervised-learning"></a>Ej övervakad utbildning
 
 I en obevakad inlärning har data punkter inga etiketter kopplade till sig. Målet för en ej övervakad utbildningskurs är i stället att organisera data på ett visst sätt eller för att beskriva dess struktur. Oövervakade inlärnings grupps data i kluster, som K-betyder, eller hittar olika sätt att titta på komplexa data så att det ser enklare ut.
 

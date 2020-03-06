@@ -5,45 +5,55 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 02/25/2020
+ms.date: 03/03/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 872ba86c9e43b1f6642331908eb829605f6c19bd
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: d2cf1a2e2ab9cf2d6e35aa12b5b0f8ddc04ad0e7
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77619736"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301968"
 ---
 Du kan skapa en VNet i Resource Manager-distributionsmodellen och Azure-portalen genom att följa stegen nedan. Mer information om virtuella nätverk finns i [Översikt över virtuella nätverk](../articles/virtual-network/virtual-networks-overview.md).
 
 >[!NOTE]
->För att det här virtuella nätverket ska anslutas till en lokal plats måste du kontakta den lokala nätverksadministratören för att få ett intervall med IP-adresser som du kan använda specifikt för det här virtuella nätverket. Om det finns ett duplicerat adressintervall på båda sidorna av VPN-anslutningen dirigeras trafiken på ett oväntat sätt. Om du dessutom vill ansluta detta VNet till ett annat VNet kan inte adressutrymmet överlappa med andra VNet. Planera din nätverkskonfiguration på lämpligt sätt.
+>När du använder ett virtuellt nätverk som en del av en lokal arkitektur, måste du koordinera med den lokala nätverks administratören för att dela ut ett IP-adressintervall som du kan använda specifikt för det här virtuella nätverket. Om det finns ett duplicerat adressintervall på båda sidorna av VPN-anslutningen dirigeras trafiken på ett oväntat sätt. Dessutom, om du vill ansluta det här virtuella nätverket till ett annat virtuellt nätverk, kan inte adress utrymmet överlappa med det andra virtuella nätverket. Planera din nätverkskonfiguration på lämpligt sätt.
 >
 >
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. I **Sök efter resurser, tjänst och dokument (G +/)** skriver du *virtuellt nätverk*.
 
    ![Hitta Virtual Network resurs Sidan](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace.png "Hitta resurs sidan för virtuella nätverk")
 1. Välj **Virtual Network** från **Marketplace** -resultatet.
 
    ![Välj virtuellt nätverk](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace-results.png "Hitta resurs sidan för virtuella nätverk")
-1. På sidan **Virtual Network** klickar du på **skapa**.
+1. På sidan **Virtual Network** väljer du **skapa**.
 
-   ![Sidan virtuellt nätverk](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet-click-create.png "Klicka på Skapa")
-1. När du klickar på Skapa öppnas sidan **Skapa virtuellt nätverk** .
+   ![Sidan virtuellt nätverk](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet-click-create.png "Välj Skapa")
+1. När du har valt **skapa**öppnas sidan **Skapa virtuellt nätverk** .
+1. På fliken **grundläggande** konfigurerar du **projekt information** och inställningar för **instans information** VNet.
 
-   ![Sidan Skapa virtuellt nätverk](./media/vpn-gateway-basic-vnet-rm-portal-include/create-virtual-network-page.png "Sidan Skapa virtuellt nätverk")
-1. Konfigurera VNet-inställningarna på sidan **Skapa virtuellt nätverk**. När du fyller i fälten blir det röda utropstecknet en grön bock om tecknen som anges i fältet är giltiga. Vissa värden är automatiskt ifyllda, och du kan ersätta med dina egna värden:
+   ![Fliken grunder](./media/vpn-gateway-basic-vnet-rm-portal-include/basics.png "Fliken grunder") När du fyller i fälten visas en grön bock markering när tecknen du anger i fältet verifieras. Vissa värden är automatiskt ifyllda, och du kan ersätta med dina egna värden:
 
-   - **Namn**: Namnge ditt virtuella nätverk.
-   - **Adressutrymme**: Ange adressutrymmet. Om du vill lägga till flera adressutrymme anger du ditt första adressutrymme här. Du kan lägga till ytterligare adressutrymmen senare när du har skapat det virtuella nätverket. Om konfigurationen kräver IPv6-adress utrymme markerar du kryss rutan för att ange den informationen.
    - **Prenumeration**: Verifiera att prenumerationen som visas är korrekt. Du kan ändra prenumerationer i listrutan.
-   - **Resurs grupp**: Välj en befintlig resurs grupp eller skapa en ny genom att ange ett namn för din nya resurs grupp. Om du skapar en ny grupp, bör du kalla resursgruppen efter dina planerade konfigurationsvärden. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/azure-resource-manager/management/overview.md#resource-groups).
-   - **Plats**: Välj plats för ditt VNet. Platsen avgör var resurserna som du distribuerar till detta VNet kommer att vara.
-   - **Undernät**: Lägg till under nätets **namn** och under nätets **adress intervall**. Du kan lägga till ytterligare undernät senare när du har skapat det virtuella nätverket.
-   - **DDoS-skydd**: Välj **Basic**, om du inte vill använda standard tjänsten.
-   - **Tjänst slut punkter**: du kan lämna den här inställningen **inaktive rad**, om inte konfigurationen anger den här inställningen.
-   - **Brand vägg**: du kan lämna den här inställningen **inaktive rad**, om inte konfigurationen anger den här inställningen.
-1. Klicka på **skapa** för att starta distributionen av det virtuella nätverket.
+   - **Resurs grupp**: Välj en befintlig resurs grupp eller klicka på **Skapa ny** för att skapa en ny. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/azure-resource-manager/management/overview.md#resource-groups).
+   - **Namn**: Namnge ditt virtuella nätverk.
+   - **Region**: Välj platsen för ditt VNet. Platsen avgör var resurserna som du distribuerar till detta VNet kommer att vara.
+
+1. Konfigurera värdena på fliken **IP-adresser** . Värdena som visas i exemplen nedan är i demonstrations syfte. Justera värdena enligt de inställningar som du behöver.
+
+   ![Fliken IP-adresser](./media/vpn-gateway-basic-vnet-rm-portal-include/addresses.png "Fliken IP-adresser")  
+   - **IPv4-adress utrymme**: som standard skapas ett adress utrymme automatiskt. Du kan klicka på adress utrymmet för att justera det så att det motsvarar dina egna värden. Du kan också lägga till ytterligare adress utrymmen.
+   - **IPv6**: om konfigurationen kräver IPv6-adress utrymme markerar du kryss rutan **Lägg till IPv6-adressutrymme** för att ange den informationen.
+   - **Undernät**: om du använder standard adress utrymmet skapas ett standard under nät automatiskt. Om du ändrar adress utrymmet måste du lägga till ett undernät. Välj **+ Lägg till undernät** för att öppna fönstret **Lägg till undernät** . Konfigurera följande inställningar och välj sedan **Lägg** till för att lägga till värdena:
+      - **Under näts namn**: i det här exemplet heter vi under nätet "FrontEnd".
+      - **Adress intervall för under nätet**: adress intervallet för det här under nätet.
+
+1. Lämna standardvärdena på fliken **säkerhet** .
+
+   - **DDoS-skydd**: grundläggande
+   - **Brand vägg**: inaktive rad
+1. Välj **Granska + skapa** för att verifiera inställningarna för det virtuella nätverket.
+1. När inställningarna har verifierats väljer du **skapa**.

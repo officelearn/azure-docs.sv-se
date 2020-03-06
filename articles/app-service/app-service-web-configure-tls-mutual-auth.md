@@ -5,12 +5,12 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 44bf98ea0bd82bd261fa565fa068382ecc2a0ba7
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 357ea2cc598bca3e008a74f021895e1e45a3874f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681148"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301019"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Konfigurera ömsesidig TLS-autentisering för Azure App Service
 
@@ -19,6 +19,8 @@ Du kan begränsa åtkomsten till Azure App Service-appen genom att aktivera olik
 > [!NOTE]
 > Om du ansluter till din webbplats via HTTP och inte HTTPS får du inga klient certifikat. Så om ditt program kräver klient certifikat bör du inte tillåta begär anden till ditt program via HTTP.
 >
+
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 ## <a name="enable-client-certificates"></a>Aktivera klient certifikat
 

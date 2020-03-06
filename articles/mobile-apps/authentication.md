@@ -7,12 +7,12 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: bc7d8d4aaec6ebe27a0f8d2ecc11ca408266f7ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 261c12e63f8f348e1673dbc46c89c614caf3283b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453233"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296362"
 ---
 # <a name="add-authentication-and-manage-user-identities-in-your-mobile-apps"></a>Lägg till autentisering och hantera användar identiteter i dina mobila appar
 
@@ -21,9 +21,9 @@ Att ha en vy över användaren och deras beteende i ditt program gör det möjli
 Använd följande tjänster för att aktivera användarautentisering i dina mobila appar.
 
 ## <a name="visual-studio-app-center"></a>Visual Studio App Center
-[App Center auth](/appcenter/auth/) är en molnbaserad tjänst för identitets hantering som utvecklare kan använda för att autentisera användare och hantera användar identiteter. App Center autentiseringen integreras också med andra delar av Visual Studio App Center. Utvecklare kan använda användar identitet för att [Visa användar data](/appcenter/data/index) i andra tjänster och även [skicka push-meddelanden till användare i stället för enskilda enheter](/appcenter/push/push-to-user#app-center-auth-set-identity). 
+[App Center auth](/appcenter/auth/) är en molnbaserad tjänst för identitets hantering som utvecklare kan använda för att autentisera användare och hantera användar identiteter. App Center autentiseringen integreras också med andra delar av Visual Studio App Center. Utvecklare kan använda användar identitet för att [Visa användar data](/appcenter/data/index) i andra tjänster och även [skicka push-meddelanden till användare i stället för enskilda enheter](/appcenter/push/push-to-user#setting-user-identity). 
 
-**Huvudfunktioner**
+**Viktiga funktioner**
 - Drivs av Azure Active Directory B2C (Azure AD B2C). 
     - Företags klass.
     - Hög tillgänglighet.
@@ -43,7 +43,7 @@ Använd följande tjänster för att aktivera användarautentisering i dina mobi
 ## <a name="azure-active-directory-b2c"></a>Azure Active Directory B2C
 [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/) är en B2C-tjänst (Business-to-Consumer) som utvecklare kan använda för att autentisera sina kunder. Med den här tjänsten med vita etiketter kan utvecklare anpassa och styra hur användare på ett säkert sätt kan interagera med sina webb-, skriv bords-, mobil-eller program på en enda sida. Med Azure AD B2C kan användarna registrera sig, logga in, återställa lösenord och redigera profiler. Azure AD B2C implementerar en form av OpenID Connect- och OAuth 2.0-protokoll. 
 
-**Huvudfunktioner**
+**Viktiga funktioner**
 - Autentisera kunder på ett säkert sätt med deras prioriterade identitets leverantör.
 - Hantera kund identitet och åtkomst.
 - Få inloggnings stöd för sociala medier som Facebook, GitHub, Google, LinkedIn, Twitter, WeChat och Weibo.
@@ -53,7 +53,7 @@ Använd följande tjänster för att aktivera användarautentisering i dina mobi
 - Avbilda inloggnings-, preferens-och konverterings data för kunder.
 
 **Reference**
-- [Azure-portalen](https://portal.azure.com/)
+- [Azure Portal](https://portal.azure.com/)
 - [Azure AD B2C dokumentation](/azure/active-directory-b2c/)
 - [Snabbstarter](/azure/active-directory-b2c/active-directory-b2c-quickstarts-web-app)
 - [Exempel](/azure/active-directory-b2c/code-samples)
@@ -63,14 +63,14 @@ Använd följande tjänster för att aktivera användarautentisering i dina mobi
 - Externa resurser, till exempel Microsoft Office 365, Azure Portal och tusentals andra program vara som en tjänst (SaaS).
 - Interna resurser, som appar i företagets nätverk och intranät, tillsammans med molnappar som utvecklats av din egen organisation.
 
-**Huvudfunktioner**
+**Viktiga funktioner**
 - Smidig och mycket säker åtkomst genom att ansluta användare till de program som de behöver.
 - Omfattande identitets skydd och förbättrad säkerhet för identiteter och åtkomst baserat på användare, plats, enhet, data och program kontext.
 - Tusentals förintegrerade appar för både kommersiella och anpassade program, till exempel Office 365, Salesforce.com och box.
 - Möjlighet att hantera åtkomst i stor skala.
 
 **Reference**
-- [Azure-portalen](https://portal.azure.com/)
+- [Azure Portal](https://portal.azure.com/)
 - [Vad är Azure AD?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [Kom igång med Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
 - [Snabbstarter](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)

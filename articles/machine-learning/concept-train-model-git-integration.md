@@ -9,20 +9,35 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 10/11/2019
-ms.openlocfilehash: b83eb1556ed3f4a41409faf70f6ba9d8cd28322d
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
-ms.translationtype: MT
+ms.openlocfilehash: 10e4ba16e00a37d532a2eceb69fedb8f5b62be8b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732186"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301666"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Git-integrering för Azure Machine Learning
 
-[Git](https://git-scm.com/) är ett populärt versions kontroll system som gör att du kan dela och samar beta om dina projekt. När du skickar ett utbildnings jobb till Azure Machine Learning, om inlärnings filen lagras i en lokal git-lagringsplats, spåras information om lagrings platsen som en del av inlärnings processen.
+[Git](https://git-scm.com/) är ett populärt versions kontroll system som gör att du kan dela och samar beta med dina projekt. 
+
+Azure Machine Learning har fullt stöd för git-lagringsplatser för att spåra arbete – du kan klona lagrings platser direkt till fil systemet på den delade arbets ytan, använda git på din lokala arbets Station eller använda Git från en CI/CD-pipeline.
+
+Om källfiler lagras i en lokal git-lagringsplats när ett jobb skickas till Azure Machine Learning spåras information om lagrings platsen som en del av inlärnings processen.
 
 Eftersom Azure Machine Learning spårar information från en lokal git-lagrings platsen är den inte kopplad till någon speciell Central lagrings plats. Din lagrings plats kan klonas från GitHub, GitLab, BitBucket, Azure DevOps eller någon annan git-kompatibel tjänst.
 
-## <a name="how-does-git-integration-work"></a>Hur fungerar git-integrering?
+## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Klona git-databaser till fil systemet för arbets ytan
+Azure Machine Learning tillhandahåller ett delat fil system för alla användare på arbets ytan.
+Om du vill klona en git-lagringsplats till den här fil resursen rekommenderar vi att du skapar en beräknings instans & öppnar en Terminal.
+När terminalen har öppnats har du åtkomst till en fullständig git-klient och kan klona och arbeta med git via git CLI-upplevelsen.
+
+Vi rekommenderar att du klonar lagrings platsen till din användar katalog så att andra inte kommer att göra kollisioner direkt på din arbets gren.
+
+Du kan klona en git-lagringsplats som du kan autentisera till (GitHub, Azure databaser, BitBucket osv.)
+
+En guide om hur du använder git CLI hittar du [här.](https://guides.github.com/introduction/git-handbook/)
+
+## <a name="track-code-that-comes-from-git-repositories"></a>Spåra kod som kommer från git-databaser
 
 När du skickar en utbildning som körs från python SDK eller Machine Learning CLI överförs filerna som behövs för att träna modellen till din arbets yta. Om `git` kommandot är tillgängligt i utvecklings miljön använder överförings processen för att kontrol lera om filerna lagras på en git-lagringsplats. I så fall, överförs information från git-lagringsplatsen också som en del av övnings körningen. Den här informationen lagras i följande egenskaper för övnings körningen:
 
@@ -53,7 +68,7 @@ Om dina utbildningsbaserade filer inte finns i en git-lagringsplats i utveckling
 
 Git-informationen lagras i egenskaperna för en utbildnings körning. Du kan visa den här informationen med hjälp av Azure Portal, python SDK och CLI. 
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 1. Välj din arbets yta från [Azure Portal](https://portal.azure.com).
 1. Välj __experiment__och välj sedan ett av experimenten.

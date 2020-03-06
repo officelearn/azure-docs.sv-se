@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 654ca34ae4c0e393920965083567e3d9c71148d0
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
-ms.translationtype: MT
+ms.openlocfilehash: 98ea00eb4d45ad045e1da3c4c5680f44e6705432
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863639"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300986"
 ---
 # <a name="what-is-azure-stack-edge"></a>Vad är Azure Stack Edge? 
 
@@ -43,11 +43,11 @@ Här följer de olika scenarier där Azure Stack Edge kan användas för snabb M
 
 Azure Stack Edge har följande funktioner:
 
-|Kapacitet |Beskrivning  |
+|Funktion |Beskrivning  |
 |---------|---------|
 |Accelererad AI-inferencing| Aktive rad av de inbyggda FPGA.|
 |Databehandling       |Möjliggör analys, bearbetning och filtrering av data.|
-|Hög prestanda | Beräkning och data överföringar med höga prestanda.|
+|Höga prestanda | Beräkning och data överföringar med höga prestanda.|
 |Dataåtkomst     | Direktåtkomst till data från Azure Storage-blobar och Azure Files med moln-API:er för ytterligare databehandling i molnet. Lokal cache på enheten används för snabb åtkomst till de senast använda filerna.|
 |Molnbaserad hantering     |Enhet och tjänst hanteras via Azure Portal.  |
 |Offlineuppladdning     | Frånkopplat läge stöder scenarier med offlineuppladdning.|
@@ -76,11 +76,11 @@ Azure Stack Edge-lösningen består av Azure Stack Edge-resurs, Azure Stack Edge
     Om du vill ha information om hur du använder det webbaserade användar gränssnittet går du till [använda det webbaserade gränssnittet för att administrera Azure Stack Edge](data-box-edge-manage-access-power-connectivity-mode.md).
 
 
-## <a name="region-availability"></a>Tillgänglighet för regioner
+## <a name="region-availability"></a>Regional tillgänglighet
 
 Azure Stack Edge fysiska enhet, Azure-resurs och mål lagrings konto som du överför data till, behöver inte alla finnas i samma region.
 
-- **Resurs tillgänglighet** – för en lista över alla regioner där Azure Stack Edge-resursen är tillgänglig går du till [Azure-produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Azure Stack Edge kan också distribueras i Azure Government molnet. Mer information finns i [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Resurs tillgänglighet** – en lista över alla regioner där Azure Stack Edge-resursen är tillgänglig finns i Azure- [produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Azure Stack Edge kan också distribueras i Azure Government molnet. Mer information finns i [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
     
 - **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner. De regioner där lagrings kontona lagrar Azure Stack Edge-data bör ligga nära den plats där enheten finns för bästa prestanda. Ett lagringskonto som är långt från enheten leder till långa svarstider och långsammare prestanda. 
 

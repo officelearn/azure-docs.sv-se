@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 64e8fab3ac352c906cfb63cd39f89acda4109b18
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 941a1ff23668a3202028e8b693b57d902095b3b2
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719763"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384820"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Konfigurera GPU-acceleration (Graphics Processing Unit) för Windows Virtual Desktop
 
@@ -82,7 +82,7 @@ Om du vill kontrol lera att appar använder GPU: n för rendering kan du prova n
 Verifiera att fjärr skrivbord använder GPU-accelererad kodning:
 
 1. Anslut till den virtuella datorns Station ära dator med hjälp av Windows Virtual Desktop-klienten.
-2. Starta Loggboken och navigera till följande nod: program- **och tjänst loggar** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS** > **Operational**
+2. Starta Loggboken och navigera till följande nod: program- **och tjänst loggar** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**
 3. Ta reda på om GPU-accelererad kodning används genom att leta efter händelse-ID 170. Om du ser "AVC Hardware Encoder Enabled: 1" används GPU-kodning.
 4. Du kan kontrol lera om AVC 444-läge används genom att leta efter händelse-ID 162. Om du ser "AVC tillgängligt: 1 initial profil: 2048" används AVC 444.
 

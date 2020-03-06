@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 7b009a6e2f540dc076340a6803679a541e60adc7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 63ace9af31dd284c61fae188744b24361f33c170
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165350"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377907"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Gör så här: Migrera från Azure-Access Control Service
 
@@ -68,13 +68,13 @@ Följ stegen i det här avsnittet för att ta reda på vilka av dina appar som k
 ### <a name="download-and-install-acs-powershell"></a>Hämta och installera ACS PowerShell
 
 1. Gå till PowerShell-galleriet och hämta [ACS. Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
-1. Installera modulen genom att köra
+2. Installera modulen genom att köra
 
     ```powershell
     Install-Module -Name Acs.Namespaces
     ```
 
-1. Hämta en lista över alla möjliga kommandon genom att köra
+3. Hämta en lista över alla möjliga kommandon genom att köra
 
     ```powershell
     Get-Command -Module Acs.Namespaces
@@ -94,8 +94,8 @@ Följ stegen i det här avsnittet för att ta reda på vilka av dina appar som k
   
     Du kan behöva köra `Set-ExecutionPolicy -ExecutionPolicy Bypass` innan du kan köra kommandon och vara administratör för dessa prenumerationer för att kunna köra kommandona.
 
-1. Lista dina tillgängliga Azure-prenumerationer med hjälp av cmdleten **Get-AcsSubscription** .
-1. Visa en lista med ACS-namnområden med cmdleten **Get-AcsNamespace** .
+2. Lista dina tillgängliga Azure-prenumerationer med hjälp av cmdleten **Get-AcsSubscription** .
+3. Visa en lista med ACS-namnområden med cmdleten **Get-AcsNamespace** .
 
 ### <a name="check-which-applications-will-be-impacted"></a>Kontrol lera vilka program som påverkas
 
@@ -103,8 +103,8 @@ Följ stegen i det här avsnittet för att ta reda på vilka av dina appar som k
 
     Om ett av namn områdena till exempel är contoso-test går du till `https://contoso-test.accesscontrol.windows.net`
 
-1. Under **förtroende relationer**väljer du **förlitande part program** om du vill se en lista över appar som kommer att påverkas av ACS-pensionen.
-1. Upprepa steg 1-2 för alla andra ACS-namnrymder som du har.
+2. Under **förtroende relationer**väljer du **förlitande part program** om du vill se en lista över appar som kommer att påverkas av ACS-pensionen.
+3. Upprepa steg 1-2 för alla andra ACS-namnrymder som du har.
 
 ## <a name="retirement-schedule"></a>Schema för pensionering
 
@@ -210,7 +210,7 @@ På hög nivå *är Azure Active Directory förmodligen det bästa valet för di
 | Ladda upp anpassade certifikat för tokensignering | Stöds | Stöds |
 | Anpassa anspråk i token |-Släpp igenom inloggade anspråk från identitets leverantörer<br />– Hämta åtkomsttoken från identitets leverantören som ett anspråk<br />– Utfärda utgående anspråk baserat på värden för indata-anspråk<br />– Utfärda utgående anspråk med konstanta värden |-Det går inte att släppa igenom anspråk från federerade identitets leverantörer<br />-Det går inte att hämta åtkomsttoken från identitets leverantören som ett anspråk<br />-Det går inte att utfärda utgående anspråk baserat på värden för indata-anspråk<br />-Kan utfärda utgående anspråk med konstanta värden<br />-Kan utfärda utgående anspråk baserat på Egenskaper för användare som har synkroniserats till Azure AD |
 | **Automation** | | |
-| Automatisera konfigurations-och hanterings uppgifter | Stöds via Access Control hanterings tjänst | Stöds via Microsoft Graph och Azure AD Graph API |
+| Automatisera konfigurations-och hanterings uppgifter | Stöds via Access Control hanterings tjänst | Stöds med Microsoft Graph-API: et |
 
 Om du bestämmer att Azure AD är den bästa sökvägen för migrering för dina program och tjänster, bör du vara medveten om två sätt att integrera din app med Azure AD.
 
@@ -261,7 +261,7 @@ I följande tabell jämförs funktionerna i Access Control som är relevanta fö
 | Ladda upp anpassade certifikat för tokensignering | Stöds | Anpassade signerings nycklar, inte certifikat, stöds via anpassade principer |
 | Anpassa anspråk i token |-Släpp igenom inloggade anspråk från identitets leverantörer<br />– Hämta åtkomsttoken från identitets leverantören som ett anspråk<br />– Utfärda utgående anspråk baserat på värden för indata-anspråk<br />– Utfärda utgående anspråk med konstanta värden |– Kan släppa igenom anspråk från identitets leverantörer. anpassade principer som krävs för vissa anspråk<br />-Det går inte att hämta åtkomsttoken från identitets leverantören som ett anspråk<br />-Kan utfärda utgående anspråk baserat på värden för indata-anspråk via anpassade principer<br />-Kan utfärda utgående anspråk med konstanta värden via anpassade principer |
 | **Automation** | | |
-| Automatisera konfigurations-och hanterings uppgifter | Stöds via Access Control hanterings tjänst |– Skapa användare som tillåts via Azure AD Graph API<br />-Det går inte att skapa B2C-klienter, program eller principer program mässigt |
+| Automatisera konfigurations-och hanterings uppgifter | Stöds via Access Control hanterings tjänst |– Skapa användare som tillåts använda Microsoft Graph API<br />-Det går inte att skapa B2C-klienter, program eller principer program mässigt |
 
 Om du bestämmer att Azure AD B2C är den bästa migreringen för dina program och tjänster börjar du med följande resurser:
 
@@ -325,7 +325,7 @@ Du kan också använda Azure AD för server-till-Server-autentisering med hjälp
 | Metoder för klientautentisering |– Enkelt lösen ord<br />-Signerad SWT<br />– SAML-token från en federerad identitets leverantör |– Enkelt lösen ord<br />-Signerat JWT |
 | Token-format |– JWT<br />– SAML 1,1<br />– SAML 2,0<br />– SWT<br /> | Endast JWT |
 | Token-transformering |-Lägg till anpassade anspråk<br />– Enkel om-then utfärdande logik för anspråk | Lägg till anpassade anspråk | 
-| Automatisera konfigurations-och hanterings uppgifter | Stöds via Access Control hanterings tjänst | Stöds via Microsoft Graph och Azure AD Graph API |
+| Automatisera konfigurations-och hanterings uppgifter | Stöds via Access Control hanterings tjänst | Stöds med Microsoft Graph-API: et |
 
 Vägledning om hur du implementerar server-till-Server-scenarier finns i följande resurser:
 

@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/30/2020
 ms.author: dapine
-ms.openlocfilehash: f3a6ffeede05c1a2e9a883d40df19819e6a4bb3b
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 4e8d100000e7191c77c09a1b2e4c28088e247d8f
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77445345"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384063"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -93,7 +93,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Installera och använda Speech SDK med Visual Studio Code
 
-1. Ladda ned och installera en 64-bitarsversion (3.5 eller senare) av [Python](https://www.python.org/downloads/) på din dator.
+1. Hämta och installera en 64-bitars version av [python](https://www.python.org/downloads/), 3,5 till 3,8, på din dator.
 1. Ladda ned och installera [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Öppna Visual Studio Code och installera Python-tillägget. Välj **Arkiv** > **Inställningar** > **Tillägg** på menyn. Sök efter **Python**.
 

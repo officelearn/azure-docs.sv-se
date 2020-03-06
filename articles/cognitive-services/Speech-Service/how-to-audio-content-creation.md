@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: dapine
-ms.openlocfilehash: 4785356963e7df1d7b175ac21ceebc921f851ffb
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ab0d2b8d95b4cb5996dd93fa0bb24085c9de26d5
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913658"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331544"
 ---
 # <a name="improve-synthesis-with-audio-content-creation"></a>Förbättra syntesen med att skapa ljud innehåll
 
@@ -43,7 +43,7 @@ Det här diagrammet visar de steg som krävs för att justera och exportera anpa
 
 Följ dessa steg om du vill skapa en tal resurs och ansluta den till tal Studio.
 
-1. Följ de här anvisningarna för att [Registrera dig för ett Azure-konto](get-started.md#new-resource) och [skapa en tal resurs](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Kontrol lera att pris nivån är inställd på **S0**. Om du använder någon av neurala-rösterna ser du till att du skapar din resurs i en [region som stöds](regions.md#standard-and-neural-voices).
+1. Följ de här anvisningarna för att [Registrera dig för ett Azure-konto](get-started.md#new-resource) och [skapa en tal resurs](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-the-resource). Kontrol lera att pris nivån är inställd på **S0**. Om du använder någon av neurala-rösterna ser du till att du skapar din resurs i en [region som stöds](regions.md#standard-and-neural-voices).
 2. Logga in på att [skapa ljud innehåll](https://aka.ms/audiocontentcreation).
 3. Välj ett befintligt projekt eller klicka på **Skapa nytt**.
 4. Du kan ändra din prenumeration när som helst med alternativet **Inställningar** , som finns i det övre navigerings fältet.

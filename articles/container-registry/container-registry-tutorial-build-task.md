@@ -4,12 +4,12 @@ description: I självstudien får du lära dig att konfigurera en Azure Containe
 ms.topic: tutorial
 ms.date: 05/04/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 6882cb683e0bd8b76bb1207e628e43f24c7b5987
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 2f70b829e2202c3d28adcfbbb07338923c43e8a8
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252126"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402840"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Självstudie: automatisera behållar avbildningar skapas i molnet när du allokerar käll koden
 
@@ -69,7 +69,7 @@ Uppgiften anger att varje gång en tidskod checkas in på *huvudförgreningen* i
 
 Utdata från ett lyckat [AZ ACR uppgift][az-acr-task-create] för att skapa-kommando liknar följande:
 
-```console
+```output
 {
   "agentConfiguration": {
     "cpu": 2
@@ -136,9 +136,7 @@ az acr task run --registry $ACR_NAME --name taskhelloworld
 
 Som standard strömmar kommandot `az acr task run` loggens utdata till konsolen när du kör kommandot.
 
-```console
-$ az acr task run --registry $ACR_NAME --name taskhelloworld
-
+```output
 2018/09/17 22:51:00 Using acb_vol_9ee1f28c-4fd4-43c8-a651-f0ed027bbf0e as the home volume
 2018/09/17 22:51:00 Setting up Docker configuration...
 2018/09/17 22:51:02 Successfully set up Docker configuration
@@ -225,8 +223,7 @@ git push origin master
 
 Du kan bli ombedd att ange dina GitHub-autentiseringsuppgifter när du kör kommandot `git push`. Ange ditt GitHub-användarnamn och din personliga åtkomsttoken som du skapade tidigare för lösenordet.
 
-```console
-$ git push origin master
+```azurecli-interactive
 Username for 'https://github.com': <github-username>
 Password for 'https://githubuser@github.com': <personal-access-token>
 ```
@@ -239,8 +236,7 @@ az acr task logs --registry $ACR_NAME
 
 Utdata liknar följande och visar den uppgift som körs för närvarande (eller som kördes senast):
 
-```console
-$ az acr task logs --registry $ACR_NAME
+```output
 Showing logs of the last created run.
 Run ID: da4
 
@@ -259,9 +255,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 Utdatan från kommandot ska se ut ungefär som följande. De körningar som ACR Tasks har kört visas och ”Git Commit” (Git-incheckning) visas i kolumnen TRIGGER (Utlösare) för den senaste uppgiften:
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
-
+```output
 RUN ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
 --------  --------------  ----------  ---------  ----------  --------------------  ----------
 da4       taskhelloworld  Linux       Succeeded  Git Commit  2018-09-17T23:03:45Z  00:00:44

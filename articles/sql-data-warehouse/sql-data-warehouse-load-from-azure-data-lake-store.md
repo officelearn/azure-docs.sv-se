@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 02/04/2020
+ms.date: 03/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 9a567a8f62f8f12de725f6d9420576680a3005fe
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: b0b9cffe0b69545a6d0219941b48ac9eb0f399b3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194588"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300595"
 ---
 # <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>Läs in data från Azure Data Lake Storage för SQL Analytics
 Den här guiden beskriver hur du använder PolyBase-externa tabeller för att läsa in data från Azure Data Lake Storage. Även om du kan köra adhoc-frågor på data som lagras i Data Lake Storage rekommenderar vi att du importerar data för bästa prestanda. 
@@ -46,6 +46,8 @@ Du kan hoppa över det här avsnittet och fortsätta till "skapa den externa dat
 För att få åtkomst till ditt Data Lake Storage-konto måste du skapa en huvud nyckel för databasen för att kryptera din hemliga autentiseringsuppgifter. Du kan sedan skapa en databas med begränsade autentiseringsuppgifter för att lagra din hemliga information. När du autentiserar med hjälp av tjänstens huvud namn (Azure Directory Application User) lagrar databasens begränsade autentiseringsuppgifter de autentiseringsuppgifter för tjänstens huvud namn som angetts i AAD. Du kan också använda databasens begränsade autentiseringsuppgifter för att lagra lagrings konto nyckeln för Gen2.
 
 Om du vill ansluta till Data Lake Storage med hjälp av tjänstens huvud namn måste du **först** skapa ett Azure Active Directory program, skapa en åtkomst nyckel och ge programmet åtkomst till data Lake Storage-kontot. Instruktioner finns i [autentisera till Azure Data Lake Storage med hjälp av Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
+
+Logga in på SQL-poolen med en användare som har behörighet för kontroll nivå och kör följande SQL-uttryck mot databasen:
 
 ```sql
 -- A: Create a Database Master Key.

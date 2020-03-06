@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: dapine
-ms.openlocfilehash: 04546883e6742086fa05fc450920b1026702bd08
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 984d2dfe07faa22756b4be167aa86a69806b1a84
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212527"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331101"
 ---
 # <a name="about-the-speech-sdk"></a>Om Speech SDK
 
@@ -31,7 +31,7 @@ En allmän översikt över funktionerna och plattformarna som stöds finns på s
 
 ## <a name="get-the-sdk"></a>Hämta SDK
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 > [!WARNING]
 > Tal-SDK: n stöder Windows 10 eller senare versioner. Tidigare Windows-versioner **stöds inte**.
@@ -42,12 +42,12 @@ För Windows stöder vi följande språk:
 
 * Java: Du kan referera till och använda den senaste versionen av vår tal SDK Maven-paketet som stöder endast Windows x64. I maven-projektet lägger du till `https://csspeechstorage.blob.core.windows.net/maven/` som ytterligare en lagrings plats och referens `com.microsoft.cognitiveservices.speech:client-sdk:1.8.0` som ett beroende.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 > [!NOTE]
-> För närvarande stöder vi bara Ubuntu 16,04, Ubuntu 18,04 och Debian 9 på följande mål arkitekturer:
-> - x86, x64 och ARM64 för C++ utveckling
-> - x64 och ARM64 för Java
+> För närvarande stöder vi bara Ubuntu 16,04, Ubuntu 18,04, Debian 9, Red Hat Enterprise Linux (RHEL) 8 och CentOS 8 på följande mål arkitekturer:
+> - x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu) och ARM64 (Debian/Ubuntu) för C++ utveckling
+> - x64, ARM32 (Debian/Ubuntu) och ARM64 (Debian/Ubuntu) för Java
 > - x64 för .NET Core och python
 
 Kontrol lera att du har de nödvändiga biblioteken installerade genom att köra följande Shell-kommandon:
@@ -65,6 +65,16 @@ På Debian 9:
 sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
+
+På RHEL/CentOS 8:
+
+```sh
+sudo yum update
+sudo yum install alsa-lib openssl
+```
+
+> [!NOTE]
+> På RHEL/CentOS 8 följer du anvisningarna för [hur du konfigurerar openssl för Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 * C#: Du kan referera till och använder den senaste versionen av vår tal SDK NuGet-paketet. Lägg till följande paketreferens i projektet om du vill referera till SDK:
 
@@ -86,7 +96,7 @@ sudo apt-get install libssl1.0.2 libasound2
 
   Om du vill skapa ett program, kopiera eller flytta nödvändiga binärfiler (och bibliotek) i din utvecklingsmiljö. Lägga till dem som krävs i Byggprocessen.
 
-# <a name="androidtabandroid"></a>[Android](#tab/android)
+# <a name="android"></a>[Android](#tab/android)
 
 Java SDK för Android paketeras som ett [AAR (Android-bibliotek)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek och nödvändiga Android-behörigheter. Den finns i en maven-lagringsplats på `https://csspeechstorage.blob.core.windows.net/maven/` som paket `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`.
 

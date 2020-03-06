@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 838d65da90ec0daef69375e5a75bcb497a0c3512
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: ada96d0d4b167e30cb6e271aa02d0d399a9ae7d3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900392"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303094"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Välj en Azure-lösning för data överföring
 
@@ -42,7 +42,7 @@ Följande visuella information visar rikt linjerna för att välja olika Azure D
 
 ![Azure Data Transfer tools](media/storage-choose-data-transfer-solution/azure-data-transfer-options-3.png)
 
-**De övre gränserna för offline-överförings enheter – Data Box Disk, Data Box-enhet och Data Box Heavy kan utökas genom att placera flera order av en enhets typ.*
+**de övre gränserna för offline-överförings enheter – data Box disk, data Box-enhet och data Box Heavy kan utökas genom att placera flera order av en enhets typ.*
 
 ## <a name="selecting-a-data-transfer-solution"></a>Välja en data överförings lösning
 
@@ -50,20 +50,19 @@ Besvara följande frågor för att hjälpa dig att välja en data överförings 
 
 - Är din tillgängliga nätverks bandbredd begränsad eller obefintlig, och du vill överföra stora data uppsättningar?
   
-    Om ja, se: [Scenario 1: Överför stora data mängder utan eller låg nätverks bandbredd](storage-solution-large-dataset-low-network.md).
+    Om ja, se: [Scenario 1: överför stora data mängder utan eller låg nätverks bandbredd](storage-solution-large-dataset-low-network.md).
 - Vill du överföra stora data uppsättningar över nätverket och du har en måttlig till hög bandbredd i nätverket?
 
-    Om ja, se: [Scenario 2: Överför stora data uppsättningar med måttlig till hög nätverks bandbredd](storage-solution-large-dataset-moderate-high-network.md).
+    Om ja, se: [Scenario 2: överför stora data uppsättningar med måttlig till hög nätverks bandbredd](storage-solution-large-dataset-moderate-high-network.md).
 - Vill du ibland bara överföra några få filer över nätverket?
 
-    Om ja, se [scenario 3: Överför små data uppsättningar med begränsad till måttlig nätverks bandbredd](storage-solution-small-dataset-low-moderate-network.md).
+    Om ja, se [Scenario 3: överför små data uppsättningar med begränsad till måttlig nätverks bandbredd](storage-solution-small-dataset-low-moderate-network.md).
 - Letar du efter data överföring vid bestämda tidpunkter med jämna mellanrum?
 
-    Om ja, Använd de skript/programmerings alternativ som beskrivs i [scenario 4: Periodiska data](storage-solution-periodic-data-transfer.md)överföringar.
+    Om ja, Använd de skript/programmerings alternativ som beskrivs i [Scenario 4: periodiska data överföringar](storage-solution-periodic-data-transfer.md).
 - Letar du efter kontinuerlig data överföring på väg?
 
-    Om ja, Använd alternativen i [scenario 4: Periodiska data](storage-solution-periodic-data-transfer.md)överföringar.
- 
+    Om ja, Använd alternativen i [Scenario 4: periodiska data överföringar](storage-solution-periodic-data-transfer.md).
 
 ## <a name="data-transfer-feature-in-azure-portal"></a>Data överförings funktion i Azure Portal
 
@@ -74,7 +73,7 @@ Du kan också gå till ditt Azure Storage-konto i Azure Portal och välja funkti
 - [Få en introduktion till Azure Storage Explorer](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
 - [Läs en översikt över AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
 - [Använda Azure PowerShell med Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-powershell-guide-full)
-- [Använd Azure CLI med Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-azure-cli)
+- [Snabb start: skapa, ladda ned och lista blobar med Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 - Lär dig mer om:
 
     - [Azure Data Box, Azure Data Box disk och Azure Data Box Heavy för offline-överföringar](https://docs.microsoft.com/azure/databox/).

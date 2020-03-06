@@ -13,21 +13,21 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 4ffcd82931b4df92aa2885eb043deae90a70526f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 737b25fd4c83c459f033bd7b07f6362909e38056
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695355"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299891"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrera program till MSAL.NET
 
 Både Microsoft Authentication Library för .NET (MSAL.NET) och Azure AD Authentication Library för .NET (ADAL.NET) används för att autentisera Azure AD-entiteter och begära token från Azure AD. Fram till nu har de flesta utvecklare arbetat med Azure AD för utvecklare Platform (v 1.0) för att autentisera Azure AD-identiteter (arbets-och skol konton) genom att begära token med Azure AD Authentication Library (ADAL). Använda MSAL:
 
 - Du kan autentisera en bredare uppsättning av Microsoft-identiteter (Azure AD-identiteter och Microsoft-konton, och sociala och lokala konton via Azure AD B2C) när du använder Microsoft Identity Platform-slutpunkten.
-- användarna får bästa möjliga upplevelse med enkel inloggning.
+- Användarna får bästa möjliga upplevelse med enkel inloggning.
 - ditt program kan möjliggöra stegvist godkännande och stöd för villkorlig åtkomst är enklare
-- du får nytta av innovationen.
+- Du får nytta av innovationen.
 
 **MSAL.net är nu det rekommenderade auth-biblioteket som ska användas med Microsoft Identity Platform**. Inga nya funktioner kommer att implementeras på ADAL.NET. Ansträngningarna fokuserar på att förbättra MSAL.
 
@@ -145,7 +145,7 @@ MSAL.NET gör att token cachelagrar en förseglad klass och tar bort möjlighete
 
 Om du använder https://login.microsoftonline.com/common utfärdare i v 1.0 kan användarna logga in med alla AAD-konton (för alla organisationer). Se [verifiering av auktoritet i ADAL.net](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
 
-Om du använder https://login.microsoftonline.com/common -utfärdaren i v 2.0 kan användarna logga in med valfri AAD-organisation eller ett Microsoft-konto (MSA). I MSAL.NET, om du vill begränsa inloggningen till ett AAD-konto (samma beteende som med ADAL.NET), måste du använda https://login.microsoftonline.com/organizations. Mer information finns i `authority`-parametern i det [offentliga klient programmet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
+Om du använder https://login.microsoftonline.com/common-utfärdaren i v 2.0 kan användarna logga in med valfri AAD-organisation eller ett Microsoft-konto (MSA). I MSAL.NET, om du vill begränsa inloggningen till ett AAD-konto (samma beteende som med ADAL.NET), måste du använda https://login.microsoftonline.com/organizations. Mer information finns i `authority`-parametern i det [offentliga klient programmet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
 
 ## <a name="v10-and-v20-tokens"></a>v 1.0-och v 2.0-token
 
@@ -165,7 +165,7 @@ OAuth2-behörigheter är behörighets omfattningar som ett v 1.0-webb-API (resur
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Omfattningar för att begära åtkomst till specifika OAuth2-behörigheter för ett v 1.0-program
 
-Om du vill hämta token för specifika omfång av ett v 1.0-program (till exempel AAD-grafen, som är https://graph.windows.net) , måste du skapa `scopes` genom att sammanfoga ett önskat resurs-ID med önskad OAuth2-behörighet för resursen.
+Om du vill hämta token för ett program som accepterar v 1.0-token (till exempel Microsoft Graph-API, som är https://graph.microsoft.com), måste du skapa `scopes` genom att sammanfoga ett önskat resurs-ID med önskad OAuth2-behörighet för resursen.
 
 Om du till exempel vill komma åt namnet på användaren a v 1.0 webb-API som app-ID-URI: n är `ResourceId`ska du använda:
 
@@ -173,16 +173,16 @@ Om du till exempel vill komma åt namnet på användaren a v 1.0 webb-API som ap
 var scopes = new [] {  ResourceId+"/user_impersonation"};
 ```
 
-Om du vill läsa och skriva med MSAL.NET Azure Active Directory med hjälp av AAD Graph API (https://graph.windows.net/) , skapar du en lista över omfattningar som i följande kodfragment:
+Om du vill läsa och skriva med MSAL.NET Azure Active Directory med hjälp av Microsoft Graph-API: et (https://graph.microsoft.com/)skapar du en lista över omfattningar som i följande kodfragment:
 
 ```csharp
-ResourceId = "https://graph.windows.net/";
+ResourceId = "https://graph.microsoft.com/";
 var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 
 #### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>Varning! om du har ett eller två snedstreck i omfånget som motsvarar ett v 1.0-webb-API
 
-Om du vill skriva det omfång som motsvarar Azure Resource Manager-API: et (https://management.core.windows.net/) måste du begära följande omfång (Observera de två snedstrecken) 
+Om du vill skriva det omfång som motsvarar Azure Resource Manager-API: et (https://management.core.windows.net/)måste du begära följande omfång (Observera de två snedstrecken) 
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -196,7 +196,7 @@ Detta beror på att Resource Manager-API förväntar sig ett snedstreck i mål g
 Den logik som används av Azure AD är följande:
 - För ADAL-slutpunkt (v 1.0) med en v 1.0-åtkomsttoken (endast möjlig), AUD = Resource
 - För MSAL (v 2.0-slutpunkt) som efterfrågar en åtkomsttoken för en resurs som accepterar v 2.0-token, AUD = Resource. Undanta
-- För MSAL (v 2.0-slutpunkt) som frågar en åtkomsttoken för en resurs som accepterar en v 1.0-åtkomsttoken (vilket är fallet ovan), parsar Azure AD den önskade mål gruppen från det begärda omfånget genom att ta allt före det sista snedstrecket och använda det som resurs-ID. Om https:\//database.windows.net förväntar sig en mål grupp med "https://database.windows.net/ " måste du begära ett omfånget https:\/ /database.windows.net//.default. Se även problem #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): resurs-URL: en avslutande snedstreck utelämnas, vilket orsakade SQL-auth-fel #747
+- För MSAL (v 2.0-slutpunkt) som frågar en åtkomsttoken för en resurs som accepterar en v 1.0-åtkomsttoken (vilket är fallet ovan), parsar Azure AD den önskade mål gruppen från det begärda omfånget genom att ta allt före det sista snedstrecket och använda det som resurs-ID. Om https:\//database.windows.net förväntar sig en mål grupp med "https://database.windows.net/" måste du begära ett omfånget https:\//database.windows.net//.default. Se även problem #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): resurs-URL: en avslutande snedstreck utelämnas, vilket orsakade SQL-auth-fel #747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Omfattningar för att begära åtkomst till alla behörigheter för ett v 1.0-program

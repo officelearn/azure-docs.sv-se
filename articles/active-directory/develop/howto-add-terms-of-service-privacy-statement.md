@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: f28c33f20556825d84edda34752ac64714327526
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 8fc85781f139b45e9e37f6e0f7cc36974041352d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697344"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300017"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Gör så här: konfigurera villkor för service och sekretess policy för en app
 
@@ -43,7 +43,7 @@ Innan du lägger till länkar till appens användar villkor och sekretess policy
 |---------------|---------------------------------------|
 | Format        | Giltig URL                             |
 | Giltiga scheman | HTTP och HTTPS<br/>Vi rekommenderar HTTPS |
-| Högsta längd    | 2048 tecken                       |
+| Max längd    | 2048 tecken                       |
 
 Exempel: `https://myapp.com/terms-of-service` och `https://myapp.com/privacy-statement`
 
@@ -53,7 +53,7 @@ När tjänst villkoren och sekretess policyn är klara kan du lägga till länka
 
 * [Via Azure Portal](#azure-portal)
 * [Använda app Object JSON](#app-object-json)
-* [Använda MSGraph beta REST API](#msgraph-beta-rest-api)
+* [Använda Microsoft Graph API](#msgraph-rest-api)
 
 ### <a name="azure-portal"></a>Använda Azure Portal
 Följ de här stegen i Azure Portal.
@@ -77,12 +77,12 @@ Om du föredrar att ändra programobjekt-JSON direkt kan du använda manifest re
     }
 ```
 
-### <a name="msgraph-beta-rest-api"></a>Använda MSGraph beta REST API
+### <a name="msgraph-rest-api"></a>Använda Microsoft Graph API
 
-Om du vill uppdatera alla dina appar program mässigt kan du använda MSGraph beta REST API för att uppdatera alla dina appar för att inkludera länkar till villkoren för service och sekretess policy.
+Om du vill uppdatera alla dina appar program mässigt kan du använda Microsoft Graph-API: et för att uppdatera alla dina appar för att inkludera länkar till villkoren för service och sekretess policy.
 
 ```
-PATCH https://graph.microsoft.com/beta/applications/{application id}
+PATCH https://graph.microsoft.com/v1.0/applications/{application id}
 { 
     "appId": "{your application id}", 
     "info": { 
@@ -97,4 +97,4 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 
 > [!NOTE]
 > * Var noga med att inte skriva över befintliga värden som du har tilldelat något av dessa fält: `supportUrl`, `marketingUrl`och `logoUrl`
-> * MSGraph beta-REST API fungerar bara när du loggar in med ett Azure AD-konto. Personliga Microsoft-konton stöds inte.
+> * Microsoft Graph API fungerar bara när du loggar in med ett Azure AD-konto. Personliga Microsoft-konton stöds inte.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2019
 ms.author: rogirdh
-ms.openlocfilehash: 63543c0ac34536b736bd4b8cdbd47fdd98e9f9be
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 0e2e16ccc04ff6df80597d646a00c40551e4cfd0
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802213"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302057"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Konfigurera en direkt anslutning mellan Azure och Oracle Cloud Infrastructure  
 
@@ -31,11 +31,11 @@ Följande bild visar en översikt över sammanlänkningen:
 
 ![Nätverks anslutning mellan moln](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du vill upprätta en anslutning mellan Azure och OCI måste du ha en aktiv Azure-prenumeration och ett aktivt OCI-innehav.
 
-* Anslutning är bara möjlig när en peering-plats i Azure ExpressRoute är i närheten av eller på samma peering-plats som OCI-FastConnect. Se [begränsningar för för hands versionen](oracle-oci-overview.md#preview-limitations).
+* Anslutning är bara möjlig när en peering-plats i Azure ExpressRoute är i närheten av eller på samma peering-plats som OCI-FastConnect. Se [region tillgänglighet](oracle-oci-overview.md#region-availability).
 
 * Din Azure-prenumeration måste vara aktive rad för den här för hands versions funktionen.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Lär dig att använda Azure dev Spaces och Azure Kubernetes Services för att ge affärs kontinuitet och förbereda för haveri beredskap
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
 manager: gwallace
-ms.openlocfilehash: 8561486bcf8524d309ba46fcbb4b4d3e180d7c72
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 37c0048bfa7e72b25eb56603fc027045eba25cea
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252390"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295835"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Verksamhets kontinuitet och haveri beredskap i Azure dev Spaces
 
@@ -27,11 +27,9 @@ Genom att aktivera dev Spaces på AKS-kluster i olika regioner kan du återuppta
 
 Allmän information om distributioner av flera regioner i AKS finns i [Planera för distribution i flera regioner](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 
-Information om hur du distribuerar ett AKS-kluster som är kompatibelt med Azure dev Spaces finns i [skapa ett Kubernetes-kluster med hjälp av Azure Cloud Shell](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)
-
 ### <a name="enable-dev-spaces-via-the-azure-portal"></a>Aktivera dev Spaces via Azure Portal
 
-Klicka på navigerings objektet **dev Spaces** under egenskaperna för varje kluster i Azure Portal. Välj sedan alternativet för att aktivera dev Spaces.
+Välj meny alternativet **dev-Spaces** under inställningarna för varje kluster i Azure Portal. Välj sedan alternativet för att aktivera dev Spaces och spara.
 
 ![Aktivera dev Spaces via Azure Portal](../media/common/enable-dev-spaces.jpg)
 
@@ -53,7 +51,7 @@ Du bör distribuera de senaste versionerna av din bas linje uppsättning av tjä
 
 ## <a name="select-the-correct-aks-cluster-to-use-for-dev-spaces"></a>Välj rätt AKS-kluster som ska användas för dev Spaces
 
-När du har konfigurerat ett säkerhets kopierings kluster som kör din grupps bas linje kan du snabbt växla över till säkerhets kopierings klustret när som helst. Sedan kan du köra om de enskilda tjänster som du arbetar med i dev-utrymmen.
+När du har konfigurerat ett säkerhets kopierings kluster som kör din grupps bas linje kan du snabbt växla över till säkerhets kopierings klustret när som helst. Sedan kan du köra om de enskilda tjänster som du arbetar med i underordnade dev-utrymmen.
 
 Välj ett annat kluster med följande CLI-kommando:
 

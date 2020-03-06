@@ -3,12 +3,12 @@ title: Lagra Helm-diagram
 description: Lär dig hur du lagrar Helm-diagram för dina Kubernetes-program med hjälp av databaser i Azure Container Registry
 ms.topic: article
 ms.date: 01/28/2020
-ms.openlocfilehash: 26588bb4dc3cf50656103b50d5d0559908a1ccb7
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 7969efe37558fffb26b983131c56ae11f3ef9368
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524640"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398966"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Push-och pull-Helm diagram till ett Azure Container Registry
 
@@ -118,7 +118,7 @@ helm chart push mycontainerregistry.azurecr.io/helm/wordpress:latest
 
 Efter en lyckad push liknar utdata följande:
 
-```console
+```output
 The push refers to repository [mycontainerregistry.azurecr.io/helm/wordpress]
 ref:     mycontainerregistry.azurecr.io/helm/wordpress:latest
 digest:  5899db028dcf96aeaabdadfa5899db025899db025899db025899db025899db02
@@ -141,7 +141,7 @@ az acr repository show \
 
 Utdata liknar följande:
 
-```console
+```output
 {
   "changeableAttributes": {
     "deleteEnabled": true,
@@ -168,7 +168,7 @@ az acr repository show-manifests \
 
 Utdata, förkortat i det här exemplet, visar en `configMediaType` av `application/vnd.cncf.helm.config.v1+json`:
 
-```console
+```output
 [
   {
     [...]
@@ -216,7 +216,7 @@ helm inspect chart wordpress
 
 När inget versions nummer anges används den *senaste* versionen. Helm returnerar detaljerad information om diagrammet, som du ser i följande komprimerade utdata:
 
-```
+```output
 apiVersion: v1
 appVersion: 5.3.2
 dependencies:
@@ -256,7 +256,7 @@ helm install wordpress --generate-name
 
 När installationen fortsätter följer du anvisningarna i kommandots utdata för att se WorPress-URL: er och autentiseringsuppgifter. Du kan också köra kommandot `kubectl get pods` för att se de Kubernetes-resurser som distribueras via Helm-diagrammet:
 
-```console
+```output
 NAME                                    READY   STATUS    RESTARTS   AGE
 wordpress-1598530621-67c77b6d86-7ldv4   1/1     Running   0          2m48s
 wordpress-1598530621-mariadb-0          1/1     Running   0          2m48s
@@ -311,7 +311,7 @@ helm fetch stable/wordpress
 
 Skriv `ls` för att lista det hämtade diagrammet och anteckna WordPress-versionen som ingår i fil namnet. Det gick inte att ange en viss version av `helm fetch stable/wordpress` kommandot, så den *senaste* versionen hämtades. I följande exempel utdata är WordPress-diagrammet version *8.1.0*:
 
-```
+```output
 wordpress-8.1.0.tgz
 ```
 
@@ -323,7 +323,7 @@ az acr helm push --name mycontainerregistry wordpress-8.1.0.tgz
 
 Efter en liten stund rapporterar Azure CLI att diagrammet sparas, vilket visas i följande exempel på utdata:
 
-```
+```output
 {
   "saved": true
 }
@@ -345,7 +345,7 @@ helm search mycontainerregistry
 
 WordPress-diagrammet som du publicerade i föregående steg visas i listan, som du ser i följande exempel:
 
-```
+```output
 NAME                CHART VERSION   APP VERSION DESCRIPTION
 helmdocs/wordpress  8.1.0           5.3.2       Web publishing platform for building blogs and websites.
 ```
@@ -366,7 +366,7 @@ helm inspect mycontainerregistry/wordpress
 
 När inget versions nummer anges används den *senaste* versionen. Helm returnerar detaljerad information om diagrammet, som du ser i följande komprimerade exempel utdata:
 
-```
+```output
 apiVersion: v1
 appVersion: 5.3.2
 description: Web publishing platform for building blogs and websites.
@@ -416,7 +416,7 @@ Följande steg slutförs under installations processen:
 
 När installationen fortsätter följer du anvisningarna i kommandots utdata för att se WorPress-URL: er och autentiseringsuppgifter. Du kan också köra kommandot `kubectl get pods` för att se de Kubernetes-resurser som distribueras via Helm-diagrammet:
 
-```
+```output
 NAME                                    READY   STATUS    RESTARTS   AGE
 wordpress-1598530621-67c77b6d86-7ldv4   1/1     Running   0          2m48s
 wordpress-1598530621-mariadb-0          1/1     Running   0          2m48s

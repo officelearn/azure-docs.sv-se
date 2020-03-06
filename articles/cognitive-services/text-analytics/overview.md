@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/07/2019
+ms.date: 03/04/2020
 ms.author: aahi
-ms.openlocfilehash: 66bc1e5441210b8d9153812c826643159fe53d50
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: a9519be591581fa434825f1a1fb31749788a21a8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251317"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395719"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Vad är API för textanalys?
 
@@ -64,6 +64,7 @@ Data lagras inte på ditt konto. Åtgärder som utförs av API för textanalys �
 Du kan börja använda API för textanalys i dina processer, även om du inte har mycket erfarenhet av programmering. Använd de här självstudierna för att lära dig hur du kan använda API: t för att analysera text på olika sätt för att passa din erfarenhets nivå. 
 
 * Minimal programmering krävs:
+    * [Extrahera information i Excel med Textanalys och energi automatisering](tutorials/extract-excel-information.md)
     * [Använd API för textanalys och MS Flow för att identifiera sentiment av kommentarer i en Yammer-grupp](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
     * [Integrera Power BI med API för textanalys för att analysera feedback från kunder](tutorials/tutorial-power-bi-key-phrases.md)
 * Programmerings upplevelse rekommenderas:

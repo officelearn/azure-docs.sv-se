@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 00fc836f098f3c03afc9adebe2450f00750eb5ff
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4882206692c334d6ab6af28feb5d2cba5277eea1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954107"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303944"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
@@ -34,7 +34,7 @@ I den här kursen ska du:
 > [!NOTE]
 > Den här självstudien visar hur du flyttar virtuella Azure-datorer från en region till en annan. Om du behöver förbättra tillgängligheten genom att flytta virtuella datorer i en tillgänglighets uppsättning till zon fästa virtuella datorer i en annan region, se avsnittet [flytta virtuella Azure-datorer till Tillgänglighetszoner själv studie kursen](move-azure-vms-avset-azone.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Se till att de virtuella Azure-datorerna finns i den Azure-region som du vill flytta.
 - Kontrol lera att valet av [käll region – kombination av mål region stöds](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support)och fatta ett informerat beslut om mål regionen.
@@ -73,7 +73,7 @@ I den här kursen ska du:
     - [Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Lastbalanserare](https://docs.microsoft.com/azure/load-balancer)
     -  [Offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md)
-    - Information om andra nätverks komponenter finns i [dokumentationen till nätverket](https://docs.microsoft.com/azure/#pivot=products&panel=network).
+    - Information om andra nätverks komponenter finns i [dokumentationen till nätverket](https://docs.microsoft.com/azure/?pivot=products&panel=network).
 
 
 
@@ -111,11 +111,11 @@ Följande steg visar hur du utför flytten till mål regionen.
 
 1. Gå till valvet. I **inställningar** > **replikerade objekt**väljer du den virtuella datorn och väljer sedan **redundans**.
 2. I **Redundans** väljer du **Senaste**.
-3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella källdatorn innan redundansen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundans på sidan **Jobb**.
+3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella källdatorn innan redundansen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
 4. När jobbet är klart kontrollerar du att den virtuella datorn visas i Azure-regionen som förväntat.
 
 
-## <a name="discard"></a>Avvisa 
+## <a name="discard"></a>Ignorera 
 
 Om du har markerat den flyttade virtuella datorn och behöver göra ändringen till platsen för redundans eller vill gå tillbaka till en tidigare plats, högerklickar du på den virtuella datorn > **ändra återställnings punkt**i de **replikerade objekten**. Det här steget ger dig möjlighet att ange en annan återställnings punkt och redundansväxla till den. 
 

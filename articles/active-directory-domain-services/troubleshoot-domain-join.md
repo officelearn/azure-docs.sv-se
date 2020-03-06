@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 286e2ad460e98cfeceab52a3ac21bcba8da2cc7f
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: f187dba4eace61695a72e4b7b08731e65ff0d7f9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612799"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299116"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Felsök problem med domän anslutning med en Azure AD Domain Services hanterad domän
 
@@ -55,7 +55,7 @@ Information om hur du felsöker problem med autentiseringsuppgifter finns i föl
 
 1. Försök att använda UPN-formatet för att ange autentiseringsuppgifter, till exempel `dee@aaddscontoso.onmicrosoft.com`. Kontrol lera att detta UPN är korrekt konfigurerat i Azure AD.
     * *SAMAccountName* för ditt konto kan skapas automatiskt om det finns flera användare med samma UPN-prefix i din klient eller om ditt UPN-prefix är för långt. Därför kan *sAMAccountName* -formatet för ditt konto skilja sig från vad du förväntar dig eller använder i din lokala domän.
-1. Försök att använda autentiseringsuppgifterna för ett användar konto som tillhör gruppen *AAD DC-administratörer* för att ansluta virtuella datorer till den hanterade Azure AD DS-domänen.
+1. Försök att använda autentiseringsuppgifterna för ett användar konto som är en del av den hanterade Azure AD DS-domänen för att ansluta virtuella datorer till den hanterade domänen.
 1. Kontrol lera att du har [aktiverat][enable-password-sync] Lösenordssynkronisering och väntar tillräckligt länge för att den första lösen ords synkroniseringen ska slutföras.
 
 ## <a name="next-steps"></a>Nästa steg

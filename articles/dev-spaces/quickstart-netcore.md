@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Den här snabb starten visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett .NET Core-program i Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: f3e91ec11e054e0a069eb97a3700b051476be0a1
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 7c97c42448700fdf1f69cbbef68a407716aabfd2
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251990"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399502"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Snabb start: Felsöka och iterera på Kubernetes: Visual Studio Code och .NET Core – Azure dev Spaces
 
@@ -110,6 +110,9 @@ Det här kommandot skapar och kör tjänsten i Azure dev Spaces i fel söknings 
 > Om du inte ser några Azure dev Spaces-kommandon i *paletten*, kontrol lera att du har installerat [Visual Studio Code-tillägget för Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Kontrol lera också att du *har öppnat katalogen dev-Spaces/samples/dotnetcore/Startbok/webfrontend* i Visual Studio Code.
 
 Du kan se den tjänst som körs genom att öppna den offentliga URL: en.
+
+> [!Note]
+> Inlednings vis kan den offentliga webb adressen Visa ett *felaktigt Gateway* -fel. Vänta några sekunder innan du uppdaterar webb sidan och se till att tjänsten körs.
 
 Klicka på *Felsök* och *stoppa* fel sökningen för att stoppa fel söknings programmet.
 

@@ -8,13 +8,13 @@ author: Blackmist
 ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.openlocfilehash: f46dd2b30ca84a7e6a1b0fc34ef0fa5bafffaef5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 03/05/2020
+ms.openlocfilehash: 68b7dfbf61f5d353f394bfbc034e00fddd262cd1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721123"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78344014"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Träna modeller med Azure Machine Learning
 
@@ -22,12 +22,14 @@ Azure Machine Learning tillhandahåller flera olika sätt att träna modeller, f
 
 + [Azure Machine Learning SDK för python](#python-sdk): python SDK tillhandahåller flera olika sätt att träna modeller, var och en med olika funktioner.
 
-    | Utbildnings metod | Description |
+    | Utbildnings metod | Beskrivning |
     | ----- | ----- |
     | [Kör konfiguration](#run-configuration) | Ett **allmänt sätt att träna modeller** är att använda ett utbildnings skript och köra konfiguration. Kör konfigurationen tillhandahåller den information som behövs för att konfigurera den utbildnings miljö som används för att träna din modell. Du kan ta en körnings konfiguration, ditt utbildnings skript och ett beräknings mål (inlärnings miljön) och köra ett utbildnings jobb. |
     | [Automatisk maskin inlärning](#automated-machine-learning) | Med automatisk maskin inlärning kan du **träna modeller utan omfattande data vetenskap eller programmerings kunskap**. För personer med data vetenskap och programmerings bakgrund är det ett sätt att spara tid och resurser genom att automatisera val av algoritmer och justering av den valda parametern. Du behöver inte bekymra dig om att definiera en körnings konfiguration när du använder automatisk maskin inlärning. |
     | [Kostnadsberäknare](#estimators) | Uppskattnings klasser **gör det enkelt att träna modeller baserat på populära ramverk för maskin inlärning**. Det finns uppskattnings klasser för **Scikit-lära**, **PyTorch**, **TensorFlow**och **kedjor**. Det finns också en generisk uppskattning som kan användas med ramverk som inte redan har en dedikerad uppskattnings klass. Du behöver inte bekymra dig om att definiera en körnings konfiguration när du använder uppskattningar. |
     | [Maskin inlärnings pipeline](#machine-learning-pipeline) | Pipelines är inte en annan utbildnings metod, men ett **sätt att definiera ett arbets flöde med modulära, återanvändbara steg**som kan innefatta utbildning som en del av arbets flödet. Maskin inlärnings pipeliner har stöd för automatisk maskin inlärning, uppskattningar och körning av konfiguration för att träna modeller. Eftersom pipelines inte fokuserar på utbildning, är orsakerna till att använda en pipeline mer varierade än andra utbildnings metoder. I allmänhet kan du använda en pipeline när:<br>* Du vill **Schemalägga obevakade processer** , t. ex. tids krävande utbildnings jobb eller förberedelse av data.<br>* Använd **flera steg** som är koordinerade över heterogena beräknings resurser och lagrings platser.<br>* Använd pipelinen som en **återanvändbar mall** för vissa scenarier, till exempel omskolning eller batch-poäng.<br>* **spårnings-och versions data källor, indata och utdata** för arbets flödet.<br>* Ditt arbets flöde **implementeras av olika team som arbetar på vissa steg oberoende av varandra**. Steg kan sedan kopplas ihop i en pipeline för att implementera arbets flödet. |
+
++ [Azure Machine Learning SDK för python](#r-sdk): SDK använder Reticulate-paketet för att binda till Azure Machine learnings python SDK. På så sätt kan du komma åt kärn objekt och metoder som implementeras i python SDK från valfri R-miljö.
 
 + **Designer**: Azure Machine Learning designer (för hands version) ger dig en lätt ingångs punkt i maskin inlärning för att skapa bevis på begrepp eller för användare med lite kodnings upplevelse. Det gör att du kan träna modeller med ett webbaserat användar gränssnitt med dra och släpp. Du kan använda python-kod som en del av designen eller träna modeller utan att skriva någon kod.
 
@@ -61,7 +63,7 @@ Definiera iterationer, inställningar för funktionalisering och andra inställn
 > [!TIP]
 > Förutom python SDK kan du också använda automatisk ML via [Azure Machine Learning Studio](https://ml.azure.com).
 
-* [Vad är automatisk maskin inlärning?](concept-automated-ml.md)
+* [Vad är automatiserad maskininlärning?](concept-automated-ml.md)
 * [Självstudie: skapa din första klassificerings modell med automatiserad maskin inlärning](tutorial-first-experiment-automated-ml.md)
 * [Självstudie: Använd automatisk maskin inlärning för att förutse taxi priser](tutorial-auto-train-models.md)
 * [Exempel: Jupyter Notebook exempel för automatisk maskin inlärning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
@@ -88,6 +90,15 @@ Maskin inlärnings pipeliner kan använda de tidigare nämnda utbildnings metode
 * [Exempel: Jupyter Notebook exempel för maskin inlärnings pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Exempel: pipeline med automatiserad maskin inlärning](https://aka.ms/pl-automl)
 * [Exempel: pipeline med uppskattningar](https://aka.ms/pl-estimator)
+
+## <a name="r-sdk"></a>R SDK
+
+Med R SDK kan du använda R-språket med Azure Machine Learning. SDK använder Reticulate-paketet för att binda till Azure Machine Learnings python SDK. På så sätt kan du komma åt kärn objekt och metoder som implementeras i python SDK från valfri R-miljö.
+
+Mer information finns i följande artiklar:
+
+* [Självstudie: skapa en logistik Regressions modell](tutorial-1st-r-experiment.md)
+* [Azure Machine Learning SDK för R-referens](https://azure.github.io/azureml-sdk-for-r/index.html)
 
 ## <a name="azure-machine-learning-designer"></a>Azure Machine Learning designer
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 26de7a6d05bde8d80e22bd8801ae9b5dc8faeb36
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: d920bde856521f1e662536c1187881e143612039
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669564"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359100"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Utforma virtuella nätverk med NAT-gateway-resurser (offentlig för hands version)
 
@@ -335,7 +335,7 @@ En SNAT-port är tillgänglig för åter användning till samma mål-IP-adress o
 ## <a name="limitations"></a>Begränsningar
 
 - NAT är kompatibelt med standard-SKU offentlig IP, offentliga IP-prefix och belastnings Utjämnings resurser.   Grundläggande resurser (till exempel grundläggande belastningsutjämnare) och alla produkter som härletts från dem är inte kompatibla med NAT.  Grundläggande resurser måste placeras i ett undernät som inte har kon figurer ATS med NAT.
-- IPv4-adress familjen stöds.  NAT interagerar inte med IPv6-adress familjen.
+- IPv4-adress familjen stöds.  NAT interagerar inte med IPv6-adress familjen.  Det går inte att distribuera NAT i ett undernät med IPv6-prefix.
 - NSG Flow-loggning stöds inte när NAT används.
 - NAT kan inte omfatta flera virtuella nätverk.
 
@@ -349,21 +349,25 @@ Vi vill veta hur vi kan förbättra tjänsten. Dela din [feedback om den offentl
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [NAT för virtuella nätverk](nat-overview.md).
-- Självstudie för att verifiera NAT-gateway
-  * [Azure CLI](tutorial-create-validate-nat-gateway-cli.md),
-  * [PowerShell](tutorial-create-validate-nat-gateway-cli.md),
-  * [Portalen](tutorial-create-validate-nat-gateway-cli.md)
-- Snabb start för distribution av en NAT-gateway-resurs
-  * [Azure CLI](./quickstart-create-nat-gateway-cli.md),
-  * [PowerShell](./quickstart-create-nat-gateway-powershell.md),
-  * [Portal](./quickstart-create-nat-gateway-portal.md).
-- Lär dig mer om [tillgänglighets zoner](../availability-zones/az-overview.md).
-- Läs mer om [standard Load Balancer](../load-balancer/load-balancer-standard-overview.md).
-- Lär dig mer om [tillgänglighets zoner och standard Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md).
-- Läs mer om resurs-API för NAT-gateway
-  * [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways),
-  * [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest),
-  * [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
-- [Berätta för oss vad du ska bygga härnäst i UserVoice](https://aka.ms/natuservoice).
-- [Ge feedback om den offentliga för hands versionen](https://aka.ms/natfeedback).
+* Läs mer om [NAT för virtuella nätverk](nat-overview.md).
+* Lär dig mer om [mått och aviseringar för NAT gateway-resurser](nat-metrics.md).
+* Lär dig mer om att [Felsöka resurser för NAT-gateway](troubleshoot-nat.md).
+* [Berätta för oss vad du ska bygga härnäst för Virtual Network NAT i UserVoice](https://aka.ms/natuservoice).
+* [Ge feedback om den offentliga för hands versionen](https://aka.ms/natfeedback).
+* Självstudie för att verifiera NAT-gateway
+  - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md),
+  - [PowerShell](tutorial-create-validate-nat-gateway-cli.md),
+  - [Portal](tutorial-create-validate-nat-gateway-cli.md)
+* Snabb start för distribution av en NAT-gateway-resurs
+  - [Azure CLI](./quickstart-create-nat-gateway-cli.md),
+  - [PowerShell](./quickstart-create-nat-gateway-powershell.md),
+  - [Portal](./quickstart-create-nat-gateway-portal.md).
+* Lär dig mer om resurs-API för NAT-gateway
+  - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways),
+  - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest),
+  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
+* Lär dig mer om [tillgänglighets zoner](../availability-zones/az-overview.md).
+* Läs mer om [standard Load Balancer](../load-balancer/load-balancer-standard-overview.md).
+* Lär dig mer om [tillgänglighets zoner och standard Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md).
+
+

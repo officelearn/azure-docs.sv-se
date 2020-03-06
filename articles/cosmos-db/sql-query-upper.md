@@ -4,15 +4,15 @@ description: Lär dig mer om SQL system-funktionen i övre Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 9809a138a5e28eb069d545d39cfda815c915bd78
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 5129b4fffafb6918f655263cac2f5564635acf36
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75728896"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303978"
 ---
 # <a name="upper-azure-cosmos-db"></a>ÖVRE (Azure Cosmos DB)
  Returnerar ett stränguttryck efter att teckendata med gemener har konverterats till versaler.  
@@ -47,6 +47,10 @@ SELECT UPPER("Abc") AS upper
 ```json
 [{"upper": "ABC"}]  
 ```
+
+## <a name="remarks"></a>Anmärkningar
+
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 

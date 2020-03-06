@@ -6,18 +6,18 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 934853b80c6e6377923df4c2b5cce7b7d7d57d7c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: bbdd1bedb7b9a9f00a0b65ccc4c108ba6fd2638c
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754933"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398944"
 ---
 # <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Optimera läsning och skrivning av kostnader i Azure Cosmos DB
 
 Den här artikeln beskriver hur den kostnad som krävs för att läsa och skriva data från Azure Cosmos DB beräknas. Läs åtgärder omfattar Hämta åtgärder för objekt och skriv åtgärder omfattar Infoga, Ersätt, ta bort och upsert av objekt.  
 
-## <a name="cost-of-reads-and-writes"></a>Kostnader för läsningar och skrivningar
+## <a name="cost-of-reads-and-writes"></a>Kostnaden för läsningar och skrivningar
 
 Azure Cosmos DB garanterar förutsägbar prestanda med avseende på data flöde och latens med hjälp av en etablerad data flödes modell. Det data flöde som tillhandahålls är representerat i [enheter för programbegäran](request-units.md) per sekund eller ru/s. En enhet för programbegäran (RU) är en logisk abstraktion över beräknings resurser, till exempel processor, minne, IO, osv. som krävs för att utföra en begäran. Det etablerade data flödet (ru: er) har tagits ur bruk och är dedikerat för din behållare eller databas för att tillhandahålla förutsägbart data flöde och svars tider. Med det etablerade data flödet kan Azure Cosmos DB tillhandahålla förutsägbara och konsekventa prestanda, garanterad låg latens och hög tillgänglighet i valfri skala. Enheter för programbegäran representerar den normaliserade valutan som fören klar orsaken till hur många resurser ett program behöver. 
 
@@ -29,14 +29,6 @@ Du behöver inte tänka på att särskilja enheter för programbegäran mellan l
 |100 kB |10 RU:er |50 ru: er |
 
 Läsning av ett objekt som är 1 KB i storlek kostar ett RU. Skriver ett objekt som är 1-KB-kostnad fem ru: er. Läs-och skriv kostnaderna gäller när du använder standard nivån för sessionens [konsekvens](consistency-levels.md).  Överväganden kring ru: er omfattar: objekt storlek, antal egenskaper, data konsekvens, indexerade egenskaper, indexering och fråge mönster.
-
-## <a name="normalized-cost-for-1-million-reads-and-writes"></a>Normaliserad kostnad för 1 000 000 läsningar och skrivningar
-
-Etableringen 1 000 RU/s översätts till 3 600 000 RU/timme och kommer att kosta $0,08 för timmen (i USA och Europa). För ett objekt på 1 KB kan du utföra 3 600 000 läsningar eller 720 000 skrivningar (detta värde beräknas som: `3.6 million RU / 5`) per timme med det etablerade data flödet. Normaliserat till miljon läsningar och skrivningar blir kostnaden $0,022 för 1 000 000 läsningar (detta värde beräknas som: $0,08/3.6 miljoner) och $0,111 för 1 000 000 skrivningar (detta värde beräknas som: $0,08/0,72 miljoner).
-
-## <a name="number-of-regions-and-the-request-units-cost"></a>Antal regioner och kostnader för enheter för begäran
-
-Kostnaden för skrivningar är konstant oavsett hur många regioner som är associerade med Azure Cosmos-kontot. Med andra ord kommer en 1 KB-skrivning att kosta fem ru: er oberoende av antalet regioner som är associerade med kontot. Det finns en icke-trivial mängd resurser som ägnas åt att replikera, acceptera och bearbeta replikeringstrafiken i varje region. Mer information om kostnads optimering i flera regioner finns i artikeln [om att optimera kostnaden för Cosmos-konton med flera regioner](optimize-cost-regions.md) .
 
 ## <a name="optimize-the-cost-of-writes-and-reads"></a>Optimera kostnaden för skrivningar och läsningar
 

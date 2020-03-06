@@ -1,18 +1,18 @@
 ---
 title: IS_NULL i Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL system Function IS_NULL i Azure Cosmos DB.
+description: Lär dig mer om SQL system-funktionen IS_NULL i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 20486b8f8c0436d264135bb09952345548222216
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4dbf21c3052ddd5ebdd62925e65a854c47f59017
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349855"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303842"
 ---
 # <a name="is_null-azure-cosmos-db"></a>IS_NULL (Azure Cosmos DB)
  Returnerar ett booleskt värde som anger om vilken typ av det angivna uttrycket är null.  
@@ -52,6 +52,10 @@ SELECT
 ```json
 [{"isNull1":false,"isNull2":false,"isNull3":false,"isNull4":true,"isNull5":false,"isNull6":false,"isNull7":false}]
 ```  
+
+## <a name="remarks"></a>Anmärkningar
+
+Den här systemfunktionen kommer att ha nytta av ett [intervall index](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,18 +1,18 @@
 ---
 title: IS_DEFINED i Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL system Function IS_DEFINED i Azure Cosmos DB.
+description: Lär dig mer om SQL system-funktionen IS_DEFINED i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2c3193262a41b3c6772d4fe29c78a132bc51bbd8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a5fcaf52d8e9e6b942a95f0b0c43f3f654c5d5d2
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349882"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303859"
 ---
 # <a name="is_defined-azure-cosmos-db"></a>IS_DEFINED (Azure Cosmos DB)
  Returnerar ett booleskt värde som anger huruvida egenskapen har tilldelats ett värde.  
@@ -45,6 +45,10 @@ SELECT IS_DEFINED({ "a" : 5 }.a) AS isDefined1, IS_DEFINED({ "a" : 5 }.b) AS isD
 ```json
 [{"isDefined1":true,"isDefined2":false}]  
 ```  
+
+## <a name="remarks"></a>Anmärkningar
+
+Den här systemfunktionen kommer att ha nytta av ett [intervall index](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Nästa steg
 

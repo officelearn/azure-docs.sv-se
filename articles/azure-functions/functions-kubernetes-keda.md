@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 83c57b27c1cd1d524805a92381a1ba9eb2e1fbd6
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 2c06fdba8f60243acf4e0fabd23df8b832c210db
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549044"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301683"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions på Kubernetes med KEDA
 
@@ -20,7 +20,7 @@ Azure Functions runtime ger flexibilitet i värd och hur du vill.  [KEDA](https:
 
 Azure Functionss tjänsten består av två viktiga komponenter: en körnings miljö och en skalnings styrenhet.  Functions-körningen körs och kör koden.  Körningen innehåller logik för att utlösa, logga och hantera funktions körningar.  Azure Functions körningen kan köras *var som helst*.  Den andra komponenten är en skalnings styrenhet.  Skalnings styrenheten övervakar händelse frekvensen som är riktad mot din funktion och skalar i proaktivt antalet instanser som kör din app.  Läs mer i [Azure Functions skala och vara värd](functions-scale.md).
 
-Kubernetes-baserade funktioner tillhandahåller Functions-körning i en [Docker-behållare](functions-create-function-linux-custom-image.md) med händelse driven skalning via KEDA.  KEDA kan skala ned till 0 instanser (när inga händelser inträffar) och upp till *n* instanser. Detta sker genom att de anpassade måtten exponeras för Kubernetes autoskalning (horisontell Pod autoskalning).  Med hjälp av Functions-behållare med KEDA kan du replikera Server lös funktions funktioner i ett Kubernetes-kluster.  Dessa funktioner kan också distribueras med funktionen [virtuella AKS-noder (Azure Kubernetes Services)](../aks/virtual-nodes-cli.md) för Server lös infrastruktur.
+Kubernetes-baserade funktioner tillhandahåller Functions-körning i en [Docker-behållare](functions-create-function-linux-custom-image.md) med händelse driven skalning via KEDA.  KEDA kan skala in till 0 instanser (när inga händelser inträffar) och ut till *n* -instanser. Detta sker genom att de anpassade måtten exponeras för Kubernetes autoskalning (horisontell Pod autoskalning).  Med hjälp av Functions-behållare med KEDA kan du replikera Server lös funktions funktioner i ett Kubernetes-kluster.  Dessa funktioner kan också distribueras med funktionen [virtuella AKS-noder (Azure Kubernetes Services)](../aks/virtual-nodes-cli.md) för Server lös infrastruktur.
 
 ## <a name="managing-keda-and-functions-in-kubernetes"></a>Hantera KEDA och funktioner i Kubernetes
 
@@ -73,7 +73,7 @@ Steg för att avinstallera KEDA dokumenteras [på KEDA-webbplatsen](https://keda
 
 KEDA har stöd för följande Azure Function-utlösare:
 
-* [Azure Storage-köer](functions-bindings-storage-queue.md)
+* [Azure Storage köer](functions-bindings-storage-queue.md)
 * [Azure Service Bus köer](functions-bindings-service-bus.md)
 * [Azure Event/IoT-hubbar](functions-bindings-event-hubs.md)
 * [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
@@ -83,7 +83,7 @@ KEDA har stöd för följande Azure Function-utlösare:
 
 Du kan använda Azure Functions som exponerar HTTP-utlösare, men KEDA inte direkt hanterar dem.  Du kan utnyttja KEDA Prometheus-utlösaren för att [skala HTTP-Azure Functions från 1 till *n* instanser](https://dev.to/anirudhgarg_99/scale-up-and-down-a-http-triggered-function-app-in-kubernetes-using-keda-4m42).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Mer information finns i följande resurser:
 
 * [Skapa en funktion med en anpassad avbildning](functions-create-function-linux-custom-image.md)

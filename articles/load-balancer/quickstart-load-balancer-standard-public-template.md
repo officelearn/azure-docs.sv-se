@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: allensu
-ms.custom: mvc
-ms.openlocfilehash: e5b9b989ed8111e2bf36194ae2c8a333db7e66b4
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.custom: mvc,subject-armqs
+ms.openlocfilehash: 1f681a9a8d8547589873cff055d9f59973c27355
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650815"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295793"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Snabb start: skapa en Load Balancer för att belastningsutjämna virtuella datorer med Azure Resource Manager-mall
 
@@ -91,7 +91,7 @@ Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell
 
 ## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj **resurs grupper** i det vänstra fönstret.
 

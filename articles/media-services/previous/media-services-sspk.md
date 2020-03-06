@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 3e7742e7035f3c4f4827a2edae1ad5a705aa221f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 67507dc571b3fab93e61e70c1e8282ee5c0a4630
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693414"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301394"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licens för Microsoft® Smooth Streaming client porting kit 
 ## <a name="overview"></a>Översikt
-Microsoft Smooth Streaming client porting Kit (**SSPK** för kort) är en Smooth Streaming klient implementering som är optimerad för att hjälpa till med inbäddade enhets tillverkare, kablar och mobila operatörer, leverantörer av leverantörs tjänster, leverantörer av mobila enheter, oberoende program varu leverantörer (ISV) och lösnings leverantörer för att skapa produkter och tjänster för att strömma anpassat innehåll i Smooth Streaming-format. SSPK är en enhets-och plattforms oberoende implementering av Smooth Streaming-klienten som kan Portas av licensen till alla enheter och plattformar. 
+Microsoft Smooth Streaming client Solution Kit (**SSPK** för kort) är en Smooth Streaming klient implementering som är optimerad för att hjälpa inbäddade enhets tillverkare, kablar och mobila operatörer, leverantörer av innehålls tjänster, driv rutiner, oberoende program varu leverantörer (ISV: er) och lösnings leverantörer att skapa produkter och tjänster för att strömma anpassningsbart innehåll i Smooth Streaming-format. SSPK är en enhets-och plattforms oberoende implementering av Smooth Streaming-klienten som kan Portas av licensen till alla enheter och plattformar. 
 
 Nedan följer en övergripande arkitektur och en IIS Smooth Streaming porting Kit-Box är den Smooth Streaming klient implementering som tillhandahålls av Microsoft och innehåller all huvud logik för uppspelning av Smooth Streaming innehåll. Innehållet hamnar sedan av partner för en speciell enhet eller plattform genom att implementera lämpliga gränssnitt. 
 
@@ -48,7 +48,7 @@ SSPK är licensierad för villkor som erbjuder utmärkt affärs värde. SSPK-lic
   * exempel på PAL-implementering för Linux
   * exempel-HAL-implementering för GStreamer
 
-## <a name="licensing-options"></a>Licensieringsalternativ
+## <a name="licensing-options"></a>Licensierings alternativ
 Microsoft Smooth Streaming client porting kit görs tillgängligt för licenser under två olika licens avtal: en för att utveckla Smooth Streaming klientens interimistiska produkter och en annan för att distribuera Smooth Streaming slut produkter till slutanvändare.
 
 * För krets uppsättnings tillverkare, system integrerare eller oberoende program varu leverantörer (ISV) som kräver en kod för käll kods transport för att utveckla tillfälliga produkter, ska en **tillfällig produkt licens** för Microsoft Smooth Streaming client porting kit köras.
@@ -86,7 +86,7 @@ De tillfälliga och slutgiltiga SSPK-licenserna kan skicka tekniska frågor till
 * Alticast Corporation
 * Amazon Digital Services, Inc.
 * Arion Technology, Inc.
-* AVC multimedie program co., Ltd.
+* AVC Multimedia Software Co., Ltd.
 * Cavium, Inc.
 * EchoStar inköps företag
 * Enseo, Inc.
@@ -98,14 +98,13 @@ De tillfälliga och slutgiltiga SSPK-licenserna kan skicka tekniska frågor till
 * Frihets globala tjänster BV
 * MediaTek Inc.
 * MStar Co, Ltd
-* Nintendo co., Ltd.
+* Nintendo Co., Ltd.
 * OpenTV, Inc.
 * Saffron Digital Limited
 * Sichuan Changhong Electric Co., Ltd
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology Inc.
-* TCL Technology Electronics (Huizhou) Co., Ltd.
 * De främsta Victory-investeringarna, Ltd.
 * Vestel elektronik Sanayi ve Ticaret.
 * VisualOn, Inc.
@@ -129,16 +128,16 @@ De tillfälliga och slutgiltiga SSPK-licenserna kan skicka tekniska frågor till
 * FilmFlex filmer begränsade
 * Fluendo-och Sydamerika
 * FUNAI ELECTRIC CO., LTD
-* Gibson innovationer Limited
+* Gibson Innovations Limited
 * Haier information: sökande S. R. L
 * HANDAN BroadInfoCom co., Ltd.
 * Hisense International co., Ltd. 
 * Homecast co., Ltd
 * Hon Hai precision Industry Co., Ltd.
 * Infomir GMBH
-* Kaonmedia co., Ltd.
+* Kaonmedia Co., Ltd.
 * KDDI Corporation
-* Nintendo co., Ltd.
+* Nintendo Co., Ltd.
 * Orange SA
 * Saffron Digital Limited
 * Sagemcom bred band SAS
@@ -152,9 +151,8 @@ De tillfälliga och slutgiltiga SSPK-licenserna kan skicka tekniska frågor till
 * SmarDTV-och Sydamerika
 * SoftAtHome
 * Sony Corporation
-* TCL utrikes marknadsföring (Macao SAR kommersiell offshore) begränsad
 * Technicolor-leverans tekniker, SAS
-* Tongfang global Ltd.
+* Tongfang Global Ltd.
 * De främsta Victory-investeringarna, Ltd.
 * Toshiba livsstils produkter & Services Corporation
 * Universal Media Corporation/Slovakia/-s.r.o.
@@ -162,7 +160,7 @@ De tillfälliga och slutgiltiga SSPK-licenserna kan skicka tekniska frågor till
 * Wistron Corporation
 * ZTE Corporation
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

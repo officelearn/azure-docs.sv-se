@@ -4,15 +4,15 @@ description: Lär dig mer om hur funktionen arcus tangens (arctan) i SQL system 
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8fd398e343a3e617ceb9f49ca8f31ee776a7f073
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 899c94a939be7825dca82522eab235bde9252896
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873462"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302686"
 ---
 # <a name="atan-azure-cosmos-db"></a>ARCTAN (Azure Cosmos DB)
  Returnerar vinkeln i radianer vars tangent är det angivna numeriska uttrycket. Detta kallas även arctangens.  
@@ -46,6 +46,9 @@ SELECT ATAN(-45.01) AS atan
 [{"atan": -1.5485826962062663}]  
 ```  
   
+## <a name="remarks"></a>Anmärkningar
+
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 

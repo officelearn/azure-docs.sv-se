@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 8e58c315ddc171ba19e0bce1cea4f694691f946e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: d8242731466df9b80a6a6c3f0e340d6deb76e7d4
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78193664"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304046"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Självstudie: läsa in data till Azure Synapse Analytics SQL-pool
 
@@ -24,7 +24,7 @@ I den här självstudien används PolyBase för att läsa in informations lagret
 
 > [!div class="checklist"]
 > * Skapa ett informations lager med SQL-pool i Azure Portal
-> * Skapa en brandväggsregel på servernivå på Azure-portalen
+> * Skapade en brandväggsregel på servernivå på Azure-portalen
 > * Ansluta till SQL-poolen med SSMS
 > * Skapa en användare som utsetts för att läsa in data
 > * Skapa externa tabeller som använder Azure-blobb som datakälla
@@ -41,7 +41,7 @@ Innan du börjar med de här självstudierna ska du ladda ned och installera den
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Skapa ett tomt informations lager i SQL-poolen
 
@@ -135,11 +135,11 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
     | servernamn | Fullständigt kvalificerat servernamn | Till exempel är **sqlpoolservername.Database.Windows.net** ett fullständigt kvalificerat Server namn. |
     | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
     | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
-    | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
+    | lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 
     ![Anslut till server](media/load-data-wideworldimportersdw/connect-to-server.png)
 
-4. Klicka på **Anslut**. Fönstret Object Explorer öppnas i SSMS. 
+4. Klicka på **anslut**. Fönstret Object Explorer öppnas i SSMS. 
 
 5. Expandera **Databaser** i Object Explorer. Expandera sedan **Systemdatabaser** och **Huvuddatabas** för att visa objekt i huvuddatabasen.  Expandera **SampleDW** om du vill visa objekten i den nya databasen.
 
@@ -190,7 +190,7 @@ Det första steget för att läsa in data är att logga in som LoaderRC60.
 
 2. Fyll i det fullständiga servernamnet och ange **LoaderRC60** som inloggning.  Ange ditt lösenord för LoaderRC60.
 
-3. Klicka på **Anslut**.
+3. Klicka på **anslut**.
 
 4. När anslutningen är klar visas två serveranslutningar i Object Explorer. En anslutning som ServerAdmin och en anslutning som LoaderRC60.
 
@@ -1096,7 +1096,7 @@ I de här självstudierna lärde du dig att skapa ett informationslager och skap
 Du gjorde detta:
 > [!div class="checklist"]
 > * Skapade ett informations lager med SQL-pool i Azure Portal
-> * Skapa en brandväggsregel på servernivå på Azure-portalen
+> * Skapade en brandväggsregel på servernivå på Azure-portalen
 > * Ansluten till SQL-poolen med SSMS
 > * Skapade en användare för inläsning av data
 > * Skapade externa tabeller för data i Azure Storage Blob

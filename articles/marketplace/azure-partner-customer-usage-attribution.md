@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 9/23/2019
 ms.author: pabutler
-ms.openlocfilehash: c84f5538d2f553a713b52aa795a10acddac9aff8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c745a37805862b77e7893788d9d089c8447ae465
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819893"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302873"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Spårning av kundanvändning för Azure-partner
 
@@ -34,7 +34,7 @@ Kund användnings behörighet krävs på [Azure Application](https://docs.micros
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="use-resource-manager-templates"></a>Använd mallar för resurshanteraren
+## <a name="use-resource-manager-templates"></a>Använda Resource Manager-mallar
 Många partner lösningar distribueras på en kunds prenumeration med hjälp av Resource Manager-mallar. Om du har en Resource Manager-mall som är tillgänglig på Azure Marketplace, på GitHub eller som en snabb start, ska processen för att ändra din mall för att aktivera kund användnings behörighet vara rak framåt.
 
 Mer information om hur du skapar och publicerar Solution-mallar finns i
@@ -87,7 +87,7 @@ Resursen måste läggas till i **mainTemplate. JSON** -eller **azuredeploy. JSON
 
 ## <a name="use-the-resource-manager-apis"></a>Använda Resource Manager-API: er
 
-I vissa fall kanske du föredrar att ringa direkt till Resource Manager REST-API: er för att distribuera Azure-tjänster. [Azure stöder flera SDK](https://docs.microsoft.com/azure/#pivot=sdkstools) : er för att aktivera dessa anrop. Du kan använda en av SDK: erna eller anropa REST-API: er direkt för att distribuera resurser.
+I vissa fall kanske du föredrar att ringa direkt till Resource Manager REST-API: er för att distribuera Azure-tjänster. [Azure stöder flera SDK](https://docs.microsoft.com/azure/?pivot=sdkstools) : er för att aktivera dessa anrop. Du kan använda en av SDK: erna eller anropa REST-API: er direkt för att distribuera resurser.
 
 Om du använder en Resource Manager-mall bör du tagga lösningen genom att följa anvisningarna ovan. Om du inte använder en Resource Manager-mall och gör direkta API-anrop kan du fortfarande tagga distributionen för att associera användningen av Azure-resurser.
 

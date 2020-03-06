@@ -14,12 +14,12 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7b42676fa387914bc4825e2850b3d2f032827a79
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 26030c12d98d796ceb1f66f198aede6e40eebd94
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962126"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399023"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Autentiseringsuppgifter för certifikat för Microsoft Identity Platform Application Authentication
 
@@ -55,7 +55,7 @@ Signaturen beräknas med hjälp av certifikatet enligt beskrivningen i [JSON Web
 
 ## <a name="example-of-a-decoded-jwt-assertion"></a>Exempel på en avkodad JWT-kontroll
 
-```
+```JSON
 {
   "alg": "RS256",
   "typ": "JWT",
@@ -67,12 +67,11 @@ Signaturen beräknas med hjälp av certifikatet enligt beskrivningen i [JSON Web
   "exp": 1484593341,
   "iss": "97e0a5b7-d745-40b6-94fe-5f77d35c6e05",
   "jti": "22b3bb26-e046-42df-9c96-65dbd72c1c81",
-  "nbf": 1484592741,  
+  "nbf": 1484592741,
   "sub": "97e0a5b7-d745-40b6-94fe-5f77d35c6e05"
 }
 .
 "Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
-
 ```
 
 ## <a name="example-of-an-encoded-jwt-assertion"></a>Exempel på en kodad JWT-kontroll
@@ -94,10 +93,10 @@ Du kan associera certifikatets autentiseringsuppgifter med klient programmet i M
 ### <a name="uploading-the-certificate-file"></a>Laddar upp certifikat filen
 
 I Azure App-registreringen för klient programmet:
-1. Välj **certifikat & hemligheter**. 
+1. Välj **certifikat & hemligheter**.
 2. Klicka på **överför certifikat** och välj den certifikat fil som ska laddas upp.
 3. Klicka på **Lägg till**.
-  När certifikatet har laddats upp visas tumavtryck, start datum och förfallo värden. 
+  När certifikatet har laddats upp visas tumavtryck, start datum och förfallo värden.
 
 ### <a name="updating-the-application-manifest"></a>Uppdaterar applikations manifestet
 
@@ -112,7 +111,7 @@ I Azure App-registreringen för klient programmet:
 1. Välj **manifest** för att öppna applikations manifestet.
 2. Ersätt egenskapen *autentiseringsuppgifter* med den nya certifikat informationen med hjälp av följande schema.
 
-   ```
+   ```JSON
    "keyCredentials": [
        {
            "customKeyIdentifier": "$base64Thumbprint",
@@ -123,13 +122,13 @@ I Azure App-registreringen för klient programmet:
        }
    ]
    ```
-3. Spara ändringarna i applikations manifestet och ladda upp manifestet till Microsoft Identity Platform. 
+3. Spara ändringarna i applikations manifestet och ladda upp manifestet till Microsoft Identity Platform.
 
    Egenskapen `keyCredentials` har flera värden, så du kan ladda upp flera certifikat för bättre nyckel hantering.
-   
+
 ## <a name="code-sample"></a>Kodexempel
 
 > [!NOTE]
-> Du måste beräkna X5T-rubriken genom att konvertera den till en bas 64-sträng med certifikatets hash. Koden för att göra detta i C# är: `System.Convert.ToBase64String(cert.GetCertHash());`
+> Du måste beräkna X5T-rubriken genom att konvertera den till en bas 64-sträng med certifikatets hash. Den kod som ska användas i C# är `System.Convert.ToBase64String(cert.GetCertHash());`.
 
-Kod exemplet vid [autentisering till Microsoft Identity Platform i daemon-appar med certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) visar hur ett program använder sina egna autentiseringsuppgifter för autentisering. Det visar också hur du kan [skapa ett självsignerat certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) med hjälp av `New-SelfSignedCertificate` PowerShell-kommandot. Du kan också dra nytta av och använda [appens skapande skript](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) för att skapa certifikat, beräkna tumavtryck och så vidare.
+Kod exemplet [.net Core daemon Console-programmet som använder Microsoft Identity Platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) visar hur ett program använder sina egna autentiseringsuppgifter för autentisering. Det visar också hur du kan [skapa ett självsignerat certifikat](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) med hjälp av `New-SelfSignedCertificate` PowerShell-kommandot. Du kan också dra nytta av och använda [appens skapande skript](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) för att skapa certifikat, beräkna tumavtryck och så vidare.

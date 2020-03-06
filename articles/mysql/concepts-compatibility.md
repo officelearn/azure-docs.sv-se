@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.openlocfilehash: bb8477165afcaafe6d03ccb3fe7764124aa166c6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7cbd2dfab7d0d9ee0df730eb15fa2c4b4952c85b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928659"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399194"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>MySQL-drivrutiner och hanterings verktyg som är kompatibla med Azure Database for MySQL
 I den här artikeln beskrivs de driv rutiner och hanterings verktyg som är kompatibla med Azure Database for MySQL.
@@ -23,7 +23,7 @@ Azure Database for MySQL använder världens mest populära community-version av
 | :----------------------- | :--------- | :-------- | :---------------------- | :------------------------ | :-------- |
 | PHP | mysqli, pdo_mysql, mysqlnd | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | För PHP 7,0-anslutning med SSL MySQLi lägger du till MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT i anslutnings strängen. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> SUB set: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` alternativ till false.|
 | .NET | Asynkron MySQL-koppling för .NET | https://github.com/mysql-net/MySqlConnector <br> [Installations paket från NuGet](https://www.nuget.org/packages/MySqlConnector/) | 0,27 och efter | 0.26.5 och före | |
-| .NET | MySQL-anslutning/NET | https://github.com/mysql/mysql-connector-net | 8,0, 7,0, 6,10 |  | Ett kodnings fel kan orsaka att anslutningar Miss lyckas på vissa icke-UTF8-Windows-system. |
+| .NET | MySQL-anslutning/NET | https://github.com/mysql/mysql-connector-net | 6.6.3, 7,0, 8,0 |  | Ett kodnings fel kan orsaka att anslutningar Miss lyckas på vissa icke-UTF8-Windows-system. |
 | Node.js | mysqljs | https://github.com/mysqljs/mysql/ <br> Installations paket från NPM:<br> Köra `npm install mysql` från NPM | 2.15 | 2.14.1 och före | |
 | Node.js | Node-mysql2 | https://github.com/sidorares/node-mysql2 | 1.3.4 + | | |
 | Go | Go MySQL-drivrutin | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1,2 och före | Använd `allowNativePasswords=true` i anslutnings strängen för version 1,3. Version 1,4 innehåller en korrigering och `allowNativePasswords=true` inte längre krävs. |

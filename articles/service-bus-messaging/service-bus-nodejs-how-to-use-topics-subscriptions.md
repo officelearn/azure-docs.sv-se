@@ -14,21 +14,20 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/16/2020
 ms.author: aschhab
-ms.openlocfilehash: e6ac3c74a0a8346ad8a6820c676224bfcba0e8b4
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: c85b63b4a56e74b0fef9a122ec995b4106496cbe
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264449"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330454"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Snabb start: använda Service Bus ämnen och prenumerationer med Node. js och Azure-SB-paketet
-> [!div class="op_multi_selector" title1="Programmeringsspråk" title2="Node. js-paket"]
-> - [(Node. js | Azure-SB)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
-> - [(Node. js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
-
 I den här självstudien får du lära dig hur du skapar Node. js-program för att skicka meddelanden till ett Service Bus ämne och ta emot meddelanden från en Service Bus-prenumeration med [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet. Exemplen är skrivna i Java Script och använder [Azure-modulen](https://www.npmjs.com/package/azure) Node. js som internt använder `azure-sb`-paketet.
 
-[Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet använder [Service Bus REST-API: er för körnings tid](/rest/api/servicebus/service-bus-runtime-rest). Du kan få en snabbare upplevelse med hjälp av det nya [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) -paketet som använder det snabbare [AMQP 1,0-protokollet](service-bus-amqp-overview.md). Mer information om det nya paketet finns i [så här använder du Service Bus ämnen och prenumerationer med Node. js och @azure/service-bus paket](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), annars fortsätter läsa för att se hur du använder [Azure](https://www.npmjs.com/package/azure) -paketet.
+> [!IMPORTANT]
+> [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet använder [Service Bus REST-API: er för körnings tid](/rest/api/servicebus/service-bus-runtime-rest). Du kan få en snabbare upplevelse med hjälp av det nya [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) -paketet som använder det snabbare [AMQP 1,0-protokollet](service-bus-amqp-overview.md). 
+> 
+> Mer information om det nya paketet finns i [så här använder du Service Bus ämnen och prenumerationer med Node. js och @azure/service-bus paket](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), annars fortsätter läsa för att se hur du använder [Azure](https://www.npmjs.com/package/azure) -paketet.
 
 De scenarier som beskrivs här är:
 
@@ -40,8 +39,8 @@ De scenarier som beskrivs här är:
 
 Mer information om ämnen och prenumerationer finns i avsnittet [Nästa steg](#next-steps) .
 
-## <a name="prerequisites"></a>Krav
-- En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Förutsättningar
+- En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Följ stegen i [snabb starten: använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer på avsnittet](service-bus-quickstart-topics-subscriptions-portal.md) för att skapa ett Service Bus- **namnområde** och hämta **anslutnings strängen**.
 
     > [!NOTE]

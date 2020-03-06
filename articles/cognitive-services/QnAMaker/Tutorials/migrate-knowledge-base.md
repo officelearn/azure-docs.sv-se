@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 01/28/2020
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b441eb1e6531030a998fe628ae833b29a5d9fe5a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 942932c229ace82a0bf66da7a5421f936b028088
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76902047"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302567"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrera en kunskapsbas med hjälp av export-import
 
 För att migrera en kunskaps bas måste du exportera från en kunskaps bas och sedan importera till en annan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * Konfigurera en ny [QNA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md)
@@ -46,13 +46,9 @@ För att migrera en kunskaps bas måste du exportera från en kunskaps bas och s
    > [!div class="mx-imgBorder"]
    > [![importera kunskaps bas](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)
 
-1. **Testa** nya kunskapsbasen panelen Test. Lär dig hur du [testa kunskapsbasen](../How-To/test-knowledge-base.md).
-1. **Publicera** i knowledge base. Lär dig hur du [publicera din kunskapsbas](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
-1. Använd slut punkten i ditt program eller din robot kod. Se här så [skapa QnA-roboten](../Tutorials/create-qna-bot.md).
+1. **Testa** den nya kunskaps basen med hjälp av test panelen. Lär dig hur du [testar din kunskaps bas](../How-To/test-knowledge-base.md).
 
-    ![QnA Maker-värden](../media/qnamaker-how-to-migrate-kb/qnamaker-settings-kbid-key.png)
-
-    Nu kan alla kunskapsbas innehållet - frågor, svar och metadata, tillsammans med namnen på källfilerna och URL: er, importeras till nya kunskapsbasen.
+1. **Publicera** kunskaps basen och skapa en chatt-robot. Lär dig hur du [publicerar din kunskaps bas](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
 ## <a name="chat-logs-and-alterations"></a>Chat-loggar och ändringar
 Skift läges känsliga ändringar (synonymer) importeras inte automatiskt. Använd [v4-API: er](https://go.microsoft.com/fwlink/?linkid=2092179) för att flytta ändringarna i den nya kunskaps basen.
@@ -62,4 +58,4 @@ Det finns inget sätt att migrera chatt loggar, eftersom den nya kunskaps basen 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Redigera en kunskapsbas](../How-To/edit-knowledge-base.md)
+> [Redigera en kunskaps bas](../How-To/edit-knowledge-base.md)

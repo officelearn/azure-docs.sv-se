@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2020
 ms.author: mlottner
-ms.openlocfilehash: 510a2c3f04cc4c307acad18ee3012d9407155f9f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 063e5c9e7d75fd1c07d148c265b1fe64eee3cbc8
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766447"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303536"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Snabb start: skapa anpassade aviseringar
 
@@ -41,7 +41,7 @@ Dessa grupper kan representera enheter med specifik maskin vara, enheter som har
 
 Säkerhets grupper definieras av en enhets dubbla tag-egenskap med namnet **SecurityGroup**. Som standard har varje IoT-lösning på IoT Hub en säkerhets grupp med namnet **default**. Ändra värdet för egenskapen **SecurityGroup** om du vill ändra säkerhets gruppen för en enhet.
  
-Ett exempel:
+Exempel:
 
 ```
 {
@@ -80,7 +80,6 @@ Använd säkerhets grupper för att gruppera dina enheter i logiska kategorier. 
 ## <a name="alerts-available-for-customization"></a>Aviseringar tillgängliga för anpassning
 
 Azure Security Center for IoT erbjuder ett stort antal aviseringar som kan anpassas efter dina egna behov. Granska den [anpassningsbara aviserings tabellen](concept-customizable-security-alerts.md) för aviserings allvarlighets grad, data källa, beskrivning och våra föreslagna reparations steg om och när varje avisering tas emot. 
-|
 
 
 ## <a name="next-steps"></a>Nästa steg

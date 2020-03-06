@@ -3,12 +3,12 @@ title: Aktivitet med flera steg för att bygga, testa & korrigerings avbildning
 description: Introduktion till aktiviteter med flera steg, en funktion i ACR-aktiviteter i Azure Container Registry som innehåller uppgiftsbaserade arbets flöden för att skapa, testa och korrigera behållar avbildningar i molnet.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: cf5f90263c75aeb96220967142d28995209f2d86
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 0dcd38559d3f50715f982de4c9c80bfe9c6c8433
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945670"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399697"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Kör åtgärder för att skapa, testa och korrigera flera steg i ACR-aktiviteter
 
@@ -95,8 +95,11 @@ az acr run --registry <acrName> -f build-push-hello-world.yaml https://github.co
 
 När du kör uppgiften ska utdata Visa förloppet för varje steg som definierats i YAML-filen. I följande utdata visas stegen som `acb_step_0` och `acb_step_1`.
 
-```console
-$ az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
+```azurecli
+az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
+```
+
+```output
 Sending context to registry: myregistry...
 Queued a run with ID: yd14
 Waiting for an agent...

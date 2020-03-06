@@ -7,12 +7,13 @@ tags: azure-resource-manager
 ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 02/27/2020
-ms.openlocfilehash: 708fc030d953dd1f32986c600305e513a156b12f
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.custom: subject-armqs
+ms.openlocfilehash: 7c02cdf772b06f7070071aa7ba35c59b019187cc
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227421"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301734"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>Snabb start: skapa en Azure Cosmos DB och en behållare med Azure Resource Manager mall
 

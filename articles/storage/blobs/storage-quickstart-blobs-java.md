@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 8f05ab3298f0475bda0e79565c13cd7a120632f0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c883653754e1f69d3b2d79b256d57a036c70b58e
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196052"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330155"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Snabb start: hantera blobbar med Java V12 SDK
 
@@ -152,7 +152,7 @@ Azure Blob Storage är optimerat för att lagra enorma mängder ostrukturerade d
 
 Följande diagram visar relationen mellan de här resurserna.
 
-![Diagram över blobblagringens arkitektur](./media/storage-blob-introduction/blob1.png)
+![Diagram över blobblagringens arkitektur](./media/storage-blobs-introduction/blob1.png)
 
 Använd följande Java-klasser för att interagera med dessa resurser:
 

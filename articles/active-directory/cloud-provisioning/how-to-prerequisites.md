@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51e5c58d29f01cadcc3ea2e8ec48ae67e58c4180
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 382c588ca005f95f4ae38e7506c0e3e8d842bd2c
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76909048"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298657"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Krav för Azure AD Connect Cloud-etablering
 Den här artikeln innehåller rikt linjer för hur du väljer och använder Azure Active Directory (Azure AD) Anslut moln etablering som din identitets lösning.
@@ -26,7 +26,7 @@ Den här artikeln innehåller rikt linjer för hur du väljer och använder Azur
 ## <a name="cloud-provisioning-agent-requirements"></a>Krav för moln etablerings agent
 Du behöver följande för att kunna använda Azure AD Connect Cloud-etablering:
     
-- Ett globalt administratörs konto för din Azure AD-klient.
+- Ett globalt administratörs konto för din Azure AD-klient som inte är en gäst användare.
 - En lokal server för etablerings agenten med Windows 2012 R2 eller senare.
 - Konfigurationer för lokala brand väggar.
 
@@ -39,6 +39,10 @@ Resten av dokumentet innehåller steg-för-steg-instruktioner för dessa krav.
 
 1. Skapa ett globalt administratörs konto för molnet på Azure AD-klienten. På så sätt kan du hantera konfigurationen av din klient om dina lokala tjänster inte fungerar eller blir otillgängliga. Lär dig mer om hur du [lägger till ett globalt administratörs konto i molnet](../active-directory-users-create-azure-portal.md). Att slutföra det här steget är viktigt för att säkerställa att du inte blir utelåst från din klient.
 1. Lägg till ett eller flera [anpassade domän namn](../active-directory-domains-add-azure-portal.md) i Azure AD-klienten. Användarna kan logga in med ett av dessa domän namn.
+
+### <a name="in-your-directory-in-active-directory"></a>I din katalog i Active Directory
+
+Kör [IdFix-verktyget](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) för att förbereda katalog-attributen för synkronisering.
 
 ### <a name="in-your-on-premises-environment"></a>I din lokala miljö
 

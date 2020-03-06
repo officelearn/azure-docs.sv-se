@@ -15,25 +15,23 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: fee7ff6ffbd18cf514ce1bfda81aca727ed362c3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 7ee3939c1a1b450f2458267ab0b70e3924a4869b
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773511"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330608"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Snabb start: Använd Service Bus köer i Azure med Node. js och Azure-SB-paketet
-
-> [!div class="op_multi_selector" title1="Programmeringsspråk" title2="Node. js-paket"]
-> - [(Node. js | Azure-SB)](service-bus-nodejs-how-to-use-queues.md)
-> - [(Node. js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
-
 I den här självstudien får du lära dig hur du skapar Node. js-program för att skicka meddelanden till och ta emot meddelanden från en Azure Service Bus kö med [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet. Exemplen är skrivna i Java Script och använder [Azure-modulen](https://www.npmjs.com/package/azure) Node. js som internt använder Azure-SB-paketet.
 
-[Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet använder [Service Bus REST-API: er för körnings tid](/rest/api/servicebus/service-bus-runtime-rest). Du kan få en snabbare upplevelse med hjälp av den nya [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) som använder det snabbare [AMQP 1,0-protokollet](service-bus-amqp-overview.md). Mer information om det nya paketet finns i [så här använder du Service Bus köer med Node. js och @azure/service-bus paket](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), annars fortsätter läsa för att se hur du använder [Azure](https://www.npmjs.com/package/azure) -paketet.
+> [!IMPORTANT]
+> [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet använder [Service Bus REST-API: er för körnings tid](/rest/api/servicebus/service-bus-runtime-rest). Du kan få en snabbare upplevelse med hjälp av den nya [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) som använder det snabbare [AMQP 1,0-protokollet](service-bus-amqp-overview.md). 
+> 
+> Mer information om det nya paketet finns i [så här använder du Service Bus köer med Node. js och @azure/service-bus paket](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), annars fortsätter läsa för att se hur du använder [Azure](https://www.npmjs.com/package/azure) -paketet.
 
-## <a name="prerequisites"></a>Krav
-- En Azure-prenumeration. För den här kursen behöver du ett Azure-konto. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Förutsättningar
+- En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Om du inte har en kö att arbeta med följer du stegen i artikeln [använd Azure Portal för att Service Bus skapa](service-bus-quickstart-portal.md) en kö.
     1. Läs snabb **översikten** över Service Bus **köer**. 
     2. Skapa ett Service Bus- **namnområde**. 
@@ -159,7 +157,7 @@ Meddelanden tas emot från en kö med hjälp av metoden `receiveQueueMessage` p�
 
 Standard beteendet för att läsa och ta bort meddelandet som en del av Receive-åtgärden är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera att inte bearbeta ett meddelande när ett fel uppstår. För att förstå det här beteendet bör du överväga ett scenario där klienten utfärdar Receive-begäran och sedan kraschar innan den bearbetas. Eftersom Service Bus har markerat meddelandet som förbrukat, och när programmet startas om och börjar förbruka meddelanden igen, kommer det att ha missat meddelandet som förbrukades före kraschen.
 
-Om `isPeekLock`-parametern har angetts till **True**blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att anropa `deleteMessage`-metoden och ange att meddelandet ska tas bort som en parameter. Metoden `deleteMessage` markerar meddelandet som förbrukat och tar bort det från kön.
+Om `isPeekLock`-parametern har angetts till **True**blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att anropa `deleteMessage`-metoden och ange att meddelandet ska tas bort som en parameter. Metoden `deleteMessage` markerar meddelandet som förbrukat och tar bort det från kön.
 
 Följande exempel visar hur du tar emot och bearbetar meddelanden med hjälp av `receiveQueueMessage`. Exemplet tar först emot och tar bort ett meddelande, och tar sedan emot ett meddelande med hjälp av `isPeekLock` ange **True**och tar sedan bort meddelandet med `deleteMessage`:
 

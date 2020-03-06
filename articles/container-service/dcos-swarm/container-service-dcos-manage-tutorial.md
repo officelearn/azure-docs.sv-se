@@ -7,18 +7,18 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1c9b3bfdbe7aff203efa6b36f0e40cb65aba1175
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 4212277dbdf29705152832f3830692b43b8d1297
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278338"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402808"
 ---
 # <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>(INAKTUELL) Självstudie för Azure Container Service – Hantera DC/OS
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-DC/OS tillhandahåller en distribuerad plattform för att köra moderna och containerbaserade program. Med Azure Container Service går det snabbt och enkelt att etablera ett produktionsklart DC/OS-kluster. I den här snabbstarten beskrivs de grundläggande stegen för att distribuera ett DC/OS-kluster och köra en grundläggande arbetsbelastning.
+DC/OS tillhandahåller en distribuerad plattform för att köra moderna och containerbaserade program. Med Azure Container Service går det snabbt och enkelt att etablera ett produktionsklart DC/OS-kluster. Den här snabb starten beskriver grundläggande steg som behövs för att distribuera ett DC/OS-kluster och köra grundläggande arbets belastning.
 
 > [!div class="checklist"]
 > * Skapa ett ACS DC/OS-kluster
@@ -66,7 +66,7 @@ ip=$(az network public-ip list --resource-group myResourceGroup --query "[?conta
 
 Kör följande kommando för att skapa SSH-tunneln och följ anvisningarna på skärmen. Kommandot misslyckas om port 80 redan används. Uppdatera tunnelporten till en port som inte används, t.ex. `85:localhost:80`. 
 
-```azurecli
+```console
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
@@ -80,7 +80,7 @@ az acs dcos install-cli
 
 Innan CLI kan användas med klustret måste det konfigureras så att det använder SSH-tunneln. Det gör du genom att köra följande kommando och justera porten efter behov.
 
-```azurecli
+```console
 dcos config set core.dcos_url http://localhost
 ```
 
@@ -116,19 +116,19 @@ Standardmekanismen för schemaläggning av ett ACS DC/OS-kluster är Marathon. M
 
 Kör följande kommando för att schemalägga att programmet ska köras på DC/OS-klustret.
 
-```azurecli
+```console
 dcos marathon app add marathon-app.json
 ```
 
 Kör följande kommando för att se distributionsstatusen för appen.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 När kolumnvärdet **TASKS** ändras från *0/1* till *1/1* har programdistributionen slutförts.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     0/1    ---       ---      False      DOCKER   None
 ```
@@ -165,19 +165,19 @@ En enda instans av programmet skapades i föregående exempel. Om du vill uppdat
 
 Uppdatera programmet med kommandot `dcos marathon app update`.
 
-```azurecli
+```console
 dcos marathon app update demo-app-private < marathon-app.json
 ```
 
 Kör följande kommando för att se distributionsstatusen för appen.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 När kolumnvärdet **TASKS** ändras från *1/3* till *3/1* har programdistributionen slutförts.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/3    ---       ---      False      DOCKER   None
 ```
@@ -222,13 +222,13 @@ Skapa en fil med namnet **nginx-public.json** och kopiera följande innehåll ti
 
 Kör följande kommando för att schemalägga att programmet ska köras på DC/OS-klustret.
 
-```azurecli 
+```console
 dcos marathon app add nginx-public.json
 ```
 
 Hämta den offentliga IP-adressen för de offentliga DC/OS-klusteragenterna.
 
-```azurecli 
+```azurecli
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
@@ -256,7 +256,7 @@ az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-c
 
 När den inte längre behövs kan du använda kommandot [az group delete](/cli/azure/group#az-group-delete) för att ta bort resursgruppen, DC/OS-klustret och alla relaterade resurser.
 
-```azurecli 
+```azurecli
 az group delete --name myResourceGroup --no-wait
 ```
 

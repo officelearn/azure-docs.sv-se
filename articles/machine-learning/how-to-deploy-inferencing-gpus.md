@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 10/25/2019
-ms.openlocfilehash: 39fc57a6da20549447f782399e9571f7a0ffeea7
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 03/05/2020
+ms.openlocfilehash: b0fd537d1930e7c9d5f7a33f56ec5d00b1556562
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122533"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398340"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuera en djup inlärnings modell för en härledning med GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ Härlednings-eller modell poängsättning är den fas där den distribuerade mod
 > [!NOTE]
 > Informationen i den här artikeln bygger på informationen i artikeln [distribuera till Azure Kubernetes service](how-to-deploy-azure-kubernetes-service.md) . Där artikeln i allmänhet täcker distribution till AKS, behandlar den här artikeln GPU-bestämd distribution.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -47,7 +47,7 @@ Härlednings-eller modell poängsättning är den fas där den distribuerade mod
 
 * En allmän förståelse för [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 
-## <a name="connect-to-your-workspace"></a>Anslut till arbetsytan
+## <a name="connect-to-your-workspace"></a>Anslut till din arbets yta
 
 Använd följande kod för att ansluta till en befintlig arbets yta:
 
@@ -101,7 +101,7 @@ Mer information om hur du använder AKS med Azure Machine Learning finns i [dist
 Inmatnings skriptet tar emot data som skickats till webb tjänsten, skickar dem till modellen och returnerar poängsättnings resultatet. Följande skript läser in Tensorflow-modellen vid start och använder sedan modellen för att räkna data.
 
 > [!TIP]
-> Startskriptet är specifikt för din modell. Skriptet måste till exempel känna till ramverket som ska användas med din modell, data format osv.
+> Start skriptet är bara för din modell. Skriptet måste till exempel känna till ramverket som ska användas med din modell, data format osv.
 
 ```python
 import json

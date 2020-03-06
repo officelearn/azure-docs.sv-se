@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18ef9d89a2366e6d4db3c3154bae0bd83e0386f1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: dbdc13b8c861c620bfdbaaf53c0901a51bb9ce08
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654785"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399212"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure-portalen
 
@@ -75,16 +75,16 @@ Den här artikeln visar hur du ansluter virtuella nätverk via VNet-till-VNet-an
 
 - **Inställningar för virtuella nätverk**
     - **Namn**: VNet1
-    - **Adress utrymme**: 10.11.0.0/16
+    - **Adress utrymme**: 10.1.0.0/16
     - **Prenumeration**: Välj den prenumeration som du vill använda.
     - **Resurs grupp**: TestRG1
     - **Plats**: östra USA
     - **Undernät**
         - **Namn**: FrontEnd
-        - **Adress intervall**: 10.11.0.0/24
+        - **Adress intervall**: 10.1.0.0/24
     - **Gateway-undernät**:
         - **Namn**: *GatewaySubnet* fylls i som ifyllt
-        - **Adress intervall**: 10.11.255.0/27
+        - **Adress intervall**: 10.1.255.0/27
 
 - **Inställningar för virtuell nätverksgateway**
     - **Namn**: VNet1GW
@@ -126,11 +126,6 @@ Om du redan har ett VNet, kontrollerar du att inställningarna är kompatibla me
 
 ### <a name="to-create-a-virtual-network"></a>Så här skapar du ett virtuellt nätverk
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
-
-## <a name="add-additional-address-space-and-create-subnets"></a>Lägg till ytterligare adressutrymmen och skapa undernät
-Du kan lägga till ytterligare adressutrymme och skapa undernät när ditt virtuella nätverk har skapats.
-
-[!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="create-a-virtual-network-gateway"></a>Skapa en virtuell nätverksgateway
 I det här steget ska du skapa den virtuella nätverksgatewayen för ditt virtuella nätverk. Att skapa en gateway kan ofta ta 45 minuter eller mer, beroende på vald gateway-SKU. Om du skapar den här konfigurationen för att öva dig kan du se [exempelinställningarna](#example-settings).

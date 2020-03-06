@@ -4,15 +4,15 @@ description: Lär dig mer om hur funktionen array concat SQL system i Azure Cosm
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 10370e16c95f4fc747dd3a66a56794da38562972
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 8f2b37181e5d743809bb1f60be4056cb4442a8d2
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871830"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295886"
 ---
 # <a name="array_concat-azure-cosmos-db"></a>ARRAY_CONCAT (Azure Cosmos DB)
  Returnerar en matris som är resultatet av en sammanfogning av två eller fler matrisvärden.  
@@ -46,6 +46,9 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat
 [{"arrayConcat": ["apples", "strawberries", "bananas"]}]  
 ```  
   
+## <a name="remarks"></a>Anmärkningar
+
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 

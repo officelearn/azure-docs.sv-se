@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 5f6b994bce1d38872cffb1e6e389136742be6d48
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4970f115ee3eee78d7268e3e955e20048b74df0d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466786"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384047"
 ---
 Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för 64-bitars Java 8-JRE.
 
@@ -29,9 +29,9 @@ Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-servic
 - Java Speech SDK-paketet är tillgängligt för dessa operativ system:
   - Windows: 64-endast bit
   - Mac: macOS X version 10,13 eller senare
-  - Linux: 64-endast bit på Ubuntu 16,04, Ubuntu 18,04 eller Debian 9
+  - Linux: 64-endast bit på Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
@@ -51,6 +51,16 @@ Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-servic
         sudo apt-get update
         sudo apt-get install build-essential libssl1.0.2 libasound2
         ```
+
+  - På RHEL/CentOS 8 kör du följande kommandon för att installera de nödvändiga paketen:
+
+        ```sh
+        sudo yum update
+        sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl
+        ```
+
+> [!NOTE]
+> På RHEL/CentOS 8 följer du anvisningarna för [hur du konfigurerar openssl för Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 - I Windows behöver du [Microsoft Visual C++ Redistributable för Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) för din plattform. Observera att installationen för första gången kan kräva att du startar om Windows innan du fortsätter med den här guiden.
 

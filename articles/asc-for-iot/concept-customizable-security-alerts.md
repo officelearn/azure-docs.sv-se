@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2020
+ms.date: 03/04/2020
 ms.author: mlottner
-ms.openlocfilehash: f10604d23901c2d7ed23f8b4f32a296f063d8620
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 32d79267559480de8ec91e5e66196bfd57e01cf1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776279"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299581"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Azure Security Center för IoT-säkerhetsaviseringar
 
@@ -29,11 +29,11 @@ Vi rekommenderar att du skapar anpassade aviseringar baserat på dina kunskaper 
 
 Följande lista över Azure Security Center för IoT-aviseringar definieras av dig baserat på din förväntade IoT Hub och/eller enhets beteende. Mer information om hur du anpassar varje avisering finns i [skapa anpassade aviseringar](quickstart-create-custom-alerts.md).
 
-## <a name="azure-security-center-for-iot-alerts-available-for-customization"></a>Azure Security Center för IoT-aviseringar som är tillgängliga för anpassning 
+## <a name="iot-hub-alerts-available-for-customization"></a>IoT Hub aviseringar som är tillgängliga för anpassning 
 
 
 
-| Allvarsgrad | Aviserings namn | Datakälla | Beskrivning | Rekommenderad reparation|
+| Severity | Aviserings namn | Datakälla | Beskrivning | Rekommenderad reparation|
 |---|---|---|---|---|
 | Låg      | Anpassad avisering – antalet moln till enhets meddelanden i AMQP-protokollet ligger utanför det tillåtna intervallet          | IoT Hub     | Antalet moln till enhets meddelanden (AMQP-protokoll) inom ett särskilt tidsintervall är utanför det konfigurerade och tillåtna intervallet.||
 | Låg      | Anpassad avisering – antal nekade moln till enhets meddelanden i AMQP-protokollet ligger utanför det tillåtna intervallet | IoT Hub     | Antalet moln till enhets meddelanden (AMQP-protokoll) som avvisats av enheten inom ett särskilt tidsintervall är utanför det konfigurerade och tillåtna intervallet.||
@@ -49,13 +49,18 @@ Följande lista över Azure Security Center för IoT-aviseringar definieras av d
 | Låg      | Anpassad avisering – antalet rensningar av kommando kön ligger utanför det tillåtna intervallet                               | IoT Hub     | Mängden kommando köer som rensas inom ett visst tidsintervall är utanför det konfigurerade och tillåtna intervallet.||
 | Låg      | Anpassad avisering – antalet dubbla uppdateringar i modulen ligger utanför det tillåtna intervallet                                       | IoT Hub     | Mängden dubbla uppdateringar inom en bestämd tids period ligger utanför det konfigurerade och tillåtna intervallet.|
 | Låg      | Anpassad avisering-antalet otillåtna åtgärder ligger utanför det tillåtna intervallet  | IoT Hub     | Mängden ej auktoriserade åtgärder inom ett visst tidsintervall är utanför det konfigurerade och tillåtna intervallet.|
+|
+
+## <a name="agent-alerts-available-for-customization"></a>Agent aviseringar tillgängliga för anpassning 
+
+| Severity | Aviserings namn | Datakälla | Beskrivning | Rekommenderad reparation|
+|---|---|---|---|---|
 | Låg      | Anpassad avisering – antalet aktiva anslutningar ligger utanför det tillåtna intervallet  | Agent       | Antalet aktiva anslutningar inom ett särskilt tidsintervall är utanför det aktuella konfigurerade och tillåtna intervallet.|  Undersök enhets loggarna. Lär dig var anslutningen kommer och ta reda på om den är ofarlig eller skadlig. Ta bort eventuell skadlig kod och förstå källan om det är skadligt. Om det är ofarligt kan du lägga till källan i listan över tillåtna anslutningar.  |
 | Låg      | Anpassad avisering – utgående anslutning har skapats till en IP-adress som inte är tillåten                             | Agent       | En utgående anslutning skapades till en IP-adress som ligger utanför din tillåtna IP-lista. |Undersök enhets loggarna. Lär dig var anslutningen kommer och ta reda på om den är ofarlig eller skadlig. Ta bort eventuell skadlig kod och förstå källan om det är skadligt. Om det är ofarligt kan du lägga till källan i listan över tillåtna IP-adresser.                        |
 | Låg      | Anpassad avisering – antalet misslyckade lokala inloggningar ligger utanför det tillåtna intervallet                               | Agent       | Mängden misslyckade lokala inloggningar inom ett visst tidsintervall är utanför det aktuella konfigurerade och tillåtna intervallet. |   |
 | Låg      | Anpassad avisering – inloggning för en användare som inte finns med i listan över tillåtna användare | Agent       | En lokal användare utanför listan över tillåtna användare som är inloggad på enheten.|  Om du sparar rå data navigerar du till ditt Log Analytics-konto och använder data för att undersöka enheten, identifiera källan och sedan reparera listan över tillåtna/blockerade för dessa inställningar. Om du inte sparar rå data för tillfället går du till enheten och korrigerar listan över tillåtna/blockerade för dessa inställningar.|
 | Låg      | Anpassad avisering – en process kördes som inte är tillåten | Agent       | En process som inte är tillåten kördes på enheten. |Om du sparar rå data navigerar du till ditt Log Analytics-konto och använder data för att undersöka enheten, identifiera källan och sedan reparera listan över tillåtna/blockerade för dessa inställningar. Om du inte sparar rå data för tillfället går du till enheten och korrigerar listan över tillåtna/blockerade för dessa inställningar.  |
 |
-
 
 ## <a name="next-steps"></a>Nästa steg
 

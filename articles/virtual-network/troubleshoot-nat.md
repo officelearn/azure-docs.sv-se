@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/02/2020
+ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 185556e3045cb1a879bc256f4f2932549de71cd8
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: d56cd3b3d286d69a51d8cc14eb8020343cf7295a
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78274944"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302992"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity-problems"></a>Felsök problem med Azure Virtual Network NAT-anslutning
 
@@ -44,7 +44,7 @@ En enda [NAT-gateway-resurs](nat-gateway-resource.md) stöder från 64 000 upp t
 #### <a name="steps"></a>Steg:
 
 1. Undersök hur programmet skapar utgående anslutning (till exempel kod granskning eller paket fångst). 
-2. Avgöra om den här aktiviteten är förväntad eller om programmet är felgenererat.  Använd mått i Azure Monitor för att styrka dina resultat.
+2. Avgöra om den här aktiviteten är förväntad eller om programmet är felgenererat.  Använd [mått](nat-metrics.md) i Azure Monitor för att styrka dina resultat.
 3. Utvärdera om lämpliga mönster följs.
 4. Utvärdera om SNAT-portens överbelastning ska begränsas med ytterligare IP-adresser tilldelade till NAT-gateway-resursen.
 
@@ -83,3 +83,4 @@ Följande tabell kan användas som start punkt för vilka verktyg som ska använ
 
 - Läs mer om [Virtual Network NAT](nat-overview.md)
 - Lär dig om [NAT gateway-resurs](nat-gateway-resource.md)
+- Lär dig mer om [mått och aviseringar för NAT gateway-resurser](nat-metrics.md).

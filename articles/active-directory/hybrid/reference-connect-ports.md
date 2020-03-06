@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/02/2017
+ms.date: 03/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f365a8325fc027d8770287208f91d164166fcbc
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 611937a709152823ddc1b88b1a0befe4161217cd
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024338"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375998"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Portar och protokoll som krävs för hybrididentitet
 Följande dokument är en teknisk referens för de portar och protokoll som krävs för att implementera en hybrid identitets lösning. Använd följande bild och referera till motsvarande tabell.
@@ -51,7 +51,7 @@ I den här tabellen beskrivs de portar och protokoll som krävs för kommunikati
 | HTTP |80 (TCP) |Används för att hämta CRL: er (listor över återkallade certifikat) för att verifiera SSL-certifikat. |
 | HTTPS |443 (TCP) |Används för att synkronisera med Azure AD. |
 
-En lista över URL: er och IP-adresser som du måste öppna i brand väggen finns i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+En lista över URL: er och IP-adresser som du måste öppna i brand väggen finns i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) och [fel sökning av Azure AD Connect anslutning](tshoot-connect-connectivity.md#troubleshoot-connectivity-issues-in-the-installation-wizard).
 
 ## <a name="table-3---azure-ad-connect-and-ad-fs-federation-serverswap"></a>Tabell 3 – Azure AD Connect och AD FS Federations Servrar/WAP
 I den här tabellen beskrivs de portar och protokoll som krävs för kommunikation mellan Azure AD Connect-servern och AD FS Federation/WAP-servrar.  

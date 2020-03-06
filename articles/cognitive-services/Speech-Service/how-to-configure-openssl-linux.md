@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
-ms.openlocfilehash: ff8772f7c3c3213c010b0bdbd0d0aa8897404bac
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 350c2bf3c4d0fc0a16f1b393e7c8d8a372679797
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119993"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331152"
 ---
 # <a name="configure-openssl-for-linux"></a>Konfigurera OpenSSL för Linux
 
@@ -40,15 +40,15 @@ Kontrol lera om det finns `certs` under katalog under OPENSSLDIR. I exemplet ova
 ## <a name="examples"></a>Exempel
 
 - OPENSSLDIR är `/opt/ssl`. Det finns `certs` under katalog med många `.crt`-eller `.pem`-filer.
-Ange miljövariabeln `SSL_CERT_DIR` för att peka på `/opt/ssl/certs` innan du kör ett program som använder tal-SDK: n. Några exempel:
+Ange miljövariabeln `SSL_CERT_DIR` för att peka på `/opt/ssl/certs` innan du kör ett program som använder tal-SDK: n. Exempel:
 ```bash
-SSL_CERT_DIR=/opt/ssl/certs ./helloworld
+export SSL_CERT_DIR=/opt/ssl/certs
 ```
 
-- OPENSSLDIR är `/etc/pki/tls`. Det finns en certifikat bunts fil, till exempel `ca-bundle.pem` eller `ca-bundle.crt`.
-Ange miljövariabeln `SSL_CERT_FILE` för att peka på `/etc/pki/tls/ca-bundle.pem` innan du kör ett program som använder tal-SDK: n. Några exempel:
+- OPENSSLDIR är `/etc/pki/tls` (t. ex. på RHEL/CentOS-baserade system). Det finns `certs` under katalog med en certifikat bunts fil, till exempel `ca-bundle.crt`.
+Ange miljövariabeln `SSL_CERT_FILE` att peka på filen innan du kör ett program som använder tal-SDK. Exempel:
 ```bash
-SSL_CERT_FILE=/etc/pki/tls/ca-bundle.pem ./helloworld
+export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
 
 ## <a name="next-steps"></a>Nästa steg

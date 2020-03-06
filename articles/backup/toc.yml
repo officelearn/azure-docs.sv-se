@@ -160,6 +160,8 @@
       items:
         - name: Från Azure-portalen
           items:
+            - name: Översikt
+              href: azure-file-share-backup-overview.md
             - name: Backup
               href: backup-afs.md
             - name: Återställ

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 68bb1fea88ab7ba30e0ba07839f2d962840b7818
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ce32343faefbcf2484ec0b1b39f752654a2d8514
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921189"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303621"
 ---
 # <a name="assets-in-azure-media-services"></a>Till gångar i Azure Media Services
 
@@ -75,6 +75,6 @@ Resurserna som ska krypteras av kryptering för lagring på serversidan för att
 
 [Hantera till gångar i Media Services](manage-asset-concept.md)
 
-## <a name="also-see"></a>Se även
+## <a name="see-also"></a>Se även
 
 [Skillnader mellan Media Services v2 och v3](migrate-from-v2-to-v3.md)

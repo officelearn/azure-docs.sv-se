@@ -4,15 +4,15 @@ description: Lär dig mer om SQL system Function StringToArray i Azure Cosmos DB
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2d1f90da50950ac6ff4f87ffe96ebad9f3d811cc
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 18acbd94fa3d717fc20b9e1020b9bf7c6db7744d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349272"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302924"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
  Returnerar uttryck som har översatts till en matris. Om uttrycket inte kan översättas returneras undefined.  
@@ -32,7 +32,7 @@ StringToArray(<str_expr>)
   
   Returnerar ett mat ris uttryck eller odefinierat. 
   
-## <a name="remarks"></a>Kommentarer
+## <a name="remarks"></a>Anmärkningar
   Kapslade sträng värden måste skrivas med dubbla citat tecken för att vara giltiga JSON. Mer information om JSON-formatet finns i [JSON.org](https://json.org/)
   
 ## <a name="examples"></a>Exempel
@@ -59,7 +59,7 @@ Här är resultatuppsättningen.
 Följande är ett exempel på ogiltiga indatatyper. 
    
  Enkla citat tecken i matrisen är inte giltiga JSON.
-Även om de är giltiga i en fråga går de inte att parsa till giltiga matriser. Strängar i mat ris strängen måste antingen föregås av "[\\" \\ "]" eller så måste det omgivande citatet vara en enstaka ["]".
+Även om de är giltiga i en fråga går de inte att parsa till giltiga matriser. Strängar i mat ris strängen måste antingen föregås av [\\\\] eller så måste det omgivande citatet vara en enstaka ["]".
 
 ```sql
 SELECT
@@ -90,6 +90,10 @@ Här är resultatuppsättningen.
 ```json
 [{}]
 ```
+
+## <a name="remarks"></a>Anmärkningar
+
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 54606b4fbbf7ae459298b3842f957de5256ba0df
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 799ed0e877bb3bddb3f179cdb3d6df6fca57e4d5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971153"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301360"
 ---
 # <a name="application-gateway-components"></a>Komponenter för Application Gateway
 
@@ -53,7 +53,7 @@ Application Gateway stöder fyra protokoll: HTTP, HTTPS, HTTP/2 och WebSocket:
 >Protokoll stöd för HTTP/2 är endast tillgängligt för klienter som ansluter till Application Gateway-lyssnare. Kommunikationen till backend-serverns pooler är alltid över HTTP/1.1. Stöd för HTTP/2 är inaktiverat som standard. Du kan välja att aktivera det.
 
 - Ange mellan HTTP-och HTTPS-protokollen i lyssnar konfigurationen.
-- Stöd för [WebSockets-och http/2-protokoll](overview.md#websocket-and-http2-traffic) anges internt och [WebSocket-stöd](application-gateway-websocket.md) är aktiverat som standard. Det finns inga inställningar som kan konfigureras av användaren för att selektivt aktivera eller inaktivera WebSocket-stöd. Använd WebSockets med både HTTP-och HTTPS-lyssnare.
+- Stöd för [WebSockets-och http/2-protokoll](features.md#websocket-and-http2-traffic) anges internt och [WebSocket-stöd](application-gateway-websocket.md) är aktiverat som standard. Det finns inga inställningar som kan konfigureras av användaren för att selektivt aktivera eller inaktivera WebSocket-stöd. Använd WebSockets med både HTTP-och HTTPS-lyssnare.
 
 Använd en HTTPS-lyssnare för SSL-avslutning. En HTTPS-lyssnare avlastar krypterings-och dekrypterings arbetet till din Application Gateway, så dina webb servrar är inte inaktuella vid omkostnaderna.
 
@@ -115,18 +115,18 @@ Porten och protokollet som används i HTTP-inställningarna avgör om trafiken m
 
 Den här komponenten används också för att:
 
-- Ta reda på om en användarsession ska behållas på samma server med hjälp av [cookie-baserad session tillhörighet](overview.md#session-affinity).
+- Ta reda på om en användarsession ska behållas på samma server med hjälp av [cookie-baserad session tillhörighet](features.md#session-affinity).
 
-- Ta bort medlemmar i Server delens medlemmar genom att använda [anslutnings tömning](overview.md#connection-draining).
+- Ta bort medlemmar i Server delens medlemmar genom att använda [anslutnings tömning](features.md#connection-draining).
 
 - Associera en anpassad avsökning för att övervaka Server dels hälsan, ange tids gräns intervallet för begäran, Åsidosätt värdnamn och sökväg i begäran och ge enkel klickning för att ange inställningar för den App Service server delen.
 
-## <a name="backend-pools"></a>Serverdelspooler
+## <a name="backend-pools"></a>Backend-pooler
 
 En backend-pool dirigerar begäran till backend-servrar, som servar begäran. Backend-pooler kan innehålla:
 
 - Nätverkskort
-- VM-skalningsuppsättningar
+- Skalningsuppsättningar för virtuella datorer
 - Offentliga IP-adresser
 - Interna IP-adresser
 - FQDN

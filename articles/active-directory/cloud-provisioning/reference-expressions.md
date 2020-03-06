@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect moln etablerings uttryck och funktions referens
-description: förhållande
+description: Referens
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d250377e15b957c10322dbba9ca587dd58944ad
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 51c14fd7f427c29c47521a7355309e62ab2254ca
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793544"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298623"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriver uttryck för mappningar av attribut i Azure Active Directory
 När du konfigurerar moln etablering, är en av de typer av mappningar av attribut som du kan ange en uttrycks mappning. 
@@ -26,22 +26,22 @@ Med uttrycks mappningen kan du anpassa attribut med ett skript liknande uttryck.
 Följande dokument tar upp de skript-liknande uttryck som används för att transformera data.  Detta är endast en del av processen.  Härnäst måste du använda det här uttrycket och placera det i en webbegäran till din klient organisation.  Mer information om detta finns i [transformeringar](how-to-transformation.md)
 
 ## <a name="syntax-overview"></a>Syntax-översikt
-Syntaxen för-uttryck för attributmappning är reminiscent av Visual Basic for Applications (VBA)-funktioner.
+Syntaxen för uttryck för attributmappningar är påminner om Visual Basic för Applications (VBA).
 
-* Hela uttrycket måste definieras i termer av functions, som består av ett namn följt av argument inom parentes: <br>
+* Hela uttrycket måste definieras när det gäller funktioner, som består av ett namn följt av argument inom parentes: <br>
   *FunctionName (`<<argument 1>>`,`<<argument N>>`)*
 * Du kan kapsla funktioner i varandra. Exempel: <br> *FunctionOne (FunctionTwo (`<<argument1>>`))*
-* Du kan skicka tre olika typer av argument till funktioner:
+* Du kan skicka tre olika typer av argument funktioner:
   
-  1. Attribut, som måste omges av hakparenteser. Exempel: [attributeName]
-  2. Strängkonstant, som måste omges av dubbla citat tecken. Till exempel: "USA"
+  1. Attribut måste omges av hakparenteser. Till exempel: [attributeName]
+  2. Strängkonstanter måste vara inom dubbla citattecken. Till exempel: ”USA”
   3. Andra funktioner. Till exempel: FunctionOne (`<<argument1>>`, FunctionTwo (`<<argument2>>`))
-* Om du behöver ett omvänt snedstreck (\) eller citat tecken (") i strängen för sträng konstanter måste det föregås av ett omvänt snedstreck (\). Exempel: "företags namn: \\" contoso\\""
+* För strängkonstanter, om du behöver ett omvänt snedstreck (\) eller citattecken (”) i strängen är måste den föregås symbolen omvänt snedstreck (\). Exempel: "företags namn: \\" contoso\\""
 
 ## <a name="list-of-functions"></a>Lista över funktioner
 | Lista över funktioner | Beskrivning |
 |-----|----|
-|[Slå](#append)|Tar ett käll sträng värde och lägger till suffixet i slutet av det.|
+|[Slå](#append)|Tar ett strängvärde för källa och lägger till suffixet i slutet av den.|
 |[BitAnd](#bitand)|Funktionen BitAnd anger angivna bitar i ett värde.|
 |[CBool](#cbool)|Funktionen CBool returnerar ett booleskt värde baserat på det utvärderade uttrycket|
 |[ConvertFromBase64](#convertfrombase64)|Funktionen ConvertFromBase64 konverterar det angivna base64-kodade värdet till en vanlig sträng.|
@@ -52,7 +52,7 @@ Syntaxen för-uttryck för attributmappning är reminiscent av Visual Basic for 
 |[DateFromNum](#datefromnum)|Funktionen DateFromNum konverterar ett värde i ADs datum format till en DateTime-typ.|
 |[DNComponent](#dncomponent)|Funktionen DNComponent returnerar värdet för en angiven DN-komponent som går från vänster.|
 |[Fels](#error)|Fel funktionen används för att returnera ett anpassat fel.|
-|[FormatDateTime](#formatdatetime) |Tar en datum sträng från ett format och konverterar det till ett annat format.| 
+|[FormatDateTime](#formatdatetime) |Tar en datumsträng från ett format och konverterar den till ett annat format.| 
 |[LED](#guid)|Funktions-GUID genererar ett nytt slumpmässigt GUID.|           
 |[IIF](#iif)|Funktionen IIF returnerar en uppsättning möjliga värden baserat på ett angivet villkor.|
 |[InStr](#instr)|Funktionen InStr söker efter den första förekomsten av en del sträng i en sträng.|
@@ -63,16 +63,16 @@ Syntaxen för-uttryck för attributmappning är reminiscent av Visual Basic for 
 |[Objekt](#item)|Funktionen item returnerar ett objekt från en multi-valueion String/Attribute.|
 |[Anslut dig](#join) |JOIN () liknar append (), förutom att det kan kombinera flera **käll** sträng värden till en enda sträng, och varje värde skiljs åt av en **avgränsnings** sträng.| 
 |[Från](#left)|Funktionen Left returnerar ett angivet antal tecken från vänster i en sträng.|
-|[Mid](#mid) |Returnerar en del sträng av käll värde. En under sträng är en sträng som bara innehåller några av tecknen från käll strängen.|
-|[NormalizeDiacritics](#normalizediacritics)|Kräver ett sträng argument. Returnerar strängen, men med dia kritiska tecken ersatta med motsvarande icke-dia kritiska tecken.|
+|[Mid](#mid) |Returnerar en understräng av värdet för datakällan. En understräng är en sträng som innehåller bara en del av tecken från Källsträngen.|
+|[NormalizeDiacritics](#normalizediacritics)|Kräver ett strängargument. Returnerar strängen, men med eventuella diakritiska tecken ersätts med motsvarande icke-diakritiska tecken.|
 |[Ogiltigt](#not) |Vänder det booleska värdet för **källan**. Om **källobjektet** är "*True*" returnerar "*false*". Annars returnerar "*True*".| 
 |[RemoveDuplicates](#removeduplicates)|Funktionen RemoveDuplicates använder en sträng med flera värden och ser till att varje värde är unikt.| 
 |[Bytt](#replace) |Ersätter värden i en sträng. | 
-|[SelectUniqueValue](#selectuniquevalue)|Kräver minst två argument, vilket är unika regler för generering av unika värden som definieras med hjälp av uttryck. Funktionen utvärderar varje regel och kontrollerar sedan värdet som genereras för unikhet i mål appen/katalogen.| 
+|[SelectUniqueValue](#selectuniquevalue)|Kräver minst två argument, som är unikt värde Genereringsregler definieras med hjälp av uttryck. Funktionen utvärderar varje regel och sedan kontrollerar värdet som genererats för unikhet i appen/målkatalogen.| 
 |[SingleAppRoleAssignment](#singleapproleassignment)|Returnerar en enskild appRoleAssignment från listan över alla appRoleAssignments som har tilldelats till en användare för ett visst program.| 
 |[Del](#split)|Delar upp en sträng i en Multivärdes mat ris med hjälp av det angivna avgränsnings tecken.|
 |[StringFromSID](#stringfromsid)|Funktionen StringFromSid konverterar en byte mat ris som innehåller en säkerhets identifierare till en sträng.| 
-|[StripSpaces](#stripspaces) |Tar bort alla blank steg ("") från käll strängen.| 
+|[StripSpaces](#stripspaces) |Tar bort alla blanksteg (””) tecken från strängen källa.| 
 |[Byta](#switch)|Returnerar **värdet** för den **nyckeln**när **källobjektet** matchar en **nyckel**. | 
 |[ToLower](#tolower)|Tar ett *käll* sträng värde och konverterar det till gemener med de angivna kultur reglerna.| 
 |[ToUpper](#toupper)|Tar ett *käll* sträng värde och konverterar det till versaler med de angivna kultur reglerna.|
@@ -81,16 +81,16 @@ Syntaxen för-uttryck för attributmappning är reminiscent av Visual Basic for 
 
 ---
 ### <a name="append"></a>Lägg till
-**Funktioner**<br> Lägg till (källa, suffix)
+**Funktioner**<br> Append(Source, suffix)
 
-**Beteckning**<br> Tar ett käll sträng värde och lägger till suffixet i slutet av det.
+**Beteckning**<br> Tar ett strängvärde för källa och lägger till suffixet i slutet av den.
 
 **Komponentparametrar**<br> 
 
-   | Namn | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet från källobjektet. |
-   | **huvudnamnssuffix** |Krävs |Sträng |Strängen som du vill lägga till i slutet av source-värdet. |
+   | **källicensservern** |Krävs |String |Vanligtvis namnet på attributet från källobjektet. |
+   | **huvudnamnssuffix** |Krävs |String |Den sträng som du vill lägga till i slutet av värdet för datakällan. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -246,18 +246,18 @@ Om attributet accountName inte finns genererar du ett fel på objektet.
 ### <a name="formatdatetime"></a>formatDateTime
 **Funktioner**<br> FormatDateTime (källa, inputFormat, outputFormat)
 
-**Beteckning**<br> Tar en datum sträng från ett format och konverterar det till ett annat format.
+**Beteckning**<br> Tar en datumsträng från ett format och konverterar den till ett annat format.
 
 **Komponentparametrar**<br> 
 
-   | Namn | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet från källobjektet. |
-   | **inputFormat** |Krävs |Sträng |Förväntat format för Source-värdet. För format som stöds, se [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-   | **outputFormat** |Krävs |Sträng |Formatet för datum för utdata. |
+   | **källicensservern** |Krävs |String |Vanligtvis namnet på attributet från källobjektet. |
+   | **inputFormat** |Krävs |String |Förväntade format för värdet för datakällan. För format som stöds, se [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+   | **outputFormat** |Krävs |String |Formatet för Utdatadatum. |
 
 ---
-### <a name="guid"></a>GUID
+### <a name="guid"></a>Guid
 **Beteckning**  
 Funktions-GUID genererar ett nytt slumpmässigt GUID
 
@@ -384,7 +384,7 @@ Används för att avgöra om CStr () kan lyckas parsa uttrycket.
 
 ---
 ### <a name="join"></a>Slå ihop
-**Funktioner**<br> Gå till (avgränsare, source1, SOURCE2,...)
+**Funktioner**<br> Ansluta till (avgränsare, källa1, källa2...)
 
 **Beteckning**<br> JOIN () liknar append (), förutom att det kan kombinera flera **käll** sträng värden till en enda sträng, och varje värde skiljs åt av en **avgränsnings** sträng.
 
@@ -392,10 +392,10 @@ Om ett av käll värdena är ett flervärdesattribut, kopplas alla värden i det
 
 **Komponentparametrar**<br> 
 
-   | Namn | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
    | --- | --- | --- | --- |
-   | **brytning** |Krävs |Sträng |Sträng som används för att avgränsa käll värden när de sammanfogas till en sträng. Kan vara "" om ingen avgränsare krävs. |
-   | **source1 ... Källa** |Obligatoriskt, variabel antal gånger |Sträng |Sträng värden som ska sammanfogas tillsammans. |
+   | **brytning** |Krävs |String |Strängen används för att avgränsa källvärdena när de sammanfogas till en sträng. Kan vara ”” om det krävs ingen avgränsare. |
+   | **source1 ... Källa** |Krävs, variabeln antal gånger |String |Sträng värden kopplas. |
 
 ---
 ### <a name="left"></a>Från
@@ -423,41 +423,41 @@ Returnerar `Joh`.
 
 ---
 ### <a name="mid"></a>Mid
-**Funktioner**<br> Mid (källa, start, längd)
+**Funktioner**<br> MID (källa, start, length)
 
-**Beteckning**<br> Returnerar en del sträng av käll värde. En under sträng är en sträng som bara innehåller några av tecknen från käll strängen.
+**Beteckning**<br> Returnerar en understräng av värdet för datakällan. En understräng är en sträng som innehåller bara en del av tecken från Källsträngen.
 
 **Komponentparametrar**<br> 
 
-   | Namn | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet. |
-   | **start** |Krävs |heltal |Index i **käll** strängen där under strängen ska starta. Det första alfabetet i strängen kommer att ha indexet 1, andra tecken kommer att ha index 2 och så vidare. |
-   | **krävande** |Krävs |heltal |Del strängens längd. Om längden slutar utanför **käll** strängen returnerar funktionen del sträng från **Start** index till slutet av **käll** strängen. |
+   | **källicensservern** |Krävs |String |Vanligtvis namnet på attributet. |
+   | **start** |Krävs |heltal |Index i **käll** strängen där under strängen ska starta. Första tecknet i strängen har index 1, andra tecknet ska ha index 2 och så vidare. |
+   | **krävande** |Krävs |heltal |Delsträngens längd. Om längden slutar utanför **käll** strängen returnerar funktionen del sträng från **Start** index till slutet av **käll** strängen. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
-**Funktioner**<br> NormalizeDiacritics (källa)
+**Funktioner**<br> NormalizeDiacritics(source)
 
-**Beteckning**<br> Kräver ett sträng argument. Returnerar strängen, men med dia kritiska tecken ersatta med motsvarande icke-dia kritiska tecken. Används vanligt vis för att konvertera förnamn och efter namn som innehåller dia kritiska tecken (accenttecken) till juridiska värden som kan användas i olika användar identifierare som användarens huvud namn, SAM-kontonamn och e-postadresser.
+**Beteckning**<br> Kräver ett strängargument. Returnerar strängen, men med eventuella diakritiska tecken ersätts med motsvarande icke-diakritiska tecken. Normalt används för att konvertera förnamn och efternamn som innehåller diakritiska tecken (accenttecken) i juridiska värden som kan användas i olika användaridentifierare, t.ex användarhuvudnamn SAM-kontonamn och e-postadresser.
 
 **Komponentparametrar**<br> 
 
-   | Namn | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng | Vanligt vis attributet förnamn eller efter namn. |
+   | **källicensservern** |Krävs |String | Vanligt vis attributet förnamn eller efter namn. |
 
 ---
 ### <a name="not"></a>Inte
-**Funktioner**<br> Inte (källa)
+**Funktioner**<br> Not(Source)
 
 **Beteckning**<br> Vänder det booleska värdet för **källan**. Om **källobjektet** är "*True*" returnerar "*false*". Annars returnerar "*True*".
 
 **Komponentparametrar**<br> 
 
-   | Namn | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Boolesk sträng |Förväntade **käll** värden är "true" eller "false". |
+   | **källicensservern** |Krävs |Booleska sträng |Förväntade **käll** värden är "true" eller "false". |
 
 ---
 ### <a name="removeduplicates"></a>RemoveDuplicates
@@ -473,10 +473,10 @@ Returnerar ett sanerat proxyAddress-attribut där alla dubblettvärden har tagit
 
 ---
 ### <a name="replace"></a>Ersätt
-**Funktioner**<br> Ersätt (källa, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, mall)
+**Funktioner**<br> Ersätt (källa, oldValue, regexPattern, regexGroupName, ersättningsvärde, replacementAttributeName, mall)
 
 **Beteckning**<br>
-Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka parametrar som anges:
+Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parametrarna som anges:
 
 * När **OldValue** och **replacementValue** anges:
   
@@ -497,47 +497,47 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka 
 
 **Komponentparametrar**<br> 
 
-   | Namn | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet från **källobjektet** . |
-   | **Gammalt** |Valfritt |Sträng |Värdet som ska ersättas i **källa** eller **mall**. |
-   | **regexPattern** |Valfritt |Sträng |Regex-mönster för värdet som ska ersättas i **källan**. Eller, när **replacementPropertyName** används, mönster för att extrahera värdet från **replacementPropertyName**. |
-   | **regexGroupName** |Valfritt |Sträng |Namnet på gruppen inuti **regexPattern**. Endast när **replacementPropertyName** används kommer vi att extrahera värdet för den här gruppen som **replacementValue** från **replacementPropertyName**. |
-   | **replacementValue** |Valfritt |Sträng |Nytt värde som ersätter det gamla ett med. |
-   | **replacementAttributeName** |Valfritt |Sträng |Namnet på attributet som ska användas för ersättnings värde |
-   | **webbplatsmall** |Valfritt |Sträng |När ett **mallnamn** anges söker vi efter **OldValue** i mallen och ersätter det med **käll** värde. |
+   | **källicensservern** |Krävs |String |Vanligt vis namnet på attributet från **källobjektet** . |
+   | **Gammalt** |Valfri |String |Värdet som ska ersättas i **källa** eller **mall**. |
+   | **regexPattern** |Valfri |String |Regex-mönster för värdet som ska ersättas i **källan**. Eller, när **replacementPropertyName** används, mönster för att extrahera värdet från **replacementPropertyName**. |
+   | **regexGroupName** |Valfri |String |Namnet på gruppen inuti **regexPattern**. Endast när **replacementPropertyName** används kommer vi att extrahera värdet för den här gruppen som **replacementValue** från **replacementPropertyName**. |
+   | **replacementValue** |Valfri |String |Nytt värde som ersätter gamla med. |
+   | **replacementAttributeName** |Valfri |String |Namnet på attributet som ska användas för ersättnings värde |
+   | **webbplatsmall** |Valfri |String |När ett **mallnamn** anges söker vi efter **OldValue** i mallen och ersätter det med **käll** värde. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
-**Funktioner**<br> SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, ...)
+**Funktioner**<br> SelectUniqueValue (uniqueValueRule1, uniqueValueRule2, uniqueValueRule3,...)
 
-**Beteckning**<br> Kräver minst två argument, vilket är unika regler för generering av unika värden som definieras med hjälp av uttryck. Funktionen utvärderar varje regel och kontrollerar sedan värdet som genereras för unikhet i mål appen/katalogen. Det första unika värdet som du hittar är det som returnerades. Om alla värden redan finns i målet kommer posten att få deponerats och orsaken loggas i gransknings loggarna. Det finns ingen övre bindning till det antal argument som kan anges.
+**Beteckning**<br> Kräver minst två argument, som är unikt värde Genereringsregler definieras med hjälp av uttryck. Funktionen utvärderar varje regel och sedan kontrollerar värdet som genererats för unikhet i appen/målkatalogen. Det första unika värdet att hitta som kommer att returneras. Om alla värden redan finns i målet, posten ska hämta escrowed och orsaken hämtar loggas i granskningsloggarna. Det finns ingen övre gräns för antalet argument som kan anges.
 
 > [!NOTE]
-> - Detta är en funktion på den översta nivån, den kan inte kapslas.
+> - Det här är en funktion på översta nivån, kan inte kapslas.
 > - Den här funktionen kan inte tillämpas på attribut som har en matchande prioritet.  
-> - Den här funktionen är endast avsedd att användas för att skapa poster. När du använder det med ett-attribut ställer du in egenskapen **tillämpa mappning** på **endast när objekt skapas**.
+> - Den här funktionen är endast avsedd att användas för skapande av posten. När du använder det med ett-attribut ställer du in egenskapen **tillämpa mappning** på **endast när objekt skapas**.
 > - Den här funktionen stöds för närvarande endast för "arbets dag för Active Directory användar etablering". Det kan inte användas med andra etablerings program. 
 
 
 **Komponentparametrar**<br> 
 
-   | Namn | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
    | --- | --- | --- | --- |
-   | **uniqueValueRule1 ... uniqueValueRuleN** |Minst 2 krävs, ingen övre bindning |Sträng | Lista med regler för generering av unika värden som ska utvärderas. |
+   | **uniqueValueRule1 ... uniqueValueRuleN** |Minst är 2 krävs, inte övre gräns |String | Lista med regler för generering av unika värden som ska utvärderas. |
 
 
 ---
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
-**Funktioner**<br> SingleAppRoleAssignment ([appRoleAssignments])
+**Funktioner**<br> SingleAppRoleAssignment([appRoleAssignments])
 
 **Beteckning**<br> Returnerar en enskild appRoleAssignment från listan över alla appRoleAssignments som har tilldelats till en användare för ett visst program. Den här funktionen krävs för att konvertera appRoleAssignments-objektet till en enda roll namn sträng. Observera att det bästa sättet är att se till att endast en appRoleAssignment är tilldelad en användare åt gången, och om flera roller tilldelas kan den returnerade roll strängen inte vara förutsägbar. 
 
 **Komponentparametrar**<br> 
 
-  | Namn | Krävs/upprepas | Typ | Anteckningar |
+  | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
   |--- | --- | --- | --- |
-  | **AppRoleAssignments** |Krävs |Sträng |**[appRoleAssignments]** -objekt. |
+  | **AppRoleAssignments** |Krävs |String |**[appRoleAssignments]** -objekt. |
 
 ---
 ### <a name="split"></a>Dela
@@ -547,10 +547,10 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka 
 
 **Komponentparametrar**<br> 
 
-   | Namn | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng |**käll** värde att uppdatera. |
-   | **avgränsare** |Krävs |Sträng |Anger det tecken som ska användas för att dela strängen (exempel: ",") |
+   | **källicensservern** |Krävs |String |**käll** värde att uppdatera. |
+   | **avgränsare** |Krävs |String |Anger det tecken som ska användas för att dela strängen (exempel: ",") |
 
 ---
 ### <a name="stringfromsid"></a>StringFromSid
@@ -562,57 +562,57 @@ Funktionen StringFromSid konverterar en byte mat ris som innehåller en säkerhe
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
-**Funktioner**<br> StripSpaces (källa)
+**Funktioner**<br> StripSpaces(source)
 
-**Beteckning**<br> Tar bort alla blank steg ("") från käll strängen.
+**Beteckning**<br> Tar bort alla blanksteg (””) tecken från strängen källa.
 
 **Komponentparametrar**<br> 
 
-   | Namn | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng |**käll** värde att uppdatera. |
+   | **källicensservern** |Krävs |String |**käll** värde att uppdatera. |
 
 ---
 ### <a name="switch"></a>Växel
-**Funktioner**<br> Switch (källa, defaultValue, KEY1, värde1, key2, värde2,...)
+**Funktioner**<br> Växel (källa, standardvärde, key1, value1, key2, value2,...)
 
-**Beteckning**<br> Returnerar **värdet** för den **nyckeln**när **källobjektet** matchar en **nyckel**. Om **käll** värde inte matchar några nycklar returnerar **DefaultValue**.  **Nyckel** -och **värde** parametrar måste alltid komma in i par. Funktionen förväntar sig alltid ett jämnt antal parametrar.
+**Beteckning**<br> Returnerar **värdet** för den **nyckeln**när **källobjektet** matchar en **nyckel**. Om **käll** värde inte matchar några nycklar returnerar **DefaultValue**.  **Nyckel** -och **värde** parametrar måste alltid komma in i par. Funktionen förväntar alltid ett jämnt antal parametrar.
 
 **Komponentparametrar**<br> 
 
-   | Namn | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng |**Käll** värde att uppdatera. |
-   | **Standar** |Valfritt |Sträng |Standardvärdet som ska användas när källan inte matchar några nycklar. Kan vara en tom sträng (""). |
-   | **nyckel** |Krävs |Sträng |**Nyckel** att jämföra **käll** värde med. |
-   | **värde** |Krävs |Sträng |Ersättnings värde för den **källa** som matchar nyckeln. |
+   | **källicensservern** |Krävs |String |**Käll** värde att kontrol lera. |
+   | **Standar** |Valfri |String |Standardvärde som ska användas när källan inte matchar några nycklar. Kan vara tom sträng (””). |
+   | **nyckel** |Krävs |String |**Nyckel** att jämföra **käll** värde med. |
+   | **värde** |Krävs |String |Ersättnings värde för den **källa** som matchar nyckeln. |
 
 ---
-### <a name="tolower"></a>ToLower
+### <a name="tolower"></a>toLower
 **Funktioner**<br> ToLower (källa, kultur)
 
 **Beteckning**<br> Tar ett *käll* sträng värde och konverterar det till gemener med de angivna kultur reglerna. Om det inte finns någon angiven *kultur* information, används en invariant kultur.
 
 **Komponentparametrar**<br> 
 
-   | Namn | Krävs/upprepas | Typ | Anteckningar |
+   | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
    | --- | --- | --- | --- |
-   | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet från källobjektet |
-   | **substrat** |Valfritt |Sträng |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
+   | **källicensservern** |Krävs |String |Vanligtvis namnet på attributet från källobjektet |
+   | **substrat** |Valfri |String |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
 
 ---
 
-### <a name="toupper"></a>ToUpper
+### <a name="toupper"></a>toUpper
 **Funktioner**<br> ToUpper (källa, kultur)
 
 **Beteckning**<br> Tar ett *käll* sträng värde och konverterar det till versaler med de angivna kultur reglerna. Om det inte finns någon angiven *kultur* information, används en invariant kultur.
 
 **Komponentparametrar**<br> 
 
-  | Namn | Krävs/upprepas | Typ | Anteckningar |
+  | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
   | --- | --- | --- | --- |
-  | **källicensservern** |Krävs |Sträng |Vanligt vis namnet på attributet från källobjektet. |
-  | **substrat** |Valfritt |Sträng |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
+  | **källicensservern** |Krävs |String |Vanligtvis namnet på attributet från källobjektet. |
+  | **substrat** |Valfri |String |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
 
 ---
 
@@ -658,9 +658,9 @@ Returnerar "brun"
 Returnerar "har"
 
 ## <a name="examples"></a>Exempel
-### <a name="strip-known-domain-name"></a>Strip-känt domän namn
-Du måste randig ett känt domän namn från en användares e-postadress för att få ett användar namn. <br>
-Om domänen till exempel är "contoso.com" kan du använda följande uttryck:
+### <a name="strip-known-domain-name"></a>Remsans kända domännamn
+Du måste ta bort ett känt domännamn från en användares e-post att hämta ett användarnamn. <br>
+Till exempel om domänen är ”contoso.com”, kan du använda följande uttryck:
 
 **Uttryck** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
@@ -670,8 +670,8 @@ Om domänen till exempel är "contoso.com" kan du använda följande uttryck:
 * **Inmatad** (e-post): "john.doe@contoso.com"
 * **Utdata**: "John. berg"
 
-### <a name="append-constant-suffix-to-user-name"></a>Lägg till konstant suffix i användar namn
-Om du använder en Salesforce-Sandbox kan du behöva lägga till ytterligare ett suffix till alla användar namn innan du synkroniserar dem.
+### <a name="append-constant-suffix-to-user-name"></a>Lägg till konstant suffix till användarnamn
+Om du använder en Salesforce-Sandbox kan du behöva lägga till en ytterligare suffix till alla användare innan du synkroniserar dem.
 
 **Uttryck** <br>
 `Append([userPrincipalName], ".test")`
@@ -681,8 +681,8 @@ Om du använder en Salesforce-Sandbox kan du behöva lägga till ytterligare ett
 * **Inmatade**: (userPrincipalName): "John.Doe@contoso.com"
 * **Utdata**: "John.Doe@contoso.com.test"
 
-### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Generera användaralias genom att sammanfoga delar av för-och efter namn
-Du måste generera ett användaralias genom att göra de första 3 bokstäverna för användarens förnamn och de första fem bokstäverna i användarens efter namn.
+### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Generera användaralias genom att sammanfoga delar av förnamn, efternamn
+Du måste du generera en användare alias genom att först 3 bokstäverna i användarens förnamn och 5 första bokstäverna i användarens efternamn.
 
 **Uttryck** <br>
 `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
@@ -693,11 +693,11 @@ Du måste generera ett användaralias genom att göra de första 3 bokstäverna 
 * **Inmatad** (efter namn): "berg"
 * **Utdata**: "JohDoe"
 
-### <a name="remove-diacritics-from-a-string"></a>Ta bort dia kritiska tecken från en sträng
-Du måste ersätta tecken som innehåller accenttecken med motsvarande tecken som inte innehåller accenttecken.
+### <a name="remove-diacritics-from-a-string"></a>Ta bort diakritiska tecken från en sträng
+Du måste ersätta tecken med accenter med motsvarande tecken som inte innehåller accenttecken.
 
 **Uttryck** <br>
-NormalizeDiacritics ([givenName])
+NormalizeDiacritics([givenName])
 
 **Exempel på indata/utdata:** <br>
 
@@ -715,9 +715,9 @@ Dela ([extensionAttribute5], ",")
 * **Inmatade** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
 * **Output**: ["PermissionSetOne", "PermissionSetTwo"]
 
-### <a name="output-date-as-a-string-in-a-certain-format"></a>Utmatnings datum som en sträng i ett visst format
+### <a name="output-date-as-a-string-in-a-certain-format"></a>Utdatadatum som en sträng i ett visst format
 Du vill skicka datum till ett SaaS-program i ett visst format. <br>
-Till exempel vill du formatera datum för ServiceNow.
+Exempelvis kan du formatera datum för ServiceNow.
 
 **Uttryck** <br>
 
@@ -728,10 +728,10 @@ Till exempel vill du formatera datum för ServiceNow.
 * **Inmatade** (extensionAttribute1): "20150123105347.1 z"
 * **Utdata**: "2015-01-23"
 
-### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Ersätt ett värde baserat på fördefinierade alternativ uppsättningar
+### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Ersätt ett värde baserat på fördefinierade uppsättning med alternativ
 
-Du måste definiera tids zonen för användaren baserat på den delstats kod som lagras i Azure AD. <br>
-Om tillstånds koden inte matchar något av de fördefinierade alternativen använder du standardvärdet "Australien/Sydney".
+Du behöver definiera tidszonen för användaren baserat på delstatskod som lagras i Azure AD. <br>
+Om delstatskod inte matchar någon av de fördefinierade alternativ, använder du standardvärdet ”Australien/Sydney”.
 
 **Uttryck** <br>
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
@@ -764,8 +764,8 @@ I exemplet nedan genereras UPN-värdet genom att sammanfoga PreferredFirstName-o
 * **Inmatade** (PreferredLastName): "Svensson"
 * **Utdata**: "john.smith@contoso.com"
 
-### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Generera ett unikt värde för userPrincipalName-attributet (UPN)
-Baserat på användarens förnamn, mellan namn och efter namn, måste du generera ett värde för attributet UPN och kontrol lera att det är unikt i mål-AD-katalogen innan du tilldelar värdet till UPN-attributet.
+### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Generera unikt värde för attributet userPrincipalName (UPN)
+Baserat på användarens förnamn, mellannamn och efternamn, måste du generera ett värde för UPN-attributet och Sök efter dess unikhet i målkatalogen AD innan tilldelas värdet till UPN-attributet.
 
 **Uttryck** <br>
 

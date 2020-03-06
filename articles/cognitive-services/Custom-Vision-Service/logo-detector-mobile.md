@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 6ff12122d541a9dbb160a424e0d11cf03fdcb9fe
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 51fa6d4859eb4b7f059b499ba73d84d9fc65e6f6
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970235"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398981"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Självstudie: identifiera Azure-tjänstens logo typer i kamera bilder
 
@@ -30,7 +30,7 @@ De här självstudierna visar hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/)
 - Xamarin-arbetsbelastningen för Visual Studio (se [Installera Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
@@ -107,7 +107,7 @@ Appen kräver ett Azure-konto för tjänstens huvudnamn för att distribuera tj�
 
 Du kan skapa ett huvudnamn för tjänsten med hjälp av Azure Cloud Shell eller Azure CLI såsom det visas här. Börja med att logga in och välja den prenumeration som du vill använda.
 
-```console
+```azurecli
 az login
 az account list
 az account set --subscription "<subscription name or subscription id>"
@@ -115,7 +115,7 @@ az account set --subscription "<subscription name or subscription id>"
 
 Skapa sedan tjänstens huvudnamn. (Den här processen kan ta lite tid att slutföra.)
 
-```console
+```azurecli
 az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongPassword>
 ```
 

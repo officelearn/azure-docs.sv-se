@@ -4,15 +4,15 @@ description: Lär dig mer om SQL system Function StringToNumber i Azure Cosmos D
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8b9596738d9b02fa26f9c363287323b905654a1f
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 5ca8d0c4a6d244823dda6f0f79a3cf5c743a12a9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349235"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296430"
 ---
 # <a name="stringtonumber-azure-cosmos-db"></a>StringToNumber (Azure Cosmos DB)
  Returnerar uttryck översatt till ett tal. Om uttrycket inte kan översättas returneras undefined.  
@@ -82,6 +82,10 @@ SELECT
 ```json
 {{}}
 ```  
+
+## <a name="remarks"></a>Anmärkningar
+
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 

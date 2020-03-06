@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 11/05/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: fe9cee44970da94c346caffc0d5fe76ffebf4a0b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 471b26ebc4bd4aecb814ec43c7eba56e3d764fa0
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845147"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402486"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Använd CLI-tillägget för Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Azure Machine Learning CLI är ett tillägg till den [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), ett plattformsoberoende kommandoradsgränssnitt för Azure-plattformen. Det här tillägget innehåller kommandon för att arbeta med Azure Machine Learning. Det gör att du kan automatisera dina Machine Learning-aktiviteter. Följande lista innehåller några exempel åtgärder som du kan göra med CLI-tillägget:
+Azure Machine Learning CLI är ett tillägg till [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), ett plattforms oberoende kommando rads gränssnitt för Azure-plattformen. Det här tillägget innehåller kommandon för att arbeta med Azure Machine Learning. Det gör att du kan automatisera dina Machine Learning-aktiviteter. Följande lista innehåller några exempel åtgärder som du kan göra med CLI-tillägget:
 
 + Köra experiment för att skapa machine learning-modeller
 
@@ -31,11 +31,11 @@ Azure Machine Learning CLI är ett tillägg till den [Azure CLI](https://docs.mi
 
 CLI är inte en ersättning för Azure Machine Learning-SDK. Det är ett komplett verktyg som är optimerat för att hantera mycket parameterstyrda uppgifter som passar bra för automatisering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Du måste ha en Azure-prenumeration om du vill använda CLI. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* Du måste ha en Azure-prenumeration om du vill använda CLI. Om du inte har en Azure-prenumeration kan du skapa ett kostnads fritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
-* Den [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## <a name="full-reference-docs"></a>Fullständiga referens dokument
 
@@ -52,7 +52,7 @@ az extension add -n azure-cli-ml
 > [!TIP]
 > Exempel på filer som du kan använda med kommandona nedan hittar du [här](https://aka.ms/azml-deploy-cloud).
 
-När du uppmanas, väljer `y` att installera tillägget.
+När du uppmanas väljer du `y` för att installera tillägget.
 
 För att kontrollera att tillägget har installerats, använder du följande kommando för att visa en lista över ML-specifika underkommandon:
 

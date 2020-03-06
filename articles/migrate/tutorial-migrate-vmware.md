@@ -4,12 +4,12 @@ description: Lär dig hur du kör en agent lös migrering av virtuella VMware-da
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: 79ba3f17b225357267cbd114659851614279bb7f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 825d6ff16a1f51fa476541ee10fea5f8a1c2972e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989373"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304216"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrera virtuella VMware-datorer till Azure (utan agent)
 
@@ -17,7 +17,7 @@ Den här artikeln visar hur du migrerar lokala virtuella VMware-datorer till Azu
 
 [Azure Migrate](migrate-services-overview.md) tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbets belastningar och AWS/GCP VM-instanser till Azure. Hubben innehåller Azure Migrate verktyg för utvärdering och migrering samt oberoende program varu leverantörer från tredje part (ISV).
 
-Den här självstudien är den tredje i en serie som visar hur du bedömer och migrerar virtuella VMware-datorer till Azure med hjälp av Azure Migrate Server bedömning och migrering. I den här guiden får du lära dig hur man:
+Den här självstudien är den tredje i en serie som visar hur du bedömer och migrerar virtuella VMware-datorer till Azure med hjälp av Azure Migrate Server bedömning och migrering. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förbered virtuella datorer för migrering.
@@ -41,7 +41,7 @@ Om du vill bestämma om du vill använda en agent lös eller agent-baserad migre
 - [Lär dig hur](server-migrate-overview.md) en agent utan migrering fungerar och [Jämför metoder för migrering](server-migrate-overview.md#compare-migration-methods).
 - [Läs den här artikeln](tutorial-migrate-vmware-agent.md) om du vill använda den agentbaserade metoden.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar de här självstudierna bör du:
 
@@ -248,7 +248,7 @@ När du har kontrollerat att testmigreringen fungerar som förväntat kan du mig
 
 ## <a name="complete-the-migration"></a>Slutföra migreringen
 
-1. När migreringen är färdig högerklickar du på den virtuella datorn > **stoppa migreringen**. Detta stoppar replikeringen för den lokala datorn och rensar information om replikeringstillståndet för den virtuella datorn.
+1. När migreringen är färdig högerklickar du på den virtuella datorn > **stoppar replikeringen**. Detta stoppar replikeringen för den lokala datorn och rensar information om replikeringstillståndet för den virtuella datorn.
 2. Installera [Azure VM-](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) eller [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) -agenten på de migrerade datorerna.
 3. Utför alla finjusteringar av appen efter migreringen som att uppdatera databasanslutningssträngar och webbserverkonfigurationer.
 4. Utför slutlig program- och migreringsacceptanstestning på det migrerade programmet som nu körs i Azure.

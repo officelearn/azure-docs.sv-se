@@ -10,18 +10,18 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: eac7674ae4a88621a803c70bd55a88e65b2cb7e9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: caf2437b4a4853bc29f094d082a4ea15d2f7a3c9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838695"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388476"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Omträna och distribuera en klassisk Studio (klassisk) webb tjänst
 
 Retraining Machine Learning-modeller är ett sätt att se till att de håller sig noggrann och utifrån de mest relevanta data som finns tillgängliga. I den här artikeln visas hur du återskapar en klassisk Studio (klassisk) webb tjänst. En guide om hur du återskapar en ny Studio-webbtjänst (klassisk) finns i [den här instruktions artikeln.](retrain-machine-learning-model.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du redan har både ett omskolnings experiment och ett förutsägelse experiment. De här stegen beskrivs i [omträna och distribuera en maskin inlärnings modell.](/azure/machine-learning/studio/retrain-machine-learning-model) Men i stället för att distribuera din Machine Learning-modell som en ny webb tjänst, kommer du att distribuera ditt förutsägelse experiment som en klassisk webb tjänst.
      
@@ -47,24 +47,11 @@ Du kan lägga till bedömnings slut punkter med hjälp av exempel koden som ange
 1. I Machine Learning Studio (klassisk) i den vänstra navigerings kolumnen klickar du på webb tjänster.
 1. Klicka på **Hantera slut punkter för förhands granskning**längst ned på instrument panelen för webb tjänster.
 1. Klicka på **Lägg till**.
-1. Ange ett namn och en beskrivning för den nya slut punkten. Välj loggnings nivå och om exempel data är aktiverade. Mer information om loggning finns i [Aktivera loggning för Machine Learning-webbtjänster](web-services-logging.md).
+1. Skriv ett namn och beskrivning för den nya slutpunkten. Välj loggningsnivån och om exempeldata är aktiverad. Mer information om loggning finns i [Aktivera loggning för Machine Learning-webbtjänster](web-services-logging.md).
 
 ## <a name="update-the-added-endpoints-trained-model"></a>Uppdatera den utbildade modell som lagts till för slut punkten
 
 ### <a name="retrieve-patch-url"></a>Hämta KORRIGERINGs webb adress
-
-### <a name="option-1-programmatically"></a>Alternativ 1: program mässigt
-
-Följ dessa steg om du vill hämta rätt URL för korrigerings fil program:
-
-1. Kör [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) exempel kod.
-1. Från utdata från AddEndpoint letar du reda på *HelpLocation* -värdet och kopierar URL: en.
-
-   ![HelpLocation i utdata från addEndpoint-exemplet.](./media/retrain-classic/addEndpoint-output.png)
-1. Klistra in webb adressen i en webbläsare för att navigera till en sida som innehåller hjälp länkar till webb tjänsten.
-1. Klicka på länken **Uppdatera resurs** för att öppna hjälp sidan för korrigerings filen.
-
-### <a name="option-2-use-the-azure-machine-learning-web-services-portal"></a>Alternativ 2: Använd Azure Machine Learning Web Services-portalen
 
 Följ dessa steg för att hämta rätt KORRIGERINGs-URL med hjälp av webb portalen:
 
@@ -101,8 +88,8 @@ Följande exempel kod visar hur du använder URL: en för *BaseLocation*, *Relat
                     Location = new AzureBlobDataReference()
                     {
                         BaseLocation = "https://esintussouthsus.blob.core.windows.net/",
-                        RelativeLocation = "your endpoint relative location", //from the output, for example: “experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner”
-                        SasBlobToken = "your endpoint SAS blob token" //from the output, for example: “?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl”
+                        RelativeLocation = "your endpoint relative location", //from the output, for example: "experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner"
+                        SasBlobToken = "your endpoint SAS blob token" //from the output, for example: "?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl"
                     }
                 }
             }

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: allensu
-ms.openlocfilehash: 0e19271b5c69610dd9f44c3121e195b80732279c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 205826a6ad952383582f5a8086cbd8b85dbc3794
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669547"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359255"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>Vad är Virtual Network NAT (offentlig för hands version)?
 
@@ -192,13 +192,13 @@ Vi vill veta hur vi kan förbättra tjänsten. Dela din [feedback om den offentl
 
 ## <a name="limitations"></a>Begränsningar
 
-- NAT är kompatibelt med standard-SKU offentlig IP, offentliga IP-prefix och belastnings Utjämnings resurser.   Grundläggande resurser (till exempel grundläggande belastningsutjämnare) och alla produkter som härletts från dem är inte kompatibla med NAT.  Grundläggande resurser måste placeras i ett undernät som inte har kon figurer ATS med NAT.
-- IPv4-adress familjen stöds.  NAT interagerar inte med IPv6-adress familjen.
-- NSG Flow-loggning stöds inte när NAT används.
-- NAT kan inte omfatta flera virtuella nätverk.
+* NAT är kompatibelt med standard-SKU offentlig IP, offentliga IP-prefix och belastnings Utjämnings resurser.   Grundläggande resurser (till exempel grundläggande belastningsutjämnare) och alla produkter som härletts från dem är inte kompatibla med NAT.  Grundläggande resurser måste placeras i ett undernät som inte har kon figurer ATS med NAT.
+* IPv4-adress familjen stöds.  NAT interagerar inte med IPv6-adress familjen.  Det går inte att distribuera NAT i ett undernät med IPv6-prefix.
+* NSG Flow-loggning stöds inte när NAT används.
+* NAT kan inte omfatta flera virtuella nätverk.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig om [NAT gateway-resurs](./nat-gateway-resource.md).
-- [Berätta för oss vad du ska bygga härnäst i UserVoice](https://aka.ms/natuservoice).
-- [Ge feedback om den offentliga för hands versionen](https://aka.ms/natfeedback).
+* Lär dig om [NAT gateway-resurs](./nat-gateway-resource.md).
+* [Berätta för oss vad du ska bygga härnäst för Virtual Network NAT i UserVoice](https://aka.ms/natuservoice).
+* [Ge feedback om den offentliga för hands versionen](https://aka.ms/natfeedback).

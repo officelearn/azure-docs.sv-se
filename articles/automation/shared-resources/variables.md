@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7495c6b114e232a9aad0075e173abebcb3c92cd0
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: 4ce56b64502904308f45c74a5471447d93419452
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273603"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303060"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variabel till gångar i Azure Automation
 
@@ -33,9 +33,6 @@ Eftersom Automation-variabler är sparade är de tillgängliga även om Runbook-
 När du skapar en variabel kan du ange dess kryptering och lagring genom att Azure Automation som en säker till gång. Andra säkra till gångar inkluderar autentiseringsuppgifter, certifikat och anslutningar. Azure Automation krypterar dessa till gångar och lagrar dem med hjälp av en unik nyckel som genereras för varje Automation-konto. Nyckeln lagras i systemhanterade Key Vault. Innan du lagrar en säker till gång läser Azure Automation in nyckeln från Key Vault och använder den för att kryptera till gången. 
 
 Azure Automation lagrar varje krypterad variabel på ett säkert sätt. Värdet kan inte hämtas med cmdleten [Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) som levereras som en del av modulen Azure PowerShell. Det enda sättet att hämta ett krypterat värde är genom att använda aktiviteten **Get-AutomationVariable** i en Runbook-eller DSC-konfiguration.
-
->[!NOTE]
->Om du vill ta bort krypteringen för en variabel måste du ta bort variabeln och återskapa den som okrypterad.
 
 >[!NOTE]
 >Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md).
@@ -96,6 +93,9 @@ Funktionerna i följande tabell används för att komma åt och hämta variabler
 1. Från ditt Automation-konto klickar du på panelen **till gångar** och väljer sedan **variabler**på bladet **till gångar** .
 2. På panelen **variabler** väljer du **Lägg till en variabel**.
 3. Slutför alternativen på bladet **ny variabel** och klicka sedan på **skapa** för att spara den nya variabeln.
+
+>[!NOTE]
+>Om du vill ta bort krypteringen för en variabel måste du ta bort variabeln och återskapa den som okrypterad.
 
 ### <a name="create-a-new-variable-with-windows-powershell"></a>Skapa en ny variabel med Windows PowerShell
 

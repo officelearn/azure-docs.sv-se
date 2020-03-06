@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: iainfou
-ms.openlocfilehash: 0f0cf1f066257413f23dd83ffc5ecad0169f7e77
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: c634b1288727ae045d1fb8b6f6cdff4a80e757ce
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613823"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298913"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Anslut en virtuell CentOS Linux-dator till en Azure AD Domain Services hanterad domän
 
@@ -34,7 +34,7 @@ För att slutföra den här självstudien behöver du följande resurser och beh
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
     * Vid behov [skapar och konfigurerar][create-azure-ad-ds-instance]den första självstudien en Azure Active Directory Domain Services-instans.
-* Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
+* Ett användar konto som är en del av den hanterade Azure AD DS-domänen.
 
 ## <a name="create-and-connect-to-a-centos-linux-vm"></a>Skapa och Anslut till en virtuell CentOS Linux-dator
 
@@ -98,15 +98,15 @@ Nu när de nödvändiga paketen har installerats på den virtuella datorn anslut
     * Kontrol lera att den virtuella datorn har distribuerats till samma eller ett peer-kopplat virtuella nätverk där Azure AD DS-hanterad domän är tillgänglig.
     * Bekräfta att DNS-serverinställningarna för det virtuella nätverket har uppdaterats så att de pekar på domän kontrol Lanterna för den hanterade domänen i Azure AD DS.
 
-1. Initiera nu Kerberos med kommandot `kinit`. Ange en användare som tillhör gruppen *AAD DC-administratörer* . Om det behövs [lägger du till ett användar konto i en grupp i Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+1. Initiera nu Kerberos med kommandot `kinit`. Ange en användare som är en del av den hanterade Azure AD DS-domänen. Om det behövs [lägger du till ett användar konto i en grupp i Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Azure AD DS-hanterade domän namnet måste anges i alla VERSALer. I följande exempel används kontot som heter `contosoadmin@aaddscontoso.com` för att initiera Kerberos. Ange ditt eget användar konto som är medlem i *Administratörs* gruppen för AAD-domänkontrollant:
+    Azure AD DS-hanterade domän namnet måste anges i alla VERSALer. I följande exempel används kontot som heter `contosoadmin@aaddscontoso.com` för att initiera Kerberos. Ange ditt eget användar konto som är en del av den hanterade domänen i Azure AD DS:
 
     ```console
     kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Slutligen ansluter du datorn till den hanterade Azure AD DS-domänen med hjälp av kommandot `realm join`. Använd samma användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* som du angav i föregående `kinit` kommando, till exempel `contosoadmin@AADDSCONTOSO.COM`:
+1. Slutligen ansluter du datorn till den hanterade Azure AD DS-domänen med hjälp av kommandot `realm join`. Använd samma användar konto som är en del av den Azure AD DS-hanterade domän som du angav i föregående `kinit` kommando, till exempel `contosoadmin@AADDSCONTOSO.COM`:
 
     ```console
     sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'

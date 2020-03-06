@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: a9c045162e650b4468fb53676e367d2c658bf7cc
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 57469bef7014010164234638f3d059ac96b125cf
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912586"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383944"
 ---
 ## <a name="what-is-the-time-required-for-migration"></a>Vad är den tid som krävs för migrering?
 
@@ -22,6 +22,14 @@ Planering och utförande av migreringen beror avsevärt på arkitekturens komple
 ## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>Vad är definitionen av en ny kund på virtuella IaaS-datorer (klassisk)?
 
 Kunder som inte har IaaS virtuella datorer (klassisk) i sina prenumerationer under månaden Febrauary 2020 (en månad innan utgångs punkt startade) betraktas som nya kunder. 
+
+## <a name="what-is-the-definition-of-an-existing-customer-on-iaas-virtual-machines-classic"></a>Vad är definitionen av en befintlig kund på IaaS Virtual Machines (klassisk)?
+
+Kunder som haft aktiva eller stoppade men allokerade IaaS-VM: ar (klassisk) i sina prenumerationer under månaden februari 2020 betraktas som en befintlig kund. Endast de här kunderna får fram till den 1 mars 2023 att migrera sina virtuella datorer från Azure Service Manager till Azure Resource Manager. 
+
+## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Varför får jag ett fel meddelande om att "NewClassicVMCreationNotAllowedForSubscription"?
+
+IaaS VM (klassisk) är inte längre tillgängligt för nya kunder som en del av indragnings processen. Vi har identifierat dig som nya kunder och därför var din åtgärd inte auktoriserad. Vi rekommenderar starkt att du använder [Azure Virtual Machines med arm](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Om du inte kan använda virtuella Azure-datorer med ARM kontaktar du supporten för prenumerations vit listning.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Påverkar den här migreringsplanen några befintliga tjänster eller program som körs på virtuella Azure-datorer? 
 

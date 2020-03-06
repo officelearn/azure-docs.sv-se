@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.author: trbye
 author: trevorbye
 ms.date: 01/06/2020
-ms.openlocfilehash: 8906299cc9e2c000dab2ac9d2a345d9aaf238260
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 036efa27fb8d22c32f2f6bce1efe9dea300a3972
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045856"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302786"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Vad är Azure Machine Learning miljöer?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Azure Machine Learning miljöer anger python-paket, miljövariabler och program varu inställningar kring dina utbildnings-och bedömnings skript. De anger också kör tider (python, Spark eller Docker). De är hanterade och versioner av entiteter inom din Machine Learning arbets yta som möjliggör återskapande, gransknings bara och bärbara Machine Learning-arbetsflöden över flera olika beräknings mål.
+Azure Machine Learning miljöer anger python-paket, miljövariabler och program varu inställningar kring dina utbildnings-och bedömnings skript. De anger också kör tider (python, Spark eller Docker). Miljöerna är hanterade och versioner av entiteter inom din Machine Learning arbets yta som möjliggör återskapande, gransknings bara och bärbara Machine Learning-arbetsflöden över flera olika beräknings mål.
 
 Du kan använda ett `Environment`-objekt i din lokala beräkning för att:
 * Utveckla ditt utbildnings skript.
@@ -57,6 +57,45 @@ Vissa kod exempel finns i avsnittet "skapa en miljö" i [åter användnings milj
 * Du kan bygga Docker-avbildningar automatiskt från dina miljöer.
 
 Kod exempel finns i avsnittet "hantera miljöer" i [Återanvänd miljöer för utbildning och distribution](how-to-use-environments.md#manage-environments).
+
+## <a name="environment-building-caching-and-reuse"></a>Miljö uppbyggnad, cachelagring och åter användning
+
+Azure Machine Learnings tjänsten bygger miljö definitioner i Docker-avbildningar och Conda-miljöer. Den cachelagrar också miljöerna så att de kan återanvändas i efterföljande utbildningar och distributioner av tjänst slut punkter.
+
+### <a name="building-environments-as-docker-images"></a>Skapa miljöer som Docker-avbildningar
+
+När du först skickar en körning med en miljö anropar Azure Machine Learnings tjänsten en [ACR-build-uppgift](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview) på den Azure Container Registry (ACR) som är kopplad till arbets ytan. Den inbyggda Docker-avbildningen cachelagras sedan på arbets ytans ACR. I början av körnings körningen hämtas avbildningen av beräknings målet.
+
+Avbildnings versionen består av två steg:
+
+ 1. Hämta en bas avbildning och köra eventuella Docker-steg
+ 2. Skapa en Conda-miljö enligt Conda-beroenden som anges i miljö definitionen.
+
+Det andra steget utelämnas om du anger [användar hanterade beroenden](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py). I det här fallet är du ansvarig för att installera python-paket, genom att inkludera dem i bas avbildningen eller ange anpassade Docker-steg i det första steget. Du är också ansvarig för att ange rätt plats för den körbara python-filen.
+
+### <a name="image-caching-and-reuse"></a>Cachelagring av bilder och åter användning
+
+Om du använder samma miljö definition för en annan körning återanvänder Azure Machine Learnings tjänsten den cachelagrade avbildningen från arbets ytans ACR. 
+
+Om du vill visa information om en cachelagrad avbildning använder du [Environment. get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#get-image-details-workspace-) -metoden.
+
+För att avgöra om du ska återanvända en cachelagrad avbildning eller skapa en ny, beräknar tjänsten [ett hash-värde](https://en.wikipedia.org/wiki/Hash_table) från miljö definitionen och jämför den med hasharna i befintliga miljöer. Hashen baseras på:
+ 
+ * Egenskaps värde för bas avbildning
+ * Egenskaps värde för anpassade Docker-steg
+ * Lista över python-paket i Conda-definitionen
+ * Lista över paket i Spark-definition 
+
+Hashen är inte beroende av miljö namnet eller versionen. Ändringar i miljö definitionen, till exempel att lägga till eller ta bort ett python-paket eller ändra paket versionen, gör att hash-värdet ändras och utlöser en avbildnings återskapning. Men om du helt enkelt byter namn på din miljö eller skapar en ny miljö med de exakta egenskaperna och paketen för en befintlig, kommer hashvärdet att vara detsamma och den cachelagrade avbildningen används.
+
+Se följande diagram som visar tre miljö definitioner. Två av dem har olika namn och version, men samma bas avbildning och python-paket. De har samma hash-värde och motsvarar därför samma cachelagrade avbildning. Den tredje miljön har olika python-paket och-versioner och motsvarar därför en annan cachelagrad avbildning.
+
+![Diagram över cachelagring av miljöer som Docker-avbildningar](./media/concept-environments/environment-caching.png)
+
+Om du skapar en miljö med ett inaktivt paket beroende, till exempel ```numpy```, kommer miljön att fortsätta använda den paket version som installerats när miljön skapades. Dessutom fortsätter all framtida miljö med matchnings definition att använda den gamla versionen. Om du vill uppdatera paketet anger du ett versions nummer som tvingar avbildnings återskapning, till exempel ```numpy==1.18.1```. Observera att nya beroenden, inklusive kapslade, kommer att installeras som kan bryta ett tidigare arbets scenario
+
+> [!WARNING]
+>  [Miljön. Build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace-) -metoden kommer att återskapa den cachelagrade avbildningen med möjlig sido effekt på att uppdatera icke-fästa paket och bryta reproducerbarhet för alla miljö definitioner som motsvarar den cachelagrade avbildningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

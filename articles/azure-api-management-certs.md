@@ -10,12 +10,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: gwallace
-ms.openlocfilehash: 5ce96796cbfdcefbaf5568ff199cba6a87f65e05
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 4b49a9b391eeca2d2e249b171d99f231bda6fdff
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359873"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329128"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Ladda upp ett Azure Service Management-certifikat
 Med hanterings certifikat kan du autentisera med den klassiska distributions modellen som tillhandahålls av Azure. Många program och verktyg (till exempel Visual Studio eller Azure SDK) använder dessa certifikat för att automatisera konfigurationen och distributionen av olika Azure-tjänster. 
@@ -52,4 +52,4 @@ När du har skapat ett hanterings certifikat (. cer-fil med bara den offentliga 
     ![Inställningar](./media/azure-api-management-certs/certificate_details.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har ett hanterings certifikat som är associerat med en prenumeration kan du (när du har installerat det matchande certifikatet lokalt) program mässigt ansluta till den [klassiska distributions modellen REST API](/azure/#pivot=sdkstools) och automatisera de olika Azure-resurserna som också är associerade med den prenumerationen.
+Nu när du har ett hanterings certifikat som är associerat med en prenumeration kan du (när du har installerat det matchande certifikatet lokalt) program mässigt ansluta till den [klassiska distributions modellen REST API](/azure/?pivot=sdkstools) och automatisera de olika Azure-resurser som också är associerade med den prenumerationen.

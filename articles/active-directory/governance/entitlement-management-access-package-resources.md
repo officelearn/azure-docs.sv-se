@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174656"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376745"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Ändra resurs roller för ett Access-paket i hantering av Azure AD-rättigheter
 
@@ -178,7 +178,7 @@ Azure AD kan automatiskt tilldela användare åtkomst till en SharePoint Online-
 
 I hantering av rättigheter bearbetar Azure AD Mass ändringar för tilldelning och resurser i dina åtkomst paket flera gånger per dag. Så om du gör en tilldelning eller ändrar resurs rollerna för ditt åtkomst paket, kan det ta upp till 24 timmar innan ändringen görs i Azure AD, plus den tid det tar att sprida ändringarna till andra Microsoft Online Services eller anslutna SaaS-program na. Om din ändring bara påverkar några få objekt tar ändringen troligen bara några minuter att tillämpa i Azure AD, efter vilka andra Azure AD-komponenter kommer att identifiera ändringen och uppdatera SaaS-programmen. Om din ändring påverkar tusentals objekt tar ändringen längre tid. Om du till exempel har ett Access-paket med 2 program och 100 användar tilldelningar och du bestämmer dig för att lägga till en SharePoint-webbplats roll i åtkomst paketet kan det uppstå en fördröjning tills alla användare är en del av den SharePoint-webbplatsens roll. Du kan övervaka förloppet via Azure AD audit-loggen, Azure AD-etablerings loggen och gransknings loggarna för SharePoint-webbplatsen.
 
-När du tar bort en medlem i ett team tas de även bort från Office 365-gruppen. Borttagning från teamets Chat-funktioner kan vara fördröjd. Mer information finns i [grupp medlemskap](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
+När du tar bort medlemmar från ett team tas de även bort från Office 365-gruppen. Borttagningen från teamets chattfunktioner kan vara fördröjd. Mer information finns i [grupp medlemskap](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
 
 ## <a name="next-steps"></a>Nästa steg
 

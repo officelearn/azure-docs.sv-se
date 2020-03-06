@@ -4,11 +4,11 @@ description: Referens för att definiera aktiviteter i YAML för ACR-aktiviteter
 ms.topic: article
 ms.date: 10/23/2019
 ms.openlocfilehash: d86eb0e24233afb536d27f5d0938d4748941e88a
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945732"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361383"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referens för ACR-uppgifter: YAML
 
@@ -75,36 +75,36 @@ az configure --defaults acr=myregistry
 
 Aktivitets egenskaper visas vanligt vis överst i en `acr-task.yaml`-fil och är globala egenskaper som gäller för hela körningen av uppgifts stegen. Några av dessa globala egenskaper kan åsidosättas i ett enskilt steg.
 
-| Egenskap | Typ | Valfritt | Beskrivning | Åsidosättning stöds | Standardvärde |
+| Egenskap | Typ | Valfri | Beskrivning | Åsidosättning stöds | Standardvärde |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | sträng | Ja | Versionen av `acr-task.yaml`-filen som parsas av tjänsten ACR Tasks. Medan ACR-aktiviteter strävar efter bakåtkompatibilitet, tillåter det här värdet ACR-aktiviteter för att upprätthålla kompatibilitet inom en definierad version. Om inget anges används den senaste versionen som standard. | Inga | Inget |
+| `version` | sträng | Ja | Versionen av `acr-task.yaml`-filen som parsas av tjänsten ACR Tasks. Medan ACR-aktiviteter strävar efter bakåtkompatibilitet, tillåter det här värdet ACR-aktiviteter för att upprätthålla kompatibilitet inom en definierad version. Om inget anges används den senaste versionen som standard. | Nej | Ingen |
 | `stepTimeout` | int (sekunder) | Ja | Det maximala antalet sekunder som ett steg kan köras. Om egenskapen anges för en uppgift, anges standard `timeout` egenskapen för alla steg. Om egenskapen `timeout` anges i ett steg, åsidosätts den egenskap som anges av uppgiften. | Ja | 600 (10 minuter) |
 | `workingDirectory` | sträng | Ja | Arbets katalogen i behållaren under körning. Om egenskapen anges för en uppgift, anges standard `workingDirectory` egenskapen för alla steg. Om den anges i ett steg åsidosätts den egenskap som anges av uppgiften. | Ja | `/workspace` |
-| `env` | [sträng, sträng,...] | Ja |  Sträng mat ris i `key=value` format som definierar miljövariabler för aktiviteten. Om egenskapen anges för en uppgift, anges standard `env` egenskapen för alla steg. Om det anges i ett steg åsidosätts alla miljövariabler som ärvts från uppgiften. | Inget |
-| `secrets` | [hemligt, hemligt,...] | Ja | Matris med [hemliga](#secret) objekt. | Inget |
-| `networks` | [nätverk, nätverk,...] | Ja | Matris med [nätverks](#network) objekt. | Inget |
+| `env` | [sträng, sträng,...] | Ja |  Sträng mat ris i `key=value` format som definierar miljövariabler för aktiviteten. Om egenskapen anges för en uppgift, anges standard `env` egenskapen för alla steg. Om det anges i ett steg åsidosätts alla miljövariabler som ärvts från uppgiften. | Ingen |
+| `secrets` | [hemligt, hemligt,...] | Ja | Matris med [hemliga](#secret) objekt. | Ingen |
+| `networks` | [nätverk, nätverk,...] | Ja | Matris med [nätverks](#network) objekt. | Ingen |
 
 ### <a name="secret"></a>hemlighet
 
 Objektet Secret har följande egenskaper.
 
-| Egenskap | Typ | Valfritt | Beskrivning | Standardvärde |
+| Egenskap | Typ | Valfri | Beskrivning | Standardvärde |
 | -------- | ---- | -------- | ----------- | ------- |
-| `id` | sträng | Inga | Identifieraren för hemligheten. | Inget |
-| `keyvault` | sträng | Ja | Den Azure Key Vault hemliga URL: en. | Inget |
-| `clientID` | sträng | Ja | Klient-ID: t för den [användarspecifika hanterade identiteten](container-registry-tasks-authentication-managed-identity.md) för Azure-resurser. | Inget |
+| `id` | sträng | Nej | Identifieraren för hemligheten. | Ingen |
+| `keyvault` | sträng | Ja | Den Azure Key Vault hemliga URL: en. | Ingen |
+| `clientID` | sträng | Ja | Klient-ID: t för den [användarspecifika hanterade identiteten](container-registry-tasks-authentication-managed-identity.md) för Azure-resurser. | Ingen |
 
-### <a name="network"></a>nätverk
+### <a name="network"></a>nätverks
 
 Objektet Network har följande egenskaper.
 
-| Egenskap | Typ | Valfritt | Beskrivning | Standardvärde |
+| Egenskap | Typ | Valfri | Beskrivning | Standardvärde |
 | -------- | ---- | -------- | ----------- | ------- | 
-| `name` | sträng | Inga | Nätverkets namn. | Inget |
-| `driver` | sträng | Ja | Driv rutinen för att hantera nätverket. | Inget |
-| `ipv6` | bool | Ja | Om IPv6-nätverk är aktiverat. | `false` |
-| `skipCreation` | bool | Ja | Om du vill hoppa över att skapa nätverk. | `false` |
-| `isDefault` | bool | Ja | Om nätverket är ett standard nätverk som medföljer Azure Container Registry | `false` |
+| `name` | sträng | Nej | Nätverkets namn. | Ingen |
+| `driver` | sträng | Ja | Driv rutinen för att hantera nätverket. | Ingen |
+| `ipv6` | booleska | Ja | Om IPv6-nätverk är aktiverat. | `false` |
+| `skipCreation` | booleska | Ja | Om du vill hoppa över att skapa nätverk. | `false` |
+| `isDefault` | booleska | Ja | Om nätverket är ett standard nätverk som medföljer Azure Container Registry | `false` |
 
 ## <a name="task-step-types"></a>Typer av uppgifts steg
 
@@ -116,7 +116,7 @@ ACR-aktiviteter stöder tre steg typer. Varje stegtyp stöder flera egenskaper s
 | [`push`](#push) | Kör en `docker push` av nyskapade eller omtaggade avbildningar till ett behållar register. Azure Container Registry, andra privata register och den offentliga Docker-hubben stöds. |
 | [`cmd`](#cmd) | Kör en behållare som ett kommando, med parametrar som skickas till behållarens `[ENTRYPOINT]`. `cmd` stegtyp stöder parametrar som `env`, `detach`och andra välbekanta `docker run` kommando alternativ, vilket möjliggör enhets-och funktions testning med körning av samtidiga behållare. |
 
-## <a name="build"></a>skapa
+## <a name="build"></a>konstruktion
 
 Bygg en behållar avbildning. `build` stegs typ representerar en multi-klient, säker metod för att köra `docker build` i molnet som en överordnad första klass.
 
@@ -131,11 +131,11 @@ steps:
 
 Den `build` steg typen stöder parametrarna i följande tabell. `build` stegtyp stöder också alla build-alternativ för kommandot [Docker build](https://docs.docker.com/engine/reference/commandline/build/) , till exempel `--build-arg` för att ställa in Bygg tids variabler.
 
-| Parameter | Beskrivning | Valfritt |
+| Parameter | Beskrivning | Valfri |
 | --------- | ----------- | :-------: |
 | `-t` &#124; `--image` | Definierar den fullständigt kvalificerade `image:tag` av den färdiga avbildningen.<br /><br />Eftersom bilder kan användas för inre aktivitets valideringar, till exempel funktionella tester, kräver inte alla avbildningar `push` till ett register. Men för att kunna instans av en bild i en uppgifts körning behöver avbildningen ett namn att referera till.<br /><br />Till skillnad från `az acr build`ger ACR uppgifter som standard inte push-beteende. Med ACR-uppgifter förutsätter standard scenariot att du kan bygga, validera och sedan skicka en avbildning. Se [push](#push) för hur du kan skicka inbyggda avbildningar. | Ja |
 | `-f` &#124; `--file` | Anger det Dockerfile som skickats till `docker build`. Om inget värde anges antas standard-Dockerfile i kontextens rot. Om du vill ange en Dockerfile skickar du fil namnet i förhållande till kontextens rot. | Ja |
-| `context` | Rot katalogen som skickades till `docker build`. Rot katalogen för varje aktivitet anges till en delad [WorkingDirectory](#task-step-properties)och inkluderar roten för den tillhör ande git-klonade katalogen. | Inga |
+| `context` | Rot katalogen som skickades till `docker build`. Rot katalogen för varje aktivitet anges till en delad [WorkingDirectory](#task-step-properties)och inkluderar roten för den tillhör ande git-klonade katalogen. | Nej |
 
 ### <a name="properties-build"></a>Egenskaper: version
 
@@ -143,26 +143,26 @@ Den `build` steg typen stöder parametrarna i följande tabell. `build` stegtyp 
 
 | | | |
 | -------- | ---- | -------- |
-| `detach` | bool | Valfritt |
-| `disableWorkingDirectoryOverride` | bool | Valfritt |
-| `entryPoint` | sträng | Valfritt |
-| `env` | [sträng, sträng,...] | Valfritt |
-| `expose` | [sträng, sträng,...] | Valfritt |
-| `id` | sträng | Valfritt |
-| `ignoreErrors` | bool | Valfritt |
-| `isolation` | sträng | Valfritt |
-| `keep` | bool | Valfritt |
-| `network` | objekt | Valfritt |
-| `ports` | [sträng, sträng,...] | Valfritt |
-| `pull` | bool | Valfritt |
-| `repeat` | int | Valfritt |
-| `retries` | int | Valfritt |
-| `retryDelay` | int (sekunder) | Valfritt |
-| `secret` | objekt | Valfritt |
-| `startDelay` | int (sekunder) | Valfritt |
-| `timeout` | int (sekunder) | Valfritt |
-| `when` | [sträng, sträng,...] | Valfritt |
-| `workingDirectory` | sträng | Valfritt |
+| `detach` | booleska | Valfri |
+| `disableWorkingDirectoryOverride` | booleska | Valfri |
+| `entryPoint` | sträng | Valfri |
+| `env` | [sträng, sträng,...] | Valfri |
+| `expose` | [sträng, sträng,...] | Valfri |
+| `id` | sträng | Valfri |
+| `ignoreErrors` | booleska | Valfri |
+| `isolation` | sträng | Valfri |
+| `keep` | booleska | Valfri |
+| `network` | objekt | Valfri |
+| `ports` | [sträng, sträng,...] | Valfri |
+| `pull` | booleska | Valfri |
+| `repeat` | int | Valfri |
+| `retries` | int | Valfri |
+| `retryDelay` | int (sekunder) | Valfri |
+| `secret` | objekt | Valfri |
+| `startDelay` | int (sekunder) | Valfri |
+| `timeout` | int (sekunder) | Valfri |
+| `when` | [sträng, sträng,...] | Valfri |
+| `workingDirectory` | sträng | Valfri |
 
 ### <a name="examples-build"></a>Exempel: build
 
@@ -183,7 +183,7 @@ steps:
   - build: -t $Registry/hello-world -f hello-world.dockerfile ./subDirectory
 ```
 
-## <a name="push"></a>push
+## <a name="push"></a>trycka
 
 Push en eller flera inbyggda eller omtaggade avbildningar till ett behållar register. Stöder push-överföring till privata register som Azure Container Registry eller till den offentliga Docker-hubben.
 
@@ -215,12 +215,12 @@ steps:
 
 | | | |
 | -------- | ---- | -------- |
-| `env` | [sträng, sträng,...] | Valfritt |
-| `id` | sträng | Valfritt |
-| `ignoreErrors` | bool | Valfritt |
-| `startDelay` | int (sekunder) | Valfritt |
-| `timeout` | int (sekunder) | Valfritt |
-| `when` | [sträng, sträng,...] | Valfritt |
+| `env` | [sträng, sträng,...] | Valfri |
+| `id` | sträng | Valfri |
+| `ignoreErrors` | booleska | Valfri |
+| `startDelay` | int (sekunder) | Valfri |
+| `timeout` | int (sekunder) | Valfri |
+| `when` | [sträng, sträng,...] | Valfri |
 
 ### <a name="examples-push"></a>Exempel: push
 
@@ -260,26 +260,26 @@ steps:
 
 | | | |
 | -------- | ---- | -------- |
-| `detach` | bool | Valfritt |
-| `disableWorkingDirectoryOverride` | bool | Valfritt |
-| `entryPoint` | sträng | Valfritt |
-| `env` | [sträng, sträng,...] | Valfritt |
-| `expose` | [sträng, sträng,...] | Valfritt |
-| `id` | sträng | Valfritt |
-| `ignoreErrors` | bool | Valfritt |
-| `isolation` | sträng | Valfritt |
-| `keep` | bool | Valfritt |
-| `network` | objekt | Valfritt |
-| `ports` | [sträng, sträng,...] | Valfritt |
-| `pull` | bool | Valfritt |
-| `repeat` | int | Valfritt |
-| `retries` | int | Valfritt |
-| `retryDelay` | int (sekunder) | Valfritt |
-| `secret` | objekt | Valfritt |
-| `startDelay` | int (sekunder) | Valfritt |
-| `timeout` | int (sekunder) | Valfritt |
-| `when` | [sträng, sträng,...] | Valfritt |
-| `workingDirectory` | sträng | Valfritt |
+| `detach` | booleska | Valfri |
+| `disableWorkingDirectoryOverride` | booleska | Valfri |
+| `entryPoint` | sträng | Valfri |
+| `env` | [sträng, sträng,...] | Valfri |
+| `expose` | [sträng, sträng,...] | Valfri |
+| `id` | sträng | Valfri |
+| `ignoreErrors` | booleska | Valfri |
+| `isolation` | sträng | Valfri |
+| `keep` | booleska | Valfri |
+| `network` | objekt | Valfri |
+| `ports` | [sträng, sträng,...] | Valfri |
+| `pull` | booleska | Valfri |
+| `repeat` | int | Valfri |
+| `retries` | int | Valfri |
+| `retryDelay` | int (sekunder) | Valfri |
+| `secret` | objekt | Valfri |
+| `startDelay` | int (sekunder) | Valfri |
+| `timeout` | int (sekunder) | Valfri |
+| `when` | [sträng, sträng,...] | Valfri |
+| `workingDirectory` | sträng | Valfri |
 
 Du hittar information om de här egenskaperna i avsnittet [Egenskaper för aktivitets steg](#task-step-properties) i den här artikeln.
 
@@ -356,29 +356,29 @@ Genom att använda standard referens konventionen `docker run` avbildningen kan 
 
 Varje typ av steg stöder flera egenskaper som passar för typen. I följande tabell definieras alla tillgängliga steg egenskaper. Alla typer av steg har inte stöd för alla egenskaper. Information om vilka av dessa egenskaper som är tillgängliga för varje steg typ finns i avsnittet om typ referens för [cmd](#cmd), [build](#build)och [push](#push) .
 
-| Egenskap | Typ | Valfritt | Beskrivning | Standardvärde |
+| Egenskap | Typ | Valfri | Beskrivning | Standardvärde |
 | -------- | ---- | -------- | ----------- | ------- |
-| `detach` | bool | Ja | Anger om behållaren ska kopplas från när den körs. | `false` |
-| `disableWorkingDirectoryOverride` | bool | Ja | Om du vill inaktivera `workingDirectory` åsidosätta funktioner. Använd detta i kombination med `workingDirectory` för att få fullständig kontroll över behållarens arbets katalog. | `false` |
-| `entryPoint` | sträng | Ja | Åsidosätter `[ENTRYPOINT]` i ett stegs behållare. | Inget |
-| `env` | [sträng, sträng,...] | Ja | Sträng mat ris i `key=value` format som definierar miljövariablerna för steget. | Inget |
-| `expose` | [sträng, sträng,...] | Ja | Matris med portar som exponeras från behållaren. |  Inget |
+| `detach` | booleska | Ja | Anger om behållaren ska kopplas från när den körs. | `false` |
+| `disableWorkingDirectoryOverride` | booleska | Ja | Om du vill inaktivera `workingDirectory` åsidosätta funktioner. Använd detta i kombination med `workingDirectory` för att få fullständig kontroll över behållarens arbets katalog. | `false` |
+| `entryPoint` | sträng | Ja | Åsidosätter `[ENTRYPOINT]` i ett stegs behållare. | Ingen |
+| `env` | [sträng, sträng,...] | Ja | Sträng mat ris i `key=value` format som definierar miljövariablerna för steget. | Ingen |
+| `expose` | [sträng, sträng,...] | Ja | Matris med portar som exponeras från behållaren. |  Ingen |
 | [`id`](#example-id) | sträng | Ja | Identifierar ett unikt steg i uppgiften. Andra steg i uppgiften kan referera till ett stegs `id`, till exempel för beroende kontroll med `when`.<br /><br />`id` är också namnet på den behållare som körs. Processer som körs i andra behållare i aktiviteten kan referera till `id` som DNS-värdnamn, eller för att komma åt den med Docker-loggar [ID], till exempel. | `acb_step_%d`, där `%d` är det 0-baserade indexet för steget överst i YAML-filen |
-| `ignoreErrors` | bool | Ja | Om du vill markera steget som slutfört oavsett om ett fel uppstod när containern kördes. | `false` |
+| `ignoreErrors` | booleska | Ja | Om du vill markera steget som slutfört oavsett om ett fel uppstod när containern kördes. | `false` |
 | `isolation` | sträng | Ja | Behållarens isolerings nivå. | `default` |
-| `keep` | bool | Ja | Anger om stegets behållare ska behållas efter körning. | `false` |
-| `network` | objekt | Ja | Identifierar ett nätverk där behållaren körs. | Inget |
-| `ports` | [sträng, sträng,...] | Ja | Matris med portar som publiceras från behållaren till värden. |  Inget |
-| `pull` | bool | Ja | Om du vill tvinga fram en hämtning av behållaren innan du kör den för att förhindra alla funktioner för cachelagring. | `false` |
-| `privileged` | bool | Ja | Om behållaren ska köras i privilegierat läge. | `false` |
+| `keep` | booleska | Ja | Anger om stegets behållare ska behållas efter körning. | `false` |
+| `network` | objekt | Ja | Identifierar ett nätverk där behållaren körs. | Ingen |
+| `ports` | [sträng, sträng,...] | Ja | Matris med portar som publiceras från behållaren till värden. |  Ingen |
+| `pull` | booleska | Ja | Om du vill tvinga fram en hämtning av behållaren innan du kör den för att förhindra alla funktioner för cachelagring. | `false` |
+| `privileged` | booleska | Ja | Om behållaren ska köras i privilegierat läge. | `false` |
 | `repeat` | int | Ja | Antalet försök att upprepa körningen av en behållare. | 0 |
 | `retries` | int | Ja | Antalet återförsök som ska göras om en behållare inte kan köras. Ett nytt försök görs bara om slut koden för en behållare är skilt från noll. | 0 |
 | `retryDelay` | int (sekunder) | Ja | Fördröjningen i sekunder mellan återförsök för en behållares körning. | 0 |
-| `secret` | objekt | Ja | Identifierar en Azure Key Vault hemlig eller [hanterad identitet för Azure-resurser](container-registry-tasks-authentication-managed-identity.md). | Inget |
+| `secret` | objekt | Ja | Identifierar en Azure Key Vault hemlig eller [hanterad identitet för Azure-resurser](container-registry-tasks-authentication-managed-identity.md). | Ingen |
 | `startDelay` | int (sekunder) | Ja | Antal sekunder som en behållares körning ska fördröjas. | 0 |
 | `timeout` | int (sekunder) | Ja | Maximalt antal sekunder som ett steg kan utföras innan det avslutas. | 600 |
-| [`when`](#example-when) | [sträng, sträng,...] | Ja | Konfigurerar ett stegs beroende av ett eller flera andra steg i aktiviteten. | Inget |
-| `user` | sträng | Ja | Användar namnet eller UID för en behållare | Inget |
+| [`when`](#example-when) | [sträng, sträng,...] | Ja | Konfigurerar ett stegs beroende av ett eller flera andra steg i aktiviteten. | Ingen |
+| `user` | sträng | Ja | Användar namnet eller UID för en behållare | Ingen |
 | `workingDirectory` | sträng | Ja | Anger arbets katalogen för ett steg. Som standard skapar ACR-aktiviteter en rot Katalog som arbets katalog. Men om din version har flera steg, kan tidigare steg dela artefakter med senare steg genom att ange samma arbets katalog. | `/workspace` |
 
 ### <a name="examples-task-step-properties"></a>Exempel: egenskaper för aktivitets steg

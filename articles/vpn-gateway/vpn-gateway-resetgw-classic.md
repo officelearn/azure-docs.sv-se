@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 01/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: e3a5807a0ccfa39cc80acacedaa5fb4d3afaaed3
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862772"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379207"
 ---
-# <a name="reset-a-vpn-gateway"></a>Återställ en VPN Gateway
+# <a name="reset-a-vpn-gateway"></a>Återställ VPN Gateway
 
 Du kan behöva återställa en Azure VPN-gateway om VPN-anslutningen mellan flera platser i en eller flera VPN-tunnlar för plats-till-plats bryts. I det här fallet fungerar de lokala VPN-enheterna korrekt, men de kan inte upprätta IPSec-tunnlar med Azures VPN-gatewayer. Den här artikeln hjälper dig att återställa din VPN-gateway.
 
@@ -63,7 +63,7 @@ $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
 Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 ```
 
-Resultat:
+Medför
 
 När du får ett retur resultat kan du anta att Gateway-återställningen lyckades. Det finns dock inget i det returnerade resultatet som indikerar att återställningen lyckades. Om du vill titta närmare på historiken för att se exakt när gatewayen har återställts kan du Visa informationen i [Azure Portal](https://portal.azure.com). I portalen navigerar du till **' GatewayName ' – > Resource Health**.
 
@@ -77,7 +77,7 @@ I följande exempel återställs gatewayen för ett virtuellt nätverk med namne
 Reset-AzureVNetGateway –VnetName 'Group TestRG1 TestVNet1'
 ```
 
-Resultat:
+Medför
 
 ```powershell
 Error          :
@@ -96,6 +96,6 @@ För att återställa gatewayen använder du kommandot [AZ Network VNet-Gateway 
 az network vnet-gateway reset -n VNet5GW -g TestRG5
 ```
 
-Resultat:
+Medför
 
 När du får ett retur resultat kan du anta att Gateway-återställningen lyckades. Det finns dock inget i det returnerade resultatet som indikerar att återställningen lyckades. Om du vill titta närmare på historiken för att se exakt när gatewayen har återställts kan du Visa informationen i [Azure Portal](https://portal.azure.com). I portalen navigerar du till **' GatewayName ' – > Resource Health**.

@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6280f3784247b671521a4994be1f233d4913d90c
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
-ms.translationtype: MT
+ms.openlocfilehash: f6953fb5d016c802db260c55bc4970c3f029ab1a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77194508"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356307"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Översikt över Microsoft Identity Platform (v 2.0)
 
@@ -33,7 +33,7 @@ Microsofts identitetsplattform är en vidareutveckling av utvecklarplattformen f
   - Sociala eller lokala konton (via Azure AD B2C)
 - **Bibliotek med öppen källkod**: Microsoft Authentication libraries (MSAL) och stöd för andra standard bibliotek
 - **Program hanterings Portal**: en registrerings-och konfigurations upplevelse som skapats i Azure Portal, tillsammans med alla andra hanterings funktioner för Azure.
-- **API för program konfiguration och PowerShell**: som tillåter programmerings konfiguration av dina program via REST API (Microsoft Graph och Azure Active Directory Graph 1,6) och PowerShell, så att du kan automatisera dina DevOps-uppgifter.
+- **API för program konfiguration och PowerShell**: som tillåter programmerings konfiguration av dina program via Microsoft Graph API och PowerShell, så att du kan automatisera dina DevOps-uppgifter.
 - **Developer-innehåll**: konceptuell och referens dokumentation, snabb starts exempel, kod exempel, självstudier och instruktions guider.
 
 För utvecklare erbjuder Microsoft Identity Platform sömlös integrering i Nyheter i identitets-och säkerhets utrymmet, till exempel lösenordsbaserad autentisering, stegvis autentisering och villkorlig åtkomst.  Du behöver inte implementera sådana funktioner själv: program som är integrerade med Microsofts identitets plattform har internt möjlighet att utnyttja sådana innovationer.

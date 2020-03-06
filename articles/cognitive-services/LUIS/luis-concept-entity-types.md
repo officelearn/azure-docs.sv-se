@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
 ms.openlocfilehash: 6ee156efb5512c92d86ba05513b6a2b91df4eae8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976969"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393851"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entiteter och deras syfte i LUIS
 
@@ -37,7 +37,7 @@ Entiteter måste märkas konsekvent i alla utbildnings-yttranden för varje avsi
 
  Du kan definiera egna entiteter eller använda fördefinierade entiteter för att spara tid för vanliga koncept som [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordnings](luis-reference-prebuilt-ordinal.md)tal, [e-post](luis-reference-prebuilt-email.md)och [telefonnummer](luis-reference-prebuilt-phonenumber.md).
 
-|Yttrande|Enhet|Data|
+|Yttrande|Entitet|Data|
 |--|--|--|
 |Köpa 3 biljetter New York|Fördefinierade tal<br>Location.Destination|3<br>New York|
 |Köp en biljett från New York till London 5 mars|Location.Origin<br>Location.Destination<br>Fördefinierade datetimeV2|New York<br>London<br>5 mars 2018|
@@ -128,7 +128,7 @@ Om LUIS hittar `location` men inte bestämmer rollen, returneras fortfarande pla
 
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Om du behöver mer än det maximala antalet enheter
 
-Kontakta supporten om du behöver mer än gränsen. Samla in detaljerad information om datorn för att göra det, går du till den [LUIS](luis-reference-regions.md#luis-website) webbplats och väljer sedan **Support**. Om din Azure-prenumeration innehåller supporttjänster, kontakta [teknisk support för Azure](https://azure.microsoft.com/support/options/).
+Kontakta supporten om du behöver mer än gränsen. Det gör du genom att samla in detaljerad information om systemet, gå till [Luis](luis-reference-regions.md#luis-website) -webbplatsen och sedan välja **support**. Om din Azure-prenumeration innehåller support tjänster kontaktar du [teknisk support för Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="entity-prediction-status"></a>Status för enhets förutsägelse
 
@@ -136,9 +136,9 @@ LUIS-portalen visar när entiteten, i ett exempel-uttryck, har en annan enhets f
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer begrepp om bra [yttranden](luis-concept-utterance.md).
+Lär dig begrepp om utmärkt [yttranden](luis-concept-utterance.md).
 
-Se [Lägg till entiteter](luis-how-to-add-entities.md) mer information om hur du lägger till entiteter i din LUIS-app.
+Se [Lägg till entiteter](luis-how-to-add-entities.md) för att lära dig mer om hur du lägger till entiteter i Luis-appen.
 
 Se [självstudie: extrahera strukturerade data från användare uttryck med enhets identifierade entiteter i language Understanding (Luis)](tutorial-machine-learned-entity.md) om du vill lära dig hur du extraherar strukturerade data från en uttryck med hjälp av den dator som har lärts.
  

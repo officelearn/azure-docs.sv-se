@@ -10,11 +10,11 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.openlocfilehash: ec2d9152bf8d3d7c60f00e902f155212ee1b81cc
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169822"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355725"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräknings mål i Azure Machine Learning? 
 
@@ -50,7 +50,7 @@ En hanterad beräknings resurs skapas och hanteras av Azure Machine Learning. De
 
 Du kan skapa Azure Machine Learning beräknings instanser (för hands version) eller beräknings kluster i:
 
-| | Azure Machine Learning-studio | Azure-portalen | SDK | Resource Manager-mall | CLI |
+| | Azure Machine Learning-studio | Azure Portal | SDK | Resource Manager-mall | CLI |
 |---| ----- | ----- | ----- | ----- | ----- |
 | Beräkninsinstans | ja | ja | ja | ja |  |
 | Beräkningskluster | ja | ja | ja | ja | ja |

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
 ms.openlocfilehash: 83b4f2fce3dbae2168627194a45e62a2d4479936
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934753"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389959"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Metodtips för datasäkerhet och kryptering i Azure
 Den här artikeln beskriver metod tips för data säkerhet och kryptering.
@@ -31,7 +31,7 @@ Bästa praxis bygger på en uppfattning om yttrandet och de fungerar med aktuell
 För att skydda data i molnet måste du ta hänsyn till de tillstånd som dina data kan utföra och vilka kontroller som är tillgängliga för det tillståndet. Metod tips för Azure Data Security och kryptering är relaterade till följande data tillstånd:
 
 - I vila: Detta omfattar alla informations lagrings objekt, behållare och typer som finns statiskt på fysiska media, oavsett om det gäller magnet eller optisk disk.
-- Under överföring: När data överförs mellan komponenter, platser eller program är den under överföring. Exempel överförs över nätverket, via en Service Bus (från lokalt till molnet och vice versa, inklusive hybrid anslutningar som ExpressRoute) eller under en indata/utdata-process.
+- Under överföring: när data överförs mellan komponenter, platser eller program, är den under överföring. Exempel överförs över nätverket, via en Service Bus (från lokalt till molnet och vice versa, inklusive hybrid anslutningar som ExpressRoute) eller under en indata/utdata-process.
 
 ## <a name="choose-a-key-management-solution"></a>Välj en nyckel hanterings lösning
 
@@ -45,19 +45,19 @@ Azure Key Vault har utformats för att stödja program nycklar och hemligheter. 
 
 Nedan följer rekommenderade säkerhets metoder för att använda Key Vault.
 
-**Bästa praxis**: Bevilja åtkomst till användare, grupper och program i ett särskilt omfång.   
-**Information**: Använd RBACs fördefinierade roller. Om du t. ex. vill bevilja åtkomst till en användare för att hantera nyckel valv, tilldelar du den fördefinierade rollen [Key Vault deltagare](/azure/role-based-access-control/built-in-roles) till den här användaren vid en speciell omfattning. Omfånget i det här fallet är en prenumeration, en resurs grupp eller bara ett särskilt nyckel valv. Om de fördefinierade rollerna inte passar dina behov kan du [definiera dina egna roller](/azure/role-based-access-control/custom-roles).
+**Bästa praxis**: bevilja åtkomst till användare, grupper och program i en bestämd omfattning.   
+**Information**: Använd rbacs fördefinierade roller. Om du t. ex. vill bevilja åtkomst till en användare för att hantera nyckel valv, tilldelar du den fördefinierade rollen [Key Vault deltagare](/azure/role-based-access-control/built-in-roles) till den här användaren vid en speciell omfattning. Omfånget i det här fallet är en prenumeration, en resurs grupp eller bara ett särskilt nyckel valv. Om de fördefinierade rollerna inte passar dina behov kan du [definiera dina egna roller](/azure/role-based-access-control/custom-roles).
 
-**Bästa praxis**: Styr vilka användare som har åtkomst till.   
-**Information**: Åtkomst till ett nyckelvalv styrs via två separata gränssnitt: hanteringplanet och dataplanet. Hanteringsplanets och dataplanets åtkomstkontroller fungerar oberoende av varandra.
+**Bästa praxis**: kontrol lera vilka användare som har åtkomst till.   
+**Information**: åtkomst till ett nyckel valv styrs via två separata gränssnitt: hanterings plan och data plan. Hanteringsplanets och dataplanets åtkomstkontroller fungerar oberoende av varandra.
 
 Använd RBAC för att kontrol lera vilka användare som har åtkomst till. Om du till exempel vill ge en program åtkomst till att använda nycklar i ett nyckel valv, behöver du bara bevilja åtkomst behörighet för data planet med hjälp av åtkomst principer för nyckel valv och ingen åtkomst till hanterings planet krävs för det här programmet. Om du vill att en användare ska kunna läsa valv egenskaper och taggar, men inte ha åtkomst till nycklar, hemligheter eller certifikat, kan du bevilja användaren Läs behörighet genom att använda RBAC och ingen åtkomst till data planet krävs.
 
-**Bästa praxis**: Lagra certifikat i ditt nyckel valv. Dina certifikat är av högt värde. I fel händer kan ditt programs säkerhet eller säkerheten för dina data komprometteras.   
-**Information**: Azure Resource Manager kan distribuera certifikat på ett säkert sätt som lagras i Azure Key Vault till virtuella Azure-datorer när de virtuella datorerna distribueras. Genom att ange lämpliga åtkomst principer för nyckel valvet kan du också kontrol lera vem som får åtkomst till ditt certifikat. En annan fördel är att du hanterar alla dina certifikat på en plats i Azure Key Vault. Mer information finns i [distribuera certifikat till virtuella datorer från kund hanterade Key Vault](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/) .
+**Bästa praxis**: lagra certifikat i ditt nyckel valv. Dina certifikat är av högt värde. I fel händer kan ditt programs säkerhet eller säkerheten för dina data komprometteras.   
+**Information**: Azure Resource Manager kan på ett säkert sätt distribuera certifikat som lagras i Azure Key Vault till virtuella Azure-datorer när de virtuella datorerna distribueras. Genom att ange lämpliga åtkomst principer för nyckel valvet kan du också kontrol lera vem som får åtkomst till ditt certifikat. En annan fördel är att du hanterar alla dina certifikat på en plats i Azure Key Vault. Mer information finns i [distribuera certifikat till virtuella datorer från kund hanterade Key Vault](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/) .
 
-**Bästa praxis**: Se till att du kan återställa ett borttagnings nyckel valv eller Key Vault-objekt.   
-**Information**: Borttagning av nyckel valv eller Key Vault-objekt kan vara oavsiktligt eller skadligt. Aktivera funktionerna för mjuk borttagning och rensning av Key Vault, särskilt för nycklar som används för att kryptera data i vila. Att ta bort dessa nycklar motsvarar data förlust, så du kan återställa borttagna valv och valv objekt om det behövs. Öva Key Vault återställnings åtgärder regelbundet.
+**Bästa praxis**: se till att du kan återställa ett borttagnings nyckel valv eller Key Vault-objekt.   
+**Information**: det kan vara oavsiktligt eller skadligt att ta bort nyckel valv eller Key Vault-objekt. Aktivera funktionerna för mjuk borttagning och rensning av Key Vault, särskilt för nycklar som används för att kryptera data i vila. Att ta bort dessa nycklar motsvarar data förlust, så du kan återställa borttagna valv och valv objekt om det behövs. Öva Key Vault återställnings åtgärder regelbundet.
 
 > [!NOTE]
 > Om en användare har deltagar behörighet (RBAC) till ett nyckel valv hanterings plan kan de ge sig själva åtkomst till data planet genom att ange en åtkomst princip för nyckel valvet. Vi rekommenderar att du noggrant kontrollerar vem som har åtkomst till dina nyckel valv för att säkerställa att endast behöriga personer kan komma åt och hantera nyckel valv, nycklar, hemligheter och certifikat.
@@ -76,20 +76,20 @@ Eftersom de stora majoriteten av attacker som riktar sig till slutanvändaren bl
 **Bästa praxis**: Använd en säker hanterings arbets station för att skydda känsliga konton, uppgifter och data.   
 **Information**: Använd en [privilegie rad åtkomst arbets Station](https://technet.microsoft.com/library/mt634654.aspx) för att minska risken för attacker i arbets stationer. Dessa säkra hanterings arbets stationer kan hjälpa dig att undvika vissa av dessa attacker och se till att dina data är säkrare.
 
-**Bästa praxis**: Se till att Endpoint Protection.   
-**Information**: Tillämpa säkerhets principer på alla enheter som används för att använda data, oavsett data plats (moln eller lokalt).
+**Bästa praxis**: se till att Endpoint Protection fungerar.   
+**Information**: tillämpa säkerhets principer på alla enheter som används för att använda data, oavsett data plats (moln eller lokalt).
 
 ## <a name="protect-data-at-rest"></a>Skydda data i vila
 
 [Data kryptering i vila](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) är ett obligatoriskt steg mot data sekretess, efterlevnad och data suveränitet.
 
-**Bästa praxis**: Använd disk kryptering för att skydda dina data.   
+**Bästa praxis**: använda disk kryptering för att skydda dina data.   
 **Information**: Använd [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview). Det gör det möjligt för IT-administratörer att kryptera Windows-och Linux-IaaS VM-diskar. Disk kryptering kombinerar den Windows BitLocker-funktion som är bransch standard och Linux dm-crypt-funktionen för att tillhandahålla volym kryptering för operativ systemet och data diskarna.
 
 Azure Storage och Azure SQL Database kryptera data i vila som standard och många tjänster erbjuder kryptering som ett alternativ. Du kan använda Azure Key Vault för att behålla kontrollen över nycklar som kommer åt och krypterar dina data. [Läs mer i Azure Resource providers stöd för krypterings modell](encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
 **Bästa praxis**: Använd kryptering för att minimera risker som rör obehörig data åtkomst.   
-**Information**: Kryptera dina enheter innan du skriver känsliga data till dem.
+**Information**: kryptera dina enheter innan du skriver känsliga data till dem.
 
 Organisationer som inte tillämpar data kryptering är mer utsatta för problem med data sekretess. Obehöriga eller falska användare kan till exempel stjäla data i komprometterade konton eller få obehörig åtkomst till data som kodats i klartext. Företag måste också bevisa att de är noggranna och använda rätt säkerhets kontroller för att förbättra sin data säkerhet för att följa bransch bestämmelser.
 
@@ -101,19 +101,19 @@ För data som flyttas mellan den lokala infrastrukturen och Azure bör du överv
 
 Följande är metod tips som är speciella för att använda Azure VPN Gateway, SSL/TLS och HTTPS.
 
-**Bästa praxis**: Säker åtkomst från flera arbets stationer som finns lokalt till ett virtuellt Azure-nätverk.   
+**Bästa praxis**: säker åtkomst från flera arbets stationer som finns lokalt till ett virtuellt Azure-nätverk.   
 **Information**: Använd [plats-till-plats-VPN](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
 
-**Bästa praxis**: Säker åtkomst från en enskild arbets station som finns lokalt i ett virtuellt Azure-nätverk.   
+**Bästa praxis**: säker åtkomst från en enskild arbets station som finns lokalt i ett virtuellt Azure-nätverk.   
 **Information**: Använd [punkt-till-plats-VPN](/azure/vpn-gateway/vpn-gateway-point-to-site-create).
 
-**Bästa praxis**: Flytta större data uppsättningar över en dedikerad WAN-länk med hög hastighet.   
+**Bästa praxis**: flytta större data uppsättningar över en dedikerad WAN-länk med hög hastighet.   
 **Information**: Använd [ExpressRoute](/azure/expressroute/expressroute-introduction). Om du väljer att använda ExpressRoute kan du också kryptera data på program nivå med hjälp av [SSL/TLS](https://support.microsoft.com/kb/257591) eller andra protokoll för ytterligare skydd.
 
-**Bästa praxis**: Interagera med Azure Storage via Azure Portal.   
-**Information**: Alla transaktioner sker via HTTPS. Du kan också använda [lagrings REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) över HTTPS för att interagera med [Azure Storage](https://azure.microsoft.com/services/storage/).
+**Bästa praxis**: interagera med Azure Storage via Azure Portal.   
+**Information**: alla transaktioner sker via https. Du kan också använda [lagrings REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) över HTTPS för att interagera med [Azure Storage](https://azure.microsoft.com/services/storage/).
 
-Organisationer som inte kan skydda data under överföringen är mer mottagliga för att man ska kunna skydda data i mellanliggande attacker, [avlyssning](https://technet.microsoft.com/library/gg195641.aspx)och kapning [av](https://technet.microsoft.com/library/gg195821.aspx)sessioner. Dessa attacker kan vara det första steget för att få åtkomst till konfidentiella data.
+Organisationer som inte kan skydda data under överföringen är mer mottagliga för att man ska kunna skydda data i [mellanliggande attacker](https://technet.microsoft.com/library/gg195821.aspx), [avlyssning](https://technet.microsoft.com/library/gg195641.aspx)och kapning av sessioner. Dessa attacker kan vara det första steget för att få åtkomst till konfidentiella data.
 
 ## <a name="secure-email-documents-and-sensitive-data"></a>Skydda e-post, dokument och känsliga data
 
@@ -125,7 +125,7 @@ Skydds tekniken använder Azure Rights Management (Azure RMS). Den här tekniken
 
 Den här informations skydds lösningen ser till att du styr dina data, även när de delas med andra personer. Du kan också använda Azure RMS med dina egna affärs program och informations skydds lösningar från program varu leverantörer, oavsett om programmen och lösningarna är lokala eller i molnet.
 
-Vi rekommenderar att du:
+Vi rekommenderar att du gör följande:
 
 - [Distribuera Azure information Protection](/azure/information-protection/deployment-roadmap) för din organisation.
 - Använd etiketter som återspeglar dina affärs behov. Exempel: Använd en etikett med namnet "hög konfidentiell" för alla dokument och e-postmeddelanden som innehåller topp hemliga data för att klassificera och skydda dessa data. Sedan kan endast behöriga användare komma åt dessa data, med de begränsningar som du anger.
@@ -139,4 +139,4 @@ Se [metod tips och mönster för Azure-säkerhet](best-practices-and-patterns.md
 
 Följande resurser är tillgängliga för att ge mer allmän information om Azure-säkerhet och relaterade Microsoft-tjänster:
 * [Azure Security Team-bloggen](https://blogs.msdn.microsoft.com/azuresecurity/) – för uppdaterad information om det senaste i Azure-säkerhet
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – där säkerhets problem i Microsoft, inklusive problem med Azure, kan rapporteras eller via e-post tillsecure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – där säkerhets problem i Microsoft, inklusive problem med Azure, kan rapporteras eller via e-post till secure@microsoft.com

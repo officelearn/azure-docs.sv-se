@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.openlocfilehash: b224de96f6b6baedc3b57e0245a4c4e8748576b4
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767722"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78344115"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub frågespråk för enhet och modul, flera jobb och meddelanderoutning
 
@@ -443,17 +443,17 @@ För att förstå vad varje symbol i uttrycks syntaxen står för, se följande 
 | hexadecimal_literal |Ett tal som uttrycks av strängen 0x följt av en sträng med hexadecimala siffror. |
 | string_literal |Stränglitteraler är Unicode-strängar som representeras av en sekvens med noll eller flera Unicode-tecken eller escape-sekvenser. Sträng litteraler omges av enkla citat tecken eller dubbla citat tecken. Tillåtna Escape: `\'`, `\"`, `\\`, `\uXXXX` för Unicode-tecken som definieras av 4 hexadecimala siffror. |
 
-### <a name="operators"></a>Operatorer
+### <a name="operators"></a>Operatörer
 
 Följande operatorer stöds:
 
-| Familj | Operatorer |
+| Familj | Operatörer |
 | --- | --- |
 | Aritmetiska |+, -, *, /, % |
 | Logiska |AND, OR, NOT (och, eller, inte) |
 | Jämförelse |=, !=, <, >, <=, >=, <> |
 
-### <a name="functions"></a>Funktioner
+### <a name="functions"></a>Functions
 
 Vid frågor om dubbla och jobb är den enda funktioner som stöds:
 

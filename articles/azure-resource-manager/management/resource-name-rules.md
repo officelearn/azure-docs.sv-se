@@ -4,11 +4,11 @@ description: Visar regler och begränsningar för namngivning av Azure-resurser.
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 7b6a9e16ba28a2a0e5e4e181dc5650d2110eab88
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153170"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391176"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Namngivningsregler och begränsningar för Azure-resurser
 
@@ -482,7 +482,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | dnsZones | Resursgrupp | 1-63 tecken<br><br>2 till 34 etiketter<br><br>Varje etikett är en uppsättning tecken som skiljs åt av en punkt. Till exempel har **contoso.com** 2 etiketter. | Varje etikett får innehålla alfanumeriska tecken, under streck och bindestreck.<br><br>Varje etikett avgränsas med en punkt. |
 > | expressRouteCircuits | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
 > | firewallPolicies | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
-> | firewallPolicies / ruleGroups | brand Väggs princip | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | firewallPolicies / ruleGroups | Brand Väggs princip | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
 > | frontDoors | EAN | 5-64 | Alfanumeriska tecken och bindestreck.<br><br>Börja och sluta med alfanumeriska tecken. |
 > | Belastningsutjämnare | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
 > | Belastningsutjämnare/inboundNatRules | belastningsutjämnare | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
@@ -577,7 +577,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | distributioner | Resursgrupp | 1-64 | Alfanumeriska tecken, under streck, parenteser, bindestreck och punkter. |
 > | ResourceGroups | prenumeration | 1–90 | Alfanumeriska tecken, under streck, parenteser, bindestreck, punkter och Unicode-tecken som matchar regex- [dokumentationen](/rest/api/resources/resourcegroups/createorupdate).<br><br>Kan inte sluta med punkt. |
 > | tagNames | resource | 1-512 | Kan inte använda:<br>`<>%&\?/` |
-> | tagNames / tagValues | taggnamn | 1-256 | Alla tecken. |
+> | tagNames / tagValues | Taggnamn | 1-256 | Alla tecken. |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 

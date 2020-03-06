@@ -11,17 +11,17 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: zivr
 ms.openlocfilehash: c90e70900c019340cacc169325155ac74cf7807c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171480"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380602"
 ---
 # <a name="co-locate-resources-for-improved-latency"></a>Samplacera resurser för förbättrad svars tid
 
 När du distribuerar ditt program i Azure skapar spridnings instanser över regioner eller tillgänglighets zoner nätverks fördröjning, vilket kan påverka programmets övergripande prestanda. 
 
-## <a name="proximity-placement-groups"></a>Placerings grupper för närhet
+## <a name="proximity-placement-groups"></a>Närhetsplaceringsgrupper
 
 [!INCLUDE [virtual-machines-common-ppg-overview](../../../includes/virtual-machines-common-ppg-overview.md)]
 

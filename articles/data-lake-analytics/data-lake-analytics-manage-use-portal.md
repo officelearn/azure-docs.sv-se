@@ -10,11 +10,11 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8a6b7cb3fd45e17b84519efcaa826b569083e156
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839466"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361315"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Hantera Azure Data Lake Analytics med hjälp av Azure Portal
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -29,7 +29,7 @@ Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, da
 
 ### <a name="create-an-account"></a>Skapa ett konto
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på **skapa en resurs** > informations-och **analys** > **data Lake Analytics**.
 3. Välj värden för följande objekt: 
    1. **Namn**: namnet på data Lake Analytics kontot.
@@ -60,7 +60,7 @@ Data Lake Analytics stöder följande data Källor:
 
 Du kan använda Datautforskaren för att bläddra bland data källor och utföra grundläggande fil hanterings åtgärder. 
 
-### <a name="add-a-data-source"></a>Lägg till en data Källa
+### <a name="add-a-data-source"></a>Lägg till en datakälla
 
 1. I Azure Portal går du till ditt Data Lake Analytics-konto.
 2. Klicka på **data källor**.
@@ -114,7 +114,7 @@ Använd rollen som Data Lake Analytics utvecklare för att göra det möjligt f�
 2. Klicka på **åtkomst kontroll (IAM)**  > **Lägg till roll tilldelning**.
 3. Välj en roll.
 4. Lägg till en användare.
-5. Klicka på **OK**.
+5. Klicka på **OK**
 
 >[!NOTE]
 >Om en användare eller en säkerhets grupp behöver skicka jobb måste de också ha behörighet för Store-kontot. Mer information finns i [skydda data som lagrats i data Lake Store](../data-lake-store/data-lake-store-secure-data.md).

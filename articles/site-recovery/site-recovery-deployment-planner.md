@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: mayg
 ms.openlocfilehash: 50a236154a0340bd49e84a8ca02f656e3cd9994a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084533"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394984"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Om Distributionshanteraren för Azure Site Recovery för VMware till Azure
 Den här artikeln utgör användarhandboken för Distributionshanteraren för Azure Site Recovery vid produktionsdistribution av VMware till Azure.
@@ -52,7 +52,7 @@ Du kan se följande information i verktyget:
 
 **Beräknad kostnad för haveriberedskap till Azure**
 * Uppskattad total kostnad för haveriberedskap till Azure: databearbetning, lagring, nätverk och Site Recovery-licenskostnader
-* Detaljerad analys av kostnader per virtuell dator
+* Detaljerad analys av faktiska kostnader per virtuell dator
 
 
 >[!IMPORTANT]
@@ -60,7 +60,7 @@ Du kan se följande information i verktyget:
 >Eftersom användningen troligtvis ökar med tiden utförs alla föregående verktygsberäkningar med ett antagande om en 30-procentig tillväxt för arbetsbelastningen. Beräkningarna använder också ett 95-procentigt percentilvärde för alla profileringsmått, t.ex. skrivbar IOPS och omsättning. Både tillväxtfaktorn och percentilberäkningen kan konfigureras. Om du vill veta mer om tillväxtfaktor, se avsnittet ”Överväganden för tillväxtfaktorer”. Mer information om percentilvärdet finns i avsnittet ”Percentilvärde som används för beräkningen”.
 >
 
-## <a name="support-matrix"></a>Stödmatris
+## <a name="support-matrix"></a>Supportmatris
 
 | | **VMware till Azure** |**Hyper-V till Azure**|**Azure till Azure**|**Hyper-V till sekundär plats**|**VMware till sekundär plats**
 --|--|--|--|--|--
@@ -71,7 +71,7 @@ Antalet servrar som kan profileras per körningsinstans av Distributionshanterar
 
 \* Verktyget är främst avsett för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats kan det bara användas till att förstå rekommendationer för källsidan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-källserver samt inledande batchnummer för replikering och batchdefinitioner. Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden för att hämta dataflödet gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Verktyget har två huvudfaser: profilering och rapportgenerering. Det finns också ett tredje alternativ som endast beräknar dataflödet. Kraven för servern som profilering och dataflödesmätning initieras från visas i följande tabell.
 
 | Serverkrav | Beskrivning|

@@ -1,7 +1,7 @@
 ---
 title: Vad är tjänsten Azure SQL Database?
 description: 'Få en introduktion till SQL Database: teknisk information och funktioner i Microsoft Relations databas hanterings system (RDBMS) i molnet.'
-keywords: introduktion till sql, sql-introduktion, vad är sql-databas
+keywords: introduktion till sql, sql-introduktion, vad är sql database
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -13,11 +13,11 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
 ms.openlocfilehash: 3932c22ff003a343e4c32aee117a7ddea922fbdb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820732"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360078"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Vad är tjänsten Azure SQL Database?
 
@@ -242,7 +242,7 @@ Azure Hybrid-förmån för SQL Server skiljer sig från licens mobilitet i två 
 
 SQL Database kunder har följande rättigheter som är kopplade till Azure Hybrid-förmån för SQL Server:
 
-|Licensavtryck|Vad får Azure Hybrid-förmån för SQL Server dig?|
+|Licens utrymme|Vad får Azure Hybrid-förmån för SQL Server dig?|
 |---|---|
 |SQL Server Enterprise Edition Core-kunder med SA|<li>Kan betala bas priset antingen Generell användning eller Affärskritisk SKU</li><br><li>1 kärna lokalt = 4 kärnor i Generell användning SKU</li><br><li>1 kärna lokalt = 1 kärna i Affärskritisk SKU</li>|
 |SQL Server Standard Edition Core-kunder med SA|<li>Kan betala bas taxan endast för Generell användning SKU</li><br><li>1 kärna lokalt = 1 kärna i Generell användning SKU</li>|

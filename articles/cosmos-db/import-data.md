@@ -7,21 +7,21 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: dech
 ms.openlocfilehash: 1d25a2c9a3fda48c2f7de01563e01dd0c7de7762
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721142"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387959"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Självstudie: Använd verktyget datamigrering för att migrera dina data till Azure Cosmos DB
 
-Den här självstudien innehåller instruktioner om hur du använder verktyget Azure Cosmos DB datamigrering, som kan importera data från olika källor till Azure Cosmos-behållare och-tabeller. Du kan importera från JSON-filer, CSV-filer, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB och till och med Azure Cosmos DB SQL API-samlingar. Du migrerar dessa data till samlingar och tabeller för användning med Azure Cosmos DB. Datamigreringsverktyget kan också användas när du migrerar från en enda partitionssamling till en samling med flera partitioner för SQL API.
+Den här självstudien innehåller anvisningar för hur du använder datamigreringsverktyget i Azure Cosmos DB, som kan importera data från olika källor till containrar och tabeller i Azure Cosmos DB. Du kan importera från JSON-filer, CSV-filer, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB och till och med Azure Cosmos DB SQL API-samlingar. Du migrerar dessa data till samlingar och tabeller för användning med Azure Cosmos DB. Datamigreringsverktyget kan också användas när du migrerar från en enda partitionssamling till en samling med flera partitioner för SQL API.
 
 Vilken API ska du använda med Azure Cosmos DB?
 
-* **[SQL API](documentdb-introduction.md)**  – Du kan använda något av källalternativen i datamigreringsverktyget när du importerar data.
-* **[Tabell-API](table-introduction.md)**  – Du kan använda datamigreringsverktyget eller AzCopy när du importerar data. Se [Importera data för användning med Azure Cosmos DB Table-API](table-import.md) för mer information.
-* **[Azure Cosmos DB-API för MongoDB](mongodb-introduction.md)**  – Datamigreringsverktyget har för närvarande inte stöd för Azure Cosmos DB API för MongoDB vare sig som en källa eller som ett mål. Om du vill migrera data inom eller utanför samlingar i Azure Cosmos DB hittar du instruktioner i [Hur du migrerar MongoDB-data till en Cosmos-databas med Azure Cosmos DB API för MongoDB](mongodb-migrate.md). Du kan fortfarande använda datamigreringsverktyget till att exportera data från MongoDB till Azure Cosmos DB SQL API-samlingar för användning med SQL API.
+* **[SQL API](documentdb-introduction.md)** – Du kan använda något av källalternativen i datamigreringsverktyget när du importerar data.
+* **[Tabell-API](table-introduction.md)** – Du kan använda datamigreringsverktyget eller AzCopy när du importerar data. Se [Importera data för användning med Azure Cosmos DB Table-API](table-import.md) för mer information.
+* **[Azure Cosmos DB-API för MongoDB](mongodb-introduction.md)** – Datamigreringsverktyget har för närvarande inte stöd för Azure Cosmos DB API för MongoDB vare sig som en källa eller som ett mål. Om du vill migrera data inom eller utanför samlingar i Azure Cosmos DB hittar du instruktioner i [Hur du migrerar MongoDB-data till en Cosmos-databas med Azure Cosmos DB API för MongoDB](mongodb-migrate.md). Du kan fortfarande använda datamigreringsverktyget till att exportera data från MongoDB till Azure Cosmos DB SQL API-samlingar för användning med SQL API.
 * **[Gremlin API](graph-introduction.md)** – Datamigreringsverktyget är ett importverktyg som saknar stöd för Gremlin API-konton för närvarande.
 
 Den här självstudien omfattar följande uppgifter:
@@ -35,7 +35,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Innan du följer anvisningarna i den här artikeln bör du se till att du utför följande steg:
 
-* **Installera** [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) eller högre.
+* **Installera** [Microsoft .NET Framework 4,51](https://www.microsoft.com/download/developer-tools.aspx) eller senare.
 
 * **Öka dataflödet:** Hur lång tid datamigreringen tar beror på hur stort dataflöde du anger för en enskild samling eller en uppsättning samlingar. Vi rekommenderar att du ökar dataflödet för större datamigreringar. När du har slutfört migreringen kan du minska dataflödet för att sänka kostnaderna. Mer information om hur du ökar dataflödet i Azure-portalen finns i avsnitten om [prestandanivåer](performance-levels.md) och [prisnivåer](https://azure.microsoft.com/pricing/details/cosmos-db/) i Azure Cosmos DB.
 
@@ -52,7 +52,7 @@ Datamigreringsverktyget är en lösning med öppen källkod som importerar data 
 * Azure Table Storage
 * Amazon DynamoDB
 * HBase
-* Azure Cosmos-behållare
+* Azure Cosmos-containrar
 
 Även om importverktyget innehåller ett grafiskt användargränssnitt (dtui.exe), kan det också köras från kommandoraden (dt.exe). Det finns faktiskt ett alternativ till att få utdata från ett associerat kommando när du har konfigurerat en import via användargränssnittet. Du kan transformera tabellkälldata, till exempel SQL Server- eller CSV-filer, för att skapa hierarkiska relationer (underdokument) vid import. Om du vill kan du läsa mer om källalternativ, exempelkommandon för att importera från varje källa, målalternativ och hur du ser de importerade resultaten.
 
@@ -208,7 +208,7 @@ På samma sätt som med SQL-källan kan egenskapen för kapslade avgränsare anv
 
 Observera alias som t.ex. DomainInfo.Domain_Name och RedirectInfo.Redirecting. När du anger den kapslade avgränsaren '.', skapar importverktyget underdokumenten DomainInfo och RedirectInfo under importen. Här är ett exempel på ett resulterande dokument i Azure Cosmos DB:
 
-*{"DomainInfo": {"domän namn": "ACUS.GOV", "Domain_Name_Address": "https:\//www.ACUS.GOV"}, "Federal Agency": "administrations konferensen för USA", "RedirectInfo": {"omdirigera": "0", "Redirect_Destination": ""}, "ID": "9cc565c5-EBCD-1c03-ebd3-cc3e2ecd814d"}*
+*{"DomainInfo": {"Domain_Name": "ACUS.GOV", "Domain_Name_Address": "https:\//www.ACUS.GOV"}, "Federal Agency": "administrations konferensen för USA", "RedirectInfo": {"omdirigera": "0", "Redirect_Destination": ""}, "ID": "9cc565c5-EBCD-1c03-ebd3-cc3e2ecd814d"}*
 
 Importverktyget försöker härleda typinformationen för värden utan citattecken i CSV-filer (värden inom citattecken behandlas alltid som strängar).  Typer identifieras i följande ordning: nummer, datetime, booleskt värde.  
 
@@ -583,4 +583,4 @@ I den här självstudien har du gjort följande:
 Nu kan du gå vidare till nästa självstudie och lära dig att fråga efter data med hjälp av Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
->[Hur frågar jag efter data?](../cosmos-db/tutorial-query-sql-api.md)
+>[Hur kör jag frågor för att hämta data?](../cosmos-db/tutorial-query-sql-api.md)

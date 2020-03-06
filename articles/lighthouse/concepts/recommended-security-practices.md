@@ -4,17 +4,17 @@ description: När du använder Azure-delegerad resurs hantering är det viktigt 
 ms.date: 07/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8972d6548eccb1006d90bfcbb4dba8c01b05a981
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456878"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394056"
 ---
 # <a name="recommended-security-practices"></a>Rekommenderade säkerhetsmetoder
 
 När du använder Azure-delegerad resurs hantering är det viktigt att tänka på säkerhets-och åtkomst kontroll. Användare i din klient organisation har direkt åtkomst till kund prenumerationer och resurs grupper, så du bör vidta åtgärder för att underhålla din klients säkerhet. Du bör också se till att du bara tillåter den åtkomst som behövs för att hantera kundernas resurser på ett effektivt sätt. Det här avsnittet innehåller rekommendationer som hjälper dig att göra det.
 
-## <a name="require-azure-multi-factor-authentication"></a>Kräv Azure-Multi-Factor Authentication
+## <a name="require-azure-multi-factor-authentication"></a>Kräv Azure Multi-Factor Authentication
 
 [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (även kallat tvåstegsverifiering) hjälper till att förhindra angripare från att få åtkomst till ett konto genom att kräva flera steg för autentisering. Du bör kräva Multi-Factor Authentication för alla användare i din tjänst leverantörs klient, inklusive användare som har åtkomst till kund resurser.
 
@@ -28,9 +28,9 @@ När du skapar din behörighets struktur måste du kontrol lera att du följer p
 
 Du kanske exempelvis vill använda en struktur som detta:
 
-|Gruppnamn  |Typ  |principalId  |Rolldefinition  |Roll Definitions-ID  |
+|Grupp namn  |Typ  |principalId  |Rolldefinition  |Roll Definitions-ID  |
 |---------|---------|---------|---------|---------|
-|Arkitekter     |Användargrupp         |\<principalId\>         |Deltagare         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Architects     |Användargrupp         |\<principalId\>         |Deltagare         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Utvärdering     |Användargrupp         |\<principalId\>         |Läsare         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |VM-specialister     |Användargrupp         |\<principalId\>         |VM-deltagare         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
 |Automation     |Tjänstens huvudnamn (SPN)         |\<principalId\>         |Deltagare         |b24988ac-6180-42a0-ab88-20f7382dd24c  |

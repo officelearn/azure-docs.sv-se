@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: d57b196bf95ebdf31bc459ad4b9d718fd32ca495
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672237"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358117"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
 
@@ -223,7 +223,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Med både Microsoft-konto och Azure Active Directory kan du logga in från flera domäner. Till exempel kan Microsoft-konto tillåta _Outlook.com_-, _live.com_-och _hotmail.com_ -konton. Azure AD tillåter valfritt antal anpassade domäner för inloggnings kontona. Men du kanske vill påskynda dina användare direkt till din egen anpassade Azure AD-inloggnings sida (till exempel `contoso.com`). Följ dessa steg om du vill föreslå domän namnet för inloggnings kontona.
 
-I [https://resources.azure.com](https://resources.azure.com)går du till **prenumerationer** >  **_\< prenumeration\_ namn_**  > **resourceGroups** >  **_\< resurs\_ grupp\_ namn >_**  > **providers** > **Microsoft. Web** > **Sites** >  **_\< app\_ Name >_**  > **config** > **authsettings**. 
+I [https://resources.azure.com](https://resources.azure.com)går du till **prenumerationer** >  **_\<prenumeration\_namn_**  > **resourceGroups** >  **_\<resurs\_grupp\_namn >_**  > **providers** > **Microsoft. Web** > **Sites** >  **_\<app\_Name >_**  > **config** > **authsettings**. 
 
 Klicka på **Redigera**, ändra följande egenskap och klicka sedan på **Lägg**till. Se till att ersätta _\<domän\_namn >_ med den domän som du vill använda.
 

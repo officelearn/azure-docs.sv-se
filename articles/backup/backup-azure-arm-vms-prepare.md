@@ -4,11 +4,11 @@ description: Beskriver hur du säkerhetskopierar virtuella Azure-datorer i ett R
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: aeadd7bc798f690c67eef38c6dc645204ff39115
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705555"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363869"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 
@@ -101,7 +101,7 @@ Konfigurera en säkerhets kopierings policy för valvet.
 
       ![Standard princip för säkerhets kopiering](./media/backup-azure-arm-vms-prepare/default-policy.png)
 
-4. I **Välj virtuella datorer**väljer du de virtuella datorer som du vill säkerhetskopiera med hjälp av principen. Klicka på **OK**.
+4. I **Välj virtuella datorer**väljer du de virtuella datorer som du vill säkerhetskopiera med hjälp av principen. Klicka sedan på **OK**.
 
    * De valda virtuella datorerna verifieras.
    * Du kan bara välja virtuella datorer i samma region som valvet.
@@ -148,7 +148,7 @@ Den första säkerhets kopieringen kommer att köras enligt schemat, men du kan 
 2. I **säkerhets kopierings objekt**klickar du på **virtuell Azure-dator**.
 3. I listan **säkerhets kopierings objekt** klickar du på ellipserna (...).
 4. Klicka på **Säkerhetskopiera nu**.
-5. I **Säkerhetskopiera nu**använder du kalender kontrollen för att välja den sista dagen som återställnings punkten ska behållas. Klicka på **OK**.
+5. I **Säkerhetskopiera nu**använder du kalender kontrollen för att välja den sista dagen som återställnings punkten ska behållas. Klicka sedan på **OK**.
 6. Övervaka Portal meddelanden. Du kan övervaka jobb förloppet i valv instrument panelen > **säkerhets kopierings jobb** > **pågår**. Beroende på den virtuella datorns storlek kan det ta en stund att skapa den första säkerhetskopian.
 
 ## <a name="verify-backup-job-status"></a>Verifiera status för säkerhets kopierings jobb
@@ -171,8 +171,8 @@ Jobbets status kan variera beroende på följande scenarier:
 Slutfört | Pågår | Pågår
 Slutfört | Överhoppad | Slutfört
 Slutfört | Slutfört | Slutfört
-Slutfört | Misslyckad | Slutfört med varning
-Misslyckad | Misslyckad | Misslyckad
+Slutfört | Misslyckades | Slutfört med varning
+Misslyckades | Misslyckades | Misslyckades
 
 Med den här funktionen kan två säkerhets kopior för samma virtuella dator köras parallellt, men i båda skedet (ögonblicks bilder, överför data till valv) kan endast en under aktivitet köras. I situationer då en pågående säkerhets kopiering resulterade i att säkerhets kopieringen till nästa dag inte kunde köras, undviks den här kopplings funktionen. Efterföljande dagars säkerhets kopieringar kan ha en ögonblicks bild som slutförts medan **överföring av data till valvet** hoppades över om en tidigare säkerhets kopierings jobb pågår.
 Den stegvisa återställnings punkten som skapades i valvet fångar upp omsättningen från den senaste återställnings punkten som skapades i valvet. Det kostar inget att påverka användaren.
@@ -183,7 +183,7 @@ Den stegvisa återställnings punkten som skapades i valvet fångar upp omsättn
 
 Azure Backup säkerhetskopierar virtuella Azure-datorer genom att installera ett tillägg till Azure VM-agenten som körs på datorn. Om den virtuella datorn skapades från en Azure Marketplace-avbildning installeras och körs agenten. Om du skapar en anpassad virtuell dator, eller om du migrerar en lokal dator, kan du behöva installera agenten manuellt, som sammanfattas i tabellen.
 
-**VM** | **Detaljer**
+**DATORN** | **Detaljer**
 --- | ---
 **Windows** | 1. [Ladda ned och installera](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) agent-MSI-filen.<br/><br/> 2. Installera med administratörs behörighet på datorn.<br/><br/> 3. kontrol lera installationen. I *C:\WindowsAzure\Packages* på den virtuella datorn högerklickar du på **WaAppAgent. exe** > **Egenskaper**. **Produkt versionen** bör vara 2.6.1198.718 eller högre på fliken **information** .<br/><br/> Om du uppdaterar agenten ser du till att inga säkerhets kopierings åtgärder körs och [installerar om agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Installera med hjälp av ett RPM-eller DEB-paket från distributionens paket lagrings plats. Detta är den bästa metoden för att installera och uppgradera Azure Linux-agenten. Alla godkända [distributions leverantörer](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrerar Azure Linux Agent-paketet i sina avbildningar och databaser. Agenten är tillgänglig på [GitHub](https://github.com/Azure/WALinuxAgent), men vi rekommenderar inte att du installerar därifrån.<br/><br/> Om du uppdaterar agenten ska du kontrol lera att inga säkerhets kopierings åtgärder körs och uppdatera binärfilerna.

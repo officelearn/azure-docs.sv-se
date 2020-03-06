@@ -6,11 +6,11 @@ ms.topic: conceptual
 description: Beskriver nätverks kraven för att köra Azure dev Spaces i Azure Kubernetes Services
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, CNI, Kubernetes, SDN, Network
 ms.openlocfilehash: 9e32e3b65451dceefaeeaf7faed7c8337797e0b8
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044988"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389668"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Konfigurera nätverk för Azure dev Spaces i olika nätverkstopologier
 
@@ -65,7 +65,7 @@ Med AKS-kluster kan du konfigurera ytterligare säkerhet som begränsar vilken I
 
 För närvarande stöds inte Azure dev Spaces med [privata AKS-kluster][aks-private-clusters].
 
-## <a name="client-requirements"></a>Klientkrav
+## <a name="client-requirements"></a>Klient krav
 
 Azure dev Spaces använder verktyg på klient sidan, till exempel CLI-tillägget för Azure dev Spaces, Visual Studio Code extension och Visual Studio-tillägget för att kommunicera med ditt AKS-kluster för fel sökning. Om du vill använda verktyget för Azure dev-verktyg på klient sidan kan du tillåta trafik från utvecklings datorerna till *azds-\*. azds.io-* domänen. Se *dataplaneFqdn* i `USERPROFILE\.azds\settings.json` för exakt FQDN. Om du använder [tillåtna IP-intervall för API-Server][auth-range-section]måste du också tillåta IP-adressen för alla utvecklings datorer som ansluter till ditt AKS-kluster för fel sökning för att kunna ansluta till din API-Server.
 

@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
 ms.openlocfilehash: b6802d97b964b8863f6c2fce0cebfe16782b46fe
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822015"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397167"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Hantera schemat i ett SaaS-program med hjälp av mönstret för databas per klient med Azure SQL Database
  
@@ -37,11 +37,11 @@ I den här självstudiekursen får du lära du dig att:
 Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
 * Wingtip biljetter SaaS-databasen per klient-app distribueras. Om du vill distribuera på mindre än fem minuter, se [distribuera och utforska Wingtip-biljetter SaaS-databas per klient program](saas-dbpertenant-get-started-deploy.md)
-* Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* Azure PowerShell ska ha installerats. Mer information finns i [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * Den senaste versionen av SQL Server Management Studio (SSMS) ska vara installerad. [Ladda ned och installera SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 > [!NOTE]
-> I den här självstudien används funktioner i SQL Databases tjänsten som är i en begränsad förhands granskning (Elastic Database-jobb). Om du vill göra den här själv studie kursen anger du ditt prenumerations-ID till SaaSFeedback@microsoft.com med ämnet = för hands version av elastiska jobb. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här för hands versionen är begränsad, så kontakta SaaSFeedback@microsoft.com för relaterade frågor eller support.
+> I den här självstudien används funktioner i SQL Databases tjänsten som är i en begränsad förhands granskning (Elastic Database-jobb). Om du vill göra den här själv studie kursen anger du ditt prenumerations-ID för att SaaSFeedback@microsoft.com med ämnet = för hands version av elastiska jobb När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här för hands versionen är begränsad, så kontakta SaaSFeedback@microsoft.com för relaterade frågor eller support.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introduktion till SaaS schema hanterings mönster
 
@@ -55,7 +55,7 @@ I mönstret för databas per klient isoleras klient data effektivt, men det öka
 Det finns en ny version av elastiska jobb som nu är en integrerad funktion i Azure SQL Database. Den här nya versionen av elastiska jobb är för närvarande i begränsad förhandsvisning. Denna begränsade för hands version har stöd för att använda PowerShell för att skapa en jobb agent och T-SQL för att skapa och hantera jobb.
 
 > [!NOTE]
-> I den här självstudien används funktioner i SQL Databases tjänsten som är i en begränsad förhands granskning (Elastic Database-jobb). Om du vill göra den här själv studie kursen anger du ditt prenumerations-ID till SaaSFeedback@microsoft.com med ämnet = för hands version av elastiska jobb. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här för hands versionen är begränsad, så kontakta SaaSFeedback@microsoft.com för relaterade frågor eller support.
+> I den här självstudien används funktioner i SQL Databases tjänsten som är i en begränsad förhands granskning (Elastic Database-jobb). Om du vill göra den här själv studie kursen anger du ditt prenumerations-ID för att SaaSFeedback@microsoft.com med ämnet = för hands version av elastiska jobb När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här för hands versionen är begränsad, så kontakta SaaSFeedback@microsoft.com för relaterade frågor eller support.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Hämta Wingtip-biljetterna SaaS-databas per klient program skript
 
@@ -77,7 +77,7 @@ I Wingtip biljetter-appen innehåller varje klient databas en uppsättning plats
 Börja med att granska de plats typer som ingår i varje klient databas. Anslut till en av klient databaserna i SQL Server Management Studio (SSMS) och granska VenueTypes-tabellen.  Du kan också fråga den här tabellen i Frågeredigeraren i Azure Portal, som öppnas från databas sidan. 
 
 1. Öppna SSMS och Anslut till klient servern: *tenants1-DPT-&lt;user&gt;. Database.Windows.net*
-1. För att bekräfta att *motorcykelns racing* -och *SIM-klubb* **inte** ingår, kan du bläddra till _contosoconcerthall_ -databasen på *tenants1-DPT-&lt;User&gt;* Server och fråga *VenueTypes* tabell.
+1. För att bekräfta att *motorcykelns racing* -och *SIM-klubb* **inte** ingår för närvarande, bläddrar du till _contosoconcerthall_ -databasen på *tenants1-DPT-&lt;User&gt;-* servern och frågar *VenueTypes* -tabellen.
 
 Nu ska vi skapa ett jobb för att uppdatera *VenueTypes* -tabellen i alla klient databaser för att lägga till nya typer av platser.
 

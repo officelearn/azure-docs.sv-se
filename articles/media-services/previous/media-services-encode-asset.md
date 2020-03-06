@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
 ms.openlocfilehash: d5d5b8a7328ee82e94d494795617832cb0258667
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901519"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392940"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Översikt över Azure on-demand Media Encoder 
 
@@ -48,10 +48,10 @@ Som standard kan varje Media Services konto ha en aktiv kodnings aktivitet i tag
 ### <a name="how-to-use"></a>Hur du ska använda detta
 [Så här kodar du med Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-### <a name="formats"></a>Format
+### <a name="formats"></a>Form
 [Format och codecenheter](media-services-media-encoder-standard-formats.md)
 
-### <a name="presets"></a>Förinställningar
+### <a name="presets"></a>Hands
 Media Encoder Standard konfigureras med hjälp av en av kodarens för inställningar som beskrivs [här](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Metadata för indata och utdata
@@ -68,7 +68,7 @@ Mer information finns i [så här trimmar du videor med Media Encoder Standard](
 ### <a name="create-overlays"></a>Skapa överlägg
 Mer information finns i [så här skapar du överlägg med Media Encoder Standard](media-services-advanced-encoding-with-mes.md#overlay).
 
-### <a name="see-also"></a>Se också
+### <a name="see-also"></a>Se även
 [Media Services blogg](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>Arbetsflöde för Media Encoder Premium
@@ -83,7 +83,7 @@ Media Encoder Premium Workflow konfigureras med komplexa arbets flöden. Du kan 
 ### <a name="known-issues"></a>Kända problem
 Om din indata-video inte innehåller dold textning innehåller utmatnings till gången fortfarande en tom TTML-fil.
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

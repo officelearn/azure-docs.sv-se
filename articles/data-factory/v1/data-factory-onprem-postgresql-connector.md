@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929072"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387639"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Flytta data från PostgreSQL med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -32,7 +32,7 @@ Den här artikeln förklarar hur du använder kopierings aktiviteten i Azure Dat
 
 Du kan kopiera data från ett lokalt PostgreSQL-data lager till alla mottagar data lager som stöds. En lista över data lager som stöds som mottagare av kopierings aktiviteten finns i [data lager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory har för närvarande stöd för att flytta data från en PostgreSQL-databas till andra data lager, men inte för att flytta data från andra data lager till en PostgreSQL-databas.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Data Factory-tjänsten stöder anslutning till lokala PostgreSQL-källor med hjälp av Data Management Gateway. Se [Flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artiklar om du vill lära dig mer om data Management Gateway och stegvisa anvisningar för hur du konfigurerar gatewayen.
 
@@ -55,7 +55,7 @@ Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från ett 
   - .NET-API
   - REST-API
 
-    Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+    Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -74,7 +74,7 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 | --- | --- | --- |
 | typ |Egenskapen Type måste anges till: **OnPremisesPostgreSql** |Ja |
 | server |Namnet på PostgreSQL-servern. |Ja |
-| databas |Namnet på PostgreSQL-databasen. |Ja |
+| database |Namnet på PostgreSQL-databasen. |Ja |
 | schema |Namnet på schemat i databasen. Schema namnet är Skift läges känsligt. |Nej |
 | authenticationType |Typ av autentisering som används för att ansluta till PostgreSQL-databasen. Möjliga värden är: Anonym, Basic och Windows. |Ja |
 | användarnamn |Ange användar namn om du använder Basic-eller Windows-autentisering. |Nej |
@@ -99,7 +99,7 @@ När källan är av typen **RelationalSource** (som innehåller postgresql) är 
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| query |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
 
 > [!NOTE]
 > Schema-och tabell namn är Skift läges känsliga. Omslut dem i `""` (dubbla citat tecken) i frågan.
@@ -304,38 +304,38 @@ När du flyttar data till PostgreSQL används följande mappningar från Postgre
 
 | Typ av PostgreSQL-databas | PostgresSQL alias | .NET Framework typ |
 | --- | --- | --- |
-| abstime | |Datetime |
+| abstime | |Datum/tid |
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[], String |
 | bit varierande [(n)] |varbit |Byte[], String |
-| boolesk |bool |Boolesk |
+| boolean |booleska |Boolean |
 | fältet | |Byte[], String |
 | bytea | |Byte[], String |
-| Character [(n)] |char [(n)] |Sträng |
-| Character varierande [(n)] |varchar [(n)] |Sträng |
-| Cid | |Sträng |
-| CIDR | |Sträng |
-| cirkel | |Byte[], String |
-| datum | |Datetime |
-| DateRange | |Sträng |
-| dubbel precision |float8 |Double |
+| Character [(n)] |char [(n)] |String |
+| Character varierande [(n)] |varchar [(n)] |String |
+| Cid | |String |
+| CIDR | |String |
+| Division | |Byte[], String |
+| date | |Datum/tid |
+| DateRange | |String |
+| dubbel precision |float8 |Double-värde |
 | inet | |Byte[], String |
-| intarry | |Sträng |
-| int4range | |Sträng |
-| int8range | |Sträng |
+| intarry | |String |
+| int4range | |String |
+| int8range | |String |
 | heltal |int, int4 |Int32 |
 | intervall [fält] [(p)] | |Tidsintervall |
-| json | |Sträng |
+| json | |String |
 | jsonb | |Byte[] |
-| rad | |Byte[], String |
+| Online | |Byte[], String |
 | lseg | |Byte[], String |
 | macaddr | |Byte[], String |
-| money | |Decimal |
-| numeriskt [(p, s)] |decimal [(p, s)] |Decimal |
-| numrange | |Sträng |
+| money | |decimaltal |
+| numeriskt [(p, s)] |decimal [(p, s)] |decimaltal |
+| numrange | |String |
 | OID | |Int32 |
-| Sökväg | |Byte[], String |
+| path | |Byte[], String |
 | pg_lsn | |Int64 |
 | plats | |Byte[], String |
 | Polygonlasso | |Byte[], String |
@@ -343,7 +343,7 @@ När du flyttar data till PostgreSQL används följande mappningar från Postgre
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | nummer |serial4 |Int32 |
-| text | |Sträng |
+| text | |String |
 
 ## <a name="map-source-to-sink-columns"></a>Mappa källa till mottagar kolumner
 Information om hur du mappar kolumner i käll data uppsättningen till kolumner i data uppsättning för mottagare finns i [mappa data mängds kolumner i Azure Data Factory](data-factory-map-columns.md).

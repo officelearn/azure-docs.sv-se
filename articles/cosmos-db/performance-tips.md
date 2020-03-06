@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: sngun
 ms.openlocfilehash: dc9d10a6539c7fc3a7c5c8b3db290cc951c24883
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623322"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357583"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestanda tips för Azure Cosmos DB och .NET
 
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
-> * [NET](performance-tips.md)
+> * [.NET](performance-tips.md)
 > 
 
 Azure Cosmos DB är en snabb och flexibel distribuerad databas som skalar sömlöst med garanterad svars tid och data flöde. Du behöver inte göra större ändringar i arkitekturen eller skriva komplex kod för att skala databasen med Azure Cosmos DB. Att skala upp och ned är lika enkelt som att göra ett enda API-anrop. Mer information finns i [så här etablerar du behållar data flöde](how-to-provision-container-throughput.md) eller [hur du etablerar databas data flöde](how-to-provision-database-throughput.md). Men eftersom Azure Cosmos DB nås via nätverks anrop finns det optimeringar på klient sidan som du kan göra för att uppnå högsta prestanda när du använder [SQL .NET SDK](sql-api-sdk-dotnet-standard.md).
@@ -192,7 +192,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
    > [!NOTE] 
    > Egenskapen maxItemCount bör inte användas bara för sid brytnings ändamål. Det är den viktigaste användningen för att förbättra prestanda för frågor genom att minska det maximala antalet objekt som returneras på en enda sida.  
 
-   Du kan också ange sid storlek med hjälp av tillgängliga Azure Cosmos DB SDK: er. Med egenskapen [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) i FeedOptions kan du ange det maximala antalet objekt som ska returneras i uppräknings åtgärden. När `maxItemCount` är inställt på-1 hittar SDK: n automatiskt det optimala värdet beroende på dokument storleken. Några exempel:
+   Du kan också ange sid storlek med hjälp av tillgängliga Azure Cosmos DB SDK: er. Med egenskapen [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) i FeedOptions kan du ange det maximala antalet objekt som ska returneras i uppräknings åtgärden. När `maxItemCount` är inställt på-1 hittar SDK: n automatiskt det optimala värdet beroende på dokument storleken. Exempel:
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 1d1368ef8ffb474c6bec1240f567f043961597fb
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838181"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389781"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Skapa HDInsight-kluster med Azure Data Lake Storage Gen1 med hjälp av Azure Portal
 
@@ -29,7 +29,7 @@ Lär dig hur du använder Azure Portal för att skapa ett HDInsight-kluster med 
 
 Innan du börjar bör du kontrol lera att du uppfyller följande krav:
 
-* **en Azure-prenumeration**. Gå till [få en kostnads fri utvärderings version av Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **En Azure-prenumeration**. Gå till [få en kostnads fri utvärderings version av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett data Lake Storage gen1 konto**. Följ anvisningarna från [Kom igång med Azure Data Lake Storage gen1 med hjälp av Azure Portal](data-lake-store-get-started-portal.md). Du måste också skapa en rotmapp på kontot.  I den här artikeln används en rotmapp som heter __/Clusters__ .
 * **Ett Azure Active Directory tjänstens huvud namn**. Den här instruktions guiden innehåller instruktioner om hur du skapar ett huvud namn för tjänsten i Azure Active Directory (Azure AD). Om du vill skapa ett huvud namn för tjänsten måste du dock vara en Azure AD-administratör. Om du är administratör kan du hoppa över den här förutsättningen och fortsätta.
 
@@ -45,7 +45,7 @@ I det här avsnittet skapar du ett HDInsight-kluster med Data Lake Storage Gen1 
 
 Så här skapar du ett HDInsight-kluster med ett Data Lake Storage Gen1 konto som standard lagrings konto:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Följ [skapa kluster](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) för allmän information om hur du skapar HDInsight-kluster.
 3. Välj **Azure Data Lake Storage gen1**under **primär lagrings typ**på bladet **lagring** och ange följande information:
 
@@ -64,7 +64,7 @@ Följande instruktioner skapar ett HDInsight-kluster med ett Azure Storage-konto
 
 Så här skapar du ett HDInsight-kluster med ett Data Lake Storage Gen1 konto som ett ytterligare lagrings konto:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Följ [skapa kluster](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) för allmän information om hur du skapar HDInsight-kluster.
 3. Välj **Azure Storage**under **primär lagrings typ**på bladet **lagring** och ange följande information:
 
@@ -195,7 +195,7 @@ Du kan använda ett Spark-kluster för att köra Spark-jobb på data som lagras 
 
 Du kan använda Data Lake Storage Gen1 kontot för att skriva data från en Storm-topologi. Instruktioner för hur du uppnår det här scenariot finns i [använda Azure Data Lake Storage gen1 med Apache Storm med HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Använda Data Lake Storage Gen1 med Azure HDInsight-kluster](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [PowerShell: skapa ett HDInsight-kluster för att använda Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)

@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: wesmc
 ms.openlocfilehash: 9870d61ff2e7b9d0259dd853b88411a5f175388e
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255297"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381995"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Snabb start: skicka telemetri från en enhet till en IoT-hubb och Läs den med ett Server dels program (C)
 

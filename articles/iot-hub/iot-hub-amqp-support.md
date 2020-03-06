@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: robinsh
 ms.openlocfilehash: 7f7e957502419b766f7da63048e8168192ea20da
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286648"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359566"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Kommunicera med din IoT Hub med hjälp av AMQP-protokollet
 
@@ -29,7 +29,7 @@ Följande information krävs för tjänst klienten:
 | Information | Värde |
 |-------------|--------------|
 | Värdnamn för IoT Hub | `<iot-hub-name>.azure-devices.net` |
-| Nyckel namn | `service` |
+| Nyckelnamn | `service` |
 | Åtkomstnyckel | En primär eller sekundär nyckel som är associerad med tjänsten |
 | Signatur för delad åtkomst | En signatur för delad åtkomst med kort livs längd i följande format: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. För att hämta koden för att generera den här signaturen, se [kontrol lera åtkomst till IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
 
@@ -67,7 +67,7 @@ Om du vill veta mer om moln-till-enhet-meddelande utbytet mellan tjänsten och I
 
 | Skapad av | Länktyp | Länk Sök väg | Beskrivning |
 |------------|-----------|-----------|-------------|
-| Tjänst | Sender-länk | `/messages/devicebound` | Meddelanden från moln till enhet som är avsedda för enheter skickas till den här länken av tjänsten. Meddelanden som skickas via den här länken har egenskapen `To` inställt på mål enhetens mottagar länk Sök väg `/devices/<deviceID>/messages/devicebound`. |
+| Tjänst | Sender-länk | `/messages/devicebound` | Meddelanden från moln till enhet som är avsedda för enheter skickas till den här länken av tjänsten. Meddelanden som skickas via den här länken har sin `To`-egenskap inställd på mål enhetens mottagare länk Sök väg `/devices/<deviceID>/messages/devicebound`. |
 | Tjänst | Mottagar länk | `/messages/serviceBound/feedback` | Avslutnings-, avvisande-och överförings meddelanden från enheter som tas emot via den här länken av tjänsten. Mer information om feedback-meddelanden finns i [skicka meddelanden från moln till enhet från en IoT-hubb](./iot-hub-devguide-messages-c2d.md#message-feedback). |
 
 Följande kodfragment visar hur du skapar ett meddelande från moln till enhet och skickar det till en enhet med hjälp av [uAMQP-biblioteket i python](https://github.com/Azure/azure-uamqp-python).
@@ -128,11 +128,11 @@ for msg in batch:
 
 Som det visas i föregående kod har ett meddelande om att en moln-till-enhet-feedback har innehålls typen *Application/VND. Microsoft. iothub. feedback. JSON*. Du kan använda egenskaperna i meddelandets JSON-brödtext för att härleda leverans status för det ursprungliga meddelandet:
 
-* Key `statusCode` i feedback-texten har något av följande värden: *lyckades*, *har upphört att gälla*, *DeliveryCountExceeded*, *avvisats*eller *rensats*.
+* Nyckel `statusCode` i feedback-texten har något av följande värden: *lyckades*, *har upphört att gälla*, *DeliveryCountExceeded*, *avvisats*eller *rensats*.
 
-* Nyckel `deviceId` i feedback-texten har ID: t för mål enheten.
+* Nyckel `deviceId` i feedback-texten har ID för mål enheten.
 
-* Key `originalMessageId` i feedback-texten har ID: t för det ursprungliga molnet till enhet-meddelandet som skickades av tjänsten. Du kan använda den här leverans statusen för att korrelera feedback till meddelanden från molnet till enheten.
+* Nyckel `originalMessageId` i feedback-texten har ID för det ursprungliga meddelandet från molnet till enheten som skickades av tjänsten. Du kan använda den här leverans statusen för att korrelera feedback till meddelanden från molnet till enheten.
 
 ### <a name="receive-telemetry-messages-service-client"></a>Ta emot telemetri meddelanden (tjänst klient)
 
@@ -144,7 +144,7 @@ I varje steg måste klienten presentera följande delar av informationen:
 
 * Giltiga autentiseringsuppgifter för tjänsten (signatur-token för delad åtkomst för tjänst).
 
-* En välformaterad sökväg till den konsument grupp partition som den avser att hämta meddelanden från. För en specifik konsument grupp och partitions-ID har sökvägen följande format: `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` (standard konsument gruppen är `$Default`).
+* En välformaterad sökväg till den konsument grupp partition som den avser att hämta meddelanden från. För en specifik konsument grupp och partitions-ID har sökvägen följande format: `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` (standard konsument gruppen `$Default`).
 
 * Ett valfritt filtrerings-predikat som anger en start punkt i partitionen. Detta predikat kan vara i form av sekvensnummer, offset eller köade tidsstämpel.
 
@@ -267,7 +267,7 @@ Följande länk Sök vägar stöds som enhets åtgärder:
 
 ### <a name="receive-cloud-to-device-commands-device-client"></a>Ta emot kommandon från moln till enhet (enhets klient)
 
-Moln-till-enhet-kommandon som skickas till enheter tas emot på en `/devices/<deviceID>/messages/devicebound`-länk. Enheter kan ta emot dessa meddelanden i batchar och använda meddelandets data nytto Last, meddelande egenskaper, anteckningar eller program egenskaper i meddelandet efter behov.
+Moln-till-enhet-kommandon som skickas till enheter kommer till en `/devices/<deviceID>/messages/devicebound` länk. Enheter kan ta emot dessa meddelanden i batchar och använda meddelandets data nytto Last, meddelande egenskaper, anteckningar eller program egenskaper i meddelandet efter behov.
 
 I följande kodfragment används UAMQP- [biblioteket i python](https://github.com/Azure/azure-uamqp-python)för att ta emot meddelanden från molnet till enheten på en enhet.
 

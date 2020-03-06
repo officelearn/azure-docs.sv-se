@@ -1,6 +1,6 @@
 ---
 title: Övervaka och felsöka med mått i Azure Cosmos DB
-description: Använda mått i Azure Cosmos DB för att felsöka vanliga problem och övervaka databasen.
+description: Använd mått i Azure Cosmos DB för att felsöka vanliga problem och övervaka databasen.
 ms.service: cosmos-db
 author: kanshiG
 ms.author: sngun
@@ -8,73 +8,73 @@ ms.topic: conceptual
 ms.date: 06/18/2019
 ms.reviewer: sngun
 ms.openlocfilehash: ef457fe8c21bc7e62f910a78913069df32bea1a3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275679"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387930"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Övervaka och felsöka med mått i Azure Cosmos DB
 
-Azure Cosmos DB tillhandahåller mått för dataflöde, lagring, konsekvens, tillgänglighet och svarstid. Azure-portalen visar en sammansatt vy av de här måtten. Du kan också visa mått för Azure Cosmos DB från Azure Monitor-API. Läs om hur du visar mått från Azure monitor i den [hämta mått från Azure Monitor](cosmos-db-azure-monitor-metrics.md) artikeln. 
+Azure Cosmos DB tillhandahåller mått för dataflöde, lagring, konsekvens, tillgänglighet och svarstid. Azure-portalen innehåller en sammanställd vy över dessa mått. Du kan också Visa Azure Cosmos DB-mått från Azure Monitor-API:et. Information om hur du visar mått från Azure Monitor finns i artikeln [Hämta mått från Azure Monitor](cosmos-db-azure-monitor-metrics.md) . 
 
-Den här artikeln beskriver vanliga användarsituationer och hur Azure Cosmos DB-mått kan användas för att analysera och felsöka problemen. Mått samlas in var femte minut och hålls i sju dagar.
+Den här artikeln vägleder dig genom vanliga användnings fall och hur Azure Cosmos DB mått kan användas för att analysera och felsöka problemen. Mått samlas in var femte minut och bevaras i sju dagar.
 
-## <a name="view-metrics-from-azure-portal"></a>Visa mått från Azure-portalen
+## <a name="view-metrics-from-azure-portal"></a>Visa mått från Azure Portal
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/)
 
-1. Öppna den **mått** fönstret. Som standard rutan mått visar lagringen, index, begäran enheter mått för alla databaser i ditt Azure Cosmos-konto. Du kan filtrera de här måtten per databas, behållare eller en region. Du kan också filtrera mått med en viss tid precision. Mer information om dataflöde, lagring, tillgänglighet, svarstid och konsekvens mått finns på en separat flik. 
+1. Öppna fönstret **mått** . Som standard visar fönstret mått lagring, index, enheter för enhets mått för alla databaser i ditt Azure Cosmos-konto. Du kan filtrera dessa mått per databas, behållare eller region. Du kan också filtrera måtten vid en angiven tids kornig het. Mer information om data flöde, lagring, tillgänglighet, svars tid och konsekvens mått finns på separata flikar. 
 
-   ![Prestandamått för cosmos DB i Azure-portalen](./media/use-metrics/performance-metrics.png)
+   ![Cosmos DB prestanda mått i Azure Portal](./media/use-metrics/performance-metrics.png)
 
-Följande mått är tillgängliga från den **mått** fönstret: 
+Följande mått är tillgängliga från fönstret **mått** : 
 
-* **Genomflödesmått** – det här måttet visar antalet begäranden används eller inte (429-svarskod) eftersom dataflöde eller lagringskapacitet som tillhandahållits för behållaren har överskridit.
+* **Data flödes mått** – det här måttet visar antalet begär Anden som för bruk ATS eller misslyckades (429 svars kod) eftersom data flödet eller lagrings kapaciteten som har allokerats för behållaren har överskridits.
 
-* **Lagringsmått** – det här måttet visar storleken på data och index användning.
+* **Lagrings mått** – det här måttet visar storleken på data-och index användning.
 
-* **Tillgänglighetsmått** – det här måttet visar procentandelen av lyckade begäranden över antalet förfrågningar per timme. Frekvensen definieras av Azure Cosmos DB-serviceavtal.
+* **Tillgänglighets mått** – det här måttet visar procent andelen lyckade förfrågningar för totalt antal begär Anden per timme. Frekvensen lyckades definieras av Azure Cosmos DB service avtal.
 
-* **Mått för datainmatningssvarstider** – det här måttet visas den svarstid för läsning och skrivning som observerats av Azure Cosmos DB i den region där ditt konto fungerar. Du kan visualisera svarstid i flera regioner för ett konto med geo-replikerade. Det här måttet representerar inte svarstid för slutpunkt till slutpunkt-begäran.
+* **Svars tids mått** – det här måttet visar svars tiden för läsning och skrivning som observerats av Azure Cosmos db i den region där ditt konto är igång. Du kan visualisera svars tider i regioner för ett geo-replikerat konto. Detta mått representerar inte svars tiden för slut punkt till slut punkt.
 
-* **Konsekvens mått** – det här måttet visar hur slutlig konsekvens för den konsekvensmodellen som du väljer. För konton för flera regioner visar det här måttet även replikeringsfördröjning mellan regioner som du har valt.
+* **Konsekvens mått** – det här måttet visar hur eventuell konsekvens för konsekvens modellen du väljer. För konton med flera regioner visar det här måttet även replikeringsfördröjning mellan de regioner som du har valt.
 
-* **Systemmått** – det här måttet visar hur många metadataförfrågningar betjänas av den överordnade partitionen. Det hjälper också till att identifiera de begränsade begärandena.
+* **System mått** – det här måttet visar hur många metadata-begäranden som hanteras av huvudpartitionen. Den hjälper också till att identifiera begränsade begär Anden.
 
-I följande avsnitt beskrivs vanliga scenarier där du kan använda Azure Cosmos DB-mått. 
+I följande avsnitt beskrivs vanliga scenarier där du kan använda Azure Cosmos DB mått. 
 
-## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>Förstå hur många begäranden lyckas eller orsakar fel
+## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>Förstå hur många begär Anden som lyckas eller orsakar fel
 
-Kom igång genom att gå till den [Azure-portalen](https://portal.azure.com) och navigera till den **mått** bladet. På bladet hittar den ** antalet begäranden överskred kapaciteten per 1 minut diagram. Det här diagrammet visar en minut av minut förfrågningarna uppdelat efter statuskoden. Mer information om HTTP-statuskoder finns i [HTTP-statuskoder för Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Kom igång genom att gå till [Azure Portal](https://portal.azure.com) och navigera till **mått** bladet. På bladet hittar du * *-antalet begär Anden överskred kapaciteten per 1 minut diagram. Det här diagrammet visar antalet minuter per minut som har segmenterats av status koden. Mer information om HTTP-statuskod finns i [http status Codes för Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
-Den vanligaste felkoden är 429 (pris begränsar/begränsning). Detta fel innebär att begäranden till Azure Cosmos DB är mer än det etablerade dataflödet. De vanligaste lösningen på det här problemet är att [skala upp antalet enheter för programbegäran](./set-throughput.md) för den givna samlingen.
+Den vanligaste fel status koden är 429 (hastighets begränsning/begränsning). Det här felet innebär att begär anden till Azure Cosmos DB är mer än det etablerade data flödet. Den vanligaste lösningen på det här problemet är att [skala upp ru: er](./set-throughput.md) för den aktuella samlingen.
 
-![Antal begäranden per minut](media/use-metrics/metrics-12.png)
+![Antal begär Anden per minut](media/use-metrics/metrics-12.png)
 
-## <a name="determine-the-throughput-distribution-across-partitions"></a>Fastställa dataflöde distribution över partitioner
+## <a name="determine-the-throughput-distribution-across-partitions"></a>Fastställa data flödes distributionen över partitioner
 
-Att ha en bra Kardinaliteten för din partitionsnycklar är viktigt för alla skalbara program. För att fastställa dataflöde distributionen av alla partitionerad behållare uppdelat efter partitioner, navigera till den **måttbladet** i den [Azure-portalen](https://portal.azure.com). I den **dataflöde** fliken analys på detaljnivå för lagring visas i den **Max konsumerade RU/sekund av respektive fysisk partition** diagram. Följande bild illustrerar ett exempel på en dålig fördelning av data som visas av skeva partitioner längst till vänster.
+Att ha en bra kardinalitet för dina partitionstyper är viktig för alla skalbara program. Om du vill fastställa data flödes distributionen av en partitionerad behållare uppdelad efter partition, navigerar du till **bladet mått** i [Azure Portal](https://portal.azure.com). På fliken **data flöde** visas lagrings uppdelningen i den **högsta förbrukade ru/sekund av varje fysiskt partitionsschema** . Följande bild illustrerar ett exempel på en dålig data distribution som visas av den sneda partitionen längst till vänster.
 
-![Enskild partition ser tung användning klockan 3:05](media/use-metrics/metrics-17.png)
+![En enda partition som ser tung användning på 3:05 PM](media/use-metrics/metrics-17.png)
 
-En ojämn dataflöde fördelning kan orsaka *frekvent* partitioner, vilket kan leda till begränsade begäranden och kan kräva ompartitionering. Mer information om partitionering i Azure Cosmos DB finns i [partitionera och skala i Azure Cosmos DB](./partition-data.md).
+En ojämn distribution av data flödet kan orsaka *varma* partitioner, vilket kan leda till begränsade begär Anden och kan kräva ompartitionering. Mer information om partitionering i Azure Cosmos DB finns i [partition och skala i Azure Cosmos DB](./partition-data.md).
 
-## <a name="determine-the-storage-distribution-across-partitions"></a>Fastställa storage distribution över partitioner
+## <a name="determine-the-storage-distribution-across-partitions"></a>Fastställa lagrings fördelningen mellan partitioner
 
-Att ha en bra Kardinaliteten för partitionen är viktigt för alla skalbara program. För att fastställa storage distributionen av alla partitionerad behållare uppdelat efter partitioner, gå till bladet mått i den [Azure-portalen](https://portal.azure.com). På fliken lagring, analys på detaljnivå för lagring visas i Data + Index lagringsutrymmet som förbrukas av övre partition nycklar diagram. Följande bild illustrerar en dålig fördelning av lagring av data som visas av skeva partitioner längst till vänster.
+Att ha en bra kardinalitet för din partition är viktig för alla skalbara program. För att fastställa lagrings distributionen av en partitionerad behållare uppdelad efter partition, head to the Metrics-bladet i [Azure Portal](https://portal.azure.com). På fliken lagring visas lagrings uppdelningen i diagrammet data + index lagring som förbrukas av främsta partitionerings nycklar. Följande bild illustrerar en dålig distribution av data lagring som visas av den sneda partitionen längst till vänster.
 
-![Exempel på dålig Datadistribution](media/use-metrics/metrics-07.png)
+![Exempel på dålig data distribution](media/use-metrics/metrics-07.png)
 
-Du kan rotorsak vilka partitionsnyckel skeva distributionen genom att klicka på partitionen i diagrammet.
+Du kan rotor Saks vilken partitionsnyckel som skevar distributionen genom att klicka på partitionen i diagrammet.
 
-![Partitionsnyckeln skeva distributionen](media/use-metrics/metrics-05.png)
+![Partitionsnyckel skevar fördelningen](media/use-metrics/metrics-05.png)
 
-Efter att identifiera vilka partitionsnyckel orsakar skeva i distributionen, kan du behöva partitionera om din behållare med en fler distribuerade partitionsnyckel. Mer information om partitionering i Azure Cosmos DB finns i [partitionera och skala i Azure Cosmos DB](./partition-data.md).
+När du har identifierat vilken partitionsnyckel som orsakar snedheten i distributionen kan du behöva partitionera om behållaren med en mer distribuerad partitionsnyckel. Mer information om partitionering i Azure Cosmos DB finns i [partition och skala i Azure Cosmos DB](./partition-data.md).
 
-## <a name="compare-data-size-against-index-size"></a>Jämför datastorlek mot Indexstorlek
+## <a name="compare-data-size-against-index-size"></a>Jämför data storleken mot index storleken
 
-I Azure Cosmos DB är det totala lagringsutrymmet som förbrukar en kombination av både datastorlek och Indexstorlek. Indexstorleken är vanligtvis en bråkdel av storleken på data. I bladet mått i den [Azure-portalen](https://portal.azure.com), fliken lagring visar fördelningen av användningen av lagringsutrymme baserat på data och index.
+I Azure Cosmos DB är den totala förbrukade lagringen kombinationen av både data storlek och index storlek. Index storleken är vanligt vis en bråkdel av data storleken. På bladet mått i [Azure Portal](https://portal.azure.com)visar fliken Storage fördelningen av lagrings förbrukning baserat på data och index.
 
 ```csharp
 // Measure the document size usage (which includes the index size)  
@@ -82,11 +82,11 @@ ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentC
  Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 ```
 
-Om du vill spara utrymme för index kan du justera den [indexeringspolicy](index-policy.md).
+Om du vill spara index utrymme kan du justera [indexerings principen](index-policy.md).
 
-## <a name="debug-why-queries-are-running-slow"></a>Felsöka anledningen till att frågorna körs långsamt
+## <a name="debug-why-queries-are-running-slow"></a>Felsöka varför frågor körs långsamt
 
-I SDK: er för SQL API: et tillhandahåller Azure Cosmos DB frågestatistik för körning.
+Azure Cosmos DB innehåller statistik för körning av frågor i SQL API SDK: n.
 
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -105,12 +105,12 @@ FeedResponse<dynamic> result = await query.ExecuteNextAsync();
 IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 ```
 
-*QueryMetrics* innehåller information om hur lång tid varje komponent i frågan tog att körningen. Den vanligaste orsaken för tidskrävande frågor är genomsökningar, vilket innebär att frågan inte kunde utnyttja index. Det här problemet kan lösas med en bättre filtervillkoret.
+*QueryMetrics* innehåller information om hur länge varje komponent i frågan ska köras. Den vanligaste rotor saken för tids krävande frågor är genomsökningar, vilket innebär att frågan inte kunde utnyttja indexen. Det här problemet kan lösas med ett bättre filter villkor.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du lärt dig hur du övervakar och felsöka problem med hjälp av mätvärden i Azure-portalen. Du kanske vill lära dig mer om att förbättra databasens prestanda genom att läsa följande artiklar:
+Nu har du lärt dig hur du övervakar och felsöker problem med hjälp av de mått som anges i Azure Portal. Du kanske vill lära dig mer om hur du kan förbättra databasens prestanda genom att läsa följande artiklar:
 
-* Läs om hur du visar mått från Azure monitor i den [hämta mått från Azure Monitor](cosmos-db-azure-monitor-metrics.md) artikeln. 
-* [Prestanda och skalningstester med Azure Cosmos DB](performance-testing.md)
+* Information om hur du visar mått från Azure Monitor finns i artikeln [Hämta mått från Azure Monitor](cosmos-db-azure-monitor-metrics.md) . 
+* [Prestanda-och skalnings testning med Azure Cosmos DB](performance-testing.md)
 * [Prestandatips för Azure Cosmos DB](performance-tips.md)

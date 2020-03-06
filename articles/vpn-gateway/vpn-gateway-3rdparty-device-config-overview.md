@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: yushwang
 ms.openlocfilehash: b914afaa6725920078da309981bcda5bb765e155
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148340"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392107"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Översikt över konfigurationer för VPN-enheter för partner
 Den här artikeln innehåller en översikt över hur du konfigurerar lokala VPN-enheter för anslutning till Azure VPN-gatewayer. Ett Azure-exempel för virtuella Azure-nätverk och VPN-gateway används för att visa hur du ansluter till olika lokala VPN-enheters konfigurationer med samma parametrar.

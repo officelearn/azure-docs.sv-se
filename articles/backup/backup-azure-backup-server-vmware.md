@@ -4,11 +4,11 @@ description: I den här artikeln lär du dig hur du använder Azure Backup Serve
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.openlocfilehash: df85cba42118a2e814a4a1c8338f3927e4d75f36
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152875"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392048"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 
@@ -137,7 +137,7 @@ Azure Backup Server behöver ett användar konto med behörighet att komma åt v
 | Data lager för fil åtgärder på låg nivå                          | Global. Hantera anpassade attribut                           | Data lager. AllocateSpace                     |
 | Data lager kluster. Konfigurera ett datatstore-kluster             | Globalt. Ange anpassat attribut                               | VirtualMachine.Config.ChangeTracking        |
 | Global. inaktivera metoder                                       | Värd. local-åtgärder. Skapa virtuell dator              | VirtualMachine.State.RemoveSnapshot         |
-| Globala. Aktivera metoder                                        | Nätverk. Tilldela nätverk                                   | VirtualMachine.State.CreateSnapshot         |
+| Globala. Aktivera metoder                                        | Nätverks. Tilldela nätverk                                   | VirtualMachine.State.CreateSnapshot         |
 | Globala. licenser                                              | Klusterresursen. Tilldela en virtuell dator till en resurspool         | VirtualMachine.Provisioning.DiskRandomRead  |
 | Global. log-händelse                                             | Virtuell dator. Konfiguration. Lägg till ny disk                | VirtualMachine.Interact.PowerOff            |
 | Global. Hantera anpassade attribut                              | Virtuell dator. Konfiguration. Avancerat                    | VirtualMachine.Inventory.Create             |
@@ -281,7 +281,7 @@ Lägg till virtuella VMware-datorer för säkerhets kopiering. Skydds grupper sa
 
 1. På sidan **Välj data skydds metod** anger du ett namn på skydds gruppen och skydds inställningarna. Om du vill säkerhetskopiera till Azure ställer du in kortsiktigt skydd på **disk** och aktiverar onlineskydd. Klicka sedan på **Nästa**.
 
-    ![Välj dataskyddsmetod](./media/backup-azure-backup-server-vmware/name-protection-group.png)
+    ![Välj data skydds metod](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
 1. I **Ange kortsiktiga mål**anger du hur länge du vill behålla säkerhetskopierade data till disk.
    - I **kvarhållningsintervall**anger du hur många dagar disk återställnings punkter ska behållas.

@@ -11,11 +11,11 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 787cade13a0636bb25afa1d4043a977f512484f9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850898"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372321"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Översikt över Azure Automation tillstånds konfiguration
 
@@ -41,7 +41,7 @@ Från Azure Portal eller från PowerShell kan du hantera alla DSC-konfiguratione
 
 Noder som hanteras med Azure Automation tillstånds konfiguration Skicka detaljerade rapporterings status data till den inbyggda hämtnings servern. Du kan konfigurera Azure Automation tillstånds konfiguration för att skicka dessa data till Log Analytics-arbetsytan. Information om hur du skickar status data för tillstånds konfiguration till din Log Analytics-arbetsyta finns i [vidarebefordra rapporterings data för Azure Automation tillstånds konfiguration till Azure Monitor loggar](automation-dsc-diagnostics.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Överväg följande krav när du använder Azure Automation State Configuration (DSC).
 
@@ -111,7 +111,7 @@ Om du har ett Automation-konto som har definierats för en viss region kan du be
 | Japan, östra |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | Sydöstra Australien |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | Storbritannien, södra | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| USA Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+| US Gov, Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 Om du vill ha en lista över regions-IP-adresser i stället för region namn laddar du ned XML-filen för [Azure datacenter-IP-adress](https://www.microsoft.com/download/details.aspx?id=41653) från Microsoft Download Center
 

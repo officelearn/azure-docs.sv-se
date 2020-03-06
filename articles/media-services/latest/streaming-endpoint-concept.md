@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
 ms.openlocfilehash: 849d1187d6b854d48ad75ab1e55f600407420346
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562368"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395074"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Slut punkter för direkt uppspelning (ursprung) i Azure Media Services
 
@@ -150,7 +150,7 @@ En enda slut punkt för direkt uppspelning kan strömma både direktsända video
 
     Överväg ett scenario där dina kunder huvudsakligen tittar på Live-innehåll, men som bara kan titta på innehåll på begäran och som hanteras från samma slut punkt för direkt uppspelning. Den låga användningen av innehåll på begäran skulle uppta cacheminnet som skulle vara bättre sparat för Live-innehållet. I det här scenariot rekommenderar vi att du betjänar Live-innehållet från en slut punkt för direkt uppspelning och det långa innehållet från en annan slut punkt för strömning. Detta förbättrar prestandan för live event-innehållet.
     
-## <a name="scaling-streaming-with-cdn"></a>Skalar strömma med CDN
+## <a name="scaling-streaming-with-cdn"></a>Skala direktuppspelning med CDN
 
 Se följande artiklar:
 

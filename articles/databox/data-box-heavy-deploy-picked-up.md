@@ -10,15 +10,15 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: cfb9f54f5ba219a4db87144ab1e7ebff2b72b69e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514450"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380223"
 ---
 ::: zone target = "docs"
 
-# <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure"></a>Självstudier: Skicka tillbaka Azure Data Box Heavy och verifiera datauppladdning till Azure
+# <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure"></a>Självstudie: returnera Azure Data Box Heavy och verifiera data uppladdning till Azure
 
 ::: zone-end
 
@@ -35,17 +35,17 @@ Den här självstudien beskriver hur du returnerar Azure Data Box Heavy och veri
 I den här självstudien får du lära dig om ämnen som:
 
 > [!div class="checklist"]
-> * Krav
+> * Förutsättningar
 > * Förbereda för att skicka
 > * Skicka Data Box Heavy till Microsoft
 > * Kontrollera datauppladdning till Azure
 > * Radera data från Data Box Heavy
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att:
 
-- Du har slutfört självstudien [: Kopiera data till Azure Data Box och verifiera](data-box-heavy-deploy-copy-data.md).
+- Du har slutfört [självstudien: kopiera data till Azure Data Box och verifiera](data-box-heavy-deploy-copy-data.md).
 - Kopieringsjobben har slutförts. Förbered för att skicka kan inte köras om kopieringsjobb pågår.
 
 
@@ -134,7 +134,7 @@ När uppladdningen till Azure är klar raderar Data Box-enheten data på diskarn
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
-> * Krav
+> * Förutsättningar
 > * Förbereda för att skicka
 > * Skicka Data Box Heavy till Microsoft
 > * Kontrollera datauppladdning till Azure

@@ -4,11 +4,11 @@ description: Beskriver de funktioner som används i en Azure Resource Manager ma
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.openlocfilehash: 1359951c00ba04e641ae84636459a8836924c729
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591191"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380641"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Matris-och objekt funktioner för Azure Resource Manager mallar
 
@@ -180,7 +180,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| stringOutput | Sträng | standard |
+| stringOutput | String | standard |
 | intOutput | Int | 1 |
 | objectOutput | Objekt | {"First": "standard"} |
 | arrayOutput | Matris | [1] |
@@ -258,7 +258,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| Returrelaterade | Matris | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| returrelaterade | Matris | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -298,7 +298,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| concatOutput | Sträng | prefix-5yj4yjf5mbg72 |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -610,8 +610,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayOutput | Sträng | en |
-| stringOutput | Sträng | O |
+| arrayOutput | String | en |
+| stringOutput | String | O |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -719,7 +719,7 @@ Returnerar ett JSON-objekt.
 
 JSON-objektet från den angivna strängen, eller ett tomt objekt när **Null** har angetts.
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
 Om du behöver inkludera ett parameter värde eller en variabel i JSON-objektet använder du funktionen [concat](template-functions-string.md#concat) för att skapa den sträng som du skickar till funktionen.
 
@@ -761,7 +761,7 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | jsonOutput | Objekt | {"a": "b"} |
-| nullOutput | Boolesk | True |
+| nullOutput | Boolean | True |
 | paramOutput | Objekt | {"a": "demo värde"}
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
@@ -825,8 +825,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayOutput | Sträng | tre |
-| stringOutput | Sträng | e |
+| arrayOutput | String | tre |
+| stringOutput | String | e |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1194,7 +1194,7 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Matris | ["tre"] |
-| stringOutput | Sträng | 2 3 |
+| stringOutput | String | 2 3 |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1274,7 +1274,7 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Matris | ["One", "två"] |
-| stringOutput | Sträng | på |
+| stringOutput | String | på |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 

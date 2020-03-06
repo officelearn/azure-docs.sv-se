@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 0f2cd1b7228f2cc9cadb84232222f658a512a81f
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872170"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373846"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Anslut ett MongoDB-program till Azure Cosmos DB
-Lär dig hur du ansluter MongoDB-appen till en Azure Cosmos DB med hjälp av en MongoDB-anslutningssträng. Du kan sedan använda en Azure Cosmos-databas som data lager för din MongoDB-app. 
+Lär dig hur du ansluter MongoDB-appen till en Azure Cosmos DB med hjälp av en MongoDB-anslutningssträng. Du kan sedan använda en Azure Cosmos-databas som datalager för din MongoDB-app. 
 
-I den här självstudien finns två sätt att hämta information om anslutnings strängen:
+I den här självstudien beskrivs två sätt att hämta information om anslutningssträng:
 
 - [Snabb starts metoden](#QuickstartConnection)för användning med .net, Node. js, MongoDB Shell-, Java-och python-drivrutiner
 - [Metoden anpassad anslutnings sträng](#GetCustomConnection), som används med andra driv rutiner
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto. Om du inte har ett Azure-konto kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) nu. 
 - Ett Cosmos-konto. Instruktioner finns i [bygga en webbapp med hjälp av Azure Cosmos DBS API för MongoDB och .NET SDK](create-mongodb-dotnet.md).

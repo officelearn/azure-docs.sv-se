@@ -16,11 +16,11 @@ ms.workload: media
 ms.date: 02/28/2020
 ms.author: juliako
 ms.openlocfilehash: 2a670c7bce113de8854b33e407c7de2236edd794
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197869"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393480"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Vägledning för migrering för att flytta från Media Services v2 till v3
 

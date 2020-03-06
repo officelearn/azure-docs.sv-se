@@ -5,11 +5,11 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.openlocfilehash: 69687cee8b8a907b82f2c848242ac64d54dedb87
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663512"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360887"
 ---
 # <a name="azure-monitor-cli-quick-start-samples"></a>Snabb starts exempel för Azure Monitor CLI
 Den här artikeln visar exempel kommandon för kommando rads gränssnitt (CLI) som hjälper dig att komma åt Azure Monitor-funktioner. Med Azure Monitor kan du Autoskala Cloud Services, Virtual Machines och Web Apps och skicka aviseringar eller anropa webb-URL: er baserat på värden för konfigurerade telemetridata.

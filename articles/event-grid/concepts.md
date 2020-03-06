@@ -1,5 +1,5 @@
 ---
-title: Azure Event Grid-begrepp
+title: Azure Event Grid begrepp
 description: Beskriver Azure Event Grid och dess begrepp. Definierar flera viktiga komponenter i Event Grid.
 services: event-grid
 author: spelluru
@@ -8,84 +8,84 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
 ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66305261"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359437"
 ---
-# <a name="concepts-in-azure-event-grid"></a>Koncept i Azure Event Grid
+# <a name="concepts-in-azure-event-grid"></a>Begrepp i Azure Event Grid
 
-Den här artikeln beskriver de viktigaste begreppen i Azure Event Grid.
+I den här artikeln beskrivs huvud begreppen i Azure Event Grid.
 
-## <a name="events"></a>Events
+## <a name="events"></a>Händelser
 
-En händelse är den minsta mängden information som helt beskriver något som har inträffat i systemet. Varje händelse har common information, till exempel: källan för händelsen, tid händelsen tog plats och unik identifierare. Varje händelse har också specifik information som endast är relevanta för den specifika typen av händelse. Exempelvis kan en händelse om en ny fil skapas i Azure Storage innehåller information om filen, till exempel den `lastTimeModified` värde. Eller en händelse i Event Hubs har URL: en för filen avbildning. 
+En händelse är den minsta mängden information som fullständigt beskriver något som hände i systemet. Varje händelse har gemensam information, t. ex. Händelsens källa, tid då händelsen ägde rum och unik identifierare. Varje händelse har också en speciell information som endast är relevant för den speciella typen av händelse. Till exempel innehåller en händelse om en ny fil som skapas i Azure Storage information om filen, till exempel `lastTimeModified` svärdet. Eller så har en Event Hubs-händelse URL: en för infångstfilen. 
 
-En händelse av storlek på upp till 64 KB omfattas av allmän tillgänglighet (GA) serviceavtal (SLA). Stöd för en händelse av storlek på upp till 1 MB förhandsvisas just nu. Händelser över 64 KB debiteras i steg om 64 KB. 
+En händelse av en storlek på upp till 64 KB omfattas av allmän tillgänglighet (GA) Serviceavtal (SLA). Stöd för en händelse av en storlek på upp till 1 MB är för närvarande en för hands version. Händelser över 64 KB debiteras i steg om 64 KB. 
 
 
-De egenskaper som skickas i en händelse, se [Azure Event Grid Händelseschema](event-schema.md).
+De egenskaper som skickas i en händelse finns i [Azure Event Grid händelse schema](event-schema.md).
 
 ## <a name="publishers"></a>Utgivare
 
-En utgivare är användare eller organisation som bestämmer sig för att skicka händelser till Event Grid. Microsoft publicerar händelser för flera Azure-tjänster. Du kan publicera händelser från ditt eget program. Organisationer som är värdar för tjänster utanför Azure kan publicera händelser via Event Grid.
+En utgivare är användaren eller organisationen som bestämmer sig för att skicka händelser till Event Grid. Microsoft publicerar händelser för flera Azure-tjänster. Du kan publicera händelser från ditt eget program. Organisationer som är värdar för tjänster utanför Azure kan publicera händelser via Event Grid.
 
 ## <a name="event-sources"></a>Händelsekällor
 
-En händelsekälla är där händelsen inträffar. Varje händelsekälla är relaterat till en eller flera händelsetyper. Till exempel är Azure Storage händelsekällan för blob skapas händelser. IoT Hub är händelsekällan för enheten som skapade händelser. Programmet är händelsekällan för anpassade händelser som du definierar. Händelsekällor ansvarar för att skicka händelser till Event Grid.
+En händelse källa är den plats där händelsen inträffar. Varje händelse källa är relaterad till en eller flera händelse typer. Azure Storage är till exempel händelse källan för BLOB-skapade händelser. IoT Hub händelse källan för händelser som skapats av enheten. Ditt program är händelse källan för anpassade händelser som du definierar. Händelse källor ansvarar för att skicka händelser till Event Grid.
 
-Information om hur du implementerar någon av Event Grid-källor som stöds finns i [händelsekällor i Azure Event Grid](event-sources.md).
+Information om hur du implementerar någon av de Event Grid källorna som stöds finns i [händelse källor i Azure Event Grid](event-sources.md).
 
 ## <a name="topics"></a>Ämnen
 
-Event grid-ämne tillhandahåller en slutpunkt där källan skickar händelser. Utgivaren skapar event grid-ämne och avgör om en händelsekälla måste ett eller fler än ett ämne. Ett ämne används för en uppsättning relaterade händelser. För att svara på vissa typer av händelser, bestämma prenumeranter vilka avsnitt om att prenumerera på.
+Avsnittet Event Grid innehåller en slut punkt där källan skickar händelser. Avsnittet Event Grid skapas i utgivaren och avgör om en händelse källa behöver ett ämne eller mer än ett ämne. Ett ämne används för en samling relaterade händelser. För att svara på vissa typer av händelser, bestämmer prenumeranter vilka ämnen som ska prenumerera på.
 
-System-avsnitten är inbyggda avsnitt som tillhandahålls av Azure-tjänster. Du ser inte system ämnen i Azure-prenumerationen eftersom utgivaren äger i avsnitt, men du kan prenumerera på dem. Om du vill prenumerera på, anger du information om resursen som du vill ta emot händelser från. Så länge som du har åtkomst till resursen, kan du prenumerera på händelser.
+System ämnen är inbyggda ämnen som tillhandahålls av Azure-tjänster. Du ser inte system ämnen i din Azure-prenumeration eftersom utgivaren äger ämnena, men du kan prenumerera på dem. För att prenumerera ger du information om den resurs som du vill ta emot händelser från. Så länge som du har åtkomst till resursen kan du prenumerera på dess händelser.
 
-Anpassade ämnen är program och från tredje part ämnen. När du skapar eller tilldelas åtkomst till ett anpassat ämne, visas detta anpassade ämne i din prenumeration.
+Anpassade ämnen är program-och tredje parts ämnen. När du skapar eller tilldelas åtkomst till ett anpassat ämne, ser du det anpassade ämnet i din prenumeration.
 
-När ditt program har flexibilitet när du bestämmer hur många avsnitt för att skapa. Skapa ett anpassat ämne för varje kategori av relaterade händelser för stora lösningar. Tänk dig ett program som skickar händelser relaterade till ändra användarkonton och behandla beställningar. Det är osannolikt alla händelsehanteraren vill båda typer av händelser. Skapa två anpassade ämnen och låt händelsehanterare prenumerera på det som intresserar dem. För små lösningar kanske du föredrar att skicka alla händelser till ett ämne. Händelseprenumeranter filtrera händelsetyper som de vill.
+När du designar ditt program är du flexibel när du bestämmer hur många ämnen som ska skapas. Skapa ett anpassat ämne för varje kategori av relaterade händelser för stora lösningar. Överväg till exempel ett program som skickar händelser som rör ändring av användar konton och bearbetnings order. Det är osannolikt att ingen händelse hanterare vill ha båda kategorier av händelser. Skapa två anpassade ämnen och låt händelse hanterare prenumerera på den som intresserar dem. För små lösningar kanske du föredrar att skicka alla händelser till ett enda ämne. Händelse prenumeranter kan filtrera efter de händelse typer som de vill ha.
 
 ## <a name="event-subscriptions"></a>Prenumerationer på händelser
 
-En prenumeration anger Event Grid vilka händelser på ett ämne som du är intresserad av som tar emot. När du skapar prenumerationen kan ange du en slutpunkt för hantering av händelsen. Du kan filtrera de händelser som skickas till slutpunkten. Du kan filtrera efter händelsetyp eller ämne mönster. Mer information finns i [Event Grid prenumerationsschema](subscription-creation-schema.md).
+En prenumeration visar Event Grid vilka händelser på ett ämne som du är intresse rad av att ta emot. När du skapar prenumerationen anger du en slut punkt för att hantera händelsen. Du kan filtrera de händelser som skickas till slut punkten. Du kan filtrera efter händelse typ eller ämnes mönster. Mer information finns i [Event Grid prenumerations schema](subscription-creation-schema.md).
 
-Exempel för att skapa prenumerationer finns:
+Exempel på hur du skapar prenumerationer finns i:
 
 * [Azure CLI-exempel för Event Grid](cli-samples.md)
-* [Azure PowerShell-exempel för Event Grid](powershell-samples.md)
-* [Azure Resource Manager-mallar för Event Grid](template-samples.md)
+* [Azure PowerShell exempel för Event Grid](powershell-samples.md)
+* [Azure Resource Manager mallar för Event Grid](template-samples.md)
 
-Information om hur du får din aktuella event grid-prenumerationer finns i [Query Event Grid-prenumerationer](query-event-subscriptions.md).
+Information om hur du hämtar dina aktuella Event Grid-prenumerationer finns i [fråga Event Grid prenumerationer](query-event-subscriptions.md).
 
-## <a name="event-subscription-expiration"></a>Händelse-prenumeration upphör att gälla
-Händelseprenumerationen upphör att gälla automatiskt efter det datumet. Ange en giltighetstid för prenumerationer på händelser som krävs endast under en begränsad tid och du inte bekymra dig om att rensa dessa prenumerationer. När du skapar en händelseprenumeration för att testa ett scenario kanske du exempelvis vill ställa in ett utgångsdatum. 
+## <a name="event-subscription-expiration"></a>Förfallo datum för händelse prenumeration
+Händelseprenumerationen upphör att gälla automatiskt efter det datumet. Ange ett förfallo datum för händelse prenumerationer som bara behövs under en begränsad tid och som du inte vill bekymra dig om att rensa dessa prenumerationer. Om du till exempel skapar en händelse prenumeration för att testa ett scenario kanske du vill ange ett förfallo datum. 
 
-Ett exempel på hur ett förfallodatum, se [prenumerera med avancerade filter](how-to-filter-events.md#subscribe-with-advanced-filters).
+Ett exempel på hur du anger förfallo datum finns i [Prenumerera med avancerade filter](how-to-filter-events.md#subscribe-with-advanced-filters).
 
 ## <a name="event-handlers"></a>Händelsehanterare
 
-En händelsehanterare är den plats där händelsen skickas från en Event Grid-perspektiv. Hanteraren tar några ytterligare åtgärder för att bearbeta händelsen. Event Grid har stöd för flera typer av hanteraren. Du kan använda en tjänst som stöds Azure eller dina egna webhook som hanteraren. Beroende på vilken typ av hanteraren kan följer Event Grid olika metoder för att garantera leverans av händelsen. För HTTP-webhook händelsehanterare händelsen görs tills hanteraren returnerar statuskoden `200 – OK`. Händelserna görs tills kötjänsten bearbetar meddelandet push-meddelandet i kön i Azure Storage-kö.
+Från ett Event Grid perspektiv är en händelse hanterare den plats där händelsen skickas. Hanteraren vidtar ytterligare åtgärder för att bearbeta händelsen. Event Grid stöder flera typer av hanterare. Du kan använda en Azure-tjänst som stöds eller din egen webhook som hanterare. Beroende på typen av hanterare Event Grid följande olika mekanismer för att garantera att händelsen levereras. För HTTP webhook-händelse hanterare görs ett nytt försök tills hanteraren returnerar status kod för `200 – OK`. För Azure Storage kö görs ett nytt försök till händelserna tills Kötjänst har bearbetat meddelandet push-överförts till kön.
 
-Information om hur du implementerar någon av de Event Grid-hanterarna som stöds finns i [händelsehanterare i Azure Event Grid](event-handlers.md).
+Information om hur du implementerar en Event Grid hanterare som stöds finns i [händelse hanterare i Azure Event Grid](event-handlers.md).
 
 ## <a name="security"></a>Säkerhet
 
-Event Grid ger säkerhet för att prenumerera på ämnen och publicera ämnen. När du prenumererar måste du ha tillräcklig behörighet på resurs eller event grid-ämne. När du publicerar, måste du ha en SAS-token eller nyckelautentisering för ämnet. Mer information finns i [Event Grid säkerhet och autentisering](security-authentication.md).
+Event Grid tillhandahåller säkerhet för att prenumerera på ämnen och publicera ämnen. När du prenumererar måste du ha tillräcklig behörighet i avsnittet om resurs-eller händelse rutnät. När du publicerar måste du ha en SAS-token eller nyckel-autentisering för ämnet. Mer information finns i [Event Grid säkerhet och autentisering](security-authentication.md).
 
-## <a name="event-delivery"></a>Händelseleverans
+## <a name="event-delivery"></a>Händelse leverans
 
-Om Event Grid inte kan bekräfta att en händelse har tagits emot av prenumerantens slutpunkten, redelivers händelsen. Mer information finns i [Event Grid meddelandeleverans och försök igen](delivery-and-retry.md).
+Om Event Grid inte kan bekräfta att en händelse har mottagits av prenumerantens slut punkt, kommer den att leverera om händelsen. Mer information finns i [Event Grid meddelande leverans och försök igen](delivery-and-retry.md).
 
 ## <a name="batching"></a>Batchbearbetning
 
-När du använder ett anpassat ämne, måste alltid händelser publiceras i en matris. Detta kan vara en batch med ett för lågt dataflöde scenarier, men för hög volym användningsfall, rekommenderar vi att du batch-flera händelser tillsammans per publicera för att uppnå högre effektivitet. Batchar kan vara upp till 1 MB. Varje händelse bör fortfarande inte vara större än 64 KB (allmän tillgänglighet) eller 1 MB (förhandsversion).
+När du använder ett anpassat ämne måste händelser alltid publiceras i en matris. Detta kan vara en batch med en för låg data flödes scenarier, men för stora mängder användnings fall rekommenderar vi att du grupperar flera händelser per publicering för att uppnå högre effektivitet. Batchar kan vara upp till 1 MB. Varje händelse ska fortfarande inte vara större än 64 KB (allmän tillgänglighet) eller 1 MB (för hands version).
 
 > [!NOTE]
-> En händelse av storlek på upp till 64 KB omfattas av allmän tillgänglighet (GA) serviceavtal (SLA). Stöd för en händelse av storlek på upp till 1 MB förhandsvisas just nu. Händelser över 64 KB debiteras i steg om 64 KB. 
+> En händelse av en storlek på upp till 64 KB omfattas av allmän tillgänglighet (GA) Serviceavtal (SLA). Stöd för en händelse av en storlek på upp till 1 MB är för närvarande en för hands version. Händelser över 64 KB debiteras i steg om 64 KB. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * En introduktion till Event Grid finns i [Om Event Grid](overview.md).
-* Kom igång snabbt med Event Grid, se [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).
+* Information om hur du snabbt kommer igång med Event Grid finns i [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).

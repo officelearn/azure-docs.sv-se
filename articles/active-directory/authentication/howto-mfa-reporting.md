@@ -12,27 +12,27 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 52d9f7a0b2a7cebefdb5ade8e16417043c5c83d3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425301"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378074"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapporter i Azure Multi-Factor Authentication
 
 Azure Multi-Factor Authentication innehåller flera rapporter som du och din organisation kan använda för att komma åt via Azure Portal. I följande tabell visas tillgängliga rapporter:
 
-| Rapport | Location | Beskrivning |
+| Rapport | plats. | Beskrivning |
 |:--- |:--- |:--- |
 | Historik över blockerad användare | Azure AD >-Säkerhet > MFA > blockera/avblockera användare | Visar historiken för förfrågningar om att blockera eller avblockera användare. |
 | Användnings-och bedrägeri varningar | Inloggnings program för Azure AD > | Innehåller information om allmän användning, användar Sammanfattning och användar information. samt en historik över bedrägeri aviseringar som skickats under det angivna datum intervallet. |
 | Användning för lokala komponenter | Azure AD > säkerhets > MFA > aktivitets rapport | Innehåller information om den övergripande användningen av MFA via NPS-tillägget, ADFS-och MFA-servern. |
 | Historik över åsidosatt användare | Azure AD >-Säkerhet > MFA-> eng ång slö tiden | Innehåller en historik över förfrågningar om att kringgå Multi-Factor Authentication för en användare. |
-| Serverstatus | Azure AD > säkerhets > MFA > Server status | Visar statusen för Multi-Factor Authentication servrar som är kopplade till ditt konto. |
+| Server status | Azure AD > säkerhets > MFA > Server status | Visar statusen för Multi-Factor Authentication servrar som är kopplade till ditt konto. |
 
 ## <a name="view-mfa-reports"></a>Visa MFA-rapporter
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Till vänster väljer du **Azure Active Directory** > **säkerhet** > **MFA**.
 3. Välj den rapport som du vill visa.
 

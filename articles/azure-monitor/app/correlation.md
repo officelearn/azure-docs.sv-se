@@ -7,11 +7,11 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 06897fffda490cdfcbb2a9cf6f55c7945e8afda0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672063"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367666"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetri korrelation i Application Insights
 
@@ -49,7 +49,7 @@ Observera i resultaten att alla telemetridata delar rot `operation_Id`. När ett
 |------------|---------------------------|--------------|--------------------|--------------|
 | Sid visningar   | Pappers sida                |              | STYz               | STYz         |
 | beroende | Hämta/Home/Stock           | qJSXU        | STYz               | STYz         |
-| begäran    | Hämta hem/aktie            | KqKwlrSt9PA= | qJSXU              | STYz         |
+| request    | Hämta hem/aktie            | KqKwlrSt9PA= | qJSXU              | STYz         |
 | beroende | Hämta/API/Stock/Value      | bBrf2L7mm2g = | KqKwlrSt9PA=       | STYz         |
 
 När anrops `GET /api/stock/value` görs till en extern tjänst måste du känna till identiteten för servern så att du kan ställa in fältet `dependency.target` på lämpligt sätt. När den externa tjänsten inte har stöd för övervakning har `target` angetts som värd namnet för tjänsten (till exempel `stock-prices-api.com`). Men om tjänsten identifierar sig själv genom att returnera ett fördefinierat HTTP-huvud, `target` innehåller tjänst identiteten som gör att Application Insights kan bygga en distribuerad spårning genom att fråga telemetri från den tjänsten.

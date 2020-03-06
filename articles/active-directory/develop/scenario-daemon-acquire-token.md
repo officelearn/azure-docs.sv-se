@@ -16,11 +16,11 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 7f1010949a72f95ef2836c43666e6cea9281e04d
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77611903"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377343"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon-app som anropar webb-API: er – hämta en token
 
@@ -30,7 +30,7 @@ När du har skapat ett konfidentiellt klient program kan du hämta en token för
 
 Omfånget för att begära ett flöde för klientautentiseringsuppgifter är namnet på resursen följt av `/.default`. Den här texten talar om för Azure Active Directory (Azure AD) att använda *behörigheter på program nivå* som har deklarerats statiskt under program registrering. Dessa API-behörigheter måste också beviljas av en innehavaradministratör.
 
-# <a name="net"></a>[NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 ```csharp
 ResourceId = "someAppIDURI";
@@ -67,7 +67,7 @@ Det omfång som används för klientautentiseringsuppgifter bör alltid vara res
 
 Om du vill hämta en token för appen använder du `AcquireTokenForClient` eller motsvarande, beroende på plattform.
 
-# <a name="net"></a>[NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -235,7 +235,7 @@ Content: {
 
 ## <a name="next-steps"></a>Nästa steg
 
-# <a name="net"></a>[NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 > [!div class="nextstepaction"]
 > [Daemon-app – anropar ett webb-API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)

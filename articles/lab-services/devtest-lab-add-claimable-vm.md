@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 13d642597fdf5d0eae6c6fd4f0cab16181f033c2
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383958"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390958"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Skapa och hantera virtuella datorer som går att frigöra i Azure DevTest Labs
 Du lägger till en virtuell dator som kan frigöras i ett labb på liknande sätt som du [lägger till en virtuell standard-VM](devtest-lab-add-vm.md) – från en *bas* som är antingen en [anpassad avbildning](devtest-lab-create-template.md), [formel](devtest-lab-manage-formulas.md)eller [Marketplace-avbildning](devtest-lab-configure-marketplace-images.md). Den här självstudien vägleder dig genom att använda Azure Portal för att lägga till en virtuell dator som kan frigöras i ett labb i DevTest Labs, och visar de processer som en användare följer för att begära och frigöra den virtuella datorn.

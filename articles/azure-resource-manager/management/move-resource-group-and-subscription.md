@@ -4,11 +4,11 @@ description: Använd Azure Resource Manager för att flytta resurser till en ny 
 ms.topic: conceptual
 ms.date: 03/02/2020
 ms.openlocfilehash: 40432c55a7f7e289d2e5cbc8afe94847074e4ca8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250171"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357720"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Flytta resurser till en ny resurs grupp eller prenumeration
 

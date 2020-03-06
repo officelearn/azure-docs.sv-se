@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/20/2020
 ms.openlocfilehash: d711cc7e58fb055eda62cfc364a5552a7d10f7bd
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623157"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389027"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -36,7 +36,7 @@ Om du vill skapa ett HDInsight-kluster som använder Data Lake Storage Gen2 för
 
 Skapa en användardefinierad hanterad identitet om du inte redan har en.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Klicka på **skapa en resurs**längst upp till vänster.
 1. I rutan Sök skriver du **tilldelade användare** och klickar på **användare tilldelad hanterad identitet**.
 1. Klicka på **Skapa**.
@@ -51,7 +51,7 @@ Mer information om hur hanterade identiteter fungerar i Azure HDInsight finns i 
 
 Skapa ett Azure Data Lake Storage Gen2-lagringskonto.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Klicka på **skapa en resurs**längst upp till vänster.
 1. Skriv **Storage** i sökrutan och klicka på **lagrings konto**.
 1. Klicka på **Skapa**.

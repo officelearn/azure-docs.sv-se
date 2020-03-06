@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
 ms.openlocfilehash: e641340ac04415ee4a20cda2bc09bbdbef9802a6
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931406"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389504"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Anpassa HDInsight-kluster med hjälp av bootstrap
 
@@ -21,9 +21,9 @@ Med Bootstrap-skript kan du installera och konfigurera komponenter i Azure HDIns
 
 Det finns tre metoder för att ange inställningar för konfigurations fil när HDInsight-klustret skapas:
 
-* Använd Azure PowerShell
-* Använda .NET SDK
-* Använd Azure Resource Manager-mallar
+* Använda Azure PowerShell
+* Använd .NET SDK
+* Använd Azure Resource Manager mall
 
 Med dessa programmerings metoder kan du till exempel konfigurera alternativ i följande filer:
 
@@ -46,11 +46,11 @@ Med dessa programmerings metoder kan du till exempel konfigurera alternativ i f�
 
 Information om hur du installerar ytterligare komponenter i HDInsight-kluster under skapande tiden finns i [Anpassa HDInsight-kluster med skript åtgärd (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du använder PowerShell behöver du AZ- [modulen](https://docs.microsoft.com/powershell/azure/overview).
 
-## <a name="use-azure-powershell"></a>Använd Azure PowerShell
+## <a name="use-azure-powershell"></a>Använda Azure PowerShell
 
 Följande PowerShell-kod anpassar en [Apache Hive](https://hive.apache.org/) -konfiguration:
 
@@ -106,7 +106,7 @@ $MapRedConfigValues = @{ "mapreduce.task.timeout"="1200000" } #default 600000
 $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 ```
 
-## <a name="use-net-sdk"></a>Använda .NET SDK
+## <a name="use-net-sdk"></a>Använd .NET SDK
 
 Se [Azure HDInsight SDK för .net](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
 
@@ -126,7 +126,7 @@ Du kan använda bootstrap i Resource Manager-mallen:
 
 ![Hadoop anpassar start Azure Resource Manager mall för kluster](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Skapa Apache Hadoop kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md) innehåller instruktioner om hur du skapar ett HDInsight-kluster med hjälp av andra anpassade alternativ.
 * [Utveckla skript åtgärds skript för HDInsight](hdinsight-hadoop-script-actions-linux.md)

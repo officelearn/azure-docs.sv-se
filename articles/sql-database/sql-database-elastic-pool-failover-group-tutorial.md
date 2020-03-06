@@ -12,11 +12,11 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/27/2019
 ms.openlocfilehash: c57f9eed2147504dd7b3313d58468fb76ab40caa
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552567"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380033"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Självstudie: lägga till en Azure SQL Database elastisk pool i en failover-grupp
 
@@ -28,7 +28,7 @@ Konfigurera en failover-grupp för en Azure SQL Database elastisk pool och testa
 > - Skapa en [grupp för växling vid fel](sql-database-auto-failover-group.md) för två elastiska pooler mellan två logiska SQL-servrar.
 > - Redundanstest.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa den här självstudien måste du ha: 
 
@@ -43,7 +43,7 @@ För att kunna följa den här självstudien måste du ha:
 I det här steget ska du skapa en elastisk pool och lägga till en enkel databas i den. 
 
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Skapa den elastiska poolen med hjälp av Azure Portal. 
 
@@ -71,7 +71,7 @@ Skapa den elastiska poolen med hjälp av Azure Portal.
 1. Välj **Granska + skapa** för att granska inställningarna för elastisk pool och välj sedan **skapa** för att skapa en elastisk pool. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Skapa dina elastiska pooler och den sekundära servern med hjälp av PowerShell. 
 
    ```powershell-interactive
@@ -129,7 +129,7 @@ I den här delen av självstudien används följande PowerShell-cmdletar:
 I det här steget ska du skapa en [redundans grupp](sql-database-auto-failover-group.md) mellan en befintlig Azure SQL-Server och en ny Azure SQL-Server i en annan region. Lägg sedan till den elastiska poolen i gruppen redundans. 
 
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Skapa din failover-grupp med hjälp av Azure Portal. 
 
@@ -163,7 +163,7 @@ Skapa din failover-grupp med hjälp av Azure Portal.
 1. Välj **Välj** om du vill tillämpa inställningarna för elastisk pool på gruppen växling vid fel och välj sedan **skapa** för att skapa din grupp för redundans. Om du lägger till den elastiska poolen i gruppen redundans startas geo-replikeringen automatiskt.
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Skapa din failover-grupp med hjälp av PowerShell. 
 
@@ -252,7 +252,7 @@ I den här delen av självstudien används följande PowerShell-cmdletar:
 I det här steget kommer du inte att kunna redundansväxla gruppen till den sekundära servern och sedan växla tillbaka med Azure Portal. 
 
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Testa redundans för din failover-grupp med hjälp av Azure Portal. 
 
@@ -276,7 +276,7 @@ Testa redundans för din failover-grupp med hjälp av Azure Portal.
 1. Välj **redundans** igen om du vill att redundans-gruppen ska växla tillbaka till de ursprungliga inställningarna. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Testa redundans för din failover-grupp med hjälp av PowerShell. 
 
@@ -357,7 +357,7 @@ I den här delen av självstudien används följande PowerShell-cmdletar:
 Rensa resurser genom att ta bort resurs gruppen. 
 
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 
 1. Navigera till din resurs grupp i [Azure Portal](https://portal.azure.com).
@@ -365,7 +365,7 @@ Rensa resurser genom att ta bort resurs gruppen.
 1. Skriv namnet på resurs gruppen `myResourceGroup`i text rutan och välj sedan **ta bort** för att ta bort resurs gruppen. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Rensa dina resurser med PowerShell. 
 
@@ -392,7 +392,7 @@ I den här delen av självstudien används följande PowerShell-cmdlet:
 
 ## <a name="full-script"></a>Fullständigt skript
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-ps.ps1 "Add elastic pool to a failover group")]
 
@@ -414,7 +414,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resurs grupp | 
 
 
-# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Det finns inga tillgängliga skript för Azure Portal.
 
 ---

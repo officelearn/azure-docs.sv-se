@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.openlocfilehash: 3d9dec0065bb62821fcedcbc4f6e5b578c061caf
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934545"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386335"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
 Azure HDInsight-kluster ger Apache Hadoop på en välbekant Linux-miljö, som körs i Azure-molnet. För de flesta saker bör det fungera exakt som vilken annan Hadoop-on-Linux-installation som helst. Det här dokumentet anropar vissa skillnader som du bör vara medveten om.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Många av stegen i det här dokumentet använder följande verktyg, som kan behöva installeras i systemet.
 
@@ -34,7 +34,7 @@ Om [den inte är domänansluten bör](./domain-joined/hdinsight-security-overvie
 
 Domänanslutna HDInsight stöder flera användare och mer detaljerade behörigheter och roll inställningar. Mer information finns i [Hantera domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-manage.md).
 
-## <a name="domain-names"></a>Domännamn
+## <a name="domain-names"></a>Domän namn
 
 Det fullständigt kvalificerade domän namnet (FQDN) som ska användas vid anslutning till klustret från Internet är `CLUSTERNAME.azurehdinsight.net` eller `CLUSTERNAME-ssh.azurehdinsight.net` (endast för SSH).
 
@@ -63,7 +63,7 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och häm
     >
     > Om du vill använda alla funktioner i Ambari-webbgränssnittet använder du en SSH-tunnel för att dirigera webb trafik till klustrets huvud nod. Se [använda SSH-tunnlar för att komma åt Apache Ambari Web UI, ResourceManager, JobHistory, NameNode, Oozie och andra webb-UIS](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)**  - `https://CLUSTERNAME.azurehdinsight.net/ambari`
+* **Ambari (rest)**  - `https://CLUSTERNAME.azurehdinsight.net/ambari`
 
     > [!NOTE]  
     > Autentisera med hjälp av kluster administratörs användare och lösen ord.
@@ -84,7 +84,7 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och häm
 
 Mer information finns i [portarna som används av Apache Hadoop Services i HDInsight](hdinsight-hadoop-port-settings-for-services.md) -dokument.
 
-## <a name="file-locations"></a>Sökvägar
+## <a name="file-locations"></a>Fil platser
 
 Hadoop-relaterade filer hittar du på klusternoderna på `/usr/hdp`. Den här katalogen innehåller följande under kataloger:
 
@@ -203,7 +203,7 @@ Om du använder __Azure Data Lake Storage__, se följande länkar för hur du ka
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
 * [Azure CLI](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [WebHDFS REST API](../data-lake-store/data-lake-store-get-started-rest-api.md)
-* [Data Lake Tools för Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
+* [Data Lake verktyg för Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)
 * [Java](../data-lake-store/data-lake-store-get-started-java-sdk.md)
 * [Python](../data-lake-store/data-lake-store-get-started-python.md)

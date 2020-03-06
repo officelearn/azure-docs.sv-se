@@ -12,11 +12,11 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 7a3dbe5d74dc1e88d0615937b8c6e6d2a77b64a7
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78200303"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381104"
 ---
 # <a name="quickstart-create-and-query-an-azure-synapse-analytics-sql-pool-using-the-azure-portal"></a>Snabb start: skapa och fråga en Azure Synapse Analytics SQL-pool med hjälp av Azure Portal
 
@@ -33,7 +33,7 @@ Skapa snabbt och fråga ett informations lager genom att tillhandahålla SQL-poo
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-sql-pool"></a>Skapa en SQL-pool
 
@@ -114,7 +114,7 @@ Nu kan du ansluta till SQL-servern och dess informationslager med den här IP-ad
 
 Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Portal. Du använder det fullständigt kvalificerade namnet senare när du ska ansluta till servern.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 2. Välj **Azure Synapse Analytics** på menyn till vänster och välj ditt informations lager på **Azure Synapse Analytics** -sidan.
 
@@ -136,7 +136,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
    | servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **sqlpoolservername.Database.Windows.net**. |
    | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
    | Inloggning | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
-   | Lösenord | Lösenordet för serveradministratörskontot | Lösen ordet du angav när du skapade servern. |
+   | lösenord | Lösenordet för serveradministratörskontot | Lösen ordet du angav när du skapade servern. |
    ||||
 
    ![Anslut till server](media/create-data-warehouse-portal/connect-to-server-ssms.png)

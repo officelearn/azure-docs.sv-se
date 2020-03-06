@@ -12,11 +12,11 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 5e7a4eff57841fdcf3bab87eda4e9771d9742bc5
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190402"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386766"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Självstudie: Läs in New York Taxidata-datauppsättningen
 
@@ -24,7 +24,7 @@ I den här självstudien används PolyBase för att läsa in New York Taxidata-d
 
 > [!div class="checklist"]
 > * Skapa en SQL-pool i Azure Portal
-> * Skapa en brandväggsregel på servernivå på Azure-portalen
+> * Skapade en brandväggsregel på servernivå på Azure-portalen
 > * Ansluta till informationslagret med SSMS
 > * Skapa en användare som utsetts för att läsa in data
 > * Skapa externa tabeller för data i Azure blobblagring
@@ -150,7 +150,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
     | servernamn    | Fullständigt kvalificerat servernamn            | Namnet ska vara något som liknar detta: **mynewserver-20180430.Database.Windows.net**. |
     | Autentisering | SQL Server-autentisering                  | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
     | Inloggning          | Serveradministratörskontot                   | Detta är det konto som du angav när du skapade servern. |
-    | Lösenord       | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
+    | lösenord       | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 
     ![Anslut till server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
@@ -630,7 +630,7 @@ I de här självstudierna lärde du dig att skapa ett informationslager och skap
 Du gjorde detta:
 > [!div class="checklist"]
 > * Skapade ett informationslager på Azure-portalen
-> * Skapa en brandväggsregel på servernivå på Azure-portalen
+> * Skapade en brandväggsregel på servernivå på Azure-portalen
 > * Anslöt till informationslagret med SSMS
 > * Skapade en användare för inläsning av data
 > * Skapade externa tabeller för data i Azure Storage Blob

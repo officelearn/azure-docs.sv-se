@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: dapine
 ms.openlocfilehash: 9112c7070708f3b97d79c1978a9b7204721c3194
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616639"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394815"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Självstudie: röst – aktivera din robot med tal-SDK
 
@@ -164,7 +164,7 @@ Nu när du har skapat några resurser är det dags att skapa en bot. Vi kommer a
 1. Installera [bot Framework-emulatorns](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) version 4.3.0 eller senare
 2. Starta bot Framework-emulatorn och öppna din robot:
    * **Filen** -> **Öppna bot**.
-3. Ange URL: en för din robot. Några exempel:
+3. Ange URL: en för din robot. Exempel:
 
    ```
    http://localhost:3978/api/messages

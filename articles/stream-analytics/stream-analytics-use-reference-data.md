@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
 ms.openlocfilehash: b3808524706b13761dd8eccffa301c602d08f481
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369572"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392356"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Använda referens data för sökningar i Stream Analytics
 
@@ -38,7 +38,7 @@ Om du vill konfigurera dina referens data måste du först skapa en indata som �
 |Datum format [valfritt]   | Om du har använt {date} inom Sök vägs mönstret som du har angett kan du välja det datum format som dina blobbar är ordnade i list rutan med format som stöds.<BR>Exempel: ÅÅÅÅ/MM/DD, MM/DD/ÅÅÅÅ, osv.   |
 |Tids format [valfritt]   | Om du har använt {Time} inom Sök vägs mönstret som du har angett kan du välja det tids format som dina blobbar organiseras från i list rutan med format som stöds.<BR>Exempel: HH, HH/mm eller HH-mm.  |
 |Format för händelse serialisering   | För att se till att dina frågor fungerar som du förväntar dig måste Stream Analytics veta vilket serialiserat format du använder för inkommande data strömmar. För referens data är de format som stöds CSV och JSON.  |
-|Encoding   | UTF-8 är det enda kodformat som stöds för närvarande.  |
+|Kodning   | UTF-8 är det enda kodformat som stöds för närvarande.  |
 
 ### <a name="static-reference-data"></a>Statiska referens data
 
@@ -59,7 +59,7 @@ Azure Stream Analytics söker automatiskt efter uppdaterade referens data blobba
 > 
 > Ett undantag till detta är när jobbet måste bearbeta data igen i tid eller när jobbet startas första gången. Vid start tiden söker jobbet efter den senaste blob som producerats innan jobbets start tid har angetts. Detta görs för att se till att det finns en **icke-tom** referens data uppsättning när jobbet startas. Om det inte går att hitta någon, visar jobbet följande diagnostik: `Initializing input without a valid reference data blob for UTC time <start time>`.
 
-[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) kan användas för att dirigera uppgiften att skapa de uppdaterade blobbar som krävs av Stream Analytics för att uppdatera referens data definitioner. Data Factory är en molnbaserad dataintegreringstjänst som automatiserar flytt och omvandling av data. Data Factory har stöd för [att ansluta till ett stort antal molnbaserade och lokala data lager](../data-factory/copy-activity-overview.md) och flytta data enkelt enligt ett regelbundet schema som du anger. Mer information och stegvisa anvisningar om hur du konfigurerar en Data Factory pipeline för att generera referens data för Stream Analytics som uppdateras i ett fördefinierat schema, finns i det här [GitHub exemplet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
+[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) kan användas för att dirigera uppgiften att skapa de uppdaterade blobbar som krävs av Stream Analytics för att uppdatera referens data definitioner. Data Factory är en molnbaserad dataintegreringstjänst som samordnar och automatiserar förflyttning och transformering av data. Data Factory har stöd för [att ansluta till ett stort antal molnbaserade och lokala data lager](../data-factory/copy-activity-overview.md) och flytta data enkelt enligt ett regelbundet schema som du anger. Mer information och stegvisa anvisningar om hur du konfigurerar en Data Factory pipeline för att generera referens data för Stream Analytics som uppdateras i ett fördefinierat schema, finns i det här [GitHub exemplet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
 
 ### <a name="tips-on-refreshing-blob-reference-data"></a>Tips om att uppdatera BLOB-referenser
 
@@ -114,7 +114,7 @@ Stöd för komprimering är inte tillgängligt för referensdata.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure portal](stream-analytics-quick-create-portal.md)
+> [Snabb start: skapa ett Stream Analytics jobb genom att använda Azure Portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

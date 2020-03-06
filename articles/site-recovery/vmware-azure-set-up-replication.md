@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954327"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363136"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Konfigurera och hantera replikeringsprinciper för katastrof återställning i VMware
 
@@ -26,7 +26,7 @@ Den här artikeln beskriver hur du konfigurerar en replikeringsprincip när du r
 4. I **tröskelvärdet för RPO** anger du RPO (mål för återställningspunkt)-gränsen. Aviseringar genereras när kontinuerlig replikering överskrider den här gränsen.
 5. I **Återställningspunkt för kvarhållning** anger du kvarhållningsperioden (i antal timmar) för varje återställningspunkt. Skyddade datorer kan återställas till valfri punkt inom en kvarhållningsperiod. Upp till 24 timmars kvarhållning stöds för datorer som har replikerats till Premium Storage. Upp till 72 timmar stöds för standard lagring.
 6. I **frekvensen för programkonsekventa ögonblicks bilder**väljer du i list rutan hur ofta (i timmar) återställnings punkter som innehåller programkonsekventa ögonblicks bilder ska skapas. Om du vill inaktivera generering av program konsekvens punkter väljer du "off"-värdet i list rutan.
-7. Klicka på **OK**. Principen bör skapas inom 30 till 60 sekunder.
+7. Klicka på **OK** Principen bör skapas inom 30 till 60 sekunder.
 
 När du skapar en replikeringsprincip skapas en matchande princip för återställning efter fel automatiskt med suffixet "failback". När du har skapat principen kan du redigera den genom att välja den > **Redigera inställningar**.
 
@@ -37,7 +37,7 @@ Koppla replikeringsprincipen till din lokala konfigurations Server.
 1. Klicka på **associera**och Välj konfigurations servern.
 
     ![Koppla konfigurations Server](./media/vmware-azure-set-up-replication/associate1.png)
-2. Klicka på **OK**. Konfigurationsservern bör associeras inom en till två minuter.
+2. Klicka på **OK** Konfigurationsservern bör associeras inom en till två minuter.
 
     ![Associering av konfigurationsserver](./media/vmware-azure-set-up-replication/associate2.png)
 
@@ -62,4 +62,4 @@ Redigera en princip på följande sätt:
 1. Välj replikeringsprincip.
     a. Om du vill koppla bort principen från konfigurations servern kontrollerar du att inga replikerade datorer använder principen. Klicka **sedan på koppla**bort.
     b. Om du vill ta bort principen kontrollerar du att den inte är associerad med en konfigurations Server. Klicka sedan på **ta bort**. Det bör ta 30-60 sekunder att ta bort.
-2. Klicka på **OK**.
+2. Klicka på **OK**

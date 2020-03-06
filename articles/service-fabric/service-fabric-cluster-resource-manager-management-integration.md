@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614629"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386266"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Kluster resurs hanteraren-integrering med Service Fabric kluster hantering
 Service Fabric Cluster Resource Manager Driver inte uppgraderingar i Service Fabric, men det ingår. Det första sättet som kluster resurs hanteraren hjälper till med hantering är att spåra det önskade läget för klustret och tjänsterna i det. Kluster resurs hanteraren skickar ut hälso rapporter när det inte går att placera klustret i önskad konfiguration. Om det till exempel finns otillräcklig kapacitet i kluster resurs hanteraren skickas hälso varningar och fel som indikerar problemet. En annan integrerings komponent måste göra med hur uppgraderingar fungerar. Kluster resurs hanteraren ändrar sitt beteende något under uppgraderingar.  
@@ -105,7 +105,7 @@ Blocklisting är inte ett permanent villkor. Efter några minuter tas noden bort
 
 Med alla dessa begränsningar kan du ha funderat på "Hej – Jag tror att fel domän begränsningar är de viktigaste i systemet. För att se till att fel domän begränsningen inte bryter mot varandra är jag villig att kränka andra begränsningar. "
 
-Begränsningar kan konfigureras med olika prioritets nivåer. De är:
+Begränsningar kan konfigureras med olika prioritets nivåer. Dessa är:
 
    - "hård" (0)
    - "mjuk" (1)

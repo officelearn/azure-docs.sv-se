@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
 ms.openlocfilehash: c388f433327b5328483f10fbef637a6fdfd08832
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073028"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383311"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-drivrutins tillägg för Windows
 
@@ -29,7 +29,7 @@ Det här tillägget installerar NVIDIA GPU-drivrutiner på virtuella datorer med
 Anvisningar om manuell installation av driv rutinerna och de aktuella versioner som stöds finns [här](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup).
 Det finns också ett tillägg för att installera NVIDIA GPU-drivrutiner på [virtuella datorer i Linux N-serien](hpccompute-gpu-linux.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -73,7 +73,7 @@ Följande JSON visar schemat för tillägget.
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
+| apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | sträng |
 | typ | NvidiaGpuDriverWindows | sträng |
 | typeHandlerVersion | 1.2 | int |
@@ -85,9 +85,9 @@ Följande JSON visar schemat för tillägget.
 
 Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallarna är idealiska när du distribuerar en eller flera virtuella datorer som kräver konfiguration av efter distribution.
 
-JSON-konfiguration för tillägg för virtuell dator kan kapslas i resursen för virtuella datorer eller placeras i roten eller översta nivån i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet för resursnamn och typ. Mer information finns i [ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+JSON-konfiguration för tillägg för virtuell dator kan kapslas i resursen för virtuella datorer eller placeras i roten eller översta nivån i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet för resursnamn och typ. Mer information finns i [Ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-manager-template-child-resource.md). 
 
-I följande exempel förutsätts att tillägget är kapslat i den virtuella dator resursen. När kapsla tillägget resursen JSON placeras i den `"resources": []` objekt av den virtuella datorn.
+I följande exempel förutsätts att tillägget är kapslat i den virtuella dator resursen. Vid kapsling av tilläggs resursen placeras JSON i `"resources": []`-objektet på den virtuella datorn.
 
 ```json
 {
@@ -171,7 +171,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/community/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/community/). Alternativt kan du arkivera en Azure-support-incident. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om tillägg finns i [tillägg för virtuella datorer och funktioner för Windows](features-windows.md).

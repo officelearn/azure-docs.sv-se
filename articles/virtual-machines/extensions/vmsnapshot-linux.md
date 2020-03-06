@@ -11,11 +11,11 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
 ms.openlocfilehash: d2af6b6c981a2fcbce38546196aa84f1e6be4e38
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263310"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383445"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Linux-tillägg för VM-ögonblicksbild för Azure Backup
 
@@ -23,7 +23,7 @@ ms.locfileid: "76263310"
 
 Azure Backup ger stöd för säkerhets kopiering av arbets belastningar från lokalt till molnet och säkerhets kopiering av moln resurser till Recovery Services Vault. Azure Backup använder tillägget för ögonblicks bilder av virtuella datorer för att utföra en konsekvent säkerhets kopiering av den virtuella Azure-datorn utan att behöva stänga av den virtuella datorn. VM Snapshot Linux-tillägget publiceras och stöds av Microsoft som en del av Azure Backup-tjänsten. Azure Backup installerar tillägget som en del av den första schemalagda säkerhets kopieringen som utlöses efter aktivering av säkerhets kopiering. Det här dokumentet innehåller information om plattformar, konfigurationer och distributions alternativ som stöds för VM-tillägget för ögonblicks bilder.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 En lista över operativ system som stöds finns i [operativ system som stöds av Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
@@ -91,7 +91,7 @@ az backup protection enable-for-vm \
 
 ## <a name="troubleshoot-and-support"></a>Felsökning och support
 
-### <a name="troubleshoot"></a>Felsökning
+### <a name="troubleshoot"></a>Felsöka
 
 Data om tillståndet för distributioner av tillägget kan hämtas från Azure-portalen och med hjälp av Azure CLI. Om du vill se distributionsstatusen för tillägg för en viss virtuell dator, kör du följande kommando med hjälp av Azure CLI.
 
@@ -111,4 +111,4 @@ Felsöknings information finns i [fel söknings guiden för Azure VM-säkerhetsk
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).

@@ -5,11 +5,11 @@ services: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.openlocfilehash: d17ae12beecf9d83ef6d688af799787c5ccf322b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273776"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395339"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrera Azure Active Directory med Azure Kubernetes-tjänsten med hjälp av Azure CLI
 

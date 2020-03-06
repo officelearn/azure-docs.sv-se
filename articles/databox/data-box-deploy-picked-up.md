@@ -10,11 +10,11 @@ ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: d116ba81b0c8940687663c17a4ed403e86dd6c22
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187537"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380289"
 ---
 ::: zone target="docs"
 
@@ -77,7 +77,7 @@ Kontrollera att datakopieringen till enheten är klar och att **Förbered för a
 
 ::: zone-end
 
-## <a name="in-us-canada-europetabin-us-canada-europe"></a>[I USA, Kanada, Europa](#tab/in-us-canada-europe)
+## <a name="in-us-canada-europe"></a>[I USA, Kanada, Europa](#tab/in-us-canada-europe)
 
 Utför följande steg om du returnerar enheten i USA, Kanada eller Europa.
 
@@ -114,7 +114,7 @@ När uppladdningen till Azure är klar raderar Data Box-enheten data på diskarn
 ::: zone-end
 
 
-## <a name="in-australiatabin-australia"></a>[I Australien](#tab/in-australia)
+## <a name="in-australia"></a>[I Australien](#tab/in-australia)
 
 Azure-datacenter i Australien kräver ytterligare en säkerhetsavisering. För alla inkommande leveranser krävs en särskild avisering. Följ stegen nedan vid leveranser i Australien.
 
@@ -143,7 +143,7 @@ När uppladdningen till Azure är klar raderar Data Box-enheten data på diskarn
 
 ::: zone-end
 
-## <a name="in-japantabin-japan"></a>[I Japan](#tab/in-japan) 
+## <a name="in-japan"></a>[I Japan](#tab/in-japan) 
 
 1. Returnera enheten i originalkartongen.
 2. Stäng av enheten och avlägsna kablarna.
@@ -191,7 +191,7 @@ När uppladdningen till Azure är klar raderar Data Box-enheten data på diskarn
 
 ::: zone-end
 
-## <a name="in-singaporetabin-singapore"></a>[I Singapore](#tab/in-singapore) 
+## <a name="in-singapore"></a>[I Singapore](#tab/in-singapore) 
 
 1. Returnera enheten i originalkartongen.
 2. Skriv ned spårningsnumret (visas som referensnummer på sidan Förbereda för att skicka i det lokala webbgränssnittet för Data Box). Detta är tillgängligt när steget Förbered för att skicka har slutförts. Hämta frakthandlingen på den här sidan och klistra fast den på förpackningen. 
@@ -273,7 +273,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ::: zone-end
 -->
 
-## <a name="self-managedtabin-selfmanaged"></a>[Egenhanterad](#tab/in-selfmanaged) 
+## <a name="self-managed"></a>[Egenhanterad](#tab/in-selfmanaged) 
 
 Om du använder Data Box i Japan, Singapore, Korea och Europa, västra, och har valt alternativet för egenhanterad frakt vid orderskapande, följer du dessa anvisningar. 
 

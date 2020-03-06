@@ -15,11 +15,11 @@ ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1c46facb2d43137175730bf04fea0efec9c1ecbd
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063857"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389972"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegie rad åtkomst för Hybrid-och moln distributioner i Azure AD
 
@@ -348,7 +348,7 @@ Ta reda på om de aktuella inbyggda administratörs rollerna för Azure AD fortf
 
 Mer information finns i [så här konfigurerar du hybrid Azure Active Directory anslutna enheter](../device-management-hybrid-azuread-joined-devices-setup.md).
 
-#### <a name="review-members-of-built-in-office-365-admin-roleshttpssupportofficecomarticleabout-office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d"></a>Granska medlemmar av [inbyggda administratörs roller för Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
+#### <a name="review-members-of-built-in-office-365-admin-roles"></a>Granska medlemmar av [inbyggda administratörs roller för Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
 Om du använder Office 365.
 ‎
 #### <a name="validate-incident-response-plan"></a>Verifiera incident svars plan

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
-ms.date: 10/12/2019
-ms.openlocfilehash: 6a25d5197746e04ffa25ee397e6d8451e24ae176
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.date: 03/03/2020
+ms.openlocfilehash: 9f518df02b1923513fd014be53646a9a1be8465e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614990"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359878"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Vanliga frågor och svar om Azure SQL Database storskalig
 
@@ -39,17 +39,17 @@ Den storskaliga Service nivån är endast tillgänglig för enskilda databaser m
 
 VCore-baserade tjänst nivåer särskiljs baserat på databasens tillgänglighet och lagrings typ, prestanda och maximal storlek, enligt beskrivningen i följande tabell.
 
-| | Resurstyp | Generellt syfte |  Hyperskalning | Affärskritisk |
+| | Resurstyp | Generell användning |  Hyperskala | Affärskritisk |
 |:---:|:---:|:---:|:---:|:---:|
 | **Bäst för** |Alla|Erbjuder budget orienterade balanserade beräknings-och lagrings alternativ.|De flesta företags arbets belastningar. Automatisk skalning av lagrings utrymme på upp till 100 TB, fast lodrät och vågrät beräknings skalning, snabb databas återställning.|OLTP-program med hög transaktions frekvens och låg IO-latens. Erbjuder högsta möjliga återhämtning till fel och snabba växlingar med hjälp av flera synkront uppdaterade repliker.|
-|  **Resurstyp** ||Enkel databas/elastisk pool/hanterad instans | Enkel databas | Enkel databas/elastisk pool/hanterad instans |
+|  **Resurstyp** ||Enkel databas/elastisk pool/hanterad instans | Enskild databas | Enkel databas/elastisk pool/hanterad instans |
 | **Beräknings storlek**|Enkel databas/elastisk pool * | 1 till 80 virtuella kärnor | 1 till 80 virtuella kärnor * | 1 till 80 virtuella kärnor |
-| |Hanterad instans | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | Gäller inte | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
+| |Hanterad instans | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | Ej tillämpligt | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
 | **Lagringstyp** | Alla |Premium-Fjärrlagring (per instans) | Fristående lagring med lokal SSD-cache (per instans) | Super-fast lokal SSD-lagring (per instans) |
 | **Lagrings storlek** | Enkel databas/elastisk pool *| 5 GB – 4 TB | Upp till 100 TB | 5 GB – 4 TB |
-| | Hanterad instans  | 32 GB – 8 TB | Gäller inte | 32 GB – 4 TB |
-| **IOPS** | Enkel databas | 500 IOPS per vCore med 7000 maximal IOPS | Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPS är beroende av arbets belastningen. | 5000 IOPS med 200 000 högsta IOPS|
-| | Hanterad instans | Beror på fil storlek | Gäller inte | 1375 IOPS/vCore |
+| | Hanterad instans  | 32 GB – 8 TB | Ej tillämpligt | 32 GB – 4 TB |
+| **IOPS** | Enskild databas | 500 IOPS per vCore med 7000 maximal IOPS | Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPS är beroende av arbets belastningen. | 5000 IOPS med 200 000 högsta IOPS|
+| | Hanterad instans | Beror på fil storlek | Ej tillämpligt | 1375 IOPS/vCore |
 |**Tillgänglighet**|Alla|1 replik, ingen Läs skalning, ingen lokal cache | Flera repliker, upp till 4 Läs skalbarhet, delvis lokal cache | 3 repliker, 1 Läs-och utskalning, zon-redundanta HA, fullständig lokal lagring |
 |**Regelbundet**|Alla|RA-GRS, 7-35 dag kvarhållning (7 dagar som standard)| RA-GRS, 7 dagars kvarhållning, konstant Time-Time-återställning (PITR) | RA-GRS, 7-35 dag kvarhållning (7 dagar som standard) |
 
@@ -143,7 +143,7 @@ I storskaliga databaser tillhandahålls data återhämtning på lagrings nivå. 
 
 Men om det bara finns en replik kan det ta en stund att skapa den lokala cachen i den nya repliken efter redundansväxlingen. Under fasen för cache-återuppbyggnad hämtar databasen data direkt från sidan servrar, vilket resulterar i högre svars tider för lagring och försämrade frågor.
 
-För verksamhets kritiska appar som kräver hög tillgänglighet med minimal redundans påverkan bör du etablera minst 2 beräknings repliker, inklusive den primära beräknings repliken. Det här är standardkonfigurationen. På så sätt finns det en aktive ras replik som fungerar som ett failover-mål.
+För verksamhets kritiska appar som kräver hög tillgänglighet med minimal redundans påverkan bör du etablera minst 2 beräknings repliker, inklusive den primära beräknings repliken. Detta är standard konfigurationen. På så sätt finns det en aktive ras replik som fungerar som ett failover-mål.
 
 ## <a name="data-size-and-storage-questions"></a>Data storlek och lagrings frågor
 
@@ -274,11 +274,11 @@ Nej. Säkerhets kopior hanteras av underlag rings systemet och utnyttjar lagring
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>Kan jag utföra geo-återställning med en storskalig databas
 
-Ja.  Geo-återställning stöds fullt ut. Till skillnad från tidpunkts återställning kan geo-återställning kräva en tids krävande data åtgärd.
+Ja. Geo-återställning stöds fullt ut. Till skillnad från vid återställning av tidpunkt kräver geo-återställning en åtgärd för data storlek. Datafiler kopieras parallellt, så varaktigheten för den här åtgärden beror främst på storleken på den största filen i databasen, i stället för den totala databas storleken. Geo-Restore-tiden blir betydligt kortare om databasen återställs i Azure-regionen som är [kopplad](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) till käll databasens region.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>Kan jag konfigurera geo-replikering med storskalig databas
 
-Nej, inte just nu.
+Inte just nu.
 
 ### <a name="can-i-take-a-hyperscale-database-backup-and-restore-it-to-my-on-premises-server-or-on-sql-server-in-a-vm"></a>Kan jag göra en säkerhets kopia av en storskalig databas och återställa den till min lokala server eller på SQL Server på en virtuell dator
 
@@ -296,7 +296,7 @@ Nej. PolyBase stöds inte i Azure SQL Database.
 
 ### <a name="does-hyperscale-have-support-for-r-and-python"></a>Har storskalig support för R och python
 
-Nej, inte just nu.
+Inte just nu.
 
 ### <a name="are-compute-nodes-containerized"></a>Behållare för beräknade noder
 
@@ -389,6 +389,6 @@ Nej. Storskaliga databaser har delad lagring, vilket innebär att alla beräknin
 
 Data svars tid från det att en transaktion allokeras till den primära tiden som den visas på en sekundär beror på den aktuella logg skapande takten. Vanliga data svars tider är i små millisekunder.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om den storskaliga tjänst nivån finns i [storskalig Service Tier](sql-database-service-tier-hyperscale.md).

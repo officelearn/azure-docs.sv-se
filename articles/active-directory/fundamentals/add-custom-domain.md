@@ -14,11 +14,11 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de91bd7e1e4c5f9909213f663dd3ede0f979d4de
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073540"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376874"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Lägg till ditt domännamn med hjälp av Azure Active Directory-portalen
 
@@ -26,13 +26,13 @@ Varje ny Azure AD-klient kommer med ett första domän namn *\<domän namn >. on
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Innan du kan lägga till ett anpassat domän namn skapar du domän namnet med en domän registrator. En auktoriserad domänregistrator Se [ICANN-Accredited Registratorer](https://www.icann.org/registrar-reports/accredited-list.html).
+Innan du kan lägga till ett anpassat domän namn skapar du domän namnet med en domän registrator. För en ackrediterad domän registrator, se [ICANN-ackrediterade registrators](https://www.icann.org/registrar-reports/accredited-list.html).
 
 ## <a name="create-your-directory-in-azure-ad"></a>Skapa din katalog i Azure AD
 
 När du får ditt domännamn kan skapa du din första Azure AD-katalog. Logga in på Azure Portal för din katalog med hjälp av ett konto med **ägar** rollen för prenumerationen.
 
-Skapa en ny katalog genom att följa stegen i [skapar en ny klient för din organisation](active-directory-access-create-new-tenant.md#create-a-new-tenant-for-your-organization).
+Skapa din nya katalog genom att följa stegen i [skapa en ny klient organisation för din organisation](active-directory-access-create-new-tenant.md#create-a-new-tenant-for-your-organization).
 
 >[!IMPORTANT]
 >Den person som skapar klienten blir automatiskt den globala administratören för den klienten. Global administratör kan lägga till ytterligare administratörer för klienten.
@@ -100,13 +100,13 @@ Om Azure AD inte kan verifiera ett anpassat domännamn, kan du prova följande r
 
 - **Vänta minst en timme och försök igen**. DNS-posterna måste spridas innan Azure AD kan verifiera domänen. Processen kan ta en timma eller mer.
 
-- **Kontrollera att DNS-posten är korrekt.** Gå tillbaka till webbplatsen för domän namns registratorn. Kontrol lera att posten finns där och att den matchar DNS-postinformationen som tillhandahålls av Azure AD.
+- **Kontrol lera att DNS-posten är korrekt.** Gå tillbaka till webbplatsen för domän namns registratorn. Kontrol lera att posten finns där och att den matchar DNS-postinformationen som tillhandahålls av Azure AD.
 
   Om du inte kan uppdatera posten på registrator-webbplatsen delar du posten med någon som har behörighet att lägga till posten och kontrollerar att den är korrekt.
 
-- **Kontrollera att domännamnet inte redan används i en annan katalog.** Ett domän namn kan bara verifieras i en katalog. Om ditt domän namn för närvarande är verifierat i en annan katalog kan det inte också verifieras i den nya katalogen. Åtgärda problemet duplicering, måste du ta bort domännamnet från den gamla katalogen. Mer information om hur du tar bort domännamn finns [hantera egna domännamn](../users-groups-roles/domains-manage.md).
+- **Kontrol lera att domän namnet inte redan används i en annan katalog.** Ett domän namn kan bara verifieras i en katalog. Om ditt domän namn för närvarande är verifierat i en annan katalog kan det inte också verifieras i den nya katalogen. Åtgärda problemet duplicering, måste du ta bort domännamnet från den gamla katalogen. Mer information om hur du tar bort domän namn finns i [Hantera anpassade domän namn](../users-groups-roles/domains-manage.md).
 
-- **Kontrollera att du inte har någon ohanterade Power BI-klienter.** Om användarna har aktiverat Powerbi via självanmälan och skapat en ohanterad klient för din organisation, måste du vidta över hantering som interna eller externa-administratör med hjälp av PowerShell. Mer information finns i [Ta över en ohanterad katalog som administratör i Azure Active Directory](../users-groups-roles/domains-admin-takeover.md).
+- **Kontrol lera att du inte har några ohanterade Power BI klienter.** Om användarna har aktiverat Powerbi via självanmälan och skapat en ohanterad klient för din organisation, måste du vidta över hantering som interna eller externa-administratör med hjälp av PowerShell. Mer information finns i [Ta över en ohanterad katalog som administratör i Azure Active Directory](../users-groups-roles/domains-admin-takeover.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -116,4 +116,4 @@ Om Azure AD inte kan verifiera ett anpassat domännamn, kan du prova följande r
 
 - Hantera ditt domännamn i Azure AD. Mer information finns i [Hantera anpassade domän namn](../users-groups-roles/domains-manage.md).
 
-- Om du har lokala versioner av Windows Server som du vill använda tillsammans med Azure Active Directory, se [integrerar dina lokala kataloger med Azure Active Directory](../connect/active-directory-aadconnect.md).
+- Om du har lokala versioner av Windows Server som du vill använda tillsammans med Azure Active Directory, se [integrera dina lokala kataloger med Azure Active Directory](../connect/active-directory-aadconnect.md).

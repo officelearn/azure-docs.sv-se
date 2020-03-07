@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d3f18fb11dc54f560d867e2b5ff87251e2c836
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
-ms.translationtype: MT
+ms.openlocfilehash: 5aff2ff2b2e60a35d0525cf5733c940aedb7976c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249111"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377712"
 ---
 # <a name="conditional-access-grant"></a>Villkorlig åtkomst: bevilja
 
@@ -67,7 +67,35 @@ Organisationer kan välja att använda enhets identiteten som en del av den vill
 
 Organisationer kan kräva att ett åtkomst försök till de valda molnappar måste göras från en godkänd klient app. Dessa godkända klient program har stöd för [Intune App Protection-principer](/intune/app-protection-policy) oberoende av alla lösningar för hantering av mobila enheter (MDM).
 
-Program som stöds finns i artikeln [Microsoft Intune skyddade appar](/intune/apps/apps-supported-intune-apps).
+Den här inställningen gäller för följande klient program:
+
+- Microsoft Azure Information Protection
+- Microsoft-bokningar
+- Microsoft Cortana
+- Microsoft Dynamics 365
+- Microsoft Edge
+- Microsoft Excel
+- Microsoft Flow
+- Microsoft Intune Managed Browser
+- Microsoft fakturering
+- Microsoft Kaizala
+- Startprogram för Microsoft
+- Microsoft OneDrive
+- Microsoft OneNote
+- Microsoft Outlook
+- Microsoft Planner
+- Microsoft PowerApps
+- Microsoft Power BI
+- Microsoft PowerPoint
+- Microsoft SharePoint
+- Microsoft Skype för företag
+- Microsoft StaffHub
+- Microsoft Stream
+- Microsoft Teams
+- Microsoft To-Do
+- Microsoft Visio
+- Microsoft Word
+- Microsoft Yammer
 
 **Kommentarer**
 
@@ -76,17 +104,26 @@ Program som stöds finns i artikeln [Microsoft Intune skyddade appar](/intune/ap
    - Stöder endast iOS och Android för enhets plattforms villkor.
 - Villkorlig åtkomst kan inte beakta Microsoft Edge i InPrivate-läge en godkänd klient app.
 
+Se artikeln gör så [här: Kräv godkända klient program för åtkomst till Cloud App med villkorlig åtkomst](app-based-conditional-access.md) för konfigurations exempel.
+
 ### <a name="require-app-protection-policy"></a>Kräva appskyddsprincip
 
 I din princip för villkorlig åtkomst kan du kräva att en [Intune App Protection-princip](/intune/app-protection-policy) finns i klient programmet innan åtkomst är tillgänglig för de valda molnappar. 
 
-Program som stöds finns i artikeln [Microsoft Intune skyddade appar](/intune/apps/apps-supported-intune-apps).
+Den här inställningen gäller för följande klient program:
+
+- Microsoft Cortana
+- Microsoft OneDrive
+- Microsoft Outlook
+- Microsoft Planner
 
 **Kommentarer**
 
 - Appar för skydds principer för appar stöder funktionen för hantering av mobil program i Intune med princip skydd.
 - **Kräv skydds princip** krav för appar:
     - Stöder endast iOS och Android för enhets plattforms villkor.
+
+Se artikeln [så här gör du: Kräv app Protection-princip och en godkänd klient app för åtkomst till Cloud App med villkorlig åtkomst](app-protection-based-conditional-access.md) för konfigurations exempel.
 
 ### <a name="terms-of-use"></a>Användningsvillkor
 

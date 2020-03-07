@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
 ms.openlocfilehash: 4c89489964410104726b65e1b1fc3577945ce14a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224758"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388737"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Krav för att skapa Always on-tillgänglighetsgrupper på SQL Server på virtuella Azure-datorer
 
@@ -114,7 +114,7 @@ Det nya virtuella nätverket har ett undernät, med namnet **admin**. Domän kon
    ![Konfigurera det virtuella nätverket](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/07-addsubnet.png)
 5. Skapa ett andra undernät. Klicka på **+ undernät**.
 6. I **Lägg till undernät**konfigurerar du under nätet genom att skriva **sqlsubnet** under **namn**. Azure anger automatiskt ett giltigt **adress intervall**. Kontrol lera att det här adress intervallet innehåller minst 10 adresser. I en produktions miljö kan du behöva fler adresser.
-7. Klicka på **OK**.
+7. Klicka på **OK**
 
     ![Konfigurera det virtuella nätverket](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/08-configuresubnet.png)
 
@@ -183,7 +183,7 @@ I följande tabell visas inställningarna för dessa två datorer:
 | **Resursgrupp** |SQL-HA-RG |
 | **Plats** |*Din plats* |
 | **Storlek** |DS1_V2 |
-| **Lagring** | **Använd Managed disks** - **Ja** |
+| **Storage** | **Använd Managed disks** - **Ja** |
 | **Virtuellt nätverk** |autoHAVNET |
 | **Undernät** |innehavaradministration |
 | **Offentlig IP-adress** |*Samma namn som den virtuella datorn* |
@@ -364,7 +364,7 @@ Innan du fortsätter bör du tänka på följande design beslut.
 Skapa sedan tre virtuella datorer – två SQL Server virtuella datorer och en virtuell dator för ytterligare en klusternod. Om du vill skapa var och en av de virtuella datorerna går du tillbaka till resurs gruppen **SQL-ha-RG** , klickar på **Lägg till**, söker efter lämpligt Galleri objekt, klickar på **virtuell dator**och klickar sedan på **från galleriet**. Använd informationen i följande tabell som hjälp för att skapa de virtuella datorerna:
 
 
-| Sida | VM1 | VM2 | VM3 |
+| Tvåsidig | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |
 | Välj lämpligt Galleri objekt |**Windows Server 2016 Data Center** |**SQL Server 2016 SP1 Enterprise på Windows Server 2016** |**SQL Server 2016 SP1 Enterprise på Windows Server 2016** |
 | **Grundläggande** konfiguration av virtuella datorer |**Namn** = kluster-FSW<br/>**Användar namn** = DomainAdmin<br/>**Lösen ord** = contoso! 0000<br/>**Prenumeration** = din prenumeration<br/>**Resurs grupp** = SQL-ha-rg<br/>**Plats** = din Azure-plats |**Namn** = SQLServer-0<br/>**Användar namn** = DomainAdmin<br/>**Lösen ord** = contoso! 0000<br/>**Prenumeration** = din prenumeration<br/>**Resurs grupp** = SQL-ha-rg<br/>**Plats** = din Azure-plats |**Namn** = SQLServer-1<br/>**Användar namn** = DomainAdmin<br/>**Lösen ord** = contoso! 0000<br/>**Prenumeration** = din prenumeration<br/>**Resurs grupp** = SQL-ha-rg<br/>**Plats** = din Azure-plats |
@@ -389,7 +389,7 @@ Nu kan du ansluta de virtuella datorerna till **Corp.contoso.com**. Utför följ
 2. I **Serverhanteraren**klickar du på **lokal server**.
 3. Klicka på **arbets grupps** länken.
 4. I avsnittet **dator namn** klickar du på **ändra**.
-5. Markera kryss rutan **domän** och skriv **Corp.contoso.com** i text rutan. Klicka på **OK**.
+5. Markera kryss rutan **domän** och skriv **Corp.contoso.com** i text rutan. Klicka på **OK**
 6. I dialog rutan popup för **Windows-säkerhet** anger du autentiseringsuppgifterna för standard domän administratörs kontot (**CORP\DomainAdmin**) och lösen ordet (**contoso! 0000**).
 7. När du ser meddelandet "Välkommen till corp.contoso.com-domänen" klickar du på **OK**.
 8. Klicka på **Stäng**och klicka sedan på **starta om nu** i popup-dialogrutan.
@@ -443,7 +443,7 @@ Använd installations kontot (CORP\install) för att konfigurera tillgänglighet
 
 1. Ange att inloggningen ska vara medlem i den fasta Server rollen **sysadmin** .
 
-1. Klicka på **OK**.
+1. Klicka på **OK**
 
 Upprepa föregående steg på den andra SQL Server VM.
 
@@ -490,7 +490,7 @@ Metoden för att öppna portarna beror på vilken brand Väggs lösning du anvä
 
    ![SQL-brandvägg](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/35-tcpports.png)
 
-5. Klicka på **Nästa**.
+5. Klicka på **Next**.
 6. På sidan **åtgärd** behåller **du Tillåt anslutningen** vald och klickar sedan på **Nästa**.
 7. Godkänn standardinställningarna på sidan **profil** och klicka sedan på **Nästa**.
 8. På sidan **namn** anger du ett regel namn (till exempel **Azure lb PROBE**) i text rutan **namn** och klickar sedan på **Slutför**.

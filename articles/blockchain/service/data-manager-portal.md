@@ -5,11 +5,11 @@ ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
 ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977035"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387038"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Konfigurera Blockchain Data Manager med Azure-portalen
 
@@ -20,7 +20,7 @@ Om du vill konfigurera en blockchain Data Manager instans:
 * Skapa en blockchain Data Manager instans för en Azure blockchain service Transaction-nod
 * Lägg till dina blockchain-program
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [snabb start: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md) eller [snabb start: skapa en Azure blockchain service blockchain-medlem med Azure CLI](create-member-cli.md)
 * Skapa ett [Event Grid ämne](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
@@ -32,7 +32,7 @@ En blockchain Data Manager-instans ansluter och övervakar en Azure blockchain s
 
 En utgående anslutning skickar blockchain-data till Azure Event Grid. Du konfigurerar en enda utgående anslutning när du skapar instansen. Blockchain Data Manager har stöd för flera Event Grid ämnen utgående anslutningar för en specifik blockchain Data Manager-instans. Du kan skicka blockchain-data till ett enda mål eller skicka blockchain-data till flera mål. Lägg till ytterligare utgående anslutningar till instansen om du vill lägga till ett annat mål.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Gå till den Azure blockchain service-medlem som du vill ansluta till blockchain Data Manager. Välj **Blockchain Data Manager**.
 1. Välj **Lägg till**.
 
@@ -108,16 +108,16 @@ Blockchain Data Manager kräver att kontrakts ABI och bytekod-filerna kan nås a
 
     ![Skapa en lagrings konto behållare](./media/data-manager-portal/create-container.png)
 
-    | Fält | Beskrivning |
+    | Field | Beskrivning |
     |-------|-------------|
-    | Namn  | Namnge behållaren. Till exempel *smartcontract* |
-    | Offentlig åtkomstnivå | Välj *privat (ingen anonym åtkomst)* |
+    | Namn  | Ge containern ett namn. Till exempel *smartcontract* |
+    | Offentlig åtkomst nivå | Välj *privat (ingen anonym åtkomst)* |
 
 1. Klicka på **OK** för att skapa containern.
 1. Välj behållaren och välj sedan **Ladda upp**.
 1. Välj båda JSON-filerna som du skapade i avsnittet [Hämta kontrakt ABI och bytekod](#get-contract-abi-and-bytecode) .
 
-    ![Ladda upp blob](./media/data-manager-portal/upload-blobs.png)
+    ![Ladda upp BLOB](./media/data-manager-portal/upload-blobs.png)
 
     Välj **Överför**.
 

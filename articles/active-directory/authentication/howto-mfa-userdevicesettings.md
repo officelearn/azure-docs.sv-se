@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07845bb5b742b1bcfbb22d260457e9a8e16edab6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425277"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378022"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Hantera användar inställningar med Azure Multi-Factor Authentication i molnet
 
@@ -32,8 +32,8 @@ Som administratör har tilldelats rollen som administratör för autentisering k
 
 ![Hantera autentiseringsmetoder från Azure Portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Till vänster väljer du **Azure Active Directory** > **Användare** > **Alla användare**.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Välj **Azure Active Directory** > **användare** > **alla användare**till vänster.
 1. Välj den användare som du vill utföra en åtgärd på och välj **autentiseringsmetoder**.
    - **Återställ lösen ord** kommer att återställa användarens lösen ord och tilldela ett tillfälligt lösen ord som måste ändras vid nästa inloggning.
    - **Kräv omregistrering av MFA** gör det så att när användaren loggar in nästa gång uppmanas de att konfigurera en ny MFA-autentiseringsmetod.
@@ -45,8 +45,8 @@ Den här inställningen tar bort alla applösenord som en användare har skapat.
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Så här tar du bort användare befintliga applösenord
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Till vänster väljer du **Azure Active Directory** > **Användare** > **Alla användare**.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Välj **Azure Active Directory** > **användare** > **alla användare**till vänster.
 3. Till höger väljer du **Multi-Factor Authentication** i verktygsfältet. Sidan Multi-Factor Authentication öppnas.
 4. Markera kryss rutan bredvid den eller de användare som du vill hantera. En lista med snabb stegs alternativ visas till höger.
 5. Välj **hantera användar inställningar**.

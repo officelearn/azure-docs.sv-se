@@ -1,6 +1,6 @@
 ---
 title: Visa och hantera jobb för StorSimple 8000-serien | Microsoft Docs
-description: Beskriver jobb bladet för StorSimple Device Manager-tjänsten och hur du använder den för att spåra de senaste aktuella och schemalagda säkerhetskopieringsjobb.
+description: Beskriver bladet StorSimple Enhetshanteraren service Jobs och hur du använder det för att spåra senaste, aktuella och schemalagda säkerhets kopierings jobb.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,77 +15,77 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 462f8dafdffa7ee01e6ccf7945a1abfdff90db42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720687"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395857"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Använda StorSimple Device Manager-tjänsten för att visa och hantera jobb (uppdatering 3 och senare)
+# <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Använd tjänsten StorSimple Enhetshanteraren för att visa och hantera jobb (uppdatering 3 och senare)
 
 ## <a name="overview"></a>Översikt
-Den **jobb** bladet ger en enda central portal för visning och hantera jobb som har startats på enheter som är ansluten till din StorSimple Device Manager-tjänsten. Du kan visa schemalagda, som körs, slutförda, avbrutna och misslyckade jobb för flera enheter. Resultaten visas i tabellformat.
+Bladet **jobb** innehåller en enda central Portal för att visa och hantera jobb som har startats på enheter som är anslutna till din StorSimple Enhetshanteraren-tjänst. Du kan visa schemalagda, pågående, avslutade, avbrutna och misslyckade jobb för flera enheter. Resultaten visas i tabell format.
 
-![Jobb-bladet](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
+![Bladet jobb](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
 
-Du kan snabbt hitta de jobb som du är intresserad av genom att filtrera på fält som:
+Du kan snabbt hitta de jobb som du är intresse rad av genom att filtrera efter fält som:
 
-* **Status för** – jobb kan vara pågår, lyckades, avbröts, misslyckade, stoppar eller lyckades med fel.
-* **Tidsintervall** – jobb kan filtreras baserat på det datum och tid-intervallet. Intervall är senaste 1 timmen eller senaste 24 timmarna, senaste 7 dagarna, de senaste 30 dagarna, senaste året eller anpassat datum.
-* **Typ** – jobbtypen kan vara schemalagd säkerhetskopiering, manuell säkerhetskopiering, återställning, säkerhetskopiering, klona volym, redundansväxla volymbehållare, skapa lokalt fixerade volymen, ändra volymen, installera uppdateringar, samla in loggar för support och skapa molninstallation.
-* **Enheter** – jobb startas på en viss enhet som är ansluten till din tjänst.
+* **Status** – jobb kan pågå, lyckas, avbrytas, Miss lyckas, avbrytas eller lyckas med fel.
+* **Tidsintervall** – jobb kan filtreras baserat på datum-och tidsintervallet. Intervallen är de senaste 1 timmarna, de senaste 24 timmarna, senaste 7 dagarna, senaste 30 dagarna, föregående år eller anpassat datum.
+* **Typ** – jobb typen kan vara schemalagd säkerhets kopiering, manuell säkerhets kopiering, återställning av säkerhets kopia, klona volymer, redundansväxla volym behållare, skapa lokalt fästa volymer, ändra volym, installera uppdateringar, samla in support loggar och skapa en moln installation.
+* **Enheter** – jobb initieras på en viss enhet som är ansluten till din tjänst.
   
-Filtrerade jobben visas sedan som en tabell på grundval av följande attribut:
+De filtrerade jobben tabellen sedan enligt följande attribut:
   
-* **Namn på** – schemalagd säkerhetskopiering, manuell säkerhetskopiering, återställning, säkerhetskopiering, klona volymen, redundansväxla volymbehållare, skapa lokalt fixerad volym, ändra volym, installera uppdateringar, samla in loggar för support eller skapa molninstallation.
-* **Status för** – som körs, slutförda, avbrutna, misslyckade, stoppar eller slutfördes med fel.
-* **Entiteten** – jobb kan associeras med en volym, en princip för säkerhetskopiering eller en enhet. Till exempel är en kloningsjobb associerad med en volym, en schemalagd säkerhetskopiering är associerad med en princip för säkerhetskopiering. Ett enhetsjobb skapas till följd av en katastrofåterställning (DR) eller en återställning.
-* **Enheten** – med namnet på den enhet som då jobbet startades.
-* **Startad** – tiden då jobbet startades.
-* **Varaktighet** – tiden som krävs för att slutföra jobbet.
+* **Namn** – schemalagd säkerhets kopiering, manuell säkerhets kopiering, återställning av säkerhets kopia, klona volymer, redundansväxla volym behållare, skapa lokalt fäst volym, ändra volym, installera uppdateringar, samla in support loggar eller skapa en moln installation.
+* **Status** – körs, slutfört, avbröts, misslyckades, avbröts eller slutfördes med fel.
+* **Entitet** – jobben kan associeras med en volym, en säkerhets kopierings princip eller en enhet. Ett klonings jobb är till exempel associerat med en volym, medan ett schemalagt säkerhets kopierings jobb är associerat med en säkerhets kopierings princip. Ett enhets jobb skapas som ett resultat av en haveri beredskap (DR) eller en återställnings åtgärd.
+* **Enhet** – namnet på enheten där jobbet startades.
+* **Startades** – den tidpunkt då jobbet startades.
+* **Duration** – den tid det tar att slutföra jobbet.
 
 Listan över jobb uppdateras var 30: e sekund.
 
-Du kan utföra följande åtgärder för jobbrelaterade på den här sidan:
+Du kan utföra följande jobb-relaterade åtgärder på den här sidan:
 
 * Visa jobbinformation
 * Avbryta ett jobb
 
 ## <a name="view-job-details"></a>Visa jobbinformation
-Utför följande steg om du vill visa information om alla jobb.
+Utför följande steg för att visa information om ett jobb.
 
-#### <a name="to-view-job-details"></a>Visa jobbinformation
-1. Gå till StorSimple Device Manager-tjänsten och klicka sedan på **jobb**.
+#### <a name="to-view-job-details"></a>Visa jobb information
+1. Gå till StorSimple Enhetshanteraren-tjänsten och klicka sedan på **jobb**.
 
-2. I den **jobb** bladet visar de jobb som du är intresserad av genom att köra en fråga med lämpliga filter. Du kan söka efter klar körs eller har avbrutits jobb.
+2. På bladet **jobb** visar du de jobb som du är intresse rad av genom att köra en fråga med lämpliga filter. Du kan söka efter slutförda, pågående eller avbrutna jobb.
 
-    ![Jobb-bladet](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
+    ![Bladet jobb](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
 
 2. Välj och klicka på ett jobb.
 
-    ![Jobb-bladet](./media/storsimple-8000-manage-jobs-u2/jobs3.png)
+    ![Bladet jobb](./media/storsimple-8000-manage-jobs-u2/jobs3.png)
 
-3. På bladet jobb, kan du visa status, information, statistik och statistik för data.
+3. På bladet jobb information kan du Visa status, information, tids statistik och data statistik.
    
     ![Information om jobb](./media/storsimple-8000-manage-jobs-u2/jobs4.png)
 
 ## <a name="cancel-a-job"></a>Avbryta ett jobb
-Utför följande steg om du vill avbryta ett jobb som körs.
+Utför följande steg för att avbryta ett pågående jobb.
 
 > [!NOTE]
-> Kan inte annulleras vissa jobb, till exempel ändra en volym för att ändra volymtyp eller expandera en volym.
+> Vissa jobb, till exempel att ändra volym typ eller expandera en volym, kan inte avbrytas.
 
 
 ### <a name="to-cancel-a-job"></a>Avbryta ett jobb
-1. På den **jobb** sidan, visa pågående jobb som du vill avbryta genom att köra en fråga med lämpliga filter. Välj jobbet.
+1. På sidan **jobb** visar du de jobb som körs och som du vill avbryta genom att köra en fråga med lämpliga filter. Välj jobbet.
 
-2. Högerklicka på det valda jobbet att öppna snabbmenyn och klickar på **Avbryt**.
+2. Högerklicka på det valda jobbet för att anropa snabb menyn och klicka på **Avbryt**.
 
     ![Information om jobb](./media/storsimple-8000-manage-jobs-u2/jobs2.png)
 
-3. Klicka på **Ja** när du uppmanas att bekräfta åtgärden. Det här jobbet avbryts nu.
+3. Klicka på **Ja** när du uppmanas att bekräfta åtgärden. Det här jobbet har avbrutits.
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur du [hantera din StorSimple-säkerhetskopieringsprinciper](storsimple-8000-manage-backup-policies-u2.md).
-* Lär dig hur du [använda StorSimple Device Manager-tjänsten för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* Lär dig hur du [hanterar dina StorSimple säkerhets kopierings principer](storsimple-8000-manage-backup-policies-u2.md).
+* Lär dig hur du [använder tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
 

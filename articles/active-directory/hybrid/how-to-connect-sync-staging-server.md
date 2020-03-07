@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect synkronisering: Drift åtgärder och överväganden | Microsoft Docs'
+title: 'Azure AD Connect synkronisering: operativa uppgifter och överväganden | Microsoft Docs'
 description: I det här avsnittet beskrivs drift uppgifter för Azure AD Connect synkronisering och hur du förbereder för att driva den här komponenten.
 services: active-directory
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900062"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376217"
 ---
-# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Server för mellanlagring och haveriberedskap
+# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: mellanlagrings Server och haveri beredskap
 Med en server i mellanlagrings läge kan du göra ändringar i konfigurationen och förhandsgranska ändringarna innan du gör servern aktiv. Du kan också köra fullständig import och fullständig synkronisering för att kontrol lera att alla ändringar förväntas innan du gör dessa ändringar i produktions miljön.
 
 ## <a name="staging-mode"></a>Mellanlagringsläge
@@ -33,7 +33,7 @@ Mellanlagrings läge kan användas i flera scenarier, inklusive:
 * Testa och distribuera nya konfigurations ändringar.
 * Presentera en ny server och inaktivera den gamla.
 
-Under installationen kan du välja att servern ska vara i mellanlagrings **läge**. Den här åtgärden gör servern aktiv för import och synkronisering, men kör inte någon export. En server i mellanlagrings läge kör inte lösen ords synkronisering eller tillbakaskrivning av lösen ord, även om du har valt dessa funktioner under installationen. När du inaktiverar mellanlagrings läget, börjar servern exportera, aktiverar Lösenordssynkronisering och aktiverar tillbakaskrivning av lösen ord.
+Under installationen kan du välja att servern ska vara i **mellanlagrings läge**. Den här åtgärden gör servern aktiv för import och synkronisering, men kör inte någon export. En server i mellanlagrings läge kör inte lösen ords synkronisering eller tillbakaskrivning av lösen ord, även om du har valt dessa funktioner under installationen. När du inaktiverar mellanlagrings läget, börjar servern exportera, aktiverar Lösenordssynkronisering och aktiverar tillbakaskrivning av lösen ord.
 
 > [!NOTE]
 > Anta att du har en aktive rad Azure AD Connect med funktionen för hash-synkronisering av lösen ord. När du aktiverar mellanlagrings läget slutar servern synkronisera lösen ords ändringar från den lokala AD-platsen. När du inaktiverar mellanlagrings läget, återupptar servern synkroniseringen av lösen ords ändringar från var den senast slutade. Om servern är kvar i mellanlagringsplatsen under en längre tid kan det ta en stund innan servern synkroniserar alla lösen ords ändringar som har inträffat under tids perioden.
@@ -55,7 +55,7 @@ Följ dessa steg om du vill använda den här metoden:
 4. [Verifiera](#verify)
 5. [Växla aktiv server](#switch-active-server)
 
-#### <a name="prepare"></a>Förbered
+#### <a name="prepare"></a>Förbereda
 1. Installera Azure AD Connect, Välj **mellanlagrings läge**och avmarkera **Starta synkronisering** på den sista sidan i installations guiden. Med det här läget kan du köra Synkroniseringsmotorn manuellt.
    ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
 2. Logga ut/logga in och välj **synkroniseringstjänst**i Start-menyn.
@@ -72,9 +72,9 @@ Om du har gjort anpassade ändringar på den primära servern och vill jämföra
 Nu har du mellanlagrat export ändringar till Azure AD och lokala AD (om du använder Exchange hybrid-distribution). I nästa steg kan du kontrol lera vad som ska ändras innan du börjar exportera till katalogerna.
 
 #### <a name="verify"></a>Verifiera
-1. Starta en kommando tolk och gå till`%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. Kör: `csexport "Name of Connector" %temp%\export.xml /f:x`Namnet på anslutningen kan hittas i synkroniseringstjänsten. Det har ett namn som liknar "contoso.com – AAD" för Azure AD.
-3. Kör: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`Du har en fil i% temp% med namnet export. csv som kan undersökas i Microsoft Excel. Den här filen innehåller alla ändringar som ska exporteras.
+1. Starta en kommando tolk och gå till `%ProgramFiles%\Microsoft Azure AD Sync\bin`
+2. Kör: `csexport "Name of Connector" %temp%\export.xml /f:x` det går att hitta namnet på anslutnings tjänsten i synkroniseringstjänsten. Det har ett namn som liknar "contoso.com – AAD" för Azure AD.
+3. Kör: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` du har en fil i% temp% med namnet export. csv som kan undersökas i Microsoft Excel. Den här filen innehåller alla ändringar som ska exporteras.
 4. Gör nödvändiga ändringar i data eller konfiguration och kör de här stegen igen (importera och synkronisera och verifiera) tills ändringarna som ska exporteras förväntas.
 
 **Förstå export. csv-filen** De flesta av filerna är själv för klar Ande. Några förkortningar för att förstå innehållet:
@@ -89,7 +89,7 @@ Nu har du mellanlagrat export ändringar till Azure AD och lokala AD (om du anv�
 
 #### <a name="switch-active-server"></a>Växla aktiv server
 1. Stäng av servern (DirSync/FIM/Azure AD Sync) på den aktiva servern så att den inte exporteras till Azure AD eller Ställ in den i mellanlagrings läge (Azure AD Connect).
-2. Kör installations guiden på servern i mellanlagrings **läge** och inaktivera **mellanlagrings läge**.
+2. Kör installations guiden på servern i **mellanlagrings läge** och inaktivera **mellanlagrings läge**.
    ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/additionaltasks.png)
 
 ## <a name="disaster-recovery"></a>Haveriberedskap
@@ -102,7 +102,7 @@ En del av implementerings utformningen är att planera för vad du ska göra om 
 Beroende på svar på dessa frågor och din organisations policy kan en av följande strategier implementeras:
 
 * Återskapa vid behov.
-* Ha en reserv vänte läges server som kallas mellanlagrings **läge**.
+* Ha en reserv vänte läges server som kallas **mellanlagrings läge**.
 * Använd virtuella datorer.
 
 Om du inte använder den inbyggda SQL Express-databasen bör du även läsa avsnittet om [hög tillgänglighet för SQL](#sql-high-availability) .
@@ -113,9 +113,9 @@ En praktisk strategi är att planera för att en server ska byggas om vid behov.
 Den synkroniserande motor servern lagrar inte något tillstånd om objekten så att databasen kan byggas om från data i Active Directory och Azure AD. Attributet **sourceAnchor** används för att ansluta objekten från lokala platser och molnet. Om du bygger om servern med befintliga objekt lokalt och i molnet, matchar Synkroniseringsmotorn dessa objekt tillsammans igen vid ominstallation. De saker du behöver för att dokumentera och spara är de konfigurations ändringar som görs på servern, till exempel filtrering och regler för synkronisering. De här anpassade konfigurationerna måste återanvändas innan du börjar synkronisera.
 
 ### <a name="have-a-spare-standby-server---staging-mode"></a>Ha en förkonfigurerad standby-Server för spar läge
-Om du har en mer komplex miljö rekommenderas att ha en eller flera vänte servrar. Under installationen kan du göra det möjligt för en server att bevaras i mellanlagrings **läge**.
+Om du har en mer komplex miljö rekommenderas att ha en eller flera vänte servrar. Under installationen kan du göra det möjligt för en server att bevaras i **mellanlagrings läge**.
 
-Mer information finns i mellanlagrings [läge](#staging-mode).
+Mer information finns i [mellanlagrings läge](#staging-mode).
 
 ### <a name="use-virtual-machines"></a>Använda virtuella datorer
 En vanlig metod som stöds är att köra Synkroniseringsmotorn på en virtuell dator. Om värden har ett problem kan avbildningen med den synkroniserande motor servern migreras till en annan server.
@@ -270,5 +270,5 @@ $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeI
 ## <a name="next-steps"></a>Nästa steg
 **Översikts avsnitt**  
 
-* [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)  
+* [Azure AD Connect synkronisering: förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)  
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)  

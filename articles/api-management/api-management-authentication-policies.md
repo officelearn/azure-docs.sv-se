@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: 5ca153f0d52b65aa1ee56d5757381f1f31c7eeb5
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120817"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374343"
 ---
 # <a name="api-management-authentication-policies"></a>Principer för API Management-autentisering
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -54,10 +54,10 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Krävs|Default|
 |----------|-----------------|--------------|-------------|
-|användarnamn|Anger användar namnet för den grundläggande autentiseringsuppgiften.|Ja|Saknas|
-|lösenord|Anger lösen ordet för grundläggande autentiseringsuppgifter.|Ja|Saknas|
+|användarnamn|Anger användar namnet för den grundläggande autentiseringsuppgiften.|Ja|Ej tillämpligt|
+|lösenord|Anger lösen ordet för grundläggande autentiseringsuppgifter.|Ja|Ej tillämpligt|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -94,10 +94,10 @@ I det här exemplet identifieras klient certifikatet med resurs namnet.
   
 ### <a name="attributes"></a>Attribut  
   
-|Namn|Beskrivning|Krävs|Standard|  
+|Namn|Beskrivning|Krävs|Default|  
 |----------|-----------------|--------------|-------------|  
-|begäran|Tumavtryck för klient certifikatet.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Saknas|  
-|certifikat-ID|Certifikat resursens namn.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Saknas|  
+|begäran|Tumavtryck för klient certifikatet.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Ej tillämpligt|  
+|certifikat-ID|Certifikat resursens namn.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Ej tillämpligt|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -153,10 +153,10 @@ I det här exemplet identifieras klient certifikatet med resurs namnet.
   
 ### <a name="attributes"></a>Attribut  
   
-|Namn|Beskrivning|Krävs|Standard|  
+|Namn|Beskrivning|Krävs|Default|  
 |----------|-----------------|--------------|-------------|  
-|resource|Sträng. App-ID för mål webb-API (säker resurs) i Azure Active Directory.|Ja|Saknas|  
-|output-token-variable-name|Sträng. Namnet på den Sammanhangs variabel som kommer att ta emot token-värde som en objekt typ `string`. |Nej|Saknas|  
+|resource|Sträng. App-ID för mål webb-API (säker resurs) i Azure Active Directory.|Ja|Ej tillämpligt|  
+|output-token-variable-name|Sträng. Namnet på den Sammanhangs variabel som kommer att ta emot token-värde som en objekt typ `string`. |Nej|Ej tillämpligt|  
 |Ignorera-fel|Booleskt. Om värdet är `true`fortsätter princip pipelinen att köras även om en åtkomsttoken inte har hämtats.|Nej|false|  
   
 ### <a name="usage"></a>Användning  

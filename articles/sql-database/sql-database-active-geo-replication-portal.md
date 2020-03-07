@@ -12,11 +12,11 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
 ms.openlocfilehash: 601c537a51e29ae1f107127e1b83c07448eee9ab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75348886"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396881"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Konfigurera aktiv geo-replikering för Azure SQL Database i Azure Portal och initiera redundans
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du konfigurerar [aktiv geo-replikering för enstaka 
 
 Information om grupper för automatisk redundans med enkla databaser och databaser i pooler finns i [metod tips för att använda failover-grupper med enkla databaser och databaser i pooler](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). För information om grupper med automatisk redundans med hanterade instanser, se [metod tips för att använda failover-grupper med hanterade instanser](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera aktiv geo-replikering med hjälp av Azure Portal behöver du följande resurs:
 
@@ -48,7 +48,7 @@ När den sekundära har skapats och dirigerats påbörjar data replikeringen fr�
 1. I [Azure Portal](https://portal.azure.com)bläddrar du till den databas som du vill konfigurera för geo-replikering.
 2. På sidan SQL-databas väljer du **geo-replikering**och väljer sedan den region där du vill skapa den sekundära databasen. Du kan välja en annan region än den region som är värd för den primära databasen, men vi rekommenderar den [kopplade regionen](../best-practices-availability-paired-regions.md).
 
-    ![Konfigurera georeplikering](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
+    ![Konfigurera geo-replikering](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
 3. Välj eller konfigurera server och pris nivå för den sekundära databasen.
 
     ![Konfigurera sekundär](./media/sql-database-geo-replication-portal/create-secondary.png)

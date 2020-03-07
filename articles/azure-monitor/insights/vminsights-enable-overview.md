@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/14/2019
 ms.openlocfilehash: 44422f66f6fc995dcaf96947ea05b183c7131ea3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669581"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362181"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Aktivera Azure Monitor for VMs (för hands version) – Översikt
 
@@ -206,7 +206,7 @@ Azure Monitor for VMs konfigurerar en Log Analytics arbets yta för att samla in
 
 |Objektnamn |Namn på räknare |
 |------------|-------------|
-|Logisk disk |% ledigt utrymme |
+|Logisk disk |Ledigt utrymme i procent |
 |Logisk disk |Medel s/disk läsning |
 |Logisk disk |Medel s/disk överföring |
 |Logisk disk |Medel s/disk skrivning |
@@ -220,7 +220,7 @@ Azure Monitor for VMs konfigurerar en Log Analytics arbets yta för att samla in
 |Minne |Tillgängliga megabyte |
 |Nätverkskort |Mottagna byte/sek |
 |Nätverkskort |Skickade byte/sek |
-|Processor |% processortid |
+|Processor |Tid i procent för processor |
 
 ### <a name="linux-performance-counters"></a>Prestandaräknare för Linux
 
@@ -237,7 +237,7 @@ Azure Monitor for VMs konfigurerar en Log Analytics arbets yta för att samla in
 |Minne |Tillgängligt minne i megabyte |
 |Nätverk |Totalt antal byte mottaget |
 |Nätverk |Totalt antal överförda byte |
-|Processor |% processortid |
+|Processor |Tid i procent för processor |
 
 ## <a name="management-packs"></a>Hanteringspaket
 

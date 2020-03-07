@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 0ad961495d44f13522a3c02224a5612aaedaf076
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274478"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393102"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Skicka pennanteckning till API:et för handskriftsigenkänning 
 
 Digitala pennanteckningar avser teknik som möjliggör digitala representationer av indata, till exempel handskrift och ritningar. Detta uppnås vanligt vis med en digitaliserare som samlar in ingångs enheter, till exempel en penna. När enheter fortsätter att aktivera omfattande användning av digitala pennanteckningar kan artificiell intelligens och maskininlärning möjliggöra igenkänning av skriftliga former och text i en kontext. Med pennan tecknings-API kan du skicka penndrag och få detaljerad information om dem. 
 
-## <a name="the-ink-recognizer-api-vs-ocr-services"></a>Färg tolknings-API vs. OCR-tjänster
+## <a name="the-ink-recognizer-api-vs-ocr-services"></a>Bläck igenkännings-API jämfört med OCR-tjänster
 
 Bläck igenkännings-API: t använder inte optisk tecken igenkänning (OCR). OCR-tjänster bearbetar pixel data från bilder för att tillhandahålla hand SKRIFTS-och text igenkänning. Detta kallas ibland för offline-igenkänning. I stället kräver API-identifieraren digitala Penn strecks data som samlas in som inmatnings enhet. Att bearbeta digitala pennan tecknings data på det här sättet kan ge mer exakta igenkännings resultat jämfört med OCR-tjänster. 
 

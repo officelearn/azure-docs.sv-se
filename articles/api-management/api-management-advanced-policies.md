@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: c8ef481fe277d6451923da828f0e7473354c24cf
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903010"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374285"
 ---
 # <a name="api-management-advanced-policies"></a>API Management avancerade principer
 
@@ -128,9 +128,9 @@ Det här exemplet visar hur du utför innehålls filtrering genom att ta bort da
 
 | Element   | Beskrivning                                                                                                                                                                                                                                                               | Krävs |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| välj    | Rot element.                                                                                                                                                                                                                                                             | Ja      |
+| använder    | Rot element.                                                                                                                                                                                                                                                             | Ja      |
 | När      | Villkoret som ska användas för `if` eller `ifelse` delar av `choose` principen. Om `choose`-principen har flera `when` avsnitt utvärderas de i tur och ordning. När `condition` av ett när-element utvärderas till `true`utvärderas inga ytterligare `when` villkor. | Ja      |
-| föreskrivs | Innehåller det princip-kodfragment som ska användas om inget av de `when` villkoren utvärderas till `true`.                                                                                                                                                                               | Inga       |
+| föreskrivs | Innehåller det princip-kodfragment som ska användas om inget av de `when` villkoren utvärderas till `true`.                                                                                                                                                                               | Nej       |
 
 ### <a name="attributes"></a>Attribut
 
@@ -246,16 +246,16 @@ Den här åtgärds nivå principen vidarebefordrar inte begär anden till backen
 
 | Element         | Beskrivning   | Krävs |
 | --------------- | ------------- | -------- |
-| vidarebefordra begäran | Rot element. | Ja      |
+| Forward-Request | Rot element. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
 | Attribut                                     | Beskrivning                                                                                                                                                                                                                                                                                                    | Krävs | Default |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| timeout="integer"                             | Hur lång tid i sekunder som HTTP-svarshuvuden ska returneras av backend-tjänsten innan ett tids gräns fel uppstår. Minimalt värde är 0 sekunder. Värden som är större än 240 sekunder kanske inte går att utföra eftersom den underliggande nätverks infrastrukturen kan släppa inaktiva anslutningar efter den här tiden. | Inga       | Inget    |
-| följa-redirects = "falskt &#124; sant"          | Anger om omdirigeringar från backend-tjänsten följs av gatewayen eller returneras till anroparen.                                                                                                                                                                                                    | Inga       | false   |
-| Buffer-Request-Body = " &#124; false true"       | Vid inställt på "true"-begäran buffras och återanvänds [återförsök](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | Inga       | false   |
-| misslyckande-On-Error-status-Code = "false &#124; true" | När har angetts till True triggers [On-Error-](api-management-error-handling-policies.md) avsnittet för svars koder inom intervallet 400 till 599.                                                                                                                                                                      | Inga       | false   |
+| timeout="integer"                             | Hur lång tid i sekunder som HTTP-svarshuvuden ska returneras av backend-tjänsten innan ett tids gräns fel uppstår. Minimalt värde är 0 sekunder. Värden som är större än 240 sekunder kanske inte går att utföra eftersom den underliggande nätverks infrastrukturen kan släppa inaktiva anslutningar efter den här tiden. | Nej       | Ingen    |
+| följa-redirects = "falskt &#124; sant"          | Anger om omdirigeringar från backend-tjänsten följs av gatewayen eller returneras till anroparen.                                                                                                                                                                                                    | Nej       | false   |
+| Buffer-Request-Body = " &#124; false true"       | Vid inställt på "true"-begäran buffras och återanvänds [återförsök](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | Nej       | false   |
+| misslyckande-On-Error-status-Code = "false &#124; true" | När har angetts till True triggers [On-Error-](api-management-error-handling-policies.md) avsnittet för svars koder inom intervallet 400 till 599.                                                                                                                                                                      | Nej       | false   |
 
 ### <a name="usage"></a>Användning
 
@@ -304,8 +304,8 @@ Följande exempel visar hur du begränsar antalet begär Anden som vidarebefordr
 
 | Attribut | Beskrivning                                                                                        | Krävs | Default |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| key       | En sträng. Uttryck tillåts. Anger samtidighets omfång. Kan delas av flera principer. | Ja      | Gäller inte     |
-| Max antal | Ett heltal. Anger ett maximalt antal begär Anden som tillåts att ange principen.           | Ja      | Gäller inte     |
+| key       | En sträng. Uttryck tillåts. Anger samtidighets omfång. Kan delas av flera principer. | Ja      | Ej tillämpligt     |
+| Max antal | Ett heltal. Anger ett maximalt antal begär Anden som tillåts att ange principen.           | Ja      | Ej tillämpligt     |
 
 ### <a name="usage"></a>Användning
 
@@ -396,14 +396,14 @@ status code and media type. If no example or schema found, the content is empty.
 
 | Element       | Beskrivning   | Krävs |
 | ------------- | ------------- | -------- |
-| mock-response | Rot element. | Ja      |
+| modeller – svar | Rot element. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
 | Attribut    | Beskrivning                                                                                           | Krävs | Default |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| status kod  | Anger svars status kod och används för att välja motsvarande exempel eller schema.                 | Inga       | 200     |
-| Innehålls typ | Anger `Content-Type` svarets huvud värde och används för att välja motsvarande exempel eller schema. | Inga       | Inget    |
+| status kod  | Anger svars status kod och används för att välja motsvarande exempel eller schema.                 | Nej       | 200     |
+| innehålls typ | Anger `Content-Type` svarets huvud värde och används för att välja motsvarande exempel eller schema. | Nej       | Ingen    |
 
 ### <a name="usage"></a>Användning
 
@@ -461,12 +461,12 @@ I följande exempel görs en begäran om vidarebefordran till tio gånger med en
 
 | Attribut        | Beskrivning                                                                                                                                           | Krävs | Default |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| condition        | En boolesk literal eller ett [uttryck](api-management-policy-expressions.md) som anger om försök ska stoppas (`false`) eller fortsatte (`true`).      | Ja      | Gäller inte     |
-| count            | Ett positivt tal som anger det maximala antalet återförsök som ska göras.                                                                                | Ja      | Gäller inte     |
-| interval         | Ett positivt tal i sekunder som anger vänte intervallet mellan Återförsöken.                                                                 | Ja      | Gäller inte     |
-| max intervall     | Ett positivt tal i sekunder som anger det högsta vänte intervallet mellan försöken. Den används för att implementera en algoritm för exponentiell återförsök. | Inga       | Gäller inte     |
-| delta            | Ett positivt tal i sekunder som anger hur många vänte intervall som ska ökas. Den används för att implementera de linjära och exponentiella nya algoritmerna.             | Inga       | Gäller inte     |
-| första – snabb återförsök | Om värdet är `true` utförs det första försöket omedelbart.                                                                                  | Inga       | `false` |
+| condition        | En boolesk literal eller ett [uttryck](api-management-policy-expressions.md) som anger om försök ska stoppas (`false`) eller fortsatte (`true`).      | Ja      | Ej tillämpligt     |
+| count            | Ett positivt tal som anger det maximala antalet återförsök som ska göras.                                                                                | Ja      | Ej tillämpligt     |
+| interval         | Ett positivt tal i sekunder som anger vänte intervallet mellan Återförsöken.                                                                 | Ja      | Ej tillämpligt     |
+| max intervall     | Ett positivt tal i sekunder som anger det högsta vänte intervallet mellan försöken. Den används för att implementera en algoritm för exponentiell återförsök. | Nej       | Ej tillämpligt     |
+| delta            | Ett positivt tal i sekunder som anger hur många vänte intervall som ska ökas. Den används för att implementera de linjära och exponentiella nya algoritmerna.             | Nej       | Ej tillämpligt     |
+| första – snabb återförsök | Om värdet är `true` utförs det första försöket omedelbart.                                                                                  | Nej       | `false` |
 
 > [!NOTE]
 > Om endast `interval` anges utförs nya försök för **fast** intervall.
@@ -513,9 +513,9 @@ Den här principen kan användas i följande princip [avsnitt](https://azure.mic
 | Element         | Beskrivning                                                                               | Krävs |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
 | returnera svar | Rot element.                                                                             | Ja      |
-| set-header      | En princip sats för [set-Heading](api-management-transformation-policies.md#SetHTTPheader) . | Inga       |
-| Set-Body        | En princip för en [uppsättning med brödtext](api-management-transformation-policies.md#SetBody) .         | Inga       |
-| set-status      | En instruktion för [set-status-](api-management-advanced-policies.md#SetStatus) princip.           | Inga       |
+| set-header      | En princip sats för [set-Heading](api-management-transformation-policies.md#SetHTTPheader) . | Nej       |
+| Set-Body        | En princip för en [uppsättning med brödtext](api-management-transformation-policies.md#SetBody) .         | Nej       |
+| set-status      | En instruktion för [set-status-](api-management-advanced-policies.md#SetStatus) princip.           | Nej       |
 
 ### <a name="attributes"></a>Attribut
 
@@ -585,17 +585,17 @@ I den här exempel principen visas ett exempel på hur du använder `send-one-wa
 | Skicka – envägs-begäran       | Rot element.                                                                                               | Ja                             |
 | url                        | URL för begäran.                                                                                     | Nej om läge = kopiera; annars Ja. |
 | metod                     | HTTP-metoden för begäran.                                                                            | Nej om läge = kopiera; annars Ja. |
-| sidhuvud                     | Begär ande huvud. Använd flera huvud element för flera begärandehuvuden.                                  | Inga                              |
-| innehåll                       | Begär ande texten.                                                                                           | Inga                              |
-| autentisering-certifikat | [Certifikat som ska användas för klientautentisering](api-management-authentication-policies.md#ClientCertificate) | Inga                              |
+| sidhuvud                     | Begär ande huvud. Använd flera huvud element för flera begärandehuvuden.                                  | Nej                              |
+| brödtext                       | Begär ande texten.                                                                                           | Nej                              |
+| autentisering-certifikat | [Certifikat som ska användas för klientautentisering](api-management-authentication-policies.md#ClientCertificate) | Nej                              |
 
 ### <a name="attributes"></a>Attribut
 
 | Attribut     | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Krävs | Default  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string" | Anger om det här är en ny begäran eller en kopia av den aktuella begäran. I utgående läge initierar inte läge = kopiera begär ande texten.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Inga       | Nytt      |
-| namn          | Anger namnet på huvudet som ska ställas in.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Ja      | Gäller inte      |
-| exists-åtgärd | Anger vilken åtgärd som ska vidtas när rubriken redan har angetts. Det här attributet måste ha ett av följande värden.<br /><br /> -override-ersätter värdet i den befintliga rubriken.<br />-Skip-ersätter inte det befintliga huvud-värdet.<br />-append – lägger till värdet i det befintliga huvud-värdet.<br />-Delete – tar bort rubriken från begäran.<br /><br /> När det är inställt på `override` att en lista över flera poster med samma namn resulterar i att rubriken anges enligt alla poster (som visas flera gånger). endast värden som visas i resultatet anges. | Inga       | åsidosättning |
+| mode="string" | Anger om det här är en ny begäran eller en kopia av den aktuella begäran. I utgående läge initierar inte läge = kopiera begär ande texten.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Nej       | Ny      |
+| namn          | Anger namnet på huvudet som ska ställas in.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Ja      | Ej tillämpligt      |
+| exists-åtgärd | Anger vilken åtgärd som ska vidtas när rubriken redan har angetts. Det här attributet måste ha ett av följande värden.<br /><br /> -override-ersätter värdet i den befintliga rubriken.<br />-Skip-ersätter inte det befintliga huvud-värdet.<br />-append – lägger till värdet i det befintliga huvud-värdet.<br />-Delete – tar bort rubriken från begäran.<br /><br /> När det är inställt på `override` att en lista över flera poster med samma namn resulterar i att rubriken anges enligt alla poster (som visas flera gånger). endast värden som visas i resultatet anges. | Nej       | åsidosättning |
 
 ### <a name="usage"></a>Användning
 
@@ -669,20 +669,20 @@ Det här exemplet visar ett sätt att verifiera en reference-token med en Author
 | skicka begäran               | Rot element.                                                                                               | Ja                             |
 | url                        | URL för begäran.                                                                                     | Nej om läge = kopiera; annars Ja. |
 | metod                     | HTTP-metoden för begäran.                                                                            | Nej om läge = kopiera; annars Ja. |
-| sidhuvud                     | Begär ande huvud. Använd flera huvud element för flera begärandehuvuden.                                  | Inga                              |
-| innehåll                       | Begär ande texten.                                                                                           | Inga                              |
-| autentisering-certifikat | [Certifikat som ska användas för klientautentisering](api-management-authentication-policies.md#ClientCertificate) | Inga                              |
+| sidhuvud                     | Begär ande huvud. Använd flera huvud element för flera begärandehuvuden.                                  | Nej                              |
+| brödtext                       | Begär ande texten.                                                                                           | Nej                              |
+| autentisering-certifikat | [Certifikat som ska användas för klientautentisering](api-management-authentication-policies.md#ClientCertificate) | Nej                              |
 
 ### <a name="attributes"></a>Attribut
 
 | Attribut                       | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Krävs | Default  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string"                   | Anger om det här är en ny begäran eller en kopia av den aktuella begäran. I utgående läge initierar inte läge = kopiera begär ande texten.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Inga       | Nytt      |
-| response-variable-name="string" | Namnet på den Sammanhangs variabel som ska ta emot ett svars objekt. Om variabeln inte finns skapas den när principen har körts och kommer att bli tillgänglig via [`context.Variable`](api-management-policy-expressions.md#ContextVariables) samling.                                                                                                                                                                                                                                                                                                                          | Ja      | Gäller inte      |
-| timeout="integer"               | Tids gräns intervallet i sekunder innan anropet till URL: en misslyckades.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Inga       | 60       |
-| Ignorera-fel                    | Om värdet är true och begäran resulterar i ett fel:<br /><br /> -Om Response-Variable-Name har angetts innehåller det ett null-värde.<br />– Om Response-Variable-Name inte angavs, context. Begäran kommer inte att uppdateras.                                                                                                                                                                                                                                                                                                                                                                                   | Inga       | false    |
-| namn                            | Anger namnet på huvudet som ska ställas in.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Ja      | Gäller inte      |
-| exists-åtgärd                   | Anger vilken åtgärd som ska vidtas när rubriken redan har angetts. Det här attributet måste ha ett av följande värden.<br /><br /> -override-ersätter värdet i den befintliga rubriken.<br />-Skip-ersätter inte det befintliga huvud-värdet.<br />-append – lägger till värdet i det befintliga huvud-värdet.<br />-Delete – tar bort rubriken från begäran.<br /><br /> När det är inställt på `override` att en lista över flera poster med samma namn resulterar i att rubriken anges enligt alla poster (som visas flera gånger). endast värden som visas i resultatet anges. | Inga       | åsidosättning |
+| mode="string"                   | Anger om det här är en ny begäran eller en kopia av den aktuella begäran. I utgående läge initierar inte läge = kopiera begär ande texten.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Nej       | Ny      |
+| response-variable-name="string" | Namnet på den Sammanhangs variabel som ska ta emot ett svars objekt. Om variabeln inte finns skapas den när principen har körts och kommer att bli tillgänglig via [`context.Variable`](api-management-policy-expressions.md#ContextVariables) samling.                                                                                                                                                                                                                                                                                                                          | Ja      | Ej tillämpligt      |
+| timeout="integer"               | Tids gräns intervallet i sekunder innan anropet till URL: en misslyckades.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Nej       | 60       |
+| Ignorera-fel                    | Om värdet är true och begäran resulterar i ett fel:<br /><br /> -Om Response-Variable-Name har angetts innehåller det ett null-värde.<br />– Om Response-Variable-Name inte angavs, context. Begäran kommer inte att uppdateras.                                                                                                                                                                                                                                                                                                                                                                                   | Nej       | false    |
+| namn                            | Anger namnet på huvudet som ska ställas in.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Ja      | Ej tillämpligt      |
+| exists-åtgärd                   | Anger vilken åtgärd som ska vidtas när rubriken redan har angetts. Det här attributet måste ha ett av följande värden.<br /><br /> -override-ersätter värdet i den befintliga rubriken.<br />-Skip-ersätter inte det befintliga huvud-värdet.<br />-append – lägger till värdet i det befintliga huvud-värdet.<br />-Delete – tar bort rubriken från begäran.<br /><br /> När det är inställt på `override` att en lista över flera poster med samma namn resulterar i att rubriken anges enligt alla poster (som visas flera gånger). endast värden som visas i resultatet anges. | Nej       | åsidosättning |
 
 ### <a name="usage"></a>Användning
 
@@ -722,9 +722,9 @@ Observera att [Egenskaper](api-management-howto-properties.md) används som vär
 
 | Attribut         | Beskrivning                                            | Krävs | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| url="string"      | Proxy-URL i form av http://host:port.             | Ja      | Gäller inte     |
-| username="string" | Användar namn som ska användas för autentisering med proxyn. | Inga       | Gäller inte     |
-| Password = "sträng" | Lösen ord som ska användas för autentisering med proxyservern. | Inga       | Gäller inte     |
+| url="string"      | Proxy-URL i form av http://host:port.             | Ja      | Ej tillämpligt     |
+| username="string" | Användar namn som ska användas för autentisering med proxyn. | Nej       | Ej tillämpligt     |
+| Password = "sträng" | Lösen ord som ska användas för autentisering med proxyservern. | Nej       | Ej tillämpligt     |
 
 ### <a name="usage"></a>Användning
 
@@ -828,8 +828,8 @@ Det här exemplet visar hur du returnerar ett 401-svar om autentiseringstoken ä
 
 | Attribut       | Beskrivning                                                | Krävs | Default |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
-| code="integer"  | Den HTTP-statuskod som ska returneras.                            | Ja      | Gäller inte     |
-| Orsak = "sträng" | En beskrivning av orsaken till att status koden returneras. | Ja      | Gäller inte     |
+| code="integer"  | Den HTTP-statuskod som ska returneras.                            | Ja      | Ej tillämpligt     |
+| Orsak = "sträng" | En beskrivning av orsaken till att status koden returneras. | Ja      | Ej tillämpligt     |
 
 ### <a name="usage"></a>Användning
 
@@ -946,16 +946,16 @@ Uttryck som används i `set-variable` principen måste returnera någon av följ
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | Rita    | Rot element.                                                                                                                                        | Ja      |
 | meddelande  | En sträng eller ett uttryck som ska loggas.                                                                                                                 | Ja      |
-| metadata | Lägger till en anpassad egenskap i Application Insights [trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) -telemetri. | Inga       |
+| metadata | Lägger till en anpassad egenskap i Application Insights [trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) -telemetri. | Nej       |
 
 ### <a name="attributes"></a>Attribut
 
 | Attribut | Beskrivning                                                                                                               | Krävs | Default |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| källa    | Tecken strängen är meningsfull för spårnings visaren och anger källan till meddelandet.                                   | Ja      | Gäller inte     |
-| allvarlighetsgrad  | Anger spårningens allvarlighets nivå. Tillåtna värden är `verbose``information``error` (från lägsta till högsta). | Inga       | Utförlig |
-| namn      | Egenskapens namn.                                                                                                     | Ja      | Gäller inte     |
-| värde     | Egenskapens värde.                                                                                                    | Ja      | Gäller inte     |
+| källa    | Tecken strängen är meningsfull för spårnings visaren och anger källan till meddelandet.                                   | Ja      | Ej tillämpligt     |
+| allvarlighets grad  | Anger spårningens allvarlighets nivå. Tillåtna värden är `verbose``information``error` (från lägsta till högsta). | Nej       | Utförlig |
+| namn      | Egenskapens namn.                                                                                                     | Ja      | Ej tillämpligt     |
+| värde     | Egenskapens värde.                                                                                                    | Ja      | Ej tillämpligt     |
 
 ### <a name="usage"></a>Användning
 
@@ -1025,7 +1025,7 @@ I följande exempel finns det två `choose` principer som omedelbara underordnad
 
 | Attribut | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                            | Krävs | Default |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| efter       | Bestämmer om den `wait` principen väntar på att alla omedelbara underordnade principer ska slutföras eller bara en. Tillåtna värden är:<br /><br /> - `all`-vänta tills alla omedelbara underordnade principer har slutförts<br />– vänta tills en omedelbar underordnad princip har slutförts. När den första omedelbara underordnade principen har slutförts avbryts den `wait` principen och körningen av andra omedelbara underordnade principer avbryts. | Inga       | all     |
+| söker       | Bestämmer om den `wait` principen väntar på att alla omedelbara underordnade principer ska slutföras eller bara en. Tillåtna värden är:<br /><br /> - `all`-vänta tills alla omedelbara underordnade principer har slutförts<br />– vänta tills en omedelbar underordnad princip har slutförts. När den första omedelbara underordnade principen har slutförts avbryts den `wait` principen och körningen av andra omedelbara underordnade principer avbryts. | Nej       | all     |
 
 ### <a name="usage"></a>Användning
 

@@ -1,7 +1,7 @@
 ---
-title: Stöd för språk - nyhetssökning i Bing
+title: Språk stöd – API för nyhetssökning i Bing
 titleSuffix: Azure Cognitive Services
-description: En lista över naturligt språk, länder och regioner som stöds av den nyhetssökning i Bing.
+description: En lista över naturliga språk, länder och regioner som stöds av API för nyhetssökning i Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,27 +11,27 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384971"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385080"
 ---
-# <a name="language-and-region-support-for-the-bing-news-search-api"></a>Stöd för språk och din region för den nyhetssökning i Bing
+# <a name="language-and-region-support-for-the-bing-news-search-api"></a>Språk-och region stöd för API för nyhetssökning i Bing
 
-Den nyhetssökning i Bing har stöd för flera länder/regioner, och många med flera olika språk. Ange land/region med en fråga används främst för att begränsa sökresultaten baserat på intresse i landet/regionen. Dessutom resultaten kan innehålla länkar till Bing och dessa länkar kan lokalisera Bing användarupplevelsen enligt den angivna land/region eller språk.
+API för nyhetssökning i Bing stöder flera länder/regioner, många med fler än ett språk. Om du anger ett land/en region med en fråga, är det främst att förfina Sök resultat baserat på intressen i landet/regionen. Dessutom kan resultaten innehålla länkar till Bing, och dessa länkar kan lokalisera Bing-användargränssnittet enligt angivet land/region eller språk.
 
-Du kan ange ett land/region med hjälp av den `cc` frågeparameter. Om du anger ett land/region, måste du även ange en eller flera språkkoder med hjälp av den `Accept-Language` HTTP-huvud. Språk som stöds varierar beroende på countr/region. de tilldelas för varje land/region i tabellen marknader.
+Du kan ange ett land/en region med hjälp av parametern `cc` fråga. Om du anger ett land/en region måste du också ange en eller flera språk koder med hjälp av `Accept-Language` HTTP-huvudet. Vilka språk som stöds varierar beroende på regioner/region; de anges för varje land/region i tabellen marknad.
 
-Du kan också ange en marknad med hjälp av den `mkt` parameter och en kod från den **marknader** tabell. Ange en marknad samtidigt anger land/region och ett önskat språk. Den `setLang` Frågeparametern kan anges till en språkkod i det här fallet; detta är vanligtvis samma språk som anges av `mkt` såvida inte du föredrar att se Bing på ett annat språk.
+Alternativt kan du ange marknaden med hjälp av `mkt` Frågeparametern och en kod från tabellen **marknader** . Att ange en marknad samtidigt anger ett land/en region och ett önskat språk. Parametern `setLang` Query kan anges till en språkkod i det här fallet. Detta är vanligt vis samma språk som anges av `mkt`, om inte användaren föredrar att se Bing på ett annat språk.
 
-## <a name="supported-markets-for-news-search-endpoint"></a>Marknader för Nyheter search slutpunkten som stöds
+## <a name="supported-markets-for-news-search-endpoint"></a>Marknader som stöds för nyhets sökningens slut punkt
 
-För den `/news/search` slutpunkt i följande tabell visas de marknad kodvärden som du kan använda för att ange den `mkt` frågeparameter. Bing returnerar innehåll för endast dessa marknader. Listan kan ändras.  
+I följande tabell visas de marknads kods värden som du kan använda för att ange `mkt` Frågeparametern för `/news/search` slut punkten. Bing returnerar innehåll enbart för dessa marknader. Listan kan komma att ändras.  
 
-För en lista över land/region koder som du kan ange i den `cc` frågeparameter, se [landskoder](#countrycodes).  
+För en lista över lands-/region koder som du kan ange i `cc` Frågeparametern, se [lands koder](#countrycodes).  
 
-|Land/region|Språk|Marknaden kod|  
+|Land/region|Språk|Marknads kod|  
 |---------------------|--------------|-----------------|
 |Danmark|Danska|da-DK|
 |Österrike|Tyska|Tyskland-AT|
@@ -48,15 +48,15 @@ För en lista över land/region koder som du kan ange i den `cc` frågeparameter
 |Filippinerna|Svenska|en-PH|
 |Singapore|Svenska|en-SG|
 |USA|Svenska|en-US|
-|Svenska|Allmänt|en WW|
-|Svenska|Allmänt|en-XA|
-|Sydafrika|Svenska|en ZA|
+|Svenska|Redovisningsjournalmallar|en-WW|
+|Svenska|Redovisningsjournalmallar|en-XA|
+|Sydafrika|Svenska|en-ZA|
 |Argentina|Spanska|es-AR|
 |Chile|Spanska|es-CL|
 |Spanien|Spanska|es-ES|
 |Mexiko|Spanska|es-MX|
 |USA|Spanska|es-US|
-|Spanska|Allmänt|es-XL|
+|Spanska|Redovisningsjournalmallar|es-XL|
 |Finland|Finska|fi-FI|  
 |Frankrike|Franska|fr-BE|
 |Kanada|Franska|fr-CA|
@@ -75,19 +75,19 @@ För en lista över land/region koder som du kan ange i den `cc` frågeparameter
 |Sverige|Svenska|SV-SE|  
 |Turkiet|Turkiska|TR-TR|  
 
-## <a name="supported-markets-for-news-endpoint"></a>Stöds marknader för Nyheter slutpunkten
-För den `/news` slutpunkt i följande tabell visas de marknad kodvärden som du kan använda för att ange den `mkt` frågeparameter. Bing returnerar innehåll för endast dessa marknader. Listan kan ändras.  
+## <a name="supported-markets-for-news-endpoint"></a>Marknader som stöds för diskussions grupps slut punkt
+I följande tabell visas de marknads kods värden som du kan använda för att ange `mkt` Frågeparametern för `/news` slut punkten. Bing returnerar innehåll enbart för dessa marknader. Listan kan komma att ändras.  
 
-För en lista över land/region koder som du kan ange i den `cc` frågeparameter, se [landskoder](#countrycodes).  
+För en lista över lands-/region koder som du kan ange i `cc` Frågeparametern, se [lands koder](#countrycodes).  
 
-|Land/region|Språk|Marknaden kod|  
+|Land/region|Språk|Marknads kod|  
 |---------------------|--------------|-----------------|
 |Danmark|Danska|da-DK|
 |Tyskland|Tyska|de-DE|
 |Australien|Svenska|SV-Australien|
 |Storbritannien|Svenska|en-GB|
 |USA|Svenska|en-US|
-|Svenska|Allmänt|en WW|
+|Svenska|Redovisningsjournalmallar|en-WW|
 |Chile|Spanska|es-CL|
 |Mexiko|Spanska|es-MX|
 |USA|Spanska|es-US|
@@ -98,12 +98,12 @@ För en lista över land/region koder som du kan ange i den `cc` frågeparameter
 |Brasilien|Portugisiska|pt-BR|
 |Folkrepubliken Kina|Kinesiska|zh-CN|
 
-## <a name="supported-markets-for-news-trending-endpoint"></a>Marknader för populära nyheter-slutpunkten som stöds
-För den `/news/trendingtopics` slutpunkt i följande tabell visas de marknad kodvärden som du kan använda för att ange den `mkt` frågeparameter. Bing returnerar innehåll för endast dessa marknader. Listan kan ändras.  
+## <a name="supported-markets-for-news-trending-endpoint"></a>Marknader som stöds för nyhets Trends slut punkt
+I följande tabell visas de marknads kods värden som du kan använda för att ange `mkt` Frågeparametern för `/news/trendingtopics` slut punkten. Bing returnerar innehåll enbart för dessa marknader. Listan kan komma att ändras.  
 
-För en lista över land/region koder som du kan ange i den `cc` frågeparameter, se [landskoder](#countrycodes).  
+För en lista över lands-/region koder som du kan ange i `cc` Frågeparametern, se [lands koder](#countrycodes).  
 
-|Land/region|Språk|Marknaden kod|  
+|Land/region|Språk|Marknads kod|  
 |---------------------|--------------|-----------------|
 |Tyskland|Tyska|de-DE|
 |Australien|Svenska|SV-Australien|
@@ -118,9 +118,9 @@ För en lista över land/region koder som du kan ange i den `cc` frågeparameter
 
 
 <a name="countrycodes"></a>   
-### <a name="country-codes"></a>Landskoder  
+### <a name="country-codes"></a>Lands koder  
 
-Följande är de koder för land/region som du kan ange i den `cc` frågeparameter. Listan kan ändras.  
+Följande är de lands-/regionkoder som du kan ange i parametern `cc` fråga. Listan kan komma att ändras.  
 
 |Land/region|Landskod|  
 |---------------------|------------------|  
@@ -162,4 +162,4 @@ Följande är de koder för land/region som du kan ange i den `cc` frågeparamet
 |USA|USA|
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om Sök på Bing News-slutpunkter, [nyheter Search API-referens för v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
+Mer information om Nyhetssökning i Bing slut punkter finns i [NYHETSSÖKNING API v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).

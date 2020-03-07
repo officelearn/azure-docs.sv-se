@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 18a5e11d2341fb020fc442d2f9ce7c1d44de9d0a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682755"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384777"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Data uppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -77,11 +77,11 @@ En data uppsättning i Data Factory definieras i JSON-format enligt följande:
 
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-| Egenskap | Beskrivning | Krävs | Standard |
+| Egenskap | Beskrivning | Krävs | Default |
 | --- | --- | --- | --- |
 | namn |Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](data-factory-naming-rules.md) för namngivnings regler. |Ja |Ej tillämpligt |
 | typ |Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typ](#Type). |Ja |Ej tillämpligt |
-| hierarkistruktur |Schema för data uppsättningen.<br/><br/>Mer information finns i [data uppsättnings struktur](#Structure). |Nej |Ej tillämpligt |
+| structure |Schema för data uppsättningen.<br/><br/>Mer information finns i [data uppsättnings struktur](#Structure). |Nej |Ej tillämpligt |
 | typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#Type). |Ja |Ej tillämpligt |
 | extern | Boolesk flagga för att ange om en data uppsättning uttryckligen skapas av en Data Factory-pipeline eller inte. Om indata-datauppsättningen för en aktivitet inte produceras av den aktuella pipelinen anger du den här flaggan till true. Ange den här flaggan till true för indata-datauppsättningen för den första aktiviteten i pipelinen.  |Nej |false |
 | availability | Definierar bearbetnings fönstret (till exempel varje timme eller varje dag) eller segmenterings modellen för data uppsättnings produktionen. Varje enhet med data som konsumeras och skapas av en aktivitets körning kallas för en data sektor. Om tillgänglighet för en data uppsättning för utdata anges till daglig (frekvens-dag, intervall-1) skapas en sektor varje dag. <br/><br/>Mer information finns i tillgänglighet för data uppsättningar. <br/><br/>Mer information om den data uppsättnings segment modellen finns i artikeln om [schemaläggning och körning](data-factory-scheduling-and-execution.md) . |Ja |Ej tillämpligt |
@@ -193,8 +193,8 @@ Varje kolumn i strukturen innehåller följande egenskaper:
 | --- | --- | --- |
 | namn |Kolumnens namn. |Ja |
 | typ |Kolumnens datatyp.  |Nej |
-| substrat |. Den NET-baserade kulturen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. |Nej |
-| formatering |Format sträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. |Nej |
+| culture |. NET-baserad kultur som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. |Nej |
+| format |Format sträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. |Nej |
 
 Följande rikt linjer hjälper dig att avgöra när du ska inkludera struktur information och vad som ska ingå i **struktur** avsnittet.
 
@@ -231,11 +231,11 @@ Data uppsättningen för utdata skapas per timme inom pipelinens start-och slut 
 
 I följande tabell beskrivs de egenskaper som du kan använda i avsnittet tillgänglighet:
 
-| Egenskap | Beskrivning | Krävs | Standard |
+| Egenskap | Beskrivning | Krävs | Default |
 | --- | --- | --- | --- |
 | frequency |Anger tidsenheten för data uppsättnings sektorns produktion.<br/><br/><b>Frekvens som stöds</b>: minut, timme, dag, vecka, månad |Ja |Ej tillämpligt |
 | interval |Anger en multiplikator för frekvens.<br/><br/>"Frekvens x-intervall" anger hur ofta sektorn produceras. Om du till exempel vill att data uppsättningen ska segmenteras per timme anger du <b>frekvens</b> till <b>timme</b>och <b>intervall</b> till <b>1</b>.<br/><br/>Observera att om du anger **frekvensen** som **minut**bör du ange ett intervall som inte är mindre än 15. |Ja |Ej tillämpligt |
-| ATS |Anger om sektorn ska skapas i början eller slutet av intervallet.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Om **frekvensen** är inställd på **månad**och **formatet** är inställt på **EndOfInterval**, produceras sektorn den sista dagen i månaden. Om **format** är inställt på **StartOfInterval**skapas sektorn den första dagen i månaden.<br/><br/>Om **frekvensen** är inställd på **dag**och **formatet** är inställt på **EndOfInterval**, produceras sektorn under den senaste timmen på dagen.<br/><br/>Om **frekvensen** är inställd på **timme**och **formatet** är inställt på **EndOfInterval**, skapas sektorn i slutet av timmen. För en sektor för en PM-2-timmarsperiod skapas till exempel sektorn på 2 PM. |Nej |EndOfInterval |
+| style |Anger om sektorn ska skapas i början eller slutet av intervallet.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Om **frekvensen** är inställd på **månad**och **formatet** är inställt på **EndOfInterval**, produceras sektorn den sista dagen i månaden. Om **format** är inställt på **StartOfInterval**skapas sektorn den första dagen i månaden.<br/><br/>Om **frekvensen** är inställd på **dag**och **formatet** är inställt på **EndOfInterval**, produceras sektorn under den senaste timmen på dagen.<br/><br/>Om **frekvensen** är inställd på **timme**och **formatet** är inställt på **EndOfInterval**, skapas sektorn i slutet av timmen. För en sektor för en PM-2-timmarsperiod skapas till exempel sektorn på 2 PM. |Nej |EndOfInterval |
 | anchorDateTime |Definierar den absoluta position i tid som används av Scheduler för att beräkna data uppsättningens sektor gränser. <br/><br/>Observera att om den här egenskapen har datum delar som är mer detaljerade än den angivna frekvensen, ignoreras fler detaljerade delar. Om **intervallet** exempelvis är **per timme** (frekvens: timme och intervall: 1) och **anchorDateTime** innehåller **minuter och sekunder**, ignoreras sedan minuter och sekunder delar av **anchorDateTime** . |Nej |01/01/0001 |
 | redovisningsmotkonto |TimeSpan som startar och slutar på alla mängd uppsättnings segment flyttas. <br/><br/>Observera att om både **anchorDateTime** och **offset** anges, är resultatet det kombinerade skiftet. |Nej |Ej tillämpligt |
 
@@ -278,7 +278,7 @@ Följande data uppsättning är månatlig och produceras den tredje i varje mån
 **Princip** avsnittet i data uppsättnings definitionen definierar villkoret eller villkoret som data uppsättnings sektorerna måste uppfylla.
 
 ### <a name="validation-policies"></a>Validerings principer
-| Princip namn | Beskrivning | Tillämpas på | Krävs | Standard |
+| Principnamn | Beskrivning | Tillämpas på | Krävs | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Verifierar att data i **Azure Blob Storage** uppfyller minimi kraven för storlek (i megabyte). |Azure Blob Storage |Nej |Ej tillämpligt |
 | minimumRows |Verifierar att data i en **Azure SQL-databas** eller en **Azure-tabell** innehåller det lägsta antalet rader. |<ul><li>Azure SQL-databas</li><li>Azure-tabell</li></ul> |Nej |Ej tillämpligt |
@@ -317,7 +317,7 @@ Om inte en data uppsättning skapas av Data Factory ska den markeras som **exter
 | Namn | Beskrivning | Krävs | Standardvärde |
 | --- | --- | --- | --- |
 | dataDelay |Tiden för att försena kontrollen av tillgängligheten för externa data för den aktuella sektorn. Du kan till exempel försena en varje timme-kontroll genom att använda den här inställningen.<br/><br/>Inställningen gäller bara för aktuell tid. Om det till exempel är 1:00 PM nu och det här värdet är 10 minuter, börjar verifieringen med 1:10 PM.<br/><br/>Observera att den här inställningen inte påverkar segment tidigare. Segment med **slut tid i sektorn** + **dataDelay** < **nu** bearbetas utan fördröjning.<br/><br/>Tiden som är större än 23:59 timmar ska anges med `day.hours:minutes:seconds` formatet. Om du till exempel vill ange 24 timmar ska du inte använda 24:00:00. Använd i stället 1,00:00:00. Om du använder 24:00:00 behandlas det som 24 dagar (24.00:00:00). I 1 dag och 4 timmar anger du 1:04:00:00. |Nej |0 |
-| retryInterval |Vänte tiden mellan ett haveri och nästa försök. Den här inställningen gäller för aktuell tid. Om föregående försök misslyckades är nästa försök efter **retryInterval** -perioden. <br/><br/>Om det är 1:00 PM börjar vi med det första försöket. Om varaktigheten för att slutföra den första verifierings kontrollen är 1 minut och åtgärden misslyckades, är nästa nytt försök på 1:00 + 1MIN (varaktighet) + 1MIN (återförsöksintervall) = 1:02 PM. <br/><br/>För sektorer i det förflutna sker ingen fördröjning. Återförsöket sker omedelbart. |Nej |00:01:00 (1 minut) |
+| RetryInterval |Vänte tiden mellan ett haveri och nästa försök. Den här inställningen gäller för aktuell tid. Om föregående försök misslyckades är nästa försök efter **retryInterval** -perioden. <br/><br/>Om det är 1:00 PM börjar vi med det första försöket. Om varaktigheten för att slutföra den första verifierings kontrollen är 1 minut och åtgärden misslyckades, är nästa nytt försök på 1:00 + 1MIN (varaktighet) + 1MIN (återförsöksintervall) = 1:02 PM. <br/><br/>För sektorer i det förflutna sker ingen fördröjning. Återförsöket sker omedelbart. |Nej |00:01:00 (1 minut) |
 | retryTimeout |Tids gränsen för varje nytt försök.<br/><br/>Om den här egenskapen har angetts till 10 minuter ska verifieringen slutföras inom 10 minuter. Om det tar längre tid än 10 minuter att utföra verifieringen, tids gränsen för återförsök.<br/><br/>Om alla försök för validerings tiden är slut, markeras sektorn som **stängningsåtgärd**. |Nej |00:10:00 (10 minuter) |
 | maximumRetry |Antalet gånger för att kontrol lera tillgängligheten för externa data. Det högsta tillåtna värdet är 10. |Nej |3 |
 

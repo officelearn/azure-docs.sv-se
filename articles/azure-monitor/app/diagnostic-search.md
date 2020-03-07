@@ -4,11 +4,11 @@ description: Sök och filtrera RAW-telemetri som skickas av din webbapp.
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669683"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368319"
 ---
 # <a name="using-search-in-application-insights"></a>Använda Sök i Application Insights
 
@@ -92,7 +92,7 @@ Du kanske vill ange ett tidsintervall, eftersom sökningar över ett kortare int
 
 Sök efter fullständiga ord, inte del strängar. Använd citat tecken för att omsluta specialtecken.
 
-| Sträng | Hittades *inte* | Kon |
+| String | Hittades *inte* | Kon |
 | --- | --- | --- |
 | HomeController. om |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |USA|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`

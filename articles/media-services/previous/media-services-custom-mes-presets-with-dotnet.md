@@ -1,6 +1,6 @@
 ---
-title: Anpassa Media Encoder Standard förinställningar | Microsoft Docs
-description: Det här avsnittet visar hur du utför avancerad kodning genom att anpassa förval för Media Encoder Standard uppgift. I avsnittet visas hur du använder Media Services .NET SDK för att skapa en kodning uppgiften och jobb. Den visar också hur du anger anpassade förinställningar för kodning jobbet.
+title: Anpassa Media Encoder Standard för inställningar | Microsoft Docs
+description: Det här avsnittet visar hur du utför avancerad kodning genom att anpassa Media Encoder Standard uppgifts för inställningar. Avsnittet visar hur du använder Media Services .NET SDK för att skapa en kodnings uppgift och ett jobb. Det visar också hur du anger anpassade för inställningar för kodnings jobbet.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,32 +15,32 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61247251"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394745"
 ---
-# <a name="customizing-media-encoder-standard-presets"></a>Anpassa Media Encoder Standard förinställningar  
+# <a name="customizing-media-encoder-standard-presets"></a>Anpassa Media Encoder Standard för inställningar  
 
 ## <a name="overview"></a>Översikt
 
-Den här artikeln visar hur du utför avancerad kodning med Media Encoder Standard (MES) med hjälp av en anpassad förinställning. Artikeln använder .NET för att skapa ett kodningsjobb och ett jobb som kör den här uppgiften.  
+I den här artikeln lär du dig hur du utför avancerad kodning med Media Encoder Standard (med en anpassad för inställning). Artikeln använder .NET för att skapa en kodnings uppgift och ett jobb som utför den här uppgiften.  
 
-Den här artikeln visar hur du anpassar en förinställning genom att utföra den [H264, flera bithastigheter, 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) förinställda och minskar antalet lager. Den [Anpassa Media Encoder Standard förinställningar](media-services-advanced-encoding-with-mes.md) artikeln visar anpassade förinställningar som kan användas för att utföra avancerade kodningsuppgifter.
+Den här artikeln visar hur du anpassar en för inställning genom att ta H264,-förvalet för [flera bit](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) hastigheter och minska antalet lager. I artikeln [anpassa Media Encoder Standard för inställningar](media-services-advanced-encoding-with-mes.md) visas anpassade för hands inställningar som du kan använda för att utföra avancerade kodnings uppgifter.
 
 > [!NOTE]
-> De anpassade förinställningar som beskrivs i den här artikeln kan inte användas i [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) transformeringar eller CLI-kommandon. Se den [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md) för mer information.
+> De anpassade för inställningar som beskrivs i den här artikeln kan inte användas i [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/) -omvandlingar eller CLI-kommandon. Mer information finns i [vägledningen om migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md) .
 
-## <a id="customizing_presets"></a> Anpassa en MES förinställning
+## <a id="customizing_presets"></a>Anpassa en inställning för en inställning
 
-### <a name="original-preset"></a>Ursprungliga förinställning
+### <a name="original-preset"></a>Ursprunglig för inställning
 
-Spara den JSON som definierats i den [H264, flera bithastigheter, 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) artikel i en fil med .json-tillägget. Till exempel **CustomPreset_JSON.json**.
+Spara den JSON som definierats i artikeln [H264, Multiple bit hastighet](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) i en fil med tillägget. JSON. Till exempel **CustomPreset_JSON. JSON**.
 
-### <a name="customized-preset"></a>Anpassad förinställning
+### <a name="customized-preset"></a>Anpassad för inställning
 
-Öppna den **CustomPreset_JSON.json** filen och ta bort första tre lager från **H264Layers** så att din fil som ser ut så här.
+Öppna filen **CustomPreset_JSON. JSON** och ta bort de tre första lagren från **H264Layers** så att filen ser ut så här.
 
 ```json 
     {  
@@ -113,21 +113,21 @@ Spara den JSON som definierats i den [H264, flera bithastigheter, 720p](media-se
     }  
 ```
 
-## <a id="encoding_with_dotnet"></a>Encoding med Media Services .NET SDK
+## <a id="encoding_with_dotnet"></a>Koda med Media Services .NET SDK
 
-I följande kodexempel använder Media Services .NET SDK för att utföra följande uppgifter:
+I följande kod exempel används Media Services .NET SDK för att utföra följande uppgifter:
 
-- Skapa ett kodningsjobb.
-- Hämta en referens till Media Encoder Standard-kodaren.
-- Läsa in den anpassa JSON-förinställning som du skapade i föregående avsnitt. 
+- Skapa ett kodnings jobb.
+- Hämta en referens till Media Encoder Standard Encoder.
+- Läs in den anpassade JSON-förinställning som du skapade i föregående avsnitt. 
   
         // Load the JSON from the local file.
         string configuration = File.ReadAllText(fileName);  
 
-- Lägg till ett kodningsjobb för jobbet. 
-- Ange indatatillgången som ska kodas.
-- Skapa en utdata-tillgång som innehåller den kodade tillgången.
-- Lägg till en händelsehanterare för att kontrollera jobbförloppet för.
+- Lägg till en kodnings uppgift i jobbet. 
+- Ange den inmatade till gång som ska kodas.
+- Skapa en utgående till gång som innehåller den kodade till gången.
+- Lägg till en händelse hanterare för att kontrol lera jobb förloppet.
 - Skicka in jobbet.
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
@@ -264,12 +264,12 @@ namespace CustomizeMESPresests
 }
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Koda med en anpassad transformering med hjälp av CLI](../latest/custom-preset-cli-howto.md)
 - [Kodning med Media Services v3](../latest/encoding-concept.md)
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

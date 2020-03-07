@@ -14,11 +14,11 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 0262d22ae00456ce06cb8efbf995f1a093b20043
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084999"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377373"
 ---
 # <a name="application-configuration-options"></a>Program konfigurations alternativ
 
@@ -95,7 +95,7 @@ För närvarande är det enda sättet att få en app att bara logga in användar
 - Ange att appens registrerings mål ska `Work and school accounts and personal accounts`.
 - Ange att mål gruppen i koden/konfigurationen ska `AadAuthorityAudience.PersonalMicrosoftAccount` (eller `TenantID` = "konsumenter").
 
-## <a name="client-id"></a>Klient-ID
+## <a name="client-id"></a>Klientorganisations-ID
 
 Klient-ID är det unika program-ID (klient) som är tilldelat din app av Azure AD när appen registrerades.
 

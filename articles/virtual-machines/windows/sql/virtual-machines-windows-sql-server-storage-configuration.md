@@ -14,11 +14,11 @@ ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
 ms.openlocfilehash: 9d8fce0772f13c6e009b2441ecd85779a7622c5c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981741"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388718"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Lagrings konfiguration för SQL Server virtuella datorer
 
@@ -28,7 +28,7 @@ I det här avsnittet beskrivs hur Azure konfigurerar lagring för dina SQL Serve
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda de automatiserade konfigurations inställningarna för lagring måste den virtuella datorn ha följande egenskaper:
 
@@ -40,7 +40,7 @@ Om du vill använda de automatiserade konfigurations inställningarna för lagri
 
 I följande avsnitt beskrivs hur du konfigurerar lagring för nya SQL Server virtuella datorer.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 När du konfigurerar en virtuell Azure-dator med hjälp av en SQL Server Galleri avbildning väljer du **ändra konfiguration** på fliken **SQL Server inställningar** för att öppna konfigurations sidan Prestandaoptimerad lagring. Du kan antingen lämna värdena som standard eller ändra vilken typ av disk konfiguration som passar dina behov bäst utifrån din arbets belastning. 
 
@@ -99,7 +99,7 @@ För befintliga SQL Server virtuella datorer kan du ändra vissa lagrings instä
 * SQL-data
 * SQL-logg
 * Annat (icke-SQL-lagring)
-* Tillgänglig
+* Tillgängligt
 
 Om du vill ändra lagrings inställningarna väljer du **Konfigurera** under **Inställningar**. 
 
@@ -126,7 +126,7 @@ Azure använder följande inställningar för att skapa lagringspoolen på SQL S
 | Inställning | Värde |
 | --- | --- |
 | Rand storlek |256 KB (data lager hantering); 64 KB (transaktion) |
-| Diskstorlekar |1 TB varje |
+| Disk storlekar |1 TB varje |
 | Cache |Läsa |
 | Fördelnings storlek |storlek för 64 KB NTFS-allokeringsenhet |
 | Återställning | Enkel återställning (ingen återhämtning) |
@@ -140,11 +140,11 @@ Azure använder följande inställningar för att skapa lagringspoolen på SQL S
 
 I följande tabell beskrivs de tre tillgängliga alternativen för arbets belastnings typer och deras motsvarande optimeringar:
 
-| Typ av arbetsbelastning | Beskrivning | Optimeringar |
+| Arbets belastnings typ | Beskrivning | Optimeringar |
 | --- | --- | --- |
-| **Allmänt** |Standardinställning som stöder de flesta arbets belastningar |Inget |
+| **Allmänt** |Standardinställning som stöder de flesta arbets belastningar |Ingen |
 | **Transaktionell bearbetning** |Optimerar lagringen för traditionella databas OLTP-arbetsbelastningar |Spårnings flagga 1117<br/>Spårnings flagga 1118 |
-| **Datalagring** |Optimerar lagringen för analys-och rapporterings arbets belastningar |Spårnings flagga 610<br/>Spårnings flagga 1117 |
+| **Data lager hantering** |Optimerar lagringen för analys-och rapporterings arbets belastningar |Spårnings flagga 610<br/>Spårnings flagga 1117 |
 
 > [!NOTE]
 > Du kan bara ange arbets belastnings typen när du etablerar en virtuell SQL-dator genom att välja den i steget lagrings konfiguration.

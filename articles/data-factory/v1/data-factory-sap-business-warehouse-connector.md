@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929211"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387328"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Flytta data från SAP Business Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -46,7 +46,7 @@ Om du vill aktivera anslutningen till SAP BW-instansen installerar du följande 
 Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från ett lokalt Cassandra data lager med hjälp av olika verktyg/API: er. 
 
 - Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data. 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -86,7 +86,7 @@ När källan i kopierings aktiviteten är av typen **RelationalSource** (som inn
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB | Anger MDX-frågan för att läsa data från SAP BW-instansen. | MDX-fråga. | Ja |
+| query | Anger MDX-frågan för att läsa data från SAP BW-instansen. | MDX-fråga. | Ja |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>JSON-exempel: kopiera data från SAP Business Warehouse till Azure Blob
@@ -291,27 +291,27 @@ När du flyttar data från SAP BW används följande mappningar från SAP BW typ
 Datatyp i ABAP-ordlistan | .NET-datatyp
 -------------------------------- | --------------
 ACCP |  Int
-CHAR | Sträng
-CLNT | Sträng
-CURR | Decimal
-CUKY | Sträng
-DEC | Decimal
-FLTP | Double
-INT1 | Mottagna byte
+CHAR | String
+CLNT | String
+CURR | decimaltal
+CUKY | String
+DEC | decimaltal
+FLTP | Double-värde
+INT1 | Byte
 INT2 | Int16
 INT4 | Int
-LANG | Sträng
-LCHR | Sträng
+LANG | String
+LCHR | String
 LRAW | Byte[]
 PREC | Int16
-QUAN | Decimal
+QUAN | decimaltal
 RAW | Byte[]
 RAWSTRING | Byte[]
-STRING | Sträng
-ENHET | Sträng
-DATS | Sträng
-NUMC | Sträng
-TIMS | Sträng
+STRING | String
+UNIT | String
+DATS | String
+NUMC | String
+TIMS | String
 
 > [!NOTE]
 > Information om hur du mappar kolumner från käll data uppsättning till kolumner från mottagar data uppsättningen finns [i mappa data mängds kolumner i Azure Data Factory](data-factory-map-columns.md).

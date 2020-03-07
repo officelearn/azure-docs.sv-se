@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
 ms.openlocfilehash: 8087baf7595bfd2497f97fbff4822b356cd1b146
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75485642"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358561"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Hantera Azure Resource Manager resurs grupper med hjälp av Azure Portal
 
@@ -33,7 +33,7 @@ Resursgruppen lagrar metadata om resurserna. När du anger en plats för resurs 
 
 ## <a name="create-resource-groups"></a>Skapa resurs grupper
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **resurs grupper**
 
     ![Lägg till resurs grupp](./media/manage-resource-groups-portal/manage-resource-groups-add-group.png)
@@ -53,7 +53,7 @@ Resursgruppen lagrar metadata om resurserna. När du anger en plats för resurs 
 
 ## <a name="list-resource-groups"></a>Lista resurs grupper
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Om du vill visa en lista över resurs grupper väljer du **resurs grupper**
 
     ![Bläddra bland resurs grupper](./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png)
@@ -62,7 +62,7 @@ Resursgruppen lagrar metadata om resurserna. När du anger en plats för resurs 
 
 ## <a name="open-resource-groups"></a>Öppna resurs grupper
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Resursgrupper**.
 3. Välj den resurs grupp som du vill öppna.
 

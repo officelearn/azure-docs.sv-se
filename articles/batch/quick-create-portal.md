@@ -10,13 +10,13 @@ ms.date: 07/03/2018
 ms.author: labrenne
 ms.custom: mvc
 ms.openlocfilehash: 8d725834cb2dd86163909b2ae598e61026ae4bb9
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024117"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379103"
 ---
-# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Snabbstart: Kör ditt första Batch-jobb på Azure Portal
+# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Snabbstart: Kör ditt första Batch-jobb på Azure-portalen
 
 Den här snabbstarten visar hur du använder Azure-portalen för att skapa ett Batch-konto, en *pool* med beräkningsnoder (virtuella datorer) och ett *jobb* som kör grundläggande *aktiviteter* på poolen. När du har slutfört den här snabbstarten kommer du att förstå huvudbegreppen för Batch-tjänsten och vara redo att testa Batch med mer realistiska arbetsbelastningar i större skala.
 
@@ -28,7 +28,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-batch-account"></a>Skapa ett Batch-konto
 
-Följ dessa steg om du vill skapa ett Batch-konto som ska användas som exempel för testning. Du behöver ett Batch-konto för att skapa pooler och jobb. Som du ser här kan du länka ett Azure-lagringskonto till Batch-kontot. Även om det inte krävs för den här snabbstarten, är lagringskontot användbart för att distribuera program och lagra indata och utdata för de flesta verkliga arbetsbelastningarna.
+Följ dessa steg om du vill skapa ett Batch-konto som ska användas som exempel för testning. Du behöver ett Batch-konto för att skapa pooler och jobb. Som du ser här kan du länka ett Azure-lagringskonto till Batch-kontot. Även om det inte krävs för den här snabbstarten är lagringskontot användbart för att distribuera program och lagra indata och utdata för de flesta verkliga arbetsbelastningarna.
 
 
 1. Välj **Skapa en resurs** > **Beräkna** > **Batch-tjänst**. 
@@ -84,7 +84,7 @@ Efter några minuter är tillståndet för poolen **Konstant** och noderna start
 
 ## <a name="create-a-job"></a>Skapa ett jobb
 
-Nu när du har en pool ska du skapa ett jobb att köra på den. Ett Batch-jobb är en logisk grupp för en eller flera aktiviteter. Ett jobb omfattar inställningar som är gemensamma för aktiviteter, till exempel prioritet och vilken pool som aktiviteterna ska köras på. Från början har jobbet inga uppgifter. 
+Nu när du har en pool ska du skapa ett jobb att köra på den. Ett Batch-jobb är en logisk grupp för en eller flera aktiviteter. Ett jobb omfattar inställningar som är gemensamma för aktiviteter, till exempel prioritet och vilken pool som aktiviteterna ska köras på. Från början har jobbet inga aktiviteter. 
 
 1. I vyn Batch-konto väljer du **Jobb** > **Lägg till**. 
 
@@ -94,7 +94,7 @@ Nu när du har en pool ska du skapa ett jobb att köra på den. Ett Batch-jobb �
 
 När jobbet har skapats öppnas sidan **Aktiviteter**.
 
-## <a name="create-tasks"></a>Skapa aktiviteter
+## <a name="create-tasks"></a>Skapa uppgifter
 
 Nu ska du skapa exempelaktiviteter som ska köras i jobbet. Vanligtvis kan du skapa flera aktiviteter som Batch köar och distribuerar för att köras på beräkningsnoderna. I det här exemplet skapar du två identiska aktiviteter. Varje aktivitet kör en kommandorad för att visa Batch-miljövariablerna på en beräkningsnod och väntar sedan i 90 sekunder. 
 
@@ -108,7 +108,7 @@ Så här skapar du den första aktiviteten:
 
 3. På **Kommandoraden** anger du `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Behåll standardinställningarna för återstående inställningar och välj **OK**.
 
-   ![Skapa en uppgift][task_create]
+   ![Skapa en aktivitet][task_create]
 
 När du har skapat en aktivitet köar Batch den så att den körs på poolen. När en nod kan köra den, körs aktiviteten.
 

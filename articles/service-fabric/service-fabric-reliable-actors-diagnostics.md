@@ -1,16 +1,16 @@
 ---
-title: Diagnostik och övervakning för aktörer
+title: Aktörernas diagnostik och övervakning
 description: I den här artikeln beskrivs funktionerna för diagnostik-och prestanda övervakning i Service Fabric Reliable Actors runtime, inklusive händelser och prestanda räknare som genereras av den.
 author: abhishekram
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: e6e9fb66368461e0d3ebdd2709f4ced0e796bea5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75376740"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389598"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostik- och prestandaövervakning för Reliable Actors
 Reliable Actors körningen genererar [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) -händelser och [prestanda räknare](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Dessa ger insikter om hur körningen fungerar och hjälper till med fel sökning och prestanda övervakning.
@@ -91,7 +91,7 @@ Reliable Actors runtime genererar följande händelser som rör [aktörs metoder
 
 Reliable Actors runtime publicerar följande prestanda räknare relaterade till körningen av aktörs metoder.
 
-| Kategorinamn | Namn på räknare | Beskrivning |
+| Kategori namn | Namn på räknare | Beskrivning |
 | --- | --- | --- |
 | Service Fabric aktörs metod |Anrop/SEK |Antal gånger som aktörs tjänst metoden anropas per sekund |
 | Service Fabric aktörs metod |Genomsnittligt antal millisekunder per anrop |Åtgången tid för att köra aktörs tjänst metoden i millisekunder |
@@ -106,7 +106,7 @@ Reliable Actors runtime genererar följande händelser relaterade till [samtidig
 
 Reliable Actors runtime publicerar följande prestanda räknare relaterade till samtidighet.
 
-| Kategorinamn | Namn på räknare | Beskrivning |
+| Kategori namn | Namn på räknare | Beskrivning |
 | --- | --- | --- |
 | Service Fabric skådespelare |antal aktörs anrop som väntar på att aktörs låset |Antal aktörs anrop som väntar på att erhålla lås per aktör som tillämpar fast samtidighet |
 | Service Fabric skådespelare |Genomsnittlig vänte tid i millisekunder per lås |Åtgången tid (i millisekunder) för att hämta låset per aktör som framtvingar Turn-baserad samtidighet |
@@ -122,7 +122,7 @@ Reliable Actors runtime genererar följande händelser relaterade till hantering
 
 Reliable Actors runtime publicerar följande prestanda räknare relaterade till hantering av aktörs tillstånd.
 
-| Kategorinamn | Namn på räknare | Beskrivning |
+| Kategori namn | Namn på räknare | Beskrivning |
 | --- | --- | --- |
 | Service Fabric skådespelare |Genomsnittligt antal millisekunder per Save-tillstånd |Åtgången tid för att spara aktörs tillstånd i millisekunder |
 | Service Fabric skådespelare |Genomsnittligt antal millisekunder per inläsnings tillstånd |Åtgången tid för att läsa in aktörs tillstånd i millisekunder |
@@ -145,14 +145,14 @@ Reliable Actors runtime genererar följande händelser som rör [aktivering och 
 
 Reliable Actors runtime publicerar följande prestanda räknare relaterade till aktivering och inaktive ring av aktör.
 
-| Kategorinamn | Namn på räknare | Beskrivning |
+| Kategori namn | Namn på räknare | Beskrivning |
 | --- | --- | --- |
 | Service Fabric skådespelare |Genomsnittlig OnActivateAsync millisekunder |Åtgången tid för att köra OnActivateAsync-metoden i millisekunder |
 
 ### <a name="actor-request-processing-performance-counters"></a>Aktör begär behandling prestanda räknare
 När en klient anropar en metod via ett aktörs objekt, resulterar det i ett meddelande som skickas via nätverket till aktörs tjänsten. Tjänsten bearbetar begär ande meddelandet och skickar tillbaka ett svar till klienten. Reliable Actors runtime publicerar följande prestanda räknare relaterade till bearbetning av aktörs förfrågningar.
 
-| Kategorinamn | Namn på räknare | Beskrivning |
+| Kategori namn | Namn på räknare | Beskrivning |
 | --- | --- | --- |
 | Service Fabric skådespelare |antal utestående begär Anden |Antal begär Anden som bearbetas i tjänsten |
 | Service Fabric skådespelare |Genomsnittligt antal millisekunder per begäran |Åtgången tid (i millisekunder) av tjänsten för att bearbeta en begäran |

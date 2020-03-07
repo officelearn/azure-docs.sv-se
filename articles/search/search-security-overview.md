@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 44d5edd7b5808b6c212a832dd95de7a9cb4b7c08
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978591"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396351"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Säkerhet och data sekretess i Azure Kognitiv sökning
 
@@ -118,7 +118,7 @@ Microsoft Data Center ger branschledande fysiska säkerhet och är kompatibla me
 > [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
 
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 + [Kom igång med .NET (visar hur du använder en administratörs nyckel för att skapa ett index)](search-create-index-dotnet.md)
 + [Kom igång REST (visar hur man använder en administratörs nyckel för att skapa ett index)](search-create-index-rest-api.md)

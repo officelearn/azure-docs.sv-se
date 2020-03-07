@@ -11,11 +11,11 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: e7b32579712e89c0d5595303ee7e03d8b2462607
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615429"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390638"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Språk som stöds på den virtuella datorn för datavetenskap 
 
@@ -118,7 +118,7 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
 
 * Kör i en kommando tolk:
 
-  Öppna en kommandotolk och skriv `R`.
+  Öppna en kommando tolk och skriv `R`.
 
 * Använd i en IDE:
 
@@ -157,7 +157,7 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
 | ------------- | ------------- |
 | Språk versioner som stöds | 0.6 |
 | DSVM-versioner som stöds      | Linux, Windows     |
-| Hur är det konfigurerade / installerad på DSVM?  | Windows: Installerad på `C:\JuliaPro-VERSION`<br /> Linux: Installerad på `/opt/JuliaPro-VERSION`    |
+| Hur är det konfigurerade / installerad på DSVM?  | Windows: installeras på `C:\JuliaPro-VERSION`<br /> Linux: installeras på `/opt/JuliaPro-VERSION`    |
 | Innehåller länkar till exempel      | Exempel på Jupyter-anteckningsböcker för Julia ingår.     |
 | Relaterade verktyg på DSVM      | Python, R      |
 ### <a name="how-to-use-and-run-it"></a>Använda och köra den    

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: avverma
 ms.openlocfilehash: 021faad28fb575c4ffeb4d895ad451d8cd82b1a5
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919863"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392916"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Instans skydd för instanser av skalnings uppsättningar för virtuella Azure-datorer
 
@@ -43,7 +43,7 @@ Instans skydd kan tillämpas på skalnings uppsättnings instanser när instanse
 
 Det finns flera sätt att tillämpa skalnings skydd på dina skalnings uppsättnings instanser enligt beskrivningen i exemplen nedan.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Du kan använda skalnings skydd genom Azure Portal till en instans i skalnings uppsättningen. Det går inte att justera fler än en instans i taget. Upprepa stegen för varje instans som du vill skydda.
  
@@ -111,7 +111,7 @@ Att skydda en instans från skalnings uppsättnings åtgärder skyddar också in
 
 Det finns flera sätt att tillämpa skalnings uppsättnings åtgärder på dina skalnings uppsättnings instanser enligt beskrivningen i exemplen nedan.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Du kan använda skydd från skalnings uppsättnings åtgärder via Azure Portal till en instans i skalnings uppsättningen. Det går inte att justera fler än en instans i taget. Upprepa stegen för varje instans som du vill skydda.
  

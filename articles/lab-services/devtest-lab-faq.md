@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: de99e9b1e4adceaf08beaf8ad3b5ea114b31a586
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760529"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380934"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
@@ -186,7 +186,7 @@ Vi rekommenderar att du ställer in rätt behörigheter på labb nivån så att 
 > [!NOTE]
 > Om en labb användare är en extern användare som har en Microsoft-konto, men som inte är medlem i din organisations Active Directory instans, kan användaren se ett fel meddelande när de försöker få åtkomst till den delade länken. Om en extern användare ser ett fel meddelande ber du användaren att först välja sitt namn i det övre högra hörnet i Azure Portal. I avsnittet katalog på menyn kan användaren välja den katalog där labbet finns.
 
-## <a name="virtual-machines"></a>Virtuella maskiner
+## <a name="virtual-machines"></a>Virtuella datorer
 
 ### <a name="why-cant-i-see-vms-on-the-virtual-machines-page-that-i-see-in-devtest-labs"></a>Varför kan jag inte se virtuella datorer på sidan Virtual Machines som jag ser i DevTest Labs?
 När du skapar en virtuell dator i DevTest Labs får du behörighet att komma åt den virtuella datorn. Du kan visa den virtuella datorn på sidan labb och på sidan **Virtual Machines** . Användare som har tilldelats rollen **DevTest Labs-ägare** kan se alla virtuella datorer som har skapats i labbet på Labbets **alla Virtual Machines** sida. Användare som har **användar rollen DevTest Labs** beviljas dock inte automatiskt Läs behörighet till VM-resurser som andra användare har skapat. Dessa virtuella datorer visas därför inte på sidan **Virtual Machines** .
@@ -304,7 +304,7 @@ Azure Marketplace bör användas som standard om du inte har särskilda problem 
 - Efterlevnads-eller reglerings villkor (till exempel säkerhets principer) som måste finnas på plats för alla datorer.
 - Att använda anpassade bilder bör inte anses vara lätt. De introducerar extra komplexitet eftersom du nu måste hantera VHD-filer för de underliggande bas avbildningarna. Du måste också regelbundet korrigera de grundläggande avbildningarna med program uppdateringar. Dessa uppdateringar omfattar nya operativ Systems uppdateringar och uppdateringar eller konfigurations ändringar som krävs för själva programpaketet.
 
-## <a name="artifacts"></a>Artifacts
+## <a name="artifacts"></a>Artefakter
 
 ### <a name="what-are-artifacts"></a>Vad är artefakter?
 Artefakter är anpassningsbara element som du kan använda för att distribuera de senaste bitarna eller distribuera dina dev-verktyg till en virtuell dator. Bifoga artefakter till den virtuella datorn när du skapar den virtuella datorn. När den virtuella datorn har allokerats distribuerar artefakterna och konfigurerar den virtuella datorn. Olika befintliga artefakter är tillgängliga i vår [offentliga GitHub-lagringsplats](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). Du kan också [Redigera dina egna artefakter](devtest-lab-artifact-author.md).
@@ -375,7 +375,7 @@ Ja. Det finns två aspekter att överväga – inkommande och utgående trafik.
 
 Du kan också använda nätverks säkerhets grupper för virtuella datorer eller undernät. Det här steget lägger till ett extra skydds lager för att tillåta/blockera trafik.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>Varför sparar inte mitt befintliga virtuella nätverk korrekt?
 En möjlighet är att det virtuella nätverks namnet innehåller punkter. I så fall kan du försöka ta bort perioderna eller ersätta dem med bindestreck. Försök sedan igen för att spara det virtuella nätverket.
@@ -399,7 +399,7 @@ The provided location 'australiacentral' is not available for resource type 'Mic
 
 Du kan lösa det här felet genom att göra något av följande:
 
-#### <a name="option-1"></a>Alternativ 1
+#### <a name="option-1"></a>alternativ 1
 Kontrol lera tillgängligheten för resurs typen i Azure-regioner på sidan [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/) . Om resurs typen inte är tillgänglig i en viss region har DevTest Labs inte stöd för att skapa ett labb i den regionen. Välj en annan region när du skapar labbet.
 
 #### <a name="option-2"></a>Alternativ 2

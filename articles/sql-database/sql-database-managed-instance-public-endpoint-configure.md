@@ -11,11 +11,11 @@ ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
 ms.openlocfilehash: 1acd7d6a3b203997e3acd8d7959b1572e09845f3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227990"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360441"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Konfigurera en offentlig slut punkt i Azure SQL Database Hanterad instans
 
@@ -99,7 +99,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Mål**     |Alla         |Lämna destination som valfri för att tillåta trafik till under nätet för hanterade instanser |
     |**Mål ports intervall**     |3342         |Scope-målport till 3342, som är den offentliga TDS-slutpunkten för hanterad instans |
     |**Protokoll**     |TCP         |Den hanterade instansen använder TCP-protokollet för TDS |
-    |**Åtgärd**     |Allow         |Tillåt inkommande trafik till hanterad instans via den offentliga slut punkten |
+    |**Åtgärd**     |Tillåt         |Tillåt inkommande trafik till hanterad instans via den offentliga slut punkten |
     |**Prioritet**     |1300         |Kontrol lera att den här regeln är högre prioritet än **deny_all_inbounds** regeln |
 
     ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)

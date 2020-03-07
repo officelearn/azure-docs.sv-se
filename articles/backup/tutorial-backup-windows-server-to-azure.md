@@ -5,15 +5,15 @@ ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
 ms.openlocfilehash: 906901ce4792e8b363a3a9b77c9bf6bb4b59aec5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226482"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381413"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Säkerhetskopiera Windows Server till Azure
 
-Du kan använda Azure Backup för att skydda Windows Server från skador, attacker och katastrofer. Azure Backup innehåller ett enkelt verktyg som kallas MARS-agenten (Microsoft Azure Recovery Services). MARS-agenten installeras på en Windows Server för att skydda filer och mappar samt information om serverkonfigurationen via Systemtillstånd för Windows Server. I den här självstudiekursen beskrivs hur du kan använda MARS-agenten för att säkerhetskopiera Windows Server till Azure. I den här guiden får du lära dig hur man:
+Du kan använda Azure Backup för att skydda Windows Server från skador, attacker och katastrofer. Azure Backup innehåller ett enkelt verktyg som kallas MARS-agenten (Microsoft Azure Recovery Services). MARS-agenten installeras på en Windows Server för att skydda filer och mappar samt information om serverkonfigurationen via Systemtillstånd för Windows Server. I den här självstudiekursen beskrivs hur du kan använda MARS-agenten för att säkerhetskopiera Windows Server till Azure. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 >
@@ -29,7 +29,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 Innan du kan säkerhetskopiera Windows Server måste du skapa en plats för de säkerhetskopior, eller återställningspunkter, som ska lagras. Ett [Recovery Services-valv](backup-azure-recovery-services-vault-overview.md) är en container i Azure som lagrar säkerhetskopior från Windows Server. Följ stegen nedan för att skapa ett Recovery Services-valv i Azure-portalen.
 
-1. Välj **Alla tjänster** på menyn till vänster och skriv **Recovery Services** i tjänstlistan. Klicka på **Recovery Services-valv**.
+1. På menyn till vänster väljer du **Alla tjänster** och i listan över tjänster skriver du **Recovery Services**. Klicka på **Recovery Services-valv**.
 
    ![öppna Recovery Services-valv](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
@@ -40,7 +40,7 @@ Innan du kan säkerhetskopiera Windows Server måste du skapa en plats för de s
 3. På menyn **Recovery Services-valt**:
 
     * Skriv *myRecoveryServicesVault* i **Namn**.
-    * Aktuellt prenumerations-ID visas i **Prenumeration**.
+    * Det aktuella prenumerations-ID:t visas i **Prenumeration**.
     * För **Resursgrupp** väljer du **Använd befintlig** och sedan *myResourceGroup*. Om *myResourceGroup* inte finns väljer du **Skapa ny** och skriver *myResourceGroup*.
     * Från den nedrullningsbara menyn **Plats** väljer du *Europa, västra*.
     * Klicka på **Skapa** för att skapa ditt Recovery Services-valv.
@@ -90,7 +90,7 @@ MARS-agenten (Microsoft Azure Recovery Services) skapar en koppling mellan Windo
 
 4. Ange vid uppmaningen en krypteringslösenfrasen för att kryptera säkerhetskopiorna från Windows Server. Spara lösenfrasen på en säker plats eftersom Microsoft inte kan återställa lösenfrasen om du förlorar den.
 
-5. Klicka på **Slutför**.
+5. Klicka på **Finish**.
 
 ## <a name="configure-backup-and-retention"></a>Konfigurera säkerhetskopiering och kvarhållning
 
@@ -104,9 +104,9 @@ Du använder Microsoft Azure Recovery Services-agenten för att schemalägga nä
 
 3. Klicka på **Nästa** för att gå till sidan där du **väljer objekt att säkerhetskopiera**.
 
-4. Klicka på **Lägg till objekt**. I dialogrutan som öppnas markerar du **Systemtillstånd** och de filer eller mappar som du vill säkerhetskopiera. Klicka på **OK**.
+4. Klicka på **Lägg till objekt**. I dialogrutan som öppnas markerar du **Systemtillstånd** och de filer eller mappar som du vill säkerhetskopiera. Klicka sedan på **OK**.
 
-5. Klicka på **Nästa**.
+5. Klicka på **Next**.
 
 6. På sidan **Ange schema för säkerhetskopiering (Systemtillstånd)** anger du tidpunkten på dagen eller veckan när säkerhetskopieringar ska utlösas för Systemtillstånd och klickar på **Nästa**.
 

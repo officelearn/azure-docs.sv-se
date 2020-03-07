@@ -4,11 +4,11 @@ description: Beskriver de funktioner som används i en Azure Resource Manager-ma
 ms.topic: conceptual
 ms.date: 11/27/2019
 ms.openlocfilehash: b241aaf43ee3204c9960d0099ce3c61d4c1a80ee
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207289"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355071"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Distributions funktioner för Azure Resource Manager mallar 
 
@@ -77,7 +77,7 @@ När objektet skickas som en länk, till exempel när du använder parametern **
 
 När du [distribuerar till en Azure-prenumeration](deploy-to-subscription.md), i stället för en resurs grupp, innehåller retur-objektet en `location`-egenskap. Egenskapen Location ingår när du distribuerar antingen en lokal mall eller en extern mall.
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
 Du kan använda Deployment () för att länka till en annan mall baserat på den överordnade mallens URI.
 
@@ -247,7 +247,7 @@ Returnerar ett parameter värde. Det angivna parameter namnet måste definieras 
 
 Värdet för den angivna parametern.
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
 Normalt använder du parametrar för att ange resurs värden. I följande exempel anges namnet på webbplatsen till det parameter värde som överfördes under distributionen.
 
@@ -328,11 +328,11 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| stringOutput | Sträng | alternativ 1 |
+| stringOutput | String | alternativ 1 |
 | intOutput | Int | 1 |
 | objectOutput | Objekt | {"One": "a", "två": "b"} |
 | arrayOutput | Matris | [1, 2, 3] |
-| crossOutput | Sträng | alternativ 1 |
+| crossOutput | String | alternativ 1 |
 
 Mer information om hur du använder parametrar finns [i parametrar i Azure Resource Manager mall](template-parameters.md).
 
@@ -346,13 +346,13 @@ Returnerar värdet för variabeln. Det angivna variabel namnet måste definieras
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| variableName |Ja |Sträng |Namnet på variabeln som ska returneras. |
+| variableName |Ja |String |Namnet på variabeln som ska returneras. |
 
 ### <a name="return-value"></a>Returvärde
 
 Värdet för den angivna variabeln.
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
 Normalt använder du variabler för att förenkla din mall genom att endast konstruera komplexa värden en gång. I följande exempel skapas ett unikt namn för ett lagrings konto.
 
@@ -420,9 +420,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| exampleOutput1 | Sträng | Variabel |
+| exampleOutput1 | String | Variabel |
 | exampleOutput2 | Matris | [1, 2, 3, 4] |
-| exampleOutput3 | Sträng | Variabel |
+| exampleOutput3 | String | Variabel |
 | exampleOutput4 |  Objekt | {"Egenskap1": "värde1", "Egenskap2": "värde2"} |
 
 Mer information om hur du använder variabler finns [i variabler i Azure Resource Manager mall](template-variables.md).

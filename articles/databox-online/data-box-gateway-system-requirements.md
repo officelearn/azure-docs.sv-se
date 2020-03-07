@@ -1,6 +1,6 @@
 ---
-title: Systemkrav för Microsoft Azure Data Box Gateway | Microsoft Docs
-description: Läs mer om programvara och nätverkskrav för din Azure Data Box-Gateway
+title: Microsoft Azure Data Box Gateway system krav | Microsoft Docs
+description: Läs om program-och nätverks kraven för din Azure Data Box Gateway
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,36 +9,36 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65442379"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384656"
 ---
-# <a name="azure-data-box-gateway-system-requirements"></a>Azure Data Box Gateway-systemkrav
+# <a name="azure-data-box-gateway-system-requirements"></a>Azure Data Box Gateway system krav
 
-Den här artikeln beskriver viktiga systemkraven för din Microsoft Azure Data Box Gateway-lösning och för klienter som ansluter till Azure Data Box-Gateway. Vi rekommenderar att du läser informationen noggrant innan du distribuerar din Data Box-Gateway och sedan refererar tillbaka till det som behövs under distributionen och efterföljande driften.
+I den här artikeln beskrivs viktiga system krav för din Microsoft Azure Data Box Gateway-lösning och för klienter som ansluter till Azure Data Box Gateway. Vi rekommenderar att du läser informationen noggrant innan du distribuerar din Data Box Gateway och sedan går tillbaka till den vid behov under distributionen och efterföljande åtgärder.
 
-Systemkrav för den virtuella enheten Data Box-Gateway är:
+System kraven för den virtuella Data Box Gateway-enheten är:
 
-- **Programvarukrav för värdar** -beskriver plattformarna som stöds, webbläsare för den lokala konfigurationen Användargränssnittet, SMB-klienter och ytterligare krav för värdar som ansluter till enheten.
-- **Nätverkskrav för enheten** – innehåller information om alla nätverkskrav för driften av den virtuella enheten.
+- **Program varu krav för värdar** – beskriver plattformar som stöds, webbläsare för det lokala konfigurations gränssnittet, SMB-klienter och eventuella ytterligare krav för de värdar som ansluter till enheten.
+- **Nätverks krav för enheten** – ger information om eventuella nätverks krav för den virtuella enhetens drift.
 
 
 ## <a name="specifications-for-the-virtual-device"></a>Specifikationer för den virtuella enheten
 
-Underliggande värdsystemet för Data Box-Gateway är att dedikera följande resurser för att etablera din virtuella enhet:
+Det underliggande värd systemet för Data Box Gateway kan dedicera följande resurser för att etablera den virtuella enheten:
 
 | Specifikationer                                          | Beskrivning              |
 |---------------------------------------------------------|--------------------------|
 | Virtuella processorer (kärnor)   | Minst 4 |
 | Minne  | Minst 8 GB|
 | Tillgänglighet|Enkel nod|
-| Diskar| OS-disk: 250 GB <br> Datadisk: minst 2 TB, tunt allokerad och måste backas upp av SSD-enheter|
+| Diskar| OS-disk: 250 GB <br> Datadisk: minst 2 TB, tunt allokerad och måste backas upp av SSD-enheter|
 | Nätverksgränssnitt|Minst 1 virtuellt nätverksgränssnitt|
 
 
-## <a name="supported-os-for-clients-connected-to-device"></a>Operativsystem som stöds för klienter som är anslutna till enhet
+## <a name="supported-os-for-clients-connected-to-device"></a>Operativ system som stöds för klienter som är anslutna till enheten
 
 [!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-supported-client-os.md)]
 
@@ -46,15 +46,15 @@ Underliggande värdsystemet för Data Box-Gateway är att dedikera följande res
 
 [!INCLUDE [Supported protocols for clients accessing device](../../includes/data-box-edge-gateway-supported-client-protocols.md)]
 
-## <a name="supported-virtualization-platforms-for-device"></a>Stöds virtualiseringsplattformar för enhet
+## <a name="supported-virtualization-platforms-for-device"></a>Virtualization-plattformar som stöds för enhet
 
-| **Operativsystem/plattform**  |**Versioner**   |**Anteckningar**  |
+| **Operativ system/plattform**  |**5**   |**Anteckningar**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |VMware-verktyg stöds inte.         |
 
 
-## <a name="supported-storage-accounts"></a>Stöds storage-konton
+## <a name="supported-storage-accounts"></a>Lagringskonton som stöds
 
 [!INCLUDE [Supported storage accounts](../../includes/data-box-edge-gateway-supported-storage-accounts.md)]
 
@@ -63,25 +63,25 @@ Underliggande värdsystemet för Data Box-Gateway är att dedikera följande res
 
 [!INCLUDE [Supported storage types](../../includes/data-box-edge-gateway-supported-storage-types.md)]
 
-## <a name="supported-browsers-for-local-web-ui"></a>Webbläsare som stöds för lokala webbgränssnittet
+## <a name="supported-browsers-for-local-web-ui"></a>Webbläsare som stöds för lokalt webb gränssnitt
 
 [!INCLUDE [Supported browsers for local web UI](../../includes/data-box-edge-gateway-supported-browsers.md)]
 
-## <a name="networking-port-requirements"></a>Port nätverkskrav
+## <a name="networking-port-requirements"></a>Krav för nätverks port
 
-I följande tabell visas de portar som måste öppnas i brandväggen att tillåta SMB, i molnet eller hanteringstrafik. I den här tabellen *i* eller *inkommande* avser riktningen från vilka inkommande begäranden för klientåtkomst till din enhet. *Ut* eller *utgående* refererar till den riktning som din Data Box-Gateway-enhet skickar data externt, utöver distributionen: till exempel utgående till Internet.
+I följande tabell visas de portar som måste öppnas i brand väggen för att tillåta SMB-, moln-eller hanterings trafik. I den här tabellen avser *i* eller *inkommande* den riktning från vilken inkommande klient begär åtkomst till din enhet. *Out* eller *utgående* avser i vilken riktning din data Box gateway enhet skickar data externt, utöver distributionen: till exempel utgående till Internet.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
-## <a name="url-patterns-for-firewall-rules"></a>URL-mönster för brandväggsregler
+## <a name="url-patterns-for-firewall-rules"></a>URL-mönster för brand Väggs regler
 
-Nätverksadministratörer kan ofta konfigurera avancerade brandväggsregler baserat på URL-mönster för att filtrera det inkommande och utgående trafik. Din Data Box-Gateway-enhet och Data Box-Gateway-tjänsten är beroende av andra Microsoft-program, till exempel Azure Service Bus, Azure Active Directory Access Control, lagringskonton och Microsoft Update-servrar. URL-mönster som associeras med dessa program kan användas för att konfigurera brandväggens regler. Det är viktigt att förstå att URL-mönster som associeras med dessa program kan ändra. Detta kräver i sin tur att nätverksadministratören kan övervaka och uppdatera brandväggsregler för din Data Box-Gateway som och när det behövs.
+Nätverks administratörer kan ofta konfigurera avancerade brand Väggs regler baserat på URL-mönster för att filtrera inkommande och utgående trafik. Din Data Box Gateway-enhet och tjänsten Data Box Gateway är beroende av andra Microsoft-program, till exempel Azure Service Bus, Azure Active Directory Access Control, lagrings konton och Microsoft Update-servrar. URL-mönstren som är kopplade till dessa program kan användas för att konfigurera brand Väggs regler. Det är viktigt att förstå att URL-mönstren som är kopplade till dessa program kan ändras. På så sätt måste nätverks administratören övervaka och uppdatera brand Väggs regler för din Data Box Gateway som och när det behövs.
 
-Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, baserat på Data Box Gateway fasta IP-adresser, liberally i de flesta fall. Du kan dock använda den här informationen för att ställa in avancerade brandväggsregler som behövs för att skapa säkra miljöer.
+Vi rekommenderar att du ställer in brand Väggs regler för utgående trafik, baserat på Data Box Gateway fasta IP-adresser, i de flesta fall. Du kan dock använda informationen nedan för att ange avancerade brand Väggs regler som behövs för att skapa säkra miljöer.
 
 > [!NOTE]
-> - Enheten (källa) IP-adresser ska alltid vara inställd till alla moln-aktiverat nätverksgränssnitt.
-> - Målets IP-adresser ska vara inställd på [Azure datacenter IP-adressintervall](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> - IP-adresserna för enheten (källa) ska alltid anges till alla molnbaserade nätverks gränssnitt.
+> - Mål-IP-adresser ska anges till [IP-intervall för Azure-datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
 [!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
@@ -89,11 +89,11 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 
-## <a name="internet-bandwidth"></a>Internetbandbredd
+## <a name="internet-bandwidth"></a>Internet bandbredd
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
 ## <a name="next-step"></a>Nästa steg
 
-* [Distribuera din Azure Data Box-Gateway](data-box-gateway-deploy-prep.md)
+* [Distribuera Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
 

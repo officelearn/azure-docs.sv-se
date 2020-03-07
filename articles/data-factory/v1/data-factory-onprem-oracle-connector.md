@@ -13,11 +13,11 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 066e32d5ab21f88b170498173606043c54fec586
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928157"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387406"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Kopiera data till eller från Oracle lokalt genom att använda Azure Data Factory
 
@@ -41,7 +41,7 @@ Du kan kopiera data från följande data lager *till en Oracle-databas*:
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Data Factory stöder anslutning till lokala Oracle-källor med hjälp av Data Management Gateway. Mer information om Data Management Gateway finns i [Data Management Gateway](data-factory-data-management-gateway.md) . Stegvisa instruktioner för hur du konfigurerar gatewayen i en datapipeline för att flytta data finns i [Flytta data från lokalt till molnet](data-factory-move-data-between-onprem-and-cloud.md).
 
@@ -76,13 +76,13 @@ Den här Oracle-anslutaren stöder två versioner av driv rutiner:
 
 Om du använder kopierings guiden för att redigera kopierings pipelinen, är driv rutins typen autobestämd. Microsoft-drivrutinen används som standard, om inte Gateway-versionen är tidigare än version 2,7 eller om du väljer Oracle som mottagare.
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 Du kan skapa en pipeline som har en kopierings aktivitet. Pipelinen flyttar data till eller från en lokal Oracle-databas med hjälp av olika verktyg eller API: er.
 
 Det enklaste sättet att skapa en pipeline är att använda guiden Kopiera. Se [Självstudier: skapa en pipeline med hjälp av kopierings guiden](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda något av följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, en **Azure Resource Manager mall**, .net- **API**eller **REST API**. Se den [Kopieringsaktiviteten självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) stegvisa instruktioner om hur du skapar en pipeline med en Kopieringsaktivitet.
+Du kan också använda något av följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, en **Azure Resource Manager mall**, .net- **API**eller **REST API**. I [självstudien om kopierings aktiviteten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) finns stegvisa anvisningar om hur du skapar en pipeline med en kopierings aktivitet.
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -563,7 +563,7 @@ Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att a
 * .NET Framework Data Provider för Oracle har inte installerats.
 * .NET Framework Data Provider för Oracle installerades på .NET Framework 2,0 och finns inte i .NET Framework 4,0-mapparna.
 
-**Lösning**
+**Upplösning**
 
 * Om du inte har installerat .NET-providern för Oracle [installerar du den](https://www.oracle.com/technetwork/topics/dotnet/downloads/)och försöker sedan igen.
 * Om du ser fel meddelandet även efter att du har installerat providern utför du följande steg:
@@ -578,7 +578,7 @@ Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att a
 
     Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
 
-**Lösning**
+**Upplösning**
 
 Du kan behöva justera frågesträngen i kopierings aktiviteten baserat på hur datum har kon figurer ATS i Oracle-databasen. Här är ett exempel (med hjälp av funktionen **to_date** ):
 
@@ -598,27 +598,27 @@ När du flyttar data från Oracle används följande mappningar från data typen
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(stöds endast på Oracle 10g och senare versioner när du använder en Microsoft-drivrutin) |
-| CHAR |Sträng |
-| CLOB |Sträng |
+| CHAR |String |
+| CLOB |String |
 | DATE |DateTime |
 | FLOAT |Decimal, String (om precision > 28) |
 | INTEGER |Decimal, String (om precision > 28) |
 | INTERVALL ÅR TILL MÅNAD |Int32 |
 | INTERVALL, DAG TILL SEKUND |TimeSpan |
-| SOM |Sträng |
+| SOM |String |
 | LONG RAW |Byte[] |
-| NCHAR |Sträng |
-| NCLOB |Sträng |
-| NUMMER |Decimal, String (om precision > 28) |
-| NVARCHAR2 |Sträng |
+| NCHAR |String |
+| NCLOB |String |
+| MÅNGA |Decimal, String (om precision > 28) |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |Sträng |
+| ROWID |String |
 | TIMESTAMP |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
 | TIMESTAMP WITH TIME ZONE |DateTime |
 | UNSIGNED INTEGER |Tal |
-| VARCHAR2 |Sträng |
-| XML |Sträng |
+| VARCHAR2 |String |
+| FIL |String |
 
 > [!NOTE]
 > Data typerna **Interval år till månad** och **intervall dag till sekund** stöds inte när du använder en Microsoft-drivrutin.

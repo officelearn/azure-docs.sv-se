@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 01/10/2020
 ms.openlocfilehash: 6c9c5df27f4a361e534bac2fe21b2c470f8d0186
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895612"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382217"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Snabbstart: Hitta tillgängliga rum med hjälp av Azure Digital Twins
 
@@ -27,7 +27,7 @@ Följande video sammanfattar installations programmet för snabb start:
 
 >[!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Om du inte har något Azure-konto [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -154,7 +154,7 @@ Självstudierna visar i detalj hur du:
 Om du vill fortsätta med självstudierna ska du inte rensa resurserna som du skapade i den här snabbstarten. Om du inte planerar att fortsätta tar du bort alla resurser som har skapats i den här snabbstarten.
 
 1. Ta bort mappen som skapades när du laddade ned exempellagringsplatsen.
-1. Välj **Alla resurser** på menyn på vänster sida av [Azure-portalen](https://portal.azure.com). Välj sedan din Digital Twins-resurs. Välj **Ta bort** överst i fönstret **Alla resurser**.
+1. Välj [Alla resurser](https://portal.azure.com) på menyn på vänster sida av **Azure-portalen**. Välj sedan din Digital Twins-resurs. Välj **Ta bort** överst i fönstret **Alla resurser**.
 
     > [!TIP]
     > Om du tidigare fick problem med att ta bort en digital-datainstans har en tjänst uppdatering distribuerats med korrigeringen. Försök att ta bort instansen igen.

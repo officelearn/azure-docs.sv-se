@@ -12,11 +12,11 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: d59a66b25b55572865f297436331971434d831c3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199894"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384318"
 ---
 # <a name="best-practices-for-loading-data-for-data-warehousing"></a>Metod tips för att läsa in data för data lager
 

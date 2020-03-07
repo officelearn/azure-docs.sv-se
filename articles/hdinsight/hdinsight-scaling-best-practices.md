@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/26/2020
 ms.openlocfilehash: a88682cd2217850e336afc2f9ef5af84c0d8cb82
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192651"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389507"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster
 
@@ -126,7 +126,7 @@ Om du vill avsluta programmet manuellt kör du följande kommando från SSH-grä
 yarn application -kill <application_id>
 ```
 
-Några exempel:
+Exempel:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

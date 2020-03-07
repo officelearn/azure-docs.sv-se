@@ -4,19 +4,19 @@ description: Den här artikeln vägleder dig genom program mässigt skapa och ha
 ms.date: 01/31/2019
 ms.topic: how-to
 ms.openlocfilehash: 08ed43a464d1dd7de8220428dbc1c61ce9fc3ad6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982471"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386798"
 ---
 # <a name="programmatically-create-policies"></a>Skapa principer programmässigt
 
 Den här artikeln beskriver hur du programmässigt kan skapa och hantera principer. Azure Policy definitioner tillämpar olika regler och effekter över dina resurser. Tvingande ser till att resurserna kompatibla med företagets standarder och serviceavtal.
 
-Information om efterlevnad finns i [komma kompatibilitetsdata](get-compliance-data.md).
+Information om kompatibilitet finns i [Hämta efterlevnadsprinciper](get-compliance-data.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar måste du kontrollera att följande krav är uppfyllda:
 
@@ -32,7 +32,7 @@ Innan du börjar måste du kontrollera att följande krav är uppfyllda:
 
    Läs mer om att registrera och visa resursproviders i [Resource Providers and Types](../../../azure-resource-manager/management/resource-providers-and-types.md) (Resursproviders och typer).
 
-1. Om du inte redan gjort installerar du Azure CLI. Du kan hämta den senaste versionen på [installera Azure CLI på Windows](/cli/azure/install-azure-cli-windows).
+1. Om du inte redan gjort installerar du Azure CLI. Du kan hämta den senaste versionen när du [installerar Azure CLI i Windows](/cli/azure/install-azure-cli-windows).
 
 ## <a name="create-and-assign-a-policy-definition"></a>Skapa och tilldela en principdefinition
 
@@ -61,7 +61,7 @@ Det första steget mot bättre överblick över dina resurser är att skapa och 
    }
    ```
 
-   Läs mer om redigering av en principdefinition [Azure Policy-Definitionsstruktur](../concepts/definition-structure.md).
+   Mer information om hur du skapar en princip definition finns i [Azure policy definitions struktur](../concepts/definition-structure.md).
 
 1. Kör följande kommando för att skapa en principdefinition med hjälp av AuditStorageAccounts.json-filen.
 
@@ -69,13 +69,13 @@ Det första steget mot bättre överblick över dina resurser är att skapa och 
    New-AzPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
    ```
 
-   Kommandot skapar en principdefinition med namnet _Audit Storage-konton öppen för offentliga nätverk_.
+   Kommandot skapar en princip definition med namnet _Granska lagrings konton som är öppna i offentliga nätverk_.
    Mer information om andra parametrar som du kan använda finns i [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
 
-   När den anropas utan Platsparametrar, `New-AzPolicyDefinition` standard till sparar principdefinitionen i den valda prenumerationen av sessioner kontext. Om du vill spara definitionen till en annan plats, använder du följande parametrar:
+   När anropas utan plats parametrar `New-AzPolicyDefinition` standardinställningarna för att spara princip definitionen i den valda prenumerationen av kontexten sessioner. Om du vill spara definitionen till en annan plats, använder du följande parametrar:
 
-   - **SubscriptionId** -spara till en annan prenumeration. Kräver en _GUID_ värde.
-   - **ManagementGroupName** -spara till en hanteringsgrupp. Kräver en _sträng_ värde.
+   - **SubscriptionId** – Spara i en annan prenumeration. Kräver ett _GUID_ -värde.
+   - **ManagementGroupName** – Spara till en hanterings grupp. Kräver ett _sträng_ värde.
 
 1. När du skapar principdefinitionen har kan skapa du en principtilldelning genom att köra följande kommandon:
 
@@ -85,15 +85,15 @@ Det första steget mot bättre överblick över dina resurser är att skapa och 
    New-AzPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
    ```
 
-   Ersätt _ContosoRG_ med namnet på din avsedda resursgrupp.
+   Ersätt _conto sorg_ med namnet på den avsedda resurs gruppen.
 
-   **Omfattnings** parametern på `New-AzPolicyAssignment` fungerar med hanterings grupp, prenumeration, resurs grupp eller en enskild resurs. Parametern använder en fullständig resurssökväg som den **ResourceId** egenskapen `Get-AzResourceGroup` returnerar. Mönster för **omfång** för varje behållare är på följande sätt. Ersätt `{rName}`, `{rgName}`, `{subId}`och `{mgName}` med resurs namnet, resurs gruppens namn, prenumerations-ID respektive namn för hanterings gruppen.
+   **Omfattnings** parametern på `New-AzPolicyAssignment` fungerar med hanterings grupp, prenumeration, resurs grupp eller en enskild resurs. Parametern använder en fullständig resurs Sök väg som egenskapen **ResourceID** på `Get-AzResourceGroup` returnerar. Mönstret för **omfånget** för varje behållare är följande. Ersätt `{rName}`, `{rgName}`, `{subId}`och `{mgName}` med resurs namnet, resurs gruppens namn, prenumerations-ID respektive namn för hanterings gruppen.
    `{rType}` ersätts med resurs **typen** för resursen, till exempel `Microsoft.Compute/virtualMachines` för en virtuell dator.
 
    - Resurs-`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Resursgrupp – `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - Resurs grupp – `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Prenumeration – `/subscriptions/{subId}/`
-   - Hanteringsgrupp- `/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Hanterings grupp – `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Mer information om hur du hanterar resurs principer med hjälp av Azure Resource Manager PowerShell-modulen finns i [AZ. Resources](/powershell/module/az.resources/#policies).
 
@@ -139,13 +139,13 @@ Använd följande procedur för att skapa en principdefinition.
    armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
    ```
 
-   Ersätt det föregående {subscriptionId} med ID: T för din prenumeration eller {managementGroupId} med ID: T för din [hanteringsgruppen](../../management-groups/overview.md).
+   Ersätt föregående {subscriptionId} med ID: t för din prenumeration eller {managementGroupId} med ID: t för din [hanterings grupp](../../management-groups/overview.md).
 
    Mer information om frågans struktur finns i [Azure policy definitioner – skapa eller uppdatera](/rest/api/resources/policydefinitions/createorupdate) och [princip definitioner – skapa eller uppdatera i hanterings gruppen](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 Använd följande procedur för att skapa en principtilldelning och tilldelar principdefinitionen på resursgruppsnivå.
 
-1. Kopiera följande JSON-kodfragment för att skapa en JSON-fil enligt principen tilldelning. Ersätt exempelinformation i &lt; &gt; symboler med dina egna värden.
+1. Kopiera följande JSON-kodfragment för att skapa en JSON-fil enligt principen tilldelning. Ersätt exempel information i &lt;&gt; symboler med dina egna värden.
 
    ```json
    {
@@ -165,9 +165,9 @@ Använd följande procedur för att skapa en principtilldelning och tilldelar pr
    armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
    ```
 
-   Ersätt exempelinformation i &lt; &gt; symboler med dina egna värden.
+   Ersätt exempel information i &lt;&gt; symboler med dina egna värden.
 
-   Mer information om HTTP-anrop till REST API finns i [Azure REST API-resurserna](/rest/api/resources/).
+   Mer information om hur du gör HTTP-anrop till REST API finns i [Azure REST API-resurser](/rest/api/resources/).
 
 ### <a name="create-and-assign-a-policy-definition-with-azure-cli"></a>Skapa och tilldela en principdefinition med Azure CLI
 
@@ -194,7 +194,7 @@ Följ anvisningarna nedan om du vill skapa en principdefinition:
    }
    ```
 
-   Läs mer om redigering av en principdefinition [Azure Policy-Definitionsstruktur](../concepts/definition-structure.md).
+   Mer information om hur du skapar en princip definition finns i [Azure policy definitions struktur](../concepts/definition-structure.md).
 
 1. Kör följande kommando för att skapa en principdefinition:
 
@@ -202,15 +202,15 @@ Följ anvisningarna nedan om du vill skapa en principdefinition:
    az policy definition create --name 'audit-storage-accounts-open-to-public-networks' --display-name 'Audit Storage Accounts Open to Public Networks' --description 'This policy ensures that storage accounts with exposures to public networks are audited.' --rules '<path to json file>' --mode All
    ```
 
-   Kommandot skapar en principdefinition med namnet _Audit Storage-konton öppen för offentliga nätverk_.
+   Kommandot skapar en princip definition med namnet _Granska lagrings konton som är öppna i offentliga nätverk_.
    Mer information om andra parametrar som du kan använda finns i [AZ policy definition Create](/cli/azure/policy/definition#az-policy-definition-create).
 
-   När den anropas utan Platsparametrar, `az policy definition creation` standard till sparar principdefinitionen i den valda prenumerationen av sessioner kontext. Om du vill spara definitionen till en annan plats, använder du följande parametrar:
+   När anropas utan plats parametrar `az policy definition creation` standardinställningarna för att spara princip definitionen i den valda prenumerationen av kontexten sessioner. Om du vill spara definitionen till en annan plats, använder du följande parametrar:
 
    - **--prenumeration** – Spara till en annan prenumeration. Kräver ett _GUID_ -värde för prenumerations-ID eller ett _sträng_ värde för prenumerations namnet.
-   - **--hantering-grupp** – Spara i en hanterings grupp. Kräver en _sträng_ värde.
+   - **--hantering-grupp** – Spara i en hanterings grupp. Kräver ett _sträng_ värde.
 
-1. Använd följande kommando för att skapa en principtilldelning. Ersätt exempelinformation i &lt; &gt; symboler med dina egna värden.
+1. Använd följande kommando för att skapa en principtilldelning. Ersätt exempel information i &lt;&gt; symboler med dina egna värden.
 
    ```azurecli-interactive
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
@@ -219,9 +219,9 @@ Följ anvisningarna nedan om du vill skapa en principdefinition:
    Parametern **--scope** på `az policy assignment create` fungerar med hanterings grupp, prenumeration, resurs grupp eller en enskild resurs. Parametern använder en fullständig resurs Sök väg. Mönster för **--omfattning** för varje behållare är följande. Ersätt `{rName}`, `{rgName}`, `{subId}`och `{mgName}` med resurs namnet, resurs gruppens namn, prenumerations-ID respektive namn för hanterings gruppen. `{rType}` ersätts med resurs **typen** för resursen, till exempel `Microsoft.Compute/virtualMachines` för en virtuell dator.
 
    - Resurs-`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Resursgrupp – `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - Resurs grupp – `/subscriptions/{subID}/resourceGroups/{rgName}`
    - Prenumeration – `/subscriptions/{subID}`
-   - Hanteringsgrupp- `/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Hanterings grupp – `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Du kan hämta Azure Policy Definitions-ID med hjälp av PowerShell med följande kommando:
 
@@ -235,7 +235,7 @@ Principdefinitionens ID för principdefinitionen som du skapade bör likna följ
 "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks"
 ```
 
-Mer information om hur du hanterar resursprinciper med Azure CLI finns i [resursprinciper för Azure CLI](/cli/azure/policy?view=azure-cli-latest).
+Mer information om hur du kan hantera resurs principer med Azure CLI finns i [resurs principer för Azure CLI](/cli/azure/policy?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -243,6 +243,6 @@ Granska följande artiklar för mer information om kommandon och frågor i den h
 
 - [Azure REST API-resurser](/rest/api/resources/)
 - [Azure PowerShell moduler](/powershell/module/az.resources/#policies)
-- [Azure CLI-kommandon för principen](/cli/azure/policy?view=azure-cli-latest)
+- [Azure CLI-princip kommandon](/cli/azure/policy?view=azure-cli-latest)
 - [Azure Policy insikter Resource Provider REST API referens](/rest/api/policy-insights)
 - [Organisera dina resurser i Azure-hanteringsgrupper](../../management-groups/overview.md).

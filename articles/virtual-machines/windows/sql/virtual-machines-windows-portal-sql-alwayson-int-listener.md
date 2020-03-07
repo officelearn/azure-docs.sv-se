@@ -15,11 +15,11 @@ ms.date: 02/16/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: aefd7a55090da7f55404d6f551ab61268582ff5a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039654"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394511"
 ---
 # <a name="configure-a-load-balancer-for-an-availability-group-on-azure-sql-server-vms"></a>Konfigurera en belastningsutjämnare för en tillgänglighets grupp på Azure SQL Server virtuella datorer
 Den här artikeln beskriver hur du skapar en belastningsutjämnare för en SQL Server Always on-tillgänglighetsgrupper på virtuella Azure-datorer som körs med Azure Resource Manager. En tillgänglighets grupp kräver en belastningsutjämnare när SQL Server instanserna finns på virtuella Azure-datorer. Belastningsutjämnaren lagrar IP-adressen för tillgänglighets gruppens lyssnare. Om en tillgänglighets grupp sträcker sig över flera regioner behöver varje region en belastningsutjämnare.
@@ -117,7 +117,7 @@ Avsökningen definierar hur Azure verifierar vilken av de SQL Server instanser s
    | **Intervall** |*5* |
    | **Tröskelvärde för ej felfri** |*2* |
 
-4.  Klicka på **OK**. 
+4.  Klicka på **OK** 
 
 > [!NOTE]
 > Kontrol lera att den port du anger är öppen i brand väggen för båda SQL Server instanser. Båda instanserna kräver en regel för inkommande trafik för TCP-porten som du använder. Mer information finns i [Lägg till eller redigera brand Väggs regel](https://technet.microsoft.com/library/cc753558.aspx). 
@@ -150,7 +150,7 @@ Reglerna för belastnings utjämning anger hur belastningsutjämnaren dirigerar 
    > Du kan behöva bläddra nedåt i bladet för att visa alla inställningar.
    > 
 
-4. Klicka på **OK**. 
+4. Klicka på **OK** 
 5. Azure konfigurerar belastnings Utjämnings regeln. Nu konfigureras belastningsutjämnaren för att dirigera trafik till den SQL Server-instans som är värd för lyssnaren för tillgänglighets gruppen. 
 
 I det här läget har resurs gruppen en belastningsutjämnare som ansluter till båda SQL Server datorer. Belastningsutjämnaren innehåller också en IP-adress för SQL Server Always on-tillgänglighetsgrupper, så att antingen datorn kan svara på begär Anden för tillgänglighets grupper.

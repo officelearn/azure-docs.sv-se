@@ -10,11 +10,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: 6e466675a9bd86693ce0ee048480712a55829ce6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280741"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386707"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
 
@@ -48,7 +48,7 @@ Azure Data Factory stöder följande transformeringsaktiviteter som kan läggas 
 
 Datatransformeringsaktivitet | Compute-miljö
 ---------------------------- | -------------------
-[Data flöde](control-flow-execute-data-flow-activity.md) | Azure Databricks hanteras av Azure Data Factory
+[Dataflöde](control-flow-execute-data-flow-activity.md) | Azure Databricks hanteras av Azure Data Factory
 [Azure Function](control-flow-azure-function-activity.md) | Azure Functions
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
@@ -107,12 +107,12 @@ Så här definieras en pipeline i JSON-format:
 
 Tagga | Beskrivning | Typ | Krävs
 --- | ----------- | ---- | --------
-namn | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, en siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | Sträng | Ja
-description | Ange texten som beskriver vad pipeline används till. | Sträng | Nej
+namn | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, en siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\”</li></ul> | String | Ja
+beskrivning | Ange texten som beskriver vad pipeline används till. | String | Nej
 activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. I avsnittet [Aktivitets-JSON](#activity-json) finns information om aktivitets-JSON-elementet. | Matris | Ja
 parameters | Avsnittet **parameters** kan ha en eller flera definierade parametrar i pipeline, vilket gör pipeline flexibel för återanvändning. | Visa lista | Nej
-concurrency | Det maximala antalet samtidiga körningar som pipelinen kan ha. Som standard finns det inget maximum. Om samtidigheten uppnås placeras ytterligare pipeline-körningar i kö tills tidigare har slutförts | Tal | Nej 
-Anteckningar | En lista med taggar som är associerade med pipelinen | Matris | Nej
+samtidighet | Det maximala antalet samtidiga körningar som pipelinen kan ha. Som standard finns det inget maximum. Om samtidigheten uppnås placeras ytterligare pipeline-körningar i kö tills tidigare har slutförts | Tal | Nej 
+anteckningar | En lista med taggar som är associerade med pipelinen | Matris | Nej
 
 ## <a name="activity-json"></a>Aktivitets-JSON
 Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Det finns två huvudtyper av aktiviteter: körnings- och kontrollaktiviteter.
@@ -142,8 +142,8 @@ I följande tabell beskrivs egenskaperna i definitionen för aktivitets-JSON:
 
 Tagga | Beskrivning | Krävs
 --- | ----------- | ---------
-namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,”*”,”%”,”&”,”:”,”\” | Ja</li></ul>
-description | Text som beskriver vad aktiviteten används till | Ja
+namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\” | Ja</li></ul>
+beskrivning | Text som beskriver vad aktiviteten används till | Ja
 typ | Typ av aktivitet. Information om olika typer av aktiviteter finns i avsnitten [Dataförflyttningsaktiviteter](#data-movement-activities), [Datatransformeringsaktiviteter](#data-transformation-activities) och [Kontrollaktiviteter](#control-flow-activities). | Ja
 linkedServiceName | Namnet på den länkade tjänst som används av aktiviteten.<br/><br/>En aktivitet kan kräva att du anger den länkade tjänst som länkar till den nödvändiga beräkningsmiljön. | Ja för HDInsight-aktivitet, Azure Machine Learning-batchbedömningsaktivitet, lagrad proceduraktivitet. <br/><br/>Nej för alla andra
 typeProperties | Egenskaperna i avsnittet typeProperties beror på varje typ av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Nej
@@ -186,7 +186,7 @@ JSON-namn | Beskrivning | Tillåtna värden | Krävs
 timeout | Anger tidsgränsen för aktivitetens körning. | Tidsintervall | Nej. Standardtidsgränsen är 7 dagar.
 retry | Max. antal omförsök | Integer | Nej. Standardvärdet är 0
 retryIntervalInSeconds | Fördröjningen mellan omförsök i sekunder | Integer | Nej. Standardvärdet är 30 sekunder
-secureOutput | Utdata från aktiviteten betraktas som säkra och loggas inte för övervakning om värdet är inställt på sant. | Boolesk | Nej. Standardvärdet är false.
+secureOutput | Utdata från aktiviteten betraktas som säkra och loggas inte för övervakning om värdet är inställt på sant. | Boolean | Nej. Standardvärdet är false.
 
 ### <a name="control-activity"></a>Kontrollaktivitet
 Kontrollaktiviteter har följande toppnivåstruktur:
@@ -207,8 +207,8 @@ Kontrollaktiviteter har följande toppnivåstruktur:
 
 Tagga | Beskrivning | Krävs
 --- | ----------- | --------
-namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför.<br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,”*”,”%”,”&”,”:”,”\” | Ja</li><ul>
-description | Text som beskriver vad aktiviteten används till | Ja
+namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför.<br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\” | Ja</li><ul>
+beskrivning | Text som beskriver vad aktiviteten används till | Ja
 typ | Typ av aktivitet. Information om olika typer av aktiviteter finns i avsnitten [Dataförflyttningsaktiviteter](#data-movement-activities), [Datatransformeringsaktiviteter](#data-transformation-activities) och [Kontrollaktiviteter](#control-flow-activities). | Ja
 typeProperties | Egenskaperna i avsnittet typeProperties beror på varje typ av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Nej
 dependsOn | Den här egenskapen används till att definiera aktivitetsberoende och hur efterföljande aktiviteter beror på tidigare aktiviteter. Mer information finns i [Aktivitetsberoende](#activity-dependency). | Nej

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74887109"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390524"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Arbeta med kanaler som tar emot Live-dataströmmar med flera bit hastigheter från lokala kodare
 
@@ -176,19 +176,19 @@ Om du vill ta bort arkiverat innehåll, stoppa och ta bort programmet och ta sed
 ## <a id="states"></a>Kanal tillstånd och fakturering
 Möjliga värden för det aktuella läget för en kanal är:
 
-* **Stoppad**: det här är den ursprungliga statusen för kanalen när den har skapats. I det här tillståndet kan kanalegenskaperna uppdateras, men strömning är inte tillåtet.
-* **Startar**: kanalen startas. Inga uppdateringar eller strömning tillåts i det här tillståndet. Om ett fel inträffar återgår kanalen till **stoppat** tillstånd.
+* **Stoppad**: det här är den ursprungliga statusen för kanalen när den har skapats. I det här läget kan kanal egenskaperna uppdateras, men strömning är inte tillåtet.
+* **Startar**: kanalen startas. Inga uppdateringar eller strömmande tillåts under det här läget. Om ett fel inträffar återgår kanalen till **stoppat** tillstånd.
 * **Körs**: kanalen kan bearbeta Live-strömmar.
-* **Stoppar**: kanalen stoppas. Inga uppdateringar eller strömning tillåts i det här tillståndet.
-* **Tar bort**: kanalen tas bort. Inga uppdateringar eller strömning tillåts i det här tillståndet.
+* **Stoppar**: kanalen stoppas. Inga uppdateringar eller strömmande tillåts under det här läget.
+* **Tar bort**: kanalen tas bort. Inga uppdateringar eller strömmande tillåts under det här läget.
 
-Följande tabell visar hur kanaltillstånd mappas till faktureringsläget.
+Följande tabell visar hur kanal tillstånd mappas till fakturerings läget.
 
-| Kanaltillstånd | Portalgränssnittsindikatorer | Fakturerad? |
+| Kanal tillstånd | Portal GRÄNSSNITTs indikatorer | Debiteras? |
 | --- | --- | --- |
-| **Leds** |**Leds** |Nej (övergångsläge) |
+| **Leds** |**Leds** |Nej (tillfälligt tillstånd) |
 | **Körs** |**Redo** (inga program som körs)<p><p>eller<p>**Strömning** (minst ett program som körs) |Ja |
-| **Stoppas** |**Stoppas** |Nej (övergångsläge) |
+| **Stoppas** |**Stoppas** |Nej (tillfälligt tillstånd) |
 | **Stoppats** |**Stoppats** |Nej |
 
 ## <a id="cc_and_ads"></a>Dold textning och annons infogning

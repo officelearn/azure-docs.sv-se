@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 8c1f85217db12b60cdcd8ea0bdb65792b8d02648
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084590"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363112"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Konfigurera katastrof återställning för Active Directory och DNS
 
@@ -22,7 +22,7 @@ Du kan använda [Site Recovery](site-recovery-overview.md) för att skapa en kat
 
 Den här artikeln beskriver hur du skapar en katastrof återställnings lösning för Active Directory. Det innehåller nödvändiga komponenter och instruktioner för redundans. Du bör vara bekant med Active Directory och Site Recovery innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du replikerar till Azure förbereder du [Azure-resurser](tutorial-prepare-azure.md), inklusive en prenumeration, ett Azure-Virtual Network, ett lagrings konto och ett Recovery Services-valv.
 * Granska [kraven för stöd](site-recovery-support-matrix-to-azure.md) för alla komponenter.

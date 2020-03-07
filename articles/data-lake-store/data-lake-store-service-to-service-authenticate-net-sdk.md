@@ -1,6 +1,6 @@
 ---
-title: 'Tjänst-till-tjänst-autentisering: .NET SDK med Azure Data Lake Storage Gen1 med Azure Active Directory | Microsoft Docs'
-description: Lär dig att uppnå tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med hjälp av Azure Active Directory med .NET SDK
+title: 'Tjänst-till-tjänst-autentisering: .NET SDK med Azure Data Lake Storage Gen1 som använder Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du uppnår tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 att använda Azure Active Directory med .NET SDK
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 96c496ef67e26a3079577bf52e9d019d963467b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65915850"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390559"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med .NET SDK
 > [!div class="op_single_selector"]
@@ -27,19 +27,19 @@ ms.locfileid: "65915850"
 >
 >
 
-I den här artikeln lär du dig hur du använder .NET SDK för att göra tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1. Slutanvändarautentisering med Data Lake Storage Gen1 med .NET SDK, se [slutanvändarautentisering med Data Lake Storage Gen1 med .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
+I den här artikeln får du lära dig hur du använder .NET SDK för att utföra tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1. För autentisering med slutanvändare med Data Lake Storage Gen1 med .NET SDK, se [slutanvändarens autentisering med data Lake Storage gen1 med .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * **Visual Studio 2013 eller senare**. Anvisningarna nedan använder Visual Studio 2019.
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Skapa ett program för Azure Active Directory ”Web”** . Du måste ha slutfört stegen i [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Skapa ett Azure Active Directory "Web"-program**. Du måste ha slutfört stegen i [tjänst-till-tjänst-autentisering med data Lake Storage gen1 med Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Skapa ett .NET-program
-1. I Visual Studio väljer du den **filen** menyn **New**, och sedan **projekt**.
-2. Välj **Konsolapp (.NET Framework)** , och välj sedan **nästa**.
-3. I **projektnamn**, ange `CreateADLApplication`, och välj sedan **skapa**.
+1. I Visual Studio väljer du **Arkiv** -menyn, **nytt**och sedan **projekt**.
+2. Välj **konsol program (.NET Framework)** och välj sedan **Nästa**.
+3. Ange `CreateADLApplication`i **projekt namn**och välj sedan **skapa**.
 
 4. Lägg till NuGet-paketen i projektet.
 
@@ -50,7 +50,7 @@ I den här artikeln lär du dig hur du använder .NET SDK för att göra tjänst
       * `Microsoft.Azure.Management.DataLake.Store` – I den här självstudiekursen används v2.1.3-förhandsversionen.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` –I den här självstudiekursen används v2.2.12.
 
-        ![Lägg till en NuGet-källa](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Skapa ett nytt Azure Data Lake-konto")
+        ![Lägg till en NuGet-källa](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Skapa ett nytt Azure Data Lake konto")
    4. Stäng **NuGet Package Manager**.
 
 5. Öppna **Program.cs**, ta bort den befintliga koden och lägg sedan till följande instruktioner för att lägga till referenser till namnområden.
@@ -71,8 +71,8 @@ using Microsoft.Azure.Management.DataLake.Store.Models;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-## <a name="service-to-service-authentication-with-client-secret"></a>Tjänst-till-tjänst-autentisering med klienthemlighet
-Lägg till det här kodfragmentet i dina .NET-klientprogram. Ersätt platshållarvärdena med värden som hämtats från ett Azure AD-webbprogram (visas som en förutsättning). Det här kodfragmentet kan du autentisera ditt program **icke-interaktivt** med Data Lake Storage Gen1 med klientens hemlighet/nyckel för Azure AD-webbappen.
+## <a name="service-to-service-authentication-with-client-secret"></a>Tjänst-till-tjänst-autentisering med klient hemlighet
+Lägg till det här kodfragmentet i ditt .NET-klient program. Ersätt plats hållarna med värdena som hämtats från ett Azure AD-webbprogram (visas som en förutsättning). Det här kodfragmentet gör att du kan autentisera ditt program **icke-interaktivt** med data Lake Storage gen1 med hjälp av klient hemlighet/nyckel för Azure AD-webbprogram.
 
 ```csharp
 private static void Main(string[] args)
@@ -89,11 +89,11 @@ private static void Main(string[] args)
 }
 ```
 
-I föregående kodfragment används en hjälpfunktionen `GetCreds_SPI_SecretKey`. Koden för den här hjälpfunktionen finns [här på GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
+I föregående kodfragment används en hjälp funktion för `GetCreds_SPI_SecretKey`. Koden för den här hjälp funktionen finns [här på GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
 
 ## <a name="service-to-service-authentication-with-certificate"></a>Tjänst-till-tjänst-autentisering med certifikat
 
-Lägg till det här kodfragmentet i dina .NET-klientprogram. Ersätt platshållarvärdena med värden som hämtats från ett Azure AD-webbprogram (visas som en förutsättning). Det här kodfragmentet kan du autentisera ditt program **icke-interaktivt** med Data Lake Storage Gen1 använder certifikatet för ett Azure AD-webbprogram. Anvisningar om hur du skapar ett Azure AD-program finns i [skapa tjänstens huvudnamn med certifikat](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
+Lägg till det här kodfragmentet i ditt .NET-klient program. Ersätt plats hållarna med värdena som hämtats från ett Azure AD-webbprogram (visas som en förutsättning). Det här kodfragmentet gör att du kan autentisera ditt program **icke-interaktivt** med data Lake Storage gen1 med hjälp av certifikatet för ett Azure AD-webbprogram. Instruktioner för hur du skapar ett Azure AD-program finns i [skapa tjänstens huvud namn med certifikat](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
 
 ```csharp
 private static void Main(string[] args)
@@ -110,10 +110,10 @@ private static void Main(string[] args)
 }
 ```
 
-I föregående kodfragment används en hjälpfunktionen `GetCreds_SPI_Cert`. Koden för den här hjälpfunktionen finns [här på GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
+I föregående kodfragment används en hjälp funktion för `GetCreds_SPI_Cert`. Koden för den här hjälp funktionen finns [här på GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du lärt dig hur du använder tjänst-till-tjänst-autentisering för att autentisera med Data Lake Storage Gen1 med .NET SDK. Du kan nu se ut i följande artiklar som pratar om hur du använder .NET SDK för att arbeta med Data Lake Storage Gen1.
+I den här artikeln har du lärt dig hur du använder tjänst-till-tjänst-autentisering för att autentisera med Data Lake Storage Gen1 med .NET SDK. Nu kan du titta på följande artiklar som talar om hur du använder .NET SDK för att arbeta med Data Lake Storage Gen1.
 
-* [Kontohanteringsåtgärder i Data Lake Storage Gen1 med .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Åtgärder på Data Lake Storage Gen1 med .NET SDK](data-lake-store-data-operations-net-sdk.md)
+* [Konto hanterings åtgärder på Data Lake Storage Gen1 med .NET SDK](data-lake-store-get-started-net-sdk.md)
+* [Data åtgärder på Data Lake Storage Gen1 med .NET SDK](data-lake-store-data-operations-net-sdk.md)

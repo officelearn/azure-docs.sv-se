@@ -7,11 +7,11 @@ ms.topic: overview
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: 2a008d22de5df8d091e868153205697b4bb343ee
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582134"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388225"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Vad är Azure HPC Cache?
 
@@ -60,7 +60,7 @@ Azure HPC-cache är tillgängligt i följande Azure-regioner:
 
 På [produkt sidan för Azure HPC cache](https://azure.microsoft.com/services/hpc-cache) finns den senaste tillgängliga informationen.
 
-## <a name="service-availability"></a>Tjänsttillgänglighet
+## <a name="service-availability"></a>Tjänst tillgänglighet
 
 Du måste begära åtkomst för varje prenumeration som du kommer att använda med Azure HPC-cache. Den här begränsningen säkerställer service kvaliteten under de första månaderna av allmän tillgänglighet.
 

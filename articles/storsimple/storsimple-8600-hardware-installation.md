@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277117"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365887"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Packa upp, rack montering och kabel din StorSimple 8600-enhet
 
@@ -42,7 +42,7 @@ Slutför sedan följande steg för att packa upp enheten.
    
     **Uppackad vy av lagrings enheten**
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    | --- | --- |
    |   1 |Förpacknings Box |
    |   2 |SAS-kablar (i tillbehör och kabel kassetter) |
@@ -106,7 +106,7 @@ En uppsättning monterings skenor kommer att tillhandahållas för användning m
    
     **Fästa järnvägs bilder på sidorna i inne slutningen**
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    | --- | --- |
    |  1 |M 3x4 knapp – huvud skruvar |
    |  2 |Chassi bilder |
@@ -119,7 +119,7 @@ En uppsättning monterings skenor kommer att tillhandahållas för användning m
    
     **Fästa järnvägs sammansättningar i racket**
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    | --- | --- |
    |   1 |Ihopfogning skruv |
    |   2 |Rack-håls front Rack-skruv |
@@ -145,7 +145,7 @@ Använd de rackbaserade räler som precis har installerats och utför följande 
    
     **Installera de flänsiga Caps**
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    | --- | --- |
    |   1 |Kabinett fäst skruv |
 
@@ -164,7 +164,7 @@ Nästa steg är att ansluta enheten till strömförsörjning, nätverk och serie
 ## <a name="cable-your-storsimple-8600-device"></a>Kabelanslut din StorSimple 8600-enhet
 Följande procedurer beskriver hur du kan ansluta din StorSimple 8600-enhet för strömförsörjning, nätverk och seriella anslutningar.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar kabeln till enheten behöver du:
 
 * Ditt primära hölje och EBOD-höljet, helt packas upp
@@ -198,7 +198,7 @@ För att stödja redundans av redundanta styrenheter måste du kontakta enhetens
    
     **Bak sidan av enheten som visar data portarna**
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    | --- | --- |
    |   0,1,4,5 |1 GbE-nätverks gränssnitt |
    |   2,3 |10 GbE-nätverks gränssnitt |
@@ -209,7 +209,7 @@ För att stödja redundans av redundanta styrenheter måste du kontakta enhetens
 
 **Nätverks kablar för din enhet**
 
-| Etikett | Beskrivning |
+| Label (Etikett) | Beskrivning |
 | --- | --- |
 | A |LAN med Internet åtkomst |
 | B |Kontrollant 0 |
@@ -217,7 +217,7 @@ För att stödja redundans av redundanta styrenheter måste du kontakta enhetens
 | D |Kontrollant 1 |
 | E |PCM 1 |
 | F |EBOD Controller 0 |
-| G |EBOD Controller 1 |
+| Projektredovisnings |EBOD Controller 1 |
 | H,I |Värdar (till exempel fil servrar) |
 | 0-5 |Nätverksgränssnitt |
 | 6 |Primärt kabinett |

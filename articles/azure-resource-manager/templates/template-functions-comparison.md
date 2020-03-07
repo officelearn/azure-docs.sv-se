@@ -4,11 +4,11 @@ description: Beskriver de funktioner som används i en Azure Resource Manager-ma
 ms.topic: conceptual
 ms.date: 09/05/2017
 ms.openlocfilehash: 67cb1c1f92694ca217e99fb6528fb1d00f2cfcf6
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207320"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356345"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Jämförelse funktioner för Azure Resource Manager mallar
 
@@ -38,7 +38,7 @@ Kontrollerar om två värden är lika med varandra.
 
 Returnerar **Sant** om värdena är lika. annars **false**.
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
 Funktionen Equals används ofta med `condition`-elementet för att testa om en resurs har distribuerats.
 

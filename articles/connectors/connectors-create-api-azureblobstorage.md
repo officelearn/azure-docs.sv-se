@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650869"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359037"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Skapa och hantera blobbar i Azure Blob Storage med Azure Logic Apps
 
@@ -121,7 +121,7 @@ I det här exemplet hämtas endast innehållet för en blob. Om du vill visa inn
 
 1. När du uppmanas att skapa anslutningen anger du den här informationen:
 
-   | Egenskap | Krävs | Värde | Description |
+   | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
    | **Anslutningsnamn** | Ja | <*anslutnings namn*> | Namnet som ska skapas för anslutningen |
    | **Lagringskonto** | Ja | <*Storage – account*> | Välj ditt lagrings konto i listan. |

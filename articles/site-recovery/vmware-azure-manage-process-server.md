@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954340"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363176"
 ---
 # <a name="manage-process-servers"></a>Hantera processervrar
 
@@ -47,7 +47,7 @@ Utjämna belastningen genom att flytta virtuella datorer mellan två process ser
 
     ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
-2. Klicka på **Välj datorer**och välj de datorer som du vill flytta från den aktuella till mål process servern. Information om genomsnittlig data ändring visas för varje virtuell dator. Klicka på **OK**. 
+2. Klicka på **Välj datorer**och välj de datorer som du vill flytta från den aktuella till mål process servern. Information om genomsnittlig data ändring visas för varje virtuell dator. Klicka sedan på **OK**. 
 3. I valvet övervakar du förloppet för jobbet under **övervaknings** > **Site Recovery jobb**.
 
 Det tar ungefär 15 minuter innan ändringarna visas i portalen. [Uppdatera konfigurations servern](vmware-azure-manage-configuration-server.md#refresh-configuration-server)för en snabbare inverkan.

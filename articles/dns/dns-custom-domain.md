@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 7/13/2019
 ms.author: rohink
 ms.openlocfilehash: d84a7a908bd3bb5cfb2958a617be437f3b6b154e
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934892"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357675"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Använd Azure DNS för att tillhandahålla anpassade domän inställningar för en Azure-tjänst
 
 Azure DNS tillhandahåller DNS för en anpassad domän för någon av dina Azure-resurser som stöder anpassade domäner eller som har ett fullständigt kvalificerat domän namn (FQDN). Ett exempel är att du har en Azure-webbapp som du vill att användarna ska ha åtkomst till genom att antingen använda contoso.com eller www\.contoso.com som ett fullständigt domän namn. Den här artikeln vägleder dig genom konfigurationen av Azure-tjänsten med Azure DNS för att använda anpassade domäner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna använda Azure DNS för din anpassade domän måste du först delegera din domän till Azure DNS. Besök [delegera en domän till Azure DNS](./dns-delegate-domain-azure-dns.md) för instruktioner om hur du konfigurerar namnservrar för delegering. När din domän är delegerad till din Azure DNS zon kan du konfigurera de DNS-poster som behövs.
 
@@ -99,7 +99,7 @@ Gå till din DNS-zon och klicka på **+ post uppsättning**. Fyll i följande in
 |Alias     | webserver.azurewebsites.net        | Det DNS-namn som du skapar alias för, i det här exemplet är det DNS-namnet för webserver.azurewebsites.net som tillhandahålls som standard till webbappen.        |
 
 
-![Skapa en CNAME-post](./media/dns-custom-domain/createcnamerecord.png)
+![skapa en CNAME-post](./media/dns-custom-domain/createcnamerecord.png)
 
 Gå tillbaka till App Service som har kon figurer ATS för det anpassade domän namnet. Klicka på **anpassade domäner**och sedan på **värd namn**. Klicka på **+ Lägg till värdnamn**om du vill lägga till en CNAME-post som du har skapat.
 
@@ -115,7 +115,7 @@ Information om hur du migrerar ett aktivt DNS-namn finns i [Migrera ett aktivt D
 
 Om du behöver köpa en anpassad domän går du till [köpa ett anpassat domän namn för Azure Web Apps](../app-service/manage-custom-dns-buy-domain.md) för att lära dig mer om App Service-domäner.
 
-## <a name="blob-storage"></a>Blobb-lagring
+## <a name="blob-storage"></a>Blob Storage
 
 Följande steg tar dig igenom hur du konfigurerar en CNAME-post för ett Blob Storage-konto med hjälp av metoden för att verifiera. Den här metoden säkerställer att det inte finns någon stillestånds tid.
 

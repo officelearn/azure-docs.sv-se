@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 8629d07830622770c3b30dacdd1fabc8417d7f52
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454417"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374241"
 ---
 # <a name="access-and-customize-developer-portal"></a>Komma åt och anpassa Developer-portalen
 
@@ -91,13 +91,13 @@ När du gör en ändring i portalen måste du spara den manuellt genom att tryck
 Innan du gör din portal tillgänglig för besökarna bör du anpassa det automatiskt genererade innehållet. Rekommenderade ändringar omfattar layouter, format och innehållet på Start sidan.
 
 > [!NOTE]
-> På grund av integrerings överväganden går det inte att ta bort eller flytta följande sidor under en annan URL: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso``/signup`.
+> På grund av integrerings överväganden kan följande sidor inte tas bort eller flyttas under en annan URL: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
 
 ### <a name="home-page"></a>Startsida
 
 Standard **Start** sidan är fylld med innehåll i dummy. Du kan antingen ta bort hela avsnitten med innehållet eller behålla strukturen och justera elementen en i taget. Ersätt den genererade texten och bilderna med dina egna och se till att länkarna pekar på önskade platser.
 
-### <a name="layouts"></a>Former
+### <a name="layouts"></a>Layouter
 
 Ersätt den automatiskt genererade logo typen i navigerings fältet med din egen bild.
 

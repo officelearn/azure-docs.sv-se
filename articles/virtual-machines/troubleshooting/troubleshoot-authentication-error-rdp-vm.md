@@ -15,13 +15,13 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: b7a561907e3f1968eb9adead3606822d7a1321c8
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155616"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381663"
 ---
-# <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Felsöka autentiseringsfel när du använder RDP för att ansluta till den virtuella Azure-datorn
+# <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Felsöka autentiseringsfel när du använder RDP för att ansluta till virtuella Azure-datorer
 
 Den här artikeln kan hjälpa dig att felsöka autentiseringsfel som inträffar när du använder Remote Desktop Protocol-anslutning (RDP) för att ansluta till en virtuell Azure-dator (VM).
 
@@ -101,7 +101,7 @@ gpupdate /force
 
 Om ändringen återställs innebär det att en Active Directory princip orsakar problemet. 
 
-### <a name="workaround"></a>Lösning:
+### <a name="workaround"></a>Lösning
 
 Undvik det här problemet genom att köra följande kommandon i kommando fönstret för att inaktivera NLA:
 
@@ -202,7 +202,7 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP
 
 Följ dessa steg baserat på registervärdet:
 
-* 4 (FIPS): Gå till [kontrol lera FIPs-kompatibla algoritmer-anslutningar](#fips-compliant).
+* 4 (FIPS): gå till [kontrol lera FIPS-kompatibla algoritmer-anslutningar](#fips-compliant).
 
 * 3 (128-bitars kryptering): Ange allvarlighets grad till **2** genom att köra följande kommando:
 
@@ -210,7 +210,7 @@ Följ dessa steg baserat på registervärdet:
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel /t REG_DWORD /d 2 /f
     ```
 
-* 2 (högsta möjliga krypterings nivå, som det styrs av klienten): Du kan försöka ställa in krypteringen till det lägsta värdet **1** genom att köra följande kommando:
+* 2 (högsta möjliga kryptering som styrs av klienten): du kan försöka att ställa in krypteringen på det lägsta värdet **1** genom att köra följande kommando:
 
     ```cmd
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel /t REG_DWORD /d 1 /f
@@ -280,4 +280,4 @@ Starta om den virtuella datorn så att ändringarna i registret börjar gälla.
 
 [Konfigurera serverns autentiserings-och krypterings nivåer](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770833(v=ws.11))
 
-[Win32_TSGeneralSetting-klass](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting)
+[Win32_TSGeneralSetting klass](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting)

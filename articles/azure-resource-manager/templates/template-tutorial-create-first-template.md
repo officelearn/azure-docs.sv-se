@@ -6,11 +6,11 @@ ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: e31d4a5f513355e61cb53a6548b3091637bfe9a4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472844"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379157"
 ---
 # <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>Självstudie: skapa och distribuera din första Azure Resource Manager-mall
 
@@ -26,7 +26,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 Låt oss börja med att kontrol lera att du har de verktyg du behöver för att skapa och distribuera mallar.
 
-### <a name="editor"></a>Redigerare
+### <a name="editor"></a>Redigeringsprogram
 
 Mallar är JSON-filer. Om du vill skapa mallar behöver du en lämplig JSON-redigerare. Vi rekommenderar Visual Studio Code med Resource Manager Tools-tillägget. Om du behöver installera dessa verktyg kan du [skapa Azure Resource Manager mallar i använda Visual Studio Code](use-vs-code-to-create-template.md).
 
@@ -79,13 +79,13 @@ Grattis, du har skapat din första mall.
 
 Logga in med dina Azure-autentiseringsuppgifter om du vill börja arbeta med Azure PowerShell/Azure CLI.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az login
@@ -96,7 +96,7 @@ az login
 
 När du distribuerar en mall anger du en resurs grupp som ska innehålla resurserna. Innan du kör distributions kommandot skapar du resurs gruppen med antingen Azure CLI eller Azure PowerShell. Välj flikarna i följande kod avsnitt om du vill välja mellan Azure PowerShell och Azure CLI. CLI-exemplen i den här artikeln är skrivna för bash-gränssnittet.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -104,7 +104,7 @@ New-AzResourceGroup `
   -Location "Central US"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az group create \
@@ -118,7 +118,7 @@ az group create \
 
 Om du vill distribuera mallen använder du antingen Azure CLI eller Azure PowerShell. Använd den resurs grupp som du skapade. Ge distributionen ett namn så att du enkelt kan identifiera den i distributions historiken. För enkelhetens skull kan du också skapa en variabel som lagrar sökvägen till mallfilen. Den här variabeln gör det enklare för dig att köra distributions kommandon eftersom du inte behöver ange sökvägen varje gång du distribuerar.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $templateFile = "{provide-the-path-to-the-template-file}"
@@ -128,7 +128,7 @@ New-AzResourceGroupDeployment `
   -TemplateFile $templateFile
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 templateFile="{provide-the-path-to-the-template-file}"
@@ -142,11 +142,11 @@ az group deployment create \
 
 Distributions kommandot returnerar resultat. Leta efter `ProvisioningState` för att se om distributionen har slutförts.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ![Etablerings status för PowerShell-distribution](./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png)
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ![Etablerings status för Azure CLI-distribution](./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png)
 
@@ -156,7 +156,7 @@ Distributions kommandot returnerar resultat. Leta efter `ProvisioningState` för
 
 Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj **resurs grupper**på den vänstra menyn.
 

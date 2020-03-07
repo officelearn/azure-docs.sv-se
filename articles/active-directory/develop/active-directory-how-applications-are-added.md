@@ -14,12 +14,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: daf26f346ab10906eb5c37c6d7d2bb24736417cb
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d47ed3a4cd4fbdcb69b956d3c8418f70a71cf44f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698824"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375654"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till i Azure AD
 
@@ -33,7 +33,7 @@ Det finns två representationer av program i Azure AD:
 Du kan hantera [program objekt](app-objects-and-service-principals.md#application-object) i Azure Portal via [appens registrerings](https://aka.ms/appregistrations) upplevelse. Program objekt beskriver programmet till Azure AD och kan betraktas som definition av programmet, vilket gör att tjänsten vet hur token ska utfärdas till programmet baserat på dess inställningar. Programobjektet finns bara i sin Hem Katalog, även om det är ett program med flera innehavare som stöder tjänstens huvud namn i andra kataloger. Programobjektet kan innehålla något av följande (och ytterligare information som inte nämns här):
 
 * Namn, logo typ och utgivare
-* Omdirigerings-URI:er
+* Omdirigera URI: er
 * Hemligheter (symmetriska och/eller asymmetriska nycklar som används för att autentisera programmet)
 * API-beroenden (OAuth)
 * Publicerade API: er/resurser/scope (OAuth)
@@ -77,7 +77,7 @@ Precis som program objekt kan tjänstens huvud namn också skapas via flera väg
 * När en administratör lägger till ett program från App-galleriet (då skapas även ett underliggande app-objekt)
 * Lägg till ett program för att använda [Azure-AD-programproxy](/azure/active-directory/manage-apps/application-proxy)
 * Ansluta ett program för enkel inloggning med hjälp av SAML eller lösen ord enkel inloggning (SSO)
-* Via programmering via Azure AD Graph API eller PowerShell
+* Via programmering via Microsoft Graph API eller PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Hur är program objekt och tjänstens huvud namn relaterade till varandra?
 
@@ -100,13 +100,13 @@ Program som du lägger till själv (representeras som **app (dina)** i diagramme
 
 ### <a name="notes-and-exceptions"></a>Anteckningar och undantag
 
-* Alla tjänst huvud namn pekar inte tillbaka till ett program objekt. När Azure AD ursprungligen byggdes de tjänster som tillhandahölls för program var mer begränsad och tjänstens huvud namn var tillräckligt för att upprätta en program identitet. Det ursprungliga tjänst huvud namnet var närmare i form till Windows Server Active Directory-tjänstkontot. Därför är det fortfarande möjligt att skapa tjänstens huvud namn via olika vägar, till exempel att använda Azure AD PowerShell, utan att först skapa ett program objekt. Azure AD-Graph API kräver ett program objekt innan du skapar ett huvud namn för tjänsten.
+* Alla tjänst huvud namn pekar inte tillbaka till ett program objekt. När Azure AD ursprungligen byggdes de tjänster som tillhandahölls för program var mer begränsad och tjänstens huvud namn var tillräckligt för att upprätta en program identitet. Det ursprungliga tjänst huvud namnet var närmare i form till Windows Server Active Directory-tjänstkontot. Därför är det fortfarande möjligt att skapa tjänstens huvud namn via olika vägar, till exempel att använda Azure AD PowerShell, utan att först skapa ett program objekt. Microsoft Graph-API: et kräver ett program objekt innan du skapar ett huvud namn för tjänsten.
 * All information som beskrivs ovan exponeras för närvarande inte program mässigt. Följande är endast tillgängligt i användar gränssnittet:
   * Omvandlings regler för anspråk
   * Mappningar av attribut (användar etablering)
-* Mer detaljerad information om tjänstens huvud namn och program objekt finns i referens dokumentationen för Azure AD Graph REST API:
-  * [Programmet](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [Tjänstens huvud namn](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+* Mer detaljerad information om tjänstens huvud namn och program objekt finns i referens dokumentationen för Microsoft Graph API:
+  * [Applicering](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)
+  * [Tjänstens huvud namn](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Varför integreras program med Azure AD?
 

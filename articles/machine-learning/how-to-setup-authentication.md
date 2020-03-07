@@ -11,11 +11,11 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: fcaa7a0c44851d6b48b40b01af4c8ec992c330b8
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602582"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355324"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -297,12 +297,12 @@ Webb tjänster har även stöd för tokenbaserad autentisering, men endast för 
 
 ### <a name="token-based-web-service-authentication"></a>Tokenbaserad autentisering av webb tjänst
 
-När du aktiverar token-autentisering för en webb tjänst måste användarna presentera en Azure Machine Learning JSON Web Token till webb tjänsten för att komma åt den. Token upphör att gälla efter en angiven tids period och måste uppdateras för att du ska kunna fortsätta att ringa.
+När du aktiverar token-autentisering för en webb tjänst måste användarna presentera en Azure Machine Learning JSON Web Token till webb tjänsten för att komma åt den. Token upphör att gälla efter en angiven tidsperiod och måste uppdateras för att anrop ska fortsätta att skickas.
 
 * Token-autentisering **inaktive ras som standard** när du distribuerar till Azure Kubernetes-tjänsten.
 * Token-autentisering **stöds inte** när du distribuerar till Azure Container instances.
 
-Om du vill kontrol lera token-autentisering använder du parametern `token_auth_enabled` när du skapar eller uppdaterar en distribution.
+För att kontrollera tokenautentisering använder du parametern `token_auth_enabled` när du skapar eller uppdaterar en distribution.
 
 Om token-autentisering har Aktiver ATS kan du använda metoden `get_token` för att hämta ett JSON Web Token (JWT) och den tokens förfallo tid:
 
@@ -312,7 +312,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Du måste begära en ny token efter `refresh_by`s tiden för token. Om du behöver uppdatera tokens utanför python SDK: n, är det ett alternativ att använda REST API med tjänstens huvudsakliga autentisering för att regelbundet göra `service.get_token()`-anrop, enligt beskrivningen ovan.
+> Du behöver begära en ny token efter tokens `refresh_by`-tid. Om du behöver uppdatera tokens utanför python SDK: n, är det ett alternativ att använda REST API med tjänstens huvudsakliga autentisering för att regelbundet göra `service.get_token()`-anrop, enligt beskrivningen ovan.
 >
 > Vi rekommenderar starkt att du skapar din Azure Machine Learning arbets yta i samma region som ditt Azure Kubernetes service-kluster. 
 >

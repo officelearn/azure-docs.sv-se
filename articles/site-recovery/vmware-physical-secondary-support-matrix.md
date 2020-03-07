@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: cabd3f7693c6b6b86bf0324bdafdfe1377d1ece8
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082195"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363221"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till en sekundär plats
 
@@ -39,7 +39,7 @@ Befintliga partners kan publicera nya kunder till scenariot tills supporten upph
 
 ## <a name="host-servers"></a>Värd servrar
 
-**Operativsystem** | **Information**
+**Operativsystem** | **Detaljer**
 --- | ---
 vCenter Server | vCenter 5,5, 6,0 och 6,5<br/><br/> Observera att endast 5,5-funktioner stöds om du kör 6,0 eller 6,5.
 
@@ -48,7 +48,7 @@ vCenter Server | vCenter 5,5, 6,0 och 6,5<br/><br/> Observera att endast 5,5-fun
 
 I följande tabell sammanfattas stöd för operativ system för datorer som replikeras med Site Recovery. Alla arbets belastningar kan köras på det operativ system som stöds.
 
-**Operativsystem** | **Information**
+**Operativsystem** | **Detaljer**
 --- | ---
 Windows Server | 64-bitars Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med minst SP1.
 Linux | Red Hat Enterprise Linux 6,7, 6,8, 6,9, 7,1, 7,2 <br/><br/> CentOS 6,5, 6,6, 6,7, 6,8, 6,9, 7,0, 7,1, 7,2 <br/><br/> Oracle Enterprise Linux 6,4, 6,5, 6,8 som kör Red Hat-kompatibel kernel eller Enterprise kernel release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4 
@@ -86,7 +86,7 @@ Gäst-VM-Multi-NIC | Ja
 **Lagring (värd)** | **Stöds** 
 --- | --- 
 NFS | Ja 
-SMB 3.0 | Saknas 
+SMB 3.0 | Ej tillämpligt 
 SAN (ISCSI) | Ja 
 Multipath (MPIO) | Ja 
 
@@ -95,8 +95,8 @@ Multipath (MPIO) | Ja
 **Konfiguration** | **Stöds** 
 --- | --- 
 VMDK | Ja 
-VHD/VHDX | Saknas 
-Generation 2 VM | Saknas 
+VHD/VHDX | Ej tillämpligt 
+Generation 2 VM | Ej tillämpligt 
 Delad kluster disk | Ja 
 Krypterad disk | Nej 
 UEFI| Ja 
@@ -108,7 +108,7 @@ Volym med Striped disk > 1 TB<br/><br/> LVM | Ja
 Lagrings utrymmen | Nej 
 Snabb Lägg till/ta bort disk | Ja 
 Uteslut disk | Ja 
-Multipath (MPIO) | Saknas 
+Multipath (MPIO) | Ej tillämpligt 
 
 ## <a name="vaults"></a>Valv
 
@@ -121,7 +121,7 @@ Flytta lagring, nätverk, virtuella Azure-datorer över resurs grupper (inom ell
 
 Mobilitets tjänsten samordnar replikering mellan lokala VMware-servrar eller fysiska servrar och den sekundära platsen. När du konfigurerar replikering bör du kontrol lera att du har den senaste versionen av mobilitets tjänsten och andra komponenter.
 
-| **Uppdatera** | **Information** |
+| **Uppdatering** | **Detaljer** |
 | --- | --- |
 |Scout-uppdateringar | Uppdateringar för Scout är kumulativa. <br/><br/> [Lär dig mer om och hämta](vmware-physical-secondary-disaster-recovery.md#updates) de senaste Scout-uppdateringarna |
 |Komponent uppdateringar | I Scout-uppdateringarna ingår uppdateringar för alla komponenter, inklusive RX-Server, konfigurations Server, process-och huvud mål servrar, vContinuum-servrar och käll servrar som du vill skydda.<br/><br/> [Läs mer](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 93b10d56ae34ebdfe78dd20705634dea58721274
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954364"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363181"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Hantera konfigurations servern för haveri beredskap för virtuella VMware-datorer/fysiska servrar
 
@@ -71,7 +71,7 @@ Om du missade att lägga till autentiseringsuppgifter under OVF-distributionen a
 
 1. När du har [loggat in](#access-configuration-server)väljer du **Hantera autentiseringsuppgifter för virtuella datorer**.
 2. Klicka på **Lägg till autentiseringsuppgifter för virtuell dator**.
-    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![Add-Mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Ange de nya autentiseringsuppgifterna och klicka på **Lägg till**.
 
 Du kan också lägga till autentiseringsuppgifter via CSPSConfigtool. exe.
@@ -154,16 +154,16 @@ Uppgradera servern på följande sätt:
 
 1. I valvet går du till **hantera** > **Site Recovery infrastruktur** > **konfigurations servrar**.
 2. Om det finns en uppdatering visas en länk i kolumnen **agent Version** >.
-    ![Uppdatera](./media/vmware-azure-manage-configuration-server/update2.png)
+    ![Uppdatering](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Hämta uppdaterings installations filen till konfigurations servern.
 
-    ![Uppdatering](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Uppdatera](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Dubbelklicka för att köra installations programmet.
 5. Installations programmet identifierar den aktuella versionen som körs på datorn. Klicka på **Ja** för att starta uppgraderingen.
 6. När uppgraderingen slutförs verifierar du Server konfigurationen.
 
-    ![Uppdatering](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Uppdatera](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Stäng installations programmet genom att klicka på **Slutför** .
 8. För att uppgradera resten av Site Recovery-komponenterna, se vår [uppgraderings vägledning](https://aka.ms/asr_vmware_upgrades).

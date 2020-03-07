@@ -1,7 +1,7 @@
 ---
 title: Publicera app – LUIS
 titleSuffix: Azure Cognitive Services
-description: När du har skapat och testat din aktiva LUIS-app gör du den tillgänglig för klient programmet genom att publicera den till slut punkten.
+description: När du är klar att skapa och testa active LUIS-appen blir tillgänglig för klientprogrammet genom att publicera den till slutpunkten.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
 ms.openlocfilehash: 676c6d15c4f439543a3ed74627001725632fecfa
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554844"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361171"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicera din aktiva, utbildade app till en mellanlagrings-eller produktions slut punkt
 
@@ -24,7 +24,7 @@ När du har skapat, tränat och testat din aktiva LUIS-app, gör du den tillgän
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-## <a name="publishing"></a>Publicering
+## <a name="publishing"></a>Publicera
 
 1. Om du vill publicera till slut punkten väljer du **publicera** i den övre högra panelen. 
 
@@ -43,7 +43,7 @@ Välj rätt plats när popup-fönstret visas:
 
 Genom att använda både publicerings platser kan du välja att ha två olika versioner av din app tillgängliga på de publicerade slut punkterna eller samma version på två olika slut punkter. 
 
-### <a name="publishing-regions"></a>Publicerings regioner
+### <a name="publishing-regions"></a>Publicera regioner
 
 Appen publiceras till alla regioner som är kopplade till resurserna för LUIS förutsägelse slut punkt som lagts till i LUIS-portalen från sidan **hantera** ->  **[Azure-resurser](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** . 
 
@@ -53,11 +53,11 @@ Till exempel, för en app som skapas på [www.Luis.AI](https://www.luis.ai), om 
 > Det finns 3 redigerings regioner. Du måste redigera i den region som du ska publicera till. Om du behöver publicera i alla regioner måste du hantera redigerings processen och den resulterande tränade modellen i alla tre redigerings regionerna. 
 
 
-## <a name="configuring-publish-settings"></a>Konfigurera publicerings inställningar
+## <a name="configuring-publish-settings"></a>Konfigurera inställningar för publicering
 
 När du har valt plats, konfigurerar du publicerings inställningarna för:
 
-* Känsloanalys
+* Attitydanalys
 * Stavnings korrigering – v2 endast förutsägelse slut punkt
 * Tal Prima 
 
@@ -67,17 +67,17 @@ När du har publicerat är de här inställningarna tillgängliga för gransknin
 
 När din app har publicerats visas ett meddelande längst upp i webbläsaren. Meddelandet innehåller också en länk till slut punkterna. 
 
-Om du behöver slut punkts-URL: en väljer du länken. Du kan också gå till URL-adresserna för slut punkter genom att välja **Hantera** i den översta menyn och sedan välja **Azure-resurser** på den vänstra menyn. 
+Välj länken om du behöver slutpunkts-URL. Du kan också gå till URL-adresserna för slut punkter genom att välja **Hantera** i den översta menyn och sedan välja **Azure-resurser** på den vänstra menyn. 
 
-## <a name="sentiment-analysis"></a>Känsloanalys
+## <a name="sentiment-analysis"></a>Attitydanalys
 
 <a name="enable-sentiment-analysis"></a>
 
 Sentiment-analys gör det möjligt för LUIS att integrera med [textanalys](https://azure.microsoft.com/services/cognitive-services/text-analytics/) för att tillhandahålla sentiment och nyckel fras analys. 
 
-Du behöver inte ange en Textanalys nyckel och det finns ingen fakturerings avgift för tjänsten på ditt Azure-konto. 
+Du behöver inte ange en nyckel för textanalys och det är kostnadsfritt faktureringen för den här tjänsten på Azure-kontot. 
 
-Sentiment-data är ett resultat mellan 1 och 0 som anger positiv (närmare 1) eller negativ (närmare 0) sentiment av data. Sentiment-etiketten för `positive`, `neutral`och `negative` är per kultur som stöds. För närvarande stöder endast engelska sentiment-etiketter. 
+Åsiktsdata är ett värde mellan 1 och 0 som anger vilka positiva (närmare 1) eller ett negativt (närmare 0) känsla av data. Sentiment-etiketten för `positive`, `neutral`och `negative` är per kultur som stöds. För närvarande stöder endast engelska sentiment-etiketter. 
 
 Mer information om JSON-slutpunktens svar med sentiment-analys finns i [sentiment-analys](luis-concept-data-extraction.md#sentiment-analysis)
 

@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.openlocfilehash: 6e4c8057322b6208ea3b447b264e2bde1344540c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421555"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372606"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Inlärnings nyckel koncept för Windows PowerShell-arbetsflöden för Automation-runbooks
 
@@ -41,9 +41,9 @@ PowerShell-arbetsflödet ser nästan likadant ut som skript kod med PowerShell f
 
 ### <a name="activities"></a>Aktiviteter
 
-En aktivitet är en viss uppgift i ett arbetsflöde. Precis som ett skript består av ett eller flera kommandon, består ett arbetsflöde av en eller flera aktiviteter som utförs i en sekvens. Windows PowerShell-arbetsflöde konverterar automatiskt många av Windows PowerShell-cmdlets för aktiviteter när ett arbetsflöde körs. När du anger en av dessa cmdletar i din runbook körs motsvarande aktivitet med Windows Workflow Foundation. För cmdletar där en motsvarande aktivitet saknas, körs Windows PowerShell-arbetsflöde automatiskt cmdleten i en [InlineScript](#inlinescript) aktivitet. Det finns en uppsättning cmdletar som är undantagna och inte kan användas i ett arbetsflöde om de inte uttryckligen skrivs in i ett InlineScript-block. Mer information om de här koncepten finns [med hjälp av aktiviteter i Skriptarbetsflöden](https://technet.microsoft.com/library/jj574194.aspx).
+En aktivitet är en viss uppgift i ett arbetsflöde. Precis som ett skript består av ett eller flera kommandon, består ett arbetsflöde av en eller flera aktiviteter som utförs i en sekvens. Windows PowerShell-arbetsflöde konverterar automatiskt många av Windows PowerShell-cmdlets för aktiviteter när ett arbetsflöde körs. När du anger en av dessa cmdletar i din runbook körs motsvarande aktivitet med Windows Workflow Foundation. För dessa cmdletar utan motsvarande aktivitet, kör Windows PowerShell-arbetsflöde automatiskt cmdleten i en [InlineScript](#inlinescript) -aktivitet. Det finns en uppsättning cmdletar som är undantagna och inte kan användas i ett arbetsflöde om de inte uttryckligen skrivs in i ett InlineScript-block. Mer information om dessa begrepp finns i [använda aktiviteter i skript arbets flöden](https://technet.microsoft.com/library/jj574194.aspx).
 
-Arbetsflödesaktiviteter delar en uppsättning gemensamma parametrar för konfiguration av deras funktion. Mer information om arbetsflödets gemensamma parametrar finns [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
+Arbetsflödesaktiviteter delar en uppsättning gemensamma parametrar för konfiguration av deras funktion. Mer information om arbets flödets gemensamma parametrar finns [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
 
 ### <a name="positional-parameters"></a>Positions parametrar
 
@@ -150,7 +150,7 @@ InlineScript-aktiviteter kan vara kritiska i vissa arbets flöden och de har int
 
 Mer information om hur du använder InlineScript finns [i köra Windows PowerShell-kommandon i ett arbets flöde](https://technet.microsoft.com/library/jj574197.aspx) och [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx).
 
-## <a name="parallel-processing"></a>Parallellbearbetning
+## <a name="parallel-processing"></a>Parallell bearbetning
 
 En fördel med Windows PowerShell-arbetsflöden är möjligheten att utföra en uppsättning kommandon parallellt i stället för sekventiellt som i ett vanligt skript.
 
@@ -189,7 +189,7 @@ Workflow Copy-Files
 }
 ```
 
-Du kan använda den **ForEach-Parallel** konstruktion kommandon bearbetas parallellt för varje objekt i en samling. Objekt i samlingen bearbetas parallellt medan kommandona i skriptblocket körs sekventiellt. Följande syntax visas nedan. I det här fallet startar Activity1 på samma tid för alla objekt i samlingen. Activity2 startar när Activity1 har slutförts för varje objekt. Activity3 startar bara efter att både Activity1 och Activity2 har slutförts för alla objekt. Vi använder parametern `ThrottleLimit` för att begränsa parallellitet. För hög av en `ThrottleLimit` kan orsaka problem. Det idealiska värdet för parametern `ThrottleLimit` är beroende av många faktorer i din miljö. Du bör försöka starta med ett lågt värde och prova med olika ökande värden tills du hittar något som fungerar för dina speciella omständigheter.
+Du kan använda den **förgrunds-parallella** konstruktionen för att bearbeta kommandon för varje objekt i en samling samtidigt. Objekt i samlingen bearbetas parallellt medan kommandona i skriptblocket körs sekventiellt. Följande syntax visas nedan. I det här fallet startar Activity1 på samma tid för alla objekt i samlingen. Activity2 startar när Activity1 har slutförts för varje objekt. Activity3 startar bara efter att både Activity1 och Activity2 har slutförts för alla objekt. Vi använder parametern `ThrottleLimit` för att begränsa parallellitet. För hög av en `ThrottleLimit` kan orsaka problem. Det idealiska värdet för parametern `ThrottleLimit` är beroende av många faktorer i din miljö. Du bör försöka starta med ett lågt värde och prova med olika ökande värden tills du hittar något som fungerar för dina speciella omständigheter.
 
 ```powershell
 ForEach -Parallel -ThrottleLimit 10 ($<item> in $<collection>)
@@ -222,7 +222,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>Kontrollpunkter
 
-En *kontroll punkt* är en ögonblicks bild av det aktuella läget för det arbets flöde som innehåller det aktuella värdet för variabler och alla utdata som genereras till den punkten. Om ett arbets flöde slutar fungera eller har pausats startar det igen från den senaste kontroll punkten i stället för arbets flödets start.  Du kan ange en kontrollpunkt i ett arbetsflöde med den **Checkpoint-Workflow** aktivitet. Azure Automation har en funktion som kallas [rättvis delning](automation-runbook-execution.md#fair-share), där alla Runbook-flöden som körs i 3 timmar är inaktiverade för att tillåta andra Runbooks att köras. Slutligen kommer den inaktiverade runbooken att läsas in igen och när den är det återupptar den körningen från den senaste kontroll punkten som tagits i runbooken. För att garantera att runbooken slutligen kommer att slutföras, måste du lägga till kontroll punkter i intervall som körs i mindre än tre timmar. Om du lägger till en ny kontroll punkt under varje körning, och om runbooken tas bort efter tre timmar på grund av ett fel, kommer runbooken att återupptas oändligt.
+En *kontroll punkt* är en ögonblicks bild av det aktuella läget för det arbets flöde som innehåller det aktuella värdet för variabler och alla utdata som genereras till den punkten. Om ett arbets flöde slutar fungera eller har pausats startar det igen från den senaste kontroll punkten i stället för arbets flödets start.  Du kan ange en kontroll punkt i ett arbets flöde med **kontroll punkt – arbets flödes** aktivitet. Azure Automation har en funktion som kallas [rättvis delning](automation-runbook-execution.md#fair-share), där alla Runbook-flöden som körs i 3 timmar är inaktiverade för att tillåta andra Runbooks att köras. Slutligen kommer den inaktiverade runbooken att läsas in igen och när den är det återupptar den körningen från den senaste kontroll punkten som tagits i runbooken. För att garantera att runbooken slutligen kommer att slutföras, måste du lägga till kontroll punkter i intervall som körs i mindre än tre timmar. Om du lägger till en ny kontroll punkt under varje körning, och om runbooken tas bort efter tre timmar på grund av ett fel, kommer runbooken att återupptas oändligt.
 
 I följande exempel kod inträffar ett undantag efter det att Activity2 orsakar att arbets flödet avslutas. När arbets flödet körs igen startar det genom att köra Activity2 eftersom det var precis efter den senaste kontroll punkts uppsättningen.
 
@@ -287,7 +287,7 @@ workflow CreateTestVms
 
 Detta krävs inte om du autentiserar med hjälp av ett Kör som-konto som kon figurer ATS med ett huvud namn för tjänsten.
 
-Mer information om kontrollpunkter finns [att lägga till kontrollpunkter till ett arbetsflöde för skript](https://technet.microsoft.com/library/jj574114.aspx).
+Mer information om kontroll punkter finns i [lägga till kontroll punkter i ett skript arbets flöde](https://technet.microsoft.com/library/jj574114.aspx).
 
 ## <a name="next-steps"></a>Nästa steg
 

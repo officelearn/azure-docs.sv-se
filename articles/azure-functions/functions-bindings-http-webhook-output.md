@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: a25658677e436edf4d001599bb4981f527016596
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210910"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356794"
 ---
 # <a name="azure-functions-http-output-bindings"></a>Azure Functions HTTP-utgående bindningar
 
@@ -27,8 +27,8 @@ I följande tabell förklaras de egenskaper för bindnings konfigurationen som d
 
 |Egenskap  |Beskrivning  |
 |---------|---------|
-| **typ** |måste anges till `http`. |
-| **riktning** | måste anges till `out`. |
+| **typ** |Måste anges till `http`. |
+| **riktning** | Måste anges till `out`. |
 | **Namn** | Variabel namnet som används i funktions koden för svaret, eller `$return` att använda returvärdet. |
 
 ## <a name="usage"></a>Användning
@@ -64,7 +64,7 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 }
 ```
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap  |Default | Beskrivning |
 |---------|---------|---------| 
 | customHeaders|ingen|Gör att du kan ange anpassade rubriker i HTTP-svaret. I föregående exempel läggs `X-Content-Type-Options`-rubriken till i svaret för att undvika innehålls typs avlyssning. |
 |dynamicThrottlesEnabled|Sant<sup>\*</sup>|När den här inställningen är aktive rad kommer pipeline för bearbetning av begär Anden att regelbundet kontrol lera system prestanda räknare som `connections/threads/processes/memory/cpu/etc` och om någon av dessa räknare är över en inbyggd hög tröskel (80%), avvisas begär Anden med ett `429 "Too Busy"` svar tills räknarna återgår till normala nivåer.<br/><sup>\*</sup> Standardvärdet i en förbruknings plan är `true`. Standardvärdet i en dedikerad plan är `false`.|

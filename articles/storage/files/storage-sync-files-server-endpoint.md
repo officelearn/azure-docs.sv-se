@@ -8,11 +8,11 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 684b30a24e049722cb531cbc84e3a2cd90912ec8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932625"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362381"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Lägga till/ta bort en Azure File Sync Server slut punkt
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
@@ -35,9 +35,9 @@ Om du vill lägga till en server slut punkt navigerar du till önskad Sync-grupp
 
 Följande information krävs under **Lägg till Server slut punkt**:
 
-- **Registrerad Server**: Namnet på servern eller klustret som server slut punkten ska skapas på.
-- **Sökväg**: Sökvägen på Windows-servern som ska synkroniseras som en del av Sync-gruppen.
-- **Moln nivå**: En växel för att aktivera eller inaktivera moln nivåer. När den är aktive *rad kommer moln nivån att filer* till dina Azure-filresurser. Detta konverterar lokala fil resurser till en cache, i stället för en fullständig kopia av data uppsättningen, som hjälper dig att hantera utrymmes effektiviteten på servern.
+- **Registrerad Server**: namnet på servern eller klustret som server slut punkten ska skapas på.
+- **Sökväg**: sökvägen på Windows Server som ska synkroniseras som en del av Sync-gruppen.
+- **Moln nivå**: en växel för att aktivera eller inaktivera moln nivåer. När den är aktive *rad kommer moln nivån att filer* till dina Azure-filresurser. Detta konverterar lokala fil resurser till en cache, i stället för en fullständig kopia av data uppsättningen, som hjälper dig att hantera utrymmes effektiviteten på servern.
 - **Ledigt utrymme på volym**: mängden ledigt utrymme som ska reserveras på volymen som server slut punkten finns på. Om till exempel volym ledigt utrymme är inställt på 50% på en volym med en enda server slut punkt kommer mängden data att nivåas till Azure Files. Oavsett om moln nivån är aktive rad, har Azure-filresursen alltid en fullständig kopia av data i Sync-gruppen.
 
 Välj **skapa** för att lägga till Server slut punkten. Filerna i ett namn område i en Sync-grupp kommer nu att synkroniseras. 
@@ -54,14 +54,14 @@ För att säkerställa att alla nivåbaserade filer återkallas innan du tar bor
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
 ```
-Om `-Order CloudTieringPolicy` du anger så kommer de senast ändrade filerna att återställas först.
+Om du anger `-Order CloudTieringPolicy` kommer de senast ändrade filerna att återställas först.
 Andra valfria men användbara parametrar att överväga är:
-* `-ThreadCount`anger hur många filer som kan återkallas parallellt.
+* `-ThreadCount` bestämmer hur många filer som kan återkallas parallellt.
 * `-PerFileRetryCount`anger hur ofta ett återställnings försök ska göras för en fil som för närvarande är blockerad.
-* `-PerFileRetryDelaySeconds`fastställer tiden i sekunder mellan försök att återkalla försök och bör alltid användas i kombination med föregående parameter.
+* `-PerFileRetryDelaySeconds`bestämmer tiden i sekunder mellan försök att återkalla försök och bör alltid användas i kombination med föregående parameter.
 
 > [!Note]  
-> Om den lokala volym som är värd för servern inte har tillräckligt med ledigt utrymme för att återkalla alla data på `Invoke-StorageSyncFileRecall` nivån, Miss lyckas cmdleten.  
+> Om den lokala volym som är värd för servern inte har tillräckligt med ledigt utrymme för att återkalla alla data på nivån, Miss lyckas `Invoke-StorageSyncFileRecall` cmdleten.  
 
 Så här tar du bort Server slut punkten:
 

@@ -8,17 +8,17 @@ ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: 9df7593a9fd191d3a734fba5e81fb1aecba08345
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668833"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360879"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Visa och hämta Azure aktivitets logg händelser
 
 [Azure aktivitets loggen](platform-logs-overview.md) ger inblick i händelser på prenumerations nivå som har inträffat i Azure. Den här artikeln innehåller information om olika metoder för att visa och hämta aktivitets logg händelser.
 
-## <a name="azure-portal"></a>Azure-portalen
+## <a name="azure-portal"></a>Azure Portal
 Visa aktivitets loggen för alla resurser på **Monitor** -menyn i Azure Portal. Visa aktivitets loggen för en viss resurs från alternativet **aktivitets logg** på den resurs menyn.
 
 ![Visa aktivitets logg](./media/activity-logs-overview/view-activity-log.png)

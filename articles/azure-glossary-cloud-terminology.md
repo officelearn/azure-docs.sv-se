@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978764"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357665"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure ord lista: en ord lista med moln terminologi på Azure-plattformen
 
@@ -39,7 +39,7 @@ Ett annat namn för [App Service-appen](#app-service-app).
 ## <a name="app-service-app"></a>App Service-app
 De beräknings resurser som [Azure App Service](app-service/overview.md) tillhandahåller för att vara värd för en webbplats eller ett webb program, webb-API eller Server del för [mobila appar](app-service-mobile/app-service-mobile-value-prop.md). App Service appar kallas även *app Services*, *webbappar*, *API-appar*och *mobilappar*.
 
-## <a name="availability-set"></a>tillgänglighetsuppsättning
+## <a name="availability-set"></a>tillgänglighets uppsättning
 En samling virtuella datorer som hanteras tillsammans för att ge programredundans och tillförlitlighet. Användningen av en tillgänglighets uppsättning garanterar att det under en planerad eller oplanerad underhålls händelse minst en virtuell dator är tillgänglig.  
 Se [Hantera tillgängligheten för virtuella Windows-datorer](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och [Hantera tillgängligheten för virtuella Linux-datorer](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -69,11 +69,11 @@ Processen för att automatiskt replikera innehåll, till exempel blobbar, tabell
 Se [aktiv geo-replikering för Azure SQL Database](sql-database/sql-database-geo-replication-overview.md)
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
-## <a name="image"></a>mallar
+## <a name="image"></a>image
 En fil som innehåller operativ system och program konfiguration som kan användas för att skapa ett valfritt antal virtuella datorer. I Azure finns det två typer av avbildningar: VM-avbildning och OS-avbildning. En avbildning av en virtuell dator innehåller ett operativ system och alla diskar som är kopplade till en virtuell dator när avbildningen skapas. En operativ system avbildning innehåller bara ett generaliserat operativ system utan data disk konfiguration.  
 Se [navigera och välja avbildningar för virtuella Windows-datorer i Azure med PowerShell eller CLI](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="limits"></a>gränser
+## <a name="limits"></a>sten
 Antalet resurser som kan skapas eller prestanda måttet som kan uppnås. Gränser är vanligt vis kopplade till prenumerationer, tjänster och erbjudanden.  
 Se [begränsningar, kvoter och begränsningar för Azure-prenumerationen och tjänsten](azure-resource-manager/management/azure-subscription-service-limits.md)
 
@@ -153,7 +153,7 @@ Se [Virtual Network översikt](virtual-network/virtual-networks-overview.md)
 ## <a name="web-app"></a>Webbapp
 Ett annat namn för [App Service-appen](#app-service-app).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Kom igång med Azure](https://azure.microsoft.com/get-started/)
 * [Moln resurs Center](https://azure.microsoft.com/resources/)  

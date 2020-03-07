@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 5800254ab44b5b0f1048ce2200f90c06a8d1666a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596172"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357115"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverks koncept för program i Azure Kubernetes service (AKS)
 
@@ -114,7 +114,7 @@ Oavsett vilken nätverks modell du använder kan både Kubernetes och Azure CNI 
 * Azure-plattformen kan automatiskt skapa och konfigurera virtuella nätverks resurser när du skapar ett AKS-kluster.
 * Du kan manuellt skapa och konfigurera virtuella nätverks resurser och koppla dem till resurserna när du skapar ditt AKS-kluster.
 
-Även om funktioner som tjänst slut punkter eller UDR stöds med både Kubernetes och Azure CNI, definierar [support principerna för AKS][support-policies] vilka ändringar du kan göra. Några exempel:
+Även om funktioner som tjänst slut punkter eller UDR stöds med både Kubernetes och Azure CNI, definierar [support principerna för AKS][support-policies] vilka ändringar du kan göra. Exempel:
 
 * Om du manuellt skapar de virtuella nätverks resurserna för ett AKS-kluster, kan du konfigurera dina egna UDR-eller tjänst slut punkter.
 * Om Azure-plattformen automatiskt skapar de virtuella nätverks resurserna för ditt AKS-kluster, stöds det inte för att manuellt ändra de AKS-hanterade resurserna för att konfigurera dina egna UDR-eller tjänst slut punkter.

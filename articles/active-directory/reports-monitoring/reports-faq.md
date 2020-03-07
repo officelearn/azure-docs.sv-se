@@ -17,11 +17,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cbaf7d4e5a0dee82edf9b6b6bd65b91309e1344d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007679"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375386"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Vanliga frågor och svar kring Azure Active Directory rapporter
 
@@ -76,7 +76,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure Active Directory
 | Rapport                 | Azure AD Kostnadsfri | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
 | Granskningsloggar             | 7 dagar        | 30 dagar             | 30 dagar             |
-| Inloggningar               | Saknas           | 30 dagar             | 30 dagar             |
+| Inloggningar               | Ej tillämpligt           | 30 dagar             | 30 dagar             |
 | Användning av Azure MFA        | 30 dagar       | 30 dagar             | 30 dagar             |
 
 ---

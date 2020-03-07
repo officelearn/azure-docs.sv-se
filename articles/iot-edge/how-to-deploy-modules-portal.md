@@ -10,11 +10,11 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 5c44561895bc1905328ec0eb357bee1c68a8eb55
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510540"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379336"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuera Azure IoT Edge-moduler från Azure portal
 
@@ -22,20 +22,20 @@ När du skapar IoT Edge moduler med din affärslogik som du vill distribuera dem
 
 Den här artikeln visar hur Azure-portalen visar hur du skapar ett manifest för distribution och skicka distributionen till en IoT Edge-enhet. Information om hur du skapar en distribution som riktar sig till flera enheter baserat på deras delade taggar finns i [distribuera och övervaka IoT Edge moduler i stor skala](how-to-deploy-monitor.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* En [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) i Azure-prenumerationen.
-* En [IoT Edge-enhet](how-to-register-device.md#register-in-the-azure-portal) med IoT Edge-körningen installerad.
+* En [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) i din Azure-prenumeration.
+* En [IoT Edge-enhet](how-to-register-device.md#register-in-the-azure-portal) med IoT Edge runtime installerad.
 
 ## <a name="configure-a-deployment-manifest"></a>Konfigurera ett manifest för distribution
 
-Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler för att distribuera, hur data flödar mellan moduler och önskade egenskaper för modultvillingar. Mer information om hur distribution manifest fungerar och hur du skapar dem finns i [förstå hur IoT Edge-moduler kan användas, konfigurerats och återanvändas](module-composition.md).
+Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler för att distribuera, hur data flödar mellan moduler och önskade egenskaper för modultvillingar. Mer information om hur distributions manifest fungerar och hur du skapar dem finns i [förstå hur IoT Edge moduler kan användas, konfigureras och återanvändas](module-composition.md).
 
-Azure-portalen har en guide som visar hur du skapar distributionen manifestet, i stället för att skapa JSON-dokumentet manuellt. Den har tre steg: **Lägg till moduler**, **ange vägar**, och **granska distribution**.
+Azure-portalen har en guide som visar hur du skapar distributionen manifestet, i stället för att skapa JSON-dokumentet manuellt. Det finns tre steg: **Lägg till moduler**, **Ange vägar**och **Granska distribution**.
 
 ### <a name="select-device-and-add-modules"></a>Välj enhet och Lägg till moduler
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och navigera till din IoT-hubb.
+1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din IoT-hubb.
 1. Välj **IoT Edge** på menyn i den vänstra rutan.
 1. Klicka på ID för målenhet i listan över enheter.
 1. I den övre stapeln väljer du **Ange moduler**.
@@ -47,7 +47,7 @@ Azure-portalen har en guide som visar hur du skapar distributionen manifestet, i
    * **Marketplace-modul** – moduler som finns på Azure Marketplace. Vissa Marketplace-moduler kräver ytterligare konfiguration, så granska informationen i modulen i listan med [IoT Edge moduler för Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) .
    * **Azure Stream Analytics modul** – moduler som genereras från en Azure Stream Analytics arbets belastning.
 
-1. När du har lagt till en modul väljer du modulnamnet i listan för att öppna inställningarna för modulen. Fyll i valfritt fält om det behövs. För mer information om behållare alternativ, omstartsprincip, för att skapa och önskad status finns i [EdgeAgent önskade egenskaper](module-edgeagent-edgehub.md#edgeagent-desired-properties). Läs mer om modultvillingen [definiera eller uppdatera önskade egenskaper](module-composition.md#define-or-update-desired-properties).
+1. När du har lagt till en modul väljer du modulnamnet i listan för att öppna inställningarna för modulen. Fyll i valfritt fält om det behövs. För ytterligare information om behållar skapande alternativ, starta om princip och önskad status, se [EdgeAgent önskade egenskaper](module-edgeagent-edgehub.md#edgeagent-desired-properties). Mer information om modulen finns i [definiera eller uppdatera önskade egenskaper](module-composition.md#define-or-update-desired-properties).
 1. Om det behövs upprepar du steg 5 till 8 för att lägga till ytterligare moduler i distributionen.
 1. Välj **Nästa: vägar** för att fortsätta till avsnittet vägar.
 
@@ -59,7 +59,7 @@ Lägg till eller uppdatera vägarna med information från [deklarera vägar](mod
 
 ### <a name="review-deployment"></a>Granska distribution
 
-Granska avsnittet visas i du JSON-distributionen manifest som har skapats baserat på dina val i de föregående två avsnitt. Observera att det finns två moduler deklarerade att du inte har lagt till: **$edgeAgent** och **$edgeHub**. Dessa två moduler som utgör den [IoT Edge-körningen](iot-edge-runtime.md) och är obligatoriskt standardvärden i varje distribution.
+Granska avsnittet visas i du JSON-distributionen manifest som har skapats baserat på dina val i de föregående två avsnitt. Observera att det finns två moduler som har deklarerats att du inte har lagt till: **$edgeAgent** och **$edgeHub**. Dessa två moduler utgör den [IoT Edge körningen](iot-edge-runtime.md) och måste vara standardvärden i varje distribution.
 
 Granska distributions informationen och välj sedan **skapa**.
 
@@ -106,4 +106,4 @@ Välj **Nästa: vägar** och fortsätt med distributionen enligt beskrivningen i
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [distribuera och övervaka IoT Edge-moduler i stor skala](how-to-deploy-monitor.md)
+Lär dig hur du [distribuerar och övervakar IoT Edge moduler i stor skala](how-to-deploy-monitor.md)

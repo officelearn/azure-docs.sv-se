@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4ff3ebf6239f9b62409ff0885f23115711e33cb
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
-ms.translationtype: MT
+ms.openlocfilehash: 9970894436107ab51c2ad2d31aa1e14a3e6b5778
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77584549"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356503"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd
 
@@ -63,7 +63,7 @@ När du använder Premium-planen läggs instanser av Azure Functions-värden til
 
 * Ständigt varma instanser för att undvika kall start
 * VNet-anslutning
-* Obegränsad körnings tid
+* Obegränsad körnings tid (60 minuter garanterad)
 * Premium-instans storlekar (en kärna, två kärnor och fyra kärn instanser)
 * Mer förutsägbar prissättning
 * App-allokering med hög densitet för planer med flera Function-appar

@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
 ms.openlocfilehash: 3cd330e9c4ceba2feeb7a74cafe9f094fd03d690
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669122"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360882"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Vad övervakas av Azure Monitor?
 I den här artikeln beskrivs de olika program och tjänster som övervakas av Azure Monitor. 
@@ -70,7 +70,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Attesterings tjänst | Nej | Nej | Nej |  |
 |Automation | Ja | Ja | Nej |  |
 |Azure Service Manager (RDFE) | Nej | Nej | Nej |  |
-|Backup | Nej | Ja | Nej |  |
+|Säkerhetskopiering | Nej | Ja | Nej |  |
 |Bastion | Nej | Nej | Nej |  |
 |Batch | Ja | Ja | Nej |  |
 |Batch AI | Nej | Nej | Nej |  |
@@ -120,7 +120,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Lastbalanserare | Ja | Ja | Nej |  |
 |Logic Apps | Ja | Ja | Nej |  |
 |Machine Learning Service | Nej | Nej | Nej |  |
-|Hanterade program  | Nej | Nej | Nej |  |
+|Managed Applications  | Nej | Nej | Nej |  |
 |Maps  | Nej | Nej | Nej |  |
 |Media Services | Ja | Ja | Nej |  |
 |Microsoft Flow | Nej | Nej | Nej |  |
@@ -129,7 +129,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Microsoft socialt engagemang | Nej | Nej | Nej |  |
 |Microsoft Stream | Ja | Ja | Nej |  |
 |Migrera | Nej | Nej | Nej |  |
-|Multi-Factor Authentication | Nej | Ja | Nej |  |
+|Multifaktorautentisering | Nej | Ja | Nej |  |
 |Network Watcher | Ja | Ja | Nej |  |
 |Notification Hubs | Ja | Nej | Nej |  |
 |Open Datasets | Nej | Nej | Nej |  |
@@ -161,7 +161,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |TINA | Nej | Nej | Nej |  |
 |Traffic Manager | Ja | Ja | Nej |  |
 |Universell utskrift | Nej | Nej | Nej |  |
-|Virtual Machine Scale Sets | Nej | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
+|Skalningsuppsättningar för Virtual Machines | Nej | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
 |Virtuella datorer | Ja | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
 |Virtual Network | Ja | Ja | [Ja](insights/network-insights-overview.md) |  |
 |Virtual Network NSG flödes loggar | Nej | Ja | Nej |  |

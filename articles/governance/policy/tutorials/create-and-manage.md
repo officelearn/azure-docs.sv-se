@@ -4,11 +4,11 @@ description: I den här självstudien använder du principer för att genomdriva
 ms.date: 12/20/2019
 ms.topic: tutorial
 ms.openlocfilehash: a4e4190e5ff6a87098c349cde99572df2dba4331
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436310"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384503"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Självstudie: skapa och hantera principer för att genomdriva efterlevnad
 
@@ -22,7 +22,7 @@ Det är viktigt att du förstår hur du skapar och hanterar principer i Azure f�
 
 Om du vill tilldela en princip för att identifiera dina befintliga resursers efterlevnadstillstånd går artiklarna i snabbstarten igenom det.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -69,7 +69,7 @@ Det första steget för att tillämpa efterlevnad av Azure Policy är att tillde
 
 1. Lämna **skapa en reparations uppgift** avmarkerad. Med den här rutan kan du skapa en uppgift för att ändra befintliga resurser utöver nya eller uppdaterade resurser. Mer information finns i [åtgärda resurser](../how-to/remediate-resources.md).
 
-1. **Skapa en hanterad identitet** kontrol leras automatiskt eftersom den här princip definitionen använder [ändrings](../concepts/effects.md#modify) resultatet. **Behörigheter** anges till _Contributor_ automatiskt baserat på princip definitionen. Mer information finns i avsnitten [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](../how-to/remediate-resources.md#how-remediation-security-works).
+1. **Skapa en hanterad identitet** kontrol leras automatiskt eftersom den här princip definitionen använder [ändrings](../concepts/effects.md#modify) resultatet. **Behörigheter** anges till _Contributor_ automatiskt baserat på princip definitionen. Mer information finns i avsnitten om [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](../how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Välj fliken **Granska + skapa** överst i guiden.
 
@@ -358,10 +358,10 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 1. Bläddra igenom listan **Tillgängliga definitioner** (högre halvan av sidan **Initiativdefinition**) och välj de principdefinitioner som du vill lägga till i initiativet. För att **få säker** initiativ lägger du till följande inbyggda princip definitioner genom att välja **+** bredvid princip definitions informationen eller välja en princip definitions rad och sedan alternativet **+ Lägg till** på sidan information:
 
    - Tillåtna platser
-   - Övervaka avsaknad av slutpunktsskydd i Azure Security Center
+   - Övervaka saknade Endpoint Protection i Azure Security Center
    - Regler för nätverks säkerhets grupper för virtuella datorer som riktas mot Internet bör vara skärpta
    - Azure Backup ska vara aktiverat för Virtual Machines
-   - Diskkryptering bör tillämpas på virtuella datorer
+   - Disk kryptering bör tillämpas på virtuella datorer
 
    När du har valt princip definitionen i listan läggs varje **kategori**till nedan.
 
@@ -443,7 +443,7 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 1. Välj fliken **parametrar** överst i guiden. Ange ett värde om du konfigurerade en initiativ parameter i föregående steg.
 
-1. Välj fliken **reparation** överst i guiden. Lämna **Skapa en hanterad identitet** avmarkerat. Den här rutan _måste_ kontrol leras när principen eller initiativet som tilldelas innehåller en princip med [deployIfNotExists](../concepts/effects.md#deployifnotexists) eller [ändra](../concepts/effects.md#modify) effekter. Eftersom den princip som används för den här självstudien inte gör det kan du lämna den tom. Mer information finns i avsnitten [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](../how-to/remediate-resources.md#how-remediation-security-works).
+1. Välj fliken **reparation** överst i guiden. Lämna **Skapa en hanterad identitet** avmarkerat. Den här rutan _måste_ kontrol leras när principen eller initiativet som tilldelas innehåller en princip med [deployIfNotExists](../concepts/effects.md#deployifnotexists) eller [ändra](../concepts/effects.md#modify) effekter. Eftersom den princip som används för den här självstudien inte gör det kan du lämna den tom. Mer information finns i avsnitten om [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](../how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Välj fliken **Granska + skapa** överst i guiden.
 

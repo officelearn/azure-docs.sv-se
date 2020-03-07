@@ -5,11 +5,11 @@ ms.topic: quickstart
 ms.date: 08/30/2019
 ms.custom: seodec18
 ms.openlocfilehash: 7901498772b8e746fb2c87a5237f06ab279e3b64
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922298"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374013"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Köra en anpassad Windows-container i Azure (förhandsversion)
 
@@ -17,7 +17,7 @@ ms.locfileid: "75922298"
 
 Den här snabb starten visar hur du distribuerar en ASP.NET-app i en Windows-avbildning till [Docker Hub](https://hub.docker.com/) från Visual Studio. Du kör appen i en anpassad behållare i Azure App Service.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -79,7 +79,7 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
 ## <a name="create-a-windows-container-app"></a>Skapa en Windows-containerapp
 
-1. Logga in på [Azure-portalen]( https://portal.azure.com).
+1. Logga in på [Azure Portal]( https://portal.azure.com).
 
 1. Välj **Skapa en resurs** längst upp till vänster i Azure-portalen.
 
@@ -103,7 +103,7 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
 När Azure-åtgärden är klar visas ett meddelande.
 
-![Distributionen är klar](media/app-service-web-get-started-windows-container/portal-create-finished.png)
+![Distributionen lyckades](media/app-service-web-get-started-windows-container/portal-create-finished.png)
 
 1. Klicka på **Gå till resurs**.
 
@@ -136,7 +136,7 @@ De strömmade loggarna ser ut så här:
 27/07/2018 12:05:05.020 INFO - Site: win-container-demo - Container started successfully
 ```
 
-## <a name="update-locally-and-redeploy"></a>Uppdatera lokalt och omdistribuera
+## <a name="update-locally-and-redeploy"></a>Uppdatera lokalt och distribuera om
 
 1. Öppna **vyer** > **Start** > **index. cshtml**i **Solution Explorer**i Visual Studio.
 
@@ -170,7 +170,7 @@ Du kan använda en annan anpassad Docker-avbildning för att köra din app. Du m
 
 Det tar lite tid att ladda ned en överordnad avbildning när appen startas. Men du kan minska starttiden genom att använda någon av följande överordnade avbildningar som redan har cachelagrats i Azure App Service:
 
-- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
+- [MCR.Microsoft.com/dotNET/Framework/ASPNET](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/): 4.7.2-windowsservercore-ltsc2019
 - [MCR.Microsoft.com/Windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/): 1809 – den här avbildningen är bas behållaren som används i Microsoft [ASP.net Core](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/) Nano Server-avbildningar från Microsoft Windows.
 
 ## <a name="next-steps"></a>Nästa steg

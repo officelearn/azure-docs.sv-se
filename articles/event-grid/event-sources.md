@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
 ms.openlocfilehash: d4a426ea1432d0266b7ae9344afefe8ddac1d030
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561773"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359320"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Händelse källor i Azure Event Grid
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller länkar till innehåll för varje händelse källa
 
 Prenumerera på Azure Subscriptions-händelser för att svara på ändringar i resurser i en Azure-prenumeration.
 
-|Titel |Beskrivning  |
+|Rubrik |Beskrivning  |
 |---------|---------|
 | [Självstudie: Azure Automation med Event Grid och Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Skapa en virtuell dator, som skickar en händelse. Händelsen utlöser en Automation-Runbook som Taggar den virtuella datorn och utlöser ett meddelande som skickas till en Microsoft Teams-kanal. |
 | [Gör så här: prenumerera på händelser via portalen](subscribe-through-portal.md) | Använd portalen för att prenumerera på händelser för en Azure-prenumeration. |
@@ -36,7 +36,7 @@ Prenumerera på Azure Subscriptions-händelser för att svara på ändringar i r
 
 Prenumerera på Container Registry händelser för att svara på ändringar i avbildningar.
 
-|Titel |Beskrivning  |
+|Rubrik |Beskrivning  |
 |---------|---------|
 | [Snabb start: skicka behållar register händelser](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visar hur du använder Azure CLI för att skicka Container Registry händelser. |
 | [Händelse schema](event-schema-container-registry.md) | Visar fält i Container Registry händelser. |
@@ -45,7 +45,7 @@ Prenumerera på Container Registry händelser för att svara på ändringar i av
 
 Prenumerera på anpassade ämnen för att svara på program händelser.
 
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Snabb start: skapa och dirigera anpassade händelser med Azure CLI](custom-event-quickstart.md) | Visar hur du använder Azure CLI för att skicka anpassade händelser. |
 | [Snabb start: skapa och dirigera anpassade händelser med Azure PowerShell](custom-event-quickstart-powershell.md) | Visar hur du använder Azure PowerShell för att skicka anpassade händelser. |
@@ -65,7 +65,7 @@ Prenumerera på anpassade ämnen för att svara på program händelser.
 
 Prenumerera på Event Hubs händelser för att svara på avbilda fil händelser. Event Hubs kan fungera som en händelse källa eller händelse hanterare. I följande artiklar visas hur du använder Event Hubs som källa.
 
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Självstudie: strömma Big data till ett informations lager](event-grid-event-hubs-integration.md) | När Event Hubs skapar en Infångnings fil, Event Grid skickar en händelse till en Function-app. Appen hämtar insamlings filen och migrerar data till ett data lager. |
 | [Händelse schema](event-schema-event-hubs.md) | Visar fält i Event Hubs händelser. |
@@ -76,7 +76,7 @@ Exempel på Event Hubs som hanterare finns i [Event Hubs hanterare](event-handle
 
 Prenumerera på IoT Hub händelser för att svara på enhet som skapats, tagits bort, anslutna, frånkopplade och telemetri-händelser.
 
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Skicka e-postaviseringar om Azure IoT Hub händelser med Logic Apps](publish-iot-hub-events-to-logic-apps.md) | En Logic App skickar ett e-postmeddelande varje gång en enhet läggs till i din IoT Hub. |
 | [Reagera på IoT Hub händelser genom att använda Event Grid för att utlösa åtgärder](../iot-hub/iot-hub-event-grid.md) | Översikt över att integrera IoT Hub med Event Grid. |
@@ -89,7 +89,7 @@ Key Vault integration med Event Grid är för närvarande en för hands version.
 
 Prenumerera på Key Vault händelser för att bli meddelad när en hemlighet håller på att gå ut, en hemlig förfaller eller en hemlighet har en ny version som är tillgänglig. 
 
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Övervaka Key Vault händelser med Azure Event Grid](../key-vault/event-grid-overview.md) | Översikt över att integrera Key Vault med Event Grid. |
 | [Självstudie: skapa och övervaka Key Vault händelser med Event Grid](../key-vault/event-grid-tutorial.md) | Lär dig hur du konfigurerar Event Grid-meddelanden för Key Vault. |
@@ -99,7 +99,7 @@ Prenumerera på Key Vault händelser för att bli meddelad när en hemlighet hå
 
 Prenumerera på Media Services händelser för att svara på händelser i jobb tillstånd.
 
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Översikt: reagerar på Media Services händelser](../media-services/latest/reacting-to-media-services-events.md) | Översikt över att integrera Media Services med Event Grid. |
 | [Självstudie: dirigera Azure Media Services händelser till en anpassad webb slut punkt med hjälp av CLI](../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visar hur du skickar händelser från Media Services. |
@@ -109,7 +109,7 @@ Prenumerera på Media Services händelser för att svara på händelser i jobb t
 
 Prenumerera på resurs grupp händelser för att svara på ändringar i resurser i en resurs grupp.
 
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Självstudie: övervaka ändringar av virtuella datorer med Azure Event Grid och Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | En Logic app övervakar ändringar i en virtuell dator och skickar e-postmeddelanden om ändringarna. |
 | [Azure CLI: prenumerera på händelser för en resurs grupp](./scripts/event-grid-cli-resource-group.md)| Exempel skript som prenumererar på händelser för en resurs grupp. Den skickar händelser till en webhook. |
@@ -123,7 +123,7 @@ Prenumerera på resurs grupp händelser för att svara på ändringar i resurser
 
 Prenumerera på Service Bus händelser för att svara på meddelanden utan en aktiv lyssnare.
 
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Självstudie: Azure Service Bus till Azure Event Grid integrations exempel](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid skickar meddelanden från Service Bus ämne till att fungera som app-och Logic-appen. |
 | [Översikt: Azure Service Bus till Event Grid-integrering](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Översikt över att integrera Service Bus med Event Grid. |
@@ -136,7 +136,7 @@ Prenumerera på Blob Storage händelser för att svara på BLOB-skapade och bort
 >[!NOTE]
 > Endast lagrings konton av typen **StorageV2 (generell användning v2)** och **BlobStorage** -stöd för händelse integrering. **Lagring (generell användning v1)** stöder *inte* integrering med event Grid.
 
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Snabb start: dirigera Blob Storage-händelser till en anpassad webb slut punkt med Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visar hur du använder Azure CLI för att skicka Blob Storage-händelser till en webhook. |
 | [Snabb start: dirigera Blob Storage-händelser till en anpassad webb slut punkt med PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visar hur du använder Azure PowerShell för att skicka Blob Storage-händelser till en webhook. |
@@ -150,7 +150,7 @@ Prenumerera på Blob Storage händelser för att svara på BLOB-skapade och bort
 ## <a name="maps"></a>Maps
 Prenumerera på Azure Maps händelser för att svara på händelser på en inhägnad. Ett program kan till exempel leverera ett e-postmeddelande varje gång en enhet går in eller avslutar ett avgränsnings tecken.
 
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Reagera på Azure Maps händelser med Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Översikt över att integrera Azure Maps med Event Grid. |
 | [Självstudie: Konfigurera en gräns](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Den här självstudien vägleder dig igenom de grundläggande stegen för att konfigurera geofence med hjälp av Azure Maps. Du använder Azure Event Grid för att strömma de gränsade resultaten och ställa in ett meddelande baserat på de gränser som anges i det här resultatet. |
@@ -159,7 +159,7 @@ Prenumerera på Azure Maps händelser för att svara på händelser på en inhä
 ## <a name="app-configuration"></a>App Configuration
 Prenumerera på Azure App konfigurations händelser för att svara på nyckel värdes ändrings händelser.
 
-|Titel | Beskrivning |
+|Rubrik | Beskrivning |
 |---------|---------|
 | [Reagera på Azure App konfigurations händelser med Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Översikt över att integrera Azure App-konfiguration med Event Grid. |
 | [Snabb start: dirigera Azure App konfigurations händelser till en anpassad webb slut punkt med Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visar hur du använder Azure CLI för att skicka Azure App konfigurations händelser till en webhook. |
@@ -168,7 +168,7 @@ Prenumerera på Azure App konfigurations händelser för att svara på nyckel v�
 ## <a name="azure-signalr"></a>Azure SignalR
 Prenumerera på händelser i Azure SignalR service och svara på klient anslutnings händelser.
 
-|Titel | Beskrivning |
+|Rubrik | Beskrivning |
 |---------|---------|
 | [Reagera på händelser i Azure SignalR service genom att använda Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Översikt över integrering av Azure SignalR service med Event Grid. |
 | [Så här skickar du Azure SignalR service-händelser till Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Visar hur du skickar Azure SignalR service-händelser till ett program via Event Grid. |
@@ -178,7 +178,7 @@ Prenumerera på händelser i Azure SignalR service och svara på klient anslutni
 
 Prenumerera på Azure Machine Learning arbets ytans händelser för att svara på modell registrering.
 
-| Titel | Beskrivning |
+| Rubrik | Beskrivning |
 | ----- | ----- |
 | [Använda Azure Machine Learning händelser](../machine-learning/concept-event-grid-integration.md) | Översikt över att integrera Azure Machine Learning med Event Grid. |
 | [Azure Event Grid händelse schema för Azure Machine Learning](event-schema-machine-learning.md) | Visar fält i Azure Machine Learning händelser. |

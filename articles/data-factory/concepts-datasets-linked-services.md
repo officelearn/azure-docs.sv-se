@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/25/2019
 ms.openlocfilehash: 878ad98b118fa02a6659584ac60e3343a948cd20
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928479"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381769"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Data uppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -199,7 +199,7 @@ Definiera strukturen för BLOB-datauppsättningen enligt följande, tillsammans 
 ]
 ```
 
-### <a name="guidance"></a>Vägledning
+### <a name="guidance"></a>Riktlinjer
 
 Följande rikt linjer hjälper dig att förstå när du ska inkludera struktur information och vad som ska ingå i **struktur** avsnittet. Läs mer om hur Data Factory mappar källdata till Sink och när du ska ange struktur information från [schema och typ mappning](copy-activity-schema-and-type-mapping.md).
 

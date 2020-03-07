@@ -5,11 +5,11 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.openlocfilehash: dd4e9dc199048b3faf3da0cadfdf60bdcb26c5bc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989696"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363803"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Hantera virtuella Azure-säkerhetskopieringar med Azure Backup tjänsten
 
@@ -30,10 +30,10 @@ Du kan hantera säkerhets kopior med hjälp av instrument panelen och genom att 
 
 Visa virtuella datorer på valv-instrument panelen:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. På menyn hubb väljer du **Bläddra**. I listan över resurser skriver du **Recovery Services**. När du skriver filtreras listan baserat på din inaktuella information. Välj **Recovery Services valv**.
 
-    ![skapar ett Recovery Services-valv](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
+    ![Skapa ett Recovery Services-valv](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
 3. För enkel användning högerklickar du på valvet och väljer **Fäst på instrument panelen**.
 4. Öppna instrument panelen för valvet.
@@ -56,7 +56,7 @@ Visa virtuella datorer på valv-instrument panelen:
 
 Så här hanterar du en säkerhets kopierings princip:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/). Öppna instrument panelen för valvet.
+1. Logga in på [Azure Portal](https://portal.azure.com/). Öppna instrument panelen för valvet.
 2. På panelen **säkerhets kopierings objekt** väljer du **Azure Virtual Machines**.
 
     ![Öppna panelen säkerhets kopierings objekt](./media/backup-azure-manage-vms/contoso-vault-1606.png)

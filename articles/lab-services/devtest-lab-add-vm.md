@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 22060cc6dd5eb15e81a0c397a7b0255f16780d74
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75976499"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381010"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Lägga till en virtuell dator i ett labb i Azure DevTest Labs
 Om du redan har [skapat din första virtuella dator](tutorial-create-custom-lab.md#add-a-vm-to-the-lab), gjorde du troligt vis från en förinstallerad [Marketplace-avbildning](devtest-lab-configure-marketplace-images.md). Om du nu vill lägga till efterföljande virtuella datorer i labbet kan du också välja en *bas* som antingen är en [anpassad bild](devtest-lab-create-template.md) eller [formel](devtest-lab-manage-formulas.md). Den här självstudien vägleder dig genom att använda Azure Portal för att lägga till en virtuell dator i ett labb i DevTest Labs.
@@ -27,7 +27,7 @@ Om du redan har [skapat din första virtuella dator](tutorial-create-custom-lab.
 Den här artikeln visar också hur du hanterar artefakter för en virtuell dator i labbet.
 
 ## <a name="steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Steg för att lägga till en virtuell dator i ett labb i Azure DevTest Labs
-1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Välj **alla tjänster**och välj sedan **DevTest Labs** i avsnittet **DEVOPS** . Om du väljer * (Star) bredvid **DevTest Labs** i avsnittet **DEVOPS** . Den här åtgärden lägger till **DevTest Labs** i den vänstra navigerings menyn så att du enkelt kan komma åt dem nästa gång. Sedan kan du välja **DevTest Labs** i den vänstra navigerings menyn.
 
     ![Alla tjänster – Välj DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
@@ -70,7 +70,7 @@ När du skapar en virtuell dator kan du lägga till befintliga artefakter. Varje
 
 Information om hur du skapar artefakter finns i artikeln [Lär dig hur du skapar dina egna artefakter för användning med DevTest Labs](devtest-lab-artifact-author.md).
 
-1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Välj **alla tjänster**och välj sedan **DevTest Labs** i listan.
 1. I listan med labb väljer du det labb som innehåller den virtuella dator som du vill arbeta med.
 1. Välj **mina virtuella datorer**.

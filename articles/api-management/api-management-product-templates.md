@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 393563427e936e07315cd44b78cb793d4292b352
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176578"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374453"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Produktmallar i Azure API Management
 
-Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor med en uppsättning mallar som konfigurerar innehållet. Om du använder [DotLiquid](http://dotliquidmarkup.org/) -syntax och valfritt redigerings program, till exempel [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), glyf- [resurser](api-management-template-resources.md#glyphs)och [sid kontroller](api-management-page-controls.md), har du stor flexibilitet att konfigurera innehållet på sidorna som du ser får plats med mallarna.  
+Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor med en uppsättning mallar som konfigurerar innehållet. Om du använder [DotLiquid](http://dotliquidmarkup.org/) -syntax och valfritt redigerings program, t. ex. [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [Glyph-resurser](api-management-template-resources.md#glyphs)och [sid kontroller](api-management-page-controls.md), har du stor flexibilitet att konfigurera innehållet på sidorna när du ser anpassa med hjälp av dessa mallar.  
   
  Med mallarna i det här avsnittet kan du anpassa innehållet på produkt sidorna i Developer-portalen.  
   
@@ -207,16 +207,16 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |Produkt|[Momsproduktbokföringsmallar](api-management-template-data-model-reference.md#Product)|Den angivna produkten.|  
-|IsDeveloperSubscribed|boolesk|Om den aktuella användaren prenumererar på den här produkten.|  
+|IsDeveloperSubscribed|boolean|Om den aktuella användaren prenumererar på den här produkten.|  
 |SubscriptionState|nummer|Prenumerationens tillstånd. Möjliga tillstånd är:<br /><br /> -   `0 - suspended` – prenumerationen är blockerad och prenumeranten kan inte anropa några API: er för produkten.<br />-   `1 - active` – prenumerationen är aktiv.<br />-   `2 - expired` – prenumerationen har nått sitt förfallo datum och inaktiverades.<br />-   `3 - submitted` – prenumerations förfrågan har gjorts av utvecklaren, men har ännu inte godkänts eller avvisats.<br />-   `4 - rejected` – prenumerations förfrågan har nekats av en administratör.<br />-   `5 - cancelled` – prenumerationen har avbrutits av utvecklaren eller administratören.|  
 |Begränsningar|matris|Den här egenskapen är föråldrad och ska inte användas.|  
-|DelegatedSubscriptionEnabled|boolesk|Om [delegering](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) är aktiverat för den här prenumerationen.|  
+|DelegatedSubscriptionEnabled|boolean|Om [delegering](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) är aktiverat för den här prenumerationen.|  
 |DelegatedSubscriptionUrl|sträng|Om delegering är aktiverat är den delegerade prenumerations-URL: en.|  
-|IsAgreed|boolesk|Om produkten har villkor, om den aktuella användaren har godkänt villkoren.|  
+|IsAgreed|boolean|Om produkten har villkor, om den aktuella användaren har godkänt villkoren.|  
 |Prenumerationer|Samling av entiteter för [prenumerations Sammanfattning](api-management-template-data-model-reference.md#SubscriptionSummary) .|Prenumerationerna på produkten.|  
 |N|Samling av [API](api-management-template-data-model-reference.md#API) -entiteter.|API: erna i den här produkten.|  
-|CannotAddBecauseSubscriptionNumberLimitReached|boolesk|Om den aktuella användaren är behörig att prenumerera på den här produkten med avseende på prenumerations gränsen.|  
-|CannotAddBecauseMultipleSubscriptionsNotAllowed|boolesk|Om den aktuella användaren är behörig att prenumerera på den här produkten med avseende på flera prenumerationer som tillåts eller inte.|  
+|CannotAddBecauseSubscriptionNumberLimitReached|boolean|Om den aktuella användaren är behörig att prenumerera på den här produkten med avseende på prenumerations gränsen.|  
+|CannotAddBecauseMultipleSubscriptionsNotAllowed|boolean|Om den aktuella användaren är behörig att prenumerera på den här produkten med avseende på flera prenumerationer som tillåts eller inte.|  
   
 ### <a name="sample-template-data"></a>Exempel mal lin data  
   

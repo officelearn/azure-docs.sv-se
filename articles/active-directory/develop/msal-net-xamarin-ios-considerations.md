@@ -15,11 +15,11 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 76e614b605cd07cd5dc454824dd204447f806907
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132476"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377447"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Att tänka på när du använder Xamarin iOS med MSAL.NET
 När du använder Microsoft Authentication Library för .NET (MSAL.NET) på Xamarin iOS bör du: 

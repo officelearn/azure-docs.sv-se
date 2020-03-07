@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766097"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376118"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect synkronisering: attribut synkroniserade till Azure Active Directory
 I det här avsnittet visas de attribut som synkroniseras med Azure AD Connect Sync.  
@@ -42,7 +42,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | Attributnamn | Användare | Kommentar |
 | --- |:---:| --- |
 | accountEnabled |X |Definierar om ett konto är aktiverat. |
-| nomenklatur |X | |
+| CN |X | |
 | displayName |X | |
 | objectSID |X |mekanisk egenskap. AD-användarnamn som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | pwdLastSet |X |mekanisk egenskap. Används för att veta när redan utfärdade token ska inverifieras. Används av både hash-synkronisering av lösen ord, direkt autentisering och Federation. |
@@ -59,8 +59,8 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | altRecipient |X | | |Kräver Azure AD Connect build 1.1.552.0 eller efter. |
 | authOrig |X |X |X | |
 | c |X |X | | |
-| nomenklatur |X | |X | |
-| företag |X |X | | |
+| CN |X | |X | |
+| CO |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
 | avdelning |X |X | | |
@@ -85,16 +85,16 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | extensionAttribute9 |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
-| homePhone |X |X | | |
-| statusinformation |X |X |X |Det här attributet används inte för närvarande för grupper. |
+| Hemtelefon |X |X | | |
+| info |X |X |X |Det här attributet används inte för närvarande för grupper. |
 | Initialer |X |X | | |
-| l |X |X | | |
+| L |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
-| Cachehanteraren |X |X | | |
-| höra | | |X | |
-| enheter |X |X | | |
+| ansvarig |X |X | | |
+| medlem | | |X | |
+| mobila |X |X | | |
 | msDS-HABSeniorityIndex |X |X |X | |
 | msDS-PhoneticDisplayName |X |X |X | |
 | msExchArchiveGUID |X | | | |
@@ -150,9 +150,9 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | otherFacsimileTelephone |X |X | | |
 | otherHomePhone |X |X | | |
 | otherTelephone |X |X | | |
-| personsökare |X |X | | |
+| Personsökare |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
-| Post nummer |X |X | | |
+| Postnummer |X |X | | |
 | proxyAddresses |X |X |X | |
 | publicDelegates |X |X |X | |
 | pwdLastSet |X | | |mekanisk egenskap. Används för att veta när redan utfärdade token ska inverifieras. Används både för synkronisering av lösen ord och Federation. |
@@ -174,14 +174,14 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | userSMIMECertificates |X |X | | |
 | wWWHomePage |X |X | | |
 
-## <a name="sharepoint-online"></a>SharePoint Online
+## <a name="sharepoint-online"></a>sharepoint online
 | Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | authOrig |X |X |X | |
 | c |X |X | | |
-| nomenklatur |X | |X | |
-| företag |X |X | | |
+| CN |X | |X | |
+| CO |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
 | avdelning |X |X | | |
@@ -208,17 +208,17 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | givenName |X |X | | |
 | hideDLMembership | | |X | |
 | homephone |X |X | | |
-| statusinformation |X |X |X | |
-| initialer |X |X | | |
+| info |X |X |X | |
+| Initialer |X |X | | |
 | ipPhone |X |X | | |
-| l |X |X | | |
+| L |X |X | | |
 | e-post |X |X |X | |
 | MailNickName |X |X |X | |
 | managedBy | | |X | |
-| Cachehanteraren |X |X | | |
-| höra | | |X | |
+| ansvarig |X |X | | |
+| medlem | | |X | |
 | middleName |X |X | | |
-| enheter |X |X | | |
+| mobila |X |X | | |
 | msExchTeamMailboxExpiration |X | | | |
 | msExchTeamMailboxOwners |X | | | |
 | msExchTeamMailboxSharePointLinkedBy |X | | | |
@@ -231,9 +231,9 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | otherMobile |X |X | | |
 | otherPager |X |X | | |
 | otherTelephone |X |X | | |
-| personsökare |X |X | | |
+| Personsökare |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
-| Post nummer |X |X | | |
+| Postnummer |X |X | | |
 | postOfficeBox |X |X | |Det här attributet används inte för närvarande av SharePoint Online. |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
@@ -261,8 +261,8 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | c |X |X | | |
-| nomenklatur |X | |X | |
-| företag |X |X | | |
+| CN |X | |X | |
+| CO |X |X | | |
 | company |X |X | | |
 | avdelning |X |X | | |
 | beskrivning |X |X |X | |
@@ -271,25 +271,25 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | givenName |X |X | | |
 | homephone |X |X | | |
 | ipPhone |X |X | | |
-| l |X |X | | |
+| L |X |X | | |
 | e-post |X |X |X | |
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
-| Cachehanteraren |X |X | | |
-| höra | | |X | |
-| enheter |X |X | | |
+| ansvarig |X |X | | |
+| medlem | | |X | |
+| mobila |X |X | | |
 | msExchHideFromAddressLists |X |X |X | |
-| msRTCSIP – ApplicationOptions |X | | | |
-| msRTCSIP – DeploymentLocator |X |X | | |
-| msRTCSIP-rad |X |X | | |
-| msRTCSIP – OptionFlags |X |X | | |
+| msRTCSIP-ApplicationOptions |X | | | |
+| msRTCSIP-DeploymentLocator |X |X | | |
+| msRTCSIP-Line |X |X | | |
+| msRTCSIP-OptionFlags |X |X | | |
 | msRTCSIP – OwnerUrn |X | | | |
-| msRTCSIP – PrimaryUserAddress |X |X | | |
-| msRTCSIP – UserEnabled |X |X | | |
+| msRTCSIP-PrimaryUserAddress |X |X | | |
+| msRTCSIP-UserEnabled |X |X | | |
 | objectSID |X | |X |mekanisk egenskap. AD-användarnamn som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | otherTelephone |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
-| Post nummer |X |X | | |
+| Postnummer |X |X | | |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mekanisk egenskap. Används för att veta när redan utfärdade token ska inverifieras. Används av både hash-synkronisering av lösen ord, direkt autentisering och Federation. |
@@ -308,10 +308,10 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
-| nomenklatur |X | |X |Eget namn eller alias. Oftast är prefixet för [mail]-värdet. |
+| CN |X | |X |Eget namn eller alias. Oftast är prefixet för [mail]-värdet. |
 | displayName |X |X |X |En sträng som representerar det namn som ofta visas som eget namn (förnamn efter namn). |
 | e-post |X |X |X |fullständig e-postadress. |
-| höra | | |X | |
+| medlem | | |X | |
 | objectSID |X | |X |mekanisk egenskap. AD-användarnamn som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | proxyAddresses |X |X |X |mekanisk egenskap. Används av Azure AD. Innehåller alla sekundära e-postadresser för användaren. |
 | pwdLastSet |X | | |mekanisk egenskap. Används för att veta när redan utfärdade token ska inverifieras. |
@@ -324,12 +324,12 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | c |X |X | | |
-| nomenklatur |X | |X | |
+| CN |X | |X | |
 | beskrivning |X |X |X | |
 | displayName |X |X |X | |
 | e-post |X |X |X | |
 | MailNickName |X |X |X | |
-| höra | | |X | |
+| medlem | | |X | |
 | objectSID |X | |X |mekanisk egenskap. AD-användarnamn som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mekanisk egenskap. Används för att veta när redan utfärdade token ska inverifieras. Används av både hash-synkronisering av lösen ord, direkt autentisering och Federation. |
@@ -342,22 +342,22 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | c |X |X | | |
-| nomenklatur |X | |X | |
-| företag |X |X | | |
+| CN |X | |X | |
+| CO |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
 | beskrivning |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
-| l |X |X | | |
+| L |X |X | | |
 | managedBy | | |X | |
-| Cachehanteraren |X |X | | |
-| höra | | |X | |
-| enheter |X |X | | |
+| ansvarig |X |X | | |
+| medlem | | |X | |
+| mobila |X |X | | |
 | objectSID |X | |X |mekanisk egenskap. AD-användarnamn som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | physicalDeliveryOfficeName |X |X | | |
-| Post nummer |X |X | | |
+| Postnummer |X |X | | |
 | preferredLanguage |X | | | |
 | pwdLastSet |X | | |mekanisk egenskap. Används för att veta när redan utfärdade token ska inverifieras. Används av både hash-synkronisering av lösen ord, direkt autentisering och Federation. |
 | SN |X |X | | |
@@ -380,14 +380,14 @@ Den här gruppen är en uppsättning attribut som kan användas om Azure AD-kata
 | Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
-| nomenklatur |X | |X | |
+| CN |X | |X | |
 | displayName |X |X |X | |
 | Anställnings |X |  |  | |
 | givenName |X |X | | |
 | e-post |X | |X | |
 | managedBy | | |X | |
 | mailNickName |X |X |X | |
-| höra | | |X | |
+| medlem | | |X | |
 | objectSID |X | | |mekanisk egenskap. AD-användarnamn som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mekanisk egenskap. Används för att veta när redan utfärdade token ska inverifieras. Används av både hash-synkronisering av lösen ord, direkt autentisering och Federation. |
@@ -424,15 +424,15 @@ Dessa attribut skrivs tillbaka från Azure AD till lokala Active Directory när 
 
 | Attributnamn (lokal AD) | Attributnamn (Connect UI) | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |---|
-| msDS-ExternalDirectoryObjectID| ms-DS-extern-Directory-Object-ID |X | | |Härlett från cloudAnchor i Azure AD. Det här attributet är nytt i Exchange 2016 och Windows Server 2016 AD. |
-| msExchArchiveStatus| MS-ArchiveStatus |X | | |Online-Arkiv: gör det möjligt för kunder att arkivera e-post. |
-| msExchBlockedSendersHash| MS-BlockedSendersHash |X | | |Filtrering: skriver tillbaka lokal filtrering och online säkra och blockerade avsändar data från klienter. |
-| msExchSafeRecipientsHash| MS-SafeRecipientsHash  |X | | |Filtrering: skriver tillbaka lokal filtrering och online säkra och blockerade avsändar data från klienter. |
-| msExchSafeSendersHash| MS-SafeSendersHash  |X | | |Filtrering: skriver tillbaka lokal filtrering och online säkra och blockerade avsändar data från klienter. |
-| msExchUCVoiceMailSettings| MS-UCVoiceMailSettings |X | | |Aktivera Unified Messaging (UM) – online röst meddelande: används av Microsoft Lync Server integration för att indikera att den lokala Lync-servern har röst meddelanden i onlinetjänster. |
+| msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Härlett från cloudAnchor i Azure AD. Det här attributet är nytt i Exchange 2016 och Windows Server 2016 AD. |
+| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Online-Arkiv: gör det möjligt för kunder att arkivera e-post. |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtrering: skriver tillbaka lokal filtrering och online säkra och blockerade avsändar data från klienter. |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtrering: skriver tillbaka lokal filtrering och online säkra och blockerade avsändar data från klienter. |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtrering: skriver tillbaka lokal filtrering och online säkra och blockerade avsändar data från klienter. |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Aktivera Unified Messaging (UM) – online röst meddelande: används av Microsoft Lync Server integration för att indikera att den lokala Lync-servern har röst meddelanden i onlinetjänster. |
 | msExchUserHoldPolicies| MS-UserHoldPolicies |X | | |Tvister: aktiverar moln tjänster för att avgöra vilka användare som omfattas av tvister. |
 | proxyAddresses| proxyAddresses |X |X |X |Endast x500-adressen från Exchange Online har infogats. |
-| publicDelegates| MS-multikommunikation – offentligt – ombud  |X | | |Tillåter att en Exchange Online-postlåda beviljas SendOnBehalfTo-rättigheter till användare med lokal Exchange-postlåda. Kräver Azure AD Connect build 1.1.552.0 eller efter. |
+| publicDelegates| ms-Exch-Public-Delegates  |X | | |Tillåter att en Exchange Online-postlåda beviljas SendOnBehalfTo-rättigheter till användare med lokal Exchange-postlåda. Kräver Azure AD Connect build 1.1.552.0 eller efter. |
 
 ## <a name="exchange-mail-public-folder"></a>Offentlig Exchange-e-postmapp
 Dessa attribut synkroniseras från lokala Active Directory till Azure AD när du väljer att aktivera **offentlig Exchange-e-postmapp**.

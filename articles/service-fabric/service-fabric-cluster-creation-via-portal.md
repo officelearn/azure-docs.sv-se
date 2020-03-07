@@ -4,16 +4,16 @@ description: Lär dig hur du konfigurerar ett säkert Service Fabric kluster i A
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.openlocfilehash: 0f384da75f09390e9b0988722b974e7e16d13e63
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452307"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363389"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Skapa ett Service Fabric kluster i Azure med hjälp av Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure-portalen](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -68,7 +68,7 @@ Att skapa ett produktions kluster som passar dina program behov innefattar viss 
 
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>Sök efter Service Fabric kluster resursen
 
-Logga in på [Azure-portalen][azure-portal].
+Logga in på [Azure Portal][azure-portal].
 Klicka på **skapa en resurs** för att lägga till en ny resurs mal len. Sök efter Service Fabric Cluster-mallen i **Marketplace** under **allt**.
 Välj **Service Fabric kluster** i listan.
 

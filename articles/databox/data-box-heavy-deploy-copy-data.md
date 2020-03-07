@@ -10,15 +10,15 @@ ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 475e628901a96334976dbdbbaa8b362197ec3bc3
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914038"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380349"
 ---
 ::: zone target = "docs"
 
-# <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb"></a>Självstudier: Kopiera data till Azure Data Box Heavy via SMB
+# <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb"></a>Självstudie: kopiera data till Azure Data Box Heavy via SMB
 
 ::: zone-end
 
@@ -30,7 +30,7 @@ ms.locfileid: "70914038"
 
 ::: zone target = "docs"
 
-I den här självstudien beskrivs hur du ansluter till och kopierar data från värddatorn med det lokala webbgränssnittet.
+Den här självstudien beskriver hur du ansluter till och kopierar data från värddatorn med det lokala webbgränssnittet.
 
 I den här guiden får du lära dig att:
 
@@ -50,11 +50,11 @@ Kontrollera att resurs- och mappnamnen och datastorleken följer riktlinjerna so
 
 ::: zone target = "docs"
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att:
 
-1. Du har slutfört självstudien [: Konfigurera Azure Data Box Heavy](data-box-deploy-set-up.md).
+1. Du har slutfört [självstudien: konfigurera Azure Data Box Heavy](data-box-deploy-set-up.md).
 2. Du har fått din Data Box Heavy-enhet och orderstatusen på portalen är **Levererad**.
 3. Du har en värddator som har de data som du vill kopiera över till Data Box Heavy. Värddatorn måste
     - Köra ett [operativsystem som stöds](data-box-system-requirements.md).
@@ -99,7 +99,7 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
 
     ![Hämta resursautentiseringsuppgifter 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-1.png)
 
-2. I dialogrutan Få åtkomst till resursen och kopiera data kopierar du **användarnamnet** och **lösenordet** som motsvarar resursen. Klicka på **OK**.
+2. I dialogrutan Få åtkomst till resursen och kopiera data kopierar du **användarnamnet** och **lösenordet** som motsvarar resursen. Klicka på **OK**
     
     ![Hämta resursautentiseringsuppgifter 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-2.png)
 
@@ -296,7 +296,7 @@ Gå vidare till nästa självstudie och lär dig hur du skickar tillbaka din Dat
 
 3. Använd ett SMB-kompatibelt filkopieringsverktyg som Robocopy för att kopiera data till resurser.
 
-Stegvisa instruktioner finns i [Självstudier: Kopiera data till Azure Data Box via SMB](data-box-heavy-deploy-copy-data.md).
+Stegvisa instruktioner finns i [Självstudier: kopiera data till Azure Data box via SMB](data-box-heavy-deploy-copy-data.md).
 
 ### <a name="copy-data-via-nfs"></a>Kopiera data via NFS
 
@@ -308,7 +308,7 @@ Stegvisa instruktioner finns i [Självstudier: Kopiera data till Azure Data Box 
 3. Använd kommandot `cp` eller `rsync` för att kopiera dina data. 
 4. Upprepa de här stegen för att ansluta och kopiera data till den andra noden på Data Box Heavy-enheten.
 
-Stegvisa instruktioner finns i [Självstudier: Kopiera data till Azure Data Box via NFS](data-box-heavy-deploy-copy-data-via-nfs.md).
+Stegvisa instruktioner finns i [Självstudier: kopiera data till Azure Data box via NFS](data-box-heavy-deploy-copy-data-via-nfs.md).
 
 ### <a name="copy-data-via-rest"></a>Kopiera data via REST
 
@@ -316,7 +316,7 @@ Stegvisa instruktioner finns i [Självstudier: Kopiera data till Azure Data Box 
 2. Om du vill kopiera data till Data Box-blogglagring kan du använda AzCopy.
 3. Upprepa de här stegen för att ansluta och kopiera data till den andra noden på Data Box Heavy-enheten.
 
-Stegvisa instruktioner finns i [Självstudier: Kopiera data till Azure Data Box-bloblagring via REST-API:er](data-box-heavy-deploy-copy-data-via-rest.md).
+Stegvisa instruktioner finns i [Självstudier: kopiera data till Azure Data Box Blob Storage via REST-API: er](data-box-heavy-deploy-copy-data-via-rest.md).
 
 ### <a name="copy-data-via-data-copy-service"></a>Kopiera data via datakopieringstjänsten
 
@@ -324,7 +324,7 @@ Stegvisa instruktioner finns i [Självstudier: Kopiera data till Azure Data Box-
 2. Fyll i parametrarna och skapa ett jobb.
 3. Upprepa de här stegen för att ansluta och kopiera data till den andra noden på Data Box Heavy-enheten.
 
-Stegvisa instruktioner finns i [Självstudier: Använd datakopieringstjänsten för att kopiera data till Azure Data Box Heavy](data-box-heavy-deploy-copy-data-via-copy-service.md).
+Stegvisa instruktioner finns i [Självstudier: Använd tjänsten data kopiering för att kopiera data till Azure Data Box Heavy](data-box-heavy-deploy-copy-data-via-copy-service.md).
 
 ### <a name="copy-data-to-managed-disks"></a>Kopiera data till hanterade diskar
 
@@ -333,7 +333,7 @@ Stegvisa instruktioner finns i [Självstudier: Använd datakopieringstjänsten f
 3. Sedan kan du kopiera data via SMB- eller NFS-verktyg.
 4. Upprepa de här stegen för att ansluta och kopiera data till den andra noden på Data Box Heavy-enheten.
 
-Stegvisa instruktioner finns i [Självstudier: Använd Data Box Heavy för att importera data som hanterade diskar i Azure](data-box-heavy-deploy-copy-data-from-vhds.md).
+Stegvisa instruktioner finns i [Självstudier: använd data Box Heavy för att importera data som Managed disks i Azure](data-box-heavy-deploy-copy-data-from-vhds.md).
 
 ::: zone-end
 

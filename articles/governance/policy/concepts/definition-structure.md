@@ -4,11 +4,11 @@ description: Beskriver hur princip definitioner används för att upprätta konv
 ms.date: 02/26/2020
 ms.topic: conceptual
 ms.openlocfilehash: 1100248b43dbdf668dc1164651f3d9f941f3f016
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920220"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360184"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -678,7 +678,7 @@ Lista över alla alias växer. Använd någon av följande metoder för att hitt
 
 ### <a name="understanding-the--alias"></a>Förstå alias [*]
 
-Flera av de tillgängliga aliasen har en version som visas som ett "normal"-namn och en annan som har **\[\*\]** kopplade till den. Några exempel:
+Flera av de tillgängliga aliasen har en version som visas som ett "normal"-namn och en annan som har **\[\*\]** kopplade till den. Exempel:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

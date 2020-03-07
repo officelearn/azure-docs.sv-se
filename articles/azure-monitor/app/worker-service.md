@@ -4,11 +4,11 @@ description: Övervaka .NET Core/. NET Framework-appar som inte är HTTP-appar m
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.openlocfilehash: 2d4b3a38b059d603c96fc9267b44707ed32c8c1d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669343"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362153"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights för Worker service-program (icke-HTTP-program)
 
@@ -351,7 +351,7 @@ Observera att `ApplicationInsightsServiceOptions` i det här SDK: n finns i namn
 
 Inställningar som används ofta i `ApplicationInsightsServiceOptions`
 
-|Inställning | Beskrivning | Standard
+|Inställning | Beskrivning | Default
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Aktivera/inaktivera LiveMetrics-funktionen | true
 |EnableAdaptiveSampling | Aktivera/inaktivera adaptiv sampling | true

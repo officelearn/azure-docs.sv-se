@@ -12,11 +12,11 @@ ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
 ms.openlocfilehash: f718bc17b987926f4324635f096d5983acdb63fc
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997283"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359880"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replikering till SQL Database enkla databaser och databaser i pooler
 
@@ -44,7 +44,7 @@ Lokala SQL Server utgivare och distributörer måste använda (minst) en av föl
 Om du vill använda alla funktioner i Azure SQL Database måste du använda de senaste versionerna av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
   
-## <a name="remarks"></a>Kommentarer
+## <a name="remarks"></a>Anmärkningar
 
 - Du kan konfigurera replikering med hjälp av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller genom att köra Transact-SQL-uttryck på utgivaren. Du kan inte konfigurera replikering med hjälp av Azure Portal.  
 - Replikeringen kan bara använda SQL Server autentiserings-inloggningar för att ansluta till en Azure SQL-databas.
@@ -106,7 +106,7 @@ Följande alternativ stöds inte för Azure SQL Database prenumerationer:
 
 ## <a name="examples"></a>Exempel
 
-Skapa en publikation och en utgivarinitierad prenumeration. Mer information finns här:
+Skapa en publikation och en utgivarinitierad prenumeration. Mer information finns i:
   
 - [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Skapa en push-prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) med hjälp av Azure SQL Database Server namnet som prenumeranten (till exempel **N'azuresqldbdns. Database. Windows. net '** ) och Azure SQL Database-namnet som mål databas (till exempel **AdventureWorks**).  

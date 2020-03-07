@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: 473aa2b9a74193a857390cd3e29b2b559b6084d3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433889"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365096"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduktion till Service Fabric-hälsoövervakning
 Azure Service Fabric introducerar en hälso modell som ger omfattande, flexibel och utöknings bar hälso utvärdering och rapportering. Modellen möjliggör real tids övervakning av klustrets tillstånd och de tjänster som körs i den. Du kan enkelt få hälso information och åtgärda eventuella problem innan de överlappar varandra och orsakar enorma avbrott. I den typiska modellen skickar tjänster rapporter baserat på deras lokala vyer och den informationen aggregeras för att ge en övergripande vy på kluster nivå.
@@ -65,7 +65,7 @@ Möjliga [hälso tillstånd](https://docs.microsoft.com/dotnet/api/system.fabric
 * **OK**. Entiteten är felfri. Inga kända problem har rapporter ATS för den eller dess underordnade (om tillämpligt).
 * **Varning**. Entiteten innehåller vissa problem, men den kan fortfarande fungera korrekt. Det finns till exempel fördröjningar, men de orsakar inga funktionella problem än. I vissa fall kan varnings villkoret korrigeras utan extern åtgärd. I dessa fall kan hälso rapporter höja medvetenheten och ge insyn i vad som händer. I andra fall kan varnings villkoret försämras till ett allvarligt problem utan åtgärder från användaren.
 * **Fel**. Enheten är inte felfri. Åtgärden bör vidtas för att åtgärda status för entiteten, eftersom den inte kan fungera korrekt.
-* **Okänt**. Enheten finns inte i hälso arkivet. Det här resultatet kan hämtas från de distribuerade frågor som sammanfogar resultat från flera komponenter. Till exempel går frågan Hämta lista över noder till **FailoverManager**, **ClusterManager**och **HealthManager**; Hämta program lista fråga går till **ClusterManager** och **HealthManager**. Dessa frågor sammankopplar resultat från flera system komponenter. Om en annan system komponent returnerar en entitet som inte finns i Health Store har det sammanslagna resultatet okänt hälso tillstånd. En entitet är inte i arkivet eftersom hälso rapporter ännu inte har bearbetats eller om entiteten har rensats efter borttagning.
+* **Okänd**. Enheten finns inte i hälso arkivet. Det här resultatet kan hämtas från de distribuerade frågor som sammanfogar resultat från flera komponenter. Till exempel går frågan Hämta lista över noder till **FailoverManager**, **ClusterManager**och **HealthManager**; Hämta program lista fråga går till **ClusterManager** och **HealthManager**. Dessa frågor sammankopplar resultat från flera system komponenter. Om en annan system komponent returnerar en entitet som inte finns i Health Store har det sammanslagna resultatet okänt hälso tillstånd. En entitet är inte i arkivet eftersom hälso rapporter ännu inte har bearbetats eller om entiteten har rensats efter borttagning.
 
 ## <a name="health-policies"></a>Hälso principer
 Hälso lagret tillämpar hälso principer för att avgöra om en entitet är felfri baserat på dess rapporter och dess underordnade.
@@ -187,7 +187,7 @@ För att skicka hälso data till hälso lagret måste en rapportör identifiera 
 * **SourceId**. En sträng som unikt identifierar rapportören för hälso händelsen.
 * **Enhets identifierare**. Identifierar den entitet där rapporten används. Det skiljer sig beroende på [enhets typen](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
-  * Flernodskluster. Inget.
+  * Flernodskluster. Inga.
   * Nodfel. Nodnamn (sträng).
   * Applicering. Program namn (URI). Representerar namnet på den program instans som distribueras i klustret.
   * Telefonitjänstprovider. Tjänst namn (URI). Representerar namnet på den tjänst instans som distribueras i klustret.
@@ -197,7 +197,7 @@ För att skicka hälso data till hälso lagret måste en rapportör identifiera 
   * DeployedServicePackage. Program namn (URI), nodnamn (sträng) och tjänst manifest namn (sträng).
 * **Egenskap**. En *sträng* (inte en fast uppräkning) som tillåter rapportören att kategorisera hälso händelsen för en viss egenskap i entiteten. Rapportör A kan till exempel rapportera hälso tillståndet för Node01 "lagring"-egenskapen och rapportör B kan rapportera hälsan för egenskapen Node01 "Connectivity". I hälso lagret behandlas dessa rapporter som separata hälso händelser för Node01-enheten.
 * **Beskrivning**. En sträng som tillåter en rapportör att tillhandahålla detaljerad information om hälso händelsen. **SourceId**, **Property**och **hälsohälso** tillstånd bör beskriva rapporten fullständigt. Beskrivningen lägger till läsbar information om rapporten. Texten gör det enklare för administratörer och användare att förstå hälso rapporten.
-* **HealthState**. En [uppräkning](service-fabric-health-introduction.md#health-states) som beskriver rapportens hälso tillstånd. Godkända värden är OK, varning och fel.
+* **Hälso**tillstånd. En [uppräkning](service-fabric-health-introduction.md#health-states) som beskriver rapportens hälso tillstånd. Godkända värden är OK, varning och fel.
 * **TimeToLive**. TimeSpan som anger hur länge hälso rapporten är giltig. Tillsammans med **RemoveWhenExpired**kan hälso lagret veta hur du kan utvärdera utgångna händelser. Som standard är värdet oändligt och rapporten är giltig för alltid.
 * **RemoveWhenExpired**. Ett booleskt värde. Om det är inställt på Sant tas den utgångna hälso rapporten bort automatiskt från hälso lagret och rapporten påverkar inte utvärderingen av enhetens hälsa. Används endast när rapporten är giltig under en angiven tids period, och rapportören behöver inte uttryckligen ta bort den. Den används också för att ta bort rapporter från hälso lagret (till exempel en övervaknings enhet ändras och slutar skicka rapporter med föregående källa och egenskap). Den kan skicka en rapport med en kort TimeToLive tillsammans med RemoveWhenExpired för att ta bort alla tidigare tillstånd från hälso lagret. Om värdet är inställt på falskt behandlas den utgångna rapporten som ett fel i hälso utvärderingen. Det falska värdet signalerar till hälso arkivet som källan bör rapportera regelbundet om den här egenskapen. Om den inte gör det måste det vara något fel med övervaknings enheten. Hälso tillståndet för övervaknings enheten fångas genom att överväger händelsen som ett fel.
 * **SequenceNumber**. Ett positivt heltal som behöver utökas, motsvarar den ordningen på rapporterna. Den används av Health Store för att identifiera inaktuella rapporter som tas emot sent på grund av nätverks fördröjningar eller andra problem. En rapport avvisas om sekvensnumret är mindre än eller lika med det senast använda talet för samma entitet, källa och egenskap. Om inget värde anges genereras sekvensnumret automatiskt. Det är nödvändigt att endast placeras i sekvensnumret vid rapportering av tillstånds över gångar. I den här situationen behöver källan komma ihåg vilka rapporter den skickade och behålla informationen för återställning vid redundans.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 365c228edd97ffcd02b86508deff4272365447f6
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 99083cd08db98a6d6ac56d4cf55aaf9d0e64e2b4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672148"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362329"
 ---
 # <a name="log-analytics-agent-overview"></a>Översikt över Log Analytics agent
 Azure Log Analytics-agenten har utvecklats för omfattande hantering av virtuella datorer i alla moln, lokala datorer och de som övervakas av [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Windows-och Linux-agenterna skickar insamlade data från olika källor till din Log Analytics arbets yta i Azure Monitor, samt alla unika loggar eller mått som definierats i en övervaknings lösning. Log Analytics agenten stöder också insikter och andra tjänster i Azure Monitor som [Azure Monitor for VMS](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/)och [Azure Automation](../../automation/automation-intro.md).
@@ -101,7 +101,7 @@ Det här avsnittet innehåller information om Linux-distributioner som stöds.
 Från och med versioner som lanseras efter augusti 2018 har gör vi följande ändringar i vår supportmodell:  
 
 * Endast de server-versioner stöds, inte klienten.  
-* Nya versioner av [Azure Linux-distributioner](../../virtual-machines/linux/endorsed-distros.md) stöds alltid.  
+* Fokusera på en [Azure Linux-distributioner som har bekräftats](../../virtual-machines/linux/endorsed-distros.md). Observera att det kan uppstå en fördröjning mellan en ny distribution/version som är godkänd i Azure Linux och stöds för Log Analytics Linux-agenten.
 * Alla mindre versioner stöds för varje större version i listan.
 * Versioner som har klarat sina tillverkarens support upphör datum stöds inte.  
 * Nya versioner av AMI stöds inte.  

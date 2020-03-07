@@ -4,11 +4,11 @@ description: Beskriver hur du aktiverar säkerhets kopiering när du skapar en v
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 0cfea6579791c4fd23c1b7acdfe722d57b5ec2fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449927"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363758"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
 

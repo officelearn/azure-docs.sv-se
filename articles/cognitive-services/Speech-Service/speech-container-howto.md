@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: dapine
 ms.openlocfilehash: 5d30693eb13104504d1cf27ffdbfb8d098d4ef9e
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367742"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390788"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installera och kör tal tjänst behållare (förhands granskning)
 
@@ -73,25 +73,25 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 I följande tabell beskrivs den lägsta och rekommenderade fördelningen av resurser för varje tal behållare.
 
-# <a name="speech-to-texttabstt"></a>[Tal till text](#tab/stt)
+# <a name="speech-to-text"></a>[Tal till text](#tab/stt)
 
 | Container | Minimum | Rekommenderas |
 |-----------|---------|-------------|
 | Tal till text | 2 kärnor, 2 GB minne | 4 kärnor, 4 GB minne |
 
-# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech till text](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Custom Speech till text](#tab/cstt)
 
 | Container | Minimum | Rekommenderas |
 |-----------|---------|-------------|
 | Custom Speech till text | 2 kärnor, 2 GB minne | 4 kärnor, 4 GB minne |
 
-# <a name="text-to-speechtabtts"></a>[Text till tal](#tab/tts)
+# <a name="text-to-speech"></a>[Text till tal](#tab/tts)
 
 | Container | Minimum | Rekommenderas |
 |-----------|---------|-------------|
 | Text till tal | 1 kärna, 2 GB minne | 2 kärnor, 3 GB minne |
 
-# <a name="custom-text-to-speechtabctts"></a>[Anpassad text till tal](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Anpassad text till tal](#tab/ctts)
 
 | Container | Minimum | Rekommenderas |
 |-----------|---------|-------------|
@@ -110,25 +110,25 @@ Core och minne motsvarar `--cpus` och `--memory` inställningar som används som
 
 Behållar avbildningar för tal finns i följande Container Registry.
 
-# <a name="speech-to-texttabstt"></a>[Tal till text](#tab/stt)
+# <a name="speech-to-text"></a>[Tal till text](#tab/stt)
 
 | Container | Lagringsplats |
 |-----------|------------|
 | Tal till text | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 
-# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech till text](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Custom Speech till text](#tab/cstt)
 
 | Container | Lagringsplats |
 |-----------|------------|
 | Custom Speech till text | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
 
-# <a name="text-to-speechtabtts"></a>[Text till tal](#tab/tts)
+# <a name="text-to-speech"></a>[Text till tal](#tab/tts)
 
 | Container | Lagringsplats |
 |-----------|------------|
 | Text till tal | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
-# <a name="custom-text-to-speechtabctts"></a>[Anpassad text till tal](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Anpassad text till tal](#tab/ctts)
 
 | Container | Lagringsplats |
 |-----------|------------|
@@ -140,7 +140,7 @@ Behållar avbildningar för tal finns i följande Container Registry.
 
 ### <a name="docker-pull-for-the-speech-containers"></a>Docker-hämtning för tal behållarna
 
-# <a name="speech-to-texttabstt"></a>[Tal till text](#tab/stt)
+# <a name="speech-to-text"></a>[Tal till text](#tab/stt)
 
 #### <a name="docker-pull-for-the-speech-to-text-container"></a>Docker-hämtning för den tal-till-text-behållare
 
@@ -169,7 +169,7 @@ Följande tagg är ett exempel på formatet:
 
 För alla språk som stöds av **tal-till-text-** behållaren, se [taggar till text-Taggar](../containers/container-image-tags.md#speech-to-text).
 
-# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech till text](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Custom Speech till text](#tab/cstt)
 
 #### <a name="docker-pull-for-the-custom-speech-to-text-container"></a>Docker-hämtning för Custom Speech-till-text-behållaren
 
@@ -182,7 +182,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-spee
 > [!NOTE]
 > `locale` och `voice` för anpassade tal behållare bestäms av den anpassade modellen som matas in av behållaren.
 
-# <a name="text-to-speechtabtts"></a>[Text till tal](#tab/tts)
+# <a name="text-to-speech"></a>[Text till tal](#tab/tts)
 
 #### <a name="docker-pull-for-the-text-to-speech-container"></a>Docker-hämtning för text till tal-behållaren
 
@@ -214,7 +214,7 @@ För alla språk som stöds och motsvarande röster för **text till tal** -beh�
 > [!IMPORTANT]
 > När du konstruerar ett *standard text-till-tal* -http-post kräver [SSML-](speech-synthesis-markup.md) meddelandet ett `voice`-element med ett `name`-attribut. Värdet är motsvarande behållares nationella inställningar och röst, även kallat ["kort namn"](language-support.md#standard-voices). Till exempel skulle taggen `latest` ha röst namnet `en-US-JessaRUS`.
 
-# <a name="custom-text-to-speechtabctts"></a>[Anpassad text till tal](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Anpassad text till tal](#tab/ctts)
 
 #### <a name="docker-pull-for-the-custom-text-to-speech-container"></a>Docker-hämtning för den anpassade text till tal-behållaren
 
@@ -240,7 +240,7 @@ När behållaren är på [värddatorn](#the-host-computer)använder du följande
 
 Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Information om hur du hämtar `{Endpoint_URI}`-och `{API_Key}`-värden finns i avsnittet om [obligatoriska parametrar](#gathering-required-parameters) . Ytterligare [exempel](speech-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är också tillgängliga.
 
-# <a name="speech-to-texttabstt"></a>[Tal till text](#tab/stt)
+# <a name="speech-to-text"></a>[Tal till text](#tab/stt)
 
 Kör följande `docker run`-kommando om du vill köra en *tal-till-text-* behållare.
 
@@ -259,7 +259,7 @@ Det här kommandot:
 * Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
 * Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
 
-# <a name="custom-speech-to-texttabcstt"></a>[Custom Speech till text](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Custom Speech till text](#tab/cstt)
 
 *Custom Speech-till-text-* behållaren är beroende av en anpassad tal modell. Den anpassade modellen måste ha [tränats](how-to-custom-speech-train-model.md) med hjälp av den [anpassade tal portalen](https://speech.microsoft.com/customspeech).
 
@@ -311,7 +311,7 @@ Det här kommandot:
 * Om den anpassade modellen tidigare har hämtats ignoreras `ModelId`.
 * Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
 
-# <a name="text-to-speechtabtts"></a>[Text till tal](#tab/tts)
+# <a name="text-to-speech"></a>[Text till tal](#tab/tts)
 
 Kör följande `docker run`-kommando om du vill köra en *text till tal* -behållare.
 
@@ -330,7 +330,7 @@ Det här kommandot:
 * Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
 * Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
 
-# <a name="custom-text-to-speechtabctts"></a>[Anpassad text till tal](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Anpassad text till tal](#tab/ctts)
 
 Den *anpassade text till tal* -behållaren är beroende av en anpassad röst modell. Den anpassade modellen måste ha [tränats](how-to-custom-voice-create-voice.md) med hjälp av den [anpassade röst portalen](https://aka.ms/custom-voice-portal). ID för anpassad röst **modell** krävs för att köra behållaren. Du hittar den på sidan **utbildning** i den anpassade röst portalen. Från den anpassade röst portalen går du till sidan **utbildning** och väljer modellen.
 <br>

@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect-synkronisering: Scheduler | Microsoft Docs'
-description: Det här avsnittet beskriver funktionen inbyggda scheduler i Azure AD Connect-synkronisering.
+title: 'Azure AD Connect synkronisering: Scheduler | Microsoft Docs'
+description: I det här avsnittet beskrivs den inbyggda funktionen Scheduler i Azure AD Connect Sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,48 +17,48 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65139292"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378115"
 ---
-# <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect-synkronisering: Scheduler
-Det här avsnittet beskrivs de inbyggda scheduler i Azure AD Connect-synkronisering (Synkroniseringsmotorn).
+# <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect synkronisering: Scheduler
+I det här avsnittet beskrivs den inbyggda Schemaläggaren i Azure AD Connect Sync (Synkroniseringsmotorn).
 
-Den här funktionen introducerades med build 1.1.105.0 (publicerad februari 2016).
+Den här funktionen introducerades med build-1.1.105.0 (lanserades februari 2016).
 
 ## <a name="overview"></a>Översikt
-Azure AD Connect-synkronisering synkronisera ändringar som sker i din lokala katalog med hjälp av en scheduler. Det finns två sätt för scheduler, en för synkronisering av lösenord och ett för objektattribut/uppgifter för synkronisering och underhåll. Det här avsnittet beskrivs det senare.
+Azure AD Connect synkronisera synkronisera ändringar som inträffar i din lokala katalog med hjälp av en Scheduler. Det finns två schemaläggare-processer, en för Lösenordssynkronisering och en annan för synkronisering och underhålls aktiviteter för objekt/attribut. Det här avsnittet beskriver det senare.
 
-I tidigare versioner har scheduler för objekt och attribut utanför Synkroniseringsmotorn. Den används Schemaläggaren i Windows eller en separat Windows-tjänst för att utlösa synkroniseringen. Scheduler är med 1.1 versioner inbyggt i synkroniseringen motorn och låta vissa anpassning. Den nya standard-synkroniseringsfrekvensen är 30 minuter.
+I tidigare versioner var Scheduler för objekt och attribut utanför motorn för synkronisering. Den använde Schemaläggaren för Windows eller en separat Windows-tjänst för att utlösa synkroniseringsprocessen. Scheduler är med 1,1 utgåvor inbyggda i Synkroniseringsmotorn och gör det möjligt att göra vissa anpassningar. Den nya standard frekvensen för synkronisering är 30 minuter.
 
-Scheduler ansvarar för två saker:
+Scheduler ansvarar för två uppgifter:
 
-* **Synkroniseringscykel**. Processen för att importera, synkronisera och exportera ändringar.
-* **Underhållsaktiviteter**. Förnya nycklar och certifikat för återställning av lösenord och Enhetsregistreringstjänsten (DRS). Rensa gamla posterna i operations-loggen.
+* **Synkroniseringsprocess**. Processen för att importera, synkronisera och exportera ändringar.
+* **Underhålls aktiviteter**. Förnya nycklar och certifikat för lösen ords återställning och DRS (Device Registration Service). Rensa gamla poster i åtgärds loggen.
 
-Scheduler själva körs alltid, men den kan konfigureras så att endast köra en eller ingen av dessa uppgifter. Om du behöver ha egna cykel synkroniseringsprocessen kan du inaktivera den här aktiviteten i scheduler men fortfarande köra underhållsaktiviteten.
+Själva Scheduler körs alltid, men den kan konfigureras för att bara köra en eller inga av dessa uppgifter. Om du till exempel behöver ha en egen process för synkronisering, kan du inaktivera den här uppgiften i Schemaläggaren men fortfarande köra underhålls aktiviteten.
 
-## <a name="scheduler-configuration"></a>Konfiguration av Schemaläggaren
-Om du vill se den aktuella konfigurationen, gå till PowerShell och kör `Get-ADSyncScheduler`. Den visar ungefär som den här bilden:
+## <a name="scheduler-configuration"></a>Scheduler-konfiguration
+Om du vill se dina aktuella konfigurations inställningar går du till PowerShell och kör `Get-ADSyncScheduler`. Du ser något som liknar den här bilden:
 
 ![GetSyncScheduler](./media/how-to-connect-sync-feature-scheduler/getsynccyclesettings2016.png)
 
-Om du ser **synkronisering kommandot eller cmdlet: en är inte tillgänglig** när du kör denna cmdlet kan sedan PowerShell-modulen har inte lästs in. Det här problemet kan inträffa om du kör Azure AD Connect på en domänkontrollant eller på en server med PowerShell begränsning högre än standardinställningarna. Om du ser det här felet, kör `Import-Module ADSync` att tillgängliggöra cmdlet: en.
+Om du ser **Sync-kommandot eller om cmdleten inte är tillgänglig** när du kör den här cmdleten läses PowerShell-modulen inte in. Det här problemet kan inträffa om du kör Azure AD Connect på en domänkontrollant eller på en server med högre PowerShell-restriktioner än standardinställningarna. Om du ser det här felet kör du `Import-Module ADSync` för att göra cmdleten tillgänglig.
 
-* **AllowedSyncCycleInterval**. Kortast tidsintervall mellan synkronisering cykler som tillåts av Azure AD. Du kan inte synkronisera oftare än den här inställningen och stöds fortfarande.
-* **CurrentlyEffectiveSyncCycleInterval**. Schema för närvarande. Den har samma värde som CustomizedSyncInterval (om Ange) om den inte oftare än AllowedSyncInterval. Om du använder en version före 1.1.281 och du ändrar CustomizedSyncCycleInterval, börjar den här ändringen gälla efter nästa synkroniseringscykel. Från build 1.1.281 träder ändringen i kraft omedelbart.
-* **CustomizedSyncCycleInterval**. Om du vill att scheduler för att köra med andra frekvens än standardvärdet 30 minuter kan konfigurera du den här inställningen. Scheduler har ställts in att köra varje timme i stället i bilden ovan. Om du ställer in den här inställningen till ett värde mindre än AllowedSyncInterval används det senare.
-* **NextSyncCyclePolicyType**. Delta eller den initiala. Anger om nästa körning bör endast processen deltaändringar, eller om nästa körning ska göra en fullständig importera och synkronisera. Det senare skulle också ombearbetning av alla nya eller ändrade regler.
-* **NextSyncCycleStartTimeInUTC**. Nästa gång scheduler startar kommer nästa synkroniseringscykel.
-* **PurgeRunHistoryInterval**. Den tid som åtgärdsloggar bör hållas. Dessa loggar kan ses i hanteraren för synkroniseringstjänsten. Standardvärdet är att hålla dessa loggar för 7 dagar.
-* **SyncCycleEnabled**. Anger om scheduler Kör import, synkronisering och export processer som en del av dess drift.
-* **MaintenanceEnabled**. Visar om underhållsprocessen är aktiverad. Den uppdaterar certifikat/nycklar och tar bort operations-loggen.
-* **StagingModeEnabled**. Visar om [mellanlagringsläge](how-to-connect-sync-staging-server.md) är aktiverad. Om den här inställningen är aktiverad, sedan den Undertrycker export från att köras men fortfarande köra import och synkronisering.
-* **SchedulerSuspended**. Ange av Connect under en uppgradering till tillfälligt block scheduler från att köras.
+* **AllowedSyncCycleInterval**. Det kortaste tidsintervallet mellan cykler som tillåts av Azure AD. Du kan inte synkronisera oftare än den här inställningen och stöds fortfarande.
+* **CurrentlyEffectiveSyncCycleInterval**. Schemat som för närvarande används. Det har samma värde som CustomizedSyncInterval (om det är inställt) om det inte är oftare än AllowedSyncInterval. Om du använder en version innan 1.1.281 och du ändrar CustomizedSyncCycleInterval börjar ändringen gälla efter nästa synkronisering. Från build-1.1.281 börjar ändringen gälla omedelbart.
+* **CustomizedSyncCycleInterval**. Om du vill att Scheduler ska köras med en annan frekvens än standard 30 minuter konfigurerar du den här inställningen. I bilden ovan har Scheduler angetts att köras varje timme i stället. Om du ställer in den här inställningen på ett värde som är lägre än AllowedSyncInterval används den senare.
+* **NextSyncCyclePolicyType**. Antingen delta eller initial. Definierar om nästa körning bara ska bearbeta förändrings ändringar, eller om nästa körning ska göra en fullständig import och synkronisering. Den senare skulle också bearbeta nya eller ändrade regler.
+* **NextSyncCycleStartTimeInUTC**. Nästa gången Scheduler startar nästa synkronisering.
+* **PurgeRunHistoryInterval**. Tids loggen för processen bör behållas. Dessa loggar kan granskas i Synchronization Service Manager. Standardvärdet är att behålla loggarna i 7 dagar.
+* **SyncCycleEnabled**. Anger om Scheduler kör processer för import, synkronisering och export som en del av åtgärden.
+* **MaintenanceEnabled**. Visar om underhålls processen är aktive rad. Den uppdaterar certifikaten/nycklarna och rensar åtgärds loggen.
+* **StagingModeEnabled**. Visar om [mellanlagrings läge](how-to-connect-sync-staging-server.md) är aktiverat. Om den här inställningen är aktive rad förhindras exporten från att köras men fortfarande körning av import och synkronisering.
+* **SchedulerSuspended**. Ange per anslutning under en uppgradering för att tillfälligt blockera Schemaläggaren från att köras.
 
-Du kan ändra några av de här inställningarna med `Set-ADSyncScheduler`. Du kan ändra följande parametrar:
+Du kan ändra några av de här inställningarna med `Set-ADSyncScheduler`. Följande parametrar kan ändras:
 
 * CustomizedSyncCycleInterval
 * NextSyncCyclePolicyType
@@ -66,67 +66,67 @@ Du kan ändra några av de här inställningarna med `Set-ADSyncScheduler`. Du k
 * SyncCycleEnabled
 * MaintenanceEnabled
 
-I tidigare versioner av Azure AD Connect **isStagingModeEnabled** exponerades i Set-ADSyncScheduler. Det är **stöds inte** att använda den här egenskapen. Egenskapen **SchedulerSuspended** bör endast ändras av Connect. Det är **stöds inte** att konfigurera detta med PowerShell direkt.
+I tidigare versioner av Azure AD Connect exponerades **isStagingModeEnabled** i set-ADSyncScheduler. Det går **inte** att ange den här egenskapen. Egenskapen **SchedulerSuspended** bör bara ändras av Connect. Det går **inte** att ange detta med PowerShell direkt.
 
-Scheduler-konfigurationen lagras i Azure AD. Om du har en mellanlagringsserver påverkar alla ändringar på den primära servern också mellanlagringsserver (utom IsStagingModeEnabled).
+Scheduler-konfigurationen lagras i Azure AD. Om du har en uppsamlings Server påverkar alla ändringar på den primära servern även mellanlagrings servern (förutom IsStagingModeEnabled).
 
 ### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
 Syntax: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
-d - dagar, TT - timmar, mm - minuter, ss - sekunder
+d-dagar, tt-timmar, mm-minuter, ss-sekunder
 
 Exempel: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
-Ändringar av scheduler för att köra var tredje timme.
+Ändrar Schemaläggaren så att den körs var 3: e timme.
 
 Exempel: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
-Du ändrar scheduler för att köras varje dag.
+Ändringarna ändrar Schemaläggaren till kör varje dag.
 
-### <a name="disable-the-scheduler"></a>Inaktivera scheduler  
-Om du behöver göra ändringar i konfigurationen vill du inaktivera scheduler. Till exempel när du [filtreringen](how-to-connect-sync-configure-filtering.md) eller [göra ändringar i Synkroniseringsregler](how-to-connect-sync-change-the-configuration.md).
+### <a name="disable-the-scheduler"></a>Inaktivera Scheduler  
+Om du behöver göra konfigurations ändringar vill du inaktivera Scheduler. Till exempel när du [konfigurerar filtrering](how-to-connect-sync-configure-filtering.md) eller [gör ändringar i regler för synkronisering](how-to-connect-sync-change-the-configuration.md).
 
-Om du vill inaktivera scheduler kör `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+Om du vill inaktivera Scheduler kör du `Set-ADSyncScheduler -SyncCycleEnabled $false`.
 
-![Inaktivera scheduler](./media/how-to-connect-sync-feature-scheduler/schedulerdisable.png)
+![Inaktivera Scheduler](./media/how-to-connect-sync-feature-scheduler/schedulerdisable.png)
 
-När du har gjort dina ändringar, Glöm inte att aktivera scheduler igen med `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+När du har gjort ändringarna ska du inte glömma att aktivera Scheduler igen med `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
-## <a name="start-the-scheduler"></a>Starta scheduler
-Scheduler är som standard körs var 30: e minut. I vissa fall kanske du vill köra en synkroniseringscykel mellan schemalagda cykler eller måste du köra en annan typ.
+## <a name="start-the-scheduler"></a>Starta Scheduler
+Scheduler körs som standard var 30: e minut. I vissa fall kanske du vill köra en synkronisering mellan schemalagda cykler eller så måste du köra en annan typ.
 
-### <a name="delta-sync-cycle"></a>Delta synkroniseringscykel
-En delta-synkroniseringscykel omfattar följande steg:
+### <a name="delta-sync-cycle"></a>Delta-synkronisering
+En Delta-synkronisering innehåller följande steg:
 
 
-- Deltaimport på alla kopplingar
-- Deltasynkronisering på alla kopplingar
+- Delta import på alla anslutningar
+- Delta-synkronisering på alla anslutningar
 - Exportera på alla kopplingar
 
-### <a name="full-sync-cycle"></a>Fullständig synkroniseringscykel
-En fullständig synkroniseringscykel omfattar följande steg:
+### <a name="full-sync-cycle"></a>Fullständig synkronisering
+En fullständig synkronisering innehåller följande steg:
 
-- Fullständig Import på alla kopplingar
-- Fullständig synkronisering på alla kopplingar
+- Fullständig import för alla anslutningar
+- Fullständig synkronisering för alla anslutningar
 - Exportera på alla kopplingar
 
-Det kan bero på att du har en brådskande ändring som måste synkroniseras omedelbart, vilket är anledningen måste du manuellt köra en cykel. 
+Det kan bero på att du har en brådskande ändring som måste synkroniseras direkt, vilket är anledningen till att du måste köra en cykel manuellt. 
 
-Om du behöver att manuellt köra en synkroniseringscykel sedan från PowerShell kör `Start-ADSyncSyncCycle -PolicyType Delta`.
+Om du behöver köra en Sync-cykel manuellt kör du `Start-ADSyncSyncCycle -PolicyType Delta`från PowerShell.
 
-Om du vill initiera en fullständig synkroniseringscykel kör `Start-ADSyncSyncCycle -PolicyType Initial` från en PowerShell-kommandotolk.   
+Kör `Start-ADSyncSyncCycle -PolicyType Initial` från en PowerShell-prompt för att starta en fullständig synkronisering.   
 
-Kör en fullständig synkroniseringscykel kan ta mycket lång tid, Läs nästa avsnitt för att läsa hur du optimerar den här processen.
+Det kan ta lång tid att köra en fullständig synkronisering, Läs nästa avsnitt för att läsa mer om hur du optimerar den här processen.
 
-### <a name="sync-steps-required-for-different-configuration-changes"></a>Synkronisera steg som krävs för olika konfigurationsändringar
-Olika konfigurationsändringar kräver synkronisering av olika steg för att kontrollera ändringarna tillämpas korrekt på alla objekt.
+### <a name="sync-steps-required-for-different-configuration-changes"></a>Synkronisera steg som krävs för olika konfigurations ändringar
+Olika konfigurations ändringar kräver olika synkroniseringsinställningar för att se till att ändringarna tillämpas korrekt för alla objekt.
 
-- Lagt till fler objekt eller attribut som ska importeras från en källkatalog (genom att lägga till/ändra reglerna sync)
-    - En fullständig Import krävs på Anslutningsappen för den källkatalogen
-- Gjort ändringar i synkroniseringsreglerna
-    - En fullständig synkronisering krävs på Anslutningsappen för de ändrade synkroniseringsreglerna
-- Ändra [filtrering](how-to-connect-sync-configure-filtering.md) så att ett annat antal objekt som ska inkluderas
-    - En fullständig Import krävs på anslutningen för varje AD-anslutning om du inte använder attributet-baserad filtrering baserat på attribut som redan finns som importeras till Synkroniseringsmotorn
+- Fler objekt eller attribut som ska importeras från en käll katalog har lagts till (genom tillägg/ändring av regler för synkronisering)
+    - En fullständig import krävs för anslutningen till käll katalogen
+- Ändrade reglerna för synkronisering
+    - En fullständig synkronisering krävs för anslutningen för de ändrade reglerna för synkronisering
+- Filtrering av ändrade [filter](how-to-connect-sync-configure-filtering.md) så att ett annat antal objekt ska tas med
+    - En fullständig import krävs för anslutningen för varje AD-anslutning, om du inte använder attributbaserade filtrering baserat på attribut som redan har importer ATS till Synkroniseringsmotorn
 
-### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>Anpassa en synkroniseringscykel som kör den rätta blandningen av Delta och fullständig synkronisering steg
-Du kan markera specifika Anslutningsappar för att köra en fullständig steg med hjälp av följande cmdletar för att undvika att köra en fullständig synkroniseringscykel.
+### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>Anpassa en synkronisering kör rätt kombination av delta och fullständig synkronisering
+För att undvika att köra en fullständig synkronisering kan du markera vissa kopplingar för att köra ett fullständigt steg med följande cmdletar.
 
 `Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullImportRequired $true`
 
@@ -134,13 +134,13 @@ Du kan markera specifika Anslutningsappar för att köra en fullständig steg me
 
 `Get-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid>` 
 
-Exempel:  Om du har gjort ändringar i Synkroniseringsregler för Connector ”AD-skog A” som inte kräver några nya attribut som ska importeras kör du följande cmdletar för att köra en Deltasynkronisering migreringscykel som också en fullständig synkronisering ta steget för den anslutningen.
+Exempel: om du har gjort ändringar i synkroniseringsregeln för koppling "AD-skog A" som inte kräver att några nya attribut importeras kör du följande cmdlets för att köra en delta-synkroniseringsanslutning som också gjorde ett fullständigt synkroniserings steg för den anslutningen.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
 
 `Start-ADSyncSyncCycle -PolicyType Delta`
 
-Exempel:  Om du gjort ändringar i synkroniseringsreglerna för anslutningstjänsten ”AD-skog A” så att de kräver nu ett nytt attribut som ska importeras skulle du köra följande cmdlets för att köra en synkroniseringscykel för delta som också har en fullständig Import, steg för fullständig synkronisering av anslutningen.
+Exempel: om du har ändrat synkroniseringsregeln för Connector "AD-skog A" så att de nu kräver att ett nytt attribut importeras, så kör du följande cmdlets för att köra en delta-synkroniseringsanslutning som också gjorde en fullständig import, fullständig synkronisering för den anslutningen.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullImportRequired $true`
 
@@ -149,62 +149,62 @@ Exempel:  Om du gjort ändringar i synkroniseringsreglerna för anslutningstjän
 `Start-ADSyncSyncCycle -PolicyType Delta`
 
 
-## <a name="stop-the-scheduler"></a>Stoppa Schemaläggaren
-Om scheduler körs för närvarande en synkroniseringscykel, kan du behöva stoppa den. Till exempel om du startar installationsguiden och du får felet:
+## <a name="stop-the-scheduler"></a>Stoppa Scheduler
+Om Scheduler för närvarande kör en cykel för synkronisering kan du behöva stoppa den. Om du till exempel startar installations guiden och får det här felet:
 
 ![SyncCycleRunningError](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
 
-När en synkroniseringscykel körs, kan du inte göra ändringar i konfigurationen. Vänta tills scheduler har slutfört processen, men du kan också stoppa den så att du kan göra dina ändringar omedelbart. Stoppar den aktuella cykeln är inte skadliga och väntande ändringar bearbetas med nästa körning.
+När en synkroniseringsanslutning körs kan du inte göra konfigurations ändringar. Du kan vänta tills Scheduler har avslutat processen, men du kan även stoppa den så att du kan göra ändringarna direkt. Att stoppa den aktuella cykeln är inte skadlig och väntande ändringar bearbetas med nästa körning.
 
-1. Starta genom att tala om scheduler för att stoppa aktuella cykeln med PowerShell-cmdlet `Stop-ADSyncSyncCycle`.
-2. Om du använder en version före 1.1.281 stoppar scheduler inte att stoppa den aktuella anslutningen från den aktuella aktiviteten. Om du vill framtvinga anslutningen ska du vidta följande åtgärder: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
-   * Starta **synkroniseringstjänsten** från start-menyn. Gå till **Anslutningsappar**, markera anslutningen med tillståndet **kör**, och välj **stoppa** från åtgärderna.
+1. Börja med att instruera Scheduler att stoppa den aktuella cykeln med PowerShell-cmdleten `Stop-ADSyncSyncCycle`.
+2. Om du använder en version före 1.1.281 stoppar Scheduler inte den aktuella anslutningen från den aktuella aktiviteten. Gör så här för att tvinga kopplingen att stoppa: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+   * Starta **synkroniseringstjänsten** från Start-menyn. Gå till **kopplingar**, markera kopplingen med det tillstånd som **körs**och välj **stoppa** från åtgärderna.
 
-Scheduler är fortfarande aktiv och börjar igen på nästa tillfälle.
+Scheduler är fortfarande aktiv och startar igen vid nästa tillfälle.
 
-## <a name="custom-scheduler"></a>Anpassade scheduler
-Cmdletarna som beskrivs i det här avsnittet är bara tillgängliga i build [1.1.130.0](reference-connect-version-history.md#111300) och senare.
+## <a name="custom-scheduler"></a>Anpassad Schemaläggaren
+Cmdletarna som beskrivs i det här avsnittet är endast tillgängliga i build- [1.1.130.0](reference-connect-version-history.md#111300) och senare.
 
-Om inbyggda scheduler inte uppfyller dina krav, kan du schemalägga anslutningarna med hjälp av PowerShell.
+Om den inbyggda Schemaläggaren inte uppfyller dina krav kan du schemalägga anslutningarna med hjälp av PowerShell.
 
 ### <a name="invoke-adsyncrunprofile"></a>Invoke-ADSyncRunProfile
-Du kan starta en profil för en koppling i det här sättet:
+Du kan starta en profil för en koppling på det här sättet:
 
 ```
 Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name of profile"
 ```
 
-Namn för [Kopplingsnamn](how-to-connect-sync-service-manager-ui-connectors.md) och [kör Profilnamnen](how-to-connect-sync-service-manager-ui-connectors.md#configure-run-profiles) finns i den [Synchronization Service Manager UI](how-to-connect-sync-service-manager-ui.md).
+De namn som ska användas för [anslutnings namn](how-to-connect-sync-service-manager-ui-connectors.md) och [namn på körnings profiler](how-to-connect-sync-service-manager-ui-connectors.md#configure-run-profiles) finns i [Synchronization Service Manager användar gränssnittet](how-to-connect-sync-service-manager-ui.md).
 
-![Anropa Körningsprofil](./media/how-to-connect-sync-feature-scheduler/invokerunprofile.png)  
+![Anropa körnings profil](./media/how-to-connect-sync-feature-scheduler/invokerunprofile.png)  
 
-Den `Invoke-ADSyncRunProfile` cmdlet är synkron, det vill säga den inte returnerar kontroll tills anslutningen har slutförts igen, antingen utan problem eller med ett fel.
+`Invoke-ADSyncRunProfile`-cmdleten är synkron, det vill säga den returnerar inte kontrollen förrän anslutningen har slutfört åtgärden, antingen korrekt eller med ett fel.
 
 När du schemalägger dina anslutningar är rekommendationen att schemalägga dem i följande ordning:
 
-1. (Fullständig/Deltasynkronisering) Importera från lokala kataloger, till exempel Active Directory
-2. (Fullständig/Deltasynkronisering) Import från Azure AD
-3. (Fullständig/Deltasynkronisering) Synkronisering från lokala kataloger, till exempel Active Directory
-4. (Fullständig/Deltasynkronisering) Synkronisering från Azure AD
+1. (Fullständig/delta) Importera från lokala kataloger, till exempel Active Directory
+2. (Fullständig/delta) Importera från Azure AD
+3. (Fullständig/delta) Synkronisering från lokala kataloger, till exempel Active Directory
+4. (Fullständig/delta) Synkronisering från Azure AD
 5. Exportera till Azure AD
 6. Exportera till lokala kataloger, till exempel Active Directory
 
-Den här ordningen är hur inbyggda scheduler körs anslutningarna.
+Den här ordningen är hur den inbyggda Schemaläggaren kör anslutningarna.
 
 ### <a name="get-adsyncconnectorrunstatus"></a>Get-ADSyncConnectorRunStatus
-Du kan också övervaka Synkroniseringsmotorn och se om den är upptagen eller inaktiv. Denna cmdlet returnerar ett tomt resultat om Synkroniseringsmotorn är inaktiv och inte kör en koppling. Om en anslutning körs, returnerar namnet på anslutningen.
+Du kan också övervaka Synkroniseringsmotorn för att se om den är upptagen eller inaktiv. Den här cmdleten returnerar ett tomt resultat om Synkroniseringsmotorn är inaktiv och inte kör en anslutning. Om en koppling körs returneras namnet på anslutningen.
 
 ```
 Get-ADSyncConnectorRunStatus
 ```
 
-![Körningsstatus för anslutningen](./media/how-to-connect-sync-feature-scheduler/getconnectorrunstatus.png)  
-I bilden ovan är den första raden från ett tillstånd där Synkroniseringsmotorn är inaktiv. Den andra raden från när du kör Azure AD Connector.
+![Körnings status för koppling](./media/how-to-connect-sync-feature-scheduler/getconnectorrunstatus.png)  
+I bilden ovan är den första raden från ett tillstånd där Synkroniseringsmotorn är inaktiv. Den andra raden från när Azure AD-kopplingen körs.
 
-## <a name="scheduler-and-installation-wizard"></a>Guiden Scheduler och installation
-Om du startar installationsguiden pausas tillfälligt scheduler. Det här beteendet är där det förutsätts att du gör konfigurationsändringar och de här inställningarna kan inte användas om Synkroniseringsmotorn körs aktivt. Därför inte lämna installationsguiden öppna eftersom Synkroniseringsmotorn från att utföra alla åtgärder som synkroniseringen stoppas.
+## <a name="scheduler-and-installation-wizard"></a>Guiden Schemaläggaren och installation
+Om du startar installations guiden pausas Scheduler tillfälligt. Det här problemet beror på att du gör konfigurations ändringar och att dessa inställningar inte kan tillämpas om Synkroniseringsmotorn körs aktivt. Låt därför inte installations guiden vara öppen eftersom den stoppar Synkroniseringsmotorn från att utföra några åtgärder för synkronisering.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om den [Azure AD Connect-synkronisering](how-to-connect-sync-whatis.md) konfiguration.
+Läs mer om [Azure AD Connect Sync](how-to-connect-sync-whatis.md) -konfigurationen.
 
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

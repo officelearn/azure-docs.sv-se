@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b6da67589b15b4ab043510c0375c26c12f645adb
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155154"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378090"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planera en molnbaserad Azure Multi-Factor Authentication-distribution
 
@@ -24,7 +24,7 @@ Personer ansluter till organisations resurser i allt större komplicerade scenar
 
 [Azure Multi-Factor Authentication (MFA)](concept-mfa-howitworks.md) hjälper till att skydda åtkomsten till data och program. Det ger ett extra säkerhets lager med hjälp av en andra form av autentisering. Organisationer kan använda [villkorlig åtkomst](../conditional-access/overview.md) för att se till att lösningen passar deras speciella behov.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar en distribution av Azure Multi-Factor Authentication finns det nödvändiga objekt som bör övervägas.
 
@@ -52,7 +52,7 @@ Azure Multi-Factor Authentication distribueras genom att tvinga principer med vi
 
 * Alla användare, en speciell användare, medlem i en grupp eller tilldelad roll
 * Specifika moln program som ska användas
-* Enhetsplattform
+* Enhets plattform
 * Enhetens tillstånd
 * Nätverks plats eller geo-lokaliserad IP-adress
 * Klientprogram
@@ -85,7 +85,7 @@ Vi rekommenderar att organisationer använder villkorlig åtkomst för att defin
 ### <a name="configuring-a-named-location"></a>Konfigurera en namngiven plats
 
 1. Öppna **Azure Active Directory** i Azure Portal
-2. Välj **säkerhet**
+2. Välj **Säkerhet**
 3. Under **Hantera**väljer du **namngivna platser**
 4. Välj **ny plats**
 5. I fältet **namn** anger du ett beskrivande namn
@@ -113,7 +113,7 @@ Ett push-meddelande skickas till Microsoft Authenticator-appen på din mobila en
 
 En mobilapp som Microsoft Authenticator-appen genererar en ny OATH-verifierings kod var 30: e sekund. Användaren anger verifierings koden i inloggnings gränssnittet. Alternativet mobil app kan användas om telefonen har en data-eller mobilen signal.
 
-### <a name="call-to-phone"></a>Samtal till telefon
+### <a name="call-to-phone"></a>Ring till telefon
 
 Ett automatiskt röst samtal placeras till användaren. Användaren svarar på anropet och trycker **#** på telefon tangent bordet för att godkänna deras autentisering. Samtal till telefon är en bra säkerhets kopierings metod för meddelande-eller verifierings kod från en mobilapp.
 
@@ -288,11 +288,11 @@ Syftet med den här inställningen är att fastställa vad som ska göras när e
 | Nyckeln finns inte | Inte registrerad | MFA-utmaningen lyckades inte |
 | Värdet är inställt på Sant/ej angivet | Inte registrerad | MFA-utmaningen lyckades inte |
 | Nyckeln har angetts till false | Inte registrerad | Autentisering utan MFA |
-| Nyckeln har angetts till false eller True | Registrerad | Måste autentisera med MFA |
+| Nyckeln har angetts till false eller True | Registrerade | Måste autentisera med MFA |
 
 ### <a name="integrate-with-active-directory-federation-services"></a>Integrera med Active Directory Federation Services (AD FS)
 
-Om din organisation är federerad med Azure AD kan du använda [azure Multi-Factor Authentication för att skydda AD FS resurser](multi-factor-authentication-get-started-adfs.md), både lokalt och i molnet. Med Azure MFA kan du minska lösen ord och tillhandahålla ett säkrare sätt att autentisera. Från och med Windows Server 2016 konfigurera du nu Azure MFA för primär autentisering.
+Om din organisation är federerad med Azure AD kan du använda [azure Multi-Factor Authentication för att skydda AD FS resurser](multi-factor-authentication-get-started-adfs.md), både lokalt och i molnet. Med Azure MFA kan du minska lösen ord och tillhandahålla ett säkrare sätt att autentisera. Från och med Windows Server 2016 kan du nu konfigurera Azure MFA för primär autentisering.
 
 Till skillnad från AD FS i Windows Server 2012 R2 integrerar AD FS 2016 Azure MFA-adaptern direkt med Azure AD och kräver inte en lokal Azure MFA-Server. Azure MFA-adaptern är inbyggd i Windows Server 2016 och det finns inget behov av en ytterligare installation.
 
@@ -347,7 +347,7 @@ Rapporter för Azure MFA
 
 Azure Multi-Factor Authentication ger rapporter via Azure Portal:
 
-| Rapport | Location | Beskrivning |
+| Rapport | plats. | Beskrivning |
 | --- | --- | --- |
 | Användnings-och bedrägeri varningar | Inloggnings program för Azure AD > | Innehåller information om allmän användning, användar Sammanfattning och användar information. samt en historik över bedrägeri aviseringar som skickats under det angivna datum intervallet. |
 

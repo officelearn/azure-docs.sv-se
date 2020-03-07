@@ -12,11 +12,11 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/04/2020
 ms.openlocfilehash: a2bf15c8778a6ff549284b1053cf0978d182b802
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116895"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78354934"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Skapa, utforska och distribuera automatiserade maskin inlärnings experiment med Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -64,7 +64,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
     1. Granska **inställningarna och för hands versions** formuläret för noggrannhet. Formuläret fylls i intelligent baserat på filtypen. 
 
-        Fält| Beskrivning
+        Field| Beskrivning
         ----|----
         Fil format| Definierar layout och typ av data som lagras i en fil.
         Avgränsare| Ett eller flera tecken för att ange avgränsningen mellan separata, oberoende regioner i oformaterad text eller andra data strömmar.
@@ -91,7 +91,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
 1. Välj **skapa en ny beräkning** för att konfigurera din beräknings kontext för det här experimentet.
 
-    Fält|Beskrivning
+    Field|Beskrivning
     ---|---
     Compute-namn| Ange ett unikt namn som identifierar din beräknings kontext.
     Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning.
@@ -220,7 +220,7 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
 
 1. Fyll i fönstret **distribuera modell** .
 
-    Fält| Värde
+    Field| Värde
     ----|----
     Namn| Ange ett unikt namn för din distribution.
     Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.

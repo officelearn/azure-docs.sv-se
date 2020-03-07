@@ -13,11 +13,11 @@ ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
 ms.openlocfilehash: 6a90e9ba264c4abddf2c26cb7b1761a7a51b1778
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647687"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360269"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -105,7 +105,7 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Sydafrika, västra    | 102.133.24.0       |
 | USA, södra centrala     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
 | Sydostasien      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
-| Förenade Arabemiraten, centrala          | 20.37.72.64        |
+| Förenade Arabemiraten Central          | 20.37.72.64        |
 | Förenade Arabemiraten, norra            | 65.52.248.0        |
 | Storbritannien, södra             | 51.140.184.11      |
 | Storbritannien, västra              | 51.141.8.11        |

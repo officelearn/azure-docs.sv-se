@@ -9,11 +9,11 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: 7d637c2fb3f4a4d5f8deac9cd99c0a44af6568e6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919619"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359751"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -29,7 +29,7 @@ Data Lake Storage Gen2 stöder flera Azure-tjänster som du kan använda för at
 
 Se [Azure-tjänster som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
-## <a name="supported-open-source-platforms"></a>Öppen källkod-plattformar som stöds
+## <a name="supported-open-source-platforms"></a>Plattformar för öppen källkod som stöds
 
 Data Lake Storage Gen2 har stöd för flera plattformar för öppen källkod. En fullständig lista finns i [plattformar med öppen källkod som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 

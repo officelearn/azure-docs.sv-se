@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/07/2020
 ms.author: barclayn
 ms.openlocfilehash: 682f0b66f7632bce16ae134e71ea27c4df976f43
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087093"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389951"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption – i vila
 
@@ -306,7 +306,7 @@ Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Al
 | Azure Databricks                 | Ja                | Ja                | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Azure DevOps                     | Ja                | -                  | Ja                |
-| Azure-databaser                      | Ja                | -                  | Ja                |
+| Azure-lagringsplatser                      | Ja                | -                  | Ja                |
 | **Identitet**                     |                    |                    |                    |
 | Azure Active Directory           | Ja                | -                  | -                  |
 | Azure Active Directory Domain Services | Ja          | Ja, RSA 2048-bitars  | -                  |
@@ -320,9 +320,9 @@ Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Al
 | Azure Site Recovery              | Ja                | -                  | -                  |
 | **Mellanhand**                        |                    |                    |                    |
 | Media Services                   | Ja                | -                  | Ja                |
-| **Lagring**                      |                    |                    |                    |
+| **Storage**                      |                    |                    |                    |
 | Blob Storage                     | Ja                | Ja, RSA 2048-bitars  | Ja                |
-| Hårddisklagring                     | Ja                | Ja                | -                  |
+| Disklagring                     | Ja                | Ja                | -                  |
 | Hanterade Disklagring             | Ja                | Ja                | -                  |
 | File Storage                     | Ja                | Ja, RSA 2048-bitars  | -                  |
 | Queue Storage                    | Ja                | Ja                | Ja                |

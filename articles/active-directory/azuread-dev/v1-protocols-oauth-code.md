@@ -17,11 +17,11 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: bc303dc62892f8fac67bb6869e72db0e40f19779
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164037"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377824"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Auktorisera åtkomst till Azure Active Directory-webbprogram med beviljandeflödet för OAuth 2.0-kod
 
@@ -38,7 +38,7 @@ OAuth 2,0 Authorization Code Flow beskrivs i [avsnittet 4,1 i oauth 2,0-specifik
 ## <a name="register-your-application-with-your-ad-tenant"></a>Registrera ditt program med din AD-klient
 Registrera först ditt program med din Azure Active Directory (Azure AD)-klient. Det ger dig en program-ID för ditt program och låter det ta emot tokens.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
    
 1. Välj din Azure AD-klient genom att välja ditt konto i det övre högra hörnet på sidan, följt av att välja **växel katalog** navigering och sedan välja lämplig klient. 
    - Hoppa över det här steget om du bara har en Azure AD-klient under ditt konto, eller om du redan har valt rätt Azure AD-klient.

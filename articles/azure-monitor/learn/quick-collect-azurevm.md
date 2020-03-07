@@ -8,11 +8,11 @@ ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
 ms.openlocfilehash: 2e63b2ca0ee7246009068e6a2875795a14aeddb3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77660197"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372841"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Samla in data från en virtuell Azure-dator med Azure Monitor
 
@@ -28,7 +28,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
 
-    ![Azure-portalen](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
+    ![Azure Portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Välj **skapa**och välj sedan alternativ för följande objekt:
 

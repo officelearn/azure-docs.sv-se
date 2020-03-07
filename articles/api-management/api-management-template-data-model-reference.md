@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 5625ff7e4fc51b9b6b894698719247902a480f44
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176533"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374429"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Data modell referens för Azure API Management-mall
 I det här avsnittet beskrivs entitets-och typ representationer för vanliga objekt som används i data modellerna för utvecklares Portal mallar i Azure API Management.  
@@ -168,8 +168,8 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`value`|sträng|Huvud värde.|  
 |`typeName`|sträng|Data typen för huvud värde.|  
 |`options`|sträng|Sätt.|  
-|`required`|boolesk|Om rubriken är obligatorisk.|  
-|`readOnly`|boolesk|Om rubriken är skrivskyddad.|  
+|`required`|boolean|Om rubriken är obligatorisk.|  
+|`readOnly`|boolean|Om rubriken är skrivskyddad.|  
   
 ##  <a name="HTTPRequest"></a>HTTP-begäran  
  I det här avsnittet beskrivs `request` representation.  
@@ -232,7 +232,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`Page`|nummer|Det aktuella sid numret.|  
 |`PageSize`|nummer|Det högsta antalet resultat som ska visas på en enda sida.|  
 |`TotalItemCount`|nummer|Antalet objekt som ska visas.|  
-|`ShowAll`|boolesk|Om alla resultat ska visas på en enda sida.|  
+|`ShowAll`|boolean|Om alla resultat ska visas på en enda sida.|  
 |`PageCount`|nummer|Antalet resultat sidor.|  
   
 ##  <a name="Parameter"></a>ProfileServiceApplicationProxy  
@@ -244,7 +244,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`description`|sträng|Parameter beskrivning.|  
 |`value`|sträng|Parameter värde.|  
 |`options`|strängmatris|Värden som definierats för parameter värden för frågor.|  
-|`required`|boolesk|Anger om parametern är obligatorisk eller inte.|  
+|`required`|boolean|Anger om parametern är obligatorisk eller inte.|  
 |`kind`|nummer|Om den här parametern är en Sök vägs parameter (1) eller en QueryString-parameter (2).|  
 |`typeName`|sträng|Parameter typ.|  
   
@@ -258,7 +258,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`Description`|sträng|Beskrivning av produkten. Får inte vara tomt. Kan innehålla HTML-taggar. Maximal längd är 1000 tecken.|  
 |`Terms`|sträng|Produkt användnings villkor. Utvecklare som försöker prenumerera på produkten visas och krävs för att acceptera dessa villkor innan prenumerations processen kan slutföras.|  
 |`ProductState`|nummer|Anger om produkten har publicerats eller inte. Publicerade produkter kan upptäckas av utvecklare på Developer-portalen. Icke-publicerade produkter visas bara för administratörer.<br /><br /> Tillåtna värden för produkt tillstånd är:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
-|`AllowMultipleSubscriptions`|boolesk|Anger om en användare kan ha flera prenumerationer på produkten samtidigt.|  
+|`AllowMultipleSubscriptions`|boolean|Anger om en användare kan ha flera prenumerationer på produkten samtidigt.|  
 |`MultipleSubscriptionsCount`|nummer|Maximalt antal prenumerationer för den här produkten som en användare får ha på samma gång.|  
   
 ##  <a name="Provider"></a>CSP  
@@ -290,17 +290,17 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`ProductDetailsUrl`|sträng|Relativ URL till produkt information.|  
 |`state`|sträng|Prenumerationens tillstånd. Möjliga tillstånd är:<br /><br /> - `0 - suspended` – prenumerationen är blockerad och prenumeranten kan inte anropa några API: er för produkten.<br /><br /> - `1 - active` – prenumerationen är aktiv.<br /><br /> - `2 - expired` – prenumerationen har nått sitt förfallo datum och inaktiverades.<br /><br /> - `3 - submitted` – prenumerations förfrågan har gjorts av utvecklaren, men har ännu inte godkänts eller avvisats.<br /><br /> - `4 - rejected` – prenumerations förfrågan har nekats av en administratör.<br /><br /> - `5 - cancelled` – prenumerationen har avbrutits av utvecklaren eller administratören.|  
 |`DisplayName`|sträng|Visnings namn för prenumerationen.|  
-|`CreatedDate`|DateTime|Datumet då prenumerationen skapades, i ISO 8601-format: `2014-06-24T16:25:00Z`.|  
-|`CanBeCancelled`|boolesk|Om prenumerationen kan avbrytas av den aktuella användaren.|  
-|`IsAwaitingApproval`|boolesk|Om prenumerationen väntar på godkännande.|  
-|`StartDate`|DateTime|Prenumerationens start datum i ISO 8601-format: `2014-06-24T16:25:00Z`.|  
-|`ExpirationDate`|DateTime|Prenumerationens förfallo datum i ISO 8601-format: `2014-06-24T16:25:00Z`.|  
-|`NotificationDate`|DateTime|Meddelande datumet för prenumerationen i ISO 8601-format: `2014-06-24T16:25:00Z`.|  
+|`CreatedDate`|Datum/tid|Datumet då prenumerationen skapades, i ISO 8601-format: `2014-06-24T16:25:00Z`.|  
+|`CanBeCancelled`|boolean|Om prenumerationen kan avbrytas av den aktuella användaren.|  
+|`IsAwaitingApproval`|boolean|Om prenumerationen väntar på godkännande.|  
+|`StartDate`|Datum/tid|Prenumerationens start datum i ISO 8601-format: `2014-06-24T16:25:00Z`.|  
+|`ExpirationDate`|Datum/tid|Prenumerationens förfallo datum i ISO 8601-format: `2014-06-24T16:25:00Z`.|  
+|`NotificationDate`|Datum/tid|Meddelande datumet för prenumerationen i ISO 8601-format: `2014-06-24T16:25:00Z`.|  
 |`primaryKey`|sträng|Primär prenumerations nyckel. Maximal längd är 256 tecken.|  
 |`secondaryKey`|sträng|Sekundär prenumerations nyckel. Maximal längd är 256 tecken.|  
-|`CanBeRenewed`|boolesk|Om prenumerationen kan förnyas av den aktuella användaren.|  
-|`HasExpired`|boolesk|Om prenumerationen har upphört att gälla.|  
-|`IsRejected`|boolesk|Om prenumerations förfrågan nekades.|  
+|`CanBeRenewed`|boolean|Om prenumerationen kan förnyas av den aktuella användaren.|  
+|`HasExpired`|boolean|Om prenumerationen har upphört att gälla.|  
+|`IsRejected`|boolean|Om prenumerations förfrågan nekades.|  
 |`CancelUrl`|sträng|Den relativa URL: en för att avbryta prenumerationen.|  
 |`RenewUrl`|sträng|Den relativa URL: en för att förnya prenumerationen.|  
   
@@ -323,7 +323,7 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`Password`|sträng|Användar kontots lösen ord.|  
 |`NameIdentifier`|sträng|Konto identifierare, samma som användarens e-postadress.|  
 |`ProviderName`|sträng|Namn på autentiseringsprovider.|  
-|`IsBasicAccount`|boolesk|Sant om det här kontot registrerades med e-post och lösen ord; falskt om kontot registrerades med en provider.|  
+|`IsBasicAccount`|boolean|Sant om det här kontot registrerades med e-post och lösen ord; falskt om kontot registrerades med en provider.|  
   
 ##  <a name="UseSignIn"></a>Användar inloggning  
  `user sign in` entiteten har följande egenskaper:  
@@ -333,27 +333,27 @@ I det här avsnittet beskrivs entitets-och typ representationer för vanliga obj
 |`Email`|sträng|E-postadress. Får inte vara tom och måste vara unikt inom tjänst instansen. Maximal längd är 254 tecken.|  
 |`Password`|sträng|Användar kontots lösen ord.|  
 |`ReturnUrl`|sträng|URL-adressen till sidan där användaren klickar på Logga in.|  
-|`RememberMe`|boolesk|Om den aktuella användarens information ska sparas.|  
-|`RegistrationEnabled`|boolesk|Om registreringen är aktive rad.|  
-|`DelegationEnabled`|boolesk|Om delegerad inloggning är aktive rad.|  
+|`RememberMe`|boolean|Om den aktuella användarens information ska sparas.|  
+|`RegistrationEnabled`|boolean|Om registreringen är aktive rad.|  
+|`DelegationEnabled`|boolean|Om delegerad inloggning är aktive rad.|  
 |`DelegationUrl`|sträng|Den delegerade inloggnings-URL: en, om den är aktive rad.|  
 |`SsoSignUpUrl`|sträng|URL: en för enkel inloggning för användaren, om sådan finns.|  
 |`AuxServiceUrl`|sträng|Om den aktuella användaren är administratör är det en länk till tjänst instansen i Azure Portal.|  
 |`Providers`|Samling av [Provider](#Provider) -entiteter|Providern för den här användaren.|  
 |`UserRegistrationTerms`|sträng|Villkor som en användare måste samtycka till innan de kan logga in.|  
-|`UserRegistrationTermsEnabled`|boolesk|Om villkor är aktiverade.|  
+|`UserRegistrationTermsEnabled`|boolean|Om villkor är aktiverade.|  
   
 ##  <a name="UserSignUp"></a>Användar registrering  
  `user sign up` entiteten har följande egenskaper:  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|`PasswordConfirm`|boolesk|Värde som används av registrerings registreringen för [registrering](api-management-page-controls.md#sign-up).|  
+|`PasswordConfirm`|boolean|Värde som används av registrerings registreringen för [registrering](api-management-page-controls.md#sign-up).|  
 |`Password`|sträng|Användar kontots lösen ord.|  
 |`PasswordVerdictLevel`|nummer|Värde som används av registrerings registreringen för [registrering](api-management-page-controls.md#sign-up).|  
 |`UserRegistrationTerms`|sträng|Villkor som en användare måste samtycka till innan de kan logga in.|  
 |`UserRegistrationTermsOptions`|nummer|Värde som används av registrerings registreringen för [registrering](api-management-page-controls.md#sign-up).|  
-|`ConsentAccepted`|boolesk|Värde som används av registrerings registreringen för [registrering](api-management-page-controls.md#sign-up).|  
+|`ConsentAccepted`|boolean|Värde som används av registrerings registreringen för [registrering](api-management-page-controls.md#sign-up).|  
 |`Email`|sträng|E-postadress. Får inte vara tom och måste vara unikt inom tjänst instansen. Maximal längd är 254 tecken.|  
 |`FirstName`|sträng|Förnamn. Får inte vara tomt. Maximal längd är 100 tecken.|  
 |`LastName`|sträng|Efter namn. Får inte vara tomt. Maximal längd är 100 tecken.|  

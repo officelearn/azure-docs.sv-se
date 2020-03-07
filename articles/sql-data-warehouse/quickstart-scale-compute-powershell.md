@@ -12,11 +12,11 @@ ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 5952f17c83b778e8713488b5c53c9f210c84a146
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78200487"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390499"
 ---
 # <a name="quickstart-scale-compute-in-in-azure-synapse-analytics-sql-pool-using-azure-powershell"></a>Snabb start: skala beräkning i Azure Synapse Analytics SQL-poolen med hjälp av Azure PowerShell
 
@@ -56,7 +56,7 @@ Leta upp databasens namn, servernamnet och resursgruppen för det informationsla
 
 Följ de här anvisningarna för att hitta platsen för ditt informationslager.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på **Azure Synapse Analytics (tidigare SQL DW)** på den vänstra navigerings sidan i Azure Portal.
 3. Välj **mySampleDataWarehouse** på sidan **Azure Synapse Analytics (tidigare SQL DW)** för att öppna data lagret.
 

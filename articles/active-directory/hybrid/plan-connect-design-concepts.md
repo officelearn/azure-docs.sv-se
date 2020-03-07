@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Design koncept | Microsoft Docs'
+title: 'Azure AD Connect: utforma koncept | Microsoft Docs'
 description: I det här avsnittet beskrivs vissa design områden för implementering
 services: active-directory
 documentationcenter: ''
@@ -18,13 +18,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135741"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376013"
 ---
-# <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Designbegrepp
+# <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: utforma begrepp
 Syftet med det här dokumentet är att beskriva områden som måste ses över under implementeringen av Azure AD Connect. Det här dokumentet är ett djupgående att ta del av vissa områden och dessa begrepp beskrivs kortfattat i andra dokument.
 
 ## <a name="sourceanchor"></a>sourceAnchor
@@ -45,7 +45,7 @@ Attributvärdet måste följa följande regler:
 
 * Färre än 60 tecken
   * Tecken som inte är a-z, A-Z eller 0-9 kodas och räknas som tre tecken
-* Innehåller inget specialtecken: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " \@ _
+* Innehåller inget specialtecken: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > () '; :, [] "\@ _
 * Måste vara globalt unikt
 * Måste vara antingen en sträng, ett heltal eller en binär
 * Ska inte baseras på användarens namn eftersom de kan ändra
@@ -62,7 +62,7 @@ Om du har flera skogar och inte flyttar användare mellan skogar och domäner, �
 
 Om du flyttar användare mellan skogar och domäner måste du hitta ett attribut som inte ändras eller som kan flyttas till användarna under flytten. En rekommenderad metod är att införa ett syntetiskt attribut. Ett attribut som kan innehålla något som liknar ett GUID är lämpligt. När ett objekt skapas skapas och stämplas ett nytt GUID för användaren. En anpassad Synkroniseringsregel kan skapas i Synkroniseringsmotorn för att skapa det här värdet baserat på **objectGUID** och uppdatera det valda attributet i lägger till. När du flyttar objektet ser du till att även kopiera innehållet för det här värdet.
 
-En annan lösning är att välja ett befintligt attribut som du vet inte ändras. Ofta använda attribut är **Anställningsnr**. Om du funderar på ett attribut som innehåller bokstäver ser du till att det inte går att ändra i skift läget (versaler eller gemener). Felaktiga attribut som inte ska användas inkluderar attributen med namnet på användaren. I en äktenskaps-eller äktenskaps skillnad förväntas namnet ändras, vilket inte är tillåtet för det här attributet. Detta är också en orsak till varför attribut som **userPrincipalName**, **mail**och **targetAddress** inte är lika möjliga att välja i installations guiden för Azure AD Connect. Dessa attribut innehåller också "\@"-symbolen, som inte tillåts i sourceAnchor.
+En annan lösning är att välja ett befintligt attribut som du vet inte ändras. Ofta använda attribut är **Anställningsnr**. Om du funderar på ett attribut som innehåller bokstäver ser du till att det inte går att ändra i skift läget (versaler eller gemener). Felaktiga attribut som inte ska användas inkluderar attributen med namnet på användaren. I en äktenskaps-eller äktenskaps skillnad förväntas namnet ändras, vilket inte är tillåtet för det här attributet. Detta är också en orsak till varför attribut som **userPrincipalName**, **mail**och **targetAddress** inte är lika möjliga att välja i installations guiden för Azure AD Connect. Dessa attribut innehåller också "\@"-tecknen som inte tillåts i sourceAnchor.
 
 ### <a name="changing-the-sourceanchor-attribute"></a>Ändra attributet sourceAnchor
 Attributvärdet sourceAnchor kan inte ändras efter att objektet har skapats i Azure AD och identiteten har synkroniserats.
@@ -96,7 +96,7 @@ Du kan aktivera användningen av ConsistencyGuid som sourceAnchor under den nya 
 
 ### <a name="how-to-enable-the-consistencyguid-feature"></a>Aktivera funktionen ConsistencyGuid
 
-#### <a name="express-installation"></a>Snabb installation
+#### <a name="express-installation"></a>Expressinstallation
 När du installerar Azure AD Connect med Express läget avgör Azure AD Connect guiden automatiskt det mest lämpliga AD-attributet som ska användas som sourceAnchor-attribut med följande logik:
 
 * Först frågar guiden Azure AD Connect din Azure AD-klient för att hämta det AD-attribut som används som attributet sourceAnchor i föregående Azure AD Connect-installation (om det finns några). Om den här informationen är tillgänglig använder Azure AD Connect samma AD-attribut.
@@ -140,7 +140,7 @@ Växla från objectGUID till ConsistencyGuid som käll-Anchor-attribut:
 
 3. Ange dina autentiseringsuppgifter för Azure AD-administratören och klicka på **Nästa**.
 
-4. Azure AD Connects guiden analyserar statusen för attributet ms-DS-ConsistencyGuid i din lokala Active Directory. Om attributet inte har kon figurer ATS för något objekt i katalogen, Azure AD Connect att det inte finns något annat program som för närvarande använder attributet och är säkert att använda det som käll-Anchor-attribut. Fortsätt genom att klicka på **Nästa** .
+4. Azure AD Connects guiden analyserar statusen för attributet ms-DS-ConsistencyGuid i din lokala Active Directory. Om attributet inte har kon figurer ATS för något objekt i katalogen, Azure AD Connect att det inte finns något annat program som för närvarande använder attributet och är säkert att använda det som käll-Anchor-attribut. Klicka på **Nästa** för att fortsätta.
 
    ![Aktivera ConsistencyGuid för befintlig distribution – steg 4](./media/plan-connect-design-concepts/consistencyguidexistingdeployment02.png)
 
@@ -170,7 +170,7 @@ Om du hanterar AD FS utanför Azure AD Connect eller om du använder Federations
 ![Federations konfiguration från tredje part](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Lägga till nya kataloger i en befintlig distribution
-Anta att du har distribuerat Azure AD Connect med ConsistencyGuid-funktionen aktive rad, och nu vill du lägga till en annan katalog i distributionen. När du försöker lägga till katalogen kontrollerar Azure AD Connect-guiden status för ms-DS-ConsistencyGuid-attributet i katalogen. Om attributet har kon figurer ATS på ett eller flera objekt i katalogen, avslutar guiden attributet som används av andra program och returnerar ett fel enligt diagrammet nedan. Om du är säker på att attributet inte används av befintliga program kan du ignorera felet genom att starta om guiden Azure AD Connect med **/SkipLdapSearch** -växeln angiven enligt beskrivningen ovan eller så behöver du kontakta supporten för mer information .
+Anta att du har distribuerat Azure AD Connect med ConsistencyGuid-funktionen aktive rad, och nu vill du lägga till en annan katalog i distributionen. När du försöker lägga till katalogen kontrollerar Azure AD Connect-guiden status för ms-DS-ConsistencyGuid-attributet i katalogen. Om attributet har kon figurer ATS på ett eller flera objekt i katalogen, avslutar guiden attributet som används av andra program och returnerar ett fel enligt diagrammet nedan. Om du är säker på att attributet inte används av befintliga program kan du ignorera felet genom att starta om guiden Azure AD Connect med **/SkipLdapSearch** -växeln som anges ovan eller så behöver du kontakta supporten för mer information.
 
 ![Lägga till nya kataloger i en befintlig distribution](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 
@@ -180,7 +180,7 @@ När du integrerar din lokala katalog med Azure AD är det viktigt att förstå 
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>Välja attributet för userPrincipalName
 När du väljer attributet för att ange värdet för UPN som ska användas i Azure One bör det säkerställas att
 
-* Attributvärdena motsvarar UPN-syntaxen (RFC 822), vilket är det ska vara av formatet användar namn\@domän
+* Attributvärdena överensstämmer med UPN-syntaxen (RFC 822), det ska vara av formatet användar namn\@domän
 * Suffixet i värdena matchar en av de verifierade anpassade domänerna i Azure AD
 
 I Express inställningar är det förmodade valet för attributet userPrincipalName. Om attributet userPrincipalName inte innehåller värdet som du vill att användarna ska logga in på Azure måste du välja **anpassad installation**.
@@ -188,7 +188,7 @@ I Express inställningar är det förmodade valet för attributet userPrincipalN
 ### <a name="custom-domain-state-and-upn"></a>Anpassad domän status och UPN
 Det är viktigt att se till att det finns en verifierad domän för UPN-suffixet.
 
-John är en användare i contoso.com. Du vill att John ska använda det lokala UPN John\@contoso.com för att logga in på Azure när du har synkroniserat användare till Azure AD-katalogen contoso.onmicrosoft.com. För att göra det måste du lägga till och verifiera contoso.com som en anpassad domän i Azure AD innan du kan börja synkronisera användarna. Om UPN-suffixet John, till exempel contoso.com, inte matchar en verifierad domän i Azure AD, ersätter Azure AD UPN-suffixet med contoso.onmicrosoft.com.
+John är en användare i contoso.com. Du vill att John ska använda det lokala UPN John\@contoso.com för att logga in på Azure när du har synkroniserat användare till Azure AD-contoso.onmicrosoft.com. För att göra det måste du lägga till och verifiera contoso.com som en anpassad domän i Azure AD innan du kan börja synkronisera användarna. Om UPN-suffixet John, till exempel contoso.com, inte matchar en verifierad domän i Azure AD, ersätter Azure AD UPN-suffixet med contoso.onmicrosoft.com.
 
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>Icke-dirigerbart lokala domäner och UPN för Azure AD
 Vissa organisationer har icke-flyttbara domäner, t. ex. contoso. local eller enkla enkla domän etiketter som contoso. Du kan inte verifiera en icke-dirigerbart domän i Azure AD. Azure AD Connect kan bara synkronisera till en verifierad domän i Azure AD. När du skapar en Azure AD-katalog skapar den en dirigerbart domän som blir standard domän för din Azure AD, till exempel contoso.onmicrosoft.com. Därför är det nödvändigt att verifiera en annan dirigerbart domän i ett sådant scenario om du inte vill synkronisera till standard domänen onmicrosoft.com.

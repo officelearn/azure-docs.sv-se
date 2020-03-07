@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
 ms.openlocfilehash: 5236fd89ed99ca14bb7fc24e40ef79e12e5177d9
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919523"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372905"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Insamling av data i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer, skalnings uppsättningar för virtuella datorer, IaaS behållare och icke-Azure (inklusive lokala) datorer för att övervaka säkerhets problem och hot. Data samlas in med hjälp av Log Analytics agent, som läser olika säkerhetsrelaterade konfigurationer och händelse loggar från datorn och kopierar data till din arbets yta för analys. Exempel på sådana data är: driva systemtyp och version, operativsystemloggar (Windows-händelseloggar), kör processer, datornamn, IP-adresser och inloggad användare. Log Analytics agenten kopierar även krasch dum par till din arbets yta.

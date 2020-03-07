@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50c283122fe707e922275b6c1a6c576009964855
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273355"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377809"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Snabbstart: Lägg till en gästanvändare med PowerShell
 
@@ -25,7 +25,7 @@ Det finns många sätt att bjuda in externa partners till dina appar och tjänst
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="install-the-latest-azureadpreview-module"></a>Installera den senaste AzureADPreview-modulen
 Se till att du installerar den senaste versionen av Azure AD PowerShell för Graph-modulen (AzureADPreview). 

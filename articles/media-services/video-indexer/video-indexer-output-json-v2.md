@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: juliako
 ms.openlocfilehash: 2fac5e07f9646c4fc0fac7b1be53b5a5ac1ea803
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514399"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363949"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Granska Video Indexer utdata som skapats av API
 
@@ -43,7 +43,7 @@ I den här artikeln granskas JSON-innehållet som returneras av API: t **Get vid
 |accountId|Spel listans konto-ID.|
 |id|Spelnings listans ID.|
 |namn|Spel listans namn.|
-|description|Spelnings listans beskrivning.|
+|beskrivning|Spelnings listans beskrivning.|
 |userName|Namnet på den användare som skapade spelnings listan.|
 |Create|Tid för skapande av spelnings lista.|
 |privacyMode|Spelnings listans sekretess läge (privat/offentlig).|
@@ -53,7 +53,7 @@ I den här artikeln granskas JSON-innehållet som returneras av API: t **Get vid
 |isBase|Anger om spelnings listan är en grundläggande spelnings lista (en video) eller en spelnings lista med andra videor (härlett).|
 |durationInSeconds|Spelnings listans totala varaktighet.|
 |summarizedInsights|Innehåller en [summarizedInsights](#summarizedinsights).
-|videor|En lista med [videor](#videos) som konstruerar spelnings listan.<br/>Om den här spelnings listan med tidsintervaller som skapats av andra videor (härlett), kommer videor i den här listan endast innehålla data från de inkluderade tidsintervallen.|
+|Videos|En lista med [videor](#videos) som konstruerar spelnings listan.<br/>Om den här spelnings listan med tidsintervaller som skapats av andra videor (härlett), kommer videor i den här listan endast innehålla data från de inkluderade tidsintervallen.|
 
 ```json
 {
@@ -91,12 +91,12 @@ I det här avsnittet visas en sammanfattning av insikterna.
 |sentiment|Kan innehålla noll eller flera sentiment. Mer detaljerad information finns i [sentiment](#sentiments).|
 |audioEffects| Kan innehålla noll eller flera audioEffects. Mer detaljerad information finns i [audioEffects](#audioEffects).|
 |etiketter| Får innehålla noll eller flera etiketter. Mer information finns i [Etiketter](#labels).|
-|märken| Kan innehålla noll eller flera varumärken. Mer detaljerad information finns i [varumärken](#brands).|
+|varumärken| Kan innehålla noll eller flera varumärken. Mer detaljerad information finns i [varumärken](#brands).|
 |uppgifterna | Mer detaljerad information finns i [statistik](#statistics).|
 |känslor| Kan innehålla noll eller flera känslor. Mer detaljerad information finns i [känslor](#emotions).|
-|Avsnitt om|Kan innehålla noll eller flera ämnen. [Ämnena](#topics) insikter.|
+|avsnitt|Kan innehålla noll eller flera ämnen. [Ämnena](#topics) insikter.|
 
-## <a name="videos"></a>videor
+## <a name="videos"></a>Videos
 
 |Namn|Beskrivning|
 |---|---|
@@ -161,17 +161,17 @@ En ansikte kan ha ett ID, ett namn, en miniatyr bild, andra metadata och en list
 |avskrifts|[Avskrifts](#transcript) insikter.|
 |stöd|[OCR](#ocr) -insikter.|
 |nyckelord|[Nyckelorden](#keywords) insikter.|
-|block|Kan innehålla ett eller flera [block](#blocks)|
+|Delar|Kan innehålla ett eller flera [block](#blocks)|
 |ytor|[Ansiktenas](#faces) insikter.|
 |etiketter|[Etiketterna](#labels) insikter.|
 |bilder|[Bilderna](#shots) insikter.|
-|märken|Insikter om [varumärken](#brands) .|
+|varumärken|Insikter om [varumärken](#brands) .|
 |audioEffects|[AudioEffects](#audioEffects) Insight.|
 |sentiment|[Sentiment](#sentiments) Insight.|
 |visualContentModeration|[VisualContentModeration](#visualcontentmoderation) Insight.|
 |textualContentModeration|[TextualContentModeration](#textualcontentmoderation) Insight.|
 |känslor| [Känslor](#emotions) Insight.|
-|Avsnitt om|[Ämnena](#topics) insikter.|
+|avsnitt|[Ämnena](#topics) insikter.|
 
 Exempel:
 
@@ -194,12 +194,12 @@ Exempel:
 }
 ```
 
-#### <a name="blocks"></a>block
+#### <a name="blocks"></a>Delar
 
 Attribut | Beskrivning
 ---|---
 id|ID för blocket.|
-instanser|En lista över tidsintervallen för det här blocket.|
+pipe|En lista över tidsintervallen för det här blocket.|
 
 #### <a name="transcript"></a>avskrifts
 
@@ -208,7 +208,7 @@ instanser|En lista över tidsintervallen för det här blocket.|
 |id|Rad-ID.|
 |text|Själva avskriften.|
 |language|Avskrifts språket. Avsett att stödja avskrifter där varje rad kan ha ett annat språk.|
-|instanser|En lista med tidsintervaller där denna rad visades. Om instansen avskrifts har den bara en instans.|
+|pipe|En lista med tidsintervaller där denna rad visades. Om instansen avskrifts har den bara en instans.|
 
 Exempel:
 
@@ -245,13 +245,13 @@ Exempel:
 |---|---|
 |id|ID för OCR-linje.|
 |text|OCR-text.|
-|konfidensbedömning|Igenkännings förtroendet.|
+|tillit|Igenkännings förtroendet.|
 |language|OCR-språket.|
-|instanser|En lista med tidsintervall där denna OCR visades (samma OCR kan förekomma flera gånger).|
-|höjd|Höjden på OCR-rektangeln|
-|överst|Den översta platsen i px|
-|vänster| Den vänstra platsen i px|
-|bredd|Bredden på OCR-rektangeln|
+|pipe|En lista med tidsintervall där denna OCR visades (samma OCR kan förekomma flera gånger).|
+|våghöjd|Höjden på OCR-rektangeln|
+|översta|Den översta platsen i px|
+|Från| Den vänstra platsen i px|
+|LED|Bredden på OCR-rektangeln|
 
 ```json
 "ocr": [
@@ -280,9 +280,9 @@ Exempel:
 |---|---|
 |id|Nyckelords-ID: t.|
 |text|Nyckelords texten.|
-|konfidensbedömning|Nyckelordets tolknings säkerhet.|
+|tillit|Nyckelordets tolknings säkerhet.|
 |language|Nyckelords språket (vid översättning).|
-|instanser|En lista med tidsintervall där det här nyckelordet visades (ett nyckelord kan visas flera gånger).|
+|pipe|En lista med tidsintervall där det här nyckelordet visades (ett nyckelord kan visas flera gånger).|
 
 ```json
 {
@@ -311,15 +311,15 @@ Exempel:
 |---|---|
 |id|Ansikts-ID.|
 |namn|Namnet på FACET. Det kan vara okänt #0, en identifierad kändis eller en kundutbildad person.|
-|konfidensbedömning|Förtroende för ansikts identifiering.|
-|description|En beskrivning av kändis. |
+|tillit|Förtroende för ansikts identifiering.|
+|beskrivning|En beskrivning av kändis. |
 |thumbnailId|ID för miniatyr bilden för den aktuella ytan.|
 |knownPersonId|Om det är en känd person, dess interna ID.|
 |referenceId|Om det är en Bing-kändis, dess Bing-ID.|
 |referenceType|För närvarande, bara Bing.|
 |title|Om det är en kändis, dess titel (till exempel "Microsofts VD").|
 |imageUrl|Om det är en kändis, dess bild-URL.|
-|instanser|Detta är instanser av där ytan fanns inom det aktuella tidsintervallet. Varje instans har också en thumbnailsId. |
+|pipe|Detta är instanser av där ytan fanns inom det aktuella tidsintervallet. Varje instans har också en thumbnailsId. |
 
 ```json
 "faces": [{
@@ -357,7 +357,7 @@ Exempel:
 |id|Etikett-ID: t.|
 |namn|Etikett namnet (till exempel "dator", "TV").|
 |language|Etikettens namn språk (vid översättning). BCP-47|
-|instanser|En lista med tidsintervall där etiketten visas (en etikett kan visas flera gånger). Varje instans har ett konfidens fält. |
+|pipe|En lista med tidsintervall där etiketten visas (en etikett kan visas flera gånger). Varje instans har ett konfidens fält. |
 
 
 ```json
@@ -414,7 +414,7 @@ Exempel:
 |Namn|Beskrivning|
 |---|---|
 |id|Scen-ID: t.|
-|instanser|En lista med tidsintervall för den här scenen (en scen kan bara ha 1 instans).|
+|pipe|En lista med tidsintervall för den här scenen (en scen kan bara ha 1 instans).|
 
 ```json
 "scenes":[  
@@ -448,7 +448,7 @@ Exempel:
 |---|---|
 |id|Bild-ID.|
 |Nyckel rutor|En lista med nyckel rutor i bilden (var och en har ett ID och en lista över instanser av instans intervallet). Varje instans av en nyckel ruta har ett thumbnailId-fält som innehåller nyckel rutans miniatyr-ID.|
-|instanser|En lista över tidsintervallen för den här instansen (en skärmdump kan bara ha en instans).|
+|pipe|En lista över tidsintervallen för den här instansen (en skärmdump kan bara ha en instans).|
 
 ```json
 "shots":[  
@@ -490,7 +490,7 @@ Exempel:
 ]
 ```
 
-#### <a name="brands"></a>märken
+#### <a name="brands"></a>varumärken
 
 Företags-och produkt märkes namn identifieras i tal till text avskrift och/eller video-OCR. Detta omfattar inte visuell igenkänning av varumärken eller logo typ identifiering.
 
@@ -500,10 +500,10 @@ Företags-och produkt märkes namn identifieras i tal till text avskrift och/ell
 |namn|Namn på varumärken.|
 |referenceId | Suffixet för varumärkes Wikipedia-URL: en. Till exempel är "Target_Corporation" suffixet för [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |referenceUrl | Varumärkets Wikipedia-URL, om sådan finns. Till exempel [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|description|Beskrivningen av varumärkena.|
-|tags|En lista med fördefinierade taggar som har associerats med det här varumärket.|
-|konfidensbedömning|Konfidens värdet för Video Indexer varumärkes detektor (0-1).|
-|instanser|En lista med tidsintervall för det här varumärket. Varje instans har en brandType, som anger om detta varumärke visas i avskriften eller i OCR.|
+|beskrivning|Beskrivningen av varumärkena.|
+|taggar|En lista med fördefinierade taggar som har associerats med det här varumärket.|
+|tillit|Konfidens värdet för Video Indexer varumärkes detektor (0-1).|
+|pipe|En lista med tidsintervall för det här varumärket. Varje instans har en brandType, som anger om detta varumärke visas i avskriften eller i OCR.|
 
 ```json
 "brands": [
@@ -567,7 +567,7 @@ Företags-och produkt märkes namn identifieras i tal till text avskrift och/ell
 |---|---|
 |id|Ljudets effekter-ID.|
 |typ|Ljud påverkans typen (till exempel Clapping, tal, tystnad).|
-|instanser|En lista med tidsintervaller där den här ljud påverkan visades.|
+|pipe|En lista med tidsintervaller där den här ljud påverkan visades.|
 
 ```json
 "audioEffects": [
@@ -596,7 +596,7 @@ Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). 
 |---|---|
 |id|Sentiment-ID.|
 |averageScore |Medelvärdet av alla resultat från alla instanser av sentiment-typ positiv/neutral/negativ|
-|instanser|En lista med tidsintervaller där denna sentiment visades.|
+|pipe|En lista med tidsintervaller där denna sentiment visades.|
 |sentimentType |Typen kan vara "positiv", "neutral" eller "negativ".|
 
 ```json
@@ -636,7 +636,7 @@ Videor som innehåller vuxen eller vågat innehåll kan endast vara tillgänglig
 |id|ID för moderator för visuellt innehåll.|
 |adultScore|Den vuxen poängen (från Content moderator).|
 |racyScore|Vågat-poängen (från innehålls redigering).|
-|instanser|En lista med tidsintervaller där den här visuella innehålls kontrollanten visades.|
+|pipe|En lista med tidsintervaller där den här visuella innehålls kontrollanten visades.|
 
 ```json
 "VisualContentModeration": [
@@ -681,7 +681,7 @@ Video Indexer identifierar känslor baserat på tal-och ljud signaler. Den ident
 |---|---|
 |id|Känslo-ID.|
 |typ|Känslo som identifierades baserat på tal-och ljud signaler. Känslo kan vara: Joy, ledsenhet, ilska eller frukt.|
-|instanser|En lista med tidsintervaller där denna känslo visades.|
+|pipe|En lista med tidsintervaller där denna känslo visades.|
 
 ```json
 "emotions": [{
@@ -763,7 +763,7 @@ Video Indexer identifierar känslor baserat på tal-och ljud signaler. Den ident
 ],
 ```
 
-#### <a name="topics"></a>Avsnitt om
+#### <a name="topics"></a>avsnitt
 
 Video Indexer gör det lättare att utföra huvud ämnena i avskrifter. När det är möjligt ingår [IPTC](https://iptc.org/standards/media-topics/) -taxonomi på andra nivån. 
 
@@ -772,10 +772,10 @@ Video Indexer gör det lättare att utföra huvud ämnena i avskrifter. När det
 |id|Avsnitts-ID.|
 |namn|Ämnes namnet, till exempel: "farmaceutiska".|
 |referenceId|Spår som reflekterar ämnes hierarkin. Till exempel: "hälsa och välbefinnande/medicin, sjukvård/farmaceutiska".|
-|konfidensbedömning|Förtroende poängen i intervallet [0, 1]. Högre är mer tryggare.|
+|tillit|Förtroende poängen i intervallet [0, 1]. Högre är mer tryggare.|
 |language|Det språk som används i ämnet.|
 |iptcName|IPTC-mediets kod namn, om det upptäcks.|
-|instanser |För närvarande kan Video Indexer inte indexera ett ämne till tidsintervall, så hela videon används som intervall.|
+|pipe |För närvarande kan Video Indexer inte indexera ett ämne till tidsintervall, så hela videon används som intervall.|
 
 ```json
 "topics": [{

@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2440d373b726b4f97cd5d9ba162daaa0714f79e0
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155060"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377993"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Drift procedurer för Azure AD-lösenords skydd
 

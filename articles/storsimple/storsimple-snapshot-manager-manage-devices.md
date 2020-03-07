@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: a037ddc5a43b288349b17dc7d954991a2c634aa3
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931731"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365859"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Använda StorSimple Snapshot Manager för att ansluta och hantera StorSimple-enheter
 ## <a name="overview"></a>Översikt
@@ -83,7 +83,7 @@ Använd följande procedur för att lägga till eller ersätta en StorSimple-enh
    
     ![Konfigurera en StorSimple-enhet](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_config_device.png) 
 3. I list rutan **enhet** väljer du IP-adressen för enheten eller den virtuella enheten. 
-4. I text rutan **lösen ord** skriver du StorSimple Snapshot Manager lösen ordet som du skapade för enheten i den klassiska Azure-portalen. Klicka på **OK**. StorSimple Snapshot Manager söker efter den enhet som du har identifierat. 
+4. I text rutan **lösen ord** skriver du StorSimple Snapshot Manager lösen ordet som du skapade för enheten i den klassiska Azure-portalen. Klicka på **OK** StorSimple Snapshot Manager söker efter den enhet som du har identifierat. 
    
    * Om enheten är tillgänglig StorSimple Snapshot Manager lägga till en anslutning.
    * Om enheten inte är tillgänglig av någon anledning returnerar StorSimple Snapshot Manager ett fel meddelande. Stäng fel meddelandet genom att klicka på **OK** och klicka sedan på **Avbryt** för att stänga dialog rutan **Konfigurera en enhet** .
@@ -101,7 +101,7 @@ Använd följande procedur för att ansluta en StorSimple-enhet och kontrol lera
 3. Högerklicka på den översta noden i fönstret **omfång** och klicka sedan på **Växla visning av importer**.
    
     ![Välj växla visning av importer](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Toggle_Imports_Display.png) 
-4. Dialog rutan **Växla import** visas visas med statusen för de importerade volym grupperna och säkerhets kopiorna. Klicka på **OK**.
+4. Dialog rutan **Växla import** visas visas med statusen för de importerade volym grupperna och säkerhets kopiorna. Klicka på **OK**
 
 När volym grupperna och säkerhets kopiorna har importer ATS kan du använda StorSimple-Snapshot Manager för att hantera dem, precis som du hanterar volym grupper och säkerhets kopior som du har skapat och konfigurerat med StorSimple Snapshot Manager. 
 
@@ -140,7 +140,7 @@ Använd följande procedur om du vill visa information om en StorSimple-enhet oc
 * Synkronisera enheten genom att klicka på **Synkronisera** igen.
 * Klicka på **OK** eller **Avbryt** om du vill stänga dialog rutan.
   
-  ![Information om enhet](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Device_details.png) 
+  ![Enhets information](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Device_details.png) 
 
 ## <a name="refresh-an-individual-device"></a>Uppdatera en enskild enhet
 Använd följande procedur för att synkronisera om en enskild StorSimple-enhet med StorSimple Snapshot Manager.
@@ -206,7 +206,7 @@ Om en StorSimple-enhet Miss lyckas och har ersatts av en växlings enhet (redund
 4. Starta StorSimple Snapshot Manager.
 5. Konfigurera den nya StorSimple-enheten genom att slutföra stegen i steg 2: ansluta en StorSimple-enhet i [distribuera StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 6. Högerklicka på noden på den översta nivån i fönstret **omfång** (StorSimple Snapshot Manager i exemplet) och klicka sedan på **Växla import visning**. 
-7. Ett meddelande visas när de importerade volym grupperna och säkerhets kopiorna visas i StorSimple Snapshot Manager. Klicka på **OK**.
+7. Ett meddelande visas när de importerade volym grupperna och säkerhets kopiorna visas i StorSimple Snapshot Manager. Klicka på **OK**
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [använder StorSimple Snapshot Manager för att administrera din StorSimple-lösning](storsimple-snapshot-manager-admin.md).

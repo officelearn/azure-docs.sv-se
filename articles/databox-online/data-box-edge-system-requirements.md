@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 458c062eef011363724cb894ce67ba75181ba8ba
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76757874"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384756"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure Data Box Edge system krav
 
@@ -58,7 +58,7 @@ Azure IoT Edge tillåter utgående kommunikation från en lokal Edge-enhet till 
 
 Använd följande tabell för port konfiguration för servrar som är värdar för Azure IoT Edge Runtime:
 
-| Port nr. | In eller ut | Port omfång | Krävs | Vägledning |
+| Port nr. | In eller ut | Port omfång | Krävs | Riktlinjer |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Genomför       | Wide        | Ja      | Utgående öppen för IoT Edge etablering. Den här konfigurationen krävs när du använder manuella skript eller Azure IoT Device Provisioning-tjänsten (DPS).|
 
@@ -82,9 +82,9 @@ Vi rekommenderar att du ställer in brand Väggs regler för utgående trafik, b
 
 | URL-mönster                      | Komponent eller funktion                     |   
 |----------------------------------|---------------------------------------------|
-| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft container Registry (krävs)               |
-| https://\*.azurecr.io                     | Personliga och tredje parts behållar register (valfritt) | 
-| https://\*.azure-devices.net              | IoT Hub åtkomst (krävs)                             | 
+| https:\//mcr.microsoft.com<br></br>https://\*. cdn.mscr.io | Microsoft container Registry (krävs)               |
+| https://\*. azurecr.io                     | Personliga och tredje parts behållar register (valfritt) | 
+| https://\*. azure-devices.net              | IoT Hub åtkomst (krävs)                             | 
 
 ### <a name="url-patterns-for-gateway-for-azure-government"></a>URL-mönster för gateway för Azure Government
 
@@ -94,9 +94,9 @@ Vi rekommenderar att du ställer in brand Väggs regler för utgående trafik, b
 
 | URL-mönster                      | Komponent eller funktion                     |  
 |----------------------------------|---------------------------------------------|
-| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft container Registry (krävs)               |
-| https://\*.azure-devices.us              | IoT Hub åtkomst (krävs)           |
-| https://\*.azurecr.us                    | Personliga och tredje parts behållar register (valfritt) | 
+| https:\//mcr.microsoft.com<br></br>https://\*. cdn.mscr.com | Microsoft container Registry (krävs)               |
+| https://\*. azure-devices.us              | IoT Hub åtkomst (krävs)           |
+| https://\*. azurecr.us                    | Personliga och tredje parts behållar register (valfritt) | 
 
 ## <a name="internet-bandwidth"></a>Internet bandbredd
 

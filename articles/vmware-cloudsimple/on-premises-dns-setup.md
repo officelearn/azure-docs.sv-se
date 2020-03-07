@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösningar (AVS) – Konfigurera DNS för ett privat AVS-moln
-description: Beskriver hur du konfigurerar DNS-namnmatchning för åtkomst till vCenter Server i ett moln privat moln från lokala arbets stationer
+title: Azure VMware-lösning av CloudSimple – konfigurera DNS för CloudSimple privat moln
+description: Beskriver hur du konfigurerar DNS-namnmatchning för åtkomst till vCenter Server i ett privat CloudSimple-moln från lokala arbets stationer
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -8,26 +8,26 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 12c4362ae1b075af132d5971f4fe0461c9d91733
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083080"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364419"
 ---
-# <a name="configure-dns-for-name-resolution-for-avs-private-cloud-vcenter-access-from-on-premises-workstations"></a>Konfigurera DNS för namn matchning för molnet privat vCenter vCenter åtkomst från lokala arbets stationer
+# <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Konfigurera DNS för namn matchning för privat moln vCenter-åtkomst från lokala arbets stationer
 
-För att få åtkomst till vCenter-servern i ett moln privat moln från lokala arbets stationer måste du konfigurera DNS-namnupplösning så att vCenter-servern kan åtgärdas via värdnamn och IP-adress.
+För att få åtkomst till vCenter-servern i ett CloudSimple privat moln från lokala arbets stationer måste du konfigurera DNS-namnupplösning så att vCenter-servern kan åtgärdas via värdnamn och IP-adress.
 
-## <a name="obtain-the-ip-address-of-the-dns-server-for-your-avs-private-cloud"></a>Hämta IP-adressen för DNS-servern för ditt AVS-privata moln
+## <a name="obtain-the-ip-address-of-the-dns-server-for-your-private-cloud"></a>Hämta IP-adressen för DNS-servern för ditt privata moln
 
-1. Logga in på [AVS-portalen](access-cloudsimple-portal.md).
+1. Logga in på [CloudSimple-portalen](access-cloudsimple-portal.md).
 
-2. Navigera till **resurser** > **AVS-privata moln** och välj det AVS-privata moln som du vill ansluta till.
+2. Navigera till **resurser** > **privata moln** och välj det privata moln som du vill ansluta till.
 
-3. På sidan **Sammanfattning** i det privata AVS-molnet under **grundläggande information**kopierar du IP-adressen för DNS-servern för AVS-molnet.
+3. På sidan **Sammanfattning** i det privata molnet under **grundläggande information**kopierar du IP-adressen för den privata molnets DNS-server.
 
-    ![DNS-servrar för molnets privata moln](media/private-cloud-dns-server.png)
+    ![DNS-servrar för privata moln](media/private-cloud-dns-server.png)
 
 
 Använd något av dessa alternativ för DNS-konfigurationen.
@@ -71,14 +71,14 @@ zone "az.cloudsimple.io"
 5. Ange zon namnet och klicka på **Nästa**.
 
     ![Ny zon](media/DNS05.png)
-6. Ange IP-adresserna för DNS-servrarna för ditt AVS-privata moln som du fick från AVS-portalen.
+6. Ange IP-adresserna för DNS-servrarna för ditt privata moln som du har fått från CloudSimple-portalen.
 
     ![Ny zon](media/DNS06.png)
 7. Klicka på **Nästa** om du vill slutföra installationen av guiden.
 
 ## <a name="create-a-conditional-forwarder"></a>Skapa en villkorlig vidarebefordrare
 
-En villkorlig vidarebefordrare vidarebefordrar alla förfrågningar om DNS-namnmatchning till den angivna servern. Med den här installationen vidarebefordras alla förfrågningar till *. cloudsimple.io till DNS-servrarna som finns i det privata moln molnet. I följande exempel visas hur du konfigurerar vidarebefordrare på olika typer av DNS-servrar.
+En villkorlig vidarebefordrare vidarebefordrar alla förfrågningar om DNS-namnmatchning till den angivna servern. Med den här installationen vidarebefordras alla förfrågningar till *. cloudsimple.io till DNS-servrarna som finns i det privata molnet. I följande exempel visas hur du konfigurerar vidarebefordrare på olika typer av DNS-servrar.
 
 ### <a name="create-a-conditional-forwarder-on-a-bind-dns-server"></a>Skapa en villkorlig vidarebefordrare på en BIND DNS-Server
 
@@ -99,4 +99,4 @@ zone "az.cloudsimple.io" {
 2. Högerklicka på **villkorliga vidarebefordrare** och välj alternativet för att lägga till en ny villkorlig vidarebefordrare.
 
     ![Villkorlig vidarebefordrare 1 Windows DNS](media/DNS08.png)
-3. Ange DNS-domänen och IP-adressen för DNS-servrarna i det privata AVS-molnet och klicka på **OK**.
+3. Ange DNS-domänen och IP-adressen för DNS-servrarna i det privata molnet och klicka på **OK**.

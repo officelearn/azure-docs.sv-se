@@ -1,16 +1,16 @@
 ---
-title: Uppgradera Service Fabric-programmet
+title: Service Fabric program uppgradering
 description: Den här artikeln innehåller en introduktion till att uppgradera ett Service Fabric program, inklusive att välja uppgraderings lägen och utföra hälso kontroller.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 2dc484b49c5250510e5f018cbbc2da107573d452
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426777"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366833"
 ---
-# <a name="service-fabric-application-upgrade"></a>Uppgradera Service Fabric-programmet
+# <a name="service-fabric-application-upgrade"></a>Service Fabric program uppgradering
 Ett Azure Service Fabric-program är en samling tjänster. Under en uppgradering jämför Service Fabric det nya [applikations manifestet](service-fabric-application-and-service-manifests.md) med den tidigare versionen och avgör vilka tjänster i programmet som behöver uppdateras. Service Fabric jämför versions numren i tjänst manifesten med versions numren i den tidigare versionen. Tjänsten uppgraderas inte om en tjänst inte har ändrats.
 
 ## <a name="rolling-upgrades-overview"></a>Översikt över rullande uppgraderingar

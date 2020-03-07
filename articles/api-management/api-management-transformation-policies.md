@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
 ms.openlocfilehash: c26cca40b0bf6d02bcec09945043f4ba854fa8e9
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012220"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374284"
 ---
 # <a name="api-management-transformation-policies"></a>API Management omvandlings principer
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -75,9 +75,9 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Krävs|Default|
 |----------|-----------------|--------------|-------------|
-|använt|Attributet måste anges till ett av följande värden.<br /><br /> -alway-Always Always enconversion.<br />-Content-Type-JSON-Convert endast om svarets Content-Type-huvud indikerar förekomst av JSON.|Ja|Saknas|
+|apply|Attributet måste anges till ett av följande värden.<br /><br /> -alway-Always Always enconversion.<br />-Content-Type-JSON-Convert endast om svarets Content-Type-huvud indikerar förekomst av JSON.|Ja|Ej tillämpligt|
 |consider-accept-header|Attributet måste anges till ett av följande värden.<br /><br /> -Sant-Använd konvertering om JSON begärs i rubriken för begäran accept.<br />-falskt-Använd alltid konvertering.|Nej|true|
 |parse-datum|När värdet är inställt på `false` datum värden kopieras bara under omvandlingen|Nej|true|
 
@@ -119,10 +119,10 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Krävs|Default|
 |----------|-----------------|--------------|-------------|
-|type|Attributet måste anges till ett av följande värden.<br /><br /> – anpassad Java Script – den konverterade JSON-filen har ett formulär som är användarvänligt för JavaScript-utvecklare.<br />– direkt – konverterad JSON visar strukturen för det ursprungliga XML-dokumentet.|Ja|Saknas|
-|använt|Attributet måste anges till ett av följande värden.<br /><br /> -Always-Convert Always.<br />– Content-Type-XML-Convert endast om Content-Type-huvudet för svar anger förekomst av XML.|Ja|Saknas|
+|type|Attributet måste anges till ett av följande värden.<br /><br /> – anpassad Java Script – den konverterade JSON-filen har ett formulär som är användarvänligt för JavaScript-utvecklare.<br />– direkt – konverterad JSON visar strukturen för det ursprungliga XML-dokumentet.|Ja|Ej tillämpligt|
+|apply|Attributet måste anges till ett av följande värden.<br /><br /> -Always-Convert Always.<br />– Content-Type-XML-Convert endast om Content-Type-huvudet för svar anger förekomst av XML.|Ja|Ej tillämpligt|
 |consider-accept-header|Attributet måste anges till ett av följande värden.<br /><br /> -True-Använd Conversion om XML har begärts i rubriken för begäran accept.<br />-falskt-Använd alltid konvertering.|Nej|true|
 
 ### <a name="usage"></a>Användning
@@ -155,10 +155,10 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Krävs|Default|
 |----------|-----------------|--------------|-------------|
-|from|Strängen att söka efter.|Ja|Saknas|
-|till|Ersättnings strängen. Ange en ersättnings sträng med längden noll för att ta bort Sök strängen.|Ja|Saknas|
+|from|Strängen att söka efter.|Ja|Ej tillämpligt|
+|till|Ersättnings strängen. Ange en ersättnings sträng med längden noll för att ta bort Sök strängen.|Ja|Ej tillämpligt|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -266,15 +266,15 @@ I det här exemplet dirigerar principen begäran till en Service Fabric-Server d
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Krävs|Default|
 |----------|-----------------|--------------|-------------|
-|bas-URL|Bas-URL för ny server dels tjänst.|En av `base-url` eller `backend-id` måste vara tillgänglig.|Saknas|
-|backend-ID|Identifierare för den server del som ska skickas till. (Backend-entiteter hanteras via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) och [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|En av `base-url` eller `backend-id` måste vara tillgänglig.|Saknas|
-|sf-partition-key|Endast tillämpligt om Server delen är en Service Fabric tjänst och anges med backend-ID. Används för att matcha en speciell partition från namn matchnings tjänsten.|Nej|Saknas|
-|SF-Replica-typ|Endast tillämpligt om Server delen är en Service Fabric tjänst och anges med backend-ID. Kontrollerar om begäran ska gå till den primära eller sekundära repliken av en partition. |Nej|Saknas|
-|SF-resolve-Condition|Endast tillgängligt om Server delen är en Service Fabric-tjänst. Villkor som identifierar om anropet till Service Fabric Server del måste upprepas med ny lösning.|Nej|Saknas|
-|sf-service-instance-name|Endast tillgängligt om Server delen är en Service Fabric-tjänst. Gör det möjligt att ändra tjänst instanser vid körning. |Nej|Saknas|
-|sf-listener-name|Endast tillämpligt om Server delen är en Service Fabric tjänst och anges med backend-ID. Med Service Fabric Reliable Services kan du skapa flera lyssnare i en tjänst. Det här attributet används för att välja en speciell lyssnare när en server del Reliable service har fler än en lyssnare. Om det här attributet inte anges kommer API Management att försöka använda en lyssnare utan ett namn. En lyssnare utan ett namn är vanligt för Reliable Services som bara har en lyssnare. |Nej|Saknas|
+|bas-URL|Bas-URL för ny server dels tjänst.|En av `base-url` eller `backend-id` måste vara tillgänglig.|Ej tillämpligt|
+|backend-ID|Identifierare för den server del som ska skickas till. (Backend-entiteter hanteras via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) och [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|En av `base-url` eller `backend-id` måste vara tillgänglig.|Ej tillämpligt|
+|sf-partition-key|Endast tillämpligt om Server delen är en Service Fabric tjänst och anges med backend-ID. Används för att matcha en speciell partition från namn matchnings tjänsten.|Nej|Ej tillämpligt|
+|SF-Replica-typ|Endast tillämpligt om Server delen är en Service Fabric tjänst och anges med backend-ID. Kontrollerar om begäran ska gå till den primära eller sekundära repliken av en partition. |Nej|Ej tillämpligt|
+|SF-resolve-Condition|Endast tillgängligt om Server delen är en Service Fabric-tjänst. Villkor som identifierar om anropet till Service Fabric Server del måste upprepas med ny lösning.|Nej|Ej tillämpligt|
+|sf-service-instance-name|Endast tillgängligt om Server delen är en Service Fabric-tjänst. Gör det möjligt att ändra tjänst instanser vid körning. |Nej|Ej tillämpligt|
+|sf-listener-name|Endast tillämpligt om Server delen är en Service Fabric tjänst och anges med backend-ID. Med Service Fabric Reliable Services kan du skapa flera lyssnare i en tjänst. Det här attributet används för att välja en speciell lyssnare när en server del Reliable service har fler än en lyssnare. Om det här attributet inte anges kommer API Management att försöka använda en lyssnare utan ett namn. En lyssnare utan ett namn är vanligt för Reliable Services som bara har en lyssnare. |Nej|Ej tillämpligt|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -402,7 +402,7 @@ I det här exemplet dirigerar principen begäran till en Service Fabric-Server d
 
 ### <a name="properties"></a>Egenskaper
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Krävs|Default|
 |----------|-----------------|--------------|-------------|
 |mall|Används för att ändra det mall-läge som den angivna text principen ska köras i. För närvarande är det enda värde som stöds:<br /><br />– flytande – den uppsättnings huvud principen använder vätske mall-motorn |Nej||
 
@@ -517,10 +517,10 @@ OriginalUrl.
 
 ### <a name="properties"></a>Egenskaper
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Krävs|Default|
 |----------|-----------------|--------------|-------------|
-|exists-åtgärd|Anger vilken åtgärd som ska vidtas när rubriken redan har angetts. Det här attributet måste ha ett av följande värden.<br /><br /> -override-ersätter värdet i den befintliga rubriken.<br />-Skip-ersätter inte det befintliga huvud-värdet.<br />-append – lägger till värdet i det befintliga huvud-värdet.<br />-Delete – tar bort rubriken från begäran.<br /><br /> När det är inställt på `override` att en lista över flera poster med samma namn resulterar i att rubriken anges enligt alla poster (som visas flera gånger). endast värden som visas i resultatet anges.|Nej|Åsidosättningsinställning|
-|namn|Anger namnet på den rubrik som ska anges.|Ja|Saknas|
+|exists-åtgärd|Anger vilken åtgärd som ska vidtas när rubriken redan har angetts. Det här attributet måste ha ett av följande värden.<br /><br /> -override-ersätter värdet i den befintliga rubriken.<br />-Skip-ersätter inte det befintliga huvud-värdet.<br />-append – lägger till värdet i det befintliga huvud-värdet.<br />-Delete – tar bort rubriken från begäran.<br /><br /> När det är inställt på `override` att en lista över flera poster med samma namn resulterar i att rubriken anges enligt alla poster (som visas flera gånger). endast värden som visas i resultatet anges.|Nej|åsidosättning|
+|namn|Anger namnet på den rubrik som ska anges.|Ja|Ej tillämpligt|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -577,10 +577,10 @@ OriginalUrl.
 
 ### <a name="properties"></a>Egenskaper
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Krävs|Default|
 |----------|-----------------|--------------|-------------|
-|exists-åtgärd|Anger vilken åtgärd som ska vidtas när frågeparametern redan är angiven. Det här attributet måste ha ett av följande värden.<br /><br /> -override-ersätter värdet för den befintliga parametern.<br />-Skip-ersätter inte det befintliga värdet för Frågeparametern.<br />-append – lägger till värdet i det befintliga värdet för Frågeparametern.<br />-Delete-tar bort Frågeparametern från begäran.<br /><br /> När du har angett till `override` att en lista över flera poster med samma namn resulterar i att Frågeparametern anges enligt alla poster (som visas flera gånger). endast värden som visas i resultatet anges.|Nej|Åsidosättningsinställning|
-|namn|Anger namnet på frågeparametern som ska anges.|Ja|Saknas|
+|exists-åtgärd|Anger vilken åtgärd som ska vidtas när frågeparametern redan är angiven. Det här attributet måste ha ett av följande värden.<br /><br /> -override-ersätter värdet för den befintliga parametern.<br />-Skip-ersätter inte det befintliga värdet för Frågeparametern.<br />-append – lägger till värdet i det befintliga värdet för Frågeparametern.<br />-Delete-tar bort Frågeparametern från begäran.<br /><br /> När du har angett till `override` att en lista över flera poster med samma namn resulterar i att Frågeparametern anges enligt alla poster (som visas flera gånger). endast värden som visas i resultatet anges.|Nej|åsidosättning|
+|namn|Anger namnet på frågeparametern som ska anges.|Ja|Ej tillämpligt|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -655,9 +655,9 @@ OriginalUrl.
 
 ### <a name="attributes"></a>Attribut
 
-|Attribut|Beskrivning|Krävs|Standard|
+|Attribut|Beskrivning|Krävs|Default|
 |---------------|-----------------|--------------|-------------|
-|mall|Den faktiska webb tjänst-URL: en med parametrar för frågesträng. När du använder uttryck måste hela värdet vara ett uttryck.|Ja|Saknas|
+|mall|Den faktiska webb tjänst-URL: en med parametrar för frågesträng. När du använder uttryck måste hela värdet vara ett uttryck.|Ja|Ej tillämpligt|
 |Kopiera omatchade-params|Anger om frågeparametrar i den inkommande begäran som inte finns i den ursprungliga URL-mallen läggs till i URL: en som definieras av mallen för omskrivning|Nej|true|
 
 ### <a name="usage"></a>Användning

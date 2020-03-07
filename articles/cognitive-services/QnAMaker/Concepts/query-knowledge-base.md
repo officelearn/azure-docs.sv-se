@@ -4,11 +4,11 @@ description: 'En kunskaps bas måste publiceras. När den har publicerats fråga
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: cb777aa16fada50811cce1bbf49f28662c62b49b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843329"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389322"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Fråga kunskaps basen efter svar
 
@@ -99,4 +99,4 @@ HTTP-svaret är det svar som hämtats från kunskaps basen, baserat på den bäs
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Förtroendepoäng](./confidence-score.md)
+> [Förtroende Poäng](./confidence-score.md)

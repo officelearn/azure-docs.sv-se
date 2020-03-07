@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
 ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426706"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389747"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostik-och prestanda övervakning för Reliable service Remoting
 Den Reliable ServiceRemoting-körningen genererar [prestanda räknare](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Dessa ger insikter om hur ServiceRemoting fungerar och hjälper till med fel sökning och prestanda övervakning.
@@ -74,7 +74,7 @@ I föregående exempel är `ivoicemailboxservice.leavemessageasync` metod namnet
 
 Den Reliable service runtime publicerar följande prestanda räknare relaterade till körningen av tjänst metoder.
 
-| Kategorinamn | Namn på räknare | Beskrivning |
+| Kategori namn | Namn på räknare | Beskrivning |
 | --- | --- | --- |
 | Service Fabric tjänst metod |Anrop/SEK |Antal gånger som tjänst metoden anropas per sekund |
 | Service Fabric tjänst metod |Genomsnittligt antal millisekunder per anrop |Åtgången tid för att köra tjänst metoden i millisekunder |
@@ -83,7 +83,7 @@ Den Reliable service runtime publicerar följande prestanda räknare relaterade 
 ### <a name="service-request-processing-performance-counters"></a>Bearbetnings prestanda räknare för tjänstbegäran
 När en klient anropar en metod via ett proxyobjekt, resulterar det i att ett begär ande meddelande skickas via nätverket till fjärr kommunikations tjänsten. Tjänsten bearbetar begär ande meddelandet och skickar tillbaka ett svar till klienten. Den tillförlitliga ServiceRemoting-körningen publicerar följande prestanda räknare relaterade till behandling av tjänstbegäran.
 
-| Kategorinamn | Namn på räknare | Beskrivning |
+| Kategori namn | Namn på räknare | Beskrivning |
 | --- | --- | --- |
 | Service Fabric Service |antal utestående begär Anden |Antal begär Anden som bearbetas i tjänsten |
 | Service Fabric Service |Genomsnittligt antal millisekunder per begäran |Åtgången tid (i millisekunder) av tjänsten för att bearbeta en begäran |

@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928262"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387413"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Flytta data från SAP HANA med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -42,7 +42,7 @@ Om du vill aktivera anslutningen till SAP HANA-instansen installerar du följand
 Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från ett lokalt SAP HANA data lager med hjälp av olika verktyg/API: er. 
 
 - Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data. 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -81,7 +81,7 @@ När källan i kopierings aktiviteten är av typen **RelationalSource** (som inn
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB | Anger SQL-frågan för att läsa data från SAP HANA-instansen. | SQL-fråga. | Ja |
+| query | Anger SQL-frågan för att läsa data från SAP HANA-instansen. | SQL-fråga. | Ja |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>JSON-exempel: kopiera data från SAP HANA till Azure-Blob
 Följande exempel innehåller exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Det här exemplet visar hur du kopierar data från en lokal SAP HANA till en Azure-Blob Storage. Data kan dock kopieras **direkt** till någon av de handfat som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med kopierings aktiviteten i Azure Data Factory.  
@@ -283,31 +283,31 @@ När du flyttar data från SAP HANA används följande mappningar från SAP HANA
 
 SAP HANA typ | .NET-baserad typ
 ------------- | ---------------
-TINYINT | Mottagna byte
+TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
 REAL | Enkel
 DOUBLE | Enkel
-DECIMAL | Decimal
-BOOLEAN | Mottagna byte
-VARCHAR | Sträng
-NVARCHAR | Sträng
+DECIMAL | decimaltal
+BOOLEAN | Byte
+VARCHAR | String
+NVARCHAR | String
 CLOB | Byte[]
-ALPHANUM | Sträng
+ALPHANUM | String
 BLOB | Byte[]
 DATE | DateTime
-TIME | TimeSpan
+TIME | Tidsintervall
 TIMESTAMP | DateTime
 SECONDDATE | DateTime
 
 ## <a name="known-limitations"></a>Kända begränsningar
 Det finns några kända begränsningar när du kopierar data från SAP HANA:
 
-- NVARCHAR-strängar trunkeras till högst 4 000 Unicode-tecken
+- NVARCHAR-strängar trunkeras till den maximala längden på 4000 Unicode-tecken
 - SMALLDECIMAL stöds inte
 - VARBINARY stöds inte
-- Giltiga datum är mellan 1899-12-30 och 9999-12-31
+- Giltiga datum är mellan 1899/12/30 och 9999/12/31
 
 ## <a name="map-source-to-sink-columns"></a>Mappa källa till mottagar kolumner
 Information om hur du mappar kolumner i käll data uppsättningen till kolumner i data uppsättning för mottagare finns i [mappa data mängds kolumner i Azure Data Factory](data-factory-map-columns.md).

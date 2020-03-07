@@ -18,11 +18,11 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: cecb78a82eb2925813bdc7f6df2503fae94b6437
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701407"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375676"
 ---
 # <a name="single-sign-on-saml-protocol"></a>SAML-protokoll för enkel inloggning
 
@@ -48,12 +48,12 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| ID | Krävs | Azure AD använder det här attributet för att fylla i `InResponseTo`-attributet för det returnerade svaret. ID får inte börja med en siffra, så en gemensam strategi är att lägga en sträng som "ID" till sträng representationen av ett GUID. Till exempel är `id6c1c178c166d486687be4aaf5e482730` ett giltigt ID. |
-| Version | Krävs | Den här parametern ska vara inställd på **2,0**. |
-| IssueInstant | Krävs | Detta är en DateTime-sträng med ett UTC-värde och [tur och retur-format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD förväntar sig ett DateTime-värde av den här typen, men utvärderar eller använder inte värdet. |
-| AssertionConsumerServiceUrl | Valfritt | Om den här parametern anges måste den matcha `RedirectUri` av moln tjänsten i Azure AD. |
-| ForceAuthn | Valfritt | Detta är ett booleskt värde. Om värdet är true innebär det att användaren tvingas att autentiseras på nytt, även om de har en giltig session med Azure AD. |
-| IsPassive | Valfritt | Detta är ett booleskt värde som anger om Azure AD ska autentisera användaren tyst, utan användar interaktion, med hjälp av sessionens cookie om en sådan finns. Om detta är sant försöker Azure AD autentisera användaren med hjälp av sessions-cookien. |
+| ID | Obligatoriskt | Azure AD använder det här attributet för att fylla i `InResponseTo`-attributet för det returnerade svaret. ID får inte börja med en siffra, så en gemensam strategi är att lägga en sträng som "ID" till sträng representationen av ett GUID. Till exempel är `id6c1c178c166d486687be4aaf5e482730` ett giltigt ID. |
+| Version | Obligatoriskt | Den här parametern ska vara inställd på **2,0**. |
+| IssueInstant | Obligatoriskt | Detta är en DateTime-sträng med ett UTC-värde och [tur och retur-format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD förväntar sig ett DateTime-värde av den här typen, men utvärderar eller använder inte värdet. |
+| AssertionConsumerServiceUrl | Valfri | Om den här parametern anges måste den matcha `RedirectUri` av moln tjänsten i Azure AD. |
+| ForceAuthn | Valfri | Detta är ett booleskt värde. Om värdet är true innebär det att användaren tvingas att autentiseras på nytt, även om de har en giltig session med Azure AD. |
+| IsPassive | Valfri | Detta är ett booleskt värde som anger om Azure AD ska autentisera användaren tyst, utan användar interaktion, med hjälp av sessionens cookie om en sådan finns. Om detta är sant försöker Azure AD autentisera användaren med hjälp av sessions-cookien. |
 
 Alla andra `AuthnRequest` attribut, till exempel medgivande, destination, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex och ProviderName **ignoreras**.
 
@@ -99,7 +99,7 @@ Om detta anges ska du inte inkludera attributet `ProxyCount`, `IDPListOption` el
 ### <a name="signature"></a>Signatur
 Ta inte med ett `Signature`-element i `AuthnRequest` element, eftersom Azure AD inte stöder signerade autentiseringsbegäranden.
 
-### <a name="subject"></a>Ämne
+### <a name="subject"></a>Subjekt
 Azure AD ignorerar `Subject` element i `AuthnRequest` element.
 
 ## <a name="response"></a>Svar
@@ -210,7 +210,7 @@ För att generera den här digitala signaturen använder Azure AD signerings nyc
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Ämne
+#### <a name="subject"></a>Subjekt
 
 Detta anger huvud kontot som omfattas av uttrycken i försäkran. Den innehåller ett `NameID`-element som representerar den autentiserade användaren. `NameID`-värdet är en mål-ID som endast dirigeras till tjänst leverantören som är mål gruppen för token. Det är beständigt – det kan återkallas, men omtilldelas aldrig. Det är också ogenomskinligt, eftersom det inte avslöjar något om användaren och inte kan användas som en identifierare för attribut frågor.
 
@@ -225,7 +225,7 @@ Attributet `Method` i `SubjectConfirmation`-elementet är alltid inställt på `
 </Subject>
 ```
 
-#### <a name="conditions"></a>Villkor
+#### <a name="conditions"></a>Tillstånd
 
 Det här elementet anger villkor som definierar acceptabel användning av SAML-kontroller.
 

@@ -16,17 +16,17 @@ ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: d97323f1916ee46e6b1f8d4ca8723b950baca39c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064804"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372828"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Självstudie: övervaka ändringar och uppdatera en virtuell Windows-dator i Azure
 
 Med Azure [ändringsspårning](../../automation/change-tracking.md) och [uppdateringshantering](../../automation/automation-update-management.md)kan du enkelt identifiera ändringar i dina virtuella Windows-datorer i Azure och hantera uppdateringar av operativ system för de virtuella datorerna.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Hantera Windows-uppdateringar.
@@ -121,7 +121,7 @@ Om du vill schemalägga en ny uppdaterings distribution för den virtuella dator
 |**Operativsystem**| Välj antingen **Linux** eller **Windows**.|
 | **Grupper att uppdatera** |Definiera en fråga baserat på en kombination av prenumeration, resurs grupper, platser och taggar för virtuella datorer som finns på Azure. Den här frågan skapar en dynamisk grupp med virtuella datorer i Azure som ska ingå i distributionen. </br></br>Välj en befintlig sparad sökning för virtuella datorer som inte finns på Azure. Med den här sökningen kan du välja en grupp med de virtuella datorerna som ska ingå i distributionen. </br></br> Mer information finns i [dynamiska grupper](../../automation/automation-update-management-groups.md).|
 | **Datorer som ska uppdateras** |Välj **Sparad sökning**, **importerad grupp**eller **datorer**.<br/><br/>Om du väljer **datorer**kan du välja enskilda datorer i den nedrullningsbara listan. Beredskapen för varje dator visas i kolumnen **Uppdatera agent beredskap** i tabellen.</br></br> Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../../azure-monitor/platform/computer-groups.md) |
-|**Klassificering av uppdateringar**|Välj alla nödvändiga uppdaterings klassificeringar.|
+|**Uppdaterings klassificeringar**|Välj alla nödvändiga uppdaterings klassificeringar.|
 |**Inkludera/exkludera uppdateringar**|Välj det här alternativet för att öppna fönstret **Inkludera/exkludera** . Uppdateringar som ska tas med och de som ska undantas finns på separata flikar. Mer information om hur inkludering hanteras finns i [Schemalägga en uppdaterings distribution](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment). |
 |**Schema inställningar**|Välj tid för start och välj antingen **en gång** eller **återkommande**.|
 | **Före skript + efter skript**|Välj de skript som ska köras före och efter distributionen.|

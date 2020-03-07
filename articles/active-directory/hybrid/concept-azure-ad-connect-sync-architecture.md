@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect-synkronisering: Förstå arkitekturen - Azure'
-description: Det här avsnittet beskrivs arkitekturen för Azure AD Connect-synkronisering och de termer som används.
+title: 'Azure AD Connect synkronisering: förstå arkitekturen – Azure'
+description: I det här avsnittet beskrivs arkitekturen i Azure AD Connect Sync och förklarar de termer som används.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,247 +17,247 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138588"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376241"
 ---
-# <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect-synkronisering: Förstå arkitekturen
-Det här avsnittet innehåller grundläggande arkitektur för Azure AD Connect-synkronisering. Det är till stor del liknar föregående MIIS 2003 ILM 2007 och FIM 2010. Azure AD Connect-synkronisering är en utveckling av våra tekniker. Om du är bekant med någon av dessa tidigare tekniker kommer innehållet i det här avsnittet att du är van att också. Om du är nybörjare på synkronisering, är det här avsnittet för dig. Det är dock inte ett krav att känna till det här avsnittet för att utföra gör anpassningar i Azure AD Connect-synkronisering (kallas Synkroniseringsmotorn i det här avsnittet).
+# <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect synkronisering: förstå arkitekturen
+I det här avsnittet beskrivs den grundläggande arkitekturen för Azure AD Connect Sync. I många aspekter liknar de föregående aktiviteter MIIS 2003, ILM 2007 och FIM 2010. Azure AD Connect Sync är utvecklingen av dessa tekniker. Om du är bekant med någon av dessa tidigare tekniker är innehållet i det här avsnittet bekant för dig också. Om du inte har använt synkronisering igen är det här avsnittet för dig. Det är dock inte nödvändigt att veta mer om det här ämnet för att göra anpassningar till Azure AD Connect Sync (kallas Synkroniseringsmotorn i det här avsnittet).
 
 ## <a name="architecture"></a>Arkitektur
-Synkroniseringsmotorn skapar en integrerad vy av objekt som lagras i flera anslutna datakällor och hanterar identitetsinformation i dessa datakällor. Den här integrerad vy bestäms av identitetsinformationen hämtades från anslutna datakällor och en uppsättning regler som bestämmer hur du bearbetar den här informationen.
+Synkroniseringsmotorn skapar en integrerad vy av objekt som lagras i flera anslutna data källor och hanterar identitets information i dessa data källor. Den här integrerade vyn bestäms av identitets informationen som hämtats från anslutna data källor och en uppsättning regler som avgör hur informationen ska bearbetas.
 
-### <a name="connected-data-sources-and-connectors"></a>Anslutna datakällor och Anslutningsappar
-Synkroniseringsmotorn bearbetar identitetsinformation från olika datalager, till exempel Active Directory eller en SQL Server-databas. Varje datalager som ordnar data i ett format som databasliknande och som ger standard dataåtkomst metoder är en potentiell data källan kandidat för Synkroniseringsmotorn. Datalager som synkroniseras av Synkroniseringsmotorn kallas **anslutna datakällor** eller **anslutna kataloger** (CD).
+### <a name="connected-data-sources-and-connectors"></a>Anslutna data källor och anslutningar
+Synkroniseringsmotorn bearbetar identitets information från olika data centraler, till exempel Active Directory eller en SQL Server databas. Alla data centraler som organiserar sina data i ett databas format och som tillhandahåller standard metoder för data åtkomst är en potentiell data käll kandidat för Synkroniseringsmotorn. Data centralerna som synkroniseras med Sync-motorn kallas **anslutna data källor** eller **anslutna kataloger** (CD).
 
-Synkroniseringsmotorn kapslar in interaktion med en ansluten datakälla i en modul som kallas en **Connector**. Varje typ av ansluten datakälla har en viss koppling. Anslutningen omvandlar en obligatorisk åtgärd i det format som den anslutna datakällan förstår.
+Synkroniseringsmotorn kapslar in interaktionen med en ansluten data källa i en modul som kallas för en **koppling**. Varje typ av ansluten data källa har en speciell koppling. Anslutningen översätter en nödvändig åtgärd till det format som den anslutna data källan förstår.
 
-Kopplingar gör API-anrop till exchange-ID-information (både läsning och skrivning) med en ansluten datakälla. Det är också möjligt att lägga till en anpassad Anslutningsapp med extensible connectivity-ramverket. Följande bild visar hur en anslutning ansluter en ansluten datakälla till Synkroniseringsmotorn.
+Anslutningar gör API-anrop till att utbyta identitets information (både läsning och skrivning) med en ansluten data källa. Det är också möjligt att lägga till en anpassad anslutning med hjälp av Extensible Connectivity Framework. Följande bild visar hur en koppling ansluter en ansluten data källa till Synkroniseringsmotorn.
 
-![Ark1](./media/concept-azure-ad-connect-sync-architecture/arch1.png)
+![Arch1](./media/concept-azure-ad-connect-sync-architecture/arch1.png)
 
-Data kan flöda i båda riktningarna, men det går inte att flöda i båda riktningarna samtidigt. Med andra ord en anslutning kan konfigureras så att data kan flöda från den anslutna datakällan till Synkroniseringsmotorn eller Synkroniseringsmotorn till den anslutna datakällan, men endast en av dessa åtgärder kan inträffa när som helst en för ett objekt och attribut. Riktningen kan vara olika för olika objekt och för olika attribut.
+Data kan flöda i båda riktningarna, men det går inte att flöda i båda riktningarna samtidigt. Med andra ord kan en anslutning konfigureras för att tillåta att data flödar från den anslutna data källan till Synkroniseringsmotorn eller från Synkroniseringsmotorn till den anslutna data källan, men endast en av dessa åtgärder kan utföras vid en och samma tidpunkt för ett objekt och attribut. Riktningen kan vara olika för olika objekt och för olika attribut.
 
-Om du vill konfigurera en anslutning, kan du ange de objekttyper som du vill synkronisera. Anger objekttyperna definierar vilka objekt som ingår i synkroniseringsprocessen. Nästa steg är att välja attribut som ska synkroniseras, som kallas en inkludering attributlistan. De här inställningarna kan ändras som helst som svar på ändringar till din affärsregler. När du använder installationsguiden för Azure AD Connect konfigureras de här inställningarna åt dig.
+Om du vill konfigurera en koppling anger du de objekt typer som du vill synkronisera. Om du anger objekt typer definieras omfattningen av de objekt som ingår i synkroniseringsprocessen. Nästa steg är att välja de attribut som ska synkroniseras, vilket kallas för en lista för att inkludera attribut. De här inställningarna kan ändras när som helst som svar på ändringar i affärs reglerna. När du använder installations guiden för Azure AD Connect konfigureras de här inställningarna åt dig.
 
-Om du vill exportera objekt till en ansluten datakälla, måste inkludering attributlistan innehålla minst de minsta attribut som krävs för att skapa en viss objekttyp i en ansluten datakälla. Till exempel den **sAMAccountName** attributet måste inkluderas i attributlistan för inkludering att exportera ett användarobjekt till Active Directory eftersom alla användarobjekt i Active Directory måste ha en **sAMAccountName** attribut som har definierats. Igen, gör installationsguiden av den här konfigurationen åt dig.
+Om du vill exportera objekt till en ansluten data källa måste attributlistan innehålla minst de minsta attribut som krävs för att skapa en angiven objekt typ i en ansluten data källa. Attributet **sAMAccountName** måste till exempel inkluderas i listan över inkluderade attribut för att exportera ett användar objekt till Active Directory eftersom alla användar objekt i Active Directory måste ha ett definierat **sAMAccountName** -attribut. Installations guiden kommer att konfigureras för dig.
 
-Om den anslutna datakällan använder strukturella komponenter, till exempel partitioner eller behållare för att organisera objekt, kan du begränsa de områden i den anslutna datakällan som används för den aktuella lösningen.
+Om den anslutna data källan använder strukturella komponenter, till exempel partitioner eller behållare för att ordna objekt, kan du begränsa områdena i den anslutna data källan som används för en specifik lösning.
 
-### <a name="internal-structure-of-the-sync-engine-namespace"></a>Interna strukturen hos motorn synkroniseringsnamnområde
-Namnområdet hela sync-motorn består av två namnområdena som lagrar ID-information. De två namnområdena är:
+### <a name="internal-structure-of-the-sync-engine-namespace"></a>Intern struktur för Sync-motorns namnrymd
+Hela namn området för Sync-motorn består av två namn rymder som lagrar identitets informationen. De två namn områdena är:
 
-* Anslutningsplatsen (CS)
+* Kopplings utrymmet (CS)
 * Metaversum (MV)
 
-Den **anslutarplatsen** är ett mellanlagringsområde som innehåller framställningar av avsedda objekt från en ansluten datakälla och attribut som anges i attributlistan för inkludering. Synkroniseringsmotorn använder anslutningsplatsen att avgöra vad som har ändrats i den anslutna datakällan och att mellanlagra inkommande ändringar. Synkroniseringsmotorn använder också anslutarplatsen för att mellanlagra utgående ändringar för export till den anslutna datakällan. Synkroniseringsmotorn har en distinkt anslutarplats som ett mellanlagringsområde för varje anslutning.
+**Kopplings** området är ett mellanlagringsområde som innehåller representationer av de angivna objekten från en ansluten data källa och de attribut som anges i listan över inkluderade attribut. Synkroniseringsmotorn använder anslutnings utrymmet för att avgöra vad som har ändrats i den anslutna data källan och för att mellanlagra inkommande ändringar. Synkroniseringsmotorn använder också anslutnings utrymmet för att mellanlagra utgående ändringar för export till den anslutna data källan. Synkroniseringsmotorn underhåller ett distinkt anslutnings utrymme som ett mellanlagringsområde för varje koppling.
 
-Med hjälp av ett mellanlagringsområde Synkroniseringsmotorn förblir oberoende av anslutna datakällor och påverkas inte av tillgänglighet och hjälpmedel. Därför kan du bearbeta identitetsinformation när som helst med hjälp av data i mellanlagringsområdet. Synkroniseringsmotorn kan begära endast ändringar som görs i den anslutna datakällan sedan den senaste kommunikationssessionen avslutas eller push ut bara ändringarna i identitetsinformation som den anslutna datakällan inte har har tagits emot, vilket minskar nätverket trafik mellan Synkroniseringsmotorn och den anslutna datakällan.
+Med hjälp av ett mellanlagringsområde förblir Synkroniseringsmotorn oberoende av anslutna data källor och påverkas inte av deras tillgänglighet och tillgänglighet. Därför kan du bearbeta identitets information när som helst genom att använda data i mellanlagringsområdet. Synkroniseringsmotorn kan bara begära ändringar som gjorts i den anslutna data källan sedan den senaste sessionen avslutades eller push-överföra endast ändringar i identitets information som den anslutna data källan inte har tagits emot, vilket minskar nätverket trafik mellan Synkroniseringsmotorn och den anslutna data källan.
 
-Dessutom lagras Synkroniseringsmotorn statusinformation om alla objekt som den skapar etapper i anslutningsplatsen. När nya data tas emot, utvärderar Synkroniseringsmotorn alltid om data redan har synkroniserats.
+Dessutom lagrar Sync-motorn statusinformation om alla objekt som det är i steg i anslutnings utrymmet. När nya data tas emot, utvärderar Sync-motorn alltid om data redan har synkroniserats.
 
-Den **metaversum** är en lagringsplats som innehåller aggregerad ID-information från flera anslutna datakällor, vilket ger en enda global vy över alla kombinerade objekt. Metaversum-objekt skapas baserat på ID-information som hämtas från de anslutna datakällorna och en uppsättning regler som kan du anpassa synkroniseringsprocessen.
+**Metaversum** är ett lagrings utrymme som innehåller den sammanställda identitets informationen från flera anslutna data källor, vilket ger en enda global, integrerad vy över alla kombinerade objekt. Metaversum-objekt skapas utifrån identitets information som hämtas från anslutna data källor och en uppsättning regler som gör att du kan anpassa synkroniseringsprocessen.
 
-Följande bild visar connector utrymme namnområde och metaversum-namnområde i Synkroniseringsmotorn.
+Följande bild visar namn området för kopplings utrymmet och metaversum-namnområdet i Synkroniseringsmotorn.
 
 ![Arch2](./media/concept-azure-ad-connect-sync-architecture/arch2.png)
 
-## <a name="sync-engine-identity-objects"></a>Synkronisera motorn identitetsobjekt
-Objekten i Synkroniseringsmotorn är representationer av antingen objekt i den anslutna datakällan eller integrerad vy som synkroniserar motor har med objekten. Varje motor synkroniseringsobjektet måste ha en globalt unik identifierare (GUID). GUID ger dataintegritet och uttryckliga relationer mellan objekt.
+## <a name="sync-engine-identity-objects"></a>Synkronisera motor identitets objekt
+Objekten i Synkroniseringsmotorn är representationer av antingen objekt i den anslutna data källan eller den integrerade vy som Synkroniseringsmotorn har av dessa objekt. Varje synkroniseringsobjekt måste ha en globalt unik identifierare (GUID). GUID ger data integritet och Express-relationer mellan objekt.
 
-### <a name="connector-space-objects"></a>Anslutningsobjekt som utrymme
-När Synkroniseringsmotorn kommunicerar med en ansluten datakälla, läser identitetsinformation i den anslutna datakällan och använder denna information för att skapa en representation av identitetsobjekt i anslutarplatsen. Du kan inte skapa eller ta bort de här objekten individuellt. Du kan manuellt ta bort alla objekt i en anslutarplats.
+### <a name="connector-space-objects"></a>Kopplings rymds objekt
+När Synkroniseringsmotorn kommunicerar med en ansluten data källa läser den identitets informationen i den anslutna data källan och använder den informationen för att skapa en representation av Identity-objektet i anslutnings utrymmet. Du kan inte skapa eller ta bort dessa objekt individuellt. Du kan dock manuellt ta bort alla objekt i ett kopplings utrymme.
 
-Alla objekt i anslutarplatsen har två attribut:
+Alla objekt i kopplings utrymmet har två attribut:
 
 * En globalt unik identifierare (GUID)
-* Ett unikt namn (DN)
+* Ett unikt namn (kallas även DN)
 
-Om den anslutna datakällan tilldelar ett unikt attribut till objektet, kan objekt i anslutarplatsen också att ha fästpunktsattribut. Fästpunktsattributet identifierar ett objekt i den anslutna datakällan. Synkroniseringsmotorn använder till ankaret för att hitta en motsvarande representation av det här objektet i den anslutna datakällan. Synkroniseringsmotorn förutsätter att förtroendeankare för ett objekt aldrig ändras under livslängden för objektet.
+Om den anslutna data källan tilldelar ett unikt attribut till objektet, kan objekt i anslutnings utrymmet också ha ett Anchor-attribut. Attributet Anchor identifierar unikt ett objekt i den anslutna data källan. Synkroniseringsmotorn använder fäst punkten för att hitta motsvarande representation av objektet i den anslutna data källan. Synkroniseringsmotorn förutsätter att fäst punkten för ett objekt aldrig ändras under objektets livs längd.
 
-Många av kopplingarna kan använda en unik identifierare som är kända för att generera en fästpunkt automatiskt för varje objekt när den importeras. Till exempel Active Directory-kopplingen använder den **objectGUID** attribut för en fästpunkt. Du kan ange ankare generation som en del av Anslutningstjänstens konfiguration av anslutna datakällor som inte uppger ett tydligt definierade unika identifierare.
+Många av kopplingarna använder en känd unik identifierare för att generera ett ankare automatiskt för varje objekt när det importeras. Till exempel använder Active Directory-anslutaren attributet **objectGUID** för ett ankare. För anslutna data källor som inte tillhandahåller en tydligt definierad unik identifierare kan du ange Anchor-generering som en del av anslutnings konfigurationen.
 
-På så sätt att fallet till ankaret skapas från en eller fler unika attribut för ett objekt Skriv, varken i vilken ändringar och som unikt identifierar objekt i anslutarplatsen (till exempel en anställd tal eller ett användar-ID).
+I så fall skapas ankaret från en eller flera unika attribut för en objekt typ, inte av vilka ändringar och som unikt identifierar objektet i kopplings området (till exempel ett anställnings nummer eller användar-ID).
 
-En anslutarplatsen som kan vara något av följande:
+Ett anslutnings utrymmes objekt kan vara något av följande:
 
-* Ett mellanlagrings-objekt
-* En platshållare
+* Ett mellanlagringsplats
+* En plats hållare
 
-### <a name="staging-objects"></a>Mellanlagring objekt
-En mellanlagrings-objektet representerar en instans av de angivna objekt av typerna från den anslutna datakällan. Förutom GUID och det unika namnet har ett fristående objekt alltid ett värde som anger typen av objekt.
+### <a name="staging-objects"></a>Mellanlagrings objekt
+Ett mellanlagringsplats objekt representerar en instans av de angivna objekt typerna från den anslutna data källan. Förutom GUID och det unika namnet har ett mellanlagringsplats alltid ett värde som anger objekt typen.
 
-Mellanlagrings-objekt som har importerats alltid har ett värde för attributet ankare. Mellanlagrings-objekt som nyligen har etablerats med Synkroniseringsmotorn och håller på att skapas på den anslutna datakällan har inte ett värde för attributet ankare.
+Tillfälliga objekt som har importer ATS har alltid ett värde för attributet Anchor. Mellanlagrings objekt som nyligen har etablerats av Synkroniseringsmotorn och som håller på att skapas i den anslutna data källan har inget värde för attributet Anchor.
 
-Mellanlagring objekt har också aktuella värden för företag-attribut och teknisk information som krävs av Synkroniseringsmotorn för att utföra synkroniseringen. Funktionsinformation innehåller flaggor som anger vilken typ av uppdateringar som mellanlagras mellanlagrings-objektet. Om en mellanlagrings-objektet har fått nya ID-information från den anslutna datakällan som ännu inte har behandlats, objektet flaggas som **väntande import**. Om ett mellanlagrings-objekt har nya identitetsinformation som ännu inte har exporterats till den anslutna datakällan, den flaggas som **väntande export**.
+Mellanlagrings objekt har även aktuella värden för affärsattribut och drift information som krävs av Synkroniseringsmotorn för att utföra synkroniseringsprocessen. Drift information innehåller flaggor som anger vilken typ av uppdateringar som mellanlagras på mellanlagringsplatsen. Om ett mellanlagringsplats objekt har fått ny identitets information från den anslutna data källan som ännu inte har bearbetats flaggas objektet som **väntande import**. Om ett mellanlagringsplats har ny identitets information som ännu inte har exporter ATS till den anslutna data källan, flaggas det som **väntande export**.
 
-Ett mellanlagrings-objekt kan vara en import eller export objekt. Synkroniseringsmotorn skapar ett importobjekt med hjälp av Objektinformation togs emot från den anslutna datakällan. När Synkroniseringsmotorn får information om förekomsten av ett nytt objekt som matchar en av de objekttyper som valts i anslutningen, skapar den ett importobjekt i anslutarplatsen som en representation av objektet i den anslutna datakällan.
+Ett mellanlagringsplats objekt kan vara ett import objekt eller ett export objekt. Synkroniseringsmotorn skapar ett import objekt genom att använda objekt information som tagits emot från den anslutna data källan. När Synkroniseringsmotorn tar emot information om förekomsten av ett nytt objekt som matchar en av de objekt typer som valts i kopplingen, skapas ett import objekt i anslutnings utrymmet som en representation av objektet i den anslutna data källan.
 
-Följande bild visar ett importobjekt som representerar ett objekt i den anslutna datakällan.
+Följande bild visar ett import objekt som representerar ett objekt i den anslutna data källan.
 
 ![Arch3](./media/concept-azure-ad-connect-sync-architecture/arch3.png)
 
-Synkroniseringsmotorn skapar en export-objekt med hjälp av objektinformation i metaversum. Exportera objekt exporteras till den anslutna datakällan under nästa kommunikation. Ur Synkroniseringsmotorn finns exportera objekt inte i den anslutna datakällan ännu. Därför är fästpunktsattributet för en export-objektet inte tillgänglig. När den tar emot objektet från Synkroniseringsmotorn skapar ett unikt värde för attributet ankare för objektet i den anslutna datakällan.
+Synkroniseringsmotorn skapar ett export objekt med hjälp av objekt information i metaversum. Exportera objekt exporteras till den anslutna data källan under nästa kommunikations-session. Från Sync-motorns perspektiv finns inte export objekt i den anslutna data källan ännu. Därför är attributet Anchor för ett export objekt inte tillgängligt. När du har tagit emot objektet från Synkroniseringsmotorn skapar den anslutna data källan ett unikt värde för objektets Anchor-attribut.
 
-Följande bild visar hur en export-objekt skapas med hjälp av identitetsinformation i metaversum.
+Följande bild visar hur ett export objekt skapas med hjälp av identitets information i metaversum.
 
 ![Arch4](./media/concept-azure-ad-connect-sync-architecture/arch4.png)
 
-Synkroniseringsmotorn bekräftar export av objektet av hur du importerar objekt från den anslutna datakällan igen. Exportera objekt bli importera objekt när Synkroniseringsmotorn tar emot dem vid nästa import från den anslutna datakällan.
+Synkroniseringsmotorn bekräftar exporten av objektet genom att importera objektet från den anslutna data källan. Exportera objekt blir import objekt när Synkroniseringsmotorn tar emot dem under nästa import från den anslutna data källan.
 
-### <a name="placeholders"></a>Platshållare
-Synkroniseringsmotorn använder en ostrukturerad namnrymd för att lagra objekt. Men vissa anslutna datakällor, till exempel Active Directory och använda ett hierarkiskt namnområde. Om du vill omvandla information från ett hierarkiskt namnområde till en ostrukturerad namnrymd, använder Synkroniseringsmotorn platshållare för att behålla hierarkin.
+### <a name="placeholders"></a>Plats hållare
+Synkroniseringsmotorn använder ett plant namn område för att lagra objekt. Men vissa anslutna data källor, till exempel Active Directory använder ett hierarkiskt namn område. För att transformera information från ett hierarkiskt namn område till ett fast namn område använder Synkroniseringsmotorn plats hållare för att bevara hierarkin.
 
-Varje är en komponent (till exempel en organisationsenhet) i hierarkiskt för ett objekt som inte har importerats till Synkroniseringsmotorn men krävs för att konstruera hierarkiskt. De fyller luckor som skapats av referenser i den anslutna datakällan till objekt som inte mellanlagring objekt i anslutarplatsen.
+Varje plats hållare representerar en komponent (till exempel en organisationsenhet) av ett objekts hierarkiskt namn som inte har importer ATS till Synkroniseringsmotorn men som krävs för att skapa det hierarkiska namnet. De fyller luckor som skapats av referenser i den anslutna data källan till objekt som inte är mellanlagrings objekt i anslutnings utrymmet.
 
-Synkroniseringsmotorn använder också platshållare för att lagra refererade objekt som inte har importerats ännu. Exempel: om synkronisering har konfigurerats för att inkludera chefsattribut för den *Abbie Spencer* objektet och det mottagna värdet är ett objekt som inte har importerats ännu, till exempel *CN = Lee Sperry, CN = Users, DC = fabrikam, DC = com* , manager informationen lagras som platshållare i anslutarplatsen. Om objektet manager senare importeras skrivs objektet platshållaren över av det mellanlagrade objekt som representerar chefen.
+Synkroniseringsmotorn använder också plats hållare för att lagra refererade objekt som ännu inte har importer ATS. Om synkronisering till exempel är konfigurerat för att inkludera attributet Manager för *Abbie Spencer* -objektet och det mottagna värdet är ett objekt som inte har importer ATS än, till exempel *CN = Pettersson Sperry, CN = användare, DC = Fabrikam, DC = com*, lagras Manager-informationen som plats hållare i anslutnings utrymmet. Om objektet Manager senare importeras skrivs placeholder-objektet över av det mellanlagringsplats som representerar chefen.
 
 ### <a name="metaverse-objects"></a>Metaversum-objekt
-En metaversumobjekt innehåller den sammanställda vy som Synkroniseringsmotorn har mellanlagrade objekt i anslutarplatsen. Synkroniseringsmotorn skapar metaversum-objekt med hjälp av informationen i Importera objekt. Flera anslutningsobjekt som utrymme kan länkas till en enda metaversumobjekt, men en anslutarplatsen kan inte länkas till mer än en metaversumobjekt.
+Ett metaversum-objekt innehåller den sammanställda vyn som Sync-motorn har för mellanlagrings objekt i anslutnings utrymmet. Synkroniseringsmotorn skapar metaversum-objekt med hjälp av informationen i Importera objekt. Flera kopplings utrymmes objekt kan länkas till ett enda metaversum-objekt, men ett kopplings rymd objekt kan inte länkas till fler än ett metaversum-objekt.
 
-Metaversum-objekt kan inte skapas eller tas bort manuellt. Synkroniseringsmotorn tar automatiskt bort metaversum-objekt som inte har en länk till alla anslutarplatsen i anslutarplatsen.
+Metaversum-objekt kan inte skapas eller tas bort manuellt. Synkroniseringsmotorn tar automatiskt bort metaversum-objekt som inte har någon länk till något kopplings utrymmes objekt i kopplings utrymmet.
 
-Om du vill mappa objekt i en ansluten datakälla till en motsvarande objekt i metaversum innehåller Synkroniseringsmotorn ett Utökningsbart schema med en fördefinierad uppsättning objekttyper och tillhörande attribut. Du kan skapa nya objekttyper och attribut för metaversum-objekt. Attribut kan ha enstaka eller flera värden och attributtyperna kan vara strängar, referenser, siffror och booleska värden.
+För att mappa objekt inom en ansluten data källa till en motsvarande objekt typ inom metaversum, tillhandahåller Synkroniseringsmotorn ett utöknings Bart schema med en fördefinierad uppsättning objekt typer och associerade attribut. Du kan skapa nya objekt typer och attribut för metaversum-objekt. Attribut kan vara enkelvärdesattribut eller flervärdesattribut, och attributtyper kan vara strängar, referenser, siffror och booleska värden.
 
-### <a name="relationships-between-staging-objects-and-metaverse-objects"></a>Relationer mellan mellanlagring och metaversum-objekt
-Dataflödet är aktiverat som länk relationen mellan mellanlagring och metaversum-objekt i motorn synkroniseringsnamnområde. Ett mellanlagrings-objekt som är länkad till ett metaversumobjekt kallas en **kopplade objekt** (eller **kopplingsobjektet**). Ett mellanlagrings-objekt som inte är länkad till ett metaversumobjekt kallas en **uppdelad objektet** (eller **disconnector objektet**). Villkoren ansluten och uppdelad rekommenderas inte blandas ihop med kopplingarna som ansvarar för att importera och exportera data från en ansluten katalog.
+### <a name="relationships-between-staging-objects-and-metaverse-objects"></a>Relationer mellan mellanlagrings objekt och metaversum-objekt
+I namn området för Synkroniseringsmotorn aktive ras data flödet av länk relationen mellan mellanlagrings objekt och metaversum-objekt. Ett mellanlagringsplats objekt som är länkat till ett metaversum-objekt kallas för ett **anslutet objekt** (eller **kopplings objekt**). Ett mellanlagringsplats objekt som inte är länkat till ett metaversum-objekt kallas för ett frånkopplat **objekt** (eller ett **från kopplings objekt**). Villkoren som anslöts och kopplas från är att föredra att inte förväxla med de anslutningar som ansvarar för att importera och exportera data från en ansluten katalog.
 
-Platshållare är aldrig länkade till ett metaversumobjekt
+Plats hållare länkas aldrig till ett metaversum-objekt
 
-En domänansluten objekt består av ett mellanlagrings-objekt och dess länkade relation till en enda metaversumobjekt. Domänansluten objekt används för att synkronisera attributvärden mellan en anslutarplatsen och ett metaversumobjekt.
+Ett kopplat objekt omfattar ett mellanlagringsplats och dess länkade relation till ett enda metaversum-objekt. Anslutna objekt används för att synkronisera attributvärden mellan ett kopplings utrymmes objekt och ett metaversum-objekt.
 
-När en mellanlagrings-objektet blir en domänansluten objektet under synkroniseringen, kan attribut flöda mellan mellanlagring objektet och metaversumobjekt. Attributflöde är dubbelriktad och konfigureras med hjälp av regler för import av attribut och attributet exportrestriktioner.
+När ett mellanlagringsplats blir ett anslutet objekt under synkroniseringen kan attributen flöda mellan mellanlagringsplatsen och metaversum-objektet. Attribute Flow är dubbelriktat och har kon figurer ATS med hjälp av regler för att importera attribut och exportera regler för attribut.
 
-En enda anslutarplatsen kan länkas till endast en metaversumobjekt. Varje metaversumobjekt får vara kopplade till flera connector utrymme objekt i samma eller olika kopplingens utrymmen som visas i följande bild.
+Ett enda objekt för kopplings utrymme kan bara länkas till ett metaversum-objekt. Varje metaversum-objekt kan dock länkas till flera kopplings utrymmes objekt i samma eller i olika kopplings utrymmen, som du ser i följande bild.
 
 ![Arch5](./media/concept-azure-ad-connect-sync-architecture/arch5.png)
 
-Länkade relationen mellan mellanlagrings-objekt och en metaversumobjekt är permanent och kan tas bort bara av regler som du anger.
+Den länkade relationen mellan mellanlagringsplatsen och ett metaversum-objekt är beständigt och kan bara tas bort av regler som du anger.
 
-Ett skilda objekt är ett mellanlagrings-objekt som inte är länkad till någon metaversumobjekt. Attributet värden i en frånkopplad objektet inte är bearbeta några ytterligare i metaversum. Attributvärden för motsvarande objekt i den anslutna datakällan uppdateras inte med Synkroniseringsmotorn.
+Ett frånkopplat objekt är ett mellanlagringsplats som inte är länkat till något metaversum-objekt. Attributvärdena för ett frånkopplat objekt bearbetas inte ytterligare i metaversum. Attributvärdena för motsvarande objekt i den anslutna data källan uppdateras inte av Synkroniseringsmotorn.
 
-Genom att använda skilda objekt kan du lagra identitetsinformation i Synkroniseringsmotorn och bearbeta dem senare. Att hålla en mellanlagrings-objektet som en frånkopplad objekt i anslutarplatsen har många fördelar. Eftersom systemet har redan förberetts nödvändig information om det här objektet, behöver du inte skapa en representation av det här objektet igen vid nästa import från den anslutna datakällan. På så sätt kan Synkroniseringsmotorn har alltid en fullständig ögonblicksbild av den anslutna datakällan, även om det finns någon anslutning till den anslutna datakällan. Skilda objekt kan konverteras till kopplade objekt och vice versa, beroende på de regler som du anger.
+Genom att använda frånkopplade objekt kan du lagra identitets information i Synkroniseringsmotorn och bearbeta den senare. Att hålla ett mellanlagringsplats som ett frånkopplat objekt i anslutnings utrymmet har många fördelar. Eftersom systemet redan har mellanlagrat nödvändig information om det här objektet, behöver du inte skapa en representation av det här objektet igen under nästa import från den anslutna data källan. På så sätt har Sync-motorn alltid en fullständig ögonblicks bild av den anslutna data källan, även om det inte finns någon aktuell anslutning till den anslutna data källan. Frånkopplade objekt kan konverteras till anslutna objekt och vice versa, beroende på vilka regler som du anger.
 
-Ett importobjekt skapas som en frånkopplad objekt. En export-objektet måste vara en domänansluten objekt. Logiken som system tillämpar den här regeln och tar bort alla export-objekt som inte är en domänansluten objekt.
+Ett import objekt skapas som ett frånkopplat objekt. Ett export objekt måste vara ett anslutet objekt. System logiken tillämpar den här regeln och tar bort alla export objekt som inte är kopplade till objekt.
 
-## <a name="sync-engine-identity-management-process"></a>Synkronisera motorprocessen identity management
-Process för hantering av identitet styr hur identitetsinformation uppdateras mellan olika anslutna datakällor. Identitetshantering som sker i tre processer:
+## <a name="sync-engine-identity-management-process"></a>Hanterings process för synkronisering av motor identitet
+Processen för identitets hantering styr hur identitets information uppdateras mellan olika anslutna data källor. Identitets hantering sker i tre processer:
 
 * Importera
 * Synkronisering
 * Exportera
 
-Under importen utvärderar Synkroniseringsmotorn inkommande identitetsinformation från en ansluten datakälla. När ändringar identifieras det antingen skapar nya mellanlagrade objekt eller uppdaterar befintliga mellanlagrade objekt i anslutarplatsen för synkronisering.
+Under importen utvärderar Synkroniseringsmotorn den inkommande identitets informationen från en ansluten data källa. När ändringar identifieras, skapar den antingen nya mellanlagringsplatser eller uppdaterar befintliga mellanlagringsplatser i anslutnings utrymmet för synkronisering.
 
-Under synkroniseringsprocessen Synkroniseringsmotorn uppdateras metaversum för att återspegla ändringarna som skett i anslutarplatsen samt anslutarplatsen för att återspegla ändringar som har inträffat i metaversum.
+Under synkroniseringsprocessen uppdaterar Synkroniseringsmotorn metaversum för att avspegla ändringar som har inträffat i anslutnings utrymmet och uppdaterar anslutnings utrymmet för att återspegla ändringar som har inträffat i metaversum.
 
-Under exporten skickar Synkroniseringsmotorn ändringar som mellanlagras på mellanlagring objekt och som är flaggade som väntande export.
+Under exporten skickar Synkroniseringsmotorn ut ändringar som mellanlagras för mellanlagrings objekt och som är flaggade som väntande export.
 
-I följande illustration visas där var och en av processerna som uppstår som identitet information flöden från en ansluten datakälla till en annan.
+Följande bild visar var varje process sker när identitets information flödar från en ansluten data källa till en annan.
 
 ![Arch6](./media/concept-azure-ad-connect-sync-architecture/arch6.png)
 
-### <a name="import-process"></a>Importen
-Under importen utvärderar Synkroniseringsmotorn uppdateringar till ID-information. Synkroniseringsmotorn jämför identitetsinformation som togs emot från den anslutna datakällan med ID-information om ett mellanlagrings-objekt och avgör om det mellanlagrade objektet kräver uppdateringar. Om det är nödvändigt att uppdatera det mellanlagrade objektet med nya data, mellanlagrings-objektet har flaggats som väntar på import.
+### <a name="import-process"></a>Importera process
+Under importen utvärderar Synkroniseringsmotorn uppdateringar av identitets information. Synkroniseringsmotorn jämför identitets informationen som togs emot från den anslutna data källan med identitets informationen om ett mellanlagringsplatss objekt och avgör om mellanlagringsmappen kräver uppdateringar. Om det är nödvändigt att uppdatera mellanlagringsplatsen med nya data flaggas mellanlagringsmappen som väntande import.
 
-Av mellanlagring objekt i anslutarplatsen innan synkronisering, kan Synkroniseringsmotorn bearbeta endast ID-information som har ändrats. Den här processen ger följande fördelar:
+Genom att mellanlagra objekt i anslutnings utrymmet före synkroniseringen, kan Synkroniseringsmotorn endast bearbeta den identitets information som har ändrats. Den här processen ger följande fördelar:
 
 * **Effektiv synkronisering**. Mängden data som bearbetas under synkroniseringen minimeras.
-* **Effektiv omsynkroniseringen**. Du kan ändra hur Synkroniseringsmotorn bearbetar identitetsinformation utan återansluter Synkroniseringsmotorn till datakällan.
-* **Möjlighet att förhandsgranska synkronisering**. Du kan förhandsgranska synkronisering för att kontrollera att dina antaganden om hanteringen identitet är korrekta.
+* **Effektiv omsynkronisering**. Du kan ändra hur Synkroniseringsmotorn bearbetar identitets information utan att behöva återansluta Synkroniseringsmotorn till data källan.
+* **Möjlighet att förhandsgranska synkroniseringen**. Du kan förhandsgranska synkroniseringen för att kontrol lera att dina antaganden om identitets hanterings processen är korrekt.
 
-För varje objekt som angetts i kopplingen försöker Synkroniseringsmotorn hitta en representation av objektet i anslutarplatsen för anslutningen. Synkroniseringsmotorn undersöker alla mellanlagrade objekt i anslutarplatsen och försöker hitta en motsvarande mellanlagrade objekt som har en matchande fästpunktsattributet. Om inga befintliga mellanlagrade objekt har en matchande fästpunktsattributet, försöker Synkroniseringsmotorn hitta motsvarande mellanlagrings-objekt med samma unika namn.
+För varje objekt som anges i anslutningen försöker Synkroniseringsmotorn först hitta en representation av objektet i kopplingens anslutnings område. Synkroniseringsmotorn undersöker alla mellanlagrings objekt i anslutnings utrymmet och försöker hitta ett motsvarande mellanlagringsplats objekt som har ett matchande Anchor-attribut. Om inget befintligt mellanlagringsdatabas har ett matchande Anchor-attribut försöker Synkroniseringsmotorn hitta ett motsvarande mellanlagringsplats med samma unika namn.
 
-När Synkroniseringsmotorn hittar ett mellanlagrings-objekt som matchar av unika namn, men inte av förtroendeankare, händer särskilt följande:
+När Synkroniseringsmotorn hittar ett mellanlagringsplats som matchar med unikt namn men inte av ankare, inträffar följande särskilda beteenden:
 
-* Om objektet finns i anslutarplatsen har inga fästpunkt, så Synkroniseringsmotorn tar bort det här objektet från anslutningsplatsen och markerar metaversumobjekt som den är länkad till som **försök etablering vid nästa synkronisering kör**. Sedan skapar den nya importera objekt.
-* Om objektet finns i anslutarplatsen har en fästpunkt, förutsätter Synkroniseringsmotorn att det här objektet har antingen ändrats eller tagits bort i den anslutna katalogen. Det tilldelar ett tillfälligt, nytt unikt namn för anslutarplatsen så att den kan mellanlagra inkommande objektet. Det gamla objektet blir **tillfälliga**, redo för koppling för import av Byt namn på eller ta bort för att lösa problemet.
+* Om objektet som finns på kopplings området inte har något ankare, tar Synkroniseringsmotorn bort objektet från anslutnings utrymmet och markerar metaversum-objektet som det är länkat till som **försök att etablering vid nästa synkronisering**. Sedan skapas det nya import-objektet.
+* Om objektet som finns på kopplings utrymmet har ett ankare, förutsätter Synkroniseringsmotorn att objektet antingen har bytt namn eller tagits bort i den anslutna katalogen. Det tilldelar ett tillfälligt, nytt unikt namn för objektet Connector-utrymme så att det kan mellanlagra det inkommande objektet. Det gamla objektet blir **tillfälligt övergående**och väntar på att anslutningen ska importera namnbytet eller borttagningen för att lösa problemet.
 
-Om Synkroniseringsmotorn hittar ett mellanlagrings-objekt som motsvarar det angivna objektet i anslutningen, avgör vilka ändringar som ska tillämpas. Till exempel Synkroniseringsmotorn kan byta namn på eller ta bort objekt i den anslutna datakällan, eller den kan bara uppdatera objektets attributvärden.
+Om Synkroniseringsmotorn hittar ett mellanlagringsplats objekt som motsvarar det objekt som anges i anslutningen, avgör det vilken typ av ändringar som ska tillämpas. Till exempel kan Synkroniseringsmotorn byta namn på eller ta bort objektet i den anslutna data källan, eller så kan det bara uppdatera objektets attributvärden.
 
-Mellanlagring objekt med uppdaterade data är markerade som väntande import. Det finns olika typer av väntande import. Beroende på resultatet av importprocessen har ett fristående objekt i anslutarplatsen något av följande väntande import typer:
+Mellanlagring av objekt med uppdaterade data markeras som väntande import. Olika typer av väntande importer är tillgängliga. Beroende på resultatet av import processen har ett mellanlagringsplats utrymme i anslutnings utrymmet någon av följande väntande import typer:
 
-* **Ingen**. Det finns inga ändringar i alla attribut för mellanlagrings-objektet. Synkroniseringsmotorn flaggas inte den här typen som väntande import.
-* **Lägg till**. Mellanlagringsplatser objektet är ett nytt importera objekt i anslutarplatsen. Synkroniseringsmotorn flaggar den här typen som väntande import för ytterligare bearbetning i metaversum.
-* **Uppdatera**. Synkroniseringsmotorn söker efter ett motsvarande mellanlagrade objekt i anslutarplatsen och vilket den här typen som väntar på import så att uppdateringar till attributen kan bearbetas i metaversum. Uppdateringar med byta namn på objektet.
-* **Ta bort**. Synkroniseringsmotorn söker efter ett motsvarande mellanlagrade objekt i anslutarplatsen och vilket den här typen som väntar på import så att det kopplade objektet kan tas bort.
-* **Ta bort/Lägg till**. Synkroniseringsmotorn söker efter ett motsvarande mellanlagrade objekt i anslutarplatsen, men objekttyperna stämmer inte överens. I det här fallet en delete-Lägg till ändring av mellanlagras. En delete-Lägg till ändring av anger att Synkroniseringsmotorn att en fullständig omsynkronisering i det här objektet måste inträffa eftersom olika uppsättningar av regler som gäller för det här objektet när du objekttyp ändringar.
+* **Ingen**. Inga ändringar av attributen för mellanlagringsplatsen är tillgängliga. Synkroniseringsmotorn flaggar inte den här typen som väntande import.
+* **Lägg till**. Mellanlagringsplatsen är ett nytt import objekt i anslutnings utrymmet. Synkroniseringsmotorn flaggar den här typen som väntande import för ytterligare bearbetning i metaversum.
+* **Uppdatera**. Synkroniseringsmotorn hittar ett motsvarande mellanlagrings objekt i anslutnings utrymmet och flaggar den här typen som väntande import så att uppdateringar av attributen kan bearbetas i metaversum. Uppdateringarna innehåller namnbyte för objekt.
+* **Ta bort**. Synkroniseringsmotorn hittar ett motsvarande mellanlagrings objekt i anslutnings utrymmet och flaggar den här typen som väntande import så att det anslutna objektet kan tas bort.
+* **Ta bort/Lägg till**. Synkroniseringsmotorn hittar ett motsvarande mellanlagrings objekt i anslutnings utrymmet, men objekt typerna stämmer inte överens. I det här fallet mellanlagras en ändring av borttagnings tillägg. En borttagning – Lägg till-ändring anger till Synkroniseringsmotorn att en fullständig omsynkronisering av det här objektet måste inträffa på grund av att olika uppsättningar regler gäller för objektet när objekt typen ändras.
 
-Det är möjligt att avsevärt minska mängden data som bearbetas under synkroniseringen eftersom gör det blir systemet för att bearbeta endast de objekt som har uppdaterat data genom att ställa in pågående importstatus för ett fristående objekt.
+Genom att ange status för väntande import för ett mellanlagringsplats är det möjligt att minska mängden data som bearbetas under synkroniseringen, eftersom det gör att systemet endast bearbetar de objekt som har uppdaterade data.
 
-### <a name="synchronization-process"></a>Processen för synkronisering
-Synkronisering består av två relaterade processer:
+### <a name="synchronization-process"></a>Synkroniseringsprocess
+Synkroniseringen består av två relaterade processer:
 
-* Inkommande synkronisering när innehållet i metaversum uppdateras med hjälp av data i anslutningsplatsen.
-* Utgående synkronisering, när innehållet i anslutarplatsen uppdateras med hjälp av data i metaversum.
+* Inkommande synkronisering, när innehållet i metaversum uppdateras med hjälp av data i anslutnings utrymmet.
+* Utgående synkronisering, när innehållet i anslutnings utrymmet uppdateras med hjälp av data i metaversum.
 
-Med hjälp av informationen i anslutarplatsen, skapas inkommande synkronisering i metaversum integrerad vy av de data som lagras i de anslutna datakällorna. Alla mellanlagrade objekt eller endast de som har en väntande importera information räknas samman, beroende på hur reglerna har konfigurerats.
+Genom att använda den information som mellanlagras i anslutnings utrymmet skapar processen för inkommande synkronisering i metaversum den integrerade vyn av de data som lagras i de anslutna data källorna. Antingen alla mellanlagrings objekt eller endast de som har en väntande import information sammanställs, beroende på hur reglerna har kon figurer ATS.
 
-Utgående synkronisering processen uppdateringar exportera objekt när metaversum objekt ändras.
+Processen för utgående synkronisering uppdaterar export objekt när metaversum objekt ändras.
 
-Inkommande synkronisering skapar integrerad vy i metaversum för ID-information som tas emot från de anslutna datakällorna. Synkroniseringsmotorn kan bearbeta identitetsinformation när som helst genom att använda den senaste identitetsinformation som den har från den anslutna datakällan.
+Inkommande synkronisering skapar den integrerade vyn i metaversum för den identitets information som tas emot från anslutna data källor. Synkroniseringsmotorn kan bearbeta identitets information när som helst genom att använda den senaste identitets informationen som den har från den anslutna data källan.
 
 **Inkommande synkronisering**
 
-Inkommande synkronisering innehåller följande processer:
+Inkommande synkronisering omfattar följande processer:
 
-* **Etablera** (kallas även **projektion** om det är viktigt att skilja mellan den här processen från utgående synkronisering etablering). Synkroniseringsmotorn skapar ett nytt metaversumobjekt baserat på ett fristående objekt och länkar dem. Etablera är en åtgärd på objektnivå.
-* **Ansluta till**. Synkroniseringsmotorn länkar ett mellanlagrings-objekt till ett befintligt metaversumobjekt. En koppling är en åtgärd på objektnivå.
-* **Importera attributflöde**. Synkroniseringsmotorn uppdaterar de attributvärden som kallas attributflöde för objektet i metaversum. Importera attributflöde är en åtgärd för attributet på servernivå som kräver en länk mellan ett fristående objekt och en metaversumobjekt.
+* **Etablera** (kallas även **projektion** om det är viktigt att skilja den här processen från utgående synkronisering). Synkroniseringsmotorn skapar ett nytt metaversum-objekt baserat på ett mellanlagringsplats objekt och länkar dem. Etablera är en åtgärd på objekt nivå.
+* **Anslut**. Synkroniseringsmotorn länkar ett mellanlagringsplats till ett befintligt metaversum-objekt. En koppling är en åtgärd på objekt nivå.
+* **Importera attributets flöde**. Synkroniseringsmotorn uppdaterar attributvärdena, anropade Attribute Flow, för objektet i metaversum. Importera attributets flöde är en åtgärd på attributnivå som kräver en länk mellan ett mellanlagringsplatss objekt och ett metaversum-objekt.
 
-Etablera är den enda process som skapar objekt i metaversum. Etablera påverkar endast importera objekt som är skilda objekt. Under etablera skapar Synkroniseringsmotorn ett metaversumobjekt som motsvarar objekttypen för objektet import och upprättar en länk mellan båda-objekten, vilket skapar en domänansluten objekt.
+Etablera är den enda processen som skapar objekt i metaversum. Etableringen påverkar endast import objekt som är frånkopplade objekt. Under etableringen skapar Synkroniseringsmotorn ett metaversum-objekt som motsvarar objekt typen för objektet importera och upprättar en länk mellan båda objekten, vilket skapar ett anslutet objekt.
 
-Join-processen upprättar även en länk mellan importera objekt och en metaversumobjekt. Skillnaden mellan anslutnings- och etablera är att processen kräver att importera objekt är kopplade till ett befintligt metaversumobjekt, där etablera processen skapar ett nytt metaversumobjekt.
+Kopplings processen upprättar också en länk mellan import objekt och ett metaversum-objekt. Skillnaden mellan koppling och etablering är att kopplings processen kräver att import-objektet är länkat till ett befintligt metaversum-objekt, där etablerings processen skapar ett nytt metaversum-objekt.
 
-Synkroniseringsmotorn försöker ansluta ett importobjekt till ett metaversumobjekt med hjälp av villkor som har angetts i konfigurationen för Synkroniseringsregeln.
+Synkroniseringsmotorn försöker ansluta ett import objekt till ett metaversum-objekt med hjälp av villkor som anges i konfigurationen för synkroniseringsregeln.
 
-Under etablera och join länkar Synkroniseringsmotorn en frånkopplad objekt till ett metaversumobjekt, vilket gör dem ansluten. När dessa objektnivå åtgärder har slutförts, kan Synkroniseringsmotorn uppdatera attributvärden för den associerade metaversumobjekt. Den här processen kallas attributflöde för import.
+Under etableringen och Join-processen länkar Synkroniseringsmotorn ett frånkopplat objekt till ett metaversum-objekt, vilket gör dem anslutna. När dessa objekt nivå åtgärder har slutförts kan Synkroniseringsmotorn uppdatera attributvärdena för det associerade metaversum-objektet. Den här processen kallas för att importera attribut.
 
-Importera attributflöde uppstår på alla importera objekt som innehåller nya data och har kopplats till ett metaversumobjekt.
+Importera attributets flöde sker på alla import objekt som har nya data och som är länkade till ett metaversum-objekt.
 
 **Utgående synkronisering**
 
-Utgående synkronisering uppdateringar exportera objekt när en metaversumobjekt ändra men tas inte bort. Målet med utgående synkronisering är att utvärdera om ändringar i metaversum objekt kräver uppdateringar till mellanlagrade objekt i kopplingens utrymmen. I vissa fall kan ändringarna kan kräva att mellanlagring objekt i alla kopplingens utrymmen uppdateras. Mellanlagrings-objekt som ändras är flaggade som väntande export, vilket gör dem exportera objekt. Dessa exportalternativ objekt är senare push-installeras på den anslutna datakällan under exporten.
+Utgående uppdateringar för synkronisering Exportera objekt när ett metaversum-objekt ändras, men inte tas bort. Målet med utgående synkronisering är att utvärdera om ändringar av metaversum-objekt kräver uppdateringar av mellanlagrings objekt i kopplings utrymmen. I vissa fall kan ändringarna kräva att mellanlagrings objekt i alla kopplings utrymmen uppdateras. Tillfälliga objekt som ändras flaggas som väntande export, vilket gör dem till att exportera objekt. Dessa export objekt publiceras senare till den anslutna data källan under export processen.
 
 Utgående synkronisering har tre processer:
 
 * **Etablering**
 * **Avetablering**
-* **Exportera attributflöde**
+* **Exportera attributets flöde**
 
-Etablering och borttagning är båda på objektnivå-åtgärder. Avetablering beror på etablering eftersom endast etablering kan upprätta den. Avetablering utlöses när etableringen tar bort länken mellan ett metaversumobjekt och en export-objekt.
+Etablering och avetablering är både åtgärder på objekt nivå. Avetableringen beror på etableringen eftersom endast etableringen kan initieras. Avetablering utlöses när etableringen tar bort länken mellan ett metaversum-objekt och ett export objekt.
 
-Etablering utlöses alltid när ändringar tillämpas på objekt i metaversum. När ändringar görs till metaversum-objekt, utför Synkroniseringsmotorn någon av följande uppgifter som en del av etableringen:
+Etableringen utlöses alltid när ändringar tillämpas på objekt i metaversum. När ändringar görs i metaversum-objekt kan Synkroniseringsmotorn utföra någon av följande uppgifter som en del av etablerings processen:
 
-* Skapa kopplade objekt, där en metaversumobjekt är länkad till en nyskapad export-objektet.
-* Byt namn på en domänansluten objekt.
-* Sedan en frånkoppling av länkar mellan en metaversumobjekt, organiserar objekt, skapa en frånkopplad objekt.
+* Skapa kopplade objekt, där ett metaversum-objekt är länkat till ett nyligen skapat export objekt.
+* Byt namn på ett anslutet objekt.
+* Koppla ihop länkar mellan ett metaversum-objekt och mellanlagrings objekt, vilket skapar ett frånkopplat objekt.
 
-Om etablering kräver Synkroniseringsmotorn att skapa ett nytt anslutningsobjekt, mellanlagring objektet som metaversumobjekt är länkad är alltid en export-objekt, eftersom objektet inte finns ännu i den anslutna datakällan.
+Om etableringen kräver att Synkroniseringsmotorn används för att skapa ett nytt kopplings objekt är det mellanlagringsplatsen som metaversum-objektet länkas till alltid ett export objekt, eftersom objektet inte finns i den anslutna data källan ännu.
 
-Om etablering av kräver Synkroniseringsmotorn till frånkoppling en domänansluten objekt som skapar ett objekt för skilda utlöses avetablering. Avetableringsprocessen tar bort objektet.
+Om etableringen kräver att Synkroniseringsmotorn används för att koppla från ett kopplat objekt, utlöses avetablering. Avetablerings processen tar bort objektet.
 
-Under avetableringen bort tar bort ett objekt för export inte fysiskt objektet. Objektet flaggas som **bort**, vilket innebär att borttagningen mellanlagras på objektet.
+Under avetableringen tar borttagning av ett export objekt inte bort objektet fysiskt. Objektet är flaggat som **Borttaget**, vilket innebär att borttagnings åtgärden mellanlagras på objektet.
 
-Det inträffar också exportattributflödet under utgående synkroniseringsprocessen liknande sätt att importera attributflöde sker under inkommande synkronisering. Exportattributflödet sker bara mellan metaversum och export av objekt som är anslutna.
+Export av Attribute-flöde sker även under processen för utgående synkronisering, på samma sätt som när det gäller att importera Attribute-flöde under inkommande synkronisering. Export av Attribute-flöde sker bara mellan metaversum och exporterade objekt som är anslutna.
 
-### <a name="export-process"></a>Exportprocess
-Under exportprocessen undersöker Synkroniseringsmotorn alla export-objekt som är flaggade som väntande export i anslutningsplatsen och skickar sedan uppdateringar till den anslutna datakällan.
+### <a name="export-process"></a>Exportera process
+Under exporten undersöker Synkroniseringsmotorn alla export objekt som är flaggade som väntande export i anslutnings utrymmet och skickar sedan uppdateringar till den anslutna data källan.
 
-Synkroniseringsmotorn kan avgöra en export men tillräckligt kan bestämma inte att identity management-processen är klar. Objekt i den anslutna datakällan kan alltid ändras av andra processer. Synkroniseringsmotorn har inte en beständig anslutning till den anslutna datakällan, räcker det inte att göra antaganden om egenskaperna för ett objekt i den anslutna datakällan som endast baseras på ett meddelande för lyckade exporten.
+Synkroniseringsmotorn kan avgöra om en export lyckades, men det är inte tillräckligt för att avgöra om identitets hanterings processen är klar. Objekt i den anslutna data källan kan alltid ändras av andra processer. Eftersom Synkroniseringsmotorn inte har en permanent anslutning till den anslutna data källan räcker det inte att göra antaganden om egenskaperna för ett objekt i den anslutna data källan enbart baserat på ett lyckat export meddelande.
 
-En process i den anslutna datakällan kan till exempel ändra objektets attribut till deras ursprungliga värden (det vill säga den anslutna datakällan kan skriva över värdena omedelbart efter det att data skickas av Synkroniseringsmotorn och tillämpats i den anslutna datakällan).
+En process i den anslutna data källan kan till exempel ändra objektets attribut tillbaka till sina ursprungliga värden (det vill säga att den anslutna data källan skriver över värdena direkt efter att data har skickats ut av Synkroniseringsmotorn och tillämpats i den anslutna data källan).
 
-Synkronisera motorn butiker exportera och importera statusinformation om varje mellanlagrade objekt. Om värdena för attribut som anges i attributlistan för inkludering har ändrats sedan den senaste exporten, lagring av importera och exportera status kan Synkroniseringsmotorn för att reagera på lämpligt sätt. Synkroniseringsmotorn använder importen för att bekräfta attributvärden som har exporterats till den anslutna datakällan. En jämförelse mellan den importerade och exporterade informationen kan som visas i följande bild, Synkroniseringsmotorn att fastställa om exporten lyckades eller om den behöver upprepas.
+Synkroniseringsmotorn lagrar information om export-och import status för varje mellanlagringsdatabas. Om värdena för attributen som anges i listan över inkludering av attribut har ändrats sedan den senaste exporten, gör lagringen av import-och export status att Synkroniseringsmotorn kan reagera på lämpligt sätt. Synkroniseringsmotorn använder import processen för att bekräfta attributvärden som har exporter ATS till den anslutna data källan. En jämförelse mellan den importerade och exporterade informationen, som du ser i följande bild, aktiverar Synkroniseringsmotorn för att avgöra om exporten lyckades eller om den måste upprepas.
 
 ![Arch7](./media/concept-azure-ad-connect-sync-architecture/arch7.png)
 
-Till exempel om Synkroniseringsmotorn exporterar attributet C, som har värdet 5, till en ansluten datakälla, lagrar C = 5 i minnet export status. Varje ytterligare export på det här objektet resulterar i ett försök att exportera C = 5 till den anslutna datakällan igen eftersom Synkroniseringsmotorn förutsätter att det här värdet inte har ett beständigt sätt tillämpats till objektet (det vill säga om inte ett annat värde har nyligen har importerats från den anslutna datakällan). Export-minne rensas när C = 5 tas emot under en import för objektet.
+Om till exempel Synkroniseringsmotorn exporterar attribut C, som har värdet 5, till en ansluten data källa, lagrar den C = 5 i exportens status minne. Varje ytterligare export av det här objektet resulterar i ett försök att exportera C = 5 till den anslutna data källan igen eftersom Synkroniseringsmotorn förutsätter att det här värdet inte har tillämpats permanent på objektet (det vill säga, om inte ett annat värde har importer ATS nyligen från ansluten data källa). Export minnet rensas när C = 5 tas emot under en import åtgärd på objektet.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om den [Azure AD Connect-synkronisering](how-to-connect-sync-whatis.md) konfiguration.
+Läs mer om [Azure AD Connect Sync](how-to-connect-sync-whatis.md) -konfigurationen.
 
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).
 

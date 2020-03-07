@@ -1,6 +1,6 @@
 ---
-title: Ersätt en StorSimple 8600 EBOD-kontrollanten | Microsoft Docs
-description: Beskriver hur du tar bort och ersätter en eller båda EBOD-domänkontrollanter på en StorSimple 8600-enhet.
+title: Ersätta en StorSimple 8600 EBOD-styrenhet | Microsoft Docs
+description: Förklarar hur du tar bort och ersätter en eller båda EBOD-styrenheter på en StorSimple 8600-enhet.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,89 +15,89 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578699"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365998"
 ---
-# <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Ersätt EBOD-kontrollanten på StorSimple-enheten
+# <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Ersätta en EBOD-kontrollant på din StorSimple-enhet
 
 ## <a name="overview"></a>Översikt
-Den här självstudien beskrivs hur du ersätter en felaktig EBOD controller modul på Microsoft Azure StorSimple-enheten. Om du vill ersätta en domänkontrollant EBOD-modul, måste du:
+I den här självstudien beskrivs hur du ersätter en trasig EBOD-kontrollant på din Microsoft Azure StorSimple-enhet. Om du vill ersätta en EBOD Controller-modul måste du:
 
-* Ta bort den felaktiga EBOD-kontrollanten
-* Installera en ny EBOD-kontrollanten
+* Ta bort den felande EBOD-kontrollanten
+* Installera en ny EBOD-kontrollant
 
-Tänk på följande innan du börjar:
+Överväg följande information innan du börjar:
 
-* Tom EBOD-moduler måste läggas till alla platser som inte används. Höljet lågfrekvent kommer inte korrekt om en plats som lämnas öppna.
-* EBOD-kontrollanten är växlas och kan tas bort eller ersatts. Ta inte bort en misslyckad modul förrän du har en ersättning. När du startar ersättningsprocessen, måste du slutföra det inom 10 minuter.
+* Tomma EBOD-moduler måste infogas i alla oanvända platser. Kabinett filen kommer inte att kylas korrekt om en plats lämnas öppen.
+* EBOD-styrenheten kan växlas och kan tas bort eller ersättas. Ta inte bort en misslyckad modul förrän du har ersatt. När du startar ersättnings processen måste du avsluta den inom 10 minuter.
 
 > [!IMPORTANT]
-> Innan du försöker ta bort eller ersätta en StorSimple-komponent, se till att du läser igenom den [säkerhet ikonen konventioner](storsimple-safety.md#safety-icon-conventions) och andra [säkerhetsåtgärder](storsimple-safety.md).
+> Innan du försöker ta bort eller ersätta någon StorSimple-komponent måste du kontrol lera att du går igenom [konventionerna för säkerhets ikoner](storsimple-safety.md#safety-icon-conventions) och andra [säkerhets åtgärder](storsimple-safety.md).
 
-## <a name="remove-an-ebod-controller"></a>Ta bort en EBOD-kontrollanten
-Kontrollera att den andra EBOD-controller-modulen är aktiv och körs innan du ersätter den misslyckade EBOD controller-modulen i din StorSimple-enhet. Följande procedur och tabell förklarar hur du tar bort modulen EBOD-domänkontrollant.
+## <a name="remove-an-ebod-controller"></a>Ta bort en EBOD-kontrollant
+Innan du ersätter modulen EBOD i StorSimple-enheten kontrollerar du att den andra EBOD Controller-modulen är aktiv och körs. I följande procedur och tabell förklaras hur du tar bort modulen EBOD Controller.
 
 #### <a name="to-remove-an-ebod-module"></a>Ta bort en EBOD-modul
 1. Öppna Azure Portal.
-2. Gå till din enhet och gå till **inställningar** > **hälsotillstånd för maskinvara**, och kontrollera att statusen för Indikator för modulen controller active EBOD är grön och Indikator för det misslyckade EBOD-kontrollanten modulen är röda.
-3. Leta upp modulen misslyckade EBOD controller på baksidan av enheten.
-4. Ta bort kablarna som Anslut modulen EBOD controller kontrollanten innan du tar EBOD-modul från systemet.
-5. Anteckna den exakta SAS-porten av domänkontrollant EBOD-modulen som anslöts till kontrollanten. Du kommer att behöva återställa systemet till den här konfigurationen när du ersätter EBOD-modulen.
+2. Gå till din enhet och gå till **inställningar** > **maskin varu hälsa**och kontrol lera att status för lysdioden för modulen Active EBOD Controller är grön och att indikatorn för modulen för EBOD Controller är röd.
+3. Leta reda på modulen för den felande EBOD på bak sidan av enheten.
+4. Ta bort de kablar som ansluter modulen EBOD Controller till kontrollanten innan du tar EBOD-modulen ur systemet.
+5. Anteckna den exakta SAS-porten för EBOD Controller-modulen som var ansluten till kontrollanten. Du kommer att behöva återställa systemet till den här konfigurationen när du har bytt ut EBOD-modulen.
    
    > [!NOTE]
-   > Detta kommer normalt att Port A, som är märkta som **värd i** i följande diagram.
+   > Detta är vanligt vis port A, som är märkt som **värd i** följande diagram.
    
-    ![Bakplan EBOD-kontrollanten](./media/storsimple-ebod-controller-replacement/IC741049.png)
+    ![Bakplanering av EBOD-kontrollanten](./media/storsimple-ebod-controller-replacement/IC741049.png)
    
-     **Bild 1** tillbaka of EBOD-modul
+     **Bild 1** Tillbaka till EBOD-modulen
    
    | Label (Etikett) | Beskrivning |
    |:--- |:--- |
-   | 1 |Fel Indikator |
-   | 2 |Indikator för ström |
+   | 1 |Indikator för fel |
+   | 2 |Ström indikator |
    | 3 |SAS-anslutningar |
-   | 4 |SAS-led: ar |
-   | 5 |Seriella portar för factory bruk |
-   | 6 |Port en (värd i) |
-   | 7 |Port B (Host ut) |
-   | 8 |Port C (endast Factory användning) |
+   | 4 |SAS-indikatorer |
+   | 5 |Seriella portar för fabriks användning |
+   | 6 |Port A (värd i) |
+   | 7 |Port B (utgående värd) |
+   | 8 |Port C (endast fabriks användning) |
 
-## <a name="install-a-new-ebod-controller"></a>Installera en ny EBOD-kontrollanten
-Följande procedur och tabell förklarar hur du installerar en domänkontrollant EBOD-modulen i din StorSimple-enhet.
+## <a name="install-a-new-ebod-controller"></a>Installera en ny EBOD-kontrollant
+I följande procedur och tabell förklaras hur du installerar en EBOD Controller-modul i din StorSimple-enhet.
 
-#### <a name="to-install-an-ebod-controller"></a>Installera en EBOD-kontrollanten
-1. Kontrollera EBOD-enhet för skador, särskilt gränssnittet kopplingen. Installera inte den nya EBOD-kontrollanten om någon PIN-koder är böjda.
-2. Skjut modulen i höljet med lås i öppet läge tills Lås engagera.
+#### <a name="to-install-an-ebod-controller"></a>Så här installerar du en EBOD-kontrollant
+1. Kontrol lera EBOD-enheten för skada, särskilt gränssnitts anslutningen. Installera inte den nya EBOD-kontrollanten om några stift är böjda.
+2. Med lås i den öppna positionen drar du modulen till inne slutningen tills spärren är i bruk.
    
-    ![Installera EBOD-kontrollanten](./media/storsimple-ebod-controller-replacement/IC741050.png)
+    ![Installerar EBOD-kontrollant](./media/storsimple-ebod-controller-replacement/IC741050.png)
    
-    **Bild 2** installera modulen EBOD-styrenhet
-3. Stäng låset. Du bör höra ett klick som talar med låset.
+    **Bild 2**  Installera modulen EBOD Controller
+3. Stäng spärren. Du bör höra ett klick när spärren är engagerande.
    
-    ![Släpper EBOD spärr](./media/storsimple-ebod-controller-replacement/IC741047.png)
+    ![Släpper EBOD-spärren](./media/storsimple-ebod-controller-replacement/IC741047.png)
    
-    **Bild 3** stänger EBOD-modulen spärr
-4. Återanslut kablarna. Använd den exakta konfigurationen som fanns innan ersättningen. Se följande diagram och tabell finns information om hur du ansluter kablarna.
+    **Bild 3**  Stänger EBOD-modulens spärr
+4. Återanslut kablarna. Använd den exakta konfigurationen som fanns före ersättningen. Se följande diagram och tabell för information om hur du ansluter kablarna.
    
-    ![Kabelansluta den 4U kraft](./media/storsimple-ebod-controller-replacement/IC770723.png)
+    ![Kabelanslut din 4U-enhet för strömförsörjning](./media/storsimple-ebod-controller-replacement/IC770723.png)
    
     **Bild 4**. Återansluter kablar
    
    | Label (Etikett) | Beskrivning |
    |:--- |:--- |
-   | 1 |Primär hölje |
+   | 1 |Primärt kabinett |
    | 2 |PCM 0 |
    | 3 |PCM 1 |
    | 4 |Kontrollant 0 |
    | 5 |Kontrollant 1 |
-   | 6 |EBOD-kontrollanten 0 |
-   | 7 |EBOD-kontrollanten 1 |
-   | 8 |EBOD hölje |
-   | 9 |Kraftfördelningsenheter |
+   | 6 |EBOD Controller 0 |
+   | 7 |EBOD Controller 1 |
+   | 8 |EBOD-hölje |
+   | 9 |Enheter för energi distribution |
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [StorSimple maskinvaruersättning komponenten](storsimple-8000-hardware-component-replacement.md).
+Läs mer om [StorSimple av maskin varu komponenter](storsimple-8000-hardware-component-replacement.md).
 

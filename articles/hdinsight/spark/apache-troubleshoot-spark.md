@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
 ms.openlocfilehash: 80bca2dab1d07d9b99e75e283068bff99335fa18
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894297"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395179"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Felsöka Apache Spark med Azure HDInsight
 
@@ -31,21 +31,21 @@ Konfigurations värden för Spark kan justeras för att undvika ett Apache Spark
 
 1. I listan med konfigurationer väljer och expanderar du **Custom-spark2-defaults**.
 
-1. Leta efter värdeinställning som du behöver justera som **spark.executor.memory**. I det här fallet är värdet för **9728m** för högt.
+1. Leta efter den värde inställning som du behöver justera, till exempel **Spark. utförar. Memory**. I det här fallet är värdet för **9728m** för högt.
 
     ![Ange standardinställningar för anpassade spark](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
-1. Ange värdet till den rekommenderade inställningen. Värdet **2 048 m** rekommenderas för den här inställningen.
+1. Ange värdet till den rekommenderade inställningen. Värdet **2048** rekommenderas för den här inställningen.
 
 1. Spara värdet och sedan spara konfigurationen. Välj **Spara**.
 
     ![Ändra värdet till 2 048 m](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
-    Skriv en anteckning om ändringar i konfigurationen och välj sedan **spara**.
+    Skriv en anteckning om konfigurations ändringarna och välj sedan **Spara**.
 
     ![Ange en kommentar om de ändringar du gjort](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
 
-    Du får ett meddelande om några konfigurationer som behöver åtgärdas. Observera objekt och välj sedan **fortsätter ändå**.
+    Du får ett meddelande om några konfigurationer som behöver åtgärdas. Anteckna objekten och välj **Fortsätt ändå**.
 
     ![Välj Fortsätt ändå](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
 
@@ -61,13 +61,13 @@ Konfigurations värden för Spark kan justeras för att undvika ett Apache Spark
 
     ![Granska processer som körs](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
 
-1. Du kan lägga till konfigurationer. Välj i listan över konfigurationer, **anpassad-spark2-standardvärden**, och välj sedan **Lägg till egenskap**.
+1. Du kan lägga till konfigurationer. I listan med konfigurationer väljer du **Custom-spark2-defaults**och väljer sedan **Lägg till egenskap**.
 
     ![Välj Lägg till egenskap](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
 
 1. Definiera en ny egenskap. Du kan definiera en enskild egenskap med en dialogruta för specifika inställningar, till exempel datatypen. Eller du kan definiera flera egenskaper med hjälp av en definition av per rad.
 
-    I det här exemplet på **spark.driver.memory** egenskapen har definierats med värdet **4g**.
+    I det här exemplet definieras egenskapen **Spark. driver. Memory** med värdet **4G**.
 
     ![Definiera nya egenskapen](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 
@@ -77,7 +77,7 @@ Dessa ändringar är hela klustret, men kan åsidosättas när du skickar in Spa
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Hur konfigurerar jag ett Apache Spark-program med hjälp av en Jupyter-anteckningsbok i kluster?
 
-I den första cellen i Jupyter-anteckningsbok när den **%% konfigurera** direktiv, ange Spark-konfigurationer i ett giltigt JSON-format. Ändra de faktiska värdena efter behov:
+I den första cellen i den Jupyter Notebook, efter **%% Configure** -direktivet, anger du Spark-konfigurationerna i giltigt JSON-format. Ändra de faktiska värdena efter behov:
 
 ![Lägg till en konfiguration](./media/apache-troubleshoot-spark/add-configuration-cell.png)
 
@@ -99,7 +99,7 @@ spark-submit --master yarn-cluster --class com.microsoft.spark.application --num
 
 ### <a name="additional-reading"></a>Ytterligare resurser
 
-[Jobböverföring för Apache Spark i HDInsight-kluster](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Apache Spark att skicka jobb på HDInsight-kluster](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 ## <a name="next-steps"></a>Nästa steg
 

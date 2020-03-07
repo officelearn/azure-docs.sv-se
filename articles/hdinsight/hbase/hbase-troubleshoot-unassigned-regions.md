@@ -8,11 +8,11 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
 ms.openlocfilehash: 85aeafb2c4461b50d399e40d9abff2ac04b677c0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887146"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395195"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Problem med region servrar i Azure HDInsight
 
@@ -34,7 +34,7 @@ Från Apache HBase Master UI kan du se antalet regioner som inte är balanserade
 
 Hålen kan vara resultatet av offline-regioner.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Korrigera tilldelningarna. Följ stegen nedan för att återställa de otilldelade områdena till normalt läge:
 
@@ -66,7 +66,7 @@ Flera delnings WAL kataloger.
 
 1. Granska `wals.out`-filen. Om det finns för många delnings kataloger (från och med * delning), fungerar inte region servern på grund av dessa kataloger.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 1. Stoppa HBase från Ambari-portalen.
 

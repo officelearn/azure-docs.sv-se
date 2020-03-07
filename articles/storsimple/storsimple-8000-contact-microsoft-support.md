@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 99de3a6fbbbb1c4324df1712a5e24fd334ca4977
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277174"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384920"
 ---
-# <a name="contact-microsoft-support"></a>Kontakta Microsofts support
+# <a name="contact-microsoft-support"></a>Kontakta Microsoft Support
 
 StorSimple-Enhetshanteraren ger möjlighet att **Logga en ny supportbegäran** på bladet för tjänst Sammanfattning. Om du stöter på problem med din StorSimple-lösning kan du skapa en tjänstbegäran för teknisk support. I en online-session med support teknikern kan du också behöva starta en support-session på din StorSimple-enhet. Den här artikeln vägleder dig genom:
 

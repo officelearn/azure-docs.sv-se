@@ -4,11 +4,11 @@ description: Beskriver de funktioner som används i en Azure Resource Manager ma
 ms.topic: conceptual
 ms.date: 11/08/2017
 ms.openlocfilehash: 91aa637701acb278e81b7eb86aa3ae2db15acc28
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207267"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380663"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Numeriska funktioner för Azure Resource Manager mallar
 
@@ -112,7 +112,7 @@ Returnerar indexet för en upprepnings slinga.
 | loopName | Nej | sträng | Namnet på slingan för att hämta iterationen. |
 | redovisningsmotkonto |Nej |int |Talet som ska läggas till i det nollbaserade upprepning svärdet. |
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
 Den här funktionen används alltid med ett **copy** -objekt. Om inget värde anges för **förskjutning**returneras det aktuella upprepning svärdet. Upprepning svärdet börjar med noll. Du kan använda iteration slingor när du definierar antingen resurser eller variabler.
 
@@ -217,7 +217,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="float" />
 
-## <a name="float"></a>flyt
+## <a name="float"></a>float
 `float(arg1)`
 
 Konverterar värdet till ett flytt ALS nummer. Du använder bara den här funktionen när du skickar anpassade parametrar till ett program, till exempel en Logic app.

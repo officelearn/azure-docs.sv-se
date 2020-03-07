@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da983f87977de922ec547c3ade2972dfb4d69363
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206267"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374748"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -78,8 +78,8 @@ Ordningen på delarna i ett uttryck är viktiga för att undvika syntaxfel.
 
 Det finns tre typer av egenskaper som kan användas för att skapa en medlemskaps regel.
 
-- Boolesk
-- Sträng
+- Boolean
+- String
 - Sträng samling
 
 Följande är de användar egenskaper som du kan använda för att skapa ett enda uttryck.
@@ -142,7 +142,7 @@ I följande tabell visas alla operatorer som stöds och deras syntax för ett en
 | Börjar inte med |-notStartsWith |
 | Börjar med |-startsWith |
 | Innehåller inte |-notContains |
-| Contains |– innehåller |
+| Innehåller |– innehåller |
 | Matchar inte |-notMatch |
 | Villkoren |-matcha |
 | I | – in |

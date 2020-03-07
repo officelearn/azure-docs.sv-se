@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: a183989cc666f00da4be077c719c40d2524fd6e0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547514"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372127"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Förbereda för att skapa Avere vFXT
 
@@ -49,9 +49,9 @@ Kontrol lera att du har tillräcklig kvot för följande Azure-komponenter. Om d
 >
 > Kontrol lera att kvoten är aktive rad för den region där du vill köra arbets flödet.
 
-|Azure-komponent|Kvot|
+|Azure-komponent|Resurser|
 |----------|-----------|
-|Virtuella maskiner|3 eller flera E32s_v3 (ett per klusternod) |
+|Virtuella datorer|3 eller flera E32s_v3 (ett per klusternod) |
 |Premium SSD-lagring|200 GB OS-utrymme plus 1 TB till 4 TB cacheutrymme per nod |
 |Lagringskonto (valfritt) |v2|
 |Data backend-lagring (valfritt) |En ny LRS BLOB-behållare |

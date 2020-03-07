@@ -16,11 +16,11 @@ ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: dbce2969ccb508c2bf3ee33730d0b112caa45c9e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033054"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388640"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrera från Amazon Web Services (AWS) och andra plattformar som ska Managed Disks i Azure
 
@@ -54,7 +54,7 @@ Det här avsnittet hjälper dig att fatta det bästa beslutet om VM och disk typ
 
 Om du planerar att migrera från ohanterade diskar till hanterade diskar bör du vara medveten om att användare med rollen [virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) inte kommer att kunna ändra storleken på den virtuella datorn (eftersom de kan förkonverteras). Detta beror på att virtuella datorer med hanterade diskar kräver att användaren har behörigheten Microsoft. Compute/disks/Write på OS-diskarna.
 
-### <a name="location"></a>Plats
+### <a name="location"></a>plats.
 
 Välj en plats där Azure Managed Disks är tillgängliga. Om du migrerar till Premium-Managed Disks bör du också se till att Premium Storage är tillgängligt i den region där du planerar att migrera till. Se [Azure-tjänster efter region](https://azure.microsoft.com/regions/#services) för uppdaterad information om tillgängliga platser.
 
@@ -63,7 +63,7 @@ Välj en plats där Azure Managed Disks är tillgängliga. Om du migrerar till P
 Om du migrerar till Premium-Managed Disks måste du uppdatera storleken på den virtuella datorn till Premium Storage tillgänglig storlek i den region där den virtuella datorn finns. Granska de VM-storlekar som Premium Storage stöder. Specifikationerna för Azure VM-storlek anges i [storlekar för virtuella datorer](sizes.md).
 Granska prestanda egenskaperna för virtuella datorer som fungerar med Premium Storage och välj den lämpligaste VM-storlek som passar din arbets belastning bäst. Kontrol lera att det finns tillräckligt med bandbredd på den virtuella datorn för att köra disk trafiken.
 
-### <a name="disk-sizes"></a>Diskstorlekar
+### <a name="disk-sizes"></a>Disk storlekar
 
 **Premium-Managed Disks**
 

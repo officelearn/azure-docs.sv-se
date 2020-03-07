@@ -7,15 +7,15 @@ ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/04/2019
 ms.openlocfilehash: 0e6aecccc19572ee980feb4d816fae1f2b0101b7
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274892"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381465"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Självstudie: skapa ett Azure Red Hat OpenShift-kluster
 
-Den här självstudien ingår i en serie. Du lär dig hur du skapar ett Microsoft Azure Red Hat OpenShift-kluster med hjälp av Azure CLI, skalar det och sedan tar bort det för att rensa resurser.
+Den här självstudien är del ett i en serie. Du lär dig hur du skapar ett Microsoft Azure Red Hat OpenShift-kluster med hjälp av Azure CLI, skalar det och sedan tar bort det för att rensa resurser.
 
 I del ett av serien får du lära dig att:
 
@@ -28,7 +28,7 @@ I den här självstudieserien får du lära du dig att:
 > * [Skala ett Azure Red Hat OpenShift-kluster](tutorial-scale-cluster.md)
 > * [Ta bort ett Azure Red Hat OpenShift-kluster](tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!IMPORTANT]
 > I den här självstudien krävs version 2.0.65 av Azure CLI.

@@ -4,12 +4,12 @@ description: Den här snabb starten visar hur du skapar och hanterar din kunskap
 ms.topic: quickstart
 ms.date: 01/13/2020
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 33725eb54e8a78547f4bf82d6a8f6fae58fdb5cb
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 065f88ce12037109773b7023972c151d968840a8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524426"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389398"
 ---
 # <a name="quickstart-create-and-manage-knowledge-base"></a>Snabb start: skapa och hantera kunskaps bas
 
@@ -30,7 +30,7 @@ Kom igång med QnA Maker klient biblioteket. Följ de här stegen för att insta
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
->[Självstudie: skapa och svara på en KB](../tutorials/create-publish-query-in-portal.md)
+>[Självstudie: testa kunskaps basen med en kommando fil](./batch-testing.md)
 
 * [Vad är API för QnA Maker?](../Overview/overview.md)
 * [Redigera en kunskaps bas](../how-to/edit-knowledge-base.md)

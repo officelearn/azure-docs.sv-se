@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176512"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374417"
 ---
 # <a name="azure-api-management-template-resources"></a>Resurser för Azure API Management-mallar
 Azure API Management tillhandahåller följande typer av resurser som du kan använda i Developer Portal-mallarna.  
@@ -48,23 +48,23 @@ Azure API Management tillhandahåller följande typer av resurser som du kan anv
   
 Följande lokaliserings alternativ stöds:
 
-| Nationella inställningar    | Språk               |
+| Nationell inställning    | Språk               |
 |-----------|------------------------|
-| ”en”      | Amerikanska              |
+| ”sv”      | Amerikanska              |
 | östasiatisk      | "Čeština"              |
-| tillförsel      | Deutsch              |
+| tillförsel      | "Deutsch"              |
 | ES      | "Español"              |
-| fr      | Frankrike             |
-| HU      | Magyar               |
+| fr      | "Français"             |
+| "hu"      | "Magyar"               |
 | företaget      | Italiano             |
 | "ja-JP"   | "日本語"                |
-| Ko      | "한국어"                |
-| nederländska      | Nederlands           |
-| pl      | Polski               |
-| "pt-br"   | "Português (Brasilien)"   |
+| "ko"      | "한국어"                |
+| nederländska      | "Nederlands"           |
+| pl      | "Polski"               |
+| "pt-br"   | "Português (Brasil)"   |
 | "pt-pt"   | "Português (Portugal)" |
-| |      | "Русский"              |
-| sa      | Svenska              |
+| "ru"      | "Русский"              |
+| "sv"      | "Svenska"              |
 | TR      | "Türkçe"               |
 | "zh-hans" | "中文(简体)"           |
 | "zh-Hant" | "中文(繁體)"           |
@@ -146,13 +146,13 @@ Följande lokaliserings alternativ stöds:
   
 |Namn|Text|  
 |----------|----------|  
-|WebApplicationsHeader|Appar|  
+|WebApplicationsHeader|Program|  
   
 ###  <a name="CommonResources"></a>CommonResources  
   
 |Namn|Text|  
 |----------|----------|  
-|NoItemsToDisplay|Hittade inga resultat.|  
+|NoItemsToDisplay|Inga resultat hittades.|  
 |GeneralExceptionMessage|Något är inte rätt. Det kan vara ett tillfälligt fel eller ett fel. Försök igen.|  
 |GeneralJsonExceptionMessage|Något är inte rätt. Det kan vara ett tillfälligt fel eller ett fel. Läs in sidan på nytt och försök igen.|  
 |ConfirmationMessageUnsavedChanges|Det finns några ändringar som inte har sparats. Är du säker på att du vill avbryta och ta bort ändringarna?|  
@@ -167,10 +167,10 @@ Följande lokaliserings alternativ stöds:
 |ButtonLabelSave|Spara|  
 |GeneralExceptionMessage|Något är inte rätt. Det kan vara ett tillfälligt fel eller ett fel. Försök igen.|  
 |NoItemsToDisplay|Det finns inga objekt att visa.|  
-|PagerButtonLabelFirst|Första|  
-|PagerButtonLabelLast|pågå|  
+|PagerButtonLabelFirst|Förstagångskörningen|  
+|PagerButtonLabelLast|Sista|  
 |PagerButtonLabelNext|Nästa|  
-|PagerButtonLabelPrevious|Föreg.|  
+|PagerButtonLabelPrevious|Föregående|  
 |PagerLabelPageNOfM|Sidan {0} av {1}|  
 |PasswordTooShort|Lösen ordet är för kort|  
 |EmailAsPassword|Använd inte ditt e-postmeddelande som lösen ord|  
@@ -221,11 +221,11 @@ Följande lokaliserings alternativ stöds:
 |OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_Description|< p\> klienten autentiseras med auktoriseringsservern och begär en åtkomsttoken från slut punkten för token. </p\> < p\> auktoriserings servern autentiserar klienten, och om det är giltigt utfärdar en åtkomsttoken. </p\>|  
 |OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_ErrorDescription|< p\> om begäran misslyckades med klientautentisering eller om den är ogiltig, svarar på en HTTP 400 (felaktig begäran) status kod (om inget annat anges) och innehåller följande parametrar med svaret. </p\>|  
 |OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_RequestDescription|< p\> klienten gör en begäran till token-slutpunkten genom att lägga till följande parametrar med hjälp av formatet "Application/x-www-form-urlencoded" med en tecken kodning av UTF-8 i entiteten HTTP-begäran-brödtext. </p\>|  
-|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_ResponseDescription|< p\> om åtkomstbegäran är giltig och auktoriserad, utfärdar auktoriseringsservern en åtkomsttoken och en valfri uppdateringstoken, och skapar svaret genom att lägga till följande parametrar till entitetens brödtext i HTTP-svaret med 200 (OK ) status kod. </p\>|  
+|OAuth2Flow_ClientCredentialsGrant_Step_TokenRequest_ResponseDescription|< p\> om åtkomsttokenbegäran är giltig och auktoriserad, utfärdar auktoriseringsservern en åtkomsttoken och valfri uppdateringstoken, och skapar svaret genom att lägga till följande parametrar till entitetens brödtext för HTTP-svaret med en 200 (OK)-status kod. </p\>|  
 |OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_Description|< p\> klienten initierar flödet genom att dirigera resurs ägarens användar agent till behörighets slut punkten.  Klienten innehåller klient-ID, begärt omfång, lokalt tillstånd och en omdirigerings-URI som auktoriseringsservern skickar tillbaka användar agenten till när åtkomst beviljas (eller nekas). </p\> < p\> verifierings servern autentiserar resurs ägaren (via användaren-agenten) och anger om resurs ägaren beviljar eller nekar klientens åtkomstbegäran. </p\> < p\> under förutsättning att resurs ägaren beviljar åtkomst, omdirigerar auktoriseringsservern tillbaka användar agenten till klienten med hjälp av den omdirigerings-URI som tillhandahölls tidigare.  URI: n för omdirigering inkluderar åtkomsttoken i URI-fragmentet. </p\>|  
-|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_ErrorDescription|< p\> om resurs ägaren nekar åtkomstbegäran eller om begäran Miss lyckas av andra orsaker än en saknad eller ogiltig omdirigerings-URI, informerar auktoriseringsservern klienten genom att lägga till följande parametrar till fragment komponenten e-postdirigerings-URI med formatet "Application/x-www-form-urlencoded". </p\>|  
+|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_ErrorDescription|< p\> om resurs ägaren nekar åtkomstbegäran eller om begäran Miss lyckas av andra orsaker än en saknad eller ogiltig omdirigerings-URI, informerar auktoriseringsservern klienten genom att lägga till följande parametrar till komponenten fragment i omdirigerings-URI: n med hjälp av formatet "Application/x-www-form-urlencoded". </p\>|  
 |OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_RequestDescription|< p\>-klient appen måste skicka användaren till behörighets slut punkten för att kunna initiera OAuth-processen.      Användaren autentiserar och beviljar eller nekar åtkomst till appen på slut punkten för auktoriseringen. </p\>|  
-|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_ResponseDescription|< p\> om resurs ägaren beviljar åtkomstbegäran, utfärdar auktoriseringsservern en åtkomsttoken och levererar den till klienten genom att lägga till följande parametrar i fragment-komponenten för omdirigerings-URI: n med hjälp av funktionen "Application/x-www-for m-urlencoded "format. </p\>|  
+|OAuth2Flow_ImplicitGrant_Step_AuthorizationRequest_ResponseDescription|< p\> om resurs ägaren beviljar åtkomstbegäran, utfärdar auktoriseringsservern en åtkomsttoken och levererar den till klienten genom att lägga till följande parametrar i fragment-komponenten för omdirigerings-URI: n med hjälp av formatet "Application/x-www-form-urlencoded". </p\>|  
 |OAuth2Flow_ObtainAuthorization_AuthorizationCodeGrant_Description|Auktoriseringskod-flödet är optimerat för klienter som kan upprätthålla sekretessen för sina autentiseringsuppgifter (t. ex. webb serverprogram som implementeras med PHP, Java, python, ruby, ASP.NET osv.).|  
 |OAuth2Flow_ObtainAuthorization_AuthorizationCodeGrant_Name|Tillåt auktoriseringskod|  
 |OAuth2Flow_ObtainAuthorization_ClientCredentialsGrant_Description|Flöde för klientautentiseringsuppgifter är lämpligt i fall där klienten (ditt program) begär åtkomst till de skyddade resurserna under dess kontroll. Klienten betraktas som en resurs ägare, så det krävs ingen åtgärd från slutanvändaren.|  
@@ -237,7 +237,7 @@ Följande lokaliserings alternativ stöds:
 |OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_Description|< p\> resurs ägaren förser klienten med sitt användar namn och lösen ord. </p\> < p\> klienten begär en åtkomsttoken från token för auktoriseringsservern genom att inkludera de autentiseringsuppgifter som tagits emot från resurs ägaren.  När begäran görs autentiseras klienten med auktoriseringsservern. </p\> < p\> auktoriserings servern autentiserar klienten och verifierar autentiseringsuppgifter för resurs ägare, och om det är giltigt utfärdar en åtkomsttoken. </p\>|  
 |OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_ErrorDescription|< p\> om begäran misslyckades med klientautentisering eller om den är ogiltig, svarar på en HTTP 400 (felaktig begäran) status kod (om inget annat anges) och innehåller följande parametrar med svaret. </p\>|  
 |OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_RequestDescription|< p\> klienten gör en begäran till token-slutpunkten genom att lägga till följande parametrar med hjälp av formatet "Application/x-www-form-urlencoded" med en tecken kodning av UTF-8 i entiteten HTTP-begäran-brödtext. </p\>|  
-|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_ResponseDescription|< p\> om åtkomstbegäran är giltig och auktoriserad, utfärdar auktoriseringsservern en åtkomsttoken och en valfri uppdateringstoken, och skapar svaret genom att lägga till följande parametrar till entitetens brödtext i HTTP-svaret med 200 (O K) status kod. </p\>|  
+|OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_ResponseDescription|< p\> om åtkomsttokenbegäran är giltig och auktoriserad, utfärdar auktoriseringsservern en åtkomsttoken och valfri uppdateringstoken, och skapar svaret genom att lägga till följande parametrar till entitetens brödtext för HTTP-svaret med en 200 (OK)-status kod. </p\>|  
 |OAuth2Step_AccessTokenRequest_Name|Begäran om åtkomsttoken|  
 |OAuth2Step_AuthorizationRequest_Name|Auktoriseringsbegäran|  
 |OAuth2AccessToken_AuthorizationCodeGrant_TokenResponse|Kunna. Den åtkomsttoken som utfärdats av auktoriseringsservern.|  
@@ -259,17 +259,17 @@ Följande lokaliserings alternativ stöds:
 |OAuth2ErrorUri_ClientCredentialsGrant_TokenErrorResponse|Valfritt. En URI som identifierar en webb sida som är läslig med information om felet.|  
 |OAuth2ErrorUri_ImplicitGrant_AuthorizationErrorResponse|Valfritt. En URI som identifierar en webb sida som är läslig med information om felet.|  
 |OAuth2ErrorUri_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|Valfritt. En URI som identifierar en webb sida som är läslig med information om felet.|  
-|OAuth2Error_AuthorizationCodeGrant_AuthorizationErrorResponse|Kunna. En enkel ASCII-felkod från följande: invalid_request, unauthorized_client, ACCESS_DENIED, unsupported_response_type, invalid_scope, server_error, temporarily_unavailable.|  
+|OAuth2Error_AuthorizationCodeGrant_AuthorizationErrorResponse|Kunna. En enkel ASCII-felkod från följande: invalid_request, unauthorized_client, access_denied, unsupported_response_type, invalid_scope, server_error, temporarily_unavailable.|  
 |OAuth2Error_AuthorizationCodeGrant_TokenErrorResponse|Kunna. En enkel ASCII-felkod från följande: invalid_request, invalid_client, invalid_grant, unauthorized_client, unsupported_grant_type, invalid_scope.|  
 |OAuth2Error_ClientCredentialsGrant_TokenErrorResponse|Kunna. En enkel ASCII-felkod från följande: invalid_request, invalid_client, invalid_grant, unauthorized_client, unsupported_grant_type, invalid_scope.|  
-|OAuth2Error_ImplicitGrant_AuthorizationErrorResponse|Kunna. En enkel ASCII-felkod från följande: invalid_request, unauthorized_client, ACCESS_DENIED, unsupported_response_type, invalid_scope, server_error, temporarily_unavailable.|  
+|OAuth2Error_ImplicitGrant_AuthorizationErrorResponse|Kunna. En enkel ASCII-felkod från följande: invalid_request, unauthorized_client, access_denied, unsupported_response_type, invalid_scope, server_error, temporarily_unavailable.|  
 |OAuth2Error_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|Kunna. En enkel ASCII-felkod från följande: invalid_request, invalid_client, invalid_grant, unauthorized_client, unsupported_grant_type, invalid_scope.|  
 |OAuth2ExpiresIn_AuthorizationCodeGrant_TokenResponse|Rekommenderas. Livs längden i sekunder för åtkomsttoken.|  
 |OAuth2ExpiresIn_ClientCredentialsGrant_TokenResponse|Rekommenderas. Livs längden i sekunder för åtkomsttoken.|  
 |OAuth2ExpiresIn_ImplicitGrant_AuthorizationResponse|Rekommenderas. Livs längden i sekunder för åtkomsttoken.|  
 |OAuth2ExpiresIn_ResourceOwnerPasswordCredentialsGrant_TokenResponse|Rekommenderas. Livs längden i sekunder för åtkomsttoken.|  
-|OAuth2GrantType_AuthorizationCodeGrant_TokenRequest|Kunna. Värdet måste anges till "authorization_code".|  
-|OAuth2GrantType_ClientCredentialsGrant_TokenRequest|Kunna. Värdet måste anges till "client_credentials".|  
+|OAuth2GrantType_AuthorizationCodeGrant_TokenRequest|Kunna. Värdet måste anges till authorization_code.|  
+|OAuth2GrantType_ClientCredentialsGrant_TokenRequest|Kunna. Värdet måste anges till client_credentials.|  
 |OAuth2GrantType_ResourceOwnerPasswordCredentialsGrant_TokenRequest|Kunna. Värdet måste anges till "Password".|  
 |OAuth2Password_ResourceOwnerPasswordCredentialsGrant_TokenRequest|Kunna. Resurs ägarens lösen ord.|  
 |OAuth2RedirectUri_AuthorizationCodeGrant_AuthorizationRequest|Valfritt. Slut punktens URI för omdirigering måste vara en absolut URI.|  
@@ -301,7 +301,7 @@ Följande lokaliserings alternativ stöds:
 |OAuth2UserName_ResourceOwnerPasswordCredentialsGrant_TokenRequest|Kunna. Resurs ägarens användar namn.|  
 |OAuth2UnsupportedTokenType|Tokentyp{0}stöds inte.|  
 |OAuth2InvalidState|Ogiltigt svar från auktoriseringsservern|  
-|OAuth2GrantType_AuthorizationCode|auktoriseringskod|  
+|OAuth2GrantType_AuthorizationCode|Auktoriseringskod|  
 |OAuth2GrantType_Implicit|Uttrycklig|  
 |OAuth2GrantType_ClientCredentials|Klientautentiseringsuppgifter|  
 |OAuth2GrantType_ResourceOwnerPassword|Resurs ägar lösen ord|  
@@ -321,13 +321,13 @@ Följande lokaliserings alternativ stöds:
 |BadRequestParameterExpected|parametern "{0}" förväntas|  
 |TooltipTextDoubleClickToSelectAll|Dubbelklicka för att markera alla.|  
 |TooltipTextHideRevealSecret|Visa/Dölj|  
-|ButtonLinkOpenConsole|Prova den|  
+|ButtonLinkOpenConsole|Prova|  
 |SectionHeadingRequestBody|Begärandetext|  
 |SectionHeadingRequestParameters|Parametrar för begäran|  
 |SectionHeadingRequestUrl|URL för begäran|  
 |SectionHeadingResponse|Svar|  
-|SectionHeadingRequestHeaders|Begärandehuvuden|  
-|FormLabelSubtextOptional|Valfritt|  
+|SectionHeadingRequestHeaders|Begärandehuvud|  
+|FormLabelSubtextOptional|valfritt|  
 |SectionHeadingCodeSamples|Kodexempel|  
 |TextblockOpenidConnectHeaderDescription|OpenID Connect ID-token hämtades från < i\>{0}</i\>. Beviljande typer som stöds: < jag\>{1}</i\>.|  
   
@@ -335,7 +335,7 @@ Följande lokaliserings alternativ stöds:
   
 |Namn|Text|  
 |----------|----------|  
-|LinkLabelBack|Undantag|  
+|LinkLabelBack|undantag|  
 |LinkLabelHomePage|Start sida|  
 |LinkLabelSendUsEmail|Skicka oss ett e-postmeddelande|  
 |PageTitleError|Det gick tyvärr inte att betjäna den begärda sidan|  
@@ -380,14 +380,14 @@ Följande lokaliserings alternativ stöds:
 |Namn|Text|  
 |----------|----------|  
 |WebProductsAgreement|Genom att prenumerera på {0} produkt godkänner jag `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
-|WebProductsLegalTermsLink|Användningsvillkor|  
-|WebProductsSubscribeButton|Prenumerera|  
-|WebProductsUsageLimitsHeader|Användningsgränser|  
+|WebProductsLegalTermsLink|Villkor för användning|  
+|WebProductsSubscribeButton|Prenumerera på|  
+|WebProductsUsageLimitsHeader|Användnings gränser|  
 |WebProductsYouAreNotSubscribed|Du prenumererar på den här produkten.|  
 |WebProductsYouRequestedSubscription|Du begärde prenumerationen på den här produkten.|  
 |ErrorYouNeedToAgreeWithLegalTerms|Du måste godkänna användnings villkoren innan du kan fortsätta.|  
 |ButtonLabelAddSubscription|Lägg till en prenumeration|  
-|LinkLabelChangeSubscriptionName|Ändrade|  
+|LinkLabelChangeSubscriptionName|ändrade|  
 |ButtonLabelConfirm|Bekräfta|  
 |TextblockMultipleSubscriptionsCount|Du har {0} prenumerationer på den här produkten:|  
 |TextblockSingleSubscriptionsCount|Du har {0} prenumeration på den här produkten:|  
@@ -451,14 +451,14 @@ Följande lokaliserings alternativ stöds:
 |WebAuthenticationNewPasswordLabel|Nytt lösen ord|  
 |ValidationMessageNewPasswordRequired|Nytt lösen ord krävs.|  
 |TextboxLabelNotificationsSenderEmail|E-postmeddelande om avsändare|  
-|TextboxLabelOrganizationName|Organisationens namn|  
+|TextboxLabelOrganizationName|Organisations namn|  
 |WebAuthenticationOrganizationRequiredErrorMessage|Organisations namnet är tomt|  
 |WebAuthenticationPasswordChangedNotice|Lösen ordet har uppdaterats|  
 |WebAuthenticationPasswordChangedNoticeTitle|Lösen ordet uppdaterat|  
 |WebAuthenticationPasswordCompareErrorMessage|Lösen orden matchar inte|  
 |WebAuthenticationPasswordConfirmLabel|Bekräfta lösenord|  
 |ValidationErrorPasswordInvalidDetailed|Lösen ordet är för svagt.|  
-|WebAuthenticationPasswordLabel|Lösenord|  
+|WebAuthenticationPasswordLabel|lösenord|  
 |ValidationErrorPasswordRequired|Lösen ord måste anges.|  
 |WebAuthenticationPasswordResetSendNotice|E-postbekräftelsen för ändring av lösen ord är på väg att {0}. Följ anvisningarna i e-postmeddelandet för att fortsätta med processen för lösen ords ändring.|  
 |WebAuthenticationPasswordResetSendNoticeHeader|Din begäran om lösen ords återställning har bearbetats|  
@@ -466,7 +466,7 @@ Följande lokaliserings alternativ stöds:
 |WebAuthenticationRequestNotFoundNotice|Förfrågan hittades inte|  
 |WebAuthenticationSenderEmailRequiredErrorMessage|E-postmeddelandets avsändare är tomt|  
 |WebAuthenticationSigninPasswordLabel|Bekräfta ändringen genom att ange ett lösen ord|  
-|WebAuthenticationSignupConfirmNotice|E-postbekräftelsen är på väg att {0}. < br/\> Följ instruktionerna i e-postmeddelandet för att aktivera ditt konto. < br/\> om e-postmeddelandet inte kommer in i din inkorg inom några minuter, kontrollerar du din skräp post projektbevakningsmappen.|  
+|WebAuthenticationSignupConfirmNotice|E-postbekräftelsen är på väg att {0}. < br/\> Följ instruktionerna i e-postmeddelandet för att aktivera ditt konto. < br/\> om e-postmeddelandet inte kommer in i din inkorg inom de kommande minuterna, kontrol lera mappen skräp post.|  
 |WebAuthenticationSignupConfirmNoticeHeader|Ditt konto har skapats|  
 |WebAuthenticationSignupConfirmNoticeRepeatHeader|Ett e-postmeddelande för registrerings bekräftelse skickades igen|  
 |WebAuthenticationSignupConfirmNoticeTitle|Kontot har skapats|  
@@ -504,7 +504,7 @@ Följande lokaliserings alternativ stöds:
 |WebAuthenticationNoAadTenantConfigured|Ingen Azure Active Directory klient har kon figurer ATS för tjänsten.|  
 |CheckboxLabelUserRegistrationTermsConsentRequired|Jag samtycker till `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use</a\>`.|  
 |TextblockUserRegistrationTermsProvided|Granska `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use.</a\>`|  
-|DialogHeadingTermsOfUse|Användningsvillkor|  
+|DialogHeadingTermsOfUse|Villkor för användning|  
 |ValidationMessageConsentNotAccepted|Du måste godkänna användnings villkoren innan du kan fortsätta.|  
   
 ###  <a name="SigninStrings"></a>SigninStrings  
@@ -542,7 +542,7 @@ Följande lokaliserings alternativ stöds:
 |ButtonLabelShowKey|Visa|  
 |ButtonLabelRenewSubscription|Förnya|  
 |WebDevelopersSubscriptionRequested|Begärd på {0}|  
-|WebDevelopersSubscriptionRequestedState|Kräv|  
+|WebDevelopersSubscriptionRequestedState|Begärd|  
 |WebDevelopersSubscriptionTableNameHeader|Namn|  
 |WebDevelopersSubscriptionTableStateHeader|Status|  
 |WebDevelopersUsageStatisticsLink|Analys rapporter|  
@@ -550,7 +550,7 @@ Följande lokaliserings alternativ stöds:
 |SubscriptionPropertyLabelRequestedDate|Begärd|  
 |SubscriptionPropertyLabelStartedDate|Startades|  
 |PageTitleRenameSubscription|Byt namn på prenumeration|  
-|SubscriptionPropertyLabelName|Prenumerations namn|  
+|SubscriptionPropertyLabelName|Prenumerationens namn|  
   
 ###  <a name="SubscriptionStrings"></a>SubscriptionStrings  
   
@@ -581,16 +581,16 @@ Följande lokaliserings alternativ stöds:
 |TextboxLabelEmailFirstName|Förnamn|  
 |TextboxLabelEmailLastName|Efternamn|  
 |TextboxLabelNotificationsSenderEmail|E-postmeddelande om avsändare|  
-|TextboxLabelOrganizationName|Organisationens namn|  
-|SubscriptionStateActive|Active|  
-|SubscriptionStateCancelled|Avbröts|  
+|TextboxLabelOrganizationName|Organisations namn|  
+|SubscriptionStateActive|Aktiv|  
+|SubscriptionStateCancelled|Har avbrutits|  
 |SubscriptionStateExpired|Upphörd|  
-|SubscriptionStateRejected|Slagit|  
-|SubscriptionStateRequested|Kräv|  
-|SubscriptionStateSuspended|Avstängd|  
+|SubscriptionStateRejected|Avslagen|  
+|SubscriptionStateRequested|Begärd|  
+|SubscriptionStateSuspended|Uppehåll|  
 |DefaultSubscriptionNameTemplate|{0} (standard)|  
 |SubscriptionNameTemplate|Åtkomst till utvecklare #{0}|  
-|TextboxLabelSubscriptionName|Prenumerations namn|  
+|TextboxLabelSubscriptionName|Prenumerationens namn|  
 |ValidationMessageSubscriptionNameRequired|Prenumerations namnet får inte vara tomt.|  
 |ApiManagementUserLimitReached|Den här tjänsten har uppnått det maximala antalet tillåtna användare. Uppgradera till en högre pris nivå.|  
   

@@ -8,11 +8,11 @@ ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: fb931c309b5f85902d8abc9cc6da45576bff4041
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713188"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355655"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Nätverks överväganden för en App Service-miljön #
 
@@ -53,7 +53,7 @@ När du skalar upp eller ned läggs nya roller i rätt storlek till och sedan mi
 
 För att ASE ska fungera kräver ASE att följande portar är öppna:
 
-| Använda | Från | Till |
+| Användning | Från | Till |
 |-----|------|----|
 | Hantering | App Service hanterings adresser | ASE-undernät: 454, 455 |
 |  Intern kommunikation med ASE | ASE-undernät: alla portar | ASE-undernät: alla portar
@@ -69,7 +69,7 @@ För kommunikationen mellan Azure Load Balancer och ASE-undernätet är de lägs
 
 De andra portarna som du behöver för dig själv med är program portarna:
 
-| Använda | Portar |
+| Användning | Portar |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP-FTPS    | 21, 990, 10001-10020 |
@@ -166,7 +166,7 @@ De obligatoriska posterna i en NSG, för att en ASE ska fungera, är att tillåt
 
 DNS-porten behöver inte läggas till eftersom trafik till DNS inte påverkas av NSG-regler. Dessa portar omfattar inte de portar som dina appar behöver för att kunna användas. De normala port åtkomst portarna är:
 
-| Använda | Portar |
+| Användning | Portar |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP-FTPS    | 21, 990, 10001-10020 |

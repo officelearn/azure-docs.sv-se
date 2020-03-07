@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842877"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396957"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introduktion till anslutnings fel sökning i Azure Network Watcher
 
@@ -46,7 +46,7 @@ I följande tabell visas de egenskaper som returneras när fel sökning av anslu
 |Hops[].Issues | En samling problem som påträffades under kontrollen vid det hoppet. Om det inte fanns några problem är värdet tomt.|
 |Hopp []. Problem []. Kommer | Vid det aktuella hoppet, där problemet uppstod. Möjliga värden:<br/> **Inkommande** – problem finns på länken från föregående hopp till det aktuella hoppet<br/>**Utgående** – problem är på länken från det aktuella hoppet till nästa hopp<br/>**Lokalt** problem är på det aktuella hoppet.|
 |Hops[].Issues[].Severity | Problemets allvarlighets grad har upptäckts. Möjliga värden är **fel** och **Varning**. |
-|Hops[].Issues[].Type |Typ av problem som hittats. Möjliga värden: <br/>**CPU**<br/>**Minnesoptimerade**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
+|Hops[].Issues[].Type |Typ av problem som hittats. Möjliga värden: <br/>**REGISTRERA**<br/>**Minnesoptimerade**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
 |Hops[].Issues[].Context |Information om problemet som har hittats.|
 |Hops[].Issues[].Context[].key |Nyckel för nyckel värdes paret som returneras.|
 |Hops[].Issues[].Context[].value |Värdet för nyckel värdes paret som returnerades.|

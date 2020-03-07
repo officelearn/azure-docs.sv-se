@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: d2b8b2fecbf85e6590294f1fbd7ff2a4453b9e87
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460758"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379764"
 ---
 # <a name="create-a-basic-index-in-azure-cognitive-search"></a>Skapa ett grundläggande index i Azure Kognitiv sökning
 
@@ -158,7 +158,7 @@ När du definierar ett schema måste du ange namnet, typen och attributet för v
 
 Du hittar mer detaljerad information om Azure Kognitiv sökning [data typer som stöds här](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
-### <a name="index-attributes"></a>Indexattribut
+### <a name="index-attributes"></a>Indexera attribut
 
 Exakt ett fält i indexet måste vara det angivna som ett **nyckel** fält som unikt identifierar varje dokument.
 

@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422589"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376508"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegering och roller i hantering av Azure AD-rättigheter
 
@@ -65,7 +65,7 @@ I följande diagram visas kataloger med resurser för marknadsförings-, ekonomi
 
 Efter delegeringen kan marknadsförings avdelningen ha roller som liknar följande tabell.
 
-| Användare | Jobbroll | Azure AD-roll | Rättighets hanterings roll |
+| Användare | Jobb roll | Azure AD-roll | Rättighets hanterings roll |
 | --- | --- | --- | --- |
 | Hana | IT-administratör | Global administratör eller användar administratör |  |
 | Mamta | Marknadsförings chef | Användare | Katalog skapare och katalog ägare |
@@ -87,7 +87,7 @@ Dessutom har en utsedd god kännare och en beställare av ett Access-paket även
 | Höger | Beskrivning |
 | --- | --- |
 | God kännare | Auktoriserad av en princip för att godkänna eller neka begär Anden om åtkomst till paket, även om de inte kan ändra definitioner för åtkomst paket. |
-| Requestor | Auktoriserad av en princip för ett Access-paket för att begära det Access-paketet. |
+| Begär Ande | Auktoriserad av en princip för ett Access-paket för att begära det Access-paketet. |
 
 I följande tabell visas de aktiviteter som rättighets hanterings rollerna kan utföra.
 
@@ -122,8 +122,8 @@ För en användare som inte är en global administratör eller en användar admi
 
 | Azure AD-katalog roll | Rättighets hanterings roll | Kan lägga till säkerhets grupp | Kan lägga till Office 365-gruppen | Kan lägga till app | Kan lägga till SharePoint Online-webbplats |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| [Global administratör](../users-groups-roles/directory-assign-admin-roles.md) | Ej tillämpligt |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Användar administratör](../users-groups-roles/directory-assign-admin-roles.md) | Ej tillämpligt |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Global administratör](../users-groups-roles/directory-assign-admin-roles.md) | Saknas |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Användar administratör](../users-groups-roles/directory-assign-admin-roles.md) | Saknas |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Intune-administratör](../users-groups-roles/directory-assign-admin-roles.md) | Katalog ägare | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Exchange-administratör](../users-groups-roles/directory-assign-admin-roles.md) | Katalog ägare |  | :heavy_check_mark: |  |  |
 | [Team tjänst administratör](../users-groups-roles/directory-assign-admin-roles.md) | Katalog ägare |  | :heavy_check_mark: |  |  |

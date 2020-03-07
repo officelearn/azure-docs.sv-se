@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 902f3628235cc8a4524ddc4dd8a5327592fe47e7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793217"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379620"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Frågetyper och sammansättning i Azure Kognitiv sökning
 
@@ -33,7 +33,7 @@ Följande exempel är en representativ fråga som konstruerats i [REST API](http
 }
 ```
 
-+ **`queryType`** anger parsern, som är antingen den [enkla standardparsern](search-query-simple-examples.md) (optimal för full texts ökning) eller den [fullständiga Lucene-frågeuttrycket](search-query-lucene-examples.md) som används för avancerade fråge konstruktioner som reguljära uttryck, närhets sökning, fuzzy och Sök i jokertecken för att ge några.
++ **`queryType`** anger parsern, som är antingen den [enkla standardparsern](search-query-simple-examples.md) (optimal för full texts ökning) eller den [fullständiga Lucene-frågeuttrycket](search-query-lucene-examples.md) som används för avancerade fråge konstruktioner som reguljära uttryck, närhets sökning, fuzzy och jokertecken för att ge några exempel.
 
 + **`search`** ger matchnings villkor, vanligt vis text men ofta tillsammans med booleska operatorer. Enstaka fristående villkor är *term* frågor. Quote – inneslutna frågor med flera delar är *viktiga fras* frågor. Sökningen kan vara odefinierad, som i **`search=*`** , men mer sannolikt består av termer, fraser och operatorer som liknar vad som visas i exemplet.
 
@@ -151,13 +151,13 @@ Du kan lära dig mer om sid öknings resultat i artikeln [så här hittar du sid
 ### <a name="ordering-results"></a>Ordna resultaten
 När du tar emot resultat för en Sök fråga kan du begära att Azure Kognitiv sökning hanterar resultaten sorterade efter värden i ett särskilt fält. Som standard beställer Azure Kognitiv sökning Sök resultaten baserat på rangordningen för varje dokuments Sök resultat, som härleds från [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
-Om du vill att Azure Kognitiv sökning ska returnera dina resultat sorterade efter ett annat värde än Sök poängen kan du använda Sök parametern **`orderby`** . Du kan ange värdet för parametern **`orderby`** för att inkludera fält namn och anrop till [**funktionen `geo.distance()`** ](query-odata-filter-orderby-syntax.md) för geospatiala värden. Varje uttryck kan följas av `asc` för att indikera att resultaten begärs i stigande ordning och **`desc`** för att indikera att resultat begärs i fallande ordning. Standardinställningen är stigande ordning.
+Om du vill att Azure Kognitiv sökning ska returnera dina resultat sorterade efter ett annat värde än Sök poängen kan du använda Sök parametern **`orderby`** . Du kan ange värdet för parametern **`orderby`** för att inkludera fält namn och anrop till [**funktionen`geo.distance()`** ](query-odata-filter-orderby-syntax.md) för geospatiala värden. Varje uttryck kan följas av `asc` för att indikera att resultaten begärs i stigande ordning och **`desc`** för att indikera att resultat begärs i fallande ordning. Standardinställningen är stigande ordning.
 
 
 ### <a name="hit-highlighting"></a>Träffmarkering
 I Azure Kognitiv sökning är det enkelt att framhäva den EXAKTA delen av Sök resultaten som matchar Sök frågan med hjälp av parametrarna **`highlight`** , **`highlightPreTag`** och **`highlightPostTag`** . Du kan ange vilka *sökbara* fält som ska framhävas och ange de exakta sträng taggarna som ska läggas till i början och slutet av den matchade text som Azure kognitiv sökning returnerar.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 + [Hur full texts ökning fungerar i Azure Kognitiv sökning (arkitektur för frågekörning)](search-lucene-query-architecture.md)
 + [Sök Utforskaren](search-explorer.md)

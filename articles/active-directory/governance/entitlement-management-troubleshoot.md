@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e291a032c1aac45ebc783126e69b524e1d0af95b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422482"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376701"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Felsöka hantering av Azure AD-berättigande
 
@@ -39,15 +39,15 @@ Den här artikeln beskriver några objekt som du bör kontrol lera för att hjä
 
     Observera att Azure Portal också kan visa tjänstens huvud namn för tjänster som inte kan väljas som program.  I synnerhet är **Exchange Online** och **SharePoint Online** tjänster, inte program som har resurs roller i katalogen, så de kan inte ingå i ett Access-paket.  Använd i stället gruppbaserad licensiering för att upprätta en lämplig licens för en användare som behöver åtkomst till dessa tjänster.
 
-* För att en grupp ska vara en resurs i ett Access-paket måste den kunna ändras i Azure AD.  Grupper som har sitt ursprung i en lokal Active Directory kan inte tilldelas som resurser eftersom deras ägare eller medlems attribut inte kan ändras i Azure AD.   Grupper som har sitt ursprung i Exchange Online som distributions grupper kan inte ändras i Azure AD. 
+* För att en grupp ska kunna vara en resurs i ett åtkomstpaket, måste den kunna ändras i Azure AD.  Grupper som har sitt ursprung i en lokal Active Directory Domain Services kan inte tilldelas som resurser, eftersom deras ägar- eller medlemsattribut inte kan ändras i Azure AD.   Grupper som har sitt ursprung i Exchange Online som distributionsgrupper kan inte heller ändras i Azure AD. 
 
 * SharePoint Online-dokumentbibliotek och enskilda dokument kan inte läggas till som resurser.  Skapa i stället en [Azure AD-säkerhetsgrupp](../fundamentals/active-directory-groups-create-azure-portal.md), inkludera den gruppen och en plats roll i åtkomst paketet och Använd gruppen i SharePoint Online för att kontrol lera åtkomsten till dokument biblioteket eller dokumentet.
 
-* Om det finns användare som redan har tilldelats till en resurs som du vill hantera med ett Access-paket måste du se till att användarna har tilldelats åtkomst paketet med en lämplig princip. Du kanske till exempel vill inkludera en grupp i ett Access-paket som redan har användare i gruppen. Om användarna i gruppen kräver fortsatt åtkomst måste de ha en lämplig princip för åtkomst paketen så att de inte förlorar åtkomsten till gruppen. Du kan tilldela åtkomst paketet genom att be användarna att begära åtkomst paketet som innehåller resursen, eller genom att direkt tilldela dem till åtkomst paketet. Mer information finns i [Inställningar för ändring av begäran och godkännande för ett Access-paket](entitlement-management-access-package-request-policy.md).
+* Om det finns användare som redan har tilldelats till en resurs som du vill hantera med ett åtkomstpaket, måste du se till att användarna har tilldelats till åtkomstpaketet med en lämplig princip. Du kanske till exempel vill inkludera en grupp i ett åtkomstpaket som redan har användare i gruppen. Om användarna i gruppen behöver fortsatt åtkomst, måste de ha en lämplig princip för åtkomstpaketen så att de inte förlorar åtkomsten till gruppen. Du kan tilldela åtkomstpaketet genom att antingen be användarna att begära åtkomstpaketet som innehåller resursen, eller genom att tilldela dem direkt till åtkomstpaketet. Mer information finns i [Inställningar för ändring av begäran och godkännande för ett Access-paket](entitlement-management-access-package-request-policy.md).
 
-* När du tar bort en medlem i ett team tas de även bort från Office 365-gruppen. Borttagning från teamets Chat-funktioner kan vara fördröjd. Mer information finns i [grupp medlemskap](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
+* När du tar bort medlemmar från ett team tas de även bort från Office 365-gruppen. Borttagningen från teamets chattfunktioner kan vara fördröjd. Mer information finns i [grupp medlemskap](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
 
-* Se till att katalogen inte är konfigurerad för multi-geo. Hantering av rättigheter stöder för närvarande inte Multi-geo-platser för SharePoint Online. SharePoint Online-webbplatser måste vara i standard Geo-Location för att regleras med hantering av rättigheter. Mer information finns i [multi-geo-funktioner i OneDrive och SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+* Kontrollera att katalogen inte är konfigurerad för Multi-Geo. Berättigandehanteringen stöder för närvarande inte Multi-Geo-platser i SharePoint Online. SharePoint Online-webbplatser måste finns på en geografisk standardplats för att kunna styras med berättigandehanteringen. Mer information finns i [multi-geo-funktioner i OneDrive och SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## <a name="external-users"></a>Externa användare
 
@@ -55,19 +55,19 @@ Den här artikeln beskriver några objekt som du bör kontrol lera för att hjä
 
 * Om en extern användare inte kan begära åtkomst till ett Access-paket eller inte kan komma åt resurser måste du kontrol lera [inställningarna för externa användare](entitlement-management-external-users.md#settings-for-external-users).
 
-* Om en ny extern användare, som inte tidigare har loggat in i din katalog, tar emot ett Access-paket, inklusive en SharePoint Online-webbplats, så visas deras åtkomst paket som inte fullständigt levererat förrän deras konto har allokerats i SharePoint Online. Mer information om delnings inställningar finns i [Granska dina externa delnings inställningar för SharePoint Online](entitlement-management-external-users.md#review-your-sharepoint-online-external-sharing-settings).
+* Om en ny extern användare (som inte tidigare har loggat in på din katalog) tar emot ett åtkomstpaket med en SharePoint Online-webbplats, visas deras åtkomstpaket som inte fullständigt levererat förrän kontot har etablerats i SharePoint Online. Mer information om delnings inställningar finns i [Granska dina externa delnings inställningar för SharePoint Online](entitlement-management-external-users.md#review-your-sharepoint-online-external-sharing-settings).
 
 ## <a name="requests"></a>Begäranden
 
 * När en användare vill begära åtkomst till ett Access-paket kontrollerar du att de använder **länken min åtkomst Portal** för åtkomst paketet. Mer information finns i [Dela länk för att begära ett Access-paket](entitlement-management-access-package-settings.md).
 
-* Om du öppnar portalen My Access med din webbläsare inställd på privat eller Incognito läge kan detta orsaka en konflikt med inloggnings beteendet. Vi rekommenderar att du inte använder privat eller Incognito läge för webbläsaren när du besöker min åtkomst Portal.
+* Om du öppnar Min åtkomst-portalen med din webbläsare inställd på privat läge eller inkognitoläge kan detta orsaka en konflikt med inloggningen. Vi rekommenderar att du inte använder privat läge eller inkognitoläge för webbläsaren när du besöker Min åtkomst-portalen.
 
-* När en användare som ännu inte finns i din katalog loggar in på min åtkomst-Portal för att begära ett åtkomst paket, se till att de autentiseras med hjälp av deras organisations konto. Organisations kontot kan antingen vara ett konto i resurs katalogen eller i en katalog som ingår i någon av åtkomst paketets principer. Om användarens konto inte är ett organisations konto eller om den katalog där de autentiserar inte ingår i principen, kommer användaren inte att se åtkomst paketet. Mer information finns i [begäran om åtkomst till ett Access-paket](entitlement-management-request-access.md).
+* När användare som ännu inte finns i din katalog loggar in på Min åtkomst-portalen för att begära ett åtkomstpaket, bör du se till att de autentiseras med hjälp av sitt organisationskonto. Organisationskontot kan antingen vara ett konto i resurskatalogen, eller i en katalog som ingår i någon av åtkomstpaketets principer. Om användarens konto inte är ett organisationskonto, eller om den katalog där de autentiseras inte ingår i principen, kommer användaren inte att se åtkomstpaketet. Mer information finns i [begäran om åtkomst till ett Access-paket](entitlement-management-request-access.md).
 
-* Om en användare är blockerad från att logga in till resurs katalogen kommer de inte att kunna begära åtkomst i min åtkomst Portal. Innan användaren kan begära åtkomst måste du ta bort inloggnings blocket från användarens profil. Ta bort inloggnings blocket genom att klicka på **Azure Active Directory**i Azure Portal, klicka på **användare**, klicka på användaren och sedan på **profil**. Redigera avsnittet **Inställningar** och ändra **blockera inloggning** till **Nej**. Mer information finns i [lägga till eller uppdatera en användares profil information med hjälp av Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Du kan också kontrol lera om användaren har blockerats på grund av en [identitets skydds princip](../identity-protection/howto-unblock-user.md).
+* Användare som är blockerade från att logga in på resurskatalogen, kommer inte att kunna begära åtkomst i Min åtkomst-portalen. Innan användaren kan begära åtkomst måste du ta bort inloggningsblockeringen från användarens profil. Ta bort inloggnings blocket genom att klicka på **Azure Active Directory**i Azure Portal, klicka på **användare**, klicka på användaren och sedan på **profil**. Redigera avsnittet **Inställningar** och ändra **blockera inloggning** till **Nej**. Mer information finns i [lägga till eller uppdatera en användares profil information med hjälp av Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Du kan också kontrol lera om användaren har blockerats på grund av en [identitets skydds princip](../identity-protection/howto-unblock-user.md).
 
-* Om en användare är både en beställare och en god kännare, kommer de inte att se sin begäran om ett åtkomst paket på sidan **godkännanden** i portalen för åtkomst. Det här beteendet är avsiktligt – en användare kan inte godkänna sin egen begäran. Se till att det åtkomst paket som begärs har ytterligare god kännare konfigurerade i principen. Mer information finns i [Inställningar för ändring av begäran och godkännande för ett Access-paket](entitlement-management-access-package-request-policy.md).
+* Om en användare är både en beställare och en god kännare, kommer de inte att se sin begäran om ett åtkomst paket på sidan **godkännanden** i portalen för åtkomst. Det här är avsiktligt – en användare kan inte godkänna sin egen begäran. Kontrollera att det åtkomstpaket som begärs har fler godkännare konfigurerade i principen. Mer information finns i [Inställningar för ändring av begäran och godkännande för ett Access-paket](entitlement-management-access-package-request-policy.md).
 
 ### <a name="view-a-requests-delivery-errors"></a>Visa leverans fel för en begäran
 

@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
 ms.openlocfilehash: 3a7fc8028348ae20403df62cd03c76a266edf07c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191322"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358746"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Säker åtkomst och data i Azure Logic Apps
 
@@ -622,7 +622,7 @@ HTTP-och HTTPS-slutpunkter stöder olika typer av autentisering. Baserat på utl
 
 Om alternativet [grundläggande](../active-directory-b2c/secure-rest-api-dotnet-basic-auth.md) är tillgängligt anger du följande egenskaps värden:
 
-| Egenskap (designer) | Egenskap (JSON) | Obligatoriskt | Värde | Beskrivning |
+| Egenskap (designer) | Egenskap (JSON) | Krävs | Värde | Beskrivning |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autentisering** | `type` | Ja | Basic | Autentiseringstypen som ska användas |
 | **Användarnamn** | `username` | Ja | <*användar namn*>| Användar namnet för att autentisera åtkomsten till mål tjänstens slut punkt |
@@ -653,7 +653,7 @@ När du använder [skyddade parametrar](#secure-action-parameters) för att hant
 
 Om alternativet [klient certifikat](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) är tillgängligt anger du följande egenskaps värden:
 
-| Egenskap (designer) | Egenskap (JSON) | Obligatoriskt | Värde | Beskrivning |
+| Egenskap (designer) | Egenskap (JSON) | Krävs | Värde | Beskrivning |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autentisering** | `type` | Ja | **Klient certifikat** <br>eller <br>`ClientCertificate` | Autentiseringstypen som ska användas för Secure Sockets Layer (SSL)-klient certifikat. Även om självsignerade certifikat stöds, stöds inte självsignerade certifikat för SSL. |
 | **-** | `pfx` | Ja | <- *kodad-PFX-File-content*> | Det Base64-kodade innehållet från en PFX-fil (personal information Exchange) <p><p>Om du vill konvertera PFX-filen till Base64-kodat format kan du använda PowerShell genom att följa dessa steg: <p>1. Spara certifikat innehållet i en variabel: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. konvertera certifikat innehållet med hjälp av funktionen `ToBase64String()` och spara innehållet i en textfil: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
@@ -692,7 +692,7 @@ Mer information om hur du skyddar tjänster med hjälp av autentisering av klien
 
 Om alternativet [Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) är tillgängligt anger du följande egenskaps värden:
 
-| Egenskap (designer) | Egenskap (JSON) | Obligatoriskt | Värde | Beskrivning |
+| Egenskap (designer) | Egenskap (JSON) | Krävs | Värde | Beskrivning |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autentisering** | `type` | Ja | **Active Directory OAuth** <br>eller <br>`ActiveDirectoryOAuth` | Autentiseringstypen som ska användas. Logic Apps följer för närvarande [OAuth 2,0-protokollet](../active-directory/develop/v2-overview.md). |
 | **Tullmyndighet** | `authority` | Nej | <*URL-för-Authority-token-utfärdare*> | URL för den myndighet som tillhandahåller autentiseringstoken. Som standard är det här värdet `https://login.windows.net`. |
@@ -746,7 +746,7 @@ Authorization: OAuth realm="Photos",
 
 I utlösaren eller åtgärden som stöder RAW-autentisering anger du följande egenskaps värden:
 
-| Egenskap (designer) | Egenskap (JSON) | Obligatoriskt | Värde | Beskrivning |
+| Egenskap (designer) | Egenskap (JSON) | Krävs | Värde | Beskrivning |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autentisering** | `type` | Ja | Outspädd | Autentiseringstypen som ska användas |
 | **Värde** | `value` | Ja | <*Authorization-Head-value*> | Det Authorization-huvud värde som ska användas för autentisering |
@@ -781,7 +781,7 @@ Om alternativet för [hanterad identitet](../active-directory/managed-identities
 
 1. I utlösaren eller åtgärden där du vill använda den hanterade identiteten anger du följande egenskaps värden:
 
-   | Egenskap (designer) | Egenskap (JSON) | Obligatoriskt | Värde | Beskrivning |
+   | Egenskap (designer) | Egenskap (JSON) | Krävs | Värde | Beskrivning |
    |---------------------|-----------------|----------|-------|-------------|
    | **Autentisering** | `type` | Ja | **Hanterad identitet** <br>eller <br>`ManagedServiceIdentity` | Autentiseringstypen som ska användas |
    | **Hanterad identitet** | `identity` | Ja | * **systemtilldelad hanterad identitet** <br>eller <br>`SystemAssigned` <p><p>* <*User-Assigned-Identity-name*> | Den hanterade identitet som ska användas |

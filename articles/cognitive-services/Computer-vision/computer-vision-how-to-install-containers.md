@@ -12,11 +12,11 @@ ms.date: 11/21/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 383abc674674fc024052b2c04d3c538838b83856
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120201"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394101"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installera och köra Läs behållare (förhands granskning)
 
@@ -66,7 +66,7 @@ Behållar avbildningar för läsning är tillgängliga.
 
 | Container | Container Registry/namn på lagrings plats/avbildning |
 |-----------|------------|
-| Läs | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
+| Läsa | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
 
 Använd kommandot [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) för att ladda ned en behållar avbildning.
 

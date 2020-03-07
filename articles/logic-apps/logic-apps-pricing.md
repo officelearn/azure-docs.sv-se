@@ -9,11 +9,11 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
 ms.openlocfilehash: 6c7112b6b5944042036fd3e7af6ec6f6dfbde0c0
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526152"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358721"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Pris modell för Azure Logic Apps
 
@@ -70,7 +70,7 @@ Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pric
 
 <a name="connectors"></a>
 
-## <a name="connectors"></a>Kopplingar
+## <a name="connectors"></a>Anslutningar
 
 Azure Logic Apps kopplingar hjälper dig att komma åt appar, tjänster och system i molnet i molnet eller lokalt genom att tillhandahålla [utlösare](#triggers), [åtgärder](#actions)eller både och. Anslutningarna klassificeras som antingen standard eller Enterprise. En översikt över dessa anslutningar finns i [kopplingar för Azure Logic Apps](../connectors/apis-list.md). Om inga färdiga kopplingar är tillgängliga för de REST-API: er som du vill använda i dina Logi Kap par, kan du skapa [anpassade anslutningar](https://docs.microsoft.com/connectors/custom-connectors), som bara omsluter runt dessa REST-API: er. Anpassade anslutningar faktureras som standard anslutningar. I följande avsnitt finns mer information om hur faktureringen för utlösare och åtgärder fungerar.
 

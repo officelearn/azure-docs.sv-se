@@ -11,11 +11,11 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: d86858f8d7f09628457b718ca3c481934d720081
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612637"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390624"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Data Science Virtual Machine verktyg för datainhämtning
 
@@ -69,7 +69,7 @@ Här följer några data flytt verktyg som är tillgängliga i DSVM.
 | Innehåller länkar till exempel      | [Importera data för CosmosDB](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | Relaterade verktyg på DSVM      | AzCopy, AdlCopy      |
 
-## <a name="azure-storage-explorer"></a>Azure Storage Explorer
+## <a name="azure-storage-explorer"></a>Azure Lagringsutforskaren
 
 |    |           |
 | ------------- | ------------- |
@@ -98,6 +98,6 @@ Här följer några data flytt verktyg som är tillgängliga i DSVM.
 | Vad är det?   | Ett verktyg för att montera en Azure Blob Storage-behållare i Linux-filsystemet.      |
 | DSVM-versioner som stöds      | Linux      |
 | Vanliga användningsområden      | Läsning och skrivning till blobbar i en behållare.      |
-|  Hur använder och kör jag det?    |   Kör _blobfuse_ i en terminal.    |
+|  Hur använder och kör jag det?    |   Kör _blobfuse_ på en Terminal.    |
 | Innehåller länkar till exempel      | [blobfuse på GitHub](https://github.com/Azure/azure-storage-fuse)      |
 | Relaterade verktyg på DSVM      | Azure CLI      |

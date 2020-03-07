@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 0c997fffc1adc60f774e651ed458d253b35a3bdd
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: f422d1dd6c76d78448ae4fb1012a5dae8d6108b3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612209"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376479"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: skapa en virtuell hanterings dator för att konfigurera och administrera en Azure Active Directory Domain Services hanterad domän
 
@@ -59,7 +59,6 @@ Azure AD DS tillhandahåller en hanterad domän för användare, program och tj�
 
 Medlemmar i gruppen *AAD DC-administratörer* beviljas behörigheter för den hanterade Azure AD DS-domänen som gör det möjligt för dem att utföra uppgifter som:
 
-* Anslut datorer till den hanterade domänen.
 * Konfigurera det inbyggda grup princip objekt (GPO) för *AADDC-datorer* och AADDC- *användares* behållare i den hanterade domänen.
 * Administrera DNS i den hanterade domänen.
 * Skapa och administrera anpassade organisationsenheter (OU) på den hanterade domänen.

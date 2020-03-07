@@ -3,12 +3,12 @@ title: Resurs typer som stöds genom Azure Resource Health | Microsoft Docs
 description: Resurs typer som stöds via Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 3a61c8b90f4dc5e52a875488afb5374e3d6b7ce4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
-ms.translationtype: MT
+ms.openlocfilehash: f5d1c720d3cbafafc81276a968abf2003bbd46ce
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717067"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373458"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resurs typer och hälso kontroller i Azure Resource Health
 Nedan visas en fullständig lista över alla kontroller som utförs via resurs hälsa efter resurs typer.
@@ -28,7 +28,7 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 |---|
 |<ul><li>Är batch-kontot igång?</li><li>Har kvoten för poolen överskridits för det här batch-kontot?</li></ul>|
 
-## <a name="microsoftcacheredisredis"></a>Microsoft.CacheRedis/Redis
+## <a name="microsoftcacheredis"></a>Microsoft.Cache/Redis
 |Utförda kontroller|
 |---|
 |<ul><li>Är alla cache-noder igång?</li><li>Kan cachen nås från data centret?</li><li>Har cachen nått det maximala antalet anslutningar?</li><li> Har cachen tömt sitt tillgängliga minne? </li><li>Uppstår det ett stort antal sidfel i cacheminnet?</li><li>Är cachen under tung belastning?</li></ul>|

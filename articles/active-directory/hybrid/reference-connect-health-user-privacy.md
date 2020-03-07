@@ -1,6 +1,6 @@
 ---
-title: Azure AD Connect Health and User Privacy | Microsoft Docs
-description: This document describes user privacy with Azure AD Connect Health.
+title: Azure AD Connect Health-och användar sekretess | Microsoft Docs
+description: Det här dokumentet beskriver användar sekretess med Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,29 +16,29 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58cddcde71e6e86b9abe07eb4200f13ad55ea659
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76897087"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376423"
 ---
-# <a name="user-privacy-and-azure-ad-connect-health"></a>User privacy and Azure AD Connect Health 
+# <a name="user-privacy-and-azure-ad-connect-health"></a>Användar sekretess och Azure AD Connect Health 
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
->This article deals with Azure AD Connect Health and user privacy.  For information on Azure AD Connect and user privacy see the article [here](reference-connect-user-privacy.md).
+>Den här artikeln handlar om Azure AD Connect Health-och användar sekretess.  Information om Azure AD Connect och användar sekretess finns [här](reference-connect-user-privacy.md).
 
-## <a name="user-privacy-classification"></a>User privacy classification
-Azure AD Connect Health falls into the **data processor** category of GDPR classification. As a data processor pipeline, the service provides data processing services to key partners and end consumers. Azure AD Connect Health does not generate user data and has no independent control over what personal data is collected and how it is used. Data retrieval, aggregation, analysis, and reporting in Azure AD Connect Health are based on existing on-premises data. 
+## <a name="user-privacy-classification"></a>Sekretess klassificering för användare
+Azure AD Connect Health hamnar i **data processor** kategorin för GDPR-klassificeringen. Som data behandlings pipeline tillhandahåller tjänsten data bearbetnings tjänster för viktiga partner och slut konsumenter. Azure AD Connect Health genererar inte användar data och har ingen oberoende kontroll över vilka personliga data som samlas in och hur de används. Data hämtning, sammansättning, analys och rapportering i Azure AD Connect Health baseras på befintliga lokala data. 
 
 ## <a name="data-retention-policy"></a>Policy för datalagring
-Azure AD Connect Health does not generate reports, perform analytics, or provide insights beyond 30 days. Therefore, Azure AD Connect Health does not store, process, or retain any data beyond 30 days. This design is compliant with the GDPR regulations, Microsoft privacy compliance regulations, and Azure AD data retention policies. 
+Azure AD Connect Health genererar inte rapporter, utför analyser eller ger insikter mer än 30 dagar. Därför lagrar Azure AD Connect Health inte, bearbetar eller behåller data mer än 30 dagar. Den här designen är kompatibel med reglerna för GDPR, Microsofts sekretess regler för efterlevnad och Azure AD-datakvarhållning. 
 
-Servers with active **Health service data is not up to date** **error** alerts for over 30 consecutive days suggest that no data has reached Connect Health during that time span. These servers will be disabled and not shown in Connect Health portal. To re-enable the servers, you must uninstall and [reinstall the health agent](how-to-connect-health-agent-install.md). Please note that this does not apply to **warnings** with the same alert type. Warnings indicate that partial data is missing from the server you are alerted for. 
+Servrar med aktiva **hälso tjänst data är inte uppdaterade** **fel** aviseringar i mer än 30 dagar i följd, föreslå att inga data har uppnått Connect Health under den tids perioden. Dessa servrar kommer att inaktive ras och visas inte i Connect Health-portalen. Om du vill återaktivera servrarna måste du avinstallera och [installera om hälso agenten](how-to-connect-health-agent-install.md). Observera att detta inte gäller för **varningar** med samma aviserings typ. Varningar anger att partiella data saknas på den server som du är aviserad om. 
  
-## <a name="disable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Disable data collection and monitoring in Azure AD Connect Health
-Azure AD Connect Health enables you to stop data collection for each individual monitored server or for an instance of a monitored service. For example, you can stop data collection for individual ADFS (Active Directory Federation Services) servers that are monitored using Azure AD Connect Health. You can also stop data collection for the entire ADFS instance that is being monitored using Azure AD Connect Health. När du väljer att göra det tas motsvarande servrar bort från Azure AD Connect Health Portal efter att data insamlingen stoppats. 
+## <a name="disable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Inaktivera insamling och övervakning av data i Azure AD Connect Health
+Med Azure AD Connect Health kan du stoppa data insamling för varje övervakad Server eller en instans av en övervakad tjänst. Du kan till exempel stoppa data insamling för enskilda ADFS-servrar (Active Directory Federation Services (AD FS)) som övervakas med hjälp av Azure AD Connect Health. Du kan också stoppa data insamlingen för hela ADFS-instansen som övervakas med hjälp av Azure AD Connect Health. När du väljer att göra det tas motsvarande servrar bort från Azure AD Connect Health Portal efter att data insamlingen stoppats. 
 
 >[!IMPORTANT]
 > Du behöver antingen global administratörs behörighet för Azure AD eller deltagar rollen i RBAC för att ta bort övervakade servrar från Azure AD Connect Health.

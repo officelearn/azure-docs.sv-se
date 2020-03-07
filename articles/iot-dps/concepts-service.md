@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: f42502ac4db12a060af5906243d3f8e7584c5df3
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975609"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378920"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IoT Hub Device Provisioning Service begrepp
 
@@ -73,6 +73,6 @@ En enskild registrering är en post för en enskild enhet som kan registreras. E
 
 En registrering är en post i en enhet som har registrerats/tillhandahållits till en IoT Hub via enhets etablerings tjänsten. Registrerings poster skapas automatiskt. de kan tas bort, men de kan inte uppdateras.
 
-## <a name="operations"></a>Operations
+## <a name="operations"></a>Åtgärder
 
-Åtgärder är fakturerings enheten för enhets etablerings tjänsten. En åtgärd är slutförd slut för ande av en instruktion till tjänsten. Åtgärder är bland annat registreringar och omregistreringar av enheter. Åtgärder är även ändringar på tjänstsidan, till exempel tillägg och uppdatering av poster i registreringslistan.
+Åtgärder är fakturerings enheten för enhets etablerings tjänsten. En åtgärd är slutförd slut för ande av en instruktion till tjänsten. Åtgärderna inkluderar enhets registreringar och omregistreringar; åtgärder omfattar även ändringar på tjänst sidan, till exempel att lägga till registrerings List poster och uppdatera poster i registrerings listan.

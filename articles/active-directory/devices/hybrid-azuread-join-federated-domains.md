@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28d6e5362df9f41822525af0d256cfd99568d6de
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512138"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377054"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Självstudier: Konfigurera Hybrid Azure Active Directory-anslutningar för federerade domäner
 
@@ -47,12 +47,12 @@ I den här självstudien får du lära dig hur du konfigurerar hybrid Azure AD-a
 Lär dig att:
 
 > [!div class="checklist"]
-> * Konfigurera Hybrid Azure Active Directory-anslutning
+> * Konfigurera Hybrid Azure AD-anslutning
 > * Aktivera äldre Windows-enheter
 > * Verifiera registreringen
-> * Felsökning
+> * Felsöka
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien förutsätter att du är bekant med de här artiklarna:
 
@@ -94,7 +94,7 @@ Om din organisation kräver åtkomst till Internet via en autentiserad utgående
 
 För att kontrol lera om enheten har åtkomst till ovanstående Microsoft-resurser under system kontot kan du använda anslutnings skriptet för [test av enhets registrering](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) .
 
-## <a name="configure-hybrid-azure-ad-join"></a>Konfigurera Hybrid Azure Active Directory-anslutning
+## <a name="configure-hybrid-azure-ad-join"></a>Konfigurera Hybrid Azure AD-anslutning
 
 Om du vill konfigurera en hybrid Azure AD-anslutning med hjälp av Azure AD Connect behöver du:
 
@@ -126,7 +126,7 @@ Om du vill konfigurera en hybrid Azure AD-anslutning med hjälp av Azure AD Conn
 
 1. Utför följande steg på sidan **SCP** och välj sedan **Nästa**:
 
-   ![SCP](./media/hybrid-azuread-join-federated-domains/16.png)
+   ![Tjänstanslutningspunkt](./media/hybrid-azuread-join-federated-domains/16.png)
 
    1. Välj skogen.
    1. Välj autentiseringstjänst. Du måste välja **AD FS server** om inte din organisation har enbart Windows 10-klienter och du har konfigurerat synkronisering av dator/enhet eller om din organisation använder sömlös SSO.

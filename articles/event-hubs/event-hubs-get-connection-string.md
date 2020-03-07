@@ -11,15 +11,15 @@ ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
 ms.openlocfilehash: 744151a1ce8cde630e26c17ccf06569ebd0efb61
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771010"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365400"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Hämta en anslutningssträng för Event Hubs
 
-Om du vill använda Event Hubs, måste du skapa ett namnområde för Event Hubs. Ett namn område är en omfattnings behållare för flera Event Hub-eller Kafka-ämnen. Det här namnområdet får du ett unikt [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). När ett namnområde har skapats kan hämta du anslutningssträngen som krävs för att kommunicera med Event Hubs.
+Om du vill använda Event Hubs, måste du skapa ett namnområde för Event Hubs. Ett namn område är en omfattnings behållare för flera Event Hub-eller Kafka-ämnen. Det här namn området ger dig ett unikt [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). När ett namnområde har skapats kan hämta du anslutningssträngen som krävs för att kommunicera med Event Hubs.
 
 Anslutningssträngen för Azure Event Hubs har följande komponenter som är inbäddad i den,
 
@@ -32,7 +32,7 @@ Mallen anslutningssträngen ut
 Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 ```
 
-En exempel-anslutningssträng kan se ut `Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=`
+Ett exempel på en anslutnings sträng kan se ut som `Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=`
 
 Den här artikeln vägleder dig genom olika sätt för att hämta anslutningssträngen.
 
@@ -80,5 +80,5 @@ Mer information om Azure CLI-kommandon för Event Hubs finns i [Azure CLI för E
 
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
-* [Översikt över Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Event Hubs-översikt](event-hubs-what-is-event-hubs.md)
 * [Skapa en händelsehubb](event-hubs-create.md)

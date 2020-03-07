@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: aschhab
 ms.openlocfilehash: 683a28ca3cdabd5a7ffbf6e9ffdc3ed0c58d3247
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264703"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370487"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Metod tips för prestanda förbättringar med Service Bus meddelanden
 
@@ -29,7 +29,7 @@ Dessa avsnitt innehåller flera koncept som Service Bus används för att förb�
 
 Service Bus gör det möjligt för klienter att skicka och ta emot meddelanden via ett av tre protokoll:
 
-1. Advanced Message Queuing Protocol (AMQP)
+1. Advanced Message Queueing Protocol (AMQP)
 2. SBMP (Service Bus Messaging Protocol)
 3. HTTP
 
@@ -84,7 +84,7 @@ Med batching på klient sidan kan en kö-eller ämnes klient fördröja sändnin
 
 Som standard använder en klient ett batch-intervall på 20 MS. Du kan ändra batch-intervallet genom att ange egenskapen [BatchFlushInterval][BatchFlushInterval] innan du skapar meddelande fabriken. Den här inställningen påverkar alla klienter som skapas av den här fabriken.
 
-Om du vill inaktivera batchbearbetning ställer du in egenskapen [BatchFlushInterval][BatchFlushInterval] på **TimeSpan. Zero**. Ett exempel:
+Om du vill inaktivera batchbearbetning ställer du in egenskapen [BatchFlushInterval][BatchFlushInterval] på **TimeSpan. Zero**. Exempel:
 
 ```csharp
 MessagingFactorySettings mfs = new MessagingFactorySettings();
@@ -113,7 +113,7 @@ För att öka data flödet för en kö, ett ämne eller en prenumeration Service
 
 Ytterligare lagrings åtgärder som utförs under det här intervallet läggs till i batchen. Grupp åtkomst påverkar endast åtgärder för att **Skicka** och **slutföra** . Receive-åtgärder påverkas inte. Grupp åtkomst är en egenskap för en entitet. Satsvis kompilering sker över alla entiteter som aktiverar grupp åtkomst.
 
-När du skapar en ny kö, ämne eller prenumeration, aktive ras grupp åtkomst som standard. Om du vill inaktivera grupplagrad lagrings åtkomst anger du egenskapen [EnableBatchedOperations][EnableBatchedOperations] till **false** innan du skapar entiteten. Ett exempel:
+När du skapar en ny kö, ämne eller prenumeration, aktive ras grupp åtkomst som standard. Om du vill inaktivera grupplagrad lagrings åtkomst anger du egenskapen [EnableBatchedOperations][EnableBatchedOperations] till **false** innan du skapar entiteten. Exempel:
 
 ```csharp
 QueueDescription qd = new QueueDescription();

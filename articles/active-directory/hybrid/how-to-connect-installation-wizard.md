@@ -18,13 +18,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5440c54b01f62b3ad61b355f4c622a31910a65c1
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290921"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376372"
 ---
-# <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect synkronisering: Köra installationsguiden en andra gång
+# <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect synkronisering: kör installations guiden en gång till
 Första gången du kör installations guiden för Azure AD Connect får du stegvisa anvisningar om hur du konfigurerar installationen. Om du kör installations guiden igen får du alternativ för underhåll.
 
 >[!IMPORTANT]
@@ -68,14 +68,14 @@ De andra alternativen från den första installationen kan inte ändras och är 
 * Ändra metoden för att ansluta för objekt från olika skogar.
 * Aktivera gruppbaserad filtrering.
 
-## <a name="refresh-directory-schema"></a>Uppdatera katalogschema
+## <a name="refresh-directory-schema"></a>Uppdatera katalog schema
 Det här alternativet används om du har ändrat schemat i någon av dina lokala AD DS-skogar. Du kan till exempel ha installerat Exchange eller uppgraderat till ett Windows Server 2012-schema med enhets objekt. I så fall måste du instruera Azure AD Connect att läsa schemat igen från AD DS och uppdatera dess cacheminne. Den här åtgärden återskapar också reglerna för synkronisering. Om du lägger till Exchange-schemat läggs notifieringsregler för Exchange till i konfigurationen.
 
 När du väljer det här alternativet visas alla kataloger i konfigurationen. Du kan behålla standardinställningen och uppdatera alla skogar eller avmarkera några av dem.
 
 ![Sida med en lista över alla kataloger i miljön](./media/how-to-connect-installation-wizard/refreshschema.png)
 
-## <a name="configure-staging-mode"></a>Konfigurera mellanlagringsläge
+## <a name="configure-staging-mode"></a>Konfigurera mellanlagrings läge
 Med det här alternativet kan du aktivera och inaktivera mellanlagrings läge på servern. Mer information om mellanlagrings läge och hur det kan användas finns i [åtgärder](how-to-connect-sync-staging-server.md).
 
 Alternativet visar om mellanlagring för närvarande är aktiverat eller inaktiverat:  
@@ -94,5 +94,5 @@ Mer information om det här alternativet finns i [användar inloggning](plan-con
 
 **Översikts avsnitt**
 
-* [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
+* [Azure AD Connect synkronisering: förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)

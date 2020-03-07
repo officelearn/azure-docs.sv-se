@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.openlocfilehash: bf228e17ca24df9833f96f0c6fd3ef232cdf7ae6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75377471"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386290"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Kapacitets planering och skalning för Azure Service Fabric
 
@@ -38,7 +38,7 @@ Om du använder automatisk skalning via skalnings uppsättningar för virtuella 
 
 ## <a name="vertical-scaling-considerations"></a>Överväganden vid vertikal skalning
 
-[Lodrät skalning](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) en nodtyp i Azure Service Fabric kräver ett antal steg och överväganden. Ett exempel:
+[Lodrät skalning](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) en nodtyp i Azure Service Fabric kräver ett antal steg och överväganden. Exempel:
 
 * Klustret måste vara felfritt innan skalningen. Annars kommer du att göra klustret ytterligare.
 * Silver hållbarhets nivån eller större krävs för alla Service Fabric klusternoder som är värdar för tillstånds känsliga tjänster.
@@ -123,7 +123,7 @@ Om du vill skala i manuellt uppdaterar du kapaciteten i SKU-egenskapen för öns
 }
 ```
 
-Du måste förbereda noden för avstängning för skalning i program mässigt. Hitta noden som ska tas bort (den högsta instans-noden). Ett exempel:
+Du måste förbereda noden för avstängning för skalning i program mässigt. Hitta noden som ska tas bort (den högsta instans-noden). Exempel:
 
 ```csharp
 using (var client = new FabricClient())

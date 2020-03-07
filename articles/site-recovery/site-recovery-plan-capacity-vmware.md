@@ -8,11 +8,11 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961360"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363149"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planera kapacitet och skalning för VMware haveri beredskap till Azure
 
@@ -163,7 +163,7 @@ Så här lägger du till en huvud mål server för en Windows-baserad virtuell d
     ![Skärm bild som visar var du anger IP-adressen och lösen frasen för konfigurations servern](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
 8. Välj **Registrera**. När registreringen är klar väljer du **Slutför**.
 
-När registreringen har slutförts visas servern i Azure Portal på **Recovery Services valv** > **Site Recovery infrastruktur** > **konfigurations servrar**, på huvud mål servrarna i konfigurations Server.
+När registreringen har slutförts visas servern i Azure Portal på **Recovery Services valv** > **Site Recovery infrastruktur** > **konfigurations servrar**, på huvud mål servrarna för konfigurations servern.
 
  > [!NOTE]
  > Ladda ned den senaste versionen av den [enhetliga installations filen för huvud mål servern för Windows](https://aka.ms/latestmobsvc).

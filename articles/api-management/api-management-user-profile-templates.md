@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4e3e430874f9d5b64f717b6ebb1cacb0eae46b1f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176755"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374485"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Mallar för användar profiler i Azure API Management
-Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor med en uppsättning mallar som konfigurerar innehållet. Om du använder [DotLiquid](http://dotliquidmarkup.org/) -syntax och valfritt redigerings program, till exempel [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), glyf- [resurser](api-management-template-resources.md#glyphs)och [sid kontroller](api-management-page-controls.md), har du stor flexibilitet att konfigurera innehållet på sidorna som du ser får plats med mallarna.  
+Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor med en uppsättning mallar som konfigurerar innehållet. Om du använder [DotLiquid](http://dotliquidmarkup.org/) -syntax och valfritt redigerings program, t. ex. [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [Glyph-resurser](api-management-template-resources.md#glyphs)och [sid kontroller](api-management-page-controls.md), har du stor flexibilitet att konfigurera innehållet på sidorna när du ser anpassa med hjälp av dessa mallar.  
   
  Med mallarna i det här avsnittet kan du anpassa innehållet i användar profil sidorna i Developer-portalen.  
   
@@ -116,8 +116,8 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 |`applications`|Samling av [](api-management-template-data-model-reference.md#Application) programentiteter.|Den aktuella användarens program.|  
 |`changePasswordUrl`|sträng|Den relativa URL: en för att ändra den aktuella användarens lösen ord.|  
 |`changeNameOrEmailUrl`|sträng|Den relativa URL: en för att ändra namn och e-postadress för den aktuella användaren.|  
-|`canChangePassword`|boolesk|Om den aktuella användaren kan ändra sina lösen ord.|  
-|`isSystemUser`|boolesk|Om den aktuella användaren är medlem i någon av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
+|`canChangePassword`|boolean|Om den aktuella användaren kan ändra sina lösen ord.|  
+|`isSystemUser`|boolean|Om den aktuella användaren är medlem i någon av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Exempel mal lin data  
   
@@ -337,8 +337,8 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 |`applications`|Samling av [](api-management-template-data-model-reference.md#Application) programentiteter.|Den aktuella användarens program.|  
 |`changePasswordUrl`|sträng|Den relativa URL: en för att ändra den aktuella användarens lösen ord.|  
 |`changeNameOrEmailUrl`|sträng|Den relativa URL: en för att ändra namn och e-postadress för den aktuella användaren.|  
-|`canChangePassword`|boolesk|Om den aktuella användaren kan ändra sina lösen ord.|  
-|`isSystemUser`|boolesk|Om den aktuella användaren är medlem i någon av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
+|`canChangePassword`|boolean|Om den aktuella användaren kan ändra sina lösen ord.|  
+|`isSystemUser`|boolean|Om den aktuella användaren är medlem i någon av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Exempel mal lin data  
   
@@ -500,8 +500,8 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 |`applications`|Samling av [](api-management-template-data-model-reference.md#Application) programentiteter.|Den aktuella användarens program.|  
 |`changePasswordUrl`|sträng|Den relativa URL: en för att ändra den aktuella användarens lösen ord.|  
 |`changeNameOrEmailUrl`|sträng|Den relativa URL: en för att ändra namn och e-postadress för den aktuella användaren.|  
-|`canChangePassword`|boolesk|Om den aktuella användaren kan ändra sina lösen ord.|  
-|`isSystemUser`|boolesk|Om den aktuella användaren är medlem i någon av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
+|`canChangePassword`|boolean|Om den aktuella användaren kan ändra sina lösen ord.|  
+|`isSystemUser`|boolean|Om den aktuella användaren är medlem i någon av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Exempel mal lin data  
   

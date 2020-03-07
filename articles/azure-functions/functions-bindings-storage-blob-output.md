@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: c6e15c9a99a78f0f3637f718b35462fe49fd5ee6
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202143"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371087"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Azure Blob Storage utgående bindning för Azure Functions
 
@@ -20,7 +20,7 @@ Information om konfiguration och konfigurations information finns i [översikten
 
 ## <a name="example"></a>Exempel
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Följande exempel är en [ C# funktion](functions-dotnet-class-library.md) som använder en BLOB-utlösare och två utgående BLOB-bindningar. Funktionen utlöses genom att en avbildnings-BLOB skapas i behållaren för *exempel bilder* . Det skapar små och medel stora kopior av avbildnings-bloben.
 
@@ -73,7 +73,7 @@ public class ResizeImages
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C#Över](#tab/csharp-script)
 
 <!--Same example for input and output. -->
 
@@ -122,7 +122,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 <!--Same example for input and output. -->
 
@@ -171,7 +171,7 @@ module.exports = function(context) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 <!--Same example for input and output. -->
 
@@ -224,7 +224,7 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
     outputblob.set(inputblob)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Det här avsnittet innehåller följande exempel:
 
@@ -295,7 +295,7 @@ Det här avsnittet innehåller följande exempel:
 
 ## <a name="attributes-and-annotations"></a>Attribut och anteckningar
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Använd [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs)i [ C# klass bibliotek](functions-dotnet-class-library.md).
 
@@ -323,19 +323,19 @@ public static void Run(
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C#Över](#tab/csharp-script)
 
 Attribut stöds inte av C# skript.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Attribut stöds inte av Java Script.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Attribut stöds inte av python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Attributet `@BlobOutput` ger dig åtkomst till den blob som utlöste funktionen. Om du använder en byte mat ris med attributet anger `dataType` till `binary`. Mer information finns i [utdata-exemplet](#example) .
 
@@ -351,7 +351,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | måste anges till `blob`. |
+|**typ** | Saknas | Måste anges till `blob`. |
 |**riktning** | Saknas | Måste anges till `out` för en utgående bindning. Undantag anges i [användnings](#usage) avsnittet. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blobben i funktions koden.  Ange till `$return` för att referera till funktionens retur värde.|
 |**path** |**BlobPath** | Sökvägen till BLOB-behållaren. |
@@ -362,19 +362,19 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 ## <a name="usage"></a>Användning
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C#Över](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 I Java Script får du åtkomst till BLOB-data med hjälp av `context.bindings.<name from function.json>`.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Du kan deklarera funktions parametrar som följande typer för att skriva ut till Blob Storage:
 
@@ -383,7 +383,7 @@ Du kan deklarera funktions parametrar som följande typer för att skriva ut til
 
 Mer information finns i [utdata-exemplet](#example) .
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Attributet `@BlobOutput` ger dig åtkomst till den blob som utlöste funktionen. Om du använder en byte mat ris med attributet anger `dataType` till `binary`. Mer information finns i [utdata-exemplet](#example) .
 

@@ -4,11 +4,11 @@ description: Visar en lista över de Azure-resurs typer som kan flyttas till en 
 ms.topic: conceptual
 ms.date: 02/26/2020
 ms.openlocfilehash: 8ab194ad240e4f3e0994314ef9ade3bc7159cf81
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671854"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387702"
 ---
 # <a name="move-operation-support-for-resources"></a>Åtgärds stöd för flytt av resurser
 Den här artikeln visar om en Azure-resurs har stöd för flytt åtgärden. Den innehåller också information om särskilda villkor att tänka på när du flyttar en resurs.
@@ -465,7 +465,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | utgifts | Nej | Nej |
 > | costtags | Nej | Nej |
 > | krediter | Nej | Nej |
-> | evenemang | Nej | Nej |
+> | händelser | Nej | Nej |
 > | prognoser | Nej | Nej |
 > | samtliga | Nej | Nej |
 > | Marknads platser | Nej | Nej |
@@ -1265,7 +1265,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | availabilitystatuses | Nej | Nej |
 > | childavailabilitystatuses | Nej | Nej |
 > | childresources | Nej | Nej |
-> | evenemang | Nej | Nej |
+> | händelser | Nej | Nej |
 > | ansökningar | Nej | Nej |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
@@ -1326,9 +1326,9 @@ Hoppa till ett namn område för en resurs leverantör:
 > | dataconnectorscheckrequirements | Nej | Nej |
 > | poster | Nej | Nej |
 > | entityqueries | Nej | Nej |
-> | Incidenter | Nej | Nej |
+> | incidenter | Nej | Nej |
 > | officeconsents | Nej | Nej |
-> | settings | Nej | Nej |
+> | standardklient | Nej | Nej |
 
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 
@@ -1359,7 +1359,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | managedclusters | Nej | Nej |
 > | nätet | Nej | Nej |
 > | secretstores | Nej | Nej |
-> | volumes | Nej | Nej |
+> | volymer | Nej | Nej |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
@@ -1370,7 +1370,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | gatewayer | Ja | Ja |
 > | nätet | Ja | Ja |
 > | hemligheter | Ja | Ja |
-> | volumes | Ja | Ja |
+> | volymer | Ja | Ja |
 
 ## <a name="microsoftservices"></a>Microsoft. Services
 

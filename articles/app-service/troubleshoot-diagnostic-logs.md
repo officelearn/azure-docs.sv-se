@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
 ms.openlocfilehash: 433f8fa36f17f7cb145261273586a684658acda5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985942"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355639"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för appar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -23,7 +23,7 @@ I den här artikeln används [Azure Portal](https://portal.azure.com) och Azure 
 >
 >
 
-|Typ|Plattform|Location|Beskrivning|
+|Typ|Plattform|plats.|Beskrivning|
 |-|-|-|-|
 | Programloggning | Windows, Linux | App Service fil system och/eller Azure Storage blobbar | Loggar meddelanden som genereras av din program kod. Meddelandena kan genereras av det webb ramverk du väljer eller från din program kod direkt med hjälp av standard loggnings mönstret för ditt språk. Varje meddelande tilldelas en av följande kategorier: **kritisk**, **fel**, **Varning**, **information**, **fel sökning**och **spårning**. Du kan välja hur utförlig loggning ska ske genom att ange allvarlighets grad när du aktiverar program loggning.|
 | Webb Server loggning| Windows | App Service fil system eller Azure Storage blobbar| Rå data för HTTP-begäran i [utökat logg fils format för W3C](/windows/desktop/Http/w3c-logging). Varje logg meddelande innehåller data, till exempel HTTP-metoden, resurs-URI, klient-IP, klient port, användar agent, svars kod och så vidare. |
@@ -59,7 +59,7 @@ Välj **nivå**eller den informations nivå som ska loggas. Följande tabell vis
 
 | Nivå | Inkluderade kategorier |
 |-|-|
-|**Inaktiverad** | Inget |
+|**Inaktiverad** | Ingen |
 |**Fels** | Fel, kritiskt |
 |**Honom** | Varning, fel, kritiskt|
 |**Mer** | Information, varning, fel, kritiskt|
@@ -105,9 +105,9 @@ Båda typerna av loggar lagras i App Service fil system. Upp till 50 fel (filer/
 
 ## <a name="add-log-messages-in-code"></a>Lägg till logg meddelanden i kod
 
-I program koden använder du vanliga loggnings funktioner för att skicka logg meddelanden till program loggarna. Ett exempel:
+I program koden använder du vanliga loggnings funktioner för att skicka logg meddelanden till program loggarna. Exempel:
 
-- ASP.NET-program kan använda klassen [system. Diagnostics. trace](/dotnet/api/system.diagnostics.trace) för att logga information i Application Diagnostics-loggen. Ett exempel:
+- ASP.NET-program kan använda klassen [system. Diagnostics. trace](/dotnet/api/system.diagnostics.trace) för att logga information i Application Diagnostics-loggen. Exempel:
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -135,12 +135,12 @@ Om du vill strömma loggar Live i [Cloud Shell](../cloud-shell/overview.md)anvä
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-Om du vill filtrera vissa händelser, till exempel fel, använder du parametern **--filter** . Ett exempel:
+Om du vill filtrera vissa händelser, till exempel fel, använder du parametern **--filter** . Exempel:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 ```
-Använd parametern **--Path** för att filtrera vissa logg typer, till exempel http. Ett exempel:
+Använd parametern **--Path** för att filtrera vissa logg typer, till exempel http. Exempel:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --path http
@@ -184,12 +184,12 @@ I följande tabell visas de logg typer och beskrivningar som stöds:
 
 | Loggtyp | Windows-support | Stöd för Linux (Docker) | Beskrivning |
 |-|-|-|
-| AppServiceConsoleLogs | Kommer senare | Ja | Standardutdata och standard fel |
+| AppServiceConsoleLogs | TBA | Ja | Standardutdata och standard fel |
 | AppServiceHTTPLogs | Ja | Ja | Webb server loggar |
 | AppServiceEnvironmentPlatformLogs | Ja | Ja | App Service-miljön: skalning, konfigurations ändringar och status loggar|
 | AppServiceAuditLogs | Ja | Ja | Inloggnings aktivitet via FTP och kudu |
-| AppServiceFileAuditLogs | Kommer senare | Ja | Fil ändringar via FTP och kudu |
-| AppServiceAppLogs | Kommer senare | Java SE & Tomcat | Program loggar |
+| AppServiceFileAuditLogs | TBA | Ja | Fil ändringar via FTP och kudu |
+| AppServiceAppLogs | TBA | Java SE & Tomcat | Program loggar |
 
 ## <a name="nextsteps"></a>Nästa steg
 * [Fråga efter loggar med Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

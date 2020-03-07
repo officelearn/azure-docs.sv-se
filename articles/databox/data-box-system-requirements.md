@@ -1,5 +1,5 @@
 ---
-title: Systemkrav för Microsoft Azure Data Box | Microsoft Docs
+title: Microsoft Azure Data Box-enhet system krav | Microsoft Docs
 description: Lär dig mer om programvaran och nätverkskraven för din Azure Data Box-enhet
 services: databox
 author: alkohli
@@ -9,35 +9,35 @@ ms.topic: article
 ms.date: 07/11/2019
 ms.author: alkohli
 ms.openlocfilehash: e232ad131b1c0930afcf5e7e78b386aba2c9490b
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839748"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380590"
 ---
-# <a name="azure-data-box-system-requirements"></a>Azure Data Box-systemkrav
+# <a name="azure-data-box-system-requirements"></a>Azure Data Box system krav
 
-Den här artikeln beskriver viktiga systemkraven för din Microsoft Azure Data Box och för klienter som ansluter till Data Box. Vi rekommenderar att du har läst informationen noggrant innan du distribuerar din Data box-enhet och sedan refererar tillbaka till det som behövs under distributionen och efterföljande driften.
+I den här artikeln beskrivs viktiga system krav för din Microsoft Azure Data Box-enhet och för klienter som ansluter till Data Box-enhet. Vi rekommenderar att du läser informationen noggrant innan du distribuerar din Data Box-enhet och sedan går tillbaka till den vid behov under distributionen och efterföljande åtgärder.
 
-Systemkraven är:
+System kraven är:
 
-* **Programvarukrav för värdar som ansluter till Data Box** -beskriver plattformarna som stöds, webbläsare för det lokala webbgränssnittet, SMB-klienter och ytterligare krav för värdar som kan ansluta till Data Box.
-* **Nätverkskrav för Data Box** – innehåller information om nätverkskrav för optimala driften av Data Box.
+* **Program varu krav för värdar som ansluter till data Box-enhet** – beskriver de plattformar som stöds, webbläsare för det lokala webb gränssnittet, SMB-klienter och eventuella ytterligare krav för värdar som kan ansluta till data Box-enhet.
+* **Nätverks krav för data Box-enhet** – ger information om nätverks kraven för den optimala driften av data Box-enhet.
 
 
 ## <a name="software-requirements"></a>Programvarukrav
 
-Programvarukrav innehålla information om de operativsystem som stöds och webbläsare som stöds för det lokala webbgränssnittet SMB-klienter.
+Program varu kraven innehåller information om de operativ system som stöds, vilka webbläsare som stöds för det lokala webb gränssnittet och SMB-klienter.
 
 ### <a name="supported-operating-systems-for-clients"></a>Operativsystem som stöds för klienter
 
 [!INCLUDE [data-box-supported-os-clients](../../includes/data-box-supported-os-clients.md)]
 
-### <a name="supported-file-systems-for-linux-clients"></a>Filsystem som stöds för Linux-klienter
+### <a name="supported-file-systems-for-linux-clients"></a>Fil system som stöds för Linux-klienter
 
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
 
-### <a name="supported-storage-accounts"></a>Stöds storage-konton
+### <a name="supported-storage-accounts"></a>Lagringskonton som stöds
 
 [!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
 
@@ -49,13 +49,13 @@ Programvarukrav innehålla information om de operativsystem som stöds och webbl
 
 [!INCLUDE [data-box-supported-web-browsers](../../includes/data-box-supported-web-browsers.md)]
 
-## <a name="networking-requirements"></a>Nätverkskrav
+## <a name="networking-requirements"></a>Nätverks krav
 
-Datacentret måste ha höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE-anslutning inte är tillgänglig användas en 1 GbE-datalänk för att kopiera data men kopian hastighet som påverkas.
+Datacentret måste ha höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10-GbE-anslutning inte är tillgänglig kan en 1 – GbE-datalänk användas för att kopiera data, men kopierings hastigheten påverkas.
 
-### <a name="port-requirements"></a>Krav på nätverksportar
+### <a name="port-requirements"></a>Port krav
 
-I följande tabell visas de portar som måste öppnas i brandväggen för att tillåta för SMB- eller NFS-trafik. I den här tabellen *i* eller *inkommande* avser riktningen från vilka inkommande begäranden för klientåtkomst till din enhet. *Ut* eller *utgående* refererar till den riktning som din Data Box-enhet skickar data externt, utöver distributionen: till exempel utgående till Internet.
+I följande tabell visas de portar som måste öppnas i brand väggen för att tillåta SMB-eller NFS-trafik. I den här tabellen avser *i* eller *inkommande* den riktning från vilken inkommande klient begär åtkomst till din enhet. *Out* eller *utgående* avser i vilken riktning din data Box-enhet enhet skickar data externt, utöver distributionen: till exempel utgående till Internet.
 
 [!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 

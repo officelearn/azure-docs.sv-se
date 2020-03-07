@@ -17,17 +17,17 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: addc7db2aa2f0f9ba16438d2a31d6c7cc6bfa49e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174492"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376583"
 ---
 # <a name="view-requests-for-an-access-package-in-azure-ad-entitlement-management"></a>Visa begär Anden för ett Access-paket i hantering av Azure AD-rättigheter
 
 I hantering av Azure AD-rättigheter kan du se vem som har begärt åtkomst paket, deras principer och status. Den här artikeln beskriver hur du visar begär Anden för ett åtkomst paket.
 
-## <a name="view-requests"></a>Visa begär Anden
+## <a name="view-requests"></a>Visa begäran
 
 **Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 

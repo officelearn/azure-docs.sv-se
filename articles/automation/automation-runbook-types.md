@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 6346c29210b6390f11c884ff51e0b60af89bbbb7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420915"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373142"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook-typer
 
@@ -77,7 +77,7 @@ PowerShell Workflow-Runbooks är text-Runbooks baserade på [Windows PowerShell-
 
 * Implementera alla komplex logik med PowerShell Workflow-kod.
 * Använd [kontroll punkter](automation-powershell-workflow.md#checkpoints) för att återuppta Runbook om det uppstår ett fel.
-* Använd [parallellbearbetning](automation-powershell-workflow.md#parallel-processing) att utföra flera åtgärder parallellt.
+* Använd [parallell bearbetning](automation-powershell-workflow.md#parallel-processing) för att utföra flera åtgärder parallellt.
 * Kan inkludera andra grafiska runbooks och PowerShell Workflow-Runbooks som underordnade Runbooks för att skapa arbets flöden på hög nivå.
 
 ### <a name="limitations"></a>Begränsningar

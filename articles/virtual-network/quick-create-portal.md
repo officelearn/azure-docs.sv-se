@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 07/08/2019
 ms.author: kumud
 ms.openlocfilehash: d8e95f9c345a943eb458800b852640e3f1fde907
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488501"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393120"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Snabbstart: Skapa ett virtuellt nätverk med hjälp av Azure-portalen
 
@@ -30,7 +30,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
@@ -42,7 +42,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Namn | Ange *myVirtualNetwork*. |
+    | Name | Ange *myVirtualNetwork*. |
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
@@ -70,7 +70,7 @@ Skapa två virtuella datorer i det virtuella nätverket:
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt. |
     | **INSTANSINFORMATION** |  |
-    | Namn på virtuell dator | Ange *myVm1*. |
+    | Virtuellt datornamn | Ange *myVm1*. |
     | Region | Välj **USA, östra**. |
     | Alternativ för tillgänglighet | Lämna kvar standardinställningen **Ingen infrastrukturredundans krävs**. |
     | Bild | Lämna standard **Windows Server 2019 Data Center**. |
@@ -93,7 +93,7 @@ Skapa två virtuella datorer i det virtuella nätverket:
     | Inställning | Värde |
     | ------- | ----- |
     | Virtuellt nätverk | Lämna kvar standardinställningen **myVirtualNetwork**. |
-    | Undernät | Lämna standardinställningen **myVirtualSubnet (10.1.0.0/24)** . |
+    | Subnet | Lämna standardinställningen **myVirtualSubnet (10.1.0.0/24)** . |
     | Offentlig IP-adress | Lämna standardinställningen **(ny) myVm-ip**. |
     | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
     | Välj inkommande portar | Välj **HTTP** och **RDP**.
@@ -106,7 +106,7 @@ Skapa två virtuella datorer i det virtuella nätverket:
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Namn | Ange *myvmstorageaccount*. Om det här namnet tas skapar du ett unikt namn.|
+    | Name | Ange *myvmstorageaccount*. Om det här namnet tas skapar du ett unikt namn.|
     | Typ av konto | Lämna kvar standardinställningen **Lagring (generell användning v1)** . |
     | Prestanda | Lämna kvar standardinställningen **Standard**. |
     | Replikering | Lämna kvar standardinställningen **Lokalt redundant lagring (LRS)** . |

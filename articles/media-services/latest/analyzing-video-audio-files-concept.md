@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/30/2020
 ms.author: juliako
 ms.openlocfilehash: 1d28fc37b98493322b9e201ac899b7911dd1d705
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988353"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359464"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analysera video-och ljudfiler med Azure Media Services
 
@@ -36,7 +36,7 @@ Som en viktig påminnelse måste du följa alla tillämpliga lagar i din använd
 
 Media Services stöder för närvarande följande inbyggda Analyzer-för hands inställningar:  
 
-|**Förinställda namnet**|**Scenario**|**Detaljer**|
+|**Förvals namn**|**Scenario**|**Detaljer**|
 |---|---|---|
 |[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analysera ljud|För inställningen används en fördefinierad uppsättning av AI-baserade analys åtgärder, inklusive tal avskrifter. För närvarande stöder för inställningen bearbetning av innehåll med ett enda ljud spår som innehåller tal på ett och samma språk. Du kan ange språket för ljud nytto lasten i indata med BCP-47-formatet för ' language tag-region '. Språk som stöds är engelska ("en-US" och "en-GB"), spanska ("es-ES" och "es-MX"), franska (fr-FR). italienska ("IT-IT"), japanska (' ja-JP '), portugisiska (' pt-BR '), kinesiska (' zh-CN '), tyska ("de-DE"), arabiska ("ar-tex" och "ar-SY"), ryska (ru-RU), Hindi ("Hi-IN") och koreanska (' ko-KR ').<br/><br/> Om språket inte har angetts eller är inställt på null väljer automatisk språk identifiering det första språket som identifieras och fortsätter med det valda språket under filens varaktighet. Funktionen för automatisk språk identifiering stöder för närvarande engelska, kinesiska, franska, tyska, italienska, japanska, spanska, ryska och portugisiska. Den stöder inte dynamisk växling mellan språk när det första språket har identifierats. Funktionen för automatisk språk identifiering fungerar bäst med ljud inspelningar med tydligt discernible tal. Om automatisk språk identifiering inte kan hitta språket, går avskriften tillbaka till engelska.|
 |[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analysera ljud och video|Extraherar insikter (avancerade metadata) från både ljud och video och matar ut en JSON-format fil. Du kan ange om du bara vill extrahera ljud insikter när du bearbetar en videofil. Mer information finns i [Analysera video](analyze-videos-tutorial-with-api.md).|
@@ -72,7 +72,7 @@ Utdata innehåller en JSON-fil (Insights. JSON) med alla insikter som finns i vi
 |id|Rad-ID.|
 |text|Själva avskriften.|
 |language|Avskrifts språket. Avsett att stödja avskrifter där varje rad kan ha ett annat språk.|
-|instanser|En lista med tidsintervaller där denna rad visades. Om instansen avskrifts har den bara en instans.|
+|pipe|En lista med tidsintervaller där denna rad visades. Om instansen avskrifts har den bara en instans.|
 
 Exempel:
 
@@ -111,7 +111,7 @@ Exempel:
 |text|OCR-text.|
 |tillit|Igenkännings förtroendet.|
 |language|OCR-språket.|
-|instanser|En lista med tidsintervall där denna OCR visades (samma OCR kan förekomma flera gånger).|
+|pipe|En lista med tidsintervall där denna OCR visades (samma OCR kan förekomma flera gånger).|
 
 ```json
 "ocr": [
@@ -153,14 +153,14 @@ Exempel:
 |id|Ansikts-ID.|
 |namn|Ansikts namnet. Det kan vara okänt #0, ett identifierat kändis eller en kundutbildad person.|
 |tillit|Förtroende för ansikts identifiering.|
-|description|En beskrivning av kändis. |
+|beskrivning|En beskrivning av kändis. |
 |thumbnailId|ID för miniatyr bilden för den aktuella ytan.|
 |knownPersonId|Det interna ID: t (om det är en känd person).|
 |referenceId|Bing-ID: t (om det är en Bing-kändis).|
 |referenceType|Just Bing.|
 |title|Rubriken (om det är en kändis, till exempel "Microsofts VD").|
 |imageUrl|Bild-URL: en, om det är en kändis.|
-|instanser|Instanser där ytan fanns inom det aktuella tidsintervallet. Varje instans har också en thumbnailsId. |
+|pipe|Instanser där ytan fanns inom det aktuella tidsintervallet. Varje instans har också en thumbnailsId. |
 
 ```json
 "faces": [{
@@ -197,7 +197,7 @@ Exempel:
 |---|---|
 |id|Bild-ID.|
 |Nyckel rutor|En lista över nyckel bild rutor i instansen (var och en har ett ID och en lista över instanser av instans intervallet). Nyckel bilds instanser har ett thumbnailId-fält med nyckel rutans miniatyr-ID.|
-|instanser|En lista över tidsintervallen för den här instansen (dum par har bara en instans).|
+|pipe|En lista över tidsintervallen för den här instansen (dum par har bara en instans).|
 
 ```json
 "Shots": [
@@ -267,7 +267,7 @@ Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). 
 |---|---|
 |id|Sentiment-ID.|
 |averageScore |Medelvärdet av alla resultat från alla instanser av sentiment-typ positiv/neutral/negativ|
-|instanser|En lista med tidsintervaller där denna sentiment visades.|
+|pipe|En lista med tidsintervaller där denna sentiment visades.|
 |sentimentType |Typen kan vara "positiv", "neutral" eller "negativ".|
 
 ```json
@@ -303,7 +303,7 @@ Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). 
 |id|Etikett-ID: t.|
 |namn|Etikett namnet (till exempel "dator", "TV").|
 |language|Etikettens namn språk (vid översättning). BCP-47|
-|instanser|En lista med tidsintervall där etiketten visas (en etikett kan visas flera gånger). Varje instans har ett konfidens fält. |
+|pipe|En lista med tidsintervall där etiketten visas (en etikett kan visas flera gånger). Varje instans har ett konfidens fält. |
 
 ```json
 "labels": [
@@ -362,7 +362,7 @@ Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). 
 |text|Nyckelords texten.|
 |tillit|Nyckelordets tolknings säkerhet.|
 |language|Nyckelords språket (vid översättning).|
-|instanser|En lista med tidsintervall där det här nyckelordet visades (ett nyckelord kan visas flera gånger).|
+|pipe|En lista med tidsintervall där det här nyckelordet visades (ett nyckelord kan visas flera gånger).|
 
 ```json
 "keywords": [
@@ -412,7 +412,7 @@ Videor som innehåller vuxen eller vågat innehåll kan endast vara tillgänglig
 |id|ID för moderator för visuellt innehåll.|
 |adultScore|Den vuxen poängen (från Content moderator).|
 |racyScore|Vågat-poängen (från innehålls redigering).|
-|instanser|En lista med tidsintervaller där den här visuella innehålls kontrollanten visades.|
+|pipe|En lista med tidsintervaller där den här visuella innehålls kontrollanten visades.|
 
 ```json
 "VisualContentModeration": [

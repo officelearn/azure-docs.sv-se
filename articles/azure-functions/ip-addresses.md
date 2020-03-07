@@ -4,11 +4,11 @@ description: Lär dig hur du hittar inkommande och utgående IP-adresser för Fu
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612895"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358070"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>IP-adresser i Azure Functions
 
@@ -25,9 +25,9 @@ IP-adresser är kopplade till Function-appar, inte med enskilda funktioner. Inko
 
 Varje Function-app har en enda inkommande IP-adress. Så här hittar du IP-adressen:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Navigera till Function-appen.
-3. Välj **Plattformsfunktioner**.
+3. Välj **plattforms funktioner**.
 4. Välj **Egenskaper**så visas den inkommande IP-adressen under **virtuell IP-adress**.
 
 ## <a name="find-outbound-ip-addresses"></a>Funktion app utgående IP-adresser
@@ -115,9 +115,9 @@ Om du behöver statiska, dedikerade IP-adresser rekommenderar vi [App Service mi
 
 Ta reda på om din Function-App körs i en App Service-miljön:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Navigera till Function-appen.
-3. Välj fliken **Översikt**.
+3. Välj fliken **Översikt** .
 4. App Service plan nivån visas under **App Service plan/pris nivå**. Pris nivån för App Service-miljön är **isolerad**.
  
 Alternativt kan du använda [Cloud Shell](../cloud-shell/quickstart.md):

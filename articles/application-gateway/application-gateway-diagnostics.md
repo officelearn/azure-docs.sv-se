@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
 ms.openlocfilehash: 1ddbc8e909c5ba0b720e893e87c0f495d256a886
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75966931"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384803"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Server dels hälsa och diagnostikloggar för Application Gateway
 
@@ -162,8 +162,8 @@ Azure genererar aktivitets loggen som standard. Loggarna bevaras för 90 dagar i
 |---------|---------|
 |instanceId     | Application Gateway instans som hanterade begäran.        |
 |clientIP     | Ursprunglig IP för begäran.        |
-|ClientPort     | Ursprunglig port för begäran.       |
-|HttpMethod     | HTTP-metod som används av begäran.       |
+|clientPort     | Ursprunglig port för begäran.       |
+|httpMethod     | HTTP-metod som används av begäran.       |
 |requestUri     | URI för den mottagna begäran.        |
 |RequestQuery     | **Server-routad**: backend-instansen som skickade begäran.</br>**X-AzureApplicationGateway-log-ID**: KORRELATIONS-ID som används för begäran. Den kan användas för att felsöka trafik problem på backend-servrarna. </br>**Server status**: http-svarskod som Application Gateway emot från Server delen.       |
 |UserAgent     | Användar agent från rubriken HTTP-begäran.        |
@@ -173,7 +173,7 @@ Azure genererar aktivitets loggen som standard. Loggarna bevaras för 90 dagar i
 |sentBytes| Storlek på paket som skickas, i byte.|
 |timeTaken| Tids längd (i millisekunder) som det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som intervallet från den tidpunkt då Application Gateway tar emot den första byten i en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs. Det är viktigt att Observera att det tidsödande fältet vanligt vis innehåller den tid som paket för begäran och svar överförs över nätverket. |
 |sslEnabled| Huruvida kommunikationen med backend-pooler använder SSL. Giltiga värden är på och av.|
-|värd| Det värdnamn som begäran har skickats till backend-servern. Om värd namnet för Server delen åsidosätts, kommer det här namnet att återspegla detta.|
+|host| Det värdnamn som begäran har skickats till backend-servern. Om värd namnet för Server delen åsidosätts, kommer det här namnet att återspegla detta.|
 |originalHost| Det värdnamn som begäran togs emot av Application Gateway från klienten.|
 ```json
 {
@@ -206,8 +206,8 @@ För Application Gateway och WAF v2 visar loggarna lite mer information:
 |---------|---------|
 |instanceId     | Application Gateway instans som hanterade begäran.        |
 |clientIP     | Ursprunglig IP för begäran.        |
-|ClientPort     | Ursprunglig port för begäran.       |
-|HttpMethod     | HTTP-metod som används av begäran.       |
+|clientPort     | Ursprunglig port för begäran.       |
+|httpMethod     | HTTP-metod som används av begäran.       |
 |requestUri     | URI för den mottagna begäran.        |
 |UserAgent     | Användar agent från rubriken HTTP-begäran.        |
 |httpStatus     | HTTP-statuskod som returnerades till klienten från Application Gateway.       |
@@ -221,7 +221,7 @@ För Application Gateway och WAF v2 visar loggarna lite mer information:
 |serverRouted| Backend-servern som Application Gateway dirigerar begäran till.|
 |serverStatus| HTTP-statuskod för backend-servern.|
 |serverResponseLatency| Svars tid för svaret från backend-servern.|
-|värd| Adress som anges i värd rubriken för begäran.|
+|host| Adress som anges i värd rubriken för begäran.|
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -264,7 +264,7 @@ Prestanda loggen skapas endast om du har aktiverat den på varje Application Gat
 |requestCount     | Antal begär Anden som hanteras.        |
 |svars tid | Genomsnittlig svars tid (i millisekunder) för begär Anden från instansen till Server delen som hanterar begär Anden. |
 |failedRequestCount| Antal misslyckade förfrågningar.|
-|Dataflöde| Genomsnittligt data flöde sedan den senaste loggen mätt i byte per sekund.|
+|throughput| Genomsnittligt data flöde sedan den senaste loggen mätt i byte per sekund.|
 
 ```json
 {
@@ -297,14 +297,14 @@ Brand Väggs loggen skapas endast om du har aktiverat den för varje Application
 |---------|---------|
 |instanceId     | Application Gateway instans som brand Väggs data ska skapas för. För en Application Gateway med flera instanser finns det en rad per instans.         |
 |clientIp     |   Ursprunglig IP för begäran.      |
-|ClientPort     |  Ursprunglig port för begäran.       |
+|clientPort     |  Ursprunglig port för begäran.       |
 |requestUri     | URL för den mottagna begäran.       |
 |ruleSetType     | Regel uppsättnings typ. Det tillgängliga värdet är OWASP.        |
 |ruleSetVersion     | Regel uppsättnings version används. Tillgängliga värden är 2.2.9 och 3,0.     |
 |ruleId     | Regel-ID för Utlös ande händelse.        |
 |meddelande     | Användarvänligt meddelande för händelsen som utlöses. Mer information finns i avsnittet information.        |
 |åtgärd     |  Åtgärd som vidtas på begäran. De tillgängliga värdena matchas och blockeras.      |
-|webbplats     | Platsen som loggen skapades för. För närvarande visas bara globala grupper eftersom reglerna är globala.|
+|plats     | Platsen som loggen skapades för. För närvarande visas bara globala grupper eftersom reglerna är globala.|
 |details     | Information om händelsen som utlöses.        |
 |information. Message     | Beskrivning av regeln.        |
 |details.data     | Vissa data som finns i en begäran som matchade regeln.         |
@@ -343,7 +343,7 @@ Brand Väggs loggen skapas endast om du har aktiverat den för varje Application
 
 ```
 
-### <a name="view-and-analyze-the-activity-log"></a>Visa och analysera aktivitetsloggar
+### <a name="view-and-analyze-the-activity-log"></a>visa och analysera aktivitetsloggar
 
 Du kan visa och analysera aktivitetsloggdata med någon av följande metoder:
 

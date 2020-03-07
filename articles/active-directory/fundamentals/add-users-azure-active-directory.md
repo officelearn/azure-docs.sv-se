@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d72616422934501e042375edfb10a25aa27c527
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073480"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377540"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Lägga till eller ta bort användare som använder Azure Active Directory
 
@@ -40,7 +40,7 @@ Följ dessa steg om du vill lägga till en ny användare:
 
 1. Ange information för den här användaren på sidan **användare** :
 
-   - **Namn**. Krävs. Första och sista namnet på den nya användaren. Till exempel *Mary Parker*.
+   - **Namn**. Krävs. Första och sista namnet på den nya användaren. Till exempel *Mary parker*.
 
    - **Användar namn**. Krävs. Användarnamn för den nya användaren. Till exempel `mary@contoso.com`.
 
@@ -50,7 +50,7 @@ Följ dessa steg om du vill lägga till en ny användare:
 
    - **Katalog roll**: om du kräver administratörs behörighet för Azure AD för användaren kan du lägga till dem i en Azure AD-roll. Du kan tilldela användaren till en global administratör eller en eller flera av de begränsade administratörs rollerna i Azure AD. Mer information om hur du tilldelar roller finns i [tilldela roller till användare](active-directory-users-assign-role-azure-portal.md).
 
-   - **Jobb information**: du kan lägga till mer information om användaren här eller göra det senare. Läs mer om att lägga till användarinformation [lägga till eller ändra information om användarprofiler](active-directory-users-profile-azure-portal.md).
+   - **Jobb information**: du kan lägga till mer information om användaren här eller göra det senare. Mer information om hur du lägger till användar information finns i [så här lägger du till eller ändrar information om användar profiler](active-directory-users-profile-azure-portal.md).
 
 1. Kopiera det automatiskt genererade lösen ordet som anges i rutan **lösen ord** . Du måste ge det här lösen ordet till användaren för att kunna logga in för första gången.
 
@@ -68,7 +68,7 @@ Det kan finnas scenarier där du manuellt vill skapa konsument konton i din Azur
 
 ## <a name="add-a-new-user-within-a-hybrid-environment"></a>Lägg till en ny användare i en hybridmiljö
 
-Om du har en miljö med både Azure Active Directory (moln) och Windows Server Active Directory (lokalt), kan du lägga till nya användare genom att synkronisera befintliga konto användardata. Mer information om hybridmiljöer och användare finns i [integrerar dina lokala kataloger med Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
+Om du har en miljö med både Azure Active Directory (moln) och Windows Server Active Directory (lokalt), kan du lägga till nya användare genom att synkronisera befintliga konto användardata. Mer information om hybrid miljöer och användare finns i [integrera dina lokala kataloger med Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 ## <a name="delete-a-user"></a>Ta bort en användare
 
@@ -80,13 +80,13 @@ Följ dessa steg om du vill ta bort en användare:
 
 1. Sök efter och välj *Azure Active Directory* från vilken sida som helst.
 
-1. Sök efter och välj den användare som du vill ta bort från Azure AD-klienten. Till exempel _Mary Parker_.
+1. Sök efter och välj den användare som du vill ta bort från Azure AD-klienten. Till exempel _Mary parker_.
 
-1. Välj **ta bort användaren**.
+1. Välj **ta bort användare**.
 
     ![Användare - sidan för alla användare med ta bort användaren markerat](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
 
-Användaren tas bort och inte längre visas på den **användare – alla användare** sidan. Användaren visas på den **borttagna användare** för de närmaste 30 dagarna och kan återställas under den tiden. Mer information om hur du återställer en användare finns i [återställa eller ta bort en nyligen borttagen användare med hjälp av Azure Active Directory](active-directory-users-restore.md).
+Användaren tas bort och visas inte längre på sidan **användare – alla användare** . Användaren kan visas på sidan **borttagna användare** under de närmaste 30 dagarna och kan återställas under den tiden. Mer information om hur du återställer en användare finns i [återställa eller ta bort en nyligen borttagen användare med hjälp av Azure Active Directory](active-directory-users-restore.md).
 
 När en användare tas bort görs alla licenser som används av användaren tillgängliga för andra användare.
 
@@ -97,12 +97,12 @@ När en användare tas bort görs alla licenser som används av användaren till
 
 När du har lagt till dina användare kan du göra följande grundläggande processer:
 
-- [Lägga till eller ändra profilinformation](active-directory-users-profile-azure-portal.md)
+- [Lägga till eller ändra profil information](active-directory-users-profile-azure-portal.md)
 
 - [Tilldela roller till användare](active-directory-users-assign-role-azure-portal.md)
 
-- [Skapa en basgrupp och lägga till medlemmar](active-directory-groups-create-azure-portal.md)
+- [Skapa en grundläggande grupp och Lägg till medlemmar](active-directory-groups-create-azure-portal.md)
 
 - [Arbeta med dynamiska grupper och användare](../users-groups-roles/groups-create-rule.md)
 
-Eller så kan du utföra andra användar hanterings uppgifter, till exempel [lägga till gäst användare från en annan katalog](../b2b/what-is-b2b.md) eller [återställa en borttagen användare](active-directory-users-restore.md). Läs mer om andra tillgängliga åtgärder, [Azure Active Directory management supportdokumentation](../users-groups-roles/index.yml).
+Eller så kan du utföra andra användar hanterings uppgifter, till exempel [lägga till gäst användare från en annan katalog](../b2b/what-is-b2b.md) eller [återställa en borttagen användare](active-directory-users-restore.md). Mer information om andra tillgängliga åtgärder finns i [Azure Active Directory User Management-dokumentation](../users-groups-roles/index.yml).

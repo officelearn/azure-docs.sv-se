@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: f61fdedcd3c910ef5d09685fea00473a83b321f1
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: cf82dddf281e8e6f1348884702e32330dee4781b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834288"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372953"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Publicera Uppdateringshantering, Ändringsspårning och inventerings lösningar
 
@@ -35,11 +35,11 @@ Välj Log Analytics arbets yta och Automation-konto och klicka på **Aktivera** 
 
 Lösningen Ändringsspårning och inventering ger dig möjlighet att [spåra ändringar](automation-vm-change-tracking.md) och [inventering](automation-vm-inventory.md) på dina virtuella datorer. I det här steget aktiverar du lösningen för en virtuell dator.
 
-När meddelandet för lösning för publicering av ändringsspårning och inventering har slutförts klickar du på **Uppdateringshantering** under **Konfigurationshantering**.
+När meddelandet ändrings spårning och inventerings lösning har slutförts väljer du **uppdaterings hantering** under **uppdaterings hantering**.
 
-Med uppdateringshanteringslösningen kan du hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer i Windows. Du kan utvärdera statusen för tillgängliga uppdateringar, schemalägga installation av nödvändiga uppdateringar och granska distributionsresultat för att verifiera att uppdateringarna har tillämpats på den virtuella datorn. Den här åtgärden aktiverade lösningen för den virtuella datorn.
+Med Uppdateringshantering-lösningen kan du hantera uppdateringar och korrigeringar för dina virtuella Azure-och hybrid datorer. Du kan bedöma status för tillgängliga uppdateringar, schemalägga installation av nödvändiga uppdateringar och granska distributions resultat för att kontrol lera att uppdateringarna har tillämpats korrekt.
 
-Välj hantering av **uppdateringar** under **uppdaterings hantering**. Den Log Analytics arbets ytan som valts är samma arbets yta som användes i föregående steg. Klicka på **Aktivera** för att publicera lösningen för uppdateringshantering. Det tar upp till 15 minuter att aktivera lösningen.
+På sidan Aktivera lösning är Log Analytics arbets ytan som är vald samma arbets yta som användes i föregående steg. Klicka på **Aktivera** för att publicera uppdateringshantering-lösningen. Det tar upp till 15 minuter att aktivera lösningen.
 
 ![Publicera uppdaterings lösning](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
@@ -49,9 +49,9 @@ Varje lösning använder en omfattnings konfiguration i arbets ytan för att rik
 
 Om den valda arbets ytan inte har Uppdateringshantering-eller Ändringsspårnings lösningar, skapas följande omfattningar:
 
-* **MicrosoftDefaultScopeConfig-ChangeTracking**
+* **MicrosoftDefaultScopeConfig – ChangeTracking**
 
-* **MicrosoftDefaultScopeConfig-Updates**
+* **MicrosoftDefaultScopeConfig – uppdateringar**
 
 Om den valda arbets ytan redan har lösningen omdistribueras inte lösningen och omfattnings konfigurationen läggs inte till i den.
 
@@ -133,7 +133,7 @@ När du har tagit bort dessa lösningar kan du utföra följande steg för att t
 
 Om du använde Uppdateringshantering-lösningen kanske du vill ta bort följande objekt som inte längre behövs efter att du har tagit bort lösningen.
 
-* Uppdaterings scheman-varje kommer att ha namn som matchar de uppdaterings distributioner som du har skapat)
+* Uppdaterings scheman – varje har namn som matchar de uppdaterings distributioner som du har skapat.
 
 * Hybrid Worker-grupper som har skapats för lösningen – var och en får samma namn som machine1. contoso. com_9ceb8108-26c9-4051-b6b3-227600d715c8).
 

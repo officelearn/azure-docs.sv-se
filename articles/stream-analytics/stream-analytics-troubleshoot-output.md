@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: d40157523a074547885a14a3d92379f8e8b6f351
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980264"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364585"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Felsöka Azure Stream Analytics utdata
 
@@ -74,15 +74,15 @@ Under normal drift av jobbet om du hittar jobbets utdata faller bakom (längre o
 - Om den överordnade källan är begränsad
 - Om standardbearbetningslogiken i frågan är beräkningsintensiva
 
-Välj det direktuppspelade jobbet om du vill se detaljer, Azure-portalen och välj den **jobbdiagram**. För varje indata, finns en per partition eftersläpning händelse mått. Om eftersläpning för händelsen mått fortsätter att öka, är det indikerar att systemresurserna är begränsade. Potentiellt som är på grund av att utdata mottagare begränsning eller hög CPU. Läs mer om hur du använder jobbdiagrammet [datadrivna felsökning med hjälp av jobbdiagrammet](stream-analytics-job-diagram-with-metrics.md).
+Om du vill se dessa uppgifter går du till Azure Portal, väljer strömnings jobbet och väljer **jobb diagrammet**. För varje indata, finns en per partition eftersläpning händelse mått. Om eftersläpning för händelsen mått fortsätter att öka, är det indikerar att systemresurserna är begränsade. Potentiellt som är på grund av att utdata mottagare begränsning eller hög CPU. Mer information om hur du använder jobb diagrammet finns i [data driven fel sökning med hjälp av jobb diagrammet](stream-analytics-job-diagram-with-metrics.md).
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Varning om nyckel fel med Azure SQL Database utdata
 
-När du konfigurerar Azure SQL-databas som utdata för ett Stream Analytics-jobb infogas har masskapat poster i måltabellen. I allmänhet Azure stream analytics garanterar [minst en leverans](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) till utdatamottagaren, kan en fortfarande [uppnå exakt – en leverans]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) till SQL-utdata när SQL-tabellen har en unik begränsning som definierats.
+När du konfigurerar Azure SQL-databas som utdata för ett Stream Analytics-jobb infogas har masskapat poster i måltabellen. I allmänhet garanterar Azure Stream Analytics [minst en gång](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) till Utkorgen, men en kan fortfarande [få en exakt leverans]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) till SQL-utdata när SQL-tabellen har ett unikt definierat villkor.
 
 När unika nyckelvillkor ställs in på den SQL-tabellen och det finns dubbla poster som infogas i SQL-tabell, Azure Stream Analytics tar du bort dubblettposten. Den delas data i batchar och rekursivt infoga i batchar tills en enda kopia av posten hittas. Om det direktuppspelade jobbet har ett stort antal dubblettrader, den här dela och infoga processen har att ignorera dubbletter en i taget, vilket är mindre effektivt och tidskrävande. Om du ser flera felet varningsmeddelanden i din aktivitetslogg inom den senaste timmen, är det troligt att dina SQL-utdata är långsammare hela projektet.
 
-För att lösa problemet, bör du [konfigurera indexet]( https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql) som orsakar felet genom att aktivera alternativet IGNORE_DUP_KEY. Om du aktiverar det här alternativet kan dubblettvärden ignoreras av SQL under bulkinfogningar och SQL Azure genererar bara ett varningsmeddelande i stället för ett fel. Azure Stream Analytics producerar inte primära felet fel längre.
+Lös problemet genom att [Konfigurera indexet]( https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql) som orsakar nyckel överträdelsen genom att aktivera alternativet IGNORE_DUP_KEY. Om du aktiverar det här alternativet kan dubblettvärden ignoreras av SQL under bulkinfogningar och SQL Azure genererar bara ett varningsmeddelande i stället för ett fel. Azure Stream Analytics producerar inte primära felet fel längre.
 
 Observera följande observationer när du konfigurerar IGNORE_DUP_KEY för flera typer av index:
 
@@ -96,7 +96,7 @@ När du använder den ursprungliga kompatibilitetsnivån (1,0), Azure Stream Ana
 
 ## <a name="get-help"></a>Få hjälp
 
-För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Om du behöver ytterligare hjälp kan du prova vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,11 +8,11 @@ ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 3e43d2baf4337e7a986d59c47f805183a920c7a1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659687"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355107"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 
@@ -722,9 +722,9 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |---|---|---|---|---|---|
 |NICReadThroughput|Läs data flöde (nätverk)|BytesPerSecond|Medel|Läs data flödet för nätverks gränssnittet på enheten i rapporterings perioden för alla volymer i gatewayen.|InstanceName|
 |NICWriteThroughput|Skriv data flöde (nätverk)|BytesPerSecond|Medel|Skriv data flödet för nätverks gränssnittet på enheten i rapporterings perioden för alla volymer i gatewayen.|InstanceName|
-|CloudReadThroughputPerShare|Data flöde för moln hämtning (resurs)|BytesPerSecond|Medel|Ladda ned data flödet till Azure från en resurs under rapporterings perioden.|Resurs|
-|CloudUploadThroughputPerShare|Moln överförings data flöde (resurs)|BytesPerSecond|Medel|Ladda upp data flödet till Azure från en resurs under rapporterings perioden.|Resurs|
-|BytesUploadedToCloudPerShare|Överförda moln byte (resurs)|Byte|Medel|Det totala antalet byte som överförs till Azure från en resurs under rapporterings perioden.|Resurs|
+|CloudReadThroughputPerShare|Data flöde för moln hämtning (resurs)|BytesPerSecond|Medel|Ladda ned data flödet till Azure från en resurs under rapporterings perioden.|Dela|
+|CloudUploadThroughputPerShare|Moln överförings data flöde (resurs)|BytesPerSecond|Medel|Ladda upp data flödet till Azure från en resurs under rapporterings perioden.|Dela|
+|BytesUploadedToCloudPerShare|Överförda moln byte (resurs)|Byte|Medel|Det totala antalet byte som överförs till Azure från en resurs under rapporterings perioden.|Dela|
 |Enhet|Total kapacitet|Byte|Medel|Total kapacitet|Ingen|
 |Availablecapacity;)|Tillgänglig kapacitet|Byte|Medel|Tillgänglig kapacitet i byte under rapporterings perioden.|Ingen|
 |CloudUploadThroughput|Moln överförings data flöde|BytesPerSecond|Medel|Moln överförings data flödet till Azure under rapporterings perioden.|Ingen|
@@ -1641,7 +1641,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |Average_ kostnads fri noder i procent|Kostnads fri noder i procent|Antal|Medel|Average_ kostnads fri noder i procent|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_ ledigt utrymme i procent|% ledigt utrymme|Antal|Medel|Average_ ledigt utrymme i procent|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ ledigt utrymme i procent|Ledigt utrymme i procent|Antal|Medel|Average_ ledigt utrymme i procent|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% Använd noder i procent|% Använda noder i procent|Antal|Medel|Average_% Använd noder i procent|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_ använt utrymme i procent|Använt utrymme i procent|Antal|Medel|Average_ använt utrymme i procent|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk lästa byte/s|Disk – lästa byte/sek|Antal|Medel|Average_Disk lästa byte/s|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
@@ -1670,9 +1670,9 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Average_Total RX-fel|Totalt antal mottagna mottagnings fel|Antal|Medel|Average_Total RX-fel|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Total TX-fel|Totalt antal TX-fel|Antal|Medel|Average_Total TX-fel|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Total kollisioner|Totalt antal kollisioner|Antal|Medel|Average_Total kollisioner|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Avg. Disk s/läsning|Medel s/disk läsning|Antal|Medel|Average_Avg. Disk s/läsning|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Avg. disk s/överföring|Medel s/disk överföring|Antal|Medel|Average_Avg. disk s/överföring|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Avg. Disk s/skrivning|Medel s/disk skrivning|Antal|Medel|Average_Avg. Disk s/skrivning|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. S/diskläsning|Medel s/disk läsning|Antal|Medel|Average_Avg. S/diskläsning|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. S/disköverföring|Medel s/disk överföring|Antal|Medel|Average_Avg. S/disköverföring|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. S/diskskrivning|Medel s/disk skrivning|Antal|Medel|Average_Avg. S/diskskrivning|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Physical Disk-byte/s|Fysisk disk-byte/SEK|Antal|Medel|Average_Physical Disk-byte/s|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Pct privilegie rad tid|PCT privilegie rad tid|Antal|Medel|Average_Pct privilegie rad tid|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Pct användar tid|PCT-användar tid|Antal|Medel|Average_Pct användar tid|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
@@ -1684,7 +1684,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Average_% i/o-vänte tid|% I/o-vänte tid|Antal|Medel|Average_% i/o-vänte tid|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% bra tid|% Trevligt tid|Antal|Medel|Average_% bra tid|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_ privilegie rad tid i procent|Privilegie rad tid i procent|Antal|Medel|Average_ privilegie rad tid i procent|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% processor tid|% processortid|Antal|Medel|Average_% processor tid|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% processor tid|Tid i procent för processor|Antal|Medel|Average_% processor tid|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% användar tid|Användar tid i procent|Antal|Medel|Average_% användar tid|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Free fysiskt minne|Ledigt fysiskt minne|Antal|Medel|Average_Free fysiskt minne|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Free utrymme i växlingsfiler|Ledigt utrymme i växlingsfiler|Antal|Medel|Average_Free utrymme i växlingsfiler|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
@@ -1693,20 +1693,20 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Average_Size lagras i växlingsfiler|Storlek lagrad i växlingsfiler|Antal|Medel|Average_Size lagras i växlingsfiler|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Uptime|Drifttid|Antal|Medel|Average_Uptime|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Users|Användare|Antal|Medel|Average_Users|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Avg. Disk s/läsning|Medel s/disk läsning|Antal|Medel|Average_Avg. Disk s/läsning|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Avg. Disk s/skrivning|Medel s/disk skrivning|Antal|Medel|Average_Avg. Disk s/skrivning|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. S/diskläsning|Medel s/disk läsning|Antal|Medel|Average_Avg. S/diskläsning|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. S/diskskrivning|Medel s/disk skrivning|Antal|Medel|Average_Avg. S/diskskrivning|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Current diskkölängd|Aktuell diskkölängd|Antal|Medel|Average_Current diskkölängd|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk läsningar/s|Diskläsningar/sek|Antal|Medel|Average_Disk läsningar/s|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk överföringar/SEK|Disköverföringar/sek|Antal|Medel|Average_Disk överföringar/SEK|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk skrivningar/SEK|Diskskrivningar/sek|Antal|Medel|Average_Disk skrivningar/SEK|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Free megabyte|Ledigt utrymme i MB|Antal|Medel|Average_Free megabyte|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_ ledigt utrymme i procent|% ledigt utrymme|Antal|Medel|Average_ ledigt utrymme i procent|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ ledigt utrymme i procent|Ledigt utrymme i procent|Antal|Medel|Average_ ledigt utrymme i procent|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Available megabyte|Tillgängliga megabyte|Antal|Medel|Average_Available megabyte|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% allokerade byte som används|% Allokerade byte som används|Antal|Medel|Average_% allokerade byte som används|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Bytes mottagna/SEK|Mottagna byte/sek|Antal|Medel|Average_Bytes mottagna/SEK|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Skickade Average_Bytes per sekund|Skickade byte/sek|Antal|Medel|Skickade Average_Bytes per sekund|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Bytes totalt/SEK|Totalt antal byte/s|Antal|Medel|Average_Bytes totalt/SEK|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% processor tid|% processortid|Antal|Medel|Average_% processor tid|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% processor tid|Tid i procent för processor|Antal|Medel|Average_% processor tid|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Processor Kölängd|Kölängd för processor|Antal|Medel|Average_Processor Kölängd|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Pulsslag|Pulsslag|Antal|Totalt|Pulsslag|Dator, OSType, version, SourceComputerId|
 |Uppdatera|Uppdatera|Antal|Medel|Uppdatera|Dator, produkt, klassificering, UpdateState, valfri, godkänd|

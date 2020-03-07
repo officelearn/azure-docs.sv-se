@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.openlocfilehash: e7b8f8a33b741a8dcf2d1a68ae3cf86d6e3687eb
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950416"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392579"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Läsa meddelanden från enhet till moln från den inbyggda slutpunkten
 
@@ -28,7 +28,7 @@ IoT Hub tillåter datakvarhållning i den inbyggda Event Hubs i högst 7 dagar. 
 
 Med IoT Hub kan du också hantera konsument grupper på den inbyggda slut punkten för att få en enhet till molnet. Du kan ha upp till 20 konsument grupper för varje IoT Hub.
 
-Om du använder [meddelanderoutning](iot-hub-devguide-messages-d2c.md) och återställnings [vägen](iot-hub-devguide-messages-d2c.md#fallback-route) är aktive rad, går alla meddelanden som inte matchar en fråga på någon väg till den inbyggda slut punkten. Om du inaktiverar den här återställnings vägen utelämnas meddelanden som inte matchar någon fråga.
+Om du använder [meddelanderoutning](iot-hub-devguide-messages-d2c.md) och [återställnings vägen](iot-hub-devguide-messages-d2c.md#fallback-route) är aktive rad, går alla meddelanden som inte matchar en fråga på någon väg till den inbyggda slut punkten. Om du inaktiverar den här återställnings vägen utelämnas meddelanden som inte matchar någon fråga.
 
 Du kan ändra Retentions tiden, antingen via programmering med hjälp av [IoT Hub Resource Provider REST-API: er](/rest/api/iothub/iothubresource)eller med [Azure Portal](https://portal.azure.com).
 
@@ -40,21 +40,21 @@ Vissa produkt integrationer och Event Hubs SDK: er är medvetna om IoT Hub och l
 
 När du använder Event Hubs SDK: er eller produkt integrationer som inte är IoT Hub behöver du ett Event Hub-kompatibelt slut punkts-och Event Hub-kompatibelt namn. Du kan hämta dessa värden från portalen på följande sätt:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och navigera till din IoT-hubb.
+1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din IoT-hubb.
 
 2. Klicka på **inbyggda slut punkter**.
 
-3. Avsnittet **Events** innehåller följande värden: **Partitioner**, **Event Hub-kompatibelt namn**, **Event Hub-kompatibel slut punkt**, **kvarhållningsperiod**och **konsument grupper**.
+3. Avsnittet **Events** innehåller följande värden: **partitioner**, **Event Hub-kompatibla namn**, **Event Hub-kompatibel slut punkt**, **kvarhållningsperiod**och **konsument grupper**.
 
     ![Inställningar för enhet till moln](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
-I portalen innehåller fältet Event Hub-kompatibel slut punkt en fullständig Event Hubs anslutnings sträng som ser ut så här: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. Om SDK: n som du använder kräver andra värden blir de:
+I portalen innehåller fältet Event Hub-kompatibel slut punkt en fullständig Event Hubs anslutnings sträng som ser ut så här: **slut punkt = SB://abcd1234namespace.ServiceBus.Windows.net/; SharedAccessKeyName = iothubowner; SharedAccessKey = keykeykeykeykeykey =; EntityPath = iothub-ehub-ABCD-1234-123456**. Om SDK: n som du använder kräver andra värden blir de:
 
-| Namn | Value |
+| Namn | Värde |
 | ---- | ----- |
 | Slutpunkt | sb://abcd1234namespace.servicebus.windows.net/ |
-| Värddatornamn | abcd1234namespace.servicebus.windows.net |
-| Namnrymd | abcd1234namespace |
+| Värdnamn | abcd1234namespace.servicebus.windows.net |
+| Namnområde | abcd1234namespace |
 
 Du kan sedan använda en princip för delad åtkomst som har **ServiceConnect** behörighet att ansluta till den angivna händelsehubben.
 

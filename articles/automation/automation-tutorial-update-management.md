@@ -4,14 +4,14 @@ description: Den här artikeln innehåller en översikt över hur du använder A
 services: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 01/21/2020
+ms.date: 03/04/2020
 ms.custom: mvc
-ms.openlocfilehash: 3922f8a2478f00c632b6daf294f23c7b5ad8c261
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 347f2fbc0f12aa775c42dbb14a4625dc509a20ed
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310143"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372859"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer
 
@@ -19,52 +19,24 @@ Du kan använda uppdateringshanteringen för att hantera uppdateringar och korri
 
 Prisinformation finns i [Automation-priser för uppdateringshantering](https://azure.microsoft.com/pricing/details/automation/).
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Publicera en virtuell dator för hantering av uppdateringar
 > * Visa en uppdateringsbedömning
 > * Konfigurera aviseringar
 > * Schemalägga en uppdateringsdistribution
 > * Visa resultatet av en distribution
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
-* En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina månatliga Azure-krediter för Visual Studio-prenumeranter ](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Ett [Azure Automation-konto](automation-offering-get-started.md) för bevakaren samt runbooks-flöden för åtgärd och bevakaraktivitet.
+* [Uppdateringshantering](automation-update-management.md) lösning aktive rad för en eller flera av dina virtuella datorer.
 * En [virtuell dator](../virtual-machines/windows/quick-create-portal.md) som du vill publicera.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure Portal på https://portal.azure.com.
-
-## <a name="enable-update-management"></a>Aktivera uppdateringshantering
-
-Först aktiverar du uppdateringshantering på din virtuella datorn för att kunna genomföra den här självstudien:
-
-1. Välj **virtuella datorer** på [Azure Portal](https://portal.azure.com) -menyn eller Sök efter och välj **virtuella datorer** på **Start** sidan.
-1. Välj den virtuella dator som du vill aktivera Uppdateringshantering för.
-1. På sidan för virtuell dator under **ÅTGÄRDER** väljer du **Uppdateringshantering**. Fönstret **Aktivera uppdateringshantering** öppnas.
-
-Verifieringen utförs för att fastställa om uppdateringshantering är aktiverat för den här virtuella datorn. Den här verifieringen innehåller kontroller för en Log Analytics arbets yta och ett länkat Automation-konto och om Uppdateringshanterings lösningen är aktive rad i arbets ytan.
-
-En [Log Analytics](../azure-monitor/platform/data-platform-logs.md)-arbetsyta används för att samla in data som genereras av funktioner och tjänster som uppdateringshantering. Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.
-
-Verifierings processen kontrollerar också om den virtuella datorn är etablerad med Log Analytics agent och automation Hybrid Runbook Worker. Den här agenten används för att kommunicera med Azure Automation och hämta information om uppdateringsstatus. Agenten kräver att port 443 till öppnas för att kommunicera med Azure Automation-tjänsten och för att ladda ner uppdateringar.
-
-Om några av följande krav saknades under publiceringen läggs de till automatiskt:
-
-* [Log Analytics](../azure-monitor/platform/data-platform-logs.md)-arbetsyta
-* Ett [Automation-konto](./automation-offering-get-started.md)
-* En [Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md) (aktiverad på den virtuella datorn)
-
-Under **Uppdateringshantering**, ange platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas. Välj sedan **Aktivera**. Om dessa alternativ inte är tillgängliga, innebär det att en annan automation-lösning är aktiverad för den virtuella datorn. I så fall måste samma arbetsyta och Automation-konto användas.
-
-![Aktivera fönstret Uppdateringshanteringslösning](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
-
-Det kan ta några minuter att aktivera lösningen. Under tiden ska du inte stänga webbläsaren. När lösningen har aktiverats flödar information om saknade uppdateringar på den virtuella datorn till Azure Monitor-loggar. Det kan ta mellan 30 minuter och 6 timmar innan data blir tillgängliga för analys.
 
 ## <a name="view-update-assessment"></a>Visa kontroll av uppdateringar
 
@@ -74,7 +46,7 @@ Under **informations länk**väljer du länken Uppdatera för att öppna Support
 
 ![Visa uppdateringsstatus](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
-Klicka någon annanstans på uppdateringen för att öppna fönstret **Loggsökning** för den markerade uppdateringen. Frågan för loggsökningen är fördefinierad för den specifika uppdateringen. Du kan ändra den här frågan eller skapa en egen fråga om du vill visa detaljerad information om uppdateringarna som har distribuerats eller som saknas i din miljö.
+Klicka på någon annan stans på uppdateringen för att öppna **loggs öknings** fönstret för den valda uppdateringen. Frågan för loggsökningen är fördefinierad för den specifika uppdateringen. Du kan ändra den här frågan eller skapa en egen fråga om du vill visa detaljerad information om uppdateringarna som har distribuerats eller som saknas i din miljö.
 
 ![Visa uppdateringsstatus](./media/automation-tutorial-update-management/logsearch.png)
 
@@ -111,15 +83,15 @@ Välj **Skapa ny** under **Åtgärdsgrupper**. En åtgärdsgrupp är en grupp av
 
 I rutan **Åtgärdsgruppnamn** anger du ett namn för aviseringen och ett kortnamn. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
 
-Under **Åtgärder**, ange ett namn för åtgärden, såsom **e-postmeddelanden**. Under **ÅTGÄRDSTYP**, välj **e-post/SMS/Push/röst**. Under **INFORMATION** väljer du **Redigera detaljer**.
+Under **åtgärder**anger du ett namn för åtgärden, t. ex. **e-postaviseringar**. Under **Åtgärds typ**väljer du **e-post/SMS/push/röst**. Välj **Redigera information**under **information**.
 
 I rutan **e-post/SMS/Push/röst**, ange ett namn. Välj kryssrutan **e-post** och ange sedan en giltig e-postadress.
 
 ![Konfigurera en e-poståtgärdsgrupp](./media/automation-tutorial-update-management/configure-email-action-group.png)
 
-I rutan **e-post/SMS/Push/röst**, välj **OK**. I fönstret **Lägg till åtgärdsgrupp**, välj **OK**.
+I fönstret **e-post/SMS/push/Voice** väljer du **OK**. I fönstret **Lägg till åtgärds grupp** väljer du **OK**.
 
-Anpassa föremål för aviserings-e-postmeddelandet under **Skapa regel**, under **Anpassa åtgärder**, välj **e-postmeddelandets ämne**. När du är klar väljer du **Skapa varningsregel**. Varningen berättar när en distribution lyckas och vilka datorer som var en del av denna uppdaterade distributionskörning.
+Om du vill anpassa ämnet för e-postaviseringen under **Skapa regel**, under **Anpassa åtgärder**, väljer du **e-postämne**. När du är klar väljer du **Skapa varningsregel**. Varningen berättar när en distribution lyckas och vilka datorer som var en del av denna uppdaterade distributionskörning.
 
 ## <a name="schedule-an-update-deployment"></a>Schemalägga en uppdateringsdistribution
 
@@ -139,13 +111,13 @@ Under **Ny uppdateringsdistribution** anger du följande information:
 
 * **Grupper att uppdatera (förhandsversion)** : definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management-groups.md)
 
-* **Datorer som ska uppdateras**: Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md)
+* **Datorer som ska uppdateras**: Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **datorer**visas datorns beredskap i kolumnen **Uppdatera agent beredskap** . Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md)
 
 * **Uppdaterings klassificering**: Välj de uppdaterings klassificeringar som stöds för varje produkt som kan tas med i uppdaterings distributionen. Låt alla typer vara markerade för den här självstudien.
 
   Klassificeringstyper:
 
-   |OS  |Typ  |
+   |Operativsystem  |Typ  |
    |---------|---------|
    |Windows     | Kritiska uppdateringar</br>Säkerhetsuppdateringar</br>Samlade uppdateringar</br>Funktionspaket</br>Service pack</br>Definitionsuppdateringar</br>Verktyg</br>Uppdateringar        |
    |Linux     | Kritiska uppdateringar och säkerhetsuppdateringar</br>Övriga uppdateringar       |
@@ -163,7 +135,7 @@ Under **Ny uppdateringsdistribution** anger du följande information:
 
 * **Schemainställningar**: Sidan **Schemainställningar** öppnas. Starttiden är som standard 30 minuter efter den aktuella tiden. Du kan ange starttiden till helst från 10 minuter i framtiden.
 
-   Du kan också ange om distributionen ska ske en gång eller ange ett schema med återkommande tider. Under **Återkommande**, välj **En gång**. Lämna standardvärdet till 1 dag och välj **OK**. Då ställs ett återkommande schema in.
+   Du kan också ange om distributionen ska ske en gång eller ange ett schema med återkommande tider. Under **Återkommande**, välj **En gång**. Låt standardvärdet vara 1 dag och välj **OK**. Då ställs ett återkommande schema in.
 
 * **Skript före och efter**: Välj skript som ska köras före och efter distributionen. Mer information finns i [Hantera skript före och efter](pre-post-scripts.md).
 

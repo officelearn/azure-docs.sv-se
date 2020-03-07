@@ -10,15 +10,15 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896011"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395131"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Felsöka Apache Storm med Azure HDInsight
 
-Lär dig mer om de viktigaste problemen och sina lösningar för att arbeta med [Apache Storm](https://storm.apache.org/) nyttolaster i [Apache Ambari](https://ambari.apache.org/).
+Lär dig mer om de vanligaste problemen och deras resolutioner om hur du arbetar med [Apache Storm](https://storm.apache.org/) nytto laster i [Apache Ambari](https://ambari.apache.org/).
 
 ## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Hur kommer jag åt Storm-Användargränssnittet på ett kluster?
 
@@ -27,8 +27,8 @@ Har du två alternativ för att komma åt Användargränssnittet för Storm frå
 ### <a name="apache-ambari-ui"></a>Apache Ambari-användargränssnitt
 
 1. Gå till Ambari-instrumentpanelen.
-2. Välj i listan över tjänster, **Storm**.
-3. I den **snabblänkar** menyn och välj **Storm-Användargränssnittet**.
+2. I listan över tjänster väljer du **Storm**.
+3. I menyn **snabb länkar** väljer du **Storm UI**.
 
 ### <a name="direct-link"></a>Direktlänk
 
@@ -40,7 +40,7 @@ Exempel: `https://stormcluster.azurehdinsight.net/stormui`
 
 ## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Hur jag överföra kontrollpunktsinformation för Storm event hub från en topologi till en annan?
 
-När du utvecklar topologier som läser från Azure Event Hubs med hjälp av HDInsight Storm event hub-kanalen .jar-filen måste du distribuera en topologi som har samma namn på ett nytt kluster. Men du måste behålla kontrollpunktsdata som har bekräftats att [Apache ZooKeeper](https://zookeeper.apache.org/) på det gamla klustret.
+När du utvecklar topologier som läser från Azure Event Hubs med hjälp av HDInsight Storm event hub-kanalen .jar-filen måste du distribuera en topologi som har samma namn på ett nytt kluster. Du måste dock behålla kontroll punkts data som har allokerats för att [Apache ZooKeeper](https://zookeeper.apache.org/) i det gamla klustret.
 
 ### <a name="where-checkpoint-data-is-stored"></a>Kontrollpunktsdata ska lagras
 
@@ -52,11 +52,11 @@ Kontrollpunktsdata för förskjutningar lagras av event hub kanal i ZooKeeper i 
 
 ### <a name="how-to-restore"></a>Så här återställer du
 
-Om du vill hämta skript och bibliotek som används för att exportera data från ZooKeeper och importera sedan data tillbaka till ZooKeeper med ett nytt namn, se [HDInsight Storm-exempel](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/tools/zkdatatool-1.0).
+Om du vill hämta de skript och bibliotek som du använder för att exportera data från ZooKeeper och sedan importera data tillbaka till ZooKeeper med ett nytt namn, se [HDInsight Storm-exempel](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/tools/zkdatatool-1.0).
 
 Lib-mappen har .jar-filerna som innehåller implementeringen för export/import-åtgärden. Bash-mappen innehåller ett exempelskript som visar hur du exporterar data från ZooKeeper-server på det gamla klustret och sedan importera den tillbaka till ZooKeeper-server på det nya klustret.
 
-Kör den [stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) skriptet från ZooKeeper-noder att exportera och importera data. Uppdatera skriptet till rätt Hortonworks Data Platform (HDP) version. (Vi arbetar på att göra dessa skript allmän i HDInsight. Allmänt skript kan köras från en nod i klustret utan ändringar av användaren.)
+Kör [stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) -skriptet från ZooKeeper-noderna för att exportera och sedan importera data. Uppdatera skriptet till rätt Hortonworks Data Platform (HDP) version. (Vi arbetar på att göra dessa skript allmän i HDInsight. Allmänt skript kan köras från en nod i klustret utan ändringar av användaren.)
 
 Export kommandot skriver metadata till en Apache Hadoop Distributed File System-sökväg (HDFS) (i Azure Blob Storage eller Azure Data Lake Storage) på en plats som du anger.
 
@@ -137,7 +137,7 @@ Mer information om hur du använder Storm event hub spout .jar-filerna med topol
 
 ### <a name="java-based-topology"></a>Java-baserad topologi
 
-[Bearbeta händelser från Azure Event Hubs med Apache Storm i HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)
+[Bearbeta händelser från Azure Event Hubs med Apache Storm på HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)
 
 ### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>C#-baserad topologi (Mono på Storm för HDInsight 3.4 + Linux-kluster)
 
@@ -149,11 +149,11 @@ Information om hur du använder den senaste Storm Event Hub-kanalen som fungerar
 
 ### <a name="source-code-examples"></a>Kodexempel för källa
 
-Se [exempel](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) på hur du kan läsa och skriva från Azure Event Hub med ett Apache Storm-topologi (skrivna i Java) på ett Azure HDInsight-kluster.
+Se [exempel](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) på hur du läser och skriver från Azure Event Hub med en Apache Storm-topologi (skrivet i Java) i ett Azure HDInsight-kluster.
 
 ## <a name="how-do-i-locate-storm-log4j-2-configuration-files-on-clusters"></a>Hur hittar jag Storm Log4J 2 konfigurationsfiler på kluster?
 
-Identifiera [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) konfigurationsfiler för Storm-tjänster.
+För att identifiera [Apache log4j 2](https://logging.apache.org/log4j/2.x/) -konfigurationsfiler för Storm-tjänster.
 
 ### <a name="on-head-nodes"></a>På huvudnoderna
 
@@ -174,7 +174,7 @@ Exempel: `/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 
 När du skickar en topologi kan användaren få ett fel meddelande som liknar: `Topology submission exception, cause not a leader, the current leader is NimbusInfo`.
 
-För att lösa problemet kan användaren behöva File a Ticket för att noderna ska starta om/starta om. Mer information finns på [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html).
+För att lösa problemet kan användaren behöva File a Ticket för att noderna ska starta om/starta om. Mer information finns i [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html).
 
 ---
 

@@ -3,7 +3,7 @@ title: Strömma Azure Active Directory loggar till Azure Monitor loggar | Micros
 description: Lär dig hur du integrerar Azure Active Directory loggar med Azure Monitor loggar
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bffe16d604ac6b86b489092f50fbdc0b856867b3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989773"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376444"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrera Azure AD-loggar med Azure Monitor loggar
 
@@ -44,8 +44,8 @@ I den här artikeln får du lära dig hur du integrerar Azure Active Directory (
 
 Du kan dirigera gransknings aktivitets loggar och inloggnings aktivitets loggar till Azure Monitor loggar för vidare analys. 
 
-* **Gransknings loggar**: [Aktivitets rapporten gransknings loggar](concept-audit-logs.md) ger dig till gång till historiken för alla uppgifter som utförs i din klient organisation.
-* **Inloggnings loggar**: Med [rapporten inloggnings aktivitet](concept-sign-ins.md)kan du bestämma vem som utförde de uppgifter som rapporteras i gransknings loggarna.
+* **Spårningsloggar**: [Rapporten om spårningsloggaktivitet](concept-audit-logs.md) ger dig åtkomst till historiken för varje uppgift som utförs i din klientorganisation.
+* **Inloggningsloggar**: Med [rapporten om inloggningsaktivitet](concept-sign-ins.md) kan du se vem som har utfört de uppgifter som rapporteras i spårningsloggarna.
 
 > [!NOTE]
 > B2C-relaterade spårnings- och inloggningsaktivitetsloggar stöds inte just nu.
@@ -64,7 +64,7 @@ Om du vill använda den här funktionen behöver du:
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
 
-2. Välj **Azure Active Directory** > **diagnostikinställningar inställningar** -> **Lägg till diagnostisk inställning**. Du kan också välja **export inställningar** på sidan **gransknings loggar** eller **inloggnings** sidor för att komma till konfigurations sidan för diagnostikinställningar.  
+2. Välj **Azure Active Directory** > **diagnostikinställningar** -> **Lägg till diagnostisk inställning**. Du kan också välja **export inställningar** på sidan **gransknings loggar** eller **inloggnings** sidor för att komma till konfigurations sidan för diagnostikinställningar.  
     
 3. I menyn **diagnostikinställningar** väljer du kryss rutan **Skicka till Log Analytics arbets yta** och väljer sedan **Konfigurera**.
 

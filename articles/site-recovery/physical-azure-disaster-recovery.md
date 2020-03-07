@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980317"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363200"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Konfigurera katastrof återställning till Azure för lokala fysiska servrar
 
 [Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och virtuella Azure-datorer.
 
-Den här självstudien visar hur du konfigurerar haveri beredskap för lokala fysiska Windows-och Linux-servrar till Azure. I den här guiden får du lära dig hur man:
+Den här självstudien visar hur du konfigurerar haveri beredskap för lokala fysiska Windows-och Linux-servrar till Azure. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera Azure och lokala krav
@@ -27,7 +27,7 @@ Den här självstudien visar hur du konfigurerar haveri beredskap för lokala fy
 > * Skapa replikeringsprincip
 > * Aktivera replikering för en server
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -71,7 +71,7 @@ Konfigurera ett [Azure-nätverk](../virtual-network/quick-create-portal.md).
 - Nätverket ska finnas i samma region som Recovery Services-valvet
 
 
-## <a name="set-up-an-azure-storage-account"></a>Konfigurera ett Azure Storage-konto
+## <a name="set-up-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
 
 Konfigurera ett [Azure Storage-konto](../storage/common/storage-account-create.md).
 
@@ -146,7 +146,7 @@ Välj och kontrollera målresurserna.
 2. Ange mål distributions modell.
 3. Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringskonton och Azure-nätverk.
 
-   ![Målinrikta](./media/physical-azure-disaster-recovery/network-storage.png)
+   ![Mål](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>Skapa replikeringsprincip
@@ -172,7 +172,7 @@ Aktivera replikering för varje server.
 1. Klicka på **Replikera program** > **Källa**.
 2. I **Källa** väljer du konfigurationsservern.
 3. I **typ av dator**väljer du **fysiska datorer**.
-4. Välj processervern (konfigurations servern). Klicka på **OK**.
+4. Välj processervern (konfigurations servern). Klicka sedan på **OK**.
 5. I **mål**väljer du den prenumeration och resurs grupp där du vill skapa virtuella Azure-datorer efter redundansväxlingen. Välj den distributions modell som du vill använda i Azure (klassisk eller resurs hantering).
 6. Välj Azure-lagringskonto som du vill använda när du replikerar data. 
 7. Välj det Azure-nätverk och undernät som virtuella Azure-datorer ska ansluta till efter en redundansväxling.

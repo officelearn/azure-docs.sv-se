@@ -4,13 +4,13 @@ description: Så här beskriver du slut punkts resurser i ett tjänst manifest, 
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: cc4eedf5e5fee0bbfa0a763e9b9ec0dd25409afa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464180"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382839"
 ---
-# <a name="specify-resources-in-a-service-manifest"></a>Ange resurser i ett tjänstmanifest
+# <a name="specify-resources-in-a-service-manifest"></a>Ange resurser i ett tjänst manifest
 ## <a name="overview"></a>Översikt
 Tjänst manifestet gör det möjligt för resurser som används av tjänsten att deklareras/ändras utan att den kompilerade koden ändras. Azure Service Fabric stöder konfiguration av slut punkts resurser för tjänsten. Åtkomst till de resurser som anges i tjänst manifestet kan styras via SecurityGroup i applikations manifestet. Resurs deklarationen gör att dessa resurser kan ändras vid distributions tillfället, vilket innebär att tjänsten inte behöver införa en ny konfigurations funktion. Schema definitionen för filen ServiceManifest. XML installeras med Service Fabric SDK och verktyg för *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
@@ -187,7 +187,7 @@ I parametrarna lägger du till nedan:
   </Parameters>
 ```
 
-När du distribuerar programmet kan du överföra dessa värden som ApplicationParameters.  Ett exempel:
+När du distribuerar programmet kan du överföra dessa värden som ApplicationParameters.  Exempel:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
@@ -195,7 +195,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 Obs! Om värdena för ApplicationParameters är tomma går vi tillbaka till det standardvärde som anges i ServiceManifest för motsvarande EndPointName.
 
-Ett exempel:
+Exempel:
 
 Om du har angett i ServiceManifest
 

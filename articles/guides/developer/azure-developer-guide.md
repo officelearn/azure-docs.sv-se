@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
 ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598059"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78344092"
 ---
-# <a name="get-started-guide-for-azure-developers"></a>Kom igång-guide för Azure-utvecklare
+# <a name="get-started-guide-for-azure-developers"></a>Utvecklarens startguide för Azure
 
 ## <a name="what-is-azure"></a>Vad är Azure?
 
@@ -238,7 +238,7 @@ Azure tillhandahåller två sätt att hantera dina program och tjänster från k
 
 -   [Azure PowerShell](../../powershell-install-configure.md): innehåller en uppsättning moduler med cmdletar som gör att du kan hantera Azure-resurser med hjälp av Windows PowerShell.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 [Azure Portal](https://portal.azure.com) är ett webbaserat program. Du kan använda Azure Portal för att skapa, hantera och ta bort Azure-resurser och-tjänster. Den innehåller:
 
@@ -254,7 +254,7 @@ Azure bygger på en uppsättning REST API: er som stöder Azure Portal gränssni
 
 Tillsammans med REST API: er kan många Azure-tjänster också hantera resurser från dina program program mässigt med hjälp av plattformsspecifika Azure-SDK: er, inklusive SDK: er för följande utvecklings plattformar:
 
--   [NET](https://go.microsoft.com/fwlink/?linkid=834925)
+-   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
 -   [Node.js](https://docs.microsoft.com/azure/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
 ms.openlocfilehash: 4b6d954d06f09bef5240bddc4860ddbc83513d69
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916599"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361182"
 ---
 # <a name="language-and-region-support-for-luis"></a>Stöd för språk och din region för LUIS
 
@@ -98,7 +98,7 @@ För att utföra maskin inlärning bryter LUIS en uttryck till [token](luis-glos
 
 Följande kulturer har anpassade tokenizer-versioner:
 
-|Kultur|Version|Syfte|
+|Culture (Kultur)|Version|Syfte|
 |--|--|--|
 |Tyska<br>`de-de`|1.0.0|Tokenizes ord genom att dela dem med hjälp av en Machine Learning-baserad tokenizer som försöker dela upp sammansatta ord i sina enskilda komponenter.<br>Om en användare går in `Ich fahre einen krankenwagen` som en uttryck, aktive ras den `Ich fahre einen kranken wagen`. Tillåta markering av `kranken` och `wagen` oberoende av olika entiteter.|
 |Tyska<br>`de-de`|1.0.2|Tokenizes ord genom att dela dem på blank steg.<br> om en användare går in `Ich fahre einen krankenwagen` som en uttryck, förblir den en enda token. Därför markeras `krankenwagen` som en enskild enhet. |

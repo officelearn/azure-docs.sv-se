@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895796"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363117"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Konfigurera katastrof återställning i skala för virtuella VMware-datorer/fysiska servrar
 
@@ -26,7 +26,7 @@ Som en del av din strategi för affärs kontinuitet och haveri beredskap (BCDR) 
 - När du planerar för storskalig haveri beredskap för virtuella VMware-datorer och tar reda på vilka Azure-resurser du behöver kan du ange ett RTO-värde som ska användas för kapacitets beräkningar.
 
 
-## <a name="best-practices"></a>Bästa metoder
+## <a name="best-practices"></a>Bästa praxis
 
 Några allmänna metod tips för storskalig katastrof återställning. Dessa metod tips beskrivs i detalj i nästa avsnitt i dokumentet.
 
@@ -101,7 +101,7 @@ Vad innebär detta? För att starta en virtuell Azure-dator kräver Azure att vi
 **Är datorn kompatibel med Azure?** | **Azure VM-gränser (hanterad diskdiagnostik)**
 --- | --- 
 Ja | 2000
-Inga | 1 000
+Nej | 1000
 
 - Begränsningar förutsätter att minimala andra jobb pågår i mål regionen för prenumerationen.
 - Vissa Azure-regioner är mindre och kan ha något lägre gränser.
@@ -127,7 +127,7 @@ Det är viktigt att du har tillräckligt med konfigurations servrar och skalbara
  
 Konfigurations serverns kapacitet påverkas av antalet datorer som replikeras, och inte av data omsättnings takten. Använd de här definierade gränserna för virtuella datorer för att ta reda på om du behöver ytterligare konfigurations servrar.
 
-**CPU** | **Minne** | **Cachelagra disk** | **Gräns för replikerad dator**
+**REGISTRERA** | **Minnesoptimerade** | **Cachelagra disk** | **Gräns för replikerad dator**
  --- | --- | --- | ---
 8 virtuella processorer<br> 2 Sockets * 4 kärnor @ 2,5 GHz | 16 GB | 600 GB | Upp till 550 datorer<br> Förutsätter att varje dator har tre diskar på 100 GB vardera.
 
@@ -153,7 +153,7 @@ Process serverns kapacitet påverkas av data omsättnings taxan och inte av anta
 - Vi rekommenderar att du lägger till en server med den högsta specifikationen. 
 
 
-**CPU** | **Minne** | **Cachelagra disk** | **Omsättnings pris**
+**REGISTRERA** | **Minnesoptimerade** | **Cachelagra disk** | **Omsättnings pris**
  --- | --- | --- | --- 
 12 virtuella processorer<br> 2 Sockets * 6 kärnor @ 2,5 GHz | 24 GB | 1 GB | Upp till 2 TB per dag
 

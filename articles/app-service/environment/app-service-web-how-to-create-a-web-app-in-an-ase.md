@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422058"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356945"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Skapa en webbapp i en App Service-miljön v1
 
@@ -28,10 +28,10 @@ I den här självstudien visas hur du skapar webbappar och App Service-planer i 
 > 
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 I den här självstudien förutsätter vi att du har skapat en App Service-miljön. Om du inte har gjort det ännu kan du läsa [skapa en app service-miljön](app-service-web-how-to-create-an-app-service-environment.md). 
 
-## <a name="create-a-web-app"></a>Skapa ett webbprogram
+## <a name="create-a-web-app"></a>Skapa en webbapp
 1. I [Azure-portalen](https://portal.azure.com/)klickar du på **skapa en resurs > webb och mobilt >-webbapp**. 
    
     ![][1]

@@ -4,11 +4,11 @@ description: Ange en kommando rad för att åsidosätta EntryPoint i en behålla
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533410"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365167"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Ange kommando raden i en behållar instans för att åsidosätta standard kommando rads åtgärden
 
@@ -52,7 +52,7 @@ Kommando rads koden varierar beroende på vilket Azure-API eller verktyg som anv
 
 ### <a name="examples"></a>Exempel
 
-|    |  Azure CLI   | Portalen | Mall | 
+|    |  Azure CLI   | Portal | Mall | 
 | ---- | ---- | --- | --- |
 | Enda kommando | `--command-line "python myscript.py arg1 arg2"` | **Kommando åsidosättning**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
 | Flera kommandon | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Kommando åsidosättning**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |

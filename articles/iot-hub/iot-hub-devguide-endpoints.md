@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: da6d17e42407048b7ecbcacade67ef48046d7fe1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457118"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382205"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referens – IoT Hub slut punkter
 
@@ -39,7 +39,7 @@ I följande lista beskrivs slut punkterna:
 
 * **Jobb hantering**. Varje IoT-hubb exponerar en uppsättning service Facing HTTPS REST-slutpunkt för att fråga och hantera [jobb](iot-hub-devguide-jobs.md).
 
-* **Enhets slut punkter**. För varje enhet i identitetsregistret exponerar IoT Hub en uppsättning slutpunkter:
+* **Enhets slut punkter**. För varje enhet i identitets registret visar IoT Hub en uppsättning slut punkter:
 
   * *Skicka meddelanden från enheten till molnet*. En enhet använder slut punkten för att [skicka meddelanden från enheten till molnet](iot-hub-devguide-messages-d2c.md).
 
@@ -69,16 +69,16 @@ Artikeln om [Azure IoT-SDK](iot-hub-devguide-sdks.md) : er beskriver de olika s�
 
 Alla IoT Hub-slutpunkter använder [TLS](https://tools.ietf.org/html/rfc5246) -protokollet och ingen slut punkt exponeras aldrig på okrypterade/oskyddade kanaler.
 
-## <a name="custom-endpoints"></a>Anpassade slutpunkter
+## <a name="custom-endpoints"></a>Anpassade slut punkter
 
 Du kan länka befintliga Azure-tjänster i din prenumeration till din IoT Hub för att agera som slut punkter för meddelanderoutning. Dessa slut punkter fungerar som tjänst slut punkter och används som mottagare för meddelande vägar. Enheter kan inte skriva direkt till de ytterligare slut punkterna. Lär dig mer [om meddelanderoutning](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
 IoT Hub stöder för närvarande följande Azure-tjänster som ytterligare slut punkter:
 
 * Azure Storage behållare
-* Händelsehubbar
+* Event Hubs
 * Service Bus-köer
-* Service Bus-ämnen
+* Avsnitt om Service Bus
 
 Begränsningarna för antalet slut punkter som du kan lägga till finns i [kvoter och begränsning](iot-hub-devguide-quotas-throttling.md).
 
@@ -87,7 +87,7 @@ Du kan använda REST API [Hämta slut punkts hälsa](https://docs.microsoft.com/
 |Hälsostatus|Beskrivning|
 |---|---|
 |healthy|Slut punkten accepterar meddelanden som förväntat.|
-|Fel tillstånd|Slut punkten accepterar inte meddelanden som förväntat och IoT Hub försöker skicka data till den här slut punkten igen. Statusen för en felaktig slut punkt kommer att uppdateras till felfri när IoT Hub har upprättat en konsekvent hälso status.|
+|fel tillstånd|Slut punkten accepterar inte meddelanden som förväntat och IoT Hub försöker skicka data till den här slut punkten igen. Statusen för en felaktig slut punkt kommer att uppdateras till felfri när IoT Hub har upprättat en konsekvent hälso status.|
 |okänt|IoT Hub har inte upprättat en anslutning till slut punkten. Inga meddelanden har levererats till eller avvisats från den här slut punkten.|
 |meddelanden|Slut punkten accepterar inte meddelanden, efter att IoT Hub försökt att skicka meddelanden för utvärderings perioden.|
 

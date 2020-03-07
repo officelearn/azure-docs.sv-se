@@ -1,5 +1,5 @@
 ---
-title: Konfigurera aviseringar och e-postmallar
+title: Konfigurera meddelanden och e-postmallar
 titleSuffix: Azure API Management
 description: Lär dig hur du konfigurerar meddelanden och e-postmallar i Azure API Management.
 services: api-management
@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902487"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375095"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Konfigurera meddelanden och e-postmallar i Azure API Management
 
 API Management ger möjlighet att konfigurera meddelanden för vissa händelser och konfigurera e-postmallarna som används för att kommunicera med administratörer och utvecklare av en API Management instans. Den här artikeln visar hur du konfigurerar meddelanden för de tillgängliga händelserna och ger en översikt över hur du konfigurerar e-postmallarna som används för dessa händelser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en API Management tjänst instans slutför du följande snabb start: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
 

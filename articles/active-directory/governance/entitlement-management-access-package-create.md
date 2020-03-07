@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c858a17d4574e6e45283df7c1276cd303f25297
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120480"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376782"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Skapa ett nytt Access-paket i hantering av Azure AD-berättigande
 
@@ -57,7 +57,7 @@ Här följer de övergripande stegen för att skapa ett nytt Access-paket.
 
 **Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Klicka på **Azure Active Directory** och klicka sedan på **identitets styrning**.
 
@@ -83,7 +83,7 @@ På fliken **grundläggande** ger du åtkomst paketet ett namn och anger vilken 
 
     Det åtkomst paket som du skapar och alla resurser som ingår i det kommer att läggas till i den nya katalogen. Du kan också lägga till ytterligare katalog ägare senare.
 
-1. Klicka på **Nästa**.
+1. Klicka på **Next**.
 
 ## <a name="resource-roles"></a>Resursroller
 
@@ -105,9 +105,9 @@ På fliken **resurs roller** väljer du de resurser som du vill ta med i åtkoms
 
     ![Åtkomst paket – resurs roll val](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
-1. Klicka på **Nästa**.
+1. Klicka på **Next**.
 
-## <a name="requests"></a>Begäran
+## <a name="requests"></a>Begäranden
 
 På fliken **förfrågningar** skapar du den första principen för att ange vem som kan begära åtkomst paketet och även godkännande inställningarna. Senare kan du skapa fler principer för begäran så att fler grupper av användare kan begära åtkomst paketet med sina egna godkännande inställningar.
 

@@ -4,11 +4,11 @@ description: Den här artikeln beskriver hur du hanterar de vanligaste uppgifter
 ms.topic: conceptual
 ms.date: 01/24/2020
 ms.openlocfilehash: 1a1f8d690979a846dbf5041999180221752acc0b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843964"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385444"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Så här hanterar du i Azure Monitor för behållare agent
 
@@ -18,11 +18,11 @@ Azure Monitor för behållare använder en behållare version av Log Analytics-a
 
 Azure Monitor för behållare använder en behållare version av Log Analytics-agenten för Linux. När en ny version av agenten lanseras uppgraderas agenten automatiskt på de hanterade Kubernetes-kluster som finns i Azure Kubernetes service (AKS) och Azure Red Hat OpenShift. För ett [hybrid Kubernetes-kluster](container-insights-hybrid-setup.md) hanteras inte agenten och du måste uppgradera agenten manuellt.
 
-Om agent uppgraderingen Miss lyckas för ett kluster som finns på AKS, beskriver den här artikeln även processen för att uppgradera agenten manuellt. Om du vill följa de versioner släpps, se [agenten lanseringsmeddelanden](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
+Om agent uppgraderingen Miss lyckas för ett kluster som finns på AKS, beskriver den här artikeln även processen för att uppgradera agenten manuellt. Information om hur du följer de versioner som lanseras finns i [agent release-meddelanden](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 
 ### <a name="upgrade-agent-on-monitored-kubernetes-cluster"></a>Uppgradera agenten på det övervakade Kubernetes-klustret
 
-Processen för att uppgradera agenten i kluster, förutom Azure Red Hat OpenShift, består av två enkla steg. Det första steget är att inaktivera övervakning med Azure Monitor för behållare med hjälp av Azure CLI. Följ stegen som beskrivs i den [inaktivera övervakning](container-insights-optout.md?#azure-cli) artikeln. Med Azure CLI kan vi ta bort agenten från noder i klustret utan att påverka lösningen och motsvarande data som lagras på arbetsytan. 
+Processen för att uppgradera agenten i kluster, förutom Azure Red Hat OpenShift, består av två enkla steg. Det första steget är att inaktivera övervakning med Azure Monitor för behållare med hjälp av Azure CLI. Följ stegen som beskrivs i artikeln [inaktivera övervakning](container-insights-optout.md?#azure-cli) . Med Azure CLI kan vi ta bort agenten från noder i klustret utan att påverka lösningen och motsvarande data som lagras på arbetsytan. 
 
 >[!NOTE]
 >När du utför den här aktiviteten för underhåll, noderna i klustret inte vidarebefordrar insamlade data och prestandavyer kommer inte att visa data mellan tid du tar bort agenten och installera den nya versionen. 
@@ -30,9 +30,9 @@ Processen för att uppgradera agenten i kluster, förutom Azure Red Hat OpenShif
 
 Om du vill installera den nya versionen av agenten följer du stegen som beskrivs i [Aktivera övervakning med Azure CLI](container-insights-enable-new-cluster.md#enable-using-azure-cli)för att slutföra processen.  
 
-När du har aktiverat övervakningen igen kan det ta ungefär 15 minuter innan du kan visa uppdaterade hälso mått för klustret. För att verifiera agenten uppgraderats, kör du kommandot: `kubectl logs omsagent-484hw --namespace=kube-system`
+När du har aktiverat övervakningen igen kan det ta ungefär 15 minuter innan du kan visa uppdaterade hälso mått för klustret. Verifiera att agenten har uppgraderats genom att köra kommandot: `kubectl logs omsagent-484hw --namespace=kube-system`
 
-Statusen bör likna följande exempel där värdet för *omi* och *omsagent* måste matcha den senaste versionen som anges i den [historik för versionen av agenten](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).  
+Status bör likna följande exempel där värdet för *OMI* och *omsagent* ska matcha den senaste versionen som anges i [agentens versions historik](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).  
 
     User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
     :
@@ -78,7 +78,7 @@ $ helm upgrade --name myrelease-1 \
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Så här inaktiverar du miljön variabelsamlingen i en behållare
 
-Azure Monitor för behållare som samlar in miljövariabler från behållare som körs i en pod och visar dem i egenskapsrutan i den valda behållaren i den **behållare** vy. Du kan styra det här beteendet genom att inaktivera samling för en speciell behållare antingen under distributionen av Kubernetes-klustret, eller genom att ange miljövariabeln *AZMON_COLLECT_ENV*. Den här funktionen är tillgänglig från agentversionen – ciprod11292018 och högre.  
+Azure Monitor för behållare samlar in miljövariabler från behållare som körs i en POD och visar dem i egenskaps rutan för den valda behållaren i vyn **behållare** . Du kan styra det här beteendet genom att inaktivera samling för en speciell behållare antingen under distributionen av Kubernetes-klustret, eller genom att ange miljövariabeln *AZMON_COLLECT_ENV*. Den här funktionen är tillgänglig från agentversionen – ciprod11292018 och högre.  
 
 Om du vill inaktivera insamling av miljövariabler på en ny eller befintlig behållare ställer du in variabeln **AZMON_COLLECT_ENV** med värdet **false** i yaml-konfigurationsfilen för Kubernetes-distributionen. 
 
@@ -106,4 +106,4 @@ Om du vill återaktivera identifieringen av miljövariablerna använder du samma
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om det uppstår problem när du uppgraderar agenten kan du granska den [felsökningsguide](container-insights-troubleshoot.md) för support.
+Om du får problem när du uppgraderar agenten kan du läsa [fel söknings guiden](container-insights-troubleshoot.md) för support.

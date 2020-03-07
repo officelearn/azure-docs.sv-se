@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 17bfbc29f38230dc2533c9ccc63cdee4fc776717
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512116"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377048"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudie: Konfigurera Azure Active Directory Join-hybrid för hanterade domäner
 
@@ -32,15 +32,15 @@ I den här självstudien får du lära dig hur du konfigurerar hybrid Azure AD-a
 
 En hanterad miljö kan distribueras antingen via [PHS (Password hash Sync)](../hybrid/whatis-phs.md) eller [direktautentisering (PTA)](../hybrid/how-to-connect-pta.md) med [sömlös enkel inloggning](../hybrid/how-to-connect-sso.md). De här scenarierna kräver inte att du konfigurerar en Federations Server för autentisering.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Konfigurera Hybrid Azure Active Directory-anslutning
+> * Konfigurera Hybrid Azure AD-anslutning
 > * Aktivera äldre Windows-enheter
 > * Verifiera anslutna enheter
-> * Felsökning
+> * Felsöka
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien förutsätter att du är bekant med de här artiklarna:
 
@@ -77,7 +77,7 @@ Om din organisation kräver åtkomst till Internet via en autentiserad utgående
 
 För att kontrol lera om enheten har åtkomst till ovanstående Microsoft-resurser under system kontot kan du använda anslutnings skriptet för [test av enhets registrering](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) .
 
-## <a name="configure-hybrid-azure-ad-join"></a>Konfigurera Hybrid Azure Active Directory-anslutning
+## <a name="configure-hybrid-azure-ad-join"></a>Konfigurera Hybrid Azure AD-anslutning
 
 Om du vill konfigurera en Hybrid Azure AD-anslutning med Azure AD Connect behöver du:
 
@@ -92,7 +92,7 @@ Om du vill konfigurera en Hybrid Azure AD-anslutning med Azure AD Connect behöv
 
 1. På sidan **Ytterligare aktiviteter** väljer du **Konfigurera enhets alternativ**och väljer sedan **Nästa**.
 
-   ![Ytterligare uppgifter](./media/hybrid-azuread-join-managed-domains/12.png)
+   ![Ytterligare aktiviteter](./media/hybrid-azuread-join-managed-domains/12.png)
 
 1. På sidan **Översikt** väljer du **Nästa**.
 
@@ -108,7 +108,7 @@ Om du vill konfigurera en Hybrid Azure AD-anslutning med Azure AD Connect behöv
 
 1. På sidan **SCP** , för varje skog där du vill Azure AD Connect konfigurera SCP, slutför du följande steg och väljer sedan **Nästa**:
 
-   ![SCP](./media/hybrid-azuread-join-managed-domains/16.png)
+   ![Tjänstanslutningspunkt](./media/hybrid-azuread-join-managed-domains/16.png)
 
    1. Välj skogen.
    1. Välj autentiseringstjänst.

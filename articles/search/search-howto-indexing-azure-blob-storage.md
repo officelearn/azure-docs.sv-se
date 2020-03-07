@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 1c2bac06f2526260fb290b63e5aa559a1e2337b4
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020632"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379564"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Indexera dokument i Azure Blob Storage med Azure Kognitiv sökning
 
@@ -31,7 +31,7 @@ BLOB-indexeraren kan extrahera text från följande dokument format:
 ## <a name="setting-up-blob-indexing"></a>Konfigurera BLOB-indexering
 Du kan konfigurera en Azure Blob Storage-indexerare med hjälp av:
 
-* [Azure-portalen](https://ms.portal.azure.com)
+* [Azure Portal](https://ms.portal.azure.com)
 * Azure Kognitiv sökning [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Azure Kognitiv sökning [.NET SDK](https://aka.ms/search-sdk)
 
@@ -281,7 +281,7 @@ Azure Kognitiv sökning begränsar storleken på blobbar som indexeras. De här 
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-Du kan också fortsätta att indexera om fel inträffar när som helst, antingen vid parsning av blobbar eller när dokument läggs till i ett index. Om du vill ignorera ett visst antal fel anger du `maxFailedItems` och `maxFailedItemsPerBatch` konfigurations parametrar till önskade värden. Ett exempel:
+Du kan också fortsätta att indexera om fel inträffar när som helst, antingen vid parsning av blobbar eller när dokument läggs till i ett index. Om du vill ignorera ett visst antal fel anger du `maxFailedItems` och `maxFailedItemsPerBatch` konfigurations parametrar till önskade värden. Exempel:
 
     {
       ... other parts of indexer definition

@@ -17,13 +17,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/08/2019
 ms.openlocfilehash: 6ddadcafd4f068f6516039017a3d491095c78e30
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75378270"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388444"
 ---
-# <a name="registration-management"></a>Registreringshantering
+# <a name="registration-management"></a>Registrerings hantering
 
 I det här avsnittet beskrivs hur du registrerar enheter med Notification Hub för att ta emot push-meddelanden. Avsnittet beskriver registreringar på en hög nivå och presenterar sedan de två huvud mönstren för att registrera enheter: att registrera från enheten direkt till Notification Hub och registrera dig via en program Server del.
 
@@ -263,7 +263,7 @@ catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
 
 Att hantera registreringar från Server delen kräver att du skriver ytterligare kod. Appen från enheten måste tillhandahålla den uppdaterade PNS-referensen till Server delen varje gång appen startas (tillsammans med taggar och mallar) och Server delen måste uppdatera den här referensen i Notification Hub. Följande bild illustrerar den här designen.
 
-![Registreringshantering](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
+![Registrerings hantering](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
 
 Fördelarna med att hantera registreringar från Server delen är möjligheten att ändra taggar till registreringar även när motsvarande app på enheten är inaktiv och för att autentisera klient programmet innan du lägger till en tagg i registreringen.
 
@@ -317,7 +317,7 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Exempel kod för registrering med en Notification Hub från en enhet med ett registrerings-ID
 
-Från din app server del kan du utföra grundläggande CRUDS-åtgärder för registreringar. Ett exempel:
+Från din app server del kan du utföra grundläggande CRUDS-åtgärder för registreringar. Exempel:
 
 ```csharp
 var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");

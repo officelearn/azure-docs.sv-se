@@ -1,7 +1,7 @@
 ---
 title: Skapa en ny app-LUIS
 titleSuffix: Azure Cognitive Services
-description: Skapa och hantera dina program på sidan Language Understanding (LUIS).
+description: Skapa och hantera dina program på webbsidan för Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,27 +12,27 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: diberry
 ms.openlocfilehash: d3f8696388a33a8ea112aae438c6bbe9af520c61
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904281"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390136"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Skapa en ny LUIS-app i LUIS-portalen
 Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i LUIS-portalen eller via LUIS redigerings- [API: er](developer-reference-resource.md).
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-## <a name="using-the-luis-portal"></a>Använda LUIS-portalen
+## <a name="using-the-luis-portal"></a>Med LUIS-portalen
 
 Du kan skapa en ny app i för hands versionen av portalen på flera sätt:
 
-* Börja med en tom app och skapa avsikter, yttranden och entiteter.
+* Börja med en tom app och skapa avsikter och yttranden entiteter.
 * Börja med en tom app och Lägg till en [fördefinierad domän](luis-how-to-use-prebuilt-domains.md).
 * Importera en LUIS-app från en `.lu` eller `.json` fil som redan innehåller avsikter, yttranden och entiteter.
 
-## <a name="using-the-authoring-apis"></a>Använda API: erna för redigering
-Du kan skapa en ny app med API: erna för redigering på ett par olika sätt:
+## <a name="using-the-authoring-apis"></a>Med redigering API: er
+Du kan skapa en ny app med redigering API: er på ett par olika sätt:
 
 * [Lägg till program](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f) – starta med en tom app och skapa avsikter, yttranden och entiteter.
 * [Lägg till fördefinierad applikations](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/59104e515aca2f0b48c76be5) start med en fördefinierad domän, inklusive avsikter, yttranden och entiteter.  
@@ -45,7 +45,7 @@ Du kan skapa en ny app med API: erna för redigering på ett par olika sätt:
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
-## <a name="create-new-app-in-luis"></a>Skapa en ny app i LUIS
+## <a name="create-new-app-in-luis"></a>Skapa ny app i LUIS
 
 1. På sidan **Mina appar** väljer du din prenumeration och redigerar resurs och sedan **skapa**. Om du använder en kostnads fri utvärderings nyckel lär du dig hur du [skapar en redigerings resurs](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
 
@@ -54,7 +54,7 @@ Du kan skapa en ny app med API: erna för redigering på ett par olika sätt:
 
 1. I dialog rutan anger du namnet på programmet, t. ex. `Pizza Tutorial`.
 
-    ![Dialog rutan skapa ny app](./media/create-pizza-tutorial-app-in-portal.png)
+    ![Skapa ny app dialog](./media/create-pizza-tutorial-app-in-portal.png)
 
 1. Välj din program kultur och välj sedan **slutförd**. En beskrivning och en förutsägelse resurs är valfria i det här läget. Du kan ange när som helst i avsnittet **Hantera** i portalen.
 

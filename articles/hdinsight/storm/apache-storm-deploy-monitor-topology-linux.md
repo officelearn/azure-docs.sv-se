@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: e890289230b3215bd102d8c5a78dca4f1b7b90f8
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75494966"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386343"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuera och hantera Apache Storm topologier på Azure HDInsight
 
 I det här dokumentet lär du dig grunderna för att hantera och övervaka [Apache Storm](https://storm.apache.org/) topologier som körs på storm i HDInsight-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Storm kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **Storm** för **kluster typ**.
 
@@ -210,8 +210,8 @@ I avsnittet **topologi åtgärder** kan du välja följande knappar för att utf
 | Aktivera | Återupptar bearbetning av en inaktive rad topologi. |
 | Inaktivera | Pausar en topologi som körs. |
 | Balansera om | Justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Med den här åtgärden kan topologin justera parallellt för att kompensera för det ytterligare eller minskade antalet noder i klustret.<br/><br/>Mer information finns i <a href="https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">förstå parallellitet för en Apache Storm topologi</a>.
-| döda | Avslutar en Storm-topologi efter den angivna tids gränsen. |
-| Felsöka | Startar en felsökningssession för den topologi som körs. |
+| Döda | Avslutar en Storm-topologi efter den angivna tids gränsen. |
+| Felsökning | Startar en felsökningssession för den topologi som körs. |
 | Stoppa fel sökning | Avslutar felsökningssessionen för den topologi som körs. |
 | Ändra loggnings nivå | Ändrar fel söknings logg nivån. |
 
@@ -262,7 +262,7 @@ Begär anden till REST API måste använda *grundläggande autentisering*, så d
 > [!NOTE]  
 > Eftersom grundläggande autentisering skickas med klartext bör du *alltid* använda HTTPS för att skydda kommunikationen med klustret.
 
-### <a name="return-values"></a>Returvärden
+### <a name="return-values"></a>Retur värden
 
 Information som returneras från REST API kan bara användas i klustret. Till exempel är det fullständigt kvalificerade domän namnet (FQDN) som returneras för [Apache ZooKeeper](https://zookeeper.apache.org/) servrar inte tillgängligt från Internet.
 

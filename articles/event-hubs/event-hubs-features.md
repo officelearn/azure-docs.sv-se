@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 568a21cee5b50a8914c603976f5951d0235dbff7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157184"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358277"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funktionerna och terminologin i Azure Event Hubs
 
@@ -26,7 +26,7 @@ Azure Event Hubs är en skalbar händelsebearbetningstjänst som matar in och be
 
 Den här artikeln bygger på informationen i [översikts artikeln](event-hubs-what-is-event-hubs.md)och ger teknisk och implementerings information om Event Hubs-komponenter och-funktioner.
 
-## <a name="namespace"></a>Namnrymd
+## <a name="namespace"></a>Namnområde
 Ett Event Hubs-namnområde innehåller en unik omfattnings behållare som refereras till av det [fullständigt kvalificerade domän namnet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), där du kan skapa ett eller flera Event Hub-eller Kafka-ämnen. 
 
 ## <a name="event-hubs-for-apache-kafka"></a>Event Hubs för Apache Kafka

@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
 ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080516"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394764"
 ---
 # <a name="how-to-use-perfinsights"></a>Så här använder du PerfInsights
 
@@ -69,7 +69,7 @@ Information om den virtuella Linux-datorn, operativ systemet, blockera enheter, 
   - Driv rutins information
 
 - Maskinvara
-  - PCI-enheter`*`[]
+  - PCI-enheter [`*`]
 
 - Processer och minne
   - Lista över processer (uppgifts namn, använt minne, öppna filer)
@@ -91,7 +91,7 @@ Information om den virtuella Linux-datorn, operativ systemet, blockera enheter, 
   - LVM volym information
   - Profilering av hämtning på alla diskar med 5 sekunders intervall
 
-- Logs
+- Loggar
   - /var/log/Messages
   - /var/log/syslog
   - /var/log/kern.log
@@ -103,7 +103,7 @@ Information om den virtuella Linux-datorn, operativ systemet, blockera enheter, 
   - /var/log/cloud-init-output.log
   - /var/log/gpu-manager.log
   - /var/log/waagent.log
-  - /var/log/Azure/[mapp för tillägg]\*/logg\*
+  - /var/log/Azure/[mapp för tillägg]/\*logg\*
   - /var/opt/microsoft/omsconfig/omsconfig.log
   - /var/opt/microsoft/omsagent/log/omsagent.log
   - /etc/waagent.config
@@ -136,7 +136,7 @@ Information om den virtuella Linux-datorn, operativ systemet, blockera enheter, 
     |                            |                                                   |
 
 >[!Note]
->[`*`] Se avsnittet [kända problem](#known-issues)
+>[`*`] Mer information finns i avsnittet om [kända problem](#known-issues)
 
 ### <a name="known-issues"></a>Kända problem
 
@@ -173,7 +173,7 @@ Följ dessa steg om du vill köra PerfInsights-verktyget:
    tar xzvf PerfInsights.tar.gz
    ```
 
-2. Navigera till mappen som innehåller `perfinsights.py` filen och kör `perfinsights.py` sedan för att visa de tillgängliga kommando rads parametrarna.
+2. Navigera till mappen som innehåller `perfinsights.py`-filen och kör `perfinsights.py` för att visa de tillgängliga kommando rads parametrarna.
 
     ```bash
     cd <the path of PerfInsights folder>
@@ -205,11 +205,11 @@ Följ dessa steg om du vill köra PerfInsights-verktyget:
     >
     >Om du har ett aktivt support ärende med Microsoft och kör PerfInsights per begäran av support teknikern som du arbetar med, måste du ange support ärende numret med alternativet **-s eller--Support-Request** .
 
-När körningen har slutförts visas en ny tar-fil i samma mapp som PerfInsights, om ingen mapp för utdata har angetts. Namnet på filen är **PerformanceDiagnostics\_åååå-mm\_-dd HH-mm-SS-FFF. tar. gz.** Du kan skicka den här filen till support agenten för analys eller öppna rapporten i filen för att granska resultat och rekommendationer.
+När körningen har slutförts visas en ny tar-fil i samma mapp som PerfInsights, om ingen mapp för utdata har angetts. Namnet på filen är **PerformanceDiagnostics\_åååå-mm-dd\_HH-mm-SS-FFF. tar. gz.** Du kan skicka den här filen till support agenten för analys eller öppna rapporten i filen för att granska resultat och rekommendationer.
 
 ## <a name="review-the-diagnostics-report"></a>Granska den diagnostiska rapporten
 
-I filen **PerformanceDiagnostics\_åååå-mm-dd\_HH-mm-SS-FFF. tar. gz** kan du hitta en HTML-rapport som innehåller information om resultaten av PerfInsights. Om du vill granska rapporten expanderar du filen **PerformanceDiagnostics\_åååå-mm\_-dd HH-mm-SS-FFF. tar. gz** och öppnar sedan filen **PerfInsights Report. html** .
+I **PerformanceDiagnostics\_åååå-mm-dd\_HH-mm-SS-FFF. tar. gz** -filen kan du hitta en HTML-rapport som innehåller information om resultaten av PerfInsights. Om du vill granska rapporten expanderar du filen **PerformanceDiagnostics\_åååå-mm-dd\_HH-mm-SS-FFF. tar. gz** och öppnar sedan **PerfInsights Report. html** .
 
 ### <a name="overview-tab"></a>Fliken Översikt
 
@@ -254,4 +254,4 @@ Följande skärm bild visar ett meddelande som liknar det du kan få:
 
 Följ anvisningarna i meddelandet för att komma åt fil överförings arbets ytan. För ytterligare säkerhet måste du ändra ditt lösen ord vid första användningen.
 
-När du har loggat in hittar du en dialog ruta där du kan ladda upp **PerformanceDiagnostics\_åååå-mm\_-dd HH-mm-SS-FFF. tar. gz-** filen som samlats in av PerfInsights.
+När du har loggat in hittar du en dialog ruta där du kan ladda upp **PerformanceDiagnostics\_åååå-mm-dd\_HH-mm-SS-FFF. tar. gz** -filen som samlats in av PerfInsights.

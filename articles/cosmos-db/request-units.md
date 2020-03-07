@@ -7,29 +7,29 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: a0058bf309e0ff4fbe687731d676e907d1c3fd82
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383115"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394223"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Enheter för programbegäran i Azure Cosmos DB
 
-Med Azure Cosmos DB betalar du för det data flöde som du tillhandahåller och den lagring du förbrukar per timme. Data flödet måste tillhandahållas för att säkerställa att tillräckligt med system resurser är tillgängliga för din Azure Cosmos-databas hela tiden. Du behöver tillräckligt med resurser för att möta eller överskrida [Azure Cosmos DB service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
+Med Azure Cosmos DB betalar du för det dataflöde du tillhandahåller och den lagring som du för brukar varje timme. Dataflöde måste tillhandahållas för att se till att det alltid finns tillräckligt med tillgängliga systemresurser för din Azure Cosmos-databas. Du behöver tillräckligt med resurser för att möta eller överskrida [Azure Cosmos DB service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
 
 Azure Cosmos DB stöder många API: er, till exempel SQL, MongoDB, Cassandra, Gremlin och Table. Varje API har en egen uppsättning databas åtgärder. Dessa åtgärder sträcker sig från enkla punkter som läser och skriver till komplexa frågor. Varje databas åtgärd förbrukar system resurser baserat på åtgärdens komplexitet. 
 
-Kostnaden för alla databas åtgärder normaliseras av Azure Cosmos DB och uttrycks av *enheter för programbegäran* (eller ru: er, för kort). Du kan tänka dig ru: er per sekund som valuta för data flödet. Ru: er per sekund är en Rate-baserad valuta. Den sammanfattar de system resurser som CPU, IOPS och minne som krävs för att utföra de databas åtgärder som stöds av Azure Cosmos DB. 
+Kostnaden för alla databas åtgärder normaliseras av Azure Cosmos DB och uttrycks av *enheter för programbegäran* (eller ru: er, för kort). Du kan tänka på RU:er per sekund som en valuta för dataflöde. RU:er per sekund är en hastighetsbaserad valuta. Den abstraherar systemresurser som CPU, IOPS och minne som krävs för att utföra de databasåtgärder som stöds av Azure Cosmos DB. 
 
-Kostnaden för att läsa en 1 KB-artikel är 1 begär ande enhet (eller 1 RU). Minst 10 RU/s krävs för att lagra varje 1 GB data. Alla andra databas åtgärder tilldelas samma kostnad med ru: er. Oavsett vilket API du använder för att interagera med din Azure Cosmos-behållare, mäts kostnader alltid med ru: er. Om databas åtgärden är en Skriv-, Läs-eller-fråga, mäts kostnader alltid i ru: er.
+Kostnaden för att läsa ett objekt på 1 KB är 1 enhet för programbegäran (eller 1 RU). Minst 10 RU/s krävs för att lagra varje 1 GB data. Alla andra databasåtgärder tillskrivs på samma sätt en kostnad i form av RU:er. Oavsett vilket API du använder för att interagera med din Azure Cosmos-behållare mäts kostnaderna alltid med RU:er. Oavsett om databasåtgärden är en läsning, skrivning eller fråga mäts kostnaderna alltid i RU:er.
 
-Följande bild visar en övergripande idé på ru: er:
+Följande bild illustrerar den övergripande tanken med RU:er:
 
 ![Databas åtgärder förbrukar enheter för programbegäran](./media/request-units/request-units.png)
 
-Azure Cosmos DB säkerställer att antalet ru: er för en specifik databas åtgärd över en specifik data uppsättning är deterministisk för att hantera och planera kapacitet. Du kan granska svars huvudet för att spåra antalet ru: er som används av en databas åtgärd. När du förstår de [faktorer som påverkar ru-avgifterna](request-units.md#request-unit-considerations) och ditt programs data flödes krav kan du effektivt köra program kostnaden.
+För att hantera och planera kapacitet ser Azure Cosmos DB till att antalet RU:er för en given databasåtgärd som avser en given datamängd är deterministisk. Du kan undersöka svarshuvudet för att ta reda på antalet RU:er som förbrukas av en valfri databasåtgärd. När du förstår de [faktorer som påverkar ru-avgifterna](request-units.md#request-unit-considerations) och ditt programs data flödes krav kan du effektivt köra program kostnaden.
 
-Du etablerar antalet ru: er för ditt program per sekund i steg om 100 ru: er per sekund. Om du vill skala det etablerade data flödet för ditt program kan du när som helst öka eller minska antalet ru: er. Du kan skala i steg om eller minskar 100 ru: er. Du kan göra dina ändringar antingen via programmering eller med hjälp av Azure Portal. Du faktureras per timme.
+Du anger antalet RU:er för ditt program per sekund, i steg om 100 RU:er per sekund. Om du vill skala det etablerade dataflödet för ditt program kan du när som helst öka eller minska antalet RU:er. Du kan öka eller minska i steg om 100 RU:er. Du kan utföra dina ändringar programmatiskt eller med hjälp av Azure-portalen. Du debiteras per timme.
 
 Du kan etablera data flöde med två olika granularitet: 
 

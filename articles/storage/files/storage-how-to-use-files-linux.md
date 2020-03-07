@@ -8,11 +8,11 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0ef9609cded29c94260d027212abbf0c62f8653c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772116"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394350"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Linux-distributioner med [SMB-kernel-klienten](https://wiki.samba.org/index.php/LinuxCIFS). Den här artikeln visar två sätt att montera en Azure-fil resurs: på begäran med kommandot `mount` och vid start genom att skapa en post i `/etc/fstab`.
@@ -24,7 +24,7 @@ Det rekommenderade sättet att montera en Azure-filresurs på Linux är att anv�
 | Ubuntu | 14.04 + | 16.04 + |
 | Red Hat Enterprise Linux (RHEL) | 7+ | 7.5 + |
 | CentOS | 7+ |  7.5 + |
-| Debian | 8+ | 10+ |
+| Debian | 8+ | 10 + |
 | openSUSE | 13.2 + | 42.3 + |
 | SUSE Linux Enterprise Server | 12+ | 12 SP3+ |
 
@@ -34,7 +34,7 @@ Om du använder en Linux-distribution som inte finns med i tabellen ovan kan du 
 uname -r
 ```
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Se till att CIFS-utils-paketet är installerat.**  
@@ -201,22 +201,22 @@ Från och med linux kernel 4,18, anropade SMB-kernel-modulen `cifs` av tidigare 
 
 | Distribution | Kan inaktivera SMB 1 |
 |--------------|-------------------|
-| Ubuntu 14.04-16.04 | Inga |
+| Ubuntu 14.04-16.04 | Nej |
 | Ubuntu 18.04 | Ja |
 | Ubuntu 19.04 + | Ja |
-| Debian 8-9 | Inga |
+| Debian 8-9 | Nej |
 | Debian 10 + | Ja |
 | Fedora 29 + | Ja |
-| CentOS 7 | Inga | 
+| CentOS 7 | Nej | 
 | CentOS 8 + | Ja |
-| Red Hat Enterprise Linux 6. x-7. x | Inga |
+| Red Hat Enterprise Linux 6. x-7. x | Nej |
 | Red Hat Enterprise Linux 8 + | Ja |
-| openSUSE skottår 15,0 | Inga |
+| openSUSE skottår 15,0 | Nej |
 | openSUSE skottår 15.1 + | Ja |
 | openSUSE Tumbleweed | Ja |
-| SUSE Linux Enterprise 11. x-12. x | Inga |
-| SUSE Linux Enterprise 15 | Inga |
-| SUSE Linux Enterprise 15,1 | Inga |
+| SUSE Linux Enterprise 11. x-12. x | Nej |
+| SUSE Linux Enterprise 15 | Nej |
+| SUSE Linux Enterprise 15,1 | Nej |
 
 Du kan kontrol lera om din Linux-distribution stöder parametern `disable_legacy_dialects` modul via följande kommando.
 
@@ -282,5 +282,5 @@ Gruppen Azure Files för Linux-användare ger ett forum där du kan dela feedbac
 Mer information om Azure Files finns på följande länkar:
 
 * [Planera för en Azure Files-distribution](storage-files-planning.md)
-* [Vanliga frågor och svar](../storage-files-faq.md)
-* [Troubleshooting](storage-troubleshoot-linux-file-connection-problems.md) (Felsökning)
+* [VANLIGA FRÅGOR OCH SVAR](../storage-files-faq.md)
+* [Felsökning](storage-troubleshoot-linux-file-connection-problems.md)

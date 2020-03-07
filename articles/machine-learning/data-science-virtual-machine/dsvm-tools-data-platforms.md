@@ -11,11 +11,11 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: bfae8147c348c76fa0e406fec283144ebc26e86b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615520"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390683"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Dataplattformar som stöds på den virtuella datorn för datavetenskap
 
@@ -23,7 +23,7 @@ Med en Data Science Virtual Machine (DSVM) kan du bygga upp din analys mot en m�
 
 Följande data plattforms verktyg stöds på DSVM.
 
-## <a name="sql-server-developer-edition"></a>SQL Server Developer Edition
+## <a name="sql-server-developer-edition"></a>SQL Server Developers utgåva
 
 | | |
 | ------------- | ------------- |
@@ -37,7 +37,7 @@ Följande data plattforms verktyg stöds på DSVM.
 > SQL Server Developer Edition kan endast användas i utvecklings-och test syfte. Du behöver en licens eller en av SQL Server-datorer att köras i produktion.
 
 
-### <a name="setup"></a>Installation
+### <a name="setup"></a>Konfiguration
 
 Databas servern är redan förkonfigurerad och Windows-tjänster som är relaterade till SQL Server (som `SQL Server (MSSQLSERVER)`) är inställda på att köras automatiskt. Det enda manuella steget innebär att du aktiverar databas analyser med hjälp av Microsoft Machine Learning Server. Du kan aktivera analys genom att köra följande kommando som en engångs åtgärd i SQL Server Management Studio (SSMS). Kör det här kommandot när du har loggat in som dator administratör, öppna en ny fråga i SSMS och kontrol lera att den valda databasen är `master`:
 
@@ -55,7 +55,7 @@ Dessutom levereras DSVM med ODBC-och JDBC-drivrutiner för att prata med SQL Ser
 
 ### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>Hur konfigureras den och installeras på DSVM? 
 
- SQL Server installeras på standard sätt. Det finns på `C:\Program Files\Microsoft SQL Server`. Machine Learning Server-instansen i databasen finns på `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`. DSVM har också en separat fristående Machine Learning Server instans, som installeras på `C:\Program Files\Microsoft\R Server\R_SERVER`. Dessa två Machine Learning Server-instanser delar inte bibliotek.
+ SQL Server installeras på standard sätt. Du hittar den på `C:\Program Files\Microsoft SQL Server`. Machine Learning Server-instansen i databasen finns på `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`. DSVM har också en separat fristående Machine Learning Server instans, som installeras på `C:\Program Files\Microsoft\R Server\R_SERVER`. Dessa två Machine Learning Server-instanser delar inte bibliotek.
 
 
 ## <a name="apache-spark-2x-standalone"></a>Apache Spark-2.x (fristående)
@@ -73,7 +73,7 @@ Du kan skicka Spark-jobb på kommando raden genom att köra kommandot `spark-sub
 
 Du kan använda Spark från R genom att använda bibliotek som sparker, Sparklyr och Microsoft Machine Learning Server, som är tillgängliga på DSVM. Se pekare till exempel i tabellen ovan.
 
-### <a name="setup"></a>Installation
+### <a name="setup"></a>Konfiguration
 Innan du kör i en spark-kontext i Microsoft Machine Learning Server på Ubuntu Linux DSVM-versionen måste du slutföra ett engångs inställnings steg för att aktivera en lokal enskild nod Hadoop HDFS-och garn-instans. Som standard är Hadoop-tjänster installerat men inaktiverat på DSVM. Om du vill aktivera dem kör du följande kommandon som rot första gången:
 
     echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa

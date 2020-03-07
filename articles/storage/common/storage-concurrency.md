@@ -11,11 +11,11 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 9879f98e72e22fc0745a9e91f29216cbe74ab8fe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460478"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373677"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Hantera samtidighet i Microsoft Azure Storage
 
@@ -90,15 +90,15 @@ I följande tabell sammanfattas de behållar åtgärder som accepterar villkorli
 
 | Åtgärd | Returnerar ETag-värde för behållare | Accepterar villkorliga rubriker |
 |:--- |:--- |:--- |
-| Skapa behållare |Ja |Inga |
-| Hämta egenskaper för behållare |Ja |Inga |
-| Hämta metadata för behållare |Ja |Inga |
+| Skapa behållare |Ja |Nej |
+| Hämta egenskaper för behållare |Ja |Nej |
+| Hämta metadata för behållare |Ja |Nej |
 | Ange metadata för behållare |Ja |Ja |
-| Hämta ACL för behållare |Ja |Inga |
+| Hämta ACL för behållare |Ja |Nej |
 | Ange behållar-ACL |Ja |Ja (*) |
-| Ta bort behållare |Inga |Ja |
+| Ta bort behållare |Nej |Ja |
 | Lease container |Ja |Ja |
-| Lista blobbar |Inga |Inga |
+| Lista blobbar |Nej |Nej |
 
 (*) Behörigheterna som definieras av SetContainerACL cachelagras och uppdateringar av de här behörigheterna tar 30 sekunder att spridas under vilka period uppdateringar inte garanterat är konsekventa.  
 
@@ -115,11 +115,11 @@ I följande tabell sammanfattas de BLOB-åtgärder som accepterar villkorliga hu
 | Låna BLOB (*) |Ja |Ja |
 | Ögonblicks bilds-BLOB |Ja |Ja |
 | Kopiera Blob |Ja |Ja (för käll-och mål-BLOB) |
-| Avbryt kopiering av BLOB |Inga |Inga |
-| Ta bort Blob |Inga |Ja |
-| Spärra block |Inga |Inga |
+| Avbryt kopiering av BLOB |Nej |Nej |
+| Ta bort Blob |Nej |Ja |
+| Spärra block |Nej |Nej |
 | Lista över blockerade |Ja |Ja |
-| Hämta blockeringslistan |Ja |Inga |
+| Hämta blockeringslistan |Ja |Nej |
 | Placerings sida |Ja |Ja |
 | Hämta sid intervall |Ja |Ja |
 
@@ -179,7 +179,7 @@ Följande BLOB-åtgärder kan använda lån för att hantera pessimistisk samtid
 * Ögonblicks bilds-BLOB – låne-ID valfritt om det finns ett lån
 * Kopiera BLOB-låne-ID krävs om ett lån finns på mål-bloben
 * Avbryt kopierings-BLOB-låne-ID krävs om det finns ett oändligt lån på mål-bloben
-* Låna blob  
+* Låna BLOB  
 
 ### <a name="pessimistic-concurrency-for-containers"></a>Pessimistisk samtidighet för behållare
 
@@ -195,11 +195,11 @@ Följande behållar åtgärder kan använda lån för att hantera pessimistisk s
 * Ange behållar-ACL
 * Lease container  
 
-Mer information finns här:  
+Mer information finns i:  
 
-* [Ange villkorliga rubriker för Blob Service-åtgärder](https://msdn.microsoft.com/library/azure/dd179371.aspx)
+* [Ange villkorliga huvuden för BLOB service-åtgärder](https://msdn.microsoft.com/library/azure/dd179371.aspx)
 * [Lease container](https://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Låna blob](https://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Låna BLOB](https://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## <a name="managing-concurrency-in-table-storage"></a>Hantera samtidighet i tabell lagring
 
@@ -244,19 +244,19 @@ I följande tabell sammanfattas hur tabell enhets åtgärder använder ETag-vär
 
 | Åtgärd | Returnerar ETag-värde | Kräver rubriken-match begär ande huvud |
 |:--- |:--- |:--- |
-| Fråga entiteter |Ja |Inga |
-| Infoga entitet |Ja |Inga |
+| Fråga entiteter |Ja |Nej |
+| Infoga entitet |Ja |Nej |
 | Uppdatera entitet |Ja |Ja |
 | Sammanfoga entitet |Ja |Ja |
-| Ta bort entitet |Inga |Ja |
-| Infoga eller Ersätt entitet |Ja |Inga |
-| Infoga eller sammanfoga entitet |Ja |Inga |
+| Ta bort entitet |Nej |Ja |
+| Infoga eller Ersätt entitet |Ja |Nej |
+| Infoga eller sammanfoga entitet |Ja |Nej |
 
 Observera att åtgärderna **Lägg till eller Ersätt entitet** och **Infoga eller sammanfoga entiteter** *inte* utför några samtidighets kontroller eftersom de inte skickar ett ETag-värde till tabell tjänsten.  
 
 I allmänna utvecklare använder tabeller för att förlita sig på optimistisk samtidighet när du utvecklar skalbara program. Om den pessimistiska låsningen behövs kan en metod utvecklare vidta när de kommer åt tabeller för att tilldela en angiven BLOB för varje tabell och försöka ta ett lån på blobben innan det fungerar i tabellen. Den här metoden kräver att programmet ser till att alla data åtkomst Sök vägar erhåller lånet innan det används i tabellen. Observera också att den minsta låne tiden är 15 sekunder, vilket kräver noggrann hänsyn till skalbarhet.  
 
-Mer information finns här:  
+Mer information finns i:  
 
 * [Åtgärder på entiteter](https://msdn.microsoft.com/library/azure/dd179375.aspx)  
 
@@ -266,9 +266,9 @@ Ett scenario där samtidighet är ett problem i kötjänsten är att flera klien
 
 Queue Service har inte stöd för antingen optimistisk eller pessimistisk samtidighet och för den här anledningen bör klienter som bearbetar meddelanden som hämtats från en kö se till att meddelanden bearbetas på ett idempotenta sätt. En sista skrivares WINS-strategi används för uppdaterings åtgärder som SetQueueServiceProperties, SetQueueMetaData, SetQueueACL och UpdateMessage.  
 
-Mer information finns här:  
+Mer information finns i:  
 
-* [Kö-tjänstens REST-API](https://msdn.microsoft.com/library/azure/dd179363.aspx)
+* [Queue Service-REST API](https://msdn.microsoft.com/library/azure/dd179363.aspx)
 * [Hämta meddelanden](https://msdn.microsoft.com/library/azure/dd179474.aspx)  
 
 ## <a name="managing-concurrency-in-azure-files"></a>Hantera samtidighet i Azure Files
@@ -277,7 +277,7 @@ Fil tjänsten kan nås med två olika protokoll slut punkter – SMB och REST. R
 
 När en SMB-klient öppnar en fil för borttagning, markeras filen som väntande borttagning tills alla andra SMB-klientens öppna referenser till den aktuella filen är stängda. När en fil markeras som väntande borttagning, kommer alla REST-åtgärder i filen att returnera status kod 409 (konflikt) med felkoden SMBDeletePending. Status kod 404 (hittades inte) returnerades inte eftersom det är möjligt för SMB-klienten att ta bort flaggan för väntande borttagning innan filen stängs. Med andra ord förväntas status kod 404 (hittades inte) när filen har tagits bort. Observera att när en fil är i ett SMB-tillstånd som väntar på borttagning, tas den inte med i listan över filer. Tänk också på att REST DELETE-filen och REST Delete-åtgärderna allokeras och inte resulterar i ett tillstånd som väntar på borttagning.  
 
-Mer information finns här:  
+Mer information finns i:  
 
 * [Hantera fillås](https://msdn.microsoft.com/library/azure/dn194265.aspx)  
 

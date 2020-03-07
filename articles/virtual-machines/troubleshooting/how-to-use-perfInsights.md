@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058178"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389527"
 ---
 # <a name="how-to-use-perfinsights"></a>Så här använder du PerfInsights
 
@@ -79,15 +79,15 @@ Det här scenariot kör en särskild prestanda räknare som samlas in med ett n�
 | Svarstid      | Genomsn. s/data-begäran         |
 |              | Genomsn. s/läsning                 |
 |              | Genomsn. s/skrivning                |
-| I/o-storlek      | Genomsn. Byte/data-begäran       |
-|              | Genomsn. Byte/läsning               |
-|              | Genomsn. Byte/skrivning              |
+| I/o-storlek      | Genomsnittlig byte/data-begäran       |
+|              | Genomsnittligt antal byte/läsning               |
+|              | Genomsnittligt antal byte/skrivning              |
 | Dataflöde   | Data-byte/s                |
 |              | Lästa byte/sek                |
 |              | Skrivna byte/sek               |
-| Kölängd | Genomsn. Läs Kölängd        |
-|              | Genomsn. Skriv Kölängd       |
-|              | Genomsn. Längd på data kön        |
+| Kölängd | Genomsnittlig längd på Läs kön        |
+|              | Genomsnittlig längd på Skriv kön       |
+|              | Genomsnittlig längd på data kön        |
 
 ### <a name="advanced-performance-analysis"></a>Avancerad prestanda analys
 
@@ -131,10 +131,10 @@ Information om virtuella Windows-datorer, diskar eller lagringspooler konfigurat
 
 Kör en regel baserad motor i bakgrunden för att samla in data och diagnostisera pågående prestanda problem. Följande regler stöds för närvarande:
 
-- HighCpuUsage-regel: Identifierar hög processor användnings perioder och visar de högsta processor användnings förbrukarna under dessa perioder.
-- HighDiskUsage-regel: Identifierar hög disk användnings perioder på fysiska diskar och visar de mest disk användnings konsumenter under dessa perioder.
-- HighResolutionDiskMetric-regel: Visar värden för IOPS, data flöde och I/O-latens per 50 millisekunder för varje fysisk disk. Det hjälper dig att snabbt identifiera disk begränsnings perioder.
-- HighMemoryUsage-regel: Identifierar hög minnes användnings perioder och visar de högsta minnes användnings förbrukarna under dessa perioder.
+- HighCpuUsage-regel: identifierar hög processor användnings perioder och visar de högsta processor användnings förbrukarna under dessa perioder.
+- HighDiskUsage-regel: identifierar hög disk användnings perioder på fysiska diskar och visar de mest disk användnings konsumenter under dessa perioder.
+- HighResolutionDiskMetric-regel: visar IOPS, data flöde och I/O-latens mått per 50 millisekunder för varje fysisk disk. Det hjälper dig att snabbt identifiera disk begränsnings perioder.
+- HighMemoryUsage-regel: identifierar hög minnes användnings perioder och visar de högsta minnes användnings konsumenter under dessa perioder.
 
 > [!NOTE] 
 > För närvarande stöds Windows-versioner som innehåller .NET Framework 4,5 eller senare versioner.
@@ -166,7 +166,7 @@ Diskspd I/O-arbetsbelastnings test (OS-disk [Write] och pool enheter [läsa/skri
 
 -  Det här verktyget måste köras på den virtuella datorn som har prestanda problemet. 
 
--  Följande operativsystem stöds: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016; Windows 8,1 och Windows 10.
+-  Följande operativ system stöds: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016; Windows 8,1 och Windows 10.
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Möjliga problem när du kör verktyget på virtuella produktions datorer
 
@@ -248,12 +248,12 @@ När spårningen eller åtgärderna har slutförts visas en ny fil i samma mapp 
 
 ## <a name="review-the-diagnostics-report"></a>Granska den diagnostiska rapporten
 
-I **\_PerformanceDiagnostics åååå-mm-dd\_HH-mm-SS-FFF. zip** -filen hittar du en HTML-rapport som innehåller information om resultaten av PerfInsights. Om du vill granska rapporten expanderar du filen **PerformanceDiagnostics\_åååå-mm\_-dd HH-mm-SS-FFF. zip** och öppnar sedan filen **PerfInsights Report. html** .
+I **PerformanceDiagnostics\_åååå-mm-dd\_HH-mm-SS-FFF. zip** -filen kan du hitta en HTML-rapport som innehåller information om resultaten av PerfInsights. Om du vill granska rapporten expanderar du filen **PerformanceDiagnostics\_åååå-mm-dd\_HH-mm-SS-FFF. zip** och öppnar sedan filen **PerfInsights Report. html** .
 
 Välj fliken **resultat** .
 
-![Skärm bild av PerfInsights](media/how-to-use-perfInsights/pi-finding-tab.png)
-Report![skärm bild av PerfInsights-rapport](media/how-to-use-perfInsights/pi-findings.png)
+![skärm bild av PerfInsights Report](media/how-to-use-perfInsights/pi-finding-tab.png)
+![skärm bild av PerfInsights Report](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > Avgöranden kategoriserade som höga är kända problem som kan orsaka prestanda problem. Resultat som kategoriseras som medel representerar icke-optimala konfigurationer som inte nödvändigt vis orsakar prestanda problem. Resultat som kategoriseras som låg är endast informativa rapporter.
@@ -270,7 +270,7 @@ I det fysiska disk perspektivet (disk karta) visar tabellen alla logiska volymer
 
 ![Skärm bild av fliken disk](media/how-to-use-perfInsights/pi-disk-tab.png)
 
-I volym perspektivet (volym karta) visar tabellerna alla fysiska diskar under varje logisk volym. Observera att du kan köra en logisk volym på flera fysiska diskar för RAID/dynamiska diskar. I följande exempel är *C:\\montera* en monterings punkt som kon figurer ATS som *SpannedDisk* på fysiska diskar 2 och 3:
+I volym perspektivet (volym karta) visar tabellerna alla fysiska diskar under varje logisk volym. Observera att du kan köra en logisk volym på flera fysiska diskar för RAID/dynamiska diskar. I följande exempel är *C:\\Mount* en monterings punkt konfigurerad som *SpannedDisk* på fysiska diskar 2 och 3:
 
 ![Skärm bild av fliken volym](media/how-to-use-perfInsights/pi-volume-tab.png)
 
@@ -313,5 +313,5 @@ Följande skärm bild visar ett meddelande som liknar det du kan få:
 
 Följ anvisningarna i meddelandet för att komma åt fil överförings arbets ytan. För ytterligare säkerhet måste du ändra ditt lösen ord vid första användningen.
 
-När du har loggat in hittar du en dialog ruta där du kan ladda upp **PerformanceDiagnostics\_åååå-mm\_-dd HH-mm-SS-FFF. zip-** filen som samlats in av PerfInsights.
+När du har loggat in hittar du en dialog ruta där du kan ladda upp **PerformanceDiagnostics\_åååå-mm-dd\_HH-mm-SS-FFF. zip-** filen som samlades in av PerfInsights.
 

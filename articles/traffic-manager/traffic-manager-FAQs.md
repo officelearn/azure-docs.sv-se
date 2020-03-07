@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
 ms.openlocfilehash: bc318aff0dad7d7fdff16df549c013927ef0e799
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938805"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386914"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Traffic Manager
 
@@ -172,7 +172,7 @@ Du kan ange det maximala antalet slut punkter som ska returneras och multivärde
 
 Vi kan inte garantera att samma uppsättning slut punkter returneras i varje fråga. Detta påverkas också av att några av slut punkterna kan hamna i fel tillstånd när de inte tas med i svaret
 
-## <a name="real-user-measurements"></a>Real User Measurements
+## <a name="real-user-measurements"></a>Faktisk slutanvändarmätning
 
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Vilka är fördelarna med att använda Faktisk slutanvändarmätning?
 
@@ -252,7 +252,7 @@ Nej, du behöver inte vara värd för någon komponent på Server sidan på Azur
 
 Som vi nämnt i föregående svar ägs och hanteras Server sidans komponenter i Faktisk slutanvändarmätning och hanteras av Azure. Det innebär att din Azure bandbredds användning inte ökar eftersom du använder Faktisk slutanvändarmätning. Detta omfattar inte bandbredds användningen utanför Azure-avgifterna. Vi minimerar bandbredden som används genom att bara hämta en bild punkts bild för att mäta svars tiden för en Azure-region. 
 
-## <a name="traffic-view"></a>Traffic View
+## <a name="traffic-view"></a>Trafikvy
 
 ### <a name="what-does-traffic-view-do"></a>Vad gör Trafikvy?
 
@@ -499,7 +499,7 @@ I följande tabell beskrivs beteendet för Traffic Manager hälso kontroller fö
 
 | Status för Övervakare för underordnad profil | Status för övervakaren för överordnad slut punkt | Anteckningar |
 | --- | --- | --- |
-| Inaktiverats. Den underordnade profilen har inaktiverats. |Stoppad |Status för överordnad slut punkt har stoppats, inte inaktiverats. Inaktiverat tillstånd är reserverat för att indikera att du har inaktiverat slut punkten i den överordnade profilen. |
+| Inaktiverade. Den underordnade profilen har inaktiverats. |Stoppad |Status för överordnad slut punkt har stoppats, inte inaktiverats. Inaktiverat tillstånd är reserverat för att indikera att du har inaktiverat slut punkten i den överordnade profilen. |
 | Försämrad. Minst en underordnad profil slut punkt är i ett degraderat tillstånd. |Online: antalet Online-slutpunkter i den underordnade profilen är minst värdet för MinChildEndpoints.<BR>CheckingEndpoint: antalet online-och CheckingEndpoint-slutpunkter i den underordnade profilen är minst värdet för MinChildEndpoints.<BR>Degraderad: annars. |Trafiken dirigeras till en slut punkt med status CheckingEndpoint. Om MinChildEndpoints har angetts för hög försämras slut punkten alltid. |
 | Onlinemallar. Minst en underordnad profil slut punkt är ett online-tillstånd. Ingen slut punkt har statusen degraderat. |Se ovan. | |
 | CheckingEndpoints. Minst en underordnad profil slut punkt är ' CheckingEndpoint '. Inga slut punkter är "online" eller "degraderade" |Samma som ovan. | |

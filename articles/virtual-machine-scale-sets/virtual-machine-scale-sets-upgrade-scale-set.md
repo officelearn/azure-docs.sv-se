@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: manayar
 ms.openlocfilehash: 49327ff0c3aeab25de02fc67c049f24597215d45
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274457"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390464"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Ändra en skalnings uppsättning för virtuell dator
 
@@ -357,7 +357,7 @@ Vissa egenskaper kan bara ändras till vissa värden om de virtuella datorerna i
 
 
 ## <a name="vm-specific-updates"></a>VM-/regionsspecifika uppdateringar
-Vissa ändringar kan tillämpas på specifika virtuella datorer i stället för globala skalnings uppsättnings egenskaper. För närvarande är den enda VM-anpassade uppdateringen som stöds att ansluta/koppla från data diskar till/från virtuella datorer i skalnings uppsättningen. Den här funktionen finns i förhandsversion. Mer information finns i [förhands gransknings dokumentationen](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
+Vissa ändringar kan tillämpas på specifika virtuella datorer i stället för globala skalnings uppsättnings egenskaper. För närvarande är den enda VM-anpassade uppdateringen som stöds att ansluta/koppla från data diskar till/från virtuella datorer i skalnings uppsättningen. Den här funktionen är en förhandsversion. Mer information finns i [förhands gransknings dokumentationen](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
 
 
 ## <a name="scenarios"></a>Scenarier

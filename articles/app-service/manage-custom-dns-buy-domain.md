@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
 ms.openlocfilehash: afb40d0f3681bc02351e43166fccfaafe7741128
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023420"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375186"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Köp ett anpassat domän namn för Azure App Service
 
@@ -18,9 +18,9 @@ App Service domäner är toppnivå domäner som hanteras direkt i Azure. De gör
 
 Information om virtuella Azure-datorer eller Azure Storage finns i [tilldela App Service domän till Azure VM eller Azure Storage](https://azure.github.io/AppService/2017/07/31/Assign-App-Service-domain-to-Azure-VM-or-Azure-Storage). Mer Cloud Services finns i [Konfigurera ett anpassat domän namn för en Azure-moln tjänst](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 * [Skapa en App Service-app](/azure/app-service/), eller använd en app som du har skapat för en annan kurs.
 * [Ta bort utgifts gränsen för din prenumeration](../cost-management-billing/manage/spending-limit.md#remove). Du kan inte köpa App Service domäner med kostnads fria prenumerations krediter.
@@ -59,7 +59,7 @@ Om App Service plan inte finns på **F1** -nivån stänger du sidan **skala upp*
 
 Välj någon av betalnivåerna (**D1**, **B1**, **B2**, **B3** eller en nivå i kategorin **Produktion**). Klicka på **Visa ytterligare alternativ** om du vill se fler alternativ.
 
-Klicka på **Använd**.
+Klicka på **Verkställ**.
 
 ![Kontrollera prisnivå](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -168,10 +168,10 @@ Se till att den köpta domänen visas i avsnittet **App Service domäner** , men
 Välj **Lägg till värddatornamn**.
 
 ### <a name="configure-hostname"></a>Konfigurera värdnamn
-I dialog rutan **Lägg till värdnamn** anger du det fullständigt kvalificerade domän namnet för din app service domän eller under domän. Ett exempel:
+I dialog rutan **Lägg till värdnamn** anger du det fullständigt kvalificerade domän namnet för din app service domän eller under domän. Exempel:
 
 - kontoso.net
-- www\.kontoso.net
+- www-\.kontoso.net
 - abc.kontoso.net
 
 När du är klar väljer du **Verifiera**. Post typen hostname väljs automatiskt åt dig.

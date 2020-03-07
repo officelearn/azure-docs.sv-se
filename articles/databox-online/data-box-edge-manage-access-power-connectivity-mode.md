@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: 7ce4b9dda853e63e427757317abc2f7c878ba3a4
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253167"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384708"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Hantera åtkomst, energi och anslutnings läge för din Azure Data Box Edge
 
@@ -48,12 +48,12 @@ Följ de här stegen i det lokala användar gränssnittet för att ändra enhete
 
 1. I Azure Portal går du till **översikt > Återställ administratörs lösen ord**.
 
-    ![Återställ lösenord](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Återställa lösenord](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Ange det nya lösen ordet och bekräfta det sedan. Det angivna lösen ordet måste innehålla mellan 8 och 16 tecken. Lösen ordet måste innehålla 3 av följande tecken: versaler, gemener, siffror och specialtecken. Välj **Återställ**.
 
-    ![Återställ lösenord](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Återställa lösenord](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Hantera resurs åtkomst
 
@@ -66,7 +66,7 @@ När du genererar aktiverings nyckeln för Data Box Edge-enheten, eller utföra 
 -  Skapa en resurs med ett associerat lagrings konto.
 -  Skapa en användare som har åtkomst till resurserna på enheten.
 
-Du bör ha `User` åtkomst till Active Directory klient organisation som du behöver `Read all directory objects`kunna. Du kan inte vara gäst användare eftersom de inte har behörighet till `Read all directory objects`. Om du är gäst, kommer de åtgärder som att generera en aktiverings nyckel att skapa en resurs på din Data Box Edge enhet, skapa en användare, konfiguration av Edge Compute-rollen, återställa enhets lösen ord.
+Du bör ha en `User` åtkomst på Active Directory klient organisation som du måste kunna `Read all directory objects`. Du kan inte vara gäst användare eftersom de inte har behörighet att `Read all directory objects`. Om du är gäst, kommer de åtgärder som att generera en aktiverings nyckel att skapa en resurs på din Data Box Edge enhet, skapa en användare, konfiguration av Edge Compute-rollen, återställa enhets lösen ord.
 
 Mer information om hur du ger åtkomst till användare för att Azure Active Directory Graph API finns i [standard åtkomst för administratörer, användare och gäst användare](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
@@ -80,7 +80,7 @@ Du behöver inte bevilja åtkomst behörigheter till prenumerations nivån för 
 
 Innan du försöker skapa en resurs måste du kontrol lera att resurs leverantören är registrerad i prenumerationen. Om resurs leverantören inte är registrerad måste du kontrol lera att användaren som skapar den nya resursen har tillräckligt med behörighet för att registrera den nödvändiga resurs leverantören på prenumerations nivån. Om du inte har gjort det kan du se följande fel:
 
-*Prenumerations \<prenumerationens namn > har inte behörighet att registrera resurs leverantörerna: Microsoft.DataBoxEdge.*
+*Prenumerationens \<prenumerations namn > har inte behörighet att registrera resurs leverantör (er): Microsoft. DataBoxEdge.*
 
 
 Om du vill hämta en lista över registrerade resurs leverantörer i den aktuella prenumerationen kör du följande kommando:
@@ -89,7 +89,7 @@ Om du vill hämta en lista över registrerade resurs leverantörer i den aktuell
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-För data Box Edge enhet `Microsoft.DataBoxEdge` ska registreras. För att `Microsoft.DataBoxEdge`registrera dig bör prenumerations administratören köra följande kommando:
+`Microsoft.DataBoxEdge` bör registreras för Data Box Edge enhet. För att registrera `Microsoft.DataBoxEdge`ska prenumerations administratören köra följande kommando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

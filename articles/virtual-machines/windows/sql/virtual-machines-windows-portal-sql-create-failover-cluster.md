@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
 ms.openlocfilehash: 20c231e4f3052797eac79a3c97a3d8148690b8c5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965422"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388782"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurera en SQL Server-redundanskluster på virtuella Azure-datorer
 
@@ -292,7 +292,7 @@ Moln vittne är en ny typ av klusterkvorum som lagras i en Azure Storage-blob. D
 
 1. Konfigurera ett kvorumlogg för redundanskluster. Se [Konfigurera kvorumdisken i användar gränssnittet](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
 
-### <a name="add-storage"></a>Lägg till lagring
+### <a name="add-storage"></a>Lägg till lagringsutrymme
 
 Diskarna för Lagringsdirigering måste vara tomma. De får inte innehålla partitioner eller andra data. Följ [stegen i den här guiden](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives)om du vill rensa diskarna.
 
@@ -397,7 +397,7 @@ Så här skapar du belastningsutjämnaren:
 
 1. Välj **OK** för att skapa backend-poolen.
 
-### <a name="configure-a-load-balancer-health-probe"></a>Konfigurera en hälsoavsökning för lastbalanserare
+### <a name="configure-a-load-balancer-health-probe"></a>Konfigurera en belastnings utjämning hälso avsökning
 
 1. På bladet belastnings utjämning väljer du **hälso avsökningar**.
 
@@ -499,7 +499,7 @@ På Azure Virtual Machines stöds inte MSDTC på Windows Server 2016 eller tidig
 - Det går inte att konfigurera den klustrade MSDTC-resursen att använda delad lagring. Om du skapar en MSDTC-resurs i Windows Server 2016 visas inga delade lagrings enheter som är tillgängliga för användning, även om lagring är tillgängligt. Det här problemet har åtgärd ATS i Windows Server 2019.
 - Den grundläggande belastningsutjämnaren hanterar inte RPC-portar.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 [Konfigurera Lagringsdirigering med fjärr skrivbord (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

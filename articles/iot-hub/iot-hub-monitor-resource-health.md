@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: kgremban
 ms.openlocfilehash: f801abc40caf273c28a0c01dedf9735f5198c2af
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929695"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359584"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Övervaka hälso tillståndet för Azure IoT Hub och diagnostisera problem snabbt
 
@@ -379,8 +379,8 @@ I avsnittet `properties` innehåller loggen ytterligare information om meddeland
 
 | Egenskap | Typ | Beskrivning |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | Sträng | Antingen sant eller falskt anger om meddelanderoutning är aktiverat i IoT Hub |
-| **parentSpanId** | Sträng | Det överordnade meddelandets [span-ID](https://w3c.github.io/trace-context/#parent-id) , som skulle vara D2C meddelande spårning i det här fallet |
+| **isRoutingEnabled** | String | Antingen sant eller falskt anger om meddelanderoutning är aktiverat i IoT Hub |
+| **parentSpanId** | String | Det överordnade meddelandets [span-ID](https://w3c.github.io/trace-context/#parent-id) , som skulle vara D2C meddelande spårning i det här fallet |
 
 ##### <a name="iot-hub-egress-logs"></a>IoT Hub utgående loggar
 
@@ -411,9 +411,9 @@ I avsnittet `properties` innehåller loggen ytterligare information om meddeland
 
 | Egenskap | Typ | Beskrivning |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | Sträng | Namnet på dirigerings slut punkten |
-| **endpointType** | Sträng | Typ av Dirigerings slut punkt |
-| **parentSpanId** | Sträng | [Intervall-ID: t](https://w3c.github.io/trace-context/#parent-id) för det överordnade meddelandet, som skulle vara IoT Hub ingresss meddelande spårning i det här fallet |
+| **endpointName** | String | Namnet på dirigerings slut punkten |
+| **endpointType** | String | Typ av Dirigerings slut punkt |
+| **parentSpanId** | String | [Intervall-ID: t](https://w3c.github.io/trace-context/#parent-id) för det överordnade meddelandet, som skulle vara IoT Hub ingresss meddelande spårning i det här fallet |
 
 #### <a name="configurations"></a>Konfigurationer
 
@@ -540,7 +540,7 @@ Azure IoT Hub indikerar hälsa på regional nivå. Om ett regionalt avbrott påv
 
 Följ dessa steg om du vill kontrol lera hälso tillståndet för dina IoT-hubbar:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Navigera till **Service Health** > **resurs hälsa**.
 

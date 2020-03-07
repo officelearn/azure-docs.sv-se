@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 8175563d8c1c2ec59b4195b2ede06f6e1dbf8556
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823562"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387785"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Skala ut databaser med mappnings hanteraren för Shard
 
@@ -54,12 +54,12 @@ Elastisk skalning stöder följande typer som horisontell partitionering-nycklar
 | .NET | Java |
 | --- | --- |
 | heltal |heltal |
-| som |som |
+| long |long |
 | guid |uuid |
-| byte []  |byte [] |
+| byte[]  |byte[] |
 | datetime | tidsstämpel |
-| intervall | Giltighet|
-| DateTimeOffset |offsetdatetime |
+| TimeSpan | duration|
+| datetimeoffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>List-och intervall Shard Maps
 
@@ -85,10 +85,10 @@ Till exempel innehåller **[0, 100)** alla heltal som är större än eller lika
 
 | Nyckel | Shard-plats |
 | --- | --- |
-| [1, 50) |Database_A |
-| [50 100) |Database_B |
-| [100 200) |Database_C |
-| [400 600) |Database_C |
+| [1,50) |Database_A |
+| [50,100) |Database_B |
+| [100,200) |Database_C |
+| [400,600) |Database_C |
 | ... |... |
 
 Var och en av de tabeller som visas ovan är ett konceptuellt exempel på ett **ShardMap** -objekt. Varje rad är ett förenklat exempel på en enskild **PointMapping** (för List Shard Map) eller **RangeMapping** (för Range Shard Map)-objektet.
@@ -103,7 +103,7 @@ I klient biblioteket är Shard Map Manager en samling Shard Maps. De data som ha
 
 ## <a name="constructing-a-shardmapmanager"></a>Skapa en ShardMapManager
 
-Ett **ShardMapManager** -objekt konstrueras med ett fabriks mönster ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory)). Metoden **ShardMapManagerFactory. GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)) använder autentiseringsuppgifter (inklusive Server namnet och databas namnet som innehåller GSM) i form av en **ConnectionString** och returnerar en instans av en  **ShardMapManager**.  
+Ett **ShardMapManager** -objekt konstrueras med ett fabriks mönster ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory)). Metoden **ShardMapManagerFactory. GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)) använder autentiseringsuppgifter (inklusive Server namnet och databas namnet som innehåller GSM) i form av en **ConnectionString** och returnerar en instans av en **ShardMapManager**.  
 
 **Observera:** **ShardMapManager** ska endast instansieras en gång per app-domän, inom initierings koden för ett program. Skapandet av ytterligare instanser av ShardMapManager i samma app-domän resulterar i ökad minnes-och CPU-användning av programmet. En **ShardMapManager** kan innehålla valfritt antal Shard Maps. Även om en enda Shard-karta kan vara tillräcklig för många program, finns det tillfällen då olika uppsättningar databaser används för olika scheman eller för unika syfte. i dessa fall kan flera Shard Maps vara bättre.
 
@@ -157,7 +157,7 @@ För .NET-versionen kan du använda PowerShell för att skapa en ny Shard Map Ma
 
 ## <a name="get-a-rangeshardmap-or-listshardmap"></a>Hämta en RangeShardMap eller ListShardMap
 
-När du har skapat en Shard Map Manager kan du hämta RangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) eller ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) med TryGetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetrangeshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap)), TryGetListShardMap ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetlistshardmap), [. NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap)) eller metoden GetShardMap ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap)).
+När du har skapat en Shard Map Manager kan du hämta RangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) eller ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) med TryGetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetrangeshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap)), TryGetListShardMap ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.trygetlistshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap)) eller GetShardMap ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getshardmap) [, .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap)).
 
 ```Java
 // Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
@@ -239,7 +239,7 @@ Dessa metoder fungerar tillsammans som de bygg block som är tillgängliga för 
 * För att lägga till eller ta bort Shards: Använd **CreateShard** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)) och **DeleteShard** ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.deleteshard), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard)) för klassen shardmap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap)).
   
     Servern och databasen som representerar mål-Shard måste redan finnas för att dessa åtgärder ska kunna köras. Dessa metoder påverkar inte själva databaserna, bara för metadata i Shard-kartan.
-* För att skapa eller ta bort punkter eller intervall som är mappade till Shards: Använd **CreateRangeMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.net](https://docs.microsoft.com/previous-versions/azure/dn841993(v=azure.100))), **DeleteMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.deletemapping), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) för klassen RangeShardMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)), och **CreatePointMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap.createpointmapping), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) för klassen ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)).
+* För att skapa eller ta bort punkter eller intervall som är mappade till Shards: Använd **CreateRangeMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.net](https://docs.microsoft.com/previous-versions/azure/dn841993(v=azure.100))), **DeleteMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.deletemapping), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) för RangeShardMapping-klassen ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)) och **CreatePointMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap.createpointmapping), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)) för klassen ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap), .net). [](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)
   
     Många olika punkter eller intervall kan mappas till samma Shard. Dessa metoder påverkar endast metadata – de påverkar inte data som redan finns i Shards. Om data behöver tas bort från databasen för att kunna användas konsekvent med **DeleteMapping** -åtgärder, utför du dessa åtgärder separat, men tillsammans med dessa metoder.  
 * Om du vill dela upp befintliga intervall i två eller sammanfoga intilliggande områden till ett: Använd **SplitMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.splitmapping), [.net](https://msdn.microsoft.com/library/azure/dn824205.aspx)) och **MergeMappings** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.mergemappings), [.net](https://msdn.microsoft.com/library/azure/dn824201.aspx)).  

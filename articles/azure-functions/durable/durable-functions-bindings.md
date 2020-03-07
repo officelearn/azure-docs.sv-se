@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 1f42c6c9b0086d49e539040334c83cfc0c6feb42
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75410232"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355665"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindningar för Durable Functions (Azure Functions)
 
@@ -36,7 +36,7 @@ När du skriver Orchestrator-funktioner i skript språk (till exempel Java Scrip
 
 Internt denna Utlös ande bindning avsöker en serie med köer i standard lagrings kontot för Function-appen. Dessa köer är interna implementerings information om tillägget, vilket är anledningen till att de inte uttryckligen konfigureras i bindnings egenskaperna.
 
-### <a name="trigger-behavior"></a>Beteende för utlösare
+### <a name="trigger-behavior"></a>Beteende vid utlösare
 
 Här följer några anmärkningar om Dirigerings utlösaren:
 
@@ -143,7 +143,7 @@ Om du använder VS Code eller Azure Portal för utveckling, definieras aktivitet
 
 Internt denna Utlös ande bindning avsöker en kö i standard lagrings kontot för Function-appen. Den här kön är en intern implementerings information om tillägget, vilket är orsaken till att den inte uttryckligen konfigureras i bindnings egenskaperna.
 
-### <a name="trigger-behavior"></a>Beteende för utlösare
+### <a name="trigger-behavior"></a>Beteende vid utlösare
 
 Här följer några anmärkningar om aktivitets utlösaren:
 
@@ -372,7 +372,7 @@ När du använder Visual Studio-verktygen för Azure Functions konfigureras enhe
 
 Internt denna Utlös ande bindning avsöker en serie med köer i standard lagrings kontot för Function-appen. Dessa köer är interna implementerings information om tillägget, vilket är anledningen till att de inte uttryckligen konfigureras i bindnings egenskaperna.
 
-### <a name="trigger-behavior"></a>Beteende för utlösare
+### <a name="trigger-behavior"></a>Beteende vid utlösare
 
 Här följer några anmärkningar om enhets utlösaren:
 
@@ -464,7 +464,7 @@ Enhets klasser har särskilda metoder för att interagera med bindningar och .NE
 
 Följande kod är ett exempel på en enkel *Counter* -entitet som implementeras som en varaktig funktion som skrivits i Java Script. Den här funktionen definierar tre åtgärder, `add`, `reset`och `get`, som körs på ett heltals tillstånd.
 
-**function.json**
+**function. JSON**
 ```json
 {
   "bindings": [
@@ -602,7 +602,7 @@ I synnerhet är det inte bra att signalera `Get` åtgärden eftersom inget värd
 
 Här är ett exempel på en Queue-utlöst funktion som signalerar en "Counter"-entitet i Java Script.
 
-**function.json**
+**function. JSON**
 ```json
 {
     "bindings": [

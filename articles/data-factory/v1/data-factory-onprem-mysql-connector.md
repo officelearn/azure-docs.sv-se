@@ -13,11 +13,11 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928111"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387673"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Flytta data från MySQL med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -32,7 +32,7 @@ Den här artikeln förklarar hur du använder kopierings aktiviteten i Azure Dat
 
 Du kan kopiera data från ett lokalt MySQL-datalager till alla mottagar data lager som stöds. En lista över data lager som stöds som mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Data Factory har för närvarande endast stöd för att flytta data från ett MySQL-datalager till andra data lager, men inte för att flytta data från andra data lager till ett MySQL-datalager. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Data Factory tjänsten stöder anslutning till lokala MySQL-källor med hjälp av Data Management Gateway. Se [Flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artiklar om du vill lära dig mer om data Management Gateway och stegvisa anvisningar för hur du konfigurerar gatewayen.
 
 Gateway krävs även om MySQL-databasen finns på en virtuell Azure IaaS-dator (VM). Du kan installera gatewayen på samma virtuella dator som data lagret eller på en annan virtuell dator så länge som gatewayen kan ansluta till databasen.
@@ -50,7 +50,7 @@ För att Data Management Gateway ansluta till MySQL-databasen måste du installe
 Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från ett lokalt Cassandra data lager med hjälp av olika verktyg/API: er. 
 
 - Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data. 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -69,7 +69,7 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 | --- | --- | --- |
 | typ |Egenskapen Type måste anges till: **OnPremisesMySql** |Ja |
 | server |Namnet på MySQL-servern. |Ja |
-| databas |Namnet på MySQL-databasen. |Ja |
+| database |Namnet på MySQL-databasen. |Ja |
 | schema |Namnet på schemat i databasen. |Nej |
 | authenticationType |Typ av autentisering som används för att ansluta till MySQL-databasen. Möjliga värden är: `Basic`. |Ja |
 | userName |Ange användar namnet för att ansluta till MySQL-databasen. |Ja |
@@ -94,7 +94,7 @@ När källan i kopierings aktiviteten är av typen **RelationalSource** (som inn
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: Välj * från tabellen tabell. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| query |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: Välj * från tabellen tabell. |Nej (om **TableName** för **data uppsättningen** har angetts) |
 
 
 ## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>JSON-exempel: kopiera data från MySQL till Azure-Blob
@@ -300,44 +300,44 @@ När du flyttar data till MySQL används följande mappningar från MySQL-typer 
 
 | MySQL-databas typ | .NET Framework typ |
 | --- | --- |
-| bigint har inte signerats |Decimal |
+| bigint har inte signerats |decimaltal |
 | bigint |Int64 |
-| bit |Decimal |
+| bit |decimaltal |
 | blob |Byte[] |
-| bool |Boolesk |
-| char |Sträng |
-| datum |Datetime |
-| datetime |Datetime |
-| decimal |Decimal |
-| dubbel precision |Double |
-| double |Double |
-| Enum |Sträng |
-| flyt |Enkel |
+| booleska |Boolean |
+| char |String |
+| date |Datum/tid |
+| datetime |Datum/tid |
+| decimal |decimaltal |
+| dubbel precision |Double-värde |
+| double |Double-värde |
+| Enum |String |
+| float |Enkel |
 | int-signering |Int64 |
 | int |Int32 |
 | heltal ej signerat |Int64 |
 | heltal |Int32 |
 | långt varbinary |Byte[] |
-| lång varchar |Sträng |
+| lång varchar |String |
 | longblob |Byte[] |
-| longtext |Sträng |
+| longtext |String |
 | mediumblob |Byte[] |
 | mediumint osignerad |Int64 |
 | mediumint |Int32 |
-| mediumtext |Sträng |
-| numeric |Decimal |
-| real |Double |
-| set |Sträng |
+| mediumtext |String |
+| numeric |decimaltal |
+| real |Double-värde |
+| set |String |
 | smallint är osignerad |Int32 |
 | smallint |Int16 |
-| text |Sträng |
-| time |TimeSpan |
-| tidsstämpel |Datetime |
+| text |String |
+| time |Tidsintervall |
+| tidsstämpel |Datum/tid |
 | tinyblob |Byte[] |
 | tinyint ej signerat |Int16 |
 | tinyint |Int16 |
-| tinytext |Sträng |
-| varchar |Sträng |
+| tinytext |String |
+| varchar |String |
 | år |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Mappa källa till mottagar kolumner

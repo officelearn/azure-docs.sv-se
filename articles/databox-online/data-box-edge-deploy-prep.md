@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: d9778544fd9e20dc3244a37c644117d1cd505a96
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 179a6181efdc6c31d50d3b5b3f708fd9149dadd3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438672"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384725"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Självstudie: förbereda för att distribuera Azure Data Box Edge  
 
@@ -22,7 +22,7 @@ Det här är den första självstudien i serien med distributionssjälvstudier s
 
 Du måste ha administratörsbehörighet för att utföra installationen och konfigurationen. Portalförberedelserna tar mindre än tio minuter.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en ny resurs
@@ -30,7 +30,7 @@ I den här guiden får du lära dig hur man:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-### <a name="get-started"></a>Kom i gång
+### <a name="get-started"></a>Kom igång
 
 Gå igenom följande självstudier i angiven ordning för att distribuera Data Box Edge.
 
@@ -44,13 +44,13 @@ Gå igenom följande självstudier i angiven ordning för att distribuera Data B
 
 Nu kan du börja konfigurera Azure-portalen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande är konfigurationskraven för din Data Box Edge-resurs, din Data Box Edge-enheten och datacenternätverket.
 
 ### <a name="for-the-data-box-edge-resource"></a>För Data Box Edge-resursen
 
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
 - Din Microsoft Azure-prenumeration är aktiverad för en Data Box Edge-resurs. Prenumerationer enligt principen betala per användning stöds inte.
 - Du har ägar-eller deltagar åtkomst på resurs grupps nivå för Data Box Edge/Data Box Gateway, IoT Hub och Azure Storage resurser.
@@ -74,7 +74,7 @@ Innan du distribuerar en fysisk enhet kontrollerar du att:
 
 ### <a name="for-the-datacenter-network"></a>För datacenternätverket
 
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
 - Nätverket i ditt datacenter konfigureras enligt nätverkskraven för din Data Box Edge-enhet. Mer information finns i [Systemkrav för Data Box Edge](data-box-edge-system-requirements.md).
 
@@ -95,9 +95,9 @@ Skapa en Data Box Edge-resurs genom att utföra följande steg på Azure-portale
     - Eller, Azure Government portalen på denna URL: [https://portal.azure.us](https://portal.azure.us). Mer information finns i [ansluta till Azure Government med hjälp av portalen](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. I den vänstra rutan väljer du **+ skapa en resurs**. Sök efter **data Box Edge/data Box Gateway**. Välj **data Box Edge/data Box Gateway**. Välj **Skapa**.
-3. Välj den prenumeration som du vill använda för den Data Box Edge enheten. Välj den region där du vill distribuera Data Box Edge-resursen. I den här versionen finns USA, östra, Asien, sydöstra och Västeuropa. 
+3. Välj den prenumeration som du vill använda för den Data Box Edge enheten. Välj den region där du vill distribuera Data Box Edge-resursen. För en lista över alla regioner där Azure Stack Edge-resursen är tillgänglig, se [Azure-produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
-    Välj den plats som är närmast den geografiska region där du vill distribuera enheten. Regionen lagrar bara metadata för enhets hantering. Faktiska data kan lagras i valfritt lagrings konto. 
+    Välj den plats som är närmast den geografiska region där du vill distribuera enheten. Regionen lagrar bara metadata för enhets hantering. Faktiska data kan lagras i valfritt lagrings konto.
     
     Klicka på alternativet **Data Box Edge** och välj **Skapa**.
 
@@ -115,7 +115,7 @@ Skapa en Data Box Edge-resurs genom att utföra följande steg på Azure-portale
     |Inställning  |Värde  |
     |---------|---------|
     |Namn   | Ett eget namn som identifierar resursen.<br>Namnet innehåller mellan 2 och 50 tecken som består av bokstäver, siffror och bindestreck.<br> Namnet börjar och slutar med en bokstav eller en siffra.        |
-    |Region     |I den här versionen är USA, östra, Asien, sydöstra och Västeuropa, tillgängliga för att distribuera din resurs. Om du använder Azure Government är alla myndigheter tillgängliga som de visas i Azure- [regionerna](https://azure.microsoft.com/global-infrastructure/regions/).<br> Välj den plats som är närmast den geografiska region där du vill distribuera enheten.|
+    |Region     |För en lista över alla regioner där Azure Stack Edge-resursen är tillgänglig, se [Azure-produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Om du använder Azure Government är alla myndigheter tillgängliga som de visas i Azure- [regionerna](https://azure.microsoft.com/global-infrastructure/regions/).<br> Välj den plats som är närmast den geografiska region där du vill distribuera enheten.|
 
     ![Projekt-och instans information](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
 

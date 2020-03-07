@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
 ms.openlocfilehash: 6ddb7001f770a9d8aea38d1a4698e15c167aeaa4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75386773"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385380"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Konfigurera SSL för ett program i Azure
 
-SSL-kryptering (Secure Socket Layer) är den vanligaste metoden för att skydda data som skickas över Internet. Den här vanliga åtgärden diskuterar hur man anger en HTTPS-slutpunkt för en webbroll och överför ett SSL-certifikat för att skydda ett program.
+SSL-kryptering (Secure Socket Layer) är den vanligaste metoden för att skydda data som skickas via Internet. Den här vanliga åtgärden beskriver hur du anger en HTTPS-slutpunkt för en webbroll och hur du överför ett SSL-certifikat för att skydda ditt program.
 
 > [!NOTE]
 > Procedurerna i den här uppgiften gäller Azure Cloud Services; för App Services, se [detta](../app-service/configure-ssl-bindings.md).

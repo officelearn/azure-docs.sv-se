@@ -9,11 +9,11 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 88f8188779c5fb6b3cd07c67e9f35a6b8f9ad97d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200076"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381132"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Kör OPC Vault Certificate Management-tjänsten på ett säkert sätt
 
@@ -32,15 +32,15 @@ Mikrotjänsten OPC Vault gör det möjligt för olika roller att komma åt olika
 
 OPC Vault-mikrotjänsten definierar följande roller:
 
-- **Läsare**: Som standard har alla autentiserade användare i klienten Läs behörighet. 
+- **Läsare**: som standard har alla autentiserade användare i klienten Läs behörighet. 
   - Läs åtkomst till program och certifikat begär Anden. Kan lista och fråga efter program-och certifikat begär Anden. Dessutom är enhets identifierings information och offentliga certifikat tillgängliga med Läs behörighet.
-- **Skribent**: Skrivar rollen tilldelas till en användare för att kunna lägga till Skriv behörighet för vissa uppgifter. 
+- **Skribent**: skrivar rollen tilldelas till en användare för att lägga till Skriv behörighet för vissa uppgifter. 
   - Läs-/Skriv behörighet till program och certifikat begär Anden. Kan registrera, uppdatera och avregistrera program. Kan skapa certifikat begär Anden och hämta godkända privata nycklar och certifikat. Det går också att ta bort privata nycklar.
-- **God kännare**: God kännare-rollen tilldelas en användare för att godkänna eller avvisa certifikat begär Anden. Rollen omfattar inte någon annan roll.
+- **God kännare**: god kännare-rollen tilldelas en användare för att godkänna eller avvisa certifikat begär Anden. Rollen omfattar inte någon annan roll.
   - Förutom rollen god kännare för att få åtkomst till API: et för OPC Vault mikrotjänst måste användaren också ha behörigheten nyckel signering i Azure Key Vault för att kunna signera certifikaten.
   - Rollen skrivare och god kännare bör tilldelas till olika användare.
   - Den huvudsakliga rollen hos god kännaren är godkännande av generering och avvisande av certifikat begär Anden.
-- **Administratör**: Rollen administratör tilldelas till en användare för att hantera certifikat grupperna. Rollen har inte stöd för rollen god kännare, men innehåller rollen skrivare.
+- **Administratör**: administratörs rollen tilldelas till en användare för att hantera certifikat grupperna. Rollen har inte stöd för rollen god kännare, men innehåller rollen skrivare.
   - Administratören kan hantera certifikat grupper, ändra konfigurationen och återkalla program certifikat genom att utfärda en ny lista över återkallade certifikat (CRL).
   - Vi rekommenderar att rollerna skrivare, god kännare och administratör tilldelas olika användare. För ytterligare säkerhet måste en användare med rollen god kännare eller administratör också ha behörighet för nyckel signering i Key Vault, för att utfärda certifikat eller förnya certifikat utfärdarens CA-certifikat.
   - Förutom rollen som mikrotjänst administration inkluderar rollen, men är inte begränsad till:
@@ -111,18 +111,18 @@ Underhåll en till gångs inventering för alla produktions värdar (inklusive b
 
 I Azure:
 - **App Service plan**: App Service-plan för tjänst värdar. Standard S1.
-- **App Service** för mikrotjänster: OPC Vault-tjänstens värd.
+- **App Service** för mikrotjänster: OPC Vault service-värd.
 - **App Service** för exempel program: OPC-valvets exempel program värd.
-- **Key Vault standard**: För att lagra hemligheter och Azure Cosmos DB nycklar för webb tjänsterna.
-- **Key Vault Premium**: För att vara värd för utfärdares CA-nycklar, för signerings tjänsten och för valv konfiguration och lagring av program privata nycklar.
-- **Azure Cosmos DB**: Databas för program-och certifikat begär Anden. 
+- **Key Vault standard**: att lagra hemligheter och Azure Cosmos DB nycklar för webb tjänsterna.
+- **Key Vault Premium**: för att vara värd för utfärdares ca-nycklar, för signerings tjänsten och för valv konfiguration och lagring av program privata nycklar.
+- **Azure Cosmos DB**: databas för program-och certifikat begär Anden. 
 - **Application Insights**: (valfritt) övervaknings lösning för webb tjänst och program.
-- **Registrering av Azure AD-program**: En registrering för exempel programmet, tjänsten och Edge-modulen.
+- **Registrering av Azure AD-program**: en registrering för exempel programmet, tjänsten och Edge-modulen.
 
 För moln tjänsterna ska alla värdnamn, resurs grupper, resurs namn, prenumerations-ID och klient-ID: n som används för att distribuera tjänsten dokumenteras. 
 
 I Azure IoT Edge eller en lokal IoT Edge Server:
-- **OPC-valv IoT Edge modul**: Stöd för en global identifierings Server för en fabriks nätverk OPC UA. 
+- **OPC Vault IoT Edge modul**: för att stödja en global identifierings Server för fabriks nätverk för OPC UA. 
 
 För IoT Edge enheter ska värd namnen och IP-adresserna dokumenteras. 
 
@@ -174,8 +174,8 @@ OPC Vault-tjänsten är en online-certifikatutfärdare som utfärdar certifikat 
   - RSA-rotens CA-nycklar med en typisk livstid som är större än eller lika med 20 år måste vara 4096 bitar eller mer.
   - RSA Issuer-CA-nycklar måste vara minst 2048 bitar. Om certifikat UTFÄRDARens förfallo datum är efter 2030 måste CA-nyckeln vara 4096 bitar eller mer.
 - Certifikatets livs längd
-  - Certifikat för rot certifikat utfärdare: Den maximala giltighets perioden för certifikat för rot certifikat utfärdare får inte överstiga 25 år.
-  - Certifikat utfärdare eller certifikat från certifikat utfärdare för online utfärdare: Den maximala giltighets perioden för certifikatet för certifikat utfärdare som är online och endast utfärdar prenumerations certifikat får inte överstiga 6 år. För dessa certifikat utfärdare får inte den relaterade privata signatur nyckeln användas längre än tre år för att utfärda nya certifikat.<br>
+  - Certifikat för rot certifikat utfärdare: den maximala giltighets perioden för certifikat för rot certifikat utfärdare får inte överstiga 25 år.
+  - Certifikat utfärdare eller certifikat från certifikat utfärdare för certifikat utfärdare: den maximala giltighets perioden för certifikat utfärdare som är online och endast utfärdar prenumerations certifikat får inte överstiga 6 år. För dessa certifikat utfärdare får inte den relaterade privata signatur nyckeln användas längre än tre år för att utfärda nya certifikat.<br>
     > [!IMPORTANT]
     > Utfärdarens certifikat, som det genereras i standard-mikrotjänsten (OPC Vault) utan extern rot certifikat utfärdare, behandlas som en online-underenhet, med respektive krav och livstid. Standard livs längden är inställd på 5 år, med en nyckel längd som är större än eller lika med 2048.
   - Alla asymmetriska nycklar måste ha en högsta 5-årig livs längd och en rekommenderad livs längd på 1 år.<br>
@@ -191,7 +191,7 @@ OPC Vault-tjänsten är en online-certifikatutfärdare som utfärdar certifikat 
 ### <a name="ca-keys-and-certificates-must-meet-minimum-requirements"></a>CA-nycklar och certifikat måste uppfylla minimi kraven
 
 - **Privata nycklar**: RSA-nycklar måste vara minst 2048 bitar. Om certifikat UTFÄRDARens förfallo datum är efter 2030 måste CA-nyckeln vara 4096 bitar eller mer.
-- **Livs längd**: Den maximala giltighets perioden för certifikatet för certifikat utfärdare som är online och endast utfärdar prenumerations certifikat får inte överstiga 6 år. För dessa certifikat utfärdare får inte den relaterade privata signatur nyckeln användas längre än tre år för att utfärda nya certifikat.
+- **Livs längd**: den maximala giltighets perioden för certifikatet för certifikat utfärdare som är online och endast utfärdar prenumerations certifikat får inte överstiga 6 år. För dessa certifikat utfärdare får inte den relaterade privata signatur nyckeln användas längre än tre år för att utfärda nya certifikat.
 
 ### <a name="ca-keys-are-protected-using-hardware-security-modules"></a>CA-nycklar skyddas med hjälp av säkerhetsmoduler för maskin vara
 
@@ -208,7 +208,7 @@ Dokumentera och underhålla standard operativa procedurer (SOP) för hur CAs utf
 - Hur certifikatbegäran bearbetas och verifieras (om det är tillämpligt inkluderar även hur certifikat förnyelse och nyckel förnyelse begär Anden bearbetas). 
 - Hur utfärdade certifikat distribueras till prenumeranterna. 
 
-OPC Vault mikrotjänst-SOP beskrivs i [OPC Vault-arkitektur](overview-opc-vault-architecture.md) och [hanterar OPC-valvets certifikat tjänst](howto-opc-vault-manage.md). Praxisen följer "OPC Unified Architecture Specification del 12: Identifiering och globala tjänster. "
+OPC Vault mikrotjänst-SOP beskrivs i [OPC Vault-arkitektur](overview-opc-vault-architecture.md) och [hanterar OPC-valvets certifikat tjänst](howto-opc-vault-manage.md). Praxis följer "OPC Unified Architecture Specification del 12: identifiering och globala tjänster".
 
 
 ### <a name="document-and-maintain-standard-operational-pki-practices-for-certificate-revocation"></a>Dokumentera och underhålla standardiserade PKI-metoder för certifikat åter kallelse

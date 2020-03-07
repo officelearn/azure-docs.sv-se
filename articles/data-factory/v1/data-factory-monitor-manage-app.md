@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666932"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384794"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av appen övervakning och hantering
 > [!div class="op_single_selector"]
@@ -193,7 +193,7 @@ Aktivitets fönster kan ha någon av följande statusar:
 <td>Aktivitets fönstret bearbetas.</td>
 </tr>
 <tr>
-<td rowspan="4">Misslyckad</td><td>Stängningsåtgärd</td><td>Aktivitets körningen tog längre tid än vad som tillåts av aktiviteten.</td>
+<td rowspan="4">Misslyckades</td><td>TimedOut</td><td>Aktivitets körningen tog längre tid än vad som tillåts av aktiviteten.</td>
 </tr>
 <tr>
 <td>Avbrutna</td><td>Aktivitets fönstret avbröts av en användar åtgärd.</td>
@@ -207,7 +207,7 @@ Aktivitets fönster kan ha någon av följande statusar:
 <td>Redo</td><td>-</td><td>Aktivitets fönstret är klart för användning.</td>
 </tr>
 <tr>
-<td>Hoppades</td><td>-</td><td>Aktivitets fönstret behandlades inte.</td>
+<td>Överhoppad</td><td>-</td><td>Aktivitets fönstret behandlades inte.</td>
 </tr>
 <tr>
 <td>Ingen</td><td>-</td><td>Ett aktivitets fönster som används för att finnas med en annan status, men som har återställts.</td>
@@ -244,7 +244,7 @@ Du kan använda fliken **skript** för att Visa JSON-definitionen för den valda
 ![Fliken skript](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 ## <a name="use-system-views"></a>Använda systemvyer
-Övervaknings-och hanterings appen innehåller förskapade systemvyer (**senaste aktivitets fönster**, **misslyckad aktivitets fönster**, pågående **aktivitets**fönster) som gör att du kan visa senaste/misslyckade/pågående aktivitets fönster för dina data valda.
+Övervaknings-och hanterings appen innehåller förskapade systemvyer (**senaste aktivitets fönster**, **misslyckad aktivitets fönster**, pågående **aktivitets**fönster) som gör att du kan visa senaste/misslyckade aktivitets Fönstren för din data fabrik.
 
 Växla till fliken **övervakande vyer** till vänster genom att klicka på den.
 

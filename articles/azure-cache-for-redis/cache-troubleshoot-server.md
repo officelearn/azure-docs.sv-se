@@ -7,20 +7,20 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: a68c27de304a0da6470745ee4abf69590d9bf78c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433355"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372163"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Felsöka Azure cache för Redis-problem på Server Sidan
 
 I det här avsnittet beskrivs fel söknings problem som uppstår på grund av ett villkor i en Azure-cache för Redis eller för den eller de virtuella datorer som är värd för det.
 
-- [Minnes belastning på Redis-Server](#memory-pressure-on-redis-server)
+- [Minnestryck på Redis-server](#memory-pressure-on-redis-server)
 - [Hög CPU-användning eller server belastning](#high-cpu-usage-or-server-load)
-- [Tids krävande kommandon](#long-running-commands)
-- [Bandbredds begränsning på Server Sidan](#server-side-bandwidth-limitation)
+- [Tidskrävande kommandon](#long-running-commands)
+- [Bandbreddsbegränsning på serversidan](#server-side-bandwidth-limitation)
 
 > [!NOTE]
 > Flera av fel söknings stegen i den här hand boken innehåller instruktioner för att köra Redis-kommandon och övervaka olika prestanda mått. Mer information och instruktioner finns i artiklarna i avsnittet [Ytterligare information](#additional-information) .

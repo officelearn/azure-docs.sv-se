@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 8435bb82afddd0070679768bb8d22ad9290f2279
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464621"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388424"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Övervaka och diagnostisera tjänster i en lokal dator utvecklings installation
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Service Fabric genererar ETW-händelser för att hjälpa utvecklare att förstå
 ## <a name="add-your-own-custom-traces-to-the-application-code"></a>Lägg till dina egna anpassade spårningar i program koden
 Service Fabric Visual Studio-projektmallar innehåller exempel kod. Koden visar hur du lägger till anpassade ETW-spår för program kod som visas i Visual Studio ETW Viewer tillsammans med system spårningar från Service Fabric. Fördelen med den här metoden är att metadata läggs automatiskt till spårningar och av Visual Studio diagnostiska Loggboken har redan konfigurerats för att visa dem.
 
-För projekt som skapas från den **tjänstmallar** (tillståndslösa och tillståndskänsliga) bara söka efter den `RunAsync` implementering:
+För projekt som skapats från **tjänstmallar** (tillstånds lös eller tillstånds känslig) söker du bara efter `RunAsync` implementering:
 
 1. Anropet till `ServiceEventSource.Current.ServiceMessage` i `RunAsync`-metoden visar ett exempel på en anpassad ETW-spårning från program koden.
 2. I **ServiceEventSource.cs** -filen hittar du en överlagring för den `ServiceEventSource.ServiceMessage` metod som ska användas för händelser med hög frekvens på grund av prestanda skäl.

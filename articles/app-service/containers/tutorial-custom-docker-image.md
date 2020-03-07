@@ -9,17 +9,17 @@ ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 965897afc8e23c123575de0c497d4071ff4ca85a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767104"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356151"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Självstudie: skapa en anpassad avbildning och köra i App Service från ett privat register
 
 [App Service](app-service-linux-intro.md) tillhandahåller inbyggda Docker-avbildningar i Linux med stöd för vissa versioner, till exempel php 7,3 och Node. js 10,14. App Service använder Docker-behållar tekniken för att vara värd för både inbyggda avbildningar och anpassade avbildningar som en plattform som en tjänst. I den här självstudien får du lära dig hur du skapar en anpassad avbildning och kör den i App Service. Det här mönstret är användbart när de inbyggda avbildningarna inte inkluderar ditt språkval eller när ditt program kräver en specifik konfiguration som inte ingår i de inbyggda avbildningarna.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Distribuera en anpassad avbildning till ett privat behållar register
@@ -31,7 +31,7 @@ I den här guiden får du lära dig hur man:
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -83,7 +83,7 @@ Bygg Docker-avbildningen med kommandot `docker build`.
 docker build --tag mydockerimage .
 ```
 
-Testa att versionen fungerar genom att köra Docker-containern. Utfärda kommandot [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) och skicka avbildningens namn och tagg. Se till att ange porten som använder argumentet `-p`.
+Testa att versionen fungerar genom att köra Docker-containern. Utfärda kommandot [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) och skicka avbildningens namn och tagg. Kom ihåg att ange porten med argumentet `-p`.
 
 ```bash
 docker run -p 8000:8000 mydockerimage
@@ -147,7 +147,7 @@ Bekräfta att inloggningen lyckades.
 
 ### <a name="push-image-to-azure-container-registry"></a>Push-överför avbildningen till Azure Container Registry
 
-Tagga den lokala avbildningen för Azure Container Registry. Ett exempel:
+Tagga den lokala avbildningen för Azure Container Registry. Exempel:
 ```bash
 docker tag mydockerimage <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
@@ -178,7 +178,7 @@ Du bör få följande utdata.
 
 ### <a name="create-web-app"></a>Skapa webbapp
 
-Skapa i Cloud Shell en [webbapp](app-service-linux-intro.md) i `myAppServicePlan` App Service-planen med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Ersätt _\<app-name >_ med ett unikt namn på appen och _\<Azure-Container-registry-Name >_ med ditt register namn.
+I Cloud Shell skapar du en [webbapp](app-service-linux-intro.md) i `myAppServicePlan`App Service-planen med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Ersätt _\<app-name >_ med ett unikt namn på appen och _\<Azure-Container-registry-Name >_ med ditt register namn.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --deployment-container-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
@@ -320,7 +320,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-Grattis! Du har konfigurerat en anpassad Linux-behållare i App Service.
+Gratulerar! Du har konfigurerat en anpassad Linux-behållare i App Service.
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
@@ -336,7 +336,7 @@ Vad du lärt dig:
 > * Få åtkomst till diagnostikloggar
 > * Anslut till containern med SSH
 
-Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till appen.
+Gå vidare till nästa självstudie för att läsa hur du mappar ett anpassat DNS-namn till din app.
 
 > [!div class="nextstepaction"]
 > [Självstudie: mappa ett anpassat DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)

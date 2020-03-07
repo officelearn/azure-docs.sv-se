@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 8e256aac16bb8c2d2f1eca494981458f71cc2e4d
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620606"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363197"
 ---
 # <a name="about-migration"></a>Om migrering
 
@@ -36,7 +36,7 @@ Förutom att använda Site Recovery för haveri beredskap för lokala och virtue
 - Vid migrering replikerar du lokala datorer till Azure, eller virtuella Azure-datorer till en sekundär region. Sedan kan du inte återställa den virtuella datorn från den primära platsen till den sekundära och slutföra migreringsprocessen. I den här processen ingår ingen återställning efter fel.  
 
 
-## <a name="migration-scenarios"></a>Scenarier för migrering
+## <a name="migration-scenarios"></a>Migreringsscenarier
 
 **Scenario** | **Detaljer**
 --- | ---

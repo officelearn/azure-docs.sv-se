@@ -3,12 +3,12 @@ title: Python Developer-referens för Azure Functions
 description: Förstå hur du utvecklar funktioner med python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 1b94cb51bcb4e2634cdb04c389efbab44bb024bb
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
-ms.translationtype: MT
+ms.openlocfilehash: 6c625c050652ffac568ac45b06af7a853c75c8c2
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206341"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358061"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -65,16 +65,16 @@ Den rekommenderade mappstrukturen för ett python Functions-projekt ser ut som i
 
 ```
  __app__
- | - MyFirstFunction
+ | - my_first_function
  | | - __init__.py
  | | - function.json
  | | - example.py
- | - MySecondFunction
+ | - my_second_function
  | | - __init__.py
  | | - function.json
- | - SharedCode
- | | - myFirstHelperFunction.py
- | | - mySecondHelperFunction.py
+ | - shared_code
+ | | - my_first_helper_function.py
+ | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
  tests
@@ -89,19 +89,47 @@ Huvudprojektmappen (\_\_app\_\_) kan innehålla följande filer:
 
 Varje funktion har sin egen kod fil och bindnings konfigurations fil (Function. JSON). 
 
-Delad kod ska lagras i en separat mapp i \_\_app\_\_. Om du vill referera till moduler i SharedCode-mappen kan du använda följande syntax:
-
-```python
-from __app__.SharedCode import myFirstHelperFunction
-```
-
-Om du vill referera till moduler lokalt i en funktion kan du använda den relativa import-syntaxen enligt följande:
-
-```python
-from . import example
-```
-
 När du distribuerar projektet till en Function-app i Azure ska hela innehållet i huvudprojektet ( *\_\_app\_\_* ) inkluderas i paketet, men inte själva mappen. Vi rekommenderar att du underhåller dina tester i en mapp separat från projektmappen, i det här exemplet `tests`. Detta gör att du inte distribuerar test koden med din app. Mer information finns i [enhets testning](#unit-testing).
+
+## <a name="import-behavior"></a>Import beteende
+
+Du kan importera moduler i funktions koden med både explicita relativa och absoluta referenser. Utifrån mappstrukturen som visas ovan fungerar följande importer inifrån Function-filen *\_\_app\_\_\mina\_första\_funktion\\_\_init\_\_. py*:
+
+```python
+from . import example #(explicit relative)
+```
+
+```python
+from ..shared_code import my_first_helper_function #(explicit relative)
+```
+
+```python
+from __app__ import shared_code #(absolute)
+```
+
+```python
+import __app__.shared_code #(absolute)
+```
+
+Följande importer *fungerar inte* från samma fil:
+
+```python
+import example
+```
+
+```python
+from example import some_helper_code
+```
+
+```python
+import shared_code
+```
+
+Delad kod ska lagras i en separat mapp i *\_\_app\_\_* . Om du vill referera till moduler i mappen *delade\_-kod* kan du använda följande syntax:
+
+```python
+from __app__.shared_code import my_first_helper_function
+```
 
 ## <a name="triggers-and-inputs"></a>Utlösare och indata
 

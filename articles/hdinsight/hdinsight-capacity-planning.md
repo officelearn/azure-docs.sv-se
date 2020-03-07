@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.openlocfilehash: db7b2787df68e5e9baadddc7e6e6159cfff26097
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887248"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389815"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitets planering för HDInsight-kluster
 
@@ -96,15 +96,15 @@ När du har fastställt storlek, skalning och typ för mål klustret, kontroller
 
 Gör så här för att kontrol lera dina tillgängliga kärnor:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Gå till **översikts** sidan för HDInsight-klustret. 
 3. På den vänstra menyn klickar du på **kvot gränser**.
 
-   Sidan visar antalet kärnor som används, antalet tillgängliga kärnor och de totala kärnorna.
+   Sidan visar det antal kärnor som används, antalet tillgängliga kärnor samt totalt antal kärnor.
 
 Gör så här om du behöver begära en kvot ökning:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. Välj **Hjälp + Support** längst ned till vänster på sidan.
 1. Välj **Ny supportbegäran**.
 1. På sidan **ny supportbegäran** , under fliken **grundläggande** , väljer du följande alternativ:

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 57a66f73a2c0c37426c23c7274853148fd976ac8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 49860504da8dd2a1b994a23a24df95f59c959c90
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699078"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375804"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Gör så här: anpassa anspråk som skickas i token för en angiven app i en klient (för hands version)
 
@@ -73,7 +73,7 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 | appidacr |
 | assertion |
 | at_hash |
-| aud |
+| AUD |
 | auth_data |
 | auth_time |
 | authorization_code |
@@ -81,7 +81,7 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 | azpacr |
 | c_hash |
 | ca_enf |
-| cc |
+| CC |
 | cert_token_use |
 | client_id |
 | cloud_graph_host_name |
@@ -142,7 +142,7 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 | onprem_sam_account_name |
 | onprem_sid |
 | openid2_id |
-| password |
+| lösenord |
 | platf |
 | polids |
 | pop_jwk |
@@ -319,15 +319,15 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 | Användare | extensionattribute14 | Attribut för tillägg 14 |
 | Användare | extensionattribute15 | Attribut för tillägg 15 |
 | Användare | othermail | Annan e-post |
-| Användare | land | Land |
+| Användare | ursprungslandet | Land/region |
 | Användare | city | Ort |
 | Användare | state | Status |
 | Användare | befattning | Befattning |
-| Användare | employeeid | Anställnings-ID |
+| Användare | employeeid | Medarbetar-ID |
 | Användare | facsimiletelephonenumber | Facsimile-telefonnummer |
 | program, resurs, mål grupp | displayname (visningsnamn) | Visningsnamn |
 | program, resurs, mål grupp | inobjekt | ObjectID |
-| program, resurs, mål grupp | tags | Tjänstens huvud namns etikett |
+| program, resurs, mål grupp | taggar | Tjänstens huvud namns etikett |
 | Företag | tenantcountry | Innehavarens land |
 
 **TransformationID:** TransformationID-elementet får bara anges om käll elementet har angetts till "Transformation".
@@ -389,7 +389,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 | Användare | e-post|E-postadress|
 | Användare | userPrincipalName|User Principal Name|
 | Användare | egna namnet onpremisessamaccountname|Namn på lokal SAM-konto|
-| Användare | employeeid|Anställnings-ID|
+| Användare | employeeid|Medarbetar-ID|
 | Användare | extensionattribute1 | Attribut 1 för tillägg |
 | Användare | extensionattribute2 | Attribut för tillägg 2 |
 | Användare | extensionattribute3 | Attribut för tillägg 3 |
@@ -410,12 +410,12 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 | TransformationMethod | Begränsningar |
 | ----- | ----- |
-| ExtractMailPrefix | Inget |
+| ExtractMailPrefix | Ingen |
 | Slå ihop | Det suffix som anslöts måste vara en verifierad domän för resurs klienten. |
 
 ### <a name="custom-signing-key"></a>Anpassad signerings nyckel
 
-En anpassad signerings nyckel måste tilldelas till tjänstens huvud objekt för att en anspråks mappnings princip ska börja gälla. Detta säkerställer bekräftelse på att token har ändrats av skaparen av anspråks mappnings principen och skyddar program från principer för anspråk mappning som skapats av skadliga aktörer. Om du vill lägga till en anpassad signerings nyckel kan du använda Azure PowerShell-cmdleten `new-azureadapplicationkeycredential` för att skapa en symmetrisk nyckel autentiseringsuppgift för ditt program objekt. Klicka [här](https://docs.microsoft.com/powershell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0)om du vill ha mer information om Azure PowerShell-cmdleten.
+En anpassad signerings nyckel måste tilldelas till tjänstens huvud objekt för att en anspråks mappnings princip ska börja gälla. Detta säkerställer bekräftelse på att token har ändrats av skaparen av anspråks mappnings principen och skyddar program från principer för anspråk mappning som skapats av skadliga aktörer. Om du vill lägga till en anpassad signerings nyckel kan du använda Azure PowerShell cmdlet `new-azureadapplicationkeycredential` för att skapa en symmetrisk nyckel autentiseringsuppgift för ditt program objekt. Mer information om denna Azure PowerShell-cmdlet finns i [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
 Appar som har aktive rad anspråks mappning måste verifiera sina token signerings nycklar genom att lägga till `appid={client_id}` i deras [OpenID Connect metadata-begäranden](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Nedan visas formatet för OpenID Connect-Metadatadokumentet som du bör använda: 
 
@@ -435,7 +435,7 @@ Principer för anspråks mappning kan bara tilldelas till tjänstens huvud objek
 
 I Azure AD är många scenarier möjliga när du kan anpassa anspråk som skickas i tokens för särskilda tjänst huvud namn. I det här avsnittet går vi igenom några vanliga scenarier som hjälper dig att grepp hur du använder princip typen för anspråks mappning.
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 
 I följande exempel kan du skapa, uppdatera, länka och ta bort principer för tjänstens huvud namn. Om du är nybörjare på Azure AD rekommenderar vi att du [Lär dig hur du skaffar en Azure AD-klient](quickstart-create-new-tenant.md) innan du fortsätter med de här exemplen.
 
@@ -469,7 +469,7 @@ I det här exemplet skapar du en princip som tar bort den grundläggande ansprå
       Get-AzureADPolicy
       ```
 1. Tilldela principen till tjänstens huvud namn. Du måste också hämta ObjectId för tjänstens huvud namn.
-   1. Om du vill se alla företagets huvud namn för tjänsten kan du [fråga Microsoft Graph](/graph/traverse-the-graph). Du kan också logga in på ditt Azure AD-konto i [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+   1. Om du vill se alla företagets huvud namn för tjänsten kan du [fråga Microsoft Graph-API: et](/graph/traverse-the-graph). Du kan också logga in på ditt Azure AD-konto i [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
    2. När du har ObjectId för ditt huvud namn för tjänsten kör du följande kommando:  
      
       ``` powershell
@@ -493,7 +493,7 @@ I det här exemplet skapar du en princip som lägger till fälten Anställningsn
       Get-AzureADPolicy
       ```
 1. Tilldela principen till tjänstens huvud namn. Du måste också hämta ObjectId för tjänstens huvud namn. 
-   1. Om du vill se alla företagets huvud namn för tjänsten kan du [fråga Microsoft Graph](/graph/traverse-the-graph). Du kan också logga in på ditt Azure AD-konto i [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+   1. Om du vill se alla företagets huvud namn för tjänsten kan du [fråga Microsoft Graph-API: et](/graph/traverse-the-graph). Du kan också logga in på ditt Azure AD-konto i [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
    2. När du har ObjectId för ditt huvud namn för tjänsten kör du följande kommando:  
      
       ``` powershell
@@ -517,13 +517,13 @@ I det här exemplet skapar du en princip som ger ett anpassat anspråk "JoinedDa
       Get-AzureADPolicy
       ```
 1. Tilldela principen till tjänstens huvud namn. Du måste också hämta ObjectId för tjänstens huvud namn. 
-   1. Om du vill se alla företagets huvud namn för tjänsten kan du [fråga Microsoft Graph](/graph/traverse-the-graph). Du kan också logga in på ditt Azure AD-konto i [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+   1. Om du vill se alla företagets huvud namn för tjänsten kan du [fråga Microsoft Graph-API: et](/graph/traverse-the-graph). Du kan också logga in på ditt Azure AD-konto i [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
    2. När du har ObjectId för ditt huvud namn för tjänsten kör du följande kommando: 
      
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 Information om hur du anpassar anspråk som utfärdats i SAML-token via Azure Portal finns i [så här gör du: anpassa anspråk som utfärdats i SAML-token för företags program](active-directory-saml-claims-customization.md)

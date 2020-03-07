@@ -9,11 +9,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.openlocfilehash: 7b7a3a0a87996358436df9f7ee4a266574c0b7db
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927091"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385527"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Hantera ditt kommersiella marknads plats konto i Partner Center
 
@@ -291,11 +291,11 @@ Om ditt Azure AD-program läser och skriver data i Microsoft Azure AD behöver d
 4. En skärm bild som visar **klient-ID** och **nyckel värden**visas. Se till att skriva ut eller kopiera den här informationen, eftersom du inte kan komma åt den igen när du lämnar den här sidan.
 5. Om du vill skapa fler nycklar väljer du **Lägg till en annan nyckel**.
 
-## <a name="define-user-roles-and-permissions"></a>Definiera användarroller och behörigheter
+## <a name="define-user-roles-and-permissions"></a>Definiera användar roller och behörigheter
 
 Ditt företags användare kan tilldelas följande roller och behörigheter för programmet för affärs marknads platser i Partner Center:
 
-- **Manager**
+- **Cachehanteraren**
   - Kan komma åt alla Microsoft-konto funktioner utom skatte-och utbetalnings inställningar
   - Kan hantera användare, roller och arbets konton (klient organisationer)
 - **Developer**

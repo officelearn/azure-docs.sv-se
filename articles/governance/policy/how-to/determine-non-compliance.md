@@ -4,11 +4,11 @@ description: När en resurs är icke-kompatibel finns det många möjliga orsake
 ms.date: 04/26/2019
 ms.topic: how-to
 ms.openlocfilehash: c931831ddf3cc727b9861e75969eac3bf00c9e45
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972830"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385241"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Fastställa orsaker till icke-kompatibilitet
 
@@ -111,7 +111,7 @@ För _auditIfNotExists_ -principer i kategorin _gäst konfiguration_ kan flera i
 
 Du kanske inte har behörighet att logga in på den virtuella datorn direkt, men du måste rapportera om varför den virtuella datorn är _icke-kompatibel_.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Börja med att följa samma steg i avsnittet ovan för att visa information om efterlevnad av policy.
 

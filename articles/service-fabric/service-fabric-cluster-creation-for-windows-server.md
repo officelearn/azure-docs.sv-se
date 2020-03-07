@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
 ms.openlocfilehash: 461d6021a201ca1fa5722bb44c427baca2a7728e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76903376"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389838"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Skapa ett fristående kluster som körs på Windows Server
 Du kan använda Azure Service Fabric för att skapa Service Fabric-kluster på alla virtuella datorer eller datorer som kör Windows Server. Det innebär att du kan distribuera och köra Service Fabric program i vilken miljö som helst som innehåller en uppsättning anslutna Windows Server-datorer, vara den lokalt eller med någon annan moln leverantör. Service Fabric innehåller ett installations paket för att skapa Service Fabric-kluster som kallas fristående Windows Server-paket. Traditionella Service Fabric kluster i Azure är tillgängliga som en hanterad tjänst, medan fristående Service Fabric kluster är självbetjäning. Mer information om skillnaderna finns i [jämföra Azure och fristående Service Fabric kluster](./service-fabric-deploy-anywhere.md).
@@ -18,7 +18,7 @@ Du kan använda Azure Service Fabric för att skapa Service Fabric-kluster på a
 Den här artikeln vägleder dig genom stegen för att skapa ett Service Fabric fristående kluster.
 
 > [!NOTE]
-> Det fristående Windows Server-paketet är kommersiellt tillgängligt utan kostnad och kan användas för produktions distributioner. Det här paketet kan innehålla nya Service Fabric-funktioner som finns i "för hands version". Rulla ned till "för[hands versions funktioner som ingår i det här paketet](#previewfeatures_anchor)". i avsnittet om förhands gransknings funktionerna. Du kan [hämta en kopia av LICENSVILLKOREN](https://go.microsoft.com/fwlink/?LinkID=733084) nu.
+> Det fristående Windows Server-paketet är kommersiellt tillgängligt utan kostnad och kan användas för produktions distributioner. Det här paketet kan innehålla nya Service Fabric-funktioner som finns i "för hands version". Rulla ned till "för[hands versions funktioner som ingår i det här paketet](#previewfeatures_anchor)". i avsnittet om förhands gransknings funktionerna. Du kan [Ladda ned en kopia av licens avtalet](https://go.microsoft.com/fwlink/?LinkID=733084) nu.
 > 
 > 
 
@@ -126,7 +126,7 @@ Kör följande PowerShell-kommando för att ansluta till ett oskyddat kluster:
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
 ```
 
-Ett exempel:
+Exempel:
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
@@ -203,7 +203,7 @@ Om du vill inaktivera telemetri lägger du till följande i *Egenskaper* i klust
 <a id="previewfeatures" name="previewfeatures_anchor"></a>
 
 ## <a name="preview-features-included-in-this-package"></a>För hands versions funktioner som ingår i det här paketet
-Inget.
+Inga.
 
 
 > [!NOTE]

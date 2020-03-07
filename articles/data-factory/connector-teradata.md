@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
 ms.openlocfilehash: 5a41d5653de0d8a9f674009904756892ac343609
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930925"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358475"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Kopiera data från Teradata-Vantage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -33,7 +33,7 @@ Den här Teradata-anslutningen stöds för följande aktiviteter:
 - [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från Teradata-Vantage till alla mottagar data lager som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från Teradata-Vantage till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 Mer specifikt stöder den här Teradata-anslutaren:
 
@@ -45,7 +45,7 @@ Mer specifikt stöder den här Teradata-anslutaren:
 >
 > Azure Data Factory uppgraderat Teradata-anslutaren efter lanseringen av integrering runtime v-3.18 med egen värd. Alla befintliga arbets belastningar som använder den tidigare Teradata-anslutningen stöds fortfarande. För nya arbets belastningar är det dock en bra idé att använda den nya. Observera att den nya sökvägen kräver en annan uppsättning länkad tjänst, data uppsättning och kopierings källa. Konfigurations information finns i respektive avsnitt som följer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -69,7 +69,7 @@ Den länkade tjänsten Teradata stöder följande egenskaper:
 | connectionString | Anger den information som krävs för att ansluta till Teradata-instansen. Se följande exempel.<br/>Du kan också ange ett lösen ord i Azure Key Vault och hämta `password`-konfigurationen från anslutnings strängen. Mer information finns [i lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) . | Ja |
 | användarnamn | Ange ett användar namn för att ansluta till Teradata. Gäller när du använder Windows-autentisering. | Nej |
 | lösenord | Ange ett lösen ord för det användar konto som du har angett som användar namn. Du kan också välja att [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). <br>Gäller när du använder Windows-autentisering eller refererar till ett lösen ord i Key Vault för grundläggande autentisering. | Nej |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Ja |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Ja |
 
 Fler anslutnings egenskaper som du kan ange i anslutnings strängen per ärende:
 
@@ -153,7 +153,7 @@ Följande egenskaper stöds för att kopiera data från Teradata:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till `TeradataTable`. | Ja |
-| databas | Namnet på Teradata-instansen. | Nej (om ”query” i aktivitetskälla har angetts) |
+| database | Namnet på Teradata-instansen. | Nej (om ”query” i aktivitetskälla har angetts) |
 | table | Namnet på tabellen i Teradata-instansen. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel:**
@@ -207,7 +207,7 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att k
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till `TeradataSource`. | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`.<br>När du aktiverar partitionerad belastning måste du koppla alla motsvarande inbyggda partitionsalternativ i frågan. Exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej (om tabellen i data uppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`.<br>När du aktiverar partitionerad belastning måste du koppla alla motsvarande inbyggda partitionsalternativ i frågan. Exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej (om tabellen i data uppsättningen har angetts) |
 | partitionOptions | Anger de data partitionerings alternativ som används för att läsa in data från Teradata. <br>Tillåt värden är: **ingen** (standard), **hash** -och **DynamicRange**.<br>När ett partitions alternativ är aktiverat (det vill säga inte `None`), kontrol leras graden av parallellitet för att data ska läsas in från Teradata av [`parallelCopies`](copy-activity-performance.md#parallel-copy) inställningen på kopierings aktiviteten. | Nej |
 | partitionSettings | Ange gruppen med inställningar för data partitionering. <br>Använd när alternativet partition inte `None`. | Nej |
 | partitionColumnName | Ange namnet på den käll kolumn som ska användas av intervall partition eller hash-partition för parallell kopiering. Om inget anges identifieras primärt index för tabellen automatiskt och används som partition-kolumn. <br>Använd när alternativet partition är `Hash` eller `DynamicRange`. Om du använder en fråga för att hämta källdata, Hook-`?AdfHashPartitionCondition` eller `?AdfRangePartitionColumnName` i WHERE-satsen. Se exempel i [Parallel Copy från Teradata](#parallel-copy-from-teradata) -avsnittet. | Nej |
@@ -260,7 +260,7 @@ När du aktiverar partitionerad kopiering körs Data Factory parallella frågor 
 
 Du rekommenderas att aktivera parallell kopiering med data partitionering, särskilt när du läser in stora mängder data från din Teradata. Följande är föreslagna konfigurationer för olika scenarier. När du kopierar data till filbaserat data lager, skrivs de om för att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
 
-| Scenario                                                     | Inställningar för förslag                                           |
+| Scenario                                                     | Föreslagna inställningar                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Fullständig belastning från stor tabell.                                   | **Partitionerings alternativ**: hash. <br><br/>Under körningen identifierar Data Factory automatiskt kolumnen PK, använder en hash mot den och kopierar data efter partitioner. |
 | Läs in stora mängder data med hjälp av en anpassad fråga.                 | **Partitionerings alternativ**: hash.<br>**Fråga**: `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`.<br>**Partitionstabell**: Ange den kolumn som används för Apply hash-partition. Om inget anges identifierar Data Factory automatiskt kolumnen PK i tabellen som du angav i Teradata-datauppsättningen.<br><br>Under körningen ersätter Data Factory `?AdfHashPartitionCondition` med hash-partitionens logik och skickar till Teradata. |
@@ -302,43 +302,43 @@ När du kopierar data från Teradata gäller följande mappningar. Information o
 |:--- |:--- |
 | BigInt |Int64 |
 | Blob |Byte[] |
-| Mottagna byte |Byte[] |
+| Byte |Byte[] |
 | ByteInt |Int16 |
-| char |Sträng |
-| CLOB |Sträng |
+| Char |String |
+| CLOB |String |
 | Datum |DateTime |
-| Decimal |Decimal |
-| Double |Double |
-| Graphic |Stöds ej. Använd explicit Cast i käll frågan. |
+| decimaltal |decimaltal |
+| Double-värde |Double-värde |
+| Graphic |Stöds inte. Använd explicit Cast i käll frågan. |
 | Integer |Int32 |
-| Interval Day |Stöds ej. Använd explicit Cast i käll frågan. |
-| Interval Day To Hour |Stöds ej. Använd explicit Cast i käll frågan. |
-| Interval Day To Minute |Stöds ej. Använd explicit Cast i käll frågan. |
-| Interval Day To Second |Stöds ej. Använd explicit Cast i käll frågan. |
-| Interval Hour |Stöds ej. Använd explicit Cast i käll frågan. |
-| Interval Hour To Minute |Stöds ej. Använd explicit Cast i käll frågan. |
-| Interval Hour To Second |Stöds ej. Använd explicit Cast i käll frågan. |
-| Interval Minute |Stöds ej. Använd explicit Cast i käll frågan. |
-| Interval Minute To Second |Stöds ej. Använd explicit Cast i käll frågan. |
-| Interval Month |Stöds ej. Använd explicit Cast i käll frågan. |
-| Interval Second |Stöds ej. Använd explicit Cast i käll frågan. |
-| Interval Year |Stöds ej. Använd explicit Cast i käll frågan. |
-| Interval Year To Month |Stöds ej. Använd explicit Cast i käll frågan. |
-| Tal |Double |
-| Period (datum) |Stöds ej. Använd explicit Cast i käll frågan. |
-| Period (tid) |Stöds ej. Använd explicit Cast i käll frågan. |
-| Period (tid med tidszon) |Stöds ej. Använd explicit Cast i käll frågan. |
-| Period (tidsstämpel) |Stöds ej. Använd explicit Cast i käll frågan. |
-| Period (tidsstämpel med tidszon) |Stöds ej. Använd explicit Cast i käll frågan. |
+| Interval Day |Stöds inte. Använd explicit Cast i käll frågan. |
+| Interval Day To Hour |Stöds inte. Använd explicit Cast i käll frågan. |
+| Interval Day To Minute |Stöds inte. Använd explicit Cast i käll frågan. |
+| Interval Day To Second |Stöds inte. Använd explicit Cast i käll frågan. |
+| Interval Hour |Stöds inte. Använd explicit Cast i käll frågan. |
+| Interval Hour To Minute |Stöds inte. Använd explicit Cast i käll frågan. |
+| Interval Hour To Second |Stöds inte. Använd explicit Cast i käll frågan. |
+| Interval Minute |Stöds inte. Använd explicit Cast i käll frågan. |
+| Interval Minute To Second |Stöds inte. Använd explicit Cast i käll frågan. |
+| Interval Month |Stöds inte. Använd explicit Cast i käll frågan. |
+| Interval Second |Stöds inte. Använd explicit Cast i käll frågan. |
+| Interval Year |Stöds inte. Använd explicit Cast i käll frågan. |
+| Interval Year To Month |Stöds inte. Använd explicit Cast i käll frågan. |
+| Tal |Double-värde |
+| Period (datum) |Stöds inte. Använd explicit Cast i käll frågan. |
+| Period (tid) |Stöds inte. Använd explicit Cast i käll frågan. |
+| Period (tid med tidszon) |Stöds inte. Använd explicit Cast i käll frågan. |
+| Period (tidsstämpel) |Stöds inte. Använd explicit Cast i käll frågan. |
+| Period (tidsstämpel med tidszon) |Stöds inte. Använd explicit Cast i käll frågan. |
 | SmallInt |Int16 |
-| Tid |TimeSpan |
-| Time With Time Zone |TimeSpan |
+| Tid |Tidsintervall |
+| Time With Time Zone |Tidsintervall |
 | Tidsstämpel |DateTime |
 | Timestamp With Time Zone |DateTime |
 | VarByte |Byte[] |
-| VarChar |Sträng |
-| VarGraphic |Stöds ej. Använd explicit Cast i käll frågan. |
-| Xml |Stöds ej. Använd explicit Cast i käll frågan. |
+| VarChar |String |
+| VarGraphic |Stöds inte. Använd explicit Cast i käll frågan. |
+| Xml |Stöds inte. Använd explicit Cast i käll frågan. |
 
 
 ## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
@@ -347,4 +347,4 @@ Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](cont
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

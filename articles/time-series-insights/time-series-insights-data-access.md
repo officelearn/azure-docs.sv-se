@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1c8f14bb1bca082a9d887e5d6d88aec213448c3e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894814"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359992"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Bevilja data åtkomst till en miljö
 
@@ -27,7 +27,7 @@ I den här artikeln beskrivs de två typerna av Azure Time Series Insights för 
 
 ## <a name="sign-in-to-time-series-insights"></a>Logga in på Time Series Insights
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. Leta upp din Time Series Insightss miljö. Ange `Time Series` i **sökrutan.** Välj **tids serie miljö** i Sök resultaten.
 1. Välj Time Series Insights-miljön från listan.
 

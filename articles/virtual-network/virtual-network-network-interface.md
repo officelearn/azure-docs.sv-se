@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
 ms.openlocfilehash: 11e6285ef70ffde5344add951801997f8541eaad
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543111"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356734"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverks gränssnitt
 
@@ -33,7 +33,7 @@ Om du behöver lägga till, ändra eller ta bort IP-adresser för ett nätverks 
 Utför följande åtgärder innan du slutför stegen i något avsnitt i den här artikeln:
 
 - Om du inte redan har ett Azure-konto kan du registrera dig för ett [kostnads fritt utvärderings konto](https://azure.microsoft.com/free).
-- Om du använder portalen öppnar du https://portal.azure.com och loggar in med ditt Azure-konto.
+- Om du använder portalen öppnar du https://portal.azure.comoch loggar in med ditt Azure-konto.
 - Om du använder PowerShell-kommandon för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/powershell)eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. I den här självstudien krävs Azure PowerShell module version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 - Om du använder kommando rads kommandon i Azure för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra CLI från datorn. I den här självstudien krävs Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också köra `az login` för att skapa en anslutning till Azure.
 
@@ -47,18 +47,18 @@ När du skapar en virtuell dator med hjälp av Azure Portal skapar portalen ett 
 2. Välj **+ Lägg till** under **nätverks gränssnitt**.
 3. Ange eller välj värden för följande inställningar och välj sedan **skapa**:
 
-    |Inställning|Krävs?|Information|
+    |Inställning|Krävs?|Detaljer|
     |---|---|---|
     |Namn|Ja|Namnet måste vara unikt inom den resurs grupp du väljer. Med tiden har du troligen flera nätverks gränssnitt i din Azure-prenumeration. Förslag när du skapar en namngivnings konvention för att göra det enklare att hantera flera nätverks gränssnitt finns i [namngivnings konventioner](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). Namnet kan inte ändras efter att nätverks gränssnittet har skapats.|
     |Virtuellt nätverk|Ja|Välj det virtuella nätverket för nätverks gränssnittet. Du kan bara tilldela ett nätverks gränssnitt till ett virtuellt nätverk som finns i samma prenumeration och plats som nätverks gränssnittet. När ett nätverks gränssnitt har skapats kan du inte ändra det virtuella nätverk som det har tilldelats. Den virtuella dator som du lägger till nätverks gränssnittet till måste också finnas på samma plats och i samma prenumeration som nätverks gränssnittet.|
     |Undernät|Ja|Välj ett undernät i det virtuella nätverk som du har valt. Du kan ändra det undernät som nätverks gränssnittet tilldelas efter att det har skapats.|
     |Tilldelning av privat IP-adress|Ja| I den här inställningen väljer du tilldelnings metod för IPv4-adressen. Välj mellan följande tilldelnings metoder: **dynamiska:** när du väljer det här alternativet tilldelar Azure automatiskt nästa tillgängliga adress från det valda under nätets adress utrymme. **Statisk:** När du väljer det här alternativet måste du manuellt tilldela en tillgänglig IP-adress från det valda under nätets adress utrymme. Statiska och dynamiska adresser ändras inte förrän du ändrar dem eller nätverks gränssnittet har tagits bort. Du kan ändra tilldelnings metoden när nätverks gränssnittet har skapats. Azure DHCP-servern tilldelar den här adressen till nätverks gränssnittet i den virtuella datorns operativ system.|
-    |Nätverkssäkerhetsgrupp|Inga| Lämna inställningen **ingen**, Välj en befintlig [nätverks säkerhets grupp](security-overview.md)eller [skapa en nätverks säkerhets grupp](tutorial-filter-network-traffic.md). Med nätverks säkerhets grupper kan du filtrera nätverks trafik i och ut ur ett nätverks gränssnitt. Du kan använda noll eller en nätverks säkerhets grupp för ett nätverks gränssnitt. Noll eller en nätverks säkerhets grupp kan också tillämpas på det undernät som nätverks gränssnittet är tilldelat till. När en nätverks säkerhets grupp tillämpas på ett nätverks gränssnitt och under nätet som nätverks gränssnittet tilldelas, uppstår ibland oväntade resultat. Information om hur du felsöker nätverks säkerhets grupper som tillämpas på nätverks gränssnitt och undernät finns i [Felsöka nätverks säkerhets grupper](diagnose-network-traffic-filter-problem.md).|
+    |Nätverkssäkerhetsgrupp|Nej| Lämna inställningen **ingen**, Välj en befintlig [nätverks säkerhets grupp](security-overview.md)eller [skapa en nätverks säkerhets grupp](tutorial-filter-network-traffic.md). Med nätverks säkerhets grupper kan du filtrera nätverks trafik i och ut ur ett nätverks gränssnitt. Du kan använda noll eller en nätverks säkerhets grupp för ett nätverks gränssnitt. Noll eller en nätverks säkerhets grupp kan också tillämpas på det undernät som nätverks gränssnittet är tilldelat till. När en nätverks säkerhets grupp tillämpas på ett nätverks gränssnitt och under nätet som nätverks gränssnittet tilldelas, uppstår ibland oväntade resultat. Information om hur du felsöker nätverks säkerhets grupper som tillämpas på nätverks gränssnitt och undernät finns i [Felsöka nätverks säkerhets grupper](diagnose-network-traffic-filter-problem.md).|
     |Prenumeration|Ja|Välj en av dina Azure- [prenumerationer](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Den virtuella datorn som du ansluter ett nätverks gränssnitt till och det virtuella nätverk som du ansluter till måste finnas i samma prenumeration.|
-    |Privat IP-adress (IPv6)|Inga| Om du markerar den här kryss rutan tilldelas en IPv6-adress till nätverks gränssnittet, förutom IPv4-adressen som tilldelats till nätverks gränssnittet. I avsnittet IPv6 i den här artikeln finns viktig information om användningen av IPv6 med nätverks gränssnitt. Det går inte att välja en tilldelnings metod för IPv6-adressen. Om du väljer att tilldela en IPv6-adress tilldelas den den dynamiska metoden.
+    |Privat IP-adress (IPv6)|Nej| Om du markerar den här kryss rutan tilldelas en IPv6-adress till nätverks gränssnittet, förutom IPv4-adressen som tilldelats till nätverks gränssnittet. I avsnittet IPv6 i den här artikeln finns viktig information om användningen av IPv6 med nätverks gränssnitt. Det går inte att välja en tilldelnings metod för IPv6-adressen. Om du väljer att tilldela en IPv6-adress tilldelas den den dynamiska metoden.
     |IPv6-namn (visas endast när kryss rutan **privat IP-adress (IPv6)** är markerad) |Ja, om kryss rutan **privat IP-adress (IPv6)** är markerad.| Det här namnet tilldelas en sekundär IP-konfiguration för nätverks gränssnittet. Mer information om IP-konfigurationer finns i [Visa inställningar för nätverks gränssnitt](#view-network-interface-settings).|
     |Resursgrupp|Ja|Välj en befintlig [resurs grupp](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) eller skapa en. Ett nätverks gränssnitt kan finnas i samma eller en annan resurs grupp än den virtuella dator som du kopplar det till eller det virtuella nätverk som du ansluter till.|
-    |Location|Ja|Den virtuella datorn som du ansluter ett nätverks gränssnitt till och det virtuella nätverk som du ansluter till måste finnas på samma [plats](https://azure.microsoft.com/regions), även kallat en region.|
+    |plats.|Ja|Den virtuella datorn som du ansluter ett nätverks gränssnitt till och det virtuella nätverk som du ansluter till måste finnas på samma [plats](https://azure.microsoft.com/regions), även kallat en region.|
 
 Portalen ger inte alternativet att tilldela nätverks gränssnittet en offentlig IP-adress när du skapar den, men portalen skapar en offentlig IP-adress och tilldelar den till ett nätverks gränssnitt när du skapar en virtuell dator med hjälp av portalen. Information om hur du lägger till en offentlig IP-adress i nätverks gränssnittet när du har skapat den finns i [Hantera IP-adresser](virtual-network-network-interface-addresses.md). Om du vill skapa ett nätverks gränssnitt med en offentlig IP-adress måste du använda CLI eller PowerShell för att skapa nätverks gränssnittet.
 

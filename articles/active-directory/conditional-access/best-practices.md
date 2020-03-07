@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ccfbb31c29b9e240a4865c8d7d98d7b6af00d1fd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963944"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377574"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Metod tips för villkorlig åtkomst i Azure Active Directory
 
@@ -35,7 +35,7 @@ När du skapar en ny princip finns det inga användare, grupper, appar eller åt
 
 För att principen ska fungera måste du konfigurera:
 
-| Vad           | Hur?                                  | Varför |
+| Vad           | vilken                                  | Varför |
 | :--            | :--                                  | :-- |
 | **Molnappar** |Välj en eller flera appar.  | Målet med en princip för villkorlig åtkomst är att du ska kunna styra hur auktoriserade användare kan komma åt molnappar.|
 | **Användare och grupper** | Välj minst en användare eller grupp som har behörighet att komma åt dina valda molnappar. | En princip för villkorlig åtkomst som inte har några tilldelade användare och grupper utlöses aldrig. |
@@ -141,7 +141,7 @@ Vi rekommenderar att du skapar ett användar konto som är:
 - Du kan hantera alla principer för villkorlig åtkomst på en central plats.
 - Den klassiska Azure-portalen har dragits tillbaka.   
 
-Mer information finns i [Migrera klassiska principer i Azure Portal](policy-migration.md).
+Mer information finns i [migrera klassiska principer i Azure Portal](policy-migration.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

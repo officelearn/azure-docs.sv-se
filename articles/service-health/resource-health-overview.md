@@ -4,11 +4,11 @@ description: Översikt över Azure Resource Health
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 5609c7f09dc81a54a941dea391c0d717ad4bb06a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356801"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379961"
 ---
 # <a name="resource-health-overview"></a>Översikt över Resource Health
  
@@ -22,11 +22,11 @@ En *resurs* är en angiven instans av en Azure-tjänst, till exempel en virtuell
 
 Mer information om hur hälsa utvärderas finns i listan över resurs typer och hälso kontroller på [Azure Resource Health](resource-health-checks-resource-types.md).
 
-## <a name="health-status"></a>Hälsostatus
+## <a name="health-status"></a>Hälso status
 
 Hälso tillståndet för en resurs visas som en av följande status värden.
 
-### <a name="available"></a>Tillgänglig
+### <a name="available"></a>Tillgängligt
 
 *Tillgängligt* innebär att det inte finns några händelser som påverkar resursens hälso tillstånd. I de fall då resursen återställdes från oplanerade drift stopp under de senaste 24 timmarna visas meddelandet "nyligen löst".
 
@@ -80,7 +80,7 @@ Du kan komma åt historiken för 14 dagar i avsnittet **hälso historik** i Reso
 
 ![Lista över Resource Health händelser under de senaste två veckorna](./media/resource-health-overview/history-blade.png)
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 Öppna Resource Health för en resurs:
 

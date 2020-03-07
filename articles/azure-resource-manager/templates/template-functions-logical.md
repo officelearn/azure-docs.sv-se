@@ -4,11 +4,11 @@ description: Beskriver de funktioner som används i en Azure Resource Manager ma
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: aef520a26124a85f414c4f4aa1a3e307d383c29b
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207221"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357355"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Logiska funktioner för Azure Resource Manager mallar
 
@@ -30,9 +30,9 @@ Kontrollerar om alla parameter värden är sanna.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |boolesk |Det första värdet för att kontrol lera om är sant. |
-| arg2 |Ja |boolesk |Det andra värdet för att kontrol lera om är sant. |
-| ytterligare argument |Nej |boolesk |Ytterligare argument för att kontrol lera om är true. |
+| arg1 |Ja |boolean |Det första värdet för att kontrol lera om är sant. |
+| arg2 |Ja |boolean |Det andra värdet för att kontrol lera om är sant. |
+| ytterligare argument |Nej |boolean |Ytterligare argument för att kontrol lera om är true. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -136,7 +136,7 @@ Returnerar ett värde baserat på om ett villkor är sant eller falskt.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| condition |Ja |boolesk |Värdet för att kontrol lera om det är sant eller falskt. |
+| condition |Ja |boolean |Värdet för att kontrol lera om det är sant eller falskt. |
 | trueValue |Ja | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är sant. |
 | falseValue |Ja | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är falskt. |
 
@@ -144,7 +144,7 @@ Returnerar ett värde baserat på om ett villkor är sant eller falskt.
 
 Returnerar den andra parametern när den första parametern är **True**; annars returnerar den tredje parametern.
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
 När villkoret är **Sant**utvärderas bara det sanna värdet. Om villkoret är **falskt**utvärderas bara det falska värdet. Med funktionen **IF** kan du inkludera uttryck som endast är villkorligt giltiga. Du kan till exempel referera till en resurs som finns under ett villkor, men inte med det andra villkoret. Ett exempel på villkorligt utvärdering av uttryck visas i följande avsnitt.
 
@@ -179,8 +179,8 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| yesOutput | Sträng | ja |
-| noOutput | Sträng | nej |
+| yesOutput | String | ja |
+| noOutput | String | nej |
 | objectOutput | Objekt | {"test": "värde1"} |
 
 I följande [exempel mall](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) visas hur du använder den här funktionen med uttryck som endast är villkorligt giltiga.
@@ -241,7 +241,7 @@ Konverterar booleskt värde till motsatt värde.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |boolesk |Det värde som ska konverteras. |
+| arg1 |Ja |boolean |Det värde som ska konverteras. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -313,9 +313,9 @@ Kontrollerar om ett parameter värde är sant.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |boolesk |Det första värdet för att kontrol lera om är sant. |
-| arg2 |Ja |boolesk |Det andra värdet för att kontrol lera om är sant. |
-| ytterligare argument |Nej |boolesk |Ytterligare argument för att kontrol lera om är true. |
+| arg1 |Ja |boolean |Det första värdet för att kontrol lera om är sant. |
+| arg2 |Ja |boolean |Det andra värdet för att kontrol lera om är sant. |
+| ytterligare argument |Nej |boolean |Ytterligare argument för att kontrol lera om är true. |
 
 ### <a name="return-value"></a>Returvärde
 

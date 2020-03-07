@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
 ms.openlocfilehash: 486f90d82af729a3dbfd836239d2d19ebdf44819
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191427"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386588"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Översikt: Automatisera distribution av Azure Logic Apps med hjälp av Azure Resource Manager mallar
 
@@ -319,9 +319,9 @@ Din Logic Apps resurs definition börjar med `properties`-objektet, som innehål
 
 Här följer de attribut som är speciella för din resurs definition för Logic app:
 
-| Attribut | Obligatoriskt | Typ | Beskrivning |
+| Attribut | Krävs | Typ | Beskrivning |
 |-----------|----------|------|-------------|
-| `state` | Ja | Sträng | Din Logi Kap par status vid distribution där `Enabled` innebär att din Logi Kap par är Live och `Disabled` innebär att din Logic app är inaktiv. Om du till exempel inte är redo för att din Logi Kap par ska vara Live, men vill distribuera ett utkast till version, kan du använda alternativet `Disabled`. |
+| `state` | Ja | String | Din Logi Kap par status vid distribution där `Enabled` innebär att din Logi Kap par är Live och `Disabled` innebär att din Logic app är inaktiv. Om du till exempel inte är redo för att din Logi Kap par ska vara Live, men vill distribuera ett utkast till version, kan du använda alternativet `Disabled`. |
 | `integrationAccount` | Nej | Objekt | Om din Logic app använder ett integrations konto, som lagrar artefakter för Business-to-Business-scenarier (B2B), innehåller det här objektet `id`-attributet, som anger ID: t för integrations kontot. |
 | `definition` | Ja | Objekt | Din Logic Apps-underliggande arbets flödes definition, som är samma objekt som visas i kodvyn och beskrivs fullständigt i avsnittet [schema referens för språk för arbets flödes definition](../logic-apps/logic-apps-workflow-definition-language.md) . I den här arbets flödes definitionen deklarerar `parameters`-objektet parametrar för de värden som ska användas vid Logic app Runtime. Mer information finns i [arbets flödes definitioner och parametrar](#workflow-definition-parameters). <p><p>Om du vill visa attributen i din Logic Apps arbets flödes definition växlar du från "designvyn" till "kodvyn" i Azure Portal eller Visual Studio, eller genom att använda ett verktyg som [Azure Resource Explorer](https://resources.azure.com). |
 | `parameters` | Nej | Objekt | [Parameter värden för arbets flödes definition](#workflow-definition-parameters) som ska användas vid Logic app Runtime. Parameter definitionerna för dessa värden visas i [arbets flödes definitionens](#workflow-definition-parameters)Parameters-objekt. Om din Logic app använder [hanterade anslutningar](../connectors/apis-list.md) för att komma åt andra tjänster och system, innehåller det här objektet dessutom ett `$connections`-objekt som anger de anslutnings värden som ska användas vid körning. |

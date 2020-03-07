@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Felsöka Azure AD anslutningsproblem | Microsoft Docs'
-description: Beskriver hur du kan felsöka anslutningsproblem med Azure AD Connect.
+title: 'Azure AD Connect: Felsök problem med Azure AD-anslutning | Microsoft Docs'
+description: Förklarar hur du felsöker anslutnings problem med Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,99 +17,99 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64572794"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376105"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Felsöka Azure AD-anslutning
-Den här artikeln förklarar hur anslutningar mellan Azure AD Connect och Azure AD fungerar och hur du felsöker problem med nätverksanslutningen. Dessa problem är mest sannolikt ska synas i en miljö med en proxyserver.
+Den här artikeln förklarar hur anslutningar mellan Azure AD Connect och Azure AD fungerar och hur du felsöker anslutnings problem. De här problemen visas förmodligen i en miljö med en proxyserver.
 
-## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Felsökning av anslutningsproblem i installationsguiden
-Azure AD Connect använder Modern autentisering (med ADAL-biblioteket) för autentisering. Installationsguiden och Synkroniseringsmotorn rätt kräver machine.config konfigureras korrekt eftersom dessa två .NET-program.
+## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Felsöka anslutnings problem i installations guiden
+Azure AD Connect använder modern autentisering (med ADAL-biblioteket) för autentisering. Installations guiden och Synkroniseringsmotorn kräver att Machine. config är korrekt konfigurerad eftersom dessa två är .NET-program.
 
 I den här artikeln visar vi hur Fabrikam ansluter till Azure AD via dess proxy. Proxyservern heter fabrikamproxy och använder port 8080.
 
-Vi måste först se till att [ **machine.config** ](how-to-connect-install-prerequisites.md#connectivity) är korrekt konfigurerad.  
+Först måste vi kontrol lera att [**Machine. config**](how-to-connect-install-prerequisites.md#connectivity) är korrekt konfigurerad.  
 ![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
-> I vissa icke-Microsoft-bloggar dokumenteras det att ändringar ska göras till miiserver.exe.config i stället. Den här filen är dock över på varje uppgradering även om det fungerar under den inledande installationen kan systemet slutar att fungera vid första uppgradering. Därför är rekommendationen att uppdatera machine.config istället.
+> I vissa andra Bloggar än Microsoft är det dokumenterat att ändringar ska göras i MIIServer. exe. config i stället. Den här filen skrivs dock över vid varje uppgradering, så även om den fungerar under den första installationen slutar systemet att fungera vid första uppgraderingen. Av den anledningen är rekommendationen att uppdatera Machine. config i stället.
 >
 >
 
-Proxyservern måste också ha de nödvändiga webbadresser som öppnas. Listan över officiella dokumenteras i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+Proxyservern måste också ha de webb adresser som krävs öppna. Den officiella listan är dokumenterad i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-I följande tabell är det absoluta minst för att kunna ansluta till Azure AD på alla dessa webbadresser. Den här listan innehåller inte några valfria funktioner, till exempel tillbakaskrivning av lösenord eller Azure AD Connect Health. Den dokumenteras här för att underlätta felsökningen för den inledande konfigurationen.
+I dessa URL: er är följande tabell det absoluta minimala alternativet för att kunna ansluta till Azure AD. Den här listan innehåller inte några valfria funktioner, till exempel tillbakaskrivning av lösen ord eller Azure AD Connect Health. Den dokumenteras här för att hjälpa till med fel sökning av den inledande konfigurationen.
 
 | URL | Port | Beskrivning |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
-| \*.verisign.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
-| \*.entrust.net |HTTP/80 |Används för att hämta listor över återkallade certifikat för MFA. |
+| \*. verisign.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
+| \*. entrust.net |HTTP/80 |Används för att hämta listor över återkallade certifikat för MFA. |
 | \*.windows.net |HTTPS/443 |Används för att logga in på Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Används för MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Används för att konfigurera Azure AD-katalogen och importera/exportera data. |
 
 ## <a name="errors-in-the-wizard"></a>Fel i guiden
-Installationsguiden använder två olika kontexter. På sidan **Anslut till Azure AD**, den använder den för tillfället inloggade användaren. På sidan **konfigurera**, ändras till den [konto som kör tjänsten för Synkroniseringsmotorn](reference-connect-accounts-permissions.md#adsync-service-account). Om det finns ett problem, visas den mest sannolika redan på den **Anslut till Azure AD** sidan i guiden eftersom proxykonfigurationen är globala.
+Installations guiden använder två olika säkerhets kontexter. På sidan **Anslut till Azure AD**använder den för tillfället inloggade användare. På sidan **Konfigurera**ändras det till det [konto som kör tjänsten för Synkroniseringsmotorn](reference-connect-accounts-permissions.md#adsync-service-account). Om det uppstår ett problem visas det förmodligen redan på sidan **Anslut till Azure AD** i guiden eftersom proxykonfigurationen är global.
 
-Följande är de vanligaste fel som uppstår i installationsguiden.
+Följande problem är de vanligaste felen som du stöter på i installations guiden.
 
-### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>Installationsguiden har inte konfigurerats korrekt
-Det här felet visas när guiden inte kan nå proxyservern.  
+### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>Installations guiden har inte kon figurer ATS korrekt
+Det här felet visas när själva guiden inte kan komma åt proxyn.  
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
-* Om du ser det här felet kan verifiera den [machine.config](how-to-connect-install-prerequisites.md#connectivity) har konfigurerats korrekt.
-* Om som verkar vara korrekta, följer du stegen i [Kontrollera proxy-anslutningen](#verify-proxy-connectivity) att se om problemet finns utanför guiden.
+* Om det här felet visas kontrollerar du att [Machine. config](how-to-connect-install-prerequisites.md#connectivity) har kon figurer ATS korrekt.
+* Om det ser korrekt ut följer du stegen i [Verifiera proxyanslutningar](#verify-proxy-connectivity) för att se om problemet finns utanför guiden.
 
-### <a name="a-microsoft-account-is-used"></a>Ett Microsoft-konto används
-Om du använder en **microsoftkonto** snarare än en **Skol- eller organisation** konto, visas ett allmänt fel.  
-![Ett Account används](./media/tshoot-connect-connectivity/unknownerror.png)
+### <a name="a-microsoft-account-is-used"></a>En Microsoft-konto används
+Om du använder en **Microsoft-konto** snarare än ett **skol-eller organisations** konto visas ett allmänt fel.  
+![ett Microsoft-konto används](./media/tshoot-connect-connectivity/unknownerror.png)
 
-### <a name="the-mfa-endpoint-cannot-be-reached"></a>MFA-slutpunkten kan inte nås
-Det här felet visas om slutpunkten **https://secure.aadcdn.microsoftonline-p.com** går inte att nå och din globala administratör har aktiverat MFA.  
+### <a name="the-mfa-endpoint-cannot-be-reached"></a>Det går inte att nå MFA-slutpunkten
+Det här felet visas om slut punkten **https://secure.aadcdn.microsoftonline-p.com** inte nås och din globala administratör har MFA aktiverat.  
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
-* Om du ser det här felet kan du kontrollera att slutpunkten **secure.aadcdn.microsoftonline p.com** har lagts till proxyservern.
+* Om det här felet visas kontrollerar du att slut punkts **Secure.aadcdn.microsoftonline-p.com** har lagts till i proxyn.
 
-### <a name="the-password-cannot-be-verified"></a>Lösenordet kan inte verifieras
-Om installationsguiden lyckas ansluta till Azure AD, men själva lösenordet går inte att verifiera du ser detta fel:  
-![Felaktigt lösenord.](./media/tshoot-connect-connectivity/badpassword.png)
+### <a name="the-password-cannot-be-verified"></a>Det går inte att verifiera lösen ordet
+Om installations guiden lyckas ansluta till Azure AD, men själva lösen ordet inte kan verifieras visas det här felet:  
+![Felaktigt lösen ord.](./media/tshoot-connect-connectivity/badpassword.png)
 
-* Är ett tillfälligt lösenord för lösenordet och måste ändras? Är det faktiskt rätt lösenord? Försök att logga in på https://login.microsoftonline.com (på en annan dator än Azure AD Connect-servern) och kontrollera att konton som kan användas.
+* Är lösen ordet ett tillfälligt lösen ord och måste ändras? Är det faktiskt rätt lösen ord? Försök att logga in på https://login.microsoftonline.com (på en annan dator än Azure AD Connect-servern) och kontrol lera att kontot är användbart.
 
-### <a name="verify-proxy-connectivity"></a>Kontrollera proxy-anslutningen
-Kontrollera om Azure AD Connect-servern har faktiska anslutningarna till proxyservern och Internet genom att använda PowerShell för att se om proxyservern tillåter webbegäranden eller inte. Kör PowerShell-prompten `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Tekniskt sett det första anropet är att https://login.microsoftonline.com och den här URI: N fungerar också, men andra URI: N går snabbare att svara.)
+### <a name="verify-proxy-connectivity"></a>Verifiera proxy-anslutning
+Du kan kontrol lera om den Azure AD Connect servern har faktisk anslutning till proxyn och Internet genom att använda en PowerShell för att se om proxyn tillåter webb förfrågningar eller inte. Kör `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`i en PowerShell-prompt. (Tekniskt det första anropet är att https://login.microsoftonline.com och denna URI fungerar också, men den andra URI: n är snabbare att svara.)
 
-PowerShell använder konfigurationen i machine.config för att kontakta proxyservern. Inställningarna i winhttp/netsh bör inte påverka dessa cmdletar.
+PowerShell använder konfigurationen i Machine. config för att kontakta proxyn. Inställningarna i WinHTTP/netsh bör inte påverka dessa cmdletar.
 
-Om proxyn är korrekt konfigurerad, bör du få en lyckad status: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
+Om proxyservern har kon figurer ATS korrekt bör du få statusen lyckad: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
-Om du får **det går inte att ansluta till fjärrservern**, sedan PowerShell försöker att ringa direkt utan att använda proxyn eller DNS inte är korrekt konfigurerad. Kontrollera att den **machine.config** filen är korrekt konfigurerad.
+Om du **inte kan ansluta till fjärrservern**försöker PowerShell att göra ett direkt anrop utan att använda proxyn eller så är DNS inte korrekt konfigurerat. Kontrol lera att **Machine. config** -filen är korrekt konfigurerad.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
 
-Om proxyn inte är korrekt konfigurerad, du får ett felmeddelande: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
+Om proxyservern inte är korrekt konfigurerad får du ett fel meddelande: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
 ![proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)
 
 | Fel | Feltext | Kommentar |
 | --- | --- | --- |
-| 403 |Förbjudna |Proxyn har inte öppnats för den begärda URL: en. Gå tillbaka till proxykonfigurationen och se till att den [URL: er](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) har öppnats. |
-| 407 |Proxyautentisering krävs |Proxyservern måste en inloggning och inget har tillhandahållits. Om proxyservern kräver autentisering, se till att ha den här inställningen konfigurerad i machine.config. Kontrollera också att du använder domänkonton för användaren som kör guiden och för tjänstkontot. |
+| 403 |Förbjudet |Proxyn har inte öppnats för den begärda URL: en. Gå tillbaka till proxykonfigurationen och kontrol lera att [webb adresserna](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) har öppnats. |
+| 407 |Proxyautentisering krävs |Proxyservern krävde inloggning och inget har angetts. Om proxyservern kräver autentisering måste du se till att den här inställningen är konfigurerad i Machine. config. Kontrol lera också att du använder domän konton för användaren som kör guiden och för tjänst kontot. |
 
-### <a name="proxy-idle-timeout-setting"></a>Proxyinställningen för timeout för inaktivitet
-När Azure AD Connect skickar en begäran om export till Azure AD, kan Azure AD ta upp till 5 minuter att bearbeta begäran innan du genererar ett svar. Detta kan inträffa särskilt om det finns ett antal gruppobjekt med stora gruppmedlemskap som ingår i samma exportbegäran. Se till att tidsgränsen för inaktivitet Proxy har konfigurerats för att vara större än 5 minuter. Tillfälliga anslutningsproblem med Azure AD kan annars observerats på Azure AD Connect-servern.
+### <a name="proxy-idle-timeout-setting"></a>Timeout-inställning för proxy inaktivitet
+När Azure AD Connect skickar en begäran om export till Azure AD kan Azure AD ta upp till 5 minuter att bearbeta begäran innan du genererar ett svar. Detta kan inträffa särskilt om det finns ett antal grupp objekt med stora grupp medlemskap som ingår i samma export förfrågan. Se till att tids gränsen för proxyns inaktivitet är större än 5 minuter. Annars kan ett tillfälligt anslutnings problem med Azure AD observeras på den Azure AD Connect servern.
 
-## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Kommunikationsmönster för mellan Azure AD Connect och Azure AD
-Om du har följt de föregående stegen och fortfarande inte kan ansluta, kan du nu börja titta på loggarna för nätverket. Det här avsnittet är dokumentera arbetsprofilen normalt och lyckad anslutning. Det också en lista med vanliga red herrings som kan ignoreras när du läser loggarna för nätverket.
+## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Kommunikations mönstret mellan Azure AD Connect och Azure AD
+Om du har följt alla dessa föregående steg och fortfarande inte kan ansluta kan du nu börja titta på nätverks loggar. Det här avsnittet används för att dokumentera ett mönster för normal och lyckad anslutning. Den visar också vanliga röda sill som kan ignoreras när du läser nätverks loggarna.
 
-* Det finns anrop till https://dc.services.visualstudio.com. Du behöver inte ha den här URL: en öppen i proxyn för att installationen ska lyckas, och dessa anrop kan ignoreras.
-* Du ser att dns-matchningen visar de faktiska värdarna i DNS-namnet utrymme nsatc.net och andra namnområden inte under microsoftonline.com. Men det finns inte någon webbtjänstbegäranden på de faktiska servernamn och du behöver inte lägga till dessa URL: er till proxyservern.
-* Slutpunkter adminwebservice och provisioningapi är identifiering av slutpunkter och används för att hitta den faktiska slutpunkten som ska användas. De här slutpunkterna är olika beroende på region.
+* Det finns anrop till https://dc.services.visualstudio.com. Du måste inte ha denna URL öppen i proxyn för att installationen ska lyckas och dessa anrop kan ignoreras.
+* Du ser att DNS-matchningen listar de faktiska värdarna i DNS-namnområdet nsatc.net och andra namn områden som inte är under microsoftonline.com. Det finns dock inga webb tjänst begär Anden på de faktiska Server namnen och du behöver inte lägga till dessa URL: er i proxyn.
+* Slut punkterna adminwebservice och provisioningapi är identifierings slut punkter och används för att hitta den faktiska slut punkten som ska användas. Dessa slut punkter skiljer sig åt beroende på din region.
 
-### <a name="reference-proxy-logs"></a>Referens för proxy-loggar
-Här är en dump från en faktisk proxy-loggen och guidesidan installation från där den togs (dubbla poster till samma slutpunkt har tagits bort). Det här avsnittet kan användas som referens för proxy och nätverket loggarna. De faktiska slutpunkterna kan skilja sig i din miljö (särskilt dessa URL: er i *kursiv*).
+### <a name="reference-proxy-logs"></a>Referenser för proxy
+Här är en dumpning från en faktisk proxy-logg och sidan installations guide från den plats där den togs (dubbla poster till samma slut punkt har tagits bort). Det här avsnittet kan användas som referens för dina egna proxy-och nätverks loggar. De faktiska slut punkterna kan vara olika i din miljö (särskilt dessa URL: er i *kursiv stil*).
 
 **Anslut till Azure AD**
 
@@ -117,56 +117,56 @@ Här är en dump från en faktisk proxy-loggen och guidesidan installation från
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:32 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://*bba800-Anchor*. microsoftonline.com:443 |
 | 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect://*bwsc02-Relay*. microsoftonline.com:443 |
 
 **Konfigurera**
 
 | Tid | URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://*bba800-Anchor*. microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba900-Anchor*. microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba800-Anchor*. microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect://*bwsc02-Relay*. microsoftonline.com:443 |
 
-**Den inledande synkroniseringen**
+**Inledande synkronisering**
 
 | Tid | URL |
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect://*bba900-anchor*.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba900-Anchor*. microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba800-Anchor*. microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Autentiseringsfel
-Det här avsnittet beskriver fel som kan returneras från ADAL (autentiseringsbibliotek som används av Azure AD Connect) och PowerShell. Felet förklaras hjälper dig i att förstå din nästa steg.
+I det här avsnittet beskrivs fel som kan returneras från ADAL (det autentiseringspaket som används av Azure AD Connect) och PowerShell. Fel förklaringen bör hjälpa dig att förstå dina nästa steg.
 
-### <a name="invalid-grant"></a>Ogiltig bevilja
-Ogiltigt användarnamn eller lösenord. Mer information finns i [lösenordet går inte att verifiera](#the-password-cannot-be-verified).
+### <a name="invalid-grant"></a>Ogiltigt bidrag
+Ogiltigt användar namn eller lösen ord. Mer information finns i [lösen ordet kan inte verifieras](#the-password-cannot-be-verified).
 
-### <a name="unknown-user-type"></a>Okänd användartyp
-Azure AD-katalogen kan inte hitta eller löst. Kanske du försöker logga in med ett användarnamn i en overifierade domän?
+### <a name="unknown-user-type"></a>Okänd användar typ
+Det går inte att hitta eller matcha din Azure AD-katalog. Kanske försöker du logga in med ett användar namn i en overifierad domän?
 
-### <a name="user-realm-discovery-failed"></a>Identifiering av startsfär användaren misslyckades
-Nätverks- och proxyinställningar konfigurationsproblem. Nätverket kan inte nås. Se [Felsöka anslutningsproblem i installationsguiden](#troubleshoot-connectivity-issues-in-the-installation-wizard).
+### <a name="user-realm-discovery-failed"></a>Identifiering av användar sfär misslyckades
+Konfigurations problem för nätverk eller proxy. Det går inte att nå nätverket. Se [Felsöka anslutnings problem i installations guiden](#troubleshoot-connectivity-issues-in-the-installation-wizard).
 
-### <a name="user-password-expired"></a>Användarens lösenord har upphört att gälla
-Dina autentiseringsuppgifter har upphört att gälla. Ändra lösenordet.
+### <a name="user-password-expired"></a>Användarens lösen ord har gått ut
+Dina autentiseringsuppgifter har upphört att gälla. Ändra lösen ordet.
 
-### <a name="authorization-failure"></a>Auktoriseringen misslyckades
-Det gick inte att auktorisera användare att utföra åtgärden i Azure AD.
+### <a name="authorization-failure"></a>Auktoriseringsfel
+Det gick inte att auktorisera användaren för att utföra åtgärder i Azure AD.
 
-### <a name="authentication-canceled"></a>Autentisering har avbrutits
-Multifaktorautentisering (MFA) utmaningen avbröts.
+### <a name="authentication-canceled"></a>Autentiseringen avbröts
+Multi-Factor Authentication-utmaningen (MFA) avbröts.
 
 <div id="connect-msolservice-failed">
 <!--
@@ -175,8 +175,8 @@ Multifaktorautentisering (MFA) utmaningen avbröts.
 -->
 </div>
 
-### <a name="connect-to-ms-online-failed"></a>Ansluta till MS Online misslyckades
-Autentiseringen lyckades, men Azure AD PowerShell har ett problem med autentisering.
+### <a name="connect-to-ms-online-failed"></a>Det gick inte att ansluta till MS online
+Autentiseringen lyckades, men det har uppstått ett autentiseringsfel i Azure AD PowerShell.
 
 <div id="get-msoluserrole-failed">
 <!--
@@ -185,8 +185,8 @@ Autentiseringen lyckades, men Azure AD PowerShell har ett problem med autentiser
 -->
 </div>
 
-### <a name="azure-ad-global-admin-role-needed"></a>Rollen som Global administratör i en Azure AD och behövs
-Användaren autentiserades har. Men användaren inte har tilldelats rollen som global administratör. Det här är [hur du kan tilldela rollen som global administratör](../users-groups-roles/directory-assign-admin-roles.md) för användaren. 
+### <a name="azure-ad-global-admin-role-needed"></a>Global administratörs roll för Azure AD krävs
+Användaren har autentiserats. Användaren är dock inte tilldelad global administratörs roll. Så här [kan du tilldela användaren rollen som global administratör](../users-groups-roles/directory-assign-admin-roles.md) . 
 
 <div id="privileged-identity-management">
 <!--
@@ -195,8 +195,8 @@ Användaren autentiserades har. Men användaren inte har tilldelats rollen som g
 -->
 </div>
 
-### <a name="privileged-identity-management-enabled"></a>Privileged Identity Management-aktiverade
-Autentiseringen lyckades. Privileged identity management har aktiverats och du är för närvarande inte en global administratör. Mer information finns i [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
+### <a name="privileged-identity-management-enabled"></a>Privileged Identity Management aktive rad
+Autentiseringen lyckades. Privileged Identity Management har Aktiver ATS och du är för närvarande inte en global administratör. Mer information finns i [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
 <div id="get-msolcompanyinformation-failed">
 <!--
@@ -205,8 +205,8 @@ Autentiseringen lyckades. Privileged identity management har aktiverats och du �
 -->
 </div>
 
-### <a name="company-information-unavailable"></a>Företagsinformation som är inte tillgänglig
-Autentiseringen lyckades. Det gick inte att hämta företagets information från Azure AD.
+### <a name="company-information-unavailable"></a>Företags informationen är inte tillgänglig
+Autentiseringen lyckades. Det gick inte att hämta företags information från Azure AD.
 
 <div id="get-msoldomain-failed">
 <!--
@@ -215,25 +215,25 @@ Autentiseringen lyckades. Det gick inte att hämta företagets information från
 -->
 </div>
 
-### <a name="domain-information-unavailable"></a>Inte tillgänglig domäninformation
-Autentiseringen lyckades. Det gick inte att hämta domäninformation från Azure AD.
+### <a name="domain-information-unavailable"></a>Domän information otillgänglig
+Autentiseringen lyckades. Det gick inte att hämta domän information från Azure AD.
 
-### <a name="unspecified-authentication-failure"></a>Ospecificerad autentiseringsfel
-Visas som ett oväntat fel inträffade i installationsguiden. Kan inträffa om du försöker använda en **Account** snarare än en **school-eller organisationskonto**.
+### <a name="unspecified-authentication-failure"></a>Ospecificerat autentiseringsfel
+Visas som ett oväntat fel i installations guiden. Kan inträffa om du försöker använda ett **Microsoft-konto** i stället för ett **skol-eller organisations konto**.
 
-## <a name="troubleshooting-steps-for-previous-releases"></a>Felsökning för tidigare versioner.
-Med versioner drogs från och med build-nummer 1.1.105.0 (publicerad februari 2016), inloggningsassistenten tillbaka. Det här avsnittet och konfigurationen som inte längre ska krävs, men sparas som referens.
+## <a name="troubleshooting-steps-for-previous-releases"></a>Fel söknings steg för tidigare versioner.
+Med versioner som börjar med build Number 1.1.105.0 (lanserades februari 2016) drogs inloggnings assistenten tillbaka. Det här avsnittet och konfigurationen ska inte längre krävas, utan behålls som referens.
 
-För den enkel inloggningen i installationsassistenten att fungera, måste winhttp konfigureras. Den här konfigurationen kan göras med [ **netsh**](how-to-connect-install-prerequisites.md#connectivity).  
+För att enkel inloggnings assistenten ska fungera måste WinHTTP konfigureras. Den här konfigurationen kan göras med [**netsh**](how-to-connect-install-prerequisites.md#connectivity).  
 ![netsh](./media/tshoot-connect-connectivity/netsh.png)
 
-### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>Inloggningsassistenten har inte konfigurerats korrekt
-Det här felet visas när inloggningsassistenten inte går att nå proxyservern eller proxyservern tillåter inte begäran.
+### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>Inloggnings assistenten har inte kon figurer ATS korrekt
+Det här felet visas när inloggnings assistenten inte kan komma åt proxyservern eller så tillåter inte proxyservern begäran.
 ![nonetsh](./media/tshoot-connect-connectivity/nonetsh.png)
 
-* Om du ser det här felet kan du titta på proxykonfiguration i [netsh](how-to-connect-install-prerequisites.md#connectivity) och den är korrekt.
+* Om det här felet visas tittar du på proxykonfigurationen i [netsh](how-to-connect-install-prerequisites.md#connectivity) och kontrollerar att den är korrekt.
   ![netshshow](./media/tshoot-connect-connectivity/netshshow.png)
-* Om som verkar vara korrekta, följer du stegen i [Kontrollera proxy-anslutningen](#verify-proxy-connectivity) att se om problemet finns utanför guiden.
+* Om det ser korrekt ut följer du stegen i [Verifiera proxyanslutningar](#verify-proxy-connectivity) för att se om problemet finns utanför guiden.
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

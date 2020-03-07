@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169592"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379034"
 ---
 # <a name="configure-the-review-tool"></a>Konfigurera granskningsverktyget
 
@@ -86,7 +86,7 @@ Klicka på **Lägg** till för att lägga till en tagg och klicka på **Spara** 
 
 Du kan ta bort anpassade taggar genom att välja pappers korgs ikonen bredvid posterna i listan Taggar, men du kan inte ta bort Standardtaggarna.
 
-## <a name="connectors"></a>Anslutningsprogram
+## <a name="connectors"></a>Anslutningar
 
 På fliken **anslutningar** kan du hantera dina anslutningar, som är tjänstespecific plugin-program som kan bearbeta innehåll på olika sätt som en del av innehålls [arbets flöden](../review-api.md#workflows).
 

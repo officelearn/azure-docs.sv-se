@@ -15,30 +15,30 @@ ms.custom: seodec18
 ms.date: 06/18/2019
 ms.author: shvija
 ms.openlocfilehash: 2b36faef8c39a8e9b02a056576ae7f5a77b1f6bf
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76309531"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365397"
 ---
 # <a name="scaling-with-event-hubs"></a>Skalning med Event Hubs
 
 Det finns två faktorer som påverkar skalning med Event Hubs.
-*   Dataflödesenheter
+*   Genomflödesenheter
 *   Partitioner
 
-## <a name="throughput-units"></a>Dataflödesenheter
+## <a name="throughput-units"></a>Genomflödesenheter
 
 Genomflödeskapaciteten i Event Hubs styrs av *genomflödesenheter*. Genomflödesenheter är färdiga kapacitetsenheter. Med ett enda data flöde kan du:
 
 * Ingång: Upp till 1 MB per sekund eller 1 000 händelser per sekund (beroende på vilket som inträffar först).
 * Utgång: Upp till 2 MB per sekund eller 4096 händelser per sekund.
 
-Utöver kapaciteten för köpta genomflödesenheter är den inkommande trafiken begränsad och en [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) returneras. Utgående trafik genererar inte begränsningsundantag, men är fortfarande begränsad till kapaciteten för de köpta genomflödesenheterna. Om du får felmeddelanden om publiceringsfrekvensen eller om du förväntar dig större utgående trafik kontrollerar du hur många genomflödesenheter du har köpt för namnområdet. Du kan hantera genomflödesenheter på den **skala** bladet för namnområdena på den [Azure-portalen](https://portal.azure.com). Du kan också hantera genomflödesenheter genom programmering med den [API: er för Event Hubs](event-hubs-api-overview.md).
+Utöver kapaciteten för köpta genomflödesenheter är den inkommande trafiken begränsad och en [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) returneras. Utgående trafik genererar inte begränsningsundantag, men är fortfarande begränsad till kapaciteten för de köpta genomflödesenheterna. Om du får felmeddelanden om publiceringsfrekvensen eller om du förväntar dig större utgående trafik kontrollerar du hur många genomflödesenheter du har köpt för namnområdet. Du kan hantera data flödes enheter på bladet **skala** i namn områdena i [Azure Portal](https://portal.azure.com). Du kan också hantera data flödes enheter program mässigt med hjälp av [Event Hubs API: er](event-hubs-api-overview.md).
 
 Genomflödesenheter är förköpta och faktureras per timme. När de väl har köpts debiteras de för minst en timme. Upp till 20 genomflödesenheter enheter kan köpas för ett namnområde för Event Hubs och delas över alla händelsehubbar i det namnområdet.
 
-Den **automatisk ökning** i Event Hubs automatiskt skalar upp genom att öka antalet dataflödesenheter, för användning behov. Öka genomflödesenheter förhindrar begränsningsscenarier där:
+Funktionen för **Automatisk** ökning i Event Hubs skalas automatiskt upp genom att öka antalet data flödes enheter för att möta användnings behoven. Öka genomflödesenheter förhindrar begränsningsscenarier där:
 
 - Ingående datataxa överskrida set-dataflödesenheter.
 - Datataxa utgående begäran överskrider set-dataflödesenheter.
@@ -61,4 +61,4 @@ Händelseutfärdaren känner bara till sin partitionsnyckel, inte den partition 
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
 - [Skala dataflödesenheter automatiskt](event-hubs-auto-inflate.md)
-- [Översikt över Event Hubs-tjänsten](event-hubs-what-is-event-hubs.md)
+- [Översikt över Event Hubs tjänsten](event-hubs-what-is-event-hubs.md)

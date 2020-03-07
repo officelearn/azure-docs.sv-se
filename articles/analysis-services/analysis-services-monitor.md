@@ -4,15 +4,15 @@ description: Lär dig hur Analysis Services använder Azure Metrics Explorer, et
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9e6eab38e0f7bd55fa671aa8c1e99693eeb54c84
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: aaa3a6d128fe7dd466f6f60ab515f05fa38ba63b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572738"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375141"
 ---
 # <a name="monitor-server-metrics"></a>Övervaka servermått
 
@@ -58,7 +58,7 @@ Använd den här tabellen för att avgöra vilka mått som passar bäst för dit
 |virtual_bytes_metric|Virtuella byte |Byte|Medel|Den aktuella storleken för det virtuella adress utrymmet som Analysis Services motor process-och kombinations programmets process processer använder.|
 |mashup_engine_private_bytes_metric|M motor privata byte |Byte|Medel|Den totala mängden minnes kombinations programmets behållar processer har allokerats, inte inklusive minne som delas med andra processer.|
 |mashup_engine_virtual_bytes_metric|Virtuella byte i M-motor |Byte|Medel|Den aktuella storleken för processerna för kombinations behållare för virtuella adress utrymmen använder.|
-|Kvot|Minne: kvot|Byte|Medel|Aktuell minnes kvot, i byte. Minnes kvot kallas även för minnes tilldelning eller minnes reservation.|
+|Resurser|Minne: kvot|Byte|Medel|Aktuell minnes kvot, i byte. Minnes kvot kallas även för minnes tilldelning eller minnes reservation.|
 |QuotaBlocked|Minne: kvot blockerad|Antal|Medel|Det aktuella antalet kvot begär Anden som blockeras tills andra minnes kvoter frigjorts.|
 |VertiPaqNonpaged|Minne: VertiPaq som inte är växlat|Byte|Medel|Byte av minne som är låst i arbets minnet för användning av minnes intern motorn.|
 |VertiPaqPaged|Minne: VertiPaq växlat|Byte|Medel|Byte av växlings Bart minne som används för minnes intern data.|

@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.openlocfilehash: 0c9a3c2ef05f4a11933ca7fc81c7c0f87a612293
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789863"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395928"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Använda kolumn mönster i mappnings data flödet
 
@@ -35,7 +35,7 @@ De två uttrycks rutorna under matchnings villkoret anger de nya namnen och vär
 
 ![kolumn mönster](media/data-flow/columnpattern2.png "Kolumnmönster")
 
-Mönstret ovan matchar alla kolumner av typen Double och skapar en sammanställd kolumn per matchning. Namnet på den nya kolumnen är den matchade kolumnens namn sammanfogat med _ _ total. Värdet för den nya kolumnen är den rundade, aggregerade summan av det befintliga dubbla värdet.
+Mönstret ovan matchar alla kolumner av typen Double och skapar en sammanställd kolumn per matchning. Namnet på den nya kolumnen är den matchade kolumnens namn sammanfogat med _total. Värdet för den nya kolumnen är den rundade, aggregerade summan av det befintliga dubbla värdet.
 
 För att kontrol lera att ditt matchnings villkor är korrekt kan du validera schemat för definierade kolumner på fliken **Granska** eller hämta en ögonblicks bild av data på fliken **data förhands granskning** . 
 
@@ -67,7 +67,7 @@ Om regeln resulterar i flera identiska mappningar aktiverar du **hoppa över dup
 * `name` representerar namnet på varje inkommande kolumn
 * `type` representerar data typen för varje inkommande kolumn
 * `stream` representerar namnet som är kopplat till varje data ström eller omvandling i ditt flöde
-* `position` är ordnings positionen för kolumner i ditt data flöde
+* `position` är ordnings punkten för kolumner i ditt data flöde
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om data flödes [uttrycks språket](data-flow-expression-functions.md) för data omvandlingar

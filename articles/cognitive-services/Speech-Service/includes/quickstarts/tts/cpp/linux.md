@@ -10,23 +10,22 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: fc5d0e0a7f693df87e754383a123dc1cebfdd94c
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 40befc98c2280418a443ff80e4d246b6e2957e56
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818376"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924844"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=linux)
-> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=linux)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=linux)
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 1. Skapa en C++-källfil med namnet `helloworld.cpp` och klistra in följande kod i den.
 
@@ -81,7 +80,7 @@ Innan du börjar ska du se till att:
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/arm64"
      ```
 
-1. Kör appen.
+1. Kör programmet.
 
    ```sh
    ./helloworld
@@ -100,7 +99,7 @@ Innan du börjar ska du se till att:
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

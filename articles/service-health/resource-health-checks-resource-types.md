@@ -3,12 +3,12 @@ title: Resurs typer som stöds genom Azure Resource Health | Microsoft Docs
 description: Resurs typer som stöds via Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f5d1c720d3cbafafc81276a968abf2003bbd46ce
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: ec194287e8a8e06d3bb14c4b202cc2f11063d1dd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373458"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925749"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resurs typer och hälso kontroller i Azure Resource Health
 Nedan visas en fullständig lista över alla kontroller som utförs via resurs hälsa efter resurs typer.
@@ -41,7 +41,7 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft. classiccompute/virtualmachines
 |Utförda kontroller|
 |---|
-|<ul><li>Är värd servern igång?</li><li>Har värddatorns OS-start slutförts?</li><li>Är den virtuella dator behållaren etablerad och påslagen?</li><li>Finns det någon nätverks anslutning mellan värden och lagrings kontot?</li><li>Har starten av gäst operativ systemet slutförts?</li><li>Finns det pågående planerat underhåll?</li></ul>|
+|<ul><li>Är värd servern igång?</li><li>Har värddatorns OS-start slutförts?</li><li>Är den virtuella dator behållaren etablerad och påslagen?</li><li>Finns det någon nätverks anslutning mellan värden och lagrings kontot?</li><li>Har starten av gäst operativ systemet slutförts?</li><li>Finns det pågående planerat underhåll?</li><li>Är värd maskin varan försämrad och förväntas sluta att fungera snart?</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft. cognitiveservices/konton
 |Utförda kontroller|
@@ -51,7 +51,7 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft. Compute/virtualmachines
 |Utförda kontroller|
 |---|
-|<ul><li>Är den server som är värd för den här virtuella datorn igång?</li><li>Har värddatorns OS-start slutförts?</li><li>Är den virtuella dator behållaren etablerad och påslagen?</li><li>Finns det någon nätverks anslutning mellan värden och lagrings kontot?</li><li>Har starten av gäst operativ systemet slutförts?</li><li>Finns det pågående planerat underhåll?</li></ul>|
+|<ul><li>Är den server som är värd för den här virtuella datorn igång?</li><li>Har värddatorns OS-start slutförts?</li><li>Är den virtuella dator behållaren etablerad och påslagen?</li><li>Finns det någon nätverks anslutning mellan värden och lagrings kontot?</li><li>Har starten av gäst operativ systemet slutförts?</li><li>Finns det pågående planerat underhåll?</li><li>Är värd maskin varan försämrad och förväntas sluta att fungera snart?</li></ul>|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft. DataFactory/fabriker
 |Utförda kontroller|

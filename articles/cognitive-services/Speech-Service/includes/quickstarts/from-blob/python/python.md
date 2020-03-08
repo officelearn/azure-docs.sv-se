@@ -4,20 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: dapine
-ms.openlocfilehash: bfecfa1918d2e9199971b2f9738530dc1b4e3c4c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 646cce25efcbebab6229389f63912346e3712cdd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942736"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78926062"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md)
-> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md)
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
 > * [Ladda upp en källfil till en Azure-Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 

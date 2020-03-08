@@ -6,20 +6,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/15/2020
+ms.date: 03/04/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18a9578cc454ea5259b9564d64dcd4308ee5ef87
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: d15efee635e131d658cd650b7f80eb9e670a0dea
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148988"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392103"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Skapa och installera konfigurationsfiler för VPN-klienten för interna P2S-konfigurationer för Azure-certifikatautentisering
 
-Konfigurationsfiler för VPN-klienter finns i en zip-fil. Konfigurationsfiler ger de inställningar som krävs för att en ursprunglig Windows-, Mac IKEv2 VPN-eller Linux-klient ska kunna ansluta till ett VNet över punkt-till-plats-anslutningar som använder intern autentisering med Azure-certifikat.
+Konfigurationsfiler för VPN-klienter finns i en zip-fil. Konfigurationsfiler ger de inställningar som krävs för att en intern Windows-, Mac IKEv2 VPN-eller Linux-klient ska kunna ansluta till ett virtuellt nätverk via punkt-till-plats-anslutningar som använder intern autentisering med Azure-certifikat.
 
-Klientens konfigurationsfiler är speciella för VPN-konfigurationen för VNet. Om det finns några ändringar i VPN-konfigurationen för punkt-till-plats efter att du har genererat VPN-klientens konfigurationsfiler, till exempel typ av VPN-protokoll eller autentiseringstyp, måste du skapa nya konfigurationsfiler för VPN-klienter för dina användar enheter. 
+Klientens konfigurationsfiler är speciella för VPN-konfigurationen för det virtuella nätverket. Om det finns några ändringar i VPN-konfigurationen för punkt-till-plats efter att du har genererat VPN-klientens konfigurationsfiler, till exempel typ av VPN-protokoll eller autentiseringstyp, måste du skapa nya konfigurationsfiler för VPN-klienter för dina användar enheter. 
 
 * Mer information om punkt-till-plats-anslutningar finns i [About Point-to-Site VPN](point-to-site-about.md) (Om VPN för punkt-till-plats).
 * OpenVPN-instruktioner finns i [konfigurera OpenVPN för P2s](vpn-gateway-howto-openvpn.md) och [konfigurera OpenVPN-klienter](vpn-gateway-howto-openvpn-clients.md).
@@ -41,6 +41,8 @@ Du kan generera konfigurationsfiler för klienter med hjälp av PowerShell, elle
 
 1. I Azure Portal navigerar du till den virtuella Nätverksgatewayen för det virtuella nätverk som du vill ansluta till.
 2. På sidan virtuell nätverksgateway klickar du på **punkt-till-plats-konfiguration**.
+
+   ![Ladda ned klient portal](./media/point-to-site-vpn-client-configuration-azure-cert/client-configuration-portal.png)
 3. Klicka på **Ladda ned VPN-klient**överst på sidan punkt-till-plats-konfiguration. Det tar några minuter för klient konfigurations paketet att genereras.
 4. Din webbläsare indikerar att en zip-fil för klient konfiguration är tillgänglig. Den heter samma namn som din gateway. Zippa upp filen för att visa mapparna.
 
@@ -90,7 +92,7 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på Mac f�
     >
   
 2. Kontrol lera att du har installerat ett klient certifikat som har utfärdats av rot certifikatet som du laddade upp till Azure när du konfigurerade P2S-inställningar. Detta skiljer sig från VPNServerRoot som du installerade i föregående steg. Klient certifikatet används för autentisering och krävs. Mer information om hur du skapar certifikat finns i [Skapa certifikat](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Information om hur du installerar ett klient certifikat finns i [Installera ett klient certifikat](point-to-site-how-to-vpn-client-install-azure-cert.md).
-3. Öppna dialog rutan **nätverk** under **nätverks inställningar** och klicka på **+** om du vill skapa en ny anslutnings profil för VPN-klienten för en P2s-anslutning till Azure VNet.
+3. Öppna dialog rutan **nätverk** under **nätverks inställningar** och klicka på **+** om du vill skapa en ny anslutnings profil för VPN-klienten för en P2s-anslutning till det virtuella Azure-nätverket.
 
    **Gränssnittets** värde är "VPN" och värdet för **VPN-typ** är IKEv2. Ange ett namn för profilen i fältet **tjänst namn** och klicka sedan på **skapa** för att skapa anslutnings profilen för VPN-klienten.
 
@@ -114,7 +116,7 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på Mac f�
    ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. I fältet **lokalt ID** anger du namnet på certifikatet (från steg 6). I det här exemplet är det "ikev2Client.com". Klicka sedan på knappen **tillämpa** för att spara ändringarna.
 
-   ![använt](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+   ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. I dialog rutan **nätverk** klickar du på **tillämpa** för att spara alla ändringar. Klicka sedan på **Anslut** för att starta P2s-anslutningen till det virtuella Azure-nätverket.
 
 ## <a name="linuxgui"></a>Linux (strongSwan GUI)
@@ -138,7 +140,7 @@ Följande instruktioner skapades på Ubuntu 18.0.4. Ubuntu-16.0.10 stöder inte 
    ```
    sudo apt install network-manager-strongswan
    ```
-2. Välj **Inställningar** och välj sedan **nätverk**.
+2. Välj **Inställningar**och välj sedan **nätverk**.
 
    ![redigera anslutningar](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
 3. Klicka på knappen **+** om du vill skapa en ny anslutning.

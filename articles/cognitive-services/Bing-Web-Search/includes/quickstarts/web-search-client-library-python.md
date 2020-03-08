@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 6612b24b187afc72c4bc2e5ca9ef768cd1b27053
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 019abc79091527b105238ef83bfca1913fae600b
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402604"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78926104"
 ---
 Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i python-programmet. I den här snabbstarten lär du dig att skicka en begäran, ta emot ett JSON-svar och filtrera och parsa resultaten.
 
@@ -27,7 +27,7 @@ API för webbsökning i Bing är kompatibelt med Python 2.7, 3.3, 3.4, 3.5 och 3
 * [virtualenv](https://docs.python.org/3/tutorial/venv.html) för Python 2.7
 * [venv](https://pypi.python.org/pypi/virtualenv) för Python 3.x
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-and-configure-your-virtual-environment"></a>Skapa och konfigurera den virtuella miljön
 

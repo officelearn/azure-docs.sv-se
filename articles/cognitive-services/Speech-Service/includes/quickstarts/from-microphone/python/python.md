@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 333ed8fa886e351e8a67035ed830f5ad8f24bafd
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: a2d5614aeeedb88cd9b2c41baed317761443d17c
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383946"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924720"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -23,8 +23,7 @@ Innan du börjar:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md)
-> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md)
 > * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
 ## <a name="support-and-updates"></a>Support och uppdateringar

@@ -10,26 +10,25 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 276de42f2a37a0e48cd323e285760c00e6db9f32
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 8ca97be2863bd8e45ac7937c49c464fa2f216b11
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818345"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925344"
 ---
 > [!NOTE]
 > Med Universell Windows Platform kan du utveckla appar som körs på valfri enhet som stöder Windows 10, inklusive datorer, Xbox, Surface Hub och andra enheter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=uwp)
-> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=uwp)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=uwp)
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 Lägg nu till XAML-koden som definierar användar gränssnittet för programmet och Lägg till C# koden för bakomliggande implementering.
 
@@ -69,7 +68,7 @@ Nu är du redo att bygga och testa ditt program.
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

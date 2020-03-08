@@ -2,17 +2,23 @@
 title: Distribuera resurser till prenumerationen
 description: Beskriver hur du skapar en resurs grupp i en Azure Resource Manager-mall. Det visar också hur du distribuerar resurser i Azures prenumerations omfång.
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: 2e747b7faa6e9766a577b472cc3e283d6223109e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.date: 03/06/2020
+ms.openlocfilehash: 1ec761a8136d631c60a7a2021f5462dbf3d7f790
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379123"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78926103"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resurs grupper och resurser på prenumerations nivå
 
-Normalt distribuerar du Azure-resurser till en resurs grupp i din Azure-prenumeration. Men du kan också skapa resurser på prenumerations nivå. Du använder distributioner på prenumerations nivå för att vidta åtgärder som är begripliga på den nivån, till exempel att skapa resurs grupper eller tilldela [rollbaserad åtkomst kontroll](../../role-based-access-control/overview.md).
+Normalt distribuerar du Azure-resurser till en resurs grupp i din Azure-prenumeration. Men du kan också skapa resurser på:
+
+* prenumerations nivå (som beskrivs i den här artikeln)
+* [hanterings grupps nivå](deploy-to-management-group.md)
+* [klient organisations nivå](deploy-to-tenant.md)
+
+Du använder distributioner på prenumerations nivå för att vidta åtgärder som är begripliga på den nivån, till exempel att skapa resurs grupper eller tilldela [rollbaserad åtkomst kontroll](../../role-based-access-control/overview.md).
 
 Om du vill distribuera mallar på prenumerations nivån använder du Azure CLI, PowerShell eller REST API. Azure Portal har inte stöd för distribution på prenumerations nivån.
 
@@ -21,7 +27,7 @@ Om du vill distribuera mallar på prenumerations nivån använder du Azure CLI, 
 Du kan distribuera följande resurs typer på prenumerations nivån:
 
 * [budget](/azure/templates/microsoft.consumption/budgets)
-* [distributioner](/azure/templates/microsoft.resources/deployments)
+* [distributioner](/azure/templates/microsoft.resources/deployments) – för kapslade mallar som distribueras till resurs grupper.
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
@@ -88,12 +94,12 @@ För distributioner på prenumerations nivå finns det några viktiga överväga
 
 * Funktionen [resourceGroup ()](template-functions-resource.md#resourcegroup) stöds **inte** .
 * Funktionerna [Reference ()](template-functions-resource.md#reference) och [List ()](template-functions-resource.md#list) stöds.
-* Funktionen [resourceId ()](template-functions-resource.md#resourceid) stöds. Använd den för att hämta resurs-ID för resurser som används på prenumerations nivå distributioner. Ange inget värde för resurs grupps parametern.
+* Använd funktionen [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) för att hämta resurs-ID för resurser som distribueras på prenumerations nivå.
 
   Om du till exempel vill hämta resurs-ID för en princip definition använder du:
   
   ```json
-  resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
+  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
   ```
   
   Det returnerade resurs-ID: t har följande format:
@@ -101,8 +107,6 @@ För distributioner på prenumerations nivå finns det några viktiga överväga
   ```json
   /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
-
-  Du kan också använda funktionen [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) för att hämta resurs-ID för en resurs på en prenumerations nivå.
 
 ## <a name="create-resource-groups"></a>Skapa resurs grupper
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: chlandsi
-ms.openlocfilehash: 8ca9194927b2cf71070bec5866a8a9d1a0de0ac7
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 03042cef3e5b5fb4360223e3c804f1ed2e24c97f
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77445415"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925290"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -23,8 +23,7 @@ Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=python)
-> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=python)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=python)
 
 ## <a name="add-sample-code"></a>Lägga till exempelkod
 

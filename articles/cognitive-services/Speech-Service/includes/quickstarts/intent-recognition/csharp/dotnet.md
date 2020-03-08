@@ -6,19 +6,18 @@ ms.date: 01/27/2020
 ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d6d75e47edc5cb759e28098a5932e62bc0ed4678
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
-ms.translationtype: HT
+ms.openlocfilehash: 4f8fe92a0a36bae2d5e7595bee7bf71fcd926da9
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78668792"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925752"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
-* Om det här är ditt C# första projekt använder du den här guiden för att <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=dotnet" target="_blank">skapa ett <span class="docon docon-navigate-external x-hidden-focus"> </span>tomt exempel projekt </a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet" target="_blank">Installera Speech SDK för din utvecklings miljö <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet" target="_blank">Installera tal-SDK för din utvecklings miljö och skapa ett tomt exempel projekt<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Skapa en LUIS-app för avsikts igenkänning
 

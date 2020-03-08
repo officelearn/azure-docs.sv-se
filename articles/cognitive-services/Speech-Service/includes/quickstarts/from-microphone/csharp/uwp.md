@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 447b42fe3fce3baa5b50f8333892a39464b7ee3f
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
-ms.translationtype: HT
+ms.openlocfilehash: 93a5a29c225912a48cf99ba6126690c298dfef9d
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78669054"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924996"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -22,8 +22,7 @@ Innan du börjar:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=uwp)
-> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=uwp)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=uwp)
 > * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
 Om du redan har gjort detta är det bra. Vi fortsätter.

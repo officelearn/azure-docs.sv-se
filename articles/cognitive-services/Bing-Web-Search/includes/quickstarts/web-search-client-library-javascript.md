@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 4cfea801523fbc67766920ffd2777908be5ed40b
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 0380dc8d2ff34cf9eecaad063a305491a357ca29
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402625"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924994"
 ---
 Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i Node. js-programmet. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
 
@@ -25,7 +25,7 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
 * [Node.js 6](https://nodejs.org/en/download/) eller senare
 * En prenumerationsnyckel  
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
 
 
 ## <a name="set-up-your-development-environment"></a>Ställ in din utvecklingsmiljö

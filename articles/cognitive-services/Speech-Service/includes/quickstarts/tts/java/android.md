@@ -10,21 +10,20 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 09/19/2019
 ms.author: yulili
-ms.openlocfilehash: e38b1bdd3258675dfac9a155f7cee338a1f8f806
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 230b4abb9a740e830392a92369477c7dc44f60ee
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818458"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925701"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=android)
-> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=android)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=android)
 
 ## <a name="create-user-interface"></a>Skapa användargränssnitt
 
@@ -49,7 +48,7 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/android/text-to-speech/app/src/main/res/layout/activity_main.xml)]
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 1. Öppna till källfilen `MainActivity.java`. Ersätt all kod i den här filen med följande.
 
@@ -81,7 +80,7 @@ Ange en text och tryck på knappen i programmet för att starta ett tal syntes a
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

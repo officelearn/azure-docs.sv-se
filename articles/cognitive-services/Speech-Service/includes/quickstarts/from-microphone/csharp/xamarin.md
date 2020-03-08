@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: ed37e4f5b84431355b63b3d59b0e49b78eaeed86
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 2ed41f424dfe985cc078314da5b138c7d7bcdf37
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77445490"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925198"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -23,8 +23,7 @@ Innan du börjar:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=xamarin)
-> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=xamarin)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=xamarin)
 > * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
 Om du redan har gjort detta är det bra. Vi fortsätter.

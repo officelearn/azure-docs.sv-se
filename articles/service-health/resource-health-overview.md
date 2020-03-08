@@ -3,12 +3,12 @@ title: Översikt över Azure Resource Health
 description: Översikt över Azure Resource Health
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 5609c7f09dc81a54a941dea391c0d717ad4bb06a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: f22b41e66f15dd12d973c5744870969fae795bc1
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379961"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925062"
 ---
 # <a name="resource-health-overview"></a>Översikt över Resource Health
  
@@ -38,7 +38,7 @@ Hälso tillståndet för en resurs visas som en av följande status värden.
 
 #### <a name="platform-events"></a>Plattforms händelser
 
-Plattforms händelser utlöses av flera komponenter i Azure-infrastrukturen. De omfattar både schemalagda åtgärder (till exempel planerat underhåll) och oväntade incidenter (till exempel en oplanerad värd omstart).
+Plattforms händelser utlöses av flera komponenter i Azure-infrastrukturen. De omfattar både schemalagda åtgärder (till exempel planerat underhåll) och oväntade incidenter (t. ex. en oplanerad värd omstart eller degraderad värd maskin vara som är förväntad för att bli misslyckad efter ett angivet tids fönster).
 
 Resource Health ger ytterligare information om händelsen och återställnings processen. Du kan också kontakta Microsoft Support även om du inte har ett aktivt support avtal.
 

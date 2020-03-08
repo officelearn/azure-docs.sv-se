@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 531e9dbec55c5a6a305b321df7a11067c0ade92a
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: be8497cb07bd3c761c59bfc55e773b5dcc937c50
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77445690"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925871"
 ---
 > [!NOTE]
 > Talet SDK för Unit stöder Windows Desktop (x86 och x64) eller Universell Windows-plattform (x86, x64, ARM/ARM64), Android (x86, ARM32/64) och iOS (x64 simulator, ARM32 och ARM64)
@@ -25,8 +25,7 @@ Innan du börjar:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=unity)
-> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=unity)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=unity)
 > * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
 Om du redan har gjort detta är det bra. Vi fortsätter.

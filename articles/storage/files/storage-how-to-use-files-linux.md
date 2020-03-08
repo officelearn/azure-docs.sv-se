@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0ef9609cded29c94260d027212abbf0c62f8653c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: b2469a2b5819b3011f919a2b483933bb030eed70
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394350"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925652"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Linux-distributioner med [SMB-kernel-klienten](https://wiki.samba.org/index.php/LinuxCIFS). Den här artikeln visar två sätt att montera en Azure-fil resurs: på begäran med kommandot `mount` och vid start genom att skapa en post i `/etc/fstab`.
@@ -276,7 +276,7 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 ## <a name="feedback"></a>Feedback
 Linux-användare vill vi höra från dig!
 
-Gruppen Azure Files för Linux-användare ger ett forum där du kan dela feedback när du utvärderar och inför fil lagring på Linux. E- [Azure Files Linux-användare](mailto:azurefileslinuxusers@microsoft.com) att ansluta till användarnas grupp.
+Gruppen Azure Files för Linux-användare ger ett forum där du kan dela feedback när du utvärderar och inför fil lagring på Linux. E- [Azure Files Linux-användare](mailto:azurefiles@microsoft.com) att ansluta till användarnas grupp.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure Files finns på följande länkar:

@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 6d32bb6a0f1428a57f504cb7aca6ca5d89ea4c52
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
-ms.translationtype: HT
+ms.openlocfilehash: c969b5e5daa4c4cfd84695fef70f0a2a5c50ce02
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78668534"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924888"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -22,8 +22,7 @@ Innan du börjar:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=dotnet)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
 ## <a name="open-your-project-in-visual-studio"></a>Öppna projektet i Visual Studio

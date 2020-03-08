@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/14/2020
 ms.author: erhopf
-ms.openlocfilehash: cfe649f56ff57548f6fa711abf67f2925d74a2ea
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: cacf326c96fd03a956c2ffe2d259101221a5c139
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446131"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925283"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -22,8 +22,7 @@ Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=windows)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 

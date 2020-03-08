@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/30/2020
 ms.author: dapine
-ms.openlocfilehash: 4e8d100000e7191c77c09a1b2e4c28088e247d8f
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: b326f7ebcec3c371839d9bccb95e8bedf9768f1c
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384063"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925575"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -23,8 +23,7 @@ Innan du börjar ska du se till att:
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
 > * [Skapa ett LUIS-program och hämta en slut punkts nyckel](../../../../quickstarts/create-luis.md)
-> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
-> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?pivots=programming-language-python)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 

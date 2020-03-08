@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 9c398c755db78583b93cbba5bdef6c3cf01eb9e5
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: 458a6940ce214ef1931a2cc9ee95f2cb5ca16779
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383914"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924903"
 ---
-Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för python.
+Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för python. Om du bara vill att paket namnet ska komma igång med ditt eget kör du `pip install azure-cognitiveservices-speech`.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -59,6 +59,26 @@ Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services
 - I Windows behöver du [Microsoft Visual C++ Redistributable för Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) för din plattform. Observera att installationen för första gången kan kräva att du startar om Windows innan du fortsätter med den här guiden.
 - Slutligen behöver du [Python 3,5 till 3,8](https://www.python.org/downloads/). Kontrol lera installationen genom att öppna en kommando tolk och skriva kommandot `python --version` och kontrol lera resultatet. Om den är korrekt installerad får du svaret "python 3.5.1" eller liknande.
 
+## <a name="install-the-speech-sdk-from-pypi"></a>Installera talet SDK från PyPI
+
+Om du använder en egen miljö eller skapar verktyg kör du följande kommando för att installera talet SDK från [pypi](https://pypi.org/). För användare av Visual Studio Code går du vidare till nästa underavsnitt för Guidad installation.
+
+```sh
+pip install azure-cognitiveservices-speech
+```
+
+Om du använder macOS kan du behöva köra följande kommando för att få `pip` kommandot ovan att fungera:
+
+```sh
+python3 -m pip install --upgrade pip
+```
+
+När du har använt `pip` för att installera `azure-cognitiveservices-speech`kan du använda tal-SDK: n genom att importera namn området till dina python-projekt.
+
+```py
+import azure.cognitiveservices.speech as speechsdk
+```
+
 ## <a name="install-the-speech-sdk-using-visual-studio-code"></a>Installera tal-SDK med Visual Studio Code
 
 1. Hämta och installera den senaste versionen av [python](https://www.python.org/downloads/) som stöds för din plattform, 3,5 till 3,8.
@@ -72,29 +92,7 @@ Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services
    1. Öppna en Terminal (från de nedrullningsbara menyerna, **terminal** > **ny terminal**)
    1. I terminalen som öppnas anger du kommandot `python -m pip install azure-cognitiveservices-speech`
 
-Då är det dags att börja koda till tal-SDK i python och kan gå vidare till [Nästa steg](#next-steps) nedan. Om du är nybörjare på Visual Studio Code kan du läsa mer i [dokumentationen för Visual Studio Code](https://code.visualstudio.com/docs). Mer information om Visual Studio Code och python finns i [själv studie kursen om Visual Studio Code python](https://code.visualstudio.com/docs/python/python-tutorial).
-
-## <a name="install-the-speech-sdk-using-the-command-line"></a>Installera tal-SDK med hjälp av kommando raden
-
-Om du inte använder Visual Studio Code installerar följande kommando python-paketet från [pypi](https://pypi.org/) för tal-SDK: n. För användare av Visual Studio Code går du vidare till nästa underordnade avsnitt.
-
-```sh
-pip install azure-cognitiveservices-speech
-```
-
-Om du använder macOS kan du behöva köra följande kommando för att få `pip` kommandot ovan att fungera:
-
-```sh
-python3 -m pip install --upgrade pip
-```
-
-När du har använt `pip` för att installera `azure-cognitiveservices-speech`kan du använda tal-SDK: n genom att importera namn området till dina python-projekt. Exempel:
-
-```py
-import azure.cognitiveservices.speech as speechsdk
-```
-
-Detta visas mer detaljerat i kod exemplen som visas i [Nästa steg](#next-steps) nedan.
+Om du är nybörjare på Visual Studio Code kan du läsa mer i [dokumentationen för Visual Studio Code](https://code.visualstudio.com/docs). Mer information om Visual Studio Code och python finns i [själv studie kursen om Visual Studio Code python](https://code.visualstudio.com/docs/python/python-tutorial).
 
 ## <a name="support-and-updates"></a>Support och uppdateringar
 

@@ -10,23 +10,22 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/27/2019
 ms.author: yinhew
-ms.openlocfilehash: 38dac73d253245fce86ac419c7a4eb3a106df3f0
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: b615ba8085650e9aa686fb4a229d9752c4f6e2ce
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818169"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925001"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=dotnet)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 1. Öppna **program.cs** och ersätt den automatiskt genererade koden med det här exemplet:
 
@@ -52,7 +51,7 @@ Innan du börjar ska du se till att:
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

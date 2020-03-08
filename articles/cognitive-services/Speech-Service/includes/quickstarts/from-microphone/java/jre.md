@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: eb131f3f53e04809ca21efda7367f03a79081bbc
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 95e8a30eaa59762ad7cf5b388326c9d3c9723d8e
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77445487"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925801"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -17,8 +17,7 @@ Innan du börjar:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=jre)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=jre)
 > * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
 ## <a name="add-sample-code"></a>Lägga till exempelkod

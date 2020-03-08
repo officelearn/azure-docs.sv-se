@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: Översätt tal till tal, C# (UWP) – tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: Inte klart
+description: TBD
 services: cognitive-services
 author: lisaweixu
 manager: nitinme
@@ -10,23 +10,22 @@ ms.subservice: speech-service
 ms.date: 12/09/2019
 ms.author: erhopf
 ms.topic: include
-ms.openlocfilehash: 3fa79a34f5ca588b943512a6ba565261a3e2c6ee
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a0f62db319d54c2db71a86f621985a304dbbb4d2
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "76156683"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925714"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=uwp)
-> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=uwp)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=uwp)
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 Lägg nu till XAML-koden som definierar användar gränssnittet för programmet och Lägg till C# koden för bakomliggande implementering.
 

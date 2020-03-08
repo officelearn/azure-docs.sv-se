@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: db00398efa638ac945bc188ad0c44f904059e689
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a09b969ee3e11aeb04f338cf035b21b5da9bd952
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75469531"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925605"
 ---
-Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för .NET Framework (Windows).
+Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för .NET Framework (Windows). Om du bara vill att paket namnet ska komma igång med ditt eget kör du `Install-Package Microsoft.CognitiveServices.Speech` i NuGet-konsolen.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -55,7 +55,7 @@ Du måste installera [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nuget)
 
 1. I Solution Explorer högerklickar du på projektet **HelloWorld** och väljer sedan **Hantera NuGet-paket** för att Visa NuGet Package Manager.
 
-   ![NuGet-pakethanteraren](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
+   ![NuGet Package Manager](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
 
 1. Leta upp List rutan **paket källa** i det övre högra hörnet och kontrol lera att **`nuget.org`** är markerat.
 
@@ -71,7 +71,21 @@ Du måste installera [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nuget)
 
    När paketet har installerats visas en bekräftelse i fönstret **Package Manager-konsol** .
 
-Nu kan du gå vidare till [Nästa steg](#next-steps) nedan.
+### <a name="choose-target-architecture"></a>Välj mål arkitektur
+
+Skapa och kör konsol programmet genom att skapa en plattforms konfiguration som matchar datorns arkitektur.
+
+1. Välj **Build** > **Configuration Manager**på Meny raden. Dialog rutan **Configuration Manager** visas.
+
+   ![Configuration Manager dialog ruta](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
+
+1. I list rutan **aktiv lösnings plattform** väljer du **ny**. Dialog rutan **ny lösnings plattform** visas.
+
+1. I list rutan **Skriv eller Välj ny plattform** :
+   - Om du kör 64-bitars Windows väljer du **x64**.
+   - Om du kör 32-bitars Windows väljer du **x86**.
+
+1. Välj **OK** och sedan **Stäng**.
 
 ## <a name="next-steps"></a>Nästa steg
 

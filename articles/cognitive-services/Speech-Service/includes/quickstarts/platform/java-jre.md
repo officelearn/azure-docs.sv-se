@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 4970f115ee3eee78d7268e3e955e20048b74df0d
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: 7147f0d13c88c1d2e17e81a360a5aee55ee760ed
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384047"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925460"
 ---
-Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för 64-bitars Java 8-JRE.
+Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för 64-bitars Java 8-JRE. Om du bara vill att paket namnet ska komma igång på egen hand är Java SDK inte tillgängligt i maven Central-lagringsplatsen. Oavsett om du använder Gradle eller en `pom.xml` beroende fil måste du lägga till en anpassad databas som pekar på `https://csspeechstorage.blob.core.windows.net/maven/` (se nedan för paket namn).
 
 > [!NOTE]
 > Information om Speech Devices SDK och Roobo-enheten finns i [Speech Devices SDK](~/articles/cognitive-services/speech-service/speech-devices-sdk.md).

@@ -13,11 +13,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d77882817934d5ad98f16965aeb9dc246931c495
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919077"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376310"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect synkronisering: ändra standard konfigurationen
 Syftet med den här artikeln är att hjälpa dig att göra ändringar i standard konfigurationen i Azure Active Directory (Azure AD) Connect-synkronisering. Den innehåller steg för några vanliga scenarier. Med den här kunskapen bör du kunna göra enkla ändringar i din egen konfiguration utifrån dina egna affärs regler.
@@ -262,12 +262,12 @@ Regeln för inkommande synkronisering tillåter att attributvärdet flödar frå
 3. Klicka på knappen **Lägg till ny regel** för att skapa en ny regel för inkommande trafik.
 4. Ange följande konfiguration på fliken **Beskrivning** :
 
-    | Attribut | Värde | Information |
+    | Attribut | Värde | Detaljer |
     | --- | --- | --- |
     | Namn | *Ange ett namn* | Till exempel *i från AD – User UserType* |
     | Beskrivning | *Ange en beskrivning* |  |
     | Anslutet system | *Välj lokal AD-anslutning* |  |
-    | Ansluten system objekt typ | **Användare** |  |
+    | Ansluten system objekt typ | **Användarvänlig** |  |
     | Metaversum objekt typ | **Sända** |  |
     | Länktyp | **Anslut dig** |  |
     | Prioritet | *Välj ett tal mellan 1 – 99* | 1 – 99 är reserverad för anpassade regler för synkronisering. Välj inte ett värde som används av en annan Synkroniseringsregel. |
@@ -304,12 +304,12 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
 3. Klicka på knappen **Lägg till ny regel** .
 4. Ange följande konfiguration på fliken **Beskrivning** :
 
-    | Attribut | Värde | Information |
+    | Attribut | Värde | Detaljer |
     | ----- | ------ | --- |
     | Namn | *Ange ett namn* | Till exempel *till AAD – User UserType* |
     | Beskrivning | *Ange en beskrivning* ||
     | Anslutet system | *Välj AAD-koppling* ||
-    | Ansluten system objekt typ | **Användare** ||
+    | Ansluten system objekt typ | **Användarvänlig** ||
     | Metaversum objekt typ | **Sända** ||
     | Länktyp | **Anslut dig** ||
     | Prioritet | *Välj ett tal mellan 1 – 99* | 1 – 99 är reserverad för anpassade regler för synkronisering. Välj inte ett värde som används av en annan Synkroniseringsregel. |
@@ -319,7 +319,7 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
     | Attribut | Operator | Värde |
     | --- | --- | --- |
     | sourceObjectType | SKEPPNINGSKVANTITETEN | Användare |
-    | cloudMastered | NOTEQUAL | Sant |
+    | cloudMastered | NOTEQUAL | True |
 
     Omfångs filtret fastställer till vilka Azure AD-objekt denna utgående Synkroniseringsregel ska tillämpas. I det här exemplet använder vi samma omfångs filter från regeln *ut till AD – användarens identitet* utanför box. Det förhindrar att synkroniseringsregeln tillämpas på användar objekt som inte är synkroniserade från lokala Active Directory. Du kan behöva justera omfångs filtret enligt din Azure AD Connect-distribution.
 

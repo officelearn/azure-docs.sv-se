@@ -11,11 +11,11 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440063"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386687"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Självstudie: Skapa en Azure-datafabrik med hjälp av en Azure Resource Manager-mall
 
@@ -490,7 +490,7 @@ AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Du
 }
 ```
 
-connectionString använder parametrarna storageAccountName och storageAccountKey. Värdena för dessa parametrar skickades med hjälp av en konfigurationsfil. Definitionen använder också variablerna azureStorageLinkedService och dataFactoryName, som definieras i mallen.
+connectionString använder parametrarna storageAccountName och storageAccountKey. Värdena för dessa parametrar skickades med hjälp av en konfigurationsfil. Definitionen använder också variablerna azureStorageLinkedService och dataFactoryName, som definierats i mallen.
 
 #### <a name="binary-input-dataset"></a>Data uppsättning för binär indata
 
@@ -693,7 +693,7 @@ New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutori
 
 Observera att det första kommandot använder parameterfilen för utvecklingsmiljön, det andra för testmiljön och det tredje för produktionsmiljön.
 
-Du kan även återanvända mallen för att utföra upprepade uppgifter. Skapa till exempel många datafabriker med en eller flera pipelines som implementerar samma logik, men alla datafabriker använder olika konton för Azure Storage. I det här scenariot använder du samma mall i samma miljö (utvecklings-, test- eller produktionsmiljö) med olika parameterfiler för att skapa datafabriker.
+Du kan även återanvända mallen för att utföra upprepade uppgifter. Skapa till exempel många datafabriker med en eller flera pipelines som implementerar samma logik, men alla datafabriker använder olika konton för Azure Storage. I det här scenariot använder du samma mall i samma miljö (dev-, test- eller produktionsmiljö) med olika parameterfiler för att skapa datafabriker.
 
 ## <a name="next-steps"></a>Nästa steg
 

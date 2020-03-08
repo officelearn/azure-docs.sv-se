@@ -1,6 +1,6 @@
 ---
-title: Felsöka lösenordshashsynkronisering med Azure AD Connect-synkronisering | Microsoft Docs
-description: Den här artikeln innehåller information om hur du felsöker problem med lösenord hash-synkronisering.
+title: Felsöka hash-synkronisering av lösen ord med Azure AD Connect Sync | Microsoft Docs
+description: Den här artikeln innehåller information om hur du felsöker problem med hash-synkronisering av lösen ord.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,192 +17,192 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60383294"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376232"
 ---
-# <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Felsöka lösenordshashsynkronisering med Azure AD Connect-synkronisering
+# <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Felsöka hash-synkronisering av lösen ord med Azure AD Connect Sync
 
-Det här avsnittet innehåller anvisningar att felsöka problem med synkronisering av lösenordshash. Om lösenord inte synkroniseras som förväntat, kan det vara antingen för en delmängd användare eller för alla användare.
+Det här avsnittet innehåller anvisningar för hur du felsöker problem med hash-synkronisering av lösen ord. Om lösen ord inte synkroniseras som förväntat, kan det vara antingen för en delmängd av användare eller för alla användare.
 
-För Azure Active Directory (Azure AD) Connect-distribution med version 1.1.614.0 eller efter användning av felsökningsaktiviteten i guiden för att felsöka synkronisering av lösenordshash-frågor:
+För Azure Active Directory (Azure AD) Connect-distribution med version 1.1.614.0 eller efter använder du fel söknings aktiviteten i guiden för att felsöka problem med hash-synkronisering av lösen ord:
 
-* Om du har ett problem där inga lösenord synkroniseras, referera till den [inga lösenord synkroniseras: felsöka med hjälp av felsökningsaktiviteten](#no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task) avsnittet.
+* Om du har problem där inga lösen ord synkroniseras, se till att [inga lösen ord är synkroniserade: Felsök med hjälp av avsnittet fel söknings aktivitet](#no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task) .
 
-* Om du har ett problem med enskilda objekt, referera till den [ett objekt synkroniseras inte lösenord: felsöka med hjälp av felsökningsaktiviteten](#one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task) avsnittet.
+* Om du har problem med enskilda objekt, kan du se att [objektet inte synkroniserar lösen ord: Felsök med hjälp av avsnittet fel söknings aktivitet](#one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task) .
 
-För distribution med version 1.1.524.0 eller senare, det finns en diagnostisk cmdlet som du kan använda för att felsöka problem med lösenordshash-synkronisering:
+För distribution med version 1.1.524.0 eller senare finns det en diagnostisk cmdlet som du kan använda för att felsöka problem med hash-synkronisering av lösen ord:
 
-* Om du har ett problem där inga lösenord synkroniseras, referera till den [inga lösenord synkroniseras: felsöka med hjälp av cmdleten diagnostiska](#no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet) avsnittet.
+* Om du har problem där inga lösen ord synkroniseras, se till att [inga lösen ord är synkroniserade: Felsök med hjälp av diagnostisk cmdlet](#no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet) -avsnittet.
 
-* Om du har ett problem med enskilda objekt, referera till den [ett objekt synkroniseras inte lösenord: felsöka med hjälp av cmdleten diagnostiska](#one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet) avsnittet.
+* Om du har problem med enskilda objekt, kan du se att [objektet inte synkroniserar lösen ord: Felsök med hjälp av avsnittet diagnostisk cmdlet](#one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet) .
 
 För äldre versioner av Azure AD Connect-distribution:
 
-* Om du har ett problem där inga lösenord synkroniseras, referera till den [inga lösenord synkroniseras: manuell felsökningssteg](#no-passwords-are-synchronized-manual-troubleshooting-steps) avsnittet.
+* Om du har problem där inga lösen ord synkroniseras, se avsnittet [inga lösen ord synkroniserade: manuella fel söknings steg](#no-passwords-are-synchronized-manual-troubleshooting-steps) .
 
-* Om du har ett problem med enskilda objekt, referera till den [ett objekt synkroniseras inte lösenord: manuell felsökningssteg](#one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps) avsnittet.
+* Om du har problem med enskilda objekt, kan du läsa avsnittet om att [inte synkronisera lösen ord: avsnittet manuella fel söknings steg](#one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps) .
 
 
 
-## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task"></a>Inga lösenord synkroniseras: felsöka med hjälp av felsökningsaktiviteten
+## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task"></a>Inga lösen ord synkroniseras: Felsök med hjälp av fel söknings aktiviteten
 
-Du kan använda av felsökningsaktiviteten för att ta reda på varför inga lösenord synkroniseras.
+Du kan använda fel söknings aktiviteten för att ta reda på varför inga lösen ord synkroniseras.
 
 > [!NOTE]
-> Av felsökningsaktiviteten är endast tillgänglig för Azure AD Connect-version 1.1.614.0 eller senare.
+> Fel söknings aktiviteten är endast tillgänglig för Azure AD Connect version 1.1.614.0 eller senare.
 
-### <a name="run-the-troubleshooting-task"></a>Kör av felsökningsaktiviteten
+### <a name="run-the-troubleshooting-task"></a>Kör fel söknings aktiviteten
 
-Felsökning av problem där inga lösenord synkroniseras:
+Så här felsöker du problem där inga lösen ord synkroniseras:
 
-1. Öppna en ny Windows PowerShell-session på din Azure AD Connect-server med den **kör som administratör** alternativet.
+1. Öppna en ny Windows PowerShell-session på din Azure AD Connect-Server med alternativet **Kör som administratör** .
 
 2. Kör `Set-ExecutionPolicy RemoteSigned` eller `Set-ExecutionPolicy Unrestricted`.
 
-3. Starta Azure AD Connect-guiden.
+3. Starta guiden Azure AD Connect.
 
-4. Navigera till den **ytterligare uppgifter** väljer **Felsök**, och klicka på **nästa**.
+4. Gå till sidan **Ytterligare aktiviteter** , Välj **Felsök**och klicka på **Nästa**.
 
-5. På sidan felsökning **starta** till startmenyn felsökning i PowerShell.
+5. På sidan fel sökning klickar du på **Starta** för att starta fel söknings menyn i PowerShell.
 
-6. Välj i huvudmenyn **Felsök synkronisering av lösenordshash**.
+6. I huvud menyn väljer du **Felsök hash-synkronisering av lösen ord**.
 
-7. I menyn sub väljer **lösenordshashsynkronisering inte fungerar alls**.
+7. Välj **Password hash-synkronisering inte alls**på undermenyn.
 
-### <a name="understand-the-results-of-the-troubleshooting-task"></a>Förstå resultatet av av felsökningsaktiviteten
+### <a name="understand-the-results-of-the-troubleshooting-task"></a>Förstå resultaten av fel söknings aktiviteten
 
-Av felsökningsaktiviteten utför följande kontroller:
+Fel söknings aktiviteten utför följande kontroller:
 
-* Verifierar att funktionen lösenord hash-synkronisering är aktiverat för Azure AD-klienten.
+* Kontrollerar att funktionen Password hash-synkronisering är aktive rad för din Azure AD-klient.
 
-* Verifierar att Azure AD Connect-servern inte är i mellanlagringsläge.
+* Verifierar att Azure AD Connect servern inte är i mellanlagrings läge.
 
-* För den befintliga lokala Active Directory-koppling (som motsvarar en befintlig Active Directory-skog):
+* För varje befintlig lokal Active Directory-anslutning (som motsvarar en befintlig Active Directory skog):
 
-   * Verifierar att funktionen lösenord hash-synkronisering är aktiverat.
+   * Kontrollerar att funktionen Password hash-synkronisering är aktive rad.
    
-   * Söker efter lösenord hash-synkronisering pulsslagshändelser i händelseloggar för Windows-program.
+   * Söker efter lösen ord för pulsslags händelser för Lösenordssynkronisering i Windows-programmets händelse loggar.
 
-   * För varje Active Directory-domän under den lokala Active Directory-koppling:
+   * För varje Active Directory domän under den lokala Active Directory anslutningen:
 
-      * Verifierar att domänen kan nås från Azure AD Connect-servern.
+      * Verifierar att domänen kan kontaktas från den Azure AD Connect servern.
 
-      * Verifierar att Active Directory Domain Services (AD DS)-konton som används av den lokala Active Directory-koppling har rätt användarnamn, lösenord och behörigheter som krävs för synkronisering av lösenordshash.
+      * Verifierar att de Active Directory Domain Services (AD DS) som används av den lokala Active Directory anslutningen har rätt användar namn, lösen ord och behörigheter som krävs för Lösenordssynkronisering.
 
-I följande diagram visas resultatet av cmdlet: en för en enda domän, en lokal Active Directory-topologi:
+Följande diagram illustrerar resultatet av cmdleten för en lokal Active Directory topologi med en domän:
 
-![Diagnostikdata för synkronisering av lösenordshash](./media/tshoot-connect-password-hash-synchronization/phsglobalgeneral.png)
+![Diagnostiskt utdata för synkronisering av lösen ords-hash](./media/tshoot-connect-password-hash-synchronization/phsglobalgeneral.png)
 
-Resten av det här avsnittet beskriver specifika resultat som returneras av aktiviteten och motsvarande problem.
+I resten av det här avsnittet beskrivs specifika resultat som returneras av uppgiften och motsvarande problem.
 
-#### <a name="password-hash-synchronization-feature-isnt-enabled"></a>lösenord hash-synkroniseringsfunktionen är inte aktiverad
+#### <a name="password-hash-synchronization-feature-isnt-enabled"></a>funktionen lösen ords-hash-synkronisering är inte aktive rad
 
-Om du inte har aktiverat synkronisering av lösenordshash med hjälp av Azure AD Connect-guiden, returneras följande fel:
+Om du inte har aktiverat hash-synkronisering av lösen ord med hjälp av guiden Azure AD Connect returneras följande fel:
 
-![synkronisering av lösenordshash har inte aktiverats](./media/tshoot-connect-password-hash-synchronization/phsglobaldisabled.png)
+![Lösenordssynkronisering är inte aktiverat](./media/tshoot-connect-password-hash-synchronization/phsglobaldisabled.png)
 
-#### <a name="azure-ad-connect-server-is-in-staging-mode"></a>Azure AD Connect-servern är i mellanlagringsläge
+#### <a name="azure-ad-connect-server-is-in-staging-mode"></a>Azure AD Connect servern är i mellanlagrings läge
 
-Om Azure AD Connect-servern är i mellanlagringsläge, synkronisering av lösenordshash inaktiveras tillfälligt och följande fel returneras:
+Om Azure AD Connect servern är i mellanlagrings läge inaktive ras hash-synkronisering för lösen ord tillfälligt och följande fel returneras:
 
-![Azure AD Connect-servern är i mellanlagringsläge](./media/tshoot-connect-password-hash-synchronization/phsglobalstaging.png)
+![Azure AD Connect servern är i mellanlagrings läge](./media/tshoot-connect-password-hash-synchronization/phsglobalstaging.png)
 
-#### <a name="no-password-hash-synchronization-heartbeat-events"></a>Inga lösenord hash-synkronisering pulsslagshändelser
+#### <a name="no-password-hash-synchronization-heartbeat-events"></a>Inga pulsslags händelser för Lösenordssynkronisering för hash
 
-Varje lokala Active Directory-koppling har sin egen lösenord hash-synkronisering kanal. När lösenord hash-synkronisering kanal upprättas och det inte finns några lösenordsändringar som ska synkroniseras, genereras ett pulsslag händelse (händelse-ID 654) var 30: e minut under Windows Loggboken program. För varje lokal Active Directory-koppling söker cmdlet: en för motsvarande händelser för pulsslag under de senaste tre timmarna. Om ingen pulsslag händelse hittas returneras följande fel:
+Varje lokal Active Directory-anslutning har sin egen kanal för synkronisering av lösen ords-hash. När kanalen för Lösenordssynkronisering är upprättad och det inte finns några lösen ords ändringar att synkronisera, genereras en pulsslags händelse (EventId 654) var 30: e minut under händelse loggen i Windows-programmet. För varje lokal Active Directory anslutning söker cmdleten efter motsvarande pulsslags händelser under de senaste tre timmarna. Om ingen pulsslags händelse hittas returneras följande fel:
 
-![Inga lösenord hash-synkronisering hjärtat beat händelse](./media/tshoot-connect-password-hash-synchronization/phsglobalnoheartbeat.png)
+![Ingen lösen ords synkronisering hjärt takt, händelse](./media/tshoot-connect-password-hash-synchronization/phsglobalnoheartbeat.png)
 
-#### <a name="ad-ds-account-does-not-have-correct-permissions"></a>AD DS-kontot har inte rätt behörighet
+#### <a name="ad-ds-account-does-not-have-correct-permissions"></a>AD DS-kontot har inte rätt behörigheter
 
-Om AD DS-kontot som används av den lokala Active Directory-koppling för att synkronisera lösenords-hash inte har de behörigheter som krävs, returneras följande fel:
+Om det AD DS-konto som används av den lokala Active Directory-anslutningen för att synkronisera hashar för lösen ord inte har rätt behörigheter returneras följande fel:
 
-![Felaktiga autentiseringsuppgifter](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
+![Felaktig autentiseringsuppgift](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
 
-#### <a name="incorrect-ad-ds-account-username-or-password"></a>Felaktigt användarnamn för AD DS-konto eller lösenord
+#### <a name="incorrect-ad-ds-account-username-or-password"></a>Felaktigt användar namn eller lösen ord för AD DS-konto
 
-Om AD DS-kontot som används av den lokala Active Directory-koppling för synkronisering av lösenords-hash har ett felaktigt användarnamn eller lösenord, returneras följande fel:
+Om AD DS-kontot som används av den lokala Active Directory-anslutningen för att synkronisera lösen ords-hashar har ett felaktigt användar namn eller lösen ord returneras följande fel:
 
-![Felaktiga autentiseringsuppgifter](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectcredential.png)
+![Felaktig autentiseringsuppgift](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectcredential.png)
 
 
 
-## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task"></a>Ett objekt synkroniseras inte lösenord: felsöka med hjälp av felsökningsaktiviteten
+## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task"></a>Ett objekt synkroniserar inte lösen ord: Felsök med hjälp av aktiviteten fel sökning
 
-Du kan använda av felsökningsaktiviteten för att avgöra varför en objekt synkroniseras inte lösenord.
+Du kan använda fel söknings aktiviteten för att avgöra varför ett objekt inte synkroniserar lösen ord.
 
 > [!NOTE]
-> Av felsökningsaktiviteten är endast tillgänglig för Azure AD Connect-version 1.1.614.0 eller senare.
+> Fel söknings aktiviteten är endast tillgänglig för Azure AD Connect version 1.1.614.0 eller senare.
 
-### <a name="run-the-diagnostics-cmdlet"></a>Kör cmdleten diagnostik
+### <a name="run-the-diagnostics-cmdlet"></a>Kör diagnostik-cmdleten
 
-Felsökning av problem för en viss användare-objekt:
+Så här felsöker du problem för ett bestämt användar objekt:
 
-1. Öppna en ny Windows PowerShell-session på din Azure AD Connect-server med den **kör som administratör** alternativet.
+1. Öppna en ny Windows PowerShell-session på din Azure AD Connect-Server med alternativet **Kör som administratör** .
 
 2. Kör `Set-ExecutionPolicy RemoteSigned` eller `Set-ExecutionPolicy Unrestricted`.
 
-3. Starta Azure AD Connect-guiden.
+3. Starta guiden Azure AD Connect.
 
-4. Navigera till den **ytterligare uppgifter** väljer **Felsök**, och klicka på **nästa**.
+4. Gå till sidan **Ytterligare aktiviteter** , Välj **Felsök**och klicka på **Nästa**.
 
-5. På sidan felsökning **starta** till startmenyn felsökning i PowerShell.
+5. På sidan fel sökning klickar du på **Starta** för att starta fel söknings menyn i PowerShell.
 
-6. Välj i huvudmenyn **Felsök synkronisering av lösenordshash**.
+6. I huvud menyn väljer du **Felsök hash-synkronisering av lösen ord**.
 
-7. I menyn sub väljer **lösenord synkroniseras inte för ett visst användarkonto**.
+7. I undermenyn väljer du **lösen ord är inte synkroniserat för ett särskilt användar konto**.
 
-### <a name="understand-the-results-of-the-troubleshooting-task"></a>Förstå resultatet av av felsökningsaktiviteten
+### <a name="understand-the-results-of-the-troubleshooting-task"></a>Förstå resultaten av fel söknings aktiviteten
 
-Av felsökningsaktiviteten utför följande kontroller:
+Fel söknings aktiviteten utför följande kontroller:
 
-* Undersöker tillståndet för Active Directory-objekt i Active Directory-anslutarplatsen, metaversum och Azure AD-anslutningsplatsen.
+* Granskar status för Active Directory-objektet i Active Directory kopplings utrymme, metaversum och Azure AD Connector-utrymme.
 
-* Verifierar att det inte finns Synkroniseringsregler med synkronisering av lösenordshash aktiverad och tillämpas på Active Directory-objektet.
+* Kontrollerar att det finns regler för synkronisering av lösen ordets hash-synkronisering aktive rad och tillämpas på Active Directory-objektet.
 
-* Försöker att hämta och visa resultatet av det senaste försöket att synkronisera lösenord för objektet.
+* Försöker hämta och visa resultatet av det senaste försöket att synkronisera lösen ordet för objektet.
 
-Följande diagram visar resultaten av cmdlet: en när du felsöker synkronisering av lösenordshash för ett enda objekt:
+I följande diagram illustreras resultatet av cmdleten när du felsöker hash-synkronisering av lösen ord för ett enskilt objekt:
 
-![Diagnostikdata för synkronisering av lösenordshash - objekt](./media/tshoot-connect-password-hash-synchronization/phssingleobjectgeneral.png)
+![Diagnostiskt utdata för hash-synkronisering av lösen ord – enskilt objekt](./media/tshoot-connect-password-hash-synchronization/phssingleobjectgeneral.png)
 
-Resten av det här avsnittet beskriver specifika resultat som returneras av cmdlet och motsvarande problem.
+I resten av det här avsnittet beskrivs specifika resultat som returneras av cmdleten och motsvarande problem.
 
-#### <a name="the-active-directory-object-isnt-exported-to-azure-ad"></a>Active Directory-objektet är inte exporteras till Azure AD
+#### <a name="the-active-directory-object-isnt-exported-to-azure-ad"></a>Active Directory-objektet exporteras inte till Azure AD
 
-Det går inte att synkronisering av lösenordshash för den här lokala Active Directory-konto eftersom det finns inget motsvarande objekt i Azure AD-klient. Följande fel returneras:
+hash-synkronisering av lösen ord för det här lokala Active Directory kontot Miss lyckas eftersom det inte finns något motsvarande objekt i Azure AD-klienten. Följande fel returneras:
 
-![Azure AD-objekt som saknas](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnotexported.png)
+![Azure AD-objekt saknas](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnotexported.png)
 
-#### <a name="user-has-a-temporary-password"></a>Användaren har ett tillfälligt lösenord
+#### <a name="user-has-a-temporary-password"></a>Användaren har ett tillfälligt lösen ord
 
-För närvarande stöder inte Azure AD Connect synkroniserar tillfälliga lösenord med Azure AD. Ett lösenord betraktas som tillfälliga om den **ändra lösenord vid nästa inloggning** alternativet är inställt på den lokala Active Directory-användare. Följande fel returneras:
+För närvarande stöder Azure AD Connect inte synkronisering av tillfälliga lösen ord med Azure AD. Ett lösen ord anses vara temporärt om alternativet **ändra lösen ord vid nästa inloggning** är inställt på den lokala Active Directory användaren. Följande fel returneras:
 
-![Tillfälligt lösenord exporteras inte](./media/tshoot-connect-password-hash-synchronization/phssingleobjecttemporarypassword.png)
+![Tillfälligt lösen ord exporteras inte](./media/tshoot-connect-password-hash-synchronization/phssingleobjecttemporarypassword.png)
 
-#### <a name="results-of-last-attempt-to-synchronize-password-arent-available"></a>Resultat av senaste försöket att synkronisera lösenord inte är tillgängliga
+#### <a name="results-of-last-attempt-to-synchronize-password-arent-available"></a>Resultatet av det senaste försöket att synkronisera lösen ord är inte tillgängligt
 
-Som standard lagrar Azure AD Connect resultatet av lösenordsförsök hash-synkronisering i sju dagar. Om det finns inga resultat för det valda objektet i Active Directory, returnerade följande varning:
+Som standard lagrar Azure AD Connect resultatet av lösen ord för hash-synkronisering i sju dagar. Om det inte finns några tillgängliga resultat för det valda Active Directory-objektet returneras följande varning:
 
-![Diagnostikdata för objekt - ingen historik för synkronisering av lösenord](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnohistory.png)
+![Diagnostiska utdata för ett enskilt objekt – ingen lösen ords synkroniserings historik](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnohistory.png)
 
 
 
-## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Inga lösenord synkroniseras: felsöka med hjälp av cmdleten diagnostik
+## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Inga lösen ord synkroniseras: Felsök med hjälp av diagnostik-cmdleten
 
-Du kan använda den `Invoke-ADSyncDiagnostics` cmdlet för att ta reda på varför inga lösenord synkroniseras.
+Du kan använda `Invoke-ADSyncDiagnostics`-cmdlet för att ta reda på varför inga lösen ord synkroniseras.
 
 > [!NOTE]
-> Den `Invoke-ADSyncDiagnostics` cmdlet är endast tillgänglig för Azure AD Connect version 1.1.524.0 eller senare.
+> `Invoke-ADSyncDiagnostics`-cmdleten är endast tillgänglig för Azure AD Connect version 1.1.524.0 eller senare.
 
-### <a name="run-the-diagnostics-cmdlet"></a>Kör cmdleten diagnostik
+### <a name="run-the-diagnostics-cmdlet"></a>Kör diagnostik-cmdleten
 
-Felsökning av problem där inga lösenord synkroniseras:
+Så här felsöker du problem där inga lösen ord synkroniseras:
 
-1. Öppna en ny Windows PowerShell-session på din Azure AD Connect-server med den **kör som administratör** alternativet.
+1. Öppna en ny Windows PowerShell-session på din Azure AD Connect-Server med alternativet **Kör som administratör** .
 
 2. Kör `Set-ExecutionPolicy RemoteSigned` eller `Set-ExecutionPolicy Unrestricted`.
 
@@ -212,18 +212,18 @@ Felsökning av problem där inga lösenord synkroniseras:
 
 
 
-## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Ett objekt synkroniseras inte lösenord: felsöka med hjälp av cmdleten diagnostik
+## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Ett objekt synkroniserar inte lösen ord: Felsök med hjälp av diagnostik-cmdleten
 
-Du kan använda den `Invoke-ADSyncDiagnostics` cmdlet för att avgöra varför en objekt synkroniseras inte lösenord.
+Du kan använda cmdleten `Invoke-ADSyncDiagnostics` för att avgöra varför ett objekt inte synkroniserar lösen ord.
 
 > [!NOTE]
-> Den `Invoke-ADSyncDiagnostics` cmdlet är endast tillgänglig för Azure AD Connect version 1.1.524.0 eller senare.
+> `Invoke-ADSyncDiagnostics`-cmdleten är endast tillgänglig för Azure AD Connect version 1.1.524.0 eller senare.
 
-### <a name="run-the-diagnostics-cmdlet"></a>Kör cmdleten diagnostik
+### <a name="run-the-diagnostics-cmdlet"></a>Kör diagnostik-cmdleten
 
-Felsökning av problem där inga lösenord synkroniseras för en användare:
+Så här felsöker du problem där inga lösen ord synkroniseras för en användare:
 
-1. Öppna en ny Windows PowerShell-session på din Azure AD Connect-server med den **kör som administratör** alternativet.
+1. Öppna en ny Windows PowerShell-session på din Azure AD Connect-Server med alternativet **Kör som administratör** .
 
 2. Kör `Set-ExecutionPolicy RemoteSigned` eller `Set-ExecutionPolicy Unrestricted`.
 
@@ -243,130 +243,130 @@ Felsökning av problem där inga lösenord synkroniseras för en användare:
 
 
 
-## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>Inga lösenord synkroniseras: manuell felsökningssteg
+## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>Inga lösen ord synkroniseras: manuella fel söknings steg
 
-Följ dessa steg för att avgöra varför inga lösenord synkroniseras:
+Följ dessa steg för att avgöra varför inga lösen ord synkroniseras:
 
-1. Är Connect-server i [mellanlagringsläge](how-to-connect-sync-staging-server.md)? En server i mellanlagringsläge synkroniserar inte eventuella lösenord.
+1. Är anslutnings servern i [mellanlagrings läge](how-to-connect-sync-staging-server.md)? En server i mellanlagrings läge synkroniserar inte lösen ord.
 
-2. Kör skriptet den [hämta status för lösenord synkroniseringsinställningar](#get-the-status-of-password-sync-settings) avsnittet. Det ger dig en översikt över konfigurationen för synkronisering av lösenord.  
+2. Kör skriptet i avsnittet [Hämta status för inställningar för lösen ords synkronisering](#get-the-status-of-password-sync-settings) . Du får en översikt över konfigurationen av Lösenordssynkronisering.  
 
-    ![Utdata i PowerShell-skriptet från inställningar för synkronisering av lösenord](./media/tshoot-connect-password-hash-synchronization/psverifyconfig.png)  
+    ![PowerShell-skriptets utdata från inställningarna för lösen ords synkronisering](./media/tshoot-connect-password-hash-synchronization/psverifyconfig.png)  
 
-3. Om funktionen inte är aktiverad i Azure AD eller om synkroniseringsstatus för kanal inte har aktiverats, kör du installationsguiden för Connect. Välj **anpassa synkroniseringsalternativ**, och avmarkera Lösenordssynkronisering. Den här ändringen kan du tillfälligt inaktiverar funktionen. Sedan kör guiden på nytt och återaktivera synkronisering av lösenord. Kör skriptet igen för att kontrollera att konfigurationen är korrekt.
+3. Om funktionen inte är aktive rad i Azure AD eller om synkroniserings kanal status inte är aktive rad kör du guiden Anslut installationen. Välj **Anpassa synkroniseringsalternativ**och avmarkera Lösenordssynkronisering. Den här ändringen inaktiverar tillfälligt funktionen. Kör sedan guiden igen och aktivera synkronisering av lösen ord igen. Kör skriptet igen för att kontrol lera att konfigurationen är korrekt.
 
-4. Titta i händelseloggen efter fel. Sök efter följande händelser, vilket visar att det finns ett problem:
-    * Källa: ”Katalogsynkronisering”-ID: 0, 611, 652, 655 om du ser dessa händelser du har anslutningsproblem med. Händelseloggmeddelande innehåller information om skog där du har problem. Mer information finns i [anslutningsproblem](#connectivity problem).
+4. Sök efter fel i händelse loggen. Leta efter följande händelser, vilket tyder på ett problem:
+    * Källa: "katalog synkronisering" ID: 0, 611, 652, 655 om du ser dessa händelser har du problem med anslutningen. Händelse logg meddelandet innehåller information om skogar där du har problem. Mer information finns i [anslutnings problem](#connectivity problem).
 
-5. Om du ser inga pulsslag eller om inget annat arbetat köra [Utlös en fullständig synkronisering av alla lösenord](#trigger-a-full-sync-of-all-passwords). Kör skriptet bara en gång.
+5. Om du inte ser något pulsslag eller om inget annat har fungerat, kan du köra [en fullständig synkronisering av alla lösen ord](#trigger-a-full-sync-of-all-passwords). Kör bara skriptet en gång.
 
-6. Se Felsök ett objekt som inte synkroniseras lösenord avsnittet.
+6. Se avsnittet Felsök ett objekt som inte synkroniserar lösen ord.
 
-### <a name="connectivity-problems"></a>Problem med nätverksanslutningen
+### <a name="connectivity-problems"></a>Anslutnings problem
 
-Har du anslutningen med Azure AD?
+Har du anslutning till Azure AD?
 
-Har kontot behörighet att läsa lösenordshasher i alla domäner? Om du har installerat Connect med standardinställningar, bör behörigheterna som redan vara korrekt. 
+Har kontot behörighet att läsa lösen ordets hash-värden i alla domäner? Om du har installerat Anslut med hjälp av Express inställningar bör behörigheterna redan vara korrekta. 
 
-Om du har använt anpassad installation kan du ange behörigheter manuellt genom att göra följande:
+Om du har använt anpassad installation anger du behörigheterna manuellt genom att göra följande:
     
-1. För att hitta kontot som används av Active Directory-kopplingen, starta **hanteraren för synkroniseringstjänsten**. 
+1. Starta **Synchronization Service Manager**för att hitta kontot som används av Active Directory-anslutningen. 
  
-2. Gå till **Anslutningsappar**, och söker sedan efter den lokala Active Directory-skog som du felsöker. 
+2. Gå till **anslutningar**och Sök sedan efter den lokala Active Directorys skogen som du felsöker. 
  
-3. Välj kopplingen och klicka sedan på **egenskaper**. 
+3. Välj kopplingen och klicka sedan på **Egenskaper**. 
  
-4. Gå till **ansluta till Active Directory-skog**.  
+4. Gå till **Anslut till Active Directory skog**.  
     
-    ![Konto som används av Active Directory-koppling](./media/tshoot-connect-password-hash-synchronization/connectoraccount.png)  
-    Observera användarnamnet och den domän där kontot finns.
+    ![Konto som används av Active Directory Connector](./media/tshoot-connect-password-hash-synchronization/connectoraccount.png)  
+    Anteckna användar namnet och domänen där kontot finns.
     
-5. Starta **Active Directory-användare och datorer**, och sedan kontrollera att det konto som du hittat tidigare har följande behörigheter som har angetts i roten för alla domäner i skogen:
-    * Replikera katalogändringar
-    * Replikera katalogen ändras alla
+5. Starta **Active Directory användare och datorer**och kontrol lera att det konto som du har hittat tidigare har följande behörigheter som angetts i roten för alla domäner i skogen:
+    * Replikera katalog ändringar
+    * Replikera katalog ändringar alla
 
-6. Är domänkontrollanter kan nås av Azure AD Connect? Om Connect-servern inte kan ansluta till alla domänkontrollanter, konfigurera **endast använda prioriterade domänkontrollanten**.  
+6. Kan domän kontrol Lanterna uppnås genom att Azure AD Connect? Om anslutnings servern inte kan ansluta till alla domänkontrollanter, konfigurerar du **Använd endast prioriterad domänkontrollant**.  
     
-    ![Domänkontrollanten som används av Active Directory-koppling](./media/tshoot-connect-password-hash-synchronization/preferreddc.png)  
+    ![Domänkontrollant som används av Active Directory anslutning](./media/tshoot-connect-password-hash-synchronization/preferreddc.png)  
     
-7. Gå tillbaka till **hanteraren för synkroniseringstjänsten** och **konfigurera-katalogpartition**. 
+7. Gå tillbaka till **Synchronization Service Manager** och **Konfigurera katalogpartitionen**. 
  
-8. Välj din domän i **Välj katalogpartitioner**väljer den **endast använda prioriterade domänkontrollanter** och klicka sedan på **konfigurera**. 
+8. Välj din domän i **Välj katalogpartitioner**, markera kryss rutan **Använd bara önskade domänkontrollanter** och klicka sedan på **Konfigurera**. 
 
-9. Ange de domänkontrollanter som Connect ska använda för synkronisering av lösenord i listan. Samma lista används för import och export samt. Utföra de här stegen för dina domäner.
+9. I listan anger du de domänkontrollanter som ansluter ska användas för synkronisering av lösen ord. Samma lista används även för import och export. Utför de här stegen för alla dina domäner.
 
-10. Om skriptet visar att det finns inga pulsslag, kör du skriptet i [Utlös en fullständig synkronisering av alla lösenord](#trigger-a-full-sync-of-all-passwords).
+10. Om skriptet visar att det inte finns något pulsslag kör du skriptet i [utlösa en fullständig synkronisering av alla lösen ord](#trigger-a-full-sync-of-all-passwords).
 
-## <a name="one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps"></a>Ett objekt synkroniseras inte lösenord: manuell felsökningssteg
+## <a name="one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps"></a>Ett objekt synkroniserar inte lösen ord: manuella fel söknings steg
 
-Du kan enkelt felsöka lösenord hash-synkroniseringsproblem genom att granska statusen för ett objekt.
+Du kan enkelt Felsöka problem med hash-synkronisering av lösen ord genom att granska status för ett objekt.
 
-1. I **Active Directory-användare och datorer**, Sök efter användaren och kontrollerar att den **användaren måste byta lösenord vid nästa inloggning** kryssrutan är avmarkerad.  
+1. I **Active Directory användare och datorer**söker du efter användaren och kontrollerar sedan att kryss rutan **användaren måste byta lösen ord vid nästa inloggning** är avmarkerad.  
 
-    ![Active Directory-produktiva lösenord](./media/tshoot-connect-password-hash-synchronization/adprodpassword.png)  
+    ![Active Directory produktiva lösen ord](./media/tshoot-connect-password-hash-synchronization/adprodpassword.png)  
 
-    Om kryssrutan är markerad, be användaren att logga in och ändra lösenordet. Tillfälliga lösenord synkroniseras inte med Azure AD.
+    Om kryss rutan är markerad ber du användaren att logga in och ändra lösen ordet. Tillfälliga lösen ord synkroniseras inte med Azure AD.
 
-2. Om lösenordet verkar vara korrekta i Active Directory, följer du användaren i Synkroniseringsmotorn. Genom att följa användaren från en lokal Active Directory till Azure AD, kan du se om det finns en beskrivande fel på objektet.
+2. Om lösen ordet ser korrekt ut i Active Directory ska du följa användaren i Synkroniseringsmotorn. Genom att följa användaren från den lokala Active Directory till Azure AD kan du se om det finns ett beskrivande fel på objektet.
 
-    a. Starta den [hanteraren för synkroniseringstjänsten](how-to-connect-sync-service-manager-ui.md).
+    a. Starta [Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md).
 
-    b. Klicka på **Anslutningsappar**.
+    b. Klicka på **kopplingar**.
 
-    c. Välj den **Active Directory-koppling** där användaren finns.
+    c. Välj den **Active Directorys anslutning** där användaren finns.
 
-    d. Välj **söka Anslutarplats**.
+    d. Välj **search Connector-utrymme**.
 
-    e. I den **omfång** väljer **DN eller fästpunkt**, och ange det fullständiga unika namnet för den användare som du felsöker.
+    e. I rutan **omfattning** väljer du **DN eller ankare**och anger sedan det fullständiga DN för den användare som du felsöker.
 
-    ![Sök efter användare i anslutarplatsen med DN](./media/tshoot-connect-password-hash-synchronization/searchcs.png)  
+    ![Sök efter användare i anslutnings utrymme med DN](./media/tshoot-connect-password-hash-synchronization/searchcs.png)  
 
-    f. Hitta användaren du letar efter och klicka sedan på **egenskaper** att se alla attribut. Om användaren inte är i sökresultatet, kontrollera din [filtreringsregler](how-to-connect-sync-configure-filtering.md) och se till att du kör [tillämpa och verifiera ändringar av](how-to-connect-sync-configure-filtering.md#apply-and-verify-changes) för användaren att visas i Connect.
+    f. Leta upp den användare du söker och klicka sedan på **Egenskaper** för att visa alla attribut. Om användaren inte är med i Sök resultatet kontrollerar du [filtrerings reglerna](how-to-connect-sync-configure-filtering.md) och kontrollerar att du kör [tillämpa och verifiera ändringar](how-to-connect-sync-configure-filtering.md#apply-and-verify-changes) för användaren som ska visas i Anslut.
 
-    g. Klicka för att visa lösenordet synkronisera information om objektet för den senaste veckan **Log**.  
+    g. Klicka på **logg**om du vill se information om lösen ords synkronisering för objektet under den senaste veckan.  
 
-    ![Log Objektinformation](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
+    ![Objekt logg information](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 
-    Om objektet loggen är tom, Azure AD Connect kunde inte läsa lösenords-hash från Active Directory. Fortsätta felsökningen med anslutningsfel. Om du ser ett annat värde än **lyckades**, finns i tabellen i [lösenord synkroniseringsloggen](#password-sync-log).
+    Om objekt loggen är tom har Azure AD Connect inte kunnat läsa lösen ordets hash-värde från Active Directory. Fortsätt med fel sökningen med anslutnings fel. Om du ser något annat värde än **slutfört**, referera till tabellen i [loggen för Lösenordssynkronisering](#password-sync-log).
 
-    h. Välj den **härkomst** fliken och kontrollera att finns minst en synkroniseringsregel i den **PasswordSync** kolumnen är **SANT**. I standardkonfigurationen, namnet på synkroniseringsregel är **i från AD - användare AccountEnabled**.  
+    h. Välj fliken **härkomst** och se till att minst en Synkroniseringsregel i kolumnen **PasswordSync** är **True**. I standard konfigurationen finns namnet på synkroniseringsregeln **i från AD-User AccountEnabled**.  
 
-    ![Härkomstinformation om en användare](./media/tshoot-connect-password-hash-synchronization/cspasswordsync.png)  
+    ![Härkomst information om en användare](./media/tshoot-connect-password-hash-synchronization/cspasswordsync.png)  
 
-    i. Klicka på **Metaversumobjektegenskaperna** att visa en lista över användarattribut.  
+    i. Klicka på **metaversum objekt egenskaper** för att visa en lista över användarattribut.  
 
     ![Metaversum-information](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
 
-    Kontrollera att det finns inga **cloudFiltered** attributen. Se till att de förväntade värdena på attributen domän (domainFQDN och domainNetBios).
+    Kontrol lera att det inte finns något **cloudFiltered** -attribut. Se till att domänautentiseringsuppgifter (domainFQDN och domainNetBios) har de förväntade värdena.
 
-    j. Klicka på den **kopplingar** fliken. Kontrollera att du ser kopplingar till både lokala Active Directory och Azure AD.
+    j. Klicka på fliken **anslutningar** . se till att du ser kopplingar till både lokala Active Directory och Azure AD.
 
     ![Metaversum-information](./media/tshoot-connect-password-hash-synchronization/mvconnectors.png)  
 
-    k. Välj raden som representerar Azure AD, klickar du på **egenskaper**, och klicka sedan på den **härkomst** fliken. I anslutarplatsen bör ha en utgående regel i den **PasswordSync** kolumnen **SANT**. I standardkonfigurationen, namnet på synkroniseringsregel är **på AAD - användare ansluta**.  
+    k. Välj den rad som representerar Azure AD, klicka på **Egenskaper**och klicka sedan på fliken **härkomst** . Objektet för anslutnings utrymmet måste ha en utgående regel i kolumnen **PasswordSync** inställd på **True**. I standard konfigurationen är namnet på synkroniseringsregeln **till AAD-User Join**.  
 
-    ![Dialogrutan för anslutningstjänsten utrymme objektegenskaper](./media/tshoot-connect-password-hash-synchronization/cspasswordsync2.png)  
+    ![Dialog rutan objekt egenskaper för kopplings utrymme](./media/tshoot-connect-password-hash-synchronization/cspasswordsync2.png)  
 
-### <a name="password-sync-log"></a>Lösenord synkroniseringsloggen
+### <a name="password-sync-log"></a>Logg för lösen ords synkronisering
 
-I statuskolumnen kan ha följande värden:
+Status kolumnen kan ha följande värden:
 
 | Status | Beskrivning |
 | --- | --- |
-| Klart |Lösenordet har synkroniserats. |
-| FilteredByTarget |Lösenordet är inställt på **användaren måste byta lösenord vid nästa inloggning**. Lösenordet har inte synkroniserats. |
-| NoTargetConnection |Inga objekt i metaversumet eller i Azure AD-anslutningsplatsen. |
-| SourceConnectorNotPresent |Inga objekt hittades i den lokala Active Directory-anslutarplatsen. |
-| TargetNotExportedToDirectory |Objektet i Azure AD-anslutarplatsen har inte ännu exporterats. |
-| MigratedCheckDetailsForMoreInfo |Loggpost skapades före version 1.0.9125.0 och visas i det tidigare tillståndet. |
+| Lyckades |Lösen ordet har synkroniserats. |
+| FilteredByTarget |Lösen ordet har angetts till **användaren måste byta lösen ord vid nästa inloggning**. Lösen ordet har inte synkroniserats. |
+| NoTargetConnection |Inget objekt i metaversum eller i Azure AD Connector-utrymmet. |
+| SourceConnectorNotPresent |Det finns inget objekt i det lokala Active Directory anslutnings utrymmet. |
+| TargetNotExportedToDirectory |Objektet i Azure AD Connector-utrymmet har inte exporter ATS än. |
+| MigratedCheckDetailsForMoreInfo |Logg posten skapades innan 1.0.9125.0 byggdes och visas i sitt äldre tillstånd. |
 | Fel |Tjänsten returnerade ett okänt fel. |
-| Okänt |Ett fel uppstod vid försök att bearbeta en batch med lösenords-hash.  |
-| MissingAttribute |Specifika attribut (till exempel Kerberos-hash) som krävs av Azure AD Domain Services är inte tillgängliga. |
-| RetryRequestedByTarget |Specifika attribut (till exempel Kerberos-hash) som krävs av Azure AD Domain Services var inte tillgängliga tidigare. Det görs ett försök att omsynkronisera användarens lösenords-hash. |
+| Okänt |Ett fel uppstod vid försök att bearbeta en batch med lösen ords-hashar.  |
+| MissingAttribute |Vissa attribut (till exempel Kerberos-hash) som krävs av Azure AD Domain Services är inte tillgängliga. |
+| RetryRequestedByTarget |Vissa attribut (till exempel Kerberos-hash) som krävs av Azure AD Domain Services var inte tillgängliga tidigare. Ett försök att synkronisera om användarens lösen ords-hash görs. |
 
-## <a name="scripts-to-help-troubleshooting"></a>Skript för att felsöka
+## <a name="scripts-to-help-troubleshooting"></a>Skript som hjälper dig att felsöka
 
-### <a name="get-the-status-of-password-sync-settings"></a>Hämta status för inställningar för synkronisering av lösenord
+### <a name="get-the-status-of-password-sync-settings"></a>Hämta status för inställningar för lösen ords synkronisering
 
 ```powershell
 Import-Module ADSync
@@ -421,12 +421,12 @@ if ($adConnectors -eq $null)
 Write-Host
 ```
 
-#### <a name="trigger-a-full-sync-of-all-passwords"></a>Utlös en fullständig synkronisering av alla lösenord
+#### <a name="trigger-a-full-sync-of-all-passwords"></a>Utlös en fullständig synkronisering av alla lösen ord
 
 > [!NOTE]
-> Kör skriptet bara en gång. Om du vill köra den mer än en gång är något annat problemet. Kontakta Microsoft support om du vill felsöka problemet.
+> Kör bara det här skriptet en gång. Om du behöver köra det mer än en gång är det något annat som är problemet. Kontakta Microsoft-supporten för att felsöka problemet.
 
-Du kan utlösa en fullständig synkronisering av alla lösenord med hjälp av följande skript:
+Du kan utlösa en fullständig synkronisering av alla lösen ord med hjälp av följande skript:
 
 ```powershell
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
@@ -444,6 +444,6 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering](how-to-connect-password-hash-synchronization.md)
-* [Azure AD Connect-synkronisering: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
+* [Implementera hash-synkronisering av lösen ord med Azure AD Connect Sync](how-to-connect-password-hash-synchronization.md)
+* [Azure AD Connect synkronisering: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)

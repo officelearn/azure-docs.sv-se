@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 470778e5c441bb05ffc7c5e1c5ef97a6c30d3359
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155643"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395834"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Felsök allokeringsfel när du distribuerar Cloud Services i Azure
 ## <a name="summary"></a>Sammanfattning
@@ -28,7 +28,7 @@ När du distribuerar instanser till en moln tjänst eller lägger till nya webb-
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ### <a name="background--how-allocation-works"></a>Bakgrund – hur allokeringen fungerar
-Servrarna i Azure-datacenter partitioneras i kluster. En ny begäran om allokering av moln tjänster görs i flera kluster. När den första instansen distribueras till en moln tjänst (antingen i mellanlagring eller produktion) fästs moln tjänsten i ett kluster. Eventuella ytterligare distributioner för moln tjänsten sker i samma kluster. I den här artikeln kommer vi att se detta som "fäst i ett kluster". Diagram 1 nedan illustrerar fallet med en normal allokering som görs i flera kluster. Diagram 2 visar fallet för en allokering som är fäst på kluster 2, eftersom det är där den befintliga CS_1 för moln tjänsten finns.
+Servrarna i Azure-datacenter partitioneras i kluster. En ny begäran om allokering av moln tjänster görs i flera kluster. När den första instansen distribueras till en moln tjänst (antingen i mellanlagring eller produktion) fästs moln tjänsten i ett kluster. Eventuella ytterligare distributioner för moln tjänsten sker i samma kluster. I den här artikeln kommer vi att se detta som "fäst i ett kluster". Diagram 1 nedan illustrerar fallet med en normal allokering som görs i flera kluster. Diagram 2 visar fallet för en allokering som är fäst på kluster 2, eftersom det är där den befintliga moln tjänsten CS_1 finns.
 
 ![Tilldelnings diagram](./media/cloud-services-allocation-failure/Allocation1.png)
 

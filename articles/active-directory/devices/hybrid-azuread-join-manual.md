@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed28b4bb8ec61455168f50058c8cdcaf9f50717d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 6754393bdeabcd67dcf6514102e3c825a26fc3e9
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882854"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672276"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Självstudie: Konfigurera anslutna Azure Active Directory-hybridenheter manuellt
 
@@ -35,7 +35,7 @@ Om du har en lokal Active Directory-miljö och du vill ansluta dina domänanslut
 > * Verifiera anslutna enheter
 > * Felsöka din implementering
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien förutsätts att du känner till:
 
@@ -185,7 +185,7 @@ När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter
 - `/adfs/services/trust/13/certificatemixed`
 
 > [!WARNING]
-> Både **ADFS/tjänster/Trust/2005/windowstransport** eller **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar Windows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slutpunkter som är aktiverade via AD FS-hanteringskonsolen under **Tjänst** > **Slutpunkter**.
+> Både **ADFS/tjänster/Trust/2005/windowstransport** eller **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar Windows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slutpunkter som är aktiverade via AD FS-hanteringskonsolen under **Tjänst** > **Slutpunkter**.
 
 > [!NOTE]
 >Om du inte har AD FS som en lokal federationstjänst följer du instruktionerna från din leverantör för att kontrollera att den stöder WS-Trust 1.3- eller 2005-slutpunkter och att de har publicerats via MEX-filen (Metadata Exchange).
@@ -478,7 +478,7 @@ Med följande skript kan du skapa utfärdande av transformeringsregler såsom be
    Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString
    ```
 
-#### <a name="remarks"></a>Kommentarer
+#### <a name="remarks"></a>Anmärkningar
 
 * Det här skriptet lägger till reglerna till befintliga regler. Kör inte skriptet två gånger, eftersom regeluppsättningen då läggs till två gånger. Kontrollera att det inte finns några motsvarande regler för anspråken (under motsvarande villkor) innan du kör skriptet igen.
 * Om du har flera verifierade domännamn (som visas i Azure AD-portalen eller via cmdleten **Get-MsolDomain**) anger du värdet **$multipleVerifiedDomainNames** i skriptet till **$true**. Se även till att ta bort eventuellt befintligt **issuerid**-anspråk som kan ha skapats av Azure AD Connect eller på andra sätt. Här är ett exempel för den här regeln:
@@ -549,7 +549,7 @@ För att registrera äldre Windows-enheter måste du ladda ned och installera et
 
 ## <a name="verify-joined-devices"></a>Verifiera anslutna enheter
 
-Du kan leta efter anslutna enheter i din organisation med hjälp av cmdleten [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) i [Azure Active Directory PowerShell-modulen](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Du kan leta efter anslutna enheter i din organisation med hjälp av cmdleten [Get-MsolDevice](/powershell/msonline/v1/get-msoldevice) i [Azure Active Directory PowerShell-modulen](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 Cmdletens utdata visar enheter som är registrerade och anslutna till Azure AD. För att hämta alla enheter använder du parametern **-All** (-Alla) och filtrerar dem sedan med egenskapen **deviceTrustType**. Domänanslutna enheter har värdet **Domänansluten**.
 

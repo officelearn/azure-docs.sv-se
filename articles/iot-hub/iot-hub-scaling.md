@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
 ms.openlocfilehash: d1de29124825a7f398b9722bb2455d1105e9c9f7
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023639"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393660"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välj rätt IoT Hub nivå för din lösning
 
@@ -66,7 +66,7 @@ Konfigurationen av partitionen förblir oförändrad när du migrerar från Basi
 > [!NOTE]
 > Den kostnads fria nivån stöder inte uppgradering till Basic eller standard.
 
-## <a name="iot-hub-rest-apis"></a>REST API:er för IoT Hub
+## <a name="iot-hub-rest-apis"></a>IoT Hub REST-API: er
 
 Skillnaden mellan de funktioner som stöds mellan nivåerna Basic och standard i IoT Hub innebär att vissa API-anrop inte fungerar med Basic-nivå nav. Följande tabell visar vilka API: er som är tillgängliga:
 
@@ -130,7 +130,7 @@ IoT Hub identitets register åtgärder ska inte vara körnings åtgärder, efter
 
 För vissa prestanda siffror i burst, se [IoT Hub kvoter och begränsningar](iot-hub-devguide-quotas-throttling.md).
 
-## <a name="auto-scale"></a>Autoskala
+## <a name="auto-scale"></a>Automatisk skalning
 
 Om du närmar dig den tillåtna meddelande gränsen på din IoT-hubb kan du använda de här [stegen för att automatiskt skala](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) för att öka en IoT Hub enhet på samma IoT Hub nivå.
 

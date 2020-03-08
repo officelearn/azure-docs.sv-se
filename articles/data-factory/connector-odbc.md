@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: jingwang
 ms.openlocfilehash: 6513cfc5432e969fc53aa72b075af194a064d178
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892145"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382615"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Kopiera data från och till ODBC-datalager med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-odbc-connector.md)
 > * [Aktuell version](connector-odbc.md)
 
-Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från och till ett ODBC-data lager. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från och till ett ODBC-data lager. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -32,15 +32,15 @@ Den här ODBC-anslutningen stöds för följande aktiviteter:
 - [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från ODBC-källa till alla mottagar data lager som stöds, eller kopiera från alla käll data lager som stöds till ODBC-mottagare. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från ODBC-källa till alla mottagar data lager som stöds, eller kopiera från alla käll data lager som stöds till ODBC-mottagare. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 Mer specifikt stöder denna ODBC-anslutning kopiering av data från/till **ODBC-kompatibla data lager** med **Basic** eller **Anonym** autentisering. En **64-bitars ODBC-drivrutin** krävs.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda den här ODBC-anslutningen måste du:
 
-- Konfigurera en egen värd Integration Runtime. Se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) nedan för information.
+- Konfigurera en egen värd Integration Runtime. Mer information finns i artikeln om [egen värd integration runtime](create-self-hosted-integration-runtime.md) .
 - Installera 64-bitars ODBC-drivrutinen för data lagret på den Integration Runtime datorn.
 
 ## <a name="getting-started"></a>Komma igång
@@ -58,10 +58,10 @@ Följande egenskaper stöds för ODBC-länkad tjänst:
 | typ | Egenskapen Type måste anges till: **ODBC** | Ja |
 | connectionString | Anslutnings strängen exklusive Credential-delen. Du kan ange anslutnings strängen med ett mönster som `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`eller använda system-DSN (data källans namn) som du har konfigurerat på den Integration Runtime datorn med `"DSN=<name of the DSN on IR machine>;"` (du behöver fortfarande ange Credential-delen i den länkade tjänsten därefter).<br>Du kan också ange ett lösen ord i Azure Key Vault och hämta `password` -konfigurationen från anslutnings strängen. Mer information finns [i lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) .| Ja |
 | authenticationType | Typ av autentisering som används för att ansluta till ODBC-datalagret.<br/>Tillåtna värden är: **Basic** och **Anonymous**. | Ja |
-| userName | Ange användar namn om du använder grundläggande autentisering. | Inga |
-| password | Ange lösen ordet för det användar konto som du har angett för användar namnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
-| credential | Delen autentiseringsuppgifter för den anslutnings sträng som anges i drivrutinsspecifika egenskaps värde format. Exempel: `"RefreshToken=<secret refresh token>;"`. Markera det här fältet som en SecureString. | Inga |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Ja |
+| userName | Ange användar namn om du använder grundläggande autentisering. | Nej |
+| lösenord | Ange lösen ordet för det användar konto som du har angett för användar namnet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| credential | Delen autentiseringsuppgifter för den anslutnings sträng som anges i drivrutinsspecifika egenskaps värde format. Exempel: `"RefreshToken=<secret refresh token>;"`. Markera det här fältet som en SecureString. | Nej |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Ja |
 
 **Exempel 1: använda grundläggande autentisering**
 
@@ -112,7 +112,7 @@ Följande egenskaper stöds för ODBC-länkad tjänst:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av ODBC-datauppsättning.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av ODBC-datauppsättning.
 
 Följande egenskaper stöds för att kopiera data från/till ODBC-kompatibelt data lager:
 
@@ -144,7 +144,7 @@ Om du använder `RelationalTable` typ av data uppsättning, stöds den fortfaran
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av ODBC-källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av ODBC-källa.
 
 ### <a name="odbc-as-source"></a>ODBC som källa
 
@@ -153,7 +153,7 @@ För att kopiera data från ODBC-kompatibelt data lager, stöds följande egensk
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **OdbcSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 
@@ -191,14 +191,14 @@ Om du använder `RelationalSource` typ av källa, stöds den fortfarande som den
 
 ### <a name="odbc-as-sink"></a>ODBC som mottagare
 
-Om du vill kopiera data till ODBC-kompatibelt data lager ställer du in mottagar typen i kopierings aktiviteten till **OdbcSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet:
+Om du vill kopiera data till ODBC-kompatibelt data lager ställer du in mottagar typen i kopierings aktiviteten till **OdbcSink**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till: **OdbcSink** | Ja |
-| writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes.<br/>Tillåtna värden är: TimeSpan. Exempel ”: 00: 30:00” (30 minuter). |Inga |
+| writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes.<br/>Tillåtna värden är: TimeSpan. Exempel ”: 00: 30:00” (30 minuter). |Nej |
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize.<br/>Tillåtna värden är: heltal (antal rader). |Nej (Standardvärdet är 0 – identifieras automatiskt) |
-| preCopyScript |Ange en SQL-fråga för kopierings aktivitet som ska köras innan data skrivs till data lagret i varje körning. Du kan använda den här egenskapen för att rensa förinlästa data. |Inga |
+| preCopyScript |Ange en SQL-fråga för kopierings aktivitet som ska köras innan data skrivs till data lagret i varje körning. Du kan använda den här egenskapen för att rensa förinlästa data. |Nej |
 
 > [!NOTE]
 > För "writeBatchSize", om den inte har angetts (identifieras automatiskt), identifierar kopierings aktiviteten först om driv rutinen stöder batch-åtgärder och anger den till 10000 om den gör det, eller så anger du den till 1 om den inte gör det. Om du anger något annat värde än 0, följer kopierings aktiviteten värdet och Miss lyckas vid körning om driv rutinen inte stöder batch-åtgärder.
@@ -289,4 +289,4 @@ Använd fliken **diagnostik** i **integration runtime Configuration Manager**fö
 5. Klicka på **Testa anslutning** för att testa anslutningen till data lagret.
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

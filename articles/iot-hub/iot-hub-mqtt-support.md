@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
 ms.openlocfilehash: 2b200692610302bb135982e5419dcda36d5cfe60
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77648503"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381988"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med IoT-hubben med MQTT-protokollet
 
@@ -339,7 +339,7 @@ Svars texten innehåller avsnittet Egenskaper för enheten, som du ser i följan
 
 Möjliga status koder är:
 
-|Status | Description |
+|Status | Beskrivning |
 | ----- | ----------- |
 | 200 | Lyckades |
 | 429 | För många begär Anden (begränsas) enligt [IoT Hub begränsning](iot-hub-devguide-quotas-throttling.md) |
@@ -370,7 +370,7 @@ Meddelande texten innehåller ett JSON-dokument som innehåller nya värden för
 
 Möjliga status koder är:
 
-|Status | Description |
+|Status | Beskrivning |
 | ----- | ----------- |
 | 204 | Lyckades (inget innehåll returneras) |
 | 400 | Felaktig begäran. Felaktig JSON |

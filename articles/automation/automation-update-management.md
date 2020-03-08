@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 71cf1a2c4a0a2ff07d2aa0b48a8ee3bb3da8a540
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: c76b14e4f08ec930159498da4a35fdad0341929e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919726"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372951"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering lösning i Azure
 
@@ -27,9 +27,9 @@ Du kan aktivera Uppdateringshantering för virtuella datorer (VM) med följande 
 > [!NOTE]
 > Uppdateringshantering-lösningen kräver att du länkar en Log Analytics arbets yta till ditt Automation-konto. En slutgiltig lista över regioner som stöds finns i [mappningar för Azure-arbetsytor](./how-to/region-mappings.md). Region mappningarna påverkar inte möjligheten att hantera virtuella datorer i en separat region från ditt Automation-konto.
 
-En Azure [Resource Manager-mall](automation-update-management-deploy-template.md) är tillgänglig som gör att du kan distribuera uppdateringshantering-lösningen till ett nytt eller befintligt Automation-konto och Log Analytics arbets yta i din prenumeration.
-
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+En Azure [Resource Manager-mall](automation-update-management-deploy-template.md) är tillgänglig som gör att du kan distribuera uppdateringshantering-lösningen till ett nytt eller befintligt Automation-konto och Log Analytics arbets yta i din prenumeration.
 
 ## <a name="solution-overview"></a>Lösningsöversikt
 
@@ -97,8 +97,8 @@ I följande tabell visas operativ system som inte stöds:
 |Operativsystem  |Anteckningar  |
 |---------|---------|
 |Windows-klient     | Klientoperativsystem (till exempel Windows 7 och Windows 10) stöds inte.        |
-|Windows Server 2016 Nano Server     | Stöds ej.       |
-|Azure Kubernetes service-noder | Stöds ej. Använd korrigerings processen som beskrivs i [tillämpa säkerhets-och kernel-uppdateringar på Linux-noder i Azure Kubernetes service (AKS)](../aks/node-updates-kured.md)|
+|Windows Server 2016 Nano Server     | Stöds inte.       |
+|Azure Kubernetes service-noder | Stöds inte. Använd korrigerings processen som beskrivs i [tillämpa säkerhets-och kernel-uppdateringar på Linux-noder i Azure Kubernetes service (AKS)](../aks/node-updates-kured.md)|
 
 ### <a name="client-requirements"></a>Klient krav
 
@@ -248,10 +248,15 @@ Uppdateringshantering använder den lokalt konfigurerade uppdaterings databasen 
 
 Om du vill börja uppdatera system måste du aktivera Uppdateringshantering-lösningen. Följande är de metoder som rekommenderas för att publicera lösningen:
 
-* [Från en virtuell dator](automation-onboard-solutions-from-vm.md)
-* [Från att bläddra flera datorer](automation-onboard-solutions-from-browse.md)
-* [Från ditt Automation-konto](automation-onboard-solutions-from-automation-account.md)
-* [Med en Azure Automation Runbook](automation-onboard-solutions.md)
+- [Från en virtuell dator](automation-onboard-solutions-from-vm.md)
+
+- [Från att bläddra flera datorer](automation-onboard-solutions-from-browse.md)
+
+- [Från ditt Automation-konto](automation-onboard-solutions-from-automation-account.md)
+
+- [Med en Azure Automation Runbook](automation-onboard-solutions.md)
+
+- [Med en Azure Resource Manager mall](automation-update-management-deploy-template.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

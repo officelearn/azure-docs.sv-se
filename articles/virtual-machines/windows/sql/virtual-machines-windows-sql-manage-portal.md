@@ -14,11 +14,11 @@ ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 244ad7d079fd7baf25f8079557576c42d25ca785
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102051"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387823"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Hantera SQL Server virtuella datorer i Azure med hjälp av Azure Portal
 
@@ -27,7 +27,7 @@ I [Azure Portal](https://portal.azure.com)är resursen för **virtuella SQL-dato
 ![Resurs för virtuella SQL-datorer](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
 
 
-## <a name="remarks"></a>Kommentarer
+## <a name="remarks"></a>Anmärkningar
 
 - Vi rekommenderar att du använder resursen **SQL Virtual Machines** för att visa och hantera dina SQL Server virtuella datorer i Azure. Men för närvarande stöder inte resursen **SQL Virtual Machines** hanteringen av [support](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server virtuella datorer. Om du vill hantera inställningarna för support SQL Server virtuella datorer använder du fliken inaktuell [SQL Server konfiguration](#access-the-sql-server-configuration-tab) i stället. 
 - Resursen **SQL Virtual Machines** är bara tillgänglig för SQL Server virtuella datorer som har [registrerats med PROVIDERN för SQL VM-resurs](virtual-machines-windows-sql-register-with-resource-provider.md). 

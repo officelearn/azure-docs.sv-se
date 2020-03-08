@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d4dbe5a62e69f4c30d55fa1318ca79c06640a10f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5196615b6b935e4d37565298be03ad315163d132
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78186751"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668471"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -101,7 +101,7 @@ Ett **TechnicalProfiles** -element innehåller en uppsättning tekniska profiler
 | SubjectNamingInfo | 0:1 | Styr produktionen av ämnes namnet i tokens där ämnes namnet anges separat från anspråk. Till exempel OAuth eller SAML.  |
 | IncludeInSso | 0:1 |  Om användningen av den här tekniska profilen ska använda enkel inloggning (SSO) för sessionen eller i stället kräva explicit interaktion. Det här elementet är endast giltigt i SelfAsserted-profiler som används i en teknisk validerings profil. Möjliga värden: `true` (standard) eller `false`. |
 | IncludeClaimsFromTechnicalProfile | 0:1 | En identifierare för en teknisk profil från vilken du vill att alla indata-och utgående anspråk ska läggas till i den här tekniska profilen. Den tekniska profilen som refereras till måste definieras i samma princip fil. |
-| IncludeTechnicalProfile |0:1 | En identifierare för en teknisk profil från vilken du vill att alla data ska läggas till i den här tekniska profilen. Den tekniska profilen som refereras måste finnas i samma princip fil. |
+| IncludeTechnicalProfile |0:1 | En identifierare för en teknisk profil från vilken du vill att alla data ska läggas till i den här tekniska profilen. |
 | UseTechnicalProfileForSessionManagement | 0:1 | En annan teknisk profil som ska användas för hantering av sessioner. |
 |EnabledForUserJourneys| 0:1 |Kontrollerar om den tekniska profilen körs i en användar resa.  |
 

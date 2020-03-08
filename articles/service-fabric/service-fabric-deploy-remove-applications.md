@@ -4,11 +4,11 @@ description: Lär dig mer om att ta bort och distribuera program i Azure Service
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614510"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379995"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Distribuera och ta bort program med PowerShell
 
@@ -132,7 +132,7 @@ Här är till exempel komprimerings statistik för vissa paket, som visar urspru
 |100|100|00:00:03.3547592|60|
 |512|100|00:00:16.3850303|307|
 |1024|500|00:00:32.5907950|615|
-|2048|1 000|00:01:04.3775554|1231|
+|2048|1000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
 När ett paket har komprimerats kan det överföras till ett eller flera Service Fabric-kluster efter behov. Distributions mekanismen är densamma för komprimerade och okomprimerade paket. Komprimerade paket lagras som sådana i kluster avbildnings arkivet. Paketen är okomprimerade på noden innan programmet körs.
@@ -312,7 +312,7 @@ Kör [unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/
 Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
 ```
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage ber om en ImageStoreConnectionString
 

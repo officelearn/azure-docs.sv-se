@@ -3,22 +3,48 @@ title: Viktig information – tal tjänst
 titleSuffix: Azure Cognitive Services
 description: En körnings logg av funktioner för igenkänning av tal tjänster, förbättringar, fel korrigeringar och kända problem.
 services: cognitive-services
-author: oscholz
-manager: nitinme
+author: brianem
+manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/15/2020
-ms.author: oliversc
+ms.date: 02/25/2020
+ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: 235d8788b47355925d93cb3e3835d32e25c1b51f
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: cbe9c7cbd0f402e38d1163050d77b055f89948ba
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168148"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394806"
 ---
 # <a name="release-notes"></a>Viktig information
+## <a name="speech-sdk-1100-2020-february-release"></a>Speech SDK-1.10.0:2020 – februari utgåva
+
+**Nya funktioner**
+ - Python-paket har lagts till för att stödja den nya 3,8-versionen av python.
+ - Red Hat Enterprise Linux (RHEL)/CentOS 8 x64 support (C++, C#Java, python).
+   > [!NOTE] 
+   > Kunderna måste konfigurera OpenSSL enligt [dessa instruktioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux).
+ - Linux ARM32-stöd för Debian och Ubuntu.
+ - DialogServiceConnector stöder nu en valfri "robot ID"-parameter på BotFrameworkConfig. Med den här parametern kan du använda flera direkt linje tal robotar med en enda Azure tal-resurs. Utan den angivna parametern används standard-boten (som fastställs av konfigurations sidan för direkt linjens tal kanal).
+ - DialogServiceConnector har nu en SpeechActivityTemplate-egenskap. Innehållet i den här JSON-strängen används av direkt linje tal för att fylla i en rad olika fält som stöds i alla aktiviteter som når en direkt rad tal robot, inklusive aktiviteter som skapas automatiskt som svar på händelser som tal igenkänning.
+ - TTS använder nu prenumerations nyckeln för autentisering, vilket minskar den första byte fördröjningen för det första syntes resultatet när du har skapat en synthesizer.
+ - Uppdaterade tal igenkännings modeller för 19 språk i ett genomsnittligt antal fel i Word-felgrader på 18,6% (es-ES, ES-MX, fr-CA, fr-FR, IT-IT, ja-JP, ko-KR, pt-BR, zh-CN, zh-HK, NB-NO, fi-fi, ru-RU, pl-PL, ca-ES, zh-TW, Th-PT, tr-TR). De nya modellerna ger avsevärda förbättringar i flera domäner, inklusive diktering, samtals Center avskrifter och video indexerings scenarier.
+
+**Fel korrigeringar**
+ - Åtgärdat fel där konversations program varan inte förväntades korrekt i JAVA-API: er 
+ - Android x86 emulator-korrigering för Xamarin [GitHub-problem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/363)
+ - Lägg till saknas (Hämta | Ange) egenskaps metoder för att AudioConfig
+ - Åtgärda ett TTS-fel där audioDataStream inte kunde stoppas när anslutningen Miss lyckas
+ - Om du använder en slut punkt utan en region skulle det orsaka USP-fel för konversations översättare
+ - ID-generering i universella Windows-program använder nu en lämplig unik GUID-algoritm. den tidigare och oavsiktligt har oavsiktligt valt en stubbed-implementering som ofta producerar kollisioner över stora uppsättningar interaktioner.
+ 
+ **Exempel**
+ - Enhets exempel för att använda tal-SDK med enhets [uppströmnings mikrofon och push-läge](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/from-unitymicrophone)
+
+**Andra ändringar**
+ - [Konfigurations dokumentation för OpenSSL har uppdaterats för Linux](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux)
 
 ## <a name="speech-sdk-190-2020-january-release"></a>1\.9.0 för tal-SDK: 2020 – januari utgåva
 

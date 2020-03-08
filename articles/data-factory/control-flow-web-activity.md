@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: c700c9786f3bec4c79cae904a95deb5fd1c670b4
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110012"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394476"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Webb aktivitet i Azure Data Factory
 Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en Data Factory-pipeline. Du kan överföra datauppsättningar och länkade tjänster så att de förbrukas och används av aktiviteten.
@@ -65,8 +65,8 @@ Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namn på webb aktiviteten | Sträng | Ja
-typ | Måste vara inställt på **webactivity**. | Sträng | Ja
+namn | Namn på webb aktiviteten | String | Ja
+typ | Måste vara inställt på **webactivity**. | String | Ja
 metod | REST API-metod för mål slut punkten. | Sträng. <br/><br/>Typer som stöds: "GET", "POST", "placera" | Ja
 url | Mål slut punkt och sökväg | Sträng (eller uttryck med resultType för sträng). Aktiviteten avbryts vid 1 minut med ett fel om den inte får något svar från slut punkten. | Ja
 sidhuvud | Huvuden som skickas till begäran. Om du till exempel vill ange språk och typ på en begäran: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Sträng (eller uttryck med resultType för sträng) | Ja, innehålls typ rubrik krävs. `"headers":{ "Content-Type":"application/json"}`

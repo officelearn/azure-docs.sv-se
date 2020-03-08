@@ -15,13 +15,13 @@ ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
 ms.openlocfilehash: 933f0c52cf0d65c7dca480971589c0d0f2ebabf0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906777"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363287"
 ---
-# <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbered en Windows-VHD eller VHDX som ska överföras till Azure
+# <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en VHD eller VHDX i Windows för överföring till Azure
 
 Innan du laddar upp en virtuell Windows-dator (VM) från en lokal plats till Azure måste du förbereda den virtuella hård disken (VHD eller VHDX). Azure stöder virtuella datorer i generation 1 och generation 2 som är i VHD-filformat och har en disk med fast storlek. Den maximala storlek som tillåts för den virtuella hård disken är 1 023 GB. 
 
@@ -377,9 +377,9 @@ Kontrol lera att den virtuella datorn är felfri, säker och RDP-tillgänglig:
 ### <a name="install-windows-updates"></a>Installera Windows-uppdateringar
 Helst bör du hålla datorn uppdaterad på *korrigerings nivå*. Om detta inte är möjligt kontrollerar du att följande uppdateringar är installerade. För att få de senaste uppdateringarna går du till Windows updates historik sidor: [Windows 10 och Windows server 2019](https://support.microsoft.com/help/4000825), [Windows 8,1 och Windows Server 2012 R2](https://support.microsoft.com/help/4009470) och [Windows 7 SP1 och Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 
-| Komponent               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8,1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
+| Komponent               | Binär         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8,1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
-| Lagring                 | disk. sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
+| Storage                 | disk. sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
 |                         | NTFS. sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
 |                         | Iologmsg.dll   | 6.1.7601.23403 - KB3125574                | 6.2.9200.16384 - KB2995387                  | -                                  | -                                                       | -                          | -                                               | -                                               |

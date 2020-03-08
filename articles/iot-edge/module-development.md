@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 96bd6b461a5374b5f5bc578c5f58dbcd09cd7087
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548636"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358699"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Utveckla dina egna IoT Edge-moduler
 
@@ -31,9 +31,9 @@ IoT Edge hub ger två huvudsakliga funktioner: proxy till IoT Hub och lokala kom
 
 IoT-hubben ser en modulinstans på samma sätt som en enhet i meningen som:
 
-* den har en modultvilling som är unik och isolerade från de [enhetstvillingen](../iot-hub/iot-hub-devguide-device-twins.md) och andra modultvillingar för en enhet;
-* den kan skicka [meddelanden från enheten till molnet](../iot-hub/iot-hub-devguide-messaging.md);
-* Det kan ta emot [direkta metoder](../iot-hub/iot-hub-devguide-direct-methods.md) specifikt mot sin identitet.
+* den har en modul med dubbla som är distinkt och isolerad från [enheten](../iot-hub/iot-hub-devguide-device-twins.md) , och den andra modulen är sammanflätad med enheten.
+* den kan skicka [meddelanden från enheten till molnet](../iot-hub/iot-hub-devguide-messaging.md).
+* den kan ta emot [direkta metoder](../iot-hub/iot-hub-devguide-direct-methods.md) som riktar sig specifikt till identiteten.
 
 För närvarande kan inte moduler ta emot meddelanden från molnet till enheten eller använda fil uppladdnings funktionen.
 
@@ -75,13 +75,13 @@ IoT Edge stöder flera operativ system, enhets arkitekturer och utvecklings spr�
 
 För alla språk i följande tabell IoT Edge stöder utveckling för AMD64-och ARM32 Linux-enheter.
 
-| Utvecklingsspråk | Utvecklingsverktyg |
+| Utvecklings språk | Utvecklingsverktyg |
 | -------------------- | ----------------- |
-| C | Visual Studio-kod<br>Visual Studio 2017/2019 |
-| C# | Visual Studio-kod<br>Visual Studio 2017/2019 |
-| Java | Visual Studio-kod |
-| Node.js | Visual Studio-kod |
-| Python | Visual Studio-kod |
+| C | Visual Studio Code<br>Visual Studio 2017/2019 |
+| C# | Visual Studio Code<br>Visual Studio 2017/2019 |
+| Java | Visual Studio Code |
+| Node.js | Visual Studio Code |
+| Python | Visual Studio Code |
 
 >[!NOTE]
 >Att utveckla och felsöka stöd för ARM64 Linux-enheter finns i [offentlig för hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Mer information finns i [utveckla och FELSÖKA ARM64 IoT Edge moduler i Visual Studio Code (för hands version)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
@@ -90,7 +90,7 @@ För alla språk i följande tabell IoT Edge stöder utveckling för AMD64-och A
 
 För alla språk i följande tabell IoT Edge stöder utveckling för AMD64 Windows-enheter.
 
-| Utvecklingsspråk | Utvecklingsverktyg |
+| Utvecklings språk | Utvecklingsverktyg |
 | -------------------- | ----------------- |
 | C | Visual Studio 2017/2019 |
 | C# | Visual Studio Code (inga fel söknings funktioner)<br>Visual Studio 2017/2019 |

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084948"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385122"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analysera Distributionshanteraren för Azure Site Recovery rapporten
 I den här artikeln diskuteras bladen i Excel-rapporterna som genereras av distributionshanteraren för Azure Site Recovery för scenariot Hyper-V till Azure.
@@ -133,7 +133,7 @@ Du kan visa kostnaden per månad eller per år. Läs mer om [målregioner som st
 
 **Replication cost** (Replikeringskostnad): Kostnaden som tillkommer under replikering. Det här täcker kostnaden för lagring, nätverk och Site Recovery-licensen. 
 
-**DR-Drill cost** (DR-testkostnad): Kostnaden som tillkommer under redundansväxlingstest. Site Recovery startar virtuella datorer under redundansväxlingstest. DR-testkostnaden täcker kostnaden för beräkning och lagring för de virtuella datorer som körs. 
+**DR-Drill cost** (DR-testkostnad): Kostnaden som tillkommer under redundansväxlingstest. Site Recovery startar virtuella datorer under redundanstest. DR-testkostnaden täcker kostnaden för beräkning och lagring för de virtuella datorer som körs. 
 
 **Azure Storage Cost per Month/Year** (Azure Storage-kostnad per månad/år): Diagrammet visar den totala lagringskostnad som tillkommer för premium- och standardlagring för replikering och DR-test. Du kan visa en detaljerad kostnadsanalys per VM på arket [Cost Estimation](hyper-v-deployment-planner-cost-estimation.md) (Kostnadsuppskattning).
 

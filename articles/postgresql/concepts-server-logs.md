@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.openlocfilehash: 2636e9a225002148e4cd79bb2176e0883aed623a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844946"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359596"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Loggar i Azure Database for PostgreSQL-enskild server
 Med Azure Database for PostgreSQL kan du konfigurera och få åtkomst till postgres standard loggar. Loggarna kan användas för att identifiera, felsöka och reparera konfigurations fel och underoptimala prestanda. Loggnings information som du kan konfigurera och komma åt innehåller fel, fråga efter information, autovakuum-poster, anslutningar och kontroll punkter. (Åtkomst till transaktions loggar är inte tillgänglig).
@@ -40,7 +40,7 @@ Standard logg formatet i Azure Database for PostgreSQL är. log. En exempel rad 
 
 Azure Database for PostgreSQL tillhandahåller en kortsiktig lagrings plats för. log-filerna. En ny fil börjar var 1 timme eller 100 MB, beroende på vilket som kommer först. Loggar läggs till den aktuella filen när de genereras från postgres.  
 
-Du kan ställa in kvarhållningsperioden för den här kortsiktiga logg lagringen med hjälp av `log_retention_period`-parametern. Standardvärdet är 3 dagar; det maximala värdet är 7 dagar. Lagrings platsen på kort sikt kan innehålla upp till 1 GB loggfiler. Efter 1 GB tas de äldsta filerna, oavsett kvarhållningsperioden, bort för att göra plats för nya loggar. 
+Du kan ställa in kvarhållningsperioden för den här kortsiktiga logg lagringen med hjälp av `log_retention_period`-parametern. Standardvärdet är 3 dagar och maxvärdet är 7 dagar. Lagrings platsen på kort sikt kan innehålla upp till 1 GB loggfiler. Efter 1 GB tas de äldsta filerna, oavsett kvarhållningsperioden, bort för att göra plats för nya loggar. 
 
 För längre kvarhållning av loggar och logg analys kan du hämta. log-filerna och flytta dem till en tjänst från tredje part. Du kan hämta filerna med hjälp av [Azure Portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md). Du kan också konfigurera Azure Monitor diagnostikinställningar som automatiskt gör dina loggar (i JSON-format) till platser på längre sikt. Läs mer om det här alternativet i avsnittet nedan. 
 
@@ -99,10 +99,10 @@ I följande tabell beskrivs fälten för **PostgreSQLLogs** -typen. Beroende på
 | TenantId | Ditt klient-ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Tidstämpel när loggen registrerades i UTC |
-| Typ | Loggens typ. Alltid `AzureDiagnostics` |
+| Typ | Loggens typ. `AzureDiagnostics` alltid |
 | SubscriptionId | GUID för den prenumeration som servern tillhör |
 | ResourceGroup | Namnet på den resurs grupp som servern tillhör |
-| ResourceProvider | Namnet på resurs leverantören. Alltid `MICROSOFT.DBFORPOSTGRESQL` |
+| ResourceProvider | Namnet på resurs leverantören. `MICROSOFT.DBFORPOSTGRESQL` alltid |
 | ResourceType | `Servers` |
 | ResourceId | Resurs-URI |
 | Resurs | Namnet på servern |
@@ -117,7 +117,7 @@ I följande tabell beskrivs fälten för **PostgreSQLLogs** -typen. Beroende på
 | DatatypeName | Namnet på data typen (om tillämpligt) |
 | LogicalServerName | Namnet på servern | 
 | _ResourceId | Resurs-URI |
-| Prefix | Logg radens prefix |
+| Protokollprefixet | Logg radens prefix |
 
 
 ## <a name="next-steps"></a>Nästa steg

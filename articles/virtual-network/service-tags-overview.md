@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 2af887f529d57052d8b729fa1a613e8eeb9003ea
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 21e35afc72aa9824baa1076abe0e767ce4935c28
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228295"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391110"
 ---
 # <a name="virtual-network-service-tags"></a>Tjänst taggar för virtuellt nätverk
 <a name="network-service-tags"></a>
@@ -52,7 +52,7 @@ Som standard återspeglar service märken intervallen för hela molnet. Vissa se
 | **AzureBackup** |Azure Backup.<br/><br/>*Obs:* Den här taggen har ett beroende på **lagrings** -och **AzureActiveDirectory** -taggarna. | Utgående | Nej | Ja |
 | **AzureBotService** | Azure Bot Service. | Utgående | Nej | Nej |
 | **AzureCloud** | Alla [offentliga IP-adresser för data Center](https://www.microsoft.com/download/details.aspx?id=56519). | Utgående | Ja | Ja |
-| **AzureCognitiveSearch** | Azure-Kognitiv sökning. <br/><br/>Den här taggen eller de IP-adresser som omfattas av den här taggen kan användas för att ge indexerare säker åtkomst till data källor. Mer information finns i [anslutnings dokumentationen för indexeraren](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) . | Inkommande | Nej | Nej |
+| **AzureCognitiveSearch** | Azure-Kognitiv sökning. <br/><br/>Den här taggen eller de IP-adresser som omfattas av den här taggen kan användas för att ge indexerare säker åtkomst till data källor. Mer information finns i [anslutnings dokumentationen för indexeraren](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) . <br/><br/> *Obs!* IP-adressen för Sök tjänsten ingår inte i listan över IP-intervall för den här tjänst tag gen och **måste också läggas** till i IP-brandväggen för data källor. | Inkommande | Nej | Nej |
 | **AzureConnectors** | Azure Logic Apps anslutningar för avsökning/backend-anslutningar. | Inkommande | Ja | Ja |
 | **AzureContainerRegistry** | Azure Container Registry. | Utgående | Ja | Ja |
 | **AzureCosmosDB** | Azure Cosmos DB. | Utgående | Ja | Ja |

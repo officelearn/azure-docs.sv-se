@@ -16,21 +16,21 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088176"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382702"
 ---
-# <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Felsöka vissa RDP-felmeddelanden till en virtuell Windows-dator i Azure
+# <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Felsöka specifika RDP-felmeddelanden till en virtuell Windows-dator i Azure
 Du kan få ett särskilt fel meddelande när du använder fjärr skrivbords anslutning till en virtuell Windows-dator i Azure. Den här artikeln beskrivs några av de vanligaste felmeddelandena som uppstod, tillsammans med felsökning för att lösa dem. Om du har problem med att ansluta till din virtuella dator med hjälp av RDP men inte stöter på ett fel meddelande, se [fel söknings guiden för fjärr skrivbord](troubleshoot-rdp-connection.md).
 
 Information om vissa fel meddelanden finns i följande avsnitt:
 
 * [Fjärrsessionen kopplades från eftersom det inte finns några fjärr skrivbords licens servrar tillgängliga för att tillhandahålla en licens](#rdplicense).
 * [Fjärr skrivbord kan inte hitta datorn "name"](#rdpname).
-* [Ett autentiseringsfel har inträffat. Det går inte att kontakta](#rdpauth)den lokala säkerhets kontrollen.
-* [Windows-säkerhets fel: Autentiseringsuppgifterna fungerade inte](#wincred).
+* [Ett autentiseringsfel har inträffat. Det går inte att kontakta den lokala säkerhets kontrollen](#rdpauth).
+* [Windows-säkerhets fel: autentiseringsuppgifterna fungerade inte](#wincred).
 * [Datorn kan inte ansluta till fjärrdatorn](#rdpconnect).
 
 <a id="rdplicense"></a>
@@ -49,7 +49,7 @@ Mer information finns i blogg inlägget [Azure VM Miss lyckas med "inga fjärr s
 <a id="rdpname"></a>
 
 ## <a name="remote-desktop-cant-find-the-computer-name"></a>Fjärr skrivbord kan inte hitta datorn "name".
-Orsak: Fjärr skrivbords klienten på datorn kan inte matcha namnet på datorn i inställningarna för RDP-filen.
+Orsak: fjärr skrivbords klienten på datorn kan inte matcha namnet på datorn i inställningarna för RDP-filen.
 
 Möjliga lösningar:
 
@@ -67,9 +67,9 @@ Adress delen av den här RDP-filen har:
 <a id="rdpauth"></a>
 
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Ett autentiseringsfel har inträffat. Det går inte att kontakta den lokala säkerhets kontrollen.
-Orsak: Den virtuella mål datorn kan inte hitta säkerhets myndigheten i användar namns delen av dina autentiseringsuppgifter.
+Orsak: den virtuella mål datorn kan inte hitta säkerhets myndigheten i användar namns delen av dina autentiseringsuppgifter.
 
-När ditt användar namn har formatet *SecurityAuthority*\\*användar* namn (exempel: Corp\user1.) är *SecurityAuthority* -delen antingen den virtuella datorns dator namn (för den lokala säkerhets kontrollen) eller ett Active Directory domän namn.
+När ditt användar namn är i formatet *SecurityAuthority*\\*användar* namn (exempel: CORP\User1.) är *SecurityAuthority* -delen antingen dator namnet för den virtuella datorn (för den lokala säkerhets kontrollen) eller ett Active Directory domän namn.
 
 Möjliga lösningar:
 
@@ -79,13 +79,13 @@ Möjliga lösningar:
 
 <a id="wincred"></a>
 
-## <a name="windows-security-error-your-credentials-did-not-work"></a>Windows-säkerhets fel: Autentiseringsuppgifterna fungerade inte.
-Orsak: Den virtuella mål datorn kan inte verifiera ditt konto namn och lösen ord.
+## <a name="windows-security-error-your-credentials-did-not-work"></a>Windows-säkerhets fel: autentiseringsuppgifterna fungerade inte.
+Orsak: den virtuella mål datorn kan inte verifiera ditt konto namn och lösen ord.
 
 En Windows-baserad dator kan verifiera autentiseringsuppgifterna för antingen ett lokalt konto eller ett domän konto.
 
-* För lokala konton använder du syntaxen *dator*\\namn*användar namn* (exempel: SQL1\Admin4798).
-* För domän konton använder du syntaxen *domän*\\namn*användar namn* (exempel: CONTOSO\peterodman).
+* För lokala konton använder du syntaxen *ComputerName*\\*username* (exempel: SQL1\Admin4798).
+* För domän konton använder du *domän* namnet\\syntax för *användar namn* (exempel: CONTOSO\peterodman).
 
 Om du har uppgraderat den virtuella datorn till en domänkontrollant i en ny Active Directory skog, konverteras det lokala administratörs kontot som du loggade in med till ett motsvarande konto med samma lösen ord i den nya skogen och domänen. Det lokala kontot tas sedan bort.
 
@@ -98,7 +98,7 @@ Om du behöver ändra lösen ordet för det lokala administratörs kontot läser
 <a id="rdpconnect"></a>
 
 ## <a name="this-computer-cant-connect-to-the-remote-computer"></a>Datorn kan inte ansluta till fjärrdatorn.
-Orsak: Kontot som används för anslutning saknar inloggnings rättigheter för fjärr skrivbord.
+Orsak: kontot som används för att ansluta saknar inloggnings rättigheter för fjärr skrivbord.
 
 Varje Windows-dator har en lokal grupp med fjärr skrivbords användare som innehåller de konton och grupper som kan logga in på den via en fjärr anslutning. Medlemmar i den lokala gruppen Administratörer har även åtkomst, även om dessa konton inte visas i den lokala gruppen fjärr skrivbords användare. För domänanslutna datorer innehåller den lokala gruppen Administratörer även domän administratörer för domänen.
 

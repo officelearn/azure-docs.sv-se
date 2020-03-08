@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 83650e7cf46ec1dede5f25e32114d6469bab24be
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795566"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373471"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Aktivera stöd för flera namnrymder i ett AKS-kluster med Application Gateway ingress-styrenhet
 
@@ -83,8 +83,8 @@ spec:
 
 Trots de två ingress-resurserna som kräver trafik för `www.contoso.com` dirigeras till respektive Kubernetes-namnområden, kan endast en server del betjäna trafiken. AGIC skulle skapa en konfiguration med "First-First-First-firsted"-grunden för en av resurserna. Om två ingress-resurser skapas samtidigt, kommer det tidigare i alfabetet att ha företräde. Från exemplet ovan kommer vi bara att kunna skapa inställningar för `production` ingress. Application Gateway kommer att konfigureras med följande resurser:
 
-  - Lyssnare: `fl-www.contoso.com-80`
-  - Regel för Routning: `rr-www.contoso.com-80`
+  - Lyssnare: `fl- www.contoso.com-80`
+  - Regel för Routning: `rr- www.contoso.com-80`
   - Backend-pool: `pool-production-contoso-web-service-80-bp-80`
   - HTTP-inställningar: `bp-production-contoso-web-service-80-80-websocket-ingress`
   - Hälso avsökning: `pb-production-contoso-web-service-80-websocket-ingress`

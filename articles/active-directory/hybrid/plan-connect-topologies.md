@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Topologier som stöds | Microsoft Docs'
+title: 'Azure AD Connect: topologier som stöds | Microsoft Docs'
 description: I det här avsnittet beskrivs och topologier som inte stöds för Azure AD Connect
 services: active-directory
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275219"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376058"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologier för Azure AD Connect
 I den här artikeln beskrivs olika lokala och Azure Active Directory (Azure AD)-topologier som använder Azure AD Connect Sync som lösning för nyckel integrering. Den här artikeln innehåller konfigurationer som stöds och som inte stöds.

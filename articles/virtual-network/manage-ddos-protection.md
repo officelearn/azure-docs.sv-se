@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
 ms.openlocfilehash: 786b21e7571ed173d2da90f587a5b76d8c92a13d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450892"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390733"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Hantera Azure DDoS Protection standard med hjälp av Azure Portal
 
@@ -47,7 +47,7 @@ Det krävs inte att skapa mer än en plan för de flesta organisationer. Det gå
     |Namn           | myDdosProtectionPlan                              |
     |Prenumeration   | Välj din prenumeration.                         |
     |Resursgrupp | Välj **Skapa nytt** och ange *myResourceGroup* |
-    |Location       | USA, östra                                           |
+    |plats.       | USA, östra                                           |
 
 ## <a name="enable-ddos-for-a-new-virtual-network"></a>Aktivera DDoS för ett nytt virtuellt nätverk
 
@@ -60,7 +60,7 @@ Det krävs inte att skapa mer än en plan för de flesta organisationer. Det gå
     | Namn            | myVirtualNetwork                                             |
     | Prenumeration    | Välj din prenumeration.                                    |
     | Resursgrupp  | Välj **Använd befintlig** och sedan **myResourceGroup**. |
-    | Location        | USA, östra                                                      |
+    | plats.        | USA, östra                                                      |
     | DDos skydd | Välj **standard** och välj **myDdosProtectionPlan**under **DDoS Protection**. Den plan du väljer kan vara i samma eller en annan prenumeration än det virtuella nätverket, men båda prenumerationerna måste vara kopplade till samma Azure Active Directory-klient.|
 
 Du kan inte flytta ett virtuellt nätverk till en annan resurs grupp eller prenumeration när DDoS standard är aktive rad för det virtuella nätverket. Om du behöver flytta ett virtuellt nätverk med DDoS standard aktiverat inaktiverar du DDoS standard först, flyttar det virtuella nätverket och aktiverar sedan DDoS standard. Efter flyttningen återställs automatiskt justerade princip tröskelvärden för alla skyddade offentliga IP-adresser i det virtuella nätverket.
@@ -114,7 +114,7 @@ Du kan välja något av de tillgängliga DDoS-skydds måtten för att varna dig 
     |Mått                   | Under DDoS-attack eller inte                                                                            |
     |Tröskelvärde                | 1- **1** innebär att du är utsatt för angrepp. **0** innebär att du inte är utsatt för angrepp.                         |
     |Period                   | Välj vilket värde du vill.                                                                   |
-    |Meddela via e-post         | Markera kryssrutan                                                                                  |
+    |Meddela via e-post         | Markera kryss rutan                                                                                  |
     |Ytterligare administratör | Ange din e-postadress om du inte är e-postägare, deltagare eller läsare för prenumerationen. |
 
     Inom ett par minuter får du ett e-postmeddelande från Azure Monitor mått som ser ut ungefär som på följande bild:

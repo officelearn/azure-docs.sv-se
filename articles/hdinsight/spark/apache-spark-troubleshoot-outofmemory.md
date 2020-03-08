@@ -8,11 +8,11 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
 ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894316"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395129"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>OutOfMemoryError-undantag för Apache Spark i Azure HDInsight
 
@@ -56,7 +56,7 @@ java.lang.OutOfMemoryError
 
 Den mest troliga orsaken till det här undantaget är att det finns inte tillräckligt med heap-minne har allokerats till Java-datorer (JVMs). Dessa JVMs startas som körnings program eller driv rutiner som en del av Apache Spark-programmet.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 1. Avgör maximal storlek för de data som Spark-programmet ska hantera. Gör en uppskattning av storleken baserat på den maximala storleken på indata, och de mellanliggande data som skapas genom att transformera indata och utdata som genererats ytterligare, omvandlas till mellanliggande data. Om den inledande uppskattningen inte räcker kan du öka storleken något och iterera fram till under sidan minnes fel.
 
@@ -114,7 +114,7 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 **2.1 G**  wasb:///hdp/spark2-events/application_1503957839788_0264_1
 ```
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Du kan öka Spark historik serverns minne genom att redigera `SPARK_DAEMON_MEMORY`-egenskapen i Spark-konfigurationen och starta om alla tjänster.
 
@@ -200,7 +200,7 @@ När livy-servern avslutas oväntad avslutas alla anslutningar till Spark-kluste
 
 När ett stort antal jobb skickas via livy, som en del av hög tillgänglighet för livy-servern, lagrar dessa sessionstillstånd i ZK (i HDInsight-kluster) och återställer dessa sessioner när livy-tjänsten startas om. Vid omstart efter en oväntad avslutning skapar livy en tråd per session och detta ackumulerar ett visst antal att återställa sessioner som orsakar att för många trådar skapas.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Ta bort alla poster med hjälp av stegen som beskrivs nedan.
 

@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 70523dc12f3f20362fcf4a2c3cb456a182038e8a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982254"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356463"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
 
@@ -30,7 +30,7 @@ Lär dig hur du skapar och tar bort ett virtuellt nätverk och ändrar inställn
 Utför följande åtgärder innan du slutför stegen i något avsnitt i den här artikeln:
 
 - Om du inte redan har ett Azure-konto kan du registrera dig för ett [kostnads fritt utvärderings konto](https://azure.microsoft.com/free).
-- Om du använder portalen öppnar du https://portal.azure.com och loggar in med ditt Azure-konto.
+- Om du använder portalen öppnar du https://portal.azure.comoch loggar in med ditt Azure-konto.
 - Om du använder PowerShell-kommandon för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/powershell)eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. I den här självstudien krävs Azure PowerShell module version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 - Om du använder kommando rads kommandon i Azure för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra CLI från datorn. I den här självstudien krävs Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också köra `az login` för att skapa en anslutning till Azure.
 - Det konto som du loggar in på eller ansluta till Azure med måste tilldelas rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats lämpliga åtgärder som anges i [behörigheter](#permissions).
@@ -137,7 +137,7 @@ Alla virtuella datorer som är anslutna till det virtuella nätverks registret m
 1. Ange *virtuella nätverk* i sökrutan i rutan Sök högst upp i portalen. När **virtuella nätverk** visas i Sök resultaten väljer du det.
 2. I listan med virtuella nätverk väljer du det virtuella nätverk som du vill ändra DNS-servrar för.
 3. Välj **DNS-servrar**under **Inställningar**.
-4. Välj ett av följande alternativ:
+4. Välj något av följande alternativ:
    - **Standard (Azure-tillhandahöll)** : alla resurs namn och privata IP-adresser registreras automatiskt till Azure DNS servrar. Du kan matcha namn mellan alla resurser som är anslutna till samma virtuella nätverk. Du kan inte använda det här alternativet för att matcha namn i virtuella nätverk. Om du vill matcha namn i virtuella nätverk måste du använda en anpassad DNS-server.
    - **Anpassad**: du kan lägga till en eller flera servrar, upp till Azure-gränsen för ett virtuellt nätverk. Mer information om begränsningar för DNS-servern finns i [Azure-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Du har följande alternativ:
    - **Lägg till en adress**: lägger till servern i listan med DNS-servrar för virtuella nätverk. Det här alternativet registrerar även DNS-servern med Azure. Om du redan har registrerat en DNS-server med Azure kan du välja den DNS-servern i listan.

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
 ms.openlocfilehash: e2e82c551117f2ae96e026b39c08ccf56e7ce8e2
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561824"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384611"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Hantera åtkomst, energi och anslutnings läge för din Azure Data Box Gateway
 
@@ -47,12 +47,12 @@ Följ de här stegen i det lokala användar gränssnittet för att ändra enhete
 
 1. I Azure Portal går du till **översikt > Återställ administratörs lösen ord**.
 
-    ![Återställ lösenord](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Återställa lösenord](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-1.png)
 
  
 2. Ange det nya lösen ordet och bekräfta det sedan. Det angivna lösen ordet måste innehålla mellan 8 och 16 tecken. Lösen ordet måste innehålla 3 av följande tecken: versaler, gemener, siffror och specialtecken. Klicka på **Återställ**.
 
-    ![Återställ lösenord](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Återställa lösenord](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Hantera resurs åtkomst
 

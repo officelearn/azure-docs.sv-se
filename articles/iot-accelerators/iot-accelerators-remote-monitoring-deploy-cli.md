@@ -1,6 +1,6 @@
 ---
-title: Distribuera lösningen för fjärrövervakning med hjälp av CLI - Azure | Microsoft Docs
-description: Den här guiden visar hur du etablerar den lösningsacceleratorn för fjärrövervakning med hjälp av CLI.
+title: Distribuera lösningen för fjärrövervakning med CLI-Azure | Microsoft Docs
+description: Den här instruktions guiden visar hur du etablerar lösnings acceleratorn för fjärrövervakning med hjälp av CLI.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,27 +9,27 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447020"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383060"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuera den lösningsacceleratorn för fjärrövervakning med hjälp av CLI
+# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuera lösnings acceleratorn för fjärr styrning med hjälp av CLI
 
-Den här guiden visar hur du distribuerar lösningsacceleratorn för fjärrövervakning. Du kan distribuera lösningen med hjälp av CLI. Du kan också distribuera lösningen med webbaserat gränssnitt på azureiotsolutions.com, om du vill veta mer om det här alternativet finns i den [distribuerar lösningsacceleratorn för fjärrövervakning](quickstart-remote-monitoring-deploy.md) Snabbstart.
+Den här instruktions guiden visar hur du distribuerar lösnings acceleratorn för fjärrövervakning. Du distribuerar lösningen med hjälp av CLI. Du kan också distribuera lösningen med hjälp av det webbaserade användar gränssnittet på azureiotsolutions.com. mer information om det här alternativet finns i Distribuera snabb starten för [fjärrövervakning av Solution Accelerator](quickstart-remote-monitoring-deploy.md) .
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver en aktiv Azure-prenumeration om du vill distribuera lösningsacceleratorn för fjärrövervakning.
+Du behöver en aktiv Azure-prenumeration för att kunna distribuera lösnings acceleratorn för fjärrövervakning.
 
-Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
+Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-Om du vill köra CLI, behöver du [Node.js](https://nodejs.org/) installerad på den lokala datorn.
+Om du vill köra CLI måste du ha [Node. js](https://nodejs.org/) installerat på den lokala datorn.
 
 ## <a name="install-the-cli"></a>Installera CLI
 
-Om du vill installera CLI kör du följande kommando i miljön kommandoraden:
+Installera CLI genom att köra följande kommando i din kommando rads miljö:
 
 ```cmd/sh
 npm install iot-solutions -g
@@ -37,81 +37,81 @@ npm install iot-solutions -g
 
 ## <a name="sign-in-to-the-cli"></a>Logga in på CLI
 
-Innan du kan distribuera solution accelerator, måste du logga in på Azure-prenumerationen med hjälp av CLI:
+Innan du kan distribuera Solution Accelerator måste du logga in på din Azure-prenumeration med hjälp av CLI:
 
 ```cmd/sh
 pcs login
 ```
 
-Följ den på skärmen instruktionerna för att slutföra inloggningsprocessen.
+Följ anvisningarna på skärmen för att slutföra inloggnings processen.
 
 ## <a name="deployment-options"></a>Distributionsalternativ
 
-När du distribuerar solution accelerator, finns det flera alternativ som konfigurerar distributionsprocessen:
+När du distribuerar Solution Accelerator finns det flera alternativ som konfigurerar distributions processen:
 
 | Alternativ | Värden | Beskrivning |
 | ------ | ------ | ----------- |
-| SKU    | `basic`, `standard`, `local` | En _grundläggande_ distribution är avsedd för testning och demonstrationer, alla mikrotjänster distribueras till en virtuell dator. En _standard_ distribution är avsedd för produktion, mikrotjänster distribueras till flera virtuella datorer. En _lokala_ distribution konfigurerar en Docker-behållare för att köra mikrotjänster på den lokala datorn och använder Azure molntjänster, till exempel lagring och Cosmos DB. |
-| Körmiljö | `dotnet`, `java` | Väljer språk implementeringen av mikrotjänster. |
+| SKU    | `basic`, `standard`, `local` | En _grundläggande_ distribution är avsedd för test och demonstrationer och distribuerar alla mikrotjänster till en enda virtuell dator. En _standard_ distribution är avsedd för produktion och distribuerar mikrotjänster till flera virtuella datorer. En _lokal_ distribution konfigurerar en Docker-behållare för att köra mikrotjänster på den lokala datorn och använder Azure Cloud Services, t. ex. lagring och Cosmos dB. |
+| Körmiljö | `dotnet`, `java` | Väljer språk implementering av mikrotjänster. |
 
-Läs hur du använder alternativet för lokal distribution i [körs av lösningen för fjärrövervakning lokalt](iot-accelerators-remote-monitoring-deploy-local.md).
+Information om hur du använder det lokala distributions alternativet finns i [köra fjärr styrnings lösningen lokalt](iot-accelerators-remote-monitoring-deploy-local.md).
 
-## <a name="basic-and-standard-deployments"></a>Basic och standard-distributioner
+## <a name="basic-and-standard-deployments"></a>Basic-och standard-distributioner
 
-Det här avsnittet sammanfattas de största skillnaderna mellan en grundläggande och standard-distribution.
+I det här avsnittet sammanfattas viktiga skillnader mellan en Basic-och standard-distribution.
 
 ### <a name="basic"></a>Basic
 
-Du kan göra en grundläggande distribution från [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) eller med hjälp av CLI.
+Du kan utföra en grundläggande distribution från [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) eller med hjälp av cli.
 
-Basic-distributionen är anpassad för att visa upp lösningen. För att minska kostnaderna, distribueras alla mikrotjänster i en enskild virtuell dator. Den här distributionen använder inte en produktionsklar arkitektur.
+Grundläggande distribution är riktad mot att presentera lösningen. För att minska kostnaderna distribueras alla mikrotjänster på en enda virtuell dator. Den här distributionen använder inte en produktions klar arkitektur.
 
-En grundläggande distribution skapar följande tjänster i Azure-prenumerationen:
+En grundläggande distribution skapar följande tjänster i din Azure-prenumeration:
 
-| Count | Resource                       | Typ         | Används för |
+| Antal | Resurs                       | Typ         | Används för |
 |-------|--------------------------------|--------------|----------|
-| 1     | [Linux-dator](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Som är värd för mikrotjänster |
-| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Standard-nivån | Enhetshantering och kommunikation |
-| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Lagra konfigurationsdata, regler, aviseringar och andra kall lagring |  
-| 1     | [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Lagring för virtuell dator och strömma kontrollpunkter |
-| 1     | [Webbprogram](https://azure.microsoft.com/services/app-service/web/)        |                 | Som är värd för frontend-webbprogram |
-| 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Hantera användaridentiteter och säkerhet |
-| 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visa tillgången platser |
-| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 enheter              | Att aktivera analyser i realtid |
-| 1     | [Azure Device Provisioning-tjänsten](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Etablera enheter i stor skala |
-| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 enhet              | Lagring för meddelanden data och aktiverar djupdykning telemetrianalyser |
+| 1     | [Virtuell Linux-dator](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 v2  | Värd för mikrotjänster |
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – standard nivå | Enhets hantering och kommunikation |
+| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Lagra konfigurations data, regler, aviseringar och annan kall lagring |  
+| 1     | [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Lagring för VM-och strömmande kontroll punkter |
+| 1     | [Webb program](https://azure.microsoft.com/services/app-service/web/)        |                 | Värd för klient webb program |
+| 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Hantera användar identiteter och säkerhet |
+| 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visa till gångs platser |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 enheter              | Aktivera analys i real tid |
+| 1     | [Azure Device Provisioning-tjänst](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Etablering av enheter i stor skala |
+| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 enhet              | Lagring för meddelande data och möjliggör djupgående telemetri-analys |
 
 ### <a name="standard"></a>Standard
 
-Du kan göra en vanlig distribution endast med hjälp av CLI.
+Du kan bara utföra en standard distribution med hjälp av CLI.
 
-En vanlig distribution är en produktionsklar-distribution som utvecklare kan anpassa och utöka. Använd alternativet standarddistribution när du är redo att anpassa en arkitektur med produktionsklara, byggd för skalning och utökningsbarhet. Mikrotjänster för program skapas med Docker-behållare och distribueras via Azure Kubernetes Service. Distribuerar Kubernetes-orchestratorn, skalar och hanterar mikrotjänster.
+En standard distribution är en produktions färdig distribution som en utvecklare kan anpassa och utöka. Använd standard distributions alternativet när du är redo att anpassa en produktions färdig arkitektur, byggd för skalning och utökning. Application mikrotjänster skapas som Docker-behållare och distribueras med Azure Kubernetes-tjänsten. Kubernetes Orchestrator distribuerar, skalar och hanterar mikrotjänster.
 
-En vanlig distribution skapar följande tjänster i Azure-prenumerationen:
+En standard distribution skapar följande tjänster i din Azure-prenumeration:
 
-| Count | Resource                                     | SKU / Size      | Används för |
+| Antal | Resurs                                     | SKU/storlek      | Används för |
 |-------|----------------------------------------------|-----------------|----------|
-| 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Använd en fullständigt hanterad Kubernetes-behållare orchestration-tjänst, standardvärdet är 3 agenter|
-| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 – Standard-nivån | Enhetshantering, kommando och kontroll |
-| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Lagra konfigurationsdata och enhetstelemetri som regler, aviseringar och meddelanden |
-| 5     | [Azure Storage-konton](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 för VM-lagring och 1 för strömmande kontrollpunkter |
-| 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Programgateway via SSL |
-| 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Hantera användaridentiteter och säkerhet |
-| 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visa tillgången platser |
-| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 enheter              | Att aktivera analyser i realtid |
-| 1     | [Azure Device Provisioning-tjänsten](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Etablera enheter i stor skala |
-| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 enhet              | Lagring för meddelanden data och aktiverar djupdykning telemetrianalyser |
+| 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Använd en fullständigt hanterad Kubernetes container Orchestration-tjänst, som standard tre agenter|
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 – standard nivå | Enhets hantering, kommando och kontroll |
+| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Lagra konfigurations data och telemetri för enheter som regler, aviseringar och meddelanden |
+| 5     | [Azure Storage konton](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 för VM-lagring och 1 för de strömmande kontroll punkterna |
+| 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Application Gateway över SSL |
+| 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Hantera användar identiteter och säkerhet |
+| 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visa till gångs platser |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 enheter              | Aktivera analys i real tid |
+| 1     | [Azure Device Provisioning-tjänst](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Etablering av enheter i stor skala |
+| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 enhet              | Lagring för meddelande data och möjliggör djupgående telemetri-analys |
 
 > [!NOTE]
-> Du hittar information om priser för dessa tjänster enligt [ https://azure.microsoft.com/pricing ](https://azure.microsoft.com/pricing). Du kan hitta användning och fakturering uppgifterna för din prenumeration i den [Azure-portalen](https://portal.azure.com/).
+> Du kan hitta pris information för dessa tjänster på [https://azure.microsoft.com/pricing](https://azure.microsoft.com/pricing). Du kan hitta användnings-och fakturerings information för din prenumeration i [Azure Portal](https://portal.azure.com/).
 
-## <a name="deploy-the-solution-accelerator"></a>Distribuera solution accelerator
+## <a name="deploy-the-solution-accelerator"></a>Distribuera Solution Accelerator
 
-Exempel på distribution:
+Distributions exempel:
 
 ### <a name="example-deploy-net-version"></a>Exempel: distribuera .NET-version
 
-I följande exempel visas hur du distribuerar lösningsacceleratorn för fjärrövervakning basic-, .NET-versionen:
+I följande exempel visas hur du distribuerar Basic .NET-versionen av lösningen för fjärr styrnings lösningar:
 
 ```cmd/sh
 pcs -t remotemonitoring -s basic -r dotnet
@@ -119,40 +119,40 @@ pcs -t remotemonitoring -s basic -r dotnet
 
 ### <a name="example-deploy-java-version"></a>Exempel: distribuera Java-version
 
-I följande exempel visas hur du distribuerar lösningsacceleratorn för fjärrövervakning standard Java-versionen:
+I följande exempel visas hur du distribuerar standard-Java-versionen av Solution Accelerator för fjärr övervakning:
 
 ```cmd/sh
 pcs -t remotemonitoring -s standard -r java
 ```
 
-### <a name="pcs-command-options"></a>kommandoalternativ för datorer
+### <a name="pcs-command-options"></a>kommando alternativ för datorer
 
-När du kör den `pcs` kommando för att distribuera en lösning kan du blir tillfrågad om:
+När du kör kommandot `pcs` för att distribuera en lösning, uppmanas du att:
 
 - Ett namn för din lösning. Det här namnet måste vara unikt.
 - Den Azure-prenumeration som ska användas.
 - En plats.
-- Autentiseringsuppgifter för virtuella datorer som är värdar för mikrotjänster. Du kan använda dessa autentiseringsuppgifter för att få åtkomst till de virtuella datorerna för felsökning.
+- Autentiseringsuppgifter för de virtuella datorer som är värdar för mikrotjänsterna. Du kan använda dessa autentiseringsuppgifter för att få åtkomst till de virtuella datorerna för fel sökning.
 
-När den `pcs` kommandot har slutförts visas URL: en för din nya lösningsaccelerator. Den `pcs` kommandot skapar även en fil `{deployment-name}-output.json` som innehåller information som namnen på IoT-hubben som det skapats.
+När `pcs`-kommandot har slutförts visas URL: en för den nya Solution Accelerator. `pcs` kommandot skapar också en fil `{deployment-name}-output.json` som innehåller information, till exempel namnet på den IoT Hub som den skapade.
 
-Mer information om kommandoradsparametrar kör du:
+Mer information om kommando rads parametrar får du genom att köra:
 
 ```cmd/sh
 pcs -h
 ```
 
-Mer information om CLI finns i [hur du använder CLI](https://github.com/Azure/pcs-cli/blob/master/README.md).
+Mer information om CLI finns i [så här använder du CLI](https://github.com/Azure/pcs-cli/blob/master/README.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här guiden beskrivs hur du:
+I den här instruktions guiden har du lärt dig att:
 
 > [!div class="checklist"]
 > * Konfigurera lösningsacceleratorn
-> * Distribuera solution accelerator
-> * Logga in på solution accelerator
+> * Distribuera Solution Accelerator
+> * Logga in på Solution Accelerator
 
-Nu när du har distribuerat av lösningen för fjärrövervakning, nästa steg är att [utforska funktionerna i lösningens instrumentpanel](./quickstart-remote-monitoring-deploy.md).
+Nu när du har distribuerat lösningen för fjärrövervakning är nästa steg att [utforska funktionerna i lösningens instrument panel](./quickstart-remote-monitoring-deploy.md).
 
 <!-- Next how-to guides in the sequence -->

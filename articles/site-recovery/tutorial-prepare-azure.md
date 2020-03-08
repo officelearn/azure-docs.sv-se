@@ -9,11 +9,11 @@ ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 1ec668fac087773001ca401eefb5ca8bc10ea2b8
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620599"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367120"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Förbered Azure för lokal haveri beredskap till Azure
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Konfigurera ett virtuellt Azure-nätverk (VNet). När virtuella Azure-datorer skapas efter en redundansväxling är de anslutna till det här nätverket.
 
 > [!NOTE]
-> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikeln i avsnittet så här i Site Recovery innehålls förteckningen.
+> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där det är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikeln i avsnittet så här i Site Recovery innehålls förteckningen.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -59,7 +59,7 @@ För att slutföra dessa uppgifter måste ditt konto tilldelas en inbyggd roll s
 3. På sidan **skapa Recovery Services valv** väljer du **prenumerationen**. Vi använder **contoso-prenumerationen**.
 4. I **Resursgrupp** väljer du en befintlig resursgrupp eller skapar en ny. I den här självstudien använder vi **contosoRG**.
 5. I **valv namn**anger du ett eget namn som identifierar valvet. I de här självstudierna använder vi namnet **ContosoVMVault**.
-6. I **region**väljer du den region där valvet ska placeras. Använder vi **Västeuropa**.
+6. I **region**väljer du den region där valvet ska placeras. Använder vi **Europa, västra**.
 7. Välj **Granska + skapa**.
 
    ![Skapa ett nytt valv](./media/tutorial-prepare-azure/new-vault-settings.png)

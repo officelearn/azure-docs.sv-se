@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: motanv
 ms.openlocfilehash: 4bdb00eec38addc0c9f88eba8b73185ec5721277
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465583"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394440"
 ---
 # <a name="testability-actions"></a>Test åtgärder
 För att simulera en otillförlitlig infrastruktur ger Azure Service Fabric dig, utvecklaren med olika metoder för att simulera olika verkliga problem och tillstånds över gångar. De visas som testnings åtgärder. Åtgärderna är de lågnivå-API: er som orsakar en speciell fel inmatning, tillstånds över gång eller validering. Genom att kombinera dessa åtgärder kan du skriva omfattande test scenarier för dina tjänster.
@@ -30,7 +30,7 @@ För bättre kvalitets validering kör du tjänst-och affärs arbets belastninge
 ## <a name="testability-actions-list"></a>Åtgärds lista för testning
 | Åtgärd | Beskrivning | Hanterat API | PowerShell-cmdlet | Korrekt/oäkta fel |
 | --- | --- | --- | --- | --- |
-| CleanTestState |Tar bort alla test tillstånd från klustret i händelse av en felaktig avstängning av test driv rutinen. |CleanTestStateAsync |Remove-ServiceFabricTestState |Inte aktuellt |
+| CleanTestState |Tar bort alla test tillstånd från klustret i händelse av en felaktig avstängning av test driv rutinen. |CleanTestStateAsync |Remove-ServiceFabricTestState |Inte tillämpligt |
 | InvokeDataLoss |Inducerar data förlust i en tjänstmall. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Korrekt |
 | InvokeQuorumLoss |Placerar en tilldelad tillstånds känslig tjänst partition i kvorum förlust. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Korrekt |
 | En moveprimary |Flyttar den angivna primära repliken av en tillstånds känslig tjänst till den angivna klusternoden. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Korrekt |
@@ -40,10 +40,10 @@ För bättre kvalitets validering kör du tjänst-och affärs arbets belastninge
 | RestartNode |Simulerar ett fel med en Service Fabric klusternod genom att starta om en nod. |RestartNodeAsync |Restart-ServiceFabricNode |Okontrollerad |
 | RestartPartition |Simulerar ett inaktive rad-eller kluster inaktive rad-scenario genom att starta om några eller alla repliker av en partition. |RestartPartitionAsync |Restart-ServiceFabricPartition |Korrekt |
 | RestartReplica |Simulerar ett replik fel genom att starta om en bestående replik i ett kluster, stänga replikeringen och sedan öppna den igen. |RestartReplicaAsync |Restart-ServiceFabricReplica |Korrekt |
-| StartNode |Startar en nod i ett kluster som redan har stoppats. |StartNodeAsync |Start-ServiceFabricNode |Inte aktuellt |
+| StartNode |Startar en nod i ett kluster som redan har stoppats. |StartNodeAsync |Start-ServiceFabricNode |Inte tillämpligt |
 | StopNode |Simulerar ett nodfel genom att stoppa en nod i ett kluster. Noden kommer att stanna kvar tills StartNode anropas. |StopNodeAsync |Stop-ServiceFabricNode |Okontrollerad |
-| ValidateApplication |Kontrollerar tillgängligheten och hälsan för alla Service Fabric tjänster i ett program, vanligt vis efter inducing av fel i systemet. |ValidateApplicationAsync |Test-ServiceFabricApplication |Inte aktuellt |
-| ValidateService |Verifierar tillgängligheten och hälsan för en Service Fabric tjänst, vanligt vis efter inducing av fel i systemet. |ValidateServiceAsync |Test-ServiceFabricService |Inte aktuellt |
+| ValidateApplication |Kontrollerar tillgängligheten och hälsan för alla Service Fabric tjänster i ett program, vanligt vis efter inducing av fel i systemet. |ValidateApplicationAsync |Test-ServiceFabricApplication |Inte tillämpligt |
+| ValidateService |Verifierar tillgängligheten och hälsan för en Service Fabric tjänst, vanligt vis efter inducing av fel i systemet. |ValidateServiceAsync |Test-ServiceFabricService |Inte tillämpligt |
 
 ## <a name="running-a-testability-action-using-powershell"></a>Köra en test åtgärd med PowerShell
 Den här självstudien visar hur du kör en test åtgärd med hjälp av PowerShell. Du får lära dig hur du kör en test åtgärd mot ett lokalt kluster (en enda ruta) eller ett Azure-kluster. Microsoft. Fabric. PowerShell. dll--Service Fabric PowerShell-modulen--installeras automatiskt när du installerar Microsoft Service Fabric MSI. Modulen läses in automatiskt när du öppnar en PowerShell-prompt.

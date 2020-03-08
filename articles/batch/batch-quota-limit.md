@@ -15,11 +15,11 @@ ms.date: 08/13/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: c8a78acfa1f3e7332cee337ae1a82ee365fe356a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022978"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356250"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -54,7 +54,7 @@ Storleks gränser för pooler anges av batch-tjänsten. Till skillnad från [res
 | Pool för batch-Fakturapool | 80 |
 | **Compute-noder som [skapats med en hanterad avbildnings resurs](batch-custom-images.md)** <sup>1</sup> ||
 | Dedikerade noder | 2000 |
-| Lågprioriterade virtuella noder | 1 000 |
+| Lågprioriterade virtuella noder | 1000 |
 
 <sup>1</sup> för pooler som inte är kommunikation mellan noder aktive rad.
 
@@ -101,7 +101,7 @@ Följ dessa steg om du vill begära en kvot ökning för batch-kontot eller din 
       
     Välj **Nästa**.
     
-1. I **information**:
+1. I **Information**:
       
     a. I **Ange information**anger du plats, kvot typ och batch-konto.
     

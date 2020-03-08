@@ -3,12 +3,12 @@ title: Om databaser & avbildningar
 description: Introduktion till viktiga begrepp för Azure Container register,-databaser och behållar avbildningar.
 ms.topic: article
 ms.date: 09/10/2019
-ms.openlocfilehash: 9de0c344b226a0b13e76c7f02977ba3c91ba2d2a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ea6e2577d3eee91626dd613617a0b79e4ff3d6a1
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455285"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668923"
 ---
 # <a name="about-registries-repositories-and-images"></a>Om register, databaser och avbildningar
 
@@ -24,9 +24,7 @@ Förutom Docker-behållar avbildningar stöder Azure Container Registry relatera
 
 Adressen till en artefakt i ett Azure Container Registry innehåller följande element. 
 
-```
-[loginUrl]/[namespace]/[artifact:][tag]
-```
+`[loginUrl]/[namespace]/[artifact:][tag]`
 
 * **loginUrl** – det fullständigt kvalificerade namnet på register värden. Register värden i ett Azure Container Registry har formatet *register*. azurecr.IO (alla gemener). Du måste ange loginUrl när du använder Docker eller andra klient verktyg för att hämta eller push-artefakter till ett Azure Container Registry. 
 * **namnrymd** -avgränsad logisk gruppering av relaterade bilder eller artefakter – till exempel för en arbets grupp eller app
@@ -36,9 +34,7 @@ Adressen till en artefakt i ett Azure Container Registry innehåller följande e
 
 Till exempel kan det fullständiga namnet på en avbildning i ett Azure Container Registry se ut så här:
 
-```
-myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2
-```
+*myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2*
 
 I följande avsnitt finns mer information om de här elementen.
 
@@ -46,27 +42,24 @@ I följande avsnitt finns mer information om de här elementen.
 
 Behållar register hanterar *databaser*, samlingar med behållar avbildningar eller andra artefakter med samma namn, men olika taggar. Följande tre avbildningar finns till exempel i databasen "ACR-HelloWorld":
 
-```
-acr-helloworld:latest
-acr-helloworld:v1
-acr-helloworld:v2
-```
+
+- *ACR-HelloWorld: senaste*
+- *ACR-HelloWorld: v1*
+- *ACR-HelloWorld: v2*
 
 Namn på databaser kan även innehålla [namn områden](container-registry-best-practices.md#repository-namespaces). Med namn rymder kan du gruppera bilder med hjälp av snedstreck-avgränsade lagrings namn, till exempel:
 
-```
-marketing/campaign10-18/web:v2
-marketing/campaign10-18/api:v3
-marketing/campaign10-18/email-sender:v2
-product-returns/web-submission:20180604
-product-returns/legacy-integrator:20180715
-```
+- *Marketing/campaign10-18/webb: v2*
+- *Marketing/campaign10-18/API: v3*
+- *Marketing/campaign10-18/e-post-Sender: v2*
+- *produkt returer/webb sändning: 20180604*
+- *produkt retur/Legacy-Integrator: 20180715*
 
 ## <a name="image"></a>Bild
 
 En behållar avbildning eller en annan artefakt i ett register är kopplad till en eller flera taggar, har ett eller flera skikt, och identifieras av ett manifest. Att förstå hur dessa komponenter är relaterade till varandra kan hjälpa dig att hantera registret effektivt.
 
-### <a name="tag"></a>Tagg
+### <a name="tag"></a>Tagga
 
 *Taggen* för en bild eller en annan artefakt anger dess version. En enda artefakt i en lagrings plats kan tilldelas en eller flera taggar, och kan också vara "omärkt". Det innebär att du kan ta bort alla Taggar från en bild, medan bildens data (dess lager) finns kvar i registret.
 
@@ -92,8 +85,11 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName>
 
 Ange till exempel manifesten för databasen "ACR-HelloWorld":
 
-```console
-$ az acr repository show-manifests --name myregistry --repository acr-helloworld
+```azurecli
+az acr repository show-manifests --name myregistry --repository acr-helloworld
+```
+
+```output
 [
   {
     "digest": "sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108",
@@ -128,9 +124,7 @@ Du kan hämta en avbildning från ett register genom att ange dess Digest i pull
 
 Hämta till exempel en bild från lagrings platsen "ACR-HelloWorld" genom manifest sammandrag:
 
-```console
-$ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108
-```
+`docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108`
 
 > [!IMPORTANT]
 > Om du ofta skickar ändrade bilder med identiska taggar kan du skapa överblivna bilder – bilder som är otaggade, men som fortfarande använder utrymme i registret. Otaggade bilder visas inte i Azure CLI eller i Azure Portal när du listar eller visar bilder efter tagg. Men deras lager finns fortfarande kvar och tar upp utrymme i registret. När du tar bort en otaggade bild frigörs register utrymmet när manifestet är det enda, eller det sista, som pekar på ett visst lager. Information om hur du frigör utrymme som används av otaggade bilder finns i [ta bort behållar avbildningar i Azure Container Registry](container-registry-delete.md).

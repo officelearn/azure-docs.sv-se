@@ -1,6 +1,6 @@
 ---
 title: Klona en volym på StorSimple 8000-serien | Microsoft Docs
-description: Beskriver olika klona typer och användning och förklarar hur du kan använda en säkerhetskopia för att klona en enskild volym på en enhet i StorSimple 8000-serien.
+description: Beskriver de olika klonings typerna och användningen och förklarar hur du kan använda en säkerhets kopia för att klona en enskild volym på en StorSimple 8000-serie enhet.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,109 +15,109 @@ ms.workload: TBD
 ms.date: 12/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 84734aefb72a3330d99c5707b461de2cd5e30484
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60637922"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381870"
 ---
-# <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Använda StorSimple Device Manager-tjänsten i Azure-portalen för att klona en volym
+# <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Använda tjänsten StorSimple Enhetshanteraren i Azure Portal för att klona en volym
 
 ## <a name="overview"></a>Översikt
 
-Den här självstudien beskrivs hur du kan använda en säkerhetskopia för att klona en enskild volym via den **säkerhetskopieringskatalog** bladet. Det förklarar också skillnaden mellan *tillfälliga* och *permanent* klonar. Riktlinjerna i den här självstudien gäller för alla StorSimple 8000-serien enheten som kör uppdatering 3 eller senare.
+I den här självstudien beskrivs hur du kan använda en säkerhets kopia för att klona en enskild volym via bladet **säkerhets kopierings katalog** . Det förklarar också skillnaden mellan *tillfälliga* och *permanenta* kloner. Vägledningen i den här självstudien gäller för alla enheter i StorSimple 8000-serien som kör uppdatering 3 eller senare.
 
-StorSimple Device Manager-tjänsten **säkerhetskopieringskatalog** bladet visar alla säkerhetskopior som skapas när manuella eller automatiska säkerhetskopior tas. Du kan sedan välja en volym i en säkerhetskopia för att klona.
+Bladet StorSimple Enhetshanteraren service **backup-katalog** visar alla säkerhets kopior som skapas när manuella eller automatiserade säkerhets kopieringar görs. Du kan sedan välja en volym i en säkerhets kopierings uppsättning att klona.
 
- ![Säkerhetskopian lista](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
+ ![Lista över säkerhets kopie uppsättningar](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
 
-## <a name="considerations-for-cloning-a-volume"></a>Överväganden för att klona en volym
+## <a name="considerations-for-cloning-a-volume"></a>Att tänka på när du klonar en volym
 
-Tänk på följande när du klonar en volym.
+Överväg följande information när du klonar en volym.
 
-- En klon fungerar på samma sätt som en vanlig volym. Åtgärder som är möjligt på en volym är tillgänglig för klonade.
+- En klon fungerar på samma sätt som en vanlig volym. Varje åtgärd som är möjlig på en volym är tillgänglig för klonen.
 
-- Övervaknings- och standard säkerhetskopiering inaktiveras automatiskt på en klonad volym. Du skulle behöva konfigurera en klonad volym för eventuella säkerhetskopior.
+- Övervakning och standard säkerhets kopiering inaktive ras automatiskt på en klonad volym. Du måste konfigurera en klonad volym för säkerhets kopieringar.
 
-- En lokalt Fäst volym är klonas en nivåindelad volym. Om du behöver den klonade volymen till fästas lokalt kan konvertera du klonade till en lokalt Fäst volym när kopieringen har slutförts. Information om hur du konverterar en nivåindelad volym till en lokalt Fäst volym, går du till [ändra volymtyp](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
+- En lokalt fäst volym klonas som en nivå volym. Om du behöver en klonad volym som fästs lokalt kan du konvertera klonen till en lokalt fäst volym när klonings åtgärden har slutförts. Information om hur du konverterar en nivå volym till en lokalt fäst volym finns i [ändra volym typ](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
 
-- Om du försöker konvertera en klonad volym från misslyckas nivåindelad till lokalt fixerade omedelbart efter att Kloningen (när det är fortfarande en tillfälliga klon), konverteringen med följande felmeddelande visas:
+- Om du försöker konvertera en klonad volym från nivå till lokalt fäst omedelbart efter kloning (när den fortfarande är en tillfällig klon), Miss lyckas konverteringen med följande fel meddelande:
 
     `Unable to modify the usage type for volume {0}. This can happen if the volume being modified is a transient clone and hasn’t been made permanent. Take a cloud snapshot of this volume and then retry the modify operation.`
 
-    Det här felet visas bara om du klona in på en annan enhet. Du konverterar volymen till lokalt fixerade om du först konvertera tillfälliga klonen till en permanent kloning. Ta en molnögonblicksbild av tillfälliga klonen att konvertera den till en permanent kloning.
+    Det här felet tas emot endast om du klonar på en annan enhet. Du kan konvertera volymen till lokalt fäst om du först konverterar den tillfälliga klonen till en permanent klon. Ta en moln ögonblicks bild av den tillfälliga klonen för att konvertera den till en permanent klon.
 
 ## <a name="create-a-clone-of-a-volume"></a>Skapa en klon av en volym
 
-Du kan skapa en klon på samma enhet, en annan enhet eller även en molninstallation med hjälp av en lokal eller ögonblicksbild i molnet.
+Du kan skapa en klon på samma enhet, en annan enhet eller till och med en moln installation genom att använda en lokal eller molnbaserad ögonblicks bild.
 
-Proceduren nedan beskriver hur du skapar en klon från säkerhetskopieringskatalogen.  En alternativ metod för att initiera klon är att gå till **volymer**, markera en volym och högerklicka för att öppna snabbmenyn och välja **klona**.
+I proceduren nedan beskrivs hur du skapar en klon från säkerhets kopierings katalogen.  En alternativ metod för att initiera kloningen är att gå till **volymer**, välja en volym, högerklicka för att anropa snabb menyn och välja **klona**.
 
-Utför följande steg för att skapa en klon av volymen från säkerhetskopieringskatalogen.
+Utför följande steg för att skapa en klon av din volym från säkerhets kopierings katalogen.
 
 #### <a name="to-clone-a-volume"></a>Klona en volym
 
-1. Gå till StorSimple Device Manager-tjänsten och klicka sedan på **säkerhetskopieringskatalog**.
+1. Gå till StorSimple Enhetshanteraren-tjänsten och klicka sedan på **säkerhets kopierings katalog**.
 
-2. Välj en säkerhetskopia på följande sätt:
+2. Välj en säkerhets kopierings uppsättning enligt följande:
    
-   1. Välj rätt enhet.
-   2. I listrutan, väljer du den volym eller säkerhetskopiering principen för säkerhetskopiering som du vill välja.
+   1. Välj lämplig enhet.
+   2. I list rutan väljer du den volym eller säkerhets kopierings princip för säkerhets kopian som du vill välja.
    3. Ange tidsintervallet.
-   4. Klicka på **tillämpa** att köra frågan.
+   4. Klicka på **tillämpa** för att köra den här frågan.
 
-      Säkerhetskopiorna som är associerade med den valda volymen eller princip för säkerhetskopiering ska visas i listan över säkerhetskopieringsuppsättningar.
+      De säkerhets kopior som är associerade med den valda volymen eller säkerhets kopierings principen visas i listan över säkerhets kopior.
    
-      ![Säkerhetskopian lista](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
+      ![Lista över säkerhets kopie uppsättningar](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
-3. Expandera den säkerhetskopia du vill visa associerade volymen och välj en volym i en säkerhetskopia. Högerklicka och välj sedan snabbmenyn **klona**.
+3. Expandera säkerhets kopian om du vill visa den associerade volymen och välj en volym i en säkerhets kopia. Högerklicka och välj sedan **klona**på snabb menyn.
 
-   ![Säkerhetskopian lista](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
+   ![Lista över säkerhets kopie uppsättningar](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 
-3. I den **klona** bladet gör följande:
+3. Utför följande steg på bladet **klona** :
    
-   1. Identifiera en målenhet. Detta är den plats där klonen ska skapas. Du kan välja samma enhet eller ange en annan enhet.
+   1. Identifiera en målenhet. Detta är den plats där klonen kommer att skapas. Du kan välja samma enhet eller ange en annan enhet.
 
       > [!NOTE]
-      > Se till att den kapacitet som krävs för klonade är lägre än kapaciteten som är tillgängliga på målenheten.
+      > Kontrol lera att kapaciteten som krävs för klonen är lägre än den kapacitet som är tillgänglig på mål enheten.
        
-   2. Ange ett unikt volymnamn för din klon. Namnet måste innehålla mellan 3 och 127 tecken.
+   2. Ange ett unikt volym namn för klonen. Namnet måste innehålla mellan 3 och 127 tecken.
       
        > [!NOTE]
-       > Den **klona volymen som** pole bude **Nivåindelad** även om du klona en lokalt Fäst volym. Du kan inte ändra den här inställningen; men om du behöver den klonade volymen till fästas lokalt samt, kan du konvertera klonen till en lokalt Fäst volym när du har skapat klonen. Information om hur du konverterar en nivåindelad volym till en lokalt Fäst volym, går du till [ändra volymtyp](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
+       > Fältet **klona volym som** visas i **nivå** även om du klonar en lokalt fäst volym. Du kan inte ändra den här inställningen. men om du vill att den klonade volymen ska fästa lokalt kan du konvertera klonen till en lokalt fäst volym när du har skapat klonen. Information om hur du konverterar en nivå volym till en lokalt fäst volym finns i [ändra volym typ](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
           
-   3. Under **anslutna värdar**, ange en åtkomstkontrollpost (ACR) för klonade. Du kan lägga till en ny ACR eller välj i listan befintliga. I ACR avgör vilka värdar som kan komma åt den här klonen.
+   3. Under **anslutna värdar**anger du en åtkomst kontroll post (ACR) för klonen. Du kan lägga till en ny ACR eller välja från den befintliga listan. ACR avgör vilka värdar som har åtkomst till den här klonen.
       
-       ![Säkerhetskopian lista](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
+       ![Lista över säkerhets kopie uppsättningar](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
 
-   4. Klicka på **klona** att slutföra åtgärden.
+   4. Slutför åtgärden genom att klicka på **klona** .
 
-4. En kloningsjobb initieras och du meddelas när klonen har skapats. Klicka på meddelandet för jobbet eller gå till **jobb** bladet för att övervaka jobbet kloning.
+4. Ett klonings jobb initieras och du får ett meddelande när klonen har skapats. Klicka på arbets aviseringen eller gå till bladet **jobb** för att övervaka klonings jobbet.
 
-    ![Säkerhetskopian lista](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
+    ![Lista över säkerhets kopie uppsättningar](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
 
-7. När kloningsjobb är klar går du till din enhet och klicka sedan på **volymer**. I listan över volymer, bör du se klonen som nyss skapades i volymbehållaren för samma som har volymen.
+7. När klonings jobbet är klart går du till din enhet och klickar sedan på **volymer**. I listan över volymer bör du se den klon som precis har skapats i samma volym behållare som har käll volymen.
 
-    ![Säkerhetskopian lista](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
+    ![Lista över säkerhets kopie uppsättningar](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
 
-En klon som skapas på så sätt är en tillfälliga kloning. Läs mer om klonen typer [tillfälliga och permanenta kloner](#transient-vs-permanent-clones).
+En klon som skapas på det här sättet är en tillfällig klon. Mer information om klonings typer finns i [tillfälliga och permanenta kloner](#transient-vs-permanent-clones).
 
 
-## <a name="transient-vs-permanent-clones"></a>Tillfälligt eller permanent kloner
-Tillfälliga kloner skapas bara när du klonar till en annan enhet. Du kan klona en viss volym från en säkerhetskopia till en annan enhet som hanteras av StorSimple Device Manager. Tillfälliga klonen har referenser till data i den ursprungliga volymen och använder dessa data att läsa och skriva lokalt på målenheten.
+## <a name="transient-vs-permanent-clones"></a>Tillfälliga eller permanenta kloner
+Tillfälliga kloner skapas bara när du klonar till en annan enhet. Du kan klona en särskild volym från en säkerhets kopia till en annan enhet som hanteras av StorSimple-Enhetshanteraren. Den tillfälliga klonen har referenser till data på den ursprungliga volymen och använder dessa data för att läsa och skriva lokalt på mål enheten.
 
-När du har en ögonblicksbild i molnet med tillfälliga klonen resulterande klonen är en *permanent* kloning. Under den här processen skapas en kopia av data i molnet och tiden för att kopiera dessa data bestäms av storleken på data och Azure fördröjning (detta är en kopia av Azure till Azure). Den här processen kan ta dagar till veckor. Tillfälliga klonen blir en permanent kloning och har inte några referenser till den ursprungliga volymdata som den klonats från.
+När du tar en moln ögonblicks bild av en tillfällig klon är den resulterande klonen en *permanent* klon. Under den här processen skapas en kopia av data i molnet och tiden för att kopiera dessa data bestäms av storleken på data och Azure-fördröjningar (detta är en Azure-till-Azure-kopia). Den här processen kan ta flera dagar till veckor. Den tillfälliga klonen blir en permanent klon och har inga referenser till de ursprungliga volym data som den klonades från.
 
 ## <a name="scenarios-for-transient-and-permanent-clones"></a>Scenarier för tillfälliga och permanenta kloner
 I följande avsnitt beskrivs exempel situationer där tillfälliga och permanenta kloner kan användas.
 
-### <a name="item-level-recovery-with-a-transient-clone"></a>Återställning på objektnivå med en tillfälliga klon
-Du behöver återställa en en-year-old Microsoft PowerPoint-fil. IT-administratören identifierar säkerhetskopieringen från den tiden och filtrerar volymen. Administratören sedan klonar volymen, söker efter den fil som du söker efter och tillhandahåller den. I det här scenariot används en tillfälliga kloning.
+### <a name="item-level-recovery-with-a-transient-clone"></a>Återställning på objekt nivå med en tillfällig klon
+Du måste återställa en en-årets gamla presentations fil i Microsoft PowerPoint. IT-administratören identifierar den aktuella säkerhets kopian från den tiden och filtrerar sedan volymen. Administratören klonar sedan volymen, letar upp den fil som du letar efter och ger dig den. I det här scenariot används en tillfällig klon.
 
-### <a name="testing-in-the-production-environment-with-a-permanent-clone"></a>Testa i produktionsmiljö med en permanent kloning
-Du behöver verifiera en testning bugg i produktionsmiljön. Du skapar en klon av volymen i produktionsmiljön och sedan ta en molnögonblicksbild av den här klonen för att skapa en oberoende klonad volym. I det här scenariot används en permanent kloning.
+### <a name="testing-in-the-production-environment-with-a-permanent-clone"></a>Testa i produktions miljön med en permanent klon
+Du måste verifiera en test-bugg i produktions miljön. Du skapar en klon av volymen i produktions miljön och tar en moln ögonblicks bild av den här klonen för att skapa en oberoende klonad volym. I det här scenariot används en permanent klon.
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur du [återställa en StorSimple-volym från en säkerhetskopia](storsimple-8000-restore-from-backup-set-u2.md).
-* Lär dig hur du [använda StorSimple Device Manager-tjänsten för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* Lär dig hur du [återställer en StorSimple-volym från en säkerhets kopia](storsimple-8000-restore-from-backup-set-u2.md).
+* Lär dig hur du [använder tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
 

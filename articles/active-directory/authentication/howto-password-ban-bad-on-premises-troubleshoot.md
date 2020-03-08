@@ -1,6 +1,6 @@
 ---
-title: Fel sökning av lösen ords skydd – Azure Active Directory
-description: Förstå vanliga fel sökning av lösen ords skydd i Azure AD
+title: Felsöka lokalt Azure AD-lösenord för lösen ords skydd
+description: Lär dig hur du felsöker Azure AD Password Protection för en lokal Active Directory Domain Services miljö
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd609eb1f289c0a104bddaa08a60e7dc6202acee
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847668"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671747"
 ---
-# <a name="azure-ad-password-protection-troubleshooting"></a>Fel sökning av lösen ords skydd i Azure AD
+# <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Felsöka: lokalt Azure AD-lösenord
 
 Efter distributionen av lösen ords skydd i Azure AD kan det krävas fel sökning. Den här artikeln beskriver hur du kan förstå några vanliga fel söknings steg.
 
@@ -82,9 +82,9 @@ Det här problemet kan ha flera orsaker.
 
 1. Det går inte att hämta en princip eller också går det inte att dekryptera befintliga principer. Sök efter möjliga orsaker i ovanstående avsnitt.
 
-1. Lösen ords principen tvinga fram läge är fortfarande inställt på granskning. Om den här konfigurationen är aktive rad konfigurerar du om den så att den tillämpas med hjälp av Azure AD-portalen för lösen ords skydd. Se [Aktivera lösen ords skydd](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. Lösen ords principen tvinga fram läge är fortfarande inställt på granskning. Om den här konfigurationen är aktive rad konfigurerar du om den så att den tillämpas med hjälp av Azure AD-portalen för lösen ords skydd. Mer information finns i [drifts lägen](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
 
-1. Lösen ords principen har inaktiverats. Om den här konfigurationen gäller konfigurerar du om den så att den aktive ras med Azure AD-portalen för lösen ords skydd. Se [Aktivera lösen ords skydd](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. Lösen ords principen har inaktiverats. Om den här konfigurationen gäller konfigurerar du om den så att den aktive ras med Azure AD-portalen för lösen ords skydd. Mer information finns i [drifts lägen](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
 
 1. Du har inte installerat DC-agentens program vara på alla domänkontrollanter i domänen. I den här situationen är det svårt att se till att fjärranslutna Windows-klienter är riktade mot en viss domänkontrollant under en ändring av lösen ord. Om du tror att du har en viss DOMÄNKONTROLLANT där DC-agenten är installerad, kan du kontrol lera genom att dubbelklicka på händelse loggen för DC-agentens administratör: oavsett resultatet måste det finnas minst en händelse för att dokumentera resultatet av lösen ordet signaturverifiering. Om det inte finns någon händelse för den användare vars lösen ord har ändrats, bearbetades förmodligen lösen ords ändringen av en annan domänkontrollant.
 
@@ -189,13 +189,13 @@ PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion 
 
 Azure AD-proxyn för lösen ords skydd är inte tidsbegränsad i någon version. Microsoft rekommenderar fortfarande att både DC-och proxy-agenter uppgraderas till de senaste versionerna när de släpps. `Get-AzureADPasswordProtectionProxy` cmdlet kan användas för att hitta proxyservrar som kräver uppgraderingar, ungefär som i exemplet ovan för DC-agenter.
 
-Se [Uppgradera DC-agenten](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) och [Uppgradera proxyagenten](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) för mer information om de olika uppgraderings procedurerna.
+Se [Uppgradera DC-agenten](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) och [Uppgradera proxyservern](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-service) för mer information om de olika uppgraderings procedurerna.
 
 ## <a name="emergency-remediation"></a>Nöd reparation
 
 Om en situation uppstår där DC-agenttjänsten orsakar problem kan DC-agenttjänsten stängas omedelbart. DLL-filen med lösen ords filter för DC-agenten försöker fortfarande anropa tjänsten som inte körs och loggar varnings händelser (10012 10013), men alla inkommande lösen ord godkänns under den tiden. DC-agenttjänsten kan sedan också konfigureras via Windows Service Control Manager med start typen "Disabled" vid behov.
 
-Ett annat åtgärds mått är att ställa in läget aktivera på Nej i Azure AD-portalen för lösen ords skydd. När den uppdaterade principen har laddats ned hamnar varje DC-agenttjänsten i ett quiescent-läge där alla lösen ord godkänns. Mer information finns i [Framtvinga läge](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
+Ett annat åtgärds mått är att ställa in läget aktivera på Nej i Azure AD-portalen för lösen ords skydd. När den uppdaterade principen har laddats ned hamnar varje DC-agenttjänsten i ett quiescent-läge där alla lösen ord godkänns. Mer information finns i [drifts lägen](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
 
 ## <a name="removal"></a>Borttagning
 

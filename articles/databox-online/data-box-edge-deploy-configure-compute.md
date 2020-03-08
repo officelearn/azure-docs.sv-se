@@ -10,13 +10,13 @@ ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: b641ae62ba6e0cdacaeb46b1ffee2f02c7544763
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277234"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397322"
 ---
-# <a name="tutorial-transform-data-with-azure-data-box-edge"></a>Självstudier: Transformera data med Azure Data Box Edge
+# <a name="tutorial-transform-data-with-azure-data-box-edge"></a>Självstudie: transformera data med Azure Data Box Edge
 
 I den här självstudien beskrivs hur du konfigurerar en beräkningsroll på din Azure Data Box Edge-enhet. Efter att du konfigurerat beräkningsrollen så kan Data Box Edge transformera data innan de skickas till Azure.
 
@@ -50,10 +50,10 @@ Om du vill konfigurera beräkning på Data Box Edge skapar du en IoT Hub resurs.
 3. Ange följande på bladet **Konfigurera Edge Compute** :
 
    
-    |Fält  |Value  |
+    |Field  |Värde  |
     |---------|---------|
-    |IoT-hubb     | Välj från **ny** eller **befintlig**. <br> Som standard används en standard-nivå (S1) för att skapa en IoT-resurs. Om du vill använda en IoT-resurs på kostnads fri nivå skapar du en och väljer sedan den befintliga resursen. <br> I varje fall använder IoT Hub resursen samma prenumeration och resurs grupp som används av Data Box Edge resursen.     |
-    |Name     |Ange ett namn för din IoT Hub-resurs.         |
+    |IoT Hub     | Välj från **ny** eller **befintlig**. <br> Som standard används en standard-nivå (S1) för att skapa en IoT-resurs. Om du vill använda en IoT-resurs på kostnads fri nivå skapar du en och väljer sedan den befintliga resursen. <br> I varje fall använder IoT Hub resursen samma prenumeration och resurs grupp som används av Data Box Edge resursen.     |
+    |Namn     |Ange ett namn för din IoT Hub-resurs.         |
 
     ![Kom igång med Compute](./media/data-box-edge-deploy-configure-compute/configure-compute-2.png)
 
@@ -109,15 +109,15 @@ I det här avsnittet så lägger du till en anpassad modul till den IoT Edge-enh
 2. Ange följande värden i bladet **Konfigurera och Lägg till modul** :
 
     
-    |Fält  |Value  |
+    |Field  |Värde  |
     |---------|---------|
-    |Name     | Ett unikt namn för modulen. Den här modulen är en Docker-behållare som du kan distribuera till den IoT Edge enhet som är kopplad till din Data Box Edge.        |
-    |URI för avbildning     | Avbildnings-URI för motsvarande behållar avbildning för modulen.        |
+    |Namn     | Ett unikt namn för modulen. Den här modulen är en Docker-behållare som du kan distribuera till den IoT Edge enhet som är kopplad till din Data Box Edge.        |
+    |Bild-URI     | Avbildnings-URI för motsvarande behållar avbildning för modulen.        |
     |Autentiseringsuppgifter krävs     | Om det här alternativet markeras används användar namn och lösen ord för att hämta moduler med en matchande URL.        |
     |Inmatad resurs     | Välj en inmatad resurs. Den lokala Edge-resursen är den ingående resursen i det här fallet. Modulen som används här flyttar filer från den lokala Edge-resursen till en Edge-resurs där de överförs till molnet.        |
     |Utgående resurs     | Välj en utgående resurs. Edge-resursen är den utgående resursen i det här fallet.        |
-    |Utlösartyp     | Välj från **fil** eller **schema**. En fil utlösare utlöses när en fil händelse inträffar, till exempel att en fil skrivs till den angivna resursen. En schemalagd utlösare aktive ras baserat på ett schema som definierats av dig.         |
-    |Namn på utlösare     | Ett unikt namn för utlösaren.         |
+    |Utlösnings typ     | Välj från **fil** eller **schema**. En fil utlösare utlöses när en fil händelse inträffar, till exempel att en fil skrivs till den angivna resursen. En schemalagd utlösare aktive ras baserat på ett schema som definierats av dig.         |
+    |Utlösarens namn     | Ett unikt namn för utlösaren.         |
     |Miljövariabler| Valfri information som hjälper dig att definiera miljön där modulen ska köras.   |
 
     ![Lägg till och konfigurera modul](./media/data-box-edge-deploy-configure-compute/add-module-1.png)

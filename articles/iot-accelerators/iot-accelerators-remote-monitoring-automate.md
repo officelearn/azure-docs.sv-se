@@ -10,11 +10,11 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888877"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392227"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Självstudie: Identifiera problem med enheter som är anslutna till din övervakningslösning
 
@@ -24,7 +24,7 @@ I självstudiekursen använder vi regler och aviseringar för ett simulerat kyla
 
 Du har också blivit ombedd att skapa en kritisk avisering för ett kylaggregat när den genomsnittliga luftfuktigheten i enheten varit högre än 80 % och enhetens temperatur varit högre än 75 grader fahrenheit under de senaste fem minuterna.
 
-I den här kursen för du göra följande:
+I den här kursen får du:
 
 >[!div class="checklist"]
 > * Visa regler i din lösning

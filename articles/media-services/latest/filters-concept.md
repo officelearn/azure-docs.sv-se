@@ -14,75 +14,75 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66225419"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388106"
 ---
 # <a name="filters"></a>Filter
 
-När du levererar ditt innehåll till kunder (liveuppspelningshändelser eller Video på begäran) kanske klienten behöver mer flexibilitet än vad som beskrivs i standard-tillgången manifestfil. Azure Media Services erbjuder [dynamiska manifest](filters-dynamic-manifest-overview.md) baserat på fördefinierade filter. 
+När du levererar ditt innehåll till kunder (direkt uppspelnings händelser eller video på begäran) kan din klient behöva större flexibilitet än vad som beskrivs i standard till gångens manifest fil. Azure Media Services erbjuder [dynamiska manifest](filters-dynamic-manifest-overview.md) baserat på fördefinierade filter. 
 
-Filtren är serversidan regler som tillåter dina kunder att till exempel: 
+Filter är regler på Server sidan som gör det möjligt för dina kunder att göra saker som: 
 
-- Spela upp endast en del av en video (i stället för hela videon). Exempel:
-  - Minska manifest för att visa ett underordnade klipp en direktsändning (”underklipp filtrering”), eller
-  - Trimma början av en video (”trimmar en video”).
-- Leverera endast den angivna återgivningar och/eller spårar för angivet språk som stöds av den enhet som används för att spela upp innehållet (”återgivningsfiltrering”). 
-- Justera Presentation fönstret (DVR) för att tillhandahålla en begränsad tidslängd DVR-perioden i spelaren (”justera presentationsfönster”).
+- Spela bara upp en del av en video (i stället för att spela upp hela videon). Exempel:
+  - Minska manifestet för att visa ett under klipp av en live event ("under klipps filtrering") eller
+  - Trimma början på en video ("trimma en video").
+- Leverera endast de angivna åter givningarna och/eller angivna språk spår som stöds av enheten som används för att spela upp innehållet ("åter givnings filtrering"). 
+- Justera presentations fönster (DVR) för att tillhandahålla en begränsad längd på DVR-fönstret i spelaren ("justera presentations fönstret").
 
-Media Services kan du skapa **konto filter** och **tillgången filter** för ditt innehåll. Dessutom kan du associera din förinställda filter med en **Strömningspositionerare**.
+Med Media Services kan du skapa **konto filter** och **till gångs filter** för ditt innehåll. Dessutom kan du associera dina redan skapade filter med en **strömmande positionerare**.
 
 ## <a name="defining-filters"></a>Definiera filter
 
 Det finns två typer av filter: 
 
-* [Kontot filter](https://docs.microsoft.com/rest/api/media/accountfilters) (global) - kan tillämpas på alla tillgångar i Media Services-konto, har en livslängd på kontot.
-* [Tillgången filter](https://docs.microsoft.com/rest/api/media/assetfilters) (lokal) – endast kan tillämpas på en tillgång som filtret associerades när den har skapats, har en livslängd på tillgången. 
+* [Konto filter](https://docs.microsoft.com/rest/api/media/accountfilters) (global) – kan användas för alla till gångar i Azure Media Services kontot, ha en livstid för kontot.
+* [Till gångs filter](https://docs.microsoft.com/rest/api/media/assetfilters) (lokal) – kan bara användas för en till gång som filtret var associerat med när det skapades, har en livs längd för till gången. 
 
-**Kontot filter** och **tillgången filter** typer har exakt samma egenskaper för att definiera/beskriva filtret. Förutom när du skapar den **tillgången Filter**, måste du ange Tillgångsnamn som du vill associera filtret.
+**Konto filter** och typer av **till gångs filter** har exakt samma egenskaper för att definiera/beskriva filtret. Förutom när du skapar **till gångs filtret**måste du ange namnet på den till gång som du vill koppla filtret till.
 
-Beroende på ditt scenario bestämma du vilken typ av ett filter är lämpligare (tillgången Filter eller kontofilter). Kontofilter är lämpliga för enhetsprofiler (återgivningsfiltrering) där tillgången filter kan användas för att trimma en specifik tillgång.
+Beroende på ditt scenario bestämmer du vilken typ av filter som är lämpligare (till gångs filter eller konto filter). Konto filter är lämpliga för enhets profiler (åter givnings filtrering) där till gångs filter kan användas för att trimma en speciell till gång.
 
 Du kan använda följande egenskaper för att beskriva filtren. 
 
 |Namn|Beskrivning|
 |---|---|
-|firstQuality|Första kvalitet bithastigheten av filtret.|
-|presentationTimeRange|Tidsintervallet för presentation. Den här egenskapen används för att filtrera manifest start-/ slutpunkter, presentation längd och live startpositionen. <br/>Mer information finns i [PresentationTimeRange](#presentationtimerange).|
-|spår|Spårar val av villkor. Mer information finns i [spår](#tracks)|
+|firstQuality|Den första kvalitets bit hastigheten för filtret.|
+|presentationTimeRange|Tids området för presentationen. Den här egenskapen används för att filtrera manifest start-/slut punkter, presentations fönster längd och start position. <br/>Mer information finns i [PresentationTimeRange](#presentationtimerange).|
+|Spårar|Villkoren för att spåra val. Mer information finns i [spår](#tracks)|
 
 ### <a name="presentationtimerange"></a>presentationTimeRange
 
-Använd den här egenskapen med **tillgången filter**. Det rekommenderas inte att ange egenskapen med **kontofilter**.
+Använd den här egenskapen med **till gångs filter**. Vi rekommenderar inte att du anger egenskapen med **konto filter**.
 
 |Namn|Beskrivning|
 |---|---|
-|**endTimestamp**|Gäller för Video på begäran (VoD).<br/>För Live Streaming-presentation är det tyst ignoreras och tillämpas när det presentation upphört att gälla och dataströmmen blir VoD.<br/>Det här är ett långt värde som representerar en absolut slutpunkt i presentationen, avrundat till närmaste nästa GOP-start. Enheten är tidsskalan, så en endTimestamp av 1800000000 skulle vara för 3 minuter.<br/>Använd startTimestamp och endTimestamp att trimma fragment som ska ingå i listan (manifest).<br/>Till exempel startTimestamp = 40000000 och endTimestamp = 100000000 med hjälp av standard-tidsskalan genererar en spellista som innehåller fragment finns mellan 4 sekunder och 10 sekunder för VoD-presentationen. Om ett fragment är gränsen, inkluderas hela fragment i manifestet.|
-|**forceEndTimestamp**|Gäller endast direktsänd strömning.<br/>Anger om egenskapen endTimestamp måste finnas. Om värdet är true endTimestamp måste anges eller en felaktig begäran kod returneras.<br/>Tillåtna värden: FALSKT, SANT.|
-|**liveBackoffDuration**|Gäller endast direktsänd strömning.<br/> Det här värdet anger den senaste direktsända positionen som en klient kan försöka.<br/>Med den här egenskapen kan kan du fördröja live uppspelning position och skapa en buffert på serversidan för spelare.<br/>Enheten för den här egenskapen är tidsskalan (se nedan).<br/>Högsta live backoff varaktighet är 300 sekunder (3000000000).<br/>Till exempel ett värde av 2000000000 innebär att det senaste innehållet är 20 sekunder fördröjd från möjlighet att få gränsen.|
-|**presentationWindowDuration**|Gäller endast direktsänd strömning.<br/>Använda presentationWindowDuration för att tillämpa ett skjutfönster av fragment ska ingå i en spellista.<br/>Enheten för den här egenskapen är tidsskalan (se nedan).<br/>Till exempel presentationWindowDuration = 1200000000 för att tillämpa en glidande tvåminutersperiod. Media inom två minuter av live edge ska ingå i listan. Om ett fragment är gränsen, inkluderas hela fragment i listan. Minsta presentation fönstervaraktigheten är 60 sekunder.|
-|**startTimestamp**|Gäller för Video på begäran (VoD) eller direktsänd strömning.<br/>Det här är ett långt värde som representerar en absolut startpunkt på dataströmmen. Värdet hämtar avrundat till närmaste nästa GOP början. Enheten är tidsskalan, så en startTimestamp av 150000000 skulle vara för 15 sekunder.<br/>Använd startTimestamp och endTimestampp att trimma fragment som ska ingå i listan (manifest).<br/>Till exempel startTimestamp = 40000000 och endTimestamp = 100000000 med hjälp av standard-tidsskalan genererar en spellista som innehåller fragment finns mellan 4 sekunder och 10 sekunder för VoD-presentationen. Om ett fragment är gränsen, inkluderas hela fragment i manifestet.|
-|**tidsskalan**|Gäller för alla tidsstämplar och varaktigheter i en Presentation tidsintervallet som angetts som antalet steg i en sekund.<br/>Standardvärdet är 10000000 - tio miljoner steg i en sekund, där varje säkerhetskopieringssteg är 100 nanosekunder lång.<br/>Till exempel använder du värdet 300000000 när du använder standard tidsskalan om du vill ange en startTimestamp på 30 sekunder.|
+|**endTimestamp**|Gäller för video på begäran (VoD).<br/>För direkt uppspelnings presentationen ignoreras den tyst och tillämpas när presentationen slutar och strömmen blir VoD.<br/>Detta är ett långt värde som representerar en absolut slut punkt i presentationen, avrundat till närmaste nästa GOP-start. Enheten är tids skala, så en endTimestamp på 1800000000 skulle vara i 3 minuter.<br/>Använd startTimestamp och endTimestamp för att trimma de fragment som ska finnas i spelnings listan (manifest).<br/>Exempel: startTimestamp = 40000000 och endTimestamp = 100000000 med standard tids skalan genererar en spelnings lista som innehåller fragment från mellan 4 och 10 sekunder i VoD-presentationen. Om ett fragment följer gränserna tas hela fragmentet med i manifestet.|
+|**forceEndTimestamp**|Gäller endast för direktsänd strömning.<br/>Anger om egenskapen endTimestamp måste finnas. Om värdet är true måste endTimestamp anges eller så returneras en felaktig kod för begäran.<br/>Tillåtna värden: falskt, sant.|
+|**liveBackoffDuration**|Gäller endast för direktsänd strömning.<br/> Det här värdet definierar den senaste aktiva platsen som en klient kan söka till.<br/>Med den här egenskapen kan du fördröja uppspelnings positionen i real tid och skapa en buffert för Server sidan för spelare.<br/>Enheten för den här egenskapen är tids skala (se nedan).<br/>Den maximala Live-startaktiviteten är 300 sekunder (3000000000).<br/>Till exempel innebär värdet 2000000000 att det senaste tillgängliga innehållet är 20 sekunder försenat från den verkliga Live-gränsen.|
+|**presentationWindowDuration**|Gäller endast för direktsänd strömning.<br/>Använd presentationWindowDuration om du vill använda ett glidande fönster med fragment som ska ingå i en spelnings lista.<br/>Enheten för den här egenskapen är tids skala (se nedan).<br/>Ange till exempel presentationWindowDuration = 1200000000 om du vill använda ett glidande fönster på två minuter. Mediet inom 2 minuter från den levande kanten tas med i spelnings listan. Om ett fragment följer gränserna, kommer hela fragmentet att tas med i spelnings listan. Det minsta presentations fönstrets varaktighet är 60 sekunder.|
+|**startTimestamp**|Gäller video på begäran (VoD) eller direkt uppspelning.<br/>Detta är ett långt värde som representerar data strömmens absoluta start punkt. Värdet avrundas till närmaste nästa GOP-start. Enheten är tids skala, så en startTimestamp på 150000000 skulle vara i 15 sekunder.<br/>Använd startTimestamp och endTimestampp för att trimma de fragment som ska finnas i spelnings listan (manifest).<br/>Exempel: startTimestamp = 40000000 och endTimestamp = 100000000 med standard tids skalan genererar en spelnings lista som innehåller fragment från mellan 4 och 10 sekunder i VoD-presentationen. Om ett fragment följer gränserna tas hela fragmentet med i manifestet.|
+|**tidsplan**|Gäller för alla tidsstämplar och varaktigheter i ett presentations tidsintervall, angivet som antalet steg i en sekund.<br/>Standardvärdet är 10000000 – 10 000 000-steg på en sekund, där varje ökning blir 100 nanosekunder länge.<br/>Om du till exempel vill ställa in en startTimestamp på 30 sekunder använder du värdet 300000000 när du använder standard tids skalan.|
 
-### <a name="tracks"></a>spår
+### <a name="tracks"></a>Spårar
 
-Du anger en lista med filtervillkor spåra egenskapen (FilterTrackPropertyConditions) baserat som spårar för din dataström (Live Streaming eller Video på begäran) ska tas med i dynamiskt skapade manifest. Filter som kombineras med en logisk **AND** och **eller** igen.
+Du anger en lista med villkor för filtrerings spårning (FilterTrackPropertyConditions) baserat på vilka spår från data strömmen (direkt uppspelning eller video på begäran) som ska ingå i dynamiskt skapade manifest. Filtren kombineras med hjälp av en logisk och **en åtgärd.**
 
-Filtervillkor spåra egenskapen beskriver typer av spår, värden (som beskrivs i tabellen nedan) och åtgärder (Equal, NotEqual). 
+Filtrera egenskaper för spåra egenskaper Beskriv spår typer, värden (beskrivs i följande tabell) och åtgärder (lika med, NotEqual). 
 
 |Namn|Beskrivning|
 |---|---|
-|**Bithastighet**|Använda bithastigheten av kursen för filtrering.<br/><br/>Det rekommenderade värdet är en mängd olika bithastigheter i bitar per sekund. Till exempel ”0-2427000”.<br/><br/>Obs: du kan använda en specifik bithastighet värde, till exempel 250000 (bitar per sekund), den här metoden rekommenderas inte, eftersom den exakta bithastighet kan variera från en tillgång till en annan.|
-|**FourCC**|Använd FourCC värdet för spåret för filtrering.<br/><br/>Värdet är det första elementet i codec-format, som anges i [RFC 6381](https://tools.ietf.org/html/rfc6381). För närvarande stöds följande: <br/>Video: ”Avc1”, ”hev1”, ”hvc1”<br/>Ljud: ”Mp4a”, ”EG-3”<br/><br/>För att fastställa FourCC värdena för spår i en tillgång, hämta och granska manifestfilen.|
-|**Språk**|Använd språket i kursen för filtrering.<br/><br/>Värdet är taggen för ett språk som du vill ska ingå som anges i RFC 5646. Till exempel ”SV”.|
-|**Namn**|Använd namnet på kursen för filtrering.|
-|**Typ**|Använd typ av kursen för filtrering.<br/><br/>Följande värden tillåts: ”video”, ”ljud” eller ”text”.|
+|**Hastigheten**|Använd bit hastigheten för spårningen för filtrering.<br/><br/>Det rekommenderade värdet är ett intervall med bit hastigheter, i bitar per sekund. Till exempel "0-2427000".<br/><br/>Obs! även om du kan använda ett visst bit hastighets värde, t. ex. 250000 (bitar per sekund), rekommenderas inte den här metoden eftersom de exakta bit hastigheterna kan variera från en till gång till en annan.|
+|**FourCC**|Använd FourCC-värdet för spårningen för filtrering.<br/><br/>Värdet är det första elementet i codec-formatet, enligt vad som anges i [RFC 6381](https://tools.ietf.org/html/rfc6381). För närvarande stöds följande codecenheter: <br/>För video: "avc1", "hev1", "hvc1"<br/>För ljud: "MP4A", "EC-3"<br/><br/>Hämta och granska manifest filen för att fastställa FourCC-värden för spår i en till gång.|
+|**Språk**|Använd språket i spåret för filtrering.<br/><br/>Värdet är taggen för ett språk som du vill ta med, enligt vad som anges i RFC 5646. Till exempel "en".|
+|**Namn**|Använd namnet på spåret för filtrering.|
+|**Typ**|Använd typen av spårning för filtrering.<br/><br/>Följande värden är tillåtna: "video", "Audio" eller "text".|
 
 ### <a name="example"></a>Exempel
 
-I följande exempel definierar ett Live Streaming filter: 
+I följande exempel definieras ett filter för direkt uppspelning: 
 
 ```json
 {
@@ -137,26 +137,26 @@ I följande exempel definierar ett Live Streaming filter:
 }
 ```
 
-## <a name="associating-filters-with-streaming-locator"></a>Associera filter med Strömningspositionerare
+## <a name="associating-filters-with-streaming-locator"></a>Associera filter med streaming Locator
 
-Du kan ange en lista över [tillgång eller konto filter](filters-concept.md) på din [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). Den [dynamisk Paketeraren](dynamic-packaging-overview.md) gäller den här listan över filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar en [dynamiska Manifest](filters-dynamic-manifest-overview.md), som grundar sig på filter i URL: en + filter som du anger på den Strömningspositionerare. 
+Du kan ange en lista över [till gångs-eller konto filter](filters-concept.md) på din [Utströmnings positionerare](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). Den [dynamiska Paketeraren](dynamic-packaging-overview.md) använder den här listan med filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar ett [dynamiskt manifest](filters-dynamic-manifest-overview.md), som baseras på filter i URL + filter som du anger på den strömmande lokaliseraren. 
 
 Se följande exempel:
 
-* [Associera filter med Strömningspositionerare – .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
-* [Associera filter med Strömningspositionerare – CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
+* [Associera filter med strömmande lokalisering – .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
+* [Associera filter med strömmande lokalisering – CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
 
-## <a name="updating-filters"></a>Uppdatera filter
+## <a name="updating-filters"></a>Uppdaterar filter
  
-**Positionerare för direktuppspelning** kan inte uppdateras, medan filter kan uppdateras. 
+**Strömmande positionerare** kan inte uppdateras medan filter kan uppdateras. 
 
-Det rekommenderas inte att uppdatera definitionen av filter som är associerade med ett aktivt publicerade **Strömningspositionerare**, särskilt när CDN är aktiverat. Direktuppspelning av servrar och CDN-nät kan ha interna cacheminnen som kan leda till inaktuella cachelagrade data som ska returneras. 
+Vi rekommenderar inte att du uppdaterar definitionen av filter som är associerade med en aktivt publicerad **strömmande Locator**, särskilt när CDN är aktiverat. Strömmande servrar och CDN kan ha interna cacheminnen som kan resultera i att inaktuella cachelagrade data returneras. 
 
-Om filterdefinitionen behöver ändras bör du skapa ett nytt filter och lägger till den på den **Strömningspositionerare** URL eller publicera en ny **Strömningspositionerare** som refererar till filtret direkt.
+Om filter definitionen behöver ändras bör du skapa ett nytt filter och lägga till det i URL: en för **streaming Locator** eller publicera en ny **strömmande positionerare** som refererar till filtret direkt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande artiklar visar hur du skapar filter programmässigt.  
+Följande artiklar visar hur du skapar filter program mässigt.  
 
 - [Skapa filter med REST API: er](filters-dynamic-manifest-rest-howto.md)
 - [Skapa filter med .NET](filters-dynamic-manifest-dotnet-howto.md)

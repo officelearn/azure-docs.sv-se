@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: b3c604003f78a150067875fb2064ab5eca0600db
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153345"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372109"
 ---
 # <a name="get-help-with-your-system"></a>Få hjälp med systemet
 
@@ -43,7 +43,7 @@ Följ dessa steg för att se till att ditt support ärende är taggat med en res
 
     ![skärm bild av en ny support förfrågan-skärm i Azure Portal. Fliken grundläggande är markerad. Skärm objekt är ärende typ, prenumeration, tjänst, Sammanfattning och problem typ.](media/ticket-basics.png)
 
-   Fortsätt genom att klicka på **Nästa** .
+   Klicka på **Nästa** för att fortsätta.
 
 1. Den andra sidan i support formuläret innehåller förslag på hur du kan åtgärda problemet baserat på din sammanfattnings beskrivning. Klicka på knappen **Nästa** längst ned om du fortfarande behöver skapa ett support ärende.
 

@@ -9,11 +9,11 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 201d0c0a545c5ba7ae1bb0b5e119f7acb1ae362f
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029967"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363916"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Använd Azure import/export-tjänsten för att importera data till Azure Files
 
@@ -21,12 +21,12 @@ Den här artikeln innehåller stegvisa instruktioner för hur du använder Azure
 
 Import/export-tjänsten stöder endast import av Azure Files till Azure Storage. Det finns inte stöd för att exportera Azure Files.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du skapar ett import jobb för att överföra data till Azure Files bör du noggrant granska och slutföra följande lista över krav. Du måste:
 
 - Ha en aktiv Azure-prenumeration som ska användas med import/export-tjänsten.
-- Ha minst ett Azure Storage konto. Se listan över [lagrings konton och lagrings typer som stöds för import/export-tjänsten](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-account-create.md).
+- Ha minst ett Azure Storage konto. Se listan över [lagrings konton och lagrings typer som stöds för import/export-tjänsten](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagrings konto finns i [så här skapar du ett lagrings konto](storage-account-create.md).
 - Har tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks).
 - Ha ett Windows-system som kör en [operativ system version som stöds](storage-import-export-requirements.md#supported-operating-systems).
 - [Ladda ned WAImportExport version 2](https://aka.ms/waiev2) på Windows-systemet. Zippa upp till standardmappen `waimportexport`. Till exempel `C:\WaImportExport`.

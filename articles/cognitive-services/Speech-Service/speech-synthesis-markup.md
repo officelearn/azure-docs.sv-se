@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 03/05/2020
 ms.author: dapine
-ms.openlocfilehash: b39b8712f3e8b869d7dbe496dd30f0599aa4150d
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 68691ad60542c55db4d381e2923a9f928a22995a
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78254796"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674472"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Förbättra syntesen med SSML (Speech syntes Markup Language)
 
@@ -329,7 +329,7 @@ Fonetiska alfabet består av telefoner, som består av bokstäver, siffror eller
 
 | Attribut | Beskrivning | Obligatoriskt / valfritt |
 |-----------|-------------|---------------------|
-| `alphabet` | Anger det fonetiska alfabetet som ska användas vid syntetiskt uttal av strängen i `ph`-attributet. Strängen som anger alfabetet måste anges med små bokstäver. Följande är de möjliga alfabet som du kan ange.<ul><li>IPA &ndash; internationellt fonetiskt alfabet</li><li>Speech API telefon uppsättning för SAPI &ndash;</li><li>UPS &ndash; Universal Phone-uppsättning</li></ul>Alfabetet gäller endast för fonem i elementet. Mer information finns i [fonetiska alfabet referenser](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx). | Valfri |
+| `alphabet` | Anger det fonetiska alfabetet som ska användas vid syntetiskt uttal av strängen i `ph`-attributet. Strängen som anger alfabetet måste anges med små bokstäver. Följande är de möjliga alfabet som du kan ange.<ul><li>`ipa` &ndash; internationellt fonetiskt alfabet</li><li>fonetiskt alfabet i `sapi` &ndash; Speech service</li><li>`ups` &ndash; Universal Phone-uppsättning</li></ul><br>Alfabetet gäller endast för `phoneme` i elementet. Mer information finns i [fonetiska alfabet referenser](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). | Valfri |
 | `ph` | En sträng som innehåller telefoner som anger uttal av ordet i `phoneme`-elementet. Om den angivna strängen innehåller okända telefoner avvisar tjänsten text till tal (TTS) hela SSML-dokumentet och genererar ingen av tal utmatningen som anges i dokumentet. | Krävs om du använder fonem. |
 
 **Exempel**
@@ -418,13 +418,11 @@ Could you help leave a message to Robert Benigni for me?
 - Fil storlek: den maximala storleks gränsen för den anpassade fil storleken är 100 KB, om den överskrider den här storleken kommer syntes förfrågan att Miss förväntas.
 - Uppdatering av lexikon-cache: anpassat lexikon cachelagras med URI som nyckel på TTS-tjänst när den läses in första gången. Det går inte att läsa in ett lexikon med samma URI inom 15 minuter, så den anpassade lexikon ändringen måste vänta högst 15 minuter innan den börjar gälla.
 
-**Konfiguration av SAPI-telefon**
+**Fonetiska uppsättningar för tal tjänst**
 
-I exemplet ovan använder vi IPA-standarduppsättningen (International fonetisk Association). Vi rekommenderar utvecklare att använda IPA, eftersom IPA är den internationella standarden. 
+I exemplet ovan använder vi det internationella fonetiska alfabetet, även kallat IPA telefon uppsättning. Vi rekommenderar att utvecklare använder IPA, eftersom det är den internationella standarden. Med tanke på att IPA inte är lätt att komma ihåg definierar tal tjänsten en fonetisk uppsättning för sju språk (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`och `zh-TW`).
 
-Med tanke på att IPA inte är lätt att komma ihåg, definierar Microsoft SAPI-telefon uppsättning för sju språk (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`och `zh-TW`). Mer information om alfabet finns i den [fonetiska alfabet referensen](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx).
-
-Du kan använda SAPI Phone-uppsättningen med anpassade lexikon som visas nedan. Ange värdet för alfabetet med **SAPI**.
+Du kan använda `sapi` som Vale för attributet `alphabet` med anpassade lexikon som visas nedan:
 
 ```xml
 <?xml version="1.0" encoding="UTF-16"?>
@@ -445,7 +443,7 @@ Du kan använda SAPI Phone-uppsättningen med anpassade lexikon som visas nedan.
 </lexicon>
 ```
 
-Mer information om det detaljerade SAPI alfabetet finns i [SAPI alfabet-referensen](sapi-phoneset-usage.md).
+Mer information om den detaljerade röst tjänsten fonetiskt alfabet finns i [röst tjänstens fonetiska uppsättningar](speech-ssml-phonetic-sets.md).
 
 ## <a name="adjust-prosody"></a>Justera prosody
 

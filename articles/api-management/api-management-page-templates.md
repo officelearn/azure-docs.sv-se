@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ce56c406c884471c445b25343d5c42f9edcbe4c4
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176558"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374428"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Sidmallar i Azure API Management
-Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor med en uppsättning mallar som konfigurerar innehållet. Om du använder [DotLiquid](http://dotliquidmarkup.org/) -syntax och valfritt redigerings program, till exempel [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), glyf- [resurser](api-management-template-resources.md#glyphs)och [sid kontroller](api-management-page-controls.md), har du stor flexibilitet att konfigurera innehållet på sidorna som du ser får plats med mallarna.  
+Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor med en uppsättning mallar som konfigurerar innehållet. Om du använder [DotLiquid](http://dotliquidmarkup.org/) -syntax och valfritt redigerings program, t. ex. [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [Glyph-resurser](api-management-template-resources.md#glyphs)och [sid kontroller](api-management-page-controls.md), har du stor flexibilitet att konfigurera innehållet på sidorna när du ser anpassa med hjälp av dessa mallar.  
   
  Med mallarna i det här avsnittet kan du anpassa innehållet i sidorna logga in, registrera och Sidan hittades inte i Developer-portalen.  
   
@@ -230,7 +230,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |referenceCode|sträng|Kod som genereras om den här sidan visades som resultatet av ett internt fel.|  
-|ErrorCode|sträng|Kod som genereras om den här sidan visades som resultatet av ett internt fel.|  
+|errorCode|sträng|Kod som genereras om den här sidan visades som resultatet av ett internt fel.|  
 |emailBody|sträng|E-postbrödtext som skapas om den här sidan visades som en följd av ett internt fel.|  
 |requestedUrl|sträng|Den URL som begärdes när det inte gick att hitta sidan.|  
 |referrerUrl|sträng|Referent-URL: en till den begärda URL: en.|  

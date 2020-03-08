@@ -17,12 +17,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 64d8481200359b4a4421e3f3c99e4fc5a32ef23f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 88b61b29b1386f461620ad602a88d2d1253aa905
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159549"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375610"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Behörigheter och medgivande i Microsoft Identity Platform-slutpunkten
 
@@ -37,11 +37,10 @@ Microsoft Identity Platform implementerar [OAuth 2,0](active-directory-v2-protoc
 
 * Microsoft Graph: `https://graph.microsoft.com`
 * Office 365 Mail API: `https://outlook.office.com`
-* Azure AD-diagram: `https://graph.windows.net`
 * Azure Key Vault: `https://vault.azure.net`
 
 > [!NOTE]
-> Vi rekommenderar starkt att du använder Microsoft Graph i stället för Azure AD Graph, Office 365 Mail API osv.
+> Vi rekommenderar starkt att du använder Microsoft Graph i stället för Office 365 Mail-API osv.
 
 Samma sak gäller för alla resurser från tredje part som har integrerats med Microsoft Identity Platform. Alla dessa resurser kan också definiera en uppsättning behörigheter som kan användas för att dela upp resursens funktioner i mindre segment. [Microsoft Graph](https://graph.microsoft.com) har exempelvis definierat behörigheter för att utföra följande uppgifter, bland annat:
 
@@ -123,7 +122,7 @@ Parametern `scope` är en blankstegsavgränsad lista med delegerade behörighete
 När användaren har angett sina autentiseringsuppgifter söker Microsoft Identity Platform-slutpunkten efter en matchande post för *användar medgivande*. Om användaren inte har samtyckt till någon av de begärda behörigheterna tidigare, eller om en administratör har samtyckt till dessa behörigheter åt hela organisationen, ber Microsoft Identity Platform-slutpunkten användaren att bevilja de begärda behörigheterna.
 
 > [!NOTE]
-> För tillfället inkluderas den `offline_access` ("upprätthålla åtkomsten till data som du har fått åtkomst till") och `user.read` ("logga in och läsa din profil") behörigheter automatiskt i det första medgivande till ett program.  De här behörigheterna krävs vanligt vis för korrekt programfunktion – `offline_access` ger appen åtkomst till att uppdatera tokens, kritiskt för interna och webbappar, medan `user.read` ger åtkomst till `sub`-anspråk, så att klienten eller appen kan identifiera användaren över tid och komma åt elementära användar information.  
+>För tillfället inkluderas den `offline_access` ("upprätthålla åtkomsten till data som du har fått åtkomst till") och `user.read` ("logga in och läsa din profil") behörigheter automatiskt i det första medgivande till ett program.  De här behörigheterna krävs vanligt vis för korrekt programfunktion – `offline_access` ger appen åtkomst till att uppdatera tokens, kritiskt för interna och webbappar, medan `user.read` ger åtkomst till `sub`-anspråk, så att klienten eller appen kan identifiera användaren över tid och komma åt elementära användar information.  
 
 ![Exempel skärm bild som visar godkännande av arbets konto](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -166,16 +165,16 @@ Om du vill se ett kod exempel som implementerar stegen går du till [exemplet ad
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>Begär behörigheterna i appens registrerings Portal
 
-Program kan anteckna vilka behörigheter de behöver (både delegerade och program) i registrerings portalen för appen.  Detta gör att du kan använda det `/.default` omfånget och Azure-portalens "beviljande administrativt medgivande"-alternativ.  I allmänhet är det bäst att se till att de behörigheter som definierats statiskt för ett visst program är en supermängd av de behörigheter som begärs dynamiskt/stegvis.
+Program kan anteckna vilka behörigheter de behöver (både delegerade och program) i registrerings portalen för appen.  På så sätt kan du använda det `/.default` området och Azure Portal det beviljade alternativet "bevilja administrativt medgivande".  I allmänhet är det bäst att se till att de behörigheter som definierats statiskt för ett visst program är en supermängd av de behörigheter som begärs dynamiskt/stegvis.
 
 > [!NOTE]
-Program behörigheter kan bara begäras genom användning av [`/.default`](#the-default-scope) – så om appen behöver program behörigheter kontrollerar du att de finns med i appens registrerings Portal.  
+>Program behörigheter kan bara begäras genom användning av [`/.default`](#the-default-scope) – så om appen behöver program behörigheter kontrollerar du att de finns med i appens registrerings Portal.
 
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Konfigurera listan med statiskt begärda behörigheter för ett program
 
 1. Gå till ditt program i [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) erfarenhet eller [skapa en app](quickstart-register-app.md) om du inte redan har gjort det.
 2. Leta upp avsnittet **API-behörigheter** och i API-behörigheterna klickar du på Lägg till en behörighet.
-3. Välj önskad resurs (t. ex. **Microsoft Graph**) från listan över tillgängliga API: er och Lägg sedan till de behörigheter som din app kräver.
+3. Välj **Microsoft Graph** i listan över tillgängliga API: er och Lägg sedan till de behörigheter som din app kräver.
 3. **Spara** appens registrering.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>Rekommenderat: signera användaren i din app
@@ -200,7 +199,7 @@ När du är redo att begära behörigheter från din organisations administratö
 ```
 
 
-| Parameter     | Tillstånd     | Beskrivning                                                                               |
+| Parameter     | Villkor     | Beskrivning                                                                               |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | Krävs | Den katalog klient som du vill begära behörighet från. Kan tillhandahållas i GUID eller eget namn format eller allmänt refereras till organisationer som visas i exemplet. Använd inte "common", eftersom personliga konton inte kan tillhandahålla administrativt medgivande, förutom i kontexten för en klient. För att säkerställa bästa kompatibilitet med personliga konton som hanterar klienter använder du klient-ID när det är möjligt. |
 | `client_id` | Krävs | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
@@ -265,7 +264,7 @@ Mer information om OAuth 2,0-protokollet och hur du hämtar åtkomsttoken finns 
 
 ## <a name="the-default-scope"></a>/.Default-omfånget
 
-Du kan använda `/.default` omfång för att migrera dina appar från v 1.0-slut punkten till Microsoft Identity Platform-slutpunkten. Det här är en inbyggd omfattning för varje program som refererar till den statiska listan med behörigheter som kon figurer ATS i program registreringen. Ett `scope` värde för `https://graph.microsoft.com/.default` är detsamma, samma som v 1.0-slutpunkterna `resource=https://graph.microsoft.com` – dvs begär en token med scopen på Microsoft Graph att programmet har registrerats för i Azure Portal.  Den konstrueras med hjälp av resurs-URI + `/.default` (t. ex. om resurs-URI: n är `https://contosoApp.com`, skulle det begärda omfånget vara `https://contosoApp.com/.default`).  Se [avsnittet om avslutande snedstreck](#trailing-slash-and-default) i fall där du måste ta med ett andra snedstreck för att begära token korrekt.  
+Du kan använda `/.default` omfång för att migrera dina appar från v 1.0-slut punkten till Microsoft Identity Platform-slutpunkten. Det här är en inbyggd omfattning för varje program som refererar till den statiska listan med behörigheter som kon figurer ATS i program registreringen. Ett `scope` värde för `https://graph.microsoft.com/.default` är detsamma, samma som v 1.0-slutpunkterna `resource=https://graph.microsoft.com` – dvs begär en token med scopen på Microsoft Graph att programmet har registrerats för i Azure Portal.  Den konstrueras med hjälp av resurs-URI + `/.default` (t. ex. om resurs-URI: n är `https://contosoApp.com`, skulle det begärda omfånget vara `https://contosoApp.com/.default`).  Se [avsnittet om avslutande snedstreck](#trailing-slash-and-default) i fall där du måste ta med ett andra snedstreck för att begära token korrekt.
 
 /.Default-omfånget kan användas i alla OAuth 2,0-flöden, men det är nödvändigt i flödet för det aktiva flödet och [klientens autentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md), samt när du använder v2 [-](v2-oauth2-on-behalf-of-flow.md) administratörens medgivande slut punkt för att begära program behörigheter.  
 
@@ -286,7 +285,7 @@ I det här exemplet har användaren (eller klient administratören) gett kliente
 
 #### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>Exempel 2: användaren har inte beviljats behörigheter mellan klienten och resursen
 
-I det här exemplet finns det inget medgivande för användaren mellan klienten och Microsoft Graph. Klienten har registrerats för `user.read` och `contacts.read` behörigheter, samt Azure Key Vault omfattning `https://vault.azure.net/user_impersonation`. När klienten begär en token för `scope=https://graph.microsoft.com/.default`kommer användaren att se ett medgivande fönster för `user.read`, `contacts.read`och Key Vault `user_impersonation`-omfattningarna. Den returnerade token har bara `user.read` och `contacts.read` omfattningarna och kan bara användas mot Microsoft Graph. 
+I det här exemplet finns det inget medgivande för användaren mellan klienten och Microsoft Graph. Klienten har registrerats för `user.read` och `contacts.read` behörigheter, samt Azure Key Vault omfattning `https://vault.azure.net/user_impersonation`. När klienten begär en token för `scope=https://graph.microsoft.com/.default`kommer användaren att se ett medgivande fönster för `user.read`, `contacts.read`och Key Vault `user_impersonation`-omfattningarna. Den returnerade token har bara `user.read` och `contacts.read` omfattningarna och kan bara användas mot Microsoft Graph.
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Exempel 3: användaren har samtyckt och klienten begär ytterligare omfång
 
@@ -313,7 +312,7 @@ Detta skapar en godkännande skärm för alla registrerade behörigheter (om det
 
 Vissa resurs-URI: er har ett avslutande snedstreck (`https://contoso.com/` till skillnad från `https://contoso.com`), vilket kan orsaka problem med verifieringen av token.  Detta kan ske främst när du begär en token för Azure Resource Management (`https://management.azure.com/`), som har ett avslutande snedstreck i resurs-URI och som kräver att den finns när token begärs.  När du begär en token för `https://management.azure.com/` och använder `/.default`måste du därför begära `https://management.azure.com//.default`-Observera det dubbla snedstrecket! 
 
-I allmänhet – om du har verifierat att token har utfärdats och token avvisas av API: et som ska acceptera den, bör du överväga att lägga till ett andra snedstreck och försöka igen. Detta inträffar eftersom inloggnings servern utvärderar en token med den mål grupp som matchar URI: erna i `scope` parameter – med `/.default` tas bort från slutet.  Om det här tar bort det avslutande snedstrecket bearbetar inloggnings servern begäran och validerar den mot resurs-URI: n, även om de inte längre matchar – detta är icke-standard och bör inte förlitas av ditt program. 
+I allmänhet – om du har verifierat att token har utfärdats och token avvisas av API: et som ska acceptera den, bör du överväga att lägga till ett andra snedstreck och försöka igen. Detta inträffar eftersom inloggnings servern utvärderar en token med den mål grupp som matchar URI: erna i `scope` parameter – med `/.default` tas bort från slutet.  Om det här tar bort det avslutande snedstrecket bearbetar inloggnings servern begäran och validerar den mot resurs-URI: n, även om de inte längre matchar – detta är icke-standard och bör inte förlitas av ditt program.  
 
 ## <a name="troubleshooting-permissions-and-consent"></a>Felsöka behörigheter och medgivande
 

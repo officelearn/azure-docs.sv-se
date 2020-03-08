@@ -4,11 +4,11 @@ description: Beskriver de funktioner som används i en Azure Resource Manager ma
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.openlocfilehash: f8d19179461693331a6091ec7a3562f536b959e4
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207069"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357387"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Sträng funktioner för Azure Resource Manager mallar
 
@@ -109,8 +109,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| base64Output | Sträng | b25lLCB0d28sIHRocmVl |
-| toStringOutput | Sträng | Ett två tre |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | Ett två tre |
 | toJsonOutput | Objekt | {"One": "a", "två": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
@@ -174,8 +174,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| base64Output | Sträng | b25lLCB0d28sIHRocmVl |
-| toStringOutput | Sträng | Ett två tre |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | Ett två tre |
 | toJsonOutput | Objekt | {"One": "a", "två": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
@@ -239,8 +239,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| base64Output | Sträng | b25lLCB0d28sIHRocmVl |
-| toStringOutput | Sträng | Ett två tre |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | Ett två tre |
 | toJsonOutput | Objekt | {"One": "a", "två": "b"} |
 
 ## <a name="concat"></a>concat
@@ -290,7 +290,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| concatOutput | Sträng | prefix-5yj4yjf5mbg72 |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) visas hur du kombinerar två matriser.
 
@@ -331,7 +331,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| Returrelaterade | Matris | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| returrelaterade | Matris | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 ## <a name="contains"></a>innehåller
 
@@ -466,8 +466,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| dataUriOutput | Sträng | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | Sträng | Hello World! |
+| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Hello World! |
 
 ## <a name="datauritostring"></a>dataUriToString
 
@@ -521,8 +521,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| dataUriOutput | Sträng | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | Sträng | Hello World! |
+| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Hello World! |
 
 ## <a name="empty"></a>saknas
 
@@ -704,8 +704,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayOutput | Sträng | en |
-| stringOutput | Sträng | O |
+| arrayOutput | String | en |
+| stringOutput | String | O |
 
 ## <a name="format"></a>format
 
@@ -721,7 +721,7 @@ Skapar en formaterad sträng från angivna värden.
 | arg1 | Ja | sträng, heltal eller boolesk | Värdet som ska tas med i den formaterade strängen. |
 | ytterligare argument | Nej | sträng, heltal eller boolesk | Ytterligare värden som ska tas med i den formaterade strängen. |
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
 Använd den här funktionen för att formatera en sträng i mallen. Den använder samma formateringsalternativ som metoden [system. String. format](/dotnet/api/system.string.format) i .net.
 
@@ -762,7 +762,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| formatTest | Sträng | Hej, användare. Formaterat tal: 8 175 133 |
+| formatTest | String | Hej, användare. Formaterat tal: 8 175 133 |
 
 ## <a name="guid"></a>guid
 
@@ -777,7 +777,7 @@ Skapar ett värde i formatet för en globalt unik identifierare baserat på de v
 | baseString |Ja |sträng |Värdet som används i hash-funktionen för att skapa GUID. |
 | ytterligare parametrar efter behov |Nej |sträng |Du kan lägga till så många strängar som behövs för att skapa värdet som anger nivån av unikhet. |
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
 Den här funktionen är användbar när du behöver skapa ett värde i formatet för en globalt unik identifierare. Du anger parameter värden som begränsar omfattningen av unikhet för resultatet. Du kan ange om namnet är unikt för prenumeration, resurs grupp eller distribution.
 
@@ -945,8 +945,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayOutput | Sträng | tre |
-| stringOutput | Sträng | e |
+| arrayOutput | String | tre |
+| stringOutput | String | e |
 
 ## <a name="lastindexof"></a>lastIndexOf
 
@@ -1091,7 +1091,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 Returnerar ett värde i formatet för en globalt unik identifierare. **Den här funktionen kan endast användas i standardvärdet för en parameter.**
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
 Du kan bara använda den här funktionen i ett uttryck för standardvärdet för en parameter. Om du använder den här funktionen någon annan stans i en mall returneras ett fel. Funktionen tillåts inte i andra delar av mallen eftersom den returnerar ett annat värde varje gång den anropas. Att distribuera samma mall med samma parametrar skulle inte tillförlitligt producera samma resultat.
 
@@ -1230,7 +1230,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| stringOutput | Sträng | 0000000123 |
+| stringOutput | String | 0000000123 |
 
 ## <a name="replace"></a>bytt
 
@@ -1282,8 +1282,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| firstOutput | Sträng | 1231231234 |
-| secondOutput | Sträng | 123-123-xxxx |
+| firstOutput | String | 1231231234 |
+| secondOutput | String | 123-123-xxxx |
 
 ## <a name="skip"></a>Ignorera
 
@@ -1351,7 +1351,7 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Matris | ["tre"] |
-| stringOutput | Sträng | 2 3 |
+| stringOutput | String | 2 3 |
 
 ## <a name="split"></a>split
 
@@ -1545,9 +1545,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| objectOutput | Sträng | {"värdea": 10, "Värdeb": "exempel text"} |
-| arrayOutput | Sträng | ["a","b","c"] |
-| intOutput | Sträng | 5 |
+| objectOutput | String | {"värdea": 10, "Värdeb": "exempel text"} |
+| arrayOutput | String | ["a","b","c"] |
+| intOutput | String | 5 |
 
 ## <a name="substring"></a>substring
 
@@ -1567,7 +1567,7 @@ Returnerar en under sträng som börjar vid den angivna tecken positionen och so
 
 Under strängen. Eller en tom sträng om längden är noll.
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
 Funktionen Miss lyckas när del strängen sträcker sig utanför slutet av strängen eller när längden är mindre än noll. Följande exempel Miss lyckas med felet "index-och längd parametrarna måste referera till en plats inom strängen. Indexparametern: '0', Längdparametern: ‘11’, längden på strängparametern: '10'.".
 
@@ -1608,7 +1608,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| substringOutput | Sträng | tvåsiffrig |
+| substringOutput | String | tvåsiffrig |
 
 ## <a name="take"></a>take
 
@@ -1676,7 +1676,7 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Matris | ["One", "två"] |
-| stringOutput | Sträng | på |
+| stringOutput | String | på |
 
 ## <a name="tolower"></a>toLower
 
@@ -1726,8 +1726,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| toLowerOutput | Sträng | Ett två tre |
-| toUpperOutput | Sträng | Ett två tre |
+| toLowerOutput | String | Ett två tre |
+| toUpperOutput | String | Ett två tre |
 
 ## <a name="toupper"></a>toUpper
 
@@ -1777,8 +1777,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| toLowerOutput | Sträng | Ett två tre |
-| toUpperOutput | Sträng | Ett två tre |
+| toLowerOutput | String | Ett två tre |
+| toUpperOutput | String | Ett två tre |
 
 ## <a name="trim"></a>reducera
 
@@ -1824,7 +1824,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| Returrelaterade | Sträng | Ett två tre |
+| returrelaterade | String | Ett två tre |
 
 ## <a name="uniquestring"></a>uniqueString
 
@@ -1839,7 +1839,7 @@ Skapar en deterministisk hash-sträng baserat på de värden som anges som param
 | baseString |Ja |sträng |Värdet som används i hash-funktionen för att skapa en unik sträng. |
 | ytterligare parametrar efter behov |Nej |sträng |Du kan lägga till så många strängar som behövs för att skapa värdet som anger nivån av unikhet. |
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
 Den här funktionen är användbar när du behöver skapa ett unikt namn för en resurs. Du anger parameter värden som begränsar omfattningen av unikhet för resultatet. Du kan ange om namnet är unikt för prenumeration, resurs grupp eller distribution. 
 
@@ -1980,9 +1980,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| uriOutput | Sträng | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | Sträng | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | Sträng | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponent"></a>uriComponent
 
@@ -2035,9 +2035,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| uriOutput | Sträng | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | Sträng | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | Sträng | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
@@ -2090,11 +2090,11 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| uriOutput | Sträng | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | Sträng | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | Sträng | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
-## <a name="utcnow"></a>utcNow
+## <a name="utcnow"></a>UtcNow
 
 `utcNow(format)`
 
@@ -2106,7 +2106,7 @@ Returnerar det aktuella (UTC) datetime-värdet i det angivna formatet. Om inget 
 |:--- |:--- |:--- |:--- |
 | format |Nej |sträng |Det URI-kodade värdet som ska konverteras till en sträng. Använd antingen [standard format strängar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
 Du kan bara använda den här funktionen i ett uttryck för standardvärdet för en parameter. Om du använder den här funktionen någon annan stans i en mall returneras ett fel. Funktionen tillåts inte i andra delar av mallen eftersom den returnerar ett annat värde varje gång den anropas. Att distribuera samma mall med samma parametrar skulle inte tillförlitligt producera samma resultat.
 

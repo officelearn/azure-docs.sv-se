@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: 68cabbd00dd0b738590109cc39d8df82f5b7362d
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681197"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356146"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Hantera ett App Service plan i Azure
 
@@ -24,7 +24,7 @@ En [Azure App Service-plan](overview-hosting-plans.md) tillhandahåller de resur
 
 Du kan skapa en tom App Service plan, eller så kan du skapa en plan som en del av att skapa en app.
 
-1. I [Azure-portalen](https://portal.azure.com) väljer du **Skapa en resurs**.
+1. I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs**.
 
    ![Skapa en resurs i Azure Portal.][createResource] 
 
@@ -65,7 +65,7 @@ Du kan flytta en app till en annan App Service plan, så länge käll planen och
    >
    > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
 
-5. När du är klar väljer du **OK**.
+5. När du är färdig väljer du **OK**.
    
    ![App Service plan väljare.][change] 
 

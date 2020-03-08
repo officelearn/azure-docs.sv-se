@@ -7,11 +7,11 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: bfe1d1aeeac55039acf0c7eb295001277be9cd2e
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551275"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381399"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Självstudie: Skapa Azure FXT Edge-kluster
 
@@ -30,7 +30,7 @@ I den här kursen lär du dig:
 
 Den här proceduren tar mellan 15 och 45 minuter, beroende på hur mycket forskning du behöver göra för att identifiera IP-adresser och nätverks resurser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför de här förutsättningarna innan du börjar den här självstudien:
 

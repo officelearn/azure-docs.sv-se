@@ -10,11 +10,11 @@ ms.topic: overview
 ms.date: 09/17/2019
 ms.author: alkohli
 ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067003"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380326"
 ---
 # <a name="what-is-azure-data-box"></a>Vad är Azure Data Box?
 
@@ -30,7 +30,7 @@ Data Box passar bäst för överföring av data som är större än 40 TB i scen
  - **Engångsmigrering** – när stora mängder lokala data flyttas till Azure. 
      - Flytta ett mediebibliotek från offlineband i Azure för att skapa ett mediebibliotek online.
      - Migrera VM-servergrupp, SQLServer och program till Azure
-     - Flytta historiskdata till Azure för djupanalys och rapportering med hjälp av HDInsight
+     - Flytta historiska data till Azure för djupanalys och rapportering med hjälp av HDInsight
 
  - **Inledande bulköverföring** – när en inledande massöverföring utförs med hjälp av Data Box (startvärde) följt av inkrementella överföringar över nätverket. 
      - Till exempel används partners med säkerhetskopieringslösningar som Commvault och Data Box för att flytta den första stora historiska säkerhetskopieringen till Azure. När du är klar överförs inkrementella data via nätverket till Azure Storage.
@@ -59,7 +59,7 @@ Den Data Box-enheten har följande funktioner i den här versionen.
 | Specifikationer                                          | Beskrivning              |
 |---------------------------------------------------------|--------------------------|
 | Vikt                                                  | < 23 kg                |
-| Dimensioner                                              | Enhet – Bredd: 309,0 mm Höjd: 430,4 mm Djup: 502,0 mm |            
+| Dimensioner                                              | Enhet – bredd: 309,0 mm, höjd: 430,4 mm, djup: 502,0 mm |            
 | Rackutrymme                                              | 7 U när den placeras i rack på sidan (kan inte rackmonteras)|
 | Kablar som krävs                                         | 1 x strömkabel (ingår) <br> 2 RJ45-kablar <br> 2 x SFP + Twinax-kopparkablar|
 | Lagringskapacitet                                        | 100 TB-enheten har 80 TB användbar kapacitet efter RAID 5-skydd|
@@ -97,13 +97,13 @@ Ett typiskt flöde omfattar följande steg:
 
 1. **Beställning** – skapa en beställning i Azure-portalen och ange leveransinformation och Azure-mållagringskonto för dina data. Om enheten är tillgänglig förbereder och skickar Azure enheten med ett spårnings-ID.
 
-2. **Ta emot** – när enheten har levererats kabelansluter du enheten för nätverket och startar med angivna kablar. Aktivera och anslut till enheten. Konfigurera enhetsnätverket och montera filresurser på den värddator som du vill kopiera data från.
+2. **Ta emot** – när enheten har levererats kabelansluter du enheten för nätverket och startar med angivna kablar. Aktivera och anslut till enheten. Konfigurera enhetsnätverket och montera filresurser på värddatorn som du vill kopiera data från.
 
 3. **Kopiera data** – kopiera data till Data Box-resurser.
 
-4. **Returnera** – förbered, stäng av och skicka tillbaka enheten till Azure-datacentret.
+4. **Returnera** – Förbered, stäng av och skicka tillbaka enheten till Azure-datacentret.
 
-5. **Ladda upp** – data kopieras automatiskt från enheten till Azure. Enhetsdiskarna raderas på ett säkert sätt enligt riktlinjerna från National Institute of Standards and Technology (NIST).
+5. **Ladda upp** – data kopieras automatiskt från enheten till Azure. Enheten raderas på ett säkert sätt enligt riktlinjerna från National Institute of Standards and Technology (NIST).
 
 Under den här processen meddelas du via e-post om alla statusändringar. Mer information om det detaljerade flödet finns på sidan om att [distribuera Data Box i Azure-portalen](data-box-deploy-ordered.md).
 
@@ -113,7 +113,7 @@ Data Box-enhet kan överföra data baserat på den region där tjänsten distrib
 
 - **Tjänst tillgänglighet** – information om regions tillgänglighet finns i [Azure-produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box-enhet kan också distribueras i Azure Government molnet. Mer information finns i [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
-- **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner där tjänsten är tillgänglig.  
+- **Destinationslagringskonton** – De lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner där tjänsten är tillgänglig.  
 
 
 ## <a name="next-steps"></a>Nästa steg

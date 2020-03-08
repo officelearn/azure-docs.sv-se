@@ -12,11 +12,11 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/24/2020
 ms.openlocfilehash: dead8b95446009880c36f97a095aee4aaae0579d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587370"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365455"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database mått och diagnostikloggning
 
@@ -39,7 +39,7 @@ Mer information om mått och logg kategorier som stöds av de olika Azure-tjäns
 
 Du kan aktivera och hantera loggning av mått och telemetri genom att använda någon av följande metoder:
 
-- Azure-portalen
+- Azure Portal
 - PowerShell
 - Azure CLI
 - Azure Monitor REST API

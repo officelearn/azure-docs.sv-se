@@ -5,11 +5,11 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
 ms.openlocfilehash: bd9f3bfe1578b632707382cfe422f19514e7ce48
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988115"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358017"
 ---
 > [!NOTE]
 > Nu kan Microsoft Flow automatiseras. Mer information finns i den här [bloggen](https://aka.ms/flow-now-pa).
@@ -38,7 +38,7 @@ Microsoft Flow ger kontorspersonalen möjlighet att göra enkla integreringar (t
 
 Tabellen nedan hjälper dig att avgöra huruvida Microsoft Flow eller Logic Apps passar bäst för en specifik integrering:
 
-|  | Microsoft Flow | Logikappar |
+|  | Microsoft Flow | Logic Apps |
 | --- | --- | --- |
 | **Användare** |Kontorsarbetarna, användare i verksamheten, SharePoint-administratörer |Professionella integratörer och utvecklare, IT-proffs |
 | **Scenarier** |Självbetjäning |Avancerade integreringar |
@@ -55,7 +55,7 @@ Med Azure Functions utvecklar du orkestreringarna genom att skriva kod och anvä
 
 Du kan kombinera tjänsterna när du skapar en orkestrering och anropa funktioner från logikappar och logikappar från funktioner. Välj hur du skapar varje orkestrering utifrån tjänsternas funktioner eller vad du föredrar. I följande tabell visas några av de viktigaste skillnaderna mellan dessa:
 
-|  | Bestående funktioner | Logikappar |
+|  | Pålitliga funktioner | Logic Apps |
 | --- | --- | --- |
 | **Utveckling** | Kod först (imperativt) | Designer först (deklarativt) |
 | **Anslutning** | [Ett dussintal inbyggda bindningstyper](functions-triggers-bindings.md#supported-bindings), skriv kod för anpassade bindningar | [Stor samling anslutningsprogram](../connectors/apis-list.md), [Enterprise-integrationspaket för B2B-scenarier](../logic-apps/logic-apps-enterprise-integration-overview.md), [skapa egna anslutningsprogram](../logic-apps/custom-connector-overview.md) |

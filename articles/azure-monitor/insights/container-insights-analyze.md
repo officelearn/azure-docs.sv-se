@@ -4,11 +4,11 @@ description: Den här artikeln beskriver hur du kan visa och analysera prestanda
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: f57f8982b2aa045156e6f48316610137260d6597
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75731024"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385542"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Övervaka prestanda för Kubernetes-kluster med Azure Monitor för behållare
 
@@ -24,11 +24,11 @@ De huvudsakliga skillnaderna vid övervakning av ett Windows Server-kluster med 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com). 
+Logga in på [Azure Portal](https://portal.azure.com). 
 
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Visa flera kluster från Azure Monitor
 
-Om du vill visa hälso status för alla Kubernetes-kluster som distribueras väljer du **övervaka** i det vänstra fönstret i Azure Portal. Under den **Insights** väljer **behållare**. 
+Om du vill visa hälso status för alla Kubernetes-kluster som distribueras väljer du **övervaka** i det vänstra fönstret i Azure Portal. Under avsnittet **insikter** väljer du **behållare**. 
 
 ![Exempel på Azure Monitor flera klusterinstrumentpanel](./media/container-insights-analyze/azmon-containers-multiview.png)
 
@@ -69,19 +69,19 @@ Följande tabell innehåller en analys av beräkningen som styr hälso tillstån
 | |Status |Tillgänglighet |  
 |-------|-------|-----------------|  
 |**Användarens Pod**| | |  
-| |Felfri |100 % |  
+| |Felfri |100% |  
 | |Varning |90 - 99% |  
-| |Kritiskt |< 90% |  
+| |Kritisk |< 90% |  
 | |Okänt |Om du inte har rapporterat under senaste 30 minuterna |  
 |**Systemets Pod**| | |  
-| |Felfri |100 % |
-| |Varning |Gäller inte |
-| |Kritiskt |< 100% |
+| |Felfri |100% |
+| |Varning |Ej tillämpligt |
+| |Kritisk |< 100% |
 | |Okänt |Om du inte har rapporterat under senaste 30 minuterna |
 |**Node** | | |
 | |Felfri |> 85% |
 | |Varning |60 - 84% |
-| |Kritiskt |< 60% |
+| |Kritisk |< 60% |
 | |Okänt |Om du inte har rapporterat under senaste 30 minuterna |
 
 I listan över kluster kan du öka detalj nivån till **kluster** sidan genom att välja namnet på klustret. Gå sedan till prestanda sidan **noder** genom att välja sammanslagning av noder i kolumnen **noder** för det aktuella klustret. Du kan också öka detalj nivån till sidan **kontrollanter** genom att välja sammanslagning av **användaren poddar** eller **system poddar** kolumnen.
@@ -93,7 +93,7 @@ I listan över kluster kan du öka detalj nivån till **kluster** sidan genom at
 - Kluster
 - Noder 
 - Kontrollanter 
-- Containers
+- Containrar
 
 >[!NOTE]
 >Den erfarenhet som beskrivs i resten av den här artikeln gäller också för att visa prestanda-och hälso status för Kubernetes-kluster som finns på Azure Stack eller annan miljö när de valts från vyn över flera kluster. 
@@ -105,8 +105,8 @@ Standard sidan öppnas och visar fyra linje prestanda diagram som visar viktiga 
 Prestanda diagrammen visar fyra prestanda mått:
 
 - **Nodens CPU-användning&nbsp;%** : ett sammanställt perspektiv av processor belastning för hela klustret. Om du vill filtrera resultaten för tidsintervallet väljer du **AVG**, **min**, **50**, **nittionde**, **95**eller **Max** i percentils väljaren ovanför diagrammet. Filtren kan antingen användas individuellt eller tillsammans. 
-- **Minnesanvändning för noden&nbsp;%** : en aggregerade perspektiv av minnesanvändningen för hela klustret. Om du vill filtrera resultaten för tidsintervallet väljer du **AVG**, **min**, **50**, **nittionde**, **95**eller **Max** i percentils väljaren ovanför diagrammet. Filtren kan antingen användas individuellt eller tillsammans. 
-- **Antal noder**: ett antal noder och status från Kubernetes. Status för de klusternoder som visas är total, klar och inte redo. De kan filtreras separat eller kombineras i väljaren ovanför diagrammet. 
+- **Nod-minnes användning&nbsp;%** : ett sammanlagt perspektiv minnes användning för hela klustret. Om du vill filtrera resultaten för tidsintervallet väljer du **AVG**, **min**, **50**, **nittionde**, **95**eller **Max** i percentils väljaren ovanför diagrammet. Filtren kan antingen användas individuellt eller tillsammans. 
+- **Antal noder**: antal noder och status från Kubernetes. Status för de klusternoder som visas är total, klar och inte redo. De kan filtreras separat eller kombineras i väljaren ovanför diagrammet. 
 - **Antal aktiva Pod**: ett Pod-antal och status från Kubernetes. Status för poddar som visas är total, väntar, körs, okänd, lyckades eller misslyckades. De kan filtreras separat eller kombineras i väljaren ovanför diagrammet. 
 
 Använd vänster och höger pilknappar för att bläddra igenom varje data punkt i diagrammet. Använd upp-och nedpilen för att gå igenom percentils linjerna. Välj PIN-ikonen i det övre högra hörnet i något av diagrammen för att fästa det valda diagrammet på den sista Azure-instrumentpanelen som du visade. På instrument panelen kan du ändra storlek på och flytta diagrammet. Genom att välja diagrammet på instrument panelen omdirigeras du till Azure Monitor för behållare och läsa in rätt omfång och vy.
@@ -134,7 +134,7 @@ Du kan [dela upp](../platform/metrics-charts.md#apply-splitting-to-a-chart) ett 
 
 * Domänkontrollant
 * Kubernetes-namnrymd
-* Nod
+* Node
 * Fas
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Analysera noder, styrenheter och hälso tillstånd för behållare
@@ -163,7 +163,7 @@ Från en utökad nod kan du öka detalj nivån från POD eller containern som k�
  
 ![Exempel gå nedåt från noden till kontrollanten i vyn prestanda](./media/container-insights-analyze/drill-down-node-controller.png)
 
-Välj kontrollanter eller behållare högst upp på sidan för att granska status och resursutnyttjande för dessa objekt. Om du vill granska minnes användningen väljer du **minnes-RSS** eller **minnes arbets minne**i list rutan **mått** . **Minne RSS** stöds endast för Kubernetes version 1.8 och senare. Annars kan du visa värden för **Min&nbsp; %**  som *NaN&nbsp;%* , vilket är ett värde av numeriska data som representerar en odefinierad eller inte går att representera värde.
+Välj kontrollanter eller behållare högst upp på sidan för att granska status och resursutnyttjande för dessa objekt. Om du vill granska minnes användningen väljer du **minnes-RSS** eller **minnes arbets minne**i list rutan **mått** . **RSS-minnen** stöds bara för Kubernetes version 1,8 och senare. Annars kan du Visa värden för **Min&nbsp;%** som *Nan&nbsp;%* , vilket är ett numeriskt värde för data typen som representerar ett odefinierat eller värde som inte kan återges.
 
 ![Behållaren noder prestandavy](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
@@ -195,12 +195,12 @@ Den information som visas när du visar fliken **noder** beskrivs i följande ta
 | Status | Kubernetes vy över nodstatusen. |
 | Minsta&nbsp;%, AVG&nbsp;%, 50&nbsp;%, nittionde&nbsp;%, 95&nbsp;%, Max&nbsp;%  | Genomsnittlig nod procent baserat på: e percentilen under den valda perioden. |
 | Min, AVG, 50, nittionde, 95, max | Genomsnittligt antal noders faktiska värde baserat på percentil under den valda tids perioden. Det genomsnittliga värdet mäts från PROCESSORns/minnes gränsen som angetts för en nod. För poddar och behållare är det det genomsnittliga värdet som rapporteras av värden. |
-| Containers | Antal behållare. |
+| Containrar | Antal behållare. |
 | Drifttid | Representerar tid eftersom en nod startas eller startades om. |
-| Domänkontrollant | Endast för behållare och poddar. Den visar vilken kontrollant den finns i. Inte alla poddar är i en kontrollant så vissa kan visa **ej tillämpligt**. | 
+| Domänkontrollant | Endast för behållare och poddar. Den visar vilken kontrollant den finns i. Alla poddar finns inte i en kontrollant, så vissa kan visa **ej tillämpligt**. | 
 | Trend för min&nbsp;%, AVG&nbsp;%, 50&nbsp;%, nittionde&nbsp;%, 95&nbsp;%, Max&nbsp;% | Stapeldiagram trend representerar genomsnittliga: e percentilen mått procentandelen kontrollanten. |
 
-Välj i Väljaren, **styrenheter**.
+I väljaren väljer du **kontrollanter**.
 
 ![Välj kontrollanter-vy](./media/container-insights-analyze/containers-controllers-tab.png)
 
@@ -224,10 +224,10 @@ Den information som visas när du visar kontrollanter beskrivs i följande tabel
 | Status | Sammanslagnings statusen för behållarna när den har slutförts med status, till exempel *OK*, *avslutad*, *misslyckad*, *stoppad*eller *pausad*. Om behållaren körs men status antingen inte visas korrekt eller inte har hämtats av agenten och inte har svarat i mer än 30 minuter, är statusen *okänd*. Ytterligare information om status ikonen finns i följande tabell.|
 | Minsta&nbsp;%, AVG&nbsp;%, 50&nbsp;%, nittionde&nbsp;%, 95&nbsp;%, Max&nbsp;%| Samlad medelvärde för den genomsnittliga procentandelen av varje entitet för valda mått- och: e percentilen. |
 | Min, AVG, 50, nittionde, 95, max  | Insamling av Genomsnittlig CPU millicore eller minne prestanda för behållaren för den valda: e percentilen. Medelvärdet mäts från processor/minne gränsen för en pod. |
-| Containers | Totalt antal behållare för domänkontrollant eller pod. |
+| Containrar | Totalt antal behållare för domänkontrollant eller pod. |
 | Startar om | Insamling av antalet omstarter från behållare. |
 | Drifttid | Representerar tid efter att en behållare startades. |
-| Nod | Endast för behållare och poddar. Den visar vilken kontrollant den finns i. | 
+| Node | Endast för behållare och poddar. Den visar vilken kontrollant den finns i. | 
 | Trend för min&nbsp;%, AVG&nbsp;%, 50&nbsp;%, nittionde&nbsp;%, 95&nbsp;%, Max&nbsp;% | Stapeldiagram trend representerar genomsnittliga: e percentilen mått för kontrollenheten. |
 
 Ikonerna i fältet status anger behållar statusen för behållarna.
@@ -239,9 +239,9 @@ Ikonerna i fältet status anger behållar statusen för behållarna.
 | ![Senast rapporterat kör statusikon](./media/container-insights-analyze/containers-grey-icon.png) | Senast rapporterat, men har inte svarat i mer än 30 minuter|
 | ![Lyckad statusikon](./media/container-insights-analyze/containers-green-icon.png) | Har stoppats eller gick inte att stoppa|
 
-Statusikonen visar ett antal baserat på din pod tillhandahåller. Den visar sämsta två tillstånd och när du hovrar över statusen visar statusen samlad från alla poddar i behållaren. Om det inte finns ett färdigt tillstånd, statusvärdet visar **(0)** .
+Statusikonen visar ett antal baserat på din pod tillhandahåller. Den visar sämsta två tillstånd och när du hovrar över statusen visar statusen samlad från alla poddar i behållaren. Om det inte finns ett klart status värde visas **(0)** .
 
-Välj i Väljaren, **behållare**.
+I väljar väljer du **behållare**.
 
 ![Välj behållare-vy](./media/container-insights-analyze/containers-containers-tab.png)
 
@@ -262,7 +262,7 @@ Den information som visas när du visar behållare beskrivs i följande tabell.
 | Minsta&nbsp;%, AVG&nbsp;%, 50&nbsp;%, nittionde&nbsp;%, 95&nbsp;%, Max&nbsp;% | Insamling av den genomsnittliga procentandelen av varje entitet för valda mått- och: e percentilen. |
 | Min, AVG, 50, nittionde, 95, max | Insamling av Genomsnittlig CPU millicore eller minne prestanda för behållaren för den valda: e percentilen. Medelvärdet mäts från processor/minne gränsen för en pod. |
 | Pod | Behållaren där poden finns.| 
-| Nod |  Noden där behållaren finns. | 
+| Node |  Noden där behållaren finns. | 
 | Startar om | Representerar tid efter att en behållare startades. |
 | Drifttid | Representerar tid eftersom en behållare startades eller startas om. |
 | Trend för min&nbsp;%, AVG&nbsp;%, 50&nbsp;%, nittionde&nbsp;%, 95&nbsp;%, Max&nbsp;% | Stapeldiagram trend representerar genomsnittliga: e percentilen mått procentandelen av behållaren. |
@@ -279,7 +279,7 @@ Ikonerna i fältet status anger online-status för poddar, enligt beskrivningen 
 
 ## <a name="workbooks"></a>Arbetsböcker
 
-Arbets böcker kombinerar text, [logg frågor](../log-query/query-language.md), [mått](../platform/data-platform-metrics.md)och parametrar till omfattande interaktiva rapporter. Arbetsböcker kan redigeras av andra teammedlemmar som har åtkomst till samma Azure-resurser.
+Arbets böcker kombinerar text, [logg frågor](../log-query/query-language.md), [mått](../platform/data-platform-metrics.md)och parametrar till omfattande interaktiva rapporter. Arbets böcker kan redige ras av andra team medlemmar som har åtkomst till samma Azure-resurser.
 
 Azure Monitor för behållare innehåller fyra arbets böcker för att komma igång:
 

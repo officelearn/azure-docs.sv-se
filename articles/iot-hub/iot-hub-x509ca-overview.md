@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure IoT Hub X.509 CA-säkerhet | Microsoft Docs
-description: Översikt – så här att autentisera enheter till IoT Hub med X.509-certifikatutfärdare.
+title: Översikt över Azure IoT Hub X. 509 CA-säkerhet | Microsoft Docs
+description: Översikt – hur du autentiserar enheter för att IoT Hub att använda X. 509 certifikat utfärdare.
 author: eustacea
 manager: arjmands
 ms.service: iot-hub
@@ -9,79 +9,79 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257584"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381991"
 ---
-# <a name="device-authentication-using-x509-ca-certificates"></a>Autentisering med X.509 CA-certifikat
+# <a name="device-authentication-using-x509-ca-certificates"></a>Enhetsautentisering som använder X. 509 CA-certifikat
 
-Den här artikeln beskriver hur du använder X.509 certifikatutfärdaren (CA)-certifikat för att autentisera enheter som ansluter IoT Hub.  I den här artikeln lär du:
+I den här artikeln beskrivs hur du använder certifikat från X. 509 certifikat utfärdare för att autentisera enheter som ansluter IoT Hub.  I den här artikeln får du lära dig:
 
-* Så här hämtar du ett X.509 CA-certifikat
-* Hur du registrerar X.509 CA-certifikat till IoT Hub
-* Hur du registrerar enheter med X.509 CA-certifikat
-* Hur enheter som har signerats med X.509 CA autentiseras
+* Så här hämtar du ett X. 509 CA-certifikat
+* Så här registrerar du X. 509 CA-certifikatet för IoT Hub
+* Så här signerar du enheter med X. 509 CA-certifikat
+* Hur enheter som är signerade med X. 509 CA: er autentiseras
 
 ## <a name="overview"></a>Översikt
 
-Med X.509 CA-funktionen kan autentisering till IoT Hub med hjälp av en certifikatutfärdare (CA). Det förenklar avsevärt starttillstånd registreringsprocessen och strömförsörjning kedja logistik under enhetens tillverkning. [Läs mer i det här scenariot artikel om värdet för att använda X.509 CA-certifikat](iot-hub-x509ca-concept.md) för autentisering.  Vi rekommenderar att du kan läsa det här scenariot artikeln innan du fortsätter enligt det förklarar varför de steg som följer finns.
+Funktionen X. 509-CA: er aktiverar enhetsautentisering för att IoT Hub med hjälp av en certifikat utfärdare (CA). Det fören klar den första processen för registrering av enheter och levererar logistik för att tillhandahålla kedja vid enhets tillverkning. [Läs mer i den här scenario artikeln om värdet för att använda X. 509 CA-certifikat](iot-hub-x509ca-concept.md) för enhetsautentisering.  Vi rekommenderar att du läser den här scenario artikeln innan du fortsätter, vilket förklarar varför stegen som följer.
 
 ## <a name="prerequisite"></a>Krav
 
-Med X.509 CA-funktionen kräver att du har en IoT Hub-konto.  [Lär dig hur du skapar en IoT Hub-instansen](quickstart-send-telemetry-dotnet.md) om du inte redan har ett.
+Om du använder funktionen X. 509-CA måste du ha ett IoT Hub-konto.  [Lär dig hur du skapar en IoT Hub instans](quickstart-send-telemetry-dotnet.md) om du inte redan har en.
 
-## <a name="how-to-get-an-x509-ca-certificate"></a>Så här hämtar du ett X.509 CA-certifikat
+## <a name="how-to-get-an-x509-ca-certificate"></a>Så här hämtar du ett X. 509 CA-certifikat
 
-X.509 CA-certifikatet är högst upp på kedja av certifikat för var och en av dina enheter.  Du kan köpa eller skapa ett beroende på hur du planerar att använda den.
+CA-certifikatet för X. 509 är högst upp i certifikat kedjan för var och en av dina enheter.  Du kan köpa eller skapa ett beroende på hur du tänker använda det.
 
-För produktionsmiljö rekommenderar vi att du köper ett X.509 CA-certifikat från en offentlig rotcertifikatutfärdare. Köpa ett CA-certifikat har fördelen med rotcertifikatutfärdaren fungerar som en betrodd tredje part till garanterar giltighet dina enheter. Överväg det här alternativet om du planerar din enheter måste vara en del av ett öppet IoT-nätverk där de förväntas interagera med från tredje part, produkter eller tjänster.
+För produktions miljön rekommenderar vi att du köper ett X. 509 CA-certifikat från en offentlig rot certifikat utfärdare. Att köpa ett CA-certifikat har fördelen att rot certifikat utfärdaren fungerar som en betrodd tredje part för att få en giltighet av dina enheter. Överväg det här alternativet om du vill att enheterna ska ingå i ett öppet IoT-nätverk där de förväntas samverka med produkter eller tjänster från tredje part.
 
-Du kan också skapa ett självsignerat X.509 CA för experimentering eller för användning i stängda IoT-nätverk.
+Du kan också skapa en självsignerad X. 509-certifikatutfärdare för experimentering eller för användning i stängda IoT-nätverk.
 
-Oavsett hur du skaffa X.509 CA-certifikat, se till att välja dess motsvarande privata nyckeln hemlig och skyddas tiden hela.  Detta är nödvändigt för förtroende för att skapa förtroendet i X.509 CA-autentisering.
+Oavsett hur du skaffar ditt X. 509-CA-certifikat, se till att behålla dess motsvarande privata nyckel hemlighet och skyddade hela tiden.  Detta är nödvändigt för förtroende för skapande i X. 509 CA-autentisering.
 
-Lär dig hur du [skapa ett självsignerat certifikat](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), som du kan använda för experimentering i hela den här funktionen beskrivningen.
+Lär dig hur du [skapar ett självsignerat CA-certifikat](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), som du kan använda för att experimentera i den här funktions beskrivningen.
 
-## <a name="sign-devices-into-the-certificate-chain-of-trust"></a>Registrera enheter i certifikatkedja med förtroenden
+## <a name="sign-devices-into-the-certificate-chain-of-trust"></a>Signera enheter i certifikat kedjan
 
-Ägaren av ett X.509 CA-certifikat kan kryptografiskt logga en mellanliggande Certifikatutfärdare som i sin tur kan registrera en annan mellanliggande Certifikatutfärdare och så vidare, fram till den senaste mellanliggande CA avslutar den här processen genom att registrera en enhet. Resultatet är en sammanhängande kedja av certifikat som kallas en certifikatkedja med förtroenden. I verkligheten spelar det som delegering av förtroende för att registrera enheter. Den här delegeringen är viktigt eftersom den upprättar en kryptografiskt variabeln spårbarhet och på så sätt undviker delning av Signeringsnycklar.
+Ägaren av ett X. 509 CA-certifikat kan signera en mellanliggande certifikat utfärdare som i sin tur kan signera en annan mellanliggande certifikat utfärdare och så vidare tills den senaste mellanliggande certifikat utfärdaren avslutar den här processen genom att signera en enhet. Resultatet är en överlappande kedja av certifikat som kallas förtroende för certifikat kedjan. I real tid spelar detta upp ut som delegering av förtroende för signerings enheter. Den här delegeringen är viktig eftersom den upprättar en kryptografiskt varierande kedja av vårdnad och förhindrar delning av signerings nycklar.
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
 
-Enhetens certifikat (kallas även en lövcertifikat) måste ha den *ämnesnamn* inställd på den **enhets-ID** som användes när registrering av IoT-enhet i Azure IoT Hub. Den här inställningen krävs för autentisering.
+Enhets certifikatet (även kallat ett löv certifikat) måste ha *ämnes namnet* inställt på det **enhets-ID** som användes när IoT-enheten registrerades i Azure-IoT Hub. Den här inställningen krävs för autentisering.
 
-Läs här så [en certifikatkedja](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) som görs när du registrerar enheter.
+Lär dig hur du [skapar en certifikat kedja](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) som när du signerar enheter.
 
-## <a name="how-to-register-the-x509-ca-certificate-to-iot-hub"></a>Hur du registrerar X.509 CA-certifikat till IoT Hub
+## <a name="how-to-register-the-x509-ca-certificate-to-iot-hub"></a>Så här registrerar du X. 509 CA-certifikatet för IoT Hub
 
-Registrera ditt X.509 CA-certifikat till IoT Hub där den används för att autentisera dina enheter under registreringen och anslutning.  Registrera X.509 CA-certifikatet är en tvåstegsprocess som består av certifikat filuppladdning och bevis på tillgång.
+Registrera ditt X. 509-CA-certifikat för att IoT Hub där det ska användas för att autentisera dina enheter under registrering och anslutning.  Att registrera X. 509 CA-certifikatet är en två stegs process som omfattar fil överföring av certifikat och bevis på innehav.
 
-Ladda upp signeras ladda upp en fil som innehåller ditt certifikat.  Den här filen innehåller bör aldrig privata nycklar.
+Uppladdnings processen laddar upp en fil som innehåller ditt certifikat.  Den här filen bör aldrig innehålla några privata nycklar.
 
-Proof of tillgång steg innebär en kryptografisk utmaning och processen för svar mellan dig och IoT Hub.  Med hänsyn till att digitalt certifikat innehållet är offentliga och därför känslig för avlyssning, vill IoT Hub säkerställa att du verkligen äger CA-certifikatet.  Det bör göra det genom att generera en slumpmässig utmaning som måste du logga med CA-certifikatet motsvarande privata nyckel.  Om du behöll den privata nyckeln hemliga och skyddade som tidigare bäst, och du kommer endast har kunskapen för att slutföra det här steget. Hemlig privata nycklar är källan för förtroende för den här metoden.  Slutför det här steget när du har registrerat utmaningen genom att ladda upp en fil som innehåller resultatet.
+Syftet med det här steget är en kryptografisk utmaning och svars process mellan dig och IoT Hub.  Med tanke på att digitalt certifikat innehåll är offentligt och därför är sårbart för avlyssning, vill IoT Hub vill fastställa att du verkligen äger CA-certifikatet.  Det gör du genom att generera en slumpmässig utmaning som du måste signera med CA-certifikatets motsvarande privata nyckel.  Om du har kvar hemligheten för privata nycklar och skyddat det tidigare, kommer du bara att ha kunskapen för att slutföra det här steget. Sekretess för privata nycklar är källan till förtroende i den här metoden.  När du har signerat utmaningen slutför du det här steget genom att ladda upp en fil som innehåller resultatet.
 
-Läs här så [registrera Certifikatutfärdarens certifikat](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)
+Lär dig hur du [registrerar CA-certifikat](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)
 
-## <a name="how-to-create-a-device-on-iot-hub"></a>Så här skapar du en enhet på IoT-hubb
+## <a name="how-to-create-a-device-on-iot-hub"></a>Så här skapar du en enhet på IoT Hub
 
-Om du vill hindra enheten personifiering, måste IoT Hub du så att den vet vilka enheter du kan förvänta dig.  Du kan göra detta genom att skapa en post i enhetsregistret för IoT-hubben.  Den här processen sker automatiskt när du använder IoT Hub [Device Provisioning-tjänsten](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/). 
+För att förhindra att enhets personifiering används måste du i IoT Hub ta reda på vilka enheter som ska förväntas.  Du gör detta genom att skapa en enhets post i IoT Hub enhets registret.  Den här processen automatiseras när du använder IoT Hub [enhets etablerings tjänst](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/). 
 
-Läs här så [manuellt skapa en enhet i IoT Hub](iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub).
+Lär dig hur du [manuellt skapar en enhet i IoT Hub](iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub).
 
-Skapa en X.509-enhet för din IoT hub
+Skapa en X. 509-enhet för din IoT Hub
 
-## <a name="authenticating-devices-signed-with-x509-ca-certificates"></a>Autentisera enheter signeras med X.509 CA-certifikat
+## <a name="authenticating-devices-signed-with-x509-ca-certificates"></a>Autentisera enheter som är signerade med X. 509 CA-certifikat
 
-Vad som finns kvar är autentisering från med X.509 CA-certifikat som är registrerat och enheter som har loggat in på en certifikatkedja med förtroenden när enheten ansluter även för första gången.  När ett X.509 CA-signerat enheten ansluter, laddar de upp sina certifikatkedja för verifiering. Kedjan innehåller alla mellanliggande CA- och enhetscertifikat.  Med den här informationen autentiserar IoT Hub enheten i två steg.  IoT Hub verifierar kryptografiskt certifikatkedja för intern inkonsekvens och skickar sedan en utmaning bevis för tillgång till enheten.  IoT Hub deklarerar enheten autentisk på ett lyckat bevis på tillgång svar från enheten.  Deklarationen förutsätter att enhetens privata nyckeln skyddas och att endast enheten har kan svara på den här utmaningen.  Vi rekommenderar användning av säker kretsar som maskinvara säker moduler (HSM) i enheter för att skydda privata nycklar.
+Med X. 509 CA-certifikat registrerat och enheter som är inloggade i en certifikat kedja, vad som är kvar är enhets autentiseringen när enheten ansluter, även för första gången.  När en X. 509 CA-signerad enhet ansluter, laddar den upp certifikat kedjan för verifiering. Kedjan innehåller alla mellanliggande certifikat utfärdare och enhets certifikat.  Med den här informationen autentiserar IoT Hub enheten i en två stegs process.  IoT Hub kryptografiskt verifierar certifikat kedjan för intern konsekvens och utfärdar sedan en utmanings utmaning för enheten.  IoT Hub deklarerar enheten autentiskt på ett framgångs rik svar från enheten.  Den här deklarationen förutsätter att enhetens privata nyckel är skyddad och att endast enheten kan svara på den här utmaningen.  Vi rekommenderar att du använder säker chips som t. ex. maskin säkra moduler (HSM) i enheter för att skydda privata nycklar.
 
-En lyckad enhetsanslutning till IoT Hub Slutför autentiseringen och är också en indikation på en korrekt installation.
+En lyckad enhets anslutning till IoT Hub är klar med autentiseringsprocessen och indikerar också en korrekt installation.
 
-Läs här så [slutföra det här steget för anslutning av enheten](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates).
+Lär dig här steg för att [slutföra den här enhets anslutningen](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [värdet för autentisering med X.509 CA](iot-hub-x509ca-concept.md) i IoT.
+Lär dig mer om [värdet X. 509 ca-autentisering](iot-hub-x509ca-concept.md) i IoT.
 
 Kom igång med IoT Hub [Device Provisioning-tjänsten](https://docs.microsoft.com/azure/iot-dps/).

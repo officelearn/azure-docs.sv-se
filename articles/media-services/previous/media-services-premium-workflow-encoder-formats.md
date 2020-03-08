@@ -15,11 +15,11 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792594"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392942"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Media Encoder Premium Workflow format och codec
 
@@ -53,7 +53,7 @@ I följande avsnitt visas de codecenheter och fil format som medie processorn st
 
 * AVC 8-bitar/10-bit, upp till 4:2:2, inklusive AVCIntra
 * Avid DNxHD (i MXF)
-* DVCPro/DVCProHD (i MXF)
+* DVCPro/DVCProHD (in MXF)
 * HEVC/H. 265, Main och main 10 Profile
 * JPEG2000
 * MPEG-2 (upp till 422 profil och hög nivå, inklusive varianter som XDCAM, XDCAM HD, XDCAM IMX, CableLabs® och D10)
@@ -85,13 +85,13 @@ I följande avsnitt visas de codecenheter och fil format som stöds som utdata f
 * Windows Media/ASF
 * AVI (okomprimerad 8bit/10bit)
 * Smooth Streaming fil format (PIFF 1,3)
-* MPEG – TS 
+* MPEG-TS 
 
 ### <a name="output-video-codecs"></a>Codec för video utgång
 
 * AVC (H. 264; 8-bitars, upp till hög profil, nivå 5,2; 4K Ultra HD; AVC Intra)
 * Avid DNxHD (i MXF)
-* DVCPro/DVCProHD (i MXF)
+* DVCPro/DVCProHD (in MXF)
 * MPEG-2 (upp till 422 profil och hög nivå, inklusive varianter som XDCAM, XDCAM HD, XDCAM IMX, CableLabs® och D10)
 * MPEG-1
 * Windows Media Video/VC-1
@@ -140,7 +140,7 @@ Om din indata-video inte innehåller dold textning innehåller utmatnings till g
 ## <a name="need-help"></a>Behöver du hjälp?
 
 Du kan öppna ett support ärende genom att gå till [nytt support ärende](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

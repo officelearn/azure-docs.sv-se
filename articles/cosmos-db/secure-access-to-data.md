@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: 448b14168e85e75b7ed19e189600186ce11c2902
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756427"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395505"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Säker åtkomst till data i Azure Cosmos DB
 
@@ -155,7 +155,7 @@ Om du vill lägga till Azure Cosmos DB konto läsar åtkomst till ditt användar
 4. I **rutan tilldela åtkomst till väljer du** **Azure AD-användare, grupp eller program**.
 5. Välj den användare, grupp eller det program i din katalog som du vill bevilja åtkomst till.  Du kan söka i katalogen efter visnings namn, e-postadress eller objekt identifierare.
     Den valda användaren, gruppen eller programmet visas i listan med valda medlemmar.
-6. Klicka på **Spara**.
+6. Klicka på **Save** (Spara).
 
 Entiteten kan nu läsa Azure Cosmos DB-resurser.
 

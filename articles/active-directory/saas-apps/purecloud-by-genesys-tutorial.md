@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 779328f4c21afb4392663e6f8840749ea505c529
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: dac8e0f2e10906f2cc56ecf86e0cc70947cb7e85
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242433"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897769"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med PureCloud av gener
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar PureCloud av gener 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -119,13 +119,13 @@ Följ dessa steg om du vill aktivera Azure AD SSO i Azure Portal:
 
 1. PureCloud by Genesys-programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. Följande skärm bild visar en lista över standardattribut:
 
-    ![mallar](common/default-attributes.png)
+    ![image](common/default-attributes.png)
 
 1. Dessutom förväntar sig PureCloud av Generning att fler attribut skickas tillbaka i SAML-svaret, vilket visas i följande tabell. De här attributen är också i förväg ifyllda, men du kan granska dem efter behov.
 
     | Namn | Källattribut|
     | ---------------| --------------- |
-    | E-post | user.userprinicipalname |
+    | E-post | user.userprincipalname |
     | OrganizationName | `Your organization name` |
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.

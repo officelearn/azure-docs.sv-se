@@ -96,8 +96,12 @@
   items:
     - name: Event Grid-begrepp
       href: concepts.md
-    - name: Säkerhet och autentisering
-      href: security-authentication.md
+    - name: Säkerhet
+      items:
+        - name: Autentisering
+          href: security-authentication.md
+        - name: Auktorisering
+          href: security-authorization.md
     - name: Leverans och nytt försök
       href: delivery-and-retry.md
     - name: Händelsefiltrering

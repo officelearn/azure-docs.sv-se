@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b9240b863eef4d460cd8d3a47304fb96ffb4bc8
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 9a237ad35d9d5d8abee784926563d972d0ee95f9
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917789"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672639"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Vad är en primär uppdateringstoken?
 
@@ -33,7 +33,7 @@ Följande Windows-komponenter spelar en viktig roll när de begär och använder
 * **Azure AD CloudAP-plugin**: ett Azure AD-särskilt plugin-program som bygger på CloudAP Framework, som verifierar användarautentiseringsuppgifter med Azure AD under Windows-inloggning.
 * **Azure AD WAM-plugin**: ett Azure AD-speciellt plugin-program som bygger på WAM-ramverket, som möjliggör enkel inloggning till program som förlitar sig på Azure AD för autentisering.
 * **Dsreg**: en särskild Azure AD-komponent i Windows 10 som hanterar enhets registrerings processen för alla enhets tillstånd.
-* **Trusted Platform Module** (TPM): en TPM är en maskin varu komponent som är inbyggd i en enhet, som tillhandahåller maskinvarubaserade säkerhetsfunktioner för användar-och enhets hemligheter. Mer information finns i artikeln [Trusted Platform Module Technology-översikt](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-overview).
+* **Trusted Platform Module** (TPM): en TPM är en maskin varu komponent som är inbyggd i en enhet, som tillhandahåller maskinvarubaserade säkerhetsfunktioner för användar-och enhets hemligheter. Mer information finns i artikeln [Trusted Platform Module Technology-översikt](/windows/security/information-protection/tpm/trusted-platform-module-overview).
 
 ## <a name="what-does-the-prt-contain"></a>Vad innehåller PRT?
 
@@ -48,7 +48,7 @@ En PRT är en ogenomskinlig blob som skickas från Azure AD, vars innehåll inte
 
 ## <a name="how-is-a-prt-issued"></a>Hur utfärdas en PRT?
 
-Enhets registrering är en förutsättning för enhets baserad autentisering i Azure AD. En PRT utfärdas till användare endast på registrerade enheter. Mer detaljerad information om enhets registrering finns i artikeln [Windows Hello för företag och enhets registrering](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-how-it-works-device-registration). Vid enhets registrering genererar dsreg-komponenten två uppsättningar av kryptografiska nyckel par:
+Enhets registrering är en förutsättning för enhets baserad autentisering i Azure AD. En PRT utfärdas till användare endast på registrerade enheter. Mer detaljerad information om enhets registrering finns i artikeln [Windows Hello för företag och enhets registrering](/windows/security/identity-protection/hello-for-business/hello-how-it-works-device-registration). Vid enhets registrering genererar dsreg-komponenten två uppsättningar av kryptografiska nyckel par:
 
 * Enhets nyckel (dkpub/dkpriv)
 * Transport nyckel (tkpub/tkpriv)

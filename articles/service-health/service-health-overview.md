@@ -3,12 +3,12 @@ title: Översikt över Service Health | Microsoft Docs
 description: Anpassad information om hur dina Azure-appar påverkas av aktuella och framtida problem och underhåll av Azure-tjänsten.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: db9d74e2883e755c3e5c3dbbe9d6570f1e78c4a6
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: a1c6a10ab48125c030c9a35864f829438404ad97
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654026"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898445"
 ---
 # <a name="service-health-overview"></a>Översikt över Service Health
 
@@ -16,11 +16,12 @@ Service Health ger dig en anpassningsbar instrument panel som spårar hälso til
 
 ## <a name="service-health-events"></a>Service Health händelser
 
-Service Health spårar tre typer av hälso händelser som kan påverka dina resurser:
+Service Health spårar fyra typer av hälso händelser som kan påverka dina resurser:
 
 1. **Tjänst problem** – problem i Azure-tjänster som påverkar dig just nu. 
 2. **Planerat underhåll** – kommande underhåll som kan påverka tillgängligheten för dina tjänster i framtiden.  
 3. **Hälso rekommendationer** – ändringar i Azure-tjänster som kräver din uppmärksamhet. Exempel är när Azure-funktionerna är inaktuella eller om du överskrider en användnings kvot.
+4. **Säkerhets rekommendationer (för hands version)** – säkerhetsrelaterade meddelanden som kan påverka tillgängligheten för dina Azure-tjänster.
 
 > [!NOTE]
 > Om du vill visa Service Health händelser måste användarna [beviljas rollen läsare](../role-based-access-control/role-assignments-portal.md) för en prenumeration.

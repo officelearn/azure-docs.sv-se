@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 79c27d252136281249c217f51019e53987922334
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: f06c50c35e25f2f64948c5f18672e00382d4ef42
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370341"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78892856"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions nätverks alternativ
 
@@ -34,7 +34,7 @@ Du kan vara värd för funktions appar på ett par olika sätt:
 |[Integrering med virtuellt nätverk](#virtual-network-integration)|❌nej|✅Ja (regional)|✅Ja (regional och gateway)|✅Ja|
 |[Virtuella nätverks utlösare (icke-HTTP)](#virtual-network-triggers-non-http)|❌nej| ✅Ja |✅Ja|✅Ja|
 |[Hybrid anslutningar](#hybrid-connections) (endast Windows)|❌nej|✅Ja|✅Ja|✅Ja|
-|[Utgående IP-begränsningar](#outbound-ip-restrictions)|❌nej| ❌nej|❌nej|✅Ja|
+|[Utgående IP-begränsningar](#outbound-ip-restrictions)|❌nej| ✅Ja|✅Ja|✅Ja|
 
 ## <a name="inbound-ip-restrictions"></a>Inkommande IP-begränsningar
 
@@ -57,65 +57,34 @@ Läs mer i [Azure App Service statiska åtkomst begränsningar](../app-service/a
 
 ## <a name="virtual-network-integration"></a>Virtual Network-integration
 
-Med integrering med virtuella nätverk får du till gång till resurser i ett virtuellt nätverk med hjälp av din Function-app. Den här funktionen är tillgänglig i både Premium-och App Service plan. Om din app finns i ett App Service-miljön är den redan i ett virtuellt nätverk och kräver inte integrering av virtuella nätverk för att komma åt resurser i samma virtuella nätverk.
+Med integrering med virtuella nätverk får du till gång till resurser i ett virtuellt nätverk med hjälp av din Function-app. Azure Functions stöder två typer av integrering av virtuella nätverk:
 
-Du kan använda integrering med virtuella nätverk för att ge åtkomst från appar till databaser och webb tjänster som körs i det virtuella nätverket. Med Virtual Network-integrering behöver du inte exponera en offentlig slut punkt för program på den virtuella datorn. Du kan använda privata, icke-Internet-dirigerbart adresser i stället.
-
-Det finns två former av integrering av virtuella nätverk:
-
-+ **Regional integrering av virtuella nätverk (för hands version)** : möjliggör integrering med virtuella nätverk i samma region. Den här typen av integrering kräver ett undernät i ett virtuellt nätverk i samma region. Den här funktionen är fortfarande i för hands version, men stöds för Function-appar som körs i Windows, med de varningar som beskrivs efter följande problem/lösning-tabell.
-+ **Gateway krävs virtuell nätverks integrering**: möjliggör integrering med virtuella nätverk i fjärrregioner eller med klassiska virtuella nätverk. Den här typen av integrering kräver distribution av en virtuell nätverksgateway till ditt VNet. Det här är en punkt-till-plats-VPN-baserad funktion som endast stöds för Function-appar som körs i Windows.
-
-En app kan bara använda en typ av funktionen för integrering av virtuella nätverk i taget. Även om båda är användbara för många scenarier anger följande tabell var varje ska användas:
-
-| Problem  | Lösning |
-|----------|----------|
-| Vill komma åt en RFC 1918-adress (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) i samma region | Regional integrering av virtuella nätverk |
-| Vill du komma åt resurser i ett klassiskt virtuellt nätverk eller ett virtuellt nätverk i en annan region | Gateway krävs för virtuell nätverks integrering |
-| Vill komma åt RFC 1918-slutpunkter i Azure ExpressRoute | Regional integrering av virtuella nätverk |
-| Vill du uppnå resurser över tjänst slut punkter | Regional integrering av virtuella nätverk |
-
-Ingen av funktionerna gör att du kan komma åt icke-RFC 1918-adresser i ExpressRoute. För att göra det måste du för närvarande använda en App Service-miljön.
-
-Genom att använda regional integrering av virtuella nätverk ansluter du inte ditt virtuella nätverk till lokala slut punkter eller konfigurerar tjänst slut punkter. Det är en separat nätverks konfiguration. Regional integrering av virtuella nätverk gör det möjligt för din app att göra anrop mellan dessa anslutnings typer.
-
-Oavsett vilken version som används ger integrering av virtuella nätverk din app-åtkomst till resurser i det virtuella nätverket, men beviljar inte privat plats åtkomst till din funktions app från det virtuella nätverket. Åtkomst till privata webbplatser innebär att endast appen kan nås från ett privat nätverk som ett virtuellt Azure-nätverk. Integrering med virtuella nätverk är bara för att göra utgående samtal från din app till ditt virtuella nätverk.
-
-Funktionen för integrering av virtuella nätverk:
-
-* Kräver en standard-, Premium-eller PremiumV2-App Service plan
-* Stöder TCP och UDP
-* Fungerar med App Service appar och Functions-appar
-
-Det finns vissa saker som Virtual Network-integration inte stöder, inklusive:
-
-* Montering av en enhet
-* Active Directory-integrering
-* NetBIOS
+[!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
 Integrering av virtuella nätverk i Azure Functions använder delad infrastruktur med App Service Web Apps. Mer information om de två typerna av integrering med virtuella nätverk finns i:
 
 * [Regional integrering av virtuella nätverk](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
 * [Gateway krävs för virtuell nätverks integrering](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
-Mer information om hur du använder integrering med virtuella nätverk finns i [integrera en Function-app med ett virtuellt Azure-nätverk](functions-create-vnet.md).
+Information om hur du konfigurerar integrering av virtuella nätverk finns i [integrera en Function-app med ett virtuellt Azure-nätverk](functions-create-vnet.md).
+
+## <a name="regional-virtual-network-integration"></a>Regional Virtual Network-integrering
+
+[!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-regional.md)]
 
 ## <a name="connecting-to-service-endpoint-secured-resources"></a>Ansluter till tjänst slut punktens säkra resurser
-
-> [!NOTE]
-> Det kan nu ta upp till 12 timmar innan nya tjänst slut punkter blir tillgängliga för din Function-app när du har konfigurerat åtkomst begränsningar för den underordnade resursen. Under den här tiden är resursen helt otillgänglig för din app.
 
 För att ge en högre säkerhets nivå kan du begränsa ett antal Azure-tjänster till ett virtuellt nätverk med hjälp av tjänstens slut punkter. Du måste sedan integrera din Function-app med det virtuella nätverket för att få åtkomst till resursen. Den här konfigurationen stöds på alla planer som stöder integrering av virtuella nätverk.
 
 [Läs mer om tjänst slut punkter för virtuella nätverk.](../virtual-network/virtual-network-service-endpoints-overview.md)
 
-### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Begränsa ditt lagrings konto till ett virtuellt nätverk
+## <a name="restricting-your-storage-account-to-a-virtual-network"></a>Begränsa ditt lagrings konto till ett virtuellt nätverk
 
 När du skapar en Function-app måste du skapa eller länka till ett allmänt Azure Storage konto som har stöd för BLOB-, Queue-och table-lagring. Du kan för närvarande inte använda några begränsningar för virtuella nätverk för det här kontot. Om du konfigurerar en tjänst slut punkt för virtuellt nätverk på det lagrings konto som du använder för din Function-app, kommer din app att brytas.
 
 [Läs mer om krav för lagrings konton.](./functions-create-function-app-portal.md#storage-account-requirements)
 
-### <a name="using-key-vault-references"></a>Använda Key Vault referenser 
+## <a name="using-key-vault-references"></a>Använda Key Vault referenser 
 
 Med Key Vault referenser kan du använda hemligheter från Azure Key Vault i Azure Functions program utan att behöva göra några kod ändringar. Azure Key Vault är en tjänst som tillhandahåller centraliserad hemligheter-hantering med fullständig kontroll över åtkomst principer och gransknings historik.
 
@@ -171,9 +140,13 @@ Mer information finns i [App Service dokumentationen för hybridanslutningar](..
 
 ## <a name="outbound-ip-restrictions"></a>Utgående IP-begränsningar
 
-Utgående IP-begränsningar är bara tillgängliga för funktioner som distribueras till en App Service-miljön. Du kan konfigurera utgående begränsningar för det virtuella nätverk där App Service-miljön har distribuerats.
+Utgående IP-begränsningar är tillgängliga i en Premium-plan, App Service plan eller App Service-miljön. Du kan konfigurera utgående begränsningar för det virtuella nätverk där App Service-miljön har distribuerats.
 
-När du integrerar en Function-app i en Premium-plan eller en App Service plan med ett virtuellt nätverk kan appen fortfarande göra utgående anrop till Internet.
+När du integrerar en Function-app i en Premium-plan eller en App Service plan med ett virtuellt nätverk kan appen fortfarande göra utgående anrop till Internet som standard. Genom att lägga till en program inställning `WEBSITE_VNET_ROUTE_ALL=1`tvingar du all utgående trafik att skickas till ditt virtuella nätverk, där regler för nätverks säkerhets grupper kan användas för att begränsa trafiken.
+
+## <a name="troubleshooting"></a>Felsökning 
+
+[!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

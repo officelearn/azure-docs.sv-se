@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/30/2018
+ms.date: 03/06/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fa6da347289a12867a2416dea16631ba4758832f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c23648d70192607b2a5b977dcdd445931e995154
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78187482"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671784"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för en JWT-token-utfärdare i en Azure Active Directory B2C anpassad princip
 
@@ -56,6 +56,7 @@ I följande exempel visas en teknisk profil för `JwtIssuer`:
 | allow_infinite_rolling_refresh_token | Nej | Om det är inställt på `true`, förfaller den glidande tidsintervallen för uppdateringstoken aldrig. |
 | IssuanceClaimPattern | Nej | Styr utfärdaren (ISS)-anspråket. Ett av värdena:<ul><li>AuthorityAndTenantGuid – IIS-anspråket inkluderar ditt domän namn, till exempel `login.microsoftonline` eller `tenant-name.b2clogin.com`och klient-ID https:\//login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp – IIS-anspråket inkluderar ditt domän namn, till exempel `login.microsoftonline` eller `tenant-name.b2clogin.com`, klient-ID och namnet på den förlitande parten. https:\//login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> Standardvärde: AuthorityAndTenantGuid |
 | AuthenticationContextReferenceClaimPattern | Nej | Kontrollerar värdet för `acr` anspråk.<ul><li>Ingen-Azure AD B2C utfärdar inte ACR-anspråket</li><li>PolicyId – det `acr` anspråk innehåller princip namnet</li></ul>Alternativen för att ange det här värdet är TFP (Trust Framework policy) och ACR (Authentication context Reference). Du rekommenderas att ange värdet TFP för att ange värdet, se till att `<Item>` med `Key="AuthenticationContextReferenceClaimPattern"` finns och att värdet är `None`. Lägg till `<OutputClaims>` objekt i principen för förlitande part, Lägg till det här elementet `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. Kontrol lera också att principen innehåller anspråks typen `<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` |
+|RefreshTokenUserJourneyId| Nej | Identifieraren för en användar resa som ska utföras under [uppdateringen av en åtkomstbegäran](authorization-code-flow.md#4-refresh-the-token) POST till `/token` slut punkten. |
 
 ## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 

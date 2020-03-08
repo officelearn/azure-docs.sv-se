@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: dbdc13b8c861c620bfdbaaf53c0901a51bb9ce08
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 3d91203253c08acdaa159fc70f7a34fa7fca20c8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399212"
+ms.locfileid: "78674159"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure-portalen
 
@@ -127,7 +127,7 @@ Om du redan har ett VNet, kontrollerar du att inställningarna är kompatibla me
 ### <a name="to-create-a-virtual-network"></a>Så här skapar du ett virtuellt nätverk
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="create-a-virtual-network-gateway"></a>Skapa en virtuell nätverksgateway
+## <a name="create-the-vnet1-gateway"></a>Skapa VNet1-gatewayen
 I det här steget ska du skapa den virtuella nätverksgatewayen för ditt virtuella nätverk. Att skapa en gateway kan ofta ta 45 minuter eller mer, beroende på vald gateway-SKU. Om du skapar den här konfigurationen för att öva dig kan du se [exempelinställningarna](#example-settings).
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
@@ -138,7 +138,7 @@ I det här steget ska du skapa den virtuella nätverksgatewayen för ditt virtue
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="create-and-configure-vnet4"></a>Skapa och konfigurera VNet4
-När du har konfigurerat VNet1 skapar du VNet4 genom att upprepa de föregående stegen och ersätta värdena med VNet4-värden. Du behöver inte vänta tills den virtuella Nätverksgatewayen för VNet1 har skapats innan du konfigurerar VNet4. Om du använder egna värden måste du kontrollera att adressutrymmena inte överlappar några av de virtuella nätverk som du vill ansluta till.
+När du har konfigurerat VNet1 skapar du VNet4 och VNet4 Gateway genom att upprepa de föregående stegen och ersätta värdena med VNet4-värden. Du behöver inte vänta tills den virtuella Nätverksgatewayen för VNet1 har skapats innan du konfigurerar VNet4. Om du använder egna värden måste du kontrollera att adressutrymmena inte överlappar några av de virtuella nätverk som du vill ansluta till.
 
 ## <a name="configure-the-vnet1-gateway-connection"></a>Konfigurera VNet1 Gateway-anslutning
 När de virtuella Nätverksgatewayen för både VNet1 och VNet4 har slutförts kan du skapa dina anslutningar för virtuella nätverksgateway. I det här avsnittet skapar du en anslutning från VNet1 till VNet4. De här stegen fungerar endast för olika VNet i samma prenumeration. Om dina VNet finns i olika prenumerationer, måste du använda [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) för att ansluta. Om dina VNets är i olika resursgrupper i samma prenumeration kan du emellertid ansluta dem med hjälp av portalen.
@@ -148,7 +148,7 @@ När de virtuella Nätverksgatewayen för både VNet1 och VNet4 har slutförts k
    ![Sidan anslutningar](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png "Sidan anslutningar")
 2. Välj **+ Lägg** till för att öppna sidan **Lägg till anslutning** .
 
-   ![Lägg till anslutning](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-to-vnet4.png "Lägg till en anslutning")
+   ![Lägg till anslutning](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4-connection.png "Lägg till en anslutning")
 3. Fyll i värdena för anslutningen på sidan **Lägg till anslutning**:
 
    - **Namn**: Ange ett namn för anslutningen. Till exempel *VNet1toVNet4*.

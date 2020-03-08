@@ -4,12 +4,12 @@ description: Den här artikeln innehåller en översikt över DPM/Azure Backup S
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: b766c0401dde10fdc257044e004de3dbf8a7b84c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 6640690f725c84899babef6825f817bad447b40f
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586486"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673268"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Säkerhetskopiera en SharePoint-grupp till Azure med DPM
 
@@ -69,7 +69,7 @@ Du kan hitta **ConfigureSharePoint. exe** i mappen [DPM-installations Sök väg]
 
 1. Öppna en kommando tolk på WFE-servern och gå till [DPM-installations plats] \bin\
 2. Ange ConfigureSharePoint-EnableSharePointProtection.
-3. Ange administratörs behörighet för Server gruppen. Det här kontot ska vara medlem i den lokala administratörs gruppen på WFE-servern. Om servergruppsadministratören är inte en lokal administratör ska du bevilja följande behörigheter på WFE-servern:
+3. Ange administratörs behörighet för Server gruppen. Det här kontot ska vara medlem i den lokala administratörs gruppen på WFE-servern. Om Server grupps administratören inte är en lokal administratör ger du följande behörigheter på WFE-servern:
    * Bevilja WSS_Admin_WPG gruppen fullständig kontroll över DPM-mappen (% Program Files%\Microsoft Data Protection Manager\DPM).
    * Bevilja WSS_Admin_WPG gruppen Läs behörighet till DPM-registernyckeln (HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
@@ -133,7 +133,7 @@ När du har konfigurerat DPM och SharePoint-gruppen enligt förklarat tidigare, 
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > DPM tillhandahåller högst två dagliga säkerhets kopieringar till Azure vid olika tidpunkter. Azure Backup kan också styra mängden WAN-bandbredd som kan användas för säkerhets kopieringar vid hög belastning och låg belastnings tid genom att använda [Azure Backup nätverks begränsning](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > DPM tillhandahåller högst två dagliga säkerhets kopieringar till Azure vid olika tidpunkter. Azure Backup kan också styra mängden WAN-bandbredd som kan användas för säkerhets kopieringar vid hög belastning och låg belastnings tid genom att använda [Azure Backup nätverks begränsning](backup-windows-with-mars-agent.md#enable-network-throttling).
     >
     >
 11. Beroende på vilket schema för säkerhets kopiering som du har valt väljer du bevarande principen för säkerhets kopierings punkter per dag, vecka, månad och år på sidan **Ange princip för kvarhållning av online** .

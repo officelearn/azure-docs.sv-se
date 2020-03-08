@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
-ms.openlocfilehash: 82f6da54aec7aee94c19fd75a06d2850ca0db8b6
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883147"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673387"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Utveckla för Android-saker-plattform med Azure IoT-SDK: er
 
-[Azure IoT Hub SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) : er tillhandahåller första nivå stöd för populära plattformar som Windows, Linux, OSX, MBED och mobila plattformar som Android och iOS.  Som en del av vårt åtagande att möjliggöra större valmöjligheter och flexibilitet i IoT-distributioner, stöder Java SDK även [Android](https://developer.android.com/things/) -objekts plattform.  Utvecklare kan utnyttja fördelarna med Android-sakernas operativ system på enhets sidan, medan [Azure IoT Hub](about-iot-hub.md) som den centrala meddelande hubben som skalas till miljon tals anslutna enheter samtidigt.
+[Azure IoT Hub SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) : er tillhandahåller första nivå stöd för populära plattformar som Windows, Linux, OSX, MBED och mobila plattformar som Android och iOS.  Som en del av vårt åtagande att möjliggöra större valmöjligheter och flexibilitet i IoT-distributioner, stöder Java SDK även [Android-objekts](https://developer.android.com/things/) plattform.  Utvecklare kan utnyttja fördelarna med Android-sakernas operativ system på enhets sidan, medan [Azure IoT Hub](about-iot-hub.md) som den centrala meddelande hubben som skalas till miljon tals anslutna enheter samtidigt.
 
 I den här självstudien beskrivs stegen för att bygga ett program på enhets sidan på Android-saker med Azure IoT Java SDK.
 
@@ -30,7 +30,7 @@ I den här självstudien beskrivs stegen för att bygga ett program på enhets s
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -40,16 +40,16 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 1. Kör följande kommandon i Azure Cloud Shell för att lägga till IoT Hub CLI-tillägget och skapa enhetens identitet.
 
-   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
+   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du väljer för din IoT-hubb.
 
-   **MyAndroidThingsDevice** : Det här är det namn du angav för den registrerade enheten. Använd MyAndroidThingsDevice som det visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
+   **MyAndroidThingsDevice** : det här är det namn som angetts för den registrerade enheten. Använd MyAndroidThingsDevice som det visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
+    az extension add --name azure-iot
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidThingsDevice
     ```
 
-2. Kör följande kommandon i Azure Cloud Shell för att hämta *enhets anslutnings strängen* för den enhet som du just har registrerat. Ersätt `YourIoTHubName` nedan med det namn du väljer för din IoT-hubb.
+2. Kör följande kommandon i Azure Cloud Shell för att hämta *enhets anslutnings strängen* för den enhet som du just har registrerat. Ersätt `YourIoTHubName` nedan med det namn du väljer för din IoT Hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table
@@ -79,7 +79,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 4. I Android Studio öppnar du Android-projektet i "\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample".
 
-5. Öppna gradle. Properties-filen och Ersätt "Device_connection_string" med enhets anslutnings strängen som anges tidigare.
+5. Öppna gradle. Properties-filen och Ersätt "Device_connection_string" med enhets anslutnings strängen som du antecknade tidigare.
  
 6. Klicka på Kör-debug och välj din enhet för att distribuera den här koden till dina Android-enheter.
 
@@ -87,7 +87,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Läsa telemetrin från din hubb
 
-Du kan visa data via din IoT Hub när den tas emot. CLI-tillägget för IoT Hub kan ansluta till **Events**-slutpunkten för tjänstsidan på din IoT Hub. Tillägget tar emot enhet-till-moln-meddelanden som skickats från din simulerade enhet. Ett IoT Hub-serverprogram körs normalt i molnet för att ta emot och bearbeta enhet-till-molnet-meddelanden.
+Du kan visa data via din IoT Hub när den tas emot. CLI-tillägget för IoT-hubben kan ansluta till **Events**-slutpunkten för tjänstsidan på din IoT-hubb. Tillägget tar emot enhet-till-moln-meddelanden som skickats från din simulerade enhet. Ett IoT Hub-serverprogram körs normalt i molnet för att ta emot och bearbeta enhet-till-molnet-meddelanden.
 
 Kör följande kommandon i Azure Cloud Shell, där du ersätter `YourIoTHubName` med namnet på din IoT-hubb:
 

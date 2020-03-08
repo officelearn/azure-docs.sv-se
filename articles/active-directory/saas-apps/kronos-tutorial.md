@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med Kronos | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Kronos | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Kronos.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec568793d717da2493b2c45fe1dca5ad56073886
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4ae90b729db51287f2a98caa36ae43d83a2a207c
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986255"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897800"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kronos"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med Kronos
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kronos"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Kronos
 
 I den här självstudien får du lära dig hur du integrerar Kronos med Azure Active Directory (Azure AD). När du integrerar Kronos med Azure AD kan du:
 
@@ -65,7 +65,7 @@ Om du vill konfigurera och testa Azure AD SSO med Kronos, slutför du följande 
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera Kronos SSO](#configure-kronos-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
     1. **[Skapa Kronos test User](#create-kronos-test-user)** -om du vill ha en motsvarighet till B. Simon i Kronos som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -84,10 +84,10 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<company name>.kronos.net/`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<company name>.kronos.net/wfc/navigator/logonWithUID`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<company name>.kronos.net/wfc/navigator/logonWithUID`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Kronos-kundsupporten](https://www.kronos.in/contact/en-in/form) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Kronos-kundsupporten](https://www.kronos.in/contact/en-in/form) och be om dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. Kronos-programmet förväntar sig att SAML-försäkran har ett specifikt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
@@ -103,13 +103,13 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. Välj **ExtractMailPrefix()** i listan **Transformering**.
 
-    c. Välj **user.userprinicipalname** i listan **Parameter 1**.
+    c. I listan **parameter 1** väljer du **User. UserPrincipalName**.
 
-    d. Klicka på **Spara**.
+    d. Klicka på **Save** (Spara).
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 1. I avsnittet **Konfigurera Kronos** kopierar du lämpliga URL: er baserat på ditt krav.
 
@@ -120,14 +120,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Kronos.
 
@@ -135,7 +135,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I listan med program väljer du **Kronos**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -147,7 +147,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-kronos-sso"></a>Konfigurera Kronos SSO
 
-Om du vill konfigurera enkel inloggning på **Kronos** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för Kronos](https://www.kronos.in/contact/en-in/form). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Kronos** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för Kronos](https://www.kronos.in/contact/en-in/form). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-kronos-test-user"></a>Skapa Kronos-testanvändare
 
@@ -155,9 +155,9 @@ I det här avsnittet ska du skapa en användare med namnet Britta Simon i Kronos
 
 ## <a name="test-sso"></a>Testa SSO
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Kronos-panelen på åtkomstpanelen bör du automatiskt loggas in i Kronos-programmet som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Kronos-panelen på åtkomstpanelen bör du automatiskt loggas in i Kronos-programmet som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

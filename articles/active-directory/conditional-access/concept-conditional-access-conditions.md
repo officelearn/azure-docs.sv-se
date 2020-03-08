@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dff80d849268c770e4227ff8c99b8f4d133c4d78
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: b9e6d2d6cf602bca74c8899586eef0a8108fde3c
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375323"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78893129"
 ---
 # <a name="conditional-access-conditions"></a>Villkorlig åtkomst: villkor
 
@@ -72,7 +72,7 @@ Principer för villkorlig åtkomst gäller som standard för webbläsarbaserade 
       - Det här alternativet omfattar klienter som använder grundläggande/äldre autentiseringsprotokoll som inte stöder modern autentisering.
          - Autentiserad SMTP – används av POP-och IMAP-klienten för att skicka e-postmeddelanden.
          - Identifiera automatiskt – används av Outlook-och EAS-klienter för att hitta och ansluta till post lådor i Exchange Online.
-         - Exchange Online PowerShell – används för att ansluta till Exchange Online med fjärr-PowerShell. Om du blockerar grundläggande autentisering för Exchange Online PowerShell måste du använda Exchange Online PowerShell-modulen för att ansluta. Mer information finns i [ansluta till Exchange Online PowerShell med Multi-Factor Authentication](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+         - Exchange Online PowerShell – används för att ansluta till Exchange Online med fjärr-PowerShell. Om du blockerar grundläggande autentisering för Exchange Online PowerShell måste du använda Exchange Online PowerShell-modulen för att ansluta. Mer information finns i [ansluta till Exchange Online PowerShell med Multi-Factor Authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
          - Exchange Web Services (EWS) – ett programmerings gränssnitt som används av Outlook, Outlook för Mac och appar från tredje part.
          - IMAP4 – används av IMAP e-postklienter.
          - MAPI över HTTP (MAPI/HTTP) – används av Outlook 2010 och senare.
@@ -142,8 +142,8 @@ Den här inställningen påverkar åtkomst försök som görs från följande mo
 | E-post/kalender/Peoples-app, Outlook 2016, Outlook 2013 (med modern autentisering)| Office 365 Exchange Online | Windows 10 |
 | MFA och plats princip för appar. Enhets principer stöds inte.| App Service för Mina appar | Android och iOS |
 | Microsoft Teams Services – detta styr alla tjänster som stöder Microsoft-team och alla dess klient program – Windows-skrivbord, iOS, Android, WP och webb klient | Microsoft Teams | Windows 10, Windows 8,1, Windows 7, iOS, Android och macOS |
-| Office 2016-appar, Office 2013 (med modern autentisering), [OneDrive-synkronisering-klient](https://docs.microsoft.com/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8,1, Windows 7 |
-| Office 2016-appar, universella Office-appar, Office 2013 (med modern autentisering), [OneDrive-synkroniseringsklient](https://docs.microsoft.com/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
+| Office 2016-appar, Office 2013 (med modern autentisering), [OneDrive-synkronisering-klient](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8,1, Windows 7 |
+| Office 2016-appar, universella Office-appar, Office 2013 (med modern autentisering), [OneDrive-synkroniseringsklient](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
 | Office 2016 (Word, Excel, PowerPoint, endast OneNote). | Office 365 SharePoint Online | macOS |
 | Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
 | Office Mobile-appar | Office 365 SharePoint Online | Android, iOS |

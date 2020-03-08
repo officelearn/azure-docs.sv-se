@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4c85fbc2c1f926f89dbfe9f2a5ae47cc48edf73
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377603"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671883"
 ---
 # <a name="what-is-conditional-access"></a>Vad är villkorsstyrd åtkomst?
 
@@ -92,7 +92,7 @@ Upptäck hur andra organisationer använder villkorlig åtkomst för Azure AD f�
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
-Kunder med [Microsoft 365 Business licenser](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) har också till gång till funktioner för villkorlig åtkomst. 
+Kunder med [Microsoft 365 Business licenser](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) har också till gång till funktioner för villkorlig åtkomst. 
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -102,6 +102,6 @@ Information om hur du implementerar villkorlig åtkomst i din miljö finns i [Pl
 
 [Lär dig mer om identitets skydd](../identity-protection/overview-v2.md)
 
-[Läs mer om Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)
+[Läs mer om Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
 
-[Läs mer om Microsoft Intune](https://docs.microsoft.com/intune/index)
+[Läs mer om Microsoft Intune](/intune/index)

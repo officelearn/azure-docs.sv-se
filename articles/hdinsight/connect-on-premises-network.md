@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/16/2019
-ms.openlocfilehash: 97725099e82c5edb05447d97b47f352c440bd8e8
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.custom: hdinsightactive
+ms.date: 03/04/2020
+ms.openlocfilehash: 2ed7a5b9c81d1b50f80f379a88688b69c49ed382
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529293"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897923"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ansluta HDInsight till det lokala nätverket
 
@@ -28,12 +28,12 @@ Lär dig hur du ansluter HDInsight till ditt lokala nätverk med hjälp av virtu
 
 Om du vill tillåta att HDInsight och resurser i det anslutna nätverket kommunicerar med namn måste du utföra följande åtgärder:
 
-* Skapa Azure-Virtual Network.
-* Skapa en anpassad DNS-server i Azure-Virtual Network.
-* Konfigurera det virtuella nätverket så att det använder den anpassade DNS-servern i stället för standard Azure-rekursiva matcharen.
-* Konfigurera vidarebefordring mellan den anpassade DNS-servern och den lokala DNS-servern.
+1. Skapa Azure-Virtual Network.
+1. Skapa en anpassad DNS-server i Azure-Virtual Network.
+1. Konfigurera det virtuella nätverket så att det använder den anpassade DNS-servern i stället för standard Azure-rekursiva matcharen.
+1. Konfigurera vidarebefordring mellan den anpassade DNS-servern och den lokala DNS-servern.
 
-Den här konfigurationen aktiverar följande beteende:
+Dessa konfigurationer gör följande:
 
 * Begär Anden om fullständigt kvalificerade domän namn som har DNS-suffixet __för det virtuella nätverket__ vidarebefordras till den anpassade DNS-servern. Den anpassade DNS-servern vidarebefordrar sedan dessa förfrågningar till Azures rekursiva matchare, som returnerar IP-adressen.
 * Alla andra begär Anden vidarebefordras till den lokala DNS-servern. Även begär Anden för offentliga Internet resurser, till exempel microsoft.com, vidarebefordras till den lokala DNS-servern för namn matchning.
@@ -42,7 +42,7 @@ I följande diagram är gröna rader begär Anden om resurser som slutar med DNS
 
 ![Diagram över hur DNS-begäranden löses i konfigurationen](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 * Om du använder PowerShell behöver du AZ- [modulen](https://docs.microsoft.com/powershell/azure/overview).
@@ -63,15 +63,17 @@ Använd följande dokument för att lära dig hur du skapar en Azure-Virtual Net
 
 De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa en virtuell Azure-dator. Andra sätt att skapa en virtuell dator finns i [skapa VM – Azure CLI](../virtual-machines/linux/quick-create-cli.md) och [skapa VM-Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md).  Använd följande steg för att skapa en virtuell Linux-dator som använder DNS-programvaran [BIND](https://www.isc.org/downloads/bind/) :
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
   
-2. På den vänstra menyn navigerar du till **+ skapa en resurs**  > **Compute**  > **Ubuntu Server 18,04 LTS**.
+1. Välj **+ skapa en resurs**på den översta menyn.
 
-    ![Skapa en virtuell Ubuntu-dator](./media/connect-on-premises-network/create-ubuntu-virtual-machine.png)
+    ![Skapa en virtuell Ubuntu-dator](./media/connect-on-premises-network/azure-portal-create-resource.png)
 
-3. På fliken __grundläggande__ anger du följande information:  
+1. Välj **compute** > **virtuell dator** för att gå till sidan **skapa en virtuell dator** .
+
+1. På fliken __grundläggande__ anger du följande information:  
   
-    | Fält | Värde |
+    | Field | Värde |
     | --- | --- |
     |Prenumeration |Välj lämplig prenumeration.|
     |Resursgrupp |Välj den resurs grupp som innehåller det virtuella nätverket som skapades tidigare.|
@@ -90,7 +92,7 @@ De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa
 
 4. Ange följande information på fliken **nätverk** :
 
-    | Fält | Värde |
+    | Field | Värde |
     | --- | --- |
     |Virtuellt nätverk | Välj det virtuella nätverk som du skapade tidigare.|
     |Undernät | Välj standard under nätet för det virtuella nätverk som du skapade tidigare. Välj __inte__ det undernät som används av VPN-gatewayen.|
@@ -178,7 +180,7 @@ När den virtuella datorn har skapats får du ett meddelande om att **distributi
     dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
     ```
 
-    @No__t_0 texten är __DNS-suffixet__ för det här virtuella nätverket. Du bör spara det här värdet eftersom det används senare.
+    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` texten är __DNS-suffixet__ för det här virtuella nätverket. Spara det här värdet eftersom det används senare.
 
 5. Om du vill konfigurera bind för att matcha DNS-namn för resurser i det virtuella nätverket, använder du följande text som innehållet i `/etc/bind/named.conf.local`-filen:
 
@@ -232,7 +234,7 @@ När den virtuella datorn har skapats får du ett meddelande om att **distributi
 
 Om du vill konfigurera det virtuella nätverket att använda den anpassade DNS-servern i stället för Azures rekursiva matchare, använder du följande steg från [Azure Portal](https://portal.azure.com):
 
-1. I den vänstra menyn navigerar du till **alla tjänster**  > **nätverk**  > **virtuella nätverk**.
+1. I den vänstra menyn navigerar du till **alla tjänster** > **nätverk** > **virtuella nätverk**.
 
 2. Välj ditt virtuella nätverk i listan, så öppnas standardvyn för det virtuella nätverket.  
 

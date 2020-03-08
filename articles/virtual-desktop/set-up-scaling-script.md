@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: helohr
-ms.openlocfilehash: f38fc45411c89351eb9a50a48f22d22905ee34e6
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 353501912836e0f6706f20deed1c1d9d416f1ce6
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367247"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894506"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Skala sessionsbaserade värdar med hjälp av Azure Automation
 
@@ -37,7 +37,7 @@ Under den högsta användnings tiden kontrollerar jobbet det aktuella antalet se
 >[!NOTE]
 >*SessionThresholdPerCPU* begränsar inte antalet sessioner på den virtuella datorn. Den här parametern bestämmer bara när nya virtuella datorer måste startas för att belastningsutjämna anslutningarna. Om du vill begränsa antalet sessioner måste du följa anvisningarna [set-RdsHostPool](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) för att konfigurera *MaxSessionLimit* -parametern enligt detta.
 
-Under den högsta användnings tiden avgör jobbet vilken virtuell dator i sessionen som ska stängas av baserat på parametern *MinimumNumberOfRDSH* . Jobbet ställer in de virtuella datorerna i den virtuella datorn i tömnings läge för att förhindra att nya sessioner ansluter till värdarna. Om du ställer in parametern *LimitSecondsToForceLogOffUser* på ett positivt värde som inte är noll meddelar skriptet om användare som är inloggade att spara sitt arbete, väntar på den konfigurerade tiden och tvingar sedan användarna att logga ut. När alla användarsessioner på den virtuella datorns sessions värd har loggats ut stängs den virtuella datorn av av skriptet.
+Under den högsta användnings tiden avgör jobbet vilken virtuell dator i sessionen som ska stängas av baserat på parametern *MinimumNumberOfRDSH* . Jobbet ställer in de virtuella datorerna i den virtuella datorn i tömnings läge för att förhindra att nya sessioner ansluter till värdarna. Om du ställer in parametern *LimitSecondsToForceLogOffUser* på ett positivt värde som inte är noll meddelar jobbet alla användare som är inloggade att spara sitt arbete, väntar på den konfigurerade tiden och tvingar sedan användarna att logga ut. När alla användarsessioner på VM-sessionen har loggats ut stängs jobbet av den virtuella datorn.
 
 Om du ställer in parametern *LimitSecondsToForceLogOffUser* på noll, kommer jobbet att tillåta konfigurations inställningen för sessionen i angivna grup principer för att hantera signering av användarsessioner. Om du vill se dessa grup principer går du till **dator konfiguration** > **principer** > **Administrativa mallar** > **Windows-komponenter** > **Terminal Services** > **Terminal Server** > **tids gränser för sessionen**. Om det finns aktiva sessioner på en virtuell dator för en virtuell dator kommer jobbet att lämna den virtuella dator som körs på sessionen. Om det inte finns några aktiva sessioner stängs jobbet för den virtuella datorns sessions värd.
 

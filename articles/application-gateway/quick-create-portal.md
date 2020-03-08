@@ -6,30 +6,39 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 11/14/2019
+ms.date: 03/05/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5e66632fab0306da7766f079733cd1d8cb3edc8d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 3ce726b858dc31f42a07d56c11330544df3861f1
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359239"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669272"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure Portal
 
-Den här snabb starten visar hur du använder Azure Portal för att skapa en Programgateway.  När du har skapat programgatewayen testar du den för att kontrol lera att den fungerar som den ska. Med Azure Application Gateway dirigerar du din program webb trafik till specifika resurser genom att tilldela lyssnare till portar, skapa regler och lägga till resurser i en backend-pool. För enkelhetens skull använder den här artikeln en enkel installation med en offentlig frontend-IP, en grundläggande lyssnare som är värd för en enda plats på den här programgatewayen, två virtuella datorer som används för backend-poolen och en grundläggande regel för routning av förfrågningar.
+I den här snabb starten använder du Azure Portal för att skapa en Programgateway. Sedan testar du det för att kontrol lera att det fungerar korrekt. 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Application Gateway dirigerar program webb trafik till specifika resurser i en backend-pool. Du tilldelar lyssnare till portar, skapar regler och lägger till resurser i en backend-pool. För enkelhetens skull använder den här artikeln en enkel installation med en offentlig frontend-IP, en grundläggande lyssnare som är värd för en enda plats på programgatewayen, en grundläggande regel för routning av begäran och två virtuella datorer i backend-poolen.
 
+Du kan också slutföra den här snabb starten med [Azure PowerShell](quick-create-powershell.md) eller [Azure CLI](quick-create-cli.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+
+
+## <a name="prerequisites"></a>Förutsättningar
+
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
+
+Du skapar programgatewayen med hjälp av flikarna på sidan **skapa en Application Gateway** .
 
 1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**. Fönstret **Nytt** visas.
 
@@ -126,7 +135,7 @@ Granska inställningarna på fliken **Granska + skapa** och välj sedan **skapa*
 
 ## <a name="add-backend-targets"></a>Lägg till Server dels mål
 
-I det här exemplet ska du använda virtuella datorer som mål Server del. Du kan antingen använda befintliga virtuella datorer eller skapa nya. Du skapar två virtuella datorer som Azure använder som backend-servrar för programgatewayen.
+I det här exemplet ska du använda virtuella datorer som mål Server del. Du kan antingen använda befintliga virtuella datorer eller skapa nya. Du skapar två virtuella datorer som backend-servrar för programgatewayen.
 
 Det gör du genom att:
 
@@ -142,8 +151,8 @@ Det gör du genom att:
 
     - **Resurs grupp**: Välj **myResourceGroupAG** som resurs grupps namn.
     - **Namn på virtuell dator**: ange *myVM* som namn på den virtuella datorn.
-    - **Användar**namn: ange *azureuser* som administratörs användar namn.
-    - **Lösen ord**: ange *Azure123456!* som administratörslösenord.
+    - **Användar**namn: Skriv *azureuser* som administratörs användar namn.
+    - **Lösen ord**: Ange lösen ordet.
 4. Godkänn de andra standardinställningarna och välj sedan **Nästa: diskar**.  
 5. Godkänn standardvärdena på fliken **diskar** och välj sedan **Nästa: nätverk**.
 6. På fliken **Nätverk** kontrollerar du att **myVNet** har valts för **Virtuellt nätverk** och att **Undernät** är inställt på **myBackendSubnet**. Godkänn de andra standardinställningarna och välj sedan **Nästa: hantering**.<br>Application Gateway kan kommunicera med instanser utanför det virtuella nätverk som det finns i, men du måste se till att det finns en IP-anslutning.
@@ -155,7 +164,7 @@ Det gör du genom att:
 
 I det här exemplet installerar du bara IIS på de virtuella datorerna för att kontrol lera att Azure har skapat programgatewayen.
 
-1. Öppna [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). Det gör du genom att först välja **Cloud Shell** i det övre navigeringsfältet på Azure-portalen och sedan välja **PowerShell** i listrutan. 
+1. Öppna Azure PowerShell. Välj **Cloud Shell** i det övre navigerings fältet i Azure Portal och välj sedan **PowerShell** i list rutan. 
 
     ![Installera anpassat tillägg](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
@@ -199,13 +208,15 @@ IIS krävs inte för skapande av programgatewayen, men du installerade det i den
 
 1. Hitta den offentliga IP-adressen för Application Gateway på sidan **Översikt** .![registrerar den offentliga IP-adressen för Application Gateway](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) eller så kan du välja **alla resurser**, ange *myAGPublicIPAddress* i sökrutan och sedan välja den i Sök resultaten. Azure visar den offentliga IP-adressen på sidan **Översikt**.
 2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
-3. Kontrol lera svaret. Ett giltigt svar verifierar att Application Gateway har skapats och kan ansluta till Server delen.![Testa programgateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
+3. Kontrol lera svaret. Ett giltigt svar verifierar att Application Gateway har skapats och kan ansluta till Server delen.
+
+   ![Testa programgateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behöver de resurser som du skapade med programgatewayen kan du ta bort resursgruppen. När du tar bort resursgruppen tas även programgatewayen och alla dess relaterade resurser bort. 
+När du inte längre behöver de resurser som du skapade med Application Gateway, tar du bort resurs gruppen. När du tar bort resurs gruppen tar du även bort programgatewayen och alla relaterade resurser.
 
-Så här tar du bort resursgruppen:
+Ta bort resurs gruppen:
 
 1. På Azure Portal-menyn väljer du **resurs grupper** eller söker efter och väljer *resurs grupper*.
 2. På sidan **Resursgrupper** söker du efter och väljer **myResourceGroupAG**.

@@ -1,36 +1,37 @@
 ---
-title: Bygg avancerade jobb scheman och upprepningar – Azure Scheduler
+title: Bygg avancerade jobb scheman och upprepningar
 description: Lär dig hur du skapar avancerade scheman och upprepningar för jobb i Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
+ms.reviewer: klam, estfan
 ms.suite: infrastructure-services
-ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: 386284543cd8fb00cc49fea9a29d9eaee4ca4963
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: b85932bf0d4fd080afadef2bc28d6a218b2d627a
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300971"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898593"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Bygg avancerade scheman och upprepningar för jobb i Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt. 
+>
+> Scheduler är inte längre tillgänglig i Azure Portal, men [PowerShell-cmdletarna](scheduler-powershell-reference.md) [REST API](/rest/api/scheduler) och Azure Scheduler är tillgängliga just nu så att du kan hantera jobb och jobb samlingar.
 
 I ett [Azure Scheduler](../scheduler/scheduler-intro.md) -jobb är schemat den kärna som avgör när och hur tjänsten Scheduler kör jobbet. Du kan konfigurera flera engångs-och återkommande scheman för ett jobb med Scheduler. Ett engångs schema körs bara en gång vid en angiven tidpunkt och är i princip återkommande scheman som bara körs en gång. Återkommande scheman körs enligt en angiven frekvens. Med den här flexibiliteten kan du använda Scheduler för olika affärs scenarier, till exempel:
 
-* **Rensa data regelbundet**: Skapa ett dagligt jobb som tar bort alla Tweets som är äldre än tre månader.
+* **Rensa data regelbundet**: skapa ett dagligt jobb som tar bort alla Tweets som är äldre än tre månader.
 
-* **Arkivera data**: Skapa ett månatligt jobb som skickar faktura historiken till en säkerhets kopierings tjänst.
+* **Arkivera data**: skapa ett månatligt jobb som skickar faktura historiken till en säkerhets kopierings tjänst.
 
-* **Begär externa data**: Skapa ett jobb som körs var 15: e minut och hämtar en ny väderleks rapport från NOAA.
+* **Begär externa data**: skapa ett jobb som körs var 15: e minut och hämtar en ny väderleks rapport från NOAA.
 
-* **Bearbeta bilder**: Skapa ett vardags jobb som körs under låg belastnings tider och använder molnbaserad data behandling för att komprimera avbildningar som laddats upp under dagen.
+* **Bearbeta avbildningar**: skapa ett arbets dags jobb som körs under låg belastnings tider och använder molnbaserad data behandling för att komprimera avbildningar som laddats upp under dagen.
 
 I den här artikeln beskrivs exempel jobb som du kan skapa med hjälp av Scheduler och [Azure scheduler REST API](/rest/api/scheduler)och inkluderar JavaScript Object Notation (JSON)-definitionen för varje schema. 
 
@@ -63,11 +64,11 @@ Följ dessa steg om du vill skapa ett grundläggande schema med [Azure scheduler
 
 Den här tabellen ger en översikt på hög nivå för de viktigaste JSON-element som du kan använda när du ställer in upprepningar och scheman för jobb. 
 
-| Element | Obligatorisk | Beskrivning | 
+| Element | Krävs | Beskrivning | 
 |---------|----------|-------------|
 | **startTime** | Nej | Ett DateTime-sträng värde i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) som anger när jobbet först startar i ett Basic-schema. <p>För komplexa scheman startar jobbet ingen tidigare än **StartTime**. | 
 | **recurrence** | Nej | Reglerna för upprepning för när jobbet körs. Objektet **upprepning** stöder följande element: **frekvens**, **intervall**, **schema**, **antal**och slut tid **.** <p>Om du använder **upprepnings** elementet måste du också använda **frekvens** elementet, medan andra **upprepnings** element är valfria. |
-| **frequency** | Ja, när du använder **upprepning** | Tidsenheten mellan förekomster och stöder dessa värden: "Minut", "timme", "dag", "vecka", "månad" och "år" | 
+| **frequency** | Ja, när du använder **upprepning** | Tidsenheten mellan förekomster och stöder dessa värden: "minut", "timme", "dag", "vecka", "månad" och "år" | 
 | **interval** | Nej | Ett positivt heltal som fastställer antalet tidsenheter mellan förekomster baserat på **frekvens**. <p>Om **intervallet** till exempel är 10 och **frekvensen** är "vecka", upprepas jobbet var 10: e vecka. <p>Här är det mest antal intervallen för varje frekvens: <p>– 18 månader <br>– 78 veckor <br>– 548 dagar <br>– I timmar och minuter är intervallet 1 < = <*intervall*> < = 1000. | 
 | **schedule** | Nej | Definierar ändringar i upprepningen baserat på angivna minuter, timmar, vecko dagar och dagar i månaden | 
 | **antal** | Nej | Ett positivt heltal som anger antalet gånger som jobbet körs innan det slutförs. <p>Om till exempel ett dagligt **jobb har värdet** 7 och start datumet är måndag, slutförs jobbet på söndag. Om start datumet redan har passerat beräknas den första körningen från skapande tiden. <p>Utan **slut** tid eller **antal**körs jobbet oändligt. Du kan inte använda både **antal** och slut **tid i samma** jobb, men regeln som slutförs först. | 
@@ -164,10 +165,10 @@ I följande tabell beskrivs schemaelement i detalj:
 | **minutes** |Minuter i timmen då jobbet körs. |En matris med heltal. |
 | **hours** |Timmar på dagen då jobbet körs. |En matris med heltal. |
 | **weekDays** |Vecko dagar som jobbet körs. Kan bara anges med en vecko frekvens. |En matris med något av följande värden (maximal mat ris storlek är 7):<br />– "Måndag"<br />– "Tisdag"<br />– "Onsdag"<br />– "Torsdag"<br />– "Fredag"<br />– "Lördag"<br />– "Söndag"<br /><br />Inte Skift läges känsligt. |
-| **monthlyOccurrences** |Anger vilka dagar i månaden som jobbet körs. Kan bara anges med en månads frekvens. |En matris med **monthlyOccurrences** -objekt:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **dag** är den veckodag som jobbet körs. Till exempel är *{söndag}* varje söndag i månaden. Obligatoriskt.<br /><br />**förekomst** är förekomsten av dagen under månaden. Till exempel är *{söndag,-1}* den sista söndagen i månaden. Valfritt. |
+| **monthlyOccurrences** |Anger vilka dagar i månaden som jobbet körs. Kan bara anges med en månads frekvens. |En matris med **monthlyOccurrences** -objekt:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **dag** är den veckodag som jobbet körs. Till exempel är *{söndag}* varje söndag i månaden. Krävs.<br /><br />**förekomst** är förekomsten av dagen under månaden. Till exempel är *{söndag,-1}* den sista söndagen i månaden. Valfri. |
 | **monthDays** |Dag i månaden då jobbet körs. Kan bara anges med en månads frekvens. |En matris med följande värden:<br />– Ett värde <= -1 och >= -31<br />– Ett värde > = 1 och < = 31|
 
-## <a name="examples-recurrence-schedules"></a>Exempel: Upprepnings scheman
+## <a name="examples-recurrence-schedules"></a>Exempel: upprepnings scheman
 
 I följande exempel visas olika scheman för upprepning. Exemplen fokuserar på schemaobjektet och dess under element.
 
@@ -207,8 +208,9 @@ Dessa scheman förutsätter att **intervallet** är inställt på 1\. I exemplen
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` |Körs var 15:e minut den sista fredagen i månaden. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` |Körs 05.15, 05.45, 17.15 och 17.45 den tredje onsdagen varje månad. |
 
-## <a name="see-also"></a>Se också
+## <a name="next-steps"></a>Nästa steg
 
-* [Vad är Azure Scheduler?](scheduler-intro.md)
 * [Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler](scheduler-concepts-terms.md)
+* [Referens för REST-API:et för Azure Scheduler](/rest/api/scheduler)
+* [Referens för PowerShell-cmdlets för Azure Scheduler](scheduler-powershell-reference.md)
 * [Gränser, standardinställningar och felkoder i Azure Scheduler](scheduler-limits-defaults-errors.md)

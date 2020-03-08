@@ -1,34 +1,35 @@
 ---
-title: Referens för PowerShell-cmdletar – Azure Scheduler
+title: Referens för PowerShell-cmdletar
 description: Lär dig mer om PowerShell-cmdletar för Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 1ad1d6b9f59fa51b9e27fe5b70ce4e2a5d36f3ad
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 577e2128cf7e4e9f914ec5504917053acb3c19d5
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300884"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898487"
 ---
 # <a name="powershell-cmdlets-reference-for-azure-scheduler"></a>PowerShell-cmdlets-referens för Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt. 
+>
+> Scheduler är inte längre tillgänglig i Azure Portal, men [PowerShell-cmdletarna](scheduler-powershell-reference.md) [REST API](/rest/api/scheduler) och Azure Scheduler är tillgängliga just nu så att du kan hantera jobb och jobb samlingar.
 
 Om du vill redigera skript för att skapa och hantera jobb i Schemaläggaren och jobb samlingar kan du använda PowerShell-cmdletar. Den här artikeln innehåller de viktigaste PowerShell-cmdletarna för Azure Scheduler med länkar till sina referens artiklar. Information om hur du installerar Azure PowerShell för din Azure-prenumeration finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). Mer information om [Azure Resource Manager-cmdlets](/powershell/azure/overview)finns i [använda Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-| Cmdlet: | Beskrivning |
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+| Cmdlet | Beskrivning |
 |--------|-------------|
 | [Disable-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/disable-azurermschedulerjobcollection) |Inaktiverar en jobb samling. |
-| [Enable-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/enable-azurermschedulerjobcollection) |Aktiverar en jobb samling. |
+| [Aktivera – AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/enable-azurermschedulerjobcollection) |Aktiverar en jobb samling. |
 | [Get-AzSchedulerJob](/powershell/module/azurerm.scheduler/get-azurermschedulerjob) |Hämtar Scheduler-jobb. |
 | [Get-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/get-azurermschedulerjobcollection) |Hämtar jobb samlingar. |
 | [Get-AzSchedulerJobHistory](/powershell/module/azurerm.scheduler/get-azurermschedulerjobhistory) |Hämtar jobb historik. |
@@ -48,15 +49,14 @@ Om du vill redigera skript för att skapa och hantera jobb i Schemaläggaren och
 
 Om du vill ha mer information kan du köra någon av dessa cmdlet: ar: 
 
-```
+```text
 Get-Help <cmdlet name> -Detailed
 Get-Help <cmdlet name> -Examples
 Get-Help <cmdlet name> -Full
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="next-steps"></a>Nästa steg
 
-* [Vad är Azure Scheduler?](scheduler-intro.md)
-* [Begrepp, terminologi och entitetshierarki](scheduler-concepts-terms.md)
-* [Skapa och Schemalägg ditt första jobb – Azure Portal](scheduler-get-started-portal.md)
-* [Referens för REST-API:et för Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
+* [Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler](scheduler-concepts-terms.md)
+* [Gränser, standardinställningar och felkoder i Azure Scheduler](scheduler-limits-defaults-errors.md)
+* [Referens för REST-API:et för Azure Scheduler](/rest/api/scheduler)

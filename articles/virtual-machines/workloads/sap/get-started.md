@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/03/2020
+ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0219b3e35ed82795e9c799754cabdeb5d17096d6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 4a02fb7ab7e42f2a56041638a3d883287da3eb42
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78267414"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674491"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -43,6 +43,7 @@ Om du har vissa frågor ska vi peka dig på vissa dokument eller flöden i det h
 - Vilka SAP-distributions scenarier som stöds med virtuella Azure-datorer och HANA-stora instanser. Information om de scenarier som stöds finns i dokumenten:
     - [SAP-arbetsbelastningar i scenarier med virtuella Azure-datorer som stöds](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations)
     - [Scenarier som stöds för HANA stor instans](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario)
+- Vilka Azure-tjänster, Azure VM-typer och Azure Storage är tillgängliga i olika Azure-regioner, kontrollerar du de plats [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/) 
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA på Azure (stora instanser)
@@ -109,6 +110,8 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 
 ## <a name="change-log"></a>Ändringslogg
+
+- 03/05/2020: struktur ändringar och innehålls ändringar för Azure-regioner och Azure Virtual Machines i [azure Virtual Machines planera och implementera för SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
 - 03/03/2020: ändring i [hög tillgänglighet för SAP NW på virtuella Azure-datorer på SLES med ANF för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) för att ändra till mer effektiv ANF
 - 03/01/2020: [säkerhets kopierings guiden för SAP HANA på Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide) inkludera Azure Backup-tjänsten. Minska och kondenserat innehåll i [SAP HANA Azure Backup på filnivå](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level) och ta bort ett tredje dokument som hanterar säkerhets kopiering genom disk ögonblicks bilder. Innehållet hanteras i säkerhets kopierings guiden för SAP HANA på Azure Virtual Machines 
 - 02/27/2020: ändring i [hög tillgänglighet för SAP NW på virtuella Azure-datorer på SLES för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse), [hög tillgänglighet för SAP NW på virtuella Azure-datorer på SLES med ANF för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) och [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SLES multi-sid-guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) för att justera "On failover"-kluster parametern

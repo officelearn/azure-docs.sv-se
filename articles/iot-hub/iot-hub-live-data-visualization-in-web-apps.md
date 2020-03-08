@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 6c7981d15acf2b2b71dfb4234f85b738efe62ce0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 138e077f7b47fa9f38a4710db95eb7208cef78e3
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767950"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675324"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualisera real tids sensor data från din Azure IoT Hub i ett webb program
 
@@ -52,7 +52,7 @@ I den här självstudien får du lära dig att visualisera real tids sensor data
 Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IOT-tillägget lägger till IoT Hub-, IoT Edge-och IoT Device Provisioning-tjänst (DPS)-kommandon i Azure CLI.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Lägga till en konsument grupp i IoT Hub
@@ -229,7 +229,7 @@ I det här avsnittet etablerar du en webbapp i App Service och distribuerar din 
 
 11. Gå till `https://<your web app name>.azurewebsites.net` i en webbläsare. En webb sida som liknar den som du såg när du körde webb programmet visas lokalt. Om du antar att enheten kör och skickar data bör du se en körnings kurva om de 50 senaste temperatur-och fuktighets avläsningarna som skickas av enheten.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Om du kommer över eventuella problem med det här exemplet kan du prova stegen i följande avsnitt. Om du fortfarande har problem kan du skicka feedback till oss längst ned i det här avsnittet.
 

@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 478b6cffb6fbb2be7a87b9b61d5b7e2ee71a74c2
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0723ddc9b0e2f15d5c8e51c96d51f58f1313493a
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840714"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673658"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Felsöka Virtual Network gateway och anslutningar med Azure Network Watcher PowerShell
 
 > [!div class="op_single_selector"]
-> - [Portalen](diagnose-communication-problem-between-networks.md)
+> - [Portal](diagnose-communication-problem-between-networks.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
 > - [REST API](network-watcher-troubleshoot-manage-rest.md)
@@ -47,7 +47,7 @@ Resurs fel sökning ger möjlighet att felsöka problem som uppstår med Virtual
 Det första steget är att hämta Network Watcher-instansen. Variabeln `$networkWatcher` skickas till `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet i steg 4.
 
 ```powershell
-$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
+$networkWatcher = Get-AzNetworkWatcher -Location "WestCentralUS" 
 ```
 
 ## <a name="retrieve-a-virtual-network-gateway-connection"></a>Hämta en Virtual Network Gateway-anslutning
@@ -58,7 +58,7 @@ I det här exemplet körs resurs fel sökning på en anslutning. Du kan också s
 $connection = Get-AzVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
 ```
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Resurs fel sökning returnerar data om resursens hälso tillstånd, den sparar också loggar till ett lagrings konto som ska granskas. I det här steget skapar vi ett lagrings konto om det finns ett befintligt lagrings konto som du kan använda.
 

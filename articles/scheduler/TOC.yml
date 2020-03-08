@@ -6,15 +6,15 @@
       href: scheduler-intro.md
 - name: Kom igång
   items:
-    - name: Skapa och hantera jobb – portalen
-      href: scheduler-get-started-portal.md
+    - name: Skapa och hantera scheman – Azure PowerShell
+      href: scheduler-powershell-reference.md
     - name: Migrera från Scheduler till Logic Apps
       href: migrate-from-scheduler-to-logic-apps.md
 - name: Begrepp
   items:
     - name: 'Begrepp, terminologi och enheter'
       href: scheduler-concepts-terms.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Planera och designa
       items:

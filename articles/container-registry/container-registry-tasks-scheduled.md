@@ -3,12 +3,12 @@ title: Självstudie – Schemalägg en ACR-uppgift
 description: I den här självstudien får du lära dig hur du kör en Azure Container Registry aktivitet enligt ett definierat schema genom att ange en eller flera timer-utlösare
 ms.topic: article
 ms.date: 06/27/2019
-ms.openlocfilehash: 4c0962a38cca73e4a03a7417baaa595cf0d97009
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3202b5d8c426165d81129f1affa69b3a3d515ce9
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617447"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402878"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Kör en ACR-uppgift enligt ett definierat schema
 
@@ -56,8 +56,11 @@ az acr task create \
 
 Kör kommandot [AZ ACR Task show][az-acr-task-show] för att se att timer-utlösaren har kon figurer ATS. Som standard aktive ras även uppdaterings utlösaren för bas avbildning.
 
-```console
-$ az acr task show --name mytask --registry registry --output table
+```azurecli
+az acr task show --name mytask --registry registry --output table
+```
+
+```output
 NAME      PLATFORM    STATUS    SOURCE REPOSITORY       TRIGGERS
 --------  ----------  --------  -------------------     -----------------
 mytask    linux       Enabled                           BASE_IMAGE, TIMER
@@ -71,7 +74,7 @@ az acr task run --name mytask --registry myregistry
 
 Om behållaren körs korrekt, ser utdata ut ungefär så här:
 
-```console
+```output
 Queued a run with ID: cf2a
 Waiting for an agent...
 2019/06/28 21:03:36 Using acb_vol_2ca23c46-a9ac-4224-b0c6-9fde44eb42d2 as the home volume
@@ -92,7 +95,7 @@ az acr task list-runs --name mytask --registry myregistry --output table
 
 När timern lyckas ser utdata ut ungefär så här:
 
-```console
+```output
 RUN ID    TASK     PLATFORM    STATUS     TRIGGER    STARTED               DURATION
 --------  -------- ----------  ---------  ---------  --------------------  ----------
 [...]
@@ -201,7 +204,7 @@ Varje fält kan ha en av följande typer av värden:
 
 För att ta bort alla resurser som du har skapat i den här själv studie serien, inklusive behållar registret eller register, behållar instansen, nyckel valvet och tjänstens huvud namn, utfärdar du följande kommandon:
 
-```azurecli-interactive
+```azurecli
 az group delete --resource-group $RES_GROUP
 az ad sp delete --id http://$ACR_NAME-pull
 ```

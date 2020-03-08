@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87a9c9b808e737f8e72da803085bfebd8263319a
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77194355"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672377"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Vanliga frågor och svar om inställningar och dataväxling
 
@@ -35,7 +35,7 @@ I den här artikeln besvaras några frågor som IT-administratörer kan ha om in
 * *Andra Windows-inställningar*, till exempel mus inställningar.
 
 > [!NOTE]
-> Den här artikeln gäller Microsoft Edge äldre HTML-baserad webbläsare lanserad med Windows 10 i juli 2015. Artikeln gäller inte den nya Microsoft Edge krom-baserade webbläsaren som lanserades den 15 januari 2020. Mer information om hur synkronisering fungerar för den nya Microsoft Edge finns i artikeln [Microsoft Edge Sync](https://docs.microsoft.com/deployedge/microsoft-edge-enterprise-sync).
+> Den här artikeln gäller Microsoft Edge äldre HTML-baserad webbläsare lanserad med Windows 10 i juli 2015. Artikeln gäller inte den nya Microsoft Edge krom-baserade webbläsaren som lanserades den 15 januari 2020. Mer information om hur synkronisering fungerar för den nya Microsoft Edge finns i artikeln [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
 **Program data**: universella Windows-appar kan skriva inställnings data till en central mapp, och alla data som skrivs till den här mappen synkroniseras automatiskt. Det är upp till den enskilda appens utvecklare att utforma en app för att dra nytta av den här funktionen. Mer information om hur du utvecklar en universell Windows-app som använder roaming finns i [API för lagrings-API för AppData](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) och [Windows 8 AppData-Roaming-bloggen för utvecklare](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 

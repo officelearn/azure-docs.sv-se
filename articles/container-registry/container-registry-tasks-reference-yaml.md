@@ -3,12 +3,12 @@ title: YAML-referens – ACR-uppgifter
 description: Referens för att definiera aktiviteter i YAML för ACR-aktiviteter, inklusive aktivitets egenskaper, steg typer, steg egenskaper och inbyggda variabler.
 ms.topic: article
 ms.date: 10/23/2019
-ms.openlocfilehash: d86eb0e24233afb536d27f5d0938d4748941e88a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 9558f698b4a9dbca46431fc02ced6ae30de29121
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361383"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669387"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referens för ACR-uppgifter: YAML
 
@@ -528,7 +528,7 @@ Följande uppgifter alias är tillgängliga för användning i stället för Run
 
 I uppgifts steg, skriver du in ett alias med `$`-direktivet, som i det här exemplet:
 
-```yaml
+```yml
 version: v1.1.0
 steps:
   - build: -t $Registry/hello-world:$ID -f hello-world.dockerfile .
@@ -547,7 +547,7 @@ Vart och ett av följande alias pekar på en stabil avbildning i Microsoft Conta
 
 I följande exempel aktivitet används flera alias för att [Rensa](container-registry-auto-purge.md) bildtaggar som är äldre än 7 dagar i lagrings platsen-`samples/hello-world` i körnings registret:
 
-```yaml
+```yml
 version: v1.1.0
 steps:
   - cmd: acr tag list --registry $RegistryName --repository samples/hello-world

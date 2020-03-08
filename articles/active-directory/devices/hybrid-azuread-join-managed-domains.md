@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17bfbc29f38230dc2533c9ccc63cdee4fc776717
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 3407214d332cbd333fe019948d254e01d71197fb
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377048"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672286"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudie: Konfigurera Azure Active Directory Join-hybrid för hanterade domäner
 
@@ -66,7 +66,7 @@ Hybrid Azure AD-anslutning kräver att enheter har åtkomst till följande Micro
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com` (om du använder eller planerar att använda sömlös SSO)
 
-Om din organisation kräver åtkomst till Internet via en utgående proxy rekommenderar Microsoft att [implementera WPAD (Web Proxy Auto-Discovery)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) för att aktivera Windows 10-datorer för enhets registrering med Azure AD. Om du stöter på problem med att konfigurera och hantera WPAD, se [Felsöka automatisk identifiering](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
+Om din organisation kräver åtkomst till Internet via en utgående proxy rekommenderar Microsoft att [implementera WPAD (Web Proxy Auto-Discovery)](/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) för att aktivera Windows 10-datorer för enhets registrering med Azure AD. Om du stöter på problem med att konfigurera och hantera WPAD, se [Felsöka automatisk identifiering](/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
 Om du inte använder WPAD och behöver konfigurera proxyinställningar på datorn kan du göra det från och med Windows 10 1709. Mer information finns i [Konfigurera WinHTTP-inställningar med ett grup princip objekt (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
@@ -92,7 +92,7 @@ Om du vill konfigurera en Hybrid Azure AD-anslutning med Azure AD Connect behöv
 
 1. På sidan **Ytterligare aktiviteter** väljer du **Konfigurera enhets alternativ**och väljer sedan **Nästa**.
 
-   ![Ytterligare aktiviteter](./media/hybrid-azuread-join-managed-domains/12.png)
+   ![Ytterligare uppgifter](./media/hybrid-azuread-join-managed-domains/12.png)
 
 1. På sidan **Översikt** väljer du **Nästa**.
 
@@ -154,7 +154,7 @@ För att kunna slutföra hybrid Azure AD-anslutning av dina Windows-enheter med 
 
 För att registrera Windows-enheter som är äldre måste organisationer installera [Microsoft Workplace Join för icke-Windows 10-datorer](https://www.microsoft.com/download/details.aspx?id=53554). Microsoft Workplace Join för datorer som inte är Windows 10-datorer finns i Microsoft Download Center.
 
-Du kan distribuera paketet med hjälp av ett program distributions system som [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/). Paketet stöder vanliga obevakade installations alternativ med parametern `quiet`. Den aktuella grenen av Configuration Manager erbjuder förmåner jämfört med tidigare versioner, t. ex. möjligheten att spåra slutförda registreringar.
+Du kan distribuera paketet med hjälp av ett program distributions system som [Microsoft Endpoint Configuration Manager](/configmgr/). Paketet stöder vanliga obevakade installations alternativ med parametern `quiet`. Den aktuella grenen av Configuration Manager erbjuder förmåner jämfört med tidigare versioner, t. ex. möjligheten att spåra slutförda registreringar.
 
 Installations programmet skapar en schemalagd aktivitet på det system som körs i användar kontexten. Aktiviteten utlöses när användaren loggar in i Windows. Uppgiften ansluter tyst till enheten med Azure AD med hjälp av användarautentiseringsuppgifterna när den har autentiserats med Azure AD.
 

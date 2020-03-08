@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae957eba627be7fa3b968585a03d28aa5b0af56
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 76d3be0fc00465c35dbc79a258b57db962969cc8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255004"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672330"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Gör så här: planera din hybrid Azure Active Directory delta-implementering
 
@@ -59,7 +59,7 @@ Hybrid Azure AD-anslutning har stöd för ett brett utbud av Windows-enheter. Ef
 - Windows Server 2016
 - Windows Server 2019
 
-För enheter som kör operativ systemet Windows-skrivbordet visas den version som stöds i den här artikeln [information om Windows 10-utgåvor](https://docs.microsoft.com/windows/release-information/). Som bästa praxis rekommenderar Microsoft att du uppgraderar till den senaste versionen av Windows 10.
+För enheter som kör operativ systemet Windows-skrivbordet visas den version som stöds i den här artikeln [information om Windows 10-utgåvor](/windows/release-information/). Som bästa praxis rekommenderar Microsoft att du uppgraderar till den senaste versionen av Windows 10.
 
 ### <a name="windows-down-level-devices"></a>Windows-enheter på nivån
 
@@ -87,7 +87,7 @@ Som första planerings steg bör du granska din miljö och avgöra om du behöve
 
 - Om du förlitar dig på en ögonblicks bild av en virtuell dator (VM) för att skapa ytterligare virtuella datorer, se till att ögonblicks bilden inte är från en virtuell dator som redan är registrerad i Azure AD som en hybrid Azure AD-anslutning.
 
-- Om du använder [enhetligt Skriv filter](https://docs.microsoft.com/windows-hardware/customize/enterprise/unified-write-filter) och liknande tekniker som rensar ändringar på disken vid omstart måste de tillämpas när enheten är hybrid Azure AD-ansluten. Om du aktiverar sådana tekniker innan du slutförde en hybrid Azure AD-anslutning kommer enheten att bli frånkopplad vid varje omstart
+- Om du använder [enhetligt Skriv filter](/windows-hardware/customize/enterprise/unified-write-filter) och liknande tekniker som rensar ändringar på disken vid omstart måste de tillämpas när enheten är hybrid Azure AD-ansluten. Om du aktiverar sådana tekniker innan du slutförde en hybrid Azure AD-anslutning kommer enheten att bli frånkopplad vid varje omstart
 
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>Hantera enheter med registrerade Azure AD-tillstånd
 Om dina Windows 10-domänanslutna enheter är [registrerade i Azure AD](overview.md#getting-devices-in-azure-ad) till din klient organisation, kan det leda till ett dubbelt tillstånd med hybrid Azure AD-anslutna och en registrerad Azure AD-enhet. Vi rekommenderar att du uppgraderar till Windows 10 1803 (med KB4489894 installerat) eller senare för att automatiskt hantera det här scenariot. I pre-1803-versioner måste du ta bort Azure AD-registrerat tillstånd manuellt innan du aktiverar hybrid Azure AD Join. I 1803 och senare versioner har följande ändringar gjorts för att undvika detta dubbla tillstånd:
@@ -100,7 +100,7 @@ Om dina Windows 10-domänanslutna enheter är [registrerade i Azure AD](overview
 > Den registrerade Azure AD-enheten tas inte bort automatiskt om den hanteras av Intune.
 
 ### <a name="additional-considerations"></a>Annat som är bra att tänka på
-- Om din miljö använder VDI (Virtual Desktop Infrastructure), se [enhets identitet och skriv bords virtualisering](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
+- Om din miljö använder VDI (Virtual Desktop Infrastructure), se [enhets identitet och skriv bords virtualisering](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
 - Hybrid Azure AD-anslutning stöds för FIPS-kompatibla TPM 2,0 och stöds inte för TPM 1,2. Om dina enheter har FIPS-kompatibel TPM 1,2 måste du inaktivera dem innan du fortsätter med hybrid Azure AD-anslutning. Microsoft tillhandahåller inga verktyg för att inaktivera FIPS-läge för TPM eftersom det är beroende av TPM-tillverkaren. Kontakta maskin varans OEM om du vill ha hjälp. Från och med Windows 10 1903-versionen används inte TPM 1,2 för Hybrid Azure AD-anslutning och enheter med de här TPM: erna kommer att anses som om de inte har någon TPM.
 
@@ -116,7 +116,7 @@ Hybrid Azure AD Join fungerar med både hanterade och federerade miljöer beroen
 
 ### <a name="managed-environment"></a>Hanterad miljö
 
-En hanterad miljö kan distribueras antingen via [PHS (Password hash Sync)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) eller [genom strömning (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) med [sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso).
+En hanterad miljö kan distribueras antingen via [PHS (Password hash Sync)](/azure/active-directory/hybrid/whatis-phs) eller [genom strömning (PTA)](/azure/active-directory/hybrid/how-to-connect-pta) med [sömlös enkel inloggning](/azure/active-directory/hybrid/how-to-connect-sso).
 
 De här scenarierna kräver inte att du konfigurerar en Federations Server för autentisering.
 
@@ -133,7 +133,7 @@ En federerad miljö bör ha en identitetsprovider som uppfyller följande krav. 
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Både **ADFS/tjänster/Trust/2005/windowstransport** eller **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar Windows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slutpunkter som är aktiverade via AD FS-hanteringskonsolen under **Tjänst** > **Slutpunkter**.
+> Både **ADFS/tjänster/Trust/2005/windowstransport** eller **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar Windows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slutpunkter som är aktiverade via AD FS-hanteringskonsolen under **Tjänst** > **Slutpunkter**.
 
 > [!NOTE]
 > Azure AD har inte stöd för smartkort eller certifikat i hanterade domäner.
@@ -147,9 +147,9 @@ Baserat på scenariot som matchar din identitets infrastruktur, se:
 
 ## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Granska lokala AD UPN-stöd för Hybrid Azure AD-anslutning
 
-Ibland kan dina lokala AD-UPN skilja sig från dina Azure AD-UPN. I sådana fall ger Windows 10 hybrid Azure AD Join begränsat stöd för lokala AD-UPN: er baserat på [autentiseringsmetoden](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), domän typen och Windows 10-versionen. Det finns två typer av lokala AD-UPN: er som kan finnas i din miljö:
+Ibland kan dina lokala AD-UPN skilja sig från dina Azure AD-UPN. I sådana fall ger Windows 10 hybrid Azure AD Join begränsat stöd för lokala AD-UPN: er baserat på [autentiseringsmetoden](/azure/security/fundamentals/choose-ad-authn), domän typen och Windows 10-versionen. Det finns två typer av lokala AD-UPN: er som kan finnas i din miljö:
 
-- Dirigerbart UPN: ett dirigerbart UPN har en giltig verifierad domän som är registrerad hos en domän registrator. Om contoso.com till exempel är den primära domänen i Azure AD, är contoso.org den primära domänen i den lokala AD som ägs av Contoso och [verifierats i Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+- Dirigerbart UPN: ett dirigerbart UPN har en giltig verifierad domän som är registrerad hos en domän registrator. Om contoso.com till exempel är den primära domänen i Azure AD, är contoso.org den primära domänen i den lokala AD som ägs av Contoso och [verifierats i Azure AD](/azure/active-directory/fundamentals/add-custom-domain)
 - Icke-dirigerbart UPN: ett icke-dirigerbart UPN har ingen verifierad domän. Den kan bara användas inom din organisations privata nätverk. Om contoso.com till exempel är den primära domänen i Azure AD, är contoso. local den primära domänen i den lokala AD-domänen, men är inte en verifierbar domän på Internet och används endast i Contosos nätverk.
 
 Tabellen nedan innehåller information om stöd för dessa lokala AD-UPN i Windows 10 hybrid Azure AD Join

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: be1697038674a177eaced03732536c0df5b16983
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 74a4279d347be92b1047a9cf361e233ecc7fcff8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046141"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674308"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Förstå din Azure Cosmos DB faktura
 
@@ -20,12 +20,12 @@ Som en fullständigt hanterad molnbaserad databas tjänst, Azure Cosmos DB före
 
 Med Azure Cosmos DB debiteras du per timme baserat på det etablerade data flödet och den förbrukade lagringen. För det etablerade data flödet är enheten för fakturering 100 RU/SEK per timme, debiteras med $0,008 per timme, förutsatt att den allmänna standard prissättningen finns på sidan med [priser](https://azure.microsoft.com/pricing/details/cosmos-db/). För den förbrukade lagringen faktureras du $0,25 per 1 GB lagrings utrymme per månad, se [sidan med priser](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
-Den här artikeln använder några exempel som hjälper dig att förstå den information som visas på den månatliga fakturan. De tal som visas i exemplen kan vara olika om dina Azure Cosmos-behållare har en annan mängd data flöde som har allokerats, om de sträcker sig över flera regioner eller kör under en annan period under en månad.
+I den här artikeln använder vi några exempel som hjälper dig att förstå informationen på din månatliga faktura. De tal som visas i exemplen kan vara annorlunda om dina Azure Cosmos-containrar har ett annat etablerat dataflöde, om de sträcker sig över flera regioner eller körs under en annan period under månaden.
 
 > [!NOTE]
 > Faktureringen är en del av en timmes klock timme, inte en varaktighet på 60 minuter.
 
-## <a name="billing-examples"></a>Faktureringsexempel
+## <a name="billing-examples"></a>Fakturerings exempel
 
 ### <a name="billing-example---throughput-on-a-container-full-month"></a>Fakturerings exempel – data flöde i en behållare (hela månaden)
 
@@ -49,7 +49,7 @@ Den här artikeln använder några exempel som hjälper dig att förstå den inf
 
 ### <a name="billing-rate-if-storage-size-changes"></a>Fakturerings taxa om lagrings storlek ändras
 
-Lagringskapacitet debiteras i enheter enligt den högsta datamängden i GB som lagras varje dag under en månad. Om du till exempel använder 100 GB lagringsutrymme under den första hälften av månaden och 50 GB resten av månaden debiteras du för 75 GB lagringsutrymme den månaden.
+Lagrings kapaciteten faktureras i enheter för den maximala Tim mängden data som lagras, i GB, under en månatlig period. Om du till exempel använder 100 GB lagrings utrymme för hälften av månaden och 50 GB under andra hälften av månaden debiteras du för motsvarande 75 GB lagrings utrymme under den månaden.
 
 ### <a name="billing-rate-when-container-or-a-set-of-containers-are-active-for-less-than-an-hour"></a>Fakturerings takt när container eller en uppsättning behållare är aktiva i mindre än en timme
 
@@ -97,12 +97,12 @@ Du kan när som helst lägga till/ta bort Azure-regioner var som helst i världe
 
 Vi antar att du har en Azure Cosmos-behållare i USA, västra. Behållaren skapas med data flöde 10 000 RU/s och du lagrar 1 TB data den här månaden. Vi antar att du lägger till tre regioner (östra USA, norra Europa och Asien, östra) till ditt Azure Cosmos-konto, var och en med samma lagrings utrymme och data flöde. Den totala månads fakturan kommer att vara (förutsatt 30 dagar i månaden). Fakturan skulle vara följande: 
 
-|**Objekt** |**Användning (månad)** |**Hastighet** |**Månatlig kostnad** |
+|**Objekt** |**Användning (månad)** |**Antal** |**Månatlig kostnad** |
 |---------|---------|---------|-------|
-|Dataflödesfaktura för containrar i USA, västra      | 10 000 RU/SEK * 24 * 30    |$0,008 per 100 RU/SEK per timme   |$576|
-|Dataflödesfaktura för 3 ytterligare regioner – östra USA, Nordeuropa och Östasien       | 3 * 10 000 RU/SEK * 24 * 30    |$0,008 per 100 RU/SEK per timme  |$1 728|
-|Lagringsfaktura för containrar i USA, västra      | 250 GB    |$0,25/GB  |$62,50|
-|Lagringsfaktura för 3 ytterligare regioner – östra USA, Nordeuropa och Östasien      | 3 * 250 GB    |$0,25/GB  |$187,50|
+|Data flödes faktura för behållare i västra USA      | 10 000 RU/SEK * 24 * 30    |$0,008 per 100 RU/SEK per timme   |$576|
+|Data flödes faktura för 3 ytterligare regioner – östra USA, norra Europa och Asien, östra       | 3 * 10 000 RU/SEK * 24 * 30    |$0,008 per 100 RU/SEK per timme  |$1 728|
+|Lagrings faktura för behållare i västra USA      | 250 GB    |$0,25/GB  |$62,50|
+|Lagrings faktura för 3 ytterligare regioner – östra USA, norra Europa och Asien, östra      | 3 * 250 GB    |$0,25/GB  |$187,50|
 |**Totalt**     |     |  |**$2 554**|
 
 *Vi antar också att du tar ut 100 GB data varje månad från behållaren i västra USA för att replikera data till östra USA, norra Europa och Asien, östra. Du debiteras för utgående trafik enligt priser för data överföring.*
@@ -111,12 +111,12 @@ Vi antar att du har en Azure Cosmos-behållare i USA, västra. Behållaren skapa
 
 Vi antar att du skapar en Azure Cosmos-behållare i USA, västra. Behållaren skapas med data flöde 10 000 RU/s och du lagrar 1 TB data den här månaden. Vi antar att du lägger till tre regioner (östra USA, norra Europa och Asien, östra), var och en med samma lagring och data flöde och du vill kunna skriva till behållarna i alla regioner som är kopplade till ditt Azure Cosmos-konto. Den totala månads fakturan kommer att vara (förutsatt 30 dagar i månaden) enligt följande:
 
-|**Objekt** |**Användning (månad)**|**Hastighet** |**Månatlig kostnad** |
+|**Objekt** |**Användning (månad)**|**Antal** |**Månatlig kostnad** |
 |---------|---------|---------|-------|
 |Data flödes faktura för container i USA, västra (alla regioner är skrivbara)       | 10 000 RU/SEK * 24 * 30    |$0,016 per 100 RU/SEK per timme    |$1 152 |
 |Data flödes faktura för 3 ytterligare regioner – östra USA, norra Europa och Asien, östra (alla regioner är skrivbara)        | (3 + 1) * 10 000 RU/SEK * 24 * 30    |$0,016 per 100 RU/SEK per timme   |$4 608 |
-|Lagringsfaktura för containrar i USA, västra      | 250 GB    |$0,25/GB  |$62,50|
-|Lagringsfaktura för 3 ytterligare regioner – östra USA, Nordeuropa och Östasien      | 3 * 250 GB    |$0,25/GB  |$187,50|
+|Lagrings faktura för behållare i västra USA      | 250 GB    |$0,25/GB  |$62,50|
+|Lagrings faktura för 3 ytterligare regioner – östra USA, norra Europa och Asien, östra      | 3 * 250 GB    |$0,25/GB  |$187,50|
 |**Totalt**     |     |  |**$6 010**|
 
 *Vi antar också att du tar ut 100 GB data varje månad från behållaren i västra USA för att replikera data till östra USA, norra Europa och Asien, östra. Du debiteras för utgående trafik enligt priser för data överföring.*
@@ -181,7 +181,7 @@ Vi ska tänka på följande exempel, där vi har ett Azure Cosmos-konto med fler
 
 Den totala månads fakturan blir (förutsatt att 30 dagar/720 timmar per månad) beräknas enligt följande:
 
-|**Hours**  |**RU/s** |**Objekt** |**Användning (varje timme)** |**Kostnad** |
+|**Timmarna**  |**RU/s** |**Objekt** |**Användning (varje timme)** |**Kostnad** |
 |---------|---------|---------|-------|-------|
 |[0-100] |D1:10 000 <br/>D2:30 000 <br/>C1:20 000 |Data flödes faktura för container i USA, västra (alla regioner är skrivbara)  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$960  |
 | | |Data flödes faktura för 2 ytterligare regioner: östra USA, norra Europa (alla regioner är skrivbara)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2 880  |
@@ -199,6 +199,37 @@ Den totala månads fakturan blir (förutsatt att 30 dagar/720 timmar per månad)
 | | |Data flödes faktura för 2 ytterligare regioner: östra USA, norra Europa (alla regioner är skrivbara)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$224  |
 || |**Total månads kostnad**  | |**$38 688**   |
 
+## <a name="billing-examples-with-free-tier-accounts"></a>Fakturerings exempel med kostnads fria nivå konton
+Med Azure Cosmos DB kostnads fri nivå får du de första 400 RU/s och 5 GB lagrings utrymme i ditt konto kostnads fritt, som tillämpas på konto nivå. RU/s och lagring utöver 400 RU/s och 5 GB debiteras enligt pris sidans priser. På fakturan visas ingen avgift eller ett rad objekt för de kostnads fria 400 ru/s-och 5 GB, bara RU/s och lagring utöver vad som omfattas av den kostnads fria nivån. 400 RU/s gäller för alla typer av RU/s-etablerade data flöde, autopilot (för hands version) och flera huvud servrar.  
+
+### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Fakturerings exempel – behållare eller databas med etablerad data flöde
+- Vi antar att vi skapar en databas eller behållare på ett kostnads fritt konto med 400 RU/s och 5 GB lagrings utrymme.
+- Din faktura kommer inte att visa någon avgift för den här resursen. Din timkostnad och månads kostnad blir $0.
+- Nu ska vi anta att du lägger till en annan databas eller behållare med 1000 RU/s och 10 GB lagrings utrymme i samma konto.
+- Din faktura kommer nu att visa en avgift för 1000 RU/s och 10 GB lagrings utrymme. 
+
+### <a name="billing-example---container-or-database-with-autopilot-throughput-preview"></a>Fakturerings exempel – behållare eller databas med autopilot-genomflöde (för hands version)
+- Anta att du skapar en databas eller behållare med autopilot aktiverat, med en maximal RU/s på 4000 RU/s. Den här resursen kommer automatiskt att skalas mellan 400 RU/s-4000 RU/s. 
+- Anta att det är minst 400 RU/s att resursen är i timmen 1 till timme 10. Under timme 11 skalas resursen upp till 1000 RU/s och sedan tillbaka till 400 RU/s inom timmen.
+- I timmar 1 till och med 10 faktureras du $0 för data flödet, eftersom 400 RU/s har täckts av den kostnads fria nivån. 
+- I timmar 11 faktureras du för en effektiv 1000 RU/s-400 RU/s = 600 RU/s, eftersom det här är den högsta RU/s i timmen. Detta är 6 enheter om 100 RU/s för timmen, så den totala data flödes kostnaden för timmen är 6 enheter * $0,012 = $0,072. 
+- Lagrings utrymme utöver de första 5 GB faktureras enligt normala lagrings kostnader. 
+
+### <a name="billing-example---multi-region-single-write-region-account"></a>Fakturerings exempel – konto för en Skriv region för flera regioner
+- Låt oss anta att du skapar en databas eller behållare med 1200 RU/s och 10 GB lagrings utrymme i ett kostnads fritt konto. Vi replikerar kontot till tre regioner och vi har ett konto med en enda huvud server (enkel skrivnings region).
+- Som totalt, utan kostnads fri nivå, faktureras vi för 3 * 1200 RU/s = 3600 RU/s och 3 * 10 GB = 30 GB lagrings utrymme.
+- Med den kostnads fria nivån rabatt, efter att ha tagit bort 400 RU/s och 5 GB lagring, kommer vi att faktureras för en effektiv 3200 RU/s (32-enheter) av ett allokerat data flöde med en enkel Skriv regions taxa och 25 GB lagrings utrymme.
+- Månads kostnaden för RU/s blir: 32 enheter * $0,008 * 24 timmar * 31 dagar = $190,46. Den månatliga kostnaden för lagring blir: 25 GB * 0,25/GB = $6,25. Den totala kostnaden blir $190,46 + $6,25 = $196,71.
+- OBS! om a-priset för RU/s eller lagring skiljer sig i regionerna, kommer den kostnads fria nivån 400 RU/s och 5 GB att återspegla de konton som regionen skapades i.
+
+### <a name="billing-example---multi-region-multi-master-multiple-write-region-account"></a>Fakturerings exempel – konto för flera regioner, flera huvud konton (flera Skriv regioner)
+
+Det här exemplet visar [flera huvud priser](https://azure.microsoft.com/pricing/details/cosmos-db/) för konton som skapats efter den 1 december 2019. 
+- Låt oss anta att du skapar en databas eller behållare med 1200 RU/s och 10 GB lagrings utrymme i ett kostnads fritt konto. Vi replikerar kontot till tre regioner och vi har ett konto för flera huvud servrar (flera Skriv regioner). 
+- Som totalt, utan kostnads fri nivå, faktureras vi för 3 * 1200 RU/s = 3600 RU/s och 3 * 10 GB = 30 GB lagrings utrymme.
+- Med den kostnads fria nivån rabatt, efter att ha tagit bort 400 RU/s och 5 GB lagring, kommer vi att faktureras för en effektiv 3200 RU/s (32-enheter) med ett allokerat data flöde med en hastighet på flera Skriv regioner och 25 GB lagrings utrymme.
+- Månads kostnaden för RU/s blir: 32 enheter * $0,016 * 24 timmar * 31 dagar = $380,93. Den månatliga kostnaden för lagring blir: 25 GB * 0,25/GB = $6,25. Den totala kostnaden blir $380,93 + $6,25 = $387,18.
+
 ## <a name="proactively-estimating-your-monthly-bill"></a>Proaktivt uppskatta din månads faktura  
 
 Nu ska vi tänka på ett annat exempel, där du vill proaktivt uppskatta din faktura innan månadens slut. Du kan beräkna din faktura på följande sätt:
@@ -215,7 +246,7 @@ Nu ska vi tänka på ett annat exempel, där du vill proaktivt uppskatta din fak
 
 |**Data flödes kostnad** | | | |
 |----|----|----|----|
-|Åtgärdstyp| Begär Anden per sekund| Gmsn. RU/begäran| Ru: er krävs|
+|Åtgärds typ| Begär Anden per sekund| Gmsn. RU/begäran| Ru: er krävs|
 |Skriva| 100 | 5 | 500|
 |Läsa| 400| 1| 400|
 
@@ -255,11 +286,11 @@ Det du har köpt på ett effektivt sätt är en kredit på $8 per timme, för 10
 |----|----|----|----|----|
 |USA, östra|$0,008 |50 kB|$4|$2 880 |
 |Japan, östra|$0,009 |50 kB| $4,50 |$3 240 |
-|||Användningsbaserad betalning|$8,50|$6120|
+|||Betala per användning|$8,50|$6120|
 |Köpt reserverad kapacitet|$0,0064 (20% rabatt) |100 RU/SEK eller $8 kapacitet för inköpt |– $8|– $5 760 |
-|Nettofaktura|||0,50 USD |$360 |
+|Netto faktura|||$0,50 |$360 |
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Härnäst kan du fortsätta med att lära dig mer om kostnads optimering i Azure Cosmos DB med följande artiklar:
 

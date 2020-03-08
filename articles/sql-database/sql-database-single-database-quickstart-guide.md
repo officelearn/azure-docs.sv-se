@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 07/29/2019
-ms.openlocfilehash: 4332d57c8d5587a34ba3a593deb9bd635132b03d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6070b53e5f906bc378402d98275b8f798f57b505
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820958"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674436"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Komma igång med enkla databaser i Azure SQL Database
 
@@ -34,10 +34,8 @@ I det här avsnittet visas en översikt av tillgängliga artiklar som hjälper d
 
 Du kan använda PowerShell eller Azure CLI för att skapa, konfigurera och skala databasen.
 
-- [Skapa och konfigurera en enkel databas med hjälp av PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
-- [Skapa och konfigurera en enkel databas med hjälp av Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
-- [Uppdatera din enkla databas och skala resurser med hjälp av PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md)
-- [Uppdatera din enkla databas och skala resurser med hjälp av Azure CLI](scripts/sql-database-monitor-and-scale-database-cli.md)
+- [Skapa och konfigurera en enskild databas med PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) eller [Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
+- [Uppdatera en enskild databas och skala resurser med PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md) eller [Azure CLI](scripts/sql-database-monitor-and-scale-database-cli.md)
 
 ## <a name="migrating-to-a-single-database-with-minimal-downtime"></a>Migrera till en enkel databas med minimal avbrottstid
 

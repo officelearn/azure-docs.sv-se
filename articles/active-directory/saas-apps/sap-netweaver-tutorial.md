@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Självstudier: Azure Active Directory enkel inloggning (SSO) med SAP NetWeaver | Microsoft Docs'
+title: 'Självstudie: självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SAP NetWeaver | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAP NetWeaver.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d79c953f22bfe587f740bc29050796834309186a
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 700f2ca4d46b3483531fa0784cb78699befb20ca
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103370"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897740"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med SAP NetWeaver
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SAP NetWeaver
 
 I den här självstudien får du lära dig hur du integrerar SAP NetWeaver med Azure Active Directory (Azure AD). När du integrerar SAP NetWeaver med Azure AD kan du:
 
@@ -104,7 +104,7 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP NetWeaver genom at
 
     c. Dubbelklicka på relevant klient för att aktivera HTTP-säkerhetssessionen.
 
-    ![Länk för hämtning av certifikat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
+    ![Länk för nedladdning av certifikatet](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
 
     d. Aktivera nedan SICF-tjänsterna nedan:
     ```
@@ -115,22 +115,22 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP NetWeaver genom at
     ```
 1. Gå till transaktionskod **SAML2** i SAP-systemets företagsklient [T01/122]. Ett användargränssnitt öppnas i en webbläsare. I det här exemplet antog vi att SAP-företagsklienten är 122.
 
-    ![Länk för hämtning av certifikat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_sapbusinessclient.png)
+    ![Länk för nedladdning av certifikatet](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_sapbusinessclient.png)
 
 1. Ange ditt användarnamn och lösenord som ska anges i användargränssnittet och klicka på **Redigera**.
 
-    ![Länk för hämtning av certifikat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
+    ![Länk för nedladdning av certifikatet](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
 
 1. Ersätt **providernamn** från T01122 till `http://T01122` och klicka på **Spara**.
 
     > [!NOTE]
-    > Som standard visas namnet för `<sid><client>` `<protocol>://<name>`providern, men Azure AD förväntar sig namn i formatet, och rekommenderar `https://<sid><client>` att du behåller namnet på providern så att flera SAP NetWeaver ABAP-motorer kan konfigureras i Azure AD.
+    > Som standard visas namnet `<sid><client>`, men Azure AD förväntar sig namn i formatet `<protocol>://<name>`, och vi rekommenderar att du behåller leverantörens namn som `https://<sid><client>` så att flera SAP NetWeaver ABAP-motorer kan konfigureras i Azure AD.
 
-    ![Länk för hämtning av certifikat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
+    ![Länk för nedladdning av certifikatet](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 
 1. **Generera metadata för tjänstleverantör**: – När vi är klara med att konfigurera inställningarna för den **lokala leverantören** och **betrodda leverantörer** i användargränssnittet för SAML 2.0 är nästa steg att generera tjänstleverantörens metadatafil (som innehåller alla inställningar, när det gäller autentisering och andra konfigurationer i SAP). När den här filen har genererats måste vi ladda upp den i Azure AD.
 
-    ![Länk för hämtning av certifikat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_generatesp.png)
+    ![Länk för nedladdning av certifikatet](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_generatesp.png)
 
     a. Gå till **fliken Local Provider** (Lokal provider).
 
@@ -150,7 +150,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. Klicka på **Ladda upp metadatafil** för att ladda upp **metadata-filen för tjänst leverantören**som du har hämtat tidigare.
 
-    b. Klicka på **mappen logotyp** att välja metadatafilen och klicka på **överför**.
+    b. Klicka på **mappikonen** för att välja metadatafilen och klicka på **Ladda upp**.
 
     c. När metadatafilen har laddats upp fylls värdena för **Identifierare** och **Svars-URL** i automatiskt i textrutan i avsnittet **Grundläggande SAML-konfiguration** enligt följande:
 
@@ -177,13 +177,13 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. Välj **ExtractMailPrefix()** i listan **Transformering**.
 
-    c. Välj **user.userprinicipalname** i listan **Parameter 1**.
+    c. I listan **parameter 1** väljer du **User. UserPrincipalName**.
 
-    d. Klicka på **Spara**.
+    d. Klicka på **Save** (Spara).
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
-   ![Länk för hämtning av certifikat](common/metadataxml.png)
+   ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 1. I avsnittet **Konfigurera SAP-NetWeaver** kopierar du lämpliga URL: er baserat på ditt krav.
 
@@ -194,14 +194,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
     1. I **Namn**-fältet skriver du `B.Simon`.  
     1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
     1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
     1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till SAP NetWeaver.
 
@@ -209,7 +209,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I listan över program väljer du **SAP NetWeaver**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-    ![Länken ”användare och grupper”](common/users-groups-blade.png)
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -273,7 +273,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 14. Observera att värdena för **användar-ID-källa** och **användar-ID-mappning** anger länken mellan SAP-användare och Azure AD-anspråk.  
 
-    #### <a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Scenario: SAP-användare till Azure AD-mappning.
+    #### <a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Scenario: SAP-användare till användar mappning i Azure AD.
 
     a. Skärmbild med NameID-information från SAP.
 
@@ -328,19 +328,19 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-sap-netweaver-for-oauth"></a>Konfigurera SAP-NetWeaver för OAuth
 
-1. SAP-dokumenterad process finns på platsen: [NetWeaver Gateway-tjänst som aktiverar och OAuth 2,0-omfång skapas](https://wiki.scn.sap.com/wiki/display/Security/NetWeaver+Gateway+Service+Enabling+and+OAuth+2.0+Scope+Creation)
+1. SAP-dokumenterad process finns på platsen: [NetWeaver Gateway Service som aktiverar och OAuth 2,0-omfånget skapas](https://wiki.scn.sap.com/wiki/display/Security/NetWeaver+Gateway+Service+Enabling+and+OAuth+2.0+Scope+Creation)
 
 2. Gå till SPRO och hitta **Aktivera och underhålla tjänster**.
 
     ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/oauth01.png)
 
-3. I det här exemplet vill vi ansluta OData-tjänsten: `DAAG_MNGGRP` med OAuth till Azure AD SSO. Använd den tekniska tjänstens namns sökning för `DAAG_MNGGRP` tjänsten och aktivera om den inte är aktiv, redan ( `green` Sök efter status under fliken ICF-noder). Se till att system Ali Aset (det anslutna Server dels systemet, där den tjänst som faktiskt körs) är korrekt.
+3. I det här exemplet vill vi ansluta OData-tjänsten: `DAAG_MNGGRP` med OAuth till Azure AD SSO. Använd det tekniska tjänst namnet Sök efter tjänsten `DAAG_MNGGRP` och aktivera om den inte är aktiv, redan (Sök efter `green` status under fliken ICF-noder). Se till att system Ali Aset (det anslutna Server dels systemet, där den tjänst som faktiskt körs) är korrekt.
 
     ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/oauth02.png)
 
-    * Klicka sedan på knapp tryckning **OAuth** i det övre knapp fältet `scope` och tilldela (behåll standard namnet som erbjuds).
+    * Klicka sedan på knapp tryckning **OAuth** i det övre knapp fältet och tilldela `scope` (behåll standard namnet som erbjuds).
 
-4. I vårt exempel är `DAAG_MNGGRP_001`-området genererat från tjänst namnet genom att automatiskt lägga till ett nummer. Rapporten `/IWFND/R_OAUTH_SCOPES` kan användas för att ändra namnet på omfånget eller skapa manuellt.
+4. I vårt exempel är omfånget `DAAG_MNGGRP_001`, genereras från tjänst namnet genom att automatiskt lägga till ett nummer. Rapport `/IWFND/R_OAUTH_SCOPES` kan användas för att ändra namnet på omfånget eller skapa manuellt.
 
     ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/oauth03.png)
 
@@ -349,20 +349,20 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ### <a name="create-a-service-user-for-the-oauth-20-client"></a>Skapa en tjänst användare för OAuth 2,0-klienten
 
-1. OAuth2 använder en `service ID` för att hämta åtkomsttoken för slutanvändaren för dess räkning. Viktig begränsning av OAuth-design: `OAuth 2.0 Client ID` måste vara identisk `username` med OAuth 2,0-klienten använder för inloggning när en åtkomsttoken begärs. För vårt exempel ska vi registrera en OAuth 2,0-klient med namnet KLIENT1 och som en förutsättning att en användare med samma namn (KLIENT1) måste finnas i SAP-systemet och att den användaren ska konfigureras för användning av det hänvisade programmet. 
+1. OAuth2 använder en `service ID` för att hämta åtkomsttoken för slutanvändaren för dess räkning. Viktig begränsning av OAuth-design: `OAuth 2.0 Client ID` måste vara identisk med `username` som OAuth 2,0-klienten använder för inloggning när en åtkomsttoken begärs. För vårt exempel ska vi registrera en OAuth 2,0-klient med namnet KLIENT1 och som en förutsättning att en användare med samma namn (KLIENT1) måste finnas i SAP-systemet och att den användaren ska konfigureras för användning av det hänvisade programmet. 
 
-2. När du registrerar en OAuth-klient använder `SAML Bearer Grant type`vi.
+2. När du registrerar en OAuth-klient använder vi `SAML Bearer Grant type`.
 
     >[!NOTE]
     >Mer information finns i OAuth 2,0-klient registrering för SAML Bearer-beviljande typ [här](https://wiki.scn.sap.com/wiki/display/Security/OAuth+2.0+Client+Registration+for+the+SAML+Bearer+Grant+Type)
 
-3. tcod: SU01/skapa användare KLIENT1 som `System type` och tilldela lösen ord, spara den som behov av att tillhandahålla autentiseringsuppgiften till API-programmerare, som bör bränna den med användar namnet till den anropande koden. Ingen profil eller roll ska tilldelas.
+3. tcod: SU01/Create User KLIENT1 som `System type` och tilldela lösen ord, spara den som en nödvändig uppgift för API-programmerare, som ska kunna bränna den med användar namnet för den anropande koden. Ingen profil eller roll ska tilldelas.
 
 ### <a name="register-the-new-oauth-20-client-id-with-the-creation-wizard"></a>Registrera det nya OAuth 2,0-klient-ID: t med guiden skapa
 
 1. Registrera en ny **OAuth 2,0-klients** start transaktion **SOAUTH2**. Transaktionen visar en översikt över de OAuth 2,0-klienter som redan har registrerats. Välj **skapa** för att starta guiden för den nya OAuth-klienten med namnet KLIENT1 i det här exemplet.
 
-2. Gå till T-kod: **SOAUTH2** och ange beskrivningen och klicka sedan på **Nästa**.
+2. Gå till T-Code: **SOAUTH2** och ange beskrivningen och klicka sedan på **Nästa**.
 
     ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/oauth04.png)
 
@@ -376,7 +376,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/oauth08.png)
 
-4. Lägg till det tidigare skapade omfånget genom att klicka på **Lägg till** under tilldelning av scope:`DAAG_MNGGRP_001`
+4. Klicka på **Lägg till** under tilldelning av omfång för att lägga till det tidigare skapade omfånget: `DAAG_MNGGRP_001`
 
     ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/oauth09.png)
 
@@ -386,7 +386,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70fe718884796ac127be38c375003dd728089be8
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c8fe33f78b96dbfe780c94fbddfc5c8821148279
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016042"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672596"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -33,12 +33,12 @@ Det finns många fördelar med att använda Azure AD-autentisering för att logg
 - Du behöver inte längre hantera lokala administratörs konton.
 - Med Azure RBAC kan du ge rätt åtkomst till virtuella datorer baserat på behov och ta bort den när den inte längre behövs.
 - Innan du tillåter åtkomst till en virtuell dator kan villkorlig åtkomst för Azure AD framtvinga ytterligare krav som: 
-   - Multifaktorautentisering
+   - Multi-Factor Authentication
    - Kontroll av inloggnings risker
 - Automatisera och skala Azure AD-anslutning för virtuella Azure Windows-datorer som ingår i dina VDI-distributioner.
 
 > [!NOTE]
-> När du har aktiverat den här funktionen blir dina virtuella Windows-datorer i Azure anslutna till Azure AD. Du kan inte ansluta den till en annan domän som på lokal AD eller Azure AD DS. Om du behöver göra det måste du koppla från den virtuella datorn från din Azure AD-klient genom att avinstallera tillägget.
+> När du har aktiverat den här funktionen blir dina virtuella Windows-datorer i Azure anslutna till Azure AD. Du kan inte ansluta den till en annan domän, t. ex. lokal AD eller Azure AD DS. Om du behöver göra det måste du koppla från den virtuella datorn från din Azure AD-klient genom att avinstallera tillägget.
 
 ## <a name="requirements"></a>Krav
 
@@ -103,10 +103,10 @@ Välj prova i det övre högra hörnet i ett kodblock.
 Öppna Cloud Shell i din webbläsare.
 Välj knappen Cloud Shell på menyn i det övre högra hörnet av [Azure Portal](https://portal.azure.com).
 
-Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI-version 2.0.31 eller senare. Kör az --version för att se versionen. Om du behöver installera eller uppgradera kan du läsa artikeln [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI-version 2.0.31 eller senare. Kör az --version för att se versionen. Om du behöver installera eller uppgradera kan du läsa artikeln [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-1. Skapa en resursgrupp med [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create). 
-1. Skapa en virtuell dator med [AZ VM Create](https://docs.microsoft.com/cli/azure/vm#az-vm-create) med en distribution som stöds i en region som stöds. 
+1. Skapa en resursgrupp med [az group create](/cli/azure/group#az-group-create). 
+1. Skapa en virtuell dator med [AZ VM Create](/cli/azure/vm#az-vm-create) med en distribution som stöds i en region som stöds. 
 1. Installera tillägget Azure AD login VM. 
 
 I följande exempel distribueras en virtuell dator med namnet myVM som använder Win2019Datacenter i en resurs grupp med namnet myResourceGroup i usasödracentrala-regionen. I följande exempel kan du ange dina egna resurs grupper och namn på virtuella datorer efter behov.
@@ -128,7 +128,7 @@ az vm create \
 
 Det tar några minuter att skapa den virtuella datorn och stödresurser.
 
-Slutligen installerar du tillägget Azure AD login VM för att aktivera Azure AD-inloggning för Windows VM. VM-tillägg är små program som tillhandahåller konfigurations-och automatiserings åtgärder efter distributionen på virtuella Azure-datorer. Använd [AZ VM Extension](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) set för att installera AADLoginForWindows-tillägget på den virtuella datorn med namnet MyVM i myResourceGroup-resurs gruppen:
+Slutligen installerar du tillägget Azure AD login VM för att aktivera Azure AD-inloggning för Windows VM. VM-tillägg är små program som tillhandahåller konfigurations-och automatiserings åtgärder efter distributionen på virtuella Azure-datorer. Använd [AZ VM Extension](/cli/azure/vm/extension#az-vm-extension-set) set för att installera AADLoginForWindows-tillägget på den virtuella datorn med namnet MyVM i myResourceGroup-resurs gruppen:
 
 > [!NOTE]
 > Du kan installera AADLoginForWindows-tillägget på en befintlig Windows Server 2019 eller Windows 10 1809 och senare VM för att aktivera det för Azure AD-autentisering. Ett exempel på AZ CLI visas nedan.
@@ -152,7 +152,6 @@ Nu när du har skapat den virtuella datorn måste du konfigurera en Azure RBAC-p
 
 > [!NOTE]
 > Om du vill att en användare ska kunna logga in på den virtuella datorn via RDP måste du tilldela antingen rollen Administratörs inloggning för virtuell dator eller användar inloggning för virtuell dator. En Azure-användare med rollen ägare eller deltagare som har tilldelats en virtuell dator har inte automatiskt behörighet att logga in på den virtuella datorn via RDP. Detta är att tillhandahålla granskad åtskillnad mellan den uppsättning personer som kontrollerar virtuella datorer och den uppsättning personer som kan komma åt virtuella datorer.
-
 Det finns flera sätt att konfigurera roll tilldelningar för virtuella datorer:
 
 - Använda Azure AD Portal-upplevelsen
@@ -175,9 +174,9 @@ Efter en liten stund tilldelas säkerhets objekt rollen i det valda omfånget.
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>Använda Azure Cloud Shell upplevelse
 
-I följande exempel används [AZ roll tilldelning skapa](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) för att tilldela den virtuella datorns administratörs inloggnings roll till den virtuella datorn för din aktuella Azure-användare. Användar namnet för ditt aktiva Azure-konto hämtas med [AZ-kontot show](https://docs.microsoft.com/cli/azure/account#az-account-show), och omfånget ställs in på den virtuella datorn som skapades i ett föregående steg med [AZ VM show](https://docs.microsoft.com/cli/azure/vm#az-vm-show). Omfattningen kan också tilldelas till en resurs grupp eller prenumerations nivå, och normala behörigheter för RBAC-arv gäller. Mer information finns i [rollbaserade åtkomst kontroller](../../virtual-machines/linux/login-using-aad.md).
+I följande exempel används [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create) för att tilldela den virtuella datorns administratörs inloggnings roll till den virtuella datorn för din aktuella Azure-användare. Användar namnet för ditt aktiva Azure-konto hämtas med [AZ-kontot show](/cli/azure/account#az-account-show), och omfånget ställs in på den virtuella datorn som skapades i ett föregående steg med [AZ VM show](/cli/azure/vm#az-vm-show). Omfattningen kan också tilldelas till en resurs grupp eller prenumerations nivå, och normala behörigheter för RBAC-arv gäller. Mer information finns i [rollbaserade åtkomst kontroller](../../virtual-machines/linux/login-using-aad.md).
 
-```AzureCLI
+```   zureCLI
 username=$(az account show --query user.name --output tsv)
 vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
 
@@ -188,14 +187,14 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Om din AAD-domän och inloggnings användar domän inte matchar, måste du ange objekt-ID: t för ditt användar konto med `--assignee-object-id`, inte bara användar namnet för `--assignee`. Du kan hämta objekt-ID: t för ditt användar konto med [AZ AD User List](https://docs.microsoft.com/cli/azure/ad/user#az-ad-user-list).
+> Om din AAD-domän och inloggnings användar domän inte matchar, måste du ange objekt-ID: t för ditt användar konto med `--assignee-object-id`, inte bara användar namnet för `--assignee`. Du kan hämta objekt-ID: t för ditt användar konto med [AZ AD User List](/cli/azure/ad/user#az-ad-user-list).
 
 Mer information om hur du använder RBAC för att hantera åtkomst till dina Azure-prenumerations resurser finns i följande artiklar:
 
-- [Hantera åtkomst till Azure-resurser med RBAC och Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
-- [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure-portalen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
-- [Hantera åtkomst till Azure-resurser med RBAC och Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
-
+- [Hantera åtkomst till Azure-resurser med RBAC och Azure CLI](/azure/role-based-access-control/role-assignments-cli)
+- [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure-portalen](/azure/role-based-access-control/role-assignments-portal)
+- [Hantera åtkomst till Azure-resurser med RBAC och Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+'
 ## <a name="using-conditional-access"></a>Använda villkorlig åtkomst
 
 Du kan tillämpa principer för villkorlig åtkomst, till exempel Multi-Factor Authentication eller användar inloggnings risker innan du auktoriserar åtkomsten till virtuella Windows-datorer i Azure som är aktiverade med Azure AD-inloggning. Om du vill tillämpa principen för villkorlig åtkomst måste du välja "Azure Windows VM-inloggning" i appen molnappar eller åtgärder tilldelning och sedan använda inloggnings risker som ett villkor och/eller kräva multifaktorautentisering som en bevilja åtkomst kontroll. 
@@ -222,19 +221,18 @@ Du är nu inloggad på den virtuella Windows Server 2019 Azure-datorn med roll b
 > [!NOTE]
 > Du kan spara. RDP-fil lokalt på datorn för att starta framtida fjärr skrivbords anslutningar till den virtuella datorn i stället för att behöva gå till översikts sidan för den virtuella datorn i Azure Portal och med alternativet Connect.
 
-## <a name="troubleshoot"></a>Felsökning
+## <a name="troubleshoot"></a>Felsöka
 
 ### <a name="troubleshoot-deployment-issues"></a>Felsöka distributionsproblem
 
 AADLoginForWindows-tillägget måste kunna installeras för att den virtuella datorn ska kunna slutföra Azure AD Join-processen. Utför följande steg om det inte går att installera VM-tillägget korrekt.
 
-1. RDP till den virtuella datorn med det lokala administratörs kontot och granska CommandExecution. log under  
+1. RDP till den virtuella datorn med det lokala administratörs kontot och granska CommandExecuti'n. log under  
    
    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0. 
 
    > [!NOTE]
-   > Om tillägget startas om efter det första felet sparas loggen med distributions felet som CommandExecution_YYYYMMDDHHMMSSSSS. log. 
-
+   > Om tillägget startas om efter det första felet sparas loggen med distributions felet som CommandExecution_YYYYMMDDHHMMSSSSS. log. "
 1. Öppna en kommando tolk på den virtuella datorn och verifiera dessa frågor mot den Instance Metadata Service-slutpunkt (IMDS) som körs på Azure-värden returnerar:
 
    | Kommando som ska köras | Förväntad utdata |
@@ -279,7 +277,7 @@ Den här avslutnings koden översätts till DSREG_E_MSI_TENANTID_UNAVAILABLE eft
 
 #### <a name="issue-2-aadloginforwindows-extension-fails-to-install-with-exit-code--2145648607"></a>Problem 2: AADLoginForWindows-tillägget kan inte installeras med avslutnings koden:-2145648607
 
-Den här avslutnings koden översätts till DSREG_AUTOJOIN_DISC_FAILED eftersom tillägget inte kan komma åt https://enterpriseregistration.windows.net -slutpunkten.
+Den här avslutnings koden översätts till DSREG_AUTOJOIN_DISC_FAILED eftersom tillägget inte kan komma åt https://enterpriseregistration.windows.net-slutpunkten.
 
 1. Verifiera att de nödvändiga slut punkterna är tillgängliga från den virtuella datorn med hjälp av kommando raden:
 
@@ -338,7 +336,7 @@ Om du ser följande fel meddelande när du startar en fjärr skrivbords anslutni
 
 ![Autentiseringsuppgifterna fungerade inte](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-Kontrol lera att den Windows 10-dator som du använder för att initiera fjärr skrivbords anslutningen är antingen en Azure AD-ansluten eller en hybrid Azure AD som är ansluten till samma Azure AD-katalog som den virtuella datorn är ansluten till. Mer information om enhets identitet finns i artikeln [Vad är en enhets identitet](https://docs.microsoft.com/azure/active-directory/devices/overview).
+Kontrol lera att den Windows 10-dator som du använder för att initiera fjärr skrivbords anslutningen är antingen en Azure AD-ansluten eller en hybrid Azure AD som är ansluten till samma Azure AD-katalog som den virtuella datorn är ansluten till. Mer information om enhets identitet finns i artikeln [Vad är en enhets identitet](/azure/active-directory/devices/overview).
 
 > [!NOTE]
 > Windows 10 20H1 kommer att lägga till stöd för Azure AD-registrerade datorer för att initiera anslutning till fjärr skrivbord till din virtuella dator. Delta i Windows Insider-programmet och utforska nya funktioner i Windows 10.
@@ -355,7 +353,7 @@ Om du ser följande fel meddelande när du startar en fjärr skrivbords anslutni
 
 Om du har konfigurerat en princip för villkorlig åtkomst som kräver Multi-Factor Authentication (MFA) innan du kan komma åt resursen, måste du se till att Windows 10-datorn som initierar fjärr skrivbords anslutningen till den virtuella datorn loggar in med ett starkt autentiseringsmetod som Windows Hello. Om du inte använder en stark autentiseringsmetod för fjärr skrivbords anslutningen visas föregående fel.
 
-Om du inte har distribuerat Windows Hello för företag och om det inte är ett alternativ för tillfället, kan du utesluta MFA-kravet genom att konfigurera principen för villkorlig åtkomst som utesluter "Azure Windows VM-inloggning"-appen från listan över molnappar som kräver MFA. Mer information om Windows Hello för företag finns i [Översikt över Windows Hello för företag](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+Om du inte har distribuerat Windows Hello för företag och om det inte är ett alternativ för tillfället, kan du utesluta MFA-kravet genom att konfigurera principen för villkorlig åtkomst som utesluter "Azure Windows VM-inloggning"-appen från listan över molnappar som kräver MFA. Mer information om Windows Hello för företag finns i [Översikt över Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 > [!NOTE]
 > Windows Hello för företag PIN-autentisering med RDP har stöd av Windows 10 för flera versioner, men stöd för bio metrisk autentisering med RDP lades till i Windows 10 version 1809. Användning av Windows Hello för företag-autentisering under RDP är endast tillgängligt för distributioner som använder certifikat förtroende modell och som för närvarande inte är tillgängligt för nyckel förtroende modell.
@@ -365,4 +363,4 @@ Om du inte har distribuerat Windows Hello för företag och om det inte är ett 
 Dela din feedback om den här för hands versions funktionen eller rapportera problem med hjälp av den i [Azure AD feedback-forumet](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure Active Directory finns i [Vad är Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+Mer information om Azure Active Directory finns [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)

@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: edea7a7b4dcb5ed18adcbab973f9f351543c6422
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: af44f4a96567cc86c9f884cdfe5e28ff6b7bd8f3
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330880"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897669"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Självstudie: Säkra Azure SQL Database-anslutningar från App Service med en hanterad identitet
 
@@ -127,6 +127,9 @@ I *Web. config*arbetar du från början av filen och gör följande ändringar:
 
 - Hitta anslutnings strängen med namnet `MyDbConnection` och ersätt dess `connectionString`-värde med `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`. Ersätt _\<server-name >_ och _\<db-namn >_ med Server namnet och databas namnet.
 
+> [!NOTE]
+> SqlAuthenticationProvider som du precis har registrerat baseras på det AppAuthentication-bibliotek som du installerade tidigare. Som standard använder den en tilldelad identitet. Om du vill använda en tilldelad identitet måste du ange en ytterligare konfiguration. Se [stöd för anslutnings strängar](../key-vault/service-to-service-authentication.md#connection-string-support) för AppAuthentication-biblioteket.
+
 Det var allt du behöver för att ansluta till SQL Database. Vid fel sökning i Visual Studio använder din kod den Azure AD-användare som du konfigurerade i [Konfigurera Visual Studio](#set-up-visual-studio). Du ställer in SQL Database servern senare för att tillåta anslutning från den hanterade identiteten för din App Service-app.
 
 Skriv `Ctrl+F5` för att köra appen igen. Samma CRUD-app i webbläsaren ansluter nu till Azure SQL Database direkt med Azure AD-autentisering. Med den här installationen kan du köra databas migreringar från Visual Studio.
@@ -189,6 +192,9 @@ Skriv `Ctrl+F5` för att köra appen igen. Samma CRUD-app i webbläsaren anslute
 
 Sedan konfigurerar du App Service-appen så att den ansluter till SQL Database med en systemtilldelad hanterad identitet.
 
+> [!NOTE]
+> Även om instruktionerna i det här avsnittet gäller för en tilldelad identitet, kan en användardefinierad identitet enkelt användas. För att göra detta. du behöver ändra `az webapp identity assign command` för att tilldela önskad användar tilldelad identitet. När du skapar SQL-användaren ska du sedan se till att använda namnet på den tilldelade identitets resursen i stället för plats namnet.
+
 ### <a name="enable-managed-identity-on-app"></a>Aktivera hanterad identitet i appen
 
 När du ska aktivera en hanterad identitet för din Azure-app använder du kommandot [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) i Cloud Shell. I följande kommando ersätter du *\<app-name >* .
@@ -237,7 +243,7 @@ ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
-*\<identitet-namn >* är namnet på den hanterade identiteten i Azure AD. Eftersom det har tilldelats systemet är det alltid detsamma som namnet på din App Service-app. Om du vill bevilja behörighet för en Azure AD-grupp använder du gruppens visnings namn i stället (till exempel *myAzureSQLDBAccessGroup*).
+*\<identitet-namn >* är namnet på den hanterade identiteten i Azure AD. Om identiteten är systemtilldelad är namnet alltid detsamma som namnet på din App Service-app. Om du vill bevilja behörighet för en Azure AD-grupp använder du gruppens visnings namn i stället (till exempel *myAzureSQLDBAccessGroup*).
 
 Skriv `EXIT` för att återgå till Cloud Shell-prompten.
 

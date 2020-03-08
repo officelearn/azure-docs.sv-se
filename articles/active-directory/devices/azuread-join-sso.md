@@ -1,6 +1,6 @@
 ---
 title: Hur SSO till lokala resurser fungerar på Azure AD-anslutna enheter | Microsoft Docs
-description: Lär dig att konfigurera Hybrid Azure Active Directory-anslutningsenheter.
+description: Lär dig att konfigurera anslutna Azure Active Directory-hybridenheter.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 083433d31f088eae1e138dd9cbd5ac05bbe8a304
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: f9d8c0cd803424e117bd4dc7a3382b7b32df2d05
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773310"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672708"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Hur SSO till lokala resurser fungerar på Azure AD-anslutna enheter
 
@@ -24,11 +24,11 @@ Det är förmodligen inte en överraskning att en Azure Active Directory (Azure 
 
 Den här artikeln förklarar hur det fungerar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
  Om Azure AD-anslutna datorer inte är anslutna till din organisations nätverk krävs en VPN-eller annan nätverks infrastruktur. Lokal inloggning kräver detaljerad kommunikation med dina lokala AD DS-domänkontrollanter.
 
-## <a name="how-it-works"></a>Så här fungerar det 
+## <a name="how-it-works"></a>Hur det fungerar 
 
 Eftersom du behöver bara komma ihåg ett enda användar namn och lösen ord, underlättar SSO åtkomst till dina resurser och förbättrar säkerheten för din miljö. Med en Azure AD-ansluten enhet har användarna redan en SSO-upplevelse till molnappar i din miljö. Om din miljö har en Azure AD och en lokal AD, vill du förmodligen utöka omfattningen av din SSO-upplevelse till dina lokala branschspecifika appar, fil resurser och skrivare.
 
@@ -42,13 +42,13 @@ En miljö med både en Azure AD och en lokal AD är även känd med hybrid milj�
 Under ett åtkomst försök till en resurs som begär Kerberos i användarens lokala miljö, enheten:
 
 1. Skickar lokal domän information och användarautentiseringsuppgifter till den lokaliserade DOMÄNKONTROLLANTen för att få användaren autentiserad.
-1. Tar emot en Kerberos [biljett beviljande biljett (TGT)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets) som används för att komma åt AD-anslutna resurser. Om försöket att hämta TGT för AAD Connect-domänen Miss lyckas (en viss tids gräns för DCLocator kan orsaka en fördröjning), försöker Autentiseringshanteraren-poster, eller så kan användaren få ett popup-meddelande om att begära autentiseringsuppgifter för mål resursen.
+1. Tar emot en Kerberos [biljett beviljande biljett (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) som används för att komma åt AD-anslutna resurser. Om försöket att hämta TGT för AAD Connect-domänen Miss lyckas (en viss tids gräns för DCLocator kan orsaka en fördröjning), försöker Autentiseringshanteraren-poster, eller så kan användaren få ett popup-meddelande om att begära autentiseringsuppgifter för mål resursen.
 
 Alla appar som har kon figurer ATS för **Windows-integrerad autentisering** får sömlös inloggning när en användare försöker komma åt dem.
 
-Windows Hello för företag kräver ytterligare konfiguration för att aktivera lokal SSO från en Azure AD-ansluten enhet. Mer information finns i [Konfigurera Azure AD-anslutna enheter för lokal enkel inloggning med Windows Hello för företag](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
+Windows Hello för företag kräver ytterligare konfiguration för att aktivera lokal SSO från en Azure AD-ansluten enhet. Mer information finns i [Konfigurera Azure AD-anslutna enheter för lokal enkel inloggning med Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 
-## <a name="what-you-get"></a>Det här får du
+## <a name="what-you-get"></a>Vad du får
 
 Med enkel inloggning kan du på en Azure AD-ansluten enhet: 
 

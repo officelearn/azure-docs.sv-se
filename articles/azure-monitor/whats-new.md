@@ -5,16 +5,70 @@ ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 02/05/2020
-ms.openlocfilehash: ecee13850e735f827a5465e0f49039f514afe233
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/05/2020
+ms.openlocfilehash: b42acdf64612da6837bc67752f7a22169ddef7e2
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77657749"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673328"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Vad är nytt i Azure Monitor-dokumentationen?
 Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya eller som har uppdaterats markant. Den kommer att uppdateras den första veckan i varje månad för att inkludera artikel uppdateringar från föregående månad.
+
+## <a name="march-2020"></a>Mars 2020
+
+### <a name="agents"></a>Agenter
+Flera uppdateringar som en del av omskrivning av innehåll för diagnostik-tillägg.
+
+- [Översikt över Azure Monitoring agents](platform/agents-overview.md) – strukturerade tabeller för att bättre klargöra unika funktioner i varje agent.
+- [Översikt över Azure-diagnostik-tillägg](platform/diagnostics-extension-overview.md) – fullständig omskrivning.
+- [Använd Blob Storage för IIS och tabell lagring för händelser i Azure Monitor](platform/diagnostics-extension-logs.md) – allmän omskrivning för uppdatering och tydlighet.
+- [Installera och konfigurera Windows Azure Diagnostics Extension (wad)](platform/diagnostics-extension-windows-install.md) – ny artikel. 
+- [Tilläggs schema för Windows-diagnostik](platform/diagnostics-extension-schema-windows.md) – omorganisera.
+- [Skicka data från Windows Azure Diagnostics-tillägget till Azure Event Hubs](platform/diagnostics-extension-stream-event-hubs.md) -helt omskrivna och uppdaterade.
+- [Lagra och Visa diagnostikdata i Azure Storage](platform/diagnostics-extension-to-storage.md) -helt omskrivna och uppdaterade.
+- [Log Analytics tillägg för virtuell dator för Windows](../virtual-machines/extensions/oms-windows.md) – bättre klargör relationen med Log Analytics-agenten.
+- [Azure Monitor tillägg för virtuell dator för Linux](../virtual-machines/extensions/oms-linux.md) – bättre klargör relationen med Log Analytics-agenten.
+
+
+
+
+### <a name="application-insights"></a>Application Insights
+- [Anslutnings strängar i Azure Application Insights](app/sdk-connection-string.md) – ny artikel.
+
+### <a name="insights-and-solutions"></a>Insikter och lösningar
+
+#### <a name="azure-monitor-for-containers"></a>Azure Monitor för containrar
+- [Integrera Azure Active Directory med Azure Kubernetes service](../aks/azure-ad-integration.md) – en anteckning om att skapa ett klient program som stöder RBAC-aktiverat kluster för att stödja Azure Monitor för behållare.
+
+#### <a name="azure-monitor-for-vms"></a>Azure Monitor för virtuella datorer
+- [Azure Monitor for VMS (ga) vanliga frågor och svar](insights/vminsights-ga-release-faq.md) – ändra till hur prestanda data lagras.
+
+#### <a name="office-365"></a>Office 365
+- [Office 365-hanterings lösning i Azure](insights/solution-office-365.md) – uppdaterat utfasnings datum.
+
+
+### <a name="logs"></a>Loggar
+- [Optimera logg frågor i Azure Monitor](log-query/query-optimization.md) – ny artikel.
+- [Hantera användning och kostnader för Azure Monitor loggar](platform/manage-cost-storage.md) – förbättrade exempel frågor som hjälper dig att förstå din användning.
+
+### <a name="metrics"></a>Mått
+- [Azure Monitor plattforms mått som exporteras via diagnostikinställningar](platform/metrics-supported-export-diagnostic-settings.md) – avsnittet har lagts till vid ändring av beteendet för null-värden och nollvärden.
+
+
+### <a name="visualizations"></a>Visualiseringar
+Flera nya artiklar för konverterings guiden för Visa designer till arbets böcker.
+
+- [Azure Monitor Visa designer till arbets böcker över gångs guide](platform/view-designer-conversion-overview.md) – ny artikel.
+- [Azure Monitor Visa designer till arbets böcker konverterings alternativ](platform/view-designer-conversion-options.md) -ny artikel.
+- [Azure Monitor Visa designer till panel konverteringar](platform/view-designer-conversion-tiles.md) – ny artikel.
+- [Azure Monitor Visa designer till arbets böcker konverterings Sammanfattning och Access](platform/view-designer-conversion-access.md) -ny artikel.
+- [Azure Monitor Visa designer till arbets böcker konvertering av vanliga uppgifter](platform/view-designer-conversion-tasks.md) – ny artikel.
+- [Azure Monitor Visa designer till arbets böcker konverterings exempel](platform/view-designer-conversion-examples.md) – ny artikel.
+
+
+
 
 ## <a name="january-2020"></a>Januari 2020
 
@@ -43,14 +97,14 @@ Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya
 ### <a name="insights-and-solutions"></a>Insikter och lösningar
 
 #### <a name="azure-monitor-for-containers"></a>Azure Monitor för containrar
-- [Konfigurera Azure Monitor för behållare agent data insamling](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config) -ytterligare information för att uppgradera agenten i Azure Red Hat OpenShift och ytterligare information för att särskilja metoderna för att uppgradera agenten.
-- [Skapa prestanda varningar för Azure Monitor för behållare](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-alerts) – ändrad information och uppdaterade steg för att skapa en avisering om prestanda data som lagras i arbets ytan med hjälp av arbets ytans kontext aviseringar.
-- [Kubernetes övervakning med Azure Monitor för behållare](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-analyze) – uppdaterad både översikts artikeln och analys artikeln om stöd för Windows Kubernetes-kluster.
-- [Konfigurera Azure Red Hat OpenShift-kluster med Azure Monitor för behållare](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-azure-redhat-setup) – ytterligare information för att uppgradera agenten i Azure Red Hat OpenShift och ytterligare information som särskiljer metoderna för att uppgradera agenten.
-- [Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-hybrid-setup) – uppdaterat för att avspegla ytterligare stöd för säker port: 10250 med Kubelet cAdvisor.
-- [Så här hanterar du Azure Monitor för behållare agent](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-manage-agent) – uppdaterad information relaterad till beteende och konfiguration av mått kassation med Azure Red Hat OpenShift jämfört med andra typer av Kubernetes-kluster.
-- [Konfigurera Azure Monitor för containers Prometheus-integrering](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-prometheus-integration) – uppdaterad information relaterad till beteende och konfiguration av mått kassation med Azure Red Hat OpenShift jämfört med andra typer av Kubernetes-kluster.
-- [Uppdatera Azure Monitor för behållare för mått](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-update-metrics) – uppdaterad information relaterad till beteende och konfiguration av mått kassation med Azure Red Hat OpenShift jämfört med andra typer av Kubernetes-kluster.
+- [Konfigurera Azure Monitor för behållare agent data insamling](insights/container-insights-agent-config.md) -ytterligare information för att uppgradera agenten i Azure Red Hat OpenShift och ytterligare information för att särskilja metoderna för att uppgradera agenten.
+- [Skapa prestanda varningar för Azure Monitor för behållare](insights/container-insights-alerts.md) – ändrad information och uppdaterade steg för att skapa en avisering om prestanda data som lagras i arbets ytan med hjälp av arbets ytans kontext aviseringar.
+- [Kubernetes övervakning med Azure Monitor för behållare](insights/container-insights-analyze.md) – uppdaterad både översikts artikeln och analys artikeln om stöd för Windows Kubernetes-kluster.
+- [Konfigurera Azure Red Hat OpenShift-kluster med Azure Monitor för behållare](insights/container-insights-azure-redhat-setup.md) – ytterligare information för att uppgradera agenten i Azure Red Hat OpenShift och ytterligare information som särskiljer metoderna för att uppgradera agenten.
+- [Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare](insights/container-insights-hybrid-setup.md) – uppdaterat för att avspegla ytterligare stöd för säker port: 10250 med Kubelet cAdvisor.
+- [Så här hanterar du Azure Monitor för behållare agent](insights/container-insights-manage-agent.md) – uppdaterad information relaterad till beteende och konfiguration av mått kassation med Azure Red Hat OpenShift jämfört med andra typer av Kubernetes-kluster.
+- [Konfigurera Azure Monitor för containers Prometheus-integrering](insights/container-insights-prometheus-integration.md) – uppdaterad information relaterad till beteende och konfiguration av mått kassation med Azure Red Hat OpenShift jämfört med andra typer av Kubernetes-kluster.
+- [Uppdatera Azure Monitor för behållare för mått](insights/container-insights-update-metrics.md) – uppdaterad information relaterad till beteende och konfiguration av mått kassation med Azure Red Hat OpenShift jämfört med andra typer av Kubernetes-kluster.
 
 
 #### <a name="azure-monitor-for-vms"></a>Azure Monitor för virtuella datorer

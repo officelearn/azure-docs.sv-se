@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: dapine
-ms.openlocfilehash: 1225a1e528b32401f350374fb9393c52225c49e8
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
-ms.translationtype: MT
+ms.openlocfilehash: b58ca353bffb99b21b1049dd23620f575bde687b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942684"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669180"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
@@ -32,7 +32,9 @@ Det första steget är att se till att projektet är öppet i Sol förmörkelse.
 ## <a name="add-a-reference-to-gson"></a>Lägg till en referens till Gson
 Vi använder en extern JSON-serialisering/deserialiserare i den här snabb starten. För Java har vi valt [Gson](https://github.com/google/gson).
 
-Öppna Pom. xml och Lägg till följande referens: [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
+Öppna Pom. xml och Lägg till följande referens.
+
+[!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
 
 ## <a name="start-with-some-boilerplate-code"></a>Börja med viss exempel kod
 

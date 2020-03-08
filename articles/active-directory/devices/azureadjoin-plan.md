@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67c42de09c75b7dd6737b80071f1f6eba094b132
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512427"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672686"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Gör så här: planera din Azure AD Join-implementering
 
@@ -24,7 +24,7 @@ Med Azure AD Join kan du ansluta enheter direkt till Azure AD utan att behöva a
 
 Den här artikeln innehåller den information du behöver för att planera din Azure AD Join-implementering.
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du är bekant med [introduktionen till enhets hantering i Azure Active Directory](../device-management-introduction.md).
 
@@ -59,7 +59,7 @@ Azure AD Join fungerar med både hanterade och federerade miljöer.
 
 ### <a name="managed-environment"></a>Hanterad miljö
 
-En hanterad miljö kan distribueras antingen via [hash-synkronisering av lösen ord](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) eller [genom att passera](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) med sömlös enkel inloggning.
+En hanterad miljö kan distribueras antingen via [hash-synkronisering av lösen ord](/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) eller [genom att passera](/azure/active-directory/hybrid/how-to-connect-pta-quick-start) med sömlös enkel inloggning.
 
 De här scenarierna kräver inte att du konfigurerar en Federations Server för autentisering.
 
@@ -78,7 +78,7 @@ När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter: `/adf
 Om din identitetsprovider inte stöder dessa protokoll fungerar inte Azure AD Join. 
 
 >[!NOTE]
-> Azure AD Join fungerar för närvarande inte med [AD FS 2019 som kon figurer ATS med externa autentiseringsproviders som primär autentiseringsmetod](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Azure AD Join-standardvärden för lösenordsautentisering som den primära metoden, vilket resulterar i autentiseringsfel i det här scenariot
+> Azure AD Join fungerar för närvarande inte med [AD FS 2019 som kon figurer ATS med externa autentiseringsproviders som primär autentiseringsmetod](/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Azure AD Join-standardvärden för lösenordsautentisering som den primära metoden, vilket resulterar i autentiseringsfel i det här scenariot
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Smartkort och certifikatbaserad autentisering
@@ -87,11 +87,11 @@ Du kan inte använda smartkort eller certifikatbaserad autentisering för att an
 
 **Rekommendation:** Implementera Windows Hello för företag för stark, lösen ords lös autentisering för Windows 10-enheter.
 
-### <a name="user-configuration"></a>Användarkonfiguration
+### <a name="user-configuration"></a>Användar konfiguration
 
 Om du skapar användare i din:
 
-- **Lokala Active Directory**måste du synkronisera dem till Azure AD med hjälp av [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
+- **Lokala Active Directory**måste du synkronisera dem till Azure AD med hjälp av [Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
 - **Azure AD**krävs ingen ytterligare konfiguration.
 
 Lokala UPN: er som skiljer sig från Azure AD-UPN: er stöds inte på Azure AD-anslutna enheter. Om användarna använder ett lokalt UPN bör du planera att växla till att använda deras primära UPN i Azure AD.
@@ -127,9 +127,9 @@ Granska principer som stöds och som inte stöds för att avgöra om du kan anv�
 - Krävs de principer som inte stöds för Azure AD-anslutna enheter eller användare?
 - Är de principer som inte stöds tillämpliga i en molnbaserad distribution?
 
-Om MDM-lösningen inte är tillgänglig via Azure AD App-galleriet kan du lägga till den enligt den process som beskrivs i [Azure Active Directory integration med MDM](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
+Om MDM-lösningen inte är tillgänglig via Azure AD App-galleriet kan du lägga till den enligt den process som beskrivs i [Azure Active Directory integration med MDM](/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
 
-Genom samhantering kan du använda SCCM för att hantera vissa aspekter av dina enheter medan principer levereras via din MDM-plattform. Microsoft Intune möjliggör samhantering med SCCM. Mer information om samhantering för Windows 10-enheter finns i [Vad är samtidig hantering?](https://docs.microsoft.com/configmgr/core/clients/manage/co-management-overview). Om du använder en annan MDM-produkt än Intune bör du kontrol lera med MDM-providern om tillämpliga samhanterings scenarier.
+Genom samhantering kan du använda SCCM för att hantera vissa aspekter av dina enheter medan principer levereras via din MDM-plattform. Microsoft Intune möjliggör samhantering med SCCM. Mer information om samhantering för Windows 10-enheter finns i [Vad är samtidig hantering?](/configmgr/core/clients/manage/co-management-overview). Om du använder en annan MDM-produkt än Intune bör du kontrol lera med MDM-providern om tillämpliga samhanterings scenarier.
 
 **Rekommendation:** Överväg endast MDM-hantering för Azure AD-anslutna enheter.
 
@@ -155,7 +155,7 @@ Om dina appar är anpassade och/eller värdbaserade lokalt, måste du lägga til
 - Aktivera Windows-integrerad autentisering för arbete 
 - Ge användarna en enkel SSO-upplevelse. 
 
-Om du använder AD FS, se [Verifiera och hantera enkel inloggning med AD FS](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
+Om du använder AD FS, se [Verifiera och hantera enkel inloggning med AD FS](/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
 **Rekommendation:** Överväg att vara värd i molnet (till exempel Azure) och integrera med Azure AD för att få en bättre upplevelse.
 
@@ -163,7 +163,7 @@ Om du använder AD FS, se [Verifiera och hantera enkel inloggning med AD FS](htt
 
 Användare får SSO från Azure AD-anslutna enheter om enheten har åtkomst till en domänkontrollant. 
 
-**Rekommendation:** Distribuera [Azure AD App proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) för att aktivera säker åtkomst för dessa program.
+**Rekommendation:** Distribuera [Azure AD App proxy](/azure/active-directory/manage-apps/application-proxy) för att aktivera säker åtkomst för dessa program.
 
 ### <a name="on-premises-network-shares"></a>Lokala nätverks resurser
 
@@ -171,7 +171,7 @@ Användarna har SSO från Azure AD-anslutna enheter när en enhet har åtkomst t
 
 ### <a name="printers"></a>Skrivare
 
-För skrivare måste du distribuera [hybrid moln utskrift](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) för att identifiera skrivare på Azure AD-anslutna enheter. 
+För skrivare måste du distribuera [hybrid moln utskrift](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) för att identifiera skrivare på Azure AD-anslutna enheter. 
 
 Även om skrivare inte kan identifieras automatiskt i en moln miljö kan användarna också använda skrivarens UNC-sökväg för att lägga till dem direkt. 
 
@@ -183,25 +183,25 @@ Azure AD-anslutna enheter stöder inte lokala program som förlitar sig på dato
 
 ### <a name="remote-desktop-services"></a>Fjärrskrivbordstjänster
 
-Anslutning till fjärr skrivbord till en Azure AD-ansluten enhet kräver att värddatorn antingen är Azure AD-ansluten eller hybrid Azure AD-ansluten. Fjärr skrivbord från en frånkopplad eller icke-Windows-enhet stöds inte. Mer information finns i [ansluta till en fjärran sluten Azure AD-ansluten dator](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
+Anslutning till fjärr skrivbord till en Azure AD-ansluten enhet kräver att värddatorn antingen är Azure AD-ansluten eller hybrid Azure AD-ansluten. Fjärr skrivbord från en frånkopplad eller icke-Windows-enhet stöds inte. Mer information finns i [ansluta till en fjärran sluten Azure AD-ansluten dator](/windows/client-management/connect-to-remote-aadj-pc)
 
 ## <a name="understand-your-provisioning-options"></a>Förstå dina etablerings alternativ
 
 Du kan etablera Azure AD Join med hjälp av följande metoder:
 
-- **Självbetjäning i OOBE/Settings** – i självbetjänings läget går användarna igenom Azure AD Join-processen antingen under Windows OOBE (out of Box Experience) eller från Windows-inställningar. Mer information finns i [ansluta din arbets enhet till din organisations nätverk](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network). 
-- **Windows autopilot** – Windows autopilot möjliggör för konfigurering av enheter för en smidig upplevelse i OOBE för att utföra en Azure AD-anslutning. Mer information finns i [Översikt över Windows autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot). 
-- **Mass** registrering – Mass registrering gör det möjligt för en administratör att använda Azure AD-anslutning med hjälp av ett Mass etablerings verktyg för att konfigurera enheter. Mer information finns i [Mass registrering för Windows-enheter](https://docs.microsoft.com/intune/windows-bulk-enroll).
+- **Självbetjäning i OOBE/Settings** – i självbetjänings läget går användarna igenom Azure AD Join-processen antingen under Windows OOBE (out of Box Experience) eller från Windows-inställningar. Mer information finns i [ansluta din arbets enhet till din organisations nätverk](/azure/active-directory/user-help/user-help-join-device-on-network). 
+- **Windows autopilot** – Windows autopilot möjliggör för konfigurering av enheter för en smidig upplevelse i OOBE för att utföra en Azure AD-anslutning. Mer information finns i [Översikt över Windows autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
+- **Mass** registrering – Mass registrering gör det möjligt för en administratör att använda Azure AD-anslutning med hjälp av ett Mass etablerings verktyg för att konfigurera enheter. Mer information finns i [Mass registrering för Windows-enheter](/intune/windows-bulk-enroll).
  
 Här är en jämförelse av dessa tre metoder 
  
-|   | Installation av självbetjäning | Windows Autopilot | Massregistrering |
+|   | Installation av självbetjäning | Windows autopilot | Massregistrering |
 | --- | --- | --- | --- |
-| Kräv användar interaktion för att konfigurera | Ja | Ja | Inga |
-| Kräv IT-ansträngning | Inga | Ja | Ja |
+| Kräv användar interaktion för att konfigurera | Ja | Ja | Nej |
+| Kräv IT-ansträngning | Nej | Ja | Ja |
 | Tillämpliga flöden | Inställningar för OOBE-& | Endast OOBE | Endast OOBE |
-| Lokal administratörs behörighet till primär användare | Ja, som standard | Konfigurerbar | Inga |
-| Kräv enhets-OEM-support | Inga | Ja | Inga |
+| Lokal administratörs behörighet till primär användare | Ja, som standard | Konfigurerbara | Nej |
+| Kräv enhets-OEM-support | Nej | Ja | Nej |
 | Versioner som stöds | 1511+ | 1709+ | 1703 + |
  
 Välj distributions metod eller-metoder genom att granska tabellen ovan och granska följande överväganden för att införa någon av metoderna:  
@@ -266,9 +266,9 @@ Beroende på ditt omfång händer något av följande:
 
 Det finns tre URL: er som är relaterade till din MDM-konfiguration:
 
-- Webbadress till MDM-användarvillkor
-- Webbadress till MDM-identifiering 
-- Webbadress till MDM-kompatibilitet
+- URL för MDM-användning
+- URL för MDM-identifiering 
+- URL för MDM-kompatibilitet
 
 ![Lägga till ett program](./media/azureadjoin-plan/06.png)
 
@@ -296,7 +296,7 @@ Du kan använda den här implementeringen för att [kräva hanterade enheter fö
 
 > [!div class="nextstepaction"]
 > [Anslut en ny Windows 10-enhet med Azure AD under en första körning](azuread-joined-devices-frx.md)
-> [ansluta din arbets enhet till din organisations nätverk](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network)
+> [ansluta din arbets enhet till din organisations nätverk](/azure/active-directory/user-help/user-help-join-device-on-network)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

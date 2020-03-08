@@ -4,16 +4,16 @@ description: I den här självstudien får du lära dig hur du använder MARS-ag
 ms.topic: tutorial
 ms.date: 02/14/2018
 ms.custom: mvc
-ms.openlocfilehash: 5958f6574f8c559bae8f500b1cb555e96e007d0e
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: c9258b7f95337330e4f1de36e389f6b8f2276976
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171809"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672951"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Återställa filer från Azure till Windows Server
 
-Med Azure Backup kan du återställa enskilda objekt från säkerhetskopior av Windows Server. Det är praktiskt att återställa enskilda filer om du snabbt måste återställa filer som du har råkat ta bort av misstag. I den här självstudien beskrivs hur du kan använda MARS-agenten (Microsoft Azure Recovery Services Agent) för att återställa objekt från säkerhetskopior som du redan har skapat i Azure. I den här guiden får du lära dig hur man:
+Med Azure Backup kan du återställa enskilda objekt från säkerhetskopior av Windows Server. Det är praktiskt att återställa enskilda filer om du snabbt måste återställa filer som du har råkat ta bort av misstag. I den här självstudien beskrivs hur du kan använda MARS-agenten (Microsoft Azure Recovery Services Agent) för att återställa objekt från säkerhetskopior som du redan har skapat i Azure. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 >
@@ -21,7 +21,7 @@ Med Azure Backup kan du återställa enskilda objekt från säkerhetskopior av W
 > * Välja en återställningspunkt
 > * Återställa objekt från en återställningspunkt
 
-Den här kursen förutsätter att du redan har utfört stegen för att [Säkerhetskopiera Windows Server till Azure](backup-configure-vault.md) och att du har minst en säkerhetskopia av dina Windows Server-filer i Azure.
+Den här kursen förutsätter att du redan har utfört stegen för att [Säkerhetskopiera Windows Server till Azure](backup-windows-with-mars-agent.md) och att du har minst en säkerhetskopia av dina Windows Server-filer i Azure.
 
 ## <a name="initiate-recovery-of-individual-items"></a>Initiera återställning av enskilda objekt
 

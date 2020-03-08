@@ -5,17 +5,17 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
 ms.openlocfilehash: 2a00a352d09562ffe46dc8e6e63a5d4963ac3a3f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464566"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899339"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Så här gör du: Felsöka Windows-behållare i Azure Service Fabric med Visual Studio 2019
 
 Med Visual Studio 2019 kan du felsöka .NET-program i behållare som Service Fabric Services. Den här artikeln visar hur du konfigurerar din miljö och sedan felsöka ett .NET-program i en behållare som körs i ett lokalt Service Fabric-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * I Windows 10 följer du den här snabb starten för att [Konfigurera Windows 10 att köra Windows-behållare](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)
 * På Windows Server 2016 följer du den här snabb starten för att [Konfigurera windows 2016 för att köra Windows-behållare](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)

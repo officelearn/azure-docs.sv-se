@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/13/2019
+ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 530eebea19d9e53f85a0079d6fba91c615ee6dd1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 86dbcdc24c90ba8b161b041af96cbdd0665ad827
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375440"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668991"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Konfigurera säkerhets aviseringar för Azure AD-roller i Privileged Identity Management
 
@@ -87,7 +87,7 @@ I det här avsnittet visas alla säkerhets aviseringar för Azure AD-roller, til
 | **Så här löser du?** | Granska kontona i listan. Om de inte längre behöver åtkomst tar du bort dem från deras privilegierade roller. |
 | **Åtgärder** | Se till att konton som delas roterar starka lösen ord när det sker en ändring i användare som känner till lösen ordet. </br>Granska regelbundet konton med privilegierade roller med [åtkomst granskningar](pim-how-to-start-security-review.md) och ta bort roll tilldelningar som inte längre behövs. |
 | **Åtgärd som åtgärdar åtgärder i portalen** | Tar bort kontot från deras privilegierade roller. |
-| **Bästa praxis** | Konton för delade, tjänster och nödfalls åtkomst som autentiserar med ett lösen ord och som har tilldelats privilegierade administrativa roller som global administratör eller säkerhets administratör bör ha sina lösen ord roterade för följande fall:<ul><li>Efter en säkerhets incident som inbegriper missbruk eller komprometterande av administrativa rättigheter</li><li>När en användares behörigheter har ändrats så att de inte längre är administratörer (till exempel efter att en medarbetare som var administratör lämnar den eller lämnar organisationen)</li><li>Med jämna mellanrum (till exempel kvartals vis eller årliga), även om det inte fanns något känt intrång eller ändra till IT-personal</li></ul>Eftersom flera personer har åtkomst till dessa konto uppgifter bör autentiseringsuppgifterna roteras så att personer som har lämnat sina roller inte längre kan komma åt kontona. [Läs mer](https://aka.ms/breakglass) |
+| **Bästa praxis** | Konton för delade, tjänster och nödfalls åtkomst som autentiserar med ett lösen ord och som har tilldelats privilegierade administrativa roller som global administratör eller säkerhets administratör bör ha sina lösen ord roterade för följande fall:<ul><li>Efter en säkerhets incident som inbegriper missbruk eller komprometterande av administrativa rättigheter</li><li>När en användares behörigheter har ändrats så att de inte längre är administratörer (till exempel efter att en medarbetare som var administratör lämnar den eller lämnar organisationen)</li><li>Med jämna mellanrum (till exempel kvartals vis eller årliga), även om det inte fanns något känt intrång eller ändra till IT-personal</li></ul>Eftersom flera personer har åtkomst till dessa konto uppgifter bör autentiseringsuppgifterna roteras så att personer som har lämnat sina roller inte längre kan komma åt kontona. [Läs mer om att skydda konton](../users-groups-roles/directory-admin-roles-secure.md) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>Roller tilldelas utanför Privileged Identity Management
 
@@ -120,7 +120,7 @@ I det här avsnittet visas alla säkerhets aviseringar för Azure AD-roller, til
 | **Varför får jag den här aviseringen?** | Flera aktiveringar till samma privilegierade roll av samma användare är ett tecken på ett angrepp. |
 | **Så här löser du?** | Granska användarna i listan och kontrol lera att [aktiverings tiden](pim-how-to-change-default-settings.md) för deras privilegierade roll är tillräckligt lång för att de ska kunna utföra sina uppgifter. |
 | **Åtgärder** | Kontrol lera att [aktiverings tiden](pim-how-to-change-default-settings.md) för privilegierade roller är tillräckligt lång för att användarna ska kunna utföra sina uppgifter.</br>[Kräv Multi-Factor Authentication](pim-how-to-change-default-settings.md) för privilegierade roller som har konton som delas av flera administratörer. |
-| **Åtgärd som åtgärdar åtgärder i portalen** | SAKNAS |
+| **Åtgärd som åtgärdar åtgärder i portalen** | Ej tillämpligt |
 | **Utlösare** | Utlöses om en användare aktiverar samma privilegierade roll flera gånger inom en angiven period. Du kan konfigurera både tids perioden och antalet aktiveringar. |
 | **Tidsram för aktiverings förnyelse** | Den här inställningen anger i dagar, timmar, minuter och sekund den tids period som du vill använda för att spåra misstänkta förnyelser. |
 | **Antal aktiverings förnyelser** | Den här inställningen anger antalet aktiveringar från 2 till 100, där du vill bli meddelad inom den tidsram som du har valt. Du kan ändra den här inställningen genom att flytta skjutreglaget eller skriva ett tal i text rutan. |
@@ -219,7 +219,7 @@ I det här avsnittet visas alla säkerhets aviseringar för Azure AD-roller, til
 | **Varför får jag den här aviseringen?** | Flera aktiveringar till samma privilegierade roll av samma användare är ett tecken på ett angrepp. |
 | **Så här löser du?** | Granska användarna i listan och kontrol lera att [aktiverings tiden](pim-how-to-change-default-settings.md) för deras privilegierade roll är tillräckligt lång för att de ska kunna utföra sina uppgifter. |
 | **Åtgärder** | Kontrol lera att [aktiverings tiden](pim-how-to-change-default-settings.md) för privilegierade roller är tillräckligt lång för att användarna ska kunna utföra sina uppgifter.</br>[Kräv Multi-Factor Authentication](pim-how-to-change-default-settings.md) för privilegierade roller som har konton som delas av flera administratörer. |
-| **Åtgärd som åtgärdar åtgärder i portalen** | SAKNAS |
+| **Åtgärd som åtgärdar åtgärder i portalen** | Ej tillämpligt |
 | **Utlösare** | Utlöses om en användare aktiverar samma privilegierade roll flera gånger inom en angiven period. Du kan konfigurera både tids perioden och antalet aktiveringar. |
 | **Tidsram för aktiverings förnyelse** | Den här inställningen anger i dagar, timmar, minuter och sekund den tids period som du vill använda för att spåra misstänkta förnyelser. |
 | **Antal aktiverings förnyelser** | Den här inställningen anger antalet aktiveringar från 2 till 100, där du vill bli meddelad inom den tidsram som du har valt. Du kan ändra den här inställningen genom att flytta skjutreglaget eller skriva ett tal i text rutan. |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e81039328aa9382a19412c961e28bc3275c08ec8
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: ae8ce24aeb665a7f99326e83dbe18d020e1b6196
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77194474"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672356"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Felsöka Enterprise State Roaming inställningar i Azure Active Directory
 
@@ -25,7 +25,7 @@ Det här avsnittet innehåller information om hur du felsöker och diagnostisera
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Den här artikeln gäller Microsoft Edge äldre HTML-baserad webbläsare lanserad med Windows 10 i juli 2015. Artikeln gäller inte den nya Microsoft Edge krom-baserade webbläsaren som lanserades den 15 januari 2020. Mer information om hur synkronisering fungerar för den nya Microsoft Edge finns i artikeln [Microsoft Edge Sync](https://docs.microsoft.com/deployedge/microsoft-edge-enterprise-sync).
+> Den här artikeln gäller Microsoft Edge äldre HTML-baserad webbläsare lanserad med Windows 10 i juli 2015. Artikeln gäller inte den nya Microsoft Edge krom-baserade webbläsaren som lanserades den 15 januari 2020. Mer information om hur synkronisering fungerar för den nya Microsoft Edge finns i artikeln [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
 ## <a name="preliminary-steps-for-troubleshooting"></a>Preliminära steg för fel sökning 
 
@@ -111,7 +111,7 @@ Se till att Windows 10 v1511-klienten har den kumulativa uppdateringen juli 2016
 För att förhindra data läckage, kommer data som skyddas med [windows information Protection](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip) inte att synkroniseras via Enterprise State roaming för enheter som använder uppdaterings uppdatering för Windows 10.
 
 **Rekommenderad åtgärd**  
-Ingen. Framtida uppdateringar av Windows kan lösa det här problemet.
+Inga. Framtida uppdateringar av Windows kan lösa det här problemet.
 
 ---
 
@@ -120,7 +120,7 @@ Ingen. Framtida uppdateringar av Windows kan lösa det här problemet.
 Enheter som är domänanslutna kommer inte att uppleva synkronisering för inställningens datum, tid och region: automatisk tid. Om du använder automatisk tid kan det hända att andra inställningar för datum, tid och region åsidosätts och att dessa inställningar inte synkroniseras. 
 
 **Rekommenderad åtgärd**  
-Ingen. 
+Inga. 
 
 ---
 
@@ -138,7 +138,7 @@ Kontrol lera att Windows 10 v1511-klienten har den kumulativa uppdateringen ([KB
 Om du försöker logga in på Windows-enheten med ett smartkort eller virtuellt smartkort slutar inställningarna att fungera.     
 
 **Rekommenderad åtgärd**  
-Ingen. Framtida uppdateringar av Windows kan lösa det här problemet.
+Inga. Framtida uppdateringar av Windows kan lösa det här problemet.
 
 ---
 

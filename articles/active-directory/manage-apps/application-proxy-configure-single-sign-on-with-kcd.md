@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab378fe1e06de49df0fe6481a1aa475d426648dc
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 5948fba67d3f071d77192f9ad89bc696fdc0c3cc
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377746"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669188"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy
 
@@ -66,17 +66,27 @@ Active Directory-konfigurationen varierar beroende på om programproxy-kopplinge
 
 #### <a name="connector-and-application-server-in-different-domains"></a>Anslutningen och programservrar i olika domäner
 1. En lista över krav för att arbeta med KCD över domäner finns i Kerberos- [begränsad delegering över domäner](https://technet.microsoft.com/library/hh831477.aspx).
-2. Använd egenskapen `principalsallowedtodelegateto` på kopplings servern för att göra det möjligt för programproxyn att delegera för kopplings servern. Program servern är `sharepointserviceaccount` och den delegerande servern är `connectormachineaccount`. Använd den här koden för Windows 2012 R2, som exempel:
+2. Använd egenskapen `principalsallowedtodelegateto` för tjänst kontot (dator eller dedikerat domän användar konto) för webb programmet för att aktivera delegering av Kerberos-autentisering från programproxyn (anslutnings programmet). Program servern körs i kontexten för `webserviceaccount` och den delegerande servern är `connectorcomputeraccount`. Kör kommandona nedan på en domänkontrollant (som kör Windows Server 2012 R2 eller senare) i domänen för `webserviceaccount`. Använd fasta namn (icke-UPN) för båda kontona.
 
-```powershell
-$connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
+   Om `webserviceaccount` är ett dator konto, använder du följande kommandon:
 
-Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
+   ```powershell
+   $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
 
-Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
-```
+   Set-ADComputer -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
 
-`sharepointserviceaccount` kan vara det konto för SPS-datorn eller ett tjänst konto under vilket SPS-programpoolen körs.
+   Get-ADComputer webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+   ```
+
+   Om `webserviceaccount` är ett användar konto, använder du följande kommandon:
+
+   ```powershell
+   $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
+
+   Set-ADUser -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
+
+   Get-ADUser webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+   ```
 
 ## <a name="configure-single-sign-on"></a>Konfigurera enkel inloggning 
 1. Publicera programmet enligt instruktionerna som beskrivs i [Publicera program med programproxy](application-proxy-add-on-premises-application.md). Se till att välja **Azure Active Directory** som **Förautentiserings metod**.
@@ -149,4 +159,3 @@ Men i vissa fall kan begäran skickas har till backend-applikationer medan det h
 
 
 Läs mer om de senaste nyheterna och uppdateringarna i [bloggen om Application Proxy](https://blogs.technet.com/b/applicationproxyblog/)
-

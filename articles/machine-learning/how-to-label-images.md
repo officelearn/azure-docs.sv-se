@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 1e27fca86613757c36ac664e2e449cabed68d550
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 6d0a9bf172039adcaa756660d38acc1547e91b49
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772456"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898688"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Tagga bilder i ett etikett projekt
 
@@ -23,7 +23,7 @@ När projekt administratören har [skapat ett etikett projekt](https://docs.micr
 > * Etikett verktygen
 > * Så här använder du verktygen för vissa etikett uppgifter
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Etikettens portal-URL för ett projekt som kör en data etikett
 * Ett [Microsoft-konto](https://account.microsoft.com/account) eller ett Azure Active Directory konto för organisationen och projektet
@@ -58,6 +58,16 @@ Azure aktiverar knappen **Skicka** när du har taggat alla bilder på sidan. Vä
 
 När du har skickat taggar för data till handen uppdaterar Azure sidan med en ny uppsättning avbildningar från arbets kön.
 
+### <a name="assisted-machine-learning"></a>Assisterad maskin inlärning 
+
+Machine Learning-algoritmer kan utlösas under en klassificerings uppgift med flera klasser eller flera etiketter. Om dessa algoritmer är aktiverade i projektet kan du se följande:
+
+* När vissa bilder har märkts kan du se uppgifter som är **klustrade** överst på skärmen bredvid projekt namnet.  Det innebär att bilder grupperas tillsammans för att presentera liknande bilder på samma sida.  I så fall kan du växla till en av vyerna för flera bilder för att dra nytta av grupperingen.  
+
+* Vid ett senare tillfälle kan du se uppgifter som är **förmärkta** bredvid projekt namnet.  Bilderna visas sedan med en föreslagen etikett som kommer från en maskin inlärnings klassificerings modell. Ingen Machine Learning-modell har 100% noggrannhet. Vi använder bara bilder för vilka modellen är säker, men dessa bilder kan fortfarande vara felaktigt märkta.  När du ser dessa etiketter korrigerar du eventuella fel etiketter innan du skickar in sidan.  
+
+I synnerhet i ett etikett projekt kan Machine Learning-modellen bara vara tillräckligt exakt för att förmärka en liten del av avbildningarna. När de här bilderna har märkts, kommer etiketts projektet att återgå till manuell etikettering för att samla in mer data för nästa runda av modell träning. Med tiden blir modellen mer säker på en högre andel av avbildningarna, vilket leder till fler förmärknings uppgifter senare i projektet.
+
 ## <a name="tag-images-for-multi-class-classification"></a>Tagga bilder för klassificering med flera klasser
 
 Om ditt projekt är av typen "bild klassificering med flera klasser", tilldelar du en enskild tagg till hela bilden. Om du vill granska riktningarna när som helst går du till sidan **instruktioner** och väljer **Visa detaljerade instruktioner**.
@@ -81,6 +91,7 @@ Du korrigerar ett misstag genom att klicka på "**X**" för att ta bort en enski
 ![En skärm bild visar flera avmarkeringar](./media/how-to-label-images/multiple-deselection.png)
 
 Azure aktiverar bara knappen **Skicka** när du har tillämpat minst en tagg på varje bild. Välj **Skicka** för att spara ditt arbete.
+
 
 ## <a name="tag-images-and-specify-bounding-boxes-for-object-detection"></a>Tagga bilder och ange avgränsnings rutor för objekt identifiering
 

@@ -4,14 +4,14 @@ description: Läs om SQL WHERE-satsen för Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: 31653b598f0f3a79bf7f9c09231b1d111f167a16
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982237"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898782"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>WHERE-sats i Azure Cosmos DB
 
@@ -35,10 +35,11 @@ WHERE <filter_condition>
   
    Uttryck som representerar värdet som ska beräknas. Mer information finns i [skalära uttryck](sql-query-scalar-expressions.md) .  
   
-
 ## <a name="remarks"></a>Anmärkningar
   
-  Villkoret måste utvärderas till SANT för dokumentet som ska returneras ett uttryck har angetts som filter. Endast booleska värdet true kommer uppfyller villkoren, ett annat värde: Odefinierad, null, false, tal, matris, eller ett objekt kommer inte uppfyller villkoret. 
+  Villkoret måste utvärderas till SANT för dokumentet som ska returneras ett uttryck har angetts som filter. Endast booleskt värde `true` uppfyller villkoret, vilket ger något annat värde: undefined, null, false, Number, array eller Object uppfyller inte villkoret.
+
+  Om du inkluderar din partitionsnyckel i `WHERE`-satsen som en del av ett likhets filter så filtreras frågan automatiskt till de relevanta partitionerna.
 
 ## <a name="examples"></a>Exempel
 
@@ -110,4 +111,4 @@ Du kan också använda egenskaps referenser i frågor. `SELECT * FROM Families f
 
 - [Komma igång](sql-query-getting-started.md)
 - [I nyckelord](sql-query-keywords.md#in)
-- [FROM-satsen](sql-query-from.md)
+- [FROM-sats](sql-query-from.md)

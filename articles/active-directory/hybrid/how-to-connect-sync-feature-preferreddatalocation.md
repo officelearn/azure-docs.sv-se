@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a493179e6e657a1d99d7cdb808629bae7332567
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: faecb0bc8cbb5ca84e9fc8bfc3cb99e2ccef1f11
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918975"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894572"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect synkronisering: konfigurera önskad data plats för Office 365-resurser
 Syftet med det här avsnittet är att hjälpa dig att konfigurera attributet för önskad data plats i Azure Active Directory (Azure AD) Connect-synkronisering. När någon använder flera geo-funktioner i Office 365 använder du det här attributet för att ange geo-platsen för användarens Office 365-data. ( *Regions region* och *geo* används utbytbart.)
@@ -61,7 +61,7 @@ Geografiska områden i Office 365 tillgängligt för multi-geo är:
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Azure AD Connect stöd för synkronisering
 
-Azure AD Connect stöder synkronisering av attributet **preferredDataLocation** för **användar** objekt i version 1.1.524.0 och senare. Närmare bestämt:
+Azure AD Connect stöder synkronisering av attributet **preferredDataLocation** för **användar** objekt i version 1.1.524.0 och senare. Mer specifikt:
 
 * Schemat för objekt typen **användare** i Azure AD-kopplingen har utökats till att omfatta attributet **preferredDataLocation** . Attributet är av typen, en sträng med ett värde.
 * Schemat för objekt typens **person** i metaversum har utökats till att omfatta attributet **preferredDataLocation** . Attributet är av typen, en sträng med ett värde.
@@ -139,12 +139,12 @@ Regeln för inkommande synkronisering tillåter att attributvärdet flödar frå
 3. Om du vill skapa en ny regel för inkommande trafik väljer du **Lägg till ny regel**.
 4. Ange följande konfiguration på fliken **Beskrivning** :
 
-    | Attribut | Värde | Information |
+    | Attribut | Värde | Detaljer |
     | --- | --- | --- |
     | Namn | *Ange ett namn* | Till exempel "i från AD – User preferredDataLocation" |
     | Beskrivning | *Ange en anpassad Beskrivning* |  |
     | Anslutet system | *Välj lokal Active Directory-anslutning* |  |
-    | Ansluten system objekt typ | **Användare** |  |
+    | Ansluten system objekt typ | **Användarvänlig** |  |
     | Metaversum objekt typ | **Sända** |  |
     | Länktyp | **Anslut dig** |  |
     | Prioritet | *Välj ett tal mellan 1 – 99* | 1 – 99 är reserverad för anpassade regler för synkronisering. Välj inte ett värde som används av en annan Synkroniseringsregel. |
@@ -168,12 +168,12 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
 3. Välj **Lägg till ny regel**.
 4. Ange följande konfiguration på fliken **Beskrivning** :
 
-    | Attribut | Värde | Information |
+    | Attribut | Värde | Detaljer |
     | ----- | ------ | --- |
     | Namn | *Ange ett namn* | Till exempel "ut till Azure AD – User preferredDataLocation" |
     | Beskrivning | *Ange en beskrivning* ||
     | Anslutet system | *Välj Azure AD-anslutning* ||
-    | Ansluten system objekt typ | **Användare** ||
+    | Ansluten system objekt typ | **Användarvänlig** ||
     | Metaversum objekt typ | **Sända** ||
     | Länktyp | **Anslut dig** ||
     | Prioritet | *Välj ett tal mellan 1 – 99* | 1 – 99 är reserverad för anpassade regler för synkronisering. Välj inte ett värde som används av en annan Synkroniseringsregel. |
@@ -183,9 +183,9 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
     | Attribut | Operator | Värde |
     | --- | --- | --- |
     | sourceObjectType | SKEPPNINGSKVANTITETEN | Användare |
-    | cloudMastered | NOTEQUAL | Sant |
+    | cloudMastered | NOTEQUAL | True |
 
-    Omfångs filtret bestämmer vilka Azure AD-objekt den här utgående synkroniseringsregeln tillämpas på. I det här exemplet använder vi samma omfångs filter från "ut till Azure AD – användar identitet" OOB (out-of-Box) synkroniseringsregeln. Det förhindrar att synkroniseringsregeln tillämpas på **användar** objekt som inte är synkroniserade från lokala Active Directory. Du kan behöva justera omfångs filtret enligt din Azure AD Connect-distribution.
+    Omfångs filtret bestämmer vilka Azure AD-objekt den här utgående synkroniseringsregeln tillämpas på. I det här exemplet använder vi samma omfångs filter från "ut till Azure AD – användar identitet" OOB (out-of-Box) synkroniseringsregeln. Det förhindrar att synkroniseringsregeln tillämpas på **användar** objekt som inte synkroniseras från en lokal Active Directory. Du kan behöva justera omfångs filtret enligt din Azure AD Connect-distribution.
 
 6. Gå till fliken **omvandling** och implementera följande omvandlings regel:
 
@@ -260,7 +260,6 @@ Det är nu dags att verifiera konfigurationen och aktivera den för dina använd
 3. Använd Exchange Online PowerShell och kontrol lera att post lådans region har angetts korrekt.  
 ![Skärm bild av Exchange Online PowerShell](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
 Om din klient har marker ATS för att kunna använda den här funktionen, flyttas post lådan till rätt geo. Du kan kontrol lera detta genom att titta på Server namnet där post lådan finns.
-4. Kontrol lera att den här inställningen har Aktiver ATS över många post lådor genom att använda skriptet i [TechNet-galleriet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Det här skriptet innehåller också en lista över Server prefixen för alla Office 365-datacenter och vilka geo-de finns i. Den kan användas som en referens i föregående steg för att verifiera post lådans plats.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: d6e5eb8875e6b7d930a002708079dab0e357297f
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 7b9ce8be4ffc306417dd836e28127641f6100321
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250927"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899196"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Lägg till resurser i integrerings tjänst miljön (ISE) i Azure Logic Apps
 
@@ -51,7 +51,7 @@ Följ dessa steg om du vill skapa Logi Kap par som körs i integrerings tjänst 
 
 1. Fortsätt [att skapa din Logic app på vanligt sätt](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-   Information om skillnader i hur utlösare och åtgärder fungerar och hur de märks när du använder en ISE jämfört med den globala Logic Apps tjänsten finns i [isolerade kontra globala i ISE-översikten](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference).
+   För skillnader i hur utlösare och åtgärder fungerar och hur de märks när du använder en ISE jämfört med Logic Apps tjänsten för flera innehavare, se [isolerade kontra flera innehavare i ISE-översikten](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference).
 
 1. Information om hur du hanterar Logic Apps och API-anslutningar i din ISE finns i [Hantera integrerings tjänst miljön](../logic-apps/ise-manage-integration-service-environment.md).
 

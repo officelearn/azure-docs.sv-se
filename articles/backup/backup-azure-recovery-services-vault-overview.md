@@ -3,12 +3,12 @@ title: Översikt över Recovery Services-valv
 description: En översikt och jämförelse mellan Recovery Services valv och Azure Backup valv.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 327f17aca29f2787c86269e8dd707f5152285154
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 94a3e5a0865bcc8c0a9ecb866ca013f20a558e1a
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397044"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673244"
 ---
 # <a name="recovery-services-vaults-overview"></a>Översikt över Recovery Services valv
 
@@ -77,4 +77,4 @@ Följande avsnitt innehåller länkar till artiklar som förklarar hur du använ
 Använd följande artiklar för att:</br>
 [Säkerhetskopiera en virtuell IaaS-dator](backup-azure-arm-vms-prepare.md)</br>
 [Säkerhetskopiera en Azure Backup Server](backup-azure-microsoft-azure-backup.md)</br>
-[Säkerhetskopiera en Windows Server](backup-configure-vault.md)
+[Säkerhetskopiera en Windows Server](backup-windows-with-mars-agent.md)

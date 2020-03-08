@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 9465b77d03fb3dbb668bd40bf2c7e6ded6891a05
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 5718a23e5669de6ba16354a718d72b68d14bbf49
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962073"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894542"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenario: daemon-program som anropar webb-API: er
 
 Lär dig allt du behöver för att bygga ett daemon-program som anropar webb-API: er.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -42,11 +42,11 @@ Här följer några exempel på användnings fall för daemon-appar:
 - Skriv bords program (t. ex. Windows-tjänster på Windows-eller daemon-processer i Linux) som utför batch-jobb eller en tjänst för operativ system som körs i bakgrunden
 - Webb-API: er som behöver manipulera kataloger, inte vissa användare
 
-Det finns ett annat vanligt fall där icke-daemon-program använder klientautentiseringsuppgifter: även om de agerar för användarens räkning måste de ha åtkomst till ett webb-API eller en resurs som har sin egen identitet av tekniska skäl. Ett exempel är åtkomst till hemligheter i Azure Key Vault eller en Azure SQL-databas för cache.
+Det finns ett annat vanligt fall där icke-daemon-program använder klientautentiseringsuppgifter: även om de agerar för användarens räkning måste de ha åtkomst till ett webb-API eller en resurs under sin egen identitet av tekniska skäl. Ett exempel är åtkomst till hemligheter i Azure Key Vault eller en Azure SQL-databas för cache.
 
 Program som hämtar en token för sina egna identiteter:
 
-- är konfidentiella klient program. Dessa appar, med tanke på att de får åtkomst till resurser oberoende av användarna, måste bevisa sin identitet. De är också i stället känsliga appar. De måste godkännas av Azure Active Directory (Azure AD)-klient organisations administratörer.
+- Är konfidentiella klient program. Dessa appar, med tanke på att de får åtkomst till resurser oberoende av användarna, måste bevisa sin identitet. De är också i stället känsliga appar. De måste godkännas av Azure Active Directory (Azure AD)-klient organisations administratörer.
 - Har registrerat en hemlighet (program lösen ord eller certifikat) med Azure AD. Den här hemligheten skickas under anropet till Azure AD för att hämta en token.
 
 ## <a name="specifics"></a>Information

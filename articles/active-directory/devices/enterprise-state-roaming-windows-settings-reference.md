@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a75b662fabcce8ffa64f1b705e86a1c1dde625
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 3a7abc402f1fc2e449e7aac5effdb01b6b941100
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77194338"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672630"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referens för Windows 10-växlingsinställningar
 
@@ -26,7 +26,7 @@ Följande är en lista över de inställningar som kommer att roamas eller säke
 
 I följande tabell finns en sammanfattning av de enheter och konto typer som stöds av ramverket för synkronisering, säkerhets kopiering och återställning i Windows 10.
 
-| Konto typ och åtgärd | skrivbords- | Mobiltelefon |
+| Konto typ och åtgärd | Skrivbord | Mobil |
 | --- | --- | --- |
 | Azure Active Directory: synkronisera |Ja |Nej |
 | Azure Active Directory: säkerhets kopiering/återställning |Nej |Nej |
@@ -52,7 +52,7 @@ Följande inställnings grupper är tillgängliga för slutanvändare för att a
 ![Synkronisera dina inställningar](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 > [!NOTE]
-> Den här artikeln gäller Microsoft Edge äldre HTML-baserad webbläsare lanserad med Windows 10 i juli 2015. Artikeln gäller inte den nya Microsoft Edge krom-baserade webbläsaren som lanserades den 15 januari 2020. Mer information om hur synkronisering fungerar för den nya Microsoft Edge finns i artikeln [Microsoft Edge Sync](https://docs.microsoft.com/deployedge/microsoft-edge-enterprise-sync).
+> Den här artikeln gäller Microsoft Edge äldre HTML-baserad webbläsare lanserad med Windows 10 i juli 2015. Artikeln gäller inte den nya Microsoft Edge krom-baserade webbläsaren som lanserades den 15 januari 2020. Mer information om hur synkronisering fungerar för den nya Microsoft Edge finns i artikeln [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
 Inställnings gruppen för Microsoft Edge-webbläsare (favoriter, läsa lista) kan aktive ras eller inaktive ras av slutanvändare via meny alternativet Microsoft Edge-webbläsar inställningar.
 
@@ -69,13 +69,13 @@ I följande tabell refererar andra poster i kolumnen inställnings grupp till in
 Interna poster i kolumnen Settings Group avser inställningar och appar som bara kan inaktive ras från synkronisering i själva appen eller genom att inaktivera synkronisering för hela enheten med hantering av mobila enheter (MDM) eller grupprincip inställningar.
 Inställningar som inte är roaming eller synkronisering tillhör inte någon grupp.
 
-| Inställningar | skrivbords- | Mobiltelefon | Grupp |
+| Inställningar | Skrivbord | Mobil | Grupp |
 | --- | --- | --- | --- |
 | **Konton**: konto bild |sync |X |Visst |
 | **Konton**: andra konto inställningar |X |X | |
 | **Avancerat mobilt bred band**: nätverks namn för Internet anslutnings delning (möjliggör automatisk identifiering av mobila Wi-Fi-hotspots via Bluetooth) |X |X |Lösenord |
 | **AppData**: enskilda appar kan synkronisera data |Synkronisera säkerhets kopia |Synkronisera säkerhets kopia |inhemska |
-| **Applistan**: lista över installerade appar |X |säkerhetskopiering |Andra |
+| **Applistan**: lista över installerade appar |X |säkerhetskopiering |Annat |
 | **Bluetooth**: alla Bluetooth-inställningar |X |X | |
 | **Kommando tolk**: kommando tolkens standardinställningar |sync |X |inhemska |
 | **Autentiseringsuppgifter**: Lås för autentiseringsuppgifter |sync |sync |lösenord |

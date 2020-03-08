@@ -1,25 +1,26 @@
 ---
-title: Hög tillgänglighet och tillförlitlighet – Azure Scheduler
+title: Hög tillgänglighet och tillförlitlighet
 description: Lär dig mer om hög tillgänglighet och tillförlitlighet i Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: 6a729df7eb08f8dacff4b0d35d011854208510ff
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 20c2054e168a9b17d9b4ab159cfefbf607ab6d11
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979290"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898562"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Hög tillgänglighet och tillförlitlighet för Azure Scheduler
 
 > [!IMPORTANT]
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt. 
+>
+> Scheduler är inte längre tillgänglig i Azure Portal, men [PowerShell-cmdletarna](scheduler-powershell-reference.md) [REST API](/rest/api/scheduler) och Azure Scheduler är tillgängliga just nu så att du kan hantera jobb och jobb samlingar.
 
 Azure Scheduler ger både [hög tillgänglighet](https://docs.microsoft.com/azure/architecture/framework/#resiliency) och tillförlitlighet för dina jobb. Mer information finns i [SLA för Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
 
@@ -29,7 +30,7 @@ Azure Scheduler är [hög tillgängligt] och använder både Geo-redundant tjän
 
 ### <a name="geo-redundant-service-deployment"></a>Distribution av Geo-redundant tjänst
 
-Azure Scheduler är tillgängligt i Azure Portal i nästan [alla geografiska regioner som stöds av Azure idag](https://azure.microsoft.com/global-infrastructure/regions/#services). Så om ett Azure-datacenter i en värdbaserad region blir otillgängligt kan du fortfarande använda Azure Scheduler, eftersom tjänstens funktioner för redundans gör Scheduler tillgänglig från ett annat data Center.
+Azure Scheduler är tillgängligt i nästan [alla geografiska regioner som stöds av Azure idag](https://azure.microsoft.com/global-infrastructure/regions/#services). Så om ett Azure-datacenter i en värdbaserad region blir otillgängligt kan du fortfarande använda Azure Scheduler, eftersom tjänstens funktioner för redundans gör Scheduler tillgänglig från ett annat data Center.
 
 ### <a name="geo-regional-job-replication"></a>Geo-regional jobb-replikering
 
@@ -50,7 +51,7 @@ Azure Scheduler garanterar sin egen hög tillgänglighet men använder en annan 
 
 <a name="retry-policies"></a>
 
-### <a name="retry-policies"></a>Principer för nya försök
+### <a name="retry-policies"></a>Principer för återförsök
 
 Med Azure Scheduler kan du konfigurera principer för återförsök. Om ett jobb Miss lyckas, försöker Schemaläggaren utföra jobbet fyra gånger med 30 sekunders intervall. Du kan göra den här principen för återförsök mer aggressiv, till exempel 10 gånger med 30 sekunders intervall eller mindre aggressiv, till exempel två gånger med dagliga intervall.
 
@@ -70,9 +71,9 @@ Det här diagrammet visar till exempel hur Schemaläggaren följer policyn för 
 
 Information om hur du konfigurerar en alternativ slut punkt finns i [ErrorAction](scheduler-concepts-terms.md#error-action).
 
-## <a name="see-also"></a>Se också
+## <a name="next-steps"></a>Nästa steg
 
-* [Vad är Azure Scheduler?](scheduler-intro.md)
 * [Begrepp, terminologi och entitetshierarki](scheduler-concepts-terms.md)
-* [Skapa komplexa scheman och avancerad upprepning](scheduler-advanced-complexity.md)
+* [Referens för REST-API:et för Azure Scheduler](/rest/api/scheduler)
+* [Referens för PowerShell-cmdlets för Azure Scheduler](scheduler-powershell-reference.md)
 * [Gränser, kvoter, standardvärden och felkoder](scheduler-limits-defaults-errors.md)

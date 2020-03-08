@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84c794e6fe751bc1c12b90353ef7b285f31a2331
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: e99b9b87f939d614679fdecf24c9d36d99bf2938
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192147"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671888"
 ---
 # <a name="conditional-access-session"></a>Villkorlig åtkomst: session
 
@@ -30,12 +30,12 @@ Organisationer kan använda den här kontrollen för att kräva att Azure AD ski
 
 Mer information om användning och konfiguration av tvingande begränsningar för appar finns i följande artiklar:
 
-- [Aktivera begränsad åtkomst med SharePoint Online](https://docs.microsoft.com/sharepoint/control-access-from-unmanaged-devices)
+- [Aktivera begränsad åtkomst med SharePoint Online](/sharepoint/control-access-from-unmanaged-devices)
 - [Aktivera begränsad åtkomst med Exchange Online](https://aka.ms/owalimitedaccess)
 
 ## <a name="conditional-access-application-control"></a>Program kontroll för villkorlig åtkomst
 
-Appkontroll för villkorsstyrd åtkomst använder en arkitektur med omvänd proxy och är unikt integrerat med villkorlig åtkomst i Azure AD. Med villkorlig åtkomst i Azure AD kan du genomdriva åtkomst kontroller i din organisations appar baserat på vissa villkor. Villkoren definierar vem (användare eller grupp av användare) och vad (vilka molnappar) och var (vilka platser och nätverk) en princip för villkorlig åtkomst tillämpas på. När du har fastställt villkoren kan du dirigera användare till [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) där du kan skydda data med appkontroll för villkorsstyrd åtkomst genom att använda åtkomst-och sessionsnycklar.
+Appkontroll för villkorsstyrd åtkomst använder en arkitektur med omvänd proxy och är unikt integrerat med villkorlig åtkomst i Azure AD. Med villkorlig åtkomst i Azure AD kan du genomdriva åtkomst kontroller i din organisations appar baserat på vissa villkor. Villkoren definierar vem (användare eller grupp av användare) och vad (vilka molnappar) och var (vilka platser och nätverk) en princip för villkorlig åtkomst tillämpas på. När du har fastställt villkoren kan du dirigera användare till [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) där du kan skydda data med appkontroll för villkorsstyrd åtkomst genom att använda åtkomst-och sessionsnycklar.
 
 Appkontroll för villkorsstyrd åtkomst kan användaren åtkomst till appen och övervakas och kontrolleras i realtid baserat på principer för åtkomst- och sessionsprinciper-sessioner. Åtkomst-och sessionsprinciper används i Cloud App Security-portalen för att ytterligare förfina filter och åtgärder vidtas på en användare. Med principer för åtkomst- och sessionsprinciper kan du:
 
@@ -46,7 +46,7 @@ Appkontroll för villkorsstyrd åtkomst kan användaren åtkomst till appen och 
 - Blockera åtkomst: du kan i detalj blockera åtkomst för vissa appar och användare beroende på flera riskfaktorer. Du kan till exempel blockera dem om de använder klient certifikat som en form av enhets hantering.
 - Blockera anpassade aktiviteter: vissa appar har unika scenarier som kan medföra risker, till exempel att skicka meddelanden med känsligt innehåll i appar som Microsoft Teams eller slack. I dessa typer av scenarier kan du söka igenom meddelanden för känsligt innehåll och blockera dem i real tid.
 
-Mer information finns i artikeln [distribuera appkontroll för villkorsstyrd åtkomst för aktuella appar](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+Mer information finns i artikeln [distribuera appkontroll för villkorsstyrd åtkomst för aktuella appar](/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="sign-in-frequency-preview"></a>Inloggnings frekvens (förhands granskning)
 
@@ -62,7 +62,7 @@ Inställningen för inloggnings frekvens fungerar med appar som har implementera
 - SharePoint och OneDrive
 - Team webb klient
 - Dynamics CRM Online
-- Azure-portalen
+- Azure Portal
 
 Mer information finns i artikeln [Konfigurera hantering av autentisering med villkorlig åtkomst](howto-conditional-access-session-lifetime.md#user-sign-in-frequency).
 

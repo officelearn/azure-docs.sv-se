@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd53b95472c72d70721612d8684779c206aad74e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f3ce27c59ead4e126cb143d1831ece0e93e119ef
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888787"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672243"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Felsöka hybrid Azure Active Directory anslutna enheter 
 
@@ -26,7 +26,7 @@ För andra Windows-klienter kan du läsa artikeln [Felsöka hybrid Azure Active 
 
 I den här artikeln förutsätter vi att du har [konfigurerat hybrid Azure Active Directory anslutna enheter](hybrid-azuread-join-plan.md) som stöd för följande scenarier:
 
-- Enhetsbaserad villkorlig åtkomst
+- Enhets-baserad villkorlig åtkomst
 - [Företags växling av inställningar](../active-directory-windows-enterprise-state-roaming-overview.md)
 - [Windows Hello för företag](../active-directory-azureadjoin-passport-deployment.md)
 
@@ -356,7 +356,7 @@ Använd Loggboken loggar för att hitta fasen och ErrorCode för kopplings felen
    - Lösning: inaktivera TPM på enheter med det här felet. Windows 1809 identifierar automatiskt TPM-haverier och slutför Azure AD-anslutning utan att använda TPM.
 - **NTE_AUTHENTICATION_IGNORED** (0x80090031/-2146893775)
    - Orsak: TPM är låst.
-   - Lösning: tillfälligt fel. Vänta på cooldowns perioden. Försök att ansluta efter en stund. Mer information finns i artikeln om TPM- [grunderna](https://docs.microsoft.com/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering)
+   - Lösning: tillfälligt fel. Vänta på cooldowns perioden. Försök att ansluta efter en stund. Mer information finns i artikeln om TPM- [grunderna](/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering)
 
 ##### <a name="network-errors"></a>Nätverks fel
 
@@ -372,13 +372,13 @@ Använd Loggboken loggar för att hitta fasen och ErrorCode för kopplings felen
 
 ##### <a name="federated-join-server-errors"></a>Federerat kopplings Server fel
 
-| Server fel kod | Server fel meddelande | Möjliga orsaker | Upplösning |
+| Server fel kod | Server fel meddelande | Möjliga orsaker | Lösning |
 | --- | --- | --- | --- |
 | DirectoryError | Din begäran är tillfälligt begränsad. Försök igen om 300 sekunder. | Förväntat fel. Detta kan bero på att du gör flera registrerings begär anden i snabb följd. | Försök ansluta igen efter cooldown-perioden |
 
 ##### <a name="sync-join-server-errors"></a>Fel vid synkronisering av kopplings Server
 
-| Server fel kod | Server fel meddelande | Möjliga orsaker | Upplösning |
+| Server fel kod | Server fel meddelande | Möjliga orsaker | Lösning |
 | --- | --- | --- | --- |
 | DirectoryError | AADSTS90002: det gick inte att hitta klient <UUID>. Det här felet kan inträffa om det inte finns några aktiva prenumerationer för klienten. Kontakta prenumerations administratören. | Klient-ID i SCP-objektet är felaktigt | Se till att SCP-objektet är konfigurerat med rätt Azure AD-klient-ID och aktiva prenumerationer och finns i klient organisationen. |
 | DirectoryError | Det gick inte att hitta enhets objektet med angivet ID. | Förväntat fel för sync-anslutning. Enhetsobjektet har inte synkroniserats från AD till Azure AD | Vänta tills den Azure AD Connect synkroniseringen har slutförts och nästa anslutnings försök efter att synkroniseringen har slutförts löser problemet |

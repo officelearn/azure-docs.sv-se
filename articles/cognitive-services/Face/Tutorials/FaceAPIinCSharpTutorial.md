@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ab0ed56b953cf2c0d96fd2d91d9a3b09fddace72
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: a5cf3c59c94134e1d0751c1467cd324a95c366eb
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76165919"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898808"
 ---
 # <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>Självstudie: skapa en Windows Presentation Framework-app (WPF) för att Visa ansikts data i en bild
 
@@ -37,7 +37,7 @@ Den fullständiga exempelkoden är tillgänglig på [Cognitive Face CSharp sampl
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En ansikts prenumerations nyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på ansikts tjänsten och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `FACE_SUBSCRIPTION_KEY` respektive `FACE_ENDPOINT`.
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
@@ -49,7 +49,7 @@ Följ dessa steg för att skapa ett nytt WPF-programprojekt.
 1. Öppna dialogrutan New Project (Nytt projekt) i Visual Studio. Expandera **Installed** (Installerat), sedan **Visual C#** och välj **WPF App (.NET Framework)** .
 1. Ge programmet namnet **FaceTutorial** och klicka på **OK**.
 1. Hämta de NuGet-paket som behövs. Högerklicka på projektet i Solution Explorer och välj **Hantera NuGet-paket**. Sök efter och installera följande paket:
-    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
+    - [Microsoft. Azure. CognitiveServices. vision. Face 2.5.0 – för hands version. 1](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1)
 
 ## <a name="add-the-initial-code"></a>Lägg till den första koden
 
@@ -85,7 +85,7 @@ Lägg slutligen till metoderna **BrowseButton_Click** och **FacePhoto_MouseMove*
 
 <!-- [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mousemove_end)] -->
 
-### <a name="try-the-app"></a>Testa appen
+### <a name="try-the-app"></a>Prova appen
 
 Tryck på **Start** (Starta) på menyn för att testa din app. När appfönstret öppnas klickar du på **Browse** (Bläddra) i det nedre vänstra hörnet. Dialogrutan **File Open** (Öppna fil) bör visas. Välj en bild i filsystemet och verifiera att den visas i fönstret. Stäng sedan appen och gå till nästa steg.
 

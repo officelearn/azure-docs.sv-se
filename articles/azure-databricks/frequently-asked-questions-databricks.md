@@ -9,14 +9,14 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: c2cb7a90f0fe57efcd8f4d75aff3b5ee375abd07
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8d7aab43641c6c594ff60368ccb3810e0c060dd7
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971499"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671565"
 ---
-# <a name="frequently-asked-questions-about-azure-databricks"></a>Vanliga frågor om Azure Databricks
+# <a name="frequently-asked-questions-about-azure-databricks"></a>Vanliga frågor och svar om Azure Databricks
 
 Den här artikeln innehåller de vanligaste frågorna som du kanske har relaterat till Azure Databricks. Här visas också några vanliga problem som du kan ha när du använder Databricks. Mer information finns i [Vad är Azure Databricks](what-is-azure-databricks.md). 
 
@@ -88,11 +88,20 @@ Om du inte skapade arbets ytan och du har lagts till som en användare, kontakta
 
 #### <a name="error-message"></a>Felmeddelande
 
-"Det gick inte att starta moln providern: ett Cloud Provider-fel uppstod när klustret skulle konfigureras. Mer information finns i Databricks-hand boken. Azure-felkod: PublicIPCountLimitReached. Azure-fel meddelande: det går inte att skapa fler än 60 offentliga IP-adresser för den här prenumerationen i den här regionen. "
+"Det gick inte att starta moln providern: ett Cloud Provider-fel uppstod när klustret skulle konfigureras. Mer information finns i Databricks-hand boken. Azure-felkod: PublicIPCountLimitReached. Azure-fel meddelande: det går inte att skapa fler än 10 offentliga IP-adresser för den här prenumerationen i den här regionen. "
+
+#### <a name="background"></a>Bakgrund
+
+Databricks-kluster använder en offentlig IP-adress per nod (inklusive noden driv rutin). Azure-prenumerationer har [offentliga IP-adress gränser](/azure/azure-resource-manager/management/azure-subscription-service-limits#publicip-address) per region. Därför kan det hända att kluster skapande-och skalnings åtgärder Miss lyckas om de skulle orsaka att antalet offentliga IP-adresser som allokerats till den prenumerationen i regionen överskrider gränsen. Den här gränsen omfattar även offentliga IP-adresser som allokerats för icke-Databricks användning, till exempel anpassade användardefinierade virtuella datorer.
+
+I allmänhet använder kluster bara offentliga IP-adresser när de är aktiva. `PublicIPCountLimitReached` fel kan dock fortsätta att inträffa under en kort tids period även efter att andra kluster har avslut ATS. Detta beror på att Databricks cachelagrar tillfälligt Azure-resurser när ett kluster avbryts. Resurs-cachelagring är avsiktligt, eftersom det avsevärt minskar svars tiden för kluster start och automatisk skalning i många vanliga scenarier.
 
 #### <a name="solution"></a>Lösning
 
-Databricks-kluster använder en offentlig IP-adress per nod. Om din prenumeration redan har använt alla offentliga IP-adresser, bör du [begära att öka kvoten](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Välj **kvot** som **typ av problem**och **nätverk: arm** som **kvot typ**. I **information**, begär en offentlig IP-adress-kvot ökning. Om din gräns till exempel är 60 och du vill skapa ett kluster med 100-noder, begär du en gräns ökning till 160.
+Om din prenumeration redan har nått den offentliga IP-adressen för en specifik region bör du göra något av följande.
+
+- Skapa nya kluster i en annan Databricks-arbetsyta. Den andra arbets ytan måste finnas i en region där du inte har nått din prenumerations offentliga IP-serveradress.
+- [Begäran om att öka din offentliga IP-adress gräns](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Välj **kvot** som **typ av problem**och **nätverk: arm** som **kvot typ**. I **information**, begär en offentlig IP-adress-kvot ökning. Om din gräns till exempel är 60 och du vill skapa ett kluster med 100-noder, begär du en gräns ökning till 160.
 
 ### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Problem: en andra typ av moln leverantörs startfel vid konfiguration av klustret (MissingSubscriptionRegistration)
 
@@ -123,4 +132,3 @@ Logga in som global administratör till Azure Portal. För Azure Active Director
 
 - [Snabb start: kom igång med Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 - [Vad är Azure Databricks?](what-is-azure-databricks.md)
-

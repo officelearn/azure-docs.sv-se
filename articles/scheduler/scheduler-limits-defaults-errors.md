@@ -5,21 +5,22 @@ services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 293cd956f8270a4863fcc657f58c970096cec1e3
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 610232dab776648bb3dcc7c301ec292e9acad9fc
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300912"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898532"
 ---
 # <a name="limits-quotas-and-throttle-thresholds-in-azure-scheduler"></a>Begränsningar, kvoter och begränsnings gränser i Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt. 
+>
+> Scheduler är inte längre tillgänglig i Azure Portal, men [PowerShell-cmdletarna](scheduler-powershell-reference.md) [REST API](/rest/api/scheduler) och Azure Scheduler är tillgängliga just nu så att du kan hantera jobb och jobb samlingar.
 
 ## <a name="limits-quotas-and-thresholds"></a>Gränser, kvoter och tröskelvärden
 
@@ -34,7 +35,9 @@ Varje begäran som görs mot Scheduler-tjänsten returnerar ett svars huvud med 
 * Identifierare för Azure-prenumerationen, jobb samlingen och jobbet 
 * Den typ av åtgärd som begäran försökte utföra
 
-## <a name="see-also"></a>Se också
+## <a name="next-steps"></a>Nästa steg
 
-* [Vad är Azure Scheduler?](scheduler-intro.md)
 * [Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler](scheduler-concepts-terms.md)
+* [Planer och fakturering för Azure Scheduler](scheduler-plans-billing.md)
+* [Referens för REST-API:et för Azure Scheduler](/rest/api/scheduler)
+* [Referens för PowerShell-cmdlets för Azure Scheduler](scheduler-powershell-reference.md)

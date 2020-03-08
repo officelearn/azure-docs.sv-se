@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c8c5e3c2552101437bfed17906f94861e676568
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: e1c75d5022432a9a57b30aabec4dd2c4f76f2f29
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468445"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671817"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Gör så här: planera din distribution av villkorlig åtkomst i Azure Active Directory
 
@@ -163,13 +163,13 @@ Test planen är viktig för att få en jämförelse mellan de förväntade resul
 
 |Princip |Scenario |Förväntat resultat | Resultat |
 |---|---|---|---|
-|[Kräv MFA när det inte är på arbetet](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Auktoriserad användare loggar in på *appen* på en betrodd plats/ett arbete|Användaren uppmanas inte att använda MFA| |
-|[Kräv MFA när det inte är på arbetet](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Auktoriserad användare loggar in på *appen* men inte på en betrodd plats/arbete|Användaren uppmanas att MFA och kan logga in| |
-|[Kräv MFA (för admin)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|Global administratör loggar in på *appen*|Administratör uppmanas att MFA| |
-|[Riskfyllda inloggningar](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|Användaren loggar in i *appen* med en [Tor-webbläsare](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|Administratör uppmanas att MFA| |
-|[Enhetshantering](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Behörig användare försöker logga in från en auktoriserad enhet|Åtkomst beviljad| |
-|[Enhetshantering](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Behörig användare försöker logga in från en oauktoriserad enhet|Åtkomst blockerad| |
-|[Lösen ords ändring för riskfyllda användare](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)|Behörig användare försöker logga in med komprometterade autentiseringsuppgifter (hög risk inloggning)|Användaren uppmanas att ändra lösen ordet eller åtkomsten blockeras baserat på principen| |
+|[Kräv MFA när det inte är på arbetet](/azure/active-directory/conditional-access/untrusted-networks)|Auktoriserad användare loggar in på *appen* på en betrodd plats/ett arbete|Användaren uppmanas inte att använda MFA| |
+|[Kräv MFA när det inte är på arbetet](/azure/active-directory/conditional-access/untrusted-networks)|Auktoriserad användare loggar in på *appen* men inte på en betrodd plats/arbete|Användaren uppmanas att MFA och kan logga in| |
+|[Kräv MFA (för admin)](/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|Global administratör loggar in på *appen*|Administratör uppmanas att MFA| |
+|[Riskfyllda inloggningar](/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|Användaren loggar in i *appen* med en [Tor-webbläsare](/azure/active-directory/active-directory-identityprotection-playbook)|Administratör uppmanas att MFA| |
+|[Enhetshantering](/azure/active-directory/conditional-access/require-managed-devices)|Behörig användare försöker logga in från en auktoriserad enhet|Åtkomst beviljad| |
+|[Enhetshantering](/azure/active-directory/conditional-access/require-managed-devices)|Behörig användare försöker logga in från en oauktoriserad enhet|Åtkomst blockerad| |
+|[Lösen ords ändring för riskfyllda användare](/azure/active-directory/identity-protection/howto-user-risk-policy)|Behörig användare försöker logga in med komprometterade autentiseringsuppgifter (hög risk inloggning)|Användaren uppmanas att ändra lösen ordet eller åtkomsten blockeras baserat på principen| |
 
 ### <a name="configure-the-policy"></a>Konfigurera principen
 

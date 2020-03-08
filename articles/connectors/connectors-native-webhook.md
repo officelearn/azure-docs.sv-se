@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 03/06/2020
 tags: connectors
-ms.openlocfilehash: 24746b7bbbbf3985a9801139b301a829c51a14da
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 1578ca030bc8bab971a44e1afcce1d1ab9e1d5e9
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030074"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674096"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Skapa och kör automatiska händelsebaserade arbets flöden genom att använda HTTP-webhookar i Azure Logic Apps
 
@@ -47,13 +47,13 @@ Till exempel är Office 365 Outlook Connector [ **-e-** ](connectors-create-api-
 > * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-Mer information finns i de här ämnena:
+Mer information finns i följande avsnitt:
 
 * [Parametrar för utlösare för HTTP-webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
 * [Webhooks och prenumerationer](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
 * [Skapa anpassade API: er som stöder en webhook](../logic-apps/logic-apps-create-api-app.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -65,37 +65,49 @@ Mer information finns i de här ämnena:
 
 ## <a name="add-an-http-webhook-trigger"></a>Lägg till en HTTP-webhook-utlösare
 
-Den här inbyggda utlösaren registrerar en callback-URL med den angivna tjänsten och väntar på att tjänsten ska skicka en HTTP POST-begäran till den URL: en. När den här händelsen inträffar, utlöses utlösaren och kör sedan den logiska appen direkt.
+Den här inbyggda utlösaren anropar prenumerations slut punkten på mål tjänsten och registrerar en återanrops-URL med mål tjänsten. Din Logic app väntar sedan på att mål tjänsten ska skicka en `HTTP POST`-begäran till återanrops-URL: en. När den här händelsen inträffar utlöses utlösaren och skickar alla data i begäran till arbets flödet.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Öppna din tomma Logic-app i Logic App Designer.
+1. Logga in på [Azure Portal](https://portal.azure.com). Öppna din tomma Logic-app i Logic App Designer.
 
-1. I rutan Sök i designern anger du "http-webhook" som filter. Välj **http-webhook-** utlösaren i listan **utlösare** .
+1. Skriv `http webhook` som ditt filter i rutan Sök i designer. Välj **http-webhook-** utlösaren i listan **utlösare** .
 
    ![Välj utlösare för HTTP-webhook](./media/connectors-native-webhook/select-http-webhook-trigger.png)
 
-   I det här exemplet byter du ut utlösaren till HTTP webhook-utlösaren så att steget får ett mer beskrivande namn. Exemplet lägger också till en HTTP-webhook-åtgärd och båda namnen måste vara unika.
+   I det här exemplet byter du ut utlösaren till `HTTP Webhook trigger` så att steget har ett mer beskrivande namn. Exemplet lägger också till en HTTP-webhook-åtgärd och båda namnen måste vara unika.
 
-1. Ange värdena för de [Parametrar för http-webhook-utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) som du vill använda för prenumerations-och uppsägnings samtal, till exempel:
+1. Ange värdena för de [Parametrar för http-webhook-utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) som du vill använda för prenumerations-och uppsägnings samtal.
+
+   I det här exemplet innehåller utlösaren de metoder, URI: er och meddelande texter som ska användas vid prenumerations-och uppsägnings åtgärder.
 
    ![Ange Utlösar parametrarna för HTTP-webhook](./media/connectors-native-webhook/http-webhook-trigger-parameters.png)
 
-1. Om du vill lägga till andra tillgängliga parametrar öppnar du listan **Lägg till ny parameter** och väljer de parametrar som du vill använda.
+   | Egenskap | Krävs | Beskrivning |
+   |----------|----------|-------------|
+   | **Prenumerations metod** | Ja | Den metod som ska användas för att prenumerera på mål slut punkten |
+   | **Prenumerera-URI** | Ja | Den URL som ska användas för att prenumerera på mål slut punkten |
+   | **Prenumerera-brödtext** | Nej | All meddelande text som ska tas med i prenumerationsbegäran. Det här exemplet innehåller återanrops-URL: en som unikt identifierar prenumeranten, som är din Logi Kap par, genom att använda `@listCallbackUrl()`-uttrycket för att hämta din Logi-URL för logi Kap par. |
+   | **Avbryt prenumeration – metod** | Nej | Den metod som ska användas vid avbetalning från mål slut punkten |
+   | **Avbryt prenumeration – URI** | Nej | Den URL som ska användas för att avsluta prenumerationen från mål slut punkten |
+   | **Avbryt prenumeration – brödtext** | Nej | En valfri meddelande text som ska tas med i begäran om att avbryta prenumerationen <p><p>**Obs**: den här egenskapen stöder inte användning av funktionen `listCallbackUrl()`. Utlösaren inkluderar dock automatiskt och skickar huvuden, `x-ms-client-tracking-id` och `x-ms-workflow-operation-name`som mål tjänsten kan använda för att identifiera prenumeranten unikt. |
+   ||||
 
-   Mer information om autentiseringstyper som är tillgängliga för HTTP-webhook finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+1. Om du vill lägga till andra utlösnings egenskaper öppnar du listan **Lägg till ny parameter** .
+
+   ![Lägg till fler utlösnings egenskaper](./media/connectors-native-webhook/http-webhook-trigger-add-properties.png)
+
+   Om du till exempel behöver använda autentisering kan du lägga till egenskaperna **Prenumerera-autentisering** och **avprenumerera-autentisering** . Mer information om autentiseringstyper som är tillgängliga för HTTP-webhook finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Fortsätt att skapa ditt Logic Apps-arbetsflöde med åtgärder som körs när utlösaren utlöses.
 
 1. Kom ihåg att spara din Logic app när du är klar. I verktygsfältet designer väljer du **Spara**.
 
-   När du sparar din Logi Kap par anropas prenumerations slut punkten och återanrops-URL: en registreras för att utlösa denna Logic app.
-
-1. När mål tjänsten däremot skickar en `HTTP POST` begäran till återanrops-URL: en, utlöses Logic Apps och innehåller alla data som skickas via begäran.
+   När du sparar din Logi Kap par anropas prenumerations slut punkten på mål tjänsten och återanrops-URL: en registreras. Din Logic app väntar sedan på att mål tjänsten ska skicka en `HTTP POST`-begäran till återanrops-URL: en. När den här händelsen inträffar utlöses utlösaren och skickar alla data i begäran till arbets flödet. Om den här åtgärden slutförs, avbryter utlösaren från slut punkten och din Logic app fortsätter det återstående arbets flödet.
 
 ## <a name="add-an-http-webhook-action"></a>Lägg till en HTTP webhook-åtgärd
 
-Den här inbyggda åtgärden registrerar en callback-URL med den angivna tjänsten, pausar Logic app-arbetsflöde och väntar på att tjänsten ska skicka en HTTP POST-begäran till den URL: en. När den här händelsen inträffar fortsätter åtgärden att köra Logic-appen.
+Den här inbyggda åtgärden anropar prenumerations slut punkten på mål tjänsten och registrerar en återanrops-URL med mål tjänsten. Din Logic app pausar och väntar sedan på att mål tjänsten ska skicka en `HTTP POST`-begäran till återanrops-URL: en. När den här händelsen inträffar skickar åtgärden alla data i begäran till arbets flödet. Om åtgärden slutförs, avbryts åtgärden från slut punkten och din Logic app fortsätter att köra det återstående arbets flödet.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Öppna din Logic app i Logic App Designer.
+1. Logga in på [Azure Portal](https://portal.azure.com). Öppna din Logic app i Logic App Designer.
 
    I det här exemplet används HTTP webhook-utlösaren som det första steget.
 
@@ -103,23 +115,37 @@ Den här inbyggda åtgärden registrerar en callback-URL med den angivna tjänst
 
    Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
-1. I rutan Sök i designern anger du "http-webhook" som filter. I listan **åtgärder** väljer du åtgärden **http-webhook** .
+1. Skriv `http webhook` som ditt filter i rutan Sök i designer. I listan **åtgärder** väljer du åtgärden **http-webhook** .
 
    ![Välj åtgärden HTTP-webhook](./media/connectors-native-webhook/select-http-webhook-action.png)
 
    Det här exemplet byter namn på åtgärden till "HTTP-webhook-åtgärd", så att steget har ett mer beskrivande namn.
 
-1. Ange värdena för HTTP webhook-åtgärdens parametrar, som liknar de parametrar för [http webhook-utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) som du vill använda för prenumerations-och uppsägnings samtal, till exempel:
+1. Ange värdena för HTTP webhook-åtgärdens parametrar, som liknar [parametrarna för http webhook-utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)som du vill använda för prenumerations-och uppsägnings samtal.
+
+   I det här exemplet inkluderar åtgärden de metoder, URI: er och meddelande texter som ska användas när du utför prenumerations-och uppsägnings åtgärder.
 
    ![Ange åtgärds parametrar för HTTP-webhook](./media/connectors-native-webhook/http-webhook-action-parameters.png)
 
-   Under körningen anropar Logic-appen prenumerations slut punkten när den här åtgärden körs. Din Logic app pausar sedan arbets flödet och väntar på att mål tjänsten ska skicka en `HTTP POST`-begäran till återanrops-URL: en. Om åtgärden slutförs, avbryts åtgärden från slut punkten och din Logic app återupptar körningen av arbets flödet.
+   | Egenskap | Krävs | Beskrivning |
+   |----------|----------|-------------|
+   | **Prenumerations metod** | Ja | Den metod som ska användas för att prenumerera på mål slut punkten |
+   | **Prenumerera-URI** | Ja | Den URL som ska användas för att prenumerera på mål slut punkten |
+   | **Prenumerera-brödtext** | Nej | All meddelande text som ska tas med i prenumerationsbegäran. Det här exemplet innehåller återanrops-URL: en som unikt identifierar prenumeranten, som är din Logi Kap par, genom att använda `@listCallbackUrl()`-uttrycket för att hämta din Logi-URL för logi Kap par. |
+   | **Avbryt prenumeration – metod** | Nej | Den metod som ska användas vid avbetalning från mål slut punkten |
+   | **Avbryt prenumeration – URI** | Nej | Den URL som ska användas för att avsluta prenumerationen från mål slut punkten |
+   | **Avbryt prenumeration – brödtext** | Nej | En valfri meddelande text som ska tas med i begäran om att avbryta prenumerationen <p><p>**Obs**: den här egenskapen stöder inte användning av funktionen `listCallbackUrl()`. Åtgärden inkluderar dock automatiskt och skickar huvuden, `x-ms-client-tracking-id` och `x-ms-workflow-operation-name`som mål tjänsten kan använda för att identifiera prenumeranten unikt. |
+   ||||
 
-1. Om du vill lägga till andra tillgängliga parametrar öppnar du listan **Lägg till ny parameter** och väljer de parametrar som du vill använda.
+1. Om du vill lägga till andra åtgärds egenskaper öppnar du listan **Lägg till ny parameter** .
 
-   Mer information om autentiseringstyper som är tillgängliga för HTTP-webhook finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   ![Lägg till fler åtgärds egenskaper](./media/connectors-native-webhook/http-webhook-action-add-properties.png)
+
+   Om du till exempel behöver använda autentisering kan du lägga till egenskaperna **Prenumerera-autentisering** och **avprenumerera-autentisering** . Mer information om autentiseringstyper som är tillgängliga för HTTP-webhook finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Kom ihåg att spara din Logic app när du är klar. I verktygsfältet designer väljer du **Spara**.
+
+   När den här åtgärden körs anropar din Logic app prenumerations slut punkten på mål tjänsten och registrerar återanrops-URL: en. Logic app pausar sedan arbets flödet och väntar på att mål tjänsten ska skicka en `HTTP POST`-begäran till återanrops-URL: en. När den här händelsen inträffar skickar åtgärden alla data i begäran till arbets flödet. Om åtgärden slutförs, avbryts åtgärden från slut punkten och din Logic app fortsätter att köra det återstående arbets flödet.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
@@ -132,14 +158,14 @@ Här är mer information om utdata från en HTTP-webhook-utlösare eller åtgär
 | Egenskapsnamn | Typ | Beskrivning |
 |---------------|------|-------------|
 | sidhuvud | objekt | Huvudena från begäran |
-| innehåll | objekt | JSON-objekt | Objektet med bröd text innehållet från begäran |
-| statuskod | int | Status koden från begäran |
+| brödtext | objekt | JSON-objekt | Objektet med bröd text innehållet från begäran |
+| status kod | int | Status koden från begäran |
 |||
 
 | Statuskod | Beskrivning |
 |-------------|-------------|
 | 200 | OK |
-| 202 | Godkänd |
+| 202 | Accepted |
 | 400 | Felaktig förfrågan |
 | 401 | Behörighet saknas |
 | 403 | Förbjudet |

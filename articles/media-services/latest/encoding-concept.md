@@ -13,18 +13,21 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6a134d2bdfe7f370503b80703933ff646970d976
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 7f3825a2d87d5948de4bb4a9b86be8e3050f2100
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359466"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78893322"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Koda video och ljud med Media Services
 
 Termen encoding i Media Services gäller för processen att konvertera filer som innehåller digital video och/eller ljud från ett standardformat till en annan, med syftet att (a) minska storleken på filerna och/eller (b) som producerar ett format som är kompatibelt med ett brett utbud av enheter och appar. Den här processen kallas även video komprimering eller kodning. Se [data komprimeringen](https://en.wikipedia.org/wiki/Data_compression) och [vad som är kodning och omkodning?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) för att få ytterligare information om begreppen.
 
 Videor levereras vanligt vis till enheter och appar genom [progressiv nedladdning](https://en.wikipedia.org/wiki/Progressive_download) eller genom [strömning med anpassningsbar bit hastighet](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming).
+
+> [!IMPORTANT]
+> Media Services debiteras inte för annullerade eller felaktiga jobb. Ett jobb som har nått 50% Progress och annulleras faktureras exempelvis inte vid 50% av jobb minuterna. Du debiteras bara för färdiga jobb.
 
 * Om du vill leverera med progressiv nedladdning kan du använda Azure Media Services för att konvertera en digital mediafil (mezzaninfil) till en [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) -fil som innehåller video som har kodats med [H. 264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) -kodeken och ljud som har kodats med [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) -kodeken. Den här MP4-filen skrivs till en till gång i ditt lagrings konto. Du kan använda Azure Storage-API: er eller SDK: er (till exempel [lagrings REST API](../../storage/common/storage-rest-api-auth.md) eller [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) för att hämta filen direkt. Om du skapade utmatnings till gången med ett angivet behållar namn i lager, använder du den platsen. Annars kan du använda Media Services för att [Visa URL: erna till till gångs containern](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
 * För att förbereda innehåll för leverans av direkt uppspelning med anpassningsbar bit hastighet måste mezzaninfil-filen kodas vid flera bit hastigheter (högt till lågt). För att säkerställa en korrekt över gång av kvalitet sänks videons upplösning när bit hastigheten sänks. Detta resulterar i en så kallad kodnings steg – en tabell över lösningar och bit hastigheter (se [autogenererad steg-för anpassad bit hastighet](autogen-bitrate-ladder.md)). Du kan använda Media Services för att koda dina mezzaninfil-filer på flera bit hastigheter. När du gör det får du en uppsättning MP4-filer och tillhör ande konfigurationsfiler för direkt uppspelning som skrivs till en till gång i ditt lagrings konto. Du kan sedan använda funktionen för [dynamisk paketering](dynamic-packaging-overview.md) i Media Services för att leverera videon via strömmande protokoll som [MPEG-streck](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) och [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Detta kräver att du skapar en [strömmande lokaliserare](streaming-locators-concept.md) och skapar strömmande URL: er som motsvarar de protokoll som stöds, som sedan kan skickas vidare till enheter/appar baserat på deras funktioner.
@@ -135,6 +138,12 @@ I Media Services v3 är för inställningar starkt skrivna entiteter i själva A
 ## <a name="scaling-encoding-in-v3"></a>Skala kodning i v3
 
 Om du vill skala medie bearbetning, se [skala med CLI](media-reserved-units-cli-how-to.md).
+
+## <a name="billing"></a>Fakturering
+
+Media Services debiteras inte för annullerade eller felaktiga jobb. Ett jobb som har nått 50% Progress och annulleras faktureras exempelvis inte vid 50% av jobb minuterna. Du debiteras bara för färdiga jobb.
+
+Mer information finns i [prissättning](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, hämta uppdateringar
 

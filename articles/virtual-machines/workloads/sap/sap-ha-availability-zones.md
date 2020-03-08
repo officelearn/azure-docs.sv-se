@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/17/2020
+ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ee3d1d896d99d892d0a41799c4c1695633d29c4
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: a7a92bef85cd4ee7530940a065135e88c7530781
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291506"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675613"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>SAP-arbetsbelastningskonfigurationer med Azure-tillgänglighetszoner
 [Azure-tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview) är en av de funktioner för hög tillgänglighet som Azure tillhandahåller. Med Tillgänglighetszoner förbättras övergripande tillgänglighet för SAP-arbetsbelastningar på Azure. Den här funktionen är redan tillgänglig i vissa [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/). I framtiden kommer det att vara tillgängligt i fler regioner.
@@ -118,6 +118,9 @@ Följande överväganden gäller för den här konfigurationen:
 - Den tredje zonen används som värd för SBD-enheten om du skapar ett [SUSE Linux pacemaker-kluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) eller ytterligare program instanser.
 - För att uppnå körnings tids konsekvens för kritiska affärs processer kan du försöka dirigera vissa batch-jobb och användare till program instanser som finns i zoner med den aktiva DBMS-instansen med hjälp av SAP batch Server-grupper, SAP-inloggnings grupper eller RFC-grupper. Men om du vill ha en zonindelade redundans måste du manuellt flytta grupperna till instanser som körs på virtuella datorer som finns i zoner med den aktiva DB-datorn.  
 - Du kanske vill distribuera inaktiva dialog instanser i varje zon. Detta är att aktivera en omedelbar återgång till den tidigare resurs kapaciteten om en zon som används av en del av program instanserna inte är i tjänst.
+
+> [!IMPORTANT]
+> I det här aktiva/aktiva scenariot annonseras ytterligare avgifter för bandbredd av Microsoft från 04/01/2020 på. Se [pris informationen för dokument bandbredden](https://azure.microsoft.com/pricing/details/bandwidth/). Data överföringen mellan SAP-program skiktet och SAP-DBMS-skiktet är väldigt intensiv. Därför kan det aktiva/aktiva scenariot bidra till kostnader som är ganska lite. Fortsätt att kontrol lera den här artikeln för att få exakta kostnader 
 
 
 ## <a name="activepassive-deployment"></a>Aktiv/passiv distribution

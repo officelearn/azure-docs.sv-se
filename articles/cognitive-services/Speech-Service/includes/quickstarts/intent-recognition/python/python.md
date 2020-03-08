@@ -6,12 +6,12 @@ ms.date: 01/27/2020
 ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 1a9a85ebc9d883db0415382ecf40de343d300667
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
-ms.translationtype: MT
+ms.openlocfilehash: af7c7d992db9afa0fb7affa0053bd89257a5a30e
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446385"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668599"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -74,7 +74,7 @@ Infoga den här koden under `IntentRecognizer`. Se till att du ersätter `"YourL
 
 Från `IntentRecognizer`-objektet kommer du att anropa metoden `recognize_once()`. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta identifiera tal.
 
-Infoga den här koden under din modell:
+Infoga den här koden under din modell.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=35)]
 
@@ -82,11 +82,13 @@ Infoga den här koden under din modell:
 
 När igenkännings resultatet returneras av tal tjänsten vill du göra något med det. Vi ska hålla det enkelt och skriva ut resultatet till-konsolen.
 
-Under ditt anrop till `recognize_once()`lägger du till följande kod: [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=38-47)]
+Lägg till den här koden under ditt anrop till `recognize_once()`.
+
+[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=38-47)]
 
 ## <a name="check-your-code"></a>Kontrol lera koden
 
-Nu bör din kod se ut så här:
+Nu bör din kod se ut så här.
 
 > [!NOTE]
 > Vi har lagt till några kommentarer till den här versionen.

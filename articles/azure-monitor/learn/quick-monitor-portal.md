@@ -7,23 +7,23 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: 6ba7bca0756b4e2f6fdcb89208fe15e3517a9513
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 3775070320b8c6e96dd06031bd87ea53f37046c5
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661711"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894859"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Börja övervaka din ASP.NET-webbapp
 
-Med Azure Application Insights kan du enkelt övervaka en webbapp med avseende på tillgänglighet, prestanda och användning.  Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem.  Med hjälp av informationen du samlar in från Application Insights om appens prestanda och effektivitet kan du göra välgrundade val för att underhålla och förbättra ditt program.
+Med Azure Application Insights kan du enkelt övervaka en webbapp för tillgänglighet, prestanda och användning.  Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem.  Med hjälp av informationen du samlar in från Application Insights om appens prestanda och effektivitet kan du göra välgrundade val för att underhålla och förbättra ditt program.
 
 Den här snabbstarten visar hur du lägger till Application Insights till en befintlig ASP.NET-webbapp och börjar analysera livestatistik. Det är bara en av de olika metoderna du kan använda för att analysera din app. Om du inte har ett ASP.NET-webbprogram kan du skapa ett som följer snabb starten för att [skapa en ASP.NET-webbapp](../../app-service/app-service-web-get-started-dotnet-framework.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här snabbstarten behöver du:
 
-- Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbets belastningar:
+- Installera [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) med följande arbets belastningar:
     - ASP.NET och webbutveckling
     - Azure Development
 
@@ -64,7 +64,7 @@ Nu kan du öppna Application Insights i Azure-portalen för att visa olika detal
 
     ![Programkarta](media/quick-monitor-portal/04-overview.png)
 
-2. Klicka på **Programkarta** för en visuell layout av beroenden mellan programkomponenterna.  För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
+2. Klicka på **Programkarta** för en visuell layout av beroenden mellan programkomponenterna.  Varje komponent visas KPI: er som belastning, prestanda, fel och varningar.
 
     ![Programkarta](media/quick-monitor-portal/05-appmap.png)
 

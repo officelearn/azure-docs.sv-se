@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 9c16e2e1726fcbf1e0b55ee0e9808a607b611ea6
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
-ms.translationtype: MT
+ms.openlocfilehash: 6d32bb6a0f1428a57f504cb7aca6ca5d89ea4c52
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446001"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668534"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -56,17 +56,23 @@ Nu ska vi skapa en `SpeechRecognizer`. Det här objektet skapas i en using-instr
 
 Från `SpeechRecognizer`-objektet kommer du att anropa metoden `RecognizeOnceAsync()`. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta identifiera tal.
 
-I using-instruktionen lägger du till följande kod: [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=20)]
+I using-instruktionen lägger du till den här koden.
+
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=20)]
 
 ## <a name="display-the-recognition-results-or-errors"></a>Visa tolknings resultat (eller fel)
 
 När igenkännings resultatet returneras av tal tjänsten vill du göra något med det. Vi ska hålla det enkelt och skriva ut resultatet till-konsolen.
 
-Lägg till följande kod i using-instruktionen nedan `RecognizeOnceAsync()`: [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=22-41)]
+Lägg till den här koden i using-instruktionen nedan `RecognizeOnceAsync()`.
+
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=22-41)]
 
 ## <a name="check-your-code"></a>Kontrol lera koden
 
-Nu bör din kod se ut så här: [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs)]
+Nu bör din kod se ut så här.
+
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs)]
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 

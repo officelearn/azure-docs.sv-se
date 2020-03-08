@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/03/2020
+ms.date: 03/05/2020
 ms.author: alzam
-ms.openlocfilehash: b9627862002a70dc84b0e268128c53a97df0ebe8
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: f4092f651a3058c8a2e738c81d9db7e296386bfa
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472306"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402891"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Skapa en Azure Active Directory-klient för P2S OpenVPN-protokoll anslutningar
 
@@ -22,9 +22,10 @@ När du ansluter till ditt VNet kan du använda certifikatbaserad autentisering 
 > Azure AD-autentisering stöds bara för OpenVPN-® protokoll anslutningar.
 >
 
-## <a name="tenant"></a>1. Skapa Azure AD-klienten
 
-Skapa en Azure AD-klient med hjälp av stegen i artikeln [skapa en ny klient organisation](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) :
+## <a name="tenant"></a>1. kontrol lera Azure AD-klienten
+
+Kontrol lera att du har en Azure AD-klient. Om du inte har en Azure AD-klient kan du skapa en med hjälp av stegen i artikeln [skapa en ny klient](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) :
 
 * Organisations namn
 * Ursprungligt domän namn
@@ -35,7 +36,7 @@ Exempel:
 
 ## <a name="users"></a>2. Skapa Azure AD-klient användare
 
-Skapa sedan två användar konton. Skapa ett globalt administratörs konto och ett huvud användar konto. Huvud användar kontot används som ditt huvud inbäddnings konto (tjänst konto). När du skapar ett användar konto för Azure AD-klienten justerar du katalog rollen för den typ av användare som du vill skapa.
+Din Azure AD-klient behöver följande konton: ett globalt administratörs konto och ett huvud användar konto. Huvud användar kontot används som ditt huvud inbäddnings konto (tjänst konto). När du skapar ett användar konto för Azure AD-klienten justerar du katalog rollen för den typ av användare som du vill skapa.
 
 Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-azure-active-directory.md) för att skapa minst två användare för din Azure AD-klient. Se till att ändra **katalog rollen** för att skapa konto typerna:
 

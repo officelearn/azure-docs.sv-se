@@ -186,9 +186,14 @@
               href: live-event-error-codes.md
             - name: Jobbfelkoder
               href: job-error-codes.md
-    - name: Guide för hög tillgänglighet
-      displayName: 'failover, bcdr'
-      href: media-services-high-availability-guidance.md
+    - name: Hög tillgänglighet
+      items:
+        - name: Kodning
+          displayName: 'failover, bcdr'
+          href: media-services-high-availability-encoding.md
+        - name: Strömning
+          displayName: 'failover, bcdr'
+          href: media-services-high-availability-streaming.md
     - name: Vägledning för migrering från v2 till v3
       href: migrate-from-v2-to-v3.md
       displayName: naming

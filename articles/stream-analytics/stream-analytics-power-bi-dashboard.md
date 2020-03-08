@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 76f5c1f0cd3186244e9a262358c9c9a652a73fdb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/05/2019
+ms.openlocfilehash: 8466fbcb4325dc244551a3b84fc20581366b7071
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431639"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851147"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics och Power BI: en real tids analys instrument panel för strömmande data
 
@@ -23,12 +23,12 @@ Den här artikeln fortsätter från den Stream Analytics själv studie kursen om
 Du kan titta på [en video](https://www.youtube.com/watch?v=SGUpT-a99MA) som illustrerar det här scenariot.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande innan du börjar:
 
 * Ett Azure-konto.
-* Ett konto för Power BI. Du kan använda ett arbets konto eller ett skol konto.
+* Ett konto för Power BI Pro. Du kan använda ett arbets konto eller ett skol konto.
 * En slutförd version av självstudien om att [upptäcka bedrägerier i real tid](stream-analytics-real-time-fraud-detection.md) . Självstudien innehåller en app som genererar fiktiva telefonsamtal. I självstudien skapar du en Event Hub och skickar samtals data från strömmade telefonsamtal till Event Hub. Du skriver en fråga som identifierar bedrägliga anrop (samtal från samma nummer vid samma tidpunkt på olika platser). 
 
 
@@ -99,7 +99,7 @@ Mer information om Power BI data uppsättningar finns i [Power BI REST API](http
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Klicka på **Spara**.
+4. Klicka på **Save** (Spara).
 
 
 ## <a name="test-the-query"></a>Testa frågan
@@ -163,7 +163,7 @@ Ditt strömnings analys jobb börjar söka efter bedrägliga anrop i den inkomma
 
     ![Rubrik och under rubrik för den nya panelen](./media/stream-analytics-power-bi-dashboard/pbi-new-tile-details.png)
 
-9. Klicka på **Använd**.
+9. Klicka på **Verkställ**.
 
     Nu har du en bedrägeri räknare!
 
@@ -185,7 +185,7 @@ Ditt strömnings analys jobb börjar söka efter bedrägliga anrop i den inkomma
      ![Har Power BI instrument panelen visar två paneler för bedrägliga samtal](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
 
-## <a name="learn-more-about-power-bi"></a>Mer information om Power BI
+## <a name="learn-more-about-power-bi"></a>Läs mer om Power BI
 
 Den här självstudien visar hur du skapar bara några typer av visualiseringar för en data uppsättning. Power BI kan hjälpa dig att skapa andra kund Business Intelligence verktyg för din organisation. Fler idéer finns i följande resurser:
 
@@ -201,7 +201,7 @@ Du kan använda följande ekvation för att beräkna värdet för att ge ditt f�
 
 ![Ekvation till beräknings värde för att ge fönster på några sekunder](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
-Ett exempel:
+Exempel:
 
 * Du har 1 000 enheter som skickar data med en sekunds intervall.
 * Du använder den Power BI Pro SKU som stöder 1 000 000 rader per timme.
@@ -235,7 +235,7 @@ Om ett jobb startar efter att token har gått ut, uppstår ett fel och jobbet Mi
 När auktoriseringen har uppdaterats med Power BI visas en grön avisering i avsnittet Authorization som visar att problemet har lösts.
 
 ## <a name="get-help"></a>Få hjälp
-För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Om du behöver ytterligare hjälp kan du prova vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)

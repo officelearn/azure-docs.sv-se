@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: df560df21740d5396bc177e20de5d0eb4bf47713
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f6698f91d7659f9fc2c314a9291380301146f8ed
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76511390"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898869"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Förstå händelse domäner för att hantera Event Grid ämnen
 
@@ -43,13 +43,13 @@ Du får också en enda slut punkt, som du kan publicera alla kund händelser til
 
 Med en domän får du detaljerad auktorisering och verifierings kontroll över varje ämne via Azures rollbaserad åtkomst kontroll (RBAC). Du kan använda dessa roller för att begränsa varje klient i ditt program till endast de ämnen som du vill ge dem åtkomst till.
 
-RBAC i händelse domäner fungerar på samma sätt som [hanterad åtkomst kontroll](security-authentication.md#management-access-control) fungerar i resten av event Grid och Azure. Använd RBAC för att skapa och tillämpa anpassade roll definitioner i händelse domäner.
+RBAC i händelse domäner fungerar på samma sätt som [hanterad åtkomst kontroll](security-authorization.md) fungerar i resten av event Grid och Azure. Använd RBAC för att skapa och tillämpa anpassade roll definitioner i händelse domäner.
 
 ### <a name="built-in-roles"></a>Inbyggda roller
 
 Event Grid har två inbyggda roll definitioner som gör det enklare för RBAC att arbeta med händelse domäner. De här rollerna är **EventGrid EventSubscription Contributor (för hands version)** och **EventGrid EventSubscription Reader (för hands version)** . Du tilldelar dessa roller till användare som behöver prenumerera på ämnen i din händelse domän. Du omfångerar roll tilldelningen till endast det ämne som användarna behöver för att prenumerera på.
 
-Information om dessa roller finns i [inbyggda roller för Event Grid](security-authentication.md#built-in-roles).
+Information om dessa roller finns i [inbyggda roller för Event Grid](security-authorization.md#built-in-roles).
 
 ## <a name="subscribing-to-topics"></a>Prenumererar på ämnen
 
@@ -101,13 +101,13 @@ Här följer de gränser och kvoter som rör händelse domäner:
 
 - 100 000 ämnen per händelse domän 
 - 100 händelse domäner per Azure-prenumeration 
-- 500 händelseprenumerationer per ämne i en händelsedomän
+- 500 händelse prenumerationer per ämne i en händelse domän
 - 50 domän omfångs prenumerationer 
 - antal 5 000 händelser per sekund (till en domän)
 
 Om dessa begränsningar inte passar dig kan du kontakta produkt teamet genom att öppna ett support ärende eller genom att skicka ett e-postmeddelande till [askgrid@microsoft.com](mailto:askgrid@microsoft.com). 
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 Händelse domäner använder samma [Operations-prissättning](https://azure.microsoft.com/pricing/details/event-grid/) som alla andra funktioner i Event Grid använda.
 
 Åtgärder fungerar på samma sätt i händelse domäner som i anpassade ämnen. Varje ingress av en händelse till en händelse domän är en åtgärd, och varje leverans försök för en händelse är en åtgärd.

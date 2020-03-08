@@ -10,22 +10,22 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 9353e5749906aca1f0c91b622c93ba6028cd3bef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8ab6904a2569e508c0697cc273af4fd40a1767de
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432203"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898740"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Självstudie 3: Distribuera kredit risk modell – Azure Machine Learning Studio (klassisk)
 
-I den här självstudien tittar vi närmare på hur du utvecklar en lösning för förutsägelseanalys. Du utvecklar en enkel modell i Machine Learning Studio (klassisk).  Därefter distribuerar du modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Självstudien är **del tre i en självstudieserie i tre delar**.
+I den här självstudien ska vi titta närmare på hur du utvecklar en lösning för förutsägelseanalys. Du utvecklar en enkel modell i Machine Learning Studio (klassisk).  Därefter distribuerar du modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Självstudien är **del tre i en självstudieserie i tre delar**.
 
 Anta att du behöver förutsäga kreditrisken för en person baserat på den information som han eller hon fyller i på en kreditansökan.  
 
 Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du kommer att använda det som ett exempel på hur du kan skapa en förutsägelse analys lösning med hjälp av Microsoft Azure Machine Learning Studio (klassisk). Du använder Azure Machine Learning Studio (klassisk) och en Machine Learning webb tjänst för den här lösningen. 
 
-I den här självstudien i tre delar börjar du med offentligt tillgängliga kreditriskdata.  Därefter utvecklar du och tränar en förutsägelsemodell.  Slutligen ska du distribuera modellen som en webbtjänst.
+I den här självstudien i tre delar börjar du med offentligt tillgängliga kreditriskdata.  Därefter utvecklar du och tränar en förutsägelsemodell.  Slutligen distribuerar du modellen som en webbtjänst.
 
 I [del ett av självstudien](tutorial-part1-credit-risk.md)har du skapat en Machine Learning Studio (klassisk)-arbets yta, överfört data och skapat ett experiment.
 
@@ -34,17 +34,17 @@ I [del två av självstudien](tutorial-part2-credit-risk-train.md) fick du trän
 I den här delen av självstudien ska du:
 
 > [!div class="checklist"]
-> * Förbered för distribution
+> * Förbereda för distribution
 > * Distribuera webbtjänsten
 > * Testa webbtjänsten
 > * Hantera webbtjänsten
 > * Få åtkomst till webbtjänsten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [del två av självstudien](tutorial-part2-credit-risk-train.md).
 
-## <a name="prepare-for-deployment"></a>Förbered för distribution
+## <a name="prepare-for-deployment"></a>Förbereda för distribution
 För att ge andra chansen att använda den förutsägande modell som du utvecklade i självstudien, måste du distribuera den som en webbtjänst i Azure.
 
 Hittills har du experimenterat med att träna vår modell. Men den distribuerade tjänsten kommer inte längre att tränas – den kommer att generera nya förutsägelser genom bedömning av användarindata baserat på vår modell. Vi kommer att göra vissa förberedelser för att konvertera det här experimentet från ett ***tränings***experiment till ett ***förutsägelse***experiment. 
@@ -227,11 +227,7 @@ Webbtjänsten är en Azure-webbtjänst som kan ta emot och returnera data med hj
 * **Begäran/svar** – Användaren skickar en eller flera rader med kreditdata till tjänsten med hjälp av ett HTTP-protokoll och tjänsten svarar med en eller flera resultatuppsättningar.
 * **Batchkörning** – Användaren lagrar en eller flera rader med kreditdata i en Azure-blob och skickar sedan blobplatsen till tjänsten. Tjänsten bedömer alla rader med data i indatabloben, lagrar resultatet i en annan blob och returnerar URL:en för containern.  
 
-Det snabbaste och enklaste sättet att få åtkomst till en klassisk webbtjänst är via [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) eller [Azure ML Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/).
-
-Dessa webbappmallar kan skapa en anpassad webbapp som känner till din webbtjänsts indata och vad den ska returnera. Allt du behöver göra är att ge åtkomst till din webbtjänst och dina data så sköter mallen resten.
-
-Mer information om hur du använder webbappmallar finns i [Använda en Azure Machine Learning-webbtjänst med en webbappmall](/azure/machine-learning/studio/consume-web-services).
+Mer information om hur du kommer åt och använder webb tjänsten finns i [använda en Azure Machine Learning-webbtjänst med en mall för webbappar](/azure/machine-learning/studio/consume-web-services).
 
 
 
@@ -244,7 +240,7 @@ Mer information om hur du använder webbappmallar finns i [Använda en Azure Mac
 I den här självstudien har du slutfört dessa steg:
 
 > [!div class="checklist"]
-> * Förbered för distribution
+> * Förbereda för distribution
 > * Distribuera webbtjänsten
 > * Testa webbtjänsten
 > * Hantera webbtjänsten

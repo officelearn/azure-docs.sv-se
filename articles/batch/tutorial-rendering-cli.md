@@ -6,15 +6,15 @@ author: LauraBrenner
 manager: evansma
 ms.service: batch
 ms.topic: tutorial
-ms.date: 12/11/2018
+ms.date: 03/05/2020
 ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 12205fd04b015ac3cfe32765779808b636f53946
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a415a74af654ef9cf56a37c1fca5ac6632ba4418
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023080"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672984"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Självstudie: Rendera en scen med Azure Batch 
 
@@ -23,17 +23,17 @@ Azure Batch har renderingsfunktioner i molnskala där du betalar per användning
 > [!div class="checklist"]
 > * ladda upp en scen till Azure-lagringen
 > * skapa en Batch-pool för rendering
-> * rendera en scen med en bildruta
+> * Rendera en scen med en bildruta
 > * skala poolen och rendera en scen med flera bildrutor
 > * ladda ned renderade utdata.
 
 I den här självstudien renderar du en 3ds Max-scen med Batch med ray-tracing-renderaren [Arnold](https://www.autodesk.com/products/arnold/overview). Batch-poolen använder en Azure Marketplace-avbildning med förinstallerade grafik- och renderingsprogram som tillhandahåller licensiering med betalning per användning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en användningsbaserad prenumeration eller annat Azure-köpalternativ för att använda renderingsprogram i Batch för betalning per användningstillfälle. **Användningsbaserad licensiering stöds inte om du använder ett kostnadsfritt Azure-erbjudande som ger penningkredit.**
 
-3ds Max-exempelscenen till den här självstudien finns på [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), tillsammans med ett Bash-exempelskript och JSON-konfigurationsfiler. 3ds Max-scenen kommer från [Autodesk 3ds Max-exempelfilerna](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max-exempelfilerna är tillgängliga under en Creative Commons Attribution-NonCommercial-Share Alike-licens. Copyright © Autodesk, Inc.)
+3ds Max-exempelscenen till den här självstudien finns på [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), tillsammans med ett Bash-exempelskript och JSON-konfigurationsfiler. 3ds Max-scenen kommer från [Autodesk 3ds Max-exempelfilerna](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max-exempelfilerna är tillgängliga under en Creative Commons Attribution-NonCommercial-Share Alike-licens. Copyright &copy; Autodesk, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -60,7 +60,7 @@ az storage account create \
     --location eastus2 \
     --sku Standard_LRS
 ```
-Skapa ett Batch-konto med kommandot [az batch account create](/cli/azure/batch/account#az-batch-account-create). I följande exempel skapas ett Batch-konto med namnet *mybatchaccount* i *myResourceGroup*, med en länk till det lagringskonto du skapade.  
+Skapa ett Batch-konto med kommandot [az batch account create](/cli/azure/batch/account#az-batch-account-create) kommando. I följande exempel skapas en Batch-kontot med namnet *mybatchaccount* i *myResourceGroup* och länkar det lagringskonto som du skapade.  
 
 ```azurecli-interactive 
 az batch account create \
@@ -96,7 +96,7 @@ az storage container create \
     --name scenefiles
 ```
 
-Ladda ned scenen `MotionBlur-Dragon-Flying.max` från [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) till en lokal arbetskatalog. Ett exempel:
+Ladda ned scenen `MotionBlur-Dragon-Flying.max` från [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) till en lokal arbetskatalog. Exempel:
 
 ```azurecli-interactive
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
@@ -124,7 +124,7 @@ Skapa en Batch-pool för rendering med kommandot [az batch pool create](/cli/azu
       "publisher": "batch",
       "offer": "rendering-windows2016",
       "sku": "rendering",
-      "version": "1.3.2"
+      "version": "1.3.8"
     },
     "nodeAgentSKUId": "batch.node.windows amd64"
   },
@@ -184,11 +184,11 @@ Ta vara på den token som returneras av kommandot, den ser ut ungefär så här:
 se=2020-11-15&sp=rw&sv=2019-09-24&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-## <a name="render-a-single-frame-scene"></a>rendera en scen med en bildruta
+## <a name="render-a-single-frame-scene"></a>Rendera en scen med en bildruta
 
 ### <a name="create-a-job"></a>Skapa ett jobb
 
-Skapa ett renderingsjobb som ska köras i poolen med hjälp av kommandot [az batch job create](/cli/azure/batch/job#az-batch-job-create). Från början har jobbet inga uppgifter.
+Skapa ett renderingsjobb som ska köras i poolen med hjälp av kommandot [az batch job create](/cli/azure/batch/job#az-batch-job-create). Från början har jobbet inga aktiviteter.
 
 ```azurecli-interactive
 az batch job create \
@@ -196,7 +196,7 @@ az batch job create \
     --pool-id myrenderpool
 ```
 
-### <a name="create-a-task"></a>Skapa en uppgift
+### <a name="create-a-task"></a>Skapa en aktivitet
 
 Använd kommandot [az batch task create](/cli/azure/batch/task#az-batch-task-create) till att skapa en renderingsuppgift i jobbet. I det här exemplet anger du uppgiftsinställningarna i en JSON-fil. Skapa en fil med namnet *myrendertask.json* i ditt nuvarande gränssnitt. Kopiera och klistra in följande innehåll. Se till att all text kopieras på rätt sätt. (Du kan ladda ned filen från [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json).)
 
@@ -301,7 +301,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>Visa utdata för uppgiften
 
-Det tar några minuter att köra uppgiften. Använd kommandot [az batch task list](/cli/azure/batch/task#az-batch-task-list) till att visa status för uppgifterna. Ett exempel:
+Det tar några minuter att köra uppgiften. Använd kommandot [az batch task list](/cli/azure/batch/task#az-batch-task-list) till att visa status för uppgifterna. Exempel:
 
 ```azurecli-interactive
 az batch task list \
@@ -309,7 +309,7 @@ az batch task list \
     --output table
 ```
 
-Använd kommandot [az batch task show](/cli/azure/batch/task#az-batch-task-show) till att visa information om enskilda uppgifter. Ett exempel:
+Använd kommandot [az batch task show](/cli/azure/batch/task#az-batch-task-show) till att visa information om enskilda uppgifter. Exempel:
 
 ```azurecli-interactive
 az batch task show \
@@ -317,7 +317,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-Uppgifterna genererar utdatafiler med namnen *dragon0002.jpg* - *dragon0007.jpg* på beräkningsnoderna och laddar upp dem till containern *job-myrenderjob* i lagringskontot. Om du vill visa utdata laddar du ned filen till en lokal mapp med kommandot [az storage blob download](/cli/azure/storage/blob). Ett exempel:
+Uppgifterna genererar utdatafiler med namnen *dragon0002.jpg* - *dragon0007.jpg* på beräkningsnoderna och laddar upp dem till containern *job-myrenderjob* i lagringskontot. Om du vill visa utdata laddar du ned filen till en lokal mapp med kommandot [az storage blob download](/cli/azure/storage/blob). Exempel:
 
 ```azurecli-interactive
 az storage blob download-batch \
@@ -332,7 +332,7 @@ az storage blob download-batch \
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du använda kommandot [az group delete](/cli/azure/group#az-group-delete) för att ta bort resursgruppen, Batch-kontot, poolerna och alla relaterade resurser. Ta bort resurserna på följande sätt:
+När den inte längre behövs kan du använda kommandot [az group delete](/cli/azure/group#az-group-delete) för att ta bort resursgruppen, Batch-kontot, pooler och alla relaterade resurser. Ta bort resurserna på följande sätt:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

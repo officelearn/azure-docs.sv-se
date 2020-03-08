@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: chrisgre
-ms.openlocfilehash: 9a7e2d9874f049000dadcb3e46cccb2202b53698
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 381f550f6d64dee3c7649a040c1e24b7c9d42f2c
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429294"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669445"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Automatisk hantering av IoT-enheter och-moduler med hjälp av Azure CLI
 
@@ -35,9 +35,13 @@ Automatiska konfigurationer körs för första gången strax efter att konfigura
 
 ## <a name="cli-prerequisites"></a>CLI-krav
 
-* En [IoT-hubb](../iot-hub/iot-hub-create-using-cli.md) i Azure-prenumerationen. 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Azure CLI-version måste minst vara 2.0.24 eller senare. Validera med `az –-version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack. 
-* Den [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
+* En [IoT-hubb](../iot-hub/iot-hub-create-using-cli.md) i din Azure-prenumeration. 
+
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Som minst måste din Azure CLI-version vara 2.0.70 eller högre. Validera med `az –-version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack. 
+
+* [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-cli).
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="implement-twins"></a>Implementera dubbla
 
@@ -102,7 +106,7 @@ Här följer exempel på mått frågor:
 }
 ```
 
-Mått frågor för moduler liknar även frågor för enheter, men du väljer för `moduleId` från `devices.modules`. Ett exempel: 
+Mått frågor för moduler liknar även frågor för enheter, men du väljer för `moduleId` från `devices.modules`. Exempel: 
 
 ```json
 {
@@ -125,7 +129,7 @@ Använd följande kommando för att skapa en konfiguration:
      --metrics [metric queries]
 ```
 
-* --**config-ID** – namnet på den konfiguration som ska skapas i IoT-hubben. Ge konfigurationen ett unikt namn som är upp till 128 gemener. Undvika blanksteg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`.
+* --**config-ID** – namnet på den konfiguration som ska skapas i IoT-hubben. Ge konfigurationen ett unikt namn som är upp till 128 gemener. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`.
 
 * --**Etiketter** – Lägg till etiketter som hjälper dig att spåra konfigurationen. Etiketter är namn/värde-par som beskriver distributionen. Till exempel `HostPlatform, Linux` eller `Version, 3.0.1`
 
@@ -200,7 +204,7 @@ az iot hub configuration update --config-id [configuration id] \
 
 * --**Ställ in** – uppdatera en egenskap i konfigurationen. Du kan uppdatera följande egenskaper:
 
-    * targetCondition - exempel `targetCondition=tags.location.state='Oregon'`
+    * targetCondition – till exempel `targetCondition=tags.location.state='Oregon'`
 
     * etiketter 
 

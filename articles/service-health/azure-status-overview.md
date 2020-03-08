@@ -3,12 +3,12 @@ title: Översikt över Azure-status | Microsoft Docs
 description: En global vy över Azure-tjänsternas hälsa
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 4f4a0bf09c9256362e71466b9545389f4341ef38
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 766e9795b01c4a09916a025cba77744dea235faf
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654162"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898342"
 ---
 # <a name="azure-status-overview"></a>Översikt över Azure-status
 
@@ -26,7 +26,7 @@ Sidan Azure-status uppdateras i real tid när hälso tillståndet för Azure-tj�
 
 Sidan Azure-status visar alltid den senaste hälso informationen, du kan visa äldre händelser på [sidan Azure status historik](https://status.azure.com/status/history/).
 
-Du kan se händelser upp till 90 dagar tidigare, inklusive en preliminär orsak, lösning och nästa steg för Azure.
+Från och med händelser som publicerades i november 2019 visar sidan status historik händelser upp till 365 dagar tidigare, inklusive en preliminär orsak, lösning och nästa steg för Azure.
 
 ## <a name="rss-feed"></a>RSS-flöde
 

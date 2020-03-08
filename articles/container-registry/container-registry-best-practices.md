@@ -3,12 +3,12 @@ title: Registrera metodtips
 description: Lär dig att använda Azure Container Registry på ett effektivt sätt genom att följa dessa bästa metoder.
 ms.topic: article
 ms.date: 09/27/2018
-ms.openlocfilehash: 7efea468a6c5c042f709d8a5bb493516458ce52b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 233d84b8bfa6f3d8c800e76032ef74a643db11ca
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362370"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668967"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Bästa metoder för Azure Container Registry
 
@@ -35,12 +35,10 @@ Genom att använda namnrymder för lagringsplatser går det att dela ett enda re
 
 Du kan till exempel överväga följande taggar för containeravbildningar. Bilder som används i hela företaget, till exempel `aspnetcore`, placeras i rot namn området, medan behållar avbildningar som ägs av produkterna och marknadsförings grupperna använder sina egna namn rymder.
 
-```
-contoso.azurecr.io/aspnetcore:2.0
-contoso.azurecr.io/products/widget/web:1
-contoso.azurecr.io/products/bettermousetrap/refundapi:12.3
-contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
-```
+- *contoso.azurecr.io/aspnetcore:2.0*
+- *contoso.azurecr.io/products/widget/web:1*
+- *contoso.azurecr.io/products/bettermousetrap/refundapi:12.3*
+- *contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42*
 
 ## <a name="dedicated-resource-group"></a>Dedikerad resursgrupp
 
@@ -65,8 +63,11 @@ Lagrings begränsningarna för varje [container Registry-SKU][container-registry
 
 Använd Azure CLI-kommandot [AZ ACR show-Usage][az-acr-show-usage] för att visa den aktuella storleken på ditt register:
 
-```console
-$ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+```azurecli
+az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+```
+
+```output
 NAME      LIMIT         CURRENT VALUE    UNIT
 --------  ------------  ---------------  ------
 Size      536870912000  185444288        Bytes

@@ -6,22 +6,22 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 85d32e96335a9fffa874f1f370f72883ff420df0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de2b99666dbed4eaec3db3e56800e9a7352e10e7
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369872"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898387"
 ---
-# <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Testa ett Azure Stream Analytics jobb med exempel data
+# <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testa ett Azure Stream Analytics jobb i portalen
 
-I Azure Stream Analytics kan du testa din fråga utan att starta eller stoppa jobbet. Du kan testa frågor på inkommande data från din inkommande mottagare eller ladda upp exempel data från en lokal fil på Azure Portal. Du kan också testa frågor lokalt från dina lokala exempel data eller real tids data i [Visual Studio](stream-analytics-live-data-local-testing.md) och [Visual Studio Code](visual-studio-code-local-run-live-input.md).
+I Azure Stream Analytics kan du testa din fråga utan att starta eller stoppa jobbet. Du kan testa frågor på inkommande data från dina strömmande källor eller ladda upp exempel data från en lokal fil på Azure Portal. Du kan också testa frågor lokalt från dina lokala exempel data eller real tids data i [Visual Studio](stream-analytics-live-data-local-testing.md) och [Visual Studio Code](visual-studio-code-local-run-live-input.md).
 
-## <a name="sample-incoming-data-from-input"></a>Exempel på inkommande data från indata
+## <a name="automatically-sample-incoming-data-from-input"></a>Sampla automatiskt inkommande data från indata
 
-Azure Stream Analytics automatiskt hämtar händelser från dina strömmande data. Du kan köra frågor på standardprovet eller ange en bestämd tidsram för exemplet.
+Azure Stream Analytics hämtar automatiskt händelser från dina strömmande indata. Du kan köra frågor på standardprovet eller ange en bestämd tidsram för exemplet.
 
 1. Logga in på Azure Portal.
 
@@ -98,6 +98,7 @@ I stället för att använda real tids data kan du använda exempel data från e
 10. När du har kontrollerat resultaten som visas i webbläsaren kan du **Starta** jobbet.
 
 ## <a name="next-steps"></a>Nästa steg
+* [Bygg en IoT-lösning med hjälp av Stream Analytics: i](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics)den här självstudien får du hjälp att bygga en komplett lösning med en data generator som simulerar trafik i en väg LED Ande.
 
 * [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 

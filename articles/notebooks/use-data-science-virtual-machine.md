@@ -6,12 +6,12 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 7a47be46818c633c016c791d0c52eb9393029973
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b4da63b7b2a6da4316215b85a09ca7420745251c
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647002"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898410"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Använd Azure Data Science Virtual Machines
 
@@ -38,6 +38,9 @@ När du har skapat DSVM väljer du List rutan **Kör** på instrument panelen f�
 
 När du väljer en DSVM-instans kan Azure Notebooks fråga dig om de autentiseringsuppgifter som ska användas när du skapade den virtuella datorn.
 
+> [!Important]
+> Användar namnet måste vara i gemener för att kunna användas med JupyterHub.
+
 Om något av villkoren inte uppfylls kan du fortfarande ansluta till DSVM. I list rutan väljer du alternativet **direkt beräkning** , som uppmanar dig att ange ett namn (som ska visas i listan), den virtuella datorns IP-adress och port (vanligt vis 8000, standard porten som JupyterHub lyssnar) och de virtuella datorernas autentiseringsuppgifter:
 
 ![Uppmana att samla in Server information för det direkta beräknings alternativet](media/project-compute-tier-direct.png)
@@ -60,7 +63,7 @@ Om flera användare delar en DSVM kan du undvika att blockera varandra genom att
 
 1. På [Azure Portal](https://portal.azure.com)navigerar du till den virtuella datorn.
 1. Välj **Återställ lösen ord**under **support + fel sökning** i vänstermarginalen.
-1. Ange ett nytt användar namn och lösen ord och välj **Uppdatera**. (Befintliga användar namn påverkas inte.)
+1. Ange ett nytt **användar namn**. Användar namnet måste vara i gemener för att kunna användas med JupyterHub. Ange ett lösen ord. Välj sedan **Uppdatera**. (Befintliga användar namn påverkas inte.)
 1. Upprepa föregående steg för ytterligare användare.
 
 ## <a name="next-steps"></a>Nästa steg

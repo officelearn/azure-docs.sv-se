@@ -1,17 +1,17 @@
 ---
 title: Mängd funktioner i Azure Cosmos DB
 description: Lär dig mer om SQL agg regering Function-syntax, typer av mängd funktioner som stöds av Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: mjbrown
-ms.openlocfilehash: 1ce3b18dd31944a1a4d4e6fad8fb49e63996dace
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.date: 03/05/2020
+ms.author: tisande
+ms.openlocfilehash: df9700dd51c8915ff28c34cf0a29c2f5e48baa44
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871847"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897836"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Mängd funktioner i Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Mängd funktioner utför en beräkning av en uppsättning värden i SELECT-satse
     FROM Families f
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [{
@@ -39,7 +39,7 @@ Du kan också returnera det skalära värdet för agg regeringen genom att anvä
     FROM Families f
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [ 2 ]
@@ -53,7 +53,7 @@ Du kan också kombinera agg regeringar med filter. Följande fråga returnerar t
     WHERE f.address.state = "WA"
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [ 1 ]

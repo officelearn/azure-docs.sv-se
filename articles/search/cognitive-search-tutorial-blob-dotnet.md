@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/27/2020
-ms.openlocfilehash: 0b9e7732e5274fd71c773a19d17e09ecdaa2ceb0
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 169a33d12e98235dcb4e4f317dbb8d91eb7446a4
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78270023"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851133"
 ---
 # <a name="tutorial-use-c-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Självstudie: använda C# och AI för att generera sökbart innehåll från Azure-blobbar
 
@@ -186,7 +186,7 @@ namespace EnrichwithAI
 
 ### <a name="create-a-client"></a>Skapa en klient
 
-Skapa en instans av klassen `SearchServiceClient` under Main.
+Skapa en instans av klassen `SearchServiceClient` under `Main`.
 
 ```csharp
 public static void Main(string[] args)
@@ -213,6 +213,22 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 > [!NOTE]
 > `SearchServiceClient`-klassen hanterar anslutningar till din söktjänst. För att undvika att behöva öppna för många anslutningar bör du försöka dela en enskild instans av `SearchServiceClient` i ditt program om möjligt. Dess metoder är trådsäkra för att möjliggöra den typen av delning.
 > 
+
+### <a name="add-function-to-exit-the-program-during-failure"></a>Lägg till funktion för att avsluta programmet under ett haveri läge
+
+Den här självstudien är avsedd att hjälpa dig att förstå varje steg i indexerings pipelinen. Om det finns ett allvarligt problem som hindrar programmet från att skapa data källan, färdigheter, index eller indexerare, kommer programmet att generera fel meddelandet och avsluta så att problemet kan tolkas och åtgärdas.
+
+Lägg till `ExitProgram` i `Main` för att hantera scenarier som kräver att programmet avslutas.
+
+```csharp
+private static void ExitProgram(string message)
+{
+    Console.WriteLine("{0}", message);
+    Console.WriteLine("Press any key to exit the program...");
+    Console.ReadKey();
+    Environment.Exit(0);
+}
+```
 
 ## <a name="3---create-the-pipeline"></a>3 – skapa pipelinen
 
@@ -251,7 +267,7 @@ private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceCl
 
 För att begäran ska lyckas returnerar metoden den data källa som skapades. Om det uppstår ett problem med begäran, till exempel en ogiltig parameter, kommer metoden att utlösa ett undantag.
 
-Nu kan du lägga till en rad i Main för att anropa den `CreateOrUpdateDataSource`-funktion som du just har lagt till.
+Nu ska du lägga till en rad i `Main` för att anropa funktionen `CreateOrUpdateDataSource` som du just har lagt till.
 
 ```csharp
 public static void Main(string[] args)
@@ -537,7 +553,7 @@ private static Skillset CreateOrUpdateDemoSkillSet(SearchServiceClient serviceCl
 }
 ```
 
-Lägg till följande rader i Main.
+Lägg till följande rader i `Main`.
 
 ```csharp
     // Create the skills
@@ -675,7 +691,7 @@ private static Index CreateDemoIndex(SearchServiceClient serviceClient)
 
 Under testningen kanske du upptäcker att du försöker skapa indexet mer än en gång. Därför bör du kontrol lera om det index som du håller på att skapa redan finns innan du försöker skapa det.
 
-Lägg till följande rader i Main.
+Lägg till följande rader i `Main`.
 
 ```csharp
     // Create the index
@@ -779,7 +795,7 @@ private static Indexer CreateDemoIndexer(SearchServiceClient serviceClient, Data
     return indexer;
 }
 ```
-Lägg till följande rader i Main.
+Lägg till följande rader i `Main`.
 
 ```csharp
     // Create the indexer, map fields, and execute transformations
@@ -840,7 +856,7 @@ private static void CheckIndexerOverallStatus(SearchServiceClient serviceClient,
 
 Varningar är vanliga med vissa källfils- och kunskapskombinationer och är inte alltid tecken på problem. I den här självstudien är varningarna ofarliga (till exempel inga textindata från JPEG-filerna).
 
-Lägg till följande rader i Main.
+Lägg till följande rader i `Main`.
 
 ```csharp
     // Check indexer overall status
@@ -854,7 +870,7 @@ När indexeringen är färdig kan du köra frågor som returnerar innehållet i 
 
 Som ett verifieringssteg ska du fråga indexet för alla fält.
 
-Lägg till följande rader i Main.
+Lägg till följande rader i `Main`.
 
 ```csharp
 DocumentSearchResult<DemoIndex> results;
@@ -890,7 +906,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 }
 ```
 
-Lägg till följande kod i Main. Den första try-catch returnerar index definitionen med namn, typ och attribut för varje fält. Den andra är en parametriserad fråga där `Select` anger vilka fält som ska ingå i resultatet, till exempel `organizations`. En Sök sträng med `"*"` returnerar allt innehåll i ett enda fält.
+Lägg till följande kod i `Main`. Den första try-catch returnerar index definitionen med namn, typ och attribut för varje fält. Den andra är en parametriserad fråga där `Select` anger vilka fält som ska ingå i resultatet, till exempel `organizations`. En Sök sträng med `"*"` returnerar allt innehåll i ett enda fält.
 
 ```csharp
 //Verify content is returned after indexing is finished

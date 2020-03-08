@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d397d179a3f5bd50479e76c04e5eb709a3ef1f
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 7ab8f18c065b283883cfca0a0d555a5fa3bb9d5a
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260777"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897816"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-awardspring"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med AwardSpring
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar AwardSpring med Azu
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -84,18 +84,18 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<subdomain>.awardspring.com/SignIn/SamlMetaData`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.awardspring.com/SignIn/SamlAcs`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<subdomain>.awardspring.com/SignIn/SamlAcs`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<subdomain>.awardspring.com/`
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<subdomain>.awardspring.com/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [supportteamet för AwardSpring-klienten](mailto:support@awardspring.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [supportteamet för AwardSpring-klienten](mailto:support@awardspring.com) för att få dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. AwardSpring-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
-    ![mallar](common/default-attributes.png)
+    ![image](common/default-attributes.png)
 
 1. Utöver ovan förväntar sig AwardSpring-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
@@ -104,7 +104,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     | Förnamn | user.givenname |
     | Efternamn | user.surname |
     | E-post | user.mail |
-    | Användarnamn | user.userprinicipalname |
+    | Användarnamn | user.userprincipalname |
     | StudentID | < Student-ID > |
 
     > [!NOTE]
@@ -163,7 +163,7 @@ I det här avsnittet skapas en användare som heter B. Simon i AwardSpring. Awar
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på AwardSpring-panelen på åtkomstpanelen bör du automatiskt loggas in i AwardSpring-programmet som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på AwardSpring-panelen på åtkomstpanelen bör du automatiskt loggas in i AwardSpring-programmet som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

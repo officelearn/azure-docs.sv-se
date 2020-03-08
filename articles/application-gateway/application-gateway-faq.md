@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/31/2019
+ms.date: 03/06/2020
 ms.author: victorh
-ms.openlocfilehash: 7a5ef2c2fbed6daabef6cd3c5049fcd25f478d53
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: ad3289d9b93421df6776c685325f388d552bdba4
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373598"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78892885"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -65,6 +65,8 @@ Se [ordningen för avlyssnings bearbetning](https://docs.microsoft.com/azure/app
 ### <a name="where-do-i-find-the-application-gateway-ip-and-dns"></a>Var hittar jag Application Gateway IP och DNS?
 
 Om du använder en offentlig IP-adress som en slut punkt hittar du IP-och DNS-information om den offentliga IP-adressresursen. Eller hitta den i portalen på sidan Översikt för Application Gateway. Om du använder interna IP-adresser hittar du informationen på sidan Översikt.
+
+För v2-SKU: n öppnar du den offentliga IP-resursen och väljer **konfiguration**. Fältet **DNS-namn (valfritt)** är tillgängligt för att konfigurera DNS-namnet.
 
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Vad är inställningarna för Keep-Alive-timeout och timeout för TCP-inaktivitet?
 

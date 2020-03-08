@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 44de5878dcc39e09adf24f69b883a29370f00b48
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 97ea98fc38fc8d06dc1bc65ee057241da6f15488
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505723"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851394"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Felsök lösningen starta/stoppa virtuella datorer under låg tid
 
@@ -203,7 +203,7 @@ Det här problemet kan orsakas av ett felaktigt konfigurerat eller utgånget kö
 
 Om du vill kontrol lera att kör som-kontot är korrekt konfigurerat går du till ditt Automation-konto i Azure Portal och väljer **Kör som-konton** under **konto inställningar**. Här visas statusen för dina kör som-konton, om ett Kör som-konto är felaktigt konfigurerat eller upphör att gälla visas detta.
 
-Om kör som-kontot är [felkonfigurerat](../manage-runas-account.md#misconfiguration)bör du ta bort och återskapa kör som-kontot.
+Om kör som-kontot är felkonfigurerat bör du ta bort och återskapa kör som-kontot. Se [hantera Azure Automation kör som-konton](../manage-runas-account.md).
 
 Om certifikatet har upphört att gälla för ditt kör som-konto följer du stegen i listan med [självsignerat certifikat för förnyelse](../manage-runas-account.md#cert-renewal) av certifikatet.
 

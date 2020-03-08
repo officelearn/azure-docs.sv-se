@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f1df037b66c72177a96f77231cee70782d04992
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 3fff08690eb2807fbbd50f297761c57d3fef88fe
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620718"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671847"
 ---
 # <a name="custom-controls-preview"></a>Anpassade kontroller (förhands granskning)
 
@@ -67,22 +67,10 @@ Om du vill ta bort en anpassad kontroll måste du först se till att den inte an
 
 Om du vill redigera en anpassad kontroll måste du ta bort den aktuella kontrollen och skapa en ny kontroll med den uppdaterade informationen.
 
-## <a name="session-controls"></a>Kontroller av sessioner
-
-Session kontroller möjliggör begränsad upplevelse i en molnbaserad app. Session kontrollerna tillämpas av molnappar och förlitar sig på ytterligare information som tillhandahålls av Azure AD till appen om sessionen.
-
-![Kontroll](./media/controls/31.png)
-
-### <a name="use-app-enforced-restrictions"></a>Använd app-framtvingade begränsningar
-
-Du kan använda den här kontrollen för att kräva att Azure AD skickar enhets information till de valda molnappar. Med enhets informationen kan molnappar se om en anslutning initieras från en kompatibel eller domänansluten enhet. Den här kontrollen stöder endast SharePoint Online och Exchange Online som valda molnappar. När det här alternativet är markerat använder Cloud App enhets informationen för att tillhandahålla användare, beroende på enhetens tillstånd, med en begränsad eller fullständig upplevelse.
-
-Du kan läsa mer här:
-
-- [Aktivera begränsad åtkomst med SharePoint Online](https://aka.ms/spolimitedaccessdocs)
-- [Aktivera begränsad åtkomst med Exchange Online](https://aka.ms/owalimitedaccess)
-
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst, se [KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](app-based-mfa.md).
-- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö, se [metod tips för villkorlig åtkomst i Azure Active Directory](best-practices.md).
+- [Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
+
+- [Endast rapport läge](concept-conditional-access-report-only.md)
+
+- [Simulera inloggnings beteende med hjälp av What If verktyget för villkorlig åtkomst](troubleshoot-conditional-access-what-if.md)

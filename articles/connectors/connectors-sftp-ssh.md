@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
-ms.date: 02/28/2020
+ms.date: 03/7/2020
 tags: connectors
-ms.openlocfilehash: e7a0791cc2bca672e7fde142650ad25e7e8ab58b
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 0f62fb835fdd2353557a4aff47128bb94ba91a31
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161882"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851521"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av SSH och Azure Logic Apps
 
@@ -36,29 +36,34 @@ Mer skillnader mellan SFTP-SSH-anslutningsprogrammet och SFTP-anslutningen finns
   > [!NOTE]
   > För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
 
+  Du kan åsidosätta det här anpassade beteendet när du [anger en konstant segment storlek](#change-chunk-size) som ska användas i stället. Den här storleken kan vara mellan 5 och 50 MB. Anta till exempel att du har en 45 MB-fil och ett nätverk som har stöd för fil storlek utan svars tid. Anpassningsbar segment resultat i flera anrop, i stället för ett anrop. Om du vill minska antalet anrop kan du prova att ange en segment storlek på 50 MB. Om din Logi Kap par tids gräns inträffar i olika scenarier, till exempel när du använder 15 MB-segment, kan du försöka minska storleken till 5 MB.
+
   Segment storleken är associerad med en anslutning, vilket innebär att du kan använda samma anslutning för åtgärder som stöder segment och sedan för åtgärder som inte stöder segment koppling. I det här fallet är segment storleken för åtgärder som inte stöder segment intervall mellan 5 MB och 50 MB. Den här tabellen visar vilka SFTP-SSH-åtgärder som stöder segment:
 
-  | Åtgärd | Segment stöd |
-  |--------|------------------|
-  | **Kopiera fil** | Nej |
-  | **Skapa fil** | Ja |
-  | **Skapa mapp** | Inte tillämpligt |
-  | **Ta bort fil** | Inte tillämpligt |
-  | **Extrahera arkiv till mapp** | Inte tillämpligt |
-  | **Hämta fil innehåll** | Ja |
-  | **Hämta fil innehåll med hjälp av sökväg** | Ja |
-  | **Hämta filens metadata** | Inte tillämpligt |
-  | **Hämta metadata för fil med hjälp av sökväg** | Inte tillämpligt |
-  | **Lista filer i mappen** | Inte tillämpligt |
-  | **Byt namn på fil** | Inte tillämpligt |
-  | **Uppdatera fil** | Nej |
-  |||
+  | Åtgärd | Segment stöd | Åsidosätt stöd för segment storlek |
+  |--------|------------------|-----------------------------|
+  | **Kopiera fil** | Nej | Inte tillämpligt |
+  | **Skapa fil** | Ja | Ja |
+  | **Skapa mapp** | Inte tillämpligt | Inte tillämpligt |
+  | **Ta bort fil** | Inte tillämpligt | Inte tillämpligt |
+  | **Extrahera arkiv till mapp** | Inte tillämpligt | Inte tillämpligt |
+  | **Hämta fil innehåll** | Ja | Ja |
+  | **Hämta fil innehåll med hjälp av sökväg** | Ja | Ja |
+  | **Hämta filens metadata** | Inte tillämpligt | Inte tillämpligt |
+  | **Hämta metadata för fil med hjälp av sökväg** | Inte tillämpligt | Inte tillämpligt |
+  | **Lista filer i mappen** | Inte tillämpligt | Inte tillämpligt |
+  | **Byt namn på fil** | Inte tillämpligt | Inte tillämpligt |
+  | **Uppdatera fil** | Nej | Inte tillämpligt |
+  ||||
 
-* SFTP – SSH-utlösare stöder inte segment. När du begär fil innehåll väljer utlösare endast filer som är 15 MB eller mindre. Om du vill hämta filer som är större än 15 MB följer du detta mönster i stället:
+  > [!NOTE]
+  > Om du vill överföra stora filer behöver du både Läs-och Skriv behörighet för rotmappen på din SFTP-server.
 
-  * Använd en SFTP-SSH-utlösare som returnerar fil egenskaper, till exempel **när en fil läggs till eller ändras (endast egenskaper)** .
+* SFTP – SSH-utlösare stöder inte meddelande segment. När du begär fil innehåll väljer utlösare endast filer som är 15 MB eller mindre. Om du vill hämta filer som är större än 15 MB följer du detta mönster i stället:
 
-  * Följ utlösaren med åtgärden SFTP-SSH **Get File Content** , som läser den fullständiga filen och använder implicit meddelande segment.
+  1. Använd en SFTP-SSH-utlösare som bara returnerar fil egenskaper, till exempel **när en fil läggs till eller ändras (endast egenskaper)** .
+
+  1. Följ utlösaren med åtgärden SFTP-SSH **Get File Content** , som läser den fullständiga filen och använder implicit meddelande segment.
 
 <a name="comparison"></a>
 
@@ -125,7 +130,7 @@ Om den privata nyckeln är i formatet SparaTillFil, som använder fil namns till
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   Några exempel:
+   Exempel:
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -153,11 +158,11 @@ Om den privata nyckeln är i formatet SparaTillFil, som använder fil namns till
 
 1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din Logic app i Logic App Designer, om du inte redan har gjort det.
 
-1. För tomma Logi Kap par anger du "SFTP SSH" som filter i rutan Sök. Välj den utlösare som du vill använda under listan utlösare.
+1. För tomma Logi Kap par anger du `sftp ssh` som filter i sökrutan. Välj den utlösare som du vill använda under listan utlösare.
 
    ELLER
 
-   För befintliga Logic Apps, under det sista steget där du vill lägga till en åtgärd, väljer du **nytt steg**. I rutan Sök anger du "SFTP SSH" som filter. Under listan åtgärder väljer du den åtgärd som du vill använda.
+   För befintliga Logic Apps, under det sista steget där du vill lägga till en åtgärd, väljer du **nytt steg**. I sökrutan anger du `sftp ssh` som ditt filter. Under listan åtgärder väljer du den åtgärd som du vill använda.
 
    Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
@@ -180,6 +185,22 @@ Om den privata nyckeln är i formatet SparaTillFil, som använder fil namns till
 1. När du är klar med att ange anslutnings informationen väljer du **skapa**.
 
 1. Ange den information som krävs för den valda utlösaren eller åtgärden och fortsätt att skapa din Logic app-arbetsflöde.
+
+<a name="change-chunk-size"></a>
+
+## <a name="override-chunk-size"></a>Åsidosätt segment storlek
+
+Om du vill åsidosätta standard beteendet som segmenterar använder kan du ange en konstant segment storlek mellan 5 och 50 MB.
+
+1. I åtgärdens övre högra hörn väljer du knappen ovaler ( **...** ) och väljer sedan **Inställningar**.
+
+   ![Öppna SFTP – SSH-inställningar](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
+
+1. Under **innehålls överföring**, i egenskapen **segment storlek** , anger du ett heltals värde från `5` till `50`, till exempel: 
+
+   ![Ange den segment storlek som ska användas i stället](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
+
+1. När du är klar väljer du **Klar**.
 
 ## <a name="examples"></a>Exempel
 

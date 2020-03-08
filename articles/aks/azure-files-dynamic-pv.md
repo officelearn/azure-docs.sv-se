@@ -4,12 +4,12 @@ description: Lär dig att dynamiskt skapa en permanent volym med Azure Files fö
 services: container-service
 ms.topic: article
 ms.date: 09/12/2019
-ms.openlocfilehash: a6e46433354be0d9d958ec69da4529e94a4edd75
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: ef9ef10a5523bd91b346e16e105c5ff5cd9cb669
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596428"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897712"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Skapa och använda en beständig volym dynamiskt med Azure Files i Azure Kubernetes service (AKS)
 
@@ -29,11 +29,13 @@ En lagrings klass används för att definiera hur en Azure-filresurs skapas. Ett
 
 * *Standard_LRS* -standard lokalt redundant lagring (LRS)
 * *Standard_GRS* -standard Geo-redundant lagring (GRS)
+* *Standard_ZRS* -standard zon redundant lagring (GRS)
 * *Standard_RAGRS* -standard Geo-redundant lagring med Läs behörighet (RA-GRS)
 * *Premium_LRS* – Premium lokalt redundant lagring (LRS)
+* *Premium_ZRS* -Premium Zone-redundant lagring (GRS)
 
 > [!NOTE]
-> Azure Files stöd för Premium Storage i AKS-kluster som kör Kubernetes 1,13 eller högre.
+> Azure Files support Premium Storage i AKS-kluster som kör Kubernetes 1,13 eller högre, är den minsta Premium-filresursen 100 GB
 
 Mer information om Kubernetes lagrings klasser för Azure Files finns i [Kubernetes Storage-klasser][kubernetes-storage-classes].
 
@@ -48,11 +50,10 @@ provisioner: kubernetes.io/azure-file
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
-  - uid=1000
-  - gid=1000
+  - uid=0
+  - gid=0
   - mfsymlinks
-  - nobrl
-  - cache=none
+  - cache=strict
 parameters:
   skuName: Standard_LRS
 ```
@@ -163,7 +164,7 @@ Volumes:
 
 ## <a name="mount-options"></a>Monterings alternativ
 
-Standardvärdet för *fileMode* och *dirMode* är *0755* för Kubernetes version 1.9.1 och senare. Om du använder ett kluster med Kuberetes version 1.8.5 eller större och dynamiskt skapar den permanenta volymen med en lagrings klass, kan monterings alternativ anges för objektet lagrings klass. I följande exempel anges *0777*:
+Standardvärdet för *fileMode* och *dirMode* är *0777* för Kubernetes version 1.13.0 och senare. Om du dynamiskt skapar den permanenta volymen med en lagrings klass kan monterings alternativ anges för objektet lagrings klass. I följande exempel anges *0777*:
 
 ```yaml
 kind: StorageClass
@@ -174,16 +175,13 @@ provisioner: kubernetes.io/azure-file
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
-  - uid=1000
-  - gid=1000
+  - uid=0
+  - gid=0
   - mfsymlinks
-  - nobrl
-  - cache=none
+  - cache=strict
 parameters:
   skuName: Standard_LRS
 ```
-
-Om du använder ett kluster av version 1.8.0-1.8.4 kan du ange en säkerhets kontext med värdet för *runAsUser* inställt på *0*. Mer information om säkerhets kontexten för Pod finns i [Konfigurera en säkerhets kontext][kubernetes-security-context].
 
 ## <a name="next-steps"></a>Nästa steg
 

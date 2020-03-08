@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 28b9c55df8cd7883e05e964b8b67e08c7a3eb8c1
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: e845b44c51b7611cd3f23f8b33e6576aced2d6ca
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74812723"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851447"
 ---
 # <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Distribuera Azure Datautforskaren till din Virtual Network (förhands granskning)
 
@@ -52,7 +52,7 @@ Totalt antal IP-adresser:
 | --- | --- |
 | Motor tjänst | 1 per instans |
 | Data hanterings tjänst | 2 |
-| Interna lastbalanserare | 2 |
+| Interna belastningsutjämnare | 2 |
 | Reserverade Azure-adresser | 5 |
 | **Totalt** | **#engine_instances + 9** |
 
@@ -75,16 +75,16 @@ Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfig
 
 #### <a name="inbound-nsg-configuration"></a>Inkommande NSG-konfiguration
 
-| **Använd**   | **From**   | **Till**   | **Protokoll**   |
+| **Använd**   | **Som**   | **Till**   | **Protokoll**   |
 | --- | --- | --- | --- |
-| Förvaltning  |[ADX-hantering adresser](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement (ServiceTag) | ADX-undernät: 443  | TCP  |
+| Hantering  |[ADX-hantering adresser](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement (ServiceTag) | ADX-undernät: 443  | TCP  |
 | Hälsoövervakning  | [ADX för hälso övervakning](#health-monitoring-addresses)  | ADX-undernät: 443  | TCP  |
 | Intern kommunikation med ADX  | ADX-undernät: alla portar  | ADX-undernät: alla portar  | Alla  |
 | Tillåt inkommande Azure Load Balancer (hälso avsökning)  | AzureLoadBalancer  | ADX-undernät: 80443  | TCP  |
 
 #### <a name="outbound-nsg-configuration"></a>Utgående NSG-konfiguration
 
-| **Använd**   | **From**   | **Till**   | **Protokoll**   |
+| **Använd**   | **Som**   | **Till**   | **Protokoll**   |
 | --- | --- | --- | --- |
 | Beroende av Azure Storage  | ADX-undernät  | Lagring: 443  | TCP  |
 | Beroende av Azure Data Lake  | ADX-undernät  | AzureDataLake: 443  | TCP  |
@@ -174,7 +174,7 @@ Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfig
 | Europa, västra | 23.97.212.5 |
 | Indien, västra | 23.99.5.162 |
 | USA, västra | 23.99.5.162 |
-| USA, västra 2 | 23.99.5.162 | 
+| USA, västra 2 | 23.99.5.162 |    
 
 #### <a name="azure-monitor-configuration-endpoint-addresses"></a>Azure Monitor slut punkts adresser för konfiguration
 
@@ -192,7 +192,7 @@ Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfig
 | Centrala USA-EUAP | 13.90.43.231 |
 | Asien, östra | 13.75.117.221 |
 | USA, östra | 13.90.43.231 |
-| USA, östra 2 | 13.68.89.19 | 
+| USA, östra 2 | 13.68.89.19 |    
 | USA, östra 2 EUAP | 13.68.89.19 |
 | Centrala Frankrike | 52.174.4.112 |
 | Frankrike, södra | 52.174.4.112 |
@@ -263,3 +263,149 @@ Till exempel måste följande UDR definieras för regionen **västra USA** :
 Om du vill distribuera Azure Datautforskaren-kluster i det virtuella nätverket använder du [azure datautforskaren-klustret i din VNet](https://azure.microsoft.com/resources/templates/101-kusto-vnet/) -Azure Resource Manager mall.
 
 Den här mallen skapar klustret, det virtuella nätverket, under nätet, nätverks säkerhets gruppen och de offentliga IP-adresserna.
+
+## <a name="troubleshooting"></a>Felsökning
+
+I det här avsnittet får du lära dig hur du felsöker problem med anslutnings-, drift-och kluster skapande för ett kluster som distribueras i [Virtual Network](/azure/virtual-network/virtual-networks-overview).
+
+### <a name="access-issues"></a>Åtkomst problem
+
+Om du har problem med att komma åt klustret med hjälp av den offentliga (cluster.region.kusto.windows.net) eller privata (private-cluster.region.kusto.windows.net) slut punkten och du misstänker att den är relaterad till konfiguration av virtuellt nätverk, utför följande steg för att Felsök problemet.
+
+#### <a name="check-tcp-connectivity"></a>Kontrol lera TCP-anslutning
+
+Det första steget är att kontrol lera TCP-anslutning med Windows eller Linux OS.
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+   1. Ladda ned [TCping](https://www.elifulkerson.com/projects/tcping.php) till datorn som ansluter till klustret.
+   2. Pinga målet från käll datorn med hjälp av följande kommando:
+
+    ```cmd
+     C:\> tcping -t yourcluster.kusto.windows.net 443 
+    
+     ** Pinging continuously.  Press control-c to stop **
+    
+     Probing 1.2.3.4:443/tcp - Port is open - time=100.00ms
+     ```
+
+# <a name="linux"></a>[Linux](#tab/linux)
+
+   1. Installera *netcat* i datorn som ansluter till klustret
+
+    ```bash
+    $ apt-get install netcat
+     ```
+
+   2. Pinga målet från käll datorn med hjälp av följande kommando:
+
+     ```bash
+     $ netcat -z -v yourcluster.kusto.windows.net 443
+    
+     Connection to yourcluster.kusto.windows.net 443 port [tcp/https] succeeded!
+     ```
+---
+
+Om testet inte lyckas fortsätter du med följande steg. Om testet lyckas beror problemet inte på ett problem med TCP-anslutningen. Gå till [drifts problem](#cluster-creation-and-operations-issues) för att felsöka ytterligare.
+
+#### <a name="check-the-network-security-group-nsg"></a>Kontrol lera nätverks säkerhets gruppen (NSG)
+
+   Kontrol lera att [nätverks säkerhets gruppen](/azure/virtual-network/security-overview) (NSG) som är ansluten till klustrets undernät har en regel för inkommande trafik som tillåter åtkomst från klient datorns IP för port 443.
+
+#### <a name="check-route-table"></a>Kontrol lera routningstabell
+
+   Om klustrets undernät har Tvingad tunnel trafik till brand väggen (undernät med en [routningstabell](/azure/virtual-network/virtual-networks-udr-overview) som innehåller standard vägen 0.0.0.0/0) kontrollerar du att DATORns IP-adress har en väg med [nästa hopp-typ](/azure/virtual-network/virtual-networks-udr-overview) till VirtualNetwork/Internet. Detta krävs för att förhindra problem med asymmetriska vägar.
+
+### <a name="ingestion-issues"></a>Inmatnings problem
+
+Om du har problem med att skriva in och du misstänker att den är relaterad till konfiguration av virtuellt nätverk, utför följande steg.
+
+#### <a name="check-ingestion-health"></a>Kontrol lera inmatnings hälsa
+
+    Check that the [cluster ingestion metrics](/azure/data-explorer/using-metrics#ingestion-health-and-performance-metrics) indicate a healthy state.
+
+#### <a name="check-security-rules-on-data-source-resources"></a>Kontrol lera säkerhets regler för resurser för data källor
+
+Om måtten anger att inga händelser har bearbetats från data källan (*händelser som bearbetas* (för Event/IoT Hub) mått) kontrollerar du att data käll resurserna (Händelsehubben eller lagring) tillåter åtkomst från klustrets undernät i brand Väggs reglerna eller tjänst slut punkter.
+
+#### <a name="check-security-rules-configured-on-clusters-subnet"></a>Kontrol lera säkerhets regler som kon figurer ATS i klustrets undernät
+
+Kontrol lera att klustrets undernät har NSG, UDR och brand Väggs regler har kon figurer ATS korrekt. Testa nätverks anslutningen för alla beroende slut punkter. 
+
+### <a name="cluster-creation-and-operations-issues"></a>Problem med att skapa kluster och åtgärder
+
+Om du har problem med att skapa kluster eller åtgärd och du misstänker att den är relaterad till konfiguration av virtuellt nätverk, följer du dessa steg för att felsöka problemet.
+
+#### <a name="diagnose-the-virtual-network-with-the-rest-api"></a>Diagnostisera det virtuella nätverket med REST API
+
+[ARMClient](https://chocolatey.org/packages/ARMClient) används för att anropa REST API med hjälp av PowerShell. 
+
+1. Logga in med ARMClient
+
+   ```powerShell
+   armclient login
+   ```
+
+1. Anropa diagnos åtgärd
+
+    ```powershell
+    $subscriptionId = '<subscription id>'
+    $clusterName = '<name of cluster>'
+    $resourceGroupName = '<resource group name>'
+    $apiversion = '2019-11-09'
+    
+    armclient post "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Kusto/clusters/$clusterName/diagnoseVirtualNetwork?api-version=$apiversion" -verbose
+    ```
+
+1. Kontrol lera svaret
+
+    ```powershell
+    HTTP/1.1 202 Accepted
+    ...
+    Azure-AsyncOperation: https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Kusto/locations/{location}/operationResults/{operation-id}?api-version=2019-11-09
+    ...
+    ```
+
+1. Vänta på att åtgärden slutförs
+
+    ```powershell
+    armclient get https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Kusto/locations/{location}/operationResults/{operation-id}?api-version=2019-11-09
+    
+    {
+      "id": "/subscriptions/{subscription-id}/providers/Microsoft.Kusto/locations/{location}/operationresults/{operation-id}",
+      "name": "{operation-name}",
+      "status": "[Running/Failed/Completed]",
+      "startTime": "{start-time}",
+      "endTime": "{end-time}",
+      "properties": {...}
+    }
+    ```
+    
+   Vänta tills *status* egenskapen visas som *slutförd*, så ska fältet *Egenskaper* Visa:
+
+    ```powershell
+    {
+      "id": "/subscriptions/{subscription-id}/providers/Microsoft.Kusto/locations/{location}/operationresults/{operation-id}",
+      "name": "{operation-name}",
+      "status": "Completed",
+      "startTime": "{start-time}",
+      "endTime": "{end-time}",
+      "properties": {
+        "Findings": [...]
+      }
+    }
+    ```
+
+Om egenskapen *rön* visar ett tomt resultat innebär det att alla nätverks test som skickats och inga anslutningar bryts. Om det visar ett fel på följande sätt: *utgående beroende {dependencyName}: {port} kanske inte är uppfyllt (utgående)* , klustret kan inte uppnå de beroende tjänstens slut punkter. Fortsätt med följande steg för att felsöka.
+
+#### <a name="check-network-security-group-nsg"></a>Kontrol lera nätverks säkerhets gruppen (NSG)
+
+Kontrol lera att [nätverks säkerhets gruppen](/azure/virtual-network/security-overview) är korrekt konfigurerad enligt instruktionerna i [beroenden för VNet-distribution](/azure/data-explorer/vnet-deployment#dependencies-for-vnet-deployment)
+
+#### <a name="check-route-table"></a>Kontrol lera routningstabell
+
+Om klustrets undernät har Tvingad tunnel trafik konfigurerad till brand vägg (undernät med en [routningstabell](/azure/virtual-network/virtual-networks-udr-overview) som innehåller standard vägen 0.0.0.0/0) ser du till att [hanterings-IP-adresserna](#azure-data-explorer-management-ip-addresses) och [hälso övervakningens IP-adresser](#health-monitoring-addresses) har en väg med [nästa hopp typ](/azure/virtual-network/virtual-networks-udr-overview##next-hop-types-across-azure-tools) *Internet*och [käll adress prefix](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route) till *"Management-IP/32"* och *"Health-Monitoring-IP/32"* . Detta krävs för att förhindra problem med asymmetriska vägar.
+
+#### <a name="check-firewall-rules"></a>Kontrol lera brand Väggs regler
+
+Om du tvingar utgående tunnel under nät trafik till en brand vägg måste du kontrol lera att alla beroende FQDN (till exempel *. blob.Core.Windows.net*) tillåts i brand Väggs konfigurationen enligt beskrivningen i [skydda utgående trafik med brand vägg](/azure/data-explorer/vnet-deployment#securing-outbound-traffic-with-firewall).

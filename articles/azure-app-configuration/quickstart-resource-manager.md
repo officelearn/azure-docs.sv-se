@@ -6,19 +6,23 @@ ms.author: lcozzens
 ms.date: 03/05/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
-ms.custom: mvc
-ms.openlocfilehash: 7c6f4b2ea9494c004067a8b19df2c2f098ac2b7f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.custom:
+- mvc
+- subject-armqs
+ms.openlocfilehash: 702c03aec1980b12debeef3afeb84e0cbaef55b6
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78274958"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671595"
 ---
-# <a name="quickstart-automated-vm-deployment-with-app-configuration"></a>Snabb start: automatisk distribution av virtuella datorer med konfiguration av appar
+# <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Snabb start: automatisk distribution av virtuella datorer med app Configuration och Resource Manager-mall
 
 Azure PowerShell-modulen används för att skapa och hantera Azure-resurser med hjälp av PowerShell-cmdletar eller -skript. Den här snabb starten visar hur du använder Azure PowerShell och Azure Resource Manager mallar för att distribuera ett Azure App konfigurations lager. Sedan får du lära dig hur du använder nyckel värden i butiken för att distribuera en virtuell dator.
 
 Du använder den nödvändiga mallen för att skapa ett konfigurations lager för appar och sedan lägga till nyckel värden i lagret med hjälp av Azure Portal eller Azure CLI. Den primära mallen refererar till befintliga nyckel värdes konfigurationer från ett befintligt konfigurations lager. De hämtade värdena används för att ange egenskaper för de resurser som skapats av mallen, t. ex. en virtuell dator i det här exemplet.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

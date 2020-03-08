@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aff2ff2b2e60a35d0525cf5733c940aedb7976c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 09a720be10b09e11adc8acdc8ab26a06870311b0
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377712"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78893309"
 ---
 # <a name="conditional-access-grant"></a>Villkorlig åtkomst: bevilja
 
@@ -35,7 +35,7 @@ Block är en kraftfull kontroll som bör vara wielded med lämplig kunskap. Det 
 Administratörer kan välja att tillämpa en eller flera kontroller när de beviljar åtkomst. Dessa kontroller innehåller följande alternativ: 
 
 - [Kräv Multi-Factor Authentication (Azure Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
-- [Kräv att enheten är markerad som kompatibel (Microsoft Intune)](https://docs.microsoft.com/intune/protect/device-compliance-get-started)
+- [Kräv att enheten är markerad som kompatibel (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Kräv hybrid Azure AD-ansluten enhet](../devices/concept-azure-ad-join-hybrid.md)
 - [Kräv godkänd klient app](app-based-conditional-access.md)
 - [Kräv app Protection-princip](app-protection-based-conditional-access.md)
@@ -53,7 +53,7 @@ Om du markerar den här kryss rutan krävs det att användarna utför Azure-Mult
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>Kräv att enheten ska markeras som kompatibel
 
-Organisationer som har distribuerat Microsoft Intune kan använda den information som returneras från sina enheter för att identifiera enheter som uppfyller särskilda krav för efterlevnad. Den här policyn för efterlevnad vidarebefordras från Intune till Azure AD där villkorlig åtkomst kan fatta beslut om att bevilja eller blockera åtkomst till resurser. Mer information om efterlevnadsprinciper finns i artikeln [Ange regler på enheter för att tillåta åtkomst till resurser i din organisation med hjälp av Intune](https://docs.microsoft.com/intune/protect/device-compliance-get-started).
+Organisationer som har distribuerat Microsoft Intune kan använda den information som returneras från sina enheter för att identifiera enheter som uppfyller särskilda krav för efterlevnad. Den här policyn för efterlevnad vidarebefordras från Intune till Azure AD där villkorlig åtkomst kan fatta beslut om att bevilja eller blockera åtkomst till resurser. Mer information om efterlevnadsprinciper finns i artikeln [Ange regler på enheter för att tillåta åtkomst till resurser i din organisation med hjälp av Intune](/intune/protect/device-compliance-get-started).
 
 En enhet kan markeras som kompatibel av Intune (för alla enhetens operativ system) eller MDM-system från tredje part för Windows 10-enheter. JAMF Pro är det enda MDM-system som stöds av tredje part. Mer information om integrering hittar du i artikeln [integrera JAMF Pro med Intune för efterlevnad](/intune/protect/conditional-access-integrate-jamf).
 

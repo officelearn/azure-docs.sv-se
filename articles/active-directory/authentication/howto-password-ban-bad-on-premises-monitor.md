@@ -1,6 +1,6 @@
 ---
-title: Övervaknings-och loggnings Azure Active Directory för lösen ords skydd
-description: Förstå övervakning och loggning av lösen ords skydd i Azure AD
+title: Övervaka lokalt Azure AD-lösenord för lösen ords skydd
+description: Lär dig hur du övervakar och granskar loggar för Azure AD Password Protection för en lokal Active Directory Domain Services miljö
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c74ea99d3a0e39729bb4d89f012d7b790bf0568b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fbb533d5565009fb22d686e4082c9b4bfaae6dc1
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847719"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671662"
 ---
-# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Övervakning och loggning av lösen ords skydd i Azure AD
+# <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Övervaka och granska loggar för lokala Azure AD-miljöer för lösen ords skydd
 
 Efter distributionen av lösen ords skydd i Azure AD är övervakning och rapportering viktiga uppgifter. Den här artikeln innehåller information som hjälper dig att förstå olika övervaknings tekniker, inklusive var varje tjänst loggar information och hur du rapporterar om användningen av lösen ords skydd i Azure AD.
 
@@ -313,7 +313,7 @@ Händelser loggas av de olika proxy-komponenterna med följande intervall:
 | --- | --- |
 |Värd process för proxy-tjänst| 10000-19999|
 |Proxy service Core affärs logik| 20000-29999|
-|PowerShell-cmdlet:ar| 30000-39999|
+|PowerShell-cmdletar| 30000-39999|
 
 ## <a name="proxy-service-text-logging"></a>Text loggning för proxy service
 

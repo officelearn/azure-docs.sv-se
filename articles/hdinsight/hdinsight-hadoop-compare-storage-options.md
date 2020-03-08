@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 593f80583067d28292701353c8a6a62d81282614
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.date: 02/26/2020
+ms.openlocfilehash: 72534225acffa176d248901f363100955e36c6f6
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650834"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898914"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Jämför lagrings alternativ för användning med Azure HDInsight-kluster
 
@@ -28,11 +28,11 @@ I följande tabell sammanfattas de Azure Storage tjänster som stöds med olika 
 
 | Lagrings tjänst | Kontotyp | Namn områdes typ | Tjänster som stöds | Prestanda nivåer som stöds | Åtkomst nivåer som stöds | HDInsight-version | Kluster typ |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| Allmänt-syfte v2 | Hierarkisk (FileSystem) | Blob | Standard | Frekvent, låg frekvent, Arkiv | 3.6 + | Alla utom Spark 2,1 |
+|Azure Data Lake Storage Gen2| Allmänt-syfte v2 | Hierarkisk (FileSystem) | Blob | Standard | Frekvent, låg frekvent, Arkiv | 3.6 + | Alla utom Spark 2,1 och 2,2|
 |Azure Storage| Allmänt-syfte v2 | Objekt | Blob | Standard | Frekvent, låg frekvent, Arkiv | 3.6 + | Alla |
-|Azure Storage| Generell användning v1 | Objekt | Blob | Standard | E.t. | Alla | Alla |
+|Azure Storage| Generell användning v1 | Objekt | Blob | Standard | Ej tillämpligt | Alla | Alla |
 |Azure Storage| Blob Storage * * | Objekt | Blockera BLOB | Standard | Frekvent, låg frekvent, Arkiv | Alla | Alla |
-|Azure Data Lake Storage Gen1| E.t. | Hierarkisk (FileSystem) | E.t. | E.t. | E.t. | 3,6 endast | Alla utom HBase |
+|Azure Data Lake Storage Gen1| Ej tillämpligt | Hierarkisk (FileSystem) | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | 3,6 endast | Alla utom HBase |
 
 \* * För HDInsight-kluster kan endast sekundära lagrings konton vara av typen BlobStorage och Page BLOB är inte ett lagrings alternativ som stöds.
 
@@ -53,12 +53,12 @@ Du kan skapa ett kluster med olika kombinationer av tjänster för primär och v
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Ja |
 | 3.6 | Data Lake Storage Gen1 | Generell användning v1, Generell användning v2, BlobStorage (block blobbar) | Ja |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Nej |
-| 4.0 | Data Lake Storage Gen1 | Alla | Nej |
+| 4,0 | Data Lake Storage Gen1 | Alla | Nej |
 
 \* = Detta kan vara ett eller flera Data Lake Storage Gen2-konton, så länge de är konfigurerat för att använda samma hanterade identitet för kluster åtkomst.
 
 > [!Note] 
-> Data Lake Storage Gen2 primär lagring stöds inte för Spark 2,1-kluster. 
+> Data Lake Storage Gen2 primär lagring stöds inte för Spark 2,1-eller 2,2-kluster. 
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Använda Azure Data Lake Storage Gen2 med Apache Hadoop i Azure HDInsight
 

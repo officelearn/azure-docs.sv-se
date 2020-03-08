@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 46be210ead3816356b63293b910e1c0e7ffc087b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 9f4831fd60038a2265990c0774106a5ea2f98a5a
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200103"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672101"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en automatisk formel för skalning av Compute-noder i en batch-pool
 
@@ -134,8 +134,8 @@ Du kan hämta värdet för de här tjänstedefinierade variablerna för att gör
 | $SucceededTasks |Antalet uppgifter som har slutförts. |
 | $FailedTasks |Antalet uppgifter som misslyckades. |
 | $CurrentDedicatedNodes |Aktuellt antal dedikerade datornoder. |
-| $CurrentLowPriorityNodes |Det aktuella antalet Compute-noder med låg prioritet, inklusive alla noder som har varit rekvirerad. |
-| $PreemptedNodeCount | Antalet noder i poolen som är i ett rekvirerad tillstånd. |
+| $CurrentLowPriorityNodes |Det aktuella antalet Compute-noder med låg prioritet, inklusive eventuella noder som har blockerats. |
+| $PreemptedNodeCount | Antalet noder i poolen som är i ett väntetillstånd-tillstånd. |
 
 > [!TIP]
 > De skrivskyddade, tjänstedefinierade variablerna som visas i föregående tabell är *objekt* som tillhandahåller olika metoder för att komma åt data som är associerade med dem. Mer information finns i [Hämta exempel data](#getsampledata) senare i den här artikeln.

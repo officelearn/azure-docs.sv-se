@@ -1,24 +1,24 @@
 ---
-title: Vanliga frågor och svar om lokal lösen ords skydd – Azure Active Directory
-description: Vanliga frågor och svar om lösen ords skydd i Azure AD
+title: Vanliga frågor och svar om lösen ords skydd i Azure AD
+description: Läs vanliga frågor och svar om lösen ords skydd i Azure AD i en lokal Active Directory Domain Servicess miljö
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7b4c941272906e7ff5a017c78c8bc7c5084a667
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: abef6e52e37cfa2faeb426bc59bb0de5a52a6658
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847838"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671664"
 ---
-# <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD Password Protection lokalt – vanliga frågor och svar
+# <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Password Protection på plats
 
 Det här avsnittet innehåller svar på många vanliga frågor om lösen ords skydd i Azure AD.
 
@@ -38,7 +38,7 @@ Azure AD-portalen tillåter ändringar av konfigurationen lokalt "lösen ords sk
 
 **F: Hur kan jag använda fördelarna med lösen ords skydd i Azure AD på en delmängd av mina lokala användare?**
 
-Stöds ej. När den har distribuerats och Aktiver ATS kan inte Azure AD-lösenordet diskrimineras – alla användare får samma säkerhets fördelar.
+Stöds inte. När den har distribuerats och Aktiver ATS kan inte Azure AD-lösenordet diskrimineras – alla användare får samma säkerhets fördelar.
 
 **F: Vad är skillnaden mellan en lösen ords ändring och en lösen ords uppsättning (eller återställning)?**
 
@@ -62,11 +62,11 @@ Ja. Stöd för flera registrerade DLL-DLL: er för lösen ords filter är en gru
 
 **F: Hur kan jag distribuera och konfigurera lösen ords skydd i Azure AD i min Active Directory-miljö utan att använda Azure?**
 
-Stöds ej. Azure AD Password Protection är en Azure-funktion som stöder utökas till en lokal Active Directorys miljö.
+Stöds inte. Azure AD Password Protection är en Azure-funktion som stöder utökas till en lokal Active Directorys miljö.
 
 **F: Hur kan jag ändra innehållet i principen på Active Directory nivå?**
 
-Stöds ej. Principen kan bara administreras med Azure AD-portalen. Se även föregående fråga.
+Stöds inte. Principen kan bara administreras med Azure AD-portalen. Se även föregående fråga.
 
 **F: Varför krävs DFSR för SYSVOL-replikering?**
 

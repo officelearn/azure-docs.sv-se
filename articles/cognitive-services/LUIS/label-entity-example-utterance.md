@@ -7,15 +7,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: f7d6e98205afad2ed2c4aea30e635254f79acaa1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5499e8362e1107a18b997a6a485e11343c328d0d
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448093"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898377"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Märk enhets enheten i ett exempel uttryck
 
@@ -86,7 +86,7 @@ Enhets roller märks med hjälp av Entity-paletten.
 1. På sidan information om avsikt väljer du **paletten entitet** i verktygsfältet kontext.
 1. När paletten entitet öppnas väljer du entiteten från listan med entiteter.
 1. Flytta till **entitetens kontrollant**och välj antingen en befintlig roll eller skapa en ny roll.
-1. I exemplet uttryck text etiketterar du texten med entitets rollen. 
+1. I exemplet uttryck text etiketterar du texten med entitets rollen.
 
 ## <a name="unlabel-entities"></a>Etikettera entiteter
 
@@ -96,7 +96,7 @@ Om du vill omärkta en entitet väljer du enhetens namn under texten och väljer
 
 Om du gör ett misstag medan du märker det är entitetens palett ett enkelt verktyg som gör det möjligt att redigera snabbt. Om till exempel en enhets etikett sträcker sig över ett extra ord av misstag, och det redan har märkt del komponenter, kan du använda entitetens palett för att använda det kortare intervallet av ord.
 
-Ett exempel:
+Exempel:
 
 1. Pizza Type-komponenten sträcker sig över "ost-pizza med", som innehåller ett extra felaktigt ord – "med"
 

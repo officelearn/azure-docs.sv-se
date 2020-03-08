@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: f82add78eef418e3644a5961d984708d3721a8dd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: feb0361b460f5b18b5a8aaa585332e2179023458
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426050"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851176"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Självstudier: Användardefinierade funktioner i Azure Stream Analytics JavaScript
  
 Azure Stream Analytics stödjer användardefinierade JavaScript-funktioner. Med den omfattande uppsättningen av **String**-, **RegExp**-, **Math**-, **Array**- och **Date**-metoder som JavaScript erbjuder blir det enklare att skapa komplexa datatransformationer med Stream Analytics-jobb.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Definiera en användardefinierad JavaScript-funktion
@@ -125,7 +125,7 @@ Annan typ (till exempel en funktion eller fel) | Stöds inte (resulterar i körn
 
 JavaScript-språket är Skift läges känsligt och Skift läge för objekt fälten i JavaScript-koden måste matcha versaler och gemener i fälten i inkommande data. Observera att jobb med kompatibilitetsnivån 1,0 kommer att konvertera fält från SQL SELECT-instruktionen till gemener. Under kompatibilitetsnivå 1,1 och högre har fält från SELECT-instruktionen samma Skift läge som anges i SQL-frågan.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 JavaScript-körningsfel betraktas som allvarliga och exponeras via aktivitetsloggen. För att hämta loggen i Azure Portal går du till jobbet och väljer **aktivitetsloggen**.
 
 ## <a name="other-javascript-user-defined-function-patterns"></a>Andra mönster för användardefinierade JavaScript-funktioner
@@ -147,7 +147,7 @@ SELECT
     DataString,
     DataValue,
     HexValue,
-    UDF.json_stringify(input) As InputEvent
+    UDF.jsonstringify(input) As InputEvent
 INTO
     output
 FROM
@@ -156,7 +156,7 @@ FROM
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömmande enheter som används av jobbet. Om du planerar att använda jobbet i framtiden kan du stoppa det och sedan starta det igen när du behöver det. Om du inte tänker fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten med följande steg:
+Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömningsenheter som förbrukas av jobbet. Om du planerar att använda jobbet i framtiden kan du stoppa det och sedan starta det igen när du behöver det. Om du inte planerar att fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten med följande steg:
 
 1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade.  
 2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b135b14fb18904901ad78a1f5d9dc66c8a2bc67
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 46be728216ed4b9c9e84c1c7f68c5ddf2051f42b
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538810"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672309"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Gör så här: hantera inaktuella enheter i Azure AD
 
@@ -57,7 +57,7 @@ Du har två alternativ för att hämta aktivitetsstämpelns värde:
 
     ![Aktivitetstidsstämpel](./media/manage-stale-devices/01.png)
 
-- Cmdleten [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0)
+- Cmdleten [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0)
 
     ![Aktivitetstidsstämpel](./media/manage-stale-devices/02.png)
 
@@ -129,11 +129,11 @@ Du kan rensa inaktuella enheter i Azure-portalen men det är effektivare att han
 
 En typisk rutin består av följande steg:
 
-1. Ansluta till Azure Active Directory med hjälp av cmdleten [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0)
+1. Ansluta till Azure Active Directory med hjälp av cmdleten [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0)
 1. Hämta listan över enheter
-1. Inaktivera enheten med hjälp av cmdleten [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
+1. Inaktivera enheten med hjälp av cmdleten [Disable-MsolDevice](/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
 1. Vänta på respitperioden för det angivna antalet dagar innan du tar bort enheten.
-1. Ta bort enheten med hjälp av cmdleten [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
+1. Ta bort enheten med hjälp av cmdleten [Remove-MsolDevice](/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
 
 ### <a name="get-the-list-of-devices"></a>Hämta listan över enheter
 

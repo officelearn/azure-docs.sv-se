@@ -10,12 +10,12 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 40a7f49cbb2d74b55ccb85dce64eea936a20801e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 8442d3f7ed3e73dc5d7358a9bc1d3ee31d7668cd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905526"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894529"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Haveri beredskap och konto redundans (för hands version)
 
@@ -114,16 +114,7 @@ Du kan starta ett konto vid fel från Azure Portal, PowerShell, Azure CLI eller 
 
 ## <a name="about-the-preview"></a>Om för hands versionen
 
-Det finns ett konto för redundans för alla kunder som använder GRS eller RA-GRS med Azure Resource Manager-distributioner. Generell användning v1, General-Purpose v2 och Blob Storage-konto typer stöds. redundansväxling av kontot är för närvarande tillgängligt i följande regioner:
-
-- Asien, östra
-- Sydostasien
-- Australien, östra
-- Australien, sydöstra
-- USA, centrala
-- USA, östra 2
-- USA, västra centrala
-- USA, västra 2
+Det finns ett konto för redundans för alla kunder som använder GRS eller RA-GRS med Azure Resource Manager-distributioner. Generell användning v1, General-Purpose v2 och Blob Storage-konto typer stöds. Redundansväxling av kontot är för närvarande tillgänglig i alla offentliga regioner. Det går inte att redundansväxla för närvarande i suveräna/nationella moln.
 
 För hands versionen är endast avsedd för användning utan produktion. Service nivå avtal (service avtal) för produktions tjänster är inte tillgängliga för närvarande.
 
@@ -131,13 +122,17 @@ För hands versionen är endast avsedd för användning utan produktion. Service
 
 Granska ytterligare överväganden som beskrivs i det här avsnittet för att förstå hur dina program och tjänster kan påverkas när du tvingar fram en redundansväxling under för hands versions perioden.
 
+#### <a name="storage-account-containing-archived-blobs"></a>Lagrings konto som innehåller arkiverade blobbar
+
+Lagrings konton som innehåller arkiverade blobbar stöder redundans av konton. När redundansväxlingen är klar, för att konvertera kontot tillbaka till GRS eller RA-GRS, måste alla archieved-blobbar omextraheras till en online-nivå först.
+
 #### <a name="storage-resource-provider"></a>Lagringsresursprovider
 
 När redundansväxlingen är klar kan klienterna läsa in och skriva Azure Storage data i den nya primära regionen. Azure Storage Resource providern växlar dock inte över, så resurs hanterings åtgärder måste ändå äga rum i den primära regionen. Om den primära regionen inte är tillgänglig går det inte att utföra hanterings åtgärder på lagrings kontot.
 
 Eftersom Azure Storage Resource Provider inte växlar över, returnerar egenskapen [location](/dotnet/api/microsoft.azure.management.storage.models.trackedresource.location) den ursprungliga primära platsen när redundansväxlingen är klar.
 
-#### <a name="azure-virtual-machines"></a>Azure Virtual Machines
+#### <a name="azure-virtual-machines"></a>Virtuella Azure-datorer
 
 Virtuella Azure-datorer (VM) växlar inte över som en del av en redundansväxling av kontot. Om den primära regionen blir otillgänglig och du växlar över till den sekundära regionen måste du återskapa alla virtuella datorer efter redundansväxlingen. Det finns också en potentiell data förlust som är associerad med kontots redundans. Microsoft rekommenderar följande rikt linjer för [hög tillgänglighet](../../virtual-machines/windows/manage-availability.md) och [katastrof återställning](../../virtual-machines/virtual-machines-disaster-recovery-guidance.md) som är särskilt tillgängliga för virtuella datorer i Azure.
 
@@ -162,8 +157,8 @@ Tänk på att data som lagras på en temporär disk förloras när den virtuella
 
 Följande funktioner och tjänster stöds inte för för hands versionen av redundansklustret:
 
-- Azure File Sync stöder inte redundans för lagrings konto. Lagringskonton med Azure-filresurser som används som molnslutpunkter i Azure File Sync får inte redundansväxlas. Om du gör det slutar synkroniseringen att fungera och det kan leda till oväntade dataförluster för nyligen nivåbaserade filer.  
-- Det går inte att redundansväxla ett lagrings konto som innehåller arkiverade blobbar. Underhåll arkiverade blobbar i ett separat lagrings konto som du inte planerar att redundansväxla.
+- Azure File Sync stöder inte redundans för lagrings konto. Lagringskonton med Azure-filresurser som används som molnslutpunkter i Azure File Sync får inte redundansväxlas. Om du gör det slutar synkroniseringen att fungera och det kan leda till oväntade dataförluster för nyligen nivåbaserade filer.
+- ADLS Gen2 lagrings konton (konton med hierarkiskt namn område aktiverat) stöds inte för tillfället.
 - Det går inte att redundansväxla ett lagrings konto som innehåller Premium block-blobar. Lagrings konton som stöder Premium block-blobbar har för närvarande inte stöd för GEO-redundans.
 - Det går inte att redundansväxla ett lagrings konto som innehåller oföränderlighets-aktiverade behållare för [Worm-principer](../blobs/storage-blob-immutable-storage.md) . Olåst/låst tidsbaserad kvarhållning eller principer för juridiskt bevarande förhindrar redundans för att bibehålla kompatibiliteten.
 - När redundansväxlingen är klar kan följande funktioner sluta fungera om de ursprungligen Aktiver ATS: [händelse prenumerationer](../blobs/storage-blob-event-overview.md), [ändra feed](../blobs/storage-blob-change-feed.md), [livs cykel principer](../blobs/storage-lifecycle-management-concepts.md)och [Lagringsanalys loggning](storage-analytics-logging.md).
@@ -180,7 +175,7 @@ Om ditt lagrings konto har kon figurer ATS för RA-GRS har du Läs behörighet t
 
 I extrema fall där en region försvinner på grund av en betydande katastrof kan Microsoft initiera en regional redundansväxling. I det här fallet krävs ingen åtgärd på din del. Du har inte skriv åtkomst till ditt lagrings konto förrän den Microsoft-hanterade redundansväxlingen har slutförts. Dina program kan läsa från den sekundära regionen om ditt lagrings konto har kon figurer ATS för RA-GRS. 
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Initiera en konto redundansväxling (för hands version)](storage-initiate-account-failover.md)
 - [Utforma högtillgängliga program med hjälp av RA GRS](storage-designing-ha-apps-with-ragrs.md)

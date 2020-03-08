@@ -9,12 +9,12 @@ ms.topic: reference
 author: peterclu
 ms.author: peterlu
 ms.date: 02/22/2020
-ms.openlocfilehash: ece4b7a85ff5738900b8f999cc2f14ba35ecab0d
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 334cf69db70e8a1e0c2994c492f15ff44505af0d
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920101"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673377"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Algoritm & module-referens för Azure Machine Learning designer (för hands version)
 
@@ -57,7 +57,7 @@ Hjälp med att välja algoritmer finns i
 | R-språk | Skriv kod och bädda in den i en modul för att integrera R med din pipeline. | [Kör R-skript](execute-r-script.md) |
 | Textanalys | Tillhandahåll specialiserade beräknings verktyg för att arbeta med både strukturerad och ostrukturerad text. | [Extrahera N g-funktioner från text](extract-n-gram-features-from-text.md) <br/> [Hashing av funktioner](feature-hashing.md) <br/> [Förbearbeta text](preprocess-text.md) |
 | Rekommendation | Bygg rekommendationers modeller. | [Utvärdera rekommendation](evaluate-recommender.md) <br/> [Poäng för SVD-rekommendation](score-svd-recommender.md) <br/> [Träna SVD-rekommendation](train-SVD-recommender.md) |
-| Avvikelseidentifiering | Bygg modeller för avvikelse identifiering. | [PCA-baserad avvikelse identifiering](pca-based-anomaly-detection.md) <br/> [Träna avvikelse identifierings modell](train-anomaly-detection-model.md) |
+
 
 ## <a name="error-messages"></a>Felmeddelanden
 

@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f17192e738bb82fb348c660488e6296aa550bd25
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 72bf08dce36d857c1fe91bbe9806336dfa185f7e
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913488"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671978"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
 
@@ -48,7 +48,7 @@ Indexeraren kunde inte läsa dokumentet från data källan. Detta kan inträffa 
 
 | Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
-| inkonsekventa fält typer i olika dokument | Värdets typ stämmer inte med kolumn typen. Det gick inte att lagra `'{47.6,-122.1}'` i Authors-kolumnen.  Förväntad typ är JArray. | Se till att typen för varje fält är samma för olika dokument. Om t. ex. det första dokument `'startTime'`s fältet är ett datum/tid och i det andra dokumentet är det en sträng. detta fel uppstår. |
+| inkonsekventa fält typer i olika dokument | "Typen av värde har en matchnings fel med kolumn typen. Det gick inte att lagra `'{47.6,-122.1}'` i Authors-kolumnen.  Förväntad typ är JArray. "  "Det gick inte att konvertera data typen nvarchar till float."  "Konverteringen misslyckades vid konvertering av nvarchar-värdet 12 månader till data typen int."  "Aritmetiskt data spills fel vid konvertering av uttryck till data typen int." | Se till att typen för varje fält är samma för olika dokument. Om t. ex. det första dokument `'startTime'`s fältet är ett datum/tid och i det andra dokumentet är det en sträng. detta fel uppstår. |
 | fel från data källans underliggande tjänst | (från Cosmos DB) `{"Errors":["Request rate is large"]}` | Kontrol lera lagrings instansen för att säkerställa att den är felfri. Du kan behöva justera skalning/partitionering. |
 | tillfälliga problem | Ett fel på transport nivå har uppstått när resultat togs emot från servern. (provider: TCP-Provider, fel: 0-en befintlig anslutning tvingades stänga av den fjärranslutna värden | Ibland finns det ibland oväntade anslutnings problem. Försök att köra dokumentet via din indexerare igen senare. |
 

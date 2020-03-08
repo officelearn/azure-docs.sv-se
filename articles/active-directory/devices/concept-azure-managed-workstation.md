@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c26197a14e78b1cf1a1e078ba0145eca207206bf
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 05a3a8cf14a591dd3037175e4eed5b5bd8d3096c
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561945"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672666"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Förstå säkra, Azure-hanterade arbets stationer
 
@@ -81,18 +81,18 @@ Inne slutnings strategier ökar säkerheten genom att öka antalet och typen av 
 
 Nödvändig för en säker arbets Station är en lösning för leverans kedja där du använder en betrodd arbets station som kallas "rot för förtroende". Teknik som måste beaktas vid val av roten av Trust-maskinvaran bör omfatta följande tekniker som ingår i moderna bärbara datorer: 
 
-* [Trusted Platform Module (TPM) 2,0](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-tpm)
-* [BitLocker-diskkryptering](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-bitlocker)
-* [UEFI säker start](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot)
-* [Driv rutiner och inbyggd program vara distribueras via Windows Update](https://docs.microsoft.com/windows-hardware/drivers/dashboard/understanding-windows-update-automatic-and-optional-rules-for-driver-distribution)
-* [Virtualisering och begärda HVCI har Aktiver ATS](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-vbs)
-* [Driv rutiner och appar begärda HVCI-Ready](https://docs.microsoft.com/windows-hardware/test/hlk/testref/driver-compatibility-with-device-guard)
-* [Windows Hello](https://docs.microsoft.com/windows-hardware/design/device-experiences/windows-hello-biometric-requirements)
-* [DMA-I/O-skydd](https://docs.microsoft.com/windows/security/information-protection/kernel-dma-protection-for-thunderbolt)
-* [System Guard](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
-* [Modern vänte läge](https://docs.microsoft.com/windows-hardware/design/device-experiences/modern-standby)
+* [Trusted Platform Module (TPM) 2,0](/windows-hardware/design/device-experiences/oem-tpm)
+* [BitLocker-diskkryptering](/windows-hardware/design/device-experiences/oem-bitlocker)
+* [UEFI säker start](/windows-hardware/design/device-experiences/oem-secure-boot)
+* [Driv rutiner och inbyggd program vara distribueras via Windows Update](/windows-hardware/drivers/dashboard/understanding-windows-update-automatic-and-optional-rules-for-driver-distribution)
+* [Virtualisering och begärda HVCI har Aktiver ATS](/windows-hardware/design/device-experiences/oem-vbs)
+* [Driv rutiner och appar begärda HVCI-Ready](/windows-hardware/test/hlk/testref/driver-compatibility-with-device-guard)
+* [Windows Hello](/windows-hardware/design/device-experiences/windows-hello-biometric-requirements)
+* [DMA-I/O-skydd](/windows/security/information-protection/kernel-dma-protection-for-thunderbolt)
+* [System Guard](/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
+* [Modern vänte läge](/windows-hardware/design/device-experiences/modern-standby)
 
-I den här lösningen kommer förtroende roten att distribueras med [Microsoft autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) -teknik med maskin vara som uppfyller moderna tekniska krav. För att skydda en arbets station gör autopilot det möjligt för dig att utnyttja Microsoft-OEM-optimerade Windows 10-enheter. Dessa enheter kommer in i ett känt tillstånd från tillverkaren. I stället för att återställa en potentiellt osäker enhet kan autopilot omvandla en Windows-enhet till ett "affärs klart" läge. Den tillämpar inställningar och principer, installerar appar och ändrar även utgåvan av Windows 10. Till exempel kan autopiloten ändra en enhets Windows-installation från Windows 10 Pro till Windows 10 Enterprise så att den kan använda avancerade funktioner.
+I den här lösningen kommer förtroende roten att distribueras med [Microsoft autopilot](/windows/deployment/windows-autopilot/windows-autopilot) -teknik med maskin vara som uppfyller moderna tekniska krav. För att skydda en arbets station gör autopilot det möjligt för dig att utnyttja Microsoft-OEM-optimerade Windows 10-enheter. Dessa enheter kommer in i ett känt tillstånd från tillverkaren. I stället för att återställa en potentiellt osäker enhet kan autopilot omvandla en Windows-enhet till ett "affärs klart" läge. Den tillämpar inställningar och principer, installerar appar och ändrar även utgåvan av Windows 10. Till exempel kan autopiloten ändra en enhets Windows-installation från Windows 10 Pro till Windows 10 Enterprise så att den kan använda avancerade funktioner.
 
 ![Skydda arbets Stations nivåer](./media/concept-azure-managed-workstation/supplychain.png)
 
@@ -105,7 +105,7 @@ Den här vägledningen hänvisar till flera säkerhets profiler och roller som k
 
 * **Förbättrad säkerhet** – den skyddade lösningen på ingångs nivå är lämplig för hemmaanvändare, små företags användare och allmänna utvecklare.
 
-   Den förbättrade arbets stationen är ett princip-baserat sätt för att öka säkerheten för låg säkerhets profil. Det är ett säkert sätt att arbeta med kunddata samtidigt som du använder produktivitets verktyg som e-post och Webbs ökning. Du kan använda gransknings principer och Intune för att övervaka en förbättrad arbets station för användar beteende och profil användning. Du distribuerar den förbättrade arbets Stations profilen med skriptet windows10 (1809) och drar nytta av avancerat skydd mot skadlig kod med hjälp av [Avancerat skydd (ATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
+   Den förbättrade arbets stationen är ett princip-baserat sätt för att öka säkerheten för låg säkerhets profil. Det är ett säkert sätt att arbeta med kunddata samtidigt som du använder produktivitets verktyg som e-post och Webbs ökning. Du kan använda gransknings principer och Intune för att övervaka en förbättrad arbets station för användar beteende och profil användning. Du distribuerar den förbättrade arbets Stations profilen med skriptet windows10 (1809) och drar nytta av avancerat skydd mot skadlig kod med hjälp av [Avancerat skydd (ATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
 
 * **Hög säkerhet** – det mest effektiva sättet att minska angrepps ytan på en arbets Station är att ta bort möjligheten att själv administrera arbets stationen. Att ta bort lokala administrativa rättigheter är ett steg som förbättrar säkerheten, men det kan påverka produktiviteten om den implementeras felaktigt. Profilen för hög säkerhet bygger på den förbättrade säkerhets profilen med en betydande ändring: borttagning av den lokala administratören. Den här profilen är avsedd för användare med hög profil: chefer, löner och känsliga data användare, god kännare för tjänster och processer.
 
@@ -121,8 +121,8 @@ Den här vägledningen hänvisar till flera säkerhets profiler och roller som k
 
 * **Isolerade** – det anpassade scenariot offline representerar det extrema slutet av spektrumet. Det finns inga installations skript för det här fallet. Du kan behöva hantera en verksamhets kritisk funktion som kräver ett äldre operativ system som inte stöds eller som inte har korrigerats. Till exempel en produktions linje med hög värde eller ett system för livs support. Eftersom säkerhet är kritiskt och moln tjänster inte är tillgängliga, kan du hantera och uppdatera dessa datorer manuellt eller med en isolerad Active Directory skogs arkitektur, till exempel den förbättrade säkerhets administrations miljön (ESAE). I dessa fall bör du överväga att ta bort all åtkomst förutom grundläggande hälso kontroller för Intune och ATP.
 
-   * [Krav för nätverks kommunikation i Intune](https://docs.microsoft.com/intune/network-bandwidth-use)
-   * [Krav för nätverks kommunikation i ATP](https://docs.microsoft.com/azure-advanced-threat-protection/configure-proxy)
+   * [Krav för nätverks kommunikation i Intune](/intune/network-bandwidth-use)
+   * [Krav för nätverks kommunikation i ATP](/azure-advanced-threat-protection/configure-proxy)
 
 ## <a name="next-steps"></a>Nästa steg
 

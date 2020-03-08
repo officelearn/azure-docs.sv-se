@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15b9bae1bd901325efdefeaa4db53df2d6b42b44
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f6fd62ccab4d6e32b23835d280732797e133ada8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275893"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671621"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
 
 Microsoft Graph är Microsoft Unified API-slutpunkten och start för [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) -API: er. Det finns fyra API: er som visar information om riskfyllda användare och inloggningar. Med det första API: et, **riskDetection**, kan du fråga Microsoft Graph om du vill visa en lista över både användare och inloggning länkade risk identifieringar och tillhör ande information om identifieringen. Med det andra API: et, **riskyUsers**, kan du fråga Microsoft Graph om du vill ha information om användarnas identitets skydd som har identifierats som risk Med det tredje API: t **loggar**du kan du fråga Microsoft Graph om du vill veta mer om Azure AD-inloggningar med särskilda egenskaper som rör risk tillstånd, information och nivå. Med det fjärde API: et, **identityRiskEvents**, kan du fråga Microsoft Graph om du vill visa en lista över [risk identifieringar](../reports-monitoring/concept-risk-events.md) och tillhör ande information. IdentityRiskEvents-API: et är inaktuellt den 10 januari 2020; Vi rekommenderar att du använder **riskDetections** -API: et i stället. Den här artikeln hjälper dig att komma igång med att ansluta till Microsoft Graph och fråga dessa API: er. För en djupgående introduktion, fullständig dokumentation och åtkomst till Graph Explorer, se [Microsoft Graph webbplats](https://graph.microsoft.io/) eller den speciella referens dokumentationen för dessa API: er:
 
-* [riskDetection-API](https://docs.microsoft.com/graph/api/resources/riskdetection?view=graph-rest-beta)
-* [riskyUsers-API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
-* [inloggnings-API](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
-* [identityRiskEvents-API: et](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta) är *inaktuellt 10 januari 2020*
+* [riskDetection-API](/graph/api/resources/riskdetection?view=graph-rest-beta)
+* [riskyUsers-API](/graph/api/resources/riskyuser?view=graph-rest-beta)
+* [inloggnings-API](/graph/api/resources/signin?view=graph-rest-beta)
+* [identityRiskEvents-API: et](/graph/api/resources/identityriskevent?view=graph-rest-beta) är *inaktuellt 10 januari 2020*
 
 ## <a name="connect-to-microsoft-graph"></a>Anslut till Microsoft Graph
 
@@ -224,7 +224,7 @@ https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>
 Grattis, du har precis gjort ditt första samtal till Microsoft Graph!  
 Nu kan du ställa frågor till identifieringar av identitets risker och använda data som du inte ser.
 
-Om du vill veta mer om Microsoft Graph och hur du skapar program med hjälp av Graph API kan du läsa [dokumentationen](https://docs.microsoft.com/graph/overview) och mycket mer på [Microsoft Graph-webbplatsen](https://developer.microsoft.com/graph). 
+Om du vill veta mer om Microsoft Graph och hur du skapar program med hjälp av Graph API kan du läsa [dokumentationen](/graph/overview) och mycket mer på [Microsoft Graph-webbplatsen](https://developer.microsoft.com/graph). 
 
 Relaterad information finns i:
 

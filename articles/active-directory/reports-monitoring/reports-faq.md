@@ -1,6 +1,6 @@
 ---
 title: Vanliga frågor och svar om Azure Active Directory rapporter | Microsoft Docs
-description: Vanliga quesitonser kring Azure Active Directory rapporter.
+description: Vanliga frågor och svar kring Azure Active Directory-rapporter.
 services: active-directory
 documentationcenter: ''
 author: cawrites
@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbaf7d4e5a0dee82edf9b6b6bd65b91309e1344d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 273fdb80475defb0576bcd29d1944c5f6c595cfc
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375386"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669289"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Vanliga frågor och svar kring Azure Active Directory rapporter
 
@@ -37,7 +37,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure Active Directory
 
 **F: Jag använder för närvarande `https://graph.windows.net/<tenant-name>/reports/` slut punkts-API: er för att hämta Azure AD-säkerhetsrapporter (vissa typer av identifieringar, till exempel läckta autentiseringsuppgifter eller inloggningar från anonyma IP-adresser) i våra rapporterings system program mässigt. Vad ska jag byta till?**
 
-**A:** Du kan använda [identitets skyddets identifierings-API](../identity-protection/graph-get-started.md) för att få åtkomst till säkerhets identifieringar via Microsoft Graph. Det nya formatet ger större flexibilitet i hur du kan fråga data, med avancerad filtrering, val av fält med mera och standardisera risk identifieringar till en typ för enklare integrering i Siem och andra data insamlings verktyg. Eftersom data har ett annat format kan du inte ersätta en ny fråga för dina gamla frågor. [Det nya API: et använder dock Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), som är Microsoft-standarden för sådana API: er som O365 eller Azure AD. Det arbete som krävs kan antingen utöka dina aktuella MS-diagram-investeringar eller hjälpa dig att börja över gången till den nya standard plattformen.
+**A:** Du kan använda [identitets skyddets identifierings-API](../identity-protection/graph-get-started.md) för att få åtkomst till säkerhets identifieringar via Microsoft Graph. Det nya formatet ger större flexibilitet i hur du kan fråga data, med avancerad filtrering, val av fält med mera och standardisera risk identifieringar till en typ för enklare integrering i Siem och andra data insamlings verktyg. Eftersom data har ett annat format kan du inte ersätta en ny fråga för dina gamla frågor. [Det nya API: et använder dock Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), som är Microsoft-standarden för sådana API: er som O365 eller Azure AD. Det arbete som krävs kan antingen utöka dina nuvarande Microsoft Graph investeringar eller hjälpa dig att börja över gången till den nya standard plattformen.
 
 ---
 

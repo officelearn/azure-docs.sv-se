@@ -1,28 +1,30 @@
 ---
 title: Skapa ett data etiketts projekt
 titleSuffix: Azure Machine Learning
-description: Lär dig Hô för att skapa och köra märknings projekt för att tagga data för Machine Learning.
-author: lobrien
-ms.author: laobri
+description: Lär dig hur du skapar och kör etiketter för projekt för att tagga data för Machine Learning.  Verktygen omfattar ml-etikettering eller mänsklig i slingan för att hjälpa till med uppgiften.
+author: sdgilley
+ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: e469837c8e374e62824bd8f7a7feb110ed1be9c9
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 03/01/2020
+ms.openlocfilehash: 9974b42f582a3b5f26df0b6e77b42a03f23c47dd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153119"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898704"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett projekt med data etiketter och exportera etiketter 
 
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 Att märka Voluminous-data i Machine Learning-projekt är ofta ett problem. Projekt som har en dator vision komponent, till exempel bild klassificering eller objekt identifiering, kräver vanligt vis etiketter för tusentals avbildningar.
  
-[Azure Machine Learning](https://ml.azure.com/) ger dig en central plats där du kan skapa, hantera och övervaka projekt med etiketter. Använd den för att koordinera data, etiketter och team medlemmar för att effektivt hantera etikett uppgifter. Machine Learning stöder bild klassificering, antingen flera etiketter eller flera klasser och objekt identifiering tillsammans med gränser rutor.
+[Azure Machine Learning](https://ml.azure.com/) ger dig en central plats där du kan skapa, hantera och övervaka projekt med etiketter. Använd den för att koordinera data, etiketter och team medlemmar för att effektivt hantera etikett uppgifter. Machine Learning stöder bild klassificering, antingen flera etiketter eller flera klasser och objekt identifiering med gränser rutor.
 
 Machine Learning spårar förloppet och underhåller kön med ofullständiga etikett uppgifter. Etiketter behöver inte delta i ett Azure-konto. När de har autentiserats med Microsoft-konto eller [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)kan de göra så mycket etiketter som möjligt.
 
-I Machine Learning startar och stoppar du projektet, lägger till och tar bort personer och team och övervakar förloppet. Du kan exportera märkta data i COCO-format eller som en Azure Machine Learning data uppsättning.
+Du startar och stoppar projektet, lägger till och tar bort etiketter och team och övervakar etikettens förlopp. Du kan exportera märkta data i COCO-format eller som en Azure Machine Learning data uppsättning.
 
 > [!Important]
 > Det finns för närvarande stöd för att märka projekt med bild klassificering och objekt identifiering. Dessutom måste data avbildningarna vara tillgängliga i ett Azure Blob-datalager. (Om du inte har ett befintligt data lager kan du ladda upp bilder när projektet skapas.) 
@@ -39,7 +41,7 @@ I den här artikeln får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* De data som du vill märka, antingen i lokala filer eller i Azure Storage.
+* De data som du vill märka, antingen i lokala filer eller i Azure Blob Storage.
 * Den uppsättning etiketter som du vill använda.
 * Anvisningarna för att märka.
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
@@ -55,8 +57,8 @@ Välj **Lägg till projekt**om du vill skapa ett projekt. Ge projektet ett lämp
 
 ![Guiden skapa etikett för projekt](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
 
-* Välj **bild klassificering med flera etiketter** för projekt om du vill tillämpa *en eller flera* etiketter från en uppsättning klasser i en bild. Till exempel kan ett foto av en hund vara märkt med både *hund* och *dagtid*.
 * Välj **bild klassificering flera klasser** för projekt när du bara vill använda en *enda klass* från en uppsättning klasser till en avbildning.
+* Välj **bild klassificering med flera etiketter** för projekt om du vill tillämpa *en eller flera* etiketter från en uppsättning klasser i en bild. Till exempel kan ett foto av en hund vara märkt med både *hund* och *dagtid*.
 * Välj **objekt identifiering (markerings ram)** för projekt när du vill tilldela en klass och en avgränsnings ruta till varje objekt i en bild.
 
 Välj **Nästa** när du är redo att fortsätta.
@@ -64,6 +66,7 @@ Välj **Nästa** när du är redo att fortsätta.
 ## <a name="specify-the-data-to-label"></a>Ange de data som ska etiketteras
 
 Om du redan har skapat en data uppsättning som innehåller dina data väljer du den från List rutan **Välj en befintlig data uppsättning** . Eller Välj **skapa en data uppsättning** för att använda ett befintligt Azure-datalager eller för att ladda upp lokala filer.
+
 
 ### <a name="create-a-dataset-from-an-azure-datastore"></a>Skapa en data uppsättning från ett Azure-datalager
 
@@ -81,6 +84,9 @@ Så här skapar du en data uppsättning från data som du redan har lagrat i Azu
 1. Ange en beskrivning för din data uppsättning.
 1. Välj **Nästa**.
 1. Bekräfta informationen. Välj **tillbaka** om du vill ändra inställningarna eller **skapa** för att skapa data uppsättningen.
+
+> [!NOTE]
+> De data du väljer läses in i projektet.  Att lägga till mer data i data lagret visas inte i det här projektet när projektet har skapats.  
 
 ### <a name="create-a-dataset-from-uploaded-data"></a>Skapa en data uppsättning från överförda data
 
@@ -105,7 +111,7 @@ Ange en etikett per rad. Använd knappen **+** för att lägga till en ny rad. O
 
 ## <a name="describe-the-labeling-task"></a>Beskriv etikettens uppgift
 
-Det är viktigt att tydligt förklara etikettens uppgift. På sidan **etiketting-instruktioner** kan du lägga till en länk till en extern plats för etikett instruktioner. Se till att instruktionerna är orienterade och lämpligt för mål gruppen. Tänk på följande frågor:
+Det är viktigt att tydligt förklara etikettens uppgift. På sidan **etiketting-instruktioner** kan du lägga till en länk till en extern plats för etikett instruktioner eller ange instruktioner i redigerings rutan på sidan. Se till att instruktionerna är orienterade och lämpligt för mål gruppen. Tänk på följande frågor:
 
 * Vilka etiketter ser de ut och hur kommer de att välja mellan dem? Finns det en referens text att referera till?
 * Vad ska de göra om ingen etikett verkar vara lämplig?
@@ -119,9 +125,42 @@ För avgränsnings rutor är viktiga frågor:
 
 * Hur definieras avgränsnings rutan för den här uppgiften? Ska det vara helt på insidan av objektet eller ska det vara på utsidan? Bör den beskäras så tätt som möjligt, eller är vissa godkännanden godtagbara?
 * Vilken nivå av vård och konsekvens förväntar du dig att etiketterna ska tillämpas i definitions rutor?
+* Hur gör jag för att märka objektet som visas delvis i bilden? 
+* Hur gör jag för att märka objektet som delvis täcks av andra objekt?
 
 >[!NOTE]
 > Observera att etiketterna kan välja de första 9 etiketterna genom att använda siffer nycklar 1-9.
+
+## <a name="use-ml-assisted-labeling"></a>Använd ML-etikettering
+
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
+Med hjälp av sidan **ml-märkning** kan du utlösa automatiska maskin inlärnings modeller för att påskynda etiketten. I början av ditt projekt som du har märkt, sorteras bilderna i en slumpmässig ordning för att minska potentiell kompensation. Men eventuella förskjutningar som förekommer i data uppsättningen visas i den tränade modellen. Om till exempel 80% av dina avbildningar är av en enda klass kommer cirka 80% av de data som används för att träna modellen att vara av klassen. Den här utbildningen omfattar inte aktiv inlärning.
+
+Den här funktionen är tillgänglig för bild klassificerings aktiviteter (flera klasser eller flera etiketter).  
+
+Välj *Enable ml-etikettering* och ange en GPU för att aktivera assisterad märkning, som består av två faser:
+* Klustring
+* För markering
+
+Det exakta antalet etiketterade bilder som krävs för att kunna starta assisterad etikettering är inte ett fast nummer.  Detta kan variera markant från ett etikett projekt till ett annat. För vissa projekt är det ibland möjligt att se förmärknings-eller kluster aktiviteter efter att 300-bilder har märkts manuellt. ML-märkning använder en teknik som kallas *överförings Inlärning*, som använder en förtränad modell för att komma igång med inlärnings processen. Om din data uppsättnings klasser liknar dem i den förtränade modellen kan det finnas etiketter som är tillgängliga efter några hundra manuellt märkta bilder. Om din data uppsättning skiljer sig avsevärt från de data som används för att förträna modellen, kan det ta mycket längre tid.
+
+Eftersom de slutliga etiketterna fortfarande är beroende av inmatade Labeler, kallas den här tekniken ibland *mänsklig i slingan* .
+
+### <a name="clustering"></a>Klustring
+
+När ett visst antal etiketter har skickats börjar maskin inlärnings modellen att gruppera liknande bilder.  Dessa liknande bilder presenteras för etiketter på samma skärm för att påskynda manuell taggning. Klustring är särskilt användbart när Labeler visar ett rutnät med 4, 6 eller 9 bilder. 
+
+När en maskin inlärnings modell har tränats på dina manuellt märkta data, trunkeras modellen till det sista fullständigt anslutna lagret. Omärkta bilder skickas sedan genom den trunkerade modellen i en process som kallas "inbäddning" eller "funktionalisering". Detta bäddar in varje bild i ett högt dimensionellt utrymme som definieras av detta modell lager. Bilder som är närmsta grannar i utrymmet används för kluster uppgifter. 
+
+### <a name="prelabeling"></a>För markering
+
+När fler bild etiketter har skickats används en klassificerings modell för att förutsäga bild taggar.  Labeler ser nu sidor som innehåller förväntade etiketter som redan finns på varje bild.  Uppgiften granskar sedan dessa etiketter och korrigerar eventuella felmärkta bilder innan sidan skickas.  
+
+När en maskin inlärnings modell har tränats på dina manuellt märkta data, utvärderas modellen i en test uppsättning med manuellt märkta bilder för att fastställa dess exakthet på en rad olika konfidens trösklar. Den här utvärderings processen används för att fastställa ett konfidens tröskelvärde över vilket modellen är tillräckligt korrekt för att Visa före-etiketter. Modellen utvärderas sedan mot omärkta data. Bilder med förutsägelser mer tryggare än det här tröskelvärdet används för för märkning.
+
+> [!NOTE]
+> ML-märkta etiketter är **bara** tillgängligt i Enterprise Edition-arbetsytor.
 
 ## <a name="initialize-the-labeling-project"></a>Initiera ett etikettande projekt
 
@@ -149,7 +188,7 @@ Om du vill pausa eller starta om projektet väljer du knappen **paus**/**Start**
 
 Du kan märka data direkt från sidan **projekt information** genom att välja **etikett data**.
 
-## <a name="add-labels-to-a-project"></a>Lägga till etiketter i ett projekt
+## <a name="add-new-label-class-to-a-project"></a>Lägg till en ny etikett klass i ett projekt
 
 Under märkningen kanske du upptäcker att ytterligare etiketter behövs för att klassificera dina avbildningar.  Du kanske exempelvis vill lägga till etiketten "okänd" eller "annan" för att ange förvirrande bilder.
 

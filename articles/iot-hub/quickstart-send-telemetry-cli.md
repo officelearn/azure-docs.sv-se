@@ -9,12 +9,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 948dfd25881a6a90dd441ad640091d88812cc298
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 711e15986265324bbb353fb2b4404cbfeb48dc84
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931819"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851413"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Snabb start: skicka telemetri från en enhet till en IoT-hubb och övervaka den med Azure CLI
 
@@ -22,7 +22,7 @@ ms.locfileid: "73931819"
 
 IoT Hub är en Azure-tjänst som gör att du kan mata in stora mängder telemetri från IoT-enheter i molnet för lagring eller bearbetning. I den här snabb starten använder du Azure CLI för att skapa en IoT Hub och en simulerad enhet, skicka telemetri till hubben och skicka ett meddelande från moln till enhet. Du kan också använda Azure Portal för att visualisera enhets mått. Det här är ett grundläggande arbets flöde för utvecklare som använder CLI för att interagera med ett IoT Hub-program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - Om du inte har en Azure-prenumeration kan du [skapa en kostnads fri](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - Azure CLI. Du kan köra alla kommandon i den här snabb starten med hjälp av Azure Cloud Shell, ett interaktivt CLI-gränssnitt som körs i din webbläsare. Om du använder Cloud Shell behöver du inte installera något. Om du föredrar att använda CLI lokalt kräver den här snabb starten Azure CLI version 2.0.76 eller senare. Kör az --version för att se versionen. Information om hur du installerar eller uppgraderar finns i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -35,6 +35,7 @@ Oavsett om du kör CLI lokalt eller i Cloud Shell bör du låta portalen vara ö
 I det här avsnittet startar du en instans av Azure Cloud Shell. Om du använder CLI lokalt går du vidare till avsnittet [förbereda två CLI-sessioner](#prepare-two-cli-sessions).
 
 Så här startar du Cloud Shell:
+
 1. Välj knappen **Cloud Shell** i den övre högra meny raden i Azure Portal. 
 
     ![Knappen Azure Portal Cloud Shell](media/quickstart-send-telemetry-cli/cloud-shell-button.png)
@@ -42,25 +43,30 @@ Så här startar du Cloud Shell:
     > [!NOTE]
     > Om det här är första gången du använder Cloud Shell, så blir du ombedd att skapa lagring, vilket krävs för att använda Cloud Shell.  Välj en prenumeration för att skapa ett lagrings konto och Microsoft Azure fil resurs. 
 
-1. Välj önskad CLI-miljö i list rutan **Välj miljö** . I den här snabb starten används **bash** -miljön. Alla följande CLI-kommandon fungerar i PowerShell-miljön. 
+2. Välj önskad CLI-miljö i list rutan **Välj miljö** . I den här snabb starten används **bash** -miljön. Alla följande CLI-kommandon fungerar i PowerShell-miljön. 
 
     ![Välj CLI-miljö](media/quickstart-send-telemetry-cli/cloud-shell-environment.png)
 
 ## <a name="prepare-two-cli-sessions"></a>Förbereda två CLI-sessioner
+
 I det här avsnittet förbereder du två Azure CLI-sessioner. Om du använder Cloud Shell kan du köra de två sessionerna i separata flikar i webbläsaren. Om du använder en lokal CLI-klient kan du köra två separata CLI-instanser. Du använder den första sessionen som en simulerad enhet och den andra sessionen för att övervaka och skicka meddelanden. Om du vill köra ett kommando väljer du **Kopiera** för att kopiera ett kodblock i den här snabb starten, klistra in det i din Shell-session och kör det.
 
 Azure CLI kräver att du är inloggad på ditt Azure-konto. All kommunikation mellan Azure CLI-sessionen och din IoT Hub autentiseras och krypteras. Därför behöver inte den här snabb starten ytterligare autentisering som du använder med en riktig enhet, till exempel en anslutnings sträng.
 
-1. Kör kommandot [AZ Extension Add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till CLI-gränssnittet. IOT-tillägget lägger till IoT Hub-, IoT Edge-och IoT Device Provisioning-tjänst (DPS)-kommandon i Azure CLI.
+*  Kör kommandot [AZ Extension Add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till CLI-gränssnittet. IOT-tillägget lägger till IoT Hub-, IoT Edge-och IoT Device Provisioning-tjänst (DPS)-kommandon i Azure CLI.
 
    ```azurecli
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
-    När du har installerat Azure IOT-tillägget behöver du inte installera det igen under en Cloud Shell session. 
+   
+   När du har installerat Azure IOT-tillägget behöver du inte installera det igen under en Cloud Shell session. 
 
-1. Öppna en andra CLI-session.  Om du använder Cloud Shell väljer du **Öppna ny session**. Om du använder CLI lokalt öppnar du en andra instans. 
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-    ![Öppna ny Cloud Shell-session](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
+*  Öppna en andra CLI-session.  Om du använder Cloud Shell väljer du **Öppna ny session**. Om du använder CLI lokalt öppnar du en andra instans. 
+
+    >[!div class="mx-imgBorder"]
+    >![öppna en ny Cloud Shell session](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 I det här avsnittet använder du Azure CLI för att skapa en resurs grupp och en IoT Hub.  En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En IoT Hub fungerar som en central meddelande hubb för dubbelriktad kommunikation mellan IoT-programmet och enheterna. 

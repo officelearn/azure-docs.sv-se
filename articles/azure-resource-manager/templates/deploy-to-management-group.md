@@ -2,23 +2,29 @@
 title: Distribuera resurser till hanterings grupp
 description: Beskriver hur du distribuerar resurser i hanterings gruppens omfattning i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: 3b2eeaf2c63a50cda1a32fee94c1e5b99822075d
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.date: 03/06/2020
+ms.openlocfilehash: ae561468531b0c3fa584a02793c58ee64ca3610f
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228111"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894881"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Skapa resurser på hanterings grupps nivå
 
-Normalt distribuerar du Azure-resurser till en resurs grupp i din Azure-prenumeration. Men du kan också skapa resurser på hanterings grupps nivå. Du använder distributioner på hanterings grupps nivå för att vidta åtgärder som är begripliga på den nivån, till exempel tilldela [rollbaserad åtkomst kontroll](../../role-based-access-control/overview.md) eller tillämpa [principer](../../governance/policy/overview.md).
+Normalt distribuerar du Azure-resurser till en resurs grupp i din Azure-prenumeration. Men du kan också skapa resurser på:
+
+* [prenumerations nivå](deploy-to-subscription.md)
+* hanterings grupp nivå (som beskrivs i den här artikeln)
+* [klient organisations nivå](deploy-to-tenant.md)
+
+Du använder distributioner på hanterings grupps nivå för att vidta åtgärder som är begripliga på den nivån, till exempel tilldela [rollbaserad åtkomst kontroll](../../role-based-access-control/overview.md) eller tillämpa [principer](../../governance/policy/overview.md).
 
 ## <a name="supported-resources"></a>Resurser som stöds
 
 Du kan distribuera följande resurs typer på hanterings grupps nivån:
 
-* [distributioner](/azure/templates/microsoft.resources/deployments)
+* [distributioner](/azure/templates/microsoft.resources/deployments) – för kapslade mallar som distribuerar till prenumerationer eller resurs grupper.
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)

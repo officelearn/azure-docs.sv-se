@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SharePoint-grupp till Azure med MABS
 description: Använd Azure Backup Server för att säkerhetskopiera och återställa dina SharePoint-data. Den här artikeln innehåller information om hur du konfigurerar SharePoint-servergruppen så att önskade data kan lagras i Azure. Du kan återställa skyddade SharePoint-data från disk eller från Azure.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: ba9d79270da839cf99574322d68ccdba27fe2d93
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 441a896f2faa67a1380007ebb9474d7c311a4842
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77584259"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673129"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Säkerhetskopiera en SharePoint-grupp till Azure med MABS
 
@@ -63,7 +63,7 @@ Du kan hitta **ConfigureSharePoint. exe** i mappen [Mabs installations Sök väg
 
 1. Öppna en kommando tolk på WFE-servern och gå till [MABS installation location] \bin\
 2. Ange ConfigureSharePoint-EnableSharePointProtection.
-3. Ange administratörs behörighet för Server gruppen. Det här kontot ska vara medlem i den lokala administratörs gruppen på WFE-servern. Om servergruppsadministratören är inte en lokal administratör ska du bevilja följande behörigheter på WFE-servern:
+3. Ange administratörs behörighet för Server gruppen. Det här kontot ska vara medlem i den lokala administratörs gruppen på WFE-servern. Om Server grupps administratören inte är en lokal administratör ger du följande behörigheter på WFE-servern:
    * Bevilja WSS_Admin_WPG gruppen fullständig kontroll över DPM-mappen (% Program Files%\Microsoft Azure Backup\DPM).
    * Bevilja WSS_Admin_WPG gruppen Läs behörighet till DPM-registernyckeln (HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
@@ -127,7 +127,7 @@ När du har konfigurerat MABS och SharePoint-gruppen enligt förklarat tidigare,
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > MABS tillhandahåller maximalt två dagliga säkerhets kopieringar till Azure från den senaste säkerhets kopierings punkten för disken. Azure Backup kan också styra mängden WAN-bandbredd som kan användas för säkerhets kopieringar vid hög belastning och låg belastnings tid genom att använda [Azure Backup nätverks begränsning](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > MABS tillhandahåller maximalt två dagliga säkerhets kopieringar till Azure från den senaste säkerhets kopierings punkten för disken. Azure Backup kan också styra mängden WAN-bandbredd som kan användas för säkerhets kopieringar vid hög belastning och låg belastnings tid genom att använda [Azure Backup nätverks begränsning](backup-windows-with-mars-agent.md#enable-network-throttling).
     >
     >
 11. Beroende på vilket schema för säkerhets kopiering som du har valt väljer du bevarande principen för säkerhets kopierings punkter per dag, vecka, månad och år på sidan **Ange princip för kvarhållning av online** .

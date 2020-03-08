@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: c22ee0ef0393c0dae64674d18bae5a2e92969b4c
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: fd5308574e84ab6d2e30b9352254683b2d1d6fdd
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206082"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78403567"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Kundhanterad nyckeldiskkryptering
 
@@ -34,7 +34,7 @@ Du kan använda Azure Portal eller Azure CLI för att på ett säkert sätt rote
 
 |Kluster typ |OS-disk (hanterad disk) |Data disk (hanterad disk) |Temporär data disk (lokal SSD) |
 |---|---|---|---|
-|Kafka, HBase med accelererade skrivningar|SSE-kryptering|SSE-kryptering + valfri CMK-kryptering|Valfri CMK-kryptering|
+|Kafka, HBase med accelererade skrivningar|[SSE-kryptering](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|SSE-kryptering + valfri CMK-kryptering|Valfri CMK-kryptering|
 |Alla andra kluster (Spark, Interactive, Hadoop, HBase utan accelererade skrivningar)|SSE-kryptering|Ej tillämpligt|Valfri CMK-kryptering|
 
 ## <a name="get-started-with-customer-managed-keys"></a>Kom igång med Kundhanterade nycklar

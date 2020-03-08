@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 8629d07830622770c3b30dacdd1fabc8417d7f52
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374241"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78893210"
 ---
 # <a name="access-and-customize-developer-portal"></a>Komma åt och anpassa Developer-portalen
 
@@ -125,6 +125,10 @@ Om du vill göra din portal och dess senaste ändringar tillgängliga för besö
 ## <a name="visit-the-published-portal"></a>Besök den publicerade portalen
 
 När du har publicerat portalen kan du komma åt den på samma URL som administrations panelen, till exempel `https://contoso-api.developer.azure-api.net`. Visa den i en separat webbläsarsession (Incognito/Private bläddringsläge) som extern besökare.
+
+## <a name="apply-the-cors-policy-on-apis"></a>Använd CORS-principen för API: er
+
+Du måste aktivera CORS (resurs delning mellan ursprung) i dina API: er så att besökare av portalen kan testa API: erna via den inbyggda interaktiva konsolen. Mer information finns i [den här dokumentations artikeln](api-management-howto-developer-portal.md#cors) .
 
 ## <a name="next-steps"></a>Nästa steg
 

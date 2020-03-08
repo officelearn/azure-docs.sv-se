@@ -1,25 +1,26 @@
 ---
-title: Utgående autentisering – Azure Scheduler
+title: Utgående autentisering
 description: Lär dig hur du konfigurerar eller tar bort utgående autentisering för Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 2ea09330fb8d3d97da5fbc197dba9668f1a4f685
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: bcd14e618323aec1c7ce47fcebb25099fa96be81
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300852"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898500"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Utgående autentisering för Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt. 
+>
+> Scheduler är inte längre tillgänglig i Azure Portal, men [PowerShell-cmdletarna](scheduler-powershell-reference.md) [REST API](/rest/api/scheduler) och Azure Scheduler är tillgängliga just nu så att du kan hantera jobb och jobb samlingar.
 
 Azure Scheduler-jobb kan behöva anropa tjänster som kräver autentisering, till exempel andra Azure-tjänster, Salesforce.com, Facebook och säkra anpassade webbplatser. Den anropade tjänsten kan avgöra om Scheduler-jobbet kan komma åt de begärda resurserna. 
 
@@ -31,25 +32,25 @@ Scheduler stöder följande autentiseringsmetoder:
 
 ## <a name="add-or-remove-authentication"></a>Lägg till eller ta bort autentisering
 
-* Om du vill lägga till autentisering till ett Scheduler-jobb, när du skapar eller uppdaterar jobbet, `authentication` lägger du till det underordnade elementet JavaScript Object Notation ( `request` JSON) i elementet. 
+* Om du vill lägga till autentisering i ett Scheduler-jobb lägger du till det underordnade elementet `authentication` JavaScript Object Notation (JSON) i `request`-elementet när du skapar eller uppdaterar jobbet. 
 
-  Svar returnerar aldrig hemligheter som skickas till tjänsten Scheduler via en skicka-, patch-eller post-begäran i `authentication` objektet. 
+  Svar returnerar aldrig hemligheter som skickas till Scheduler-tjänsten via en skicka-, KORRIGERINGs-eller POST-begäran i `authentication`-objektet. 
   Svar anger hemlig information till null eller kan använda en offentlig token som representerar den autentiserade entiteten. 
 
-* Om du vill ta bort autentisering från ett Scheduler-jobb kan du uttryckligen köra en begäran eller en patch-begäran för `authentication` jobbet och ange objektet som null. Svaret innehåller inga egenskaper för autentisering.
+* Om du vill ta bort autentisering från ett Scheduler-jobb kan du uttryckligen köra en begäran eller en PATCH-begäran för jobbet och ange `authentication`-objektet till null. Svaret innehåller inga egenskaper för autentisering.
 
 ## <a name="client-certificate"></a>Klient certifikat
 
 ### <a name="request-body---client-certificate"></a>Brödtext för begäran-klient certifikat
 
-När du lägger till autentisering `ClientCertificate` med modellen, anger du dessa ytterligare element i begär ande texten.  
+När du lägger till autentisering med `ClientCertificate` modellen, anger du dessa ytterligare element i begär ande texten.  
 
-| Element | Obligatorisk | Beskrivning |
+| Element | Krävs | Beskrivning |
 |---------|----------|-------------|
 | **autentisering** (överordnat element) | Objektet Authentication för att använda ett SSL-klientcertifikat |
-| **type** | Ja | Autentiseringstypen. För SSL-klientcertifikat är `ClientCertificate`värdet. |
-| **pfx** | Ja | Det Base64-kodade innehållet i PFX-filen |
-| **Lösenord** | Ja | Lösen ordet för att komma åt PFX-filen |
+| **typ** | Ja | Autentiseringstypen. För SSL-klientcertifikat är värdet `ClientCertificate`. |
+| **-** | Ja | Det Base64-kodade innehållet i PFX-filen |
+| **ords** | Ja | Lösen ordet för att komma åt PFX-filen |
 ||| 
 
 ### <a name="response-body---client-certificate"></a>Svars text – klient certifikat 
@@ -59,7 +60,7 @@ När en begäran skickas med autentiseringsinformation innehåller svaret dessa 
 | Element | Beskrivning | 
 |---------|-------------| 
 | **autentisering** (överordnat element) | Objektet Authentication för att använda ett SSL-klientcertifikat |
-| **type** | Autentiseringstypen. För SSL-klientcertifikat är `ClientCertificate`värdet. |
+| **typ** | Autentiseringstypen. För SSL-klientcertifikat är värdet `ClientCertificate`. |
 | **certificateThumbprint** |Certifikatets tumavtryck |
 | **certificateSubjectName** |Unikt namn för certifikat mottagare |
 | **certificateExpiration** | Certifikatets förfallo datum |
@@ -162,14 +163,14 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 ### <a name="request-body---basic"></a>Brödtext i begäran – grundläggande
 
-När du lägger till autentisering `Basic` med modellen, anger du dessa ytterligare element i begär ande texten.
+När du lägger till autentisering med `Basic` modellen, anger du dessa ytterligare element i begär ande texten.
 
-| Element | Obligatorisk | Beskrivning |
+| Element | Krävs | Beskrivning |
 |---------|----------|-------------|
 | **autentisering** (överordnat element) | Objektet Authentication för att använda grundläggande autentisering | 
-| **type** | Ja | Autentiseringstypen. För grundläggande autentisering är `Basic`värdet. | 
-| **användarnamn** | Ja | Användar namnet som ska autentiseras | 
-| **Lösenord** | Ja | Lösen ordet för att autentisera |
+| **typ** | Ja | Autentiseringstypen. För grundläggande autentisering är värdet `Basic`. | 
+| **användar** | Ja | Användar namnet som ska autentiseras | 
+| **ords** | Ja | Lösen ordet för att autentisera |
 |||| 
 
 ### <a name="response-body---basic"></a>Svars text – grundläggande
@@ -179,8 +180,8 @@ När en begäran skickas med autentiseringsinformation innehåller svaret dessa 
 | Element | Beskrivning | 
 |---------|-------------|
 | **autentisering** (överordnat element) | Objektet Authentication för att använda grundläggande autentisering |
-| **type** | Autentiseringstypen. För grundläggande autentisering är `Basic`värdet. |
-| **användarnamn** | Autentiserat användar namn |
+| **typ** | Autentiseringstypen. För grundläggande autentisering är värdet `Basic`. |
+| **användar** | Autentiserat användar namn |
 ||| 
 
 ### <a name="sample-rest-request---basic"></a>Exempel på REST-begäran – grundläggande
@@ -280,16 +281,16 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 ### <a name="request-body---active-directory-oauth"></a>Brödtext för begäran – Active Directory OAuth 
 
-När du lägger till autentisering `ActiveDirectoryOAuth` med modellen, anger du dessa ytterligare element i begär ande texten.
+När du lägger till autentisering med `ActiveDirectoryOAuth` modellen, anger du dessa ytterligare element i begär ande texten.
 
-| Element | Obligatorisk | Beskrivning |
+| Element | Krävs | Beskrivning |
 |---------|----------|-------------|
 | **autentisering** (överordnat element) | Ja | Objektet Authentication för att använda ActiveDirectoryOAuth-autentisering |
-| **type** | Ja | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är `ActiveDirectoryOAuth`värdet. |
-| **innehav** | Ja | Klient-ID för Azure AD-klienten. Du hittar klient-ID: t för Azure AD-klienten `Get-AzureAccount` genom att köra i Azure PowerShell. |
-| **filmen** | Ja | Det här värdet är inställt på `https://management.core.windows.net/`. | 
+| **typ** | Ja | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är värdet `ActiveDirectoryOAuth`. |
+| **innehav** | Ja | Klient-ID för Azure AD-klienten. Du hittar klient-ID: t för Azure AD-klienten genom att köra `Get-AzureAccount` i Azure PowerShell. |
+| **filmen** | Ja | Värdet är inställt på `https://management.core.windows.net/`. | 
 | **clientId** | Ja | Klient-ID för Azure AD-programmet | 
-| **secret** | Ja | Hemligheten för klienten som begär token | 
+| **icke** | Ja | Hemligheten för klienten som begär token | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>Svars text – Active Directory OAuth
@@ -299,9 +300,9 @@ När en begäran skickas med autentiseringsinformation innehåller svaret dessa 
 | Element | Beskrivning |
 |---------|-------------|
 | **autentisering** (överordnat element) | Objektet Authentication för att använda ActiveDirectoryOAuth-autentisering |
-| **type** | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är `ActiveDirectoryOAuth`värdet. | 
+| **typ** | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är värdet `ActiveDirectoryOAuth`. | 
 | **innehav** | Klient-ID för Azure AD-klienten |
-| **filmen** | Det här värdet är inställt på `https://management.core.windows.net/`. |
+| **filmen** | Värdet är inställt på `https://management.core.windows.net/`. |
 | **clientId** | Klient-ID för Azure AD-programmet |
 ||| 
 
@@ -403,10 +404,9 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="next-steps"></a>Nästa steg
 
-* [Vad är Azure Scheduler?](scheduler-intro.md)
 * [Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler](scheduler-concepts-terms.md)
 * [Gränser, standardinställningar och felkoder i Azure Scheduler](scheduler-limits-defaults-errors.md)
-* [Azure Scheduler REST API](https://msdn.microsoft.com/library/mt629143)
+* [Referens för REST-API:et för Azure Scheduler](/rest/api/scheduler)
 * [Referens för PowerShell-cmdlets för Azure Scheduler](scheduler-powershell-reference.md)

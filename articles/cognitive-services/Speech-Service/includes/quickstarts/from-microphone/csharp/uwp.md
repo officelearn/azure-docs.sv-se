@@ -9,14 +9,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: e6934e908111773cef3f7ddcfc2a971d8e1706bf
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
-ms.translationtype: MT
+ms.openlocfilehash: 447b42fe3fce3baa5b50f8333892a39464b7ee3f
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75927994"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669054"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
@@ -64,7 +64,9 @@ Nu ska vi skapa en `SpeechRecognizer`. Det här objektet skapas i en using-instr
 
 Från `SpeechRecognizer`-objektet kommer du att anropa metoden `RecognizeOnceAsync()`. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta identifiera tal.
 
-I using-instruktionen lägger du till följande kod: [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=66)]
+I using-instruktionen lägger du till den här koden.
+
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=66)]
 
 ## <a name="display-the-recognition-results-or-errors"></a>Visa tolknings resultat (eller fel)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63aaa0103715a928cdd5332de738a473b329f2e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: da44e8482e335c209f45db478797efa5461bbfe1
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186090"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671862"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Konfigurera en princip för villkorlig åtkomst i enbart rapport läge (förhands granskning)
 
@@ -48,8 +48,8 @@ Så här visar du resultatet av en rapport princip för en viss inloggning:
 
 För att kunna visa den sammanlagda effekten av principer för villkorlig åtkomst med hjälp av den nya arbets boken för villkorlig åtkomst, måste du integrera Azure Monitor med Azure AD och exportera inloggnings loggarna. Det finns två steg för att konfigurera den här integrationen: 
 
-1. [Registrera dig för en Azure Monitor prenumeration och skapa en arbets yta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
-1. [Exportera inloggnings loggarna från Azure AD till Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+1. [Registrera dig för en Azure Monitor prenumeration och skapa en arbets yta](/azure/azure-monitor/learn/quick-create-workspace).
+1. [Exportera inloggnings loggarna från Azure AD till Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
 
 Mer information om Azure Monitor priser finns på [prissättnings sidan för Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Resurser för att uppskatta kostnader, ange en daglig begränsning eller anpassa data lagrings perioden, finns i artikeln [Hantera användning och kostnader med Azure Monitor loggar](../../azure-monitor/platform/manage-cost-storage.md#estimating-the-costs-to-manage-your-environment).
 

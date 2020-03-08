@@ -1,6 +1,6 @@
 ---
 title: 'Snabb start: skicka anpassade händelser med Event Grid och Azure CLI'
-description: Snabb start använder Azure Event Grid och Azure CLI för att publicera ett anpassat ämne och prenumerera på händelser för ämnet. Händelserna hanteras av en webbapp.
+description: Snabb start använder Azure Event Grid och Azure CLI för att publicera ett anpassat ämne och prenumerera på händelser för ämnet. Händelserna hanteras av ett webbprogram.
 services: event-grid
 keywords: ''
 author: spelluru
@@ -12,12 +12,12 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: cc9af86833fc74d0927a1cfb5c1084f39418605a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: eee6c453b4e30880034a048a3d2b63388927a753
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720680"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674531"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Snabb start: dirigera anpassade händelser till webb slut punkten med Azure CLI och Event Grid
 
@@ -33,7 +33,7 @@ När du är klar kan se du att händelsedata som har skickats till webbappen.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI:t lokalt måste du köra den senaste versionen av Azure CLI (2.0.24 eller senare). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör den senaste versionen av Azure CLI (2.0.70 eller senare). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 Om du inte använder Cloud Shell måste du först logga in med `az login`.
 
@@ -101,7 +101,7 @@ Visa ditt webbprogram igen och observera att en händelse för verifieringen av 
 ![Visa prenumerations händelsen i Azure Event Grid Viewer](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
 
 
-## <a name="send-an-event-to-your-custom-topic"></a>Skicka en händelse till ditt anpassade ämne
+## <a name="send-an-event-to-your-custom-topic"></a>Skicka en händelse till det anpassade ämnet
 
 Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet till slutpunkten. Först måste vi ta fram URL och nyckel för det anpassade ämnet.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2c1a088e4c200dcc4a2ff35db942e3eb8480674
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c6bb57a60b2ed3b39bf83154d3afea88071efbac
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512099"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672411"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Kontrollerad verifiering av Azure AD-anslutningshybrid
 
@@ -82,13 +82,13 @@ Använd följande exempel för att skapa ett grupprincip objekt (GPO) för att d
 Om du använder AD FS måste du först konfigurera klient sidans SCP med hjälp av anvisningarna ovan genom att länka GRUPPRINCIPOBJEKTet till dina AD FS-servrar. SCP-objektet definierar källan för auktoritet för enhets objekt. Det kan vara lokalt eller i Azure AD. När klient sidans SCP har kon figurer ATS för AD FS, upprättas källan för enhets objekt som Azure AD.
 
 > [!NOTE]
-> Om du inte kunde konfigurera klient sidans SCP på dina AD FS-servrar anses källan för enhets identiteter vara lokalt. AD FS börjar sedan ta bort enhets objekt från den lokala katalogen efter den angivna perioden som definieras i AD FS-enhetens registrerings attribut "MaximumInactiveDays". ADFS Device Registration-objekt kan hittas med [cmdleten Get-AdfsDeviceRegistration](https://docs.microsoft.com/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
+> Om du inte kunde konfigurera klient sidans SCP på dina AD FS-servrar anses källan för enhets identiteter vara lokalt. AD FS börjar sedan ta bort enhets objekt från den lokala katalogen efter den angivna perioden som definieras i AD FS-enhetens registrerings attribut "MaximumInactiveDays". ADFS Device Registration-objekt kan hittas med [cmdleten Get-AdfsDeviceRegistration](/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Kontrollerad verifiering av hybrid Azure AD-anslutning på Windows-enheter på nivån
 
 För att registrera Windows-enheter på låg nivå måste organisationerna installera [Microsoft Workplace Join för icke-Windows 10-datorer som](https://www.microsoft.com/download/details.aspx?id=53554) är tillgängliga på Microsoft Download Center.
 
-Du kan distribuera paketet med hjälp av ett program distributions system som [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/). Paketet stöder vanliga obevakade installations alternativ med parametern quiet. Den aktuella grenen av Configuration Manager erbjuder förmåner jämfört med tidigare versioner, t. ex. möjligheten att spåra slutförda registreringar.
+Du kan distribuera paketet med hjälp av ett program distributions system som [Microsoft Endpoint Configuration Manager](/configmgr/). Paketet stöder vanliga obevakade installations alternativ med parametern quiet. Den aktuella grenen av Configuration Manager erbjuder förmåner jämfört med tidigare versioner, t. ex. möjligheten att spåra slutförda registreringar.
 
 Installations programmet skapar en schemalagd aktivitet på det system som körs i användar kontexten. Aktiviteten utlöses när användaren loggar in i Windows. Uppgiften ansluter tyst till enheten med Azure AD med användarautentiseringsuppgifterna efter autentisering med Azure AD.
 

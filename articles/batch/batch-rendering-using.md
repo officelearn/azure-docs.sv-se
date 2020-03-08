@@ -5,20 +5,20 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 08/02/2018
+ms.date: 03/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: d181b9b2495ebd106bb068b78131fa90c2f6d62c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f3b2e641ab187514a7900b2ab7cc75068df00252
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449670"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672010"
 ---
 # <a name="using-azure-batch-rendering"></a>Använda Azure Batch åter givning
 
 Det finns flera sätt att använda Azure Batch åter givning:
 
-* API:er:
+* N
   * Skriv kod med någon av batch-API: erna.  Utvecklare kan integrera Azure Batch funktioner i befintliga program eller arbets flöden, oavsett om de är molnbaserade eller baserade lokalt.
 * Kommando rads verktyg:
   * Du kan använda [Azures kommando rad](https://docs.microsoft.com/cli/azure/) eller [PowerShell](https://docs.microsoft.com/powershell/azure/overview) för att använda skript för batch-användning.
@@ -58,7 +58,8 @@ Avsnittet "data" i Batch Explorer tillåter att filer kopieras mellan ett lokalt
 
 Plugin-program är tillgängliga för några av klient programmen.  Plugin-programmen tillåter att pooler och jobb skapas direkt från programmet eller anropar Batch Explorer.
 
-* [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
+* [Över gång 2,79](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
+* [Blends 2,8 +](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender28)
 * [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
 * [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
 

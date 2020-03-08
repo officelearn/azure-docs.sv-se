@@ -3,12 +3,12 @@ title: Support mat ris för MARS-agenten
 description: I den här artikeln sammanfattas Azure Backup support när du säkerhetskopierar datorer som kör Microsoft Azure Recovery Services-agenten (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: ef57688dd7b5ccee4e71ac0a54138ac567320aa2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 515ca065914dc535c1ba21fdb5ac574e3987ca32
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392755"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668293"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -97,7 +97,7 @@ Mer information finns i krav för [ExpressRoute-routning](https://docs.microsoft
 Bandbredds kontroll | Stöds. I MARS-agenten använder du **ändra egenskaper** för att justera bandbredden.
 Nätverks begränsning | Inte tillgängligt för säkerhetskopierade datorer som kör Windows Server 2008 R2, Windows Server 2008 SP2 eller Windows 7.
 
-## <a name="support-for-direct-backups"></a>Stöd för direkta säkerhets kopieringar
+## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
 >[!NOTE]
 > MARS-agenten stöder inte Windows Server Core SKU: er.
@@ -114,7 +114,6 @@ Operativ systemen måste vara 64-bitars och köra de senaste paketen och uppdate
 Windows 10 (Enterprise, Pro, Home) | Ja | Nej |  Kontrol lera motsvarande Server version för program-/modul krav
 Windows 8,1 (Enterprise, Pro)| Ja |Nej | Kontrol lera motsvarande Server version för program-/modul krav
 Windows 8 (Enterprise, Pro) | Ja | Nej | Kontrol lera motsvarande Server version för program-/modul krav
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, starter) | Ja | Nej | Kontrol lera motsvarande Server version för program-/modul krav
 Windows Server 2016 (Standard, Datacenter, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Ja | Ja |– .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0 <br> – Underhåll och hantering av distributions avbildning (DISM. exe)
@@ -122,6 +121,20 @@ Windows Storage Server 2016/2012 R2/2012 (standard, arbets grupp) | Ja | Nej | �
 Windows Server 2019 (Standard, Datacenter, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 
 Mer information finns i [Mabs-och DPM-operativsystem som stöds](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
+
+### <a name="operating-systems-at-end-of-support"></a>Operativ system i slutet av supporten
+
+Följande operativ system är i slutet av supporten och rekommenderar starkt att du uppgraderar operativ systemet så att det fortsätter att vara skyddat.
+
+Om befintliga åtaganden förhindrar uppgradering av operativ systemet bör du överväga att migrera Windows-servrar till virtuella Azure-datorer och utnyttja virtuella Azure-säkerhetskopieringar för att fortsätta vara skyddade. Besök [sidan migrering här](https://azure.microsoft.com/migration/windows-server/) om du vill ha mer information om hur du migrerar din Windows Server.
+
+För lokala eller värdbaserade miljöer, där du inte kan uppgradera operativ systemet eller migrera till Azure, aktiverar du utökade säkerhets uppdateringar för datorerna så att de fortsätter att skyddas och stöds. Observera att endast vissa utgåvor är kvalificerade för utökade säkerhets uppdateringar. Besök [sidan med vanliga frågor och svar](https://www.microsoft.com/cloud-platform/extended-security-updates) för mer information.
+
+| **Operativ system**                                       | **Filer/mappar** | **System tillstånd** | **Krav för program/modul**                           |
+| ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
+| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, starter) | Ja               | Nej                 | Kontrol lera motsvarande Server version för program-/modul krav |
+| Windows Server 2008 R2 (standard, Enterprise, data Center, Foundation) | Ja               | Ja                | – .NET 3,5, .NET 4,5 <br>  – Windows PowerShell <br>  -Kompatibel Microsoft VC + + Redistributable <br>  – Microsoft Management Console (MMC) 3,0 <br>  – Underhåll och hantering av distributions avbildning (DISM. exe) |
+| Windows Server 2008 SP2 (standard, data Center, Foundation)  | Ja               | Nej                 | – .NET 3,5, .NET 4,5 <br>  – Windows PowerShell <br>  -Kompatibel Microsoft VC + + Redistributable <br>  – Microsoft Management Console (MMC) 3,0 <br>  – Underhåll och hantering av distributions avbildning (DISM. exe) <br>  – Virtual Server 2005 Base + KB KB948515 |
 
 ## <a name="backup-limits"></a>Säkerhets kopierings gränser
 

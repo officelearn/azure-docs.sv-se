@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8087e9eaa11ced5da9b445af9d33377b4391c0
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 613c5e9f153f2e3f02ab35d3be16ef3b29d15634
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379667"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672731"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala gruppen Administratörer på Azure AD-anslutna enheter
 
@@ -68,8 +68,8 @@ Enhets administratörer tilldelas till alla Azure AD-anslutna enheter. Du kan in
 
 Som standard lägger Azure AD till användaren som utför Azure AD-anslutning till gruppen Administratörer på enheten. Om du vill förhindra att vanliga användare blir lokala administratörer har du följande alternativ:
 
-- [Windows autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) – Windows autopilot ger dig ett alternativ för att förhindra att den primära användaren utför en anslutning från att bli lokal administratör. Du kan göra detta genom att [skapa en autopilot-profil](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
-- [Mass registrering](https://docs.microsoft.com/intune/windows-bulk-enroll) – en Azure AD-anslutning som utförs i kontexten för en Mass registrering sker i kontexten för en automatiskt skapad användare. Användare som loggar in när en enhet har anslutits läggs inte till i gruppen Administratörer.   
+- [Windows autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot) – Windows autopilot ger dig ett alternativ för att förhindra att den primära användaren utför en anslutning från att bli lokal administratör. Du kan göra detta genom att [skapa en autopilot-profil](/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
+- [Mass registrering](/intune/windows-bulk-enroll) – en Azure AD-anslutning som utförs i kontexten för en Mass registrering sker i kontexten för en automatiskt skapad användare. Användare som loggar in när en enhet har anslutits läggs inte till i gruppen Administratörer.   
 
 ## <a name="manually-elevate-a-user-on-a-device"></a>Öka manuellt en användare på en enhet 
 

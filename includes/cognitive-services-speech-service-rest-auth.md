@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 020055c1629a66ec1aa82beb050501803b2a0f18
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: dc5e251fee00ee22edb2261c1abd8404714834ba
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168323"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668763"
 ---
 ## <a name="authentication"></a>Autentisering
 
@@ -20,9 +20,9 @@ Varje begäran kräver ett Authorization-huvud. Den här tabellen visar vilka ru
 | OCP-Apim-Subscription-Key | Ja | Nej |
 | Auktorisering: ägar | Ja | Ja |
 
-När du använder `Ocp-Apim-Subscription-Key`s huvudet behöver du bara ange din prenumerations nyckel. Några exempel:
+När du använder `Ocp-Apim-Subscription-Key`s huvudet behöver du bara ange din prenumerations nyckel. Exempel:
 
-```
+```http
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
@@ -34,7 +34,7 @@ Om du vill hämta en åtkomsttoken måste du göra en begäran till `issueToken`
 
 `issueToken` slut punkten har följande format:
 
-```
+```http
 https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
@@ -62,7 +62,7 @@ Bröd texten i svaret innehåller åtkomst-token i JSON Web Token-formatet (JWT)
 
 Det här exemplet är ett enkelt PowerShell.skript för att få en åtkomsttoken. Ersätt `YOUR_SUBSCRIPTION_KEY` med din prenumerations nyckel för röst tjänst. Se till att använda rätt slutpunkt för den region som matchar din prenumeration. Det här exemplet är inställd till USA, västra.
 
-```Powershell
+```powershell
 $FetchTokenHeader = @{
   'Content-type'='application/x-www-form-urlencoded';
   'Content-Length'= '0';
@@ -81,7 +81,7 @@ $OAuthToken
 
 cURL är ett kommandoradsverktyg som är tillgängliga i Linux (och i Windows-undersystem för Linux). Den här cURL-kommando visar hur du kan få en åtkomsttoken. Ersätt `YOUR_SUBSCRIPTION_KEY` med din prenumerations nyckel för röst tjänst. Se till att använda rätt slutpunkt för den region som matchar din prenumeration. Det här exemplet är inställd till USA, västra.
 
-```cli
+```console
 curl -v -X POST
  "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
  -H "Content-type: application/x-www-form-urlencoded" \
@@ -93,7 +93,7 @@ curl -v -X POST
 
 Detta C# klassen visar hur du kan få en åtkomsttoken. Skicka din prenumerationsnyckel för Speech Service när du skapa en instans av klassen. Om din prenumeration inte finns i regionen USA, västra, ändrar du värdet för `FetchTokenUri` för att matcha regionen för din prenumeration.
 
-```cs
+```csharp
 public class Authentication
 {
     public static readonly string FetchTokenUri =

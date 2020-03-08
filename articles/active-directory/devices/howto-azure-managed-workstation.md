@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d713dd968956f5bcc93e7b53ed2d7801e5d7bec2
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 5d02b0299b6267fdd9d880d5bc0fe8c93d0edadc
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561936"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672609"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Distribuera en säker, Azure-hanterad arbets Station
 
@@ -29,7 +29,7 @@ Välj en profil innan du distribuerar lösningen. Du kan använda flera profiler
 > [!NOTE]
 > Använd någon av profilerna efter behov. Du kan flytta till en annan profil genom att tilldela den i Microsoft Intune.
 
-| Profil | Låg | Optimerad | Hög | Specialiserade | Ordentligt | Isolerad |
+| Profil | Låg | Optimerad | Hög | Specialiserade | Ordentligt | Isoler |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Användare i Azure AD | Ja | Ja | Ja | Ja | Ja | Ja |
 | Intune-hanterad | Ja | Ja | Ja | Ja | Ja | Ja |
@@ -57,15 +57,15 @@ Om du vill automatisera licens etablering bör du överväga [gruppbaserad licen
 
 Azure Active Directory (Azure AD) hanterar användare, grupper och enheter för administratörs arbets stationerna. Aktivera identitets tjänster och funktioner med ett [administratörs konto](../users-groups-roles/directory-assign-admin-roles.md).
 
-När du skapar det skyddade administratörs kontot för arbets stationen exponerar du kontot för din aktuella arbets Station. Se till att du använder en känd säker enhet för att utföra den här inledande konfigurationen och all global konfiguration. Överväg att följa [rikt linjerna för att förhindra infektion av skadlig kod](https://docs.microsoft.com/windows/security/threat-protection/intelligence/prevent-malware-infection)för att minska risken för angrepp vid första tiden.
+När du skapar det skyddade administratörs kontot för arbets stationen exponerar du kontot för din aktuella arbets Station. Se till att du använder en känd säker enhet för att utföra den här inledande konfigurationen och all global konfiguration. Överväg att följa [rikt linjerna för att förhindra infektion av skadlig kod](/windows/security/threat-protection/intelligence/prevent-malware-infection)för att minska risken för angrepp vid första tiden.
 
 Kräv Multi-Factor Authentication, minst för dina administratörer. Se [distribuera MOLNBASERAD MFA](../authentication/howto-mfa-getstarted.md) för implementerings vägledning.
 
 ### <a name="azure-ad-users-and-groups"></a>Azure AD-användare och-grupper
 
 1. Från Azure Portal bläddrar du till **Azure Active Directory** > **användare** > **ny användare**.
-1. Skapa din enhets administratör genom att följa stegen i [själv studie kursen skapa användare](https://docs.microsoft.com/Intune/quickstart-create-user).
-1. Går
+1. Skapa din enhets administratör genom att följa stegen i [själv studie kursen skapa användare](/Intune/quickstart-create-user).
+1. Ange:
 
    * **Namn** – säker arbets Stations administratör
    * **Användar namn** - `secure-ws-admin@identityitpro.com`
@@ -127,9 +127,9 @@ Från Azure Portal:
 1. Ändra inställningen för **användar omfång för MDM** till **alla**.
 1. Välj **Spara**.
 
-Med de här stegen kan du hantera alla enheter med Intune. Mer information finns i [Intune snabb start: Konfigurera automatisk registrering för Windows 10-enheter](https://docs.microsoft.com/Intune/quickstart-setup-auto-enrollment). Du skapar Intune-konfiguration och efterlevnadsprinciper i ett kommande steg.
+Med de här stegen kan du hantera alla enheter med Intune. Mer information finns i [Intune snabb start: Konfigurera automatisk registrering för Windows 10-enheter](/Intune/quickstart-setup-auto-enrollment). Du skapar Intune-konfiguration och efterlevnadsprinciper i ett kommande steg.
 
-#### <a name="azure-ad-conditional-access"></a>Azure AD Conditional Access
+#### <a name="azure-ad-conditional-access"></a>Villkorlig åtkomst för Azure AD
 
 Villkorlig åtkomst i Azure AD kan hjälpa till att begränsa privilegierade administrativa uppgifter till kompatibla enheter. Fördefinierade medlemmar i gruppen **säker arbets Station användare** krävs för att utföra Multi-Factor Authentication vid inloggning till moln program. Ett bra tips är att undanta åtkomst konton för nöd situationer från principen. Mer information finns i [Hantera åtkomst konton för nöd situationer i Azure AD](../users-groups-roles/directory-emergency-access.md).
 
@@ -137,7 +137,7 @@ Villkorlig åtkomst i Azure AD kan hjälpa till att begränsa privilegierade adm
 
 ### <a name="configure-enrollment-status"></a>Konfigurera registrerings status
 
-Det är viktigt att se till att din säkra arbets Station är en betrodd ren enhet. När du köper nya enheter kan du insistera att de har ställts in på [Windows 10 Pro i S-läge](https://docs.microsoft.com/Windows/deployment/Windows-10-pro-in-s-mode), vilket begränsar exponeringen för sårbarheter under hanteringen av leverans kedjan. När du har fått en enhet från leverantören kan du använda autopiloten för att ändra den från S-läge. Följande vägledning innehåller information om hur du använder omvandlings processen.
+Det är viktigt att se till att din säkra arbets Station är en betrodd ren enhet. När du köper nya enheter kan du insistera att de har ställts in på [Windows 10 Pro i S-läge](/Windows/deployment/Windows-10-pro-in-s-mode), vilket begränsar exponeringen för sårbarheter under hanteringen av leverans kedjan. När du har fått en enhet från leverantören kan du använda autopiloten för att ändra den från S-läge. Följande vägledning innehåller information om hur du använder omvandlings processen.
 
 För att säkerställa att enheterna är fullständigt konfigurerade innan de används, kan Intune **blockera enhets användning tills alla appar och profiler är installerade**.
 
@@ -154,7 +154,7 @@ När du har skapat en enhets grupp måste du skapa en distributions profil för 
 I Intune i Azure Portal:
 
 1. Välj **enhets registrering** > **Windows-registrering** > **distributions profiler** > **Skapa profil**.
-1. Går
+1. Ange:
 
    * Namn – **distributions profil för säker arbets Station**.
    * Beskrivning – **distribution av säkra arbets stationer**.
@@ -162,7 +162,7 @@ I Intune i Azure Portal:
 
 1. Välj **Nästa**.
 
-   * För **distributions läge**väljer du **själv distribution (för hands version)** . Enheter med den här profilen är associerade med den användare som registrerar enheten. Användarautentiseringsuppgifter krävs för att registrera enheten. Det är viktigt att Observera att om du distribuerar en enhet i **själv distributions** läge kan du distribuera bärbara datorer i en delad modell. Ingen användar tilldelning sker förrän enheten tilldelas till en användare för första gången. Det innebär att alla användar principer som BitLocker inte aktive ras förrän en användar tilldelning har slutförts. Mer information om hur du loggar in på en säker enhet finns i [valda profiler](https://docs.microsoft.com/intune/device-profile-assign).
+   * För **distributions läge**väljer du **själv distribution (för hands version)** . Enheter med den här profilen är associerade med den användare som registrerar enheten. Användarautentiseringsuppgifter krävs för att registrera enheten. Det är viktigt att Observera att om du distribuerar en enhet i **själv distributions** läge kan du distribuera bärbara datorer i en delad modell. Ingen användar tilldelning sker förrän enheten tilldelas till en användare för första gången. Det innebär att alla användar principer som BitLocker inte aktive ras förrän en användar tilldelning har slutförts. Mer information om hur du loggar in på en säker enhet finns i [valda profiler](/intune/device-profile-assign).
    * Rutan **Anslut till Azure AD as** ska visa **Azure AD-ansluten** och vara nedtonad.
    * Välj ditt språk (region), användar konto typ **standard**. 
 
@@ -175,7 +175,7 @@ I Intune i Azure Portal:
 1. Välj **Nästa**.
 1. Välj **Skapa** för att skapa profilen. Den autopilot-distributions profilen är nu tillgänglig för att tilldelas enheter.
 
-Enhets registrering i autopilot ger en annan användar upplevelse baserat på enhets typ och roll. I vårt distributions exempel illustrerar vi en modell där de skyddade enheterna är Mass distribuerade och kan delas, men när den används för första gången är enheten tilldelad till en användare. Mer information finns i [Intune autopilot-enhets registrering](https://docs.microsoft.com/intune/device-enrollment).
+Enhets registrering i autopilot ger en annan användar upplevelse baserat på enhets typ och roll. I vårt distributions exempel illustrerar vi en modell där de skyddade enheterna är Mass distribuerade och kan delas, men när den används för första gången är enheten tilldelad till en användare. Mer information finns i [Intune autopilot-enhets registrering](/intune/device-enrollment).
 
 ### <a name="configure-windows-update"></a>Konfigurera Windows Update
 
@@ -186,7 +186,7 @@ Den här vägledningen rekommenderar att du skapar en ny uppdaterings ring och �
 På Azure Portal:
 
 1. Gå till **Microsoft Intune** > **program uppdateringar** > **Windows 10-uppdaterings ringar**.
-1. Går
+1. Ange:
 
    * Namn – **Azure-hanterade arbets Stations uppdateringar**
    * Service kanal – **Windows Insider – fast**
@@ -203,7 +203,7 @@ På Azure Portal:
 1. Välj **Skapa**.
 1. På fliken **tilldelningar** lägger du till gruppen **skyddade arbets stationer** .
 
-Mer information om Windows Update-principer finns i [princip CSP-Update](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-update).
+Mer information om Windows Update-principer finns i [princip CSP-Update](/windows/client-management/mdm/policy-csp-update).
 
 ### <a name="windows-defender-atp-intune-integration"></a>Windows Defender ATP Intune-integrering
 
@@ -223,7 +223,7 @@ Om du vill konfigurera integrering av Windows Defender ATP och Intune går du ti
 1. Ange **Anslut Windows-enheter version 10.0.15063 och högre till Windows Defender ATP** till **på**.
 1. Välj **Spara**.
 
-Mer information finns i [Windows Defender Avancerat skydd](https://docs.microsoft.com/Windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection).
+Mer information finns i [Windows Defender Avancerat skydd](/Windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection).
 
 ### <a name="finish-workstation-profile-hardening"></a>Slutför härdning av arbets Stations profil
 
@@ -231,11 +231,11 @@ Slutför lösningen genom att ladda ned och köra lämpligt skript. Hitta nedlad
 
 | Profil | Hämtnings plats | Sökväg |
 | --- | --- | --- |
-| Låg säkerhet | Gäller inte | Gäller inte |
+| Låg säkerhet | Ej tillämpligt | Ej tillämpligt |
 | Förbättrad säkerhet | https://aka.ms/securedworkstationgit | Enhanced-Workstation-windows10-(1809). ps1 |
-| Hög säkerhet | https://aka.ms/securedworkstationgit | HighSecurityWorkstation-windows10-(1809). ps1 |
+| Hög säkerhet | https://aka.ms/securedworkstationgit | HighSecurityWorkstation-Windows10-(1809).ps1 |
 | Specialiserade | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC-windows10 (1803) SecurityBaseline. ps1 |
-| Specialiserad kompatibilitet * | https://aka.ms/securedworkstationgit | DeviceCompliance_NCSC-windows10 (1803). ps1 |
+| Specialiserad kompatibilitet * | https://aka.ms/securedworkstationgit | DeviceCompliance_NCSC-Windows10(1803).ps1 |
 | Ordentligt | https://aka.ms/securedworkstationgit | Secure-Workstation-windows10-(1809)-SecurityBaseline. ps1 |
 
 \* specialiserad kompatibilitet är ett skript som tillämpar den specialiserade konfigurationen i NCSC windows10 SecurityBaseline.
@@ -245,7 +245,7 @@ När skriptet har körts kan du göra uppdateringar av profiler och principer i 
 * Här kan du hitta de enhets konfigurations profiler i Intune som skapats av skripten: **Azure Portal** > **Microsoft Intune** > **enhets konfiguration** > **profiler**.
 * Här kan du hitta efterlevnadsprinciper för Intune-enheter som skapats av skripten: **Azure Portal** > **Microsoft Intune** > **enhetens efterlevnad** > **principer**.
 
-Om du vill granska ändringar som gjorts av skripten kan du exportera profilerna. På så sätt kan du bestämma ytterligare härdningar som kan krävas enligt beskrivningen i SECCON- [dokumentationen](https://docs.microsoft.com/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework).
+Om du vill granska ändringar som gjorts av skripten kan du exportera profilerna. På så sätt kan du bestämma ytterligare härdningar som kan krävas enligt beskrivningen i SECCON- [dokumentationen](/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework).
 
 Kör Intune-skriptet för data export `DeviceConfiguration_Export.ps1` från [DeviceConfiguration GiuHub-lagringsplatsen](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) för att exportera alla aktuella Intune-profiler.
 
@@ -260,7 +260,7 @@ Genom att följa anvisningarna här har du distribuerat en säker arbets Station
 
 ### <a name="set-rules-in-the-firewall-configuration-service-provider-csp"></a>Ange regler i providern för brand Väggs konfigurations tjänsten (CSP)
 
-Du kan göra ytterligare ändringar i hanteringen av både inkommande och utgående regler efter behov för tillåtna och blockerade slut punkter. När du fortsätter att torka den säkra arbets stationen kan du lossa begränsningen som nekar all inkommande och utgående trafik. Du kan lägga till tillåtna utgående platser för att inkludera vanliga och betrodda webbplatser. Mer information finns i [brand Väggs konfigurations tjänsten](https://docs.microsoft.com/Windows/client-management/mdm/firewall-csp).
+Du kan göra ytterligare ändringar i hanteringen av både inkommande och utgående regler efter behov för tillåtna och blockerade slut punkter. När du fortsätter att torka den säkra arbets stationen kan du lossa begränsningen som nekar all inkommande och utgående trafik. Du kan lägga till tillåtna utgående platser för att inkludera vanliga och betrodda webbplatser. Mer information finns i [brand Väggs konfigurations tjänsten](/Windows/client-management/mdm/firewall-csp).
 
 Begränsad URL för trafik hantering omfattar:
 
@@ -302,7 +302,7 @@ Mer information om hur du konfigurerar Chrome-inställningar finns i [hantera Ch
 
 I ett skyddat läge är programinstallationen begränsad till Intune företags Portal. Installation av portalen kräver dock åtkomst till Microsoft Store. I din säkrade lösning kan du göra företags portalen tillgänglig för alla enheter via ett offline-läge.
 
-En Intune-hanterad kopia av [företagsportal](https://docs.microsoft.com/Intune/store-apps-company-portal-app) ger dig åtkomst på begäran till ytterligare verktyg som du kan skicka vidare till användare av de säkra arbets stationerna.
+En Intune-hanterad kopia av [företagsportal](/Intune/store-apps-company-portal-app) ger dig åtkomst på begäran till ytterligare verktyg som du kan skicka vidare till användare av de säkra arbets stationerna.
 
 Du kan behöva installera Windows 32-bitars appar eller andra appar vars distribution kräver särskilda förberedelser. I sådana fall kan [förberedelse verktyget för Microsoft Win32-innehåll](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) tillhandahålla en `.intunewin` format fil som kan användas för installation.
 
@@ -371,11 +371,11 @@ När du har konfigurerat enheten slutför du en granskning och kontrollerar konf
 
 ## <a name="assign-devices"></a>Tilldela enheter
 
-Om du vill tilldela enheter och användare måste du mappa de [valda profilerna](https://docs.microsoft.com/intune/device-profile-assign) till din säkerhets grupp. Alla nya användare som behöver behörighet till tjänsten måste också läggas till i säkerhets gruppen.
+Om du vill tilldela enheter och användare måste du mappa de [valda profilerna](/intune/device-profile-assign) till din säkerhets grupp. Alla nya användare som behöver behörighet till tjänsten måste också läggas till i säkerhets gruppen.
 
 ## <a name="using-sentinel-and-windows-defender-atp-to-monitor-and-respond-to-security-incidents"></a>Använda Sentinel och Windows Defender ATP för att övervaka och svara på säkerhets incidenter
 
-Övervakning av en säker arbets Stations distribution kan åstadkommas genom att aktivera [Sentinel] och utnyttja [hot-och sårbarhets hantering](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt) vägledningen ger ingen uttömmande hot jakt, men ger bra vanliga ansträngningar för att övervaka och svara på potentiella säkerhets incidenter.
+Övervakning av en säker arbets Stations distribution kan åstadkommas genom att aktivera [Sentinel] och utnyttja [hot-och sårbarhets hantering](/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt) vägledningen ger ingen uttömmande hot jakt, men ger bra vanliga ansträngningar för att övervaka och svara på potentiella säkerhets incidenter.
 
 Vi kommer att använda **Azure Sentinel** för att: 
 
@@ -387,7 +387,7 @@ Kontroll övervakning kräver att anslutningar till dina data källor, till exem
 
 1. I **Azure Portal**går du till **Azure Sentinel (för hands version)** > Välj **Lägg till**
 1. I fönstret **Välj en arbets yta att lägga till i Azure Sentinel väljer du** **skapa en ny arbets yta**
-1. Går
+1. Ange:
    * **Log Analytics arbets yta** -"säker arbets Stations övervakning"
    * **Prenumeration** – välj din aktiva prenumeration
    * **Resurs grupp** – Välj * * Skapa ny * * > säker arbets station RG > **OK**
@@ -412,7 +412,7 @@ Vi använder **Windows Defender ATP (WDATP)** för att:
 * Använd instrument panelen för att identifiera sårbarhet på dator nivå under undersökningar
 * Skicka ut reparationer till Intune
 
-Konfigurera din [Defender ATP-instrumentpanel](https://securitycenter.windows.com/machines). [Översikt över instrument panelen för hot & sårbarhets hantering](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-dashboard-insights).
+Konfigurera din [Defender ATP-instrumentpanel](https://securitycenter.windows.com/machines). [Översikt över instrument panelen för hot & sårbarhets hantering](/windows/security/threat-protection/microsoft-defender-atp/tvm-dashboard-insights).
 
 ## <a name="monitoring-application-activity-using-microsoft-monitoring-agent-mma"></a>Övervaka program aktivitet med Microsoft Monitoring Agent (MMA)
 Från och med den specialiserade arbets stationen är app Locker aktive rad för övervakning av program aktivitet på en arbets Station. För att övervakningen ska integreras i din Log Analytics arbets yta måste en MMA-agent och-konfiguration följas. 
@@ -438,7 +438,7 @@ Härnäst måste du konfigurera Log Analytics för att ta emot de nya loggarna
 1. I **Azure Portal**går du till **Log Analytics arbets yta** > Select-"säker arbets Stations övervakning"
 1. Välj **Avancerade inställningar** > **data** > **händelse loggar i Windows**
 1. I **samla in händelser från följande händelse loggar** 
-1. Går
+1. Ange:
    * "Microsoft-Windows-AppLocker/EXE och DLL" > avmarkerar **information**
    * "Microsoft-Windows-AppLocker/MSI och skript" > avmarkerar **information**
    * "Microsoft-Windows-AppLocker/paketerad app-Deployment" > avmarkerar **information**
@@ -449,18 +449,18 @@ Program loggningen är tillgänglig i den valda Log Analytics-arbetsytan.
 
 ## <a name="monitoring"></a>Övervakning
 
-* Lär dig att [identifiera hot med Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats)
-* [Undersök incidenter med Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-investigate-cases)
-* [Konfigurera automatiska hot svar i Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-respond-threats-playbook)
-* Förstå hur du granskar [exponerings poängen](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-exposure-score)
-* Granska [säkerhets rekommendation](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-security-recommendation)
-* Hantera säkerhets [åtgärder](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-remediation)
-* Hantera [slut punkts identifiering och-svar](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
-* Övervaka profiler med [Intune-profil övervakning](https://docs.microsoft.com/intune/device-profile-monitor).
+* Lär dig att [identifiera hot med Azure Sentinel](/azure/sentinel/tutorial-detect-threats)
+* [Undersök incidenter med Azure Sentinel](/azure/sentinel/tutorial-investigate-cases)
+* [Konfigurera automatiska hot svar i Azure Sentinel](/azure/sentinel/tutorial-respond-threats-playbook)
+* Förstå hur du granskar [exponerings poängen](/windows/security/threat-protection/microsoft-defender-atp/tvm-exposure-score)
+* Granska [säkerhets rekommendation](/windows/security/threat-protection/microsoft-defender-atp/tvm-security-recommendation)
+* Hantera säkerhets [åtgärder](/windows/security/threat-protection/microsoft-defender-atp/tvm-remediation)
+* Hantera [slut punkts identifiering och-svar](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
+* Övervaka profiler med [Intune-profil övervakning](/intune/device-profile-monitor).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [Microsoft Intune](https://docs.microsoft.com/intune/index).
+* Läs mer om [Microsoft Intune](/intune/index).
 * Förstå [Azure AD](../index.yml).
-* Arbeta med [Microsoft Defender Avancerat skydd](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
-* Identifiera [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
+* Arbeta med [Microsoft Defender Avancerat skydd](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
+* Identifiera [Azure Sentinel](/azure/sentinel/)

@@ -1,43 +1,48 @@
 ---
-title: Vad är Azure Scheduler? | Microsoft Docs
-description: Lär dig att skapa, schemalägga och köra automatiska jobb som anropar tjänster inuti eller utanför Azure
+title: Vad är Azure Scheduler?
+description: Skapa schema och kör automatiserade jobb som anropar tjänster i eller utanför Azure
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
+ms.reviewer: klam, estfan
 ms.topic: conceptual
-ms.date: 09/17/2018
-ms.openlocfilehash: 2f418a78f80d65cbb784685804a4cc6790c28b99
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 02/17/2020
+ms.openlocfilehash: e851da0013cf3a9ff6bb1a0fc1c073b5b796c54d
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300908"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898541"
 ---
 # <a name="what-is-azure-scheduler"></a>Vad är Azure Scheduler?
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt. 
+>
+> Scheduler är inte längre tillgänglig i Azure Portal, men [PowerShell-cmdletarna](scheduler-powershell-reference.md) [REST API](/rest/api/scheduler) och Azure Scheduler är tillgängliga just nu så att du kan hantera jobb och jobb samlingar.
 
 [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) hjälper dig att skapa [jobb](../scheduler/scheduler-concepts-terms.md) som körs i molnet genom att deklarativt beskriva åtgärder. Tjänsten schemalägger och kör sedan dessa åtgärder automatiskt. Du kan till exempel anropa tjänster inuti och utanför Azure, till exempel anropa HTTP- eller HTTPS-slutpunkter, och också publicera meddelanden till Azure Storage-köer och Azure Service Bus-köer eller ämnen. Du kan köra jobb direkt eller vid ett senare tillfälle. Scheduler kan enkelt hantera [komplexa scheman och avancerade upprepningar](../scheduler/scheduler-advanced-complexity.md). Scheduler anger när jobb ska köras och sparar en historik över jobbresultaten. Du kan sedan granska dessa och förutsägbart och säkert schemalägga arbetsbelastningar som ska köras.
 
-Du kan använda Scheduler för att skapa, underhålla och köra schemalagda arbetsbelastningar, men Scheduler är inte värd för arbetsbelastningarna och kör heller inte kod. Tjänsten *anropar* endast tjänster eller kod som finns på en annan plats, till exempel i Azure, lokalt eller hos en annan provider. Scheduler kan anropa via HTTP, HTTPS, en Storage-kö, en Service Bus-kö eller ett Service Bus-ämne. Om du vill skapa, hantera och schemalägga jobb kan du använda [Azure Portal](../scheduler/scheduler-get-started-portal.md), kod, [Scheduler REST API:et](https://docs.microsoft.com/rest/api/scheduler/) eller [referensen för Azure Scheduler PowerShell-cmdletar](scheduler-powershell-reference.md). Du kan till exempel programmässigt skapa, visa, uppdatera, hantera eller radera jobb och [jobbsamlingar](../scheduler/scheduler-concepts-terms.md) med hjälp av skript och i Azure Portal.
-
-Andra schemaläggningsfunktioner i Azure använder också Scheduler i bakgrunden, till exempel [Azure WebJobs](../app-service/webjobs-create.md), som är en [Web Apps](https://azure.microsoft.com/services/app-service/web/)-funktion i Azure App Service. Du kan hantera kommunikationen för dessa åtgärder genom att använda [REST-API:et för Scheduler](https://docs.microsoft.com/rest/api/scheduler/). hjälper till att hantera kommunikationen för dessa åtgärder.
+Andra schemaläggningsfunktioner i Azure använder också Scheduler i bakgrunden, till exempel [Azure WebJobs](../app-service/webjobs-create.md), som är en [Web Apps](https://azure.microsoft.com/services/app-service/web/)-funktion i Azure App Service. Du kan hantera kommunikationen för dessa åtgärder med hjälp av [scheduler REST API](https://docs.microsoft.com/rest/api/scheduler/), som hjälper dig att hantera kommunikationen för dessa åtgärder.
 
 Det här är några scenarier där Scheduler kan hjälpa dig att göra följande:
 
-* **Köra återkommande appåtgärder**: till exempel regelbunden insamling av data från Twitter till ett flöde.
+* Kör återkommande app-åtgärder: för att till exempel regelbundet samla in data från Twitter till en feed.
 
-* **Utföra dagligt underhåll**: som att rensa loggar dagligen, utföra säkerhetskopieringar och andra underhållsåtgärder. 
+* Utföra dagligt underhåll: som att rensa loggar varje dag, utföra säkerhets kopieringar och andra underhålls aktiviteter.
 
   Som administratör kanske du vill säkerhetskopiera din databas kl 01.00 varje dag under de kommande nio månaderna.
 
+Du kan använda Scheduler för att skapa, underhålla och köra schemalagda arbetsbelastningar, men Scheduler är inte värd för arbetsbelastningarna och kör heller inte kod. Tjänsten *anropar* endast tjänster eller kod som finns på en annan plats, till exempel i Azure, lokalt eller hos en annan provider. Scheduler kan anropa via HTTP, HTTPS, en Storage-kö, en Service Bus-kö eller ett Service Bus-ämne.
+
+Du kan skapa, schemalägga, hantera, uppdatera eller ta bort jobb och [jobb samlingar](../scheduler/scheduler-concepts-terms.md)genom att använda kod, [Scheduler REST API](https://docs.microsoft.com/rest/api/scheduler/)eller [Azure schedulers PowerShell-cmdletar](scheduler-powershell-reference.md).
+
 ## <a name="next-steps"></a>Nästa steg
 
-* [Komma igång med Scheduler på Azure-portalen](scheduler-get-started-portal.md)
-* Läs mer om [planer och fakturering för Azure Scheduler](scheduler-plans-billing.md)
-* Läs mer om [hur du kan skapa komplexa scheman och avancerade upprepningsåtgärder med Azure Scheduler](scheduler-advanced-complexity.md)
+* [Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler](scheduler-concepts-terms.md)
+* [Planer och fakturering för Azure Scheduler](scheduler-plans-billing.md)
+* [Bygg komplexa scheman och avancerad upprepning med Azure Scheduler](scheduler-advanced-complexity.md)
+* [Referens för REST-API:et för Azure Scheduler](/rest/api/scheduler)
+* [Referens för PowerShell-cmdlets för Azure Scheduler](scheduler-powershell-reference.md)

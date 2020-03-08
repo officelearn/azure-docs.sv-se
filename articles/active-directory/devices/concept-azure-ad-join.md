@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24ec4373bceb3cc3c9e5be2c7a0dab1f62197b3c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 40f89fbe19b93601f9e0525f0387e402bd175fe4
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512206"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672668"
 ---
 # <a name="azure-ad-joined-devices"></a>Azure AD-anslutna enheter
 
@@ -31,7 +31,7 @@ Azure AD Join är avsett för organisationer som bara vill vara molnbaserade ell
 | **Operativ system** | Alla Windows 10-enheter |
 | **Etablering** | Självbetjäning: Windows OOBE eller inställningar |
 |   | Massregistrering |
-|   | Windows Autopilot |
+|   | Windows autopilot |
 | **Alternativ för enhets inloggning** | Organisations konton med: |
 |   | lösenord |
 |   | Windows Hello för företag |
@@ -45,9 +45,9 @@ Azure AD Join är avsett för organisationer som bara vill vara molnbaserade ell
 
 Azure AD-anslutna enheter är inloggade i att använda ett organisations Azure AD-konto. Åtkomst till resurser i organisationen kan ytterligare begränsas baserat på det Azure AD-konto och [principer för villkorlig åtkomst](../conditional-access/overview.md) som tillämpas på enhets identiteten.
 
-Administratörer kan skydda och hantera Azure AD-anslutna enheter med hjälp av MDM-verktyg (Mobile Device Management) som Microsoft Intune eller i samhanterings scenarier med Microsoft Endpoint Configuration Manager. Dessa verktyg ger ett sätt att tvinga fram organisations konfiguration, t. ex. att lagringen ska vara krypterad, lösen ords komplexitet, program varu installationer och program uppdateringar. Administratörer kan göra organisations program tillgängliga för Azure AD-anslutna enheter med hjälp av Configuration Manager för att [Hantera appar från Microsoft Store för företag och utbildning](https://docs.microsoft.com/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
+Administratörer kan skydda och hantera Azure AD-anslutna enheter med hjälp av MDM-verktyg (Mobile Device Management) som Microsoft Intune eller i samhanterings scenarier med Microsoft Endpoint Configuration Manager. Dessa verktyg ger ett sätt att tvinga fram organisations konfiguration, t. ex. att lagringen ska vara krypterad, lösen ords komplexitet, program varu installationer och program uppdateringar. Administratörer kan göra organisations program tillgängliga för Azure AD-anslutna enheter med hjälp av Configuration Manager för att [Hantera appar från Microsoft Store för företag och utbildning](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
-Azure AD Join kan utföras med hjälp av självbetjänings alternativ som OOBE (out of Box Experience), Mass registrering eller [Windows autopilot](https://docs.microsoft.com/intune/enrollment-autopilot).
+Azure AD Join kan utföras med hjälp av självbetjänings alternativ som OOBE (out of Box Experience), Mass registrering eller [Windows autopilot](/intune/enrollment-autopilot).
 
 Azure AD-anslutna enheter kan fortfarande hantera enkel inloggning till lokala resurser när de befinner sig på organisationens nätverk. Enheter som är Azure AD-anslutna kan fortfarande autentisera till lokala servrar som fil, utskrift och andra program.
 
@@ -74,8 +74,8 @@ Målet med Azure AD-anslutna enheter är att förenkla:
 
 Azure AD Join kan distribueras på något av följande sätt:
 
-- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
-- [Massdistribution](https://docs.microsoft.com/intune/windows-bulk-enroll)
+- [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot)
+- [Massdistribution](/intune/windows-bulk-enroll)
 - [Självbetjäning](azuread-joined-devices-frx.md)
 
 ## <a name="next-steps"></a>Nästa steg

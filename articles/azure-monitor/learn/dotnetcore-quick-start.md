@@ -7,16 +7,16 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: fa1651e88226080cca970cc756f2c0522b39f1be
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: ef46b86186d1f5e26360de891b3a090ab0ece66b
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670635"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894821"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Börja övervaka din ASP.NET Core-webbapp
 
-Med Azure Application Insights kan du enkelt övervaka en webbapp med avseende på tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. 
+Med Azure Application Insights kan du enkelt övervaka en webbapp för tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. 
 
 I den här snabb starten får du hjälp med att lägga till Application Insights SDK i ett befintligt ASP.NET Core-webbprogram. Läs mer om hur du konfigurerar Application Insights utan Visual Studio checka in den här [artikeln](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
 
@@ -24,10 +24,10 @@ I den här snabb starten får du hjälp med att lägga till Application Insights
 
 För att slutföra den här snabbstarten behöver du:
 
-- [Installera Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbets belastningar:
+- [Installera Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) med följande arbets belastningar:
   - ASP.NET och webbutveckling
   - Azure Development
-- [Installera .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
+- [Installera .NET Core 2.0 SDK](https://dotnet.microsoft.com/download)
 - Du behöver en Azure-prenumeration och en befintlig .NET Core-webbapp.
 
 Om du inte har ett ASP.NET Core webb program kan du använda vår steg-för-steg-guide för att [skapa en ASP.net Core-app och lägga till Application Insights.](../../azure-monitor/app/asp-net-core.md)
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="enable-application-insights"></a>Aktivera Application Insights
 
@@ -84,7 +84,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
    ![Översiktsmenyn i Application Insights](./media/dotnetcore-quick-start/4overview.png)
 
-2. Klicka på **Programkarta** om du vill se en layout med beroendena mellan appens komponenter. För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
+2. Klicka på **Programkarta** om du vill se en layout med beroendena mellan appens komponenter. Varje komponent visas KPI: er som belastning, prestanda, fel och varningar.
 
    ![Programkarta](./media/dotnetcore-quick-start/5appmap.png)
 

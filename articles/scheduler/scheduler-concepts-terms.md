@@ -1,26 +1,27 @@
 ---
-title: Begrepp, terminologi och entiteter – Azure Scheduler | Microsoft Docs
+title: Begrepp, terminologi och enheter
 description: Läs om begrepp, terminologi och entitetshierarki inklusive jobb och jobbsamlingar i Azure Scheduler
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
+ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 7e31f891cfd758b888e4045566ad2cd2d9ab6fb8
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 0a744c2de320ddad2e7959cae7b62d7990879953
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300957"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898579"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Begrepp, terminologi och entiteter i Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt. 
+>
+> Scheduler är inte längre tillgänglig i Azure Portal, men [PowerShell-cmdletarna](scheduler-powershell-reference.md) [REST API](/rest/api/scheduler) och Azure Scheduler är tillgängliga just nu så att du kan hantera jobb och jobb samlingar.
 
 ## <a name="entity-hierarchy"></a>Entitetshierarki
 
@@ -75,13 +76,13 @@ Azure Scheduler stöder flera jobbtyper:
 På hög nivå har ett Scheduler-jobb de här grundläggande delarna:
 
 * Åtgärden som körs när jobbets timer utlöses
-* Valfritt: Tiden då jobbet ska köras
-* Valfritt: När och hur ofta jobbet ska upprepas
-* Valfritt: En fel åtgärd som körs om den primära åtgärden Miss lyckas
+* Valfritt: tiden då jobbet ska köras
+* Valfritt: när och hur ofta jobbet ska upprepas
+* Valfritt: En felåtgärd som körs om den primära åtgärden misslyckas
 
 Jobbet innehåller även systemangivna data, till exempel jobbets nästa schemalagda körning. Jobbets koddefinition är ett objekt i JavaScript Object Notation (JSON)-format, vilket har dessa element:
 
-| Element | Obligatorisk | Beskrivning | 
+| Element | Krävs | Beskrivning | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | Nej | Starttid för jobbet med en tidszonsförskjutning i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**åtgärd**](#action) | Ja | Information om den primära åtgärden, vilket kan inkludera ett **errorAction**-objekt | 
@@ -227,7 +228,7 @@ Precis som den primärra **åtgärden** så kan du låta felåtgärden använda 
 
 <a name="recurrence"></a>
 
-## <a name="recurrence"></a>upprepning
+## <a name="recurrence"></a>recurrence
 
 Ett jobb återkommer om jobbets JSON-definition innehåller objektet **upprepning**, till exempel:
 
@@ -245,7 +246,7 @@ Ett jobb återkommer om jobbets JSON-definition innehåller objektet **upprepnin
 },
 ```
 
-| Egenskap | Obligatorisk | Value | Beskrivning | 
+| Egenskap | Krävs | Värde | Beskrivning | 
 |----------|----------|-------|-------------| 
 | **frequency** | Ja, när **upprepning** används | Minut, timme, dag, vecka, månad, år | Tidsenheten mellan förekomster | 
 | **interval** | Nej | 1 till och med 1 000 | Ett positivt heltal som anger antalet tidsenheter mellan varje förekomst utifrån **frekvens** | 
@@ -275,7 +276,7 @@ För fallet när ett Scheduler-jobb misslyckas, kan du ställa in en återförs�
 },
 ```
 
-| Egenskap | Obligatorisk | Value | Beskrivning | 
+| Egenskap | Krävs | Värde | Beskrivning | 
 |----------|----------|-------|-------------| 
 | **retryType** | Ja | **Fast**, **Ingen** | Avgör om du anger en återförsöksprincip (**fast**) eller inte (**ingen**). | 
 | **retryInterval** | Nej | PT30S | Anger intervall och frekvens mellan omförsök i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Minimivärdet är 15 sekunder medan det högsta värdet är 18 månader. | 
@@ -319,11 +320,9 @@ Exempel:
 }
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="next-steps"></a>Nästa steg
 
-* [Vad är Azure Scheduler?](scheduler-intro.md)
-* [Begrepp, terminologi och entitetshierarki](scheduler-concepts-terms.md)
 * [Skapa komplexa scheman och avancerad upprepning](scheduler-advanced-complexity.md)
-* [Gränser, kvoter, standardvärden och felkoder](scheduler-limits-defaults-errors.md)
 * [Referens för REST-API:et för Azure Scheduler](/rest/api/scheduler)
 * [Referens för PowerShell-cmdlets för Azure Scheduler](scheduler-powershell-reference.md)
+* [Gränser, kvoter, standardvärden och felkoder](scheduler-limits-defaults-errors.md)

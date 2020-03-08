@@ -3,12 +3,12 @@ title: Säkerhets kopiering offline med hjälp av Azure Data Box
 description: Lär dig hur du kan använda Azure Data Box för att dirigera stora första säkerhets kopierings data offline från MARS-agenten till ett Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 9a8288939adba8ec1b0cbe38d2243b1bdd84fa2e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a031a8cac357e7d212f8f6a3a5dbec749fbccc21
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196527"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672971"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Backup offline-säkerhetskopiering med Azure Data Box
 
@@ -124,7 +124,7 @@ Offline-säkerhetskopiering med MARS och Azure Data Box kräver att Data Box-enh
 
 1. Se till att avinstallera alla tidigare installationer av MARS-agenten.
 1. Ladda ned den senaste MARS-agenten från [den här webbplatsen](https://aka.ms/azurebackup_agent).
-1. Kör *MARSAgentInstaller. exe*och utför *bara* stegen för att [Installera och registrera agenten](https://docs.microsoft.com/azure/backup/backup-configure-vault#install-and-register-the-agent) på det Recovery Services valv där du vill att dina säkerhets kopior ska lagras.
+1. Kör *MARSAgentInstaller. exe*och utför *bara* stegen för att [Installera och registrera agenten](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) på det Recovery Services valv där du vill att dina säkerhets kopior ska lagras.
 
    > [!NOTE]
    > Recovery Services-valvet måste finnas i samma prenumeration som Azure Data Boxs jobbet.
@@ -307,7 +307,7 @@ Utför följande åtgärder från den server som du försöker konfigurera för 
     >[!NOTE]
     > Hämta användar-ID: t för Azure genom att utföra någon av följande åtgärder:
     >
-    >* Kör kommandot `Get-AzureRmADUser -UserPrincipalName “Account Holder’s email as defined in the portal”` från Azure-ansluten PowerShell.
+    >* Kör kommandot `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` från Azure-ansluten PowerShell.
     > * Gå till registret sökväg *dator \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\DbgSettings\OnlineBackup* med namnet *CurrentUserId*.
 
 6. Högerklicka på den sträng som du lade till i föregående steg och välj **ändra**. I värdet anger du tumavtrycket för det certifikat som du exporterade i steg 2. Välj **OK**.

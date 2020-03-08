@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 8c55fec08f05352d4587a8821c10600b7d7fad07
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 24ca37f5610589ae675a47a1dd966871b3004800
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396157"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851268"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuera en modell med en anpassad Docker-bas avbildning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -155,6 +155,9 @@ Stegen i det här avsnittet beskriver hur du skapar en anpassad Docker-avbildnin
     az acr build --image myimage:v1 --registry <registry_name> --file Dockerfile .
     ```
 
+    > [!TIP]
+    > I det här exemplet används en `:v1`-tagg för avbildningen. Om ingen tagg anges används en tagg för `:latest`.
+
     Under skapande processen strömmas information tillbaka till kommando raden. Om versionen lyckas visas ett meddelande som liknar följande text:
 
     ```text
@@ -170,6 +173,10 @@ Mer information om hur du överför befintliga avbildningar till en Azure Contai
 Om du vill använda en anpassad avbildning behöver du följande information:
 
 * __Avbildningens namn__. Till exempel är `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` sökvägen till en grundläggande Docker-avbildning från Microsoft.
+
+    > [!IMPORTANT]
+    > För anpassade avbildningar som du har skapat, se till att ta med alla Taggar som användes med avbildningen. Om din bild till exempel skapades med en speciell tagg, till exempel `:v1`. Om du inte använde en speciell tagg när du skapade avbildningen användes en tagg för `:latest`.
+
 * Om avbildningen finns i ett __privat lager__behöver du följande information:
 
     * Register __adressen__. Till exempel `myregistry.azureecr.io`.

@@ -1,25 +1,26 @@
 ---
-title: Planer och fakturering – Azure Scheduler
+title: Planer och fakturering
 description: Lär dig mer om planer och fakturering för Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 4b63367ab9686eee66bf3f00dddc2e2efe4cb941
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e821036ff4ddb5a9786bc4f4537bb81539ab2c87
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300872"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898478"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Planer och fakturering för Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt. 
+>
+> Scheduler är inte längre tillgänglig i Azure Portal, men [PowerShell-cmdletarna](scheduler-powershell-reference.md) [REST API](/rest/api/scheduler) och Azure Scheduler är tillgängliga just nu så att du kan hantera jobb och jobb samlingar.
 
 ## <a name="job-collection-plans"></a>Jobb samlings planer
 
@@ -32,7 +33,7 @@ I Azure Scheduler innehåller en jobb samling ett särskilt antal jobb. Jobb sam
 | **P20 Premium** | 1000 jobb per samling | En per minut. Det går inte att köra jobb oftare än ett per minut. | Varje Azure-prenumeration kan ha upp till 5 000 P20 Premium-jobb samlingar. <a href="mailto:wapteams@microsoft.com">Kontakta oss</a>om du vill ha fler samlingar. | Åtkomst till fullständig funktions uppsättning i Scheduler |
 |||||| 
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Pris information finns i [priser för schemaläggare](https://azure.microsoft.com/pricing/details/scheduler/).
 
@@ -72,7 +73,7 @@ En P20 Premium-enhet kan ha upp till 5 000 P20 Premium-jobb samlingar. Eftersom 
 
 P20 Premium-jobb samlingar ger samma funktioner som P10 Premium-jobb samlingar, men har även stöd för ett större antal jobb per samling och ett större antal jobb generellt än P10 Premium, vilket ger större skalbarhet.
 
-## <a name="plan-comparison"></a>Jämförelse av avtal
+## <a name="plan-comparison"></a>Planera jämförelse
 
 * Om du har fler än 100 standard jobb samlingar (10 standard fakturerings enheter) kan du få ett bättre avtal genom att ha alla jobb samlingar i en Premium plan.
 
@@ -80,8 +81,7 @@ P20 Premium-jobb samlingar ger samma funktioner som P10 Premium-jobb samlingar, 
 
   Scheduler service faktureras baserat på antalet aktiva jobb samlingar som antingen är standard eller Premium.
 
-## <a name="see-also"></a>Se också
+## <a name="next-steps"></a>Nästa steg
 
-* [Vad är Azure Scheduler?](scheduler-intro.md)
 * [Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler](scheduler-concepts-terms.md)
 * [Gränser, standardinställningar och felkoder i Azure Scheduler](scheduler-limits-defaults-errors.md)

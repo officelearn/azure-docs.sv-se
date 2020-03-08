@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a3ad81091fa93993f71c6d65175e50f6ee216757
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: fd74b3fad7f0b26eff2fdedddae171a1b7297dcd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073469"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898900"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Snabbstart: Skapa en virtuell Windows-dator med Azure CLI
 
-Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten beskriver hur du använder Azure CLI för att distribuera en virtuell dator (VM) i Azure som kör Windows Server 2016. För att se hur den virtuella datorn fungerar i praktiken ansluter du till den med RDP och installerar IIS-webbservern.
+Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten beskriver hur du använder Azure CLI för att distribuera en virtuell dator (VM) i Azure som kör Windows Server 2016. För att sedan se hur den fungerar i praktiken ansluter du till den virtuella datorn med RDP och installerar IIS-webbservern.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -46,16 +46,15 @@ az group create --name myResourceGroup --location eastus
 
 Skapa en virtuell dator med [az vm create](/cli/azure/vm). Följande exempel skapar en virtuell dator med namnet *myVM*. I det här exemplet används *azureuser* för ett administrativt användar namn. 
 
-Du måste ändra värdet för `--admin-password` annars kommer det att Miss förväntas. Ändra det till ett lösen ord som uppfyller [lösen ords kraven för virtuella Azure-datorer](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
-). Användar namnet och lösen ordet kommer att användas senare när du ansluter till den virtuella datorn.
+Du måste ange ett lösen ord som uppfyller [lösen ords kraven för virtuella Azure-datorer](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
+). I exemplet nedan uppmanas du att ange ett lösen ord på kommando raden. Du kan också lägga till parametern `--admin-password` med ett värde för ditt lösen ord. Användar namnet och lösen ordet kommer att användas senare när du ansluter till den virtuella datorn.
 
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --image win2016datacenter \
-    --admin-username azureuser \
-    --admin-password myPassword
+    --admin-username azureuser 
 ```
 
 Det tar några minuter att skapa den virtuella datorn och stödresurser. Utdataresultatet i följande exempel anger att den virtuella datorn har skapats.

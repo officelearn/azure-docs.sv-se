@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 699ee2c2c3b1a90231f24663619cc590aae9889d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: c0d51c9c31e4e6859eaedce371efeafaa5fd4f46
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252070"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78403220"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
@@ -241,7 +241,7 @@ Den tilldelas sedan kan autentisera och komma åt avbildningar i registret.
 
 * Hämta en avbildning:
 
-  ```console
+  ```bash
   docker pull myregistry.azurecr.io/hello-world
   ```
 
@@ -297,28 +297,25 @@ grep OPTIONS /etc/sysconfig/docker
 
 Till exempel har Fedora 28-servern följande Docker daemon-alternativ:
 
-```
-OPTIONS='--selinux-enabled --log-driver=journald --live-restore'
-```
+`OPTIONS='--selinux-enabled --log-driver=journald --live-restore'`
 
 Om `--signature-verification=false` saknas, `docker pull` Miss lyckas med ett fel som liknar:
 
-```bash
+```output
 Trying to pull repository myregistry.azurecr.io/myimage ...
 unauthorized: authentication required
 ```
 
 Så här löser du felet:
 1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker`. Exempel:
-
-  ```
-  OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
-  ```
+   
+   `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
+   
 2. Starta om tjänsten Docker daemon genom att köra följande kommando:
-
-  ```bash
-  sudo systemctl restart docker.service
-  ```
+   
+   ```bash
+   sudo systemctl restart docker.service
+   ```
 
 Information om `--signature-verification` kan hittas genom att köra `man dockerd`.
 
@@ -478,9 +475,7 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 Om du skickar en lokal källmapp till kommandot `az acr build` undantas mappen `.git` från det överförda paketet som standard. Du kan skapa en `.dockerignore`-fil med följande inställning. Den meddelar kommandot att återställa alla filer under `.git` i det överförda paketet. 
 
-```sh
-!.git/**
-```
+`!.git/**`
 
 Den här inställningen gäller även för kommandot `az acr run`.
 

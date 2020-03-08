@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 3487de958df100cd43d4191028d0a15d7007067a
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 7a74635551d8416bf60689b1f1403f29883e81bd
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604993"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851364"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Händelsebaserade arkitekturer utan server med Azure Cosmos DB och Azure Functions
 
@@ -37,7 +37,7 @@ Om du vill implementera ett Server lös händelsebaserat flöde måste du:
 Att skapa en Azure-funktion med en Azure Functions-utlösare för Cosmos DB stöds nu i alla Azure Functions IDE-och CLI-integrationer:
 
 * [Visual Studio-tillägg](../azure-functions/functions-develop-vs.md) för Visual Studio-användare.
-* [Visual Studio Core-tillägg](/azure/javascript/tutorial-vscode-serverless-node-01) för Visual Studio Code-användare.
+* [Visual Studio Code-tillägg](/azure/javascript/tutorial-vscode-serverless-node-01) för Visual Studio Code-användare.
 * Och slutligen [Core CLI-verktyg](../azure-functions/functions-run-local.md#create-func) för en plattforms oberoende IDE oberoende-upplevelse.
 
 ## <a name="run-your-trigger-locally"></a>Kör din utlösare lokalt

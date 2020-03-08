@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: f38f0cec336061c97daa02798e94d98844d76ea2
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 600b0f598c54b5db154fd488aebf26a6fcdc0b1d
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368786"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925671"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Självstudie: skapa en klient i Windows Virtual Desktop
 
@@ -72,7 +72,7 @@ Genom att tilldela en Azure Active Directory användare rollen TenantCreator pro
 
 Så här tilldelar du program rollen TenantCreator:
 
-1. Gå till [Azure Portal](https://portal.azure.com) för att hantera program rollen TenantCreator. Sök efter och välj **företags program**. Om du arbetar med flera Azure Active Directory klienter, är det en bra idé att öppna en privat webbläsarsession och kopiera och klistra in URL: erna i adress fältet.
+1. Gå till [Azure Portal](https://portal.azure.com) för att hantera program rollen TenantCreator. Sök efter och välj **företags program**. Om du arbetar med flera Azure Active Directory klienter, är det en bra idé att öppna en privat webbläsarsession och kopiera och klistra in URL: erna i adress fältet.
 
    ![Skärm bild av sökning efter företags program i Azure Portal](media/azure-portal-enterprise-applications.png)
 2. Sök efter **Windows Virtual Desktop**i **företags program**. Du ser de två program som du tillhandahöll medgivande för i föregående avsnitt. Av dessa två appar väljer du **virtuellt Windows-skrivbord**.

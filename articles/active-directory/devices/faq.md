@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cebb59d30dd717e54321ab138f6580947a545961
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: f5345a96e333e0f75264880ee18a95c9ab8dd63c
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185853"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672296"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Vanliga frågor och svar om Azure Active Directory enhets hantering
 
@@ -25,7 +25,7 @@ ms.locfileid: "77185853"
 ### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>F: Jag registrerade enheten nyligen. Varför kan jag inte se enheten under min användar information i Azure Portal? Eller varför har enhets ägaren marker ATS som ej tillämpligt för Hybrid Azure Active Directory (Azure AD) anslutna enheter?
 
 **A:** Windows 10-enheter som är hybrid Azure AD-anslutna visas inte under **användar enheter**.
-Använd vyn **alla enheter** i Azure Portal. Du kan också använda en PowerShell [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) -cmdlet.
+Använd vyn **alla enheter** i Azure Portal. Du kan också använda en PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) -cmdlet.
 
 Endast följande enheter visas under **användar enheter**:
 
@@ -62,7 +62,7 @@ Endast följande enheter visas under **användar enheter**:
 - Användaren inaktiverar enheten från portalen Mina appar. 
 - En administratör (eller användare) tar bort eller inaktiverar enheten i Azure Portal eller med hjälp av PowerShell
 - Endast ansluten till Azure AD: en administratör tar bort enhets-OU: en utanför Sync-omfånget, vilket innebär att enheterna tas bort från Azure AD
-- Uppgradera Azure AD Connect till version 1.4. xx. x. Att [förstå Azure AD Connect 1.4. xx. x och enheten försvinner](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Uppgradera Azure AD Connect till version 1.4. xx. x. Att [förstå Azure AD Connect 1.4. xx. x och enheten försvinner](/azure/active-directory/hybrid/reference-connect-device-disappearance).
 
 
 Se nedan om hur dessa åtgärder kan korrigeras.
@@ -128,7 +128,7 @@ Se nedan om hur dessa åtgärder kan korrigeras.
 **A:** Det tar upp till en timme för en återkallning att tillämpas från den tidpunkt då Azure AD-enheten markeras som inaktive rad.
 
 >[!NOTE] 
->För registrerade enheter rekommenderar vi att du rensar enheten för att se till att användarna inte har åtkomst till resurserna. Mer information finns i [Vad är enhets registrering?](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>För registrerade enheter rekommenderar vi att du rensar enheten för att se till att användarna inte har åtkomst till resurserna. Mer information finns i [Vad är enhets registrering?](/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 ---
 
@@ -180,13 +180,13 @@ Borttagna eller inaktiverade användare som inte har loggat in tidigare kan inte
 
 ### <a name="q-my-users-cant-search-printers-from-azure-ad-joined-devices-how-can-i-enable-printing-from-those-devices"></a>F: mina användare kan inte söka skrivare från Azure AD-anslutna enheter. Hur kan jag aktivera utskrift från dessa enheter?
 
-**A:** Information om hur du distribuerar skrivare för Azure AD-anslutna enheter finns i [distribuera Windows Server Hybrid Cloud Print med förautentisering](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Du behöver en lokal Windows Server för att distribuera hybrid moln utskrift. Den molnbaserade utskrifts tjänsten är för närvarande inte tillgänglig. 
+**A:** Information om hur du distribuerar skrivare för Azure AD-anslutna enheter finns i [distribuera Windows Server Hybrid Cloud Print med förautentisering](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Du behöver en lokal Windows Server för att distribuera hybrid moln utskrift. Den molnbaserade utskrifts tjänsten är för närvarande inte tillgänglig. 
 
 ---
 
 ### <a name="q-how-do-i-connect-to-a-remote-azure-ad-joined-device"></a>F: Hur gör jag för att ansluta till en fjärran sluten Azure AD-enhet?
 
-**A:** Se [ansluta till en fjärransluten Azure Active Directory-ansluten dator](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc).
+**A:** Se [ansluta till en fjärransluten Azure Active Directory-ansluten dator](/windows/client-management/connect-to-remote-aadj-pc).
 
 ---
 
@@ -220,7 +220,7 @@ Detta beteende:
 
 ### <a name="q-why-do-i-see-the-oops-an-error-occurred-dialog-when-i-try-to-azure-ad-join-my-pc"></a>F: Varför visas *Hoppsan... ett fel uppstod!* dialog ruta när jag försöker att ansluta till Azure AD till min dator?
 
-**A:** Det här felet uppstår när du konfigurerar Azure Active Directory-registrering med Intune. Kontrol lera att den användare som försöker använda Azure AD Join har rätt Intune-licens tilldelad. Mer information finns i [Konfigurera registrering för Windows-enheter](https://docs.microsoft.com/intune/windows-enroll).  
+**A:** Det här felet uppstår när du konfigurerar Azure Active Directory-registrering med Intune. Kontrol lera att den användare som försöker använda Azure AD Join har rätt Intune-licens tilldelad. Mer information finns i [Konfigurera registrering för Windows-enheter](/intune/windows-enroll).  
 
 ---
 
@@ -307,7 +307,7 @@ Hybrid Azure AD Join prioriteras över Azure AD-registrerat tillstånd. Enheten 
 
 **A:** Utför följande steg:
 
-1.  [Skapa en policy för efterlevnad](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+1.  [Skapa en policy för efterlevnad](/intune/compliance-policy-create-mac-os)
 1.  [Definiera en princip för villkorlig åtkomst för macOS-enheter](../active-directory-conditional-access-azure-portal.md) 
 
 **!**

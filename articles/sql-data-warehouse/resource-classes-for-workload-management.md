@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c94b2a755d85bdf425980574b63d8fd74a232b19
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 97c5bf0c7bdf036a0555e8d536b5421d739327ad
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195999"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668825"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Arbets belastnings hantering med resurs klasser i Azure Synapse Analytics
 
@@ -73,7 +73,7 @@ Minnes tilldelningen för varje resurs klass är följande.
 | DW200c         | 12,5%             | 12,5%                  | 22.2                    | 70%                    |
 | DW300c         | 7,8                | 10                    | 22.2                    | 70%                    |
 | DW400c         | 6,25%             | 10                    | 22.2                    | 70%                    |
-| DW500c         | tjugo               | 10                    | 22.2                    | 70%                    |
+| DW500c         | 5                | 10                    | 22.2                    | 70%                    |
 | DW1000c till<br> DW30000c | 3       | 10                    | 22.2                    | 70%                    |
 
 

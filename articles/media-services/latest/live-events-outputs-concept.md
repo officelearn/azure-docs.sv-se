@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: juliako
-ms.openlocfilehash: e3937241724aab63f770ad56cbf96d2e1b45f00e
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 96b3e602011f4d3f237f29ce9b2fcad8bd0b8300
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251360"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395060"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Live-händelser och Live-utdata i Media Services
 
@@ -89,7 +89,7 @@ När du skapar en Live-händelse kan du ange följande alternativ:
 * Max namnet för Live-händelser är 32 tecken.
 * Namnet ska följa detta [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) -mönster: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
-Se även [namn konventioner för strömnings slut punkter](streaming-endpoint-concept.md#naming-convention).
+Se även [namn konventioner för direkt uppspelnings slut punkter](streaming-endpoint-concept.md#naming-convention).
 
 > [!TIP]
 > För att garantera att ditt live-evenemang är unikt kan du generera ett GUID och sedan ta bort alla bindestreck och klammerparenteser (om det finns några). Strängen blir unik för alla Live-händelser och dess längd garanterar att den är 32.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: cc4ead968a0ee2c9890c1cd24a6b70516b2b2e74
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: b5ee7f60eab0349378767473c9c80f035a65c9a5
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326789"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668541"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Redigera en kunskapsbas i QnA Maker
 
@@ -42,8 +42,8 @@ QnA Maker kan du hantera innehållet i kunskapsbasen genom att tillhandahålla e
     |Ta bort URL|Du kan ta bort befintliga webbadresser genom att välja ikonen Ta bort, kan Papperskorgen.|
     |Uppdatera innehåll|Om du vill att din kunskaps bas ska crawla det senaste innehållet i befintliga webb adresser markerar du kryss rutan **Uppdatera** . Detta uppdaterar kunskaps basen med senaste URL-innehåll en gång. Detta ställer inte in ett regelbundet uppdaterings schema.|
     |Lägg till fil|Du kan lägga till ett fil dokument som stöds som en del av en kunskaps bas genom att välja **Hantera kunskaps bas**och sedan välja **+ Lägg till fil**|
-    |Importera|Du kan också importera en befintlig kunskaps bas genom att välja **Ímport Knowledge Base** -knapp. |
-    |Uppdatering|Uppdatering av kunskaps basen beror på vilken **hanterings pris nivå** som används när du skapar QNA Maker tjänst som är kopplad till din kunskaps bas. Du kan också uppdatera hanteringsnivån från Azure-portalen om det behövs.
+    |Importera|Du kan också importera en befintlig kunskaps bas genom att välja knappen **Importera kunskaps bas** . |
+    |Uppdatera|Uppdatering av kunskaps basen beror på vilken **hanterings pris nivå** som används när du skapar QNA Maker tjänst som är kopplad till din kunskaps bas. Du kan också uppdatera hanteringsnivån från Azure-portalen om det behövs.
 
 1. När du är klar med att göra ändringar i kunskaps basen väljer du **Spara och träna** i det övre högra hörnet på sidan för att spara ändringarna.    
 

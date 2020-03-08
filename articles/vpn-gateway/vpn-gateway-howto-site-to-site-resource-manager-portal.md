@@ -6,21 +6,21 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2e6aeda0e84b11221af110bda738d6d93f258978
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 857b50a04466f43a25cf80d7930cfb4639dc9d65
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894996"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391135"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Skapa en plats-till-plats-anslutning på Azure Portal
 
 Den här artikeln visar hur du kan använda Azure Portal för att skapa en VPN-gatewayanslutning från plats till plats från ditt lokala nätverk till det virtuella nätverket. Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmodellen. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -51,7 +51,7 @@ Vi använder följande värden i exemplen. Du kan använda värdena till att ska
 * **Undernät:** FrontEnd (klientdel): 10.1.0.0/24, BackEnd (serverdel): 10.1.1.0/24 (valfritt för den här övningen)
 * **Adress intervall för Gateway-under nätet:** 10.1.255.0/27
 * **Namn på virtuell nätverksgateway:** VNet1GW
-* **Namn på offentlig IP-adress:** VNet1GWIP
+* **Namn på offentlig IP-adress:** VNet1GWpip
 * **Typ av VPN:** Routningsbaserad
 * **Anslutnings typ:** Plats-till-plats (IPsec)
 * **Typ av gateway:** VPN
@@ -61,7 +61,7 @@ Vi använder följande värden i exemplen. Du kan använda värdena till att ska
 
 ## <a name="CreatVNet"></a>1. skapa ett virtuellt nätverk
 
-[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-create-virtual-network-portal-include.md)]
+[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="VNetGateway"></a>2. Skapa VPN-gatewayen
 
@@ -77,7 +77,7 @@ I det här steget ska du skapa den virtuella nätverksgatewayen för ditt virtue
 * **Instans information > Gateway-typ:** Konfigurera
 * **Instans information > VPN-typ:** Route-baserad
 * **Adress intervall för Virtual Network > Gateway-undernät:** 10.1.255.0/27
-* **Offentlig IP-adress > offentliga IP-adress namn:** VNet1GWIP
+* **Offentlig IP-adress > offentliga IP-adress namn:** VNet1GWpip
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
@@ -92,7 +92,7 @@ Den lokala nätverksgatewayen avser vanligtvis din lokala plats. Du namnger webb
 
 * **Namn:** Site1
 * **Resursgrupp:** TestRG1
-* **Plats:** Östra USA
+* **Plats:** USA, östra
 
 
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]

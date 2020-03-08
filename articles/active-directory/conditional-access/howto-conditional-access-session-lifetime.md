@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb094d04a7210d76a98f3e47af750e49b617e493
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6e9c0c88064c00c97de7dc58a500910e81c04eef
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77195070"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671893"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurera hantering av autentisering med villkorlig åtkomst
 
@@ -37,7 +37,7 @@ Inloggnings frekvensen definierar den tids period innan en användare uppmanas a
 
 Standard konfigurationen av Azure Active Directory (Azure AD) för användar inloggnings frekvens är ett rullande fönster på 90 dagar. Att be användare om autentiseringsuppgifter verkar ofta vara lämpligat att göra, men det kan vara refire: användare som har tränats att ange sina autentiseringsuppgifter utan att fundera på att oavsiktligt ange dem till en fråga om obehöriga autentiseringsuppgifter.
 
-Det kan bero på att användaren inte behöver be om en användare att logga in igen, i verkligheten att en överträdelse av IT-principerna återkallar sessionen. Några exempel är (men är inte begränsade till) en lösen ords ändring, en inkompatibel enhet eller inaktivt konto. Du kan även uttryckligen [återkalla användarnas sessioner med hjälp av PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Standard konfigurationen för Azure AD kommer inte att be användarna att ange sina autentiseringsuppgifter om säkerhets position inte har ändrats i sina sessioner.
+Det kan bero på att användaren inte behöver be om en användare att logga in igen, i verkligheten att en överträdelse av IT-principerna återkallar sessionen. Några exempel är (men är inte begränsade till) en lösen ords ändring, en inkompatibel enhet eller inaktivt konto. Du kan även uttryckligen [återkalla användarnas sessioner med hjälp av PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Standard konfigurationen för Azure AD kommer inte att be användarna att ange sina autentiseringsuppgifter om säkerhets position inte har ändrats i sina sessioner.
 
 Inställningen för inloggnings frekvens fungerar med appar som har implementerat OAUTH2-eller OIDC-protokoll enligt standarderna. De flesta inbyggda Microsoft-appar för Windows, Mac och Mobile, inklusive följande webb program, följer inställningen.
 
@@ -49,7 +49,7 @@ Inställningen för inloggnings frekvens fungerar med appar som har implementera
 - SharePoint och OneDrive
 - Team webb klient
 - Dynamics CRM Online
-- Azure-portalen
+- Azure Portal
 
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Användar inloggnings frekvens och enhets identiteter
 
@@ -72,7 +72,7 @@ Exempel 2:
 
 Med en beständig webbläsarsession kan användarna vara inloggade när de har stängt och öppnat sina webbläsarfönster igen.
 
-Med Azure AD-beständighet för webbläsarsessionen kan användare på personliga enheter välja om de vill spara sessionen genom att visa en "förbli inloggad?" prompt efter slutförd autentisering. Om webb läsar persisten har kon figurer ATS i AD FS med hjälp av vägledningen i artikeln [AD FS inställningar för enkel inloggning](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+Med Azure AD-beständighet för webbläsarsessionen kan användare på personliga enheter välja om de vill spara sessionen genom att visa en "förbli inloggad?" prompt efter slutförd autentisering. Om webb läsar persisten har kon figurer ATS i AD FS med hjälp av vägledningen i artikeln [AD FS inställningar för enkel inloggning](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
 ), kommer vi att följa principen och även behålla Azure AD-sessionen. Du kan också konfigurera om användare i din klient organisation ska se "förbli inloggad?" genom att ändra lämplig inställning i rutan för företags anpassning i Azure Portal att använda vägledningen i artikeln [Anpassa din inloggnings sida för Azure AD](../fundamentals/customize-branding.md).
 
 ## <a name="configuring-authentication-session-controls"></a>Konfigurera kontroller för autentisering av sessionen

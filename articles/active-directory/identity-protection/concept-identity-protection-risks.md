@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c169c1eb6511cb05a7b46320b74ae293834cca86
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: c9815ff08296b38c39e732c08619042659504462
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609153"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78893127"
 ---
 # <a name="what-is-risk"></a>Vad är risk?
 
@@ -30,18 +30,18 @@ Identitets skydd ger organisationer till gång till kraftfulla resurser för att
 
 Det finns två typer av risk **användare** och **inloggning** och två typer av identifiering eller beräkning i **real tid** och **offline**.
 
-### <a name="user-risk"></a>Användar risk
+### <a name="user-risk"></a>Användar risk '
 
 En användar risk representerar sannolikheten att en specifik identitet eller ett konto har komprometterats. 
 
 Dessa risker beräknas offline med Microsofts interna och externa hot informations källor, inklusive säkerhets forskare, lag verk ställande personal, säkerhets team på Microsoft och andra betrodda källor.
-
-| Identifiering av risker | Beskrivning |
+''
+| Identifiering av risker | Descript'on |
 | --- | --- |
 | Läckta autentiseringsuppgifter | Den här typen av risk identifiering anger att användarens giltiga autentiseringsuppgifter har läckts. När cyberbrottslingar kompromettera giltiga lösen ord för legitima användare delar de ofta dessa autentiseringsuppgifter. Den här delningen görs vanligt vis genom att publicera offentligt på den mörka webbplatsen, klistra in webbplatser eller genom handel och sälja autentiseringsuppgifterna på den svarta marknaden. När tjänsten Microsoft läcker autentiseringsuppgifter hämtar användarautentiseringsuppgifter från den mörka webben, klistra in webbplatser eller andra källor, kontrol leras de mot Azure AD-användares aktuella giltiga autentiseringsuppgifter för att hitta giltiga matchningar. |
 | Azure AD Threat Intelligence | Den här typen av risk identifiering indikerar användar aktivitet som är ovanlig för den aktuella användaren eller som är konsekvent med kända angrepps mönster baserade på Microsofts interna och externa hot informations källor. |
 
-### <a name="sign-in-risk"></a>Inloggningsrisk
+### <a name="sign-in-risk"></a>Inloggnings risk
 
 En inloggnings risk representerar sannolikheten att en begäran om autentisering inte har behörighet av identitets ägaren. 
 
@@ -55,8 +55,8 @@ Dessa risker kan beräknas i real tid eller beräknas offline med hjälp av Micr
 | Okända inloggnings egenskaper | Real tids | Den här typen av risk identifiering förväntar sig tidigare inloggnings historik (IP, latitud/longitud och ASN) för att söka efter avvikande inloggningar. Systemet lagrar information om tidigare platser som används av en användare och betraktar dessa "välkända" platser. Identifieringen av risker utlöses när inloggningen sker från en plats som inte redan finns i listan över välbekanta platser. Nyskapade användare är i "inlärnings läge" under en tids period då okända inloggnings egenskaper risk identifieringar kommer att inaktive ras medan algoritmerna lär sig användarens beteende. Varaktigheten för utbildnings läge är dynamisk och beror på hur lång tid det tar för algoritmen att samla in tillräckligt med information om användarens inloggnings mönster. Den minsta varaktigheten är fem dagar. En användare kan gå tillbaka till inlärnings läget efter en lång tids inaktivitet. Systemet ignorerar också inloggningar från välbekanta enheter och platser som är geografiskt nära en bekant plats. <br><br> Vi kör även den här identifieringen för grundläggande autentisering (eller äldre protokoll). Eftersom dessa protokoll inte har moderna egenskaper, t. ex. klient-ID, finns det begränsad telemetri för att minska antalet falska positiva identifieringar. Vi rekommenderar våra kunder att gå över till modern autentisering. |
 | Administratören bekräftade att användaren har komprometterats | Offline | Den här identifieringen anger att en administratör har valt "bekräfta användare som har komprometterats" i användar gränssnittet för riskfyllda användare eller med riskyUsers-API. Om du vill se vilken administratör som har bekräftat att den här användaren har fått problem, kontrollerar du användarens risk historik (via UI eller API). |
 | Skadlig IP-adress | Offline | Den här identifieringen indikerar inloggning från en skadlig IP-adress. En IP-adress betraktas som skadlig baserat på hög fel frekvens på grund av ogiltiga autentiseringsuppgifter som tagits emot från IP-adressen eller andra IP-ryktes källor. |
-| Ändrings regler för misstänkt inkorg | Offline | Den här identifieringen upptäcks av [Microsoft Cloud App Security (MCAS)](https://docs.microsoft.com/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). Den här identifieringen Profilerar din miljö och utlöser varningar när misstänkta regler som tar bort eller flyttar meddelanden eller mappar är inställda på användarens inkorg. Detta kan tyda på att användarens konto komprometteras så att meddelanden är dolda avsiktligt och att postlådan används för att distribuera skräppost eller skadlig kod i din organisation. |
-| Omöjlig resa | Offline | Den här identifieringen upptäcks av [Microsoft Cloud App Security (MCAS)](https://docs.microsoft.com/cloud-app-security/anomaly-detection-policy#impossible-travel). Den här identifieringen identifierar två användaraktiviteter (är en eller flera sessioner) kommer från geografiskt avlägsna platser inom en tidsperiod som är kortare än tid det skulle ha tagit reser från den första platsen till den andra, som anger att användaren att en annan användare använder samma autentiseringsuppgifter. |
+| Ändrings regler för misstänkt inkorg | Offline | Den här identifieringen upptäcks av [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). Den här identifieringen Profilerar din miljö och utlöser varningar när misstänkta regler som tar bort eller flyttar meddelanden eller mappar är inställda på användarens inkorg. Detta kan tyda på att användarens konto har komprometterats, att meddelanden avsiktligt döljs och att post lådan används för att distribuera skräp post eller skadlig kod i din organisation. |
+| Omöjlig resa | Offline | Den här identifieringen upptäcks av [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#impossible-travel). Den här identifieringen identifierar två användaraktiviteter (är en eller flera sessioner) kommer från geografiskt avlägsna platser inom en tidsperiod som är kortare än tid det skulle ha tagit reser från den första platsen till den andra, som anger att användaren att en annan användare använder samma autentiseringsuppgifter. |
 
 ### <a name="other-risk-detections"></a>Andra risk identifieringar
 
@@ -68,4 +68,4 @@ Dessa risker kan beräknas i real tid eller beräknas offline med hjälp av Micr
 
 - [Principer som är tillgängliga för att minimera risker](concept-identity-protection-policies.md)
 
-- [Säkerhetsöversikt](concept-identity-protection-security-overview.md)
+- [Säkerhets översikt](concept-identity-protection-security-overview.md) ""'

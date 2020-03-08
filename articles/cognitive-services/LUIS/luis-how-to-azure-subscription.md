@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 876026b5399631728331c4a9e67482a34f9d0b2d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a5140da32eb6fce03131a42bfa90e71e64552431
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225562"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668850"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>Använda resurs nycklar för redigering och körning
 
@@ -61,7 +61,7 @@ När du är redo att publicera din förutsägelse slut punkt skapar du och tilld
     |Namn|Syfte|
     |--|--|
     |Resursnamn| Ett anpassat namn som du väljer, används som en del av URL: en för dina redigerings-och förutsägelse slut punkts frågor.|
-    |Prenumerations namn| den prenumeration som ska faktureras för resursen.|
+    |Prenumerationens namn| den prenumeration som ska faktureras för resursen.|
     |Resursgrupp| Ett namn på en anpassad resurs grupp som du väljer eller skapar. Med resurs grupper kan du gruppera Azure-resurser för åtkomst och hantering i samma region.|
     |Redigerings plats|Den region som är associerad med din modell.|
     |Redigera pris nivå|Pris nivån avgör den högsta transaktionen per sekund och månad.|
@@ -81,7 +81,7 @@ Resurs `kind`:
 
 1. Logga in på Azure CLI:
 
-    ```console
+    ```azurecli
     az login
     ```
 
@@ -89,13 +89,13 @@ Resurs `kind`:
 
 1. Skapa en **Luis Authoring-resurs**, av typen `LUIS.Authoring`, med namnet `my-luis-authoring-resource` i den _befintliga_ resurs gruppen med namnet `my-resource-group` för `westus` region. 
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
 1. Skapa en **Luis förutsägelse slut punkts resurs**av typen `LUIS`med namnet `my-luis-prediction-resource` i den _befintliga_ resurs gruppen med namnet `my-resource-group` för `westus` region. Om du vill ha ett högre data flöde än den kostnads fria nivån ändrar du `F0` till `S0`. Läs mer om [pris nivåer och data flöde](luis-boundaries.md#key-limits).
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 

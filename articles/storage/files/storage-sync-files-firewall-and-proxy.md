@@ -8,11 +8,11 @@ ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: dcf6160c3650975431bf50fcf5bcba67f833a717
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750449"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381226"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure File Sync ansluter dina lokala servrar till Azure Files, vilket möjliggör synkronisering av flera platser och moln nivåer. En lokal server måste därför vara ansluten till Internet. En IT-administratör måste bestämma den bästa sökvägen för att servern ska kunna komma åt Azure Cloud Services.
@@ -94,8 +94,8 @@ I följande tabell beskrivs de domäner som krävs för kommunikation:
 | **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | Alla användar anrop (som PowerShell) går till/via denna URL, inklusive det första server registrerings anropet. |
 | **Azure Active Directory** | https://login.windows.net<br>https://login.microsoftonline.com | https://login.microsoftonline.us | Azure Resource Manager-anrop måste göras av en autentiserad användare. För att lyckas används den här URL: en för användarautentisering. |
 | **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Som en del av distributionen Azure File Sync skapas ett huvud namn för tjänsten i prenumerationens Azure Active Directory. Den här URL: en används för det. Den här huvud gruppen används för att delegera en minimal uppsättning rättigheter till tjänsten Azure File Sync. Användaren som utför den första installationen av Azure File Sync måste vara en autentiserad användare med prenumerations ägarens behörigheter. |
-| **Azure Storage** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | När servern laddar ned en fil utför servern den data flyttningen mer effektivt när den pratar direkt till Azure-filresursen i lagrings kontot. Servern har en SAS-nyckel som endast tillåter åtkomst till riktad fil resurs. |
-| **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;. afs.azure.net | &ast;.afs.azure.us | Efter den första server registreringen får servern en regional URL för den Azure File Sync tjänst instansen i den regionen. Servern kan använda URL: en för att kommunicera direkt och effektivt med den instans som hanterar synkroniseringen. |
+| **Azure Storage** | &ast;. core.windows.net | &ast;. core.usgovcloudapi.net | När servern laddar ned en fil utför servern den data flyttningen mer effektivt när den pratar direkt till Azure-filresursen i lagrings kontot. Servern har en SAS-nyckel som endast tillåter åtkomst till riktad fil resurs. |
+| **Azure File Sync** | &ast;. one.microsoft.com<br>&ast;. afs.azure.net | &ast;. afs.azure.us | Efter den första server registreringen får servern en regional URL för den Azure File Sync tjänst instansen i den regionen. Servern kan använda URL: en för att kommunicera direkt och effektivt med den instans som hanterar synkroniseringen. |
 | **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | När Azure File Sync-agenten har installerats används PKI-URL: en för att hämta mellanliggande certifikat som krävs för att kommunicera med Azure File Sync-tjänsten och Azure-filresursen. OCSP-URL: en används för att kontrol lera status för ett certifikat. |
 
 > [!Important]
@@ -105,7 +105,7 @@ Om &ast;. one.microsoft.com är för bred kan du begränsa serverns kommunikatio
 
 För affärs kontinuitet och haveri beredskap (BCDR) kan du ha angett Azure-filresurser i ett globalt redundant (GRS) lagrings konto. Om så är fallet växlar Azure-filresurserna över till den kopplade regionen vid ett varaktigt regionalt avbrott. Azure File Sync använder samma regionala par som lagring. Så om du använder GRS lagrings konton måste du aktivera ytterligare URL: er så att servern kan kommunicera med den kopplade regionen för Azure File Sync. Tabellen nedan anropar denna "parad region". Det finns dessutom en Traffic Manager-profils-URL som måste aktive ras. Detta säkerställer att nätverks trafiken kan dirigeras sömlöst till den kopplade regionen i händelse av redundans och kallas "identifierings-URL" i tabellen nedan.
 
-| I molnet  | Region | Primär slut punkts-URL | Länkad region | URL för identifiering |
+| Molnet  | Region | Primär slut punkts-URL | Länkad region | URL för identifiering |
 |--------|--------|----------------------|---------------|---------------|
 | Offentlig |Australien, östra | https:\//kailani-aue.one.microsoft.com | Australien, sydöstra | https:\//tm-kailani-aue.one.microsoft.com |
 | Offentlig |Australien, sydöstra | https:\//kailani-aus.one.microsoft.com | Australien, östra | https:\//tm-kailani-aus.one.microsoft.com |
@@ -132,8 +132,8 @@ För affärs kontinuitet och haveri beredskap (BCDR) kan du ha angett Azure-filr
 | Offentlig | Europa, västra | https:\//kailani6.one.microsoft.com | Europa, norra | https:\//tm-kailani6.one.microsoft.com |
 | Offentlig | USA, västra | https:\//kailani.one.microsoft.com | USA, östra | https:\//tm-kailani.one.microsoft.com |
 | Offentlig | USA, västra 2 | https:\//westus201.afs.azure.net | USA, västra centrala | https:\//tm-westus201.afs.azure.net |
-| Myndigheter | US Gov, Arizona | https:\//usgovarizona01.afs.azure.us | US Gov, Texas | https:\//tm-usgovarizona01.afs.azure.us |
-| Myndigheter | US Gov, Texas | https:\//usgovtexas01.afs.azure.us | US Gov, Arizona | https:\//tm-usgovtexas01.afs.azure.us |
+| Government | US Gov, Arizona | https:\//usgovarizona01.afs.azure.us | US Gov, Texas | https:\//tm-usgovarizona01.afs.azure.us |
+| Government | US Gov, Texas | https:\//usgovtexas01.afs.azure.us | US Gov, Arizona | https:\//tm-usgovtexas01.afs.azure.us |
 
 - Om du använder lokalt redundant (LRS) eller zon redundant lagrings konto (ZRS) behöver du bara aktivera URL: en som anges under "primär slut punkts-URL".
 

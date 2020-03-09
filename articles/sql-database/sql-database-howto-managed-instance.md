@@ -12,11 +12,11 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
 ms.openlocfilehash: 906ae2a970ce1d5b82302d0277ca45bd93c23011
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811203"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357618"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Så här använder du en hanterad instans i Azure SQL Database
 
@@ -32,7 +32,7 @@ I den här artikeln kan du hitta olika guider, skript och förklaringar som kan 
 
 - [Bestäm storleken på under nätet för hanterade instanser](sql-database-managed-instance-determine-size-vnet-subnet.md) – den hanterade instansen placeras i ett dedikerat undernät som inte kan ändras när du lägger till resurserna i. Därför måste du beräkna vilka IP-adressintervall som krävs för under nätet beroende på antalet och typerna av instanser som du vill distribuera i under nätet.
 - [Skapa nytt VNet och undernät för en hanterad instans](sql-database-managed-instance-create-vnet-subnet.md) – Azure VNet och undernät där du vill distribuera dina hanterade instanser måste konfigureras enligt de [nätverks krav som beskrivs här](sql-database-managed-instance-connectivity-architecture.md#network-requirements). I den här guiden hittar du det enklaste sättet att skapa ditt nya VNet och undernät korrekt konfigurerat för hanterade instanser.
-- [Konfigurera befintligt VNet och undernät för en hanterad instans](sql-database-managed-instance-configure-vnet-subnet.md) – om du vill konfigurera ditt befintliga VNet och undernät för att distribuera hanterade instanser i, hittar du det skript som kontrollerar [nätverks kraven](sql-database-managed-instance-connectivity-architecture.md#network-requirements) och konfigurerar undernät enligt kraven.
+- [Konfigurera befintligt VNet och undernät för en hanterad instans](sql-database-managed-instance-configure-vnet-subnet.md) – om du vill konfigurera ditt befintliga VNet och undernät för att distribuera hanterade instanser i, kan du hitta det skript som kontrollerar [nätverks kraven](sql-database-managed-instance-connectivity-architecture.md#network-requirements) och konfigurera ditt undernät enligt kraven.
 - [Konfigurera anpassad DNS](sql-database-managed-instance-custom-dns.md) – du måste konfigurera anpassad DNS om du vill komma åt externa resurser på de anpassade domänerna från den hanterade instansen via länkad server för DB mail-profiler.
 - [Synkronisera nätverks konfiguration](sql-database-managed-instance-sync-network-configuration.md) – det kan hända att även om du [integrerar din app med en Azure](../app-service/web-sites-integrate-with-vnet.md)-Virtual Network&#39;kan du skapa en anslutning till en hanterad instans. En sak som du kan prova är att uppdatera nätverks konfigurationen för din tjänst plan.
 - [Hitta hanterings slut punktens IP-adress](sql-database-managed-instance-find-management-endpoint-ip-address.md) – hanterad instans använder offentlig slut punkt för hanterings ändamål. Du kan fastställa IP-adressen för hanterings slut punkten med hjälp av skriptet som beskrivs här.

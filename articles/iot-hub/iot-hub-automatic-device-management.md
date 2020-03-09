@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: chrisgre
 ms.openlocfilehash: 75c6b7d89e7ae540e7428afde127281aa3f15fc6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429340"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386091"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Automatisk hantering av IoT-enheter och-modulen med hjälp av Azure Portal
 
@@ -54,7 +54,7 @@ Innan du skapar en konfiguration måste du ange vilka enheter eller moduler som 
 
 ## <a name="create-a-configuration"></a>Skapa en konfiguration
 
-1. I den [Azure-portalen](https://portal.azure.com)går du till din IoT-hubb. 
+1. I [Azure Portal](https://portal.azure.com)går du till din IoT-hubb. 
 
 2. Välj **IoT-enhetens konfiguration**.
 
@@ -66,7 +66,7 @@ Det finns fem steg för att skapa en konfiguration. I följande avsnitt beskrive
 
 ### <a name="name-and-label"></a>Namn och etikett
 
-1. Ge konfigurationen ett unikt namn som är upp till 128 gemener. Undvika blanksteg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`.
+1. Ge konfigurationen ett unikt namn som är upp till 128 gemener. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`.
 
 2. Lägg till etiketter som hjälper dig att spåra dina konfigurationer. Etiketter är **namn**, **värdepar** som beskriver konfigurationen. Exempel: `HostPlatform, Linux` eller `Version, 3.0.1`.
 
@@ -106,7 +106,7 @@ Varje konfiguration kan ha upp till fem anpassade mått.
 
 2. Ange en fråga för **mått villkor**.  Frågan baseras på enhetens dubbla rapporterade egenskaper.  Måttet representerar antalet rader som returneras av frågan.
 
-Ett exempel:
+Exempel:
 
 ```sql
 SELECT deviceId FROM devices 
@@ -121,7 +121,7 @@ SELECT deviceId FROM devices
   WHERE configurations.[[yourconfigname]].status='Applied'
 ```
 
-Om du skapar ett mått för att rapportera om konfigurerade moduler väljer du `moduleId` från `devices.modules`. Ett exempel:
+Om du skapar ett mått för att rapportera om konfigurerade moduler väljer du `moduleId` från `devices.modules`. Exempel:
 
 ```sql
 SELECT deviceId, moduleId FROM devices.modules
@@ -144,7 +144,7 @@ Eftersom flera konfigurationer kan vara riktade till samma enhet eller modul, be
    
    För automatisk konfiguration av module använder du en fråga för att ange taggar eller rapporterade egenskaper från modulerna som är registrerade i IoT Hub. Exempel: `from devices.modules where tags.environment='test'` eller `from devices.modules where properties.reported.chillerProperties.model='4000x'`. Jokertecken kan inte användas för att rikta alla moduler. 
 
-3. Välj **nästa** att gå vidare till det sista steget.
+3. Välj **Nästa** för att gå vidare till det sista steget.
 
 ### <a name="review-configuration"></a>Granska konfigurationen
 
@@ -154,7 +154,7 @@ Granska konfigurations informationen och välj sedan **Skicka**.
 
 Använd följande steg för att visa information om en konfiguration och övervaka de enheter som kör den:
 
-1. I den [Azure-portalen](https://portal.azure.com)går du till din IoT-hubb. 
+1. I [Azure Portal](https://portal.azure.com)går du till din IoT-hubb. 
 
 2. Välj **IoT-enhetens konfiguration**.
 
@@ -198,7 +198,7 @@ Om du uppdaterar målvillkoret, inträffar följande uppdateringar:
 
 Använd följande steg för att ändra en konfiguration: 
 
-1. I den [Azure-portalen](https://portal.azure.com)går du till din IoT-hubb. 
+1. I [Azure Portal](https://portal.azure.com)går du till din IoT-hubb. 
 
 2. Välj **IoT-enhetens konfiguration**. 
 
@@ -219,7 +219,7 @@ Använd följande steg för att ändra en konfiguration:
 
 När du tar bort en konfiguration tar alla enheter med den näst högsta prioritets konfigurationen. Om enheten är flätad inte uppfyller mål villkoret för någon annan konfiguration, tillämpas inga andra inställningar. 
 
-1. I den [Azure-portalen](https://portal.azure.com)går du till din IoT-hubb. 
+1. I [Azure Portal](https://portal.azure.com)går du till din IoT-hubb. 
 
 2. Välj **IoT-enhetens konfiguration**. 
 

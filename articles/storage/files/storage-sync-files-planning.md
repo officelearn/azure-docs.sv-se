@@ -8,11 +8,11 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598263"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362420"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 [Azure Files](storage-files-introduction.md) kan distribueras på två huvudsakliga sätt: genom att montera Server lös Azure-filresurser direkt eller genom att cachelagra Azure-filresurser lokalt med hjälp av Azure File Sync. Vilket distributions alternativ du väljer ändrar de saker du behöver tänka på när du planerar för distributionen. 
@@ -290,37 +290,37 @@ Azure File Sync är tillgängligt i följande regioner:
 
 | Azure-moln | Geografisk region | Azure-region | Regions kod |
 |-------------|-------------------|--------------|-------------|
-| Offentligt | Asien | Asien, östra | `eastasia` |
-| Offentligt | Asien | Sydostasien | `southeastasia` |
-| Offentligt | Australien | Australien, östra | `australiaeast` |
-| Offentligt | Australien | Australien, sydöstra | `australiasoutheast` |
-| Offentligt | Brasilien | Brasilien, södra | `brazilsouth` |
-| Offentligt | Kanada | Kanada, centrala | `canadacentral` |
-| Offentligt | Kanada | Kanada, östra | `canadaeast` |
-| Offentligt | Europa | Europa, norra | `northeurope` |
-| Offentligt | Europa | Europa, västra | `westeurope` |
-| Offentligt | Frankrike | Frankrike, centrala | `francecentral` |
-| Offentligt | Frankrike | Frankrike, södra * | `francesouth` |
-| Offentligt | Indien | Indien, centrala | `centralindia` |
-| Offentligt | Indien | Indien, södra | `southindia` |
-| Offentligt | Japan | Japan, östra | `japaneast` |
-| Offentligt | Japan | Japan, västra | `japanwest` |
-| Offentligt | Korea | Sydkorea, centrala | `koreacentral` |
-| Offentligt | Korea | Sydkorea, södra | `koreasouth` |
-| Offentligt | Sydafrika | Sydafrika, norra | `southafricanorth` |
-| Offentligt | Sydafrika | Södra Afrika, västra * | `southafricawest` |
-| Offentligt | UAE | Förenade Arabemiraten Central * | `uaecentral` |
-| Offentligt | UAE | Förenade Arabemiraten, norra | `uaenorth` |
-| Offentligt | Storbritannien | Storbritannien, södra | `uksouth` |
-| Offentligt | Storbritannien | Storbritannien, västra | `ukwest` |
-| Offentligt | USA | USA, centrala | `centralus` |
-| Offentligt | USA | USA, östra | `eastus` |
-| Offentligt | USA | USA, östra 2 | `eastus2` |
-| Offentligt | USA | USA, norra centrala | `northcentralus` |
-| Offentligt | USA | USA, södra centrala | `southcentralus` |
-| Offentligt | USA | USA, västra centrala | `westcentralus` |
-| Offentligt | USA | USA, västra | `westus` |
-| Offentligt | USA | USA, västra 2 | `westus2` |
+| Offentlig | Asien | Asien, östra | `eastasia` |
+| Offentlig | Asien | Sydostasien | `southeastasia` |
+| Offentlig | Australien | Australien, östra | `australiaeast` |
+| Offentlig | Australien | Australien, sydöstra | `australiasoutheast` |
+| Offentlig | Brasilien | Brasilien, södra | `brazilsouth` |
+| Offentlig | Kanada | Kanada, centrala | `canadacentral` |
+| Offentlig | Kanada | Kanada, östra | `canadaeast` |
+| Offentlig | Europa | Europa, norra | `northeurope` |
+| Offentlig | Europa | Europa, västra | `westeurope` |
+| Offentlig | Frankrike | Frankrike, centrala | `francecentral` |
+| Offentlig | Frankrike | Frankrike, södra * | `francesouth` |
+| Offentlig | Indien | Indien, centrala | `centralindia` |
+| Offentlig | Indien | Indien, södra | `southindia` |
+| Offentlig | Japan | Japan, östra | `japaneast` |
+| Offentlig | Japan | Japan, västra | `japanwest` |
+| Offentlig | Korea | Sydkorea, centrala | `koreacentral` |
+| Offentlig | Korea | Sydkorea, södra | `koreasouth` |
+| Offentlig | Sydafrika | Sydafrika, norra | `southafricanorth` |
+| Offentlig | Sydafrika | Södra Afrika, västra * | `southafricawest` |
+| Offentlig | UAE | Förenade Arabemiraten Central * | `uaecentral` |
+| Offentlig | UAE | Förenade Arabemiraten, norra | `uaenorth` |
+| Offentlig | Storbritannien | Storbritannien, södra | `uksouth` |
+| Offentlig | Storbritannien | Storbritannien, västra | `ukwest` |
+| Offentlig | USA | USA, centrala | `centralus` |
+| Offentlig | USA | USA, östra | `eastus` |
+| Offentlig | USA | USA, östra 2 | `eastus2` |
+| Offentlig | USA | USA, norra centrala | `northcentralus` |
+| Offentlig | USA | USA, södra centrala | `southcentralus` |
+| Offentlig | USA | USA, västra centrala | `westcentralus` |
+| Offentlig | USA | USA, västra | `westus` |
+| Offentlig | USA | USA, västra 2 | `westus2` |
 | US Gov | USA | US Gov, Arizona | `usgovarizona` |
 | US Gov | USA | US Gov, Texas | `usgovtexas` |
 | US Gov | USA | US Gov, Virginia | `usgovvirginia` |
@@ -354,7 +354,7 @@ Microsofts interna antivirus lösningar, Windows Defender och System Center Endp
 > [!Note]  
 > Antivirus leverantörer kan kontrol lera kompatibiliteten mellan sina produkter och Azure File Sync med hjälp av [Testsviten Azure File Sync Antivirus kompatibilitet](https://www.microsoft.com/download/details.aspx?id=58322)som är tillgänglig för hämtning på Microsoft Download Center.
 
-## <a name="backup"></a>Backup 
+## <a name="backup"></a>Säkerhetskopiering 
 Liksom antivirus lösningar kan säkerhets kopierings lösningar orsaka åter kallelse av filer på nivå. Vi rekommenderar att du använder en lösning för säkerhets kopiering i molnet för att säkerhetskopiera Azure-filresursen i stället för en lokal säkerhets kopierings produkt.
 
 Om du använder en lokal lösning för säkerhets kopiering ska säkerhets kopiorna utföras på en server i den synkroniserade grupp där moln nivå inaktive ras. När du utför en återställning använder du alternativen på volym-eller fil nivå återställning. Filer som återställs med alternativet Återställning på filnivå synkroniseras till alla slut punkter i Sync-gruppen och befintliga filer ersätts med den version som återställs från säkerhets kopian.  Återställningar på volym nivå ersätter inte nyare fil versioner i Azure-filresursen eller andra server slut punkter.

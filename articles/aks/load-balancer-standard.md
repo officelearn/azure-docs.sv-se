@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
 ms.openlocfilehash: 9c414572e1c3b2f046ae9a14139885e9927ab3bb
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622175"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374707"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en standard-SKU-belastningsutjämnare i Azure Kubernetes service (AKS)
 
@@ -188,7 +188,7 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 
 I exempel resultatet visas standardvärdet för *AllocatedOutboundPorts* och *IdleTimeoutInMinutes*. Värdet 0 för *AllocatedOutboundPorts* anger antalet utgående portar som använder automatisk tilldelning för antalet utgående portar baserat på storleken på backend-poolen. Om klustret till exempel har 50 eller färre noder allokeras 1024-portar för varje nod.
 
-Överväg att ändra inställningen för *allocatedOutboundPorts* eller *IdleTimeoutInMinutes* om du förväntar dig att du förväntar dig att du ska slösa med sitt ansikte enligt konfigurationen ovan. Varje ytterligare IP-adress aktiverar 64 000 ytterligare portar för tilldelning, men Azure-Standard Load Balancer ökar inte automatiskt portarna per nod när fler IP-adresser läggs till. Du kan ändra dessa värden genom att ställa *in belastnings Utjämnings-utgående-portarna* och *belastnings Utjämnings parametrarna Idle-timeout* . Några exempel:
+Överväg att ändra inställningen för *allocatedOutboundPorts* eller *IdleTimeoutInMinutes* om du förväntar dig att du förväntar dig att du ska slösa med sitt ansikte enligt konfigurationen ovan. Varje ytterligare IP-adress aktiverar 64 000 ytterligare portar för tilldelning, men Azure-Standard Load Balancer ökar inte automatiskt portarna per nod när fler IP-adresser läggs till. Du kan ändra dessa värden genom att ställa *in belastnings Utjämnings-utgående-portarna* och *belastnings Utjämnings parametrarna Idle-timeout* . Exempel:
 
 ```azurecli-interactive
 az aks update \
@@ -201,7 +201,7 @@ az aks update \
 > [!IMPORTANT]
 > Du måste [Beräkna den kvot som krävs][calculate-required-quota] innan du anpassar *allocatedOutboundPorts* för att undvika problem med anslutning eller skalning. Värdet som du anger för *allocatedOutboundPorts* måste också vara en multipel av 8.
 
-Du kan också använda *belastnings Utjämnings-utgående-portarna* och *belastnings utjämning-parametrarna för Idle-timeout* när du skapar ett kluster, men du måste också ange antingen *belastningsutjämnare-hanterad, utgående-IP-antal*, *belastningsutjämnare-utgående-* IP-adresser eller *Load-Balancer-utgående-IP-prefix* .  Några exempel:
+Du kan också använda *belastnings Utjämnings-utgående-portarna* och *belastnings utjämning-parametrarna för Idle-timeout* när du skapar ett kluster, men du måste också ange antingen *belastningsutjämnare-hanterad, utgående-IP-antal*, *belastningsutjämnare-utgående-* IP-adresser eller *Load-Balancer-utgående-IP-prefix* .  Exempel:
 
 ```azurecli-interactive
 az aks create \

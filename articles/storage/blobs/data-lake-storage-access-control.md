@@ -9,11 +9,11 @@ ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: 6507c2a2d1100d480c879c73861c02e477d38416
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026140"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381972"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomst kontroll i Azure Data Lake Storage Gen2
 
@@ -60,13 +60,13 @@ Om du vill ange behörigheter för fil-och katalog nivå kan du läsa följande 
 
 |||
 |--------|-----------|
-|Azure Storage Explorer |[Använd Azure Storage Explorer för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
+|Azure Lagringsutforskaren |[Använd Azure Storage Explorer för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
 |.NET |[Använd .NET för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
 |Java|[Använd Java för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md)|
 |Python|[Använd python för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
 |PowerShell|[Använd PowerShell för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md)|
 |Azure CLI|[Använd Azure CLI för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md)|
-|REST API |[Sökväg – uppdatera](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|REST-API |[Sökväg – uppdatera](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
 > Om säkerhetsobjektet är ett huvud namn för *tjänsten* är det viktigt att använda objekt-ID: t för tjänstens huvud namn och inte objekt-ID: t för den relaterade appens registrering. För att hämta objekt-ID: t för tjänstens huvud namn öppnar du Azure CLI och använder sedan det här kommandot: `az ad sp show --id <Your App ID> --query objectId`. Se till att ersätta `<Your App ID>` plats hållaren med app-ID: t för din app Registration.
@@ -302,7 +302,7 @@ Skaparen av en fil eller katalog blir ägare. Om det gäller rot katalogen är d
 
 Den ägande gruppen kopieras från den ägande gruppen i den överordnade katalogen under vilken den nya filen eller katalogen skapas.
 
-### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Jag är ägande användare av en fil, men jag har inte den RWX-behörighet jag behöver. Vad gör jag?
+### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Jag är ägande användare av en fil, men jag har inte den RWX-behörighet jag behöver. Vad gör jag nu?
 
 Den ägande användaren kan lätt ändra behörigheterna för filen för att ge sig själva de RWX-behörigheter de behöver.
 
@@ -340,6 +340,6 @@ ACL: er ärver inte. Standard-ACL: er kan dock användas för att ange ACL: er f
 * [POSIX ACL på Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL med åtkomstkontrollistor på Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Översikt över Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

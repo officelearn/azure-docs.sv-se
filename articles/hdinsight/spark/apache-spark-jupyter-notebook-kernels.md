@@ -10,11 +10,11 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.openlocfilehash: 44089ea4b997e06cb7654fc6665a1a9a59ae2658
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494126"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389698"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels för Jupyter Notebook på Apache Spark kluster i Azure HDInsight
 
@@ -72,8 +72,8 @@ Här är några av fördelarna med att använda de nya kernelerna med Jupyter No
    | Magic | Exempel | Beskrivning |
    | --- | --- | --- |
    | Hjälp |`%%help` |Genererar en tabell med alla tillgängliga MAGICS med exempel och beskrivning |
-   | statusinformation |`%%info` |Visar sessionsinformation för den aktuella livy-slutpunkten |
-   | Konfigurera |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Konfigurerar parametrar för att skapa en session. Force-flaggan (-f) är obligatorisk om en session redan har skapats, vilket säkerställer att sessionen släpps och återskapas. Titta på [LIVY post/sessions Request-brödtext](https://github.com/cloudera/livy#request-body) för en lista över giltiga parametrar. Parametrar måste skickas in som en JSON-sträng och måste vara på nästa rad efter Magic, som visas i kolumnen exempel. |
+   | info |`%%info` |Visar sessionsinformation för den aktuella livy-slutpunkten |
+   | konfigurera |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Konfigurerar parametrar för att skapa en session. Force-flaggan (-f) är obligatorisk om en session redan har skapats, vilket säkerställer att sessionen släpps och återskapas. Titta på [LIVY post/sessions Request-brödtext](https://github.com/cloudera/livy#request-body) för en lista över giltiga parametrar. Parametrar måste skickas in som en JSON-sträng och måste vara på nästa rad efter Magic, som visas i kolumnen exempel. |
    | SQL |`%%sql -o <variable name>`<br> `SHOW TABLES` |Kör en Hive-fråga mot sqlContext. Om parametern `-o` skickas, sparas resultatet av frågan i den lokala python-kontexten%% som en [Pandas](https://pandas.pydata.org/) -dataframe. |
    | inställningar |`%%local`<br>`a=1` |All kod i efterföljande rader körs lokalt. Koden måste vara giltig Python2-kod även oberoende av vilken kernel du använder. Det innebär att även om du har valt **PySpark3** -eller **Spark** -kernel när du skapar antecknings boken, om du använder `%%local` Magic i en cell, måste cellen bara ha en giltig Python2-kod. |
    | loggar |`%%logs` |Matar ut loggarna för den aktuella livy-sessionen. |

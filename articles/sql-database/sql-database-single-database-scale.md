@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
 ms.openlocfilehash: 940baf219f1b3994585472f0eed9d171ba319d4e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023148"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359921"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skala enkla databas resurser i Azure SQL Database
 
@@ -29,7 +29,7 @@ Följande video visar dynamiskt ändring av tjänst nivå och beräknings storle
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 
 > [!IMPORTANT]
-> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
+> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
 
 ## <a name="impact"></a>Påverkan
 
@@ -50,7 +50,7 @@ Att ändra tjänst nivå eller beräknings storlek i huvudsak inbegriper tjänst
 
 Den uppskattade svars tiden för att ändra tjänst nivån eller skala om beräknings storleken för en enskild databas eller elastisk pool är parameterstyrda enligt följande:
 
-|Tjänstnivå|Enkel databas,</br>Standard (S0-S1)|Basic elastisk pool,</br>Standard (S2-S12) </br>Hyperskala </br>Generell användning enskild databas eller elastisk pool|Premium-eller Affärskritisk enkel databas eller elastisk pool|
+|Tjänstenivå|Enkel databas,</br>Standard (S0-S1)|Basic elastisk pool,</br>Standard (S2-S12) </br>Hyperskala </br>Generell användning enskild databas eller elastisk pool|Premium-eller Affärskritisk enkel databas eller elastisk pool|
 |:---|:---|:---|:---|
 |**Enkel databas,</br> standard (S0-S1)**|&bull; &nbsp;tidssvars tid för konstant som är oberoende av använt utrymme</br>&bull; &nbsp;vanligt vis mindre än 5 minuter|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|
 |**Basic elastisk pool, </br>standard (S2-S12), </br>storskalig </br>Generell användning enskild databas eller elastisk pool**|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|&bull; &nbsp;tidssvars tid för konstant som är oberoende av använt utrymme</br>&bull; &nbsp;vanligt vis mindre än 5 minuter|&bull; &nbsp;svars tid som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull; &nbsp;vanligt vis mindre än 1 minut per GB använt utrymme|
@@ -63,7 +63,7 @@ Den uppskattade svars tiden för att ändra tjänst nivån eller skala om beräk
 
 En ändring eller skalnings åtgärd för en tjänst nivå kan avbrytas.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure Portal
 
 I bladet databas översikt navigerar du till **meddelanden** och klickar på panelen som visar att det finns en pågående åtgärd:
 
@@ -112,7 +112,7 @@ Du debiteras för varje timme som det finns en databas med den högsta tjänst n
 - Priset för lagring för en enskild databas är summan av data lagring och logg lagrings mängd multiplicerat med tjänst nivåns lagrings enhets pris. Kostnaden för TempDB ingår i vCore-priset. Mer information om priset för extra lagring finns [SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
+> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
 
 ### <a name="dtu-based-purchasing-model"></a>DTU-baserad inköps modell
 
@@ -121,7 +121,7 @@ Du debiteras för varje timme som det finns en databas med den högsta tjänst n
 - Priset för extra lagring för en enskild databas är det extra lagrings beloppet multiplicerat med det extra lagrings enhets priset för tjänst nivån. Mer information om priset för extra lagring finns [SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
+> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
 
 ### <a name="geo-replicated-database"></a>Geo-replikerad databas
 

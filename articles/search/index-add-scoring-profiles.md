@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 516637b812afece1966006ce6d894dd1e32e6293
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666315"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379681"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Lägga till bedömnings profiler i ett Azure Kognitiv sökning-index
 
-  Poängsättning avser beräkningen av en *Sök Poäng* för varje objekt som returneras i Sök resultaten. Poängen är en indikator för ett objekts relevans i kontexten för den aktuella Sök åtgärden. Ju högre poäng, desto mer relevant är objektet. I Sök resultaten rangordnas objekt rang från hög till låg, baserat på Sök resultaten som beräknas för varje objekt.  
+  Poängsättning avser beräkningen av en *Sök Poäng* för varje objekt som returneras i Sök resultaten. Poängen är en indikator för ett objekts relevans i kontexten för den aktuella sökåtgärden. Ju högre poäng, desto mer relevant är objektet. I Sök resultaten rangordnas objekt rang från hög till låg, baserat på Sök resultaten som beräknas för varje objekt.  
 
  Azure Kognitiv sökning använder standard poängsättning för att beräkna en första poäng, men du kan anpassa beräkningen genom en *bedömnings profil*. Med bedömnings profiler får du bättre kontroll över rankningen av objekt i Sök resultaten. Du kanske till exempel vill öka objekt baserat på deras intäkts potential, befordra nya objekt eller kanske förbättra objekt som har varit i lager för länge.  
 
@@ -275,16 +275,16 @@ Sök poängen beräknas baserat på statistiska egenskaper för data och frågan
 
  Följande tabell innehåller flera exempel.  
 
-|Längd|boostingDuration|  
+|Varaktighet|boostingDuration|  
 |--------------|----------------------|  
 |1 dag|"P1D"|  
 |2 dagar och 12 timmar|"P2DT12H"|  
 |15 minuter|"PT15M"|  
-|30 dagar, 5 timmar, 10 minuter och 6,334 sekunder|"P30DT5H10M 6.334 S"|  
+|30 dagar, 5 timmar, 10 minuter och 6,334 sekunder|"P30DT5H10M6.334S"|  
 
  Fler exempel finns i [XML-schema: data typer (w3.org webbplats)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Se också  
+## <a name="see-also"></a>Se även  
    för [Azure KOGNITIV sökning rest](https://docs.microsoft.com/rest/api/searchservice/)  
  [Skapa index &#40;Azure kognitiv sökning REST API&#41; ](https://docs.microsoft.com/rest/api/searchservice/create-index)   
  [Azure Kognitiv sökning .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

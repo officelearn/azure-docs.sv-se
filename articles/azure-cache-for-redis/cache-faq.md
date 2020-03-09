@@ -7,11 +7,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.openlocfilehash: ddf7999153e9d9722e627d148b116750fe3aaecf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433457"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355881"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Vanliga frågor och svar om Azure Cache for Redis
 Lär dig svaren på vanliga frågor, mönster och metod tips för Azure cache för Redis.
@@ -98,8 +98,8 @@ Tänk på följande när du väljer ett cache-erbjudande.
 
 * **Minne**: Basic-och standard-nivåerna erbjuder 250 MB – 53 GB. Premium-nivån erbjuder upp till 1,2 TB (som ett kluster) eller 120 GB (icke-grupperad). Mer information finns i [Azure cache för Redis-priser](https://azure.microsoft.com/pricing/details/cache/).
 * **Nätverks prestanda**: om du har en arbets belastning som kräver stora data flöden erbjuder Premium-nivån mer bandbredd jämfört med standard eller Basic. I varje nivå har större cache-minne också större bandbredd på grund av den underliggande virtuella datorn som är värd för cachen. Mer information finns i [följande tabell](#cache-performance).
-* **Genom strömning**: Premium nivån erbjuder maximalt tillgängligt data flöde. Om cache-servern eller-klienten når bandbredds gränserna kan du få tids gränser på klient sidan. Se tabellen nedan för mer information.
-* **Hög tillgänglighet/SLA**: Azure cache för Redis garanterar att en standard-/Premium-cache är tillgänglig minst 99,9% av tiden. Mer information om service avtal finns i [Azure cache för Redis-priser](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). Service avtalet täcker endast anslutningen till cachens slut punkter. Serviceavtalet täcker inte skydd mot dataförlust. Vi rekommenderar att du använder funktionen Redis data persistion på Premium-nivån för att öka återhämtningen mot data förlust.
+* **Genom strömning**: Premium nivån erbjuder maximalt tillgängligt data flöde. Om cache-servern eller-klienten når bandbredds gränserna kan du få tids gränser på klient sidan. Mer information finns i följande tabell.
+* **Hög tillgänglighet/SLA**: Azure cache för Redis garanterar att en standard-/Premium-cache är tillgänglig minst 99,9% av tiden. Mer information om service avtal finns i [Azure cache för Redis-priser](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). Service avtalet täcker endast anslutningen till cachens slut punkter. Service avtalet omfattar inte skydd mot data förlust. Vi rekommenderar att du använder funktionen Redis data persistion på Premium-nivån för att öka återhämtningen mot data förlust.
 * **Redis data persist**: Premium-nivån gör att du kan spara cache-data i ett Azure Storage-konto. I en Basic/standard-cache lagras alla data i minnet. Bakomliggande infrastruktur problem kan leda till potentiell data förlust. Vi rekommenderar att du använder funktionen Redis data persistion på Premium-nivån för att öka återhämtningen mot data förlust. Azure cache för Redis erbjuder RDB och AOF (kommer snart) i Redis persistence. Mer information finns i [så här konfigurerar du persistence för en Premium Azure-cache för Redis](cache-how-to-premium-persistence.md).
 * **Redis-kluster**: om du vill skapa cacheminnen som är större än 120 GB, eller för att Shard data över flera Redis-noder, kan du använda Redis-klustring, som är tillgängligt på Premium-nivån. Varje nod består av ett primärt/replik-cache-par för hög tillgänglighet. Mer information finns i [så här konfigurerar du klustring för en Premium Azure-cache för Redis](cache-how-to-premium-clustering.md).
 * **Förbättrad säkerhet och nätverks isolering**: Azure Virtual Network (VNet)-distribution ger förbättrad säkerhet och isolering för Azure-cachen för Redis, samt undernät, åtkomst kontroll principer och andra funktioner för att ytterligare begränsa åtkomst. Mer information finns i [så här konfigurerar du Virtual Network stöd för en Premium Azure-cache för Redis](cache-how-to-premium-vnet.md).
@@ -125,13 +125,13 @@ I den här tabellen kan vi Rita följande slut satser:
 * Med Redis-klustring ökar data flödet linjärt när du ökar antalet Shards (noder) i klustret. Om du till exempel skapar ett P4-kluster på 10 Shards är det tillgängliga data flödet 400 000 * 10 = 4 000 000 RPS.
 * Data flödet för större nyckel storlekar är högre på Premium-nivån jämfört med standard nivån.
 
-| Prisnivå | Storlek | CPU-kärnor | Tillgänglig bandbredd | värde storlek 1 KB | värde storlek 1 KB |
+| Prisnivå | Storlek | Processorkärnor | Tillgänglig bandbredd | värde storlek 1 KB | värde storlek 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Standardcache-storlekar** | | |**Megabit per sekund (MB/s)/megabyte per sekund (MB/s)** |**Begär Anden per sekund (RPS) icke-SSL** |**Begär Anden per sekund (RPS) SSL** |
 | C0 | 250 MB | Delad | 100 / 12.5  |  15 000 |   7 500 |
-| C1 |   1 GB | 1      | 500 / 62.5  |  38 000 |  20 720 |
+| Cell |   1 GB | 1      | 500 / 62.5  |  38 000 |  20 720 |
 | C2 | 2,5 GB | 2      | 500 / 62.5  |  41 000 |  37 000 |
-| C3 |   6 GB | 4      | 1000 / 125  | 100 000 |  90,000 |
+| C3 |   6 GB | 4      | 1000 / 125  | 100 000 |  90,000 |
 | C4 |  13 GB | 2      | 500 / 62.5  |  60,000 |  55 000 |
 | C5 |  26 GB | 4      | 1,000 / 125 | 102 000 |  93 000 |
 | C6 |  53 GB | 8      | 2,000 / 250 | 126 000 | 120,000 |
@@ -157,7 +157,7 @@ Azure cache för Redis-priser finns [här](https://azure.microsoft.com/pricing/d
 ### <a name="can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>Kan jag använda Azure cache för Redis med Azure Government moln, Azure Kina-moln eller Microsoft Azure Tyskland?
 Ja, Azure cache för Redis finns i Azure Government Cloud, Azure Kina 21Vianet-molnet och Microsoft Azure Tyskland. URL: erna för åtkomst och hantering av Azure-cache för Redis skiljer sig åt i dessa moln jämfört med Azures offentliga moln.
 
-| I molnet   | DNS-suffix för Redis            |
+| Molnet   | DNS-suffix för Redis            |
 |---------|---------------------------------|
 | Offentlig  | *.redis.cache.windows.net       |
 | US Gov  | *.redis.cache.usgovcloudapi.net |
@@ -196,7 +196,7 @@ Vanligt vis räcker standardvärdena för-klienten. Du kan finjustera alternativ
   * Använd en enda ConnectionMultiplexer-instans för programmet. Du kan använda en LazyConnection för att skapa en enda instans som returneras av en anslutnings egenskap, som du ser i [Anslut till cachen med klassen ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Ange egenskapen `ConnectionMultiplexer.ClientName` till ett unikt namn för App-instansen.
   * Använd flera `ConnectionMultiplexer`-instanser för anpassade arbets belastningar.
-      * Du kan följa den här modellen om du har varierande belastning i ditt program. Ett exempel:
+      * Du kan följa den här modellen om du har varierande belastning i ditt program. Exempel:
       * Du kan ha en multiplexor för att hantera stora nycklar.
       * Du kan ha en multiplexor för att hantera små nycklar.
       * Du kan ange olika värden för timeout för anslutningar och omprövnings logik för varje ConnectionMultiplexer som du använder.
@@ -307,7 +307,7 @@ Instruktioner för hur du hämtar Redis-verktygen finns i avsnittet [Hur kan jag
 * Tänk på de prestanda kostnader som är kopplade till olika åtgärder som du kör. Till exempel är `KEYS` kommandot en O (n)-åtgärd och bör undvikas. [Redis.io-webbplatsen](https://redis.io/commands/) innehåller information kring tids komplexiteten för varje åtgärd som stöds. Klicka på varje kommando för att se komplexiteten för varje åtgärd.
 
 #### <a name="configuration-and-concepts"></a>Konfiguration och begrepp
-* Använd standard-eller Premium nivån för produktions system. Basic-nivån är ett system med en nod utan datareplikering och serviceavtal. Använd också minst ett C1-cacheminne. C0-cache används vanligt vis för enkla utvecklings-och test scenarier.
+* Använd standard-eller Premium nivån för produktions system. Basic-nivån är ett enda Node-system utan datareplikering och inget service avtal. Använd också minst en C1-cache. C0-cache används vanligt vis för enkla utvecklings-och test scenarier.
 * Kom ihåg att Redis är ett **minnes intern** data lager. Läs [den här artikeln](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) så att du är medveten om scenarier där data förlust kan uppstå.
 * Utveckla ditt system så att det kan hantera anslutnings signaler [på grund av korrigeringar och redundans](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
 
@@ -381,7 +381,7 @@ Med hänsyn till den här informationen rekommenderar vi starkt att kunderna ang
 
 Så här konfigurerar du den här inställningen:
 
-* Vi rekommenderar att du ändrar den här inställningen program mässigt genom att använda filen [trådpool. SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) i `global.asax.cs`. Ett exempel:
+* Vi rekommenderar att du ändrar den här inställningen program mässigt genom att använda filen [trådpool. SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) i `global.asax.cs`. Exempel:
 
 ```cs
 private readonly int minThreads = 200;
@@ -456,7 +456,7 @@ Följande är några vanliga orsaker till att en cache kopplas från.
   * Azure har korrigerat den instans där cachen distribuerades
     * Detta kan vara för redis-server uppdateringar eller underhåll av den virtuella datorn.
 
-### <a name="which-azure-cache-offering-is-right-for-me"></a>Vilket Azure Cache-erbjudande är bäst för mig?
+### <a name="which-azure-cache-offering-is-right-for-me"></a>Vilket Azure cache-erbjudande är bäst för mig?
 > [!IMPORTANT]
 > Enligt föregående års [meddelande](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)har Azure Managed Cache service och Azure cachelagring i rollinstanser-tjänsten **dragits tillbaka** den 30 november 2016. Vi rekommenderar att du använder [Azure cache för Redis](https://azure.microsoft.com/services/cache/). Information om migrering finns i [Migrera från Managed Cache service till Azure cache för Redis](cache-migrate-to-redis.md).
 >

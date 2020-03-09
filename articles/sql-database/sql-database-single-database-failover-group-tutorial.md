@@ -12,11 +12,11 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
 ms.openlocfilehash: b88557468c386bc07c2432e154a82fd1f4fcb438
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194315"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380035"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Självstudie: lägga till en Azure SQL Database enkel databas i en failover-grupp
 
@@ -29,7 +29,7 @@ Konfigurera en failover-grupp för en Azure SQL Database enkel databas och testa
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 För att kunna följa den här självstudien måste du ha: 
 
 - En Azure-prenumeration. [Skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) om du inte redan har ett.
@@ -57,7 +57,7 @@ Kontrol lera att du har följande objekt för att slutföra självstudien:
 ## <a name="2---create-the-failover-group"></a>2 – Skapa redundans gruppen 
 I det här steget ska du skapa en [redundans grupp](sql-database-auto-failover-group.md) mellan en befintlig Azure SQL-Server och en ny Azure SQL-Server i en annan region. Lägg sedan till exempel databasen i gruppen för växling vid fel. 
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Skapa din grupp för redundans och Lägg till din enda databas i den med hjälp av Azure Portal. 
 
 1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
@@ -199,7 +199,7 @@ Den här delen av självstudien använder följande AZ CLI-cmdletar:
 ## <a name="3---test-failover"></a>3-testa redundans 
 I det här steget kommer du inte att kunna redundansväxla gruppen till den sekundära servern och sedan växla tillbaka med Azure Portal. 
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Testa redundans med Azure Portal. 
 
 1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
@@ -323,7 +323,7 @@ Den här delen av självstudien använder följande AZ CLI-cmdletar:
 ## <a name="clean-up-resources"></a>Rensa resurser 
 Rensa resurser genom att ta bort resurs gruppen. 
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Ta bort resurs gruppen med hjälp av Azure Portal. 
 
 1. Navigera till din resurs grupp i [Azure Portal](https://portal.azure.com).
@@ -413,7 +413,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [AZ SQL-redundans – grupp uppsättning – primär](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Ange den primära gruppen för redundans genom att redundansväxla alla databaser från den aktuella primära servern. | 
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Det finns inga tillgängliga skript för Azure Portal. 
  
 ---

@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b6a60536bae6fbedf01eda7aa340e90ced58e004
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930102"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387472"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Kopiera data till och från Data Lake Storage Gen1 med Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -48,12 +48,12 @@ Data Lake Store-anslutningen stöder följande typer av autentisering:
 
 Vi rekommenderar att du använder tjänstens huvud namns autentisering, särskilt för schemalagda data kopior. Förfallo beteende för token kan uppstå med autentisering av användarautentisering. Konfigurations information finns i avsnittet [Egenskaper för länkad tjänst](#linked-service-properties) .
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 Du kan skapa en pipeline med en kopierings aktivitet som flyttar data till/från en Azure Data Lake Store med hjälp av olika verktyg/API: er.
 
 Det enklaste sättet att skapa en pipeline för att kopiera data är att använda **guiden Kopiera**. En själv studie kurs om hur du skapar en pipeline med hjälp av guiden Kopiera finns i [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md).
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -71,8 +71,8 @@ En länkad tjänst länkar ett data lager till en data fabrik. Du skapar en län
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| **typ** | Type-egenskapen måste anges till **AzureDataLakeStore**. | Ja |
-| **dataLakeStoreUri** | Information om Azure Data Lake Store-konto. Den här informationen antar ett av följande format: `https://[accountname].azuredatalakestore.net/webhdfs/v1` eller `adl://[accountname].azuredatalakestore.net/`. | Ja |
+| **typ** | Egenskapen Type måste anges till **AzureDataLakeStore**. | Ja |
+| **dataLakeStoreUri** | Information om Azure Data Lake Store-konto. Den här informationen tar något av följande format: `https://[accountname].azuredatalakestore.net/webhdfs/v1` eller `adl://[accountname].azuredatalakestore.net/`. | Ja |
 | **subscriptionId** | Azure-prenumerations-ID som Data Lake Store-kontot tillhör. | Krävs för mottagare |
 | **resourceGroupName** | Azure resursgruppens namn som det Data Lake Store-kontot tillhör. | Krävs för mottagare |
 
@@ -94,7 +94,7 @@ Använd tjänstens huvud namns autentisering genom att ange följande egenskaper
 |:--- |:--- |:--- |
 | **servicePrincipalId** | Ange programmets klient-ID. | Ja |
 | **servicePrincipalKey** | Ange programmets nyckel. | Ja |
-| **tenant** | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Ja |
+| **innehav** | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Ja |
 
 **Exempel: autentisering av tjänstens huvud namn**
 ```json
@@ -152,7 +152,7 @@ Den auktoriseringskod som du genererar med hjälp av knappen **auktorisera** upp
 
 Följande tabell visar förfallo tiderna för olika typer av användar konton:
 
-| Användartyp | Upphör att gälla efter |
+| Användar typ | Upphör att gälla efter |
 |:--- |:--- |
 | Användar konton som *inte* hanteras av Azure Active Directory (till exempel @hotmail.com eller @live.com) |12 timmar |
 | Användar konton som hanteras av Azure Active Directory |14 dagar efter den senaste sektor körningen <br/><br/>90 dagar, om en sektor som baseras på en OAuth-baserad länkad tjänst körs minst en gång var 14: e dag |
@@ -201,7 +201,7 @@ Mer information om de Data Factory klasser som används i koden finns i avsnitte
 1. Den `resourceGroupName` och/eller `subscriptionId` som anges i Azure Data Lake Store länkade tjänsten är felaktig.
 2. Användaren eller tjänstens huvud namn har inte den behörighet som krävs.
 
-**Lösning:**
+**Lösning**
 
 1. Kontrol lera att `subscriptionId` och `resourceGroupName` som du anger i den länkade tjänsten `typeProperties` verkligen är de som ditt data Lake-konto tillhör.
 
@@ -239,10 +239,10 @@ Avsnittet **typeProperties** för en data uppsättning av typen **AzureDataLakeS
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | **folderPath** |Sökväg till behållaren och mappen i Data Lake Store. |Ja |
-| **fileName** |Namnet på filen i Azure Data Lake Store. Egenskapen **filename** är valfri och Skift läges känslig. <br/><br/>Om du anger **filename**fungerar aktiviteten (inklusive kopia) på den aktuella filen.<br/><br/>Om inget **fil namn** har angetts innehåller Copy alla filer i **folderPath** i data uppsättningen för indata.<br/><br/>Om inget **fil namn** har angetts för en data uppsättning för utdata och **preserveHierarchy** inte har angetts i aktivitets mottagaren, är namnet på den genererade filen i formatet `Data._Guid_.txt`. Till exempel: data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt. |Nej |
+| **Sökväg** |Namnet på filen i Azure Data Lake Store. Egenskapen **filename** är valfri och Skift läges känslig. <br/><br/>Om du anger **filename**fungerar aktiviteten (inklusive kopia) på den aktuella filen.<br/><br/>Om inget **fil namn** har angetts innehåller Copy alla filer i **folderPath** i data uppsättningen för indata.<br/><br/>Om inget **fil namn** har angetts för en data uppsättning för utdata och **preserveHierarchy** inte har angetts i aktivitets mottagaren, är namnet på den genererade filen i formatet `Data._Guid_.txt`. Till exempel: data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt. |Nej |
 | **partitionedBy** |Egenskapen **partitionedBy** är valfri. Du kan använda den för att ange en dynamisk sökväg och ett fil namn för Time Series-data. **FolderPath** kan till exempel vara parameterstyrda för varje timme med data. Mer information och exempel finns i egenskapen partitionedBy. |Nej |
-| **format** | Följande format typer stöds: text **Forms**, **JsonFormat**, **AvroFormat**, **OrcFormat**och **ParquetFormat**. Ange den **typ** egenskapen under **format** till någon av dessa värden. Mer information finns i avsnitten [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) i fil- [och komprimerings format som stöds av Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikel. <br><br> Om du vill kopiera filer "i befintligt skick" mellan filbaserade butiker (binär kopia) hoppar du över avsnittet `format` i definitionerna för in-och utdata-datauppsättningar. |Nej |
-| **komprimering** | Ange typ och komprimeringsnivå för data. Typer som stöds är **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Stöds nivåer **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format som stöds av Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| **formatering** | Följande format typer stöds: text **Forms**, **JsonFormat**, **AvroFormat**, **OrcFormat**och **ParquetFormat**. Ange egenskapen **Type** under **format** till något av dessa värden. Mer information finns i avsnitten [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) i fil- [och komprimerings format som stöds av Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikel. <br><br> Om du vill kopiera filer "i befintligt skick" mellan filbaserade butiker (binär kopia) hoppar du över avsnittet `format` i definitionerna för in-och utdata-datauppsättningar. |Nej |
+| **komprimering** | Ange typ och komprimeringsnivå för data. Typer som stöds är **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. De nivåer som stöds är **optimala** och **snabbaste**. Mer information finns i [fil-och komprimerings format som stöds av Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 ### <a name="the-partitionedby-property"></a>Egenskapen partitionedBy
 Du kan ange dynamiska **folderPath** -och **filename** -egenskaper för Time Series-data med egenskapen **partitionedBy** , Data Factory Functions och systemvariabler. Mer information finns i artikeln [Azure Data Factory-Functions och system Variables](data-factory-functions-variables.md) .
@@ -295,12 +295,12 @@ Det här avsnittet beskrivs kopieringsåtgärden för olika kombinationer av vä
 
 | recursive | copyBehavior | Resulterande beteende |
 | --- | --- | --- |
-| sant |preserveHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med samma struktur som källan<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
-| sant |flattenHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>mål-Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Automatiskt genererade namn på File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för File5 |
-| sant |mergeFiles |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>mål-Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1 + fil2 + fil3 + File4 + filen 5 innehållet slås samman i en fil med autogenererade filnamn |
-| false |preserveHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med följande struktur<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/><br/><br/>Subfolder1 med fil3, File4 och File5 plockas inte upp. |
-| false |flattenHierarchy |För en källmapp Mapp1 med följande struktur:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med följande struktur<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Automatiskt genererade namn på File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil2<br/><br/><br/>Subfolder1 med fil3, File4 och File5 plockas inte upp. |
-| false |mergeFiles |För en källmapp Mapp1 med följande struktur:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med följande struktur<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1 + fil2 innehållet slås samman i en fil med automatiskt genererade namnet. Automatiskt genererade namn på File1<br/><br/>Subfolder1 med fil3, File4 och File5 plockas inte upp. |
+| true |preserveHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med samma struktur som källan<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
+| true |flattenHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>mål-Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File5 |
+| true |mergeFiles |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>mål-Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1 + Fil2 + File3 + File4 + innehåll i fil 5 sammanfogas till en fil med automatiskt genererat fil namn |
+| false |preserveHierarchy |För en källmapp Mapp1 med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med följande struktur<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/><br/><br/>Subfolder1 med fil3, File4 och File5 plockas inte upp. |
+| false |flattenHierarchy |För en källmapp Mapp1 med följande struktur:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med följande struktur<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för Fil2<br/><br/><br/>Subfolder1 med fil3, File4 och File5 plockas inte upp. |
+| false |mergeFiles |För en källmapp Mapp1 med följande struktur:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>målmappen Mapp1 skapas med följande struktur<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fil1 + Fil2-innehåll sammanfogas till en fil med automatiskt genererat fil namn. Automatiskt genererade namn på File1<br/><br/>Subfolder1 med fil3, File4 och File5 plockas inte upp. |
 
 ## <a name="supported-file-and-compression-formats"></a>Fil-och komprimerings format som stöds
 Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikel.

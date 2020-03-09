@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
 ms.openlocfilehash: 9dd60a5898b648215fc8b26e49a706a7b19dfeeb
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610088"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386283"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Skala Azure Service Fabric-kluster
 Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en nod. Kluster kan innehålla potentiellt tusentals noder. När du har skapat ett Service Fabric-kluster kan du skala klustret vågrätt (ändra antalet noder) eller lodrätt (ändra resurserna för noderna).  Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.  När klustret skalas, skalas programmen automatiskt.
@@ -26,8 +26,8 @@ Virtual machine scale sets är en Azure-beräkningsresurs som du kan använda f�
 
 När du skalar ett Azure-kluster bör du ha följande rikt linjer i åtanke:
 - primära nodtyper som kör produktions arbets belastningar bör alltid ha fem eller fler noder.
-- icke-primära nodtyper som kör tillstånds känsliga produktions arbets belastningar bör alltid ha fem eller fler noder.
-- icke-primära nodtyper som kör tillstånds lösa produktions arbets belastningar bör alltid ha två eller flera noder.
+- Icke-primära nodtyper som kör tillstånds känsliga produktions arbets belastningar bör alltid ha fem eller fler noder.
+- Icke-primära nodtyper som kör tillstånds lösa produktions arbets belastningar bör alltid ha två eller flera noder.
 - Alla nodtyper för [hållbarhets nivån](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) guld eller silver bör alltid ha fem eller fler noder.
 - Ta inte bort slumpmässiga virtuella dator instanser/noder från en nodtyp, Använd alltid skalnings funktionen skalnings uppsättning för virtuella datorer. Borttagning av slumpmässiga VM-instanser kan negativt påverka systemets möjlighet att belastningsutjämna.
 - Om du använder regler för automatisk skalning ställer du in reglerna så att skalning i (tar bort VM-instanser) görs en nod i taget. Att skala ned fler än en instans i taget är inte säkert.

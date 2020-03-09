@@ -4,11 +4,11 @@ description: Lär dig hur data kan ändras innan förutsägelser i Språkförst�
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 5547724a6333d248a7ba4e9aeecaaa8f331feb7d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148274"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361185"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Ändra uttryck data före eller under förutsägelse
 LUIS innehåller olika sätt att manipulera uttryck före eller under förutsägelser. Detta inkluderar att [åtgärda stavnings](luis-tutorial-bing-spellcheck.md)-och åtgärda tids zons problem för färdiga [datetimeV2](luis-reference-prebuilt-datetimev2.md).
@@ -30,12 +30,12 @@ Slutpunkten kräver två parametrar för stavningskorrigeringar ska fungera:
 
 |Param|Värde|
 |--|--|
-|`spellCheck`|boolesk|
+|`spellCheck`|boolean|
 |`bing-spell-check-subscription-key`|[API för stavningskontroll i Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/) slut punkts nyckel för v7|
 
 När [API för stavningskontroll i Bing v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) identifierar ett fel returneras den ursprungliga uttryck och de korrigerade uttryck returneras tillsammans med förutsägelser från slut punkten.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 ```JSON
 {
@@ -49,7 +49,7 @@ När [API för stavningskontroll i Bing v7](https://azure.microsoft.com/services
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
 ```JSON
 {
@@ -85,7 +85,7 @@ Tids zonen korrigeras genom att lägga till användarens tidszon till [slut punk
 ### <a name="daylight-savings-example"></a>Sommartid besparingar exempel
 Om du behöver den returnerade förskapade datetimeV2 för att justera för sommar tid, bör du använda parametern `timezoneOffset` QueryString med ett +/-värde i minuter för [slut punkts](https://go.microsoft.com/fwlink/?linkid=2092356) frågan.
 
-#### <a name="v2-prediction-endpoint-requesttabv2"></a>[V2-begäran om slut punkts förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-request"></a>[V2-begäran om slut punkts förutsägelse](#tab/V2)
 
 Lägg till 60 minuter:
 
@@ -95,7 +95,7 @@ Ta bort 60 minuter:
 
 https://{region}. API. kognitiv. Microsoft. com/Luis/v 2.0/Apps/{appId}? q = sätt ljuset på? **timezoneOffset =-60**& verbose = {boolean} & stavnings kontroll = {boolean} & mellanlagring = {boolean} & Bing-stavning-check-prenumeration-nyckel = {string} & logg = {Boolean}
 
-#### <a name="v3-prediction-endpoint-requesttabv3"></a>[V3 förutsägelse slut punkts förfrågan](#tab/V3)
+#### <a name="v3-prediction-endpoint-request"></a>[V3 förutsägelse slut punkts förfrågan](#tab/V3)
 
 Lägg till 60 minuter:
 

@@ -12,11 +12,11 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: 16855bb218ba3ae4d221cb1329410c7848aab2c5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818971"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382369"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Ny DBA i molnet – hantera dina enkla databaser och databaser i Azure SQL Database
 
@@ -138,7 +138,7 @@ Som standard är din SQL-databas konfigurerad för att "ge Azure-tjänster åtko
 
 Med tjänst slut punkter (SE) kan du bara exponera dina kritiska Azure-resurser för ditt privata virtuella nätverk i Azure. Genom att göra det, eliminerar du i princip den offentliga åtkomsten till dina resurser. Trafiken mellan ditt virtuella nätverk i Azure ligger kvar på Azures stamnät nätverk. Utan SE ska du Hämta paket routning för Tvingad tunnel trafik. Ditt virtuella nätverk tvingar Internet trafiken till din organisation och Azure-tjänstetrafiken att gå över samma väg. Med tjänst slut punkter kan du optimera detta eftersom paketen flödar direkt från ditt virtuella nätverk till tjänsten i Azure stamnät nätverket.
 
-![VNet-tjänstens slut punkter](./media/sql-database-manage-after-migration/vnet-service-endpoints.png)
+![VNet-tjänstslutpunkter](./media/sql-database-manage-after-migration/vnet-service-endpoints.png)
 
 #### <a name="reserved-ips"></a>Reserverade ip-adresser
 
@@ -173,7 +173,7 @@ För att skydda känsliga data i flygning och i vila tillhandahåller SQL Databa
 |**Krypterings omfång**|Slut punkt till slut punkt|Vilande data|
 |**Databas servern kan komma åt känsliga data**|Nej|Ja, eftersom krypteringen är för vilande data|
 |**Tillåtna T-SQL-åtgärder**|Likhets jämförelse|Alla ytor i T-SQL är tillgängligt|
-|**App-ändringar krävs för att använda funktionen**|Små|Mycket minimal|
+|**App-ändringar krävs för att använda funktionen**|Minimalt|Mycket minimal|
 |**Krypterings precision**|Kolumn nivå|Databas nivå|
 ||||
 
@@ -221,7 +221,7 @@ Nätverks trafiken mellan din organisation och SQL Database skulle i allmänhet 
 Med Express Route kan du också överföra upp till 2 x bandbredds gränsen som du köper utan extra kostnad. Det är också möjligt att konfigurera anslutning mellan regioner med hjälp av Express Route. Om du vill se en lista över ER-anslutnings leverantörer, se: [Express Route partners och peering-platser](../expressroute/expressroute-locations.md). I följande artiklar beskrivs Express Route i detalj:
 
 - [Introduktion till Express Route](../expressroute/expressroute-introduction.md)
-- [Krav](../expressroute/expressroute-prerequisites.md)
+- [Förutsättningar](../expressroute/expressroute-prerequisites.md)
 - [Arbetsflöden](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Är SQL Database kompatibel med alla myndighets krav och hur hjälper det till med min egen organisations efterlevnad
@@ -288,7 +288,7 @@ Med [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md) kan du samla 
 
 En större del av de fel söknings tekniker som du skulle använda för att diagnostisera problem med frågor och databas prestanda är desamma. När alla samma SQL Servers motor har befogenhet att molnet. Plattformen – Azure SQL DB har dock skapats i "Intelligence". Det kan hjälpa dig att felsöka och diagnostisera prestanda problem ännu enklare. Den kan också utföra några av dessa korrigerande åtgärder för din räkning och i vissa fall åtgärda dem proaktivt automatiskt.
 
-Din metod för fel sökning av prestanda problem kan avsevärt utnyttjas med hjälp av intelligenta funktioner som [query Performance Insight (QPI)](sql-database-query-performance.md) och [Database Advisor](sql-database-advisor.md) tillsammans och så skillnaden i metodik den här respekten – du behöver inte längre utföra det manuella arbetet med att ta bort den information som kan hjälpa dig att felsöka problemet. Plattformen fungerar hårt för dig. Ett exempel på detta är QPI. Med QPI kan du öka detalj nivån till frågans nivå och titta på de historiska trenderna och räkna ut när exakt frågan försämrat. I Database Advisor får du rekommendationer om saker som kan hjälpa dig att förbättra den övergripande prestandan i generella, t. ex. index som saknas, släppa index, parametrar för dina frågor osv.
+Din metod för fel sökning av prestanda problem kan avsevärt utnyttjas med hjälp av intelligenta funktioner som [query Performance Insight (QPI)](sql-database-query-performance.md) och [Database Advisor](sql-database-advisor.md) i samband med varandra, och därför skiljer sig skillnaden i metodiken – du behöver inte längre utföra det manuella arbetet med att ta bort den grundläggande information som kan hjälpa dig att felsöka problemet. Plattformen fungerar hårt för dig. Ett exempel på detta är QPI. Med QPI kan du öka detalj nivån till frågans nivå och titta på de historiska trenderna och räkna ut när exakt frågan försämrat. I Database Advisor får du rekommendationer om saker som kan hjälpa dig att förbättra den övergripande prestandan i generella, t. ex. index som saknas, släppa index, parametrar för dina frågor osv.
 
 Med prestanda fel sökning är det viktigt att identifiera om det bara är programmet eller databasen som säkerhetskopierar, vilket påverkar programmets prestanda. Ofta beror prestanda problemet på program nivån. Det kan vara arkitekturen eller data åtkomst mönstret. Anta till exempel att du har ett chatt-program som är känsligt för nätverks fördröjning. I det här fallet är ditt program lidande eftersom det skulle finnas många korta begär Anden som kommer fram och tillbaka ("samtal") mellan programmet och servern och i ett överbelastat nätverk, så tur och retur lägger upp snabbt. För att förbättra prestandan i det här fallet kan du använda [batch-frågor](sql-database-performance-guidance.md#batch-queries). Genom att använda batchar får du en fantastisk funktion eftersom dina begär Anden bearbetas i en batch. Därför hjälper du att minska tiden för roundtrip-svar och förbättra programmets prestanda.
 

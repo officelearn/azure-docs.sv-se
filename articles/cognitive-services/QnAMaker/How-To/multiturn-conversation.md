@@ -4,11 +4,11 @@ description: Använd prompter och kontext för att hantera flera sätt, så kall
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: abdde09fbb1f6b066772366c5cea933824cb5864
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210422"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389249"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Använd uppföljande frågor för att skapa en längre konversation
 
@@ -108,7 +108,7 @@ Lägg till en uppföljnings fråga till ett befintligt fråga-och-svar-par som i
 1. Välj **Lägg till uppföljnings fråga**i kolumnen **svar** i raden för att **Logga in**.
 1. Ange följande värden i fälten i popup-fönstret för **uppföljnings prompten** :
 
-    |Fält|Värde|
+    |Field|Värde|
     |--|--|
     |Visa text|Ange **Stäng av enheten**. Det här är en anpassad text som visas i uppföljnings anvisningarna.|
     |Endast Sammanhangs beroende| Markera den här kryss rutan. Ett svar returneras bara om frågan anger sammanhang.|
@@ -145,7 +145,7 @@ När du lägger till ett nytt fråga-och-svar-par i kunskaps basen ska varje par
 1. Välj **Lägg till uppföljnings fråga**i **svars** kolumnen för den här frågan.
 1. Under **uppföljnings prompt (för hands version)** skapar du en ny uppföljning genom att ange följande värden:
 
-    |Fält|Värde|
+    |Field|Värde|
     |--|--|
     |Visa text|*Skapa ett Windows-konto*. Den anpassade text som ska visas i uppföljnings anvisningarna.|
     |Endast Sammanhangs beroende|Markera den här kryss rutan. Svaret returneras endast om frågan anger sammanhang.|

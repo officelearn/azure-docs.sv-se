@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: e69b407bc7d58a83616daa44272ec008ccff9fad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451765"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361230"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista över Service Fabric händelser 
 
@@ -93,7 +93,7 @@ Mer information om program uppgraderingar hittar du [här](service-fabric-applic
 
 | EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | ---| --- | --- | --- |
-| 18940 | PartitionReconfigured | – | En omkonfiguration av partitionen har slutförts | RA | Information | 
+| 18940 | PartitionReconfigured | – | En omkonfiguration av partitionen har slutförts | STJÄRNOR | Information | 
 
 ## <a name="replica-events"></a>Replik händelser
 
@@ -120,14 +120,14 @@ Mer information om program uppgraderingar hittar du [här](service-fabric-applic
 | 16831 | BuildIdleReplicaStarted | – | Den primära repliken har börjat skapa en inaktiv replik | Replikering | Information |
 | 16832 | BuildIdleReplicaCompleted | – | Den primära repliken har slutfört skapandet av inaktiv replik | Replikering | Information |
 | 16833 | BuildIdleReplicaFailed | – | Den primära repliken har inte kunnat skapa en inaktiv replik | Replikering | Varning |
-| 16834 | PrimaryReplicationQueueFull | Hälso- och sjukvård | Den primära replikens transaktionskö är full | Replikering | Varning |
-| 16835 | PrimaryReplicationQueueWarning | Hälso- och sjukvård | Den primära replikens transaktionskö är nästan full | Replikering | Varning |
-| 16836 | PrimaryReplicationQueueWarningMitigated | Hälso- och sjukvård | Den primära replikens transaktionskö är OK | Replikering | Information |
-| 16837 | SecondaryReplicationQueueFull | Hälso- och sjukvård | Den sekundära replikens transaktionskö är full | Replikering | Varning |
-| 16838 | SecondaryReplicationQueueWarning | Hälso- och sjukvård | Den sekundära replikens transaktionskö är nästan full | Replikering | Varning |
-| 16839 | SecondaryReplicationQueueWarningMitigated | Hälso- och sjukvård | Den sekundära replikens replikeringsfil är OK | Replikering | Information |
-| 16840 | PrimaryFaultedSlowSecondary | Hälso- och sjukvård | Den primära repliken har trasigt en långsam sekundär replik | Replikering | Varning |
-| 16841 | ReplicatorFaulted | Hälso- och sjukvård | Repliken har fel | Replikering | Varning |
+| 16834 | PrimaryReplicationQueueFull | Hälsa | Den primära replikens transaktionskö är full | Replikering | Varning |
+| 16835 | PrimaryReplicationQueueWarning | Hälsa | Den primära replikens transaktionskö är nästan full | Replikering | Varning |
+| 16836 | PrimaryReplicationQueueWarningMitigated | Hälsa | Den primära replikens transaktionskö är OK | Replikering | Information |
+| 16837 | SecondaryReplicationQueueFull | Hälsa | Den sekundära replikens transaktionskö är full | Replikering | Varning |
+| 16838 | SecondaryReplicationQueueWarning | Hälsa | Den sekundära replikens transaktionskö är nästan full | Replikering | Varning |
+| 16839 | SecondaryReplicationQueueWarningMitigated | Hälsa | Den sekundära replikens replikeringsfil är OK | Replikering | Information |
+| 16840 | PrimaryFaultedSlowSecondary | Hälsa | Den primära repliken har trasigt en långsam sekundär replik | Replikering | Varning |
+| 16841 | ReplicatorFaulted | Hälsa | Repliken har fel | Replikering | Varning |
 
 ## <a name="container-events"></a>Container händelser
 

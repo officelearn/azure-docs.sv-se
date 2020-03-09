@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: f0c7b966b9fa7580809d2df0f4d05a7146ca0fd1
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895264"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395186"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Felsöka Apache Hadoop garn med hjälp av Azure HDInsight
 
@@ -24,24 +24,24 @@ Läs mer om de viktigaste problemen och sina lösningar när du arbetar med Apac
 
 Använd följande steg i Ambari för att skapa en ny YARN-kö och för att balansera kapacitetstilldelning bland alla köer.
 
-I det här exemplet, två befintliga köer (**standard** och **thriftsvr**) både ändras från 50% kapacitet till 25% kapacitet som får den nya kön (spark) 50% kapaciteten.
+I det här exemplet ändras två befintliga köer (**standard** -och **thriftsvr**) från 50% kapacitet till 25% kapacitet, vilket ger den nya kön (Spark) 50% kapacitet.
 
 | Kö | Kapacitet | Maximal kapacitet |
 | --- | --- | --- |
-| standard | 25 % | 50 % |
-| thrftsvr | 25 % | 50 % |
-| spark | 50 % | 50 % |
+| standard | 25% | 50% |
+| thrftsvr | 25% | 50% |
+| spark | 50% | 50% |
 
-1. Välj den **Ambari-vyer** ikonen och välj sedan mönstret rutnätet. Välj sedan **YARN köhanteraren**.
+1. Välj ikonen **Ambari views** och välj sedan rutnäts mönstret. Välj sedan **garn Queue Manager**.
 
     ![Apache Ambari Dashboard garn Queue Manager](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
-2. Välj den **standard** kö.
+2. Välj **standard** kön.
 
     ![Apache Ambari-garn Välj standard kön](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
-3. För den **standard** kö, ändra den **kapacitet** från 50% till 25%. För den **thriftsvr** kö, ändra den **kapacitet** till 25%.
+3. Ändra **kapaciteten** från 50% till 25% för **standard** kön. Ändra **kapaciteten** till 25% för **thriftsvr** -kön.
 
     ![Ändra kapaciteten till 25% för standard och thriftsvr köer](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
-4. Om du vill skapa en ny kö, Välj **Lägg till kö**.
+4. Om du vill skapa en ny kö väljer du **Lägg till kö**.
 
     ![Apache Ambari garn Dashboard Lägg till kö](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
@@ -49,10 +49,10 @@ I det här exemplet, två befintliga köer (**standard** och **thriftsvr**) båd
 
     ![Apache Ambari garn instrument panel, namn kö](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
-6. Lämna den **kapacitet** värden på 50% och välj sedan den **åtgärder** knappen.
+6. Lämna **kapacitets** värden på 50% och välj sedan knappen **åtgärder** .
 
     ![Apache Ambari-garn Välj åtgärd](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
-7. Välj **spara och uppdatera köer**.
+7. Välj **Spara och uppdatera köer**.
 
     ![Välj Spara och uppdatera köer](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
@@ -66,7 +66,7 @@ Dessa ändringar visas direkt på Scheduler YARN-Användargränssnittet.
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-1. Anslut till HDInsight-kluster med hjälp av en Secure Shell (SSH)-klient. Mer information finns i [mer att läsa](#additional-reading-2).
+1. Anslut till HDInsight-kluster med hjälp av en Secure Shell (SSH)-klient. Mer information finns i [Ytterligare läsning](#additional-reading-2).
 
 1. Om du vill visa alla program-ID för YARN-program som körs, kör du följande kommando:
 
@@ -74,7 +74,7 @@ Dessa ändringar visas direkt på Scheduler YARN-Användargränssnittet.
     yarn top
     ```
 
-    ID: N visas i den **APPLICATIONID** kolumn. Du kan hämta loggar från den **APPLICATIONID** kolumn.
+    ID: na visas i kolumnen **APPLICATIONID** . Du kan hämta loggar från kolumnen **APPLICATIONID** .
 
     ```apache
     YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
@@ -129,10 +129,10 @@ Dessa ändringar visas direkt på Scheduler YARN-Användargränssnittet.
 
     Det här kommandot skapar en loggfil med namnet containerlogs.txt.
 
-### <a name="additional-reading-2"></a>Ytterligare resurser
+### <a name="additional-reading-2"></a>Ytterligare läsning
 
 - [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
-- [Apache Hadoop YARN-begrepp och program](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
+- [Apache Hadoop garn koncept och program](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
 ## <a name="next-steps"></a>Nästa steg
 

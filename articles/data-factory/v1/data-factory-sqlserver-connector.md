@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 5e4bbe1e6bd944787d47c5e3ed98de582c088a52
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928173"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361496"
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Flytta data till och från SQL Server lokalt eller på IaaS (virtuell Azure-dator) med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -55,7 +55,7 @@ Du kan skapa en pipeline med en kopierings aktivitet som flyttar data till/från
 
 Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -78,7 +78,7 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 | typ |Egenskapen Type ska anges till: **OnPremisesSqlServer**. |Ja |
 | connectionString |Ange connectionString-information som krävs för att ansluta till den lokala SQL Server databasen med hjälp av SQL-autentisering eller Windows-autentisering. |Ja |
 | gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala SQL Servers databasen. |Ja |
-| användarnamn |Ange användar namn om du använder Windows-autentisering. Exempel: **domainname\\username**. |Nej |
+| användarnamn |Ange användar namn om du använder Windows-autentisering. Exempel: **domän namn\\användar namn**. |Nej |
 | lösenord |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Nej |
 
 Du kan kryptera autentiseringsuppgifter med cmdleten **New-AzDataFactoryEncryptValue** och använda dem i anslutnings strängen som visas i följande exempel (**EncryptedCredential** -egenskap):
@@ -543,7 +543,7 @@ Pipelinen innehåller en kopierings aktivitet som är konfigurerad för att anv�
 ## <a name="troubleshooting-connection-issues"></a>Felsöka anslutningsproblem
 1. Konfigurera SQL Server att acceptera fjärr anslutningar. Starta **SQL Server Management Studio**, högerklicka på **Server**och klicka på **Egenskaper**. Markera **anslutningar** i listan och markera **Tillåt fjärr anslutningar till servern**.
 
-    ![Aktivera fjärranslutningar](./media/data-factory-sqlserver-connector/AllowRemoteConnections.png)
+    ![Aktivera fjärr anslutningar](./media/data-factory-sqlserver-connector/AllowRemoteConnections.png)
 
     Detaljerade anvisningar finns i [Konfigurera konfigurations alternativet för fjärråtkomstservern](https://msdn.microsoft.com/library/ms191464.aspx) .
 2. Starta **Konfigurationshanteraren för SQL Server**. Expandera **SQL Server nätverks konfiguration** för den instans du vill ha och välj **protokoll för MSSQLSERVER**. Du bör se protokoll i den högra rutan. Aktivera TCP/IP genom att högerklicka på **TCP/IP** och klicka på **Aktivera**.
@@ -654,33 +654,33 @@ Mappningen är samma som SQL Server data typs mappning för ADO.NET.
 | --- | --- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Boolesk |
+| bit |Boolean |
 | char |String, Char[] |
-| datum |DateTime |
-| Datetime |DateTime |
+| date |DateTime |
+| Datum/tid |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
-| Decimal |Decimal |
+| decimaltal |decimaltal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Flyttal |Double |
-| mallar |Byte[] |
+| Flyttal |Double-värde |
+| image |Byte[] |
 | int |Int32 |
-| money |Decimal |
+| money |decimaltal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numeric |decimaltal |
 | nvarchar |String, Char[] |
 | real |Enkel |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Decimal |
+| smallmoney |decimaltal |
 | sql_variant |Object * |
 | text |String, Char[] |
 | time |TimeSpan |
 | tidsstämpel |Byte[] |
-| tinyint |Mottagna byte |
-| uniqueidentifier |GUID |
+| tinyint |Byte |
+| uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |

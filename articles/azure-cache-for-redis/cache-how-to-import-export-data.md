@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
 ms.openlocfilehash: 29ad5ca6c9058b88a539c7a3bb8ace4d9a65083a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714517"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372066"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importera och exportera data i Azure cache för Redis
 Import/export är en Azure-cache för Redis data hanterings åtgärd, som gör att du kan importera data till Azure cache för Redis eller exportera data från Azure cache för Redis genom att importera och exportera en Azure cache för Redis Database (RDB) ögonblicks bild från en Premium-cache till en BLOB i ett Azure Storage-konto.

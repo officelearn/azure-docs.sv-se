@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
 ms.openlocfilehash: 8a66cee7e844f0049f2d2ca2f6841943aa267f3e
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114197"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393050"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Återställa en disk och skapa en återställd virtuell dator i Azure
 
@@ -31,7 +31,7 @@ Om du väljer att installera och använda CLI lokalt kräver de här självstudi
 
 För den här självstudiekursen måste du ha en virtuell Linux-dator som har skyddats med Azure Backup. Du simulerar en oavsiktlig borttagning och återställning av den virtuella datorn genom att skapa en virtuell dator från en disk i en återställningspunkt. Om du behöver en virtuell Linux-dator som har skyddats med Azure Backup kan du läsa mer i [Säkerhetskopiera en virtuell dator i Azure med CLI](quick-backup-vm-cli.md).
 
-## <a name="backup-overview"></a>Översikt av säkerhetskopiering
+## <a name="backup-overview"></a>Översikt över Backup
 
 När Azure initierar en säkerhetskopiering tar tillägget på den virtuella datorn en ögonblicksbild. Säkerhetskopieringstillägget installeras på den virtuella datorn när den första säkerhetskopieringen begärs. Azure Backup kan också ta en ögonblicksbild av det underliggande lagringsutrymmet om den virtuella datorn inte körs när säkerhetskopieringen sker.
 

@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ff608cac9786ebc0d3908ce4d88fb501e621be6c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176614"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374369"
 ---
 # <a name="azure-api-management-page-controls"></a>Sid kontroller för Azure API Management
 Azure API Management tillhandahåller följande kontroller för användning i utvecklares Portal mallar.  
@@ -81,7 +81,7 @@ Mer information om hur du arbetar med mallar finns i [anpassa API Management Dev
 ```  
   
 ### <a name="parameters"></a>Parametrar  
- Inget.  
+ Inga.  
   
 ### <a name="developer-portal-templates"></a>Mallar för utvecklare  
  `basic-signin` kontrollen kan användas i följande mallar för utvecklare:  
@@ -100,7 +100,7 @@ Mer information om hur du arbetar med mallar finns i [anpassa API Management Dev
 ```  
   
 ### <a name="parameters"></a>Parametrar  
- Inget.  
+ Inga.  
   
 ### <a name="developer-portal-templates"></a>Mallar för utvecklare  
  `paging-control` kontrollen kan användas i följande mallar för utvecklare:  
@@ -123,7 +123,7 @@ Mer information om hur du arbetar med mallar finns i [anpassa API Management Dev
 ```  
   
 ### <a name="parameters"></a>Parametrar  
- Inget.  
+ Inga.  
   
 ### <a name="developer-portal-templates"></a>Mallar för utvecklare  
  `providers` kontrollen kan användas i följande mallar för utvecklare:  
@@ -142,7 +142,7 @@ Mer information om hur du arbetar med mallar finns i [anpassa API Management Dev
 ```  
   
 ### <a name="parameters"></a>Parametrar  
- Inget.  
+ Inga.  
   
 ### <a name="developer-portal-templates"></a>Mallar för utvecklare  
  `search-control` kontrollen kan användas i följande mallar för utvecklare:  
@@ -163,7 +163,7 @@ Mer information om hur du arbetar med mallar finns i [anpassa API Management Dev
 ```  
   
 ### <a name="parameters"></a>Parametrar  
- Inget.  
+ Inga.  
   
 ### <a name="developer-portal-templates"></a>Mallar för utvecklare  
  `sign-up` kontrollen kan användas i följande mallar för utvecklare:  
@@ -182,7 +182,7 @@ Mer information om hur du arbetar med mallar finns i [anpassa API Management Dev
 ```  
   
 ### <a name="parameters"></a>Parametrar  
- Inget.  
+ Inga.  
   
 ### <a name="developer-portal-templates"></a>Mallar för utvecklare  
  `subscribe-button` kontrollen kan användas i följande mallar för utvecklare:  

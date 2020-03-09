@@ -12,11 +12,11 @@ ms.reviewer: larryfr
 ms.date: 02/27/2020
 ms.custom: seoapril2019
 ms.openlocfilehash: 388f1cf0231d0a7eae7b059656186b067f537d2e
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250972"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355290"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -670,7 +670,7 @@ I följande tabell beskrivs de olika tjänst tillstånden:
 | Webservice-tillstånd | Beskrivning | Slutligt tillstånd?
 | ----- | ----- | ----- |
 | Övergår | Tjänsten håller på att distribueras. | Nej |
-| Ohälsosamt | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | Nej |
+| Skadad | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | Nej |
 | Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | Nej |
 | Misslyckades | Det gick inte att distribuera tjänsten på grund av ett fel eller en krasch. | Ja |
 | Felfri | Tjänsten är felfri och slut punkten är tillgänglig. | Ja |

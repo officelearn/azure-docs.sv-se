@@ -6,11 +6,11 @@ ms.author: dekapur
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: a674047722d4deca02d8f4d38a0826e479065037
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75496371"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391905"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Konfigurera en Windows-utvecklingsmiljö för att skapa Service Fabric Mesh-program
 

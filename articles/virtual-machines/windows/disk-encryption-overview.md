@@ -8,11 +8,11 @@ ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 05db717f5d3adc2429431503f588f2cc7f79aef6
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72435746"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383205"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption för virtuella Windows-datorer 
 
@@ -52,12 +52,12 @@ Om du vill aktivera Azure Disk Encryption måste de virtuella datorerna uppfylla
   - Om du vill hämta en token för att ansluta till ditt nyckel valv måste den virtuella Windows-datorn kunna ansluta till en Azure Active Directory-slutpunkt \[login.microsoftonline.com\].
   - Om du vill skriva krypterings nycklarna till ditt nyckel valv måste den virtuella Windows-datorn kunna ansluta till Key Vault-slutpunkten.
   - Den virtuella Windows-datorn måste kunna ansluta till en Azure Storage-slutpunkt som är värd för Azure Extension-lagringsplatsen och ett Azure Storage-konto som är värd för VHD-filerna.
-  -  Om din säkerhetsprincip begränsar åtkomst från virtuella Azure-datorer till Internet, kan du matcha den föregående URI: N och konfigurera en specifik regel som tillåter utgående anslutning till IP-adresserna. Mer information finns i [Azure Key Vault bakom en brandvägg](../../key-vault/key-vault-access-behind-firewall.md).    
+  -  Om din säkerhetsprincip begränsar åtkomst från virtuella Azure-datorer till Internet, kan du matcha den föregående URI: N och konfigurera en specifik regel som tillåter utgående anslutning till IP-adresserna. Mer information finns i [Azure Key Vault bakom en brand vägg](../../key-vault/key-vault-access-behind-firewall.md).    
 
 
 ## <a name="group-policy-requirements"></a>grupprincip krav
 
-Azure Disk Encryption använder BitLockers externa nyckel skydd för virtuella Windows-datorer. Domänanslutna virtuella datorer, inte skicka någon grupprinciper som tillämpar TPM-skydd. Läs om hur en grupprincip för ”Tillåt BitLocker utan en kompatibel TPM” [gruppolicy referens för BitLocker](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
+Azure Disk Encryption använder BitLockers externa nyckel skydd för virtuella Windows-datorer. Domänanslutna virtuella datorer, inte skicka någon grupprinciper som tillämpar TPM-skydd. Information om grup principen för "Tillåt BitLocker utan en kompatibel TPM" finns i [BitLocker Grupprincip Reference](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
 BitLocker-principen på domänanslutna virtuella datorer med anpassad grup princip måste innehålla följande inställning: [Konfigurera användar lagring av BitLocker-återställningsinformation – > tillåt 256-bitars återställnings nyckel](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption Miss fungerar när anpassade grup princip inställningar för BitLocker inte är kompatibla. Tillämpa den nya principen på datorer som inte har rätt principinställningen tvinga den nya principen för att uppdatera (gpupdate.exe/Force) och sedan omstart kan krävas.
 
@@ -75,10 +75,10 @@ I följande tabell definieras några vanliga termer som används i dokumentation
 | Terminologi | Definition |
 | --- | --- |
 | Azure Key Vault | Key Vault är en kryptografisk, key management-tjänst som har baserat på FIPS Federal Information Processing Standards () validerade och maskinvarubaserade säkerhetsmoduler. Dessa standarder bidra till att skydda dina kryptografiska nycklar och känsliga hemligheter. Mer information finns i [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) -dokumentationen och [skapa och konfigurera ett nyckel valv för Azure Disk Encryption](disk-encryption-key-vault.md). |
-| Azure CLI | [Azure CLI](/cli/azure/install-azure-cli) är optimerad för att hantera och administrera Azure-resurser från kommandoraden.|
+| Azure CLI | [Azure CLI](/cli/azure/install-azure-cli) är optimerat för att hantera och administrera Azure-resurser från kommando raden.|
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) är en bransch känd Windows Volume Encryption-teknik som används för att aktivera disk kryptering på virtuella Windows-datorer. |
 | Nyckel krypterings nyckel (KEK) | Den asymmetriska nyckeln (RSA 2048) som du kan använda för att skydda eller figursätta hemligheten. Du kan ange en maskinvarusäkerhetsmodul (HSM)-skyddade nyckel eller programvaruskyddad nyckel. Mer information finns i [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) -dokumentationen och [skapa och konfigurera ett nyckel valv för Azure Disk Encryption](disk-encryption-key-vault.md). |
-| PowerShell-cmdletar | Mer information finns i [Azure PowerShell-cmdlets](/powershell/azure/overview). |
+| PowerShell-cmdletar | Mer information finns i [Azure PowerShell-cmdletar](/powershell/azure/overview). |
 
 
 ## <a name="next-steps"></a>Nästa steg

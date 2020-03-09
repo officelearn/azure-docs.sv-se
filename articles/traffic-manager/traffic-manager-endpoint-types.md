@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: rohink
 ms.openlocfilehash: 3d8f899a7899243129d31c2620a51dc764a8e917
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938664"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392640"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager-slutpunkter
 
@@ -38,7 +38,7 @@ I följande avsnitt beskrivs varje typ av slut punkt i större djup.
 Azure-slutpunkter används för Azure-baserade tjänster i Traffic Manager. Följande Azure-resurs typer stöds:
 
 * PaaS Cloud Services.
-* Web Apps
+* Webbappar
 * Web App-platser
 * PublicIPAddress-resurser (som kan anslutas till virtuella datorer antingen direkt eller via en Azure Load Balancer). PublicIpAddress måste ha ett DNS-namn tilldelat för att kunna användas i en Traffic Manager-profil.
 

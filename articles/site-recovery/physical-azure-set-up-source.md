@@ -1,6 +1,6 @@
 ---
-title: Ställ in konfigurationsservern för haveriberedskap för fysiska servrar till Azure med hjälp av Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du konfigurerar den lokala konfigurationsservern för haveriberedskap för lokala fysiska servrar till Azure.
+title: Konfigurera konfigurations servern för haveri beredskap för fysiska servrar till Azure med hjälp av Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du konfigurerar den lokala konfigurations servern för haveri beredskap för lokala fysiska servrar till Azure.
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -9,61 +9,61 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67589047"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367118"
 ---
-# <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Ställ in konfigurationsservern för haveriberedskap för fysiska servrar till Azure
+# <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Konfigurera konfigurations servern för haveri beredskap för fysiska servrar till Azure
 
-Den här artikeln beskriver hur du ställer in din lokala miljö att börja replikera fysiska servrar som kör Windows eller Linux till Azure.
+Den här artikeln beskriver hur du konfigurerar din lokala miljö så att du kan börja replikera fysiska servrar som kör Windows eller Linux till Azure.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Artikeln förutsätter att du redan har:
-- En Recovery Services-valv i den [Azure-portalen](https://portal.azure.com "Azure-portalen").
-- En fysisk dator som du vill installera konfigurationsservern.
-- Om du har inaktiverat TLS 1.0 på datorn där du installerar configuration server kan du kontrollera att TLs 1.2 är aktiverat och att .NET Framework 4.6 eller senare har installerats på datorn (med stark kryptografi aktiverat). [Läs mer](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
+- Ett Recovery Services valv i [Azure Portal](https://portal.azure.com "Azure Portal").
+- En fysisk dator där konfigurations servern ska installeras.
+- Om du har inaktiverat TLS 1,0 på den dator där du installerar konfigurations servern kontrollerar du att TLs 1,2 är aktiverat och att .NET Framework version 4,6 eller senare är installerat på datorn (med stark kryptering aktiverat). [Läs mer](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
-### <a name="configuration-server-minimum-requirements"></a>Minsta konfigurationskrav för server
-I följande tabell visas de minimikraven på maskinvara, programvara och nätverkskrav för en konfigurationsserver.
+### <a name="configuration-server-minimum-requirements"></a>Minimi krav för konfigurations Server
+I följande tabell visas minimi kraven för maskin vara, program vara och nätverk för en konfigurations Server.
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]
-> HTTPS-baserade proxyservrar stöds inte av konfigurationsservern.
+> HTTPS-baserade proxyservrar stöds inte av konfigurations servern.
 
-## <a name="choose-your-protection-goals"></a>Välja skyddsmål
+## <a name="choose-your-protection-goals"></a>Välj skydds mål
 
-1. I Azure-portalen går du till den **återställningstjänster** valv bladet och välj ditt valv.
-2. I den **Resource** menyn för valvet klickar du på **komma igång** > **Site Recovery** > **steg 1: Förbered infrastrukturen** > **Skyddsmål**.
+1. I Azure Portal går du till bladet **Recovery Services** valv och väljer ditt valv.
+2. På **resurs** -menyn i valvet klickar du på **Komma igång** > **Site Recovery** > **steg 1: förbereda infrastruktur** > **skydds mål**.
 
     ![Välja mål](./media/physical-azure-set-up-source/choose-goals.png)
-3. I **skyddsmål**väljer **till Azure** och **inte virtualiserad/övrigt**, och klicka sedan på **OK**.
+3. I **skydds mål**väljer **du till Azure** och **inte virtualiserat/övrigt**och klickar sedan på **OK**.
 
     ![Välja mål](./media/physical-azure-set-up-source/physical-protection-goal.png)
 
 ## <a name="set-up-the-source-environment"></a>Konfigurera källmiljön
 
-1. I **Förbered källa**, om du inte har en konfigurationsserver, klickar du på **+ konfigurationsserver** att lägga till ett.
+1. I **Förbered källa**, om du inte har en konfigurations Server, klickar du på **+ konfigurations Server** för att lägga till en.
 
    ![Konfigurera källan](./media/physical-azure-set-up-source/plus-config-srv.png)
-2. I den **Lägg till Server** bladet kontrollerar du att **konfigurationsservern** visas i **servertyp**.
-4. Ladda ned installationsfilen enhetliga installationsprogrammet för Site Recovery.
-5. Ladda ned valvregistreringsnyckeln. Du behöver Registreringsnyckeln när du kör enhetliga installationsprogrammet. Nyckeln är giltig i fem dagar efter att du har genererat den.
+2. I bladet **Lägg till Server** kontrollerar du att **konfigurations servern** visas i **Server typ**.
+4. Hämta installations filen Site Recovery Unified setup.
+5. Ladda ned valvregistreringsnyckeln. Du behöver registrerings nyckeln när du kör enhetlig installation. Nyckeln är giltig i fem dagar efter att du har genererat den.
 
     ![Konfigurera källan](./media/physical-azure-set-up-source/set-source2.png)
-6. Kör på den dator som du använder som konfigurationsserver **enhetliga installationsprogrammet för Azure Site Recovery** att installera konfigurationsservern, processervern och huvudmålservern.
+6. På den dator som du använder som konfigurations server kör **Azure Site Recovery enhetlig installation** för att installera konfigurations servern, processervern och huvud mål servern.
 
-#### <a name="run-azure-site-recovery-unified-setup"></a>Kör Azure Site Recovery ett enhetligt installationsprogram
+#### <a name="run-azure-site-recovery-unified-setup"></a>Kör Azure Site Recovery enhetlig installation
 
 > [!TIP]
-> Configuration server registreringen misslyckas om tiden på systemklockan för datorns är mer än fem minuter från lokal tid. Synkronisera systemklockan med en [tidsserver](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) innan du påbörjar installationen.
+> Registreringen av konfigurations servern Miss lyckas om tiden på datorns system klocka är mer än fem minuter av lokal tid. Synkronisera system klockan med en [tids Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) innan du påbörjar installationen.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> Konfigurationsservern kan installeras via en kommandorad. [Läs mer](physical-manage-configuration-server.md#install-from-the-command-line).
+> Konfigurations servern kan installeras via en kommando rad. [Läs mer](physical-manage-configuration-server.md#install-from-the-command-line).
 
 
 ## <a name="common-issues"></a>Vanliga problem
@@ -73,4 +73,4 @@ I följande tabell visas de minimikraven på maskinvara, programvara och nätver
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nästa steg omfattar [konfigurera målmiljön](physical-azure-set-up-target.md) i Azure.
+Nästa steg innebär [att konfigurera mål miljön](physical-azure-set-up-target.md) i Azure.

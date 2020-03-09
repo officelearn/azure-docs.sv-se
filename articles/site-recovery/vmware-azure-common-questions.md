@@ -8,11 +8,11 @@ ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
 ms.openlocfilehash: 11f593bae6b3aab8355a8f39b56639cad8133b51
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719559"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363157"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Vanliga frågor om replikering av VMware till Azure
 
@@ -73,7 +73,7 @@ Nej, Site Recovery inte fångar replikerade data och har inte någon information
 
 Site Recovery är certifierat för ISO 27001:2013 och 27018, HIPAA och DPA. Det håller på att utvärdera SOC2 och FedRAMP JAB.
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 ### <a name="how-do-i-calculate-approximate-charges-for-vmware-disaster-recovery"></a>Hur gör jag för att beräkna ungefärliga debiteringar för katastrof återställning i VMware?
 

@@ -1,6 +1,6 @@
 ---
-title: Hantera säkerhetskopieringsprinciper för StorSimple 8000-serien | Microsoft Docs
-description: Beskriver hur du kan använda StorSimple Device Manager-tjänsten för att skapa och hantera manuella säkerhetskopieringar, scheman för säkerhetskopiering och kvarhållning av säkerhetskopior på en enhet i StorSimple 8000-serien.
+title: Hantera säkerhets kopierings principer för StorSimple 8000-serien | Microsoft Docs
+description: Förklarar hur du kan använda tjänsten StorSimple Enhetshanteraren för att skapa och hantera manuella säkerhets kopieringar, säkerhets kopierings scheman och kvarhållning av säkerhets kopior på en StorSimple 8000-serie enhet.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,88 +15,88 @@ ms.workload: TBD
 ms.date: 07/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 607379f8645226a031646376df9ca18f4d3164bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60819066"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394573"
 ---
-# <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Använda StorSimple Device Manager-tjänsten i Azure-portalen för att hantera principer för säkerhetskopiering
+# <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Använd tjänsten StorSimple Enhetshanteraren i Azure Portal för att hantera säkerhets kopierings principer
 
 
 ## <a name="overview"></a>Översikt
 
-Den här självstudien beskrivs hur du använder StorSimple Device Manager-tjänsten **säkerhetskopieringspolicy** bladet för att styra processer för säkerhetskopiering och kvarhållning av säkerhetskopior för din StorSimple-volymer. Det beskriver också hur du utför en manuell säkerhetskopiering.
+I den här självstudien beskrivs hur du använder bladet StorSimple Enhetshanteraren service **Backup policy** för att kontrol lera säkerhets kopierings processer och kvarhållning av säkerhets kopior för dina StorSimple-volymer Det beskriver också hur du utför en manuell säkerhets kopiering.
 
-När du säkerhetskopierar en volym kan du skapa en lokal ögonblicksbild eller en ögonblicksbild i molnet. Om du säkerhetskopierar en lokalt Fäst volym, rekommenderar vi att du anger en ögonblicksbild i molnet. Med ett stort antal lokala ögonblicksbilder av en lokalt Fäst volym tillsammans med en datauppsättning som har en massa omsättning resulterar i en situation där du kan snabbt slut på lokalt utrymme. Om du väljer att ta lokala ögonblicksbilder, rekommenderar vi att du tar färre dagliga ögonblicksbilder för att säkerhetskopiera det senaste tillståndet, behålla dem i en dag och ta bort dem.
+När du säkerhetskopierar en volym kan du välja att skapa en lokal ögonblicks bild eller en ögonblicks bild av molnet. Om du säkerhetskopierar en lokalt fäst volym rekommenderar vi att du anger en ögonblicks bild av molnet. Att ta ett stort antal lokala ögonblicks bilder av en lokalt fixerad volym tillsammans med en data uppsättning som har mycket omsättnings utrymme leder till en situation där du snabbt kan få slut på det lokala utrymmet. Om du väljer att ta lokala ögonblicks bilder rekommenderar vi att du tar färre dagliga ögonblicks bilder för att säkerhetskopiera det senaste läget, behålla dem för en dag och sedan ta bort dem.
 
-När du skapar en molnögonblicksbild av en lokalt Fäst volym kan kopiera du endast ändrade data till molnet, där det är deduplicerad och komprimeras.
+När du tar en moln ögonblicks bild av en lokalt fäst volym kopierar du bara ändrade data till molnet, där den dedupliceras och komprimeras.
 
-## <a name="the-backup-policy-blade"></a>Bladet säkerhetskopieringspolicy
+## <a name="the-backup-policy-blade"></a>Bladet säkerhets kopierings princip
 
-Den **säkerhetskopieringspolicy** bladet för din StorSimple-enhet kan du hantera principer för säkerhetskopiering och schemalägga lokala och molnbaserade ögonblicksbilder. Principer för säkerhetskopiering används för att konfigurera scheman för säkerhetskopiering och kvarhållning av säkerhetskopior för en samling av volymer. Principer för säkerhetskopiering kan du ta en ögonblicksbild av flera volymer samtidigt. Det innebär att de säkerhetskopior som skapats av en princip för säkerhetskopiering är kraschkonsekventa kopior.
+På bladet **säkerhets kopierings princip** för din StorSimple-enhet kan du hantera säkerhets kopierings principer och schemalägga lokala och molnbaserade ögonblicks bilder. Säkerhets kopierings principer används för att konfigurera säkerhets kopierings scheman och kvarhållning av säkerhets kopior för en samling volymer. Med säkerhets kopierings principer kan du ta en ögonblicks bild av flera volymer samtidigt. Det innebär att de säkerhets kopior som skapats av en säkerhets kopierings princip är kraschbaserade kopior.
 
-Listan principer för säkerhetskopiering kan du filtrera befintliga principer för säkerhetskopiering av en eller flera av följande fält:
+I listan säkerhets kopierings principer kan du också filtrera befintliga säkerhets kopierings principer med hjälp av ett eller flera av följande fält:
 
-* **Principnamn** – namnet som associeras med principen. De olika typerna av principer är:
+* **Princip namn** – namnet som är kopplat till principen. De olika typerna av principer är:
 
-  * Schemalagda principer som skapas uttryckligen av användaren.
-  * Importerade principer som ursprungligen skapades i StorSimple Snapshot Manager. Dessa har en tagg som beskriver StorSimple Snapshot Manager-värden som principerna som har importerats från.
+  * Schemalagda principer som uttryckligen skapas av användaren.
+  * Importerade principer, som ursprungligen skapades i StorSimple-Snapshot Manager. De har en tagg som beskriver StorSimple-Snapshot Manager värden som principerna har importer ATS från.
 
   > [!NOTE]
-  > Automatisk eller standard principer för säkerhetskopiering är inte längre aktiverad vid tidpunkten för skapa volymer.
+  > Principer för automatisk eller standard säkerhets kopiering är inte längre aktiverade när volymen skapas.
 
-* **Senaste framgångsrika säkerhetskopieringen** – datum och tid för den senaste framgångsrika säkerhetskopieringen som utfördes med den här principen.
+* **Senaste lyckade säkerhets kopiering** – datum och tid för den senaste lyckade säkerhets kopieringen som vidtogs med den här principen.
 
-* **Nästa säkerhetskopiering** – datum och tid för nästa schemalagda säkerhetskopiering som initieras av den här principen.
+* **Nästa säkerhets kopiering** – datum och tid för nästa schemalagda säkerhets kopiering som kommer att initieras av den här principen.
 
-* **Volymer** – de volymer som är associerade med principen. Alla volymer som är associerade med en princip för säkerhetskopiering är grupperade tillsammans när säkerhetskopieringar skapas.
+* **Volymer** – volymerna som är associerade med principen. Alla volymer som är kopplade till en säkerhets kopierings policy grupperas tillsammans när säkerhets kopior skapas.
 
-* **Scheman** – antalet scheman som är associerade med principen för säkerhetskopiering.
+* **Scheman** – antalet scheman som är associerade med säkerhets kopierings principen.
 
-Vanliga åtgärder som du kan utföra för principer för säkerhetskopiering är:
+De ofta använda åtgärder som du kan utföra för säkerhets kopierings principer är:
 
 * Lägga till en säkerhetskopieringspolicy
 * Lägg till eller ändra ett schema
-* Lägg till eller ta bort en volym
-* Ta bort en princip för säkerhetskopiering
-* Gör en manuell säkerhetskopia
+* Lägga till eller ta bort en volym
+* Ta bort en princip för säkerhets kopiering
+* Gör en manuell säkerhets kopiering
 
 ## <a name="add-a-backup-policy"></a>Lägga till en säkerhetskopieringspolicy
 
-Lägg till en princip för säkerhetskopiering för att schemalägga automatiskt dina säkerhetskopior. När du skapar en volym, det finns ingen standardprincip för säkerhetskopiering som är associerade med din volym. Du måste lägga till och tilldela en princip för säkerhetskopiering att skydda volymdata.
+Lägg till en säkerhets kopierings princip för att automatiskt schemalägga säkerhets kopieringar. När du först skapar en volym finns det ingen standard säkerhets kopierings princip som är kopplad till volymen. Du måste lägga till och tilldela en säkerhets kopierings princip för att skydda volym data.
 
-Utför följande steg i Azure portal för att lägga till en säkerhetskopieringsprincip för StorSimple-enheten. När du lägger till principen som du kan definiera ett schema (se [Lägg till eller ändra ett schema](#add-or-modify-a-schedule)).
+Utför följande steg i Azure Portal för att lägga till en princip för säkerhets kopiering för din StorSimple-enhet. När du har lagt till principen kan du definiera ett schema (se [lägga till eller ändra ett schema](#add-or-modify-a-schedule)).
 
 [!INCLUDE [storsimple-8000-add-backup-policy-u2](../../includes/storsimple-8000-add-backup-policy-u2.md)]
 
 ## <a name="add-or-modify-a-schedule"></a>Lägg till eller ändra ett schema
 
-Du kan lägga till eller ändra ett schema som är kopplat till en befintlig säkerhetskopieringspolicy på StorSimple-enheten. Utför följande steg i Azure portal för att lägga till eller ändra ett schema.
+Du kan lägga till eller ändra ett schema som är kopplat till en befintlig säkerhets kopierings princip på din StorSimple-enhet. Utför följande steg i Azure Portal för att lägga till eller ändra ett schema.
 
 [!INCLUDE [storsimple-8000-add-modify-backup-schedule](../../includes/storsimple-8000-add-modify-backup-schedule-u2.md)]
 
 
-## <a name="add-or-remove-a-volume"></a>Lägg till eller ta bort en volym
+## <a name="add-or-remove-a-volume"></a>Lägga till eller ta bort en volym
 
-Du kan lägga till eller ta bort en volym som har tilldelats en princip för säkerhetskopiering på StorSimple-enheten. Utför följande steg i Azure portal för att lägga till eller ta bort en volym.
+Du kan lägga till eller ta bort en volym som har tilldelats till en säkerhets kopierings princip på din StorSimple-enhet. Utför följande steg i Azure Portal för att lägga till eller ta bort en volym.
 
 [!INCLUDE [storsimple-8000-add-volume-backup-policy-u2](../../includes/storsimple-8000-add-remove-volume-backup-policy-u2.md)]
 
 
-## <a name="delete-a-backup-policy"></a>Ta bort en princip för säkerhetskopiering
+## <a name="delete-a-backup-policy"></a>Ta bort en princip för säkerhets kopiering
 
-Utför följande steg i Azure portal för att ta bort en princip för säkerhetskopiering på StorSimple-enheten.
+Utför följande steg i Azure Portal för att ta bort en säkerhets kopierings princip på din StorSimple-enhet.
 
 [!INCLUDE [storsimple-8000-delete-backup-policy](../../includes/storsimple-8000-delete-backup-policy.md)]
 
-## <a name="take-a-manual-backup"></a>Gör en manuell säkerhetskopia
+## <a name="take-a-manual-backup"></a>Gör en manuell säkerhets kopiering
 
-Utför följande steg i Azure portal för att skapa en säkerhetskopiering på begäran (manuellt) för en enskild volym.
+Utför följande steg i Azure Portal för att skapa en säkerhets kopia på begäran (manuell) för en enskild volym.
 
 [!INCLUDE [storsimple-8000-create-manual-backup](../../includes/storsimple-8000-create-manual-backup.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [med StorSimple Device Manager-tjänsten för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+Lär dig mer om [att använda tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
 

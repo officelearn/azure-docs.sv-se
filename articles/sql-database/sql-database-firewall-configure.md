@@ -13,11 +13,11 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 9db6b5ff517a1b0d67e59591ee634dfad685527b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461462"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359899"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Regler för Azure SQL Database och Azure SQL Data Warehouse IP-brandvägg
 

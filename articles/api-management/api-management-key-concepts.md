@@ -14,15 +14,15 @@ ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 8d7fa8b8119ddf1769b36bcb55831047d6242470
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073438"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374365"
 ---
 # <a name="about-api-management"></a>Om API Management
 
-API Management (APIM) är ett sätt att skapa konsekventa och moderna API-gatewayer för befintliga Server dels tjänster.
+API Management (APIM) är ett snabbt sätt att skapa enhetliga och moderna API-gatewayer för befintliga serverdelstjänster.
 
 API Management hjälper organisationer att publicera API: er till externa, partner och interna utvecklare för att låsa upp potentiella data och tjänster. Företag överallt vill utöka sin närvaro som digital plattform, skapa nya kanaler, hitta nya kunder och fördjupa relationerna med befintliga kunder. API Management lägger grunden till ett effektivt API-program genom engagerade utvecklare, affärsinsikter, analyser, hög säkerhet och skydd. Med Azure API Management kan du välja valfri serverdel och köra ett fullvärdigt API-program baserat på den.
 
@@ -60,7 +60,7 @@ Systemet består av följande komponenter:
   * Skapa ett konto och börja prenumerera på API-nycklar.
   * Komma åt analyser om deras egen användning.
 
-Mer information finns i [molnbaserad API-hantering: PDF-dokumentet Harnessing the Power of APIs](https://j.mp/ms-apim-whitepaper). Det här introduktionsdokumentet om API Management av CITO Research innehåller bland annat följande avsnitt: 
+Mer information finns i PDF-dokumentet [Cloud-based API Management: Harnessing the Power of APIs](https://j.mp/ms-apim-whitepaper). Det här introduktionsdokumentet om API Management av CITO Research innehåller bland annat följande avsnitt: 
  
  * Vanliga API-relaterade krav och utmaningar
  * Frikoppla API:er och presentera fasader
@@ -71,17 +71,17 @@ Mer information finns i [molnbaserad API-hantering: PDF-dokumentet Harnessing th
  * Använda molnet eller lokala lösningar
  * Azure API Management
  
-## <a name="apis"> </a>API:er och åtgärder
+## <a name="apis"> </a>API: er och åtgärder
 API:er är grunden för en API Management-tjänstinstans. Varje API representerar en uppsättning åtgärder som är tillgängliga för utvecklare. Varje API innehåller en referens till backend-tjänsten som implementerar API:et, och dess åtgärder mappar till åtgärderna som implementeras av backend-tjänsten. Åtgärder i API Management är ytterst konfigurerbara, med kontroll över URL-mappning, fråge- och sökvägsparametrar, förfrågnings- och svarsinnehåll och cachelagring av åtgärdssvar. Principer för frekvensgränser, kvoter och IP-begränsning kan också implementeras på API- eller åtgärdsnivå.
 
 Mer information finns i [Skapa API:er][How to create APIs] och [Lägga till åtgärder till ett API][How to add operations to an API].
 
-## <a name="products"> </a> Produkter
+## <a name="products"></a> Produkter
 Produkter syftar på hur API:erna exponeras för utvecklare. Produkter i API Management har ett eller flera API:er och konfigureras med en rubrik, en beskrivning och användningsvillkor. Produkter kan vara **öppna** eller **skyddade**. Utvecklare måste prenumerera på skyddade produkter innan de kan användas. Öppna produkter kan användas utan en prenumeration. När en produkt är redo att användas av utvecklare kan den publiceras. När produkten har publicerats kan utvecklare se den (och prenumerera på den om det är en skyddad produkt). Prenumerationsgodkännande konfigureras på produktnivå och kan antingen kräva administratörsgodkännande eller godkännas automatiskt.
 
 Grupper används för att hantera hur produkterna visas för utvecklare. Produkter beviljar synlighet till grupper, och utvecklare kan visa och prenumerera på de produkter som är synliga för grupper som de är medlemmar i. 
 
-## <a name="groups"> </a> Grupper
+## <a name="groups"></a> Grupper
 Grupper används för att hantera hur produkterna visas för utvecklare. API Management har följande systemgrupper som inte kan ändras:
 
 * **Administratörer** – Administratörer av Azure-prenumerationer är medlemmar i den här gruppen. Administratörer hanterar API Management-tjänstinstanser genom att skapa API:er, åtgärder och produkter som används av utvecklare.
@@ -92,14 +92,14 @@ Utöver dessa systemgrupper kan administratörer skapa anpassade grupper eller [
 
 Mer information finns i [Skapa och använda grupper][How to create and use groups].
 
-## <a name="developers"> </a> Utvecklare
+## <a name="developers"></a> Utvecklare
 Utvecklare representerar användarkontona i en API Management-tjänstinstans. Utvecklare kan skapas eller bjudas in av administratörer eller registrera sig på [utvecklarportalen][Developer portal]. Varje utvecklare är medlem i en eller flera grupper och kan prenumerera på de produkter som visas för dessa grupper.
 
 När utvecklare prenumererar på en produkt får de tillgång till den primära och sekundära nyckeln för produkten. Den här nyckeln används för att göra anrop till produktens API:er.
 
 Mer information finns i [Skapa eller bjuda in utvecklare][How to create or invite developers] och [Associera grupper med utvecklare][How to associate groups with developers].
 
-## <a name="policies"> </a> Principer
+## <a name="policies"></a> Principer
 Principer är en kraftfull funktion i API Management som gör att Azure-portalen kan konfigurera om API:ets beteende. Principer är en samling instruktioner som körs sekventiellt på begäran av eller efter ett svar från ett API. Exempel på populära instruktioner är formatkonvertering från XML till JSON och begränsning av anropsfrekvensen för att begränsa antalet inkommande anrop från en utvecklare. Många andra principer är också tillgängliga.
 
 Principuttryck kan användas som attributvärden eller textvärden i API Management-principer, under förutsättning att principen tillåter det. Vissa principer som [Kontrollflöde](/azure/api-management/api-management-advanced-policies#choose) och [Ange variabel](/azure/api-management/api-management-advanced-policies#set-variable) baseras på principuttryck. Mer information finns i [Avancerade principer](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) och [Principuttryck](/azure/api-management/api-management-policy-expressions).
@@ -108,7 +108,7 @@ Principuttryck kan användas som attributvärden eller textvärden i API Managem
 En fullständig lista över API Management-principer finns i [Principreferens][Policy reference]. Mer information om hur du använder och konfigurerar principer finns i [API Management-principer][API Management policies]. En självstudiekurs om hur du skapar en produkt med principer för frekvensbegränsning och kvoter finns i [Skapa och konfigurera avancerade produktinställningar][How create and configure advanced product settings].
 
 
-## <a name="developer-portal"> </a> Utvecklarportalen
+## <a name="developer-portal"></a> Utvecklings Portal
 På utvecklarportalen kan utvecklare lära sig mer om dina API:er, visa och anropa åtgärder och prenumerera på produkter. Potentiella kunder kan besöka utvecklarportalen, visa API:er och åtgärder och registrera sig. URL:en för din utvecklarportal finns på instrumentpanelen i Azure Portal för din API Management-tjänstinstans.
 
 Du kan anpassa utvecklingsportalen genom att lägga till eget innehåll, anpassa format eller lägga till varumärkesanpassad design.

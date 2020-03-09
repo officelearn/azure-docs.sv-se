@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/9/2019
 ms.openlocfilehash: ba091d05aa243fab08138c96827d2f657d9755de
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976306"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363559"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Konfigurera Server parametrar i Azure Database for MariaDB med hjälp av Azure Portal
 
@@ -21,13 +21,13 @@ Azure Database for MariaDB stöder konfiguration av vissa Server parametrar. Den
 
 1. Logga in på Azure Portal och leta sedan upp Azure Database for MariaDB-servern.
 2. Under avsnittet **Inställningar** klickar du på **Server parametrar** för att öppna sidan Server parametrar för Azure Database for MariaDB-servern.
-![Sidan för Azure-portalservern parametrar](./media/howto-server-parameters/azure-portal-server-parameters.png)
-3. Leta upp alla inställningar som du behöver justera. Granska den **beskrivning** kolumn att förstå syftet med och tillåtna värden.
-![Räkna upp Släpp ned](./media/howto-server-parameters/3-toggle_parameter.png)
-4. Klicka på **spara** att spara dina ändringar.
-![Spara eller ignorera ändringar](./media/howto-server-parameters/4-save_parameters.png)
-5. Om du har sparat nya värden för parametrarna, kan du alltid återgå allt till standardvärden genom att välja **Återställ allt till standardinställningarna**.
-![Återställ allt till standardinställningarna](./media/howto-server-parameters/5-reset_parameters.png)
+Sidan ![Azure Portal Server parametrar](./media/howto-server-parameters/azure-portal-server-parameters.png)
+3. Leta upp alla inställningar som du behöver justera. Granska kolumnen **Beskrivning** för att förstå syfte och tillåtna värden.
+![räkna upp List rutan](./media/howto-server-parameters/3-toggle_parameter.png)
+4. Klicka på **Spara** för att spara ändringarna.
+![Spara eller ta bort ändringar](./media/howto-server-parameters/4-save_parameters.png)
+5. Om du har sparat nya värden för parametrarna kan du alltid återställa allt tillbaka till standardvärdena genom att välja **Återställ alla till standard**.
+![Återställ alla till standard](./media/howto-server-parameters/5-reset_parameters.png)
 
 ## <a name="list-of-configurable-server-parameters"></a>Lista över konfigurerbara serverparametrar
 
@@ -35,18 +35,18 @@ Listan över stöds serverparametrar växer hela tiden. Använda fliken server p
 
 ## <a name="non-configurable-server-parameters"></a>Inte går att konfigurera serverparametrar
 
-InnoDB Buffertpoolen och högsta antal anslutningar är inte kan konfigureras och bundet till din [prisnivån](concepts-pricing-tiers.md).
+InnoDB buffer och max anslutningar kan inte konfigureras och kopplas till din [pris nivå](concepts-pricing-tiers.md).
 
-|**Prisnivå**| **virtuella kärnor**|**InnoDB Buffertpoolen (MB)**|
+|**Prisnivå**| **vCore (s)**|**InnoDB-buffert (MB)**|
 |---|---|---|
 |Basic| 1| 1024|
 |Basic| 2| 2560|
-|Generellt syfte| 2| 3584|
-|Generellt syfte| 4| 7680|
-|Generellt syfte| 8| 15360|
-|Generellt syfte| 16| 31232|
-|Generellt syfte| 32| 62976|
-|Generellt syfte| 64| 125952|
+|Generell användning| 2| 3584|
+|Generell användning| 4| 7680|
+|Generell användning| 8| 15360|
+|Generell användning| 16| 31232|
+|Generell användning| 32| 62976|
+|Generell användning| 64| 125952|
 |Minnesoptimerad| 2| 7168|
 |Minnesoptimerad| 4| 15360|
 |Minnesoptimerad| 8| 30720|
@@ -55,9 +55,9 @@ InnoDB Buffertpoolen och högsta antal anslutningar är inte kan konfigureras oc
 
 Dessa ytterligare server-parametrar kan inte konfigureras i systemet:
 
-|**Parametern**|**Fast värde**|
+|**ProfileServiceApplicationProxy**|**Fast värde**|
 | :------------------------ | :-------- |
-|innodb_file_per_table på Basic-nivå|AV|
+|innodb_file_per_table på Basic-nivå|OFF|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
 |innodb_log_file_size|512 MB|
@@ -68,10 +68,10 @@ Andra server parametrar som inte listas här anges som standardvärden för Mari
 
 ### <a name="populating-the-time-zone-tables"></a>Fylla i tabellerna tidszon
 
-Tidszon tabellerna på din server kan fyllas genom att anropa den `az_load_timezone` lagrade proceduren från ett verktyg som MySQL-kommandoraden eller MySQL Workbench.
+Tids zons tabellerna på servern kan fyllas i genom att anropa den `az_load_timezone` lagrade proceduren från ett verktyg som MySQL-kommandoraden eller MySQL Workbench.
 
 > [!NOTE]
-> Om du kör den `az_load_timezone` kommandot från MySQL Workbench, du kan behöva inaktivera säker uppdateringsläget första med `SET SQL_SAFE_UPDATES=0;`.
+> Om du kör kommandot `az_load_timezone` från MySQL Workbench, kan du behöva inaktivera säkert uppdaterings läge först med `SET SQL_SAFE_UPDATES=0;`.
 
 ```sql
 CALL mysql.az_load_timezone();
@@ -87,13 +87,13 @@ SELECT name FROM mysql.time_zone_name;
 
 ### <a name="setting-the-global-level-time-zone"></a>Tidszonen global nivå
 
-Den globala nivån tidszonen kan ställas in från den **serverparametrar** sidan på Azure portal. Den nedan anger globala tidszonen till värdet ”USA / Stillahavsområdet”.
+Tids zonen på global nivå kan ställas in från sidan **Server parametrar** i Azure Portal. Den nedan anger globala tidszonen till värdet ”USA / Stillahavsområdet”.
 
 ![En parameter för tidszon](./media/howto-server-parameters/timezone.png)
 
 ### <a name="setting-the-session-level-time-zone"></a>Tidszonen session nivå
 
-Sessionen kan ställas in på tidszonen genom att köra den `SET time_zone` från ett verktyg som MySQL-kommandoraden eller MySQL Workbench. Exemplet nedan anger tidszonen till den **USA / Stillahavsområdet** tidszon.
+Tids zonen för tids zonen kan anges genom att köra kommandot `SET time_zone` från ett verktyg som MySQL kommando rad eller MySQL Workbench. I exemplet nedan ställs tids zonen till i **USA/Stilla havs** området.
 
 ```sql
 SET time_zone = 'US/Pacific';

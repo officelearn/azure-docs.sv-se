@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 462d54a9d89d6f03aed5e221fa02609da786c8c1
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918738"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387410"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Flytta data till och från Azure-tabellen med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -38,7 +38,7 @@ Du kan skapa en pipeline med en kopierings aktivitet som flyttar data till/från
 
 Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager: 
 
@@ -82,7 +82,7 @@ Vilka egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | azureTableSourceQuery |Använd den anpassade frågan för att läsa data. |Sträng för Azure Table-fråga. Se exemplen i nästa avsnitt. |Nej. När ett tableName anges utan azureTableSourceQuery, kopieras alla poster från tabellen till målet. Om en azureTableSourceQuery också anges kopieras poster från den tabell som uppfyller frågan till målet. |
-| azureTableSourceIgnoreTableNotFound |Ange om förtäring av undantag för tabell saknas. |TRUE<br/>FALSE |Nej |
+| azureTableSourceIgnoreTableNotFound |Ange om förtäring av undantag för tabell saknas. |TRUE<br/>! |Nej |
 
 ### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery-exempel
 Om Azure Table-kolumnen är av sträng typ:
@@ -104,7 +104,7 @@ Om Azure Table-kolumnen är av typen datetime:
 | azureTableDefaultPartitionKeyValue |Standardvärdet för partitionerings nyckel som kan användas av mottagaren. |Ett sträng värde. |Nej |
 | azureTablePartitionKeyName |Ange namnet på den kolumn vars värden används som partitionsnyckel. Om inget anges används AzureTableDefaultPartitionKeyValue som partitionsnyckel. |Ett kolumn namn. |Nej |
 | azureTableRowKeyName |Ange namnet på den kolumn vars kolumn värden används som rad nyckel. Om inget anges ska du använda ett GUID för varje rad. |Ett kolumn namn. |Nej |
-| azureTableInsertType |Det läge där data ska infogas i Azure-tabellen.<br/><br/>Den här egenskapen anger om befintliga rader i utdatatabellen med matchande partition och rad nycklar har ersatts eller slås samman. <br/><br/>Information om hur de här inställningarna (sammanfoga och ersätt) fungerar finns i avsnittet [Infoga eller sammanfoga entiteter](https://msdn.microsoft.com/library/azure/hh452241.aspx) och [Infoga eller ersätta entiteter](https://msdn.microsoft.com/library/azure/hh452242.aspx) . <br/><br> Den här inställningen gäller på radnivå, inte på tabell nivå, och inget av alternativen tar bort rader i den utgående tabellen som inte finns i indata. |Sammanfoga (standard)<br/>ersätta |Nej |
+| azureTableInsertType |Det läge där data ska infogas i Azure-tabellen.<br/><br/>Den här egenskapen anger om befintliga rader i utdatatabellen med matchande partition och rad nycklar har ersatts eller slås samman. <br/><br/>Information om hur de här inställningarna (sammanfoga och ersätt) fungerar finns i avsnittet [Infoga eller sammanfoga entiteter](https://msdn.microsoft.com/library/azure/hh452241.aspx) och [Infoga eller ersätta entiteter](https://msdn.microsoft.com/library/azure/hh452242.aspx) . <br/><br> Den här inställningen gäller på radnivå, inte på tabell nivå, och inget av alternativen tar bort rader i den utgående tabellen som inte finns i indata. |Sammanfoga (standard)<br/>bytt |Nej |
 | writeBatchSize |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout har nåtts. |Heltal (antal rader) |Nej (standard: 10000) |
 | writeBatchTimeout |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout har nåtts |TimeSpan<br/><br/>Exempel: "00:20:00" (20 minuter) |Nej (standard-timeout-värdet för Storage-klienten är 90 SEK) |
 
@@ -474,16 +474,16 @@ Som anges i artikeln [data förflyttnings aktiviteter](data-factory-data-movemen
 
 När du flyttar data till & från Azure-tabellen används följande [mappningar som definieras av Azure-Table service](https://msdn.microsoft.com/library/azure/dd179338.aspx) från Azure Table OData-typer till .net-typ och vice versa.
 
-| OData-datatyp | .NET-typ | Information |
+| OData-datatyp | .NET-typ | Detaljer |
 | --- | --- | --- |
-| Edm.Binary |byte |En matris med byte upp till 64 KB. |
-| Edm.Boolean |bool |Ett booleskt värde. |
+| Edm.Binary |byte[] |En matris med byte upp till 64 KB. |
+| Edm.Boolean |booleska |Ett booleskt värde. |
 | Edm.DateTime |DateTime |Ett 64-bitars värde uttryckt som UTC (Coordinated Universal Time). Det DateTime-intervall som stöds börjar från 12:00 midnatt, 1 januari 1601 A.D. (C.E.), UTC. Intervallet slutar den 31 december 9999. |
 | Edm.Double |double |Ett 64-bitars flytt ALS värde. |
-| Edm.Guid |GUID |En 128-bitars globalt unik identifierare. |
+| Edm.Guid |Guid |En 128-bitars globalt unik identifierare. |
 | Edm.Int32 |Int32 |Ett 32-bitars heltal. |
 | Edm.Int64 |Int64 |Ett 64-bitars heltal. |
-| Edm.String |Sträng |Ett UTF-16-kodat värde. Sträng värden kan vara upp till 64 KB. |
+| Edm.String |String |Ett UTF-16-kodat värde. Sträng värden kan vara upp till 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Exempel på typ konvertering
 Följande exempel är för att kopiera data från en Azure-blob till Azure-tabell med typ konverteringar.
@@ -534,7 +534,7 @@ Med typ mappningen från en Azure Table OData-typ till .NET-typ definierar du ta
 
 **Azure Table-schema:**
 
-| Kolumnnamn | Typ |
+| Kolumn namn | Typ |
 | --- | --- |
 | userid |Edm.Int64 |
 | namn |Edm.String |

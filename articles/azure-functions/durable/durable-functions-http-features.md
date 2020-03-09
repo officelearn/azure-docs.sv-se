@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
 ms.openlocfilehash: a7d8891c6f925cfac326685f01ba5f6149a1b233
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262868"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357797"
 ---
 # <a name="http-features"></a>HTTP-funktioner
 
@@ -41,17 +41,17 @@ I [artikeln om http-API: er](durable-functions-http-api.md) finns en fullständi
 
 [Dirigerings klientens bindning](durable-functions-bindings.md#orchestration-client) exponerar API: er som kan generera lämpliga nytto laster för HTTP-svar. Det kan till exempel skapa ett svar som innehåller länkar till hanterings-API: er för en angiven Dirigerings instans. I följande exempel visas en funktion för HTTP-utlösare som visar hur du använder det här API: et för en ny Dirigerings instans:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 **index. js**
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-**function.json**
+**function. JSON**
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
 
@@ -114,7 +114,7 @@ Från och med Durable Functions 2,0 kan dirigeringar använda HTTP-API: er med h
 
 Följande exempel kod visar en Orchestrator-funktion som gör en utgående HTTP-begäran:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -134,7 +134,7 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -172,7 +172,7 @@ Durable Functions inbyggt stöder anrop till API: er som accepterar Azure Active
 
 Följande kod är ett exempel på en .NET Orchestrator-funktion. Funktionen gör autentiserade anrop för att starta om en virtuell dator med hjälp av Azure Resource Manager [virtuella datorer REST API](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RestartVm")]
@@ -198,7 +198,7 @@ public static async Task RunOrchestrator(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");

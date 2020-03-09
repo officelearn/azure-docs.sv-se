@@ -4,11 +4,11 @@ description: Använd Azure Resource Manager och Azure CLI för att distribuera r
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.openlocfilehash: 64f60a6e15a0c51e5ee506340c064804f7588693
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250667"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382878"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuera resurser med Resource Manager-mallar och Azure CLI
 

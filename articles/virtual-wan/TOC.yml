@@ -34,24 +34,36 @@
       href: connect-virtual-network-gateway-vwan.md
     - name: Konfigurera global VNet-peering
       href: global-peering-vnet.md
-    - name: Konfigurera ExpressRoute-kryptering
-      href: vpn-over-expressroute.md
     - name: Uppgradera en Virtual WAN-SKU
       href: upgrade-virtual-wan.md
     - name: Konfigurera anpassad IPsec-princip
       href: virtual-wan-custom-ipsec-portal.md
-    - name: Konfigurera certifikat för användar-VPN (punkt-till-plats)
-      href: certificates-point-to-site.md
-    - name: Konfigurera Azure AD-klientorganisation för användar-VPN
-      href: openvpn-azure-ad-tenant.md
-    - name: Aktivera Multi-Factor Authentication (MFA) för användar-VPN
-      href: openvpn-azure-ad-mfa.md
-    - name: Konfigurera Azure AD-autentisering för användar-VPN
-      href: virtual-wan-point-to-site-azure-ad.md
-    - name: Konfigurera Azure AD-autentisering för flera program för användar-VPN
-      href: openvpn-azure-ad-tenant-multi-app.md
-    - name: Ladda ned globala och navbaserade VPN-profiler
-      href: global-hub-profile.md
+    - name: ExpressRoute
+      items:
+        - name: Skapa en ExpressRoute-anslutning
+          href: virtual-wan-expressroute-portal.md
+        - name: Konfigurera ExpressRoute-kryptering
+          href: vpn-over-expressroute.md
+    - name: Plats-till-plats
+      items:
+        - name: Skapa en plats-till-plats-anslutning
+          href: virtual-wan-site-to-site-portal.md
+    - name: Användar-VPN (punkt-till-plats)
+      items:
+        - name: Skapa användar-VPN-anslutningar (punkt-till-plats)
+          href: virtual-wan-point-to-site-portal.md
+        - name: Konfigurera certifikat för användar-VPN
+          href: certificates-point-to-site.md
+        - name: Konfigurera Azure AD-klientorganisation för användar-VPN
+          href: openvpn-azure-ad-tenant.md
+        - name: Aktivera Multi-Factor Authentication (MFA) för användar-VPN
+          href: openvpn-azure-ad-mfa.md
+        - name: Konfigurera Azure AD-autentisering för användar-VPN
+          href: virtual-wan-point-to-site-azure-ad.md
+        - name: Konfigurera Azure AD-autentisering för flera program för användar-VPN
+          href: openvpn-azure-ad-tenant-multi-app.md
+        - name: Ladda ned globala och hubbaserade VPN-profiler för användare
+          href: global-hub-profile.md
     - name: Konfigurera routning
       items:
         - name: Dirigera trafik från en virtuell hubb till en NVA

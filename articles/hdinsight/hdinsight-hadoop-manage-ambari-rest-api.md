@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.openlocfilehash: 1d684957939c5cb83aae05962c1694f7a8d8da23
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498226"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386442"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari REST API
 
@@ -332,7 +332,7 @@ Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella konf
 
    * Skapar ett rot dokument för den nya önskade konfigurationen.
 
-   * Hämtar innehållet i `.items[]` matrisen och lägger till det under **desired_config** -elementet.
+   * Hämtar innehållet i `.items[]` matrisen och lägger till det under elementet **desired_config** .
 
    * Tar bort `href`, `version`och `Config` element eftersom dessa element inte behövs för att skicka en ny konfiguration.
 

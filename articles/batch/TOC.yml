@@ -81,8 +81,12 @@
           href: batch-aad-auth-management.md
         - name: Säker åtkomst till Key Vault med Batch
           href: credential-access-key-vault.md
-    - name: Använda programpaket
-      href: batch-application-packages.md
+    - name: Kopiera filer och program till poolnoder
+      items:
+        - name: Använda programpaket
+          href: batch-application-packages.md
+        - name: Skapa resursfiler
+          href: resource-files.md
     - name: Skapa och hantera pooler
       items:
         - name: Automatisk skalning för beräkningsnoder
@@ -123,12 +127,12 @@
           href: batch-user-accounts.md
         - name: Skicka ett stort antal aktiviteter
           href: large-number-tasks.md
+        - name: Schemalägg jobb för bättre effektivitet
+          href: batch-job-schedule.md
         - name: Söka efter jobb- och uppgiftsfel
           href: batch-job-task-error-checking.md
         - name: Identifiera och hantera batch-tjänstens fel
           href: batch-retry-after-errors.md
-    - name: Skapa resursfiler
-      href: resource-files.md
     - name: Bevara jobb- och uppgiftsutdata
       href: batch-task-output.md
       items:

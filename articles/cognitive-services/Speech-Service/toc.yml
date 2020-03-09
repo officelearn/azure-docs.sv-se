@@ -193,10 +193,8 @@
           items:
             - name: Text-till-tal (REST API)
               href: rest-text-to-speech.md
-        - name: Användning av telefonuppsättning
-          items:
-            - name: Speech API (SAPI) – användning av telefonuppsättning
-              href: sapi-phoneset-usage.md
+        - name: Fonetiska SSML-uppsättningar
+          href: speech-ssml-phonetic-sets.md
     - name: Resurser
       items:
         - name: Vanliga frågor och svar om text-till-tal
@@ -494,19 +492,14 @@
           href: speech-devices-sdk.md
         - name: Hämta Speech Devices SDK
           href: get-speech-devices-sdk.md
-        - name: Viktig information
-          href: devices-sdk-release-notes.md
-        - name: Roobo v1-information
-          href: speech-devices-sdk-roobo-v1.md
-        - name: Information om Roobo v2
-          href: speech-devices-sdk-roobo-v2.md
-        - name: Mikrofonspecifikation
     - name: Maskinvara
       items:
         - name: Mikrofonmatrisrekommendationer
           href: speech-devices-sdk-microphone.md
-        - name: Roobo v1-paket
+        - name: Roobo v1-information
           href: speech-devices-sdk-roobo-v1.md
+        - name: Information om Roobo v2
+          href: speech-devices-sdk-roobo-v2.md
     - name: Snabbstart
       items:
         - name: Använda SDK för Speech-enheter

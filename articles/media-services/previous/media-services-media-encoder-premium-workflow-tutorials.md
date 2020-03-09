@@ -16,18 +16,18 @@ ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
 ms.openlocfilehash: 1ab70d56bd3def58d0e814035070cf027a88cd3d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "69016714"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392968"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Avancerade Media Encoder Premium Workflow självstudier
 ## <a name="overview"></a>Översikt
 Det här dokumentet innehåller genom gångar som visar hur du anpassar arbets flöden med **arbetsflödesdesigner**. Du kan hitta de faktiska arbets flödes filerna [här](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
 
 ## <a name="toc"></a>ORGANISK
-Följande avsnitt beskrivs:
+Följande ämnen tas upp:
 
 * [Koda MXF till en enkel bit hastighets MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
   * [Starta ett nytt arbets flöde](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new)
@@ -238,7 +238,7 @@ Anslut den okomprimerade video utmatnings-PIN-koden för medie filen till vår n
 
 Anpassa nu konfigurationen för vår nya AVC-kodare för att mata ut 960x540 vid 2,5 Mbit/s. (Använd dess egenskaper "utmatnings bredd", "utmatnings höjd" och "bit hastighet (kbps)" för detta.)
 
-Med tanke på att vi vill använda den resulterande till gången tillsammans med Azure Media Services "dynamisk paketering" måste slut punkten för direkt uppspelning kunna generera från dessa MP4-filer HLS/fragmenterade MP4/streck-fragment som är exakt justerade mot varandra på ett sätt som klienter som växlar mellan olika bit hastigheter får en enda smidig kontinuerlig video-och ljud upplevelse. För att göra detta måste vi se till att, i egenskaperna för båda AVC-kodarna, GOP ("grupp med bilder") för båda MP4-filerna har värdet 2 sekunder, som kan göras av:
+Med tanke på att vi vill använda den resulterande till gången tillsammans med Azure Media Services "dynamisk paketering" måste direkt uppspelnings slut punkten kunna generera från dessa MP4-filer HLS/fragmenterade MP4/streck-fragment som är exakt justerade mot varandra på ett sätt som klienter som växlar mellan olika bit hastigheter får en enda smidig kontinuerlig video-och ljud upplevelse. För att göra detta måste vi se till att, i egenskaperna för båda AVC-kodarna, GOP ("grupp med bilder") för båda MP4-filerna har värdet 2 sekunder, som kan göras av:
 
 * Ange GOP storleks läge till fast GOP-storlek och
 * Nyckel bilds intervallet till två sekunder.
@@ -294,7 +294,7 @@ Skapa en tredje fil utgående komponent för att mata ut den utgående strömmen
 *Ljud muxer skapa utdata för filer*
 
 ### <a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Lägger till. ISM SMIL-fil
-För att den dynamiska packningen ska fungera tillsammans med både MP4-filer (och endast för ljud-MP4) i vår Media Services till gång, behöver vi också en manifest fil (kallas även en "SMIL"-fil: Synkroniserat multimedie integrations språk). Den här filen visar Azure Media Services vilka MP4-filer som är tillgängliga för dynamisk paketering och vilka av dem som ska övervägas för ljud strömningen. En typisk manifest fil för en uppsättning MP4's med en enda ljud ström ser ut så här:
+För att den dynamiska packningen ska fungera tillsammans med både MP4-filer (och endast för ljud-MP4) i vår Media Services till gång, behöver vi också en manifest fil (kallas även en "SMIL"-fil: synkroniserad multimedia integrerings språk). Den här filen visar Azure Media Services vilka MP4-filer som är tillgängliga för dynamisk paketering och vilka av dem som ska övervägas för ljud strömningen. En typisk manifest fil för en uppsättning MP4's med en enda ljud ström ser ut så här:
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -410,7 +410,7 @@ och för utdata för endast ljudfiler:
 Om vi nu ändrar bit hastigheten för någon av video-eller ljudfilerna, konfigureras respektive kodare om och den bitbaserade fil namns konventionen kommer att behållas alla automatiskt.
 
 ## <a id="thumbnails_to__multibitrate_MP4"></a>Lägga till miniatyrer i MP4-utdata med multibit hastighet
-Från ett arbets flöde som genererar [en MP4-utdata med multibit hastighet från en MXF](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging)-indata kommer vi nu att titta på att lägga till miniatyrer i utdata.
+Från ett arbets flöde som genererar [en MP4-utdata med multibit hastighet från en MXF-indata](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging)kommer vi nu att titta på att lägga till miniatyrer i utdata.
 
 ### <a id="thumbnails_to__multibitrate_MP4_overview"></a>Översikt över arbets flöde för att lägga till miniatyrer i
 ![MP4-arbetsflöde med multibit hastighet att starta från](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-multibitrate-mp4-workflow-to-start-from.png)
@@ -505,7 +505,7 @@ Nu när arbets flödet är klart gör du ett annat test för att se hur det fung
 *Avslutat arbets flöde för multi-MP4-utdata med miniatyrer*
 
 ## <a id="time_based_trim"></a>Tidsbaserad trimning av MP4-utdata med multibit hastighet
-Från ett arbets flöde som genererar [en MP4-utdata med multibit hastighet från en MXF](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging)-indata kommer vi nu att titta på att trimma käll videon baserat på tidsstämplar.
+Från ett arbets flöde som genererar [en MP4-utdata med multibit hastighet från en MXF-indata](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging)kommer vi nu att titta på att trimma käll videon baserat på tidsstämplar.
 
 ### <a id="time_based_trim_start"></a>Översikt över arbets flöde för att börja lägga till trimning i
 ![Startar arbets flöde för att lägga till trimning i](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-starting-workflow-to-add-trimming.png)
@@ -626,7 +626,7 @@ Vårt logg fönster visar oss följande:
 *Logga utdata för åtkomst till Node-sökvägar*
 
 ## <a id="frame_based_trim"></a>Bildruta-baserad trimning av MP4-utdata med multibit hastighet
-Från ett arbets flöde som genererar [en MP4-utdata med multibit hastighet från en MXF](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging)-indata kommer vi nu att titta på att trimma käll videon baserat på antalet bild rutor.
+Från ett arbets flöde som genererar [en MP4-utdata med multibit hastighet från en MXF-indata](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging)kommer vi nu att titta på att trimma käll videon baserat på antalet bild rutor.
 
 ### <a id="frame_based_trim_start"></a>Skiss översikt som börjar lägga till trimning till
 ![Arbets flöde för att börja lägga till trimning till](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-workflow-start-adding-trimming-to.png)
@@ -693,8 +693,8 @@ Innan vi kan skriva om cliplist-XML som genereras när arbets flödet startas m�
 
 Först behöver vi ett sätt att avgöra från vilken punkt du vill trimma videon. För att göra det praktiskt för arbets flödets mindre tekniska användare, publicera två egenskaper till diagrammets rot. Det gör du genom att högerklicka på design ytan och välja Lägg till egenskap:
 
-* Första egenskap: "ClippingTimeStart" av typen: KOD
-* Andra egenskap: "ClippingTimeEnd" av typen: KOD
+* Första egenskapen: "ClippingTimeStart" av typen: "TIDSKOD"
+* Andra egenskap: "ClippingTimeEnd" av typen: "TIDSKOD"
 
 ![Dialog rutan Lägg till egenskap för urklipps start tid](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-start-time.png)
 
@@ -761,7 +761,7 @@ Detta skedde genom vanliga sträng Manipulerings åtgärder. Den resulterande ä
 
 *Logga den resulterande klipp listan*
 
-Gör en test körning för att se hur video-och ljud strömmar har klippts av. Eftersom du ska göra mer än en test körning med olika värden för trimnings punkterna ser du till att de inte tas med i beräkningen. Orsaken till detta är att designern, till skillnad från Azure-körningsmiljön, inte åsidosätter XML-cliplist varje körning. Det innebär att endast första gången du har angett-och utgångs punkterna, gör att XML-transformeringen omvandlas, alla andra tidpunkter, vår Guard-`clipListXML.indexOf("<trim>") == -1`sats (IF ()) förhindrar att arbets flödet lägger till ett annat trimnings element när det redan finns ett.
+Gör en test körning för att se hur video-och ljud strömmar har klippts av. Eftersom du ska göra mer än en test körning med olika värden för trimnings punkterna ser du till att de inte tas med i beräkningen. Orsaken till detta är att designern, till skillnad från Azure-körningsmiljön, inte åsidosätter XML-cliplist varje körning. Det innebär att endast första gången du har ställt in och ut punkter, gör att XML-transformeringen omvandlas, alla andra gånger, vår Guard-sats (IF (`clipListXML.indexOf("<trim>") == -1`)) hindrar arbets flödet från att lägga till ett annat trimnings element när det redan finns ett.
 
 För att det ska vara enkelt att testa arbets flödet lokalt lägger vi till lite kod som kontrollerar om ett trimnings element redan finns. I så fall kan vi ta bort den innan du fortsätter genom att ändra XML med de nya värdena. I stället för att använda enkla sträng manipulationer är det förmodligen säkrare att göra detta genom parsning av faktiska XML-objektmodellen.
 
@@ -952,7 +952,7 @@ Med nedanstående enkla Guard-sats kan vi kontrol lera om trimning krävs och be
 
 [Azure Media Services Explorer-verktyg](https://aka.ms/amse)
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

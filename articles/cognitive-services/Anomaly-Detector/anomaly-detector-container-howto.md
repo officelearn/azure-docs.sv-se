@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
 ms.openlocfilehash: 45abd904ea95cf8e68583ba5630a485af59479ec
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327256"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390728"
 ---
 # <a name="install-and-run-anomaly-detector-containers-preview"></a>Installera och kör avvikelse detektor behållare (förhands granskning)
 
@@ -73,7 +73,7 @@ Core och minne motsvarar `--cpus` och `--memory` inställningar som används som
 
 Använd kommandot [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) för att ladda ned en behållar avbildning.
 
-| Container | Lagringsplats |
+| Container | Databas |
 |-----------|------------|
 | cognitive-services-anomaly-detector | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest` |
 
@@ -182,7 +182,7 @@ Mer information om dessa alternativ finns i [Configure containers](anomaly-detec
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ned, installera och köra avvikelser som behållare. Sammanfattningsvis:
+I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ned, installera och köra avvikelser som behållare. Sammanfattning:
 
 * Avvikelse detektor tillhandahåller en Linux-behållare för Docker, inkapsling av avvikelse identifiering med batch vs streaming, förväntat intervalls-härledning och känslighets justering.
 * Behållar avbildningar laddas ned från ett privat Azure Container Registry dedikerat för för hands version.

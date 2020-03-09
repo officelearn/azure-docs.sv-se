@@ -9,12 +9,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 1/15/2020
-  ms.openlocfilehash: de21e0efb6725433fe16b15665fafd9226c74f61
-  ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+  ms.openlocfilehash: cab367254df3f83903eeee110f0a435b97ea8eba
+  ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/02/2020
-  ms.locfileid: "78208794"
+  ms.lasthandoff: 03/05/2020
+  ms.locfileid: "78368625"
 landingContent:
 - title: Om Azure Maps
   linkLists:
@@ -74,6 +74,22 @@ landingContent:
       url: tutorial-route-location.md
     - text: Skapa en butikslokaliserare
       url: tutorial-create-store-locator.md
+  - linkListType: how-to-guide
+    links:
+    - text: Använd den rumsliga IO-modulen
+      url: how-to-use-spatial-io-module.md
+    - text: Lägga till ett enkelt datalager
+      url: spatial-io-add-simple-data-layer.md
+    - text: Läsa och skriva rumsliga data
+      url: spatial-io-read-write-spatial-data.md
+    - text: Lägga till ett OGC-kartskikt
+      url: spatial-io-add-ogc-map-layer.md
+    - text: Ansluta till en WFS-tjänst
+      url: spatial-io-connect-wfs-service.md
+    - text: Använda kärnåtgärder
+      url: spatial-io-core-operations.md
+    - text: Information om dataformat som stöds
+      url: spatial-io-supported-data-format-details.md
   - linkListType: reference
     links:
     - text: Kartkontroll
@@ -82,6 +98,8 @@ landingContent:
       url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/?view=azure-maps-typescript-latest
     - text: Tjänstmodul
       url: https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest
+    - text: Rumslig IO-modul
+      url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/?view=azure-maps-typescript-latest
 - title: Utveckla med Android SDK
   linkLists:
   - linkListType: how-to-guide

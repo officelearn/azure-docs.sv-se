@@ -15,13 +15,13 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
 ms.openlocfilehash: 19085346fb5797245c9f71911f8178df0a1b742a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698432"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370306"
 ---
-# <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objekt för program och tjänstens huvudnamn i Azure Active Directory
+# <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Program-och tjänst huvud objekt i Azure Active Directory
 
 Ibland kan termen "program" bli feltolkad när den används i samband med Azure Active Directory (Azure AD). Den här artikeln förklarar de konceptuella och konkreta aspekterna av Azure AD Application Integration med en illustration av registrering och medgivande för ett [program med flera innehavare](developer-glossary.md#multi-tenant-application).
 
@@ -46,11 +46,11 @@ När du registrerar ett Azure AD-program i [Azure Portal][AZURE-Portal]skapas tv
 - Ett program objekt och
 - Ett huvud objekt för tjänsten
 
-### <a name="application-object"></a>program objekt
+### <a name="application-object"></a>Program objekt
 
 Ett Azure AD-program definieras av sitt enda program objekt, som finns i Azure AD-klienten där programmet registrerades, vilket kallas för programmets "hem"-klient. [Entiteten Microsoft Graph program][MS-Graph-App-Entity] definierar schemat för ett program objekts egenskaper.
 
-### <a name="service-principal-object"></a>tjänstens huvud namns objekt
+### <a name="service-principal-object"></a>Tjänstens huvud namns objekt
 
 För att få åtkomst till resurser som skyddas av en Azure AD-klient måste den entitet som kräver åtkomst representeras av ett säkerhets objekt. Detta gäller både för användare (användarens huvud namn) och program (tjänstens huvud namn).
 
@@ -58,13 +58,13 @@ Säkerhets principen definierar åtkomst principen och behörigheter för använ
 
 När ett program har behörighet att komma åt resurser i en klient organisation (vid registrering eller [medgivande](developer-glossary.md#consent)) skapas ett huvud objekt för tjänsten. [Entiteten Microsoft Graph ServicePrincipal][MS-Graph-Sp-Entity] definierar schemat för ett tjänst huvud objekts egenskaper.
 
-### <a name="application-and-service-principal-relationship"></a>Relation mellan program och tjänstens huvudnamn
+### <a name="application-and-service-principal-relationship"></a>Relation mellan program och tjänst huvud konto
 
 Överväg programobjektet som den *globala* åter givningen av programmet för användning över alla klienter och tjänstens huvud namn som den *lokala* åter givningen för användning i en specifik klient.
 
-Programobjektet fungerar som mallen som vanliga och standardinställda egenskaper *härleds* för användning när motsvarande objekt för tjänstens huvudnamn skapas. Ett program objekt har därför en 1:1-relation med program varu programmet och en 1: många relationer med motsvarande tjänst huvud objekt.
+Programobjektet fungerar som den mall från vilken vanliga egenskaper och standard egenskaper *härleds* för användning i att skapa motsvarande tjänst huvud objekt. Ett program objekt har därför en 1:1-relation med program varu programmet och en 1: många relationer med motsvarande tjänst huvud objekt.
 
-Ett huvud namn för tjänsten måste skapas i varje klient där programmet används, vilket gör det möjligt att upprätta en identitet för inloggning och/eller åtkomst till resurser som skyddas av klienten. Ett program för enskild klient har bara ett tjänsthuvudnamn (i dess startklientorganisation), som skapas och godkänns vid programregistrering. Ett webb program/API för flera innehavare har också ett tjänst huvud namn som skapats i varje klient organisation där en användare från den klienten har samtyckt till användningen.
+Ett huvud namn för tjänsten måste skapas i varje klient där programmet används, vilket gör det möjligt att upprätta en identitet för inloggning och/eller åtkomst till resurser som skyddas av klienten. Ett program med en enda klient organisation har bara ett huvud namn för tjänsten (i sin hem klient) och har skapats och godkänts för användning under program registreringen. Ett webb program/API för flera innehavare har också ett tjänst huvud namn som skapats i varje klient organisation där en användare från den klienten har samtyckt till användningen.
 
 > [!NOTE]
 > Alla ändringar du gör i ditt program objekt visas också i dess tjänst huvud objekt i programmets hem klient (den klient där det registrerades). För program med flera klient organisationer avspeglas inte ändringar i programobjektet i någon konsument innehavares tjänst huvud objekt, tills åtkomsten tas bort via [program åtkomst panelen](https://myapps.microsoft.com) och beviljats igen.

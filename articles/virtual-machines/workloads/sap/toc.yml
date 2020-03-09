@@ -24,6 +24,8 @@
           href: hana-data-tiering-extension-nodes.md
         - name: Driftmodell och ansvarsområden
           href: hana-operations-model.md
+        - name: Kompatibla operativsystem
+          href: os-compatibility-matrix-hana-large-instance.md
     - name: Arkitektur
       items:
         - name: Allmän arkitektur

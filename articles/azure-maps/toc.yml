@@ -165,6 +165,22 @@
               href: map-get-information-from-coordinate.md
             - name: Visa anvisningar från A till B
               href: map-route.md
+        - name: Rumslig IO-modul
+          items:
+            - name: Använd den rumsliga IO-modulen
+              href: how-to-use-spatial-io-module.md
+            - name: Lägga till ett enkelt datalager
+              href: spatial-io-add-simple-data-layer.md
+            - name: Läsa och skriva rumsliga data
+              href: spatial-io-read-write-spatial-data.md
+            - name: Lägga till ett OGC-kartskikt
+              href: spatial-io-add-ogc-map-layer.md
+            - name: Ansluta till en WFS-tjänst
+              href: spatial-io-connect-wfs-service.md
+            - name: Använda kärnåtgärder
+              href: spatial-io-core-operations.md
+            - name: Information om dataformat som stöds
+              href: spatial-io-supported-data-format-details.md
         - name: Webbläsare som stöds av webb-SDK
           href: supported-browsers.md
     - name: Utveckla med Android SDK

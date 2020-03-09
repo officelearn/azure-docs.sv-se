@@ -110,20 +110,18 @@
           href: howto-registration-mfa-sspr-combined-troubleshoot.md
     - name: Azure AD-lösenordsskydd
       items:
-        - name: Lokal integration
-          items:
-            - name: Distribuera Azure AD-lösenordsskydd
-              href: howto-password-ban-bad-on-premises-deploy.md
-            - name: Konfigurera Azure AD-lösenordsskydd
-              href: howto-password-ban-bad-on-premises-operations.md
-            - name: Övervaka Azure AD-lösenordsskydd
-              href: howto-password-ban-bad-on-premises-monitor.md
-            - name: Felsöka Azure AD-lösenordsskydd
-              href: howto-password-ban-bad-on-premises-troubleshoot.md
-            - name: Vanliga frågor och svar
-              href: howto-password-ban-bad-on-premises-faq.md
-            - name: Versionshistorik för lokal agent
-              href: howto-password-ban-bad-on-premises-agent-versions.md
+        - name: Planera och distribuera lokalt
+          href: howto-password-ban-bad-on-premises-deploy.md
+        - name: Aktivera och konfigurera lokal
+          href: howto-password-ban-bad-on-premises-operations.md
+        - name: Övervaka lokala distributioner
+          href: howto-password-ban-bad-on-premises-monitor.md
+        - name: Felsöka lokala distributioner
+          href: howto-password-ban-bad-on-premises-troubleshoot.md
+        - name: Lokala vanliga frågor och svar
+          href: howto-password-ban-bad-on-premises-faq.md
+        - name: Versionshistorik för lokal agent
+          href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: Smart utlåsning i Azure AD
       href: howto-password-smart-lockout.md
     - name: Lösenordsfri

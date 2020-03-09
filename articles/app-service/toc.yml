@@ -87,6 +87,8 @@
           href: networking-features.md
         - name: Application Gateway med tjänstslutpunkter
           href: networking/app-gateway-with-service-endpoints.md
+        - name: Privata slutpunkter
+          href: networking/private-endpoint.md
     - name: Inkommande och utgående IP-adresser
       href: overview-inbound-outbound-ips.md
     - name: Integrering med virtuellt nätverk

@@ -35,8 +35,8 @@
           href: howto-aad-app-configuration.md
     - name: Distribuera fristående Prometheus i ett Azure Red Hat OpenShift-kluster
       href: howto-deploy-prometheus.md
-    - name: Hantera projekt i ett Azure Red Hat OpenShift-kluster
-      href: howto-manage-projects.md
+    - name: Skapa ett privat Azure Red Hat OpenShift-kluster
+      href: howto-create-private-cluster.md
     - name: Övervakning och loggning
       items:
         - name: Azure Monitor för containrar (förhandsversion)

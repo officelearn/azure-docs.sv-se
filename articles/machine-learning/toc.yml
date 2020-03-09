@@ -75,10 +75,10 @@
       href: samples-notebooks.md
     - name: Azure Open Datasets
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+    - name: Designer-datamängder
+      href: sample-designer-datasets.md
     - name: MLOps-exempel från slutpunkt till slutpunkt
       href: 'https://github.com/microsoft/MLOps'
-    - name: Exempeldatauppsättningar för Designer
-      href: designer-sample-datasets.md
 - name: Begrepp
   items:
     - name: Arbetsyta

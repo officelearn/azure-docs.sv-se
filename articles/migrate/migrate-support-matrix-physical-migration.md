@@ -4,11 +4,11 @@ description: Läs mer om stöd för migrering av fysiska servrar i Azure Migrate
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: e55cf6dddbc8dafd33b444e4a0dbe378d807aea1
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030242"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388989"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Support mat ris för fysisk server-migrering
 
@@ -26,7 +26,7 @@ Du kan migrera lokala datorer som fysiska servrar med hjälp av en agent-baserad
 - Virtuella datorer som körs i offentliga moln, till exempel Amazon Web Services (AWS) eller Google Cloud Platform (GCP).
 
 
-## <a name="migration-limitations"></a>Migreringsbegränsningar
+## <a name="migration-limitations"></a>Begränsningar för migrering
 
 Du kan välja upp till 10 datorer på en gång för replikering. Om du vill migrera fler datorer kan du replikera i grupper om 10.
 
@@ -38,7 +38,7 @@ Tabellen sammanfattar stödet för fysiska servrar som du vill migrera med hjäl
 **Support** | **Detaljer**
 --- | ---
 **Dator arbets belastning** | Azure Migrate stöder migrering av arbets belastningar (t. ex. Active Directory, SQL Server osv.) som körs på en dator som stöds.
-**Operativsystem** | Du hittar den senaste informationen i [operativ systemets stöd](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) för Site Recovery. Azure Migrate ger samma stöd för operativ system.
+**Operativ system** | Du hittar den senaste informationen i [operativ systemets stöd](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) för Site Recovery. Azure Migrate ger samma stöd för operativ system.
 **Linux-filsystem/gäst lagring** | Du hittar den senaste informationen i [Linux-filsystemets stöd](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) för Site Recovery. Azure Migrate tillhandahåller identiskt stöd för Linux-filsystem.
 **Nätverk/lagring** | För den senaste informationen granskar du kraven för [nätverk](../site-recovery/vmware-physical-azure-support-matrix.md#network) och [lagring](../site-recovery/vmware-physical-azure-support-matrix.md#storage) för Site Recovery. Azure Migrate tillhandahåller identiska nätverks-/lagrings krav.
 **Krav för Azure** | Du hittar den senaste informationen i [Azure-nätverket](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [lagrings](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)-och [beräknings](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) kraven för Site Recovery. Azure Migrate har identiska krav för migrering av fysiska servrar.
@@ -51,7 +51,7 @@ Tabellen sammanfattar stödet för fysiska servrar som du vill migrera med hjäl
 **Delat disk kluster** | Stöds inte.
 **Oberoende diskar** | Stöds.
 **Genom strömnings diskar** | Stöds.
-**NFS** | NFS-volymer monterade som volymer på datorerna replikeras inte.
+**MSNFS** | NFS-volymer monterade som volymer på datorerna replikeras inte.
 **iSCSI-mål** | Datorer med iSCSI-mål stöds inte för migrering utan agent.
 **Multipath i/o** | Stöds inte.
 **Lagrings vMotion** | Stöds
@@ -60,7 +60,7 @@ Tabellen sammanfattar stödet för fysiska servrar som du vill migrera med hjäl
 
 
 
-## <a name="replication-appliance-requirements"></a>Krav på replikerings utrustning
+## <a name="replication-appliance-requirements"></a>Installationskrav för replikering
 
 Om du konfigurerar replikeringen manuellt på en fysisk server kontrollerar du att den uppfyller kraven som sammanfattas i tabellen. När du konfigurerar Azure Migrate Replication-enheten som en virtuell VMware-dator med hjälp av den ägg-mall som finns i Azure Migrate Hub, konfigureras installationen med Windows Server 2016 och uppfyller support kraven. 
 
@@ -74,7 +74,7 @@ Alla lokala virtuella datorer som replikeras till Azure måste uppfylla de krav 
 
 **Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
-Gästoperativsystem | Verifierar att operativ system som stöds.<br/> Du kan migrera alla arbets belastningar som körs på ett operativ system som stöds. | Kontrollen Miss lyckas om den inte stöds.
+Gäst operativ system | Verifierar att operativ system som stöds.<br/> Du kan migrera alla arbets belastningar som körs på ett operativ system som stöds. | Kontrollen Miss lyckas om den inte stöds.
 Gäst operativ systemets arkitektur | 64-bitars. | Kontrollen Miss lyckas om den inte stöds.
 Storlek på operativ system disk | Upp till 2 048 GB. | Kontrollen Miss lyckas om den inte stöds.
 Antal operativ system diskar | 1 | Kontrollen Miss lyckas om den inte stöds.

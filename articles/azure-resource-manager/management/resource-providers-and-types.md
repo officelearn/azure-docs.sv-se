@@ -4,11 +4,11 @@ description: Beskriver de resurs leverantörer som stöder Resource Manager, der
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.openlocfilehash: ce68762dae14f98a751cb4b619b75ff04a5f655b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75478596"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372252"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure-resurs leverantörer och-typer
 
@@ -29,11 +29,11 @@ Du kan utföra de här stegen via Azure Portal, Azure PowerShell eller Azure CLI
 
 En lista som mappar resurs leverantörer till Azure-tjänster finns i [Resource providers för Azure-tjänster](azure-services-resource-providers.md).
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
 Så här visar du alla resurs leverantörer och registrerings status för din prenumeration:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **alla tjänster**på Azure Portal-menyn.
 
     ![Välj prenumerationer](./media/resource-providers-and-types/select-all-services.png)
@@ -50,7 +50,7 @@ Så här visar du alla resurs leverantörer och registrerings status för din pr
 
 Så här visar du information om en viss resurs leverantör:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **alla tjänster**på Azure Portal-menyn.
 3. I rutan **alla tjänster** anger du **resurs läsaren**och väljer sedan **Resursläsaren**.
 

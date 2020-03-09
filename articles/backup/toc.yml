@@ -142,10 +142,16 @@
       items:
         - name: Översikt
           href: backup-azure-about-mars.md
+        - name: Installera eller uppgradera
+          items:
+            - name: Installera MARS-agent
+              href: install-mars-agent.md
+            - name: Uppgradera MARS-agent
+              href: upgrade-mars-agent.md
         - name: Backup
           items:
             - name: Säkerhetskopiera Windows Server-filer och -mappar
-              href: backup-configure-vault.md
+              href: backup-windows-with-mars-agent.md
             - name: Säkerhetskopiera Windows Server System-tillstånd
               href: backup-azure-system-state.md
         - name: Återställ

@@ -30,6 +30,8 @@
       href: create-private-endpoint-storage-portal.md
     - name: Ansluta privat till ett Cosmos DB-konto
       href: create-private-endpoint-cosmosdb-portal.md
+    - name: Ansluta privat till en webbapp
+      href: create-private-endpoint-webapp-portal.md
     - name: Inaktivera nätverksprinciper för en privat slutpunkt
       href: disable-private-endpoint-network-policy.md
     - name: Inaktivera nätverksprinciper för en Private Link-tjänst

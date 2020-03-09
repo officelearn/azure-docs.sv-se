@@ -5,11 +5,11 @@ ms.date: 11/25/2019
 ms.topic: overview
 ms.custom: fasttrack-edit
 ms.openlocfilehash: e886f37a8d7f1395b5c831e81e600ecc6e2dd20f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937822"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384439"
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure Policy?
 
@@ -45,7 +45,7 @@ Om ingen av de inbyggda rollerna har de behörigheter som krävs skapar du en [a
 
 Resan med att skapa och implementera en princip i Azure Policy börjar med skapandet av en principdefinition. Varje principdefinition har villkor för när den ska tillämpas. Och den har en definierad effekt som träder ikraft om villkoren är uppfyllda.
 
-Vi erbjuder flera inbyggda principer som är tillgängliga för dig som standard i Azure Policy. Ett exempel:
+Vi erbjuder flera inbyggda principer som är tillgängliga för dig som standard i Azure Policy. Exempel:
 
 - **Tillåtna lagrings konto SKU: er**: avgör om ett lagrings konto som distribueras är inom en uppsättning SKU-storlekar. Effekten är att neka alla lagringskonton som inte överensstämmer med uppsättningen definierade SKU-storlekar.
 - **Tillåten resurs typ**: definierar de resurs typer som du kan distribuera. Effekten är att neka alla resurser som inte finns på den definierade listan.

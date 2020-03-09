@@ -8,11 +8,11 @@ ms.author: mbullwin
 ms.date: 08/13/2019
 ms.custom: mvc
 ms.openlocfilehash: 98d7c1552a7b1f2b02ae4df1cad24e20f7ac76e1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661574"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367713"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Hitta och diagnostisera prestandaproblem med Azure Application Insights
 
@@ -27,7 +27,7 @@ Azure Application Insights samlar in telemetri från ditt program för att analy
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 - Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbets belastningar:
     - ASP.NET och webbutveckling
@@ -80,7 +80,7 @@ Application Insights samlar in prestandainformation för de olika åtgärderna i
 
 2. Loggar öppnas med en fråga för var och en av vyerna i panelen.  Du kan köra dessa frågor som de är eller ändra dem efter dina behov.  Den första frågan visar åtgärdens varaktighet över tid.
 
-    ![loggar fråga](media/tutorial-performance/7-request-time-logs.png)
+    ![Loggar fråga](media/tutorial-performance/7-request-time-logs.png)
 
 
 ## <a name="identify-slow-client-operations"></a>Identifiera långsamma klientåtgärder

@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655349"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373309"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Dator grupper i Azure Monitor logg frågor
 Med dator grupper i Azure Monitor kan du begränsa [logg frågor](../log-query/log-query-overview.md) till en viss uppsättning datorer.  Varje grupp har fyllts i med datorer som antingen med hjälp av en fråga som du definierar eller genom att importera grupper från olika källor.  När gruppen ingår i en logg fråga begränsas resultatet till poster som matchar datorerna i gruppen.

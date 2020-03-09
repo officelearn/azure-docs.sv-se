@@ -14,11 +14,11 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: ed1f47ae99f6346a932d0fe94be7586dc25a672f
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084593"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377376"
 ---
 # <a name="using-web-browsers-msalnet"></a>Använda webbläsare (MSAL.NET)
 
@@ -45,7 +45,7 @@ I allmänhet rekommenderar vi att du använder plattforms standarden och det är
 
 ### <a name="at-a-glance"></a>Snabbt
 
-| Samband        | Inbäddning | System | Standard |
+| Samband        | Inbäddning | System | Default |
 | ------------- |-------------| -----| ----- |
 | .NET Classic     | Ja | Ja ^ | Inbäddning |
 | .NET Core     | Nej | Ja ^ | System |

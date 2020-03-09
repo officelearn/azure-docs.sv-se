@@ -16,17 +16,17 @@ ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 5dd35ed2f4533d19cc3a59788d6422416dce13f5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034561"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373015"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Självstudie: övervaka ändringar och uppdatera en virtuell Linux-dator i Azure
 
 Med Azure [ändringsspårning](../../automation/change-tracking.md) kan du enkelt identifiera ändringar och [uppdateringshantering](../../automation/automation-update-management.md) göra det möjligt att hantera operativ system uppdateringar för dina virtuella Azure Linux-datorer.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Hantera Windows-uppdateringar

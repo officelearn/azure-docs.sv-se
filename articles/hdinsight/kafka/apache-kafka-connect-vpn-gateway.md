@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 66bb054ab75c5a4e387995bc64dbc026c073413f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 03/04/2020
+ms.openlocfilehash: 36ff0d5f1fc96b2013555d37a869ebf629a22be7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122612"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397280"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ansluta till Apache Kafka i HDInsight via en Azure-Virtual Network
 
@@ -38,7 +38,7 @@ HDInsight tillåter inte direkt anslutning till Kafka via det offentliga Interne
   4. Konfigurera vidarebefordring mellan DNS-servern i varje nätverk.
   5. Skapa en Kafka på HDInsight-kluster i det virtuella nätverket.
 
-     Mer information finns i avsnittet [ansluta till Apache Kafka från ett lokalt nätverk](#on-premises) . 
+     Mer information finns i avsnittet [ansluta till Apache Kafka från ett lokalt nätverk](#on-premises) .
 
 * Anslut enskilda datorer till det virtuella nätverket med en VPN-gateway och en VPN-klient. Om du vill aktivera den här konfigurationen utför du följande uppgifter:
 
@@ -72,7 +72,7 @@ De här stegen skapar följande konfiguration:
 * Azure Storage konto (används av HDInsight)
 * Kafka på HDInsight
 
-Du kan kontrol lera att en Kafka-klient kan ansluta till klustret lokalt genom att följa stegen i [exemplet: Python-](#python-client) klient avsnitt.
+Du kan kontrol lera att en Kafka-klient kan ansluta till klustret lokalt genom att följa stegen i avsnittet [exempel: python-klient](#python-client) .
 
 ## <a id="vpnclient"></a>Ansluta till Apache Kafka med en VPN-klient
 
@@ -254,7 +254,7 @@ Som standard returnerar Apache Zookeeper domän namnet för Kafka-utjämnarna ti
 
     ![Konfiguration av Apache Ambari Services](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
 
-4. Du hittar __Kafka-kuvert-__ konfigurationen genom att `kafka-env` ange i fältet __filter__ längst upp till höger.
+4. Du hittar __Kafka-kuvert-__ konfigurationen genom att ange `kafka-env` i fältet __filter__ längst upp till höger.
 
     ![Kafka-konfiguration, för Kafka-miljö](./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
 
@@ -268,9 +268,9 @@ Som standard returnerar Apache Zookeeper domän namnet för Kafka-utjämnarna ti
     echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
-6. Om du vill konfigurera gränssnittet som Kafka lyssnar på anger `listeners` du i fältet __filter__ längst upp till höger.
+6. Om du vill konfigurera gränssnittet som Kafka lyssnar på anger du `listeners` i fältet __filter__ längst upp till höger.
 
-7. Om du vill konfigurera Kafka för att lyssna på alla nätverks gränssnitt ändrar du värdet i fältet __Listeners__ till `PLAINTEXT://0.0.0.0:9092`.
+7. Om du vill konfigurera Kafka för att lyssna på alla nätverks gränssnitt ändrar du värdet i fältet __Listener__ till `PLAINTEXT://0.0.0.0:9092`.
 
 8. Använd knappen __Spara__ om du vill spara konfigurations ändringarna. Ange ett textmeddelande som beskriver ändringarna. Välj __OK__ när ändringarna har sparats.
 
@@ -290,7 +290,7 @@ Som standard returnerar Apache Zookeeper domän namnet för Kafka-utjämnarna ti
 
 Om du vill ansluta till VPN-gatewayen använder du avsnittet __Anslut till Azure__ i dokumentet [Konfigurera en punkt-till-plats-anslutning](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) .
 
-## <a id="python-client"></a>Exempel Python-klient
+## <a id="python-client"></a>Exempel: python-klient
 
 Om du vill verifiera anslutningen till Kafka kan du använda följande steg för att skapa och köra en python-tillverkare och-konsument:
 
@@ -337,14 +337,14 @@ Om du vill verifiera anslutningen till Kafka kan du använda följande steg för
       producer.send('testtopic', b'test message')
    ```
 
-    `'kafka_broker'` Ersätt posterna med adresserna som returneras från steg 1 i det här avsnittet:
+    Ersätt `'kafka_broker'` poster med adresserna som returneras från steg 1 i det här avsnittet:
 
-   * Om du använder en __Software VPN-klient__ersätter `kafka_broker` du posterna med IP-adressen för dina arbetsnoder.
+   * Om du använder en __Software VPN-klient__ersätter du `kafka_broker` poster med IP-adressen för dina arbetsnoder.
 
-   * Om du har __aktiverat namn matchning via en anpassad DNS-Server__ersätter `kafka_broker` du posterna med det fullständiga domän namnet för arbetsnoderna.
+   * Om du har __aktiverat namn matchning via en anpassad DNS-Server__ersätter du `kafka_broker` poster med det fullständiga domän namnet för arbetsnoderna.
 
      > [!NOTE]
-     > Den här koden skickar strängen `test message` till ämnet. `testtopic` Standard konfigurationen för Kafka i HDInsight är att skapa ämnet om det inte finns.
+     > Den här koden skickar strängen `test message` till avsnittet `testtopic`. Standard konfigurationen för Kafka i HDInsight är att skapa ämnet om det inte finns.
 
 4. Om du vill hämta meddelandena från Kafka använder du följande python-kod:
 
@@ -360,11 +360,11 @@ Om du vill verifiera anslutningen till Kafka kan du använda följande steg för
      print (msg)
    ```
 
-    `'kafka_broker'` Ersätt posterna med adresserna som returneras från steg 1 i det här avsnittet:
+    Ersätt `'kafka_broker'` poster med adresserna som returneras från steg 1 i det här avsnittet:
 
-    * Om du använder en __Software VPN-klient__ersätter `kafka_broker` du posterna med IP-adressen för dina arbetsnoder.
+    * Om du använder en __Software VPN-klient__ersätter du `kafka_broker` poster med IP-adressen för dina arbetsnoder.
 
-    * Om du har __aktiverat namn matchning via en anpassad DNS-Server__ersätter `kafka_broker` du posterna med det fullständiga domän namnet för arbetsnoderna.
+    * Om du har __aktiverat namn matchning via en anpassad DNS-Server__ersätter du `kafka_broker` poster med det fullständiga domän namnet för arbetsnoderna.
 
 ## <a name="next-steps"></a>Nästa steg
 

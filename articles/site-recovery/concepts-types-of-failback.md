@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
 ms.openlocfilehash: c0eaf28f9aeb4050fd35a6036a53e3e91d00f3eb
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847491"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363208"
 ---
-# <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Återställning efter fel för virtuella VMware-datorer efter haveri beredskap till Azure
+# <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Återställning efter fel för virtuella VMware-datorer efter haveriberedskap till Azure
 
 När du har redundansväxlats till Azure som en del av din haveri beredskaps process kan du växla tillbaka till din lokala plats. Det finns två olika typer av återställning efter fel som kan uppstå i Azure Site Recovery: 
 
 - Växla tillbaka till den ursprungliga platsen 
 - Växla tillbaka till en alternativ plats
 
-Om du har växlat över en virtuell VMware-dator kan du växla tillbaka till samma lokala lokala virtuella dator om den fortfarande finns. I det här scenariot replikeras bara ändringarna tillbaka. Det här scenariot kallas för den **ursprungliga plats**återställningen. Om den lokala virtuella datorn inte finns är scenariot en **alternativ plats återställning**.
+Om du har växlat över en virtuell VMware-dator kan du växla tillbaka till samma lokala lokala virtuella dator om den fortfarande finns. I det här scenariot replikeras bara ändringarna tillbaka. Det här scenariot kallas för den **ursprungliga plats återställningen**. Om den lokala virtuella datorn inte finns är scenariot en **alternativ plats återställning**.
 
 > [!NOTE]
 > Du kan bara växla tillbaka till den ursprungliga vCenter-servern och konfigurations servern. Du kan inte distribuera en ny konfigurations Server och återställa den med den. Du kan inte heller lägga till en ny vCenter till den befintliga konfigurations servern och återställning efter fel till nya vCenter.
@@ -50,5 +50,5 @@ Om den lokala virtuella datorn inte finns innan du återskapar den virtuella dat
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följ stegen för att utföra återställnings [åtgärden](vmware-azure-failback.md).
+Följ stegen för att utföra [återställnings åtgärden](vmware-azure-failback.md).
 

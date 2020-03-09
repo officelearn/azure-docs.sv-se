@@ -8,11 +8,11 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: d2dfaab3d01ea29b0f9ecba1e9d748415bed2edc
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861293"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391735"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Konfigurera katastrof återställning av virtuella VMware-datorer till Azure med PowerShell
 
@@ -31,7 +31,7 @@ Lär dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
@@ -118,7 +118,7 @@ I exemplet nedan används valv informationen från variabeln $vault för att ang
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Som ett alternativ till set-ASRVaultContext-cmdlet: en kan också använda cmdleten Import-AzRecoveryServicesAsrVaultSettingsFile för att ange valv kontexten. Ange den sökväg där valv registrerings nyckel filen finns som parametern-Path i cmdleten Import-AzRecoveryServicesAsrVaultSettingsFile. Ett exempel:
+Som ett alternativ till set-ASRVaultContext-cmdlet: en kan också använda cmdleten Import-AzRecoveryServicesAsrVaultSettingsFile för att ange valv kontexten. Ange den sökväg där valv registrerings nyckel filen finns som parametern-Path i cmdleten Import-AzRecoveryServicesAsrVaultSettingsFile. Exempel:
 
    ```azurepowershell
    Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
@@ -342,7 +342,7 @@ Du behöver följande information för att skydda en identifierad virtuell dator
 * Det skydds bara objekt som ska replikeras.
 * Lagrings kontot för att replikera den virtuella datorn till (endast om du replikerar till lagrings kontot). 
 * En logg lagring krävs för att skydda virtuella datorer till ett Premium Storage-konto eller till en hanterad disk.
-* Den Processerver som ska användas för replikering. I listan över tillgängliga servrar har hämtats och sparats i den ***$ProcessServers [0]***  *(ScaleOut-process)* och ***$ProcessServers [1]*** *(ConfigurationServer)* variabler.
+* Den Processerver som ska användas för replikering. Listan över tillgängliga processerver har hämtats och sparats i ***$ProcessServers [0]***  *(skalnings-ProcessServer)* och ***$ProcessServers*** *-variabler (ConfigurationServer)* .
 * Det konto som ska användas för push-installation av mobilitets tjänst programmet på datorerna. Listan över tillgängliga konton har hämtats och lagrats i ***$AccountHandles*** -variabeln.
 * Skydds behållar mappningen för den replikeringsprincip som ska användas för replikering.
 * Resurs gruppen där de virtuella datorerna måste skapas vid redundans.
@@ -351,11 +351,11 @@ Du behöver följande information för att skydda en identifierad virtuell dator
 Replikera nu följande virtuella datorer med de inställningar som anges i den här tabellen
 
 
-|Virtuell dator  |Processerver        |Lagringskonto              |Logg lagrings konto  |Princip           |Konto för mobilitets tjänst installation|Målresursgrupp  | Virtuellt målnätverk  |Mål under nät  |
+|Virtuell dator  |Processerver        |Lagringskonto              |Logg lagrings konto  |Princip           |Konto för mobilitets tjänst installation|Mål resurs grupp  | Virtuellt mål nätverk  |Mål under nät  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
-|CentOSVM1       |ConfigurationServer   |Gäller inte| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
-|Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
-|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| Gäller inte                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
+|CentOSVM1       |ConfigurationServer   |Ej tillämpligt| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Undernät-1       |
+|Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Undernät-1       |   
+|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| Ej tillämpligt                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Undernät-1       |   
 
 
 ```azurepowershell

@@ -4,11 +4,11 @@ description: Azure Monitor för behållare samlar in Mät värden och loggdata o
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.openlocfilehash: dcd1656673e549b583de26bca897d0055f389d0a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404540"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362251"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Så här frågar du efter loggar från Azure Monitor för behållare
 
@@ -42,7 +42,7 @@ Exempel på poster som samlas in av Azure Monitor för behållare och vilka data
 
 Azure Monitor loggar kan hjälpa dig att söka efter trender, diagnostisera Flask halsar, prognostisera eller korrelera data som kan hjälpa dig att avgöra om den aktuella kluster konfigurationen fungerar optimalt. Fördefinierade loggsökningar tillhandahålls för du omedelbart börja använda eller anpassa för att returnera informationen som du vill.
 
-Du kan utföra interaktiv analys av data i arbets ytan genom att välja alternativet **Visa Kubernetes händelse loggar** eller **Visa behållar loggar** i förhands gransknings fönstret i list rutan **Visa i Analytics** . Den **Loggsökning** visas till höger om Azure portal sidan som du var på.
+Du kan utföra interaktiv analys av data i arbets ytan genom att välja alternativet **Visa Kubernetes händelse loggar** eller **Visa behållar loggar** i förhands gransknings fönstret i list rutan **Visa i Analytics** . Sidan **loggs ökning** visas till höger om Azure Portal sidan som du var på.
 
 ![Analysera data i Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)   
 
@@ -52,13 +52,13 @@ Behållaren loggar utdata som vidarebefordras till din arbets yta är STDOUT och
 
 Det är ofta bra att skapa frågor som börjar med ett exempel eller två och ändra dem efter dina behov. För att skapa mer avancerade frågor kan experimentera du med följande exempelfrågor:
 
-| Söka i data | Beskrivning | 
+| Fråga | Beskrivning | 
 |-------|-------------|
 | ContainerInventory<br> &#124;projektet dator, namn, bild, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124;Rendera tabell | Visa en lista över information om en behållarens livslängd| 
 | KubeEvents_CL<br> &#124;där not(isempty(Namespace_s))<br> &#124;Sortera efter TimeGenerated fall<br> &#124;Rendera tabell | Kubernetes-händelser|
 | ContainerImageInventory<br> &#124;Sammanfatta AggregatedValue = antal() efter bild, ImageTag, körs | Avbildningslager | 
-| **Välj Visa diagramalternativet**:<br> Perf<br> &#124;där ObjectName == ”K8SContainer” och CounterName == ”cpuUsageNanoCores” &#124; sammanfatta AvgCPUUsageNanoCores = avg(CounterValue) efter bin (TimeGenerated, 30m), instansnamn | Processorprestanda för behållare | 
-| **Välj Visa diagramalternativet**:<br> Perf<br> &#124;där ObjectName == ”K8SContainer” och CounterName == ”memoryRssBytes” &#124; sammanfatta AvgUsedRssMemoryBytes = avg(CounterValue) efter bin (TimeGenerated, 30m), instansnamn | Containerminne |
+| **Välj visnings alternativ för linje diagram**:<br> Perf<br> &#124;där ObjectName == ”K8SContainer” och CounterName == ”cpuUsageNanoCores” &#124; sammanfatta AvgCPUUsageNanoCores = avg(CounterValue) efter bin (TimeGenerated, 30m), instansnamn | Processorprestanda för behållare | 
+| **Välj visnings alternativ för linje diagram**:<br> Perf<br> &#124;där ObjectName == ”K8SContainer” och CounterName == ”memoryRssBytes” &#124; sammanfatta AvgUsedRssMemoryBytes = avg(CounterValue) efter bin (TimeGenerated, 30m), instansnamn | Behållare-minne |
 | InsightsMetrics<br> &#124;där name = = "requests_count"<br> &#124;sammanfatta val = any (val) av TimeGenerated = bin (TimeGenerated, 1m)<br> &#124;Sortera efter TimeGenerated ASC<br> &#124;projekt RequestsPerMinute = val-föreg (val), TimeGenerated <br> &#124;rendera Barchart  | Begär Anden per minut med anpassade mått |
 
 ## <a name="query-prometheus-metrics-data"></a>Fråga Prometheus Metrics-data

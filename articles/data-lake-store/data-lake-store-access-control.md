@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226097"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394271"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Åtkomstkontroll i Azure Data Lake Storage Gen1
 
@@ -27,9 +27,9 @@ Azure Data Lake Storage Gen1 implementerar en modell för åtkomstkontroll som h
 
 Det finns två sorters åtkomstkontrollistor (ACL:er), **Åtkomst-ACL:er** och **Standard-ACL:er**.
 
-* **Åtkomst-ACL: er**: Dessa styr åtkomst till ett objekt. Både filer och mappar har åtkomst-ACL:er.
+* **Åtkomst-ACL:er**: De här kontrollerar åtkomst till ett objekt. Både filer och mappar har åtkomst-ACL:er.
 
-* **Standard-ACL: er**: En "mall" av ACL: er som är associerade med en mapp som bestämmer åtkomst-ACL: er för underordnade objekt som skapas i den mappen. Filer har inte standard-ACL:er.
+* **Standard-ACL**: En "mall" av ACL:er som är associerad med en mapp som bestämmer åtkomst-ACL:er för underordnade objekt som skapats under mappen. Filer har inte standard-ACL:er.
 
 
 Både åtkomst-ACL:er och standard-ACL:er har samma struktur.
@@ -108,7 +108,7 @@ En superanvändare har mest behörighet av alla användare i Data Lake Storage G
 * Kan ändra behörigheterna för alla filer och mappar.
 * Kan ändra ägande användare eller ägande grupp för alla filer och mappar.
 
-Alla användare som är en del av den **ägare** för ett Data Lake Storage Gen1 konto blir automatiskt en superanvändare.
+Alla användare som ingår i rollen **ägare** för ett data Lake Storage gen1 konto är automatiskt en super-användare.
 
 ### <a name="the-owning-user"></a>Ägande användare
 
@@ -124,16 +124,16 @@ Användaren som skapade objektet är automatiskt ägande användare för objekte
 
 ### <a name="the-owning-group"></a>Ägande grupp
 
-**Bakgrund**
+**Lägg**
 
 I POSIX-ACL:er är varje användare associerad med en "primär grupp". Användaren "Alice" kan t.ex. tillhöra gruppen "Ekonomi". Alice kan också tillhöra flera grupper, men en grupp anges alltid som hennes primära grupp. När Alice skapar en fil i POSIX ställs den ägande gruppen för filen in som hennes primära grupp, som i det här fallet är "Ekonomi". Den ägande gruppen fungerar annars ungefär som tilldelade behörigheter för andra användare/grupper.
 
 Eftersom det finns inga ”primär grupp” som tillhör användare i Data Lake Storage Gen1, tilldelas den ägande gruppen enligt nedan.
 
-**Tilldela den ägande gruppen för en ny fil eller mapp**
+**Tilldela ägande grupp för en ny fil eller mapp**
 
 * **Fall 1**: Rotmappen "/". Den här mappen skapas när ett Data Lake Storage Gen1 konto skapas. I det här fallet har den ägande gruppen tilldelats en all-noll-GUID.  Det här värdet tillåter inte någon åtkomst.  Det är en platshållare till dess att en grupp har tilldelats.
-* **Fall 2** (Alla andra fall): När ett nytt objekt skapas, kopieras den ägande gruppen från den överordnade mappen.
+* **Fall 2** (alla andra fall): När ett nytt objekt skapas, kopieras den ägande gruppen från den överordnade mappen.
 
 **Ändra den ägande gruppen**
 
@@ -144,7 +144,7 @@ Den ägande gruppen kan ändras av:
 > [!NOTE]
 > Den ägande gruppen *kan inte* ändra ACL:er för en fil eller mapp.
 >
-> För konton som skapats på eller före September 2018, har den ägande gruppen angetts för användaren som skapade kontot för rotmappen för **fall 1**ovan.  Ett enda användarkonto inte är giltig för att ge behörighet via den ägande gruppen, så beviljas inga behörigheter som den här standardinställningen. Du kan tilldela den här behörigheten till en giltig användargrupp.
+> För konton som skapats på eller före september 2018 var den ägande gruppen inställd på den användare som skapade kontot i fallet med rotmappen för **fall 1**ovan.  Ett enda användarkonto inte är giltig för att ge behörighet via den ägande gruppen, så beviljas inga behörigheter som den här standardinställningen. Du kan tilldela den här behörigheten till en giltig användargrupp.
 
 
 ## <a name="access-check-algorithm"></a>Algoritm för åtkomstkontroll
@@ -194,7 +194,7 @@ def access_check( user, desired_perms, path ) :
 
 ### <a name="the-mask"></a>Masken
 
-Enligt beskrivningen i algoritmen Kontrollera åtkomst, masken begränsar åtkomst för **namngivna användare**, **ägande grupp**, och **namngivna grupper**.  
+Som illustreras i algoritmen för åtkomst kontroll begränsar masken åtkomsten för **namngivna användare**, **ägande grupp**och **namngivna grupper**.  
 
 > [!NOTE]
 > För ett nytt Data Lake Storage Gen1-konto får masken för åtkomst-ACL för rotmappen (”/”) som standard RWX.
@@ -297,6 +297,6 @@ Nej, men standard-ACL:er kan användas för att ange ACL:er för underordnade fi
 * [POSIX ACL på Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL med åtkomstkontrollistor på Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Översikt över Azure Data Lake Storage Gen1](data-lake-store-overview.md)

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: dapine
 ms.openlocfilehash: 308a474970db54022e5351fdf349d9572fbafb0d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888574"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390155"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS Docker-behållare
  
@@ -24,17 +24,17 @@ Behållaren Language Understanding (LUIS) läser in din utbildade eller publicer
 
 Följande video visar hur du använder den här behållaren.
 
-[![Demonstration av behållare för Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
+[![demonstration av behållare för Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Observera följande krav för att köra LUIS-behållaren:
 
 |Krävs|Syfte|
 |--|--|
-|Docker-motorn| Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
+|Docker-motor| Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). För en introduktion till Docker-och container-grunderna, se [Docker-översikten](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
 |Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper om grundläggande `docker`-kommandon.| 
 |Azure `Cognitive Services` Resource och LUIS [paketerad app](luis-how-to-start-new-app.md) -fil |För att du ska kunna använda behållaren måste du ha:<br><br>* En _Cognitive Services_ Azure-resurs och den associerade fakturerings nyckeln för fakturerings slut punktens URI. Båda värdena är tillgängliga på sidorna översikt och nycklar för resursen och krävs för att starta behållaren. <br>* En utbildad eller publicerad app paketeras som monterad inström till behållaren med dess associerade app-ID. Du kan hämta den paketerade filen från LUIS-portalen eller redigera-API: er. Om du får LUIS paketerad app från [redigerings-API: er](#authoring-apis-for-package-file), behöver du också din _redigerings nyckel_.<br><br>Dessa krav används för att skicka kommando rads argument till följande variabler:<br><br>**{AUTHORING_KEY}** : den här nyckeln används för att hämta den paketerade appen från Luis-tjänsten i molnet och ladda upp frågan loggar tillbaka till molnet. Formatet är `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APP_ID}** : detta ID används för att välja appen. Formatet är `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{Api_key}** : den här nyckeln används för att starta behållaren. Du kan hitta slut punkts nyckeln på två platser. Det första är Azure Portal i _Cognitive Services_ resursens nyckel lista. Slut punkts nyckeln är också tillgänglig i LUIS-portalen på sidan nycklar och inställningar för slut punkt. Använd inte start nyckeln.<br><br>**{ENDPOINT_URI}** : slut punkten enligt vad som anges på översikts sidan.<br><br>[Redigerings nyckeln och slut punkts nyckeln](luis-boundaries.md#key-limits) har olika syfte. Använd dem inte interoförändrade. |
 
@@ -55,7 +55,7 @@ Redigera API: er för paketerade appar:
 
 Den här behållaren stöder lägsta och rekommenderade värden för inställningarna:
 
-|Container| Minimum | Rekommenderad | TPS<br>(Minimum, maximum)|
+|Container| Minimum | Rekommenderas | TPS<br>(Minimum, maximum)|
 |-----------|---------|-------------|--|
 |LUIS|1 kärna, 2 GB minne|1 kärna, 4 GB minne|20, 40|
 
@@ -78,7 +78,7 @@ En fullständig beskrivning av tillgängliga taggar, till exempel `latest` som a
 
 ## <a name="how-to-use-the-container"></a>Använda behållaren
 
-När behållaren är på [värddatorn](#the-host-computer) använder du följande process för att arbeta med behållaren.
+När behållaren är på [värddatorn](#the-host-computer)använder du följande process för att arbeta med behållaren.
 
 ![Process för att använda Language Understanding-behållare (LUIS)](./media/luis-container-how-to/luis-flow-with-containers-diagram.jpg)
 
@@ -118,7 +118,7 @@ Monterings katalogen för indatamängden kan innehålla **produktions**-, **mell
 
 Innan du packar ett LUIS-program måste du ha följande:
 
-|Förpacknings krav|Information|
+|Förpacknings krav|Detaljer|
 |--|--|
 |Resurs instans för Azure _Cognitive Services_|Regioner som stöds är<br><br>USA, västra (`westus`)<br>Västeuropa (`westeurope`)<br>Östra Australien (`australiaeast`)|
 |Tränad eller publicerad LUIS-app|Utan [stödda beroenden][unsupported-dependencies]. |
@@ -228,7 +228,7 @@ Det här kommandot:
 Fler [exempel](luis-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga. 
 
 > [!IMPORTANT]
-> Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](#billing).
+> Alternativen `Eula`, `Billing`och `ApiKey` måste anges för att köra behållaren. annars startar inte behållaren.  Mer information finns i [fakturering](#billing).
 > ApiKey-värdet är **nyckeln** från sidan **Azure-resurser** på Luis-portalen och finns också på sidan med resurs nycklar för Azure `Cognitive Services`.  
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
@@ -243,7 +243,7 @@ Behållaren innehåller REST-baserade slut punkts-API: er för frågor förutsä
 
 Använd värden `http://localhost:5000`för behållar-API: er.
 
-# <a name="v3-prediction-endpointtabv3"></a>[V3 förutsägelse slut punkt](#tab/v3)
+# <a name="v3-prediction-endpoint"></a>[V3 förutsägelse slut punkt](#tab/v3)
 
 |Pakettyp|HTTP-verb|Routa|Frågeparametrar|
 |--|--|--|--|
@@ -259,7 +259,7 @@ Frågeparametrarna konfigurerar hur och vad som returneras i svaret för frågan
 |`log`|boolean|Loggar frågor som kan användas senare för [aktiv inlärning](luis-how-to-review-endpoint-utterances.md). Standardvärdet är false.|
 |`show-all-intents`|boolean|Ett booleskt värde som anger om alla intentor eller den översta bedömnings metoden ska returneras. Standardvärdet är false.|
 
-# <a name="v2-prediction-endpointtabv2"></a>[V2-förutsägelse slut punkt](#tab/v2)
+# <a name="v2-prediction-endpoint"></a>[V2-förutsägelse slut punkt](#tab/v2)
 
 |Pakettyp|HTTP-verb|Routa|Frågeparametrar|
 |--|--|--|--|
@@ -282,7 +282,7 @@ Frågeparametrarna konfigurerar hur och vad som returneras i svaret för frågan
 
 Ett exempel på en spiral-kommando för att skicka frågor till behållaren för en publicerad app är:
 
-# <a name="v3-prediction-endpointtabv3"></a>[V3 förutsägelse slut punkt](#tab/v3)
+# <a name="v3-prediction-endpoint"></a>[V3 förutsägelse slut punkt](#tab/v3)
 
 Om du vill fråga en modell på en plats använder du följande API:
 
@@ -308,7 +308,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/versions/{APP_VERSION}/predict"
 ```
 
-# <a name="v2-prediction-endpointtabv2"></a>[V2-förutsägelse slut punkt](#tab/v2)
+# <a name="v2-prediction-endpoint"></a>[V2-förutsägelse slut punkt](#tab/v2)
 
 Om du vill fråga en modell på en plats använder du följande API:
 
@@ -351,11 +351,11 @@ När loggen har laddats upp [granskar du slut punkts](https://docs.microsoft.com
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="stop-the-container"></a>Stoppa containern
+## <a name="stop-the-container"></a>Stoppa behållaren
 
 Om du vill stänga av behållaren trycker du på **CTRL + C**i den kommando rads miljö där behållaren körs.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Om du kör behållaren med en utgående [montering](luis-container-configuration.md#mount-settings) och loggning aktive rad genererar behållaren loggfiler som är till hjälp vid fel sökning av problem som inträffar när du startar eller kör behållaren.
 
@@ -367,14 +367,14 @@ LUIS-behållaren skickar fakturerings information till Azure med hjälp av en _C
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Mer information om alternativen finns i [konfigurera behållare](luis-container-configuration.md).
+Mer information om dessa alternativ finns i [Configure containers](luis-container-configuration.md).
 
 <!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ned, installera och köra Language Understanding-behållare (LUIS). Sammanfattningsvis:
+I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ned, installera och köra Language Understanding-behållare (LUIS). Sammanfattning:
 
 * Language Understanding (LUIS) innehåller en Linux-behållare för Docker som tillhandahåller slut punkts frågan förutsägelser av yttranden.
 * Behållar avbildningar hämtas från Microsoft Container Registry (MCR).

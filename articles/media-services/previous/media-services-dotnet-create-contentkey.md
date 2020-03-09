@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: aebd6dee9314d6e5641988767c024790b6b721f4
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74887705"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395871"
 ---
 # <a name="create-contentkeys-with-net"></a>Skapa ContentKeys med .NET 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
-> * [NET](media-services-dotnet-create-contentkey.md)
+> * [.NET](media-services-dotnet-create-contentkey.md)
 > 
 > 
 
@@ -147,7 +147,7 @@ call
     IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
 ```
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

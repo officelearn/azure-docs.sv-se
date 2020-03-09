@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: jingwang
 ms.openlocfilehash: 056909f5fd5838e5ae50fb84bd3535029d862acf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483250"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357211"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Bevara metadata och ACL: er med kopierings aktivitet i Azure Data Factory
 
@@ -145,5 +145,5 @@ Här är ett exempel på en kopierings aktivitets JSON-konfiguration (se `preser
 
 Se de andra artiklarna i Kopieringsaktiviteten:
 
-- [Översikt över Kopieringsaktivitet](copy-activity-overview.md)
+- [Översikt över kopierings aktivitet](copy-activity-overview.md)
 - [Kopiera aktivitets prestanda](copy-activity-performance.md)

@@ -4,11 +4,11 @@ description: Infoga några rader kod i din enhet eller Skriv bords app, webb sid
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.openlocfilehash: 74736966013581296483d1444f4ab2b8a35bbd98
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666504"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362240"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API för anpassade händelser och mått
 
@@ -518,7 +518,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-De flesta viktiga stack-uppgifter har redan extraherats i separata variabler, men du kan dra isär `details`s strukturen för att få mer information. Eftersom den här strukturen är dynamisk bör du omvandla resultatet till den typ som du förväntar dig. Några exempel:
+De flesta viktiga stack-uppgifter har redan extraherats i separata variabler, men du kan dra isär `details`s strukturen för att få mer information. Eftersom den här strukturen är dynamisk bör du omvandla resultatet till den typ som du förväntar dig. Exempel:
 
 ```kusto
 exceptions
@@ -581,7 +581,7 @@ Du kan söka efter meddelande innehåll, men (till skillnad från egenskaps vär
 Storleks gränsen på `message` är mycket högre än gränsen för egenskaper.
 En fördel med TrackTrace är att du kan ställa in relativt långa data i meddelandet. Du kan till exempel koda POST-data där.  
 
-Dessutom kan du lägga till en allvarlighets grad i meddelandet. Liksom andra telemetri kan du lägga till egenskaps värden som hjälper dig att filtrera eller söka efter olika uppsättningar med spår. Några exempel:
+Dessutom kan du lägga till en allvarlighets grad i meddelandet. Liksom andra telemetri kan du lägga till egenskaps värden som hjälper dig att filtrera eller söka efter olika uppsättningar med spår. Exempel:
 
 *C#*
 
@@ -1144,7 +1144,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient har en kontext egenskap som innehåller värden som skickas tillsammans med alla telemetridata. De anges normalt av standardmodulerna för telemetri, men du kan också ställa in dem själv. Några exempel:
+TelemetryClient har en kontext egenskap som innehåller värden som skickas tillsammans med alla telemetridata. De anges normalt av standardmodulerna för telemetri, men du kan också ställa in dem själv. Exempel:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";
@@ -1193,7 +1193,7 @@ Se [data kvarhållning och sekretess](../../azure-monitor/app/data-retention-pri
 
 * *Vilka undantag kan Track_ ()-anropen Throw?*
 
-    Ingen. Du behöver inte figursätta dem i try-catch-satser. Om SDK stöter på problem kommer den att logga meddelanden i fel söknings konsolens utdata och--om meddelandena går igenom i diagnostisk sökning.
+    Inga. Du behöver inte figursätta dem i try-catch-satser. Om SDK stöter på problem kommer den att logga meddelanden i fel söknings konsolens utdata och--om meddelandena går igenom i diagnostisk sökning.
 * *Finns det ett REST API för att hämta data från portalen?*
 
     Ja, [API för data åtkomst](https://dev.applicationinsights.io/). Andra sätt att extrahera data är [att exportera från Analytics till Power BI](../../azure-monitor/app/export-power-bi.md ) och [löpande export](../../azure-monitor/app/export-telemetry.md).

@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 7b5569738721038beadc78d94c81393803b6d36a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920594"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366918"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
 
@@ -37,7 +37,7 @@ Det här avsnittet beskriver vanliga scenarier för att leverera innehåll [live
 
 Om du vill börja använda Azure Media Services ska du ha följande:
 
-* Ett Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
+* Ett Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
 * Ett Azure Media Services-konto. Mer information finns i [Skapa konto](media-services-portal-create-account.md).
 * Slutpunkten för direktuppspelning som du vill spela upp innehåll från måste ha tillståndet **Körs**.
 
@@ -79,7 +79,7 @@ Information om tillgänglighet i datacenter finns i avsnittet [Tillgänglighet](
 2. Koda till en uppsättning MP4-filer med anpassningsbar bithastighet. Använd krypterat lagringsalternativ för utdatatillgången.
 3. Skapa en innehållskrypteringsnyckel för den tillgång du vill kryptera dynamiskt under uppspelning.
 4. Konfigurera principen för auktorisering av innehållsnyckel.
-5. Konfigurera principen för tillgångsleverans (används av dynamisk paketering och dynamisk kryptering).
+5. Konfigurera en princip för tillgångsleveranser (används av dynamisk paketering och dynamisk kryptering).
 6. Publicera tillgången genom att skapa en OnDemand-positionerare.
 7. Strömma publicerat innehåll.
 

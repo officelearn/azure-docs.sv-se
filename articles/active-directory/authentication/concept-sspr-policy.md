@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fd6cacae9c7af705b0de7b59e0f25f25637a5a89
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962500"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376932"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösen ords principer och begränsningar i Azure Active Directory
 
@@ -32,7 +32,7 @@ Principen för två-grind kräver två delar av autentiseringsdata, till exempel
 
 * Alla följande roller för Azure-administratörer påverkas:
   * Support administratör
-  * Tjänst support administratör
+  * Tjänstsupportadministratör
   * Faktureringsadministratör
   * Partnersupport, nivå 1
   * Partnersupport, nivå 2
@@ -71,7 +71,7 @@ Varje användar konto som behöver logga in på Azure AD måste ha ett unikt vä
 
 | Egenskap | UserPrincipalName-krav |
 | --- | --- |
-| Tillåtna tecken |<ul> <li>A – Ö</li> <li>a-ö</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
+| Tillåtna tecken |<ul> <li>A – Ö</li> <li>a-ö</li><li>0 – 9</li> <li> ' \. - \_! \# ^ \~</li></ul> |
 | Tecken tillåts inte |<ul> <li>Valfritt "\@\"-tecknen som inte avgränsar användar namnet från domänen.</li> <li>Får inte innehålla ett punkt tecken "." omedelbart före "\@\"-symbolen</li></ul> |
 | Längd begränsningar |<ul> <li>Den totala längden får inte överskrida 113 tecken</li><li>Det kan finnas upp till 64 tecken innan symbolen för\@\"</li><li>Det kan innehålla upp till 48 tecken efter symbolen "\@\"</li></ul> |
 

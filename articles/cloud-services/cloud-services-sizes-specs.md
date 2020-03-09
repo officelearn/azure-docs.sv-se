@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 34cb4282f64544e67b3724699380d1d54fd9b806
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660434"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386422"
 ---
 # <a name="sizes-for-cloud-services"></a>Storlek för Cloud Services
 I det här avsnittet beskrivs tillgängliga storlekar och alternativ för moln tjänst roll instanser (webb roller och arbets roller). Den innehåller också distributions överväganden för att vara medveten om när du planerar att använda dessa resurser. Varje storlek har ett ID som du anger i [tjänst definitions filen](cloud-services-model-and-package.md#csdef). Priserna för varje storlek finns på sidan [Cloud Services priser](https://azure.microsoft.com/pricing/details/cloud-services/) .
@@ -57,12 +57,12 @@ Vi har skapat konceptet för Azure Compute Unit (ACU) för att tillhandahålla e
 | [Liten – ExtraLarge](#a-series) |100 |
 | [A5-7](#a-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [A v2](#av2-series) |100 |
-| [D](#d-series) |160 |
+| [En v2](#av2-series) |100 |
+| [Styr](#d-series) |160 |
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
 | [E v3](#ev3-series) |160 - 190* |
-| [G](#g-series) |180 - 240* |
+| [Projektredovisnings](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
 ACU:er som visas med * använder Intel® Turbo-teknik för att öka processorfrekvensen och prestanda. Prestandaökningens storlek kan variera beroende på storleken på den virtuella datorn, arbetsbelastningen och andra arbetsbelastningar som körs på samma värd.
@@ -76,21 +76,21 @@ Följande tabeller visar storlekarna och den kapacitet som de tillhandahåller.
 * Den maximala nätverksbandbredden är den högsta aggregerade bandbredden som allokeras och tilldelas per typ av virtuell dator. Den maximala bandbredden är en riktlinje som hjälper dig att välja rätt typ av virtuell dator för att säkerställa tillräcklig nätverkskapacitet. När du flyttar mellan låg, måttlig, hög och mycket hög, ökar data flödet därefter. Faktiska nätverksprestanda beror på många faktorer, bland annat nätverks- och programbelastningar och programmets nätverksinställningar.
 
 ## <a name="a-series"></a>A-serien
-| Storlek            | CPU-kärnor | Minne: GiB  | Tillfällig lagring: GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
+| Storlek            | Processorkärnor | Minne: GiB  | Tillfällig lagring: GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0.768        | 20                   | 1 / låg |
 | Liten           | 1         | 1.75         | 225                  | 1 / måttlig |
-| Medium          | 2         | 3.5          | 490                  | 1 / måttlig |
-| Stor           | 4         | 7            | 1 000                 | 2 / hög |
+| Medel          | 2         | 3.5          | 490                  | 1 / måttlig |
+| Stor           | 4         | 7            | 1000                 | 2 / hög |
 | ExtraLarge      | 8         | 14           | 2040                 | 4 / hög |
 | A5              | 2         | 14           | 490                  | 1 / måttlig |
-| A6              | 4         | 28           | 1 000                 | 2 / hög |
+| A6              | 4         | 28           | 1000                 | 2 / hög |
 | A7              | 8         | 56           | 2040                 | 4 / hög |
 
 ## <a name="a-series---compute-intensive-instances"></a>A-serien – beräkningsintensiva instanser
 Information och överväganden om hur du använder dessa storlekar finns i [storlekar för beräkning av virtuella datorer med höga prestanda](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-| Storlek            | CPU-kärnor | Minne: GiB  | Tillfällig lagring: GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
+| Storlek            | Processorkärnor | Minne: GiB  | Tillfällig lagring: GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | A8*             |8          | 56           | 1817                 | 2 / hög |
 | A9*             |16         | 112          | 1817                 | 4 / mycket hög |
@@ -101,7 +101,7 @@ Information och överväganden om hur du använder dessa storlekar finns i [stor
 
 ## <a name="av2-series"></a>Av2-serien
 
-| Storlek            | CPU-kärnor | Minne: GiB  | Temporär lagring (SSD): GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
+| Storlek            | Processorkärnor | Minne: GiB  | Temporär lagring (SSD): GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_A1_v2  | 1         | 2            | 10                   | 1 / måttlig                 |
 | Standard_A2_v2  | 2         | 4            | 20                   | 2 / måttlig                 |
@@ -113,7 +113,7 @@ Information och överväganden om hur du använder dessa storlekar finns i [stor
 
 
 ## <a name="d-series"></a>D-serien
-| Storlek            | CPU-kärnor | Minne: GiB  | Temporär lagring (SSD): GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
+| Storlek            | Processorkärnor | Minne: GiB  | Temporär lagring (SSD): GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1     | 1         | 3.5          | 50                   | 1 / måttlig |
 | Standard_D2     | 2         | 7            | 100                  | 2 / hög |
@@ -125,7 +125,7 @@ Information och överväganden om hur du använder dessa storlekar finns i [stor
 | Standard_D14    | 16        | 112          | 800                  | 8 / mycket hög |
 
 ## <a name="dv2-series"></a>Dv2-serien
-| Storlek            | CPU-kärnor | Minne: GiB  | Temporär lagring (SSD): GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
+| Storlek            | Processorkärnor | Minne: GiB  | Temporär lagring (SSD): GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1_v2  | 1         | 3.5          | 50                   | 1 / måttlig |
 | Standard_D2_v2  | 2         | 7            | 100                  | 2 / hög |
@@ -140,7 +140,7 @@ Information och överväganden om hur du använder dessa storlekar finns i [stor
 
 ## <a name="dv3-series"></a>Dv3-serien
 
-| Storlek            | CPU-kärnor | Minne: GiB   | Temporär lagring (SSD): GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
+| Storlek            | Processorkärnor | Minne: GiB   | Temporär lagring (SSD): GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_D2_v3  | 2         | 8             | 50                   | 2 / måttlig |
 | Standard_D4_v3  | 4         | 16            | 100                  | 2 / hög |
@@ -151,7 +151,7 @@ Information och överväganden om hur du använder dessa storlekar finns i [stor
 
 ## <a name="ev3-series"></a>Ev3-serien
 
-| Storlek            | CPU-kärnor | Minne: GiB   | Temporär lagring (SSD): GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
+| Storlek            | Processorkärnor | Minne: GiB   | Temporär lagring (SSD): GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_E2_v3  | 2         | 16            | 50                   | 2 / måttlig |
 | Standard_E4_v3  | 4         | 32            | 100                  | 2 / hög |
@@ -162,7 +162,7 @@ Information och överväganden om hur du använder dessa storlekar finns i [stor
 
 
 ## <a name="g-series"></a>G-serien
-| Storlek            | CPU-kärnor | Minne: GiB  | Temporär lagring (SSD): GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
+| Storlek            | Processorkärnor | Minne: GiB  | Temporär lagring (SSD): GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_G1     | 2         | 28           | 384                  |1 / hög |
 | Standard_G2     | 4         | 56           | 768                  |2 / hög |
@@ -175,11 +175,11 @@ Virtuella datorer i Azure H-serien är nästa generations virtuella datorer för
 
 Förutom den imponerande processorkraften erbjuder H-serien olika alternativ för RDMA-nätverk med låg fördröjning med FDR InfiniBand och flera minneskonfigurationer som ger stöd för minnesintensiva beräkningskrav.
 
-| Storlek            | CPU-kärnor | Minne: GiB  | Temporär lagring (SSD): GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
+| Storlek            | Processorkärnor | Minne: GiB  | Temporär lagring (SSD): GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| Standard_H8     | 8         | 56           | 1 000                 | 8 / hög |
+| Standard_H8     | 8         | 56           | 1000                 | 8 / hög |
 | Standard_H16    | 16        | 112          | 2000                 | 8 / mycket hög |
-| Standard_H8m    | 8         | 112          | 1 000                 | 8 / hög |
+| Standard_H8m    | 8         | 112          | 1000                 | 8 / hög |
 | Standard_H16m   | 16        | 224          | 2000                 | 8 / mycket hög |
 | Standard_H16r*  | 16        | 112          | 2000                 | 8 / mycket hög |
 | Standard_H16mr* | 16        | 224          | 2000                 | 8 / mycket hög |

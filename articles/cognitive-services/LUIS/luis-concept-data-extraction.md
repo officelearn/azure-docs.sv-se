@@ -5,11 +5,11 @@ author: diberry
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: 1c1a744c06e5347625fb96518bd809481ee797e5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716288"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361201"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrahera data från uttryck text med avsikter och entiteter
 LUIS ger dig möjlighet att få information från en användares naturligt språk yttranden. Informationen hämtas i ett sätt att den kan användas av ett program, programmet eller chattrobot vidta åtgärder. Läs om vilka data returneras från avsikter och entiteter med exempel på JSON i avsnitten nedan.
@@ -19,11 +19,11 @@ De hårda data som ska extraheras är de data som lagras på datorn eftersom det
 ## <a name="data-location-and-key-usage"></a>Dataanvändning för platsen och nyckel
 LUIS tillhandahåller data från den publicerade [slut punkten](luis-glossary.md#endpoint). **Https-begäran** (post eller get) innehåller uttryck samt vissa valfria konfigurationer som till exempel mellanlagrings-eller produktions miljöer.
 
-#### <a name="v2-prediction-endpoint-requesttabv2"></a>[V2-begäran om slut punkts förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-request"></a>[V2-begäran om slut punkts förutsägelse](#tab/V2)
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-#### <a name="v3-prediction-endpoint-requesttabv3"></a>[V3 förutsägelse slut punkts förfrågan](#tab/V3)
+#### <a name="v3-prediction-endpoint-request"></a>[V3 förutsägelse slut punkts förfrågan](#tab/V3)
 
 `https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/<appID>/slots/<slot-type>/predict?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&query=book 2 tickets to paris`
 
@@ -38,7 +38,7 @@ Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 ## <a name="data-from-intents"></a>Data från avsikter
 Primära data är det översta namnet på bedömnings **avsikten**. Slutpunkt-svaret är:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 ```JSON
 {
@@ -51,7 +51,7 @@ Primära data är det översta namnet på bedömnings **avsikten**. Slutpunkt-sv
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
 ```JSON
 {
@@ -80,7 +80,7 @@ Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 Om din chattrobot-eller LUIS-anropande app fattar ett beslut baserat på fler än ett avsikts poäng, returnerar du alla Intents-resultat.
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 Ange parametern QueryString `verbose=true`. Slutpunkt-svaret är:
 
@@ -105,7 +105,7 @@ Ange parametern QueryString `verbose=true`. Slutpunkt-svaret är:
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
 Ange parametern QueryString `show-all-intents=true`. Slutpunkt-svaret är:
 
@@ -142,7 +142,7 @@ Avsikter sorteras från högsta till lägsta poängen.
 
 Om du lägger till fördefinierade domäner, anger namn för avsikt domänen, till exempel `Utilties` eller `Communication` och avsikten:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 ```JSON
 {
@@ -168,7 +168,7 @@ Om du lägger till fördefinierade domäner, anger namn för avsikt domänen, ti
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
 ```JSON
 {
@@ -210,7 +210,7 @@ Ett enstaka ord eller en fras i ett uttryck kan matcha mer än en entitet. I så
 
 Alla entiteter returneras i matrisen **entiteter** för svaret från slut punkten:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 ```JSON
 "entities": [
@@ -233,7 +233,7 @@ Alla entiteter returneras i matrisen **entiteter** för svaret från slut punkte
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
 ```JSON
 "entities": {
@@ -266,7 +266,7 @@ En [sammansatt entitet](reference-entity-composite.md) består av andra entitete
 
 `Dec 5th send to +1 360-555-1212`
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 ```JSON
 "entities": [
@@ -347,7 +347,7 @@ En [sammansatt entitet](reference-entity-composite.md) består av andra entitete
   ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
 Utan parametern QueryString `verbose=true`:
 
@@ -556,7 +556,7 @@ Vissa appar behöver för att kunna hitta nya och framväxande namn, t.ex produk
 Roller är sammanhangsberoende skillnader med entiteter.
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 Entitetsnamnet är `Location`, med två roller, `Origin` och `Destination`.
 
@@ -589,7 +589,7 @@ Entitetsnamnet är `Location`, med två roller, `Origin` och `Destination`.
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
 I v3 är **roll namnet** det primära namnet på objektet.
 
@@ -681,7 +681,7 @@ Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 [Mönster.](reference-entity-pattern-any.md) det finns en plats hållare med variabel längd som bara används i ett mönsters mall uttryck för att markera var entiteten börjar och slutar.
 
-## <a name="sentiment-analysis"></a>Sentimentanalys
+## <a name="sentiment-analysis"></a>Attitydanalys
 Om attitydanalys är konfigurerad, innehåller json-svar LUIS attitydanalys. Läs mer om sentiment-analys i [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) -dokumentationen.
 
 ### <a name="sentiment-data"></a>Åsiktsdata
@@ -709,7 +709,7 @@ För alla andra kulturer och är svaret:
 Extraherings enheten för nyckel fraser returnerar nyckel fraser i uttryck, som tillhandahålls av [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 ```JSON
 {
@@ -744,7 +744,7 @@ Extraherings enheten för nyckel fraser returnerar nyckel fraser i uttryck, som 
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
 Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
@@ -822,7 +822,7 @@ LUIS returnerar alla entiteter som identifieras i uttryck. Din chattrobot kan d�
 
 LUIS-slutpunkten kan upptäcka samma data i olika entiteter.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 ```JSON
 {
@@ -948,7 +948,7 @@ LUIS-slutpunkten kan upptäcka samma data i olika entiteter.
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
 Utan `verbose=true` som en QueryString-parameter.
 
@@ -1135,7 +1135,7 @@ Om ett ord eller fraser matchar mer än en entitet i listan, returnerar endpoint
 
 För frågan `when is the best time to go to red rock?`och appen har ordet `red` i fler än en lista, känner LUIS igen alla entiteter och returnerar en matris med entiteter som en del av JSON-slutpunktens svar:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 ```JSON
 {
@@ -1173,7 +1173,7 @@ För frågan `when is the best time to go to red rock?`och appen har ordet `red`
 
 
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
 Utan `verbose=true` i frågesträngen:
 

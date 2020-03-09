@@ -5,11 +5,11 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.openlocfilehash: dda62e3041d04d5becc9179fff1c56d0c587ba1e
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292934"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357909"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -92,7 +92,7 @@ Information om hur du använder Application Insights finns i Application Insight
 
 Följande områden i Application Insights kan vara användbara när du ska utvärdera beteende, prestanda och fel i dina funktioner:
 
-| Tab | Beskrivning |
+| Tabbtecken | Beskrivning |
 | ---- | ----------- |
 | **[Fel](../azure-monitor/app/asp-net-exceptions.md)** |  Skapa diagram och aviseringar baserat på funktions fel och Server undantag. **Åtgärds namnet** är funktions namnet. Felen i beroenden visas inte om du inte implementerar anpassad telemetri för beroenden. |
 | **[Historik](../azure-monitor/app/performance-counters.md)** | Analysera prestanda problem. |
@@ -151,19 +151,19 @@ Funktions körningen skapar loggar med en kategori som börjar med "värd". I ve
 
 Om du skriver loggar i funktions koden är kategorin `Function` i version 1. x i functions-körningen. Kategorin är `Function.<YOUR_FUNCTION_NAME>.User`i version 2. x.
 
-### <a name="log-levels"></a>Loggnivåer
+### <a name="log-levels"></a>Logg nivåer
 
 Azure Functions loggen innehåller också en *logg nivå* med varje logg. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) är en uppräkning och heltals koden indikerar relativ prioritet:
 
-|LogLevel    |Programmera|
+|LogLevel    |Kod|
 |------------|---|
 |Spårning       | 0 |
-|Felsöka       | 1 |
+|Felsökning       | 1 |
 |Information | 2 |
 |Varning     | 3 |
 |Fel       | 4 |
-|Kritiskt    | 5 |
-|Inget        | 6 |
+|Kritisk    | 5 |
+|Ingen        | 6 |
 
 `None` på loggnings nivå förklaras i nästa avsnitt. 
 
@@ -634,7 +634,7 @@ I Application Insights väljer du **Live Metrics Stream**. [Exempel logg poster]
 
 ![Visa Live Metrics Stream i portalen](./media/functions-monitoring/live-metrics-stream.png) 
 
-### <a name="visual-studio-code"></a>Visual Studio-kod
+### <a name="visual-studio-code"></a>Visual Studio Code
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 

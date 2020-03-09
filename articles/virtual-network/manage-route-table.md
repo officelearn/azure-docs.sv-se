@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
 ms.openlocfilehash: fe8ea4dfb4de45a1e09648ac51fe8d74f93a6b9e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979605"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357774"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Skapa, ändra eller ta bort en routningstabell
 
@@ -30,7 +30,7 @@ Azure dirigerar automatiskt trafik mellan Azure-undernät, virtuella nätverk oc
 Utför följande åtgärder innan du slutför stegen i något avsnitt i den här artikeln:
 
 * Om du inte redan har ett Azure-konto kan du registrera dig för ett [kostnads fritt utvärderings konto](https://azure.microsoft.com/free).<br>
-* Om du använder portalen öppnar du https://portal.azure.com och loggar in med ditt Azure-konto.<br>
+* Om du använder portalen öppnar du https://portal.azure.comoch loggar in med ditt Azure-konto.<br>
 * Om du använder PowerShell-kommandon för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/powershell)eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Vanliga Azure-verktyg finns förinstallerade och har konfigurerats för användning med ditt konto. I den här självstudien krävs Azure PowerShell module version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.<br>
 * Om du använder kommando rads kommandon i Azure för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra CLI från datorn. I den här självstudien krävs Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också köra `az login` för att skapa en anslutning till Azure.
 
@@ -123,7 +123,7 @@ Om en routingtabell är kopplad till undernät kan den inte tas bort. [Koppla bo
 
 1. I rutan Sök högst upp i *portalen anger du routningstabeller i* sökrutan. När **routningstabeller** visas i Sök resultaten väljer du den.
 1. Välj **...** på höger sida av den routningstabell som du vill ta bort.
-1. Välj **Ta bort** och välj sedan **Ja**.
+1. Välj **ta bort**och välj sedan **Ja**.
 
 ### <a name="delete-a-route-table---commands"></a>Ta bort en routningstabell – kommandon
 

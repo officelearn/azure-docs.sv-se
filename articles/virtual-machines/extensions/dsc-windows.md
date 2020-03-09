@@ -14,11 +14,11 @@ ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
 ms.openlocfilehash: 592c731d1851ac36cf9b57864750df0603b6c3fd
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073791"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383283"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC-tillägg
 
@@ -26,7 +26,7 @@ ms.locfileid: "74073791"
 
 PowerShell DSC-tillägget för Windows publiceras och stöds av Microsoft. Tillägget överför och tillämpar en PowerShell DSC-konfiguration på en virtuell Azure-dator. DSC-tillägget anropar PowerShell DSC för att införa den mottagna DSC-konfigurationen på den virtuella datorn. Det här dokumentet innehåller information om plattformar, konfigurationer och distributions alternativ för DSC-tillägget för virtuella datorer för Windows.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -99,7 +99,7 @@ Följande JSON visar schemat för inställnings delen av DSC-tillägget i en Azu
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2018-10-01 | datum |
+| apiVersion | 2018-10-01 | date |
 | publisher | Microsoft.Powershell.DSC | sträng |
 | typ | DSC | sträng |
 | typeHandlerVersion | 2.77 | int |
@@ -172,4 +172,4 @@ C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).

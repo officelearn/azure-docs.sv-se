@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
 ms.openlocfilehash: 01f2644874da032b95162f3f5721ab9dbea74265
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974722"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393436"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Kopiera data från en lokal SQL Server-databas till Azure Blob Storage
 I den här självstudien använder du användargränssnittet för Azure Data Factory för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar och använder en lokal installation av Integration Runtime som flyttar data mellan lokala datalager och datalager i molnet.
@@ -35,7 +35,7 @@ I den här självstudien får du göra följande:
 > * Starta en pipelinekörning.
 > * Övervaka pipelinekörningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 ### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -71,14 +71,14 @@ I den här självstudien använder du en lokal SQL Server-databas som *källdata
    ```
 
 ### <a name="azure-storage-account"></a>Azure Storage-konto
-I den här självstudien använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för destination eller mottagare. Om du inte har något allmänt Azure Storage-konto kan du läsa [Skapa ett lagringskonto](../storage/common/storage-account-create.md). Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den lokala SQL Server-databasen (källa) till Blob Storage (mottagare). 
+I den här självstudien använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för destination/mottagare. Om du inte har något allmänt Azure Storage-konto kan du läsa [Skapa ett lagringskonto](../storage/common/storage-account-create.md). Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den lokala SQL Server-databasen (källa) till Blob Storage (mottagare). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Hämta lagringskontots namn och åtkomstnyckel
 Du använder namnet och nyckeln för lagringskontot i den här självstudien. Gör så här för att hämta namnet och nyckeln till lagringskontot:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med användarnamnet och lösenordet för Azure.
 
-1. Välj **Alla tjänster** i rutan till vänster. Filtrera genom att använda nyckelordet **Lagring** och välj sedan **Lagringskonton**.
+1. I det vänstra fönstret väljer du **alla tjänster**. Filtrera genom att använda nyckelordet **Lagring** och välj sedan **Lagringskonton**.
 
     ![Lagringskontosökning](media/doc-common-process/search-storage-account.png)
 
@@ -104,9 +104,9 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Blo
 1. Låt **containerfönstret** för **adftutorial** vara öppet. Du kommer att använda den för att bekräfta utdata i slutet av självstudien. Data Factory skapar automatiskt utdatamappen i den här containern, så du behöver inte skapa en.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
-I det här steget skapar du en datafabrik och startar sedan användargränssnittet för Data Factory för att skapa en pipeline i datafabriken.
+I det här steget skapar du en datafabrik och startar sedan användargränssnittet för datafabriken för att skapa en pipeline i datafabriken.
 
-1. Öppna webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
+1. Öppna webbläsaren **Microsoft Edge** eller **Google Chrome**. Data Factory-användargränssnittet stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. På den vänstra menyn väljer du **skapa en resurs** > **Analytics** > **Data Factory**:
 
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -124,7 +124,7 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
 
    - Välj **Skapa ny** och ange namnet på en resursgrupp.
         
-     Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/management/overview.md).
+     Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).
 1. Under **Version** väljer du **V2**.
 1. Under **Plats** väljer du en plats för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (t.ex. lagring och SQL-databas) och beräkningarna (t.ex. Azure HDInsight) som används i Data Factory kan finnas i andra regioner.
 1. Välj **Skapa**.
@@ -222,7 +222,7 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
 1. Vänta tills du ser popup-fönstret som meddelar att **publiceringen är klar**. Om du vill kontrol lera publicerings statusen väljer du länken **Visa meddelanden** överst i fönstret. Stäng meddelandefönstret genom att klicka på **Stäng**.
 
 
-## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
+## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
 Välj **Lägg till utlösare** i verktygsfältet för pipelinen och välj sedan **trigger Now (Utlös nu**).
 
 ## <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
@@ -230,7 +230,7 @@ Välj **Lägg till utlösare** i verktygsfältet för pipelinen och välj sedan 
 1. Gå till fliken **övervaka** . Du ser pipelinen som du utlöste manuellt i föregående steg.
 
     ![Övervaka pipelinekörningar](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
-1. Om du vill visa aktivitetskörningar som är associerade med pipelinekörningen, väljer du länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Du ser bara aktivitets körningar eftersom det bara finns en aktivitet i pipelinen. Om du vill se information om kopieringsoperationen väljer du länken **information** (glasögonikonen) i kolumnen **Åtgärder**. Om du vill gå tillbaka till vyn pipelines körs väljer du **pipeline-körningar** överst.
+1. Om du vill visa aktivitetskörningar som är associerade med pipelinekörningen, väljer du länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Du ser bara aktivitets körningar eftersom det bara finns en aktivitet i pipelinen. Om du vill se mer information om kopieringsåtgärden väljer du länken **Information** (glasögonikonen) i kolumnen **Åtgärder**. Om du vill gå tillbaka till vyn pipelines körs väljer du **pipeline-körningar** överst.
 
 ## <a name="verify-the-output"></a>Verifiera utdata
 Pipelinen skapar automatiskt utdatamappen med namnet *fromonprem* i `adftutorial`-blobcontainern. Bekräfta att du ser filen *[pipeline().RunId].txt* i utdatamappen.

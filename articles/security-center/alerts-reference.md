@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f83385e1c0a360689569424dbba0c4548751916c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: c62af3ddf8b2c2dc8082dc4f4870ecfcdc175ab8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661967"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380749"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Säkerhets aviseringar – en referens guide
 
@@ -243,7 +243,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 |Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
 |**För hands version – roll bindning till rollen kluster-admin har identifierats**|Kubernetes gransknings loggs analys upptäckte en ny bindning till kluster administratörs rollen som resulterade i administratörs behörighet. Onödigt att ge administratörs behörighet kan leda till problem med eskalering av privilegier i klustret.|Bevarande|
-|**För hands VERSIONs Kubernetes-instrumentpanelen har identifierats**|Kubernetes Gransknings logg analys upptäckte exponering av Kubernetes-instrumentpanelen av en LoadBalancer-tjänst. Exponerade instrument paneler tillåter oautentiserad åtkomst till kluster hantering och utgör en säkerhets risk.|Bevarande|
+|**För hands VERSIONs Kubernetes-instrumentpanelen har identifierats**|Kubernetes Gransknings logg analys upptäckte exponering av Kubernetes-instrumentpanelen av en LoadBalancer-tjänst. Exponerade instrument paneler tillåter oautentiserad åtkomst till kluster hantering och utgör en säkerhets risk.|Initial åtkomst|
 |**För hands version – ny roll med hög behörighet har identifierats**|Kubernetes Gransknings logg analys upptäckte en ny roll med hög behörighet. En bindning till en roll med hög behörighet ger utökade privilegier för användare/grupp i klustret. Om du inte behöver utökade privilegier kan det leda till problem med eskalering av privilegier i klustret.|Bevarande|
 |**För hands version – ny behållare i Kube-systemets namnrymd identifieras**|Kubernetes gransknings loggs analys identifierade en ny behållare i Kube-systemets namnrymd som inte är bland de behållare som normalt körs i det här namn området. Kube-systemets namn rymder får inte innehålla användar resurser. Angripare kan använda det här namn området för att dölja skadliga komponenter.|Bevarande|
 |**PREVIEW – utvinnings behållare för digital valuta har identifierats**|Kubernetes Gransknings logg analys har identifierat en behållare som har en avbildning kopplad till ett verktyg för digital valuta utvinning.|Körnings-|
@@ -263,7 +263,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 |**SSH-servern körs i en behållare**|Dator loggar indikerar att en SSH-server körs i en Docker-behållare. Även om det här beteendet kan vara avsiktligt, tyder det ofta på att en behållare är felkonfigurerad eller överträtt.|Körnings-|
 |**Container med en Miner-avbildning identifierad**|Dator loggar indikerar körning av en Docker-behållare som kör en avbildning som är kopplad till den digitala valuta utvinning. Detta kan bero på att dina resurser missbrukas.|Körnings-|
 |**Misstänkt begäran till Kubernetes-API**|Dator loggar indikerar att en misstänkt begäran gjordes till Kubernetes-API: et. Begäran skickades från en Kubernetes-nod, eventuellt från en av de behållare som körs i noden. Även om det här beteendet kan vara avsiktligt kan det tyda på att noden kör en komprometterad behållare.|Körnings-|
-|**Misstänkt förfrågan till Kubernetes-instrumentpanelen**|Dator loggar indikerar att en misstänkt begäran gjordes till Kubernetes-instrumentpanelen. Begäran skickades från en Kubernetes-nod, eventuellt från en av de behållare som körs i noden. Även om det här beteendet kan vara avsiktligt kan det tyda på att noden kör en komprometterad behållare.|-|
+|**Misstänkt förfrågan till Kubernetes-instrumentpanelen**|Dator loggar indikerar att en misstänkt begäran gjordes till Kubernetes-instrumentpanelen. Begäran skickades från en Kubernetes-nod, eventuellt från en av de behållare som körs i noden. Även om det här beteendet kan vara avsiktligt kan det tyda på att noden kör en komprometterad behållare.|Sidorörelse|
 ||||
 
 
@@ -395,7 +395,7 @@ Att förstå avsikten med en attack kan hjälpa dig att undersöka och rapporter
 
 En serie steg som beskriver förloppet för en cyberattack från rekognosering till data exfiltrering kallas ofta för en "Kill-kedja". 
 
-Security Center som stöds av Kill-kedjeen är baserade på [Mitre att &AMP; CK™ Framework](https://attack.mitre.org/matrices/enterprise) och beskrivs i tabellen nedan.
+Security Center som stöds av Kill-kedjeen är baserade på [Mitre att &AMP; CK&trade; Framework](https://attack.mitre.org/matrices/enterprise) och beskrivs i tabellen nedan.
 
 |Avsikt|Beskrivning|
 |------|-------|

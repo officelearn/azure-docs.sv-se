@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666745"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358855"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Utföra data åtgärder i Azure Logic Apps
 
@@ -50,7 +50,7 @@ De här åtgärderna hjälper dig att arbeta med data i JavaScript Object Notati
 
 Information om hur du skapar mer komplexa JSON-transformeringar finns i [utföra avancerade JSON-omvandlingar med flytande mallar](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -200,7 +200,7 @@ Behåll kolumnen **rubrik** tom i åtgärden. På varje rad i kolumnen **värde*
 
    `item()?['<array-property-name>']`
 
-   Ett exempel:
+   Exempel:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -232,7 +232,7 @@ I åtgärdens JSON-definition, i `columns` matris, anger du egenskapen `header` 
    }
    ```
 
-   Ett exempel:
+   Exempel:
 
    ```json
    "Create_CSV_table": {
@@ -351,7 +351,7 @@ Behåll kolumnen **rubrik** tom i åtgärden. På varje rad i kolumnen **värde*
 
    `item()?['<array-property-name>']`
 
-   Ett exempel:
+   Exempel:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -383,7 +383,7 @@ I åtgärdens JSON-definition, i `columns` matris, anger du egenskapen `header` 
    }
    ```
 
-   Ett exempel:
+   Exempel:
 
    ```json
    "Create_HTML_table": {

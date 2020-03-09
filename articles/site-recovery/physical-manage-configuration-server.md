@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: f443f0362ecad8448895322686a7175b2813141e
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084604"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367119"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurations servern för haveri beredskap för fysiska servrar
 
@@ -20,7 +20,7 @@ Du konfigurerar en lokal konfigurations server när du använder tjänsten [Azur
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I tabellen sammanfattas kraven för distribution av den lokala konfigurations servern.
 
@@ -71,7 +71,7 @@ Den senaste versionen av konfigurations serverns installations fil finns på Sit
      ![Brandvägg](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. I **Kravkontroll** körs en kontroll för att se till att installationen kan köras. Om det visas en varning om **synkroniseringskontrollen för global tid** kontrollerar du att systemklockans tid (inställningarna för **datum och tid**) är samma som tidszonen.
 
-    ![Krav](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![Förutsättningar](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. I **MySQL Configuration** (MySQL-konfiguration) skapar du autentiseringsuppgifter för att logga in på den MySQL-serverinstans som är installerad.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
@@ -118,12 +118,12 @@ Kör installations filen på följande sätt:
 |/PSIP|Krävs|Nätverkskortets IP-adress används för överföring av replikeringsdata| Vilken giltig IP-adress som helst|
 |/CSIP|Krävs|Nätverkskortets IP-adress som konfigurationsservern lyssnar på| Vilken giltig IP-adress som helst|
 |/PassphraseFilePath|Krävs|Den fullständiga sökvägen till platsen för lösenfrasfilen|Giltig sökväg|
-|/BypassProxy|Valfritt|Anger att konfigurationsservern ansluter till Azure utan en proxyserver|För att få det här värdet från Venu|
-|/ProxySettingsFilePath|Valfritt|Proxy-inställningar (standardproxy kräver autentisering, eller en anpassad proxy)|Filen ska vara i det format som anges nedan|
-|DataTransferSecurePort|Valfritt|Portnumret på PSIP ska användas för replikeringsdata| Giltigt portnummer (standardvärdet är 9433)|
-|/SkipSpaceCheck|Valfritt|Hoppa över utrymmeskontroll för cachedisk| |
+|/BypassProxy|Valfri|Anger att konfigurationsservern ansluter till Azure utan en proxyserver|För att få det här värdet från Venu|
+|/ProxySettingsFilePath|Valfri|Proxy-inställningar (standardproxy kräver autentisering, eller en anpassad proxy)|Filen ska vara i det format som anges nedan|
+|DataTransferSecurePort|Valfri|Portnumret på PSIP ska användas för replikeringsdata| Giltigt portnummer (standardvärdet är 9433)|
+|/SkipSpaceCheck|Valfri|Hoppa över utrymmeskontroll för cachedisk| |
 |/AcceptThirdpartyEULA|Krävs|När du flaggar innebär det att du godkänner licensavtalet från tredje part| |
-|/ShowThirdpartyEULA|Valfritt|Visar licensavtalet (EULA) från tredje part. Om detta anges som indata ignoreras alla andra parametrar| |
+|/ShowThirdpartyEULA|Valfri|Visar licensavtalet (EULA) från tredje part. Om detta anges som indata ignoreras alla andra parametrar| |
 
 
 
@@ -175,7 +175,7 @@ Du kan ändra proxyinställningarna för Configuration Server-datorn på följan
 2. Starta cspsconfigtool. exe med hjälp av genvägen på Skriv bordet.
 3. Klicka på fliken **valv registrering** .
 4. Ladda ned en ny registrerings fil från portalen och ange den som indata för verktyget.
-      ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+      ![registrera-Configuration-Server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Ange information om proxyservern och klicka på knappen **Registrera** .  
 6. Öppna ett admin PowerShell-kommando fönster.
 7. Kör följande kommando

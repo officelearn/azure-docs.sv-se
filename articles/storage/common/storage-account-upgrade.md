@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
 ms.openlocfilehash: 42cef26143eaeb49c4aa80dc5e1b05eb7be943cc
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616828"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363277"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uppgradera till ett allmänt-syfte v2-lagrings konto
 
@@ -24,9 +24,9 @@ Att uppgradera till ett allmänt-syfte v2-lagrings konto från dina generella v1
 > [!IMPORTANT]
 > Att uppgradera ett allmänt v1-eller Blob Storage-konto till General-Purpose v2 är permanent och kan inte ångras.
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Navigera till ditt lagringskonto.
 3. I avsnittet **Inställningar** klickar du på **konfiguration**.
 4. Klicka på **Uppgradera** under **Typ av konto**.

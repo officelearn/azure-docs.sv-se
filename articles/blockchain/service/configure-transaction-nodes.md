@@ -5,11 +5,11 @@ ms.date: 11/20/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: 4a9a4f660dd171e65b600ec4cd66714ca476b091
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326311"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395236"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Konfigurera noder i Azure blockchain service Transactions
 
@@ -17,7 +17,7 @@ Transaction Nodes används för att skicka blockchain-transaktioner till Azure b
 
 Så här visar du information om standardnoden transaktioner:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Navigera till din Azure blockchain service-medlem. Välj **Transaction Nodes**.
 
     ![Välj noden standard transaktion](./media/configure-transaction-nodes/nodes.png)
@@ -37,8 +37,8 @@ Så här lägger du till en Transaction-nod:
 
     | Inställning | Beskrivning |
     |---------|-------------|
-    | Name | Nodnamn för transaktion. Namnet används för att skapa DNS-adressen för Transaction Node-slutpunkten. Till exempel `newnode-myblockchainmember.blockchain.azure.com`. Det går inte att ändra nodnamn när det har skapats. |
-    | lösenordsinställning | Ange ett starkt lösen ord. Använd lösen ordet för att komma åt Transaction Node-slutpunkten med grundläggande autentisering.
+    | Namn | Nodnamn för transaktion. Namnet används för att skapa DNS-adressen för Transaction Node-slutpunkten. Till exempel `newnode-myblockchainmember.blockchain.azure.com`. Det går inte att ändra nodnamn när det har skapats. |
+    | lösenord | Ange ett starkt lösen ord. Använd lösen ordet för att komma åt Transaction Node-slutpunkten med grundläggande autentisering.
 
 1. Välj **Skapa**.
 
@@ -56,7 +56,7 @@ Så här visar du slut punkts information för en Transaction-nod:
 
 Transaction Node-slutpunkter är säkra och kräver autentisering. Du kan ansluta till en transaktions slut punkt med Azure AD-autentisering, HTTPS Basic-autentisering och använda en åtkomst nyckel över HTTPS eller WebSocket via SSL.
 
-### <a name="azure-active-directory-access-control"></a>Azure Active Directory Access Control
+### <a name="azure-active-directory-access-control"></a>Azure Active Directory åtkomst kontroll
 
 Slutpunkter för Azure blockchain service Transaction-stöd Azure Active Directory (Azure AD)-autentisering. Du kan bevilja Azure AD-användare, grupp och tjänstens huvud namn åtkomst till din slut punkt.
 

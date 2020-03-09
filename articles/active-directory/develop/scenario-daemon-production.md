@@ -16,11 +16,11 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: db5f52c95daf4e93c140b4c93f39dad19971319d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775211"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377314"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Daemon-app som anropar webb-API: er – flytta till produktion
 
@@ -41,7 +41,7 @@ Du måste förklara vad kunderna har för att utföra dessa åtgärder. Mer info
 
 Här följer några länkar som hjälper dig att lära dig mer:
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 - Snabb start: [Hämta en token och anropa Microsoft Graph API från en konsol app med hjälp av appens identitet](./quickstart-v2-netcore-daemon.md).
 - Referens dokumentation för:
@@ -60,11 +60,11 @@ Här följer några länkar som hjälper dig att lära dig mer:
 
     ![topologi](media/scenario-daemon-app/damon-app-sample-web.svg)
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Försök att [Hämta en token med snabb start och anropa Microsoft Graph API från en python-konsol app med appens identitet](./quickstart-v2-python-daemon.md).
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 MSAL Java är för närvarande en offentlig för hands version. Mer information finns i [MSAL java dev-exempel](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples).
 

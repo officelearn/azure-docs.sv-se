@@ -9,11 +9,11 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7f2c7a6f9c1146627f81dc20386c59a91724b245
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273841"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365625"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuera StorSimple Virtual Array – förbereda Azure Portal
 
@@ -30,7 +30,7 @@ Du måste ha administratörsbehörighet för att utföra installationen och konf
 
 Informationen som publiceras i den här artikeln gäller distributionen av virtuella StorSimple-matriser i Azure Portal och Microsoft Azure Government molnet.
 
-### <a name="get-started"></a>Kom i gång
+### <a name="get-started"></a>Kom igång
 Arbets flödet för distribution består av att förbereda portalen, etablering av en virtuell matris i din virtualiserade miljö och slutföra installationen. För att komma igång med StorSimple-distributionen av virtuella matriser som en fil server eller en iSCSI-server, måste du referera till följande tabellen-resurser.
 
 #### <a name="deployment-articles"></a>Distributions artiklar
@@ -52,13 +52,13 @@ I konfigurations check listan beskrivs den information som du behöver samla in 
 * Ladda ned [Check lista för StorSimple virtuell array File Server Configuration](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 * Ladda ned [Check lista för konfiguration av iSCSI-StorSimple för virtuell matris](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Här hittar du nödvändiga konfigurations krav för din StorSimple Enhetshanteraren-tjänst, din StorSimple virtuella matris och data Center nätverket.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>För StorSimple Device Manager-tjänsten
 
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
 * Du har ditt Microsoft-konto med autentiseringsuppgifter.
 * Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
@@ -78,7 +78,7 @@ Innan du distribuerar en virtuell matris måste du kontrol lera att:
 
 ### <a name="for-the-datacenter-network"></a>För datacenternätverket
 
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
 * Nätverket i data centret konfigureras enligt nätverks kraven för din StorSimple-enhet. Mer information finns i [system krav för StorSimple Virtual Array](storsimple-ova-system-requirements.md).
 * Din virtuella StorSimple-matris har en dedikerad 5 Mbit/s Internet bandbredd (eller mer) tillgänglig hela tiden. Den här bandbredden ska inte delas med andra program.

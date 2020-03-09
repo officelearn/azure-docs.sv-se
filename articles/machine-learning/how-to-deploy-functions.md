@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
-ms.date: 11/22/2019
-ms.openlocfilehash: 29c91cf14413a11804de82eeaf08d628b125d76a
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.date: 03/06/2020
+ms.openlocfilehash: d03a3d482d147d3bc69354ee09dfe0b187610a09
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471949"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927447"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuera en maskin inlärnings modell till Azure Functions (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -148,10 +148,10 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
 
     ```azurecli-interactive
     az group create --name myresourcegroup --location "West Europe"
-    az appservice plan create --name myplanname --resource-group myresourcegroup --sku EP1 --is-linux
+    az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
     ```
 
-    I det här exemplet används en pris nivå för _Linux Premium_ (`--sku EP1`).
+    I det här exemplet används en pris nivå för _Linux Basic_ (`--sku B1`).
 
     > [!IMPORTANT]
     > Avbildningar som skapats av Azure Machine Learning använda Linux, så du måste använda `--is-linux`-parametern.
@@ -159,13 +159,13 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
 1. Skapa lagrings kontot som ska användas för webb jobbets lagring och hämta dess anslutnings sträng. Ersätt `<webjobStorage>` med det namn som du vill använda.
 
     ```azurecli-interactive
-    az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    az storage account create --name <webjobStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli-interactive
     az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
     ```
 
-1. Använd följande kommando för att skapa en Function-app. Ersätt `<app-name>` med det namn som du vill använda. Ersätt `<acrinstance>` och `<imagename>` med värdena från returnerade `package.location` tidigare. Ersätt Ersätt `<webjobStorage>` med namnet på lagrings kontot från föregående steg:
+1. Använd följande kommando för att skapa en Function-app. Ersätt `<app-name>` med det namn som du vill använda. Ersätt `<acrinstance>` och `<imagename>` med värdena från returnerade `package.location` tidigare. Ersätt `<webjobStorage>` med namnet på lagrings kontot från föregående steg:
 
     ```azurecli-interactive
     az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account <webjobStorage>
@@ -179,7 +179,7 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
     ```azurecli-interactive
     az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
-    ```azurecli-interactive
+    ```azurecli-interactiv
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
     Registrera den här anslutnings strängen för att tillhandahålla Function-appen. Vi kommer att använda den senare när vi ber om `<triggerConnectionString>`
@@ -205,7 +205,7 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
     ```
     Spara värdet som returneras, används som `imagetag` i nästa steg.
 
-1. Använd följande kommando för att tillhandahålla funktionen appen med de autentiseringsuppgifter som krävs för att komma åt behållar registret. Ersätt `<app-name>` med det namn som du vill använda. Ersätt `<acrinstance>` och `<imagetag>` med värdena från AZ CLI-anropet i föregående steg. Ersätt `<username>` och `<password>` med ACR-inloggnings informationen som hämtades tidigare:
+1. Använd följande kommando för att tillhandahålla funktionen appen med de autentiseringsuppgifter som krävs för att komma åt behållar registret. Ersätt `<app-name>` med namnet på Function-appen. Ersätt `<acrinstance>` och `<imagetag>` med värdena från AZ CLI-anropet i föregående steg. Ersätt `<username>` och `<password>` med ACR-inloggnings informationen som hämtades tidigare:
 
     ```azurecli-interactive
     az functionapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagetag> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
@@ -246,6 +246,52 @@ I det här läget börjar Function-appen läsa in avbildningen.
 
 > [!IMPORTANT]
 > Det kan ta flera minuter innan avbildningen har lästs in. Du kan övervaka förloppet med hjälp av Azure Portal.
+
+## <a name="test-the-deployment"></a>Testa distributionen
+
+När avbildningen har lästs in och appen är tillgänglig använder du följande steg för att utlösa appen:
+
+1. Skapa en textfil som innehåller de data som score.py-filen förväntar sig. Följande exempel fungerar med en score.py som förväntar sig en matris med 10 tal:
+
+    ```json
+    {"data": [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
+    ```
+
+    > [!IMPORTANT]
+    > Formatet på data beror på vad din score.py och modell förväntar sig.
+
+2. Använd följande kommando för att överföra den här filen till behållaren indata i den Utlös ande lagrings blob som skapades tidigare. Ersätt `<file>` med namnet på filen som innehåller data. Ersätt `<triggerConnectionString>` med den anslutnings sträng som returnerades tidigare. I det här exemplet är `input` namnet på den inmatade container som skapades tidigare. Om du har använt ett annat namn ersätter du det här värdet:
+
+    ```azurecli-interactive
+    az storage blob upload --container-name input --file <file> --name <file> --connection-string <triggerConnectionString>
+    ```
+
+    Utdata från det här kommandot liknar följande JSON:
+
+    ```json
+    {
+    "etag": "\"0x8D7C21528E08844\"",
+    "lastModified": "2020-03-06T21:27:23+00:00"
+    }
+    ```
+
+3. Om du vill visa utdata som skapas av funktionen använder du följande kommando för att lista de utdatafiler som genereras. Ersätt `<triggerConnectionString>` med den anslutnings sträng som returnerades tidigare. I det här exemplet är `output` namnet på den utmatnings behållare som skapades tidigare. Om du har använt ett annat namn ersätter du det här värdet:
+
+    ```azurecli-interactive
+    az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv
+    ```
+
+    Utdata från det här kommandot liknar `sample_input_out.json`.
+
+4. Om du vill hämta filen och kontrol lera innehållet använder du följande kommando. Ersätt `<file>` med fil namnet som returneras av föregående kommando. Ersätt `<triggerConnectionString>` med den anslutnings sträng som returnerades tidigare: 
+
+    ```azurecli-interactive
+    az storage blob download --container-name output --file <file> --name <file> --connection-string <triggerConnectionString>
+    ```
+
+    När kommandot har slutförts öppnar du filen. Den innehåller de data som returneras av modellen.
+
+Mer information om hur du använder BLOB-utlösare finns i artikeln [skapa en funktion som utlöses av Azure Blob Storage](/azure/azure-functions/functions-create-storage-blob-triggered-function) .
 
 ## <a name="next-steps"></a>Nästa steg
 

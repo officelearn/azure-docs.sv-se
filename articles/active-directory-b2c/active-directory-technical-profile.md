@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/05/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2c36a2c47605e7e672996a4a33734c9281dad042
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 82daf447270fc0413284e3e7a908a8b5237a4f9c
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78397834"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78932989"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en Azure Active Directory teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -58,13 +58,13 @@ I följande exempel visas **AAD – vanlig** teknisk profil:
 
 ## <a name="input-claims"></a>Inmatade anspråk
 
-Följande tekniska profiler innehåller **InputClaims** för sociala och lokala konton:
+InputClaims-elementet innehåller ett anspråk, som används för att leta upp ett konto i katalogen eller skapa ett nytt. Det måste finnas exakt ett InputClaim-element i den inloggade anspråks samlingen för alla Azure AD-tekniska profiler. Du kan behöva mappa namnet på det anspråk som definierats i principen till det namn som definierats i Azure Active Directory.
 
-- De tekniska profilerna för sociala konton **AAD-UserReadUsingAlternativeSecurityId** och **AAD-UserWriteUsingAlternativeSecurityId** innehåller **AlternativeSecurityId** -anspråket. Detta påstående innehåller användar identifieraren för sociala kontot.
-- De lokala kontots tekniska profiler **AAD-UserReadUsingEmailAddress** och **AAD-UserWriteUsingLogonEmail** innehåller **e-** postanspråket. Detta anspråk innehåller inloggnings namnet för det lokala kontot.
-- De enhetliga (lokala och sociala) tekniska profilerna **AAD-UserReadUsingObjectId**, **AAD-UserWritePasswordUsingObjectId**, **AAD-UserWriteProfileUsingObjectId**och **AAD-UserWritePhoneNumberUsingObjectId** innehåller **ObjectID** -anspråket. Unikt ID för ett konto.
+Om du vill läsa, uppdatera eller ta bort ett befintligt användar konto är indata-anspråk en nyckel som unikt identifierar kontot i Azure AD-katalogen. Till exempel **ObjectID**, **userPrincipalName**, **signInNames. EmailAddress**, **signInNames. username**eller **alternativeSecurityId**. 
 
-**InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller skapa nya.
+Om du vill skapa ett nytt användar konto är indata-anspråk en nyckel som unikt identifierar ett lokalt eller federerat konto. Till exempel lokalt konto: **signInNames. EmailAddress**eller **signInNames. username**. För ett federerat konto: **alternativeSecurityId**.
+
+InputClaimsTransformations-elementet kan innehålla en samling ingångs anspråk för omvandlings element som används för att ändra det inloggade anspråket eller skapa ett nytt.
 
 ## <a name="output-claims"></a>Utgående anspråk
 

@@ -3,12 +3,12 @@ title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
 ms.date: 02/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1100248b43dbdf668dc1164651f3d9f941f3f016
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 95625894d0eb603ae9a37c96c91d01f3720346b1
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360184"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932591"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -578,16 +578,16 @@ Alla [funktioner i Resource Manager-mallar](../../../azure-resource-manager/temp
 - resourceId ()
 - variabler ()
 
-Följande funktioner är tillgängliga för användning i en princip regel, men skiljer sig från användningen i en Azure Resource Manager-mall:
+Följande funktion är tillgänglig för användning i en princip regel, men skiljer sig från användning i en Azure Resource Manager mall:
 
-- `addDays(dateTime, numberOfDaysToAdd)`
-  - **datetime**: [required] sträng sträng i Universal ISO 8601 datetime-formatet ' ÅÅÅÅ-MM-ddTHH: mm: SS. fffffffZ '
-  - **numberOfDaysToAdd**: [required] heltal-antal dagar som ska läggas till
 - `utcNow()` – till skillnad från en Resource Manager-mall kan detta användas utanför defaultValue.
   - Returnerar en sträng som har angetts till aktuellt datum och aktuell tid i universellt ISO 8601 DateTime-format ' ÅÅÅÅ-MM-ddTHH: mm: SS. fffffffZ '
 
 Följande funktioner är endast tillgängliga i princip regler:
 
+- `addDays(dateTime, numberOfDaysToAdd)`
+  - **datetime**: [required] sträng sträng i Universal ISO 8601 datetime-formatet ' ÅÅÅÅ-MM-ddTHH: mm: SS. fffffffZ '
+  - **numberOfDaysToAdd**: [required] heltal-antal dagar som ska läggas till
 - `field(fieldName)`
   - **FieldName**: [required] sträng-namnet på det [fält](#fields) som ska hämtas
   - Returnerar värdet för det fältet från den resurs som utvärderas av IF-villkoret

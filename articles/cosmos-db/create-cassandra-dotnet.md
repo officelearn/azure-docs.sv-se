@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: API för Cassandra med .NET – Azure Cosmos DB'
+title: 'Snabbstart: Cassandra API med .NET – Azure Cosmos DB'
 description: Den här snabbstarten visar hur du använder Cassandra API i Azure Cosmos DB för att skapa ett profilprogram med Azure-portalen och .NET
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -9,16 +9,16 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.openlocfilehash: 1afdc0319ae26fcd6c8cb3ada0b4aa8c31fe1fbb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861309"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360703"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med .NET SDK och Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Snabb start: Bygg en Cassandra-app med .NET SDK och Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [NET](create-cassandra-dotnet.md)
+> * [.NET](create-cassandra-dotnet.md)
 > * [Java](create-cassandra-java.md)
 > * [Node.js](create-cassandra-nodejs.md)
 > * [Python](create-cassandra-python.md)
@@ -28,12 +28,12 @@ Den här snabbstarten visar hur du använder [Cassandra API](cassandra-introduct
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, tabeller, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Du kan även [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden.
 
 Dessutom behöver du: 
-* Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnadsfria** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
+* Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 * Installera [Git](https://www.git-scm.com/) för att klona exemplet.
 
 <a id="create-account"></a>
@@ -116,9 +116,9 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen. Informationen i anslutningssträngen gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
-1. På [Azure-portalen](https://portal.azure.com/) väljer du **Anslutningssträng**.
+1. I [Azure-portalen](https://portal.azure.com/) väljer du **Anslutningssträng**.
 
-    Använd ![Kopieringsknapp](./media/create-cassandra-dotnet/copy.png) knappen på höger sida av skärmen för att kopiera värdet ANVÄNDARNAMN.
+    Använd ![Knappen Kopiera](./media/create-cassandra-dotnet/copy.png) knappen på höger sida av skärmen för att kopiera värdet ANVÄNDARNAMN.
 
     ![Visa och kopiera en åtkomstnyckel från Azure-portalen, sidan Anslutningssträng](./media/create-cassandra-dotnet/keys.png)
 
@@ -144,7 +144,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 5. Spara filen Program.cs.
     
-## <a name="run-the-net-app"></a>Kör .NET-app
+## <a name="run-the-net-app"></a>Kör .NET-appen
 
 1. I Visual Studio väljer du **Verktyg** > **NuGet Package Manager** > **Package Manager Console**.
 
@@ -155,9 +155,9 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
     ```
 3. Tryck på Ctrl + F5 för att köra programmet. Appen visas i konsolfönstret. 
 
-    ![Visa och verifiera utdata](./media/create-cassandra-dotnet/output.png)
+    ![Granska och verifiera utdata.](./media/create-cassandra-dotnet/output.png)
 
-    Tryck på CTRL + C om du vill stoppa körningen av programmet och stänga konsolfönstret. 
+    Tryck på CTRL + C om du vill stoppa körning av programmet och stänga konsolfönstret. 
     
 4. I **Datautforskaren** på Azure-portalen kan du fråga, ändra och arbeta med dessa nya data.
 

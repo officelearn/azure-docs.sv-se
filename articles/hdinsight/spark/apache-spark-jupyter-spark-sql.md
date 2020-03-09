@@ -1,19 +1,19 @@
 ---
 title: 'Snabb start: skapa Apache Spark kluster med hjälp av mall – Azure HDInsight'
-description: Den här snabbstarten visar hur du använder en Resource Manager-mall för att skapa ett Apache Spark-kluster i Azure HDInsight och köra en enkel Spark SQL-fråga.
+description: Den här snabb starten visar hur du använder Resource Manager-mall för att skapa ett Apache Spark kluster i Azure HDInsight och kör en Spark SQL-fråga.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 06/12/2019
 ms.custom: mvc
-ms.openlocfilehash: 2637603fa303d57340aa36786443508f1930a481
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/05/2020
+ms.openlocfilehash: a4c207cdbe4bbd0fdef5e1da8da0f4b582702308
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381322"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932764"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Snabb start: skapa Apache Spark kluster i Azure HDInsight med Resource Manager-mall
 
@@ -21,9 +21,7 @@ I den här snabb starten använder du en Azure Resource Manager-mall för att sk
 
 [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md) | [Apache Spark](https://spark.apache.org/) | [Apache Hive](https://hive.apache.org/) | [Jupyter Notebook](https://jupyter.org/) | [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 
-## <a name="prerequisites"></a>Förutsättningar
-
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-an-apache-spark-cluster"></a>Skapa ett Apache Spark-kluster
 
@@ -42,18 +40,18 @@ Klustret använder Azure Storage Blobar som klusterlagring. Mer information om a
 
     | Egenskap | Värde |
     |---|---|
-    |**Prenumeration**|Välj den Azure-prenumeration som ska användas för att skapa klustret. Prenumerationen som används för den här snabbstarten är **&lt;Azure-prenumerationsnamn**. |
-    | **Resursgrupp**|Skapa en resursgrupp eller välj en befintlig. Resursgrupp används för att hantera Azure-resurser till dina projekt. Den nya resursgruppens namn som används för den här snabbstarten är **myspark20180403rg**.|
-    | **Plats**|Välj en plats för resursgruppen. Mallen använder den här platsen för att skapa klustret samt standardklusterlagringen. Den plats som används för den här snabbstarten är **USA, östra 2**.|
-    | **ClusterName**|Ange ett namn på det kluster som du vill skapa. Det nya klusternamnet som används för den här snabbstarten är **myspark20180403**.|
-    | **Inloggningsnamn och lösenord för klustret**|Standard inloggnings namnet är admin. Välj ett lösen ord för kluster inloggningen. Inloggningsnamnet som används för den här snabbstarten är **admin**.|
-    | **SSH-användarnamn och lösenord**|Välj ett lösenord för SSH-användaren. SSH-användarnamnet som används för den här snabbstarten är **sshuser**.|
+    |Prenumeration|Välj den Azure-prenumeration som ska användas för att skapa klustret. |
+    | Resursgrupp|Skapa en resursgrupp eller välj en befintlig. Resursgrupp används för att hantera Azure-resurser till dina projekt. Den nya resursgruppens namn som används för den här snabbstarten är **myspark20180403rg**.|
+    | plats.|Välj en plats för resursgruppen. Mallen använder den här platsen för att skapa klustret och standard kluster lagringen. Den plats som används för den här snabbstarten är **USA, östra 2**.|
+    | ClusterName|Ange ett namn på det kluster som du vill skapa. Det nya klusternamnet som används för den här snabbstarten är **myspark20180403**.|
+    | Kluster inloggnings namn och lösen ord|Standard inloggnings namnet är admin. Välj ett lösen ord för kluster inloggningen. Inloggningsnamnet som används för den här snabbstarten är **admin**.|
+    | Användar namn och lösen ord för SSH|Välj ett lösenord för SSH-användaren. SSH-användarnamnet som används för den här snabbstarten är **sshuser**.|
 
     ![Skapa Spark-kluster i HDInsight med Azure Resource Manager-mall](./media/apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Skapa Spark-kluster i HDInsight med hjälp av en Azure Resource Manager mall")
 
-3. Välj **Jag godkänner villkoren som anges ovan**, välj **Fäst på instrumentpanelen** och välj sedan **Köp**. En ny panel visas med rubriken **Skicka malldistribution**. Det tar cirka 20 minuter att skapa klustret. Klustret måste skapas innan du kan fortsätta till nästa session.
+3. Välj **Jag godkänner villkoren som anges ovan** och välj sedan **Köp**. En ny panel visas med rubriken **Skicka malldistribution**. Det tar cirka 20 minuter att skapa klustret. Klustret måste skapas innan du kan fortsätta till nästa session.
 
-Om du stöter på ett problem med att skapa HDInsight-kluster kan det bero på att du inte har rätt behörighet. Mer information finns i [åtkomstkravkontrollen](../hdinsight-hadoop-create-linux-clusters-portal.md).
+Om du stöter på ett problem med att skapa HDInsight-kluster kan det bero på att du inte har rätt behörighet. Mer information finns i [åtkomstkravkontrollen](../hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
 ## <a name="install-intellijeclipse-for-spark-applications"></a>Installera IntelliJ/Sol förmörkelse för Spark-program
 
@@ -92,6 +90,7 @@ SQL (Structured Query Language) är det vanligaste språket för frågor och tra
     ![Kernel-status](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Kernel-status")
 
     När du startar den bärbara datorn för första gången utför kerneln några uppgifter i bakgrunden. Vänta tills kerneln är klar.
+
 1. Klistra in följande kod i en tom cell och tryck sedan på **SKIFT+RETUR** för att köra koden. Kommandot listar Hive-tabellerna i klustret:
 
     ```sql
@@ -120,7 +119,7 @@ SQL (Structured Query Language) är det vanligaste språket för frågor och tra
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I HDInsight sparas dina data och Jupyter Notebooks i Azure Storage eller Azure Data Lake Store för att du på ett säkert sätt ska kunna ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används. Om du planerar att arbeta med självstudierna i [Nästa steg](#next-steps) direkt, kan du vilja behålla klustret.
+HDInsight sparar dina data och Jupyter-anteckningsböcker i Azure Storage eller Azure Data Lake Storage, så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger mer än avgifterna för lagring, är det ekonomiskt klokt att ta bort kluster när de inte används. Om du planerar att arbeta med självstudierna i [Nästa steg](#next-steps) direkt, kan du vilja behålla klustret.
 
 Växla tillbaka till Azure Portal och välj **Ta bort**.
 
@@ -133,4 +132,4 @@ Du kan också välja resursgruppnamnet för att öppna resursgruppsidan. Välj s
 I den här snabb starten har du lärt dig hur du skapar ett Apache Spark kluster i HDInsight och kör en grundläggande Spark SQL-fråga. Gå vidare till nästa självstudie och lär dig hur du använder ett HDInsight-kluster för att köra interaktiva frågor på exempel data.
 
 > [!div class="nextstepaction"]
->[Köra interaktiva frågor i Apache Spark](./apache-spark-load-data-run-query.md)
+> [Köra interaktiva frågor i Apache Spark](./apache-spark-load-data-run-query.md)

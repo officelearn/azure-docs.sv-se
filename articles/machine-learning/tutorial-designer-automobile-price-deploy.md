@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 6fc6479ccda77bff84319d3244b2bd4a0599dc47
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 390655e3caab89425fe3c8623928c584f8bd3324
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934009"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933174"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Självstudie: Distribuera en maskin inlärnings modell med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Du kan distribuera den förutsägande modellen som utvecklats i [del ett av sjä
 > * Distribuera real tids slut punkten.
 > * Testa real tids slut punkten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [del ett av självstudien](tutorial-designer-automobile-price-train-score.md) och lär dig hur du tränar och poängs ätter en maskin inlärnings modell i designern.
 
@@ -39,7 +39,7 @@ Om du vill distribuera din pipeline måste du först konvertera inlärnings pipe
 
 1. Ovanför pipeline-arbetsytan väljer du **skapa en härlednings pipeline** > **real tids härlednings pipeline**.
 
-    ![Skärm bild som visar var du hittar knappen Skapa pipeline](./media/tutorial-designer-automobile-price-deploy/create-inference-pipeline.png)
+    ![Skärm bild som visar var du hittar knappen Skapa pipeline](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
 
     Din pipeline bör nu se ut så här: 
 
@@ -56,7 +56,7 @@ Om du vill distribuera din pipeline måste du först konvertera inlärnings pipe
     > Som standard förväntas samma data schema som de utbildnings data som används för att skapa den förutsägande pipeline i **webb tjänsten** . I det här scenariot ingår priset i schemat. Priset används dock inte som en faktor under förutsägelsen.
     >
 
-1. Välj **Kör**och Använd samma beräknings mål och experiment som du använde i del ett.
+1. Välj **Skicka**och Använd samma beräknings mål och experiment som du använde i del ett.
 
 1. Välj **Distribuera**.
 

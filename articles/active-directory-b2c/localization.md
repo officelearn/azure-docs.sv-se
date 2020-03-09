@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/27/2019
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9a9fb1d64fb27507e4ee42c39be9ea80fbe5f168
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5dcbc2ee35620d0a29c495b24bd3756769095a17
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184459"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933007"
 ---
 # <a name="localization"></a>Lokalisering
 
@@ -146,7 +146,7 @@ I följande exempel visas användningen av **LocalizedCollections** -elementet. 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ElementType | Ja | En referens till ett anspråks typ element eller ett användar gränssnitts element i principen. Möjliga värden: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`eller. `ClaimType`-värdet används för att lokalisera ett av attributen för anspråk enligt vad som anges i StringId. `UxElement`-värdet används för att lokalisera ett av användar gränssnitts elementen som anges i StringId. `ErrorMessage`-värdet används för att lokalisera ett av system fel meddelandena som anges i StringId. `Predicate`-värdet används för att lokalisera ett av de [predikat](predicates.md) fel meddelanden som anges i StringId. `InputValidation`-värdet används för att lokalisera en av [PredicateValidation](predicates.md) Groups fel meddelanden som anges i StringId. |
+| ElementType | Ja | En referens till ett anspråks typ element eller ett användar gränssnitts element i principen. Möjliga värden: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`eller `GetLocalizedStringsTransformationClaimType`. `ClaimType`-värdet används för att lokalisera ett av attributen för anspråk enligt vad som anges i StringId. `UxElement`-värdet används för att lokalisera ett av användar gränssnitts elementen som anges i StringId. `ErrorMessage`-värdet används för att lokalisera ett av system fel meddelandena som anges i StringId. `Predicate`-värdet används för att lokalisera ett av de [predikat](predicates.md) fel meddelanden som anges i StringId. `InputValidation`-värdet används för att lokalisera en av [PredicateValidation](predicates.md) Groups fel meddelanden som anges i StringId. `GetLocalizedStringsTransformationClaimType`-värdet används för att kopiera lokaliserade strängar till anspråk. Mer information finns i [GetLocalizedStringsTransformation Claims-transformering](string-transformations.md#getlocalizedstringstransformation)  | 
 | ElementId | Ja | Om **ElementType** är inställt på `ClaimType`, `Predicate`eller `InputValidation`innehåller det här elementet en referens till en anspråks typ som redan har definierats i avsnittet ClaimsSchema. |
 | StringId | Ja | Om **ElementType** är inställt på `ClaimType`, innehåller det här elementet en referens till ett attribut av en anspråks typ. Möjliga värden: `DisplayName`, `AdminHelpText`eller `PatternHelpText`. Värdet `DisplayName` används för att ange visnings namn för anspråket. `AdminHelpText`-värdet används för att ange hjälp text namnet för anspråks användaren. `PatternHelpText`-värdet används för att ange hjälp texten för anspråks mönstret. Om **ElementType** är inställt på `UxElement`, innehåller det här elementet en referens till ett attribut i ett användar gränssnitts element. Om **ElementType** är inställt på `ErrorMessage`, anger det här elementet identifieraren för ett fel meddelande. Se [lokaliserings Strängs-ID: n](localization-string-ids.md) för en fullständig lista över `UxElement` identifierare.|
 

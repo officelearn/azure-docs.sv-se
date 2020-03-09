@@ -4,11 +4,11 @@ description: Lär dig mer om Azure Migrate Replication-enhet för agent-baserad 
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901553"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388882"
 ---
 # <a name="replication-appliance"></a>Replikeringsfil
 
@@ -41,7 +41,7 @@ När du ställer in replikeringen med hjälp av den ägg-mall som finns i Azure 
 PowerCLI | [PowerCLI version 6,0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) bör installeras om Replikeringshanteraren körs på en virtuell VMware-dator.
 Typ av nätverkskort | VMXNET3 (om installationen är en virtuell VMware-dator)
  | **Maskin varu inställningar**
-CPU-kärnor | 8
+Processorkärnor | 8
 RAM | 16 GB
 Antal diskar | Tre: OS-disken, cache-disken för processervern och lagrings enheten.
 Ledigt disk utrymme (cache) | 600 GB

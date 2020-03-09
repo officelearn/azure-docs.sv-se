@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/06/2019
-ms.openlocfilehash: bbc62aa153e6ecb5d9ae65c37392c2697b9beaa2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 03/06/2020
+ms.openlocfilehash: 958794cda60d0ce1b0d223b9b5a6c03283022a6c
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979711"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927552"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Data referens för Azure Machine Learning-övervakning
 
@@ -35,7 +35,7 @@ I följande tabell visas egenskaperna för Azure Machine Learning resurs loggar 
 | JobId | ID för jobbet som skickats |
 | ExperimentId | ID för experimentet |
 | ExperimentName | Experimentets namn |
-| CustomerSubscriptionId | SubscriptionId där experiment och jobb skickas in |
+| customerSubscriptionId | SubscriptionId där experiment och jobb skickas in |
 | workspaceName | Namnet på Machine Learning-arbetsytan |
 | ClusterName | Namn på klustret |
 | ProvisioningState | Tillstånd för jobb sändningen |
@@ -63,7 +63,7 @@ I följande tabell visas egenskaperna för Azure Machine Learning resurs loggar 
 | Kategori | Namnet på logg händelsen, AmlComputeClusterNodeEvent |
 | ProvisioningState | Etablerings status för klustret |
 | ClusterName | Namn på klustret |
-| ClusterType | Typ av kluster |
+| clusterType | Typ av kluster |
 | CreatedBy | Användare som skapade klustret |
 | CoreCount | Antal kärnor i klustret |
 | VmSize | Klustrets virtuella dator storlek |
@@ -126,7 +126,7 @@ I följande tabell visas egenskaperna för Azure Machine Learning resurs loggar 
 
 I följande tabeller visas de plattforms mått som samlas in för Azure Machine Learning alla mått lagras i namn området **Azure Machine Learning-arbetsyta**.
 
-**Modellen**
+**Förlag**
 
 | Mått | Enhet | Beskrivning |
 | ----- | ----- | ----- |
@@ -164,7 +164,7 @@ Följande är dimensioner som kan användas för att filtrera kvot mått:
 | Namn på virtuell dator familj | Kvot användning i procent | Namnet på den VM-serie som används av klustret. |
 | VM-prioritet | Kvot användning i procent | Den virtuella datorns prioritet.
 
-**Kör**
+**Fungerar**
 
 Information om utbildning körs.
 

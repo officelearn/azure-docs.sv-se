@@ -1,22 +1,14 @@
 ---
 title: Så här testar du en kunskapsbas - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Testa kunskapsbasen QnA Maker är en viktig del av en iterativ process för att förbättra svaren som returneras. Du kan testa kunskapsbas via ett förbättrat chatt-gränssnitt som också kan du göra ändringar.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: c139d3a740067e3cecaff90d3171d7b0cb3d52c7
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.date: 03/05/2020
+ms.openlocfilehash: da4988ced0b077952ce64e6227d16e58d40ae329
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091760"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927265"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Testa din kunskaps bas i QnA Maker
 
@@ -49,26 +41,26 @@ Du har granskat informationen om test resultatet i inspektions panelen.
 
 ### <a name="correct-the-top-scoring-answer"></a>Korrigera upp bedömning svar
 
-Om upp bedömning svar är felaktigt, väljer du rätt svar från listan och välj **spara och träna**.
+Om det översta bedömnings svaret är felaktigt väljer du rätt svar i listan och väljer **Spara och träna**.
 
 ![Korrigera upp bedömning svar](../media/qnamaker-how-to-test-kb/choose-answer.png)
 
 ### <a name="add-alternate-questions"></a>Lägga till alternativa frågor
 
-Du kan lägga till alternativa former av en fråga till ett visst svar. Typ av alternativ som svarar på i textrutan och klicka på Ange om du vill lägga till dem. Välj **spara och träna** att lagra uppdateringarna.
+Du kan lägga till alternativa former av en fråga till ett visst svar. Typ av alternativ som svarar på i textrutan och klicka på Ange om du vill lägga till dem. Välj **Spara och träna** för att lagra uppdateringarna.
 
 ![Lägga till alternativa frågor](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
 
 ### <a name="add-a-new-answer"></a>Lägg till ett nytt svar
 
-Du kan lägga till ett nytt svar om någon av de befintliga svar som kunde matchas är felaktiga eller svaret inte finns i knowledge base (ingen bra matchning hittades i KB). 
+Du kan lägga till ett nytt svar om någon av de befintliga svar som kunde matchas är felaktiga eller svaret inte finns i knowledge base (ingen bra matchning hittades i KB).
 
-Längst ned i listan med svar använder du text rutan för att ange ett nytt svar och trycker på RETUR för att lägga till den. 
+Längst ned i listan med svar använder du text rutan för att ange ett nytt svar och trycker på RETUR för att lägga till den.
 
-Välj **spara och träna** att spara det här svaret. Ett nytt par frågor svar har nu lagts till din kunskapsbas. 
+Välj **Spara och träna** för att spara det här svaret. Ett nytt par frågor svar har nu lagts till din kunskapsbas.
 
 > [!NOTE]
-> Alla ändringar till din kunskapsbas endast sparas när du trycker på den **spara och träna** knappen.
+> Alla redigeringar av kunskaps basen sparas bara när du trycker på knappen **Spara och träna** .
 
 ### <a name="test-the-published-knowledge-base"></a>Testa den publicerade kunskaps basen
 
@@ -83,12 +75,14 @@ Använd batch-testverktyget när du vill:
 * Fastställ bästa svar och Poäng för en uppsättning frågor
 * verifiera förväntat svar för uppsättning av frågor
 
-Batch-testning ingår i batch-testverktyget. Det här verktyget är tillgängligt som en [zippad körbar fil](https://aka.ms/qnamakerbatchtestingtool) för hämtning eller som [ C# käll kod](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting). 
+Läs [själv studie kursen](../Quickstarts/batch-testing.md) för batch-testning för steg-för-steg-anvisningar.
+
+Batch-testning ingår i batch-testverktyget. Det här verktyget är tillgängligt som en [zippad körbar fil](https://aka.ms/qnamakerbatchtestingtool) för hämtning eller som [ C# käll kod](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting).
 
 [Referens dokumentation om verktyget](../reference-tsv-format-batch-testing.md) inkluderar:
 
 * kommando rads exemplet för verktyget
-* formatet för TSV-och utdatafiler 
+* formatet för TSV-och utdatafiler
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 03/06/2020
 ms.author: radeltch
-ms.openlocfilehash: 06c92797f2cab96a9e0c423b0f0f754e57b99b14
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: fb73bf6af46ce8303e1be80d1bfc7303f95cda06
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598450"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927332"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -328,6 +328,16 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    <pre><code>sudo zypper in socat
    </code></pre>
 
+1. **[A]** installera Azure-lb-komponenten som krävs för kluster resurser
+
+   <pre><code>sudo zypper in resource-agents
+   </code></pre>
+
+   > [!NOTE]
+   > Kontrol lera versionen för paket resurs-agenter och se till att de lägsta versions kraven uppfylls:  
+   > - För SLES 12 SP4/SP5 måste versionen vara minst resurs agenter-4.3.018. a7fb5035-3.30.1.  
+   > - För SLES 15/15 SP1 måste versionen vara minst resurs agenter-4.3.0184.6 ee15eb2-4.13.1.  
+
 1. **[A]** konfigurera operativ systemet
 
    I vissa fall kan Pacemaker skapar många processer och använt all därmed det tillåtna antalet processer. I detta fall är kan ett pulsslag mellan noder i klustret misslyckas och leda till redundans för dina resurser. Vi rekommenderar att öka de högsta tillåtna processerna genom att ange följande parameter.
@@ -607,9 +617,9 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
 
 Azure erbjuder [schemalagda händelser](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Schemalagda händelser tillhandahålls via meta-data-tjänsten och ger tid för programmet att förbereda för händelser som avstängning av virtuella datorer, omdistribution av virtuella datorer osv. Resurs agent **[Azure – händelser](https://github.com/ClusterLabs/resource-agents/pull/1161)** Övervakare för schemalagda Azure-händelser. Om händelser identifieras försöker agenten stoppa alla resurser på den virtuella datorn som påverkas och flytta dem till en annan nod i klustret. För att uppnå att ytterligare pacemaker-resurser måste konfigureras. 
 
-1. **[A]** installera **Azure-Events-** agenten. 
+1. **[A]** kontrol lera att paketet för **Azure-Events-** agenten redan är installerat och uppdaterat. 
 
-<pre><code>sudo zypper install resource-agents
+<pre><code>sudo zypper info resource-agents
 </code></pre>
 
 2. **[1]** konfigurera resurserna i pacemaker. 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: db7b2787df68e5e9baadddc7e6e6159cfff26097
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 69627c961d9224a124fda09f40901f837d627281
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389815"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932647"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitets planering för HDInsight-kluster
 
@@ -56,7 +56,7 @@ Ett kluster har åtkomst till en kombination av olika lagrings konton. Vanliga e
 * När du vill göra data har du redan laddat upp till en BLOB-behållare som är tillgänglig för klustret.
 * När du vill isolera olika delar av lagringen av säkerhets skäl eller för att förenkla administrationen.
 
-För ett kluster med 48 noder rekommenderar vi 4 till 8 lagrings konton. Även om det kanske redan finns tillräckligt med lagrings utrymme ger varje lagrings konto ytterligare nätverks bandbredd för Compute-noderna. När du har flera lagrings konton ska du använda ett slumpmässigt namn för varje lagrings konto utan ett prefix. Syftet med slumpmässig namngivning minskar risken för Flask halsar i lagring (begränsning) eller vanliga läges problem i alla konton. Använd endast en behållare per lagrings konto för bättre prestanda.
+Använd endast en behållare per lagrings konto för bättre prestanda.
 
 ## <a name="choose-a-cluster-type"></a>Välj en kluster typ
 

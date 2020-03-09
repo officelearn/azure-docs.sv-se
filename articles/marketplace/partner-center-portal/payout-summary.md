@@ -8,11 +8,11 @@ ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
 ms.openlocfilehash: 6ee6b6f325ba58ecaa3c3acb5d5ded173262bafb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715445"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78344051"
 ---
 # <a name="payout-reporting"></a>Utbetalnings rapportering
 
@@ -68,7 +68,7 @@ Till exempel om kunden köper med ett kredit kort.
 
 ## <a name="corelation-between-payout-and-usage"></a>Relation mellan utbetalning och användning
 
-|Description    |    Date  | Beställningar/användning  | Payout |
+|Beskrivning    |    Datum  | Beställningar/användning  | Payout |
 |----------|----------|-----------|-------------|
 |Order period   | Aug, 15, 2019-Aug 30, 2019 | **Ordning för korrelations attribut** <br> <ul> <li>OrderId</li> <li>Kund</li> </ul> <br> **Användning** <br> <ul> <li>Kund </li> <li>Kund namn</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Uppskattad utökad avgift <br> Beräknad utbetalning (PC) </li> </ul> |  |
 |Slut period (månad)   | 30 aug 2019 | | |
@@ -82,7 +82,7 @@ Till exempel om kunden köper med ett kredit kort.
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Enterprise Agreement (kvartals Visa/månads kunder)
 
-| Description |    Date  | Användning | Payout |
+| Beskrivning |    Datum  | Användning | Payout |
 |----------|----------|---------|-----------|
 |Order period | Aug, 15, 2019-Aug 30, 2019 | **Ordning för korrelations attribut** <br> <ul> <li>OrderId</li> <li>Kund</li> </ul> <br> **Användnings rapport** <br> <ul> <li>Kund </li> <li>Kund namn</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Uppskattad utökad avgift <br> Beräknad utbetalning (PC) </li> </ul> | |
 |Slut period (kvartal) | 30 september 2019 | | |
@@ -99,7 +99,7 @@ Till exempel om kunden köper med ett kredit kort.
 
 Det här alternativet innehåller en nedladdning av varje rad objekt som du ser på sidan transaktions historik, typ, datum, associerat transaktions belopp, kund, produkt och annan transaktionell information som gäller för stimulans programmet.
 
-| kolumn namn     | Description    |
+| Kolumn namn     | Beskrivning    |
 |-------------|-------------------------------|
 | earningId                      | Unikt ID för varje tilltjänande                                                                                                       |
 | participantId                  | Den primära identiteten för partnern enligt programmet                                                                            |

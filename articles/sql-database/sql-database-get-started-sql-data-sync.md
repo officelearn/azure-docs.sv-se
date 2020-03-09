@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
 ms.openlocfilehash: 019ddbac1900856666b958d90b4395f25eb5ee84
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461578"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380772"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Självstudie: Konfigurera SQL Data Sync mellan Azure SQL Database och SQL Server lokalt
 
@@ -86,7 +86,7 @@ I avsnittet **medlems databas** lägger du till en Azure SQL Database till Sync-
   | ----------------------------- | ------------------------------------------------- |
   | **Synkronisera medlems namn** | Ange ett namn för den nya synkroniserings medlemmen. Namnet skiljer sig från själva databas namnet. |
   | **Prenumeration** | Välj den associerade Azure-prenumerationen för fakturerings syfte. |
-  | **Azure SQL Server** | Välj den befintliga SQL Database-servern. |
+  | **Azure-SQL Server** | Välj den befintliga SQL Database-servern. |
   | **Azure SQL Database** | Välj den befintliga SQL-databasen. |
   | **Anvisningar för synkronisering** | Välj **dubbelriktad synkronisering**, **till hubben**eller **från hubben**. |
   | **Användar namn** och **lösen ord** | Ange de befintliga autentiseringsuppgifterna för den SQL Database Server där medlems databasen finns. Ange inte *nya* autentiseringsuppgifter i det här avsnittet. |
@@ -169,7 +169,7 @@ När de nya medlemmarna i Sync-gruppen har skapats och distribuerats, är **Konf
 
     ![Manuell synkronisering](media/sql-database-get-started-sql-data-sync/datasync-sync.png)
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Hur ofta kan datasynkronisering synkronisera mina data?**
 
@@ -197,7 +197,7 @@ Datasynkronisering skapar ytterligare tabeller i databasen för ändrings spårn
 
 **Är mina data Convergent efter en synkronisering?**
 
-Inte nödvändigtvis. Ta en Sync-grupp med en hubb och tre ekrar (A, B och C) där synkroniseringarna är hubb till en, hubb till B och hubb till C. Om en ändring görs i databasen A *efter* navet till en synkronisering, skrivs den ändringen inte till databas B eller databas C förrän nästa synkroniseringsuppgift.
+Inte nödvändigt vis. Ta en Sync-grupp med en hubb och tre ekrar (A, B och C) där synkroniseringarna är hubb till en, hubb till B och hubb till C. Om en ändring görs i databasen A *efter* navet till en synkronisering, skrivs den ändringen inte till databas B eller databas C förrän nästa synkroniseringsuppgift.
 
 **Hur gör jag för att få schema ändringar till en Sync-grupp?**
 

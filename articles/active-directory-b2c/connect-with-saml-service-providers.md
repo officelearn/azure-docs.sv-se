@@ -12,12 +12,12 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c362cd2924de73b2e40e634fe554ff1526e09d8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 4cf572b09f1e44faca002528fd00fe5be0b51bc5
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189658"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933039"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrera ett SAML-program i Azure AD B2C
 
@@ -113,7 +113,7 @@ Sedan laddar du upp certifikatet för SAML Assertion och svars signering till Az
 
 ### <a name="21-create-the-saml-token-issuer"></a>2,1 Skapa SAML-token utfärdare
 
-Nu kan du lägga till kapaciteten för din klient organisation för att utfärda SAML-token.
+Nu kan du lägga till kapaciteten för din klient organisation för att utfärda SAML-token med hjälp av [SAML-token utfärdare](saml-issuer-technical-profile.md) och tekniska profiler för [SAML-session](custom-policy-reference-sso.md#samlssosessionprovider) .
 
 Öppna `SocialAndLocalAccounts\` **`TrustFrameworkExtensions.xml`** i Start paketet för den anpassade principen.
 
@@ -269,7 +269,7 @@ Din anpassade princip och Azure AD B2C klient är nu klara. Skapa sedan en progr
 
 ### <a name="41-register-your-application-in-azure-active-directory"></a>4,1 registrera ditt program i Azure Active Directory
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Välj **Appregistreringar (för hands version)** och välj sedan **ny registrering**.
@@ -297,7 +297,7 @@ Metadata är information som används i SAML-protokollet för att exponera konfi
 
 Om det finns egenskaper som anges *i URL: en för SAML* -metadata och i program registreringens manifest, **slås de samman**. Egenskaperna som anges i URL: en för metadata bearbetas först och prioriteras.
 
-I den här självstudien som använder SAML test Application använder du följande värde för `samlMetadataUrl`:
+I den här självstudien, som använder SAML-testprogrammet, använder du följande värde för `samlMetadataUrl`:
 
 ```JSON
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
@@ -324,7 +324,7 @@ I den här självstudien, där du använder SAML-testprogrammet, anger du egensk
 
 Den här valfria egenskapen representerar `Logout` URL (`SingleLogoutService` URL i den förlitande partens metadata) och `BindingType` för detta antas vara `Http-Redirect`.
 
-I den här självstudien som använder SAML-testprogrammet, lämna `logoutUrl` inställt på `https://samltestapp2.azurewebsites.net/logout`:
+I den här självstudien använder du SAML-testprogrammet, lämna `logoutUrl` inställt på `https://samltestapp2.azurewebsites.net/logout`:
 
 ```JSON
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",

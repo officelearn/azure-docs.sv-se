@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/07/2020
-ms.openlocfilehash: 032d4793576e2fb9b8de9e36666548e5bffb9460
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: a85d9ebb03ea0c9ebe078ad49ce6bbf40a5b004d
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898278"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927542"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Stöd för programmet för kommersiella marknads platser i Partner Center
 
@@ -27,9 +27,9 @@ Microsoft tillhandahåller stöd för en mängd olika produkter och tjänster. A
 
 1. Logga in på det [kommersiella Marketplace-programmet på Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) med ditt arbets konto. (Om du ännu inte har gjort det måste du [skapa ett partner Center-konto](./create-account.md).)
 
-1. I den övre menyn på höger sida av sidan väljer du **support** ikonen. 
+2. I den övre menyn på höger sida av sidan väljer du **support** ikonen. 
  
-1. Rutan **Hjälp och support** visas på sidans högra sida. 
+3. Rutan **Hjälp och support** visas på sidans högra sida. 
  
    ![List menyn stöd](./media/commercial-marketplace-support-pane.png)
 
@@ -37,11 +37,11 @@ Microsoft tillhandahåller stöd för en mängd olika produkter och tjänster. A
 
    ![Hjälp och support från start sidan](./media/homepage-help-support.png)
 
-1. Välj **[dokumentation](../index.md)** för att granska omfattande svar på frågor och resurser. 
+4. Välj **[dokumentation](../index.yml)** för att granska omfattande svar på frågor och resurser. 
 
-1. Välj **[Marketplace partner community-forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** för att besvara dina frågor genom att använda kunskap om andra Microsoft-utgivare. 
+5. Välj **[Marketplace partner community-forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** för att besvara dina frågor genom att använda kunskap om andra Microsoft-utgivare. 
 
-1. Välj **[ytterligare hjälp](https://aka.ms/marketplacepublishersupport)** för att öppna ett **nytt support ärende** .  
+6. Välj **[ytterligare hjälp](https://aka.ms/marketplacepublishersupport)** för att öppna ett **nytt support ärende** .  
 
 ## <a name="how-to-open-a-support-ticket"></a>Så här öppnar du ett support ärende
 

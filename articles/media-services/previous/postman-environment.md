@@ -13,16 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 6813dfca4a89263a10887ef4fa58c7403a9b1294
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8254d121c62a20de0a1593920b7793195f8eb50e
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60637564"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78926716"
 ---
-# <a name="import-the-postman-environment"></a>Importera Postman-miljö  
+# <a name="import-the-postman-environment"></a>Importera Postman-miljön  
 
-Den här artikeln innehåller en definition av den **Postman** miljövariabler som används i [Postman-samling](postman-collection.md) som innehåller grupperade HTTP-begäranden som anropar Media Services REST API: er. Miljö och samling filer som används av den [konfigurera Postman för Media Services REST API-anrop](media-rest-apis-with-postman.md) självstudien.
+Den här artikeln innehåller en definition av de **Postman** -miljövariabler som används i [Postman-samlingen](postman-collection.md) som innehåller grupperade HTTP-begäranden som anropar Media Services REST-API: er. Miljö-och samlings filerna används av själv studie kursen [Konfigurera PostMan för Media Services REST API samtal](media-rest-apis-with-postman.md) .
+
+> [!NOTE]
+> Värdet för `AzureADSTSEndpoint ` = `https://login.microsoftonline.com/{{TenantId}}/oauth2/token`. För att hämta klient-ID: t kan du Hovra musen över ditt användar namn i portalen (i det övre högra hörnet) och det kommer att finnas i katalogen: Microsoft ({{TENANTID}}).
 
 ```
 {

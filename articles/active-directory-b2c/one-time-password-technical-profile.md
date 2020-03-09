@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 701fb64dd85526bc79cab48bf36d4583da71ca76
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a4732d780bb241a18e0738c99603799c31c2102f
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184034"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933073"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en teknisk profil för eng ång slö sen ord i en Azure AD B2C anpassad princip
 
@@ -69,7 +69,7 @@ Det första läget i den här tekniska profilen är att generera en kod. Nedan v
 
 ### <a name="metadata"></a>Metadata
 
-Följande inställningar kan användas för att konfigurera kodgenerering och underhåll av kod:
+Följande inställningar kan användas för att konfigurera läget för kodgenerering:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
@@ -77,7 +77,7 @@ Följande inställningar kan användas för att konfigurera kodgenerering och un
 | CodeLength | Nej | Längden på koden. Standardvärdet är `6`. |
 | CharacterSet | Nej | Teckenuppsättningen för koden, formaterad för användning i ett reguljärt uttryck. Till exempel `a-z0-9A-Z`. Standardvärdet är `0-9`. Tecken uppsättningen måste innehålla minst 10 olika tecken i den angivna uppsättningen. |
 | NumRetryAttempts | Nej | Antalet verifierings försök innan koden betraktas som ogiltig. Standardvärdet är `5`. |
-| Åtgärd | Ja | Åtgärden som ska utföras. Möjliga värden: `GenerateCode`eller `VerifyCode`. |
+| Åtgärd | Ja | Åtgärden som ska utföras. Möjligt värde: `GenerateCode`. |
 | ReuseSameCode | Nej | Om en dubblerad kod ska anges i stället för att generera en ny kod när den aktuella koden inte har upphört att gälla och fortfarande är giltig. Standardvärdet är `false`. |
 
 ### <a name="returning-error-message"></a>Returnerar fel meddelande
@@ -90,22 +90,22 @@ Följande exempel `TechnicalProfile` används för att generera en kod:
 
 ```XML
 <TechnicalProfile Id="GenerateCode">
-    <DisplayName>Generate Code</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-        <Item Key="Operation">GenerateCode</Item>
-        <Item Key="CodeExpirationInSeconds">600</Item>
-        <Item Key="CodeLength">6</Item>
-        <Item Key="CharacterSet">0-9</Item>
-        <Item Key="NumRetryAttempts">5</Item>
-        <Item Key="ReuseSameCode">false</Item>
-    </Metadata>
-    <InputClaims>
-        <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
-    </InputClaims>
-    <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpGenerated" />
-    </OutputClaims>
+  <DisplayName>Generate Code</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="Operation">GenerateCode</Item>
+    <Item Key="CodeExpirationInSeconds">600</Item>
+    <Item Key="CodeLength">6</Item>
+    <Item Key="CharacterSet">0-9</Item>
+    <Item Key="NumRetryAttempts">5</Item>
+    <Item Key="ReuseSameCode">false</Item>
+  </Metadata>
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpGenerated" />
+  </OutputClaims>
 </TechnicalProfile>
 ```
 
@@ -132,21 +132,23 @@ Det finns inga utgående anspråk under kod verifieringen av den här protokoll 
 
 ### <a name="metadata"></a>Metadata
 
-Följande inställningar kan användas för att konfigurera fel meddelandet som visas vid kod verifierings fel:
+Följande inställningar kan användas för kod verifierings läge:
+
+| Attribut | Krävs | Beskrivning |
+| --------- | -------- | ----------- |
+| Åtgärd | Ja | Åtgärden som ska utföras. Möjligt värde: `VerifyCode`. |
+
+
+### <a name="error-messages"></a>Felmeddelanden
+
+Följande inställningar kan användas för att konfigurera fel meddelanden som visas vid kod verifierings fel. Metadata bör konfigureras i den [självkontrollerade](self-asserted-technical-profile.md) tekniska profilen. Fel meddelandena kan [lokaliseras](localization-string-ids.md#one-time-password-error-messages).
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | UserMessageIfSessionDoesNotExist | Nej | Meddelandet som ska visas för användaren om kod verifierings sessionen har upphört att gälla. Antingen har koden upphört att gälla eller också har koden aldrig skapats för en specifik identifierare. |
 | UserMessageIfMaxRetryAttempted | Nej | Meddelandet som ska visas för användaren om de har överskridit det högsta antalet tillåtna verifierings försök. |
 | UserMessageIfInvalidCode | Nej | Meddelandet som ska visas för användaren om de har angett en ogiltig kod. |
-
-### <a name="returning-error-message"></a>Returnerar fel meddelande
-
-Som det beskrivs i [metadata](#metadata)kan du anpassa ett fel meddelande som visas för användaren om olika fel inträffar. Du kan ytterligare lokalisera dessa meddelanden genom att för att fastställa språkvarianten, till exempel:
-
-```XML
-<Item Key="en.UserMessageIfInvalidCode">Wrong code has been entered.</Item>
-```
+|UserMessageIfSessionConflict|Nej| Meddelandet som ska visas för användaren om det inte går att verifiera koden.|
 
 ### <a name="example"></a>Exempel
 
@@ -154,24 +156,21 @@ Följande exempel `TechnicalProfile` används för att verifiera en kod:
 
 ```XML
 <TechnicalProfile Id="VerifyCode">
-    <DisplayName>Verify Code</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-        <Item Key="Operation">VerifyCode</Item>
-        <Item Key="UserMessageIfInvalidCode">Wrong code has been entered.</Item>
-        <Item Key="UserMessageIfSessionDoesNotExist">Code has expired.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You've tried too many times.</Item>
-    </Metadata>
-    <InputClaims>
-        <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
-        <InputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpToVerify" />
-    </InputClaims>
+  <DisplayName>Verify Code</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="Operation">VerifyCode</Item>
+  </Metadata>
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
+    <InputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpToVerify" />
+  </InputClaims>
 </TechnicalProfile>
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande artikel visas exempel på en technial profil med eng ång slö sen ord med anpassad e-postverifiering:
+I följande artikel visas exempel på en teknisk profil med eng ång slö sen ord med anpassad e-postverifiering:
 
 - [Anpassad e-postverifiering i Azure Active Directory B2C](custom-email.md)
 

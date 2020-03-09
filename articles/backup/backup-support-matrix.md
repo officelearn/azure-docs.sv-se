@@ -3,12 +3,12 @@ title: Stödmatris för Azure Backup
 description: Innehåller en sammanfattning av stödinställningar och begränsningar för Azure Backup-tjänsten.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 788da5708178cfa533d4382a4a417cef73f46a5e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: d036e527880a98d323e8de2f3a8721d7e12dbb07
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363844"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932696"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
 
@@ -84,7 +84,7 @@ Här är what's som stöds om du vill säkerhetskopiera Linux-datorer:
 
 ## <a name="daylight-saving-time-support"></a>Stöd för sommar tid
 
-Azure Backup stöder inte automatisk klock justering för sommar tid för virtuella Azure-säkerhetskopieringar. Ändra säkerhets kopierings principer manuellt om det behövs.
+Azure Backup stöder inte automatisk klock justering för sommar tid för virtuella Azure-säkerhetskopieringar. Den skiftar inte timmen för säkerhets kopieringen framåt eller bakåt. För att säkerställa att säkerhets kopieringen körs vid önskad tidpunkt ändrar du säkerhets kopierings principerna manuellt efter behov.
 
 ## <a name="disk-deduplication-support"></a>Stöd för disk deduplicering
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
 ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453812"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396052"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Kontrol lera åtkomst till Azure IoT Hub Device Provisioning Service
 
@@ -24,7 +24,7 @@ Den här artikeln beskrivs:
 * De olika behörigheter som du kan tilldela till en backend-app för att få åtkomst till etablerings tjänsten.
 * Autentiseringsprocessen och de token som används för att verifiera behörigheter.
 
-### <a name="when-to-use"></a>Används till att
+### <a name="when-to-use"></a>När du ska använda detta
 
 Du måste ha rätt behörighet för att få åtkomst till alla etablerings tjänstens slut punkter. En backend-app måste till exempel innehålla en token som innehåller autentiseringsuppgifter för varje meddelande som skickas till tjänsten.
 

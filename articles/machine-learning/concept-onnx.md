@@ -12,11 +12,11 @@ author: prasanthpul
 ms.date: 08/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 98aebb4733c2aa2a6d0b0217f1f437bcea1992e9
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541067"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396234"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX och Azure Machine Learning: skapa och påskynda ML-modeller
 
@@ -38,13 +38,13 @@ Du kan hämta ONNX-modeller på flera olika sätt:
 + Träna en ny ONNX-modell i Azure Machine Learning (se exempel längst ned i den här artikeln)
 + Konvertera en befintlig modell från ett annat format till ONNX (se [självstudierna](https://github.com/onnx/tutorials)) 
 + Hämta en förtränad ONNX-modell från [ONNX-modellen Zoo](https://github.com/onnx/models) (se exemplen längst ned i den här artikeln)
-+ Skapa en anpassad ONNX-modell från [Azure Custom Vision service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) 
++ Skapa en anpassad ONNX-modell från [Azure Custom vision-tjänsten](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) 
 
 Många modeller, inklusive bild klassificering, objekt identifiering och text bearbetning kan representeras som ONNX-modeller. Vissa modeller kanske inte kan konverteras korrekt. Om du stöter på den här situationen kan du ange ett problem i GitHub för respektive konverterare som du använde. Du kan fortsätta att använda din befintliga format modell tills problemet har åtgärd ATS.
 
 ## <a name="deploy-onnx-models-in-azure"></a>Distribuera ONNX-modeller i Azure
 
-Med Azure Machine Learning kan du distribuera, hantera och övervaka dina ONNX-modeller. Standarden [arbetsflöde för distribution](concept-model-management-and-deployment.md) och ONNX-Runtime som du kan skapa en REST-slutpunkt som ligger i molnet. Se exempel på Jupyter Notebooks i slutet av den här artikeln för att prova själv. 
+Med Azure Machine Learning kan du distribuera, hantera och övervaka dina ONNX-modeller. Med standard [arbets flödet för distribution](concept-model-management-and-deployment.md) och ONNX runtime kan du skapa en REST-slutpunkt som finns i molnet. Se exempel på Jupyter Notebooks i slutet av den här artikeln för att prova själv. 
 
 ### <a name="install-and-use-onnx-runtime-with-python"></a>Installera och använda ONNX runtime med python
 
@@ -62,32 +62,32 @@ import onnxruntime
 session = onnxruntime.InferenceSession("path to model")
 ```
 
-I dokumentationen som medföljer modellen vanligtvis visar indata och utdata för användning av modellen. Du kan också använda ett visualiseringsverktyg som [Netron](https://github.com/lutzroeder/Netron) att visa modellen. Du kan också fråga modellmetadata, in- och utdata ONNX Runtime:    
+I dokumentationen som medföljer modellen vanligtvis visar indata och utdata för användning av modellen. Du kan också använda ett visualiserings verktyg som [Netron](https://github.com/lutzroeder/Netron) för att visa modellen. Du kan också fråga modellmetadata, in- och utdata ONNX Runtime:    
 ```python
 session.get_modelmeta()
 first_input_name = session.get_inputs()[0].name
 first_output_name = session.get_outputs()[0].name
 ```
 
-Att inferens din modell, Använd `run` och skicka in listan över utdata du vill ha returnerade (lämna tomt om du vill att alla) och en karta över indatavärdena. Resultatet är en lista över utdata.  
+Använd `run` och skicka i listan över utdata som du vill returnera (lämna tomt om du vill ha alla) och en karta över indatavärdena. Resultatet är en lista över utdata.  
 ```python
 results = session.run(["output1", "output2"], {
                       "input1": indata1, "input2": indata2})
 results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
-Läs den fullständiga Python API-referensen i [ONNX Runtime referensdokument](https://aka.ms/onnxruntime-python).    
+En fullständig python API-referens finns i [referens dokument för körning av ONNX](https://aka.ms/onnxruntime-python).    
 
 ## <a name="examples"></a>Exempel
 
-Se [How-to-till-användning – azureml/distribution/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) till exempel anteckningsböcker som skapar och distribuerar ONNX-modeller.
+Se [How-to-use-azureml/Deployment/Onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) till exempel Notebooks som skapar och distribuerar Onnx-modeller.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
 ## <a name="more-info"></a>Mer information
 
 Mer information om ONNX eller bidra till projektet:
-+ [ONNX projektwebbplatsen](https://onnx.ai)
++ [ONNX Project-webbplats](https://onnx.ai)
 + [ONNX-kod på GitHub](https://github.com/onnx/onnx)
 
 Mer information om ONNX Runtime eller bidra till projektet:

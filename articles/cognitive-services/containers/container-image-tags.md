@@ -1,5 +1,5 @@
 ---
-title: Taggar för Cognitive Services behållar avbildningar
+title: Taggar för Cognitive Services-containeravbildningar
 titleSuffix: Azure Cognitive Services
 description: En omfattande lista över alla avbildnings taggar för kognitiva tjänst behållare.
 services: cognitive-services
@@ -10,11 +10,11 @@ ms.topic: reference
 ms.date: 11/18/2019
 ms.author: dapine
 ms.openlocfilehash: 0d8c7a36582c30975f3a408a2ea6e95d39e560ef
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173757"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390776"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Avbildnings taggar för Azure Cognitive Services container
 

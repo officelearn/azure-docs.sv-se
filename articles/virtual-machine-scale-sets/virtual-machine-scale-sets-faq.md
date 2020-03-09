@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: manayar
 ms.openlocfilehash: 222f26febb7b14c627307295a8cdd68a17694d03
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275904"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394656"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -41,7 +41,7 @@ Alla regioner stöder skalningsuppsättningar.
 
 ### <a name="how-do-i-create-a-scale-set-by-using-a-custom-image"></a>Hur skapar jag en skalningsuppsättning med en anpassad avbildning?
 
-Skapa och hämta en datoravbildning av virtuell och sedan använda det som källa för din skalningsuppsättning. En självstudiekurs om hur du skapar och använder en anpassad virtuell datoravbildning som du kan använda den [Azure CLI](tutorial-use-custom-image-cli.md) eller [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+Skapa och hämta en datoravbildning av virtuell och sedan använda det som källa för din skalningsuppsättning. En själv studie kurs om hur du skapar och använder en anpassad VM-avbildning kan du använda [Azure CLI](tutorial-use-custom-image-cli.md) eller [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 ### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>Vilka virtuella datorer tas bort om jag minskar skalningsuppsättningens kapacitet från 20 till 15?
 
@@ -57,26 +57,26 @@ Ja, du kan använda [tillägg](virtual-machine-scale-sets-extension-sequencing.m
 
 ### <a name="do-scale-sets-work-with-azure-availability-sets"></a>Fungerar skalningsuppsättningar med Azures tillgänglighetsuppsättningar?
 
-Regionala (icke-zonindelad) på skalningsuppsättningen använder *placeringsgrupper*, som fungerar som en implicit tillgänglighetsuppsättning med fem feldomäner och fem uppdateringsdomäner. Skalningsuppsättningar med mer än 100 virtuella datorer sträcker sig över flera placeringsgrupper. Mer information om placeringsgrupper finns i [Arbeta med stora skalningsuppsättningar för virtuella datorer](virtual-machine-scale-sets-placement-groups.md). En tillgänglighetsuppsättning för virtuella datorer kan finnas i samma virtuella nätverk som en skalningsuppsättning för virtuella datorer. En vanlig konfiguration är att placera virtuella kontrollnodsdatorer (som ofta kräver unika konfigurationer) i en tillgänglighetsuppsättning och placera datanoder i skalningsuppsättningen.
+En regional (icke-zonindelade) skalnings uppsättning använder *placerings grupper*som fungerar som en implicit tillgänglighets uppsättning med fem fel domäner och fem uppdaterings domäner. Skalningsuppsättningar med mer än 100 virtuella datorer sträcker sig över flera placeringsgrupper. Mer information om placeringsgrupper finns i [Arbeta med stora skalningsuppsättningar för virtuella datorer](virtual-machine-scale-sets-placement-groups.md). En tillgänglighetsuppsättning för virtuella datorer kan finnas i samma virtuella nätverk som en skalningsuppsättning för virtuella datorer. En vanlig konfiguration är att placera virtuella kontrollnodsdatorer (som ofta kräver unika konfigurationer) i en tillgänglighetsuppsättning och placera datanoder i skalningsuppsättningen.
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>Skala uppsättningar fungerar med Azure tillgänglighetszoner?
 
-Ja! Mer information finns i den [scale Sets zon doc](./virtual-machine-scale-sets-use-availability-zones.md).
+Visst! Mer information finns i avsnittet om [skalnings uppsättnings zon](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Automatisk skalning
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Vad är bästa praxis för Azure-autoskalning?
 
-Bästa metoder för autoskalning finns [bästa praxis för automatisk skalning virtuella datorer](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices).
+För bästa praxis för automatisk skalning, se [metod tips för automatisk skalning av virtuella datorer](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices).
 
 ### <a name="where-do-i-find-metric-names-for-autoscaling-that-uses-host-based-metrics"></a>Var hittar jag tjänstmåttets namn för automatisk skalning som använder värdbaserade mått?
 
-Tjänstmåttets namn för automatisk skalning som använder värdbaserade mått finns [stöds mått med Azure Monitor](https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/).
+För mått namn för automatisk skalning som använder värdbaserade mått, se [mått som stöds med Azure Monitor](https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/).
 
 ### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>Finns det några exempel på automatisk skalning baserat på en Azure Service Bus-ämne och kön längd?
 
-Ja. Exempel på automatisk skalning baserat på en Azure Service Bus-ämne och kön längd finns [vanliga mått för automatisk skalning för Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/).
+Ja. Exempel på automatisk skalning baserat på ett Azure Service Bus ämne och Kölängd finns i [Azure Monitor autoskalning av vanliga mått](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/).
 
 För en Service Bus-kö, använder du följande JSON:
 
@@ -101,9 +101,9 @@ Ersätt exempelvärden med din resurs Uniform Resource Identifier (URI: er).
 
 Du kan skapa en autoskalningsinställning på en virtuell dator att använda värdnivå mått eller gäst-OS-baserade mått.
 
-En lista över mått som stöds finns i [vanliga mått för automatisk skalning för Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics).
+En lista över mått som stöds finns i [Azure Monitor autoskalning av vanliga mått](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics).
 
-Ett fullständigt exempel för VM-skalningsuppsättningar finns i [avancerad automatisk skalning med Resource Manager-mallar för VM-skalningsuppsättningar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets).
+Ett fullständigt exempel för skalnings uppsättningar för virtuella datorer finns i [Avancerad konfiguration av automatisk skalning med hjälp av Resource Manager-mallar för skalnings uppsättningar för virtuella datorer](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets).
 
 Exemplet använder värdnivå CPU måttet och ett antal mått för meddelandet.
 
@@ -111,17 +111,17 @@ Exemplet använder värdnivå CPU måttet och ett antal mått för meddelandet.
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>Hur ställer jag in Varningsregler på en skalningsuppsättning för virtuell dator?
 
-Du kan skapa aviseringar för mått för skalningsuppsättningar för virtuella datorer via PowerShell eller Azure CLI. Mer information finns i [Azure Monitor PowerShell-exempel för Snabbstart](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) och [Azure Monitor plattformsoberoende CLI quickstart-exempel](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
+Du kan skapa aviseringar för mått för skalningsuppsättningar för virtuella datorer via PowerShell eller Azure CLI. Mer information finns i [Azure Monitor PowerShell snabb starts exempel](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) och [Azure Monitor cross-platform CLI snabb starts exempel](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
 
 TargetResourceId av virtuella datorns skalningsuppsättning ser ut så här:
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-Du kan välja valfri VM-prestandaräknaren som mått som ska ställa in en avisering för. Mer information finns i [gäst-OS mått för Resource Manager-baserade Windows virtuella datorer](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) och [gäst-OS mått för virtuella Linux-datorer](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) i den [vanliga mått för Azure Monitor autoskalning](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/)artikeln.
+Du kan välja valfri VM-prestandaräknaren som mått som ska ställa in en avisering för. Mer information finns i [gäst operativ systemets mått för Resource Manager-baserade virtuella Windows-datorer](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) och [gäst operativ system mått för virtuella Linux-datorer](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) i artikeln [Azure Monitor autoskalning av vanliga mått](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/) .
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>Hur konfigurerar jag autoskalning i en VM-skalningsuppsättning med PowerShell?
 
-Om du vill konfigurera automatisk skalning på en VM-skalningsuppsättning med hjälp av PowerShell, se [automatiskt skala en VM-skalningsuppsättning](tutorial-autoscale-powershell.md). Du kan också konfigurera automatisk skalning med den [Azure CLI](tutorial-autoscale-cli.md) och [Azure-mallar](tutorial-autoscale-template.md)
+Om du vill konfigurera automatisk skalning på en skalnings uppsättning för virtuella datorer med hjälp av PowerShell läser du skala [automatiskt en skalnings uppsättning för virtuella datorer](tutorial-autoscale-powershell.md). Du kan också konfigurera autoskalning med [Azure CLI](tutorial-autoscale-cli.md) och [Azure-mallar](tutorial-autoscale-template.md)
 
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Om jag har stoppat (frigjort) är den virtuella datorn igång som en del av en åtgärd för automatisk skalning för en virtuell dator?
@@ -156,7 +156,7 @@ Använd följande JSON:
 
 Koden har stöd för Windows och Linux.
 
-Mer information finns i [skapa eller uppdatera en VM-skalningsuppsättningen](https://msdn.microsoft.com/library/mt589035.aspx).
+Mer information finns i [skapa eller uppdatera en skalnings uppsättning för virtuella datorer](https://msdn.microsoft.com/library/mt589035.aspx).
 
 
 ### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Hur gör jag för att använda självsignerade certifikat för Azure Service Fabric-kluster?
@@ -170,7 +170,7 @@ Självsignerade certifikat kan inte användas för distribuerat förtroende frå
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Kan jag ange en SSH-nyckelpar ska användas för SSH-autentisering med en Linux VM-skalningsuppsättning från en mall i Resource Manager?
 
-Ja. REST-API för **osProfile** liknar standard VM REST API.
+Ja. REST API för **osProfile** liknar standard REST API för virtuella datorer.
 
 Inkludera **osProfile** i mallen:
 
@@ -194,7 +194,7 @@ Inkludera **osProfile** i mallen:
 
 Detta JSON-block används i [den här snabb starts mal len för Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
-Mer information finns i [skapa eller uppdatera en VM-skalningsuppsättningen](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
+Mer information finns i [skapa eller uppdatera en skalnings uppsättning för virtuella datorer](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
 
 ### <a name="how-do-i-remove-deprecated-certificates"></a>Hur tar jag bort föråldrad certifikat?
 
@@ -223,21 +223,21 @@ Du kan ange offentliga SSH-nycklar i oformaterad text när du skapar en Linux-VM
 
 linuxConfiguration elementnamn | Krävs | Typ | Beskrivning
 --- | --- | --- | ---
-SSH | Inga | Samling | Anger den viktiga SSH-konfigurationen för en Linux-operativsystem
-Sökväg | Ja | String | Anger sökvägen till Linux där SSH-nycklar eller certifikat ska vara belägen
+SSH | Nej | Samling | Anger den viktiga SSH-konfigurationen för en Linux-operativsystem
+path | Ja | String | Anger sökvägen till Linux där SSH-nycklar eller certifikat ska vara belägen
 nyckeldata | Ja | String | Anger en base64-kodad offentlig SSH-nyckel
 
-Ett exempel finns i [101 – vm-sshkey GitHub-snabbstartsmall](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+Ett exempel finns i [snabb starts mal len 101-VM-sshkey GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
-### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>När jag kör `Update-AzVmss` när du lägger till fler än ett certifikat från samma nyckelvalvet, visas följande meddelande:
+### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>När jag kör `Update-AzVmss` efter att ha lagt till mer än ett certifikat från samma nyckel valv visas följande meddelande:
 
 >Update-AzVmss: lista hemlighet innehåller upprepade instanser av/Subscriptions/\<My-Subscription-ID >/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, vilket inte tillåts.
 
-Detta kan inträffa om du försöker lägga till samma valv istället för att använda ett nytt valv-certifikat för den befintliga källvalv igen. Den `Add-AzVmssSecret` kommandot fungerar inte korrekt om du lägger till ytterligare hemligheter.
+Detta kan inträffa om du försöker lägga till samma valv istället för att använda ett nytt valv-certifikat för den befintliga källvalv igen. `Add-AzVmssSecret` kommandot fungerar inte korrekt om du lägger till ytterligare hemligheter.
 
 Uppdatera listan över $vmss.properties.osProfile.secrets[0].vaultCertificates för att lägga till fler hemligheter från samma nyckelvalvet.
 
-Den förväntade indatastrukturen finns [skapa eller uppdatera en virtuell dator ange](https://msdn.microsoft.com/library/azure/mt589035.aspx).
+En förväntad ingående struktur finns i [skapa eller uppdatera en virtuell dator uppsättning](https://msdn.microsoft.com/library/azure/mt589035.aspx).
 
 Hitta hemligheten i VM scale set objektet som är i nyckelvalvet. Lägg sedan till Certifikatreferens (URL: en och det hemliga butiksnamnet) i listan som är associerade med valvet.
 
@@ -249,7 +249,7 @@ Nya virtuella datorer har inte det gamla certifikatet. Virtuella datorer som har
 
 ### <a name="can-i-push-certificates-to-the-virtual-machine-scale-set-without-providing-the-password-when-the-certificate-is-in-the-secret-store"></a>Kan jag överföra certifikat till skalningsuppsättning för virtuell dator utan att ange lösenord, när certifikatet i arkivet för hemliga?
 
-Du behöver inte hårdkoda lösenord i skript. Du kan dynamiskt hämta lösenord med de behörigheter som används för att köra skriptet för distribution. Om du har ett skript som flyttar ett certifikat från Arkiv för hemligheter nyckeln valvet, arkivet hemliga `get certificate` kommando visar också lösenordet för PFX-filen.
+Du behöver inte hårdkoda lösenord i skript. Du kan dynamiskt hämta lösenord med de behörigheter som används för att köra skriptet för distribution. Om du har ett skript som flyttar ett certifikat från nyckel valvet för den hemliga lagrings platsen, ger det hemliga arkivet `get certificate`-kommandot även lösen ordet för PFX-filen.
 
 ### <a name="how-does-the-secrets-property-of-virtualmachineprofileosprofile-for-a-virtual-machine-scale-set-work-why-do-i-need-the-sourcevault-value-when-i-have-to-specify-the-absolute-uri-for-a-certificate-by-using-the-certificateurl-property"></a>Hur ställer arbete i egenskapen hemligheter för virtualMachineProfile.osProfile för en virtuell datorskalning? Varför behöver jag sourceVault värdet när jag behöver ange absolut URI för ett certifikat med hjälp av egenskapen certificateUrl?
 
@@ -261,11 +261,11 @@ Om du anger en felaktig källa valv-ID men en giltig key vault-Webbadress rappor
 
 ### <a name="if-i-add-secrets-to-an-existing-virtual-machine-scale-set-are-the-secrets-injected-into-existing-vms-or-only-into-new-ones"></a>Om jag lägger till hemligheter till en befintlig VM-skalningsuppsättning ange, finns hemligheter som matas in i befintliga virtuella datorer eller endast i nya?
 
-Certifikat läggs till i alla dina virtuella datorer, även före befintliga. Om din VM-skalningsuppsättningen upgradePolicy egenskapen är inställd på **manuell**, certifikatet har lagts till den virtuella datorn när du utför en manuell uppdatering på den virtuella datorn.
+Certifikat läggs till i alla dina virtuella datorer, även före befintliga. Om den virtuella datorns skalnings uppsättning upgradePolicy-egenskap är inställd på **manuell**, läggs certifikatet till den virtuella datorn när du utför en manuell uppdatering på den virtuella datorn.
 
 ### <a name="where-do-i-put-certificates-for-linux-vms"></a>Var placera certifikat för Linux-datorer?
 
-Om du vill lära dig mer om att distribuera certifikat för Linux-datorer, se [distribuera certifikat till virtuella datorer från en key vault för Kundhanterade](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/).
+Information om hur du distribuerar certifikat för virtuella Linux-datorer finns i [distribuera certifikat till virtuella datorer från ett kundhanterat nyckel valv](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/).
 
 ### <a name="how-do-i-add-a-new-vault-certificate-to-a-new-certificate-object"></a>Hur lägger jag till ett nytt valv-certifikat till ett nytt certifikatobjekt?
 
@@ -285,9 +285,9 @@ Om du återavbilda en virtuell dator, raderas certifikat. Avbildningen borttagni
 
 ### <a name="what-happens-if-you-delete-a-certificate-from-the-key-vault"></a>Vad händer om du tar bort ett certifikat från key vault?
 
-Om hemligheten har tagits bort från nyckelvalvet och sedan kör `stop deallocate` för dina virtuella datorer och starta sedan om dem., om det uppstår ett fel. Felet inträffar eftersom CRP: N behöver hämta hemligheterna från nyckelvalvet, men den inte kan. I det här scenariot kan du ta bort certifikat från VM-skalningsuppsättningen.
+Om hemligheten tas bort från nyckel valvet och du sedan kör `stop deallocate` för alla virtuella datorer och sedan startar dem igen, uppstår ett problem. Felet inträffar eftersom CRP: N behöver hämta hemligheterna från nyckelvalvet, men den inte kan. I det här scenariot kan du ta bort certifikat från VM-skalningsuppsättningen.
 
-Komponenten CRP sparas inte kunden hemligheter. Om du kör `stop deallocate` för alla virtuella datorer i virtuella datorns skalningsuppsättning cachen tas bort. I det här scenariot hämtas hemligheter från nyckelvalvet.
+Komponenten CRP sparas inte kunden hemligheter. Om du kör `stop deallocate` för alla virtuella datorer i den virtuella datorns skalnings uppsättning, tas cachen bort. I det här scenariot hämtas hemligheter från nyckelvalvet.
 
 Det uppstår inte problemet vid utskalning eftersom det inte finns en cachelagrad kopia av hemlighet i Azure Service Fabric (i modellen single-fabric-klient).
 
@@ -299,9 +299,9 @@ Om du skapar en virtuell dator och uppdatera din hemlighet i nyckelvalvet, och d
 
 ### <a name="my-team-works-with-several-certificates-that-are-distributed-to-us-as-cer-public-keys-what-is-the-recommended-approach-for-deploying-these-certificates-to-a-virtual-machine-scale-set"></a>Mitt team fungerar med flera certifikat som har distribuerats till oss som .cer offentliga nycklar. Vad är den rekommenderade metoden för att distribuera dessa certifikat till en virtuell datorskalning inställd?
 
-För att distribuera .cer offentliga nycklar till en virtuell datorskalning ange kan du skapa en .pfx-fil som innehåller endast CER-filer. Gör detta genom att använda `X509ContentType = Pfx`. Till exempel läsa in .cer-filen som x509Certificate2 objekt i C# eller PowerShell och sedan anropa metoden.
+För att distribuera .cer offentliga nycklar till en virtuell datorskalning ange kan du skapa en .pfx-fil som innehåller endast CER-filer. Använd `X509ContentType = Pfx`för att göra detta. Till exempel läsa in .cer-filen som x509Certificate2 objekt i C# eller PowerShell och sedan anropa metoden.
 
-Mer information finns i [X509Certificate.Export-metoden (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
+Mer information finns i [X509Certificate. export-metoden (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
 
 ### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>Hur gör jag för att skicka in certifikat som base64-strängar?
 
@@ -331,11 +331,11 @@ Från ett kompatibilitetsperspektiv är VM-skalningsuppsättningar en grundlägg
 
 Mer information finns i [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Har [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/msi-overview) fungerar med VM-skalningsuppsättningar?
+### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>Fungerar [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/msi-overview) med skalnings uppsättningar för virtuella datorer?
 
 Ja. Du kan se några exempel på MSI-mallar i Azure snabb starts mallar för [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) och [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
-## <a name="deleting"></a>Tas bort 
+## <a name="deleting"></a>Rader 
 
 ### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>Kommer de Lås jag ställer in på plats på instanser av skalnings uppsättning för virtuella datorer att respekteras när instanser tas bort?
 
@@ -357,7 +357,7 @@ $vmss=Remove-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "extensionName"
 Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" -VirtualMacineScaleSet $vmss
 ```
 
-Du kan hitta Tilläggsnamn värdet i `$vmss`.
+Du kan hitta värdet tillägg i `$vmss`.
 
 ### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>Finns det ett exempel på en mall för skalnings uppsättning för virtuell dator som kan integreras med Azure Monitor loggar?
 
@@ -365,13 +365,13 @@ Ett exempel på en mall för skalnings uppsättning för virtuell dator som inte
 
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Hur lägger jag till ett tillägg för alla virtuella datorer i min skalningsuppsättning för virtuella datorer?
 
-Om uppdateringsprincip har angetts till **automatisk**, omdistribuera mallen med de nya tilläggsegenskaper uppdaterar alla virtuella datorer.
+Om uppdaterings principen är inställd på **Automatisk**och distribuerar om mallen med de nya tilläggs egenskaperna uppdaterar alla virtuella datorer.
 
-Om uppdateringsprincip har angetts till **manuell**först uppdatera tillägget och sedan manuellt uppdatera alla instanser i dina virtuella datorer.
+Om uppdaterings principen är inställd på **manuell**måste du först uppdatera tillägget och sedan manuellt uppdatera alla instanser i de virtuella datorerna.
 
 ### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected"></a>Om de tillägg som är associerade med en befintlig skalningsuppsättning för virtuell dator har uppdaterats, är de befintliga virtuella datorer som påverkas?
 
-Om tillägget definitionen i VM-skalningsuppsättningar uppdateras och upgradePolicy-egenskapen är inställd **automatisk**, uppdateras de virtuella datorerna. Om egenskapen upgradePolicy anges till **manuell**, tillägg har flaggats som inte matchar modellen.
+Om tilläggs definitionen i den virtuella datorns skal uppsättnings modell uppdateras och upgradePolicy-egenskapen är inställd på **Automatisk**, uppdateras de virtuella datorerna. Om egenskapen upgradePolicy är inställd på **manuell**flaggas tillägg som inte matchar modellen.
 
 ### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>Körs tilläggen igen när en befintlig dator är servad eller avbildningad?
 
@@ -506,7 +506,7 @@ Ja. En Nätverkssäkerhetsgrupp kan tillämpas direkt på en skalningsuppsättni
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Hur gör jag en VIP-växling för skalningsuppsättningar för virtuella datorer i samma prenumeration och samma region?
 
-Om du har två VM-skalningsuppsättningar med Azure Load Balancer klientdelar och de finns i samma prenumeration och region, kan du frigöra var och en offentlig IP-adresserna och tilldela till en annan. Se [VIP-växling: blå-grön distribution i Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) till exempel. Detta innebär en fördröjning nivå om resurserna som är frigjord/allokeras på nätverket. En snabbare alternativ är att använda Azure Application Gateway med två serverdelspooler och en regel för vidarebefordran. Du kan också hantera ditt program med [Azure App service](https://azure.microsoft.com/services/app-service/) som ger stöd för att snabbt växla mellan mellanlagring och produktion.
+Om du har två VM-skalningsuppsättningar med Azure Load Balancer klientdelar och de finns i samma prenumeration och region, kan du frigöra var och en offentlig IP-adresserna och tilldela till en annan. Se [VIP-växling: blå-grön distribution i Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) till exempel. Detta innebär en fördröjning nivå om resurserna som är frigjord/allokeras på nätverket. En snabbare alternativ är att använda Azure Application Gateway med två serverdelspooler och en regel för vidarebefordran. Alternativt kan du vara värd för ditt program med [Azure App tjänst](https://azure.microsoft.com/services/app-service/) som ger stöd för snabb växling mellan mellanlagrings-och produktions platser.
 
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Hur jag för att ange ett intervall med privata IP-adresser som ska användas för statiska privata IP-adressallokering?
 
@@ -516,7 +516,7 @@ Allokeringsmetoden för IP-adresser för VM scale set är alltid ”dynamiska”
 
 ### <a name="how-do-i-deploy-a-virtual-machine-scale-set-to-an-existing-azure-virtual-network"></a>Hur distribuerar jag en VM-skalningsuppsättning till ett befintligt Azure virtuellt nätverk?
 
-Om du vill distribuera en VM-skalningsuppsättning till en befintlig Azure-nätverk, [distribuera en VM-skalningsuppsättningen till ett befintligt virtuellt nätverk](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet).
+Information om hur du distribuerar en skalnings uppsättning för en virtuell dator till ett befintligt virtuellt Azure-nätverk finns i [distribuera en skalnings uppsättning för virtuella datorer till ett befintligt virtuellt nätverk](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Kan jag använda skalningsuppsättningar med Accelererat nätverk?
 
@@ -548,7 +548,7 @@ Lägg till en dnsSettings JSON-paket till skalningsuppsättningens networkInterf
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Hur konfigurerar jag en skalningsuppsättning för att tilldela en offentlig IP-adress till varje virtuell dator?
 
-Om du vill skapa en VM-skalningsuppsättning som tilldelar en offentlig IP-adress till varje virtuell dator, kontrollera att API-versionen av resursen Microsoft.Compute/virtualmachinescalesets är 2017-03-30 och lägga till en _publicipaddressconfiguration_ JSON paketet till skalan in ipConfigurations-avsnitt. Exempel:
+Om du vill skapa en virtuell dators skalnings uppsättning som tilldelar en offentlig IP-adress till varje virtuell dator kontrollerar du att API-versionen av Microsoft. Compute/virtualMachineScaleSets-resursen är 2017-03-30 och lägger till ett _publicipaddressconfiguration_ JSON-paket i avsnittet för skalnings uppsättning ipConfigurations. Exempel:
 
 ```json
     "publicipaddressconfiguration": {
@@ -563,7 +563,7 @@ Om du vill skapa en VM-skalningsuppsättning som tilldelar en offentlig IP-adres
 
 Ja. Du kan lägga till resurs-ID: n för flera Application Gateway backend-adresspooler i listan _applicationGatewayBackendAddressPools_ i avsnittet _ipConfigurations_ i nätverks profilen för skalnings uppsättningen.
 
-## <a name="scale"></a>Skalning
+## <a name="scale"></a>Skala
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>I vilka fall skulle jag skapa en VM-skalningsuppsättning med färre än två virtuella datorer?
 
@@ -630,11 +630,11 @@ Ja, kan du flytta scale Sets resurser till en ny prenumeration eller resursgrupp
 
 ### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>Hur du uppdaterar jag min skalningsuppsättning virtuell dator till en ny avbildning? Hur hanterar jag korrigeringar?
 
-Uppdatera din VM-skalningsuppsättning till en ny avbildning och hantera uppdateringar finns i [uppgradera en VM-skalningsuppsättning](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
+Om du vill uppdatera skalnings uppsättningen för den virtuella datorn till en ny avbildning och hantera korrigering, se [uppgradera en skalnings uppsättning för virtuella datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
 
 ### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Kan jag använda avbildningsåterställningsåtgärden för att återställa en virtuell dator utan att ändra bilden? (Det vill säga jag vill återställa en virtuell dator till fabriksinställningarna i stället för en ny avbildning.)
 
-Ja, du kan använda avbildningsåterställningsåtgärden för att återställa en virtuell dator utan att ändra bilden. Men om din VM-skalningsuppsättningen refererar till en plattformsavbildning med `version = latest`, den virtuella datorn kan uppdatera till en senare OS-avbildning när du anropar `reimage`.
+Ja, du kan använda avbildningsåterställningsåtgärden för att återställa en virtuell dator utan att ändra bilden. Men om den virtuella datorns skalnings uppsättning refererar till en plattforms avbildning med `version = latest`, kan den virtuella datorn uppdateras till en senare OS-avbildning när du anropar `reimage`.
 
 ### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Är det möjligt att integrera skalnings uppsättningar med Azure Monitor loggar?
 
@@ -645,15 +645,15 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 Du hittar den nödvändiga workspaceId och workspaceKey i Log Analytics-arbetsyta för Azure-portalen. Klicka på panelen inställningar på sidan Översikt. Klicka på fliken anslutna källor högst upp.
 
 > [!NOTE]
-> Om din skalnings uppsättnings _upgradePolicy_ är inställd på manuell, måste du tillämpa tillägget på alla virtuella datorer i uppsättningen genom att anropa uppgraderingen på dem. Detta kan vara i CLI _az vmss update-instances_.
+> Om din skalnings uppsättnings _upgradePolicy_ är inställd på manuell, måste du tillämpa tillägget på alla virtuella datorer i uppsättningen genom att anropa uppgraderingen på dem. I CLI är detta _AZ VMSS Update-instances_.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>Hur aktiverar jag startdiagnostik?
 
-Skapa först ett lagringskonto om du vill aktivera startdiagnostik. Placera sedan det här JSON-blocket i virtual machine scale Sets **virtualMachineProfile**, och uppdatera virtuella datorns skalningsuppsättning:
+Skapa först ett lagringskonto om du vill aktivera startdiagnostik. Lägg sedan till det här JSON-blocket i den virtuella datorns skalnings uppsättning **virtualMachineProfile**och uppdatera skalnings uppsättningen för den virtuella datorn:
 
 ```json
 "diagnosticsProfile": {
@@ -677,28 +677,28 @@ När en ny virtuell dator skapas, visar InstanceView-egenskapen för den virtuel
 
 ### <a name="how-do-i-get-property-information-for-each-vm-without-making-multiple-calls-for-example-how-would-i-get-the-fault-domain-for-each-of-the-100-vms-in-my-virtual-machine-scale-set"></a>Hur får jag information om egenskaper för varje virtuell dator utan att göra flera anrop? Till exempel hur kan jag feldomänen för var och en av de 100 virtuella datorerna i min skalningsuppsättning för virtuella datorer?
 
-Om du vill ha information om egenskaper för varje virtuell dator utan att göra flera anrop, kan du anropa `ListVMInstanceViews` genom att göra ett REST-API `GET` på följande resurs-URI:
+Om du vill hämta egenskaps information för varje virtuell dator utan att göra flera anrop kan du anropa `ListVMInstanceViews` genom att göra en REST API `GET` på följande resurs-URI:
 
 /subscriptions/ < subscription_id > /resourceGroups/ < resource_group_name > /providers/Microsoft.Compute/virtualMachineScaleSets/ < scaleset_name > / virtualMachines? $expand = instanceView & $select = instanceView
 
 ### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>Kan jag överföra annat tillägg argument till olika virtuella datorer i en skalningsuppsättning för virtuell dator?
 
-Nej, du kan inte skicka annat tillägg argument till olika virtuella datorer i en skalningsuppsättning för virtuell dator. Tillägg kan dock fungera baserat på unika egenskaper för den virtuella datorn som de körs på, till exempel som på namnet på datorn. Tillägg också kan fråga instans metadata på http://169.254.169.254 vill ha mer information om den virtuella datorn.
+Nej, du kan inte skicka annat tillägg argument till olika virtuella datorer i en skalningsuppsättning för virtuell dator. Tillägg kan dock fungera baserat på unika egenskaper för den virtuella datorn som de körs på, till exempel som på namnet på datorn. Tillägg kan också fråga efter instansen metadata på http://169.254.169.254 för att få mer information om den virtuella datorn.
 
 ### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Varför finns det glapp mellan Mina VM scale set VM datornamn och VM-ID: N? Till exempel: 0, 1, 3...
 
-Det finns glapp mellan dina VM scale set VM datornamn och VM-ID: N eftersom din VM-skalningsuppsättningen **overprovision** egenskapen är inställd på standardvärdet **SANT**. Om överetablering anges till **SANT**, fler virtuella datorer än vad som begärts skapas. Extra virtuella datorerna tas sedan bort. I detta fall använder du få ökad distributionstillförlitlighet, men på bekostnad av sammanhängande namngivning och sammanhängande Network adress Translation (NAT) regler.
+Det finns luckor mellan den virtuella datorns skalnings uppsättnings dator namn och VM-ID: t eftersom **egenskapen för** skalnings uppsättningen för den virtuella datorn har angetts till standardvärdet **True**. Om överetablering har angetts till **Sant**skapas fler virtuella datorer än vad som begärs. Extra virtuella datorerna tas sedan bort. I detta fall använder du få ökad distributionstillförlitlighet, men på bekostnad av sammanhängande namngivning och sammanhängande Network adress Translation (NAT) regler.
 
-Du kan ange egenskapen **FALSKT**. För små VM scale sets påverkar detta avsevärt inte distributionstillförlitlighet.
+Du kan ställa in den här egenskapen på **false**. För små VM scale sets påverkar detta avsevärt inte distributionstillförlitlighet.
 
 ### <a name="what-is-the-difference-between-deleting-a-vm-in-a-virtual-machine-scale-set-and-deallocating-the-vm-when-should-i-choose-one-over-the-other"></a>Vad är skillnaden mellan tar bort en virtuell dator i en skalningsuppsättning för virtuell dator och frigörs den virtuella datorn? När ska jag välja ett av alternativen?
 
-Den största skillnaden mellan tar bort en virtuell dator i en skalningsuppsättning för virtuell dator och frigörs den virtuella datorn är att `deallocate` tas inte bort de virtuella hårddiskarna (VHD). Det finns lagringskostnader som är associerade med körs `stop deallocate`. Du kan använda en av för någon av följande orsaker:
+Den största skillnaden mellan att ta bort en virtuell dator i en skalnings uppsättning för virtuella datorer och att ta bort den virtuella datorn är att `deallocate` inte tar bort de virtuella hård diskarna (VHD). Det finns lagrings kostnader som är kopplade till att köra `stop deallocate`. Du kan använda en av för någon av följande orsaker:
 
 - Vill du avbryta betala beräkningskostnaderna, men du vill behålla diskstatusen för de virtuella datorerna.
 - Du vill starta en uppsättning virtuella datorer snabbare än du kan skala ut en skalningsuppsättning för virtuell dator.
   - Relaterat till det här scenariot, kan du ha skapat en egen motor för automatisk skalning och vill en snabbare slutpunkt till slutpunkt-skala.
-- Du har en skalningsuppsättning för virtuella datorer som är ojämnt fördelade mellan feldomäner och uppdateringsdomäner. Det kan vara eftersom du selektivt ta bort virtuella datorer eller virtuella datorer har tagits bort efter överetablering. Kör `stop deallocate` följt av `start` på den virtuella datorn skaluppsättningen jämnt distribuerar de virtuella datorerna mellan feldomäner och uppdateringsdomäner.
+- Du har en skalningsuppsättning för virtuella datorer som är ojämnt fördelade mellan feldomäner och uppdateringsdomäner. Det kan vara eftersom du selektivt ta bort virtuella datorer eller virtuella datorer har tagits bort efter överetablering. Om du kör `stop deallocate` följt av `start` på den virtuella datorns skalnings uppsättning distribuerar de virtuella datorerna jämnt över fel domäner eller uppdaterings domäner.
 
 ### <a name="how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance"></a>Hur gör jag för att ta en ögonblicks bild av en instans av en skalnings uppsättning för virtuella datorer?
 Skapa en ögonblicks bild från en instans av en skalnings uppsättning för virtuella datorer.

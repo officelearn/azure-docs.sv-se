@@ -4,11 +4,11 @@ description: Fånga undantag från ASP.NET-appar tillsammans med telemetri för 
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.openlocfilehash: 24b7acfa6610c2040daf0f7d8d25f25391140303
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666164"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375065"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostisera undantag i dina webbappar med Application Insights
 Undantag i din Live-webbapp rapporteras av [Application Insights](../../azure-monitor/app/app-insights-overview.md). Du kan korrelera misslyckade förfrågningar med undantag och andra händelser på både klienten och servern, så att du snabbt kan diagnostisera orsakerna.
@@ -197,7 +197,7 @@ Men om du har aktiva omdirigeringar lägger du till följande rader i Applicatio
 ## <a name="mvc"></a>MVC
 Från och med Application Insights Web SDK version 2,6 (beta3 och senare), samlar Application Insights ut ohanterade undantag som har utlösts i metoderna MVC 5 + controllers automatiskt. Om du tidigare har lagt till en anpassad hanterare för att spåra sådana undantag (enligt beskrivningen i följande exempel) kan du ta bort den för att förhindra dubbel spårning av undantag.
 
-Det finns ett antal fall som undantags filtren inte kan hantera. Några exempel:
+Det finns ett antal fall som undantags filtren inte kan hantera. Exempel:
 
 * Undantag som har utlösts av styrenhets konstruktörer.
 * Undantag som har utlösts av meddelande hanterare.
@@ -289,7 +289,7 @@ Registrera AiHandleErrorAttribute som ett globalt filter i FilterConfig.cs:
 ## <a name="web-api"></a>Webb-API
 Från och med Application Insights Web SDK version 2,6 (beta3 och senare) samlar Application Insights ut ohanterade undantag som har utlösts i styrenhets metoderna automatiskt för WebAPI 2 +. Om du tidigare har lagt till en anpassad hanterare för att spåra sådana undantag (enligt beskrivningen i följande exempel) kan du ta bort den för att förhindra dubbel spårning av undantag.
 
-Det finns ett antal fall som undantags filtren inte kan hantera. Några exempel:
+Det finns ett antal fall som undantags filtren inte kan hantera. Exempel:
 
 * Undantag som har utlösts av styrenhets konstruktörer.
 * Undantag som har utlösts av meddelande hanterare.

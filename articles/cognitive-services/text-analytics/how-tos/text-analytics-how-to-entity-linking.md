@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: aahi
 ms.openlocfilehash: 0622aca5579c64c6d840761abb151665af559eea
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367649"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899488"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Använda namngiven enhets igenkänning i Textanalys
 
@@ -47,7 +47,7 @@ API för textanalys erbjuder två versioner av namngiven enhets igenkänning –
 Mer information finns i [språk stöd](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) .
 
 
-#### <a name="version-30-previewtabversion-3"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
 
 ### <a name="entity-types"></a>Entitetstyper
 
@@ -74,7 +74,7 @@ Länkning av entitet
 
 [!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
-#### <a name="version-21tabversion-2"></a>[Version 2,1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2,1](#tab/version-2)
 
 ### <a name="entity-types"></a>Entitetstyper
 
@@ -130,7 +130,7 @@ Skapa en POST-begäran. Du kan [använda Postman](text-analytics-how-to-call-api
 > [!NOTE]
 > Du kan hitta din nyckel och slut punkt för din Textanalys-resurs på Azure-portalen. De kommer att finnas på resursens **snabb start** sida under **resurs hantering**. 
 
-#### <a name="version-30-previewtabversion-3"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
 
 [Referens för namngiven enhets igenkänning v3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
 
@@ -144,7 +144,7 @@ NER
 Länkning av entitet
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
 
-#### <a name="version-21tabversion-2"></a>[Version 2,1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2,1](#tab/version-2)
 
 [Referens för namngiven enhets igenkänning (NER) v2](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
@@ -185,7 +185,7 @@ Alla POST-förfrågningar returnerar ett JSON-formaterat svar med ID och identif
 Utdata returneras direkt. Du kan strömma resultaten till ett program som stöder JSON eller spara utdata till en fil på den lokala datorn och sedan importera den till ett program som gör så att du kan sortera, söka och hantera data.
 
 
-#### <a name="version-30-previewtabversion-3"></a>[Version 3,0 – för hands version)](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3,0 – för hands version)](#tab/version-3)
 
 ### <a name="example-v3-responses"></a>Exempel på v3-svar
 
@@ -242,7 +242,7 @@ Version 3 innehåller separata slut punkter för NER-och enhets länkning. Svare
 }
 ```
 
-#### <a name="version-21tabversion-2"></a>[Version 2,1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2,1](#tab/version-2)
 
 ### <a name="example-ner-v2-response"></a>Exempel på NER v2-svar
 ```json

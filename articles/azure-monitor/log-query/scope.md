@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2019
 ms.openlocfilehash: 897eff62fcbab5996b6b9493bd825ae412aa4c3e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77660317"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358296"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Logg frågans omfång och tidsintervall i Azure Monitor Log Analytics
 När du kör en [logg fråga](log-query-overview.md) i [Log Analytics i Azure Portal](get-started-portal.md), beror den uppsättning data som utvärderas av frågan på omfattningen och tidsintervallet som du väljer. I den här artikeln beskrivs omfattning och tidsintervall och hur du kan ställa in dem beroende på dina behov. Det beskriver också beteendet för olika typer av omfång.

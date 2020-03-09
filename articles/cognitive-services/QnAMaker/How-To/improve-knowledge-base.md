@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/27/2020
 ms.author: diberry
 ms.openlocfilehash: dea2bf3b34ca336f3932dd85bf587184ab6881db
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77915001"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389397"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Använda aktiv inlärning för att förbättra kunskapsbasen
 
@@ -361,7 +361,7 @@ Kolumnen `SuggestedQuestions` är ett JSON-objekt med information om implicit, `
 ```
 
 Du kan också använda nedladdnings-API: et för att granska dessa ändringar, med hjälp av REST eller någon av de språkbaserade SDK: erna:
-* [REST-API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
+* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
 * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
 
 

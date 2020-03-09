@@ -12,11 +12,11 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e668f44bbc3d2e381edeb80c568a41355584a4ee
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924183"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387536"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Flytta data från en HTTP-källa med hjälp av Azure Data Factory
 
@@ -38,7 +38,7 @@ Du kan använda den här HTTP-anslutningen för att hämta data från *både ett
 
 När du kopierar data från en lokal HTTP-slutpunkt måste du installera Data Management Gateway i den lokala miljön eller i en virtuell Azure-dator. Mer information om Data Management Gateway och stegvisa anvisningar om hur du konfigurerar gatewayen finns i [Flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md).
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 Du kan skapa en pipeline med en kopierings aktivitet för att flytta data från en HTTP-källa med hjälp av olika verktyg eller API: er:
 
@@ -96,7 +96,7 @@ Om du vill använda grundläggande autentisering anger du **authenticationType**
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | embeddedCertData | Det Base64-kodade innehållet i binära data i PFX-filen. | Ange antingen **embeddedCertData** eller **certThumbprint** |
-| CertThumbprint | Tumavtrycket för det certifikat som har installerats på din gateway-dators certifikat arkiv. Gäller endast när du kopierar data från en lokal HTTP-källa. | Ange antingen **embeddedCertData** eller **certThumbprint** |
+| certThumbprint | Tumavtrycket för det certifikat som har installerats på din gateway-dators certifikat arkiv. Gäller endast när du kopierar data från en lokal HTTP-källa. | Ange antingen **embeddedCertData** eller **certThumbprint** |
 | lösenord | Lösen ordet som är associerat med certifikatet. | Nej |
 
 Om du använder **certThumbprint** för autentisering och certifikatet är installerat i det personliga arkivet på den lokala datorn ger du Läs behörighet till Gateway-tjänsten:
@@ -163,7 +163,7 @@ Avsnittet **typeProperties** är olika för varje typ av data uppsättning. Avsn
 | relativeUrl | En relativ URL till den resurs som innehåller data. När sökvägen inte anges används bara den URL som anges i den länkade tjänst definitionen. <br><br> Om du vill skapa en dynamisk URL kan du använda [Data Factory funktioner och systemvariabler](data-factory-functions-variables.md). Exempel: **relativeUrl**: **$ $text. format ('/My/Report? month = {0: åååå}-{0: mm} & fmt = CSV ', SliceStart)** . | Nej |
 | requestMethod | HTTP-metoden. Tillåtna värden är **Get** och **post**. | Nej <br />(standard är **Get**) |
 | additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
-| requestBody | Bröd texten för HTTP-begäran. | Nej |
+| RequestBody | Bröd texten för HTTP-begäran. | Nej |
 | format | Om du vill *Hämta data från en http-slutpunkt som-är* utan att parsa den, hoppar du över **format** inställningen. <br><br> Om du vill parsa innehållet i HTTP-svar under kopieringen, stöds följande format **typer: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**och **ParquetFormat**. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet-format](data-factory-supported-file-and-compression-formats.md#parquet-format). |Nej |
 | compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. Nivåer som stöds: **optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 

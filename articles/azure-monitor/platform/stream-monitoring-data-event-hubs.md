@@ -8,11 +8,11 @@ ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: b22f779d616751ebaa3dad853d5aa23ec4969f23
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77658871"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381184"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Strömma Azure övervaknings data till en Event Hub
 Azure Monitor ger en fullständig lösning för stack övervakning för program och tjänster i Azure, i andra moln och lokalt. Förutom att använda Azure Monitor för att analysera data och använda dem för olika övervaknings scenarier, kan du behöva skicka dem till andra övervaknings verktyg i din miljö. Den mest effektiva metoden att strömma övervaknings data till externa verktyg i de flesta fall är att använda [Azure Event Hubs](/azure/event-hubs/). Den här artikeln innehåller en kort beskrivning av hur du kan strömma övervaknings data från olika källor till en Event Hub och länkar till detaljerad vägledning.

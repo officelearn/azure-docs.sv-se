@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 01/23/2020
 ms.custom: mvc
 ms.openlocfilehash: e4c505d74ff3bebc21f696b1c4b894afcdaa9974
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845509"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388945"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Utvärdera virtuella Hyper-V-datorer med Azure Migrate Server-utvärdering
 
@@ -19,7 +19,7 @@ Den här artikeln visar hur du kan utvärdera lokala virtuella Hyper-V-datorer m
 
 
 
-Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella Hyper-V-datorer till Azure. I den här guiden får du lära dig hur man:
+Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella Hyper-V-datorer till Azure. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
@@ -34,7 +34,7 @@ Den här självstudien är den andra i en serie som visar hur du bedömer och mi
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Slutför](tutorial-prepare-hyper-v.md) den första självstudien i den här serien. Om du inte gör det fungerar inte instruktionerna i den här självstudien.
 - Det här är vad du behöver göra i den första självstudien:
@@ -187,7 +187,7 @@ Om du kör virtuella hård diskar på SMB: er måste du aktivera delegering av a
 
 Aktivera på enheten enligt följande:
 
-#### <a name="option-1"></a>Alternativ 1
+#### <a name="option-1"></a>alternativ 1
 
 Kör det här kommandot på den virtuella datorn. HyperVHost1/HyperVHost2 är exempel värd namn.
 
@@ -212,7 +212,7 @@ Anslut från enheten till Hyper-V-värdar eller-kluster och starta VM-identifier
 
 1. I **användar namn** och **lösen ord**anger du de kontoautentiseringsuppgifter som installationen ska använda för att identifiera virtuella datorer. Ange ett eget namn för autentiseringsuppgifterna och klicka på **Spara information**.
 2. Klicka på **Lägg till värd**och ange information om Hyper-V-värd/kluster.
-3. Klicka på **validera**. Efter verifieringen visas antalet virtuella datorer som kan identifieras på varje värd/kluster.
+3. Klicka på **Validate** (Validera). Efter verifieringen visas antalet virtuella datorer som kan identifieras på varje värd/kluster.
     - Om verifieringen Miss lyckas för en värd granskar du felet genom att hovra över ikonen i kolumnen **status** . Åtgärda problem och verifiera igen.
     - Om du vill ta bort värdar eller kluster väljer du > **ta bort**.
     - Du kan inte ta bort en speciell värd från ett kluster. Du kan bara ta bort hela klustret.
@@ -333,7 +333,7 @@ Tillförlitlighets klassificeringar för en utvärdering är följande.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här kursen har du:
+I den här kursen får du:
 
 > [!div class="checklist"]
 > * Konfigurera en Azure Migrate-apparat

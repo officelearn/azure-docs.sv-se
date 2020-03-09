@@ -17,11 +17,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e1f3755d61b5fa082665cfdb9aa91d1e31e2d4e4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014470"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376380"
 ---
 # <a name="azure-active-directory-risk-detections"></a>Azure Active Directory risk identifieringar
 
@@ -69,7 +69,7 @@ Microsofts kontinuerliga investeringar i identifierings processen leder till:
 
 När cyberbrottslingar kompromettera giltiga lösen ord för legitima användare delar de ofta dessa autentiseringsuppgifter. Detta görs vanligt vis genom att publicera dem offentligt på de mörka webb-eller Inklistrings platserna eller genom handel eller sälja de autentiseringsuppgifter som finns på den svarta marknaden. Tjänsten Microsoft läcker autentiseringsuppgifter hämtar användar namn/lösen ord genom att övervaka offentliga och mörka webbplatser och genom att arbeta med:
 
-- Forskare
+- Forskar
 - Juridisk tillämpning
 - Säkerhets team på Microsoft
 - Andra betrodda källor 

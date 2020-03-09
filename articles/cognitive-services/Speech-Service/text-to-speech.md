@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: erhopf
 ms.openlocfilehash: d076d2520bda4d6209fbdd991df57c4eedaa3938
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379886"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394800"
 ---
 # <a name="what-is-text-to-speech"></a>Vad är text-till-tal?
 
@@ -37,7 +37,7 @@ Text till tal från tal-tjänsten gör det möjligt för program, verktyg eller 
 
 * SSML (Speech syntes Markup Language) – ett XML-baserat kodspråk som används för att anpassa tal till text-utdata. Med SSML kan du justera bredden, lägga till pauser, förbättra uttal, påskynda eller sakta ned tal frekvens, öka eller minska volymen och attributa flera röster till ett enda dokument. Se [SSML](speech-synthesis-markup.md).
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 Tjänsten för text till tal är tillgänglig via [tal-SDK: n](speech-sdk.md). Det finns flera vanliga scenarier som snabb starter på olika språk och plattformar:
 
@@ -72,7 +72,7 @@ Detaljerad information finns i [prissättning](https://azure.microsoft.com/prici
 > [!IMPORTANT]
 > Varje kinesiskt, japanskt och Koreanskt språk tecken räknas som två tecken för fakturering.
 
-## <a name="reference-docs"></a>Referensdokument
+## <a name="reference-docs"></a>Referens dokument
 
 - [Speech SDK](speech-sdk.md)
 - [REST API: text till tal](rest-text-to-speech.md)

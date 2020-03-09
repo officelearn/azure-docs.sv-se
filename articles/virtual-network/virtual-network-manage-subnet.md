@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
 ms.openlocfilehash: de80094c3fd2df7d2f8b32d1e968e9bebea847a1
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064350"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357842"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Lägga till, ändra eller ta bort ett virtuellt nätverks under nät
 

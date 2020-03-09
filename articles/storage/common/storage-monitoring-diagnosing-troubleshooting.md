@@ -9,11 +9,11 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 3d5f3ade3ef3b79ddb3996b5bf2d609b11aff8a5
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748572"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357907"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -59,20 +59,20 @@ En praktisk guide till fel sökning från slut punkt till slut punkt i Azure Sto
   * [Klienten får HTTP 403-meddelanden (Förbjudet)]
   * [Klienten får HTTP 404-meddelanden (Hittades inte)]
   * [Klienten får HTTP 409-meddelanden (Konflikt)]
-  * [Mätvärdena visar låg PercentSuccess eller analytics loggposter innehålla åtgärder med transaktionsstatus för ClientOtherErrors]
-  * [Kapacitetsdata visar en oväntad ökning i kapacitetsförbrukning för lagring]
-  * [Problemet uppstår från med hjälp av storage-emulatorn för utveckling eller testning]
-  * [Det uppstår problem med att installera Azure SDK för .NET]
-  * [Du har ett annat problem med en storage-tjänst]
+  * [Mått visar poster med låg PercentSuccess eller Analytics-logg har åtgärder med transaktions status ClientOtherErrors]
+  * [Kapacitets mått visar en oväntad ökning av lagrings kapacitets användningen]
+  * [Ditt problem uppstår när du använder Storage-emulatorn för utveckling eller testning]
+  * [Du påträffar problem med att installera Azure SDK för .NET]
+  * [Du har ett annat problem med en lagrings tjänst]
   * [Felsöka virtuella hård diskar på virtuella Windows-datorer](../../virtual-machines/windows/troubleshoot-vhds.md)   
   * [Felsöka virtuella hård diskar på virtuella Linux-datorer](../../virtual-machines/linux/troubleshoot-vhds.md)
   * [Felsöka Azure Files problem med Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
   * [Felsöka Azure Files problem med Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [Tilläggen]
-  * [Bilaga 1: Med Fiddler att samla in HTTP och HTTPS-trafik]
-  * [Bilaga 2: Använder Wireshark för att avbilda nätverkstrafik]
-  * [Tillägg 3: Använda Microsoft Message Analyzer för att avbilda nätverkstrafik]
-  * [Tillägg 4: Använda Excel för att visa mått och logga data]
+  * [Bilaga 1: använda Fiddler för att avbilda HTTP-och HTTPS-trafik]
+  * [Bilaga 2: använda wireshark för att avbilda nätverks trafik]
+  * [Bilaga 3: använda Microsoft Message Analyzer för att avbilda nätverks trafik]
+  * [Bilaga 4: använda Excel för att visa mått och logg data]
   * [Bilaga 5: övervakning med Application Insights för Azure-DevOps]
 
 ## <a name="introduction"></a>Introduktion
@@ -106,7 +106,7 @@ Vi rekommenderar att du läser [Azure Monitor för lagring](../../azure-monitor/
 
 Lagrings tjänsten samlar in mått med bästa möjliga ansträngning, men kanske inte spelar in varje lagrings åtgärd.
 
-I Azure Portal kan du visa mått som tillgänglighet, totalt antal förfrågningar och Genomsnittlig latens nummer för ett lagrings konto. En meddelande regel har också ställts in för att varna en administratör om tillgänglighet sjunker under en viss nivå. Vid visning av dessa data är ett möjligt område för undersökning att den procent andel av tabell tjänster som fungerar är under 100% (mer information finns i avsnittet "[Mätvärdena visar låg PercentSuccess eller analytics loggposter innehålla åtgärder med transaktionsstatus för ClientOtherErrors]").
+I Azure Portal kan du visa mått som tillgänglighet, totalt antal förfrågningar och Genomsnittlig latens nummer för ett lagrings konto. En meddelande regel har också ställts in för att varna en administratör om tillgänglighet sjunker under en viss nivå. Vid visning av dessa data är ett möjligt område för undersökning att den procent andel av tabell tjänster som fungerar är under 100% (mer information finns i avsnittet "[Mått visar poster med låg PercentSuccess eller Analytics-logg har åtgärder med transaktions status ClientOtherErrors]").
 
 Du bör kontinuerligt övervaka dina Azure-program för att säkerställa att de är felfria och fungerar som förväntat av:
 
@@ -326,22 +326,22 @@ I det här avsnittet får du hjälp med diagnos och fel sökning av några vanli
 * [Klienten får HTTP 409-meddelanden (Konflikt)]
 
 ---
-[Mätvärdena visar låg PercentSuccess eller analytics loggposter innehålla åtgärder med transaktionsstatus för ClientOtherErrors]
+[Mått visar poster med låg PercentSuccess eller Analytics-logg har åtgärder med transaktions status ClientOtherErrors]
 
 ---
-[Kapacitetsdata visar en oväntad ökning i kapacitetsförbrukning för lagring]
+[Kapacitets mått visar en oväntad ökning av lagrings kapacitets användningen]
 
 ---
 [Det uppstår oväntade omstarter av Virtual Machines som har ett stort antal anslutna virtuella hård diskar]
 
 ---
-[Problemet uppstår från med hjälp av storage-emulatorn för utveckling eller testning]
+[Ditt problem uppstår när du använder Storage-emulatorn för utveckling eller testning]
 
 ---
-[Det uppstår problem med att installera Azure SDK för .NET]
+[Du påträffar problem med att installera Azure SDK för .NET]
 
 ---
-[Du har ett annat problem med en storage-tjänst]
+[Du har ett annat problem med en lagrings tjänst]
 
 ---
 ### <a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Mått visar hög AverageE2ELatency och låg AverageServerLatency
@@ -374,9 +374,9 @@ Du bör kontrol lera loggarna på klient sidan för att se hur många förfrågn
 #### <a name="investigating-network-latency-issues"></a>Undersöka problem med nätverks fördröjning
 Normalt orsakas svars tids fördröjning som orsakas av nätverket av tillfälliga förhållanden. Du kan undersöka både tillfälliga och bestående nätverks problem som tappade paket med hjälp av verktyg som Wireshark eller Microsoft Message Analyzer.
 
-Mer information om hur du använder wireshark för att felsöka nätverks problem finns i "[Bilaga 2: Använder Wireshark för att avbilda nätverkstrafik]".
+Mer information om hur du använder wireshark för att felsöka nätverks problem finns i "[Bilaga 2: använda wireshark för att avbilda nätverks trafik]".
 
-Mer information om hur du använder Microsoft Message Analyzer för att felsöka nätverks problem finns i "[Tillägg 3: Använda Microsoft Message Analyzer för att avbilda nätverkstrafik]".
+Mer information om hur du använder Microsoft Message Analyzer för att felsöka nätverks problem finns i "[Bilaga 3: använda Microsoft Message Analyzer för att avbilda nätverks trafik]".
 
 ### <a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>Mått visar låg AverageE2ELatency och AverageServerLatency men klienten har hög latens
 I det här scenariot är den mest sannolika orsaken en fördröjning i lagrings begär Anden som når lagrings tjänsten. Du bör undersöka varför förfrågningar från klienten inte görs till Blob-tjänsten.
@@ -391,9 +391,9 @@ Kontrol lera också om klienten utför flera återförsök och undersök orsaken
 
 Om det inte finns några problem i klienten bör du undersöka eventuella nätverks problem, till exempel paket förlust. Du kan använda verktyg som Wireshark eller Microsoft Message Analyzer för att undersöka nätverks problem.
 
-Mer information om hur du använder wireshark för att felsöka nätverks problem finns i "[Bilaga 2: Använder Wireshark för att avbilda nätverkstrafik]".
+Mer information om hur du använder wireshark för att felsöka nätverks problem finns i "[Bilaga 2: använda wireshark för att avbilda nätverks trafik]".
 
-Mer information om hur du använder Microsoft Message Analyzer för att felsöka nätverks problem finns i "[Tillägg 3: Använda Microsoft Message Analyzer för att avbilda nätverkstrafik]".
+Mer information om hur du använder Microsoft Message Analyzer för att felsöka nätverks problem finns i "[Bilaga 3: använda Microsoft Message Analyzer för att avbilda nätverks trafik]".
 
 ### <a name="metrics-show-high-AverageServerLatency"></a>Mått visar hög AverageServerLatency
 Om det finns hög **AverageServerLatency** för att hämta BLOB-begäranden bör du använda lagrings loggnings loggarna för att se om det finns upprepade begär Anden för samma BLOB (eller uppsättning blobbar). För BLOB-uppladdnings begär Anden bör du undersöka vilken block storlek som klienten använder (till exempel om block som är mindre än 64 K i storlek kan resultera i omkostnader om inte läsningarna också är mindre än 64 KB) och om flera klienter laddar upp block till samma BLOB i stycke llel. Du bör också kontrol lera mätningarna per minut för toppar i antalet begär Anden som leder till att skalbarhets målen för varje sekund överskrids: Mer information finns i avsnittet "[Mätningar visar en ökning i PercentTimeoutError]. "
@@ -468,7 +468,7 @@ Den vanligaste orsaken till det här felet är att klienten kopplar från innan 
 ### <a name="the-client-is-receiving-403-messages"></a>Klienten får HTTP 403 (ej tillåtet) meddelanden
 Om klientprogrammet utfärdar HTTP 403-fel (förbjudet) beror det förmodligen på att klienten använder en SAS (signatur för delad åtkomst) som har upphört att gälla när den skickar förfrågningar om lagring (även om det finns andra orsaker, som klockförskjutning, ogiltiga nycklar eller tomma rubriker). Om orsaken är en SAS-nyckel som har upphört att gälla visas inte några poster i Storage Logging-loggdata på serversidan. I följande tabell visas ett exempel från loggen på klient sidan som genereras av lagrings klient biblioteket som illustrerar det här problemet:
 
-| Källa | Utförlighet | Utförlighet | ID för klientförfrågan | Åtgärds text |
+| Källa | Utförlighets | Utförlighets | ID för klientförfrågan | Åtgärds text |
 | --- | --- | --- | --- | --- |
 | Microsoft.Azure.Storage |Information |3 |85d077ab-... |Startar åtgärden med plats primärt per plats läge PrimaryOnly. |
 | Microsoft.Azure.Storage |Information |3 |85d077ab-... |Startar synkron begäran till <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
@@ -568,10 +568,10 @@ I följande tabell visas ett exempel på Server sidans logg meddelande från log
 | Åtgärds typ     | GetBlobProperties            |
 | Status för begäran     | SASAuthorizationError        |
 | HTTP-statuskod   | 404                          |
-| Autentiseringstyp| Sas                          |
+| Autentiseringstyp| Säkerhets                          |
 | Typ av tjänst       | Blob                         |
 | URL för begäran        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| &nbsp;                 |   ? sa = 2014-02-14 & SR = c & si = policy & sig = XXXXX&;API-version = 2014-02-14 |
 | Rubrik för begäran-ID  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID för klientförfrågan  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -700,11 +700,11 @@ Om de föregående fel söknings avsnitten inte innehåller det problem du har m
 * Du kan använda mått informationen för att söka i logg data på Server sidan för mer detaljerad information om eventuella fel som inträffar. Den här informationen kan hjälpa dig att felsöka och lösa problemet.
 * Om informationen i loggar på Server sidan inte räcker för att felsöka problemet, kan du använda klient bibliotekets loggar på klient sidan för att undersöka klient programmets beteende och verktyg som Fiddler, wireshark och Microsoft Analys av meddelanden för att undersöka nätverket.
 
-Mer information om hur du använder Fiddler finns i "[Bilaga 1: Med Fiddler att samla in HTTP och HTTPS-trafik]".
+Mer information om hur du använder Fiddler finns i "[Bilaga 1: använda Fiddler för att avbilda HTTP-och HTTPS-trafik]".
 
-Mer information om hur du använder wireshark finns i "[Bilaga 2: Använder Wireshark för att avbilda nätverkstrafik]".
+Mer information om hur du använder wireshark finns i "[Bilaga 2: använda wireshark för att avbilda nätverks trafik]".
 
-Mer information om hur du använder Microsoft Message Analyzer finns i[Tillägg 3: Använda Microsoft Message Analyzer för att avbilda nätverkstrafik]. "
+Mer information om hur du använder Microsoft Message Analyzer finns i[Bilaga 3: använda Microsoft Message Analyzer för att avbilda nätverks trafik]. "
 
 ## <a name="appendices"></a>Tilläggen
 Tilläggen beskriver flera verktyg som kan vara användbara när du diagnostiserar och felsöker problem med Azure Storage (och andra tjänster). Dessa verktyg ingår inte i Azure Storage och vissa är produkter från tredje part. De verktyg som beskrivs i dessa tillägg omfattas inte av något support avtal som du kan ha med Microsoft Azure eller Azure Storage, och därför bör du undersöka de licensierings-och support alternativ som finns tillgängliga från leverantörer av dessa verktyg.
@@ -864,20 +864,20 @@ Mer information om analyser i Azure Storage finns i följande resurser:
 [Nätverksfel]: #network-failure
 [Klienten får HTTP 409-meddelanden (Konflikt)]: #the-client-is-receiving-409-messages
 
-[Mätvärdena visar låg PercentSuccess eller analytics loggposter innehålla åtgärder med transaktionsstatus för ClientOtherErrors]: #metrics-show-low-percent-success
-[Kapacitetsdata visar en oväntad ökning i kapacitetsförbrukning för lagring]: #capacity-metrics-show-an-unexpected-increase
-[Problemet uppstår från med hjälp av storage-emulatorn för utveckling eller testning]: #your-issue-arises-from-using-the-storage-emulator
+[Mått visar poster med låg PercentSuccess eller Analytics-logg har åtgärder med transaktions status ClientOtherErrors]: #metrics-show-low-percent-success
+[Kapacitets mått visar en oväntad ökning av lagrings kapacitets användningen]: #capacity-metrics-show-an-unexpected-increase
+[Ditt problem uppstår när du använder Storage-emulatorn för utveckling eller testning]: #your-issue-arises-from-using-the-storage-emulator
 [Funktionen "X" fungerar inte i Storage-emulatorn]: #feature-X-is-not-working
 [Fel: värdet för ett av HTTP-huvudena har inte rätt format "när du använder Storage-emulatorn]: #error-HTTP-header-not-correct-format
 [Du måste ha administratörs behörighet för att köra Storage-emulatorn]: #storage-emulator-requires-administrative-privileges
-[Det uppstår problem med att installera Azure SDK för .NET]: #you-are-encountering-problems-installing-the-Windows-Azure-SDK
-[Du har ett annat problem med en storage-tjänst]: #you-have-a-different-issue-with-a-storage-service
+[Du påträffar problem med att installera Azure SDK för .NET]: #you-are-encountering-problems-installing-the-Windows-Azure-SDK
+[Du har ett annat problem med en lagrings tjänst]: #you-have-a-different-issue-with-a-storage-service
 
 [Tilläggen]: #appendices
-[Bilaga 1: Med Fiddler att samla in HTTP och HTTPS-trafik]: #appendix-1
-[Bilaga 2: Använder Wireshark för att avbilda nätverkstrafik]: #appendix-2
-[Tillägg 3: Använda Microsoft Message Analyzer för att avbilda nätverkstrafik]: #appendix-3
-[Tillägg 4: Använda Excel för att visa mått och logga data]: #appendix-4
+[Bilaga 1: använda Fiddler för att avbilda HTTP-och HTTPS-trafik]: #appendix-1
+[Bilaga 2: använda wireshark för att avbilda nätverks trafik]: #appendix-2
+[Bilaga 3: använda Microsoft Message Analyzer för att avbilda nätverks trafik]: #appendix-3
+[Bilaga 4: använda Excel för att visa mått och logg data]: #appendix-4
 [Bilaga 5: övervakning med Application Insights för Azure-DevOps]: #appendix-5
 
 <!--Image references-->

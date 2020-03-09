@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
 ms.openlocfilehash: dd4444bf42bcc8dda95f8fa37b42a365538efa85
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482865"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362470"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Skapa en Cognitive Services resurs med hjälp av Azure Portal
 
@@ -23,7 +23,7 @@ Använd den här snabb starten för att börja använda Azure Cognitive Services
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En giltig Azure-prenumeration – [skapa en kostnads fri](https://azure.microsoft.com/free/).
 
@@ -31,7 +31,7 @@ Använd den här snabb starten för att börja använda Azure Cognitive Services
 
 1. Skapa en resurs.
 
-    #### <a name="multi-service-resourcetabmultiservice"></a>[Resurs för flera tjänster](#tab/multiservice)
+    #### <a name="multi-service-resource"></a>[Resurs för flera tjänster](#tab/multiservice)
     
     Resursen för flera tjänster heter **Cognitive Services** i portalen. [Skapa en Cognitive Services-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
     
@@ -40,14 +40,14 @@ Använd den här snabb starten för att börja använda Azure Cognitive Services
     |                  |                                                      |                    |                               |                  |
     |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
     | Visuellt innehåll  | Content Moderator                                    | Ansikte               | Språkförståelse (LUIS) | Textanalys   |
-    | Translator Text  | Bing-sökning v7 <br>(Webb, bild, nyheter, video, visualisering) | Anpassad Bing-sökning | Entitetssökning i Bing            | Automatiska förslag i Bing |
+    | Translator Text  | Bing-sökning v7 <br>(Webb, bild, nyheter, video, visualisering) | Anpassad sökning i Bing | Entitetssökning i Bing            | Automatiska förslag i Bing |
     | Stavningskontroll i Bing |                                                      |                    |                               |                  |
     
-    #### <a name="single-service-resourcetabsingleservice"></a>[Resurs för enskild tjänst](#tab/singleservice)
+    #### <a name="single-service-resource"></a>[Resurs för enskild tjänst](#tab/singleservice)
 
     Använd länkarna nedan för att skapa en resurs för de tillgängliga Cognitive Services:
 
-    | Visuellt innehåll                      | Tal                  | Språk                          | Beslut             | Search                 |
+    | Visuellt innehåll                      | Tal                  | Språk                          | Beslut             | Söka                 |
     |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
     | [Datorvision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Speech Services](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Avancerad läsare](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Avvikelse detektor](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Bing-sökning API-v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
     | [Custom vision service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Talarigenkänning](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Språkförståelse (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Anpassad sökning i Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
@@ -58,7 +58,7 @@ Använd den här snabb starten för att börja använda Azure Cognitive Services
 
 3. Ange följande information på sidan **skapa** :
 
-    #### <a name="multi-service-resourcetabmultiservice"></a>[Resurs för flera tjänster](#tab/multiservice)
+    #### <a name="multi-service-resource"></a>[Resurs för flera tjänster](#tab/multiservice)
 
     |    |    |
     |--|--|
@@ -72,7 +72,7 @@ Använd den här snabb starten för att börja använda Azure Cognitive Services
 
     Klicka på **Skapa**.
 
-    #### <a name="single-service-resourcetabsingleservice"></a>[Resurs för enskild tjänst](#tab/singleservice)
+    #### <a name="single-service-resource"></a>[Resurs för enskild tjänst](#tab/singleservice)
 
     |    |    |
     |--|--|

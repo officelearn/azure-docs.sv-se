@@ -16,11 +16,11 @@ ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 18e80383bfcbebc6a442663c141100faa56fd061
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313815"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393492"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Skydda ditt innehåll med Media Services dynamisk kryptering
 
@@ -91,11 +91,11 @@ En videospelare app baserat på en spelare SDK (intern eller webbläsarbaserade)
 * Media Player SDK stöder de protokoll som krävs för strömning: utjämna, streck och/eller HTTP Live Streaming (HLS).
 * Player SDK kan hantera överföring av en JWT-token i en begäran om licens hämtning.
 
-Du kan skapa en spelare med hjälp av den [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/). Använd den [Azure Media Player ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) att ange vilka DRM-teknik för att använda på olika DRM-plattformar.
+Du kan skapa en spelare med hjälp av [Azure Media Player-API: et](https://amp.azure.net/libs/amp/latest/docs/). Använd [Azure Media Player ProtectionInfo-API](https://amp.azure.net/libs/amp/latest/docs/) för att ange vilken DRM-teknik som ska användas på olika DRM-plattformar.
 
-För testning AES eller CENC (Widevine och/eller PlayReady) krypterat innehåll, du kan använda [Azure Media Player](https://aka.ms/azuremediaplayer). Se till att du väljer **Avancerade alternativ** och kontrol lera krypterings alternativen.
+För att testa AES eller CENC (Widevine och/eller PlayReady) krypterat innehåll kan du använda [Azure Media Player](https://aka.ms/azuremediaplayer). Se till att du väljer **Avancerade alternativ** och kontrol lera krypterings alternativen.
 
-Om du vill testa FairPlay krypterat innehåll, använda [det här testet player](https://aka.ms/amtest). Spelaren stöder Widevine-, PlayReady-och FairPlay-DRM: er, tillsammans med AES-128-kryptering med tydliga nycklar.
+Om du vill testa FairPlay-krypterat innehåll använder du [den här test spelaren](https://aka.ms/amtest). Spelaren stöder Widevine-, PlayReady-och FairPlay-DRM: er, tillsammans med AES-128-kryptering med tydliga nycklar.
 
 Välj rätt webbläsare för att testa olika DRM: er:
 
@@ -169,7 +169,7 @@ Vanliga webbläsare stöder följande DRM-klienter:
 
 ## <a name="controlling-content-access"></a>Styra åtkomst till innehåll
 
-Du kan styra vem som har åtkomst till ditt innehåll genom att konfigurera principen för content-nyckel. Media Services stöder flera olika sätt att auktorisera användare som begär nycklar. Klienten (spelaren) måste uppfylla principen innan nyckeln kan levereras till klienten. Innehåll viktiga innehållsnyckeln kan ha *öppna* eller *token* begränsning.
+Du kan styra vem som har åtkomst till ditt innehåll genom att konfigurera principen för content-nyckel. Media Services stöder flera olika sätt att auktorisera användare som begär nycklar. Klienten (spelaren) måste uppfylla principen innan nyckeln kan levereras till klienten. Principen för innehålls nyckeln kan ha begränsningen *Open* eller *token* .
 
 En princip med öppen begränsad innehålls nyckel kan användas när du vill utfärda licens till någon utan auktorisering. Till exempel, om din intäkt är AD-baserad och inte för prenumerations-baserad.  
 
@@ -236,7 +236,7 @@ Använd följande mallar om du vill ange en annan licens-/nyckel leverans tjäns
 * `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: samma som föregående mall, endast för Widevine. 
 * `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: samma som föregående mall, endast för FairPlay.  
 
-Ett exempel:
+Exempel:
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
@@ -249,7 +249,7 @@ För REST-exempel som använder anpassade URL: er för licens-/nyckel hämtning,
 > [!NOTE]
 > Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
-## <a name="troubleshoot"></a>Felsökning
+## <a name="troubleshoot"></a>Felsöka
 
 Om du får `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` fel, se till att du anger lämplig strömmande princip.
 

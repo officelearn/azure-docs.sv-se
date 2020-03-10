@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
 ms.openlocfilehash: 783737729601bfef3bee8741a097d4319349f18e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671644"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373769"
 ---
 # <a name="back-up-your-app-in-azure"></a>Säkerhetskopiera din app i Azure
 Med säkerhets kopierings-och återställnings funktionen i [Azure App Service](overview.md) kan du enkelt skapa säkerhets kopior av appar manuellt eller enligt ett schema. Du kan konfigurera säkerhets kopiorna så att de behålls på obestämd tid. Du kan återställa appen till en ögonblicks bild av ett tidigare tillstånd genom att skriva över den befintliga appen eller återställa till en annan app.
@@ -23,7 +23,7 @@ Information om hur du återställer en app från en säkerhets kopia finns i [å
 App Service kan säkerhetskopiera följande information till ett Azure Storage-konto och en behållare som du har konfigurerat din app för att använda. 
 
 * App-konfiguration
-* Fil innehåll
+* Filinnehåll
 * Databas ansluten till din app
 
 Följande databas lösningar stöds med funktionen säkerhets kopiering: 

@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 713217a933c646cc4d04759f5697bbc0312827ce
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823403"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360481"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Hanterad API-referens för Azure SQL Database hanterade instanser
 
@@ -72,7 +72,7 @@ Om du vill skapa och hantera hanterade instanser med [Azure CLI](/cli/azure)anv�
 Använd följande T-SQL-kommandon för att skapa och hantera instans databasen när den hanterade instansen har skapats. Du kan utfärda dessa kommandon med hjälp av Azure Portal [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio) [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is). [Visual Studio Code](https://code.visualstudio.com/docs)eller andra program som kan ansluta till en Azure SQL Database-Server och skicka Transact-SQL-kommandon.
 
 > [!TIP]
-> För snabb starter som visar att du måste konfigurera och ansluta till en hanterad instans med SQL Server Management Studio på Microsoft Windows, se [snabb start: Konfigurera virtuell Azure-dator för att ansluta till en Azure SQL Database Hanterad instans](sql-database-managed-instance-configure-vm.md) och [snabb start: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Hanterad instans från den lokala platsen](sql-database-managed-instance-configure-p2s.md).
+> För snabb starter som visar att du måste konfigurera och ansluta till en hanterad instans med SQL Server Management Studio på Microsoft Windows, se [snabb start: Konfigurera virtuell Azure-dator för att ansluta till en Azure SQL Database Hanterad instans](sql-database-managed-instance-configure-vm.md) och [snabb start: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Hanterad instans från den lokala](sql-database-managed-instance-configure-p2s.md)datorn.
 > [!IMPORTANT]
 > Du kan inte skapa eller ta bort en hanterad instans med hjälp av Transact-SQL.
 

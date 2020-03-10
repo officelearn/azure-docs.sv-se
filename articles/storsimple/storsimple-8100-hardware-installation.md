@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277086"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365898"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Packa upp, rack montering och kabel din StorSimple 8100-enhet
 
@@ -42,7 +42,7 @@ Slutför sedan följande steg för att packa upp enheten.
    
     **Uppackad vy av lagrings enheten**
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    | --- | --- |
    |   1 |Förpacknings Box |
    |   2 |Nedre skum |
@@ -104,7 +104,7 @@ En uppsättning monterings skenor tillhandahålls för användning med 19-tums r
 
     **Fästa inre räl i höljets sidor**
    
-    Etikett | Beskrivning
+    Label (Etikett) | Beskrivning
     ----- | -----------
     1     | M 3x4 knapp – huvud skruvar
     2     | Chassi bilder
@@ -118,7 +118,7 @@ En uppsättning monterings skenor tillhandahålls för användning med 19-tums r
    
     **Koppla yttre järnvägs-sammansättningar till racket**
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    | --- | --- |
    |   1 |Ihopfogning skruv |
    |   2 |Rack-håls front Rack-skruv |
@@ -144,7 +144,7 @@ Använd de rackbaserade räler som precis har installerats och utför följande 
    
     **Installera de flänsiga Caps**
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    | --- | --- |
    |   1 |Kabinett fäst skruv |
 
@@ -153,7 +153,7 @@ Nästa steg är att ansluta enheten till strömförsörjning, nätverk och serie
 ## <a name="cable-your-storsimple-8100-device"></a>Kabelanslut din StorSimple 8100-enhet
 Följande procedurer beskriver hur du kan ansluta din StorSimple 8100-enhet för strömförsörjning, nätverk och seriella anslutningar.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar kabelansluta enheten behöver du:
 
 * Lagrings enheten, helt uppackat och rack montering.
@@ -184,7 +184,7 @@ För att stödja redundans av redundanta styrenheter måste du kontakta enhetens
    
     **Bak sidan av enheten som visar data portar**
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    | --- | --- |
    |   0,1,4,5 |1 GbE-nätverks gränssnitt |
    |   2,3 |10 GbE-nätverks gränssnitt |
@@ -195,7 +195,7 @@ För att stödja redundans av redundanta styrenheter måste du kontakta enhetens
 
     **Nätverks kablar för din enhet**
 
-   |Etikett | Beskrivning |
+   |Label (Etikett) | Beskrivning |
    |----- | ----------- |
    | A    | LAN med Internet åtkomst |
    | B    | Kontrollant 0 |

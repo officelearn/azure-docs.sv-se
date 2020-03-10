@@ -4,11 +4,11 @@ description: Lär dig hur du hanterar projekt-metadata, projektfiler, projektets
 ms.topic: how-to
 ms.date: 02/28/2020
 ms.openlocfilehash: 1674effda2cb9bda45f49c91ca618225b0a75f0c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197699"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360663"
 ---
 # <a name="a-idmanage-and-configure-projects--manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> hantera och konfigurera projekt i Azure Notebooks för hands version
 
@@ -93,7 +93,7 @@ Förhandsgranskningssidan har stöd för flera verktygskommandon med kortkommand
 
 | Kommando | Kortkommando | Åtgärd |
 | --- | --- | --- |
-| Dela | S | Visar delningsapplikationen popup-fönstret som du kan få en länk, dela till sociala medier, hämta HTML för att bädda in och skicka ett e-postmeddelande. |
+| Resurs | s | Visar delningsapplikationen popup-fönstret som du kan få en länk, dela till sociala medier, hämta HTML för att bädda in och skicka ett e-postmeddelande. |
 | Klona | c  | Klona anteckningsboken för att ditt konto. |
 | Kör | R | Körs den bärbara datorn om du har behörighet att göra detta. |
 | Ladda ned | d | Laddar ned en kopia av den bärbara datorn. |

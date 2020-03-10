@@ -9,11 +9,11 @@ ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: e300bc0f29808215673407d21b65fe329e50ad45
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930426"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372309"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Hantera moduler i Azure Automation
 
@@ -42,7 +42,7 @@ $moduleVersion = <ModuleVersion>
 New-AzAutomationModule -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
 ```
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 I Azure Portal navigerar du till ditt Automation-konto och väljer **moduler** under **delade resurser**. Klicka på **+ Lägg till en modul**. Välj en **. zip** -fil som innehåller modulen och klicka på **OK** för att börja importera processen.
 
@@ -62,7 +62,7 @@ Du kan också importera moduler från PowerShell-galleriet direkt från ditt Aut
 
 Om du har problem med en modul eller om du behöver återställa till en tidigare version av en modul kan du ta bort den från ditt Automation-konto. Du kan inte ta bort den ursprungliga versionen av [standardmodulerna](#default-modules) som importeras när du skapar ett Automation-konto. Om den modul som du vill ta bort är en nyare version av en av [standardmodulerna](#default-modules) installerade, återställs den till den version som installerades med ditt Automation-konto. Annars tas alla moduler som du tar bort från ditt Automation-konto bort.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 I Azure Portal navigerar du till ditt Automation-konto och väljer **moduler** under **delade resurser**. Välj den modul som du vill ta bort. På sidan **modul** väljer du **ta bort**. Om den här modulen är en av [standardmodulerna](#default-modules)återställs den till den version som fanns när Automation-kontot skapades.
 

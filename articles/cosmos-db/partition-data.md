@@ -7,19 +7,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: cbd171e10cc1a8b27de98d9d4d779f345ac5a3ed
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754912"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371609"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionering och vågrät skalning i Azure Cosmos DB
 
-I den här artikeln beskrivs fysiska och logiska partitioner i Azure Cosmos DB. Den innehåller också metod tips för skalning och partitionering. 
+I den här artikeln beskrivs fysiska och logiska partitioner i Azure Cosmos DB. Den innehåller även bästa praxis för skalning och partitionering. 
 
 ## <a name="logical-partitions"></a>Logiska partitioner
 
-En logisk partition består av en uppsättning objekt som har samma partitionsnyckel. I en behållare där alla objekt innehåller en `City`-egenskap kan du till exempel använda `City` som partitions nyckel för behållaren. Grupper av objekt som har specifika värden för `City`, till exempel `London`, `Paris` och `NYC`, formar distinkta logiska partitioner. Du behöver inte oroa dig för att ta bort en partition när underliggande data tas bort.
+En logisk partition består av en uppsättning objekt som har samma partitionsnyckel. I en behållare där alla objekt innehåller en `City`-egenskap kan du till exempel använda `City` som partitions nyckel för behållaren. Grupper av objekt som har specifika värden för `City`, till exempel `London`, `Paris`och `NYC`, formar distinkta logiska partitioner. Du behöver inte oroa dig för att ta bort en partition när underliggande data tas bort.
 
 I Azure Cosmos DB är en behållare den grundläggande enheten för skalbarhet. Data som läggs till i behållaren och det data flöde som du etablerar på behållaren är automatiskt (vågrätt) partitionerade i en uppsättning logiska partitioner. Data och data flöde partitioneras baserat på den partitionsnyckel som du anger för Azure Cosmos-behållaren. Mer information finns i [skapa en Azure Cosmos-behållare](how-to-create-container.md).
 

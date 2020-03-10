@@ -12,11 +12,11 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf2ca3bde0cfee97adee8bb875df1522e95b1f53
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869329"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374924"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal
 
@@ -63,7 +63,7 @@ När du har skickat inbjudan läggs användarkontot automatiskt till i katalogen
 
 ![Visar B2B-användare med typ av gäst användare](./media/add-users-administrator/GuestUserType.png)  
 
-## <a name="add-guest-users-to-a-group"></a>Lägga till gästanvändare i en grupp
+## <a name="add-guest-users-to-a-group"></a>Lägga till gäst användare i en grupp
 Följ dessa steg om du behöver lägga till B2B-samarbets användare manuellt i en grupp:
 
 1. Logga in till [Azure-portalen](https://portal.azure.com) som Azure AD-administratör.
@@ -79,7 +79,7 @@ Följ dessa steg om du behöver lägga till B2B-samarbets användare manuellt i 
    
 Du kan också använda dynamiska grupper med Azure AD B2B-samarbete. Mer information finns i [dynamiska grupper och Azure Active Directory B2B-samarbete](use-dynamic-groups.md).
 
-## <a name="add-guest-users-to-an-application"></a>Lägga till gästanvändare i ett program
+## <a name="add-guest-users-to-an-application"></a>Lägga till gäst användare i ett program
 
 Följ dessa steg om du vill lägga till B2B-samarbets användare till ett program:
 
@@ -107,7 +107,7 @@ Följ dessa steg om du vill lägga till B2B-samarbets användare till ett progra
    - Klicka på **Välj**.
    - Klicka på **Tilldela**.
  
-## <a name="resend-invitations-to-guest-users"></a>Skicka om inbjudningar till gästanvändare
+## <a name="resend-invitations-to-guest-users"></a>Skicka om inbjudningar till gäst användare
 
 Om en gäst användare ännu inte har löst in sin inbjudan kan du skicka e-postinbjudan igen.
 

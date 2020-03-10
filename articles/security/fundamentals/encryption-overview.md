@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
 ms.openlocfilehash: 541039c82d5ea21c43a847da2710bef4162a2bc7
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804036"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358731"
 ---
 # <a name="azure-encryption-overview"></a>Översikt över Azure-kryptering
 
 Den här artikeln innehåller en översikt över hur kryptering används i Microsoft Azure. Den täcker huvud områdena kryptering, inklusive kryptering i vila, kryptering i flygning och nyckel hantering med Azure Key Vault. I varje avsnitt finns länkar till mer detaljerad information.
 
-## <a name="encryption-of-data-at-rest"></a>Kryptering av vilande data
+## <a name="encryption-of-data-at-rest"></a>Kryptering av data i vila
 
 Data i vila innehåller information som finns i beständig lagring på fysiska media, i valfritt digitalt format. Mediet kan innehålla filer på magnetiska eller optiska medier, arkiverade data och säkerhets kopior av data. Microsoft Azure erbjuder en mängd data lagrings lösningar som uppfyller olika behov, inklusive fil-, disk-, blob-och tabell lagring. Microsoft tillhandahåller även kryptering för att skydda [Azure SQL Database](../../sql-database/sql-database-technical-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md)och Azure Data Lake.
 
@@ -63,7 +63,7 @@ Du kan skydda virtuella Windows-och Linux-datorer med hjälp av [Azure Disk Encr
 
 Krypterings nycklar och hemligheter skyddas i [Azure Key Vault prenumerationen](../../key-vault/key-vault-overview.md). Genom att använda Azure Backup tjänsten kan du säkerhetskopiera och återställa krypterade virtuella datorer som använder KEK-konfiguration (Key Encryption Key).
 
-### <a name="azure-storage-service-encryption"></a>Kryptering av Azure-lagringstjänst
+### <a name="azure-storage-service-encryption"></a>Azure Storage tjänst kryptering
 
 Data i vila i Azure Blob Storage och Azure-filresurser kan krypteras både i scenarier på Server sidan och på klient sidan.
 
@@ -105,7 +105,7 @@ CLE har inbyggda funktioner som du kan använda för att kryptera data med hjäl
 
 ### <a name="cosmos-db-database-encryption"></a>Cosmos DB databas kryptering
 
-[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) är Microsofts globalt distribuerade databas för flera modeller. Användar data som lagras i Cosmos DB i icke-flyktig lagring (solid-state-enheter) krypteras som standard. Det finns inga kontroller att aktivera eller inaktivera. Kryptering i vila implementeras med hjälp av ett antal säkerhets tekniker, inklusive säkra nyckel lagrings system, krypterade nätverk och kryptografiska API: er. Krypterings nycklar hanteras av Microsoft och roteras enligt Microsofts interna rikt linjer.
+[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) är Microsofts globalt distribuerade databas för flera modeller. Användar data som lagras i Cosmos DB i icke-flyktig lagring (solid-state-enheter) krypteras som standard. Det finns inga kontroller att aktivera eller inaktivera. Kryptering i vila implementeras med hjälp av ett antal olika tekniker, inklusive säker nyckel lagringssystem, krypterade nätverk och kryptografiska API: er. Krypterings nycklar hanteras av Microsoft och roteras enligt Microsofts interna rikt linjer.
 
 ### <a name="at-rest-encryption-in-data-lake"></a>Vilande kryptering i Data Lake
 
@@ -181,7 +181,7 @@ Du kan använda en VPN gateway-anslutning från plats till plats för att anslut
 
 Du kan konfigurera en plats-till-plats-VPN-anslutning till ett virtuellt nätverk med hjälp av Azure Portal, PowerShell eller Azure CLI.
 
-Mer information finns här:
+Mer information finns i:
 
 [Skapa en plats-till-plats-anslutning i Azure Portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 

@@ -1,6 +1,6 @@
 ---
 title: Konfigurera haveri beredskap för virtuella VMware-datorer till Azure med Azure Site Recovery
-description: Lär dig att konfigurera haveriberedskap i Azure för lokala virtuella VMware-datorer med Azure Site Recovery.
+description: Lär dig att konfigurera haveriberedskap till Azure för lokala virtuella VMware-datorer med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -9,11 +9,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 37fdd42adf66ebcb11b357ece6ea63384630d9f4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458935"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363192"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurera katastrofåterställning till Azure för lokala virtuella VMware-datorer
 
@@ -22,7 +22,7 @@ I den här artikeln beskrivs hur du aktiverar replikering för lokala virtuella 
 Det här är den tredje självstudien i en serie som visar hur du konfigurerar haveri beredskap till Azure för lokala virtuella VMware-datorer. I den föregående själv studie kursen har vi för [berett den lokala VMware-miljön](vmware-azure-tutorial-prepare-on-premises.md) för haveri beredskap till Azure.
 
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera inställningarna för replikeringskälla och en lokal Site Recovery konfigurations Server.
@@ -31,7 +31,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Aktivera replikering för en virtuell VMware-dator.
 
 > [!NOTE]
-> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikeln i avsnittet så här i Site Recovery innehålls förteckningen.
+> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där det är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikeln i avsnittet så här i Site Recovery innehålls förteckningen.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -118,7 +118,7 @@ När konfigurations servern har kon figurer ATS kan du registrera den i valvet.
 3. När installationen är klar loggar du in på den virtuella datorn som administratör.
 4. Första gången du loggar in startas Azure Site Recovery-konfigurationsverktyget inom några sekunder.
 5. Ange det namn som ska användas för att registrera konfigurationsservern med Site Recovery. Välj sedan **Nästa**.
-6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in i din Azure-prenumeration. Autentiseringsuppgifterna måste ha åtkomst till det valv där du vill registrera konfigurationsservern. Se till att de [roller](vmware-azure-deploy-configuration-server.md#azure-active-directory-permission-requirements) som krävs har tilldelats den här användaren.
+6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in på din Azure-prenumeration. Autentiseringsuppgifterna måste ha åtkomst till det valv där du vill registrera konfigurationsservern. Se till att de [roller](vmware-azure-deploy-configuration-server.md#azure-active-directory-permission-requirements) som krävs har tilldelats den här användaren.
 7. Verktyget utför vissa konfigurationsåtgärder och startar sedan om datorn.
 8. Logga in på datorn igen. Guiden Konfigurera serverhantering startar automatiskt om några sekunder.
 

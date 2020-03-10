@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 38f9c432191ac613c1c0f8c02458e8bc4bf8232a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273774"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365741"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Systemkrav för StorSimple Virtual Array
 
@@ -89,15 +89,15 @@ Endast Azure Block Blob-lagring stöds. Page blobbar stöds inte. Mer informatio
 ## <a name="networking-requirements"></a>Nätverks krav
 I följande tabell visas de portar som måste öppnas i brand väggen för att tillåta iSCSI-, SMB-, moln-eller hanterings trafik. I den här tabellen avser *i* eller *inkommande* den riktning som inkommande klient begär åtkomst till din enhet. *Out* eller *utgående* avser i vilken riktning din StorSimple-enhet skickar data externt, utöver distributionen: till exempel utgående till Internet.
 
-| **Port nr<sup>1</sup>** | **In eller ut** | **Port omfång** | **Obligatoriskt** | **Anteckningar** |
+| **Port nr<sup>1</sup>** | **In eller ut** | **Port omfång** | **Kunna** | **Anteckningar** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |Ut |WAN |Inga |Utgående port används för Internet åtkomst för att hämta uppdateringar. <br></br>Den utgående webbproxyn är användare konfigurerbar. |
-| TCP 443 (HTTPS) |Ut |WAN |Ja |Utgående port används för att komma åt data i molnet. <br></br>Den utgående webbproxyn är användare konfigurerbar. |
-| UDP 53 (DNS) |Ut |WAN |I vissa fall, Se kommentarer. |Den här porten krävs bara om du använder en Internetbaserad DNS-server. <br></br> Observera att om du distribuerar en fil server rekommenderar vi att du använder den lokala DNS-servern. |
-| UDP 123 (NTP) |Ut |WAN |I vissa fall, Se kommentarer. |Den här porten krävs bara om du använder en Internetbaserad NTP-server.<br></br> Observera att om du distribuerar en fil server rekommenderar vi att du synkroniserar tid med Active Directory domän kontrol Lanterna. |
+| TCP 80 (HTTP) |Genomför |Wide |Nej |Utgående port används för Internet åtkomst för att hämta uppdateringar. <br></br>Den utgående webbproxyn är användare konfigurerbar. |
+| TCP 443 (HTTPS) |Genomför |Wide |Ja |Utgående port används för att komma åt data i molnet. <br></br>Den utgående webbproxyn är användare konfigurerbar. |
+| UDP 53 (DNS) |Genomför |Wide |I vissa fall, Se kommentarer. |Den här porten krävs bara om du använder en Internetbaserad DNS-server. <br></br> Observera att om du distribuerar en fil server rekommenderar vi att du använder den lokala DNS-servern. |
+| UDP 123 (NTP) |Genomför |Wide |I vissa fall, Se kommentarer. |Den här porten krävs bara om du använder en Internetbaserad NTP-server.<br></br> Observera att om du distribuerar en fil server rekommenderar vi att du synkroniserar tid med Active Directory domän kontrol Lanterna. |
 | TCP 80 (HTTP) |I |LAN |Ja |Det här är den inkommande porten för lokalt användar gränssnitt på StorSimple-enheten för lokal hantering. <br></br> Observera att åtkomst till det lokala användar gränssnittet över HTTP omdirigeras automatiskt till HTTPS. |
 | TCP 443 (HTTPS) |I |LAN |Ja |Det här är den inkommande porten för lokalt användar gränssnitt på StorSimple-enheten för lokal hantering. |
-| TCP 3260 (iSCSI) |I |LAN |Inga |Den här porten används för att få åtkomst till data via iSCSI. |
+| TCP 3260 (iSCSI) |I |LAN |Nej |Den här porten används för att få åtkomst till data via iSCSI. |
 
 <sup>1</sup> inga inkommande portar måste öppnas på det offentliga Internet.
 

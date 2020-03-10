@@ -10,11 +10,11 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595762"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381792"
 ---
 # <a name="how-to-manage-settings"></a>Hantera inställningar
 
@@ -62,7 +62,7 @@ Om olika delar av arbetet måste delas med olika personer kan det vara praktiskt
 1.  Gå till sidan Inställningar för arbets yta.
 2.  Klicka på knappen "ny arbets yta" i avsnittet "Skapa ny arbets yta".
 
-    ![Skapa ny arbetsyta](media/how-to/create-new-workspace.png)
+    ![Skapa ny arbets yta](media/how-to/create-new-workspace.png)
 
 4.  I dialog rutan anger du namnet på den nya arbets ytan.
 5.  Klicka på "skapa".
@@ -83,13 +83,13 @@ I en anpassad översättare kan du dela din arbets yta med andra, om olika delar
 4.  Om arbets ytan fortfarande har standard namnet "min arbets yta" måste du ändra den innan du delar din arbets yta.
 5.  Klicka på Spara.
 
-## <a name="sharing-permissions"></a>Delningsbehörigheter
+## <a name="sharing-permissions"></a>Delnings behörigheter
 
-1.  **Acrobat** En läsare på arbets ytan kommer att kunna visa all information på arbets ytan.
+1.  **Läsare:** En läsare på arbets ytan kommer att kunna visa all information på arbets ytan.
 
-2.  **Taggbiblioteksredigeraren** En redigerare i arbets ytan kommer att kunna lägga till dokument, träna modeller och ta bort dokument och projekt. De kan lägga till en prenumerations nyckel, men du kan inte ändra vilken arbets yta som delas med, ta bort arbets ytan eller ändra arbets ytans namn.
+2.  **Redigerare:** En redigerare i arbets ytan kommer att kunna lägga till dokument, träna modeller och ta bort dokument och projekt. De kan lägga till en prenumerations nyckel, men du kan inte ändra vilken arbets yta som delas med, ta bort arbets ytan eller ändra arbets ytans namn.
 
-3.  **Innehavare** En ägare har fullständig behörighet till arbets ytan.
+3.  **Ägare:** En ägare har fullständig behörighet till arbets ytan.
 
 ## <a name="change-sharing-permission"></a>Ändra delnings behörighet
 

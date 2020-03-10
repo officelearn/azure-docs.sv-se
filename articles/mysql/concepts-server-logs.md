@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: 9a3a58cab2d9673a4660967e3a11d7f88900e718
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844963"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359656"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Långsamma Query-loggar i Azure Database for MySQL
 I Azure Database for MySQL är den långsamma fråge loggen tillgänglig för användare. Åtkomst till transaktions loggen stöds inte. Den långsamma frågans logg kan användas för att identifiera Flask halsar i prestanda för fel sökning.
@@ -59,10 +59,10 @@ I följande tabell beskrivs vad som finns i varje logg. Beroende på utmatnings 
 | `TenantId` | Ditt klient-ID |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated` [UTC] | Tidstämpel när loggen registrerades i UTC |
-| `Type` | Loggens typ. Alltid `AzureDiagnostics` |
+| `Type` | Loggens typ. `AzureDiagnostics` alltid |
 | `SubscriptionId` | GUID för den prenumeration som servern tillhör |
 | `ResourceGroup` | Namnet på den resurs grupp som servern tillhör |
-| `ResourceProvider` | Namnet på resurs leverantören. Alltid `MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | Namnet på resurs leverantören. `MICROSOFT.DBFORMYSQL` alltid |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resurs-URI |
 | `Resource` | Namnet på servern |
@@ -79,7 +79,7 @@ I följande tabell beskrivs vad som finns i varje logg. Beroende på utmatnings 
 | `insert_id_s` | Infoga ID |
 | `sql_text_s` | Fullständig fråga |
 | `server_id_s` | Serverns ID |
-| `thread_id_s` | Tråd-ID |
+| `thread_id_s` | Tråd-id |
 | `\_ResourceId` | Resurs-URI |
 
 > [!Note]
@@ -140,6 +140,6 @@ När dina långsamma fråge loggar är skickas för att Azure Monitor loggar via
     | where query_time_d > 10
     ```    
     
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 - [Så här konfigurerar du långsamma Query-loggar från Azure Portal](howto-configure-server-logs-in-portal.md)
 - [Konfigurera långsamma Query-loggar från Azure CLI](howto-configure-server-logs-in-cli.md).

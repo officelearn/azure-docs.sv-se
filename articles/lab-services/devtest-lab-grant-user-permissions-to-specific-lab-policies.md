@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/07/2019
 ms.author: spelluru
 ms.openlocfilehash: 9b31f3e68fbabc32f301fdcd8066a3bfbf1c2dbd
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028433"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380948"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Bevilja användar behörighet till vissa labb principer
 ## <a name="overview"></a>Översikt
@@ -30,7 +30,7 @@ Som det beskrivs i den [Azure-rollbaserade Access Control](../role-based-access-
 
 I DevTest Labs är en princip en resurs typ som aktiverar RBAC-åtgärden **Microsoft. DevTestLab/Labs/policySets/policies/** . Varje labb princip är en resurs i princip resurs typ och kan tilldelas som ett omfång till en RBAC-roll.
 
-För att till exempel ge användare läs-/skriv behörighet till principen för **tillåten VM-storlek** skapar du en anpassad roll som fungerar med **Microsoft. DevTestLab/Labs/policySets/policys/** action och tilldelar sedan lämpliga användare till den här anpassade rollen i omfånget för **Microsoft. DevTestLab/Labs/policySets/policies/AllowedVmSizesInLab**.
+För att till exempel ge användare läs-/skriv behörighet till principen för **tillåten VM-storlek** skapar du en anpassad roll som fungerar med **Microsoft. DevTestLab/Labs/policySets/policys/** action och tilldelar sedan lämpliga användare till den här anpassade rollen i omfånget **Microsoft. DevTestLab/Labs/PolicySets/policies/AllowedVmSizesInLab**.
 
 Läs mer om anpassade roller i RBAC i [åtkomst kontrollen för anpassade roller](../role-based-access-control/custom-roles.md).
 

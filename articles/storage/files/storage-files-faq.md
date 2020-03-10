@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 5cbb819ef1300f16a40dbdd0da52a35bdf578e59
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: f1be146a5173c86a8b19bca5c7b3b8c72d72b9c5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598195"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362425"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -179,12 +179,12 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 * <a id="ad-support-rest-apis"></a>
 **finns REST-API: er för att ge stöd åt/ange/kopiera katalog/fil NTFS ACL: er?**
 
-    Ja, vi har stöd för REST API: er som hämtar, anger eller kopierar NTFS ACL: er för kataloger eller filer när du använder REST API [2019-02-02](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-02-02) (eller senare).
+    Ja, vi har stöd för REST API: er som hämtar, anger eller kopierar NTFS ACL: er för kataloger eller filer när du använder REST API [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (eller senare).
 
 * <a id="ad-vm-subscription"></a>
 **kan jag komma åt Azure Files med Azure AD-autentiseringsuppgifter från en virtuell dator under en annan prenumeration?**
 
-    Om prenumerationen som fil resursen distribueras till är kopplad till samma Azure AD-klient som den Azure AD Domain Services distribution som den virtuella datorn är domänansluten till, kan du sedan komma åt Azure Files med samma autentiseringsuppgifter för Azure AD. Begränsningen införs inte i prenumerationen, men på den associerade Azure AD-klienten.    
+    Om prenumerationen som fil resursen distribueras till är kopplad till samma Azure AD-klient som den Azure AD Domain Services distribution som den virtuella datorn är domänansluten till, kan du sedan komma åt Azure Files med samma autentiseringsuppgifter för Azure AD. Begränsningen införs inte i prenumerationen, men på den associerade Azure AD-klienten.
     
 * <a id="ad-support-subscription"></a>
 **kan jag aktivera antingen Azure Files Azure AD DS eller AD-autentisering med en Azure AD-klient som skiljer sig från den primära klient organisation som fil resursen är kopplad till?**
@@ -253,7 +253,7 @@ stöder **Azure Files Azure AD DS eller AD-autentisering virtuella Linux-datorer
 
     Du kan montera fil resursen med hjälp av SMB-protokollet om Port 445 (TCP utgående) är öppen och klienten stöder SMB 3,0-protokollet (till exempel om du använder Windows 10 eller Windows Server 2016). Om Port 445 blockeras av din organisations princip eller av din Internet leverantör kan du använda Azure File Sync för att få åtkomst till Azure-filresursen.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Säkerhetskopiering
 * <a id="backup-share"></a>
 **Hur gör jag för att säkerhetskopiera min Azure-filresurs?**  
     Du kan använda periodiska [resurs ögonblicks bilder](storage-snapshots-files.md) för att skydda mot oavsiktlig borttagning. Du kan också använda AzCopy, Robocopy eller ett säkerhets kopierings verktyg från tredje part som kan säkerhetskopiera en monterad fil resurs. Azure Backup erbjuder säkerhets kopiering av Azure Files. Läs mer om hur du [säkerhetskopierar Azure-filresurser genom att Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).

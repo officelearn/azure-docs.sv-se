@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 783343dd8877bdf18e783494960c3052c293cc7c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75361355"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355786"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Översikt över certifikat för Azure Cloud Services
 Certifikat används i Azure för moln tjänster ([tjänst certifikat](#what-are-service-certificates)) och för autentisering med hanterings-API: et ([hanterings certifikat](#what-are-management-certificates)). Det här avsnittet innehåller en allmän översikt över båda certifikat typerna, hur du [skapar](#create) och distribuerar dem till Azure.
@@ -26,17 +26,17 @@ Certifikat som används av Azure kan innehålla en privat eller offentlig nyckel
 >Azure Cloud Services accepterar inte AES256-SHA256-krypterat certifikat.
 
 ## <a name="what-are-service-certificates"></a>Vad är tjänst certifikat?
-Tjänstcertifikat är kopplade till molntjänster och möjliggör säker kommunikation till och från tjänsten. Om du till exempel har distribuerat en webb roll vill du ange ett certifikat som kan autentisera en exponerad HTTPS-slutpunkt. Tjänst certifikat, som definieras i din tjänst definition, distribueras automatiskt till den virtuella datorn som kör en instans av din roll. 
+Tjänst certifikat är kopplade till moln tjänster och möjliggör säker kommunikation till och från tjänsten. Om du till exempel har distribuerat en webb roll vill du ange ett certifikat som kan autentisera en exponerad HTTPS-slutpunkt. Tjänst certifikat, som definieras i din tjänst definition, distribueras automatiskt till den virtuella datorn som kör en instans av din roll. 
 
-Du kan antingen ladda upp tjänstcertifikat till Azure via Azure-portalen eller med hjälp av den klassiska distributionsmodellen. Tjänstcertifikaten är associerade med en viss molntjänst. De tilldelas en distribution i tjänstens definitionsfil.
+Du kan ladda upp tjänst certifikat till Azure antingen med hjälp av Azure Portal eller med hjälp av den klassiska distributions modellen. Tjänst certifikaten är associerade med en speciell moln tjänst. De tilldelas en distribution i tjänst definitions filen.
 
-Tjänst certifikat kan hanteras separat från dina tjänster och kan hanteras av olika individer. En utvecklare kan till exempel Ladda upp ett tjänst paket som refererar till ett certifikat som en IT-chef tidigare har laddat upp till Azure. En IT-chef kan hantera och förnya certifikatet (ändra tjänstens konfiguration) utan att behöva ladda upp ett nytt tjänstpaket. Uppdatering utan ett nytt tjänst paket är möjligt eftersom det logiska namnet, lagrings namnet och platsen för certifikatet finns i tjänst definitions filen och när tumavtrycket för certifikatet anges i tjänst konfigurations filen. Om du vill uppdatera certifikatet behöver du bara ladda upp ett nytt certifikat och ändra tumavtrycksvärdet i tjänstens konfigurationsfil.
+Tjänst certifikat kan hanteras separat från dina tjänster och kan hanteras av olika individer. En utvecklare kan till exempel Ladda upp ett tjänst paket som refererar till ett certifikat som en IT-chef tidigare har laddat upp till Azure. En IT-chef kan hantera och förnya certifikatet (ändra konfigurationen för tjänsten) utan att behöva ladda upp ett nytt tjänst paket. Uppdatering utan ett nytt tjänst paket är möjligt eftersom det logiska namnet, lagrings namnet och platsen för certifikatet finns i tjänst definitions filen och när tumavtrycket för certifikatet anges i tjänst konfigurations filen. Om du vill uppdatera certifikatet är det bara nödvändigt att ladda upp ett nytt certifikat och ändra tumavtryck-värdet i tjänst konfigurations filen.
 
 >[!Note]
 >I artikeln [Cloud Services vanliga frågor och svar om konfiguration och hantering](cloud-services-configuration-and-management-faq.md) finns viss värdefull information om certifikat.
 
 ## <a name="what-are-management-certificates"></a>Vad är hanterings certifikat?
-Hanteringscertifikat gör att du kan autentisera med den klassiska distributionsmodellen. Många program och verktyg (som Visual Studio och Azure SDK) använder sådana här certifikat till att automatisera konfigurationen och distributionen av olika Azure-tjänster. Dessa är inte relaterade till moln tjänster. 
+Med hanterings certifikat kan du autentisera med den klassiska distributions modellen. Många program och verktyg (till exempel Visual Studio eller Azure SDK) använder dessa certifikat för att automatisera konfigurationen och distributionen av olika Azure-tjänster. Dessa är inte relaterade till moln tjänster. 
 
 > [!WARNING]
 > Var försiktig! Med dessa typer av certifikat kan alla som autentiserar med dem hantera den prenumeration de är associerade med. 
@@ -82,7 +82,7 @@ Om du vill använda det här [certifikatet med hanterings portalen](../azure-api
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ```
 
-### <a name="internet-information-services-iis"></a>IIS (Internet Information Services)
+### <a name="internet-information-services-iis"></a>Internet Information Services (IIS)
 Det finns många sidor på Internet som beskriver hur du gör detta med IIS. [Här](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) är en bra jag hittade att jag förklarar det bra. 
 
 ### <a name="linux"></a>Linux

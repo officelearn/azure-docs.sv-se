@@ -7,11 +7,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: 4b8cfed883ffef780de2e82e3f309e97bcb5515c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75412076"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357455"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Felsöka Azure cache för Redis-timeout
 
@@ -36,7 +36,7 @@ StackExchange. Redis använder en konfigurations inställning med namnet `syncti
 
 Det här fel meddelandet innehåller mått som kan hjälpa dig att peka på orsaken och möjlig lösning av problemet. Följande tabell innehåller information om måtten för fel meddelanden.
 
-| Mått för fel meddelande | Information |
+| Mått för fel meddelande | Detaljer |
 | --- | --- |
 | Inst |I det senaste tillfället, sektorn: 0 kommandon har utfärdats |
 | mgr |Socket Manager gör `socket.select`, vilket innebär att den ber operativ systemet att ange en socket som har något att göra. Läsaren läser inte aktivt från nätverket eftersom det inte tycker att det finns något att göra |

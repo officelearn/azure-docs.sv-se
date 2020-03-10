@@ -4,11 +4,11 @@ description: Beskriver hur du säkerhetskopierar och återställer virtuella Azu
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 733a06a84aa170f1361ea74d126ec9752586fce2
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75528002"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363847"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 
@@ -19,7 +19,7 @@ I den här artikeln lär du dig hur du:
 > [!div class="checklist"]
 >
 > * Skapa ett Recovery Services valv och ange valv kontexten.
-> * Definierar en säkerhetskopieringspolicy
+> * definierar en säkerhetskopieringspolicy
 > * applicerar säkerhetskopieringspolicyn för att skydda flera virtuella datorer
 > * Utlös ett säkerhets kopierings jobb på begäran för de skyddade virtuella datorerna innan du kan säkerhetskopiera (eller skydda) en virtuell dator måste du slutföra [kraven](backup-azure-arm-vms-prepare.md) för att förbereda din miljö för att skydda dina virtuella datorer.
 
@@ -80,7 +80,7 @@ Så här börjar du:
 
     I kommandoutdata ska **RegistrationState** ändras till **registrerad**. Om inte, kör du bara **[register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)** -cmdleten igen.
 
-## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
 Följande steg vägleder dig genom att skapa ett Recovery Services-valv. Ett Recovery Services-valv skiljer sig från ett säkerhets kopierings valv.
 
@@ -367,9 +367,9 @@ WorkloadName     Operation            Status               StartTime            
 TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
 ```
 
-### <a name="stop-protection"></a>Sluta skydda
+### <a name="stop-protection"></a>Stoppa skydd
 
-#### <a name="retain-data"></a>Behålla data
+#### <a name="retain-data"></a>Behåll data
 
 Om användaren vill stoppa skyddet kan de använda cmdleten [disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS. Detta stoppar schemalagda säkerhets kopieringar men data som säkerhets kopie ras tills nu kvarhålls för alltid.
 
@@ -417,7 +417,7 @@ $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM
 $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $targetVault.ID
 ```
 
-### <a name="choose-a-recovery-point"></a>Välj en återställningspunkt
+### <a name="choose-a-recovery-point"></a>Välj en återställnings punkt
 
 Använd cmdleten [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) för att visa en lista över alla återställnings punkter för säkerhets kopierings objekt. Välj sedan den återställnings punkt som ska återställas. Om du är osäker på vilken återställnings punkt som ska användas, är det en bra idé att välja den senaste RecoveryPointType = AppConsistent-punkten i listan.
 
@@ -792,7 +792,7 @@ Förutom att återställa diskar kan du också återställa enskilda filer från
 De grundläggande stegen för att återställa en fil från en Azure VM-säkerhetskopiering är:
 
 * Välj den virtuella datorn
-* Välj en återställningspunkt
+* Välj en återställnings punkt
 * Montera diskarna för återställnings punkt
 * Kopiera de filer som krävs
 * Demontera disken
@@ -806,7 +806,7 @@ $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM
 $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $targetVault.ID
 ```
 
-### <a name="choose-a-recovery-point"></a>Välj en återställningspunkt
+### <a name="choose-a-recovery-point"></a>Välj en återställnings punkt
 
 Använd cmdleten [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) för att visa en lista över alla återställnings punkter för säkerhets kopierings objekt. Välj sedan den återställnings punkt som ska återställas. Om du är osäker på vilken återställnings punkt som ska användas, är det en bra idé att välja den senaste RecoveryPointType = AppConsistent-punkten i listan.
 

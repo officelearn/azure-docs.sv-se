@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: 6fd23e3d41dda15b1ec439c1e8b02073722b8871
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073639"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359985"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Skapa virtuella nätverk för Azure HDInsight-kluster
 
@@ -48,7 +48,7 @@ Följande resurs hanterings mall skapar ett virtuellt nätverk som begränsar in
 Använd följande PowerShell-skript för att skapa ett virtuellt nätverk som begränsar inkommande trafik och tillåter trafik från IP-adresserna för regionen Nord Europa.
 
 > [!IMPORTANT]  
-> Ändra IP-adresserna `hdirule1` för `hdirule2` och i det här exemplet för att matcha Azure-regionen som du använder. Du hittar den här informationen [HDInsight Management IP-adresser](hdinsight-management-ip-addresses.md).
+> Ändra IP-adresserna för `hdirule1` och `hdirule2` i det här exemplet för att matcha Azure-regionen som du använder. Du hittar den här informationen [HDInsight Management IP-adresser](hdinsight-management-ip-addresses.md).
 
 ```powershell
 $vnetName = "Replace with your virtual network name"
@@ -162,7 +162,7 @@ Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -So
 
 Använd följande steg för att skapa ett virtuellt nätverk som begränsar inkommande trafik, men tillåter trafik från de IP-adresser som krävs av HDInsight.
 
-1. Använd följande kommando för att skapa en ny nätverks säkerhets grupp med `hdisecure`namnet. Ersätt `RESOURCEGROUP` med den resurs grupp som innehåller Azure-Virtual Network. Ersätt `LOCATION` med den plats (region) som gruppen skapades i.
+1. Använd följande kommando för att skapa en ny nätverks säkerhets grupp med namnet `hdisecure`. Ersätt `RESOURCEGROUP` med resurs gruppen som innehåller Azure-Virtual Network. Ersätt `LOCATION` med den plats (region) som gruppen skapades i.
 
     ```azurecli
     az network nsg create -g RESOURCEGROUP -n hdisecure -l LOCATION
@@ -173,7 +173,7 @@ Använd följande steg för att skapa ett virtuellt nätverk som begränsar inko
 2. Använd följande för att lägga till regler i den nya nätverks säkerhets gruppen som tillåter inkommande kommunikation på port 443 från Azure HDInsight-tjänsten för hälso tillstånd och hantering. Ersätt `RESOURCEGROUP` med namnet på den resurs grupp som innehåller Azure-Virtual Network.
 
     > [!IMPORTANT]  
-    > Ändra IP-adresserna `hdirule1` för `hdirule2` och i det här exemplet för att matcha Azure-regionen som du använder. Du hittar den här informationen i [hanterings-IP-adresser för HDInsight](hdinsight-management-ip-addresses.md).
+    > Ändra IP-adresserna för `hdirule1` och `hdirule2` i det här exemplet för att matcha Azure-regionen som du använder. Du hittar den här informationen i [hanterings-IP-adresser för HDInsight](hdinsight-management-ip-addresses.md).
 
     ```azurecli
     az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
@@ -194,7 +194,7 @@ Använd följande steg för att skapa ett virtuellt nätverk som begränsar inko
 
         "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
 
-4. Använd följande kommando för att tillämpa nätverks säkerhets gruppen på ett undernät. Ersätt värdena `RESOURCEGROUP` och med dem som returnerades från föregående steg. `GUID` Ersätt `VNETNAME` och`SUBNETNAME` med namnet på det virtuella nätverket och under nätet som du vill skapa.
+4. Använd följande kommando för att tillämpa nätverks säkerhets gruppen på ett undernät. Ersätt `GUID` och `RESOURCEGROUP` värden med de som returnerades från föregående steg. Ersätt `VNETNAME` och `SUBNETNAME` med namnet på det virtuella nätverket och under nätet som du vill skapa.
 
     ```azurecli
     az network vnet subnet update -g RESOURCEGROUP --vnet-name VNETNAME --name SUBNETNAME --set networkSecurityGroup.id="/subscriptions/GUID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
@@ -211,7 +211,7 @@ Följande kod visar hur du aktiverar SSH-åtkomst från Internet:
 az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 ```
 
-## <a id="example-dns"></a>Exempel DNS-konfiguration
+## <a id="example-dns"></a>Exempel: DNS-konfiguration
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>Namn matchning mellan ett virtuellt nätverk och ett anslutet lokalt nätverk
 
@@ -238,7 +238,7 @@ På den anpassade DNS-servern i det virtuella nätverket:
     az network nic list --resource-group RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. Använd följande text som `/etc/bind/named.conf.local` filens innehåll på den anpassade DNS-servern för det virtuella nätverket:
+2. Använd följande text som innehåll i `/etc/bind/named.conf.local`-filen på den anpassade DNS-servern för det virtuella nätverket:
 
     ```
     // Forward requests for the virtual network suffix to Azure recursive resolver
@@ -248,11 +248,11 @@ På den anpassade DNS-servern i det virtuella nätverket:
     };
     ```
 
-    `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` Ersätt värdet med DNS-suffixet för det virtuella nätverket.
+    Ersätt `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`-värdet med DNS-suffixet för det virtuella nätverket.
 
     Den här konfigurationen dirigerar alla DNS-förfrågningar för det virtuella nätverkets DNS-suffix till Azures rekursiva lösare.
 
-2. Använd följande text som `/etc/bind/named.conf.options` filens innehåll på den anpassade DNS-servern för det virtuella nätverket:
+2. Använd följande text som innehåll i `/etc/bind/named.conf.options`-filen på den anpassade DNS-servern för det virtuella nätverket:
 
     ```
     // Clients to accept requests from
@@ -282,9 +282,9 @@ På den anpassade DNS-servern i det virtuella nätverket:
     };
     ```
     
-    * `10.0.0.0/16` Ersätt värdet med IP-adressintervallet för det virtuella nätverket. Den här posten tillåter att namn matchning begär adresser i det här intervallet.
+    * Ersätt `10.0.0.0/16`-värdet med IP-adressintervallet för det virtuella nätverket. Den här posten tillåter att namn matchning begär adresser i det här intervallet.
 
-    * Lägg till IP-adressintervallet för det lokala nätverket i `acl goodclients { ... }` avsnittet.  posten tillåter namn matchnings begär Anden från resurser i det lokala nätverket.
+    * Lägg till IP-adressintervallet för det lokala nätverket i `acl goodclients { ... }`-avsnittet.  posten tillåter namn matchnings begär Anden från resurser i det lokala nätverket.
     
     * Ersätt värdet `192.168.0.1` med IP-adressen för din lokala DNS-server. Den här posten dirigerar alla andra DNS-förfrågningar till den lokala DNS-servern.
 
@@ -320,7 +320,7 @@ Det här exemplet gör följande antaganden:
     az network nic list --resource-group RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. Använd följande text som innehållet i `/etc/bind/named.config.local` filen på den anpassade DNS-servern. Gör den här ändringen på den anpassade DNS-servern i båda de virtuella nätverken.
+2. Använd följande text som innehåll i `/etc/bind/named.config.local`-filen på den anpassade DNS-servern. Gör den här ändringen på den anpassade DNS-servern i båda de virtuella nätverken.
 
     ```
     // Forward requests for the virtual network suffix to Azure recursive resolver
@@ -330,9 +330,9 @@ Det här exemplet gör följande antaganden:
     };
     ```
 
-    Ersätt värdet med DNS-suffixet för det andra virtuella nätverket. `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` Den här posten dirigerar begär Anden om DNS-suffixet för fjärrnätverket till den anpassade DNS i nätverket.
+    Ersätt `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`-värdet med DNS-suffixet för det __andra__ virtuella nätverket. Den här posten dirigerar begär Anden om DNS-suffixet för fjärrnätverket till den anpassade DNS i nätverket.
 
-3. På de anpassade DNS-servrarna i båda virtuella nätverken använder du följande text som `/etc/bind/named.conf.options` filens innehåll:
+3. Använd följande text som innehåll i `/etc/bind/named.conf.options`-filen på de anpassade DNS-servrarna i båda virtuella nätverken:
 
     ```
     // Clients to accept requests from
@@ -361,7 +361,7 @@ Det här exemplet gör följande antaganden:
     };
     ```
     
-   Ersätt värdena `10.1.0.0/16` och med IP-adressintervall för dina virtuella nätverk. `10.0.0.0/16` Den här posten gör det möjligt för resurser i varje nätverk att göra förfrågningar till DNS-servrarna.
+   Ersätt `10.0.0.0/16` och `10.1.0.0/16` värden med IP-adressintervall för dina virtuella nätverk. Den här posten gör det möjligt för resurser i varje nätverk att göra förfrågningar till DNS-servrarna.
 
     Förfrågningar som inte är relaterade till DNS-suffix för de virtuella nätverken (till exempel microsoft.com) hanteras av Azures rekursiva matchare.
 

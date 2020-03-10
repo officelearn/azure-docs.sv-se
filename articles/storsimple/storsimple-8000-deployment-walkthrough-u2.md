@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273950"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366812"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Distribuera en lokal StorSimple-enhet (Update 3 och senare)
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Översikt
-Välkommen till distribution av Microsoft Azure StorSimple-enheten. De här självstudiekurserna om distribution gäller StorSimple 8000 Series Update 3 och senare. Denna serie självstudier innehåller en checklista för konfiguration, konfigurationskrav och detaljerade konfigurationssteg för din StorSimple-enhet.
+Välkommen till distribution av Microsoft Azure StorSimple-enheten De här självstudiekurserna om distribution gäller StorSimple 8000 Series Update 3 och senare. Denna serie självstudier innehåller en checklista för konfiguration, konfigurationskrav och detaljerade konfigurationssteg för din StorSimple-enhet.
 
-Informationen i de här kurserna förutsätter att du har vidtagit säkerhetsåtgärder, packat upp, rackmonterat och kabelanslutit din StorSimple-enhet. Om du fortfarande behöver utföra dessa uppgifter ska du börja med att granska [säkerhetsåtgärderna](storsimple-8000-safety.md). Packa upp, rackmontera och kabelanslut enheten genom att följa de specifika instruktionerna för enheten.
+Informationen i dessa självstudiekurser förutsätter att du har granskat säkerhetsåtgärder, packat upp, rackmonterat och kabelanslutit din StorSimple-enhet. Om du fortfarande inte har utförd ovanstående bör du börja med att vidta [säkerhetsåtgärderna](storsimple-8000-safety.md). Packa upp, rackmontera och kabelanslut enheten genom att följa de specifika instruktionerna för enheten.
 
 * [Packa upp, rackmontera och kabelanslut din 8100](storsimple-8100-hardware-installation.md)
 * [Packa upp, rackmontera och kabelanslut din 8600](storsimple-8600-hardware-installation.md)
@@ -40,7 +40,7 @@ Utför dessa obligatoriska steg för att konfigurera StorSimple-enheten och ansl
 | [Checklista för distributionskonfiguration](#deployment-configuration-checklist) |Använd den här checklistan för att samla in och registrera information före och under distributionen. |
 | [Förhandskrav för distribution](#deployment-prerequisites) |När de här kraven är uppfyllda är miljön klar för distribution. |
 |  | |
-| **Distribution steg för steg** |De här stegen måste utföras för att distribuera StorSimple-enheten i produktionen. |
+| **Distribution steg för steg** |Dessa steg krävs för att distribuera StorSimple-enheten i produktionen. |
 | [Steg 1: Skapa en ny tjänst](#step-1-create-a-new-service) |Konfigurera hantering och lagring i molnet för StorSimple-enheten. *Hoppa över det här steget om du har en befintlig tjänst för andra StorSimple-enheter*. |
 | [Steg 2: Hämta tjänstregistreringsnyckeln](#step-2-get-the-service-registration-key) |Använd nyckeln för att registrera och ansluta din StorSimple-enhet till hanteringstjänsten. |
 | [Steg 3: Konfigurera och registrera enheten via Windows PowerShell för StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Anslut enheten till nätverket och registrera den med Azure för att slutföra installationen med hjälp av hanteringstjänsten. |
@@ -50,7 +50,7 @@ Utför dessa obligatoriska steg för att konfigurera StorSimple-enheten och ansl
 | [Steg 7: Montera, initiera och formatera en volym](#step-7-mount-initialize-and-format-a-volume)</br>[Valfritt: Konfigurera MPIO](storsimple-8000-configure-mpio-windows-server.md) |Anslut dina servrar till den iSCSI-lagring som ingår i enheten. Du kan även välja att konfigurera MPIO för att säkerställa att dina servrar kan tolerera fel på länkar, nätverk och gränssnitt. |
 | [Steg 8: Ta en säkerhetskopia](#step-8-take-a-backup) |Konfigurera din säkerhetskopieringsprincip för att skydda dina data |
 |  | |
-| **Andra procedurer** |Du kan behöva använda de här procedurerna när du distribuerar din lösning. |
+| **Andra procedurer** |Du kan behöva hänvisa till dessa procedurer när du distribuerar din lösning. |
 | [Konfigurera ett nytt lagringskonto för tjänsten](#configure-a-new-storage-account-for-the-service) | |
 | [Använd PuTTY för att ansluta till enhetens seriekonsol](#use-putty-to-connect-to-the-device-serial-console) | |
 | [Hämt IQN:en för en Windows Server-värd](#get-the-iqn-of-a-windows-server-host) | |
@@ -66,7 +66,7 @@ Innan du distribuerar enheten måste du samla in information för att konfigurer
 I följande avsnitt beskrivs konfigurationskraven för StorSimple Device Manager-tjänsten och StorSimple-enheten.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>För StorSimple Device Manager-tjänsten
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
 * Du har ditt Microsoft-konto med autentiseringsuppgifter.
 * Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
@@ -80,9 +80,9 @@ Innan enheten konfigureras ska du säkerställa att den är helt uppackad, rackm
 * [Packa upp, rackmontera och kabelanslut din 8600-enhet](storsimple-8600-hardware-installation.md)
 
 ### <a name="for-the-network-in-the-datacenter"></a>För nätverket i datacentret
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
-* Portarna i ditt datacenters brandvägg är öppna för att möjliggöra iSCSI- och molntrafik som beskrivs i [Nätverkskrav för din StorSimple-enhet](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
+* Portarna i ditt datacenters brandvägg är öppna för att möjliggöra iSCSI- och molntrafik enligt beskrivningen i [Nätverkskrav för din StorSimple-enhet](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
 ## <a name="step-by-step-deployment"></a>Steg för steg-distribution
 Utför nedanstående steg för steg-instruktioner för att distribuera StorSimple-enheten i datacentret.
@@ -107,7 +107,7 @@ Utför följande steg på Azure Portal.
 [!INCLUDE [storsimple-8000-get-service-registration-key](../../includes/storsimple-8000-get-service-registration-key.md)]
 
 ## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Steg 3: Konfigurera och registrera enheten via Windows PowerShell för StorSimple
-Använd Windows PowerShell för StorSimple för att slutföra installationen av StorSimple-enheten som beskrivs i följande procedur. Du måste använda programvara för terminalemulering för att utföra det här steget. Mer information finns i [Använda PuTTY för att ansluta till enhetens seriekonsol](#use-putty-to-connect-to-the-device-serial-console).
+Använd Windows PowerShell för StorSimple för att slutföra den förberedande inställningen av StorSimple-enheten enligt nedanstående procedur. Du måste använda programvara för terminalemulering för att utföra det här steget. Mer information finns i [Använda PuTTY för att ansluta till enhetens seriekonsol](#use-putty-to-connect-to-the-device-serial-console).
 
 [!INCLUDE [storsimple-8000-configure-and-register-device-u2](../../includes/storsimple-8000-configure-and-register-device-u2.md)]
 
@@ -153,7 +153,7 @@ Utför nedanstående steg för att montera, initiera och formatera dina StorSimp
 [!INCLUDE [storsimple-8000-mount-initialize-format-volume](../../includes/storsimple-8000-mount-initialize-format-volume.md)]
 
 ## <a name="step-8-take-a-backup"></a>Steg 8: Gör en säkerhetskopia
-Säkerhetskopieringar ger tidpunktsskydd för volymer och förbättrar återställningsmöjligheterna samtidigt som återställningstiderna minimeras. Du kan utföra två typer av säkerhetskopiering på StorSimple-enheten: lokala ögonblicksbilder och molnögonblicksbilder. Båda av dessa säkerhetskopieringstyper kan vara **schemalagda** eller **manuella**.
+Säkerhetskopieringar ger tidpunktsskydd för volymer och förbättrar återställningsmöjligheterna samtidigt som återställningstiderna minimeras. Du kan utföra två typer av säkerhetskopiering på StorSimple-enheten: lokala ögonblicksbilder och molnögonblicksbilder. Båda av de här säkerhetskopieringstyperna kan vara antingen **schemalagda** eller **manuella**.
 
 Skapa en schemalagd säkerhetskopiering genom att utföra stegen nedan på Azure Portal.
 

@@ -19,11 +19,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7249f2077666530964afa16ef47d69731cee846a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085229"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376340"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Hantera och anpassa Active Directory Federation Services (AD FS) med Azure AD Connect
 Den här artikeln beskriver hur du hanterar och anpassar Active Directory Federation Services (AD FS) (AD FS) med hjälp av Azure Active Directory (Azure AD) Connect. Den innehåller också andra vanliga AD FS uppgifter som du kan behöva utföra för en fullständig konfiguration av en AD FS server grupp.
@@ -49,7 +49,7 @@ Du kan utföra olika AD FS-relaterade uppgifter i Azure AD Connect med minimal a
 Du kan använda Azure AD Connect för att kontrol lera den aktuella hälsan för AD FS och Azure AD-förtroende och vidta lämpliga åtgärder för att reparera förtroendet. Följ dessa steg om du vill reparera Azure AD och AD FS förtroende.
 
 1. Välj **Reparera AAD och ADFS Trust** i listan över ytterligare aktiviteter.
-   ![Reparera AAD-och ADFS-förtroende](./media/how-to-connect-fed-management/RepairADTrust1.PNG)
+   ![reparera AAD-och ADFS-förtroende](./media/how-to-connect-fed-management/RepairADTrust1.PNG)
 
 2. På sidan **Anslut till Azure AD** anger du dina autentiseringsuppgifter som global administratör för Azure AD och klickar på **Nästa**.
    ![Anslut till Azure AD](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
@@ -77,8 +77,8 @@ Vi rekommenderar att du använder det lokala UPN-namnet (User Principal Name) oc
 ![Val av attribut för alternativ-ID](./media/how-to-connect-fed-management/attributeselection.png)
 
 Konfigurering av alternativt inloggnings-ID för AD FS består av två huvud steg:
-1. **Konfigurera rätt uppsättning utfärdande anspråk**: Anspråks reglerna för utfärdande i Azure AD-förtroendet för förlitande part ändras till att använda det valda UserPrincipalName-attributet som användarens alternativa ID.
-2. **Aktivera alternativt inloggnings-ID i AD FS-konfigurationen**: AD FS-konfigurationen uppdateras så att AD FS kan söka efter användare i lämpliga skogar med hjälp av det alternativa ID: t. Den här konfigurationen stöds för AD FS på Windows Server 2012 R2 (med KB2919355) eller senare. Om AD FS-servrarna är 2012 R2 kontrollerar Azure AD Connect om det finns tillräckligt med KB. Om KB inte identifieras visas en varning efter att konfigurationen är klar, enligt nedan:
+1. **Konfigurera rätt uppsättning utfärdande anspråk**: reglerna för utfärdande-anspråk i Azure AD-förtroendet för förlitande part ändras till att använda det valda userPrincipalName-attributet som användarens alternativa ID.
+2. **Aktivera alternativt inloggnings-ID i AD FS konfigurationen**: AD FS konfigurationen uppdateras så att AD FS kan söka efter användare i relevanta skogar med hjälp av det alternativa ID: t. Den här konfigurationen stöds för AD FS på Windows Server 2012 R2 (med KB2919355) eller senare. Om AD FS-servrarna är 2012 R2 kontrollerar Azure AD Connect om det finns tillräckligt med KB. Om KB inte identifieras visas en varning efter att konfigurationen är klar, enligt nedan:
 
     ![Varning för saknade KB på 2012R2](./media/how-to-connect-fed-management/kbwarning.png)
 
@@ -106,13 +106,13 @@ Konfigurering av alternativt inloggnings-ID för AD FS består av två huvud ste
 
 4. Azure AD Connect frågar efter lösen ordet för den PFX-fil som du angav när du konfigurerade den nya AD FS-gruppen med Azure AD Connect. Klicka på **Ange lösen ord** för att ange lösen ordet för PFX-filen.
 
-   ![Certifikatlösenord](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
+   ![Certifikat lösen ord](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
 
     ![Ange SSL-certifikat](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
 
 5. På sidan **AD FS servrar** anger du det Server namn eller den IP-adress som ska läggas till i AD FS-gruppen.
 
-   ![AD FS-servrar](./media/how-to-connect-fed-management/AddNewADFSServer6.PNG)
+   ![AD FS servrar](./media/how-to-connect-fed-management/AddNewADFSServer6.PNG)
 
 6. Klicka på **Nästa**och gå igenom den sista **konfigurations** sidan. När Azure AD Connect har lagt till servrarna i AD FS-gruppen får du alternativet att verifiera anslutningen.
 
@@ -134,7 +134,7 @@ Konfigurering av alternativt inloggnings-ID för AD FS består av två huvud ste
    ![Anslut till Azure AD](./media/how-to-connect-fed-management/wapserver2.PNG)
 
 3. På sidan **ange SSL-certifikat** anger du lösen ordet för den PFX-fil som du angav när du konfigurerade AD FS-servergruppen med Azure AD Connect.
-   ![Certifikat lösen ord](./media/how-to-connect-fed-management/WapServer3.PNG)
+   ![certifikat lösen ord](./media/how-to-connect-fed-management/WapServer3.PNG)
 
     ![Ange SSL-certifikat](./media/how-to-connect-fed-management/WapServer4.PNG)
 
@@ -144,7 +144,7 @@ Konfigurering av alternativt inloggnings-ID för AD FS består av två huvud ste
 
 5. På sidan **autentiseringsuppgifter för proxyserver** anger du administrativa autentiseringsuppgifter för att konfigurera proxy-förtroendet och få åtkomst till den primära servern i AD FS server gruppen.
 
-   ![Autentiseringsuppgifter för proxyförtroende](./media/how-to-connect-fed-management/WapServer6.PNG)
+   ![Autentiseringsuppgifter för proxy förtroende](./media/how-to-connect-fed-management/WapServer6.PNG)
 
 6. På sidan **klar att konfigurera** visar guiden en lista över åtgärder som ska utföras.
 
@@ -172,11 +172,11 @@ Det är enkelt att lägga till en domän som ska federerades med Azure AD med hj
 
 4. På nästa sida visar guiden en lista över Azure AD-domäner som du kan federera din lokala katalog med. Välj domän i listan.
 
-   ![Microsoft Azure Active Directory-domän](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
+   ![Azure AD-domän](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
 
     När du har valt domän ger guiden lämplig information om ytterligare åtgärder som ska vidtas och effekten av konfigurationen. I vissa fall, om du väljer en domän som inte har verifierats i Azure AD, innehåller guiden information som hjälper dig att verifiera domänen. Mer information finns i [lägga till ett anpassat domän namn i Azure Active Directory](../active-directory-domains-add-azure-portal.md) .
 
-5. Klicka på **Nästa**. Sidan **klar att konfigurera** visar en lista över åtgärder som Azure AD Connect utföra. Slutför konfigurationen genom att klicka på **Installera** .
+5. Klicka på **Next**. Sidan **klar att konfigurera** visar en lista över åtgärder som Azure AD Connect utföra. Slutför konfigurationen genom att klicka på **Installera** .
 
    ![Klart att konfigurera](./media/how-to-connect-fed-management/AdditionalDomain5.PNG)
 
@@ -190,12 +190,12 @@ I följande avsnitt finns information om några vanliga uppgifter som du kan beh
 Om du vill ändra logo typen för företaget som visas på **inloggnings** sidan använder du följande Windows PowerShell-cmdlet och syntax.
 
 > [!NOTE]
-> De rekommenderade måtten för logo typen är 260 x \@ 35 96 dpi med en fil storlek som inte är större än 10 kB.
+> De rekommenderade måtten för logo typen är 260 x 35 \@ 96 dpi med en fil storlek som inte är större än 10 KB.
 
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 
 > [!NOTE]
-> Parametern *TargetName* måste anges. Standard temat som släpps med AD FS heter default.
+> Parametern *TargetName* krävs. Standard temat som släpps med AD FS heter default.
 
 ## <a name="addsignindescription"></a>Lägg till en inloggnings Beskrivning 
 Om du vill lägga till en beskrivning av inloggnings sidan på **inloggnings sidan**använder du följande Windows PowerShell-cmdlet och syntax.
@@ -212,7 +212,7 @@ Med Azure AD Connect kan du ange ett attribut som ska användas som käll ankare
 
 Du kan till exempel välja **MS-DS-consistencyguid** som attribut för käll ankaret och utfärda **ImmutableID** som **MS-DS-consistencyguid** om attributet har ett värde mot det. Om det inte finns något värde gentemot attributet ska du utfärda **objectGUID** som det oföränderliga ID: t. Du kan skapa en uppsättning anpassade anspråks regler enligt beskrivningen i följande avsnitt.
 
-**Regel 1: Fråga attribut**
+**Regel 1: fråga attribut**
 
     c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
     => add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
@@ -221,21 +221,21 @@ I den här regeln ska du fråga värdena för **MS-DS-consistencyguid** och **ob
 
 Genom att använda **Lägg till** och inte **problem**undviker du att lägga till ett utgående problem för entiteten och kan använda värdena som mellanliggande värden. Du kommer att utfärda anspråket i en senare regel när du har fastställt vilket värde som ska användas som oföränderligt ID.
 
-**Regel 2: Kontrol lera om ms-DS-consistencyguid finns för användaren**
+**Regel 2: kontrol lera om ms-DS-consistencyguid finns för användaren**
 
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-Den här regeln definierar en temporär flagga som kallas **idflag** och som är inställd på **useguid** om det inte finns någon **MS-DS-consistencyguid** ifylld för användaren. Logiken bakom detta är det faktum att AD FS inte tillåter tomma anspråk. När du lägger till anspråk http://contoso.com/ws/2016/02/identity/claims/objectguid och http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid i regel 1 får du bara ett **msdsconsistencyguid** -anspråk om värdet är ifyllt för användaren. Om den inte har fyllts i AD FS se att den kommer att ha ett tomt värde och släpper det direkt. Alla objekt kommer att ha **objectGUID**, så detta anspråk kommer alltid att finnas där när regel 1 har körts.
+Den här regeln definierar en temporär flagga som kallas **idflag** och som är inställd på **useguid** om det inte finns någon **MS-DS-consistencyguid** ifylld för användaren. Logiken bakom detta är det faktum att AD FS inte tillåter tomma anspråk. När du lägger till anspråk http://contoso.com/ws/2016/02/identity/claims/objectguid och http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid i regel 1, får du bara ett **msdsconsistencyguid** -anspråk om värdet är ifyllt för användaren. Om den inte har fyllts i AD FS se att den kommer att ha ett tomt värde och släpper det direkt. Alla objekt kommer att ha **objectGUID**, så detta anspråk kommer alltid att finnas där när regel 1 har körts.
 
-**Regel 3: Utfärda ms-DS-consistencyguid som ett oföränderligt ID om det finns**
+**Regel 3: utfärda ms-DS-consistencyguid som oföränderligt ID om det finns**
 
     c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
     => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c.Value);
 
-Det här är en implicit kontroll. Om värdet för anspråket finns kan du utfärda det som det oföränderliga ID: t. I föregående exempel används **NameIdentifier** -anspråket. Du måste ändra detta till lämplig anspråks typ för det oåterkalleliga ID: t i din miljö.
+Det här är en **implicit kontroll** . Om värdet för anspråket finns kan du utfärda det som det oföränderliga ID: t. I föregående exempel används **NameIdentifier** -anspråket. Du måste ändra detta till lämplig anspråks typ för det oåterkalleliga ID: t i din miljö.
 
-**Regel 4: Utfärda objectGuid som oföränderligt ID om ms-DS-consistencyGuid inte finns**
+**Regel 4: utfärda objectGuid som oföränderligt ID om ms-DS-consistencyGuid inte finns**
 
     c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
     && c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]

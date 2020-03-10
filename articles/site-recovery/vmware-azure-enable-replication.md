@@ -7,11 +7,11 @@ ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 10b3e572ec61d1eff342f24a6a5a7bcba6276983
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495386"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363272"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivera replikering till Azure för virtuella VMware-datorer
 
@@ -23,7 +23,7 @@ I den här artikeln beskrivs hur du aktiverar replikering av lokala virtuella VM
 * OS-disken måste vara en standard disk, inte en dynamisk disk.
 * För generation 2/UEFI-aktiverade virtuella datorer bör operativ system familjen vara Windows och start disken bör vara mindre än 300 GB.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du har:
 

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 7c77527b7300c1149e96c94a4dbe122da226ac6d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720443"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382556"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Protokoll stöd för HTTP-huvuden i Azures frontend-tjänst
 Den här artikeln beskriver protokollet som frontend-tjänsten stöder med delar av anrops Sök vägen (se avbildning). I följande avsnitt finns mer information om HTTP-huvuden som stöds av frontend-tjänsten.

@@ -12,11 +12,11 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/21/2019
 ms.openlocfilehash: d28edd28dcbe31bfe63c2d0a9c3e975967efef04
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826590"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359175"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Återställa en Azure SQL Database eller redundans till en sekundär
 
@@ -89,7 +89,7 @@ Om programmets nedtid inte leder till företags ansvar kan du använda [geo-åte
 
 Om du använder geo-återställning för att återställa från ett avbrott måste du kontrol lera att anslutningarna till de nya databaserna är korrekt konfigurerade så att den normala program funktionen kan återupptas. Det här är en check lista med uppgifter för att få din återställda databas produktion klar.
 
-### <a name="update-connection-strings"></a>Uppdatera anslutnings strängar
+### <a name="update-connection-strings"></a>Uppdatera anslutningssträngar
 
 Eftersom den återställda databasen finns på en annan server måste du uppdatera programmets anslutnings sträng så att den pekar på den servern.
 

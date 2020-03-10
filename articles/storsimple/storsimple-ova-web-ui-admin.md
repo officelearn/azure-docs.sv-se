@@ -1,6 +1,6 @@
 ---
-title: StorSimple Virtual Array web UI administration | Microsoft Docs
-description: Beskriver hur du utför grundläggande administrationsuppgifter via webbgränssnittet för StorSimple Virtual Array.
+title: StorSimple-administration för virtuella webb gränssnitt | Microsoft Docs
+description: Beskriver hur du utför grundläggande enhets administrations uppgifter via StorSimple Virtual Array Web UI.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,100 +15,100 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 92671206a4171ca838423f55b526191ef30e5c35
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630519"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365737"
 ---
-# <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Använda Webbgränssnittet för att administrera din StorSimple Virtual Array
-![processflöde för installationen](./media/storsimple-ova-web-ui-admin/manage4.png)
+# <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Använd webb gränssnittet för att administrera din virtuella StorSimple-matris
+![konfigurations process flöde](./media/storsimple-ova-web-ui-admin/manage4.png)
 
 ## <a name="overview"></a>Översikt
-Självstudier i den här artikeln gäller för Microsoft Azure StorSimple Virtual Array (även kallat den lokala virtuella enheten StorSimple) som kör mars 2016 allmänt tillgänglig (GA) version. Den här artikeln beskriver några av de komplexa arbetsflöden och de administrativa uppgifter som kan utföras på StorSimple Virtual Array. Du kan hantera StorSimple Virtual Array med StorSimple Manager-Gränssnittet (kallas portalens användargränssnitt) och det lokala webbgränssnittet för enheten. Den här artikeln handlar om de uppgifter som att du kan utföra med webbgränssnittet.
+Självstudierna i den här artikeln gäller för den Microsoft Azure StorSimple virtuella matrisen (även kallat den lokala virtuella enheten StorSimple) som kör mars 2016 allmän tillgänglighet (GA). I den här artikeln beskrivs några komplexa arbets flöden och hanterings uppgifter som kan utföras på den virtuella StorSimple-matrisen. Du kan hantera den virtuella StorSimple-matrisen med hjälp av användar gränssnittet för StorSimple Manager tjänsten (kallas för portalens gränssnitt) och det lokala webb gränssnittet för enheten. Den här artikeln fokuserar på de uppgifter som du kan utföra med hjälp av webb gränssnittet.
 
 Den här artikeln innehåller följande självstudier:
 
-* Hämta krypteringsnyckeln för tjänstdata
-* Felsöka web UI-installationsfel
-* Skapa ett paket för log
+* Hämta krypterings nyckeln för tjänst data
+* Felsöka konfigurations fel för webb gränssnitt
+* Generera ett logg paket
 * Stänga av eller starta om enheten
 
-## <a name="get-the-service-data-encryption-key"></a>Hämta krypteringsnyckeln för tjänstdata
-En krypteringsnyckeln för tjänstdata genereras när du registrerar din första enhet med StorSimple Manager-tjänsten. Den här nyckeln är sedan krävs med tjänstregistreringsnyckeln för att registrera ytterligare enheter med StorSimple Manager-tjänsten.
+## <a name="get-the-service-data-encryption-key"></a>Hämta krypterings nyckeln för tjänst data
+En krypterings nyckel för tjänst data genereras när du registrerar din första enhet med tjänsten StorSimple Manager. Den här nyckeln krävs sedan med tjänst registrerings nyckeln för att registrera ytterligare enheter med tjänsten StorSimple Manager.
 
-Om du har tappat bort din krypteringsnyckeln för tjänstdata och du behöver hämta den, kan du utföra följande steg i det lokala webbgränssnittet på enheten som är registrerade med tjänsten.
+Om du har felplacerat krypterings nyckeln för tjänst data och behöver hämta den utför du följande steg i det lokala webb gränssnittet för den enhet som är registrerad i tjänsten.
 
-#### <a name="to-get-the-service-data-encryption-key"></a>Att hämta krypteringsnyckeln för tjänstdata
-1. Ansluta till det lokala webbgränssnittet. Gå till **Configuration** > **Molninställningar**.
-2. Längst ned på sidan klickar du på **Get krypteringsnyckeln för tjänstdata**. En nyckel visas. Kopiera och spara den här nyckeln.
+#### <a name="to-get-the-service-data-encryption-key"></a>Hämta krypterings nyckeln för tjänst data
+1. Anslut till det lokala webb gränssnittet. Gå till **konfiguration** > **moln inställningar**.
+2. Klicka på **Hämta krypterings nyckel för tjänst data**längst ned på sidan. En nyckel visas. Kopiera och spara den här nyckeln.
    
-    ![Hämta krypteringsnyckeln för tjänstdata 1](./media/storsimple-ova-web-ui-admin/image27.png)
+    ![Hämta krypterings nyckel för tjänst data 1](./media/storsimple-ova-web-ui-admin/image27.png)
 
-## <a name="troubleshoot-web-ui-setup-errors"></a>Felsöka web UI-installationsfel
-I vissa fall när du konfigurerar enheten via det lokala webbgränssnittet kanske du stöter på fel. Du kan köra diagnostiktesterna för att diagnostisera och felsöka dessa fel.
+## <a name="troubleshoot-web-ui-setup-errors"></a>Felsöka konfigurations fel för webb gränssnitt
+I vissa fall när du konfigurerar enheten via det lokala webb gränssnittet kan du stöta på fel. För att diagnostisera och felsöka sådana fel kan du köra diagnostiktest.
 
-#### <a name="to-run-the-diagnostic-tests"></a>Att köra diagnostiktest
-1. I det lokala webbgränssnittet går du till **felsökning** > **diagnostiska testerna**.
+#### <a name="to-run-the-diagnostic-tests"></a>Köra de diagnostiska testerna
+1. I det lokala webb gränssnittet går du till **fel sökning** > **diagnostiska tester**.
    
     ![Kör diagnostik 1](./media/storsimple-ova-web-ui-admin/image29.png)
-2. Längst ned på sidan klickar du på **kör diagnostiktest**. Detta kommer att initieras tester för att diagnostisera möjliga problem med ditt nätverk, enhet, webbproxy, tid eller molninställningar. Du kommer att meddelas att enheten kör testerna.
-3. När testerna har slutförts visas resultatet. I följande exempel visar resultatet av diagnostiktest. Observera att webbproxyinställningarna inte är konfigurerade på den här enheten och därför web proxy testet kördes inte. Alla andra tester för nätverksinställningar, DNS-server och tidsinställningar har installerats.
+2. Klicka på **Kör diagnostiska tester**längst ned på sidan. Detta kommer att initiera tester för att diagnostisera eventuella problem med nätverks-, enhets-, webbproxy-, tids-eller moln inställningar. Du får ett meddelande om att enheten kör tester.
+3. När testerna har slutförts visas resultaten. I följande exempel visas resultatet av diagnostiska tester. Observera att webbproxy-inställningarna inte har kon figurer ATS på den här enheten, och därför kördes inte webbproxy-testet. Alla andra tester för nätverks inställningar, DNS-server och tids inställningar lyckades.
    
     ![Kör diagnostik 2](./media/storsimple-ova-web-ui-admin/image30.png)
 
-## <a name="generate-a-log-package"></a>Skapa ett paket för log
-Ett paket för log består av alla relevanta loggar som kan hjälpa Microsoft Support med att felsöka eventuella problem med. I den här versionen kan ett log-paket skapas via det lokala webbgränssnittet.
+## <a name="generate-a-log-package"></a>Generera ett logg paket
+Ett logg paket består av alla relevanta loggar som kan hjälpa Microsoft Support med fel sökning av eventuella enhets problem. I den här versionen kan ett logg paket genereras via det lokala webb gränssnittet.
 
-#### <a name="to-generate-the-log-package"></a>Att generera log-paketet
-1. I det lokala webbgränssnittet går du till **felsökning** > **systemloggar**.
+#### <a name="to-generate-the-log-package"></a>Så här genererar du logg paketet
+1. I det lokala webb gränssnittet går du till **fel sökning** > **system loggar**.
    
-    ![Generera log paketet 1](./media/storsimple-ova-web-ui-admin/image31.png)
-2. Längst ned på sidan klickar du på **skapa log paketet**. Ett paket med systemloggar kommer att skapas. Detta tar några minuter.
+    ![Generera logg paket 1](./media/storsimple-ova-web-ui-admin/image31.png)
+2. Klicka på **Skapa logg paket**längst ned på sidan. Ett paket av system loggarna kommer att skapas. Detta tar några minuter.
    
-    ![Generera log paketet 2](./media/storsimple-ova-web-ui-admin/image32.png)
+    ![Generera logg paket 2](./media/storsimple-ova-web-ui-admin/image32.png)
    
-    Du kommer att meddelas när paketet har skapats och sidan kommer att uppdateras för att visa tid och datum när paketet skapades.
+    Du får ett meddelande när paketet har skapats och sidan uppdateras för att ange den tid och det datum då paketet skapades.
    
-    ![Skapa log paket 3](./media/storsimple-ova-web-ui-admin/image33.png)
-3. Klicka på **log hämtningspaketet**. Ett komprimerade paket laddas ned på datorn.
+    ![Generera logg paket 3](./media/storsimple-ova-web-ui-admin/image33.png)
+3. Klicka på **Hämta logg paket**. Ett zippat paket kommer att laddas ned i systemet.
    
-    ![Skapa log paket 4](./media/storsimple-ova-web-ui-admin/image34.png)
-4. Du kan packa upp paketet hämtade log och visa systemloggfilerna.
+    ![Generera logg paket 4](./media/storsimple-ova-web-ui-admin/image34.png)
+4. Du kan zippa upp det hämtade logg paketet och se systemloggfilerna.
 
-## <a name="shut-down-and-restart-your-device"></a>Starta om din enhet
-Du kan stänga av eller starta om den virtuella enheten med hjälp av det lokala webbgränssnittet. Vi rekommenderar att innan du startar om ta volymer eller resurser offline på värden och sedan på enheten. Detta minimerar risken för risk att data skadas. 
+## <a name="shut-down-and-restart-your-device"></a>Stäng av och starta om enheten
+Du kan stänga av eller starta om den virtuella enheten med hjälp av det lokala webb gränssnittet. Du rekommenderas att innan du startar om, ta volymerna eller resurserna offline på värden och sedan på enheten. Detta minimerar risken för skadade data. 
 
-#### <a name="to-shut-down-your-virtual-device"></a>Att stänga av den virtuella enheten
-1. I det lokala webbgränssnittet går du till **Underhåll** > **energiinställningar**.
-2. Längst ned på sidan klickar du på **avstängning**.
+#### <a name="to-shut-down-your-virtual-device"></a>Stänga av den virtuella enheten
+1. I det lokala webb gränssnittet går du till **underhåll** > **energi inställningar**.
+2. Klicka på **Avsluta**längst ned på sidan.
    
-    ![Stäng av enheten 1](./media/storsimple-ova-web-ui-admin/image36.png)
-3. En varning visas om att stänga av enheten kommer att avbryta alla I/O som pågår, vilket resulterar i ett driftstopp. Klicka på kryssikonen ![kryssikon](./media/storsimple-ova-web-ui-admin/image3.png).
+    ![enhets avstängning 1](./media/storsimple-ova-web-ui-admin/image36.png)
+3. En varning visas om att en avstängning av enheten kommer att avbryta eventuella i/o som pågår, vilket resulterar i en stillestånds tid. Klicka på kryssikonen ![kryssikon](./media/storsimple-ova-web-ui-admin/image3.png).
    
-    ![enheten avstängning varning](./media/storsimple-ova-web-ui-admin/image37.png)
+    ![Varning vid avstängning av enhet](./media/storsimple-ova-web-ui-admin/image37.png)
    
-    Du kommer att meddelas att avstängningen har påbörjats.
+    Du får ett meddelande om att avstängningen har påbörjats.
    
-    ![igång att Stäng av enheten](./media/storsimple-ova-web-ui-admin/image38.png)
+    ![enheten har stängts av](./media/storsimple-ova-web-ui-admin/image38.png)
    
-    Enheten stängs nu. Om du vill starta enheten behöver du göra det via Hyper-V Manager.
+    Enheten kommer nu att stängas av. Om du vill starta enheten måste du göra det via Hyper-V Manager.
 
 #### <a name="to-restart-your-virtual-device"></a>Starta om den virtuella enheten
-1. I det lokala webbgränssnittet går du till **Underhåll** > **energiinställningar**.
-2. Längst ned på sidan klickar du på **starta om**.
+1. I det lokala webb gränssnittet går du till **underhåll** > **energi inställningar**.
+2. Klicka på **starta om**längst ned på sidan.
    
-    ![omstart av enheten](./media/storsimple-ova-web-ui-admin/image36.png)
-3. En varning visas om att starta om enheten avbryter alla IOs som pågår, vilket resulterar i ett driftstopp. Klicka på kryssikonen ![kryssikon](./media/storsimple-ova-web-ui-admin/image3.png).
+    ![omstart av enhet](./media/storsimple-ova-web-ui-admin/image36.png)
+3. En varning visas om att omstart av enheten kommer att avbryta alla IOs-enheter som pågår, vilket resulterar i en stillestånds tid. Klicka på kryssikonen ![kryssikon](./media/storsimple-ova-web-ui-admin/image3.png).
    
     ![Starta om varning](./media/storsimple-ova-web-ui-admin/image37.png)
    
-    Du kommer att meddelas att omstart har påbörjats.
+    Du får ett meddelande om att omstarten har startats.
    
-    ![omstart har initierats](./media/storsimple-ova-web-ui-admin/image39.png)
+    ![omstart initierad](./media/storsimple-ova-web-ui-admin/image39.png)
    
-    När omstarten pågår, förlorar anslutningen till Användargränssnittet. Du kan övervaka omstarten genom att uppdatera Användargränssnittet med jämna mellanrum. Du kan också övervaka omstart Enhetsstatus genom Hyper-V Manager.
+    När omstarten pågår går anslutningen till användar gränssnittet förlorade. Du kan övervaka omstarten genom att regelbundet uppdatera användar gränssnittet. Du kan också övervaka statusen för omstart av enheten via Hyper-V Manager.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du [använda StorSimple Manager-tjänsten för att hantera din enhet](storsimple-virtual-array-manager-service-administration.md).
+Lär dig hur du [använder tjänsten StorSimple Manager för att hantera enheten](storsimple-virtual-array-manager-service-administration.md).
 

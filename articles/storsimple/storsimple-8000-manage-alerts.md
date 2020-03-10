@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76270829"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365914"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Använd tjänsten StorSimple Enhetshanteraren för att visa och hantera StorSimple-aviseringar
 
@@ -35,7 +35,7 @@ Dessutom kan du se aviseringar relaterade till säkerhet, uppdateringar eller jo
 
 ## <a name="alert-severity-levels"></a>Allvarlighets nivåer för aviseringar
 
-Aviseringar har olika allvarlighets grader, beroende på vilken effekt som aviserings situationen kommer att ha och behovet av svar på aviseringen. Allvarlighetsgraderna är:
+Aviseringar har olika allvarlighets grader, beroende på vilken effekt som aviserings situationen kommer att ha och behovet av svar på aviseringen. Allvarlighets graderna är:
 
 * **Kritisk** – den här aviseringen är som svar på ett villkor som påverkar systemets prestanda. Åtgärd krävs för att säkerställa att StorSimple-tjänsten inte avbryts.
 * **Varning** – det här tillståndet kan bli kritiskt om det inte är löst. Du bör undersöka situationen och vidta alla åtgärder som krävs för att ta bort problemet.
@@ -64,7 +64,7 @@ När du har aktiverat e-postavisering för en enhet kommer medlemmar i meddeland
       
 3. Skicka ett test-e-postmeddelande genom att klicka på **Skicka test-e-post**. Tjänsten StorSimple Enhetshanteraren visar status meddelanden när det vidarebefordrar test meddelandet.
 
-    ![Aviserings inställningar](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
+    ![aviserings inställningar](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
 
 4. Du ser ett meddelande när test-e-postmeddelandet skickas. 
    

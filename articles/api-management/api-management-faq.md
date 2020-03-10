@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: 21b46ba0012b71ed0e09dc09d041ceb020824843
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967447"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375393"
 ---
 # <a name="azure-api-management-faqs"></a>Vanliga frågor och svar om Azure API Management
 Få svar på vanliga frågor, mönster och metod tips för Azure API Management.
@@ -28,7 +28,7 @@ Få svar på vanliga frågor, mönster och metod tips för Azure API Management.
 ## <a name="contact-us"></a>Kontakta oss
 * [Hur kan jag be Microsoft Azure API Management teamet om en fråga?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 * [Vad betyder det när en funktion är i för hands version?](#what-does-it-mean-when-a-feature-is-in-preview)
 * [Hur kan jag skydda anslutningen mellan API Management-gatewayen och mina backend-tjänster?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
 * [Hur gör jag för att kopiera min API Management-tjänstinstans till en ny instans?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
@@ -73,7 +73,7 @@ Du har flera alternativ om du vill kopiera en API Management-instans till en ny 
 * Skapa en egen säkerhets kopierings-och återställnings funktion med hjälp av [API Management REST API](/rest/api/apimanagement/). Använd REST API för att spara och återställa entiteter från den tjänst instans du vill använda.
 * Hämta tjänst konfigurationen med hjälp av Git och ladda sedan upp den till en ny instans. Mer information finns i [så här sparar och konfigurerar du API Management tjänst konfigurationen med hjälp av Git](api-management-configuration-repository-git.md).
 
-### <a name="can-i-manage-my-api-management-instance-programmatically"></a>Kan jag hantera min API Management-instans programmässigt?
+### <a name="can-i-manage-my-api-management-instance-programmatically"></a>Kan jag hantera min API Management-instans program mässigt?
 Ja, du kan hantera API Management program mässigt genom att använda:
 
 * [API Management REST API](/rest/api/apimanagement/).
@@ -83,7 +83,7 @@ Ja, du kan hantera API Management program mässigt genom att använda:
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Hur gör jag för att lägger du till en användare i gruppen Administratörer?
 Så här kan du lägga till en användare i gruppen Administratörer:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Gå till den resurs grupp som har den API Management-instans som du vill uppdatera.
 3. I API Management tilldelar du rollen **API Management Service Contributor** till användaren.
 

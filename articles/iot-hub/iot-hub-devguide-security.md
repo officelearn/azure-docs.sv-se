@@ -9,13 +9,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.openlocfilehash: 47eae55493c5db281ee1be0f9d32f8f8190fc286
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546953"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357753"
 ---
-# <a name="control-access-to-iot-hub"></a>Kontrollera åtkomst till IoT Hub
+# <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
 I den här artikeln beskrivs alternativen för att skydda IoT-hubben. IoT Hub använder *behörigheter* för att bevilja åtkomst till varje IoT Hub-slutpunkt. Behörigheter begränsar åtkomsten till en IoT-hubb baserat på funktioner.
 
@@ -41,7 +41,7 @@ Du kan bevilja [behörigheter](#iot-hub-permissions) på följande sätt:
   | -------------------- | ----------- |
   | iothubowner | Alla behörigheter |
   | tjänst | **ServiceConnect** -behörigheter |
-  | device | **DeviceConnect** -behörigheter |
+  | anordningar | **DeviceConnect** -behörigheter |
   | registryRead | **RegistryRead** -behörigheter |
   | registryReadWrite | Behörigheter för **RegistryRead** och **RegistryWrite** |
 
@@ -59,7 +59,7 @@ Till exempel i en typisk IoT-lösning:
 
 ## <a name="authentication"></a>Autentisering
 
-Azure IoT Hub beviljar åtkomst till slutpunkter genom att verifiera en token mot principerna för delad åtkomst och säkerhetsautentiseringsuppgifter för identitetsregistret.
+Azure IoT Hub beviljar åtkomst till slut punkter genom att verifiera en token mot principerna för delad åtkomst och säkerhets referenser för identitets registret.
 
 Säkerhets referenser, till exempel symmetriska nycklar, skickas aldrig över kabeln.
 

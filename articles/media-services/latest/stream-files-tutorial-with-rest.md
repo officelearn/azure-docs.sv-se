@@ -13,11 +13,11 @@ ms.custom: mvc
 ms.date: 11/05/2019
 ms.author: juliako
 ms.openlocfilehash: d4175f2508edab1cf54e415652e9e9cb37b879b1
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514348"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359529"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Självstudie: koda en fjärrfil baserat på URL och strömma videon REST
 
@@ -30,8 +30,8 @@ I den här självstudien får du lära dig att koda en fil baserat på en URL oc
 I den här självstudiekursen lär du dig att:    
 
 > [!div class="checklist"]
-> * Skapa ett medietjänstkonto
-> * Åtkomst till Media Services-API:n
+> * Skapa ett Media Services-konto
+> * Åtkomst till Media Services API
 > * Hämta Postman-filer
 > * Konfigurera Postman
 > * Skicka begäranden med Postman
@@ -40,7 +40,7 @@ I den här självstudiekursen lär du dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).
 
@@ -191,7 +191,7 @@ Du kan använda en inbyggd EncoderNamedPreset eller anpassade förinställningar
         ```
         https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
         ```
-    * Åtgärden har följande text:
+    * Åtgärden har följande innehåll:
 
         ```json
         {
@@ -226,7 +226,7 @@ I det här exemplet baseras jobbets Indatatyp på en HTTPS-URL ("https:\//nimbus
         ```
         https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
         ```
-    * Åtgärden har följande text:
+    * Åtgärden har följande innehåll:
 
         ```json
         {
@@ -248,13 +248,13 @@ I det här exemplet baseras jobbets Indatatyp på en HTTPS-URL ("https:\//nimbus
         }
         ```
 
-Jobbet tar en stund att slutföra och du meddelas när detta sker. Om du vill se förloppet för jobbet rekommenderar vi att du använder Event Grid. Det är utformat för hög tillgänglighet, konsekvent prestanda och dynamisk skalning. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt anpassade källor. Enkel, HTTP-baserad reaktiv händelsehantering gör det enklare att skapa effektiva lösningar med hjälp av intelligent filtrering och dirigering av händelser.  Se [Dirigera händelser till en anpassad webbslutpunkt](job-state-events-cli-how-to.md).
+Jobbet tar en stund att slutföra och du meddelas när detta sker. Om du vill se förloppet för jobbet rekommenderar vi att du använder Event Grid. Det är utformat för hög tillgänglighet, konsekvent prestanda och dynamisk skalning. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt även från anpassade källor. Med enkel och HTTP-baserad reaktiv händelsehantering blir det lättare att skapa effektiva lösningar med hjälp av intelligent filtrering och dirigering av händelser.  Se [Dirigera händelser till en anpassad webbslutpunkt](job-state-events-cli-how-to.md).
 
 **Jobb** har vanligtvis följande tillstånd: **Schemalagd**, **I kö**, **Bearbetas**, **Slutförd** (slutlig status). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
 
 #### <a name="job-error-codes"></a>Jobbfelkoder
 
-Se [Felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Se [felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ### <a name="create-a-streaming-locator"></a>Skapa en positionerare för direktuppspelning
 
@@ -278,7 +278,7 @@ Media Service-kontot har en kvot för antalet **strömningsprincipposter**. Du b
         ```
         https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}
         ```
-    * Åtgärden har följande text:
+    * Åtgärden har följande innehåll:
 
         ```json
         {
@@ -368,13 +368,13 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 > [!NOTE]
 > Kontrollera att **slutpunkten för direktuppspelning** som du vill spela upp innehåll från körs.
 
-I den här artikeln används Azure Media Player till att testa strömningen. 
+I den här artikeln används Azure Media Player för att testa dataströmmen. 
 
 1. Öppna en webbläsare och navigera till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. I **URL:** -rutan klistrar du in den URL som du skapat. 
 3. Tryck på **Uppdatera spelare**.
 
-Azure Media Player kan användas vid testning, men bör inte användas i en produktionsmiljö. 
+Azure Media Player kan användas för att testa men ska inte användas i en produktionsmiljö. 
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Rensa resurser på ditt Media Services-konto
 

@@ -10,19 +10,19 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3abbf2c8e0734d17aabadd2ae5f61cc03889964b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754323"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379602"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Tjänst administration för Azure Kognitiv sökning i Azure Portal
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
 > * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
-> * [Portalen](search-manage.md)
-> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
+> * [Portal](search-manage.md)
+> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0) -> 
 
 Azure Kognitiv sökning är en fullständigt hanterad, molnbaserad Sök tjänst som används för att skapa en omfattande Sök upplevelse i anpassade appar. Den här artikeln beskriver de tjänst administrations uppgifter som du kan utföra i [Azure Portal](https://portal.azure.com) för en Sök tjänst som du redan har etablerad. Tjänst administration är lätt att utforma, begränsad till följande uppgifter:
 
@@ -62,8 +62,8 @@ I instrument panelen är resurs övervakning begränsad till den information som
 
 Med hjälp av Sök tjänsten REST API kan du få ett antal dokument och index program mässigt: 
 
-* [Hämta Indexstatistiken](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
-* [Antal dokument](https://docs.microsoft.com/rest/api/searchservice/count-documents)
+* [Hämta index statistik](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
+* [Räkna dokument](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>Haveri beredskap och drift avbrott
 
@@ -75,7 +75,7 @@ Kunder som använder [indexerare](search-indexer-overview.md) för att fylla i o
 
 Om du inte använder indexerare använder du program koden för att skicka objekt och data till olika Sök tjänster parallellt. Mer information finns i [prestanda och optimering i Azure kognitiv sökning](search-performance-optimization.md).
 
-## <a name="backup-and-restore"></a>Säkerhetskopiera och återställ
+## <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
 Eftersom Azure Kognitiv sökning inte är en primär data lagrings lösning ger vi inte en formell mekanism för säkerhets kopiering och återställning av självbetjäning. Du kan dock använda exempel koden **index-Backup-Restore** i den här [Azure kognitiv sökning .net-exempel lagrings platsen](https://github.com/Azure-Samples/azure-search-dotnet-samples) för att säkerhetskopiera index definitionen och ögonblicks bilden till en serie JSON-filer och sedan använda filerna för att återställa indexet, om det behövs. Det här verktyget kan också flytta index mellan tjänst nivåer.
 

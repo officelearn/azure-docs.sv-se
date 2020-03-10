@@ -16,11 +16,11 @@ ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: feedce112110b1c944e3cb0af79e76fe1bda4778
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77365630"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378405"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets dag för automatisk användar etablering
 
@@ -472,7 +472,7 @@ I det här steget upprättar vi anslutningen till arbets dagar och Active Direct
 
    * Klicka på knappen **Testa anslutning** . Om anslutnings testet lyckas, klickar du på knappen **Spara** längst upp. Om det Miss lyckas, kontrol lera att autentiseringsuppgifterna för arbets dag och de AD-autentiseringsuppgifter som kon figurer ATS för Agent installationen är giltiga.
 
-     ![Azure-portalen](./media/workday-inbound-tutorial/wd_1.png)
+     ![Azure Portal](./media/workday-inbound-tutorial/wd_1.png)
 
    * När autentiseringsuppgifterna har sparats visar avsnittet **mappningar** standard mappningen **Synkronisera arbets uppgifter för arbets dagar till lokalt Active Directory**
 
@@ -537,7 +537,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 
 1. Spara dina mappningar genom att klicka på **Spara** överst i avsnittet attribut-mappning.
 
-   ![Azure-portalen](./media/workday-inbound-tutorial/wd_2.png)
+   ![Azure Portal](./media/workday-inbound-tutorial/wd_2.png)
 
 #### <a name="below-are-some-example-attribute-mappings-between-workday-and-active-directory-with-some-common-expressions"></a>Nedan visas några exempel på attribut mappningar mellan arbets dagar och Active Directory, med några vanliga uttryck
 
@@ -745,7 +745,7 @@ När du har slutfört konfigurationen av appar för arbets dag etablering kan du
 
 5. När den inledande synkroniseringen har slutförts skrivs en gransknings sammanfattnings rapport på fliken **etablering** , som visas nedan.
 
-   ![Azure-portalen](./media/workday-inbound-tutorial/wd_3.png)
+   ![Azure Portal](./media/workday-inbound-tutorial/wd_3.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar
 
@@ -848,7 +848,7 @@ När du föreslår en ny idé bör du kontrol lera om någon annan redan har fö
 * Gå till **kontroll panelen** -> **Avinstallera eller ändra en program** meny
 * Leta efter den version som motsvarar posten **Microsoft Azure AD ansluta etablerings agenten**
 
-  ![Azure-portalen](./media/workday-inbound-tutorial/pa_version.png)
+  ![Azure Portal](./media/workday-inbound-tutorial/pa_version.png)
 
 #### <a name="does-microsoft-automatically-push-provisioning-agent-updates"></a>Push-överför Microsoft automatiskt Provisioning agent-uppdateringar?
 

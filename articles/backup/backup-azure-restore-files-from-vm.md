@@ -3,12 +3,12 @@ title: Återställa filer och mappar från virtuell Azure-säkerhetskopiering
 description: I den här artikeln lär du dig hur du återställer filer och mappar från en återställnings punkt för en virtuell Azure-dator.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: d80fb1060eca766305ecbfffe151d975472f8b3c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 0e3061ea8fc26adcf39fe415cd9a662de739543a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77660928"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363891"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -125,7 +125,7 @@ Om du vill visa en lista över alla logiska volymer, namn och deras sökvägar i
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs command’s results>
+lvdisplay <volume-group-name from the pvs command's results>
 ```
 
 Montera de logiska volymerna till valfri sökväg:
@@ -202,10 +202,10 @@ Om du kör skriptet på en dator med begränsad åtkomst kontrollerar du att det
 
 - `download.microsoft.com`
 - URL: er för återställnings tjänsten (geo-Name refererar till den region där Recovery Service-valvet finns)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.com> (för offentliga Azure-geografiska områden)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (för Azure Kina-21Vianet)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.us> (för Azure amerikanska myndigheter)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.de> (för Azure Germany)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (för offentliga Azure-geografiska områden)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (för Azure Kina-21Vianet)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (för Azure amerikanska myndigheter)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (för Azure Germany)
 - Utgående portar 53 (DNS), 443, 3260
 
 > [!NOTE]
@@ -295,7 +295,7 @@ För att bläddra bland filer och mappar använder skriptet iSCSI-initieraren p�
 
 Vi använder en metod för ömsesidig CHAP-autentisering så att varje komponent autentiserar den andra. Det innebär att det är mycket svårt för en falsk initierare att ansluta till iSCSI-målet och att ett förfalskat mål måste vara anslutet till den dator där skriptet körs.
 
-Data flödet mellan återställnings tjänsten och datorn skyddas genom att skapa en säker SSL-tunnel över TCP ([TLS 1,2 bör stödjas](#system-requirements) på den dator där skriptet körs).
+Data flödet mellan återställnings tjänsten och datorn skyddas genom att skapa en säker TLS-tunnel över TCP ([TLS 1,2 bör stödjas](#system-requirements) på den dator där skriptet körs).
 
 Alla fil Access Control List (ACL) som finns i den överordnade/säkerhetskopierade virtuella datorn bevaras även i det monterade fil systemet.
 

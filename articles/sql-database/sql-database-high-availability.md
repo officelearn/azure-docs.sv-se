@@ -12,11 +12,11 @@ ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
 ms.openlocfilehash: b560cee23855d1c0e8a7b3c2cb9d82c184a1ebf6
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732407"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357688"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL Database
 
@@ -98,7 +98,7 @@ En redundansväxling kan initieras med hjälp av REST API eller PowerShell. För
 > [!IMPORTANT]
 > Redundans kommandot är för närvarande inte tillgängligt i den storskaliga tjänst nivån och för en hanterad instans.
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Azure SQL Database har en inbyggd lösning för hög tillgänglighet som är djupt integrerad med Azure-plattformen. Det beror på Service Fabric för identifiering och återställning av fel i Azure Blob Storage för data skydd och på Tillgänglighetszoner för högre fel tolerans. Dessutom utnyttjar Azure SQL Database alltid tillgänglighets grupp teknik från SQL Server för replikering och redundans. Kombinationen av dessa tekniker gör det möjligt för program att helt kunna utnyttja fördelarna med en blandad lagrings modell och stödja de mest krävande service avtal.
 

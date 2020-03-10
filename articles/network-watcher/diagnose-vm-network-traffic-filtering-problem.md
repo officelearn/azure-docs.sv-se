@@ -18,11 +18,11 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844929"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381207"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Snabbstart: Diagnostisera problem med filtreringen av nätverkstrafik på virtuella datorer med hjälp av Azure Portal
 
@@ -46,8 +46,8 @@ Logga in på Azure Portal på https://portal.azure.com.
     |Användarnamn| Ange ett valfritt användarnamn.|
     |lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
-    |Resursgrupp| Välj **Skapa ny** och skriv **myResourceGroup**.|
-    |Location| Välj **USA, östra**|
+    |Resursgrupp| Välj **Skapa ny** och ange **myResourceGroup**.|
+    |plats.| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Acceptera standardinställningarna under **Inställningar** och välj **OK**.
@@ -61,18 +61,18 @@ Om du vill testa nätverkskommunikationen med Network Watcher måste du först a
 
 Om du redan har aktiverat en nätverksbevakare i minst en region går du vidare till [Använda Kontrollera IP-flöde](#use-ip-flow-verify).
 
-1. Välj **Alla tjänster** i portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
-2. Aktivera en nätverksbevakare i regionen Östra USA eftersom det var i den regionen som den virtuella datorn distribuerades i ett tidigare steg. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
+1. Välj **Alla tjänster** på portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
+2. Aktivera en nätverksbevakare i regionen USA, östra eftersom det var i den regionen som den virtuella datorn distribuerades i ett tidigare steg. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
 
     ![Aktivera Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
 
-3. Välj **Aktivera nätverksbevakaren**.
+3. Välj **Aktivera Network Watcher**.
 
 ### <a name="use-ip-flow-verify"></a>Använda Kontrollera IP-flöde
 
 När du skapar en virtuell dator tillåter och nekar Azure nätverkstrafik till och från den virtuella datorn som standard. Om du vill kan du åsidosätta standardinställningarna i Azure och tillåta eller neka andra typer av trafik.
 
-1. Välj **Alla tjänster** i portalen. I rutan **alla tjänster** *Filter* anger du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
+1. Välj **Alla tjänster** på portalen. I rutan **alla tjänster** *Filter* anger du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
 2. Välj **Kontrollera IP-flöde** under **DIAGNOSTISKA VERKTYG FÖR NÄTVERK**.
 3. Välj din prenumeration, ange eller välj följande värden och välj sedan **Kontrollera**, som du ser i bilden nedan:
 
@@ -90,7 +90,7 @@ När du skapar en virtuell dator tillåter och nekar Azure nätverkstrafik till 
 
     ![Kontrollera IP-flöde](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)
 
-    Resultatet visas efter några sekunder och anger att åtkomsten tillåts på grund av en säkerhetsregel med namnet **AllowInternetOutbound**. När du körde kontrollen skapade Network Watcher automatiskt en nätverksbevakare i regionen Östra USA om du hade en befintlig nätverksbevakare i en annan region än regionen Östra USA innan du körde kontrollen.
+    Resultatet visas efter några sekunder och anger att åtkomsten tillåts på grund av en säkerhetsregel med namnet **AllowInternetOutbound**. När du körde kontrollen skapade Network Watcher automatiskt en nätverksbevakare i regionen USA, östra om du hade en befintlig nätverksbevakare i en annan region än regionen USA, östra innan du körde kontrollen.
 4. Utför steg 3 igen, men ändra **Fjärr-IP-adress** till **172.31.0.100**. Resultatet som returneras anger att åtkomsten nekas på grund av en säkerhetsregel med namnet **DefaultOutboundDenyAll**.
 5. Utför steg 3 igen, men ändra **Riktning** till **Inkommande**, **Lokal port** till **80** och **Fjärrport** till **60000**. Resultatet som returneras anger att åtkomsten nekas på grund av en säkerhetsregel med namnet **DefaultInboundDenyAll**.
 
@@ -118,9 +118,9 @@ Kontrollerna i den här snabbstarten testade Azure-konfigurationen. Om kontrolle
 
 Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehåller:
 
-1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
+1. Skriv *myResourceGroup* i rutan **Sök** högst upp i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
-3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
+3. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

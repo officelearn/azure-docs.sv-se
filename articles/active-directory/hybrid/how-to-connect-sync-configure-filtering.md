@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 983699dfbfe3e8fa332da4810d1514a11029077f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768175"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376276"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synkronisering: Konfigurera filtrering
 Genom att använda filtrering kan du styra vilka objekt som visas i Azure Active Directory (Azure AD) från din lokala katalog. Standard konfigurationen tar alla objekt i alla domäner i de konfigurerade skogarna. I allmänhet är detta den rekommenderade konfigurationen. Användare som använder Office 365-arbetsbelastningar, till exempel Exchange Online och Skype för företag, drar nytta av en fullständig global adress lista så att de kan skicka e-post och ringa alla. Med standard konfigurationen har de samma erfarenhet som de skulle ha med en lokal implementering av Exchange eller Lync.
@@ -279,7 +279,7 @@ I det här exemplet ändrar du filtreringen så att endast användare som har b�
 5. I popup-fönstret svarar du **Ja** för att skapa en kopia av regeln.
 6. På sidan **Beskrivning** ändrar du **prioriteten** till ett oanvänt värde, till exempel 50.
 7. Klicka på **omfångs filter** i det vänstra navigerings fältet och klicka sedan på **Lägg till sats**. I **attribut**väljer du **e-post**. I **operator**väljer du **ENDSWITH**. I **värde**, skriver du **\@contoso.com**och klickar sedan på **Lägg till sats**. I **attribut**väljer du **userPrincipalName**. I **operator**väljer du **ENDSWITH**. I **värde**, skriver du **\@contoso.com**.
-8. Klicka på **Spara**.
+8. Klicka på **Save** (Spara).
 9. För att slutföra konfigurationen måste du köra en **fullständig synkronisering**. Fortsätt läsa avsnittet [tillämpa och verifiera ändringar](#apply-and-verify-changes).
 
 ## <a name="apply-and-verify-changes"></a>Tillämpa och verifiera ändringar

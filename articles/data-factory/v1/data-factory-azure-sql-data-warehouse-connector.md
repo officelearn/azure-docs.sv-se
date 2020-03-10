@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 18f30af4595a7679d5c3ef56763e992d54fae536
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928076"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358553"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -30,7 +30,7 @@ ms.locfileid: "74928076"
 Den här artikeln förklarar hur du använder kopierings aktiviteten i Azure Data Factory för att flytta data till/från Azure SQL Data Warehouse. Det bygger på artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) , som visar en översikt över data förflyttning med kopierings aktiviteten.
 
 > [!TIP]
-> För att uppnå bästa prestanda kan du använda PolyBase för att läsa in data i Azure SQL Data Warehouse. Den [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) -avsnittet innehåller information om. En genomgång med ett användningsfall finns i [läsa in 1 TB i Azure SQL Data Warehouse under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+> För att uppnå bästa prestanda kan du använda PolyBase för att läsa in data i Azure SQL Data Warehouse. [Använd PolyBase för att läsa in data i Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) avsnittet innehåller information. För en genom gång med ett användnings fall, se [load 1 TB till Azure SQL Data Warehouse under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 Du kan kopiera data **från Azure SQL Data Warehouse** till följande data lager:
@@ -52,7 +52,7 @@ Du kan skapa en pipeline med en kopierings aktivitet som flyttar data till/från
 
 Det enklaste sättet att skapa en pipeline som kopierar data till/från Azure SQL Data Warehouse är att använda guiden Kopiera data. Se [Självstudier: Läs in data i SQL Data Warehouse med Data Factory](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -145,12 +145,12 @@ GO
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Ange en fråga för kopierings aktivitet som ska köras så att data i en angiven sektor rensas. Mer information finns i [avsnittet repeterbarhet](#repeatability-during-copy). |Ett frågeuttryck. |Nej |
-| allowPolyBase |Anger om PolyBase ska användas (när det är tillämpligt) i stället för BULKINSERT-mekanismen. <br/><br/> **Att använda PolyBase är det rekommenderade sättet att läsa in data i SQL Data Warehouse.** Se [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) avsnitt för begränsningar och information. |Sant <br/>Falskt (standard) |Nej |
-| polyBaseSettings |En grupp egenskaper som kan anges när den **allowPolybase** är inställd på **SANT**. |&nbsp; |Nej |
+| allowPolyBase |Anger om PolyBase ska användas (när det är tillämpligt) i stället för BULKINSERT-mekanismen. <br/><br/> **Att använda PolyBase är det rekommenderade sättet att läsa in data i SQL Data Warehouse.** Se [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) avsnitt för begränsningar och information. |True <br/>Falskt (standard) |Nej |
+| polyBaseSettings |En grupp egenskaper som kan anges när **allowPolybase** -egenskapen har angetts till **True**. |&nbsp; |Nej |
 | rejectValue |Anger det tal eller procentandelen rader som kan avvisas innan frågan inte kunde köras. <br/><br/>Läs mer om polybases avvisnings alternativ i avsnittet **arguments** i avsnittet [skapa en extern tabell (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) . |0 (standard), 1, 2,... |Nej |
 | rejectType |Anger om alternativet rejectValue anges som ett litteralt värde eller i procent. |Värde (standard), procent |Nej |
 | rejectSampleValue |Anger det antal rader som ska hämtas innan PolyBase beräknar om procent andelen avvisade rader. |1, 2, … |Ja, om **rejectType** är **procent** |
-| useTypeDefault |Anger hur du hanterar värden som saknas i avgränsade textfiler när PolyBase hämtar data från textfilen.<br/><br/>Mer information om den här egenskapen från avsnittet argument i [skapa externt FILFORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |Sant, falskt (standard) |Nej |
+| useTypeDefault |Anger hur du hanterar värden som saknas i avgränsade textfiler när PolyBase hämtar data från textfilen.<br/><br/>Lär dig mer om den här egenskapen från avsnittet argument i [Skapa externt fil format (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |Sant, falskt (standard) |Nej |
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize |Heltal (antal rader) |Nej (standard: 10000) |
 | writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |TimeSpan<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Nej |
 
@@ -164,7 +164,7 @@ GO
 ```
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Använda PolyBase för att läsa in data i Azure SQL Data Warehouse
-Användningen av **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** är ett effektivt sätt att läsa in stora mängder data i Azure SQL Data Warehouse med högt data flöde. Du kan se en stor ökning i data flödet genom att använda PolyBase i stället för standard mekanismen för BULKINSERT. Se [referens nummer för kopierings prestanda](data-factory-copy-activity-performance.md#performance-reference) med detaljerad jämförelse. En genomgång med ett användningsfall finns i [läsa in 1 TB i Azure SQL Data Warehouse under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+Användningen av **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** är ett effektivt sätt att läsa in stora mängder data i Azure SQL Data Warehouse med högt data flöde. Du kan se en stor ökning i data flödet genom att använda PolyBase i stället för standard mekanismen för BULKINSERT. Se [referens nummer för kopierings prestanda](data-factory-copy-activity-performance.md#performance-reference) med detaljerad jämförelse. För en genom gång med ett användnings fall, se [load 1 TB till Azure SQL Data Warehouse under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 * Om dina källdata finns i **Azure Blob eller Azure Data Lake Store**och formatet är kompatibelt med PolyBase kan du kopiera direkt till Azure SQL Data Warehouse med PolyBase. Mer information finns i **[direkt kopiering med PolyBase](#direct-copy-using-polybase)** .
 * Om käll data lagret och formatet inte ursprungligen stöds av PolyBase kan du använda funktionen **[mellanlagrad kopia med PolyBase](#staged-copy-using-polybase)** i stället. Det ger dig också bättre data flöde genom att automatiskt konvertera data till PolyBase-kompatibelt format och lagra data i Azure Blob Storage. Den hämtar sedan data till SQL Data Warehouse.
@@ -200,7 +200,7 @@ Om kraven inte uppfylls kontrollerar Azure Data Factory inställningarna och åt
    2. `nullValue` har angetts till **tom sträng** ("") eller `treatEmptyAsNull` har angetts till **True**.
    3. `encodingName` anges till **UTF-8**, **vilket är standardvärdet** .
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`och `skipLineCount` inte har angetts.
-   5. `compression` kan vara **ingen komprimering**, **GZip**, eller **Deflate**.
+   5. `compression` kan inte vara **komprimering**, **gzip**eller **DEFLATE**.
 
       ```JSON
       "typeProperties": {
@@ -306,13 +306,13 @@ Data Factory skapar tabellen i mål lagret med samma tabell namn i käll data la
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
 | Bitmask | Bitmask |
-| Decimal | Decimal |
-| numeriskt | Decimal |
+| decimaltal | decimaltal |
+| Numeric | decimaltal |
 | Flyttal | Flyttal |
 | money | money |
-| Real | Real |
+| Verkligen | Verkligen |
 | SmallMoney | SmallMoney |
-| Binary | Binary |
+| Binär | Binär |
 | Varbinary | Varbinary (upp till 8000) |
 | Datum | Datum |
 | DateTime | DateTime |
@@ -324,7 +324,7 @@ Data Factory skapar tabellen i mål lagret med samma tabell namn i käll data la
 | NText | NVarChar (upp till 4000) |
 | Bild | VarBinary (upp till 8000) |
 | UniqueIdentifier | UniqueIdentifier |
-| char | char |
+| Char | Char |
 | NChar | NChar |
 | VarChar | VarChar (upp till 8000) |
 | NVarChar | NVarChar (upp till 4000) |
@@ -346,33 +346,33 @@ Mappningen är samma som [SQL Server data typs mappning för ADO.net](https://ms
 | --- | --- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Boolesk |
+| bit |Boolean |
 | char |String, Char[] |
-| datum |DateTime |
-| Datetime |DateTime |
+| date |DateTime |
+| Datum/tid |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
-| Decimal |Decimal |
+| decimaltal |decimaltal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Flyttal |Double |
-| mallar |Byte[] |
+| Flyttal |Double-värde |
+| image |Byte[] |
 | int |Int32 |
-| money |Decimal |
+| money |decimaltal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numeric |decimaltal |
 | nvarchar |String, Char[] |
 | real |Enkel |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Decimal |
+| smallmoney |decimaltal |
 | sql_variant |Object * |
 | text |String, Char[] |
 | time |TimeSpan |
 | tidsstämpel |Byte[] |
-| tinyint |Mottagna byte |
-| uniqueidentifier |GUID |
+| tinyint |Byte |
+| uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |

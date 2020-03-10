@@ -9,11 +9,11 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 897ae1fa474de8726ed0caa1def162a00e142dbe
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514773"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360990"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure Storage analys mått (klassisk)
 
@@ -53,11 +53,11 @@ Lagringsanalys kan lagra mått som innehåller aggregerad transaktions statistik
 
 |Mått nivå|Tabell namn|Stöds för versioner|  
 |-------------------|-----------------|----------------------------|  
-|Tim mått, primär plats|-$MetricsTransactionsBlob<br />-$MetricsTransactionsTable<br />-$MetricsTransactionsQueue|Versioner före 2013-08-15. Även om dessa namn fortfarande stöds, rekommenderar vi att du växlar till att använda tabellerna i listan nedan.|  
+|Tim mått, primär plats|-   $MetricsTransactionsBlob<br />-$MetricsTransactionsTable<br />-$MetricsTransactionsQueue|Versioner före 2013-08-15. Även om dessa namn fortfarande stöds, rekommenderar vi att du växlar till att använda tabellerna i listan nedan.|  
 |Tim mått, primär plats|-$MetricsHourPrimaryTransactionsBlob<br />-$MetricsHourPrimaryTransactionsTable<br />-$MetricsHourPrimaryTransactionsQueue<br />-$MetricsHourPrimaryTransactionsFile|Alla versioner. Stöd för fil tjänst mått är bara tillgängligt i version 2015-04-05 och senare.|  
-|Minut mått, primär plats|-$MetricsMinutePrimaryTransactionsBlob<br />-$MetricsMinutePrimaryTransactionsTable<br />-$MetricsMinutePrimaryTransactionsQueue<br />-$MetricsMinutePrimaryTransactionsFile|Alla versioner. Stöd för fil tjänst mått är bara tillgängligt i version 2015-04-05 och senare.|  
+|Minut mått, primär plats|-   $MetricsMinutePrimaryTransactionsBlob<br />-$MetricsMinutePrimaryTransactionsTable<br />-   $MetricsMinutePrimaryTransactionsQueue<br />-$MetricsMinutePrimaryTransactionsFile|Alla versioner. Stöd för fil tjänst mått är bara tillgängligt i version 2015-04-05 och senare.|  
 |Tim mått, sekundär plats|-$MetricsHourSecondaryTransactionsBlob<br />-$MetricsHourSecondaryTransactionsTable<br />-$MetricsHourSecondaryTransactionsQueue|Alla versioner. Geo-redundant replikering med Läs behörighet måste vara aktiverat.|  
-|Minut mått, sekundär plats|-$MetricsMinuteSecondaryTransactionsBlob<br />-$MetricsMinuteSecondaryTransactionsTable<br />-$MetricsMinuteSecondaryTransactionsQueue|Alla versioner. Geo-redundant replikering med Läs behörighet måste vara aktiverat.|  
+|Minut mått, sekundär plats|-   $MetricsMinuteSecondaryTransactionsBlob<br />-$MetricsMinuteSecondaryTransactionsTable<br />-   $MetricsMinuteSecondaryTransactionsQueue|Alla versioner. Geo-redundant replikering med Läs behörighet måste vara aktiverat.|  
 |Kapacitet (endast Blob Service)|$MetricsCapacityBlob|Alla versioner.|  
 
  Tabellerna skapas automatiskt när Lagringsanalys har Aktiver ATS för lagrings tjänstens slut punkt. De nås via lagrings kontots namnrymd, till exempel: `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`. Mått tabellerna visas inte i en List åtgärd och måste nås direkt via tabell namnet.  
@@ -75,7 +75,7 @@ Följ dessa steg om du vill aktivera mått i [Azure Portal](https://portal.azure
 [Azure Portal](https://portal.azure.com) kan för närvarande inte konfigurera minut mått i ditt lagrings konto. Du måste aktivera minut mått med PowerShell eller program mässigt.
 
 ## <a name="enable-storage-metrics-using-powershell"></a>Aktivera lagrings mått med PowerShell  
-Du kan använda PowerShell på din lokala dator för att konfigurera lagrings mått i ditt lagrings konto med hjälp av Azure PowerShell cmdlet **Get-AzStorageServiceMetricsProperty** för att hämta de aktuella inställningarna och cmdleten  **Ange AzStorageServiceMetricsProperty** om du vill ändra de aktuella inställningarna.  
+Du kan använda PowerShell på din lokala dator för att konfigurera lagrings mått i ditt lagrings konto med hjälp av Azure PowerShell cmdlet **Get-AzStorageServiceMetricsProperty** för att hämta de aktuella inställningarna och cmdleten **set-AzStorageServiceMetricsProperty** för att ändra de aktuella inställningarna.  
 
 De cmdletar som styr lagrings måtten använder följande parametrar:  
 
@@ -114,7 +114,7 @@ Information om hur du konfigurerar Azure PowerShell-cmdletar så att de fungerar
 ## <a name="enable-storage-metrics-programmatically"></a>Aktivera lagrings mått program mässigt  
 Förutom att använda Azure Portal eller Azure PowerShell-cmdletar för att kontrol lera lagrings måtten kan du också använda en av Azure Storage API: erna. Om du till exempel använder ett .NET-språk kan du använda lagrings klient biblioteket.  
 
-Klasserna **CloudBlobClient**, **CloudQueueClient**, **CloudTableClient**och **CloudFileClient** har metoder som **SetServiceProperties** och **SetServicePropertiesAsync** som tar en  **ServiceProperties** -objekt som en parameter. Du kan använda **ServiceProperties** -objektet för att konfigurera lagrings mått. Följande C# kodfragment visar till exempel hur du ändrar mått nivån och bevarande dagar för varje timmes mått i kö:  
+Klasserna **CloudBlobClient**, **CloudQueueClient**, **CloudTableClient**och **CloudFileClient** har metoder som **SetServiceProperties** och **SetServicePropertiesAsync** som tar ett **ServiceProperties** -objekt som en parameter. Du kan använda **ServiceProperties** -objektet för att konfigurera lagrings mått. Följande C# kodfragment visar till exempel hur du ändrar mått nivån och bevarande dagar för varje timmes mått i kö:  
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -155,10 +155,10 @@ Du hittar fullständig information om scheman för dessa tabeller i [Lagringsana
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
 |**PartitionKey**|**RowKey**|**Tidsstämpel**|**TotalRequests**|**TotalBillableRequests**|**Total ingress**|**TotalEgress**|**Tillgänglighet**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
-|20140522T1100|användarvänlig Vissa|2014-05-22T11:01:16.7650250 Z|7|7|4003|46801|100|104,4286|6,857143|100|  
-|20140522T1100|användarvänlig QueryEntities|2014-05-22T11:01:16.7640250 Z|5|5|2694|45951|100|143,8|7,8|100|  
-|20140522T1100|användarvänlig QueryEntity|2014-05-22T11:01:16.7650250 Z|1|1|538|633|100|3|3|100|  
-|20140522T1100|användarvänlig UpdateEntity|2014-05-22T11:01:16.7650250 Z|1|1|771|217|100|9|6|100|  
+|20140522T1100|användarvänlig Vissa|2014-05-22T11:01:16.7650250Z|7|7|4003|46801|100|104.4286|6.857143|100|  
+|20140522T1100|användarvänlig QueryEntities|2014-05-22T11:01:16.7640250Z|5|5|2694|45951|100|143.8|7.8|100|  
+|20140522T1100|user;QueryEntity|2014-05-22T11:01:16.7650250Z|1|1|538|633|100|3|3|100|  
+|20140522T1100|user;UpdateEntity|2014-05-22T11:01:16.7650250Z|1|1|771|217|100|9|6|100|  
 
 I det här exemplet på en minuts mått data, använder partitionsnyckel tiden vid minut upplösning. Rad nyckeln identifierar den typ av information som lagras i raden och detta består av två informations typer, åtkomst typen och typen av begäran:  
 
@@ -166,7 +166,7 @@ I det här exemplet på en minuts mått data, använder partitionsnyckel tiden v
 
 -   Typen av begäran är antingen **alla** i det här fallet en sammanfattnings rad, eller så identifierar den det specifika API: t, till exempel **QueryEntity** eller **UpdateEntity**.  
 
-Exempel data ovan visar alla poster för en enda minut (från 11:10:00), så antalet **QueryEntities** -begäranden plus antalet **QueryEntity** -begäranden plus antalet **UpdateEntity** -begäranden som är upp till sju, vilket är Totalt antal som visas på **användaren: all** -rad. På samma sätt kan du härleda den genomsnittliga svars tiden från slut punkt till slut punkt 104,4286 för **användaren: all** rad genom att beräkna ((143,8 * 5) + 3 + 9)/7.  
+Exempel data ovan visar alla poster för en enda minut (från och med 11:10:00), så antalet **QueryEntities** -begäranden plus antalet **QueryEntity** -begäranden plus antalet **UpdateEntity** -begäranden som är sammanlagt till sju, vilket är det totala antalet som visas på **användaren: alla** rader. På samma sätt kan du härleda den genomsnittliga svars tiden från slut punkt till slut punkt 104,4286 för **användaren: all** rad genom att beräkna ((143,8 * 5) + 3 + 9)/7.  
 
 ## <a name="metrics-alerts"></a>Mått varningar
 Du bör överväga att ställa in aviseringar i [Azure Portal](https://portal.azure.com) så att du automatiskt får ett meddelande om viktiga förändringar i hur dina lagrings tjänster fungerar. Om du använder ett verktyg för lagrings Utforskaren för att hämta dessa mått data i ett avgränsat format kan du använda Microsoft Excel för att analysera data. Se [Azure Storage klient verktyg](/azure/storage/storage-explorers) för en lista över tillgängliga verktyg för lagrings Utforskaren. Du kan konfigurera aviseringar på bladet **avisering (klassisk)** som är tillgängligt under **övervakning (klassisk)** på Meny bladet lagrings konto.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 12/18/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: decfeb9c46c32c6388228de6597db0c840354c19
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9227417d28eb09a322dd4757033ee62fee97d91c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448575"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943890"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för bildsökning i Bing
 
@@ -31,7 +31,7 @@ I den här självstudieappen visas hur du:
 
 Den fullständiga källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den senaste versionen av [Node.js](https://nodejs.org/).
 * Ramverket [Express.js](https://expressjs.com/) för Node.js. Installationsinstruktioner för källkoden finns i GitHub-exemplets readme-fil.
@@ -120,7 +120,7 @@ Sökning i Bing tillhandahåller flera [filtrerfrågeparametrar](https://docs.mi
 
 |              |                                                                                                                                                                                    |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `where`      | En listruta för att välja marknad (plats och språk) som används för sökningen.                                                                                             |
+| `where`      | En nedrullningsbar meny för att välja marknad (plats och språk) som används för sökningen.                                                                                             |
 | `query`      | Textfältet för att ange sökvillkor.                                                                                                                                 |
 | `aspect`     | Alternativknapparna för att välja proportioner för den hittade bilden: ungefär kvadratisk, bred eller hög.                                                                                     |
 | `color`      |                                                                                                                                                                                    |
@@ -347,7 +347,7 @@ En funktion för återgivning kan acceptera följande parametrar:
 Parametrarna `index` och `count` används för att numrera resultat, generera HTML-kod för samlingar och ordna innehåll. Mer specifikt:
 
 * Beräknar storleken på miniatyrbilderna (bredd varierar med minst 120 bildpunkter medan höjden högst får vara 90 bildpunkter).
-* Skapar HTML `<img>`-taggen för att visa miniatyrbilden.
+* Skapar en HTML `<img>`-tagg för att visa miniatyrbilden.
 * Skapar HTML `<a>`-taggar som länkar till bilden och den sida som innehåller den.
 * Skapar beskrivning som visar information om bilden och den plats som den finns på.
 
@@ -373,11 +373,11 @@ Miniatyrbildernas `height` och `width` används i både `<img>`-taggen och fält
 
 ## <a name="persisting-client-id"></a>Bestående klient-ID
 
-Svar från API:er för Bing Search kan innehålla ett `X-MSEdge-ClientID`-huvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing-sökning används ska samma klient-ID användas för dem om möjligt.
+Svar från API:er för Bing-sökning kan innehålla ett `X-MSEdge-ClientID`-sidhuvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing-sökning används ska samma klient-ID användas för dem om möjligt.
 
 När `X-MSEdge-ClientID`-huvudet tillhandahålls kan Bing-API:er associera alla sökningar för en användare, vilket är användbart i
 
-Först hjälper Bing-sökmotorn till med att tillämpa tidigare kontexter på sökningarna för att hitta resultat som bättre tillfredsställer användaren. Om en användare tidigare har sökt efter termer som exempelvis relaterar till segling kan en senare sökning efter ”knopar” returnera information om knopar som används vid segling.
+Först hjälper Bing-sökmotorn till med att tillämpa den senaste kontext på sökningarna för att hitta resultat som bättre tillfredsställer användaren. Om en användare tidigare har sökt efter termer som exempelvis relaterar till segling kan en senare sökning efter ”knopar” returnera information om knopar som används vid segling.
 
 Därefter väljer Bing slumpmässigt ut användare som ska prova nya funktioner innan de blir allmänt tillgängliga. Genom att tillhandahålla samma klient-ID med varje begäran säkerställs att användare som har valts för att se en funktion alltid ser den. Utan klient-ID kan användaren se en funktion som sedan försvinner, till synes slumpmässigt, i sökresultatet.
 
@@ -407,6 +407,6 @@ Lämna kommandofönstret öppet medan du använder självstudieappen. Om du stä
 > [!div class="nextstepaction"]
 > [Extrahera avbildningsinformation med hjälp av API för bildsökning i Bing](tutorial-image-post.md)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-* [API-referens för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Referens för API för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

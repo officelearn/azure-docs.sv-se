@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a31894719863b16cc92f7e5bf4d7c85944c8850e
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 8fa8ca50a8d8cae7543c6aacb84fa57bc2f9c3a4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721310"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945221"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault tillägg för virtuell dator för Linux
 
@@ -67,18 +67,18 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 
 ### <a name="property-values"></a>Egenskapsvärden
 
-| Name | Värdet / exempel | Datatyp |
+| Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | datum |
+| apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | sträng |
-| type | KeyVaultForLinux | sträng |
+| typ | KeyVaultForLinux | sträng |
 | typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | sträng |
 | Certifikat Arkiv | MY | sträng |
-| linkOnRenewal | false | Booleskt värde |
+| linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine | sträng |
-| requiredInitialSync | true | Booleskt värde |
-| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | sträng mat ris
+| requiredInitialSync | true | boolean |
+| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Sträng mat ris
 
 
 ## <a name="template-deployment"></a>Malldistribution
@@ -102,6 +102,7 @@ JSON-konfigurationen för ett tillägg för virtuell dator måste kapslas i den 
       "typeHandlerVersion": "1.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
+          "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,

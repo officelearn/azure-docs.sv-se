@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sihhu
 author: sihhu
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
+ms.date: 03/09/2020
 ms.custom: ''
-ms.openlocfilehash: 4c8f3e7e47f9c8f924faf513d984d5474c105038
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 7b124c0f35b5cfda4380555385971e4968d4c45c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834785"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78939261"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Version och spårning av data uppsättningar i experiment
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,7 @@ Scenarier för typiska versioner:
 * När nya data är tillgängliga för omskolning
 * När du använder olika metoder för data förberedelse eller funktions teknik
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för den här självstudien:
 
@@ -60,6 +60,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data',
                                  create_new_version = True)
 ```
+Du kan också registrera en ny version av en data uppsättning på 
 
 ### <a name="retrieve-a-dataset-by-name"></a>Hämta en data uppsättning efter namn
 
@@ -120,7 +121,7 @@ dataset2.register(workspace = workspace,
 
 Du kan använda en data uppsättning som indata och utdata för varje Machine Learning pipeline-steg. När du kör pipelines igen registreras utdata för varje pipeline-steg som en ny data uppsättnings version.
 
-Eftersom Machine Learning pipelines fyller i utdata för varje steg i en ny mapp varje gång pipelinen återanvänds, är de versioner av data uppsättningarna som är i drift att återproduceras.
+Eftersom Machine Learning pipelines fyller i utdata för varje steg i en ny mapp varje gång pipelinen återanvänds, är de versioner av data uppsättningarna som är i drift att återproduceras. Läs mer om [data uppsättningar i pipelines](how-to-create-your-first-pipeline.md#steps).
 
 ```Python
 from azureml.core import Dataset
@@ -169,7 +170,7 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-Du kan också hitta `input_datasets` från experiment med [Azure Machine Learning Studio](https://ml.azure.com/). 
+Du kan också hitta `input_datasets` från experiment med https://ml.azure.com/. 
 
 Följande bild visar var du hittar indata-datauppsättningen för ett experiment på Azure Machine Learning Studio. I det här exemplet går du till fönstret **experiment** och öppnar fliken **Egenskaper** för en speciell körning av experimentet `keras-mnist`.
 
@@ -183,7 +184,9 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Efter registreringen kan du se en lista över modeller som registrerats med data uppsättningen med hjälp av python eller [Azure Machine Learning Studio](https://ml.azure.com/). Följande vy är från fönstret **data uppsättningar** under **till gångar**. Välj data uppsättningen och välj sedan fliken **modeller** för en lista med de modeller som är registrerade med data uppsättningen. 
+Efter registreringen kan du se en lista över modeller som registrerats med data uppsättningen med hjälp av python eller gå till https://ml.azure.com/.
+
+Följande vy är från fönstret **data uppsättningar** under **till gångar**. Välj data uppsättningen och välj sedan fliken **modeller** för en lista med de modeller som är registrerade med data uppsättningen. 
 
 ![Data uppsättnings modeller för indata](./media/how-to-version-track-datasets/dataset-models.png)
 

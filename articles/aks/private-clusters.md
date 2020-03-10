@@ -4,12 +4,12 @@ description: Lär dig hur du skapar ett privat Azure Kubernetes service-kluster 
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: 4b4ba130d9ff63291abdd46617b0692e844a60bf
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 0a05bd15fff97d4f0020f6ce82ee90a2fe995edf
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649515"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944203"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Skapa ett privat Azure Kubernetes service-kluster (för hands version)
 
@@ -29,44 +29,44 @@ Kontroll planet eller API-servern finns i en Azure Kubernetes service (AKS)-hant
 
 ## <a name="currently-supported-regions"></a>Regioner som stöds för närvarande
 
-* Östra Australien
-* Sydöstra Australien
-* Södra Brasilien
-* Centrala Kanada
-* Östra Kanada
+* Australien, östra
+* Australien, sydöstra
+* Brasilien, södra
+* Kanada, centrala
+* Kanada, östra
 * Cenral oss
-* Östasien
-* Östra USA
+* Asien, östra
+* USA, östra
 * USA, östra 2
 * USA, östra 2 EUAP
 * Frankrike, centrala
 * Tyskland, norra
-* Östra Japan
-* Västra Japan
+* Japan, östra
+* Japan, västra
 * Sydkorea, centrala
 * Sydkorea, södra
-* Norra centrala USA
-* Norra Europa
-* Norra Europa
-* Södra centrala USA
+* USA, norra centrala
+* Europa, norra
+* Europa, norra
+* USA, södra centrala
 * Storbritannien, södra
-* Västra Europa
-* Västra USA
-* Västra USA 2
+* Europa, västra
+* USA, västra
+* USA, västra 2
 * USA, östra 2
 
 ## <a name="currently-supported-availability-zones"></a>Tillgänglighetszoner som stöds för närvarande
 
-* Centrala USA
-* Östra USA
+* USA, centrala
+* USA, östra
 * USA, östra 2
 * Frankrike, centrala
-* Östra Japan
-* Norra Europa
+* Japan, östra
+* Europa, norra
 * Sydostasien
 * Storbritannien, södra
-* Västra Europa
-* Västra USA 2
+* Europa, västra
+* USA, västra 2
 
 ## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Installera det senaste för hands tillägget för Azure CLI-AKS
 
@@ -100,6 +100,14 @@ az provider register --namespace Microsoft.Network
 ```
 ## <a name="create-a-private-aks-cluster"></a>Skapa ett privat AKS-kluster
 
+### <a name="create-a-resource-group"></a>Skapa en resursgrupp
+
+Skapa en resurs grupp eller Använd en befintlig resurs grupp för ditt AKS-kluster.
+
+```azurecli-interactive
+az group create -l westus -n MyResourceGroup
+```
+
 ### <a name="default-basic-networking"></a>Standard nätverk för grundläggande 
 
 ```azurecli-interactive
@@ -126,35 +134,29 @@ Where *--Enable-Private-Cluster* är en obligatorisk flagga för ett privat klus
 > [!NOTE]
 > Om Docker-bryggan Address CIDR (172.17.0.1/16) står i konflikt med under nätets CIDR, ändra Docker-bryggans adress på lämpligt sätt.
 
-## <a name="connect-to-the-private-cluster"></a>Anslut till det privata klustret
+## <a name="options-for-connecting-to-the-private-cluster"></a>Alternativ för att ansluta till det privata klustret
 
-API-serverns slut punkt har ingen offentlig IP-adress. Därför måste du skapa en virtuell Azure-dator (VM) i ett virtuellt nätverk och ansluta till API-servern. Gör så här:
+API-serverns slut punkt har ingen offentlig IP-adress. Om du vill hantera API-servern måste du använda en virtuell dator som har åtkomst till AKS-klustrets Azure-Virtual Network (VNet). Det finns flera alternativ för att upprätta en nätverks anslutning till det privata klustret.
 
-1. Hämta autentiseringsuppgifter för att ansluta till klustret.
+* Skapa en virtuell dator i samma Azure-Virtual Network (VNet) som AKS-klustret.
+* Använd en virtuell dator i ett separat nätverk och konfigurera [peering för virtuella nätverk][virtual-network-peering].  Mer information om det här alternativet finns i avsnittet nedan.
+* Använd en [Express Route eller en VPN-][express-route-or-VPN] anslutning.
 
-   ```azurecli-interactive
-   az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
-   ```
+Att skapa en virtuell dator i samma VNET som AKS-klustret är det enklaste alternativet.  Express Route och VPN lägger till kostnader och kräver ytterligare nätverks komplexitet.  Peering av virtuella nätverk kräver att du planerar dina nätverks-CIDR-intervall för att se till att det inte finns några överlappande intervall.
 
-1. Gör något av följande:
-   * Skapa en virtuell dator i samma virtuella nätverk som AKS-klustret.  
-   * Skapa en virtuell dator i ett annat virtuellt nätverk och peer-koppla det här virtuella nätverket med AKS-klustrets virtuella nätverk.
+## <a name="virtual-network-peering"></a>Virtuell nätverkspeering
 
-     Om du skapar en virtuell dator i ett annat virtuellt nätverk ställer du in en länk mellan det här virtuella nätverket och den privata DNS-zonen. Gör så här:
+Som nämnts är VNet-peering ett sätt att komma åt ditt privata kluster. Om du vill använda VNet-peering måste du konfigurera en länk mellan det virtuella nätverket och den privata DNS-zonen.
     
-     a. Gå till den MC_ * resurs gruppen i Azure Portal.  
-     b. Välj den privata DNS-zonen.   
-     c. I det vänstra fönstret väljer du länken **virtuellt nätverk** .  
-     d. Skapa en ny länk för att lägga till det virtuella nätverket för den virtuella datorn i den privata DNS-zonen. Det tar några minuter för DNS-zon-länken att bli tillgänglig.  
-     e. Gå tillbaka till MC_ *-resurs gruppen i Azure Portal.  
-     f. Välj det virtuella nätverket i den högra rutan. Det virtuella nätverks namnet har formatet *AKS-VNet-\** .  
-     g. Välj **peering**i det vänstra fönstret.  
-     h. Välj **Lägg till**, Lägg till det virtuella nätverket för den virtuella datorn och skapa sedan peering.  
-     i. Gå till det virtuella nätverket där du har den virtuella datorn, Välj **peering**, Välj det virtuella AKS-nätverket och skapa sedan peer-kopplingen. Om adress intervallen för det virtuella AKS-nätverket och den virtuella DATORns virtuella nätverk är i konflikt med varandra, Miss lyckas peering. Mer information finns i [peering för virtuella nätverk][virtual-network-peering].
-
-1. Få åtkomst till den virtuella datorn via SSH (Secure Shell).
-1. Installera Kubectl-verktyget och kör Kubectl-kommandona.
-
+1. Gå till den MC_ * resurs gruppen i Azure Portal.  
+2. Välj den privata DNS-zonen.   
+3. I det vänstra fönstret väljer du länken **virtuellt nätverk** .  
+4. Skapa en ny länk för att lägga till det virtuella nätverket för den virtuella datorn i den privata DNS-zonen. Det tar några minuter för DNS-zon-länken att bli tillgänglig.  
+5. Gå tillbaka till MC_ *-resurs gruppen i Azure Portal.  
+6. Välj det virtuella nätverket i den högra rutan. Det virtuella nätverks namnet har formatet *AKS-VNet-\** .  
+7. Välj **peering**i det vänstra fönstret.  
+8. Välj **Lägg till**, Lägg till det virtuella nätverket för den virtuella datorn och skapa sedan peering.  
+9. Gå till det virtuella nätverket där du har den virtuella datorn, Välj **peering**, Välj det virtuella AKS-nätverket och skapa sedan peer-kopplingen. Om adress intervallen för det virtuella AKS-nätverket och den virtuella DATORns virtuella nätverk är i konflikt med varandra, Miss lyckas peering. Mer information finns i [peering för virtuella nätverk][virtual-network-peering].
 
 ## <a name="dependencies"></a>Beroenden  
 * Tjänsten Private Link stöds endast på standard Azure Load Balancer. Basic-Azure Load Balancer stöds inte.  
@@ -179,6 +181,8 @@ API-serverns slut punkt har ingen offentlig IP-adress. Därför måste du skapa 
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: https://docs.microsoft.com/azure/private-link/private-link-service-overview
+[private-link-service]: /private-link/private-link-service-overview
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
+[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
 

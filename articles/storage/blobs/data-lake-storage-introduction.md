@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 75bd27f0945c66b9757055c0777b43a050ba67d7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 2f920e29fafdc55478e0e2c16d683bd1c3bc81d8
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921002"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942916"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introduktion till Azure Data Lake Storage Gen2
 
@@ -25,15 +25,15 @@ Data Lake Storage Gen2 gör Azure Storage grunden för att skapa enterprise data
 
 En grundläggande del av Data Lake Storage Gen2 är att lägga till ett [hierarkiskt namn område](data-lake-storage-namespace.md) till Blob Storage. Hierarkiskt namnområde organiserar objekt/filer i en hierarki med kataloger för effektiv dataåtkomst. En gemensam namngivningskonvention för objektet store använder snedstreck i namnet för att efterlikna en hierarkisk katalogstruktur. Den här strukturen blir verkliga med Data Lake Storage Gen2. Åtgärder som att byta namn på eller ta bort en katalog blir enkel atomiska metadataåtgärder i katalogen i stället för uppräkning av och bearbetning av alla objekt som delar namnprefixet för katalogen.
 
-Tidigare hade molnbaserad analys att angripa i delar av prestanda, hantering och säkerhet. Data Lake Storage Gen2 adresser var och en av dessa aspekter på följande sätt:
+Data Lake Storage Gen2 bygger på Blob Storage och förbättrar prestanda, hantering och säkerhet på följande sätt:
 
--   **Prestanda** optimeras eftersom du inte behöver kopiera eller transformera data som ett krav för analys. Hierarkiskt namnområde förbättrar avsevärt prestandan vid directory hanteringsåtgärder, vilket förbättrar prestandan för jobbet.
+-   **Prestanda** optimeras eftersom du inte behöver kopiera eller transformera data som ett krav för analys. Jämfört med det flata namn området på Blob Storage förbättrar det hierarkiska namn området prestandan för katalog hanterings åtgärder, vilket förbättrar jobbets övergripande prestanda.
 
 -   Det är enklare att **Hantera hantering** eftersom du kan organisera och manipulera filer via kataloger och under kataloger.
 
 -   **Säkerhet** är tvingande eftersom du kan definiera POSIX-behörigheter för kataloger eller enskilda filer.
 
--   **Kostnads effektivitet** är möjligt eftersom data Lake Storage Gen2 bygger vidare på [Azure Blob Storage](storage-blobs-introduction.md)med låg kostnad. De extra funktionerna som ytterligare sänka den totala ägandekostnaden för att köra analyser av stordata på Azure.
+Data Lake Storage Gen2 är också mycket kostnads effektiv eftersom det bygger på [Azure Blob Storage](storage-blobs-introduction.md)med låg kostnad. De extra funktionerna som ytterligare sänka den totala ägandekostnaden för att köra analyser av stordata på Azure.
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Viktiga funktioner i Data Lake Storage Gen2
 
@@ -76,7 +76,7 @@ En lista över stödda Blob Storage-funktioner finns i [Blob Storage funktioner 
 
 Data Lake Storage Gen2 stöder flera Azure-tjänster som du kan använda för att mata in data, utföra analyser och skapa visuella representationer. En lista över Azure-tjänster som stöds finns i [Azure-tjänster som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
-## <a name="supported-open-source-platforms"></a>Öppen källkod-plattformar som stöds
+## <a name="supported-open-source-platforms"></a>Plattformar för öppen källkod som stöds
 
 Data Lake Storage Gen2 har stöd för flera plattformar för öppen källkod. En fullständig lista finns i [plattformar med öppen källkod som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 

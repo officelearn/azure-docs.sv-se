@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 1acc17f9c2fbeb53b992891174866433d14f128d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f692367ad431dc8f1623e1b3d5109c313e351934
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986669"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943879"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för webbsökning i Bing
 
@@ -32,13 +32,12 @@ Den här exempelappen kan:
 
 För att använda den här appen krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för att hämta en prenumerationsnyckel.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Här följer några saker som du kan behöva för att köra appen:
 
 * Node.js 8 eller senare
-* En prenumerationsnyckel
-
+* En prenumerations nyckel för Bing-sökning-API: et. Om du inte har en sådan [skapar du en Bing-sökning v7-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Du kan också använda en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 ## <a name="get-the-source-code-and-install-dependencies"></a>Hämta källkoden och installera beroenden
 
 Det första steget är att klona lagringsplatsen med exempelappens källkod.
@@ -287,7 +286,7 @@ function handleBingResponse() {
 
 En stor del av koden i de båda föregående funktionerna är dedikerade för felhantering. Fel kan inträffa i följande steg:
 
-| Mellanlagra | Potentiella fel | Hanterat av |
+| Fas | Potentiella fel | Hanterat av |
 |-------|--------------------|------------|
 | Skapa objektbegäran | Ogiltig URL | `try` / `catch` blockera |
 | Skapa begäran | Nätverksfel, avbrutna anslutningar | Händelsehanterare för `error` och `abort` |
@@ -391,7 +390,7 @@ Kontextargumenten är:
 | `section` | Resultatavsnittet (`pole`, `mainline`, eller `sidebar`) i vilket objektet visas. |
 | `index`<br>`count` | Tillgängligt när `RankingResponse`-objektet anger att alla resultat i en viss samling ska visas; `undefined` annars. Index för objektet i en samling och det totala antalet objekt i samlingen. Du kan använda den här informationen för att numrera resultaten för att generera olika HTML för det första eller sista resultatet och så vidare. |
 
-I exempelappen, använder både renderare `images` och `relatedSearches` kontextargumenten för att anpassa genererad HTML. Låt oss ta en närmare titt på renderare `images`:
+I exempelappen, använder både renderare `images` och `relatedSearches` kontextargumenten för att anpassa genererad HTML. Låt oss ta en närmare titt på `images`-renderaren:
 
 ```javascript
 searchItemRenderers = {
@@ -420,8 +419,8 @@ Bildåtergivare:
 
 * Beräknar storleken på miniatyrbilderna (bredd varierar, medan höjd är högst 60 bildpunkter).
 * Infogar den HTML som föregår bildresultatet baserat på kontext.
-* Skapar en HTML `<a>`-tagg som länkar till den sida som innehåller bilden.
-* Skapar HTML `<img>`-taggen för att visa miniatyrbilden.
+* Skapar den `<a>`-HTML-tagg som länkar till den sida som innehåller bilden.
+* Skapar en HTML `<img>`-tagg för att visa miniatyrbilden.
 
 Bildåtergivning använder variablerna `section` och `index` för att visa resultat på olika sätt beroende på var de förekommer. En radbrytning (`<br>`-tagg) infogas mellan bildresultat i sidopanelen, så att sidopanelen visar en kolumn med bilder. I andra avsnitt, föregås det första bildresultatet `(index === 0)` av en `<p>`-tagg.
 

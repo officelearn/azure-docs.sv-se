@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
 ms.openlocfilehash: d4409fe61bfe1f0a9fe74171f5b1ec471b9a6a26
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774429"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363256"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd mat ris för haveri beredskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -61,12 +61,12 @@ Lägg till disk på replikerad virtuell Hyper-V-dator | Stöds inte. Inaktivera 
 Värd nätverk: NIC Teaming | Ja | Ja
 Värd nätverk: VLAN | Ja | Ja
 Värd nätverk: IPv4 | Ja | Ja
-Värd nätverk: IPv6 | Inga | Inga
-Gäst-VM-nätverk: NIC Teaming | Inga | Inga
+Värd nätverk: IPv6 | Nej | Nej
+Gäst-VM-nätverk: NIC Teaming | Nej | Nej
 Gäst-VM-nätverk: IPv4 | Ja | Ja
-Gäst-VM-nätverk: IPv6 | Inga | Ja
+Gäst-VM-nätverk: IPv6 | Nej | Ja
 Gäst-VM-nätverk: statisk IP (Windows) | Ja | Ja
-Gäst-VM-nätverk: statisk IP (Linux) | Inga | Inga
+Gäst-VM-nätverk: statisk IP (Linux) | Nej | Nej
 Gäst-VM-nätverk: multi-NIC | Ja | Ja
 
 
@@ -84,12 +84,12 @@ Reserverad IP | Ja | Ja
 IPv4 | Ja | Ja
 Behåll Källans IP-adress | Ja | Ja
 Azure Virtual Network-tjänstens slut punkter<br/> (utan Azure Storage brand väggar) | Ja | Ja
-Accelererat nätverk | Inga | Inga
+Accelererat nätverk | Nej | Nej
 
 
 ## <a name="hyper-v-host-storage"></a>Lagring av Hyper-V-värd
 
-**Lagring** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
+**Storage** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
 --- | --- | --- 
 NFS | Ej tillämpligt | Ej tillämpligt
 SMB 3.0 | Ja | Ja
@@ -98,24 +98,24 @@ Multipath (MPIO). Testat med:<br></br> Microsoft DSM, EMC PowerPath 5,7 SP4, EMC
 
 ## <a name="hyper-v-vm-guest-storage"></a>Gäst lagring för Hyper-V-VM
 
-**Lagring** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
+**Storage** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
 --- | --- | ---
 VMDK | Ej tillämpligt | Ej tillämpligt
 VHD/VHDX | Ja | Ja
 Generation 2 VM | Ja | Ja
 EFI/UEFI<br></br>Den migrerade virtuella datorn i Azure kommer automatiskt att konverteras till en virtuell dator med BIOS-start. Den virtuella datorn ska endast köra Windows Server 2012 och senare. OS-disken bör ha upp till fem partitioner eller färre och storleken på OS-disken måste vara mindre än 300 GB.| Ja | Ja
-Delad kluster disk | Inga | Inga
-Krypterad disk | Inga | Inga
+Delad kluster disk | Nej | Nej
+Krypterad disk | Nej | Nej
 NFS | Ej tillämpligt | Ej tillämpligt
-SMB 3.0 | Inga | Inga
+SMB 3.0 | Nej | Nej
 RDM | Ej tillämpligt | Ej tillämpligt
 Disk > 1 TB | Ja, upp till 4 095 GB | Ja, upp till 4 095 GB
 Disk: logisk och fysisk sektor i 4K | Stöds inte: gen 1/Gen 2 | Stöds inte: gen 1/Gen 2
 Disk: logisk och 512-byte fysisk sektor | Ja |  Ja
 Hantering av logiska volymer (LVM). LVM stöds endast på data diskar. Azure tillhandahåller bara en enda OS-disk. | Ja | Ja
 Volym med Striped disk > 1 TB | Ja | Ja
-Lagrings utrymmen | Inga | Inga
-Snabb Lägg till/ta bort disk | Inga | Inga
+Lagrings utrymmen | Nej | Nej
+Snabb Lägg till/ta bort disk | Nej | Nej
 Uteslut disk | Ja | Ja
 Multipath (MPIO) | Ja | Ja
 
@@ -124,17 +124,17 @@ Multipath (MPIO) | Ja | Ja
 **Komponent** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan Virtual Machine Manager**
 --- | --- | ---
 Lokalt redundant lagring | Ja | Ja
-Geografiskt redundant lagring. | Ja | Ja
+Geografiskt redundant lagring | Ja | Ja
 Geo-redundant lagring med Läs behörighet | Ja | Ja
-Cool Storage | Inga | Inga
-Frekvent lagring| Inga | Inga
-Blockblob-objekt | Inga | Inga
+Cool Storage | Nej | Nej
+Frekvent lagring| Nej | Nej
+Blockblobar | Nej | Nej
 Kryptering i rest (SSE)| Ja | Ja
 Kryptering i vilo läge (CMK) <br></br> (Endast för redundans till Managed Disks)| Ja (via PowerShell AZ 3.3.0-modul och senare) | Ja (via PowerShell AZ 3.3.0-modul och senare)
-Premium-lagring | Ja | Ja
-Import/export-tjänst | Inga | Inga
+Premium Storage | Ja | Ja
+Import/export-tjänst | Nej | Nej
 Azure Storage konton med aktive rad brand vägg | Ja. För mål lagring och cache. | Ja. För mål lagring och cache.
-Ändra lagrings konto | Nej. Mål Azure Storages kontot kan inte ändras efter att replikeringen har Aktiver ATS. Ändra genom att inaktivera och sedan aktivera haveri beredskap igen. | Inga
+Ändra lagrings konto | Nej. Mål Azure Storages kontot kan inte ändras efter att replikeringen har Aktiver ATS. Ändra genom att inaktivera och sedan aktivera haveri beredskap igen. | Nej
 
 
 ## <a name="azure-compute-features"></a>Beräknings funktioner i Azure
@@ -143,7 +143,7 @@ Azure Storage konton med aktive rad brand vägg | Ja. För mål lagring och cach
 --- | --- | ---
 Tillgänglighetsuppsättningar | Ja | Ja
 ) | Ja | Ja  
-Managed Disks | Ja, för redundans.<br/><br/> Det finns inte stöd för återställning efter fel för hanterade diskar. | Ja, för redundans.<br/><br/> Det finns inte stöd för återställning efter fel för hanterade diskar.
+Hanterade diskar | Ja, för redundans.<br/><br/> Det finns inte stöd för återställning efter fel för hanterade diskar. | Ja, för redundans.<br/><br/> Det finns inte stöd för återställning efter fel för hanterade diskar.
 
 ## <a name="azure-vm-requirements"></a>Krav för virtuell Azure-dator
 
@@ -158,7 +158,7 @@ Antal operativ system diskar | 1 | Krav kontrollen Miss lyckas om den inte stöd
 Antal data diskar | 16 eller mindre  | Krav kontrollen Miss lyckas om den inte stöds.
 VHD-storlek för datadisk | Upp till 4 095 GB | Krav kontrollen Miss lyckas om den inte stöds.
 Nätverkskort | Flera nätverkskort stöds |
-Delad virtuell hård disk | Stöds inte | Krav kontrollen Miss lyckas om den inte stöds.
+Delad virtuell hårddisk | Stöds inte | Krav kontrollen Miss lyckas om den inte stöds.
 FC-disk | Stöds inte | Krav kontrollen Miss lyckas om den inte stöds.
 Hård disk format | VHD <br/><br/> VHDX | Site Recovery konverterar automatiskt VHDX till VHD när du växlar över till Azure. När du växlar tillbaka till den lokala datorn fortsätter de virtuella datorerna att använda VHDX-formatet.
 BitLocker | Stöds inte | BitLocker måste inaktive ras innan du aktiverar replikering för en virtuell dator.
@@ -169,8 +169,8 @@ Typ av virtuell dator | Generation 1<br/><br/> Generation 2--Windows | Generatio
 
 **Åtgärd** |  **Hyper-V med VMM** | **Hyper-V utan VMM**
 --- | --- | ---
-Flytta valv över resurs grupper<br/><br/> Inom och över prenumerationer | Inga | Inga
-Flytta lagring, nätverk, virtuella Azure-datorer över resurs grupper<br/><br/> Inom och över prenumerationer | Inga | Inga
+Flytta valv över resurs grupper<br/><br/> Inom och över prenumerationer | Nej | Nej
+Flytta lagring, nätverk, virtuella Azure-datorer över resurs grupper<br/><br/> Inom och över prenumerationer | Nej | Nej
 
 > [!NOTE]
 > När du replikerar virtuella Hyper-VM: ar från lokala datorer till Azure kan du bara replikera till en AD-klient från en särskild miljö – Hyper-V-plats eller Hyper-V med VMM som tillämpligt.

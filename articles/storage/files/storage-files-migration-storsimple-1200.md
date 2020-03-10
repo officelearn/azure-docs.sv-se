@@ -4,30 +4,26 @@ description: Lär dig hur du migrerar en virtuell StorSimple 1200-serie till Azu
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4a32251b60066d6a85595e4d1b6c002f8587c01d
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: 6863e7f8ef8e2f263cda824fd13186dc7b035454
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330948"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943602"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200-migrering till Azure File Sync
 
-StorSimple 1200-serien är en virtuell installation som körs i ett lokalt Data Center. Det är möjligt att migrera data från den här enheten till en Azure File Sync miljö. Den här artikeln innehåller de steg som krävs för att migrera till Azure File Sync.
+StorSimple 1200-serien är en virtuell installation som körs i ett lokalt Data Center. Det är möjligt att migrera data från den här enheten till en Azure File Sync miljö. Azure File Sync är standard och strategisk Azure-tjänst som StorSimple-apparater kan migreras till.
 
-## <a name="storsimple"></a>StorSimple
+StorSimple 1200-serien kommer att uppnå [livs längd](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%201200%20Series) i december 2022.  Det är viktigt att börja planera migreringen så snart som möjligt. Den här artikeln innehåller de steg som krävs för att migrera till Azure File Sync. 
 
-StorSimple är en avvecklad Microsoft-produkt. Utökat stöd för den här produkten och dess moln tjänst upphör att gälla den 31 2022 december. Det är viktigt att du börjar planera för en migrering av StorSimple omedelbart.
-
-Azure File Sync är standard och strategisk Azure-tjänst som StorSimple-apparater kan migreras till.
+## <a name="azure-file-sync"></a>Azure File Sync
 
 > [!IMPORTANT]
 > Microsoft strävar efter att hjälpa kunder i sin migrering. E-postAzureFilesMigration@microsoft. com för en anpassad migreringsjobb samt hjälp vid migreringen.
-
-## <a name="azure-file-sync"></a>Azure File Sync
 
 Azure File Sync är en moln tjänst från Microsoft, baserat på två huvud komponenter:
 

@@ -2,23 +2,17 @@
 title: Distribuera resurser till hanterings grupp
 description: Beskriver hur du distribuerar resurser i hanterings gruppens omfattning i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: ae561468531b0c3fa584a02793c58ee64ca3610f
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.date: 03/09/2020
+ms.openlocfilehash: dc46762755718c798b4a7eed6f2dc6b8afce9b98
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78894881"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942758"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Skapa resurser på hanterings grupps nivå
 
-Normalt distribuerar du Azure-resurser till en resurs grupp i din Azure-prenumeration. Men du kan också skapa resurser på:
-
-* [prenumerations nivå](deploy-to-subscription.md)
-* hanterings grupp nivå (som beskrivs i den här artikeln)
-* [klient organisations nivå](deploy-to-tenant.md)
-
-Du använder distributioner på hanterings grupps nivå för att vidta åtgärder som är begripliga på den nivån, till exempel tilldela [rollbaserad åtkomst kontroll](../../role-based-access-control/overview.md) eller tillämpa [principer](../../governance/policy/overview.md).
+När din organisation är vuxen kan du behöva definiera och tilldela [principer](../../governance/policy/overview.md) eller [rollbaserade åtkomst kontroller](../../role-based-access-control/overview.md) för en hanterings grupp. Med mallar för hanterings grupps nivåer kan du tillämpa principer och tilldela roller på hanterings grupps nivån.
 
 ## <a name="supported-resources"></a>Resurser som stöds
 
@@ -41,10 +35,10 @@ För mallar använder du:
 https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#
 ```
 
-För parameter-filer använder du:
+Schemat för en parameter fil är detsamma för alla distributions omfång. För parameter-filer använder du:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentParameters.json#
+https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
 ## <a name="deployment-commands"></a>Distributions kommandon
@@ -169,5 +163,4 @@ I följande exempel tilldelas en befintlig princip definition till hanterings gr
 
 * Information om hur du tilldelar roller finns i [Hantera åtkomst till Azure-resurser med RBAC och Azure Resource Manager mallar](../../role-based-access-control/role-assignments-template.md).
 * Ett exempel på distribution av arbets ytans inställningar för Azure Security Center finns i [deployASCwithWorkspaceSettings. JSON](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Mer information om hur du skapar Azure Resource Manager-mallar finns i [Redigera mallar](template-syntax.md).
-* En lista över tillgängliga funktioner i en mall finns i [Template Functions](template-functions.md).
+* Du kan också distribuera mallar på [prenumerations nivå](deploy-to-subscription.md) och [klient nivå](deploy-to-tenant.md).

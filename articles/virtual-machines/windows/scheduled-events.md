@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: c4461856bd5eeb01eb84b0d39afef9507438f8d3
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 2b3aa5d50822863e3aa46fcf9970e0b3e67a6f69
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920672"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944472"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure-Metadata Service: Schemalagda händelser för virtuella Windows-datorer
 
@@ -45,7 +45,7 @@ Användning av Schemalagda händelser ditt program kan upptäcka när underhåll
 
 Schemalagda händelser innehåller händelser i följande användnings fall:
 - [Plattform initierat underhåll](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (till exempel VM-omstart, direktmigrering eller minnes konserverings uppdateringar för värd)
-- Degraderad maskin vara
+- Den virtuella datorn körs på en [degraderad värd maskin vara](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) som förväntas sluta att fungera snart
 - Användarens initierade underhåll (t. ex. att användaren startar om eller distribuerar om en virtuell dator)
 - Borttagning av instans av [virtuella datorer](spot-vms.md) och [dekor skalnings uppsättningar](../../virtual-machine-scale-sets/use-spot.md)
 
@@ -135,6 +135,9 @@ Varje händelse schemaläggs en minimi period i framtiden baserat på händelse 
 | Omdistribuera | 10 minuter |
 | Utfärdas | 30 sekunder |
 | Avsluta | [Användaren kan konfigureras](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): 5 till 15 minuter |
+
+> [!NOTE] 
+> I vissa fall kan Azure förutsäga värd felen på grund av försämrad maskin vara och försöka undvika avbrott i tjänsten genom att schemalägga en migrering. Berörda virtuella datorer får en schemalagd händelse med en `NotBefore` som vanligt vis är några dagar i framtiden. Den faktiska tiden varierar beroende på riskbedömningen för förutsägande problem. Azure försöker ge 7 dagars varsel när så är möjligt, men den faktiska tiden varierar och kan vara mindre om förutsägelsen är att det finns en hög chans att maskin varan slutar fungera på ett överhäng. För att minimera risken för din tjänst om maskin varan Miss lyckas före den systeminitierade migreringen, rekommenderas att du distribuerar den virtuella datorn på egen plats så snart som möjligt.
 
 ### <a name="event-scope"></a>Händelse omfång     
 Schemalagda händelser levereras till:

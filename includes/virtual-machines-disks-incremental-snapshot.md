@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 083051fd621194d39d0092046e187e0809fd62d9
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 2316b52115cc23d11dfb26d951a7f1820f2737cc
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77520675"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946064"
 ---
 Stegvisa ögonblicks bilder (för hands version) är tidpunkter för säkerhets kopiering av hanterade diskar som, när de tas, endast består av alla ändringar sedan den senaste ögonblicks bilden. När du försöker hämta eller på annat sätt använda en stegvis ögonblicks bild, används hela den virtuella hård disken. Den här nya funktionen för ögonblicks bilder av hanterade diskar kan eventuellt göra att de är mer kostnads effektiva eftersom du inte längre behöver lagra hela disken med varje enskild ögonblicks bild, såvida du inte väljer att. Precis som vanliga ögonblicks bilder kan du använda stegvisa ögonblicks bilder för att skapa en fullständig hanterad disk eller för att göra en vanlig ögonblicks bild.
 
@@ -25,8 +25,7 @@ Stegvisa ögonblicks bilder erbjuder också en differentiell funktion som är un
 
 Det finns för närvarande endast stöd för följande regioner:
 
-- Tillgängligt som ett GA-erbjudande i västra centrala USA, Östra Kanada, centrala regioner.
-- Tillgänglig som en offentlig för hands version i USA, östra USA 2, centrala USA, norra Europa, Asien, sydöstra regioner.
+- Tillgängligt som ett GA-erbjudande i västra centrala USA, östra USA, östra USA 2, centrala USA, Östra Kanada, centrala Kanada, norra Europa, Asien, sydöstra regioner.
 
 ## <a name="restrictions"></a>Begränsningar
 - Det går inte att skapa stegvisa ögonblicks bilder när du har ändrat storleken på en disk (endast för hands versionen).

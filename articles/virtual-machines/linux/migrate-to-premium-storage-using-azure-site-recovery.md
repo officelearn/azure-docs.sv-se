@@ -1,21 +1,18 @@
 ---
 title: Migrera virtuella Linux-datorer till Azure Premium Storage med Azure Site Recovery
 description: Migrera dina befintliga virtuella datorer till Azure Premium Storage med Site Recovery. Premium Storage erbjuder disk support med hög prestanda och låg latens för I/O-intensiva arbets belastningar som körs på Azure Virtual Machines.
-services: virtual-machines-linux,storage
-cloud: Azure
 author: luywang
 ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: b8c299869da003d8dc4e9ac111ba8c5e8bb27345
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0d03c2df720a4e3ccf57fe0be00c2af4fcf72eb0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035832"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944836"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrera till Premium Storage med Azure Site Recovery
 
@@ -65,7 +62,7 @@ Detta är Azure-kraven för det här migrerings scenariot:
 * Ett virtuellt Azure-nätverk som de virtuella datorerna ska ansluta till när de skapas vid en redundansväxling. Det virtuella Azure-nätverket måste finnas i samma region som det som Site Recovery körs i.
 * Ett Azure standard Storage-konto för att lagra loggar för replikering. Detta kan vara samma lagrings konto för de virtuella dator diskar som migreras.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Förstå relevanta komponenter för migrerings scenario i föregående avsnitt.
 * Planera stillestånds tiden genom att lära dig om [redundans i Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -193,7 +190,7 @@ Se till att välja **Stäng virtuella datorer och synkronisera senaste data**. D
 
 Site Recovery skapar en VM-instans vars typ är samma som eller liknar en Premium Storage-kompatibel virtuell dator. Du kan kontrol lera prestanda och pris för olika VM-instanser genom att gå till [virtuella Windows-datorer priser](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) eller [virtuella Linux-datorer prissättning](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="post-migration-steps"></a>Steg efter migreringen
+## <a name="post-migration-steps"></a>Steg efter migrering
 
 1. **Konfigurera replikerade virtuella datorer till tillgänglighets uppsättningen om tillämpligt**. Site Recovery har inte stöd för migrering av virtuella datorer tillsammans med tillgänglighets uppsättningen. Gör något av följande beroende på distributionen av den replikerade virtuella datorn:
    * För en virtuell dator som skapats via den klassiska distributions modellen: Lägg till den virtuella datorn i tillgänglighets uppsättningen i Azure Portal. Detaljerade anvisningar finns i [lägga till en befintlig virtuell dator i en tillgänglighets uppsättning](../linux/classic/configure-availability-classic.md).

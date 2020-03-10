@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 12/11/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 875a83501b00f0b23aa13317493ab6d341e4e283
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448596"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943125"
 ---
 # <a name="tutorial-single-page-web-app"></a>Självstudie: Enkelsidig webbapp
 
@@ -55,6 +55,10 @@ I den här självstudien diskuterar vi endast vissa delar av källkoden. Den ful
 
 > [!NOTE]
 > Den här självstudien liknar i stora delar [självstudien om enkelsidiga app för Webbsökning i Bing](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), men den behandlar endast entitetssökresultat.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Om du vill följa med i själv studie kursen behöver du prenumerations nycklar för API: et för Bing-sökning och Bing Maps. Om du inte har dem kan du använda en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) och en [enkel Bing Maps-nyckel](https://www.microsoft.com/maps/create-a-bing-maps-key).
 
 ## <a name="app-components"></a>Appkomponenter
 
@@ -134,7 +138,7 @@ HTML-formuläret innehåller följande kontroller:
 
 | | |
 |-|-|
-|`where`|En listruta för att välja marknad (plats och språk) som används för sökningen.|
+|`where`|En nedrullningsbar meny för att välja marknad (plats och språk) som används för sökningen.|
 |`query`|Textfältet för att ange sökvillkor.|
 |`safe`|En kryssruta som anger huruvida SafeSearch är aktiverat (begränsar ”vuxna” resultat)|
 |`what`|En meny för att välja att söka efter entiteter, platser eller båda.|
@@ -380,7 +384,7 @@ function handleBingResponse() {
 
 En stor del av koden i de båda föregående funktionerna är dedikerade för felhantering. Fel kan inträffa i följande steg:
 
-|Mellanlagra|Potentiella fel|Hanterat av|
+|Fas|Potentiella fel|Hanterat av|
 |-|-|-|
 |Skapa objekt för JavaScript-begäran|Ogiltig URL|`try`/`catch` blockera|
 |Skapa begäran|Nätverksfel, avbrutna anslutningar|Händelsehanterare för `error` och `abort`|
@@ -451,7 +455,7 @@ En funktion för rendering kan acceptera följande parametrar:
 
 Parametrarna `index` och `count` kan användas till att numrera resultat, för att generera särskilda HTML-filer för början eller slutet av en samling, för att infoga radbrytningar efter ett visst antal objekt och så vidare. Om en renderare inte behöver den här funktionen behöver den inte godkänna dessa två parametrar. I själva verket använder vi dem inte i renderarna för självstudieappen.
 
-Låt oss ta en närmare titt på renderare `entities`:
+Låt oss ta en närmare titt på `entities`-renderaren:
 
 ```javascript
     entities: function(item) {
@@ -506,7 +510,7 @@ Entitetsrenderarfunktionen:
 
 > [!div class="checklist"]
 > * Skapar `<img>`-HTML-taggen för att visa miniatyrbilden, om sådan finns. 
-> * Skapar en HTML `<a>`-tagg som länkar till den sida som innehåller bilden.
+> * Skapar den `<a>`-HTML-tagg som länkar till den sida som innehåller bilden.
 > * Skapar beskrivning som visar information om bilden och den plats som den finns på.
 > * Inkluderar entitetens klassificering med hjälp av visningstips, om sådana finns.
 > * Inkluderar en länk till en Bing-sökning för att få mer information om entiteten.
@@ -514,11 +518,11 @@ Entitetsrenderarfunktionen:
 
 ## <a name="persisting-client-id"></a>Bestående klient-ID
 
-Svar från API:er för Bing Search kan innehålla ett `X-MSEdge-ClientID`-huvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing-sökning används ska samma klient-ID användas för dem om möjligt.
+Svar från API:er för Bing-sökning kan innehålla ett `X-MSEdge-ClientID`-sidhuvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing-sökning används ska samma klient-ID användas för dem om möjligt.
 
 När `X-MSEdge-ClientID`-huvudet tillhandahålls kan Bing-API:er associera alla sökningar för en användare, vilket innebär två viktiga fördelar.
 
-Först hjälper Bing-sökmotorn till med att tillämpa tidigare kontexter på sökningarna för att hitta resultat som bättre tillfredsställer användaren. Om en användare tidigare har sökt efter termer som exempelvis relaterar till segling kan en senare sökning efter ”hamnar” returnera information om platser där segelbåtar kan förtöjas.
+Först hjälper Bing-sökmotorn till med att tillämpa den senaste kontext på sökningarna för att hitta resultat som bättre tillfredsställer användaren. Om en användare tidigare har sökt efter termer som exempelvis relaterar till segling kan en senare sökning efter ”hamnar” returnera information om platser där segelbåtar kan förtöjas.
 
 Därefter väljer Bing slumpmässigt ut användare som ska prova nya funktioner innan de blir allmänt tillgängliga. Genom att tillhandahålla samma klient-ID med varje begäran säkerställs att användare som har valts för att se en funktion alltid ser den. Utan klient-ID kan användaren se en funktion som sedan försvinner, till synes slumpmässigt, i sökresultatet.
 

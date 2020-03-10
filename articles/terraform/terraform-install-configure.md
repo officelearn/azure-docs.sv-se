@@ -1,27 +1,17 @@
 ---
-title: Installera och konfigurera terraform för att etablera Azure-resurser
-description: Lär dig hur du installerar och konfigurerar terraform för att skapa Azure-resurser
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: tomarchermsft
-manager: gwallace
-editor: na
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 09/20/2019
-ms.author: tarcher
-ms.openlocfilehash: 74728fb05e900c534580f1c8eaf14dd0e48fc42c
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+title: Snabb start – installera och konfigurera terraform för att etablera Azure-resurser
+description: I den här quicstart installerar och konfigurerar du terraform för att skapa Azure-resurser
+keywords: Konfigurera Azure DevOps terraform installation
+ms.topic: quickstart
+ms.date: 03/09/2020
+ms.openlocfilehash: 82635f59ec8165add2046a230a040b06f89d9898
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77473134"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943506"
 ---
-# <a name="install-and-configure-terraform-to-provision-azure-resources"></a>Installera och konfigurera terraform för att etablera Azure-resurser
+# <a name="quickstart-install-and-configure-terraform-to-provision-azure-resources"></a>Snabb start: installera och konfigurera terraform för att etablera Azure-resurser
  
 Terraform är ett enkelt sätt att definiera, förhandsgranska och distribuera moln infrastruktur med hjälp av ett [enkelt mall-språk](https://www.terraform.io/docs/configuration/syntax.html). I den här artikeln beskrivs de steg som krävs för att etablera resurser i Azure med hjälp av terraform.
 
@@ -29,9 +19,9 @@ Om du vill veta mer om hur du använder terraform med Azure kan du gå till [ter
 > [!NOTE]
 > Om du har terraform-stöd kan du kontakta terraform direkt med någon av deras community-kanaler:
 >
->   • [Avsnittet terraform](https://discuss.hashicorp.com/c/terraform-core) i Community-portalen innehåller frågor, användnings fall och användbara mönster.
+>    * [Avsnittet terraform](https://discuss.hashicorp.com/c/terraform-core) i Community-portalen innehåller frågor, användnings fall och användbara mönster.
 >
->   • För provider-relaterade frågor går du till avsnittet [terraform-providers](https://discuss.hashicorp.com/c/terraform-providers) i Community-portalen.
+>    * Om du har frågor om providrar går du till avsnittet [terraform-providers](https://discuss.hashicorp.com/c/terraform-providers) i Community-portalen.
 
 
 
@@ -104,6 +94,10 @@ Skapa en fil `test.tf` i en tom katalog och klistra in följande skript.
 
 ```hcl
 provider "azurerm" {
+  # The "feature" block is required for AzureRM provider 2.x. 
+  # If you are using version 1.x, the "features" block is not allowed.
+  version = "~>2.0"
+  features {}
 }
 resource "azurerm_resource_group" "rg" {
         name = "testResourceGroup"

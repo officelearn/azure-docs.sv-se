@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 74d9aa8228e841b17313fb3c15efe459ccd7339a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: bce71355eef19ec3cc85525033274f57b1a3e0b9
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613578"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946408"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrera grupprincip i en Azure AD Domain Services hanterad domän
 
@@ -42,7 +42,11 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
 * Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
 
 > [!NOTE]
-> Eftersom det inte finns [någon åtkomst till domänkontrollanter i Azure AD DS](faqs.md#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop)kan du inte skapa och använda en central lagrings plats för administrativa mallar för grup principer i en hanterad domän. [SYSVOL ingår inte i den lokala Azure AD Connect-synkroniseringen](synchronization.md#what-isnt-synchronized-to-azure-ad-ds), så du kan inte heller skapa en lokal central lagrings plats och synkronisera den med Azure AD DS via Azure AD.
+> Du kan använda grupprincip Administrativa mallar genom att kopiera de nya mallarna till hanterings arbets stationen. Kopiera *. admx* -filerna till `%SYSTEMROOT%\PolicyDefinitions` och kopiera språkspecifika *. adml* -filer till `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`, där `Language-CountryRegion` matchar språk och region för *. adml* -filerna.
+>
+> Kopiera till exempel den engelska USA versionen av *. adml* -filerna till mappen `\en-us`.
+>
+> Alternativt kan du centralt lagra din grupprincip administrativa mall på domän kontrol Lanterna som ingår i den hanterade domänen i Azure AD DS. Mer information finns i [så här skapar och hanterar du den centrala butiken för grupprincip administrativa mallar i Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## <a name="install-group-policy-management-tools"></a>Installera grupprincip hanterings verktyg
 

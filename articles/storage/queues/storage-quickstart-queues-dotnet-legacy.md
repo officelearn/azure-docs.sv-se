@@ -8,18 +8,18 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.openlocfilehash: f51038b1e79a699c15ad2fd969d75c09a2530f6f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d5e8250a75cc26d4b9843875f71325e163ef23b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75473859"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943564"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Snabb start: Använd Azure Storage SDK-V11 för .NET för att hantera en kö
 
 I den här snabb starten får du lära dig hur du använder Azure Storage klient bibliotek version 11 för .NET för att skapa en kö och lägga till meddelanden till den. Därefter får du lära dig hur du läser och bearbetar meddelanden från kön. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -35,7 +35,7 @@ Information om hur du väljer mellan .NET Core och .NET Framework finns i [Välj
 ### <a name="linux"></a>Linux
 
 - Installera [.NET Core för Linux](https://www.microsoft.com/net/download/linux)
-- Om du vill kan du installera [Visual Studio Code](https://www.visualstudio.com/) och [C#-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
+- Om du vill kan du installera [Visual Studio Code](https://www.visualstudio.com/) och [C#-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
 ### <a name="macos"></a>macOS
 
@@ -46,7 +46,7 @@ Information om hur du väljer mellan .NET Core och .NET Framework finns i [Välj
 
 Exempelprogrammet som används i den här snabbstarten är ett grundläggande konsolprogram. Du kan utforska exempelprogrammet på [GitHub](https://github.com/Azure-Samples/storage-queues-dotnet-quickstart).
 
-Använd [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. 
+Använd [git](https://git-scm.com/) för att hämta en kopia av programmet till utvecklingsmiljön. 
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
@@ -182,7 +182,7 @@ Console.WriteLine("Created queue '{0}'", queue.Name);
 Console.WriteLine();
 ```
 
-### <a name="add-a-message"></a>Lägg till ett meddelande
+### <a name="add-a-message"></a>Lägga till ett meddelande
 
 Därefter lägger exemplet till ett meddelande sist i kön. 
 
@@ -220,7 +220,7 @@ Console.WriteLine("Contents of peeked message '{0}': {1}", peekedMessage.Id, pee
 Console.WriteLine();
 ```
 
-### <a name="dequeue-a-message"></a>Ta ett meddelande ur kön
+### <a name="dequeue-a-message"></a>Ta bort ett meddelande från en kö
 
 Exemplet visar också hur du tar bort ett meddelande från kön. När du tar bort ett meddelande från kön hämtar du meddelandet från början av kön och gör det tillfälligt osynligt för andra klienter. Som standard förblir ett meddelande osynligt i 30 sekunder. Under den tiden kan din kod bearbeta meddelandet. För att slutföra borttagningen av meddelandet i kön tar du bort meddelandet omedelbart efter bearbetningen, så att en annan klient inte tar bort samma meddelande från kön.
 

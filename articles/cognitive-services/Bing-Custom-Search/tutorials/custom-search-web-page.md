@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: c3d571f494d5f08c7c9e3c551eba88fb86e1ec23
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448791"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943917"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Självstudie: Skapa en webbsida för anpassad sökning
 
@@ -32,9 +32,9 @@ Här är några av uppgifterna:
 > - Lägga till fästa poster
 > - Integrera anpassad sökning i en webbsida
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API för anpassad Bing-sökning.  Information om hur du skaffar en nyckel finns i [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+- Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API för anpassad Bing-sökning.  Om du vill hämta en nyckel [skapar du en anpassad sökning i Bing resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) i Azure Portal. Du kan också använda en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services).
 - Om du inte redan har installerat Visual Studio 2017 eller senare kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Skapa en anpassad sökinstans
@@ -45,9 +45,9 @@ Så här skapar du en instans för anpassad sökning i Bing:
   
 2. Navigera till den anpassade sökningens [portal](https://customsearch.ai).  
   
-3. Logga in på portalen med ett Microsoft-konto (MSA). Om du inte har något MSA klickar du på **Skapa ett Microsoft-konto**. Om det är första gången du använder portalen får du en fråga om behörighet för att komma åt dina data. Klicka på **Ja**.  
+3. Logga in på portalen med ett Microsoft-konto (MSA). Om du inte har en MSA klickar du på **skapa en Microsoft-konto**. Om det är första gången du använder portalen uppmanas du att ha behörighet att komma åt dina data. Klicka på **Ja**.  
   
-4. När du har loggat in klickar du på **Ny anpassad sökning**. I fönstret **Skapa en ny anpassad sökinstans** anger du ett namn som betyder något och beskriver typen av innehåll som sökningen returnerar. Du kan ändra namnet när som helst.  
+4. När du har loggat in klickar du på **Ny anpassad sökning**. I fönstret **skapa en ny anpassad Sök instans** anger du ett namn som är meningsfullt och beskriver vilken typ av innehåll sökningen returnerar. Du kan ändra namnet när som helst.  
   
    ![Skärmbild för rutan Skapa en ny anpassad sökinstans](../media/newCustomSrch.png)  
   
@@ -60,11 +60,11 @@ Så här skapar du en instans för anpassad sökning i Bing:
 
 Om du vill utesluta resultat från vissa webbplatser eller webbadresser kan du lägga till dem på fliken **Aktiv**.
 
-1.  På sidan **Konfiguration** klickar du på fliken **Aktiv** och anger webbadressen till en eller flera webbplatser som du vill inkludera i sökningen.
+1.       På sidan **Konfiguration** klickar du på fliken **Aktiv** och anger webbadressen till en eller flera webbplatser som du vill inkludera i sökningen.
 
     ![Skärmbild av aktiv Definition Editor-flik](../media/customSrchEditor.png)
 
-2.  Ange en fråga för att bekräfta att din instans returnerar resultat i förhandsgranskningsfönstret till höger. Bing returnerar endast resultat för offentliga webbplatser som den har indexerat.
+2.       Ange en fråga för att bekräfta att din instans returnerar resultat i förhandsgranskningsfönstret till höger. Bing returnerar endast resultat för offentliga webbplatser som den har indexerat.
 
 ## <a name="add-blocked-entries"></a>Lägga till blockerade poster
 
@@ -79,7 +79,7 @@ Om du vill utesluta resultat från vissa webbplatser eller webbadresser kan du l
 
 ## <a name="add-pinned-entries"></a>Lägga till fästa poster
 
-Lägg till webb sidan och fråge termen till den **fästa** fliken om du vill fästa en speciell webb sida överst i Sök resultaten. Den **fästa** fliken innehåller en lista över webb sidor och frågetermer som anger den webb sida som visas som det främsta resultatet för en speciell fråga. Webbsidan fästs endast om användarens frågesträng matchar fästets frågesträng baserat på fästets matchningsvillkor. Endast indexerade webbplatser visas i sökningar. Mer information finns i avsnittet om att [definierar en anpassad vy](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
+Lägg till webb sidan och fråge termen till den **fästa** fliken om du vill fästa en speciell webb sida överst i Sök resultaten. Den **fästa** fliken innehåller en lista över webb sidor och frågetermer som anger den webb sida som visas som det främsta resultatet för en speciell fråga. Webb sidan är endast fixerad om användarens frågesträng matchar PIN-kodens frågesträng baserat på PIN-koden match. Endast indexerade webbplatser visas i sökningar. Mer information finns i avsnittet om att [definierar en anpassad vy](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
 
 1. På sidan **Konfiguration** klickar du på den **fästa** fliken och anger webbsidan och frågetermen för den webbsida som du vill ska returneras som ett översta resultat.  
   

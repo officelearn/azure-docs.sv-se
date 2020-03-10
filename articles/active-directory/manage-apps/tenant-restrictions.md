@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f73dd8dbef3f08cd4ea5841e4ec21bac2f55bf
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 70cdb4b42e835a9bfa03f4551ba25088ef8c5226
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276506"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942858"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Använd klient begränsningar för att hantera åtkomst till SaaS-molnprogram
 
@@ -60,7 +60,7 @@ Om du vill använda klient begränsningar måste klienterna kunna ansluta till f
 
 Följande konfiguration krävs för att aktivera klient begränsningar via proxyservern för infrastrukturen. Den här vägledningen är allmänna, så du bör referera till dokumentationen från leverantören proxy för specifika genomföra åtgärder.
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 
 - Proxyn måste kunna utföra SSL avlyssning, HTTP-huvud infogning och filtrera mål med FQDN: er/URL: er.
 
@@ -104,6 +104,9 @@ Medan konfigurationen av klient begränsningar görs i infrastrukturen för för
 3. I rubriken **andra funktioner** väljer du **begränsningar för innehavare**.
 
 Administratören för den klient som anges som den begränsade åtkomst kontext klienten kan använda den här rapporten för att se vilka inloggningar som blockeras på grund av principen för klient begränsningar, inklusive den identitet som används och mål katalog-ID: t. Inloggningar ingår om klientinställningen begränsningen är antingen den användare eller resurs-klient för att logga in.
+
+> [!NOTE]
+> Rapporten kan innehålla begränsad information, till exempel mål katalog-ID, när en användare som finns i en annan klient än den begränsade åtkomst kontexten loggar in. I det här fallet maskeras identifierbar information om användare, till exempel namn och User Principal Name, för att skydda användar data i andra klienter.
 
 Du kan använda filter som andra rapporter i Azure-portalen för att ange omfattningen för rapporten. Du kan filtrera efter ett angivet tidsintervall, användare, program, klient eller status. Om du väljer knappen **kolumner** kan du välja att visa data med valfri kombination av följande fält:
 
@@ -166,7 +169,7 @@ Fiddler är en kostnadsfri webb-proxy som kan användas för att fånga och änd
       }
       ```
 
-      Om du vill tillåta flera klienter kan du använda ett kommatecken för att avgränsa klientnamnen. Till exempel:
+      Om du vill tillåta flera klienter kan du använda ett kommatecken för att avgränsa klientnamnen. Exempel:
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 

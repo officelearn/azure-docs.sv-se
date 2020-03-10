@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce7f6320ffa4d3e8c258c9d05542f12079ee355d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 5b8654500fd697685b38e4f51ba1069e0cf6ccfc
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509010"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942910"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Överföra data med dataflyttbiblioteket
 
@@ -32,17 +32,17 @@ Det här dokumentet visar hur du skapar ett .NET Core-konsolprogram som körs p�
 - Kopiera filen från URL till Blob Storage.
 - Kopiera från Blob Storage till Blob Storage.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- [Visual Studio-kod](https://code.visualstudio.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 - Ett [Azure Storage-konto](storage-account-create.md)
 
-## <a name="setup"></a>Installation
+## <a name="setup"></a>Konfiguration
 
 1. Besök [installations guiden för .net Core](https://www.microsoft.com/net/core) för att installera .net Core. När du väljer din miljö väljer du kommando rads alternativet.
 2. Skapa en katalog för projektet från kommando raden. Navigera till den här katalogen och skriv `dotnet new console -o <sample-project-name>` för att skapa C# ett konsol projekt.
 3. Öppna den här katalogen i Visual Studio Code. Det här steget kan snabbt utföras via kommando raden genom att skriva `code .` i Windows.
-4. Installera [ C# tillägget](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) från Visual Studio Code Marketplace. Starta om Visual Studio Code.
+4. Installera [ C# tillägget](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) från Visual Studio Code Marketplace. Starta om Visual Studio Code.
 5. Nu bör du se två prompter. Ett är för att lägga till "nödvändiga till gångar för att skapa och felsöka". Klicka på Ja. En annan prompt är för att återställa olösta beroenden. Klicka på Återställ.
 6. Ändra `launch.json` under `.vscode` för att använda extern Terminal som en konsol. Den här inställningen bör läsas som `"console": "externalTerminal"`
 7. Med Visual Studio Code kan du felsöka .NET Core-program. Tryck på `F5` för att köra programmet och kontrol lera att installationen fungerar. Du bör se "Hello World!" skrivs ut till-konsolen.

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 82daf447270fc0413284e3e7a908a8b5237a4f9c
-ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
+ms.openlocfilehash: f7a6c5872c5e2b7e1b47b40e32ddb047641e8b2e
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/09/2020
-ms.locfileid: "78932989"
+ms.locfileid: "78944213"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en Azure Active Directory teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -56,7 +56,7 @@ I följande exempel visas **AAD – vanlig** teknisk profil:
 </TechnicalProfile>
 ```
 
-## <a name="input-claims"></a>Inmatade anspråk
+## <a name="inputclaims"></a>InputClaims
 
 InputClaims-elementet innehåller ett anspråk, som används för att leta upp ett konto i katalogen eller skapa ett nytt. Det måste finnas exakt ett InputClaim-element i den inloggade anspråks samlingen för alla Azure AD-tekniska profiler. Du kan behöva mappa namnet på det anspråk som definierats i principen till det namn som definierats i Azure Active Directory.
 
@@ -66,7 +66,7 @@ Om du vill skapa ett nytt användar konto är indata-anspråk en nyckel som unik
 
 InputClaimsTransformations-elementet kan innehålla en samling ingångs anspråk för omvandlings element som används för att ändra det inloggade anspråket eller skapa ett nytt.
 
-## <a name="output-claims"></a>Utgående anspråk
+## <a name="outputclaims"></a>OutputClaims
 
 **OutputClaims** -elementet innehåller en lista över anspråk som returneras av den tekniska Azure AD-profilen. Du kan behöva mappa namnet på det anspråk som definierats i principen till det namn som definierats i Azure Active Directory. Du kan också inkludera anspråk som inte returneras av Azure Active Directory, förutsatt att du anger attributet `DefaultValue`.
 

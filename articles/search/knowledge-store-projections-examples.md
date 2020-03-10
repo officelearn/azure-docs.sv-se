@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: daaedf346bed78a93e0762a37687b623d25ef753
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 23c370289669c2dde4f8969a2921018cd0abc08c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77441977"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943670"
 ---
 # <a name="knowledge-store-projections-how-to-shape-and-export-enrichments"></a>Prognoser för kunskaps lager: så här gör du för att forma och exportera
 
@@ -671,7 +671,13 @@ När du definierar en projektion finns det några vanliga problem som kan orsaka
 
 I exemplen i den här artikeln demonstreras vanliga mönster för hur du skapar projektioner. Nu när du har en god förståelse för koncepten är du bättre utrustad med att bygga projektioner för ditt specifika scenario.
 
-När du itererar över kunskaps lager definitionerna bör du fundera på hur du ska ta del av ditt nästa steg. Stegvis anrikning baseras på cachelagring, som gör att du kan återanvända alla berikande som inte på annat sätt påverkas av en färdigheter modifiering. Detta är särskilt användbart för pipelines som inkluderar OCR-och bild analys.
+När du utforskar nya funktioner bör du överväga stegvisa berikande åtgärder som nästa steg. Stegvis anrikning baseras på cachelagring, som gör att du kan återanvända alla berikande som inte på annat sätt påverkas av en färdigheter modifiering. Detta är särskilt användbart för pipelines som inkluderar OCR-och bild analys.
 
 > [!div class="nextstepaction"]
 > [Introduktion till stegvis anrikning och cachelagring](cognitive-search-incremental-indexing-conceptual.md)
+
+För en översikt över projektioner, lär dig mer om funktioner som grupper och segmentering och hur du [definierar dem i en färdigheter](knowledge-store-projection-overview.md)
+
+> [!div class="nextstepaction"]
+> [Projektioner i ett kunskaps lager](knowledge-store-projection-overview.md)
+

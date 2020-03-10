@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c590a27f61c1a555ae30828332e4140a6116f95f
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 2413601db629fda62976b75e349b0340749dc6fa
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443864"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944078"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Vanliga frågor och svar om Azure App Service på Linux
 
@@ -180,6 +180,10 @@ Här följer reglerna för att avgöra vilken behållare som är tillgänglig �
 Du debiteras det normala Azure App Service priset för antalet timmar som appen körs.
 
 ## <a name="other-questions"></a>Andra frågor
+
+**Vad betyder "den begärda funktionen är inte tillgänglig i resurs gruppen"?**
+
+Du kan se det här meddelandet när du skapar en webbapp med Azure Resource Manager (ARM). I samma resurs grupp kan du inte blanda Windows-och Linux-appar i samma region, baserat på en aktuell begränsning.
 
 **Vad är de tecken som stöds i program inställnings namn?**
 

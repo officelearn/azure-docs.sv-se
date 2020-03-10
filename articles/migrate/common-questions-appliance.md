@@ -2,13 +2,13 @@
 title: Vanliga frågor och svar om Azure Migrate
 description: Få svar på vanliga frågor om Azure Migrate-enheten.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 99f7fc7db79785f99b96e6076607e434e43e605f
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.date: 03/09/2020
+ms.openlocfilehash: 3d0844b980ac418c5c334c2535c40dc5f3caeb16
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927316"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78939311"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate utrustning: vanliga frågor
 
@@ -64,7 +64,7 @@ Data som samlas in av Azure Migrates enheten lagras på den Azure-plats där du 
 
 Här är mer information om hur data lagras:
 
-- Data lagras säkert i en Microsoft-prenumeration och tas bort när du tar bort Azure Migrate-projektet.
+- Insamlade data lagras säkert i CosmosDB i en Microsoft-prenumeration. Data tas bort när du tar bort Azure Migrate-projektet. Lagringen hanteras av Azure Migrate. Du kan inte specifikt välja ett lagrings konto för insamlade data.
 - Om du använder [beroende visualisering](concepts-dependency-visualization.md)lagras de data som samlas in i USA i en Azure Log Analytics-arbetsyta som skapats i din Azure-prenumeration. Data tas bort när du tar bort Log Analytics arbets ytan i din prenumeration.
 
 ## <a name="how-much-data-is-uploaded-during-continuous-profiling"></a>Hur mycket data överförs under kontinuerlig profilering?
@@ -88,9 +88,13 @@ De här stegen beskriver hur installationen ansluter till VMware vCenter Server:
 3. Installations programmet samlar in konfigurations data om virtuella datorer (kärnor, minne, diskar, nätverkskort) och prestanda historiken för varje virtuell dator under den senaste månaden.
 4. Insamlade metadata skickas till Azure Migrate: Server bedömnings verktyget (via Internet via HTTPS) för utvärdering.
 
-## <a name="can-i-connect-the-appliance-to-multiple-instances-of-vcenter-server"></a>Kan jag ansluta enheten till flera instanser av vCenter Server?
+## <a name="can-the-azure-migrate-appliance-connect-to-multiple-vcenter-servers"></a>Kan Azure Migrate-enheten ansluta till flera vCenter-servrar?
 
-Nej. Det finns en en-till-en-mappning mellan en installation och vCenter Server. För att identifiera virtuella datorer på flera vCenter Server instanser måste du distribuera flera enheter.
+Nej. Det finns en en-till-en-mappning mellan en [Azure Migrate-apparat](migrate-appliance.md) och vCenter Server. För att identifiera virtuella datorer på flera vCenter Server instanser måste du distribuera flera enheter. 
+
+## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Kan ett Azure Migrate projekt ha flera anordningar?
+Ett projekt kan ha flera anslutna enheter. En installation kan dock bara kopplas till ett projekt. 
+
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Hur många virtuella datorer eller servrar kan jag identifiera med en apparat?
 

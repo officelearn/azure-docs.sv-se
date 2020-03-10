@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: afa3b0f3ed345ccc7f4c627ec485351838ab2bee
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 300294f37c809b01fe8fba7e627d6bc5bdc9903a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649286"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942937"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om konfiguration och hantering för Web Apps i Azure
 
@@ -212,7 +212,7 @@ Mer information finns i [så här skapar du en app service-miljön](environment/
 Ibland går det inte att skapa en App Service-miljön. I så fall visas följande fel i aktivitets loggarna:
 ```
 ResourceID: /subscriptions/{SubscriptionID}/resourceGroups/Default-Networking/providers/Microsoft.Web/hostingEnvironments/{ASEname}
-Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period.”}}
+Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period."}}
 ```
 
 Lös detta genom att kontrol lera att inget av följande villkor är uppfyllda:
@@ -248,7 +248,7 @@ Mer information om schemalagda webbjobb finns i [skapa ett schemalagt webb jobb 
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Hur gör jag för att konfigurera ett anpassat domän namn för en App Service webbapp som använder Traffic Manager?
 
-Information om hur du använder ett anpassat domän namn med en App Service-app som använder Azure Traffic Manager för belastnings utjämning finns i [Konfigurera ett anpassat domän namn för en Azure-webbapp med Traffic Manager](web-sites-traffic-manager-custom-domain-name.md).
+Information om hur du använder ett anpassat domän namn med en App Service-app som använder Azure Traffic Manager för belastnings utjämning finns i [Konfigurera ett anpassat domän namn för en Azure-webbapp med Traffic Manager](configure-domain-traffic-manager.md).
 
 ## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>Mitt App Service certifikat är flaggat för bedrägerier. Hur gör jag för att du lösa detta?
 

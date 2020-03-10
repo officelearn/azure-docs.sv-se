@@ -7,15 +7,15 @@ titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
-ms.date: 09/17/2019
-ms.openlocfilehash: 427ba0e46f8f4090ce8c2080b1d6780b165e864c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 03/09/2020
+ms.openlocfilehash: ab9c5c5c1134d2e09a790a788a3b7e55f807dd9b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121088"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945374"
 ---
-# <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Privat länk för Azure SQL Database och informations lager (för hands version)
+# <a name="private-link-for-azure-sql-database-and-data-warehouse"></a>Privat länk för Azure SQL Database och informations lager
 
 Med privat länk kan du ansluta till olika PaaS-tjänster i Azure via en **privat slut punkt**. Om du vill ha en lista över PaaS Services som stöder funktionen för privat länk går du till [dokumentations sidan för privat länk](../private-link/index.yml) . En privat slut punkt är en privat IP-adress inom ett särskilt [VNet](../virtual-network/virtual-networks-overview.md) och undernät. 
 
@@ -48,7 +48,7 @@ Med privat länk kan kunder aktivera åtkomst till lokala slut punkter via [Expr
 
 ### <a name="creation-process"></a>Skapande process
 Privata slut punkter kan skapas med hjälp av portalen, PowerShell eller Azure CLI:
-- [Portalen](../private-link/create-private-endpoint-portal.md)
+- [Portal](../private-link/create-private-endpoint-portal.md)
 - [PowerShell](../private-link/create-private-endpoint-powershell.md)
 - [CLI](../private-link/create-private-endpoint-cli.md)
 
@@ -145,7 +145,7 @@ Resultatet visar att en IP-adress är upp. som motsvarar IP-adressen för den pr
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Kontrol lera anslutningen med SQL Server Management Studio (SSMS)
 > [!NOTE]
->Använd det **fullständigt kvalificerade domän namnet (FQDN)** för servern i anslutnings strängar för dina klienter. Alla inloggnings försök som görs direkt till IP-adressen får inte ändras av design.
+> Använd det **fullständigt kvalificerade domän namnet (FQDN)** för servern i anslutnings strängar för dina klienter. Alla inloggnings försök som görs direkt till IP-adressen Miss lyckas. Det här beteendet är avsiktligt eftersom den privata slut punkten dirigerar trafik till SQL-gatewayen i regionen och FQDN måste anges för att inloggningar ska lyckas.
 
 Följ anvisningarna här för att använda [SSMS för att ansluta till den SQL Database](sql-database-connect-query-ssms.md). När du har anslutit till SQL Database med SSMS kontrollerar du att du ansluter från den privata IP-adressen för den virtuella Azure-datorn genom att köra följande fråga:
 
@@ -153,8 +153,9 @@ Följ anvisningarna här för att använda [SSMS för att ansluta till den SQL D
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
-> [!NOTE]
-> I för hands versionen stöder anslutningar till privata slut punkter **proxy** som [anslutnings princip](sql-database-connectivity-architecture.md#connection-policy)
+
+## <a name="limitations"></a>Begränsningar 
+Anslutningar till privat slut punkt stöder bara **proxy** som [anslutnings princip](sql-database-connectivity-architecture.md#connection-policy)
 
 
 ## <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Ansluta från en virtuell Azure-dator i peer-Virtual Network (VNet) 

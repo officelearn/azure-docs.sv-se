@@ -3,17 +3,17 @@ title: Självstudie – Minska kostnaderna i Azure med rekommendationer
 description: Den här självstudien hjälper dig att minska kostnaderna för Azure med hjälp av optimeringsrekommendationer.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 796d843461d5d622988f7992439a7c4426186761
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6f84b3fb75a3774dc14fd1ea045ab9cf1eeb5451
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199967"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245401"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Självstudier: Optimera kostnader utifrån rekommendationer
 
@@ -32,7 +32,7 @@ Rekommendationerna är tillgängliga för olika omfång och Azure-kontotyper. Om
 - Prenumeration
 - Resursgrupp
 
-Du måste ha virtuella datorer som har varit aktiva i minst 14 dagar.
+Om du har en ny prenumeration kan du inte använda Cost Management-funktioner direkt. Det kan ta upp till 48 timmar innan du kan använda alla Cost Management-funktioner. Du måste också ha virtuella datorer som har varit aktiva i minst 14 dagar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com/).

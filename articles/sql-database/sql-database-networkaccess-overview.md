@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
-ms.date: 08/05/2019
-ms.openlocfilehash: 16ba90aab52c00f77af590f854217cd989df53b3
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.date: 03/09/2020
+ms.openlocfilehash: 822fab5c00501d415c3c184587141e869523e417
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251914"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945382"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Kontroll av nätverks åtkomst för Azure SQL Database och informations lager
 
@@ -27,19 +27,28 @@ ms.locfileid: "77251914"
 > [!IMPORTANT]
 > Den här artikeln gäller *inte* för **Azure SQL Database Hanterad instans**. Mer information om nätverks konfigurationen finns i [ansluta till en hanterad instans](sql-database-managed-instance-connect-app.md) .
 
-När du skapar en ny Azure-SQL Server [från Azure Portal](sql-database-single-database-get-started.md), är resultatet en offentlig slut punkt i formatet *yourservername.Database.Windows.net*. Som design nekas all åtkomst till den offentliga slut punkten. Du kan sedan använda följande kontroller för nätverks åtkomst för att selektivt tillåta åtkomst till SQl-databasen via den offentliga slut punkten
-- Tillåt Azure-tjänster: – när det är inställt på på, kan andra resurser inom Azure-gränser, till exempel en virtuell Azure-dator, komma åt SQL Database
+När du skapar en ny Azure-SQL Server från [Azure Portal](sql-database-single-database-get-started.md), är resultatet en offentlig slut punkt i formatet *yourservername.Database.Windows.net*.
 
-- IP-brandväggs regler: – Använd den här funktionen för att uttryckligen tillåta anslutningar från en specifik IP-adress, till exempel från lokala datorer.
+Du kan använda följande kontroller för nätverks åtkomst för att selektivt tillåta åtkomst till SQl-databasen via den offentliga slut punkten:
+- Tillåt Azure-tjänster: när det är inställt på på, kan andra resurser inom Azure-gränser, till exempel en virtuell Azure-dator, komma åt SQL Database
 
-- Virtual Network brand Väggs regler: – Använd den här funktionen för att tillåta trafik från en speciell Virtual Network inom Azure-gränsen
+- IP-brandväggs regler: Använd den här funktionen för att uttryckligen tillåta anslutningar från en specifik IP-adress, till exempel från lokala datorer
 
+Du kan också tillåta privat åtkomst till SQL Database från [virtuella nätverk](../virtual-network/virtual-networks-overview.md) via:
+- Virtual Network brand Väggs regler: Använd den här funktionen för att tillåta trafik från en speciell Virtual Network inom Azure-gränsen
+
+- Privat länk: Använd den här funktionen för att skapa en privat slut punkt för Azure SQL Server inom en angiven Virtual Network
+
+
+
+Se videon nedan om du vill ha en övergripande förklaring av dessa åtkomst kontroller och vad de gör:
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
+
 
 ## <a name="allow-azure-services"></a>Tillåt Azure-tjänster 
 När du skapar en ny Azure-SQL Server [från Azure Portal](sql-database-single-database-get-started.md)lämnas den här inställningen omarkerad.
 
- ![Skärm bild av ny server skapa][1]
+
 
 Du kan också ändra den här inställningen via brand Väggs fönstret när Azure-SQL Server har skapats på följande sätt.
   
@@ -129,6 +138,9 @@ Regler för virtuella nätverk är enklare att upprätta och hantera åtkomst fr
 > [!NOTE]
 > Du kan inte ha SQL Database i ett undernät än. Om din Azure SQL Database-Server var en nod i ett undernät i det virtuella nätverket kan alla noder i det virtuella nätverket kommunicera med din SQL Database. I det här fallet kan de virtuella datorerna kommunicera med SQL Database utan att behöva några regler för virtuella nätverk eller IP-regler.
 
+## <a name="private-link"></a>Private Link 
+Med privat länk kan du ansluta till Azure SQL Server via en **privat slut punkt**. En privat slut punkt är en privat IP-adress inom en speciell [Virtual Network](../virtual-network/virtual-networks-overview.md) och ett undernät.
+
 ## <a name="next-steps"></a>Nästa steg
 
 - En snabb start för att skapa en regel för IP-brandvägg på server nivå finns i [skapa en Azure SQL-databas](sql-database-single-database-get-started.md).
@@ -146,3 +158,4 @@ Regler för virtuella nätverk är enklare att upprätta och hantera åtkomst fr
 <!--Image references-->
 [1]: ./media/sql-database-get-started-portal/new-server2.png
 [2]: ./media/sql-database-get-started-portal/manage-server-firewall.png
+

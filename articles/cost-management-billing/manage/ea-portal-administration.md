@@ -3,16 +3,16 @@ title: Administration i Azure EA-portalen
 description: I den här artikeln förklaras några vanliga uppgifter som administratörer utför i Azure EA-portalen.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/24/2020
+ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 1da26b3a1c028a49655b9089ac0119e3274e37a4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 79225d4dfe9e53da6936f8647c9f5a1dff0b4909
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598399"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301480"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration i Azure EA-portalen
 
@@ -24,7 +24,7 @@ Företagsadministratörer har fullständig behörighet i hanteringen av en Azure
 
 ## <a name="update-user-state-from-pending-to-active"></a>Uppdatera användarstatus från Väntar till Aktiv
 
-När nya kontoinnehavare först läggs till i en Azure EA-registrering är deras status _väntande_. När en ny kontoinnehavare får sitt aktiveringsmail kan kontoinnehavaren logga in och aktivera sitt konto. När kontoinnehavaren aktiverar sitt konto uppdateras kontostatusen från _väntande_ till _aktiv_. Kontoinnehavaren måste läsa varningsmeddelandet och klicka på **Continue** (Fortsätt). Nya användare kan uppmanas att ange sitt för- och efternamn och skapa ett handelskonto. I så fall måste personen ange den nödvändiga informationen innan kontot aktiveras.
+När nya kontoinnehavare först läggs till i en Azure EA-registrering är deras status _väntande_. När en ny kontoinnehavare får sitt aktiveringsmail kan kontoinnehavaren logga in och aktivera sitt konto. När kontoinnehavaren aktiverar sitt konto uppdateras kontostatusen från _väntande_ till _aktiv_. Kontoinnehavaren måste läsa varningsmeddelandet och välja **Fortsätt**. Nya användare kan uppmanas att ange sitt för- och efternamn och skapa ett handelskonto. I så fall måste personen ange den nödvändiga informationen innan kontot aktiveras.
 
 ## <a name="add-a-department-admin"></a>Lägga till en avdelningsadministratör
 
@@ -39,11 +39,11 @@ Företagsadministratörer kan associera befintliga konton till avdelningar under
 ### <a name="to-associate-an-account-to-a-department"></a>Associera ett konto med en avdelning
 
 1. Logga in i Azure EA-portalen som företagsadministratör.
-1. Klicka på **Manage** (Hantera) i det vänstra navigeringsfältet.
-1. Klicka på **Department** (Avdelning).
-1. Hovra över raden med det önskade kontot och klicka på pennikonen till höger.
-1. Välj önskad avdelning i den nedrullningsbara menyn.
-1. Klicka på **Spara**.
+1. Välj **Hantera** i det vänstra navigeringsfältet.
+1. Välj **Avdelning**.
+1. Hovra över raden med kontot och välj pennikonen till höger.
+1. Välj avdelning i den nedrullningsbara menyn.
+1. Välj **Spara**.
 
 ## <a name="department-spending-quotas"></a>Avdelningens utgiftskvoter
 
@@ -54,13 +54,13 @@ Avdelningsadministratören kan visa utgiftskvoten utan bara företagsadministrat
 ### <a name="enterprise-administrator-to-set-the-quota"></a>Företagsadministratör för att ange kvoten:
 
  1. Öppna Azure EA-portalen.
- 1. Klicka på **Manage** (Hantera) i det vänstra navigeringsfältet.
- 1. Klicka på fliken **Department** (Avdelning).
- 1. Klicka på önskad avdelning.
- 1. Klicka på pennikonen i avsnittet Avdelningsinformation eller klicka på knappen **+ Add Department** (+ Lägg till avdelning) för att lägga till en utgiftskvot tillsammans med en ny avdelning.
+ 1. Välj **Hantera** i det vänstra navigeringsfältet.
+ 1. Välj fliken **Avdelning**.
+ 1. Välj avdelning.
+ 1. Välj pennsymbolen i avsnittet Avdelningsinformation eller välj symbolen **+ Lägg till avdelning** för att lägga till en utgiftskvot tillsammans med en ny avdelning.
  1. Under användningsinformationen anger du ett utgiftskvotbelopp i registreringens valuta i rutan Spending Quota $ (Utgiftskvot $) (måste vara större än 0).
     - Avdelningsnamnet och kostnadsstället kan också redigeras nu.
- 1. Tryck på **Save** (Spara).
+ 1. Välj **Spara**.
 
 Avdelningens utgiftskvot syns nu i vyn Department List (Avdelningslista) under fliken Department (Avdelning). I slutet av det aktuella åtagandet behåller Azure EA-portalen utgiftskvoterna till nästa åtagandeperiod.
 
@@ -69,8 +69,8 @@ Avdelningskvotens belopp är oberoende av det aktuella betalningsåtagandet, och
 ### <a name="department-administrator-to-view-the-quota"></a>Avdelningsadministratör för att visa kvoten:
 
 1. Öppna Azure EA-portalen.
-1. Klicka på **Manage** (Hantera) i det vänstra navigeringsfältet.
-1. Klicka på fliken **Department** (Avdelning) och visa vyn Department List (Avdelningslista) med utgiftskvoter.
+1. Välj **Hantera** i det vänstra navigeringsfältet.
+1. Klicka på fliken **Avdelning** och visa vyn Department List (Avdelningslista) med utgiftskvoter.
 
 Om du är en indirekt kund måste din kanalpartner aktivera kostnadsfunktioner.
 
@@ -88,27 +88,27 @@ Du kan läsa mer om användarroller under [Enterprise user roles](https://docs.m
 
 ## <a name="add-an-azure-ea-account"></a>Lägga till ett Azure EA-konto
 
-Azure EA-konton är en organisationsenhet i Azure EA-portalen som används till att administrera prenumerationer och skapa rapporter. Om du ska kunna komma åt och använda Azure-tjänster måste du eller någon annan skapa ett konto åt dig.
+Azure EA-kontot är en organisationsenhet i Azure EA-portalen. Den används för att administrera prenumerationer samt för rapportering. Om du ska kunna komma åt och använda Azure-tjänster måste du eller någon annan skapa ett konto åt dig.
 
 Du kan läsa mer om Azure-konton under Lägga till ett konto.
 
 ## <a name="enterprise-devtest-offer"></a>Enterprise Dev/Test-erbjudande
 
-Som Azure Enterprise-administratör kan du nu aktivera kontoinnehavare i organisationen för att skapa prenumerationer baserade på EA Dev/Test-erbjudandet. Du kan göra det genom att markera Dev/Test-rutan för den kontoinnehavaren i Azure EA-portalen.
+Som Azure Enterprise-administratör kan du aktivera kontoinnehavare i organisationen för att skapa prenumerationer baserade på EA Dev/Test-erbjudandet. För att göra det väljer du rutan Dev/Test för kontoägaren i Azure EA-portalen.
 
 När du har markerat Dev/Test-rutan meddelar du kontoinnehavaren att han/hon kan ställa in de EA Dev/Test-prenumerationer som behövs för teamet med Dev/Test-prenumeranter.
 
-Det här erbjudandet gör det möjligt för aktiva Visual Studio-prenumeranter att köra utvecklings- och testarbetsbelastningar på Azure till särskilda Dev/Test-priser, med åtkomst till hela galleriet med Dev/Test-avbildningar inklusive Windows 8.1 och Windows 10.
+Erbjudandet gör att aktiva Visual Studio-prenumeranter kan köra arbetsbelastningar för utveckling och testning i Azure till specialpris. Det ger åtkomst till det fullständiga galleriet med Dev/Test-avbildningar inklusive Windows 8.1 och Windows 10.
 
 ### <a name="to-set-up-the-enterprise-devtest-offer"></a>Konfigurera Enterprise Dev/Test-erbjudandet:
 
 1. Logga in som företagsadministratör.
-1. Klicka på **Manage** (Hantera) i det vänstra navigeringsfältet.
-1. Klicka på fliken **Account** (Konto).
-1. Klicka på raden för det konto där du vill aktivera Dev/Test-åtkomst.
-1. Klicka på pennikonen till höger om raden.
+1. Välj **Hantera** i det vänstra navigeringsfältet.
+1. Välj fliken **Konto**.
+1. Välj raden för det konto där du vill aktivera Dev/Test-åtkomst.
+1. Välj pennsymbolen till höger om raden.
 1. Markera kryssrutan Dev/Test.
-1. Tryck på **Save** (Spara).
+1. Välj **Spara**.
 
 När en användare läggs till som kontoinnehavare via Azure EA-portalen konverteras alla Azure-prenumerationer associerade med kontoinnehavaren som baseras på antingen PAYG Dev/Test-erbjudandet eller erbjudanden med månatlig kredit för Visual Studio-prenumeranter till EA Dev/Test-erbjudandet. Prenumerationer baserade på andra erbjudandetyper, till exempel PAYG (betala per användning), associerade med kontoinnehavaren konverteras till Microsoft Azure Enterprise-erbjudanden.
 
@@ -116,7 +116,7 @@ Dev/Test-erbjudandet gäller för närvarande inte för Azure Gov-kunder.
 
 ## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Överföra ett företagskonto till en ny registrering
 
-Vid en kontoöverföring flyttas en kontoägare från en registrering till en annan. Alla relaterade prenumerationer under kontoägaren flyttas till målregistreringen. Detta sker om det finns flera aktiva registreringar och du bara vill flytta specifika kontoägare.
+Vid en kontoöverföring flyttas en kontoägare från en registrering till en annan. Alla relaterade prenumerationer under kontoägaren flyttas till målregistreringen. Använd en kontoöverföring om det finns flera aktiva registreringar och du bara vill flytta specifika kontoägare.
 
 Det här avsnittet tillhandahålls endast i informationssyfte eftersom åtgärden inte kan utföras av en företagsadministratör. Det krävs en supportbegäran för att överföra ett företagskonto till en ny registrering.
 
@@ -148,7 +148,7 @@ En registreringsöverföring är lämpligt när:
 
 - Åtagandeperioden för en aktuell registrering har gått ut.
 - En registrering har status som förfallen/förlängd och ett nytt avtal förhandlas.
-- Om du har flera registreringar och vill konsolidera alla konton och faktureringen under en enda registrering.
+- Du har flera registreringar och vill kombinera alla konton och faktureringen under en enda registrering.
 
 Det här avsnittet tillhandahålls endast i informationssyfte eftersom åtgärden inte kan utföras av en företagsadministratör. Det krävs en supportbegäran för att överföra en företagsregistrering till en ny.
 
@@ -158,8 +158,8 @@ När du begär att en hel företagsregistrering ska överföras till en ny regis
 - Registreringsstatus ställs in som _Överförd_. Den överförda registreringen är bara tillgänglig för rapporter om historisk användning.
 - Du kan inte lägga till roller eller prenumerationer i en överförd registrering. Statusen Överförd förhindrar ytterligare användning mot registreringen.
 - Eventuella saldon för ekonomiska åtaganden i registreringen går förlorade, inklusive framtida avtal.
--   Om registreringen du överför från innehåller RI-köp blir inköpspriset för RI kvar källregistreringen, men alla RI-förmåner överförs för användning i den nya registreringen.
--   Engångsavgiften för köp på Marketplace och alla månatliga fasta avgifter som redan påförts på den gamla registreringen överförs inte till den nya registreringen. Förbrukningsbaserade Marketplace-debiteringar överförs.
+-    Om registreringen du överför från innehåller RI-köp blir inköpspriset för RI kvar källregistreringen, men alla RI-förmåner överförs för användning i den nya registreringen.
+-    Engångsavgiften för köp på Marketplace och alla månatliga fasta avgifter som redan påförts på den gamla registreringen överförs inte till den nya registreringen. Förbrukningsbaserade Marketplace-debiteringar överförs.
 
 ### <a name="effective-transfer-date"></a>Effektivt överföringsdatum
 
@@ -214,7 +214,7 @@ Om mottagaren behöver begränsa åtkomsten till sina Azure-resurser bör denne 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **Alla resurser** i hubbmenyn.
 3. Välj resursen.
-4. Klicka på **Inställningar** på resurssidan för att visa och uppdatera befintliga hemligheter.
+4. Välj **Inställningar** på resurssidan för att visa och uppdatera befintliga hemligheter.
 
 ## <a name="delete-subscription"></a>Ta bort prenumeration
 
@@ -222,20 +222,22 @@ Ta bort en prenumeration där du är kontoinnehavare:
 
 1. Logga in på Azure-portalen med autentiseringsuppgifterna som är kopplade till ditt konto.
 1. Välj **Prenumerationer** på navmenyn.
-1. På prenumerationsfliken i det övre vänstra hörnet på sidan väljer du den prenumeration du vill ha för att avbryta och klicka på **Avbryt prenumeration** för att starta fliken Avbryt.
-1. Ange prenumerationens namn och välj en uppsägningsorsak och klicka på knappen **Avbryt prenumeration**.
+1. På prenumerationsfliken i det övre vänstra hörnet på sidan väljer du den prenumeration du vill ha för att avbryta och välj **Avbryt prenumeration** för att starta fliken Avbryt.
+1. Ange prenumerationens namn och välj en uppsägningsorsak och väljer knappen **Avbryt prenumeration**.
 
-Observera att bara kontoadministratörer kan avbryta prenumerationer.
+Bara kontoadministratörer kan avbryta prenumerationer.
+
+Mer information finns i [Vad händer när jag har sagt upp min prenumeration?](cancel-azure-subscription.md#what-happens-after-i-cancel-my-subscription).
 
 ## <a name="delete-an-account"></a>Ta bort ett konto
 
 Borttagning av konto kan bara slutföras för aktiva konton utan aktiva prenumerationer.
 
-1. I EA-portalen väljer du **Manage** (Hantera) i det vänstra navigeringsfältet.
-1. Klicka på fliken **Account** (Konto).
+1. I EA-portalen väljer du **Hantera** i det vänstra navigeringsfältet.
+1. Välj fliken **Konto**.
 1. I tabellen med konton väljer du de konton du vill ta bort.
-1. Klicka på X-ikonen till höger om kontoraden.
-1. När det inte finns några aktiva prenumerationer under kontot klickar du på knappen **Yes** (Ja) under kontoraden för att bekräfta borttagningen av kontot.
+1. Välj X-symbolen till höger om kontoraden.
+1. När det inte finns några aktiva prenumerationer under kontot väljer du knappen **Ja** under kontoraden för att bekräfta borttagningen av kontot.
 
 ## <a name="update-notification-settings"></a>Uppdatera meddelandeinställningar
 
@@ -251,11 +253,11 @@ Så här visar du aktuella meddelandeinställningar:
 
 Så här lägger du till en kontakt:
 
-1. Klicka på **+ Lägg till kontakt**.
+1. Välj **+ Lägg till kontakt**.
 2. Ange e-postadressen och bekräfta den.
-3. Klicka på **Spara**.
+3. Välj **Spara**.
 
-Den nya meddelandekontakten visas i avsnittet **Meddelandekontakt**. Om du vill ändra meddelandefrekvensen markerar du meddelandekontakten och klickar på pennsymbolen till höger om den markerade raden. Ställ in frekvensen som **varje dag**, **varje vecka**, **varje månad** eller **aldrig**.
+Den nya meddelandekontakten visas i avsnittet **Meddelandekontakt**. Om du vill ändra meddelandefrekvensen markerar du meddelandekontakten och väljer pennsymbolen till höger om den markerade raden. Ställ in frekvensen som **varje dag**, **varje vecka**, **varje månad** eller **aldrig**.
 
 Du kan välja att hoppa över livscykelmeddelandena _täckningsperiodens slutdatum närmar sig_ och _datumet för inaktivering och avetablering närmar sig_. Om du hoppar över livscykelmeddelandena skickas inga meddelanden om slutdatumet för täckningsperioden eller avtalet.
 
@@ -268,20 +270,20 @@ Varje partneradministratör i Azure EA-portalen kan lägga till eller ta bort an
 Om du vill visa en lista över alla registreringar som är associerade till samma partnerorganisation som den aktuella användaren klickar du på fliken **Enrollment** (Registrering) och väljer en önskad registreringsruta.
 
 1. Logga in som partneradministratör.
-1. Klicka på **Manage** (Hantera) i det vänstra navigeringsfältet.
-1. Klicka på fliken **Partner**.
-1. Klicka på **+ Add Administrator** (+ Lägg till administratör) och fyll i e-postadress, meddelandekontakt och meddelandeinformation.
-1. Tryck på **Add** (Lägg till).
+1. Välj **Hantera** i det vänstra navigeringsfältet.
+1. Välj fliken **Partner**.
+1. Välj **+ Lägg till administratör** och fyll i e-postadress, meddelandekontakt och meddelandeinformation.
+1. Välj **Lägg till**.
 
 ### <a name="remove-a-partner-administrator"></a>Ta bort en partneradministratör
 
-Om du vill visa en lista över alla registreringar som är associerade till samma partnerorganisation som den aktuella användaren klickar du på fliken **Enrollment** (Registrering) och väljer en önskad registreringsruta.
+Om du vill visa en lista över alla registreringar som är associerade till samma partnerorganisation som den aktuella användaren väljer du fliken **Enrollment** (Registrering) och väljer en önskad registreringsruta.
 
 1. Logga in som partneradministratör.
-1. Klicka på **Manage** (Hantera) i det vänstra navigeringsfältet.
-1. Klicka på fliken **Partner**.
+1. Välj **Hantera** i det vänstra navigeringsfältet.
+1. Välj fliken **Partner**.
 1. Under avsnittet Administrator (Administratör) väljer du lämplig rad för den administratör du vill ta bort.
-1. Tryck på X-ikonen till höger.
+1. Välj X-symbolen till höger.
 1. Bekräfta att du vill ta bort.
 
 ## <a name="manage-partner-notifications"></a>Hantera partnermeddelanden
@@ -291,12 +293,12 @@ Partneradministratörer kan hantera hur ofta de ska få användningsmeddelanden 
 Om ett meddelande till en användare uteblir gör du så här för att kontrollera att användarens meddelandeinställningar är korrekta.
 
 1. Logga in på Azure EA-portalen som partneradministratör.
-2. Klicka på **Hantera** och sedan på fliken **Partner**.
+2. Välj **Hantera** och sedan fliken **Partner**.
 3. Granska listan med administratörer i avsnittet Administrator (Administratör).
-4. Om du vill redigera meddelandeinställningarna hovrar du över administratören och klickar på pennikonen.
-5. Uppdatera meddelandefrekvensen och livscykelmeddelandena efter behov.
-6. Lägg till en kontakt om det behövs och klicka på **Lägg till**.
-7. Klicka på **Spara**.
+4. Om du vill redigera meddelandeinställningarna hovrar du över administratören och väljer pennsymbolen.
+5. Öka meddelandefrekvensen och livscykelmeddelandena efter behov.
+6. Lägg till en kontakt om det behövs och välj **Lägg till**.
+7. Välj **Spara**.
 
 ![Exempel som visar rutan Lägg till kontakt ](./media/ea-portal-administration/create-ea-manage-partner-notification.png)
 
@@ -307,11 +309,11 @@ Partneradministratörer kan visa en lista över alla direkta och indirekta regis
 ### <a name="view-a-list-of-enrollments"></a>Visa en lista över registreringar
 
 1. Logga in som partneradministratör.
-1. Klicka på **Manage** (Hantera) i navigeringsfältet till vänster på sidan.
-1. Klicka på fliken **Registrering**.
-1. Markera rutan för önskad registrering.
+1. Välj **Hantera** i navigeringsfältet till vänster på sidan.
+1. Välj fliken **Registrering**.
+1. Markera rutan för registrering.
 
-En vy över alla registreringar blir kvar högst upp på sidan, med rutor för varje registrering. Dessutom kan du navigera mellan registreringar genom att klicka på det aktuella registreringsnumret på navigeringsfältet till vänster på sidan. En utfällning visas där du kan söka efter registreringar eller välja en annan registrering genom att klicka på lämplig ruta.
+En vy över alla registreringar blir kvar högst upp på sidan, med rutor för varje registrering. Dessutom kan du navigera mellan registreringar genom att välja det aktuella registreringsnumret på navigeringsfältet till vänster på sidan. En utfällning visas där du kan söka efter registreringar eller välja en annan registrering genom att välja lämplig ruta.
 
 ## <a name="azure-sponsorship-offer"></a>Azure-sponsringserbjudande
 
@@ -346,7 +348,7 @@ Bara en kontoinnehavare tillåts per prenumeration.  Ytterligare roller kan läg
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Kan en Azure-kontoinnehavare listas under mer än en avdelning?
 
-En kontoinnehavare kan bara associeras med en enda avdelning.  Det är för att säkerställa korrekt övervakning och fördelning av kostnader/utgifter kopplade till avdelningen de är justerade mot under EA-registreringen i Azure EA-portalen
+Nej, en kontoinnehavare kan bara associeras med en enda avdelning. Principen är till för att säkerställa korrekt övervakning och fördelning av kostnader och utgifter kopplade till avdelningen de är justerade mot under EA-registreringen i Azure EA-portalen.
 
 ### <a name="can-an-azure-account-owner-be-listed-as-a-security-group"></a>Kan en Azure-kontoinnehavare listas som en säkerhetsgrupp?
 

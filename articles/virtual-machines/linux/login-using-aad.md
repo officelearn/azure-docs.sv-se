@@ -1,25 +1,18 @@
 ---
 title: Logga in på en virtuell Linux-dator med Azure Active Directory autentiseringsuppgifter
 description: Lär dig hur du skapar och konfigurerar en virtuell Linux-dator för att logga in med Azure Active Directory autentisering.
-services: virtual-machines-linux
-documentationcenter: ''
 author: iainfoulds
-manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 9980ad7af4a9e5db1d93ffb389ef7b04209b8c43
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: eb303ecb5657e9312445093841cfa6c501efda18
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544624"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944799"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>För hands version: Logga in på en virtuell Linux-dator i Azure med Azure Active Directory autentisering
 
@@ -113,7 +106,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-*ProvisioningState* av *lyckades* visas när tillägget har installerats på den virtuella datorn.
+*ProvisioningState* av *lyckades* visas när tillägget har installerats på den virtuella datorn. Den virtuella datorn behöver en virtuell dator agent som körs för att installera tillägget. Mer information finns i [Översikt över VM-agenten](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Konfigurera roll tilldelningar för den virtuella datorn
 
@@ -175,7 +168,7 @@ Första gången du kör sudo blir du ombedd att autentisera en andra gång. Om d
 ```bash
 %aad_admins ALL=(ALL) ALL
 ```
-Med den här raden:
+med den här raden:
 
 ```bash
 %aad_admins ALL=(ALL) NOPASSWD:ALL

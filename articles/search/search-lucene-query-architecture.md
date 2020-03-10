@@ -9,15 +9,15 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d46d0309b3d2ffb638016e88ba022e49009eedf2
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793557"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379770"
 ---
 # <a name="how-full-text-search-works-in-azure-cognitive-search"></a>Hur full texts ökning fungerar i Azure Kognitiv sökning
 
-Den här artikeln är för utvecklare som behöver en djupare förståelse för hur Lucene full texts ökning fungerar i Azure Kognitiv sökning. För text frågor ger Azure Kognitiv sökning sömlöst förväntat resultat i de flesta fall, men ibland kan du få ett resultat som ser ut så här. I dessa fall kan du med en bakgrund i de fyra stegen i Lucene-frågekörningen (fråga parser, lexikalisk analys, dokument matchning, poängsättning) hjälpa dig att identifiera vissa ändringar av frågeparametrar eller index konfiguration som kommer att leverera önskade resultatet. 
+Den här artikeln är för utvecklare som behöver en djupare förståelse för hur Lucene full texts ökning fungerar i Azure Kognitiv sökning. För text frågor ger Azure Cognitive Search sömlöst förväntade resultat i de flesta fall, men ibland kan du få ett resultat som ser lite konstigt ut. I dessa fall är det bra att känna till de fyra stegen i Lucene-frågekörning (frågeparsning, lexikal analys, dokumentmatchning och poängsättning) när du vill identifiera vissa ändringar av frågeparametrar eller indexkonfiguration som ger önskat resultat. 
 
 > [!Note] 
 > Azure Kognitiv sökning använder Lucene för full texts ökning, men Lucene-integrering är inte uttömmande. Vi selektivt exponerar och utökar funktionerna i Lucene för att aktivera scenarier som är viktiga för Azure Kognitiv sökning. 
@@ -273,13 +273,13 @@ I fältet **Beskrivning** ser indexet ut så här:
 | villkor | 3
 | nöjd | 3
 | avstånd | 1
-| Julön | 2
-| Kaua ʻ i | 2
+| island | 2
+| kauaʻi | 2
 | finns | 2
 | rakt | 2
 | havet | 1, 2, 3
-| av | 2
-| För |2
+| den | 2
+| på |2
 | tyst | 4
 | kylrum  | 1, 3
 | secluded | 4
@@ -289,7 +289,7 @@ I fältet **Beskrivning** ser indexet ut så här:
 | till | 1
 | vy | 1, 2, 3
 | vandra | 1
-| För | 3
+| med | 3
 
 
 **Matcha sökord mot indexerade villkor**
@@ -360,7 +360,7 @@ Ett exempel illustrerar varför den här saken. Sökningar i jokertecken, inklus
 Det finns två sätt att justera relevans poängen i Azure Kognitiv sökning:
 
 1. **Bedömnings profiler** marknadsför dokument i den rangordnade listan över resultat baserat på en uppsättning regler. I vårt exempel kan vi överväga dokument som matchades i rubrik fältet mer relevanta än dokument som matchar i fältet Beskrivning. Om vårt index har ett pris fält för varje hotell skulle vi dessutom kunna befordra dokument med lägre pris. Läs mer om hur du [lägger till bedömnings profiler i ett sökindex.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-2. **Term ökning** (endast tillgängligt i fullständig Lucene-frågesyntax) tillhandahåller en förstärknings operator `^` som kan tillämpas på alla delar av frågans träd. I vårt exempel, i stället för att söka efter prefixet *Air-condition*\*, kan en söka efter antingen den exakta termen *Air-villkor* eller prefix, men dokument som matchar på den exakta termen rangordnas högre genom att tillämpa Boost på term frågan: * luft-villkor ^ 2 | | luft-villkor * *. Läs mer om [term ökning](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
+2. **Term ökning** (endast tillgängligt i fullständig Lucene-frågesyntax) tillhandahåller en förstärknings operator `^` som kan tillämpas på alla delar av frågans träd. I vårt exempel, i stället för att söka efter prefixet *Air-condition*\*, kan en söka efter antingen den exakta termen *Air-villkor* eller prefix, men dokument som matchar på den exakta termen rangordnas högre genom att använda BOOST på term frågan: * Air-villkor ^ 2 | | luft-villkor * *. Läs mer om [term ökning](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
 
 
 ### <a name="scoring-in-a-distributed-index"></a>Poängsättning i ett distribuerat index
@@ -391,9 +391,9 @@ I den här artikeln utforskas fullständig texts ökning i samband med Azure-Kog
 
 + [Konfigurera anpassade analys](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) verktyg för minimal bearbetning eller specialiserad bearbetning på specifika fält.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-[Sök dokument REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+[REST API för dokumentsökning](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 
 [Enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 

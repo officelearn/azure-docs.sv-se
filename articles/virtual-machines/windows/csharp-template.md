@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: c88b060104a4c17e3edad2e23cfb23a54661b969
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6d99c5ae91b80b9b6b9af08001b3a7c57bc7ca8f
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033804"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944533"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuera en virtuell Azure-dator C# med hjälp av och en Resource Manager-mall
 
@@ -198,7 +198,7 @@ Innan du kan distribuera en mall ser du till att du har åtkomst till ett [Activ
     managementURI=https://management.core.windows.net/
     baseURL=https://management.azure.com/
     authURL=https://login.windows.net/
-    graphURL=https://graph.windows.net/
+    graphURL=https://graph.microsoft.com/
     ```
 
     Ersätt **&lt;prenumerations-id&gt;** med prenumerations-ID: **t,&lt;program-id&gt;** med Active Directory-program-ID, **&lt;autentisering-nyckel&gt;** med program nyckeln och **&lt;klient-ID&gt;med klient-ID: t** .
@@ -252,7 +252,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
     .Create();
 ```
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Mallen och parametrarna distribueras från ett lagrings konto i Azure. I det här steget skapar du kontot och laddar upp filerna. 
 

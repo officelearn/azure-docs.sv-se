@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: banders
-ms.openlocfilehash: c1cced862bee1ec4579f3e6e5145968dec7613e4
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 1c5dd5ebd5023b75aad5dabf6a721a1193a6224d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500575"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272207"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
@@ -42,6 +42,7 @@ Tjänstplaner:
 - **Azure Database for PostgreSQL** – Endast beräkningskostnaderna ingår med en reservation. En reservation täcker inte programvaru-, nätverks- eller lagringskostnader som är kopplade till PostgreSQL-databasservrarna.
 - **Azure Database for MariaDB** – Endast beräkningskostnaderna ingår med en reservation. En reservation täcker inte programvaru-, nätverks- eller lagringskostnader som är kopplade till MariaDB-databasservern.
 - **Azure Data Explorer** – En reservation täcker påläggsavgifterna. En reservation täcker inte beräknings-, nätverks- eller lagringskostnader som är kopplade till klustren.
+- **Azure Cache for Redis** – Endast beräkningskostnaderna ingår i en reservation. En reservation täcker inte nätverks- eller lagringskostnader som är kopplade till Redis Cache-instanser.
 - **Premium SSD Managed Disks** – En reservation görs för en angiven disk-SKU. 
 
 Programvaruplaner:

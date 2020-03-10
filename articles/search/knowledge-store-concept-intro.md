@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: b330b6176ba9cadc85fad81876caf2583021d503
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 0ad780c04954c09ddfd432b3c7de3dc65f0841bf
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988642"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942984"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introduktion till kunskaps lager i Azure Kognitiv sökning
 
@@ -97,7 +97,7 @@ Det är dock möjligt att skapa flera uppsättningar `table`-`object`-`file` pro
 
 Om du vill skapa kunskaps lager använder du portalen eller förhands gransknings REST API (`api-version=2019-05-06-Preview`).
 
-### <a name="use-the-azure-portal"></a>Använd Azure Portal
+### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
 Guiden **Importera data** innehåller alternativ för att skapa ett kunskaps lager. För inledande utforskning [skapar du din första kunskaps lagring i fyra steg](knowledge-store-connect-power-bi.md).
 
@@ -147,3 +147,13 @@ Det enklaste sättet att skapa omfattande dokument är [via portalen](knowledge-
 
 > [!div class="nextstepaction"]
 > [Skapa ett kunskaps lager med Postman och REST](knowledge-store-create-rest.md)
+
+Om du vill veta mer om projektioner, funktionerna och hur du [definierar dem i en färdigheter](knowledge-store-projection-overview.md)
+
+> [!div class="nextstepaction"]
+> [Projektioner i ett kunskaps lager](knowledge-store-projection-overview.md)
+
+En själv studie kurs som täcker avancerade projektions koncept som segmentering, infogad form och relationer, börjar med [definiera projektioner i ett kunskaps lager](knowledge-store-projections-examples.md)
+
+> [!div class="nextstepaction"]
+> [Definiera projektioner i ett kunskaps lager](knowledge-store-projections-examples.md)

@@ -8,12 +8,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 1b0047cda3664759f4f1b6499c8a54ee22f98ab3
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 359f78cabbe0372e6892695c092ae49b62df7bfa
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227457"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944187"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Fel sökning av problem med Uppdateringshantering
 
@@ -219,14 +219,17 @@ Felet kan uppstå på grund av någon av följande orsaker:
 
 Använd [dynamiska grupper](../automation-update-management-groups.md) för dina uppdaterings distributioner när det är tillämpligt. Dessutom:
 
-* Kontrol lera att datorn fortfarande finns och att den kan kontaktas. Om den inte finns redigerar du distributionen och tar bort datorn.
+* Kontrol lera att datorn fortfarande finns och att den kan kontaktas. 
+* Om datorn inte finns redigerar du distributionen och tar bort datorn.
 * Se avsnittet [nätverks planering](../automation-update-management.md#ports) för en lista över portar och adresser som krävs för uppdateringshantering och kontrol lera att datorn uppfyller dessa krav.
-* Kör följande fråga i Log Analytics för att hitta datorer i din miljö vars `SourceComputerId` har ändrats. Sök efter datorer som har samma `Computer` värde, men ett annat `SourceComputerId` värde. 
+* Kontrol lera anslutningen till Hybrid Runbook Worker med hjälp av Hybrid Runbook Worker agent-felsökaren. Mer information om fel sökaren finns i [Felsöka problem med uppdaterings agenten](update-agent-issues.md).
+* Kör följande fråga i Log Analytics för att hitta datorer i din miljö där `SourceComputerId` har ändrats. Sök efter datorer som har samma `Computer` värde, men ett annat `SourceComputerId` värde.
 
    ```loganalytics
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
    ```
-   När du hittar berörda datorer redigerar du de uppdaterings distributioner som är riktade mot de datorerna och tar sedan bort och lägger till dem på nytt så att `SourceComputerId` visar rätt värde.
+
+* När du hittar berörda datorer redigerar du de uppdaterings distributioner som är riktade mot de datorerna och tar sedan bort och lägger till dem på nytt så att `SourceComputerId` visar rätt värde.
 
 ## <a name="updates-nodeployment"></a>Scenario: uppdateringar installeras utan distribution
 

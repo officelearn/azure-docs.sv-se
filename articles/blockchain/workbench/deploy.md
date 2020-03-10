@@ -4,12 +4,12 @@ description: Distribuera Azure blockchain Workbench Preview
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: fab61b5850815e480b4a380fdccd6c1df5b449cd
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 141bb8825e47eb2309f9f551990a2976e8f4e209
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189211"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943205"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Distribuera Azure blockchain Workbench Preview
 
@@ -51,7 +51,7 @@ Azure blockchain Workbench kräver konfiguration och program registrering i Azur
 
 När de nödvändiga stegen har slutförts är du redo att distribuera blockchain Workbench. Följande avsnitt beskriver hur du distribuerar ramverket.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj ditt konto i det övre högra hörnet och växla till önskad Azure AD-klient där du vill distribuera Azure blockchain Workbench.
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.
 1. Välj **Blockchain** > **Azure blockchain Workbench (för hands version)** .
@@ -63,7 +63,7 @@ När de nödvändiga stegen har slutförts är du redo att distribuera blockchai
     | Resource prefix | Kort unik identifierare för din distribution. Det här värdet används som bas för namngivning av resurser. |
     | Användar namn för virtuell dator | Användar namnet används som administratör för alla virtuella datorer (VM). |
     | Autentiseringstyp | Välj om du vill använda ett lösen ord eller en nyckel för att ansluta till virtuella datorer. |
-    | Lösenord | Lösen ordet används för att ansluta till virtuella datorer. |
+    | lösenord | Lösen ordet används för att ansluta till virtuella datorer. |
     | SSH | Använd en offentlig RSA-nyckel i det enradiga formatet som börjar med **SSH-RSA** eller Använd multi-line PEM-formatet. Du kan generera SSH-nycklar med `ssh-keygen` på Linux och OS X, eller genom att använda PuTTYGen i Windows. Mer information om SSH-nycklar finns i [så här använder du SSH-nycklar med Windows på Azure](../../virtual-machines/linux/ssh-from-windows.md). |
     | Databas-och blockchain-lösenord | Ange det lösen ord som ska användas för åtkomst till databasen som skapats som en del av distributionen. Lösen ordet måste uppfylla tre av följande fyra krav: längden måste vara mellan 12 & 72 tecken, 1 gemen bokstav, 1 versal bokstav, 1 siffra och 1 specialtecken som inte är nummer tecken (#), procent (%), kommatecken (,), stjärna (*), citat (\`), dubbelt citat tecken ("), enkelt citat tecken (), bindestreck (-) och semicolumn (;) |
     | Distributions region | Ange var du vill distribuera blockchain Workbench-resurser. Detta bör matcha **plats** inställningen för bästa tillgänglighet. |
@@ -123,7 +123,7 @@ Distributionen kan ta upp till 90 minuter. Du kan använda Azure Portal för att
 
 När distributionen av blockchain Workbench har slutförts innehåller en ny resurs grupp dina blockchain Workbench-resurser. Blockchain Workbench-tjänster nås via en webb-URL. Följande steg visar hur du hämtar webb adressen för det distribuerade ramverket.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. I det vänstra navigerings fönstret väljer du **resurs grupper**.
 1. Välj det resurs grupps namn som du angav när du distribuerade blockchain Workbench.
 1. Välj kolumn rubriken **typ** för att sortera listan alfabetiskt efter typ.
@@ -135,7 +135,7 @@ När distributionen av blockchain Workbench har slutförts innehåller en ny res
 
     ![Viktig information för App Service](media/deploy/app-service.png)
 
-Information om hur du associerar ett anpassat domän namn med blockchain Workbench finns [i Konfigurera ett anpassat domän namn för en webbapp i Azure App Service att använda Traffic Manager](../../app-service/web-sites-traffic-manager-custom-domain-name.md).
+Information om hur du associerar ett anpassat domän namn med blockchain Workbench finns [i Konfigurera ett anpassat domän namn för en webbapp i Azure App Service att använda Traffic Manager](../../app-service/configure-domain-traffic-manager.md).
 
 ## <a name="azure-ad-configuration-script"></a>Konfigurations skript för Azure AD
 
@@ -178,7 +178,7 @@ Om du väljer att konfigurera eller verifiera Azure AD-inställningar manuellt f
 Blockchain Workbench-distribution kräver registrering av ett Azure AD-program. Du behöver en Azure Active Directory-klient (Azure AD) för att registrera appen. Du kan använda en befintlig klient eller skapa en ny klient. Om du använder en befintlig Azure AD-klient måste du ha tillräcklig behörighet för att registrera program, bevilja Graph API behörigheter och tillåta gäst åtkomst i en Azure AD-klient. Om du inte har tillräckliga behörigheter i en befintlig Azure AD-klient skapar du en ny klient.
 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj ditt konto i det övre högra hörnet och växla till önskad Azure AD-klient. Klienten bör vara prenumerations administratörens klient organisation för den prenumeration där Azure blockchain Workbench distribueras och du har tillräcklig behörighet för att registrera program.
 1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten. Välj **Appregistreringar** > **ny registrering**.
 
@@ -280,7 +280,7 @@ Om du har gäst användare i Azure AD-klienten följer du de ytterligare stegen 
 
 När Azure blockchain Workbench har distribuerats måste du konfigurera den Azure Active Directory (Azure AD)-klient program **svars-URL: en** för den distribuerade blockchain Workbench-webbadressen.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Kontrol lera att du är i klient organisationen där du registrerade Azure AD-klientprogrammet.
 1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten. Välj **Appregistreringar**.
 1. Välj det Azure AD-klientcertifikat som du registrerade i avsnittet krav.

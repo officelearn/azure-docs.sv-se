@@ -1,27 +1,22 @@
 ---
-title: Öppna portar till en virtuell Linux-dator med Azure CLI
-description: Lär dig hur du öppnar en port/skapar en slut punkt för din virtuella Linux-dator med hjälp av distributions modellen för Azure Resource Manager och Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
+title: Öppna portar till en virtuell dator med Azure CLI
+description: Lär dig hur du öppnar en port/skapar en slut punkt för din virtuella dator med hjälp av Azure CLI.
 author: cynthn
 manager: gwallace
-editor: ''
-ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
-ms.service: virtual-machines-linux
-ms.devlang: azurecli
+ms.service: virtual-machines
+ms.subservice: networking
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: cfcea8c775b2d6a9bee3c078cf67f0a942af5984
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d9488b7a466dfc67edbf2dcbee966fc1fc72e8b7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354054"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944546"
 ---
-# <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Öppna portar och slut punkter till en virtuell Linux-dator med Azure CLI
+# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Öppna portar och slut punkter till en virtuell dator med Azure CLI
 
 Du öppnar en port eller skapar en slut punkt för en virtuell dator (VM) i Azure genom att skapa ett nätverks filter i ett undernät eller ett nätverks gränssnitt för virtuella datorer. Du placerar dessa filter, som styr både inkommande och utgående trafik, i en nätverks säkerhets grupp som är kopplad till den resurs som tar emot trafiken. Vi använder ett vanligt exempel på webb trafik på port 80. Den här artikeln visar hur du öppnar en port till en virtuell dator med Azure CLI. 
 

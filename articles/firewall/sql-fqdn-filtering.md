@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: victorh
-ms.openlocfilehash: 239998f29ac9a578174c5dba547bb24ba0755505
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a42d6bcdcec2a5de7432f11216a4d8dd0c1deef9
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318175"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942574"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Konfigurera Azure Firewall-programregler med SQL-FQDN
 
@@ -25,7 +25,7 @@ Nu kan du konfigurera regler för Azure brand Väggs program med SQL-FQDN. På s
 
 Med SQL-FQDN kan du filtrera trafik:
 
-- Från virtuella nätverk till en Azure SQL Database eller ett Azure SQL Data Warehouse. Exempel: Tillåt endast åtkomst till *SQL-server1.Database.Windows.net*.
+- Från virtuella nätverk till en Azure SQL Database eller ett Azure SQL Data Warehouse. Till exempel: Tillåt endast åtkomst till *SQL-server1.Database.Windows.net*.
 - Från lokalt till Azure SQL-hanterade instanser eller SQL-IaaS som körs i din virtuella nätverk.
 - Från ekrar till ekrar till Azure SQL-hanterade instanser eller SQL-IaaS som körs i din virtuella nätverk.
 
@@ -37,10 +37,10 @@ Program regler med SQL-FQDN är för närvarande tillgängliga i alla regioner v
 ## <a name="configure-using-azure-cli"></a>Konfigurera med Azure CLI
 
 1. Distribuera en [Azure-brandvägg med Azure CLI](deploy-cli.md).
-2. Om du filtrerar trafik till Azure SQL Database, SQL Data Warehouse eller SQL-hanterad instans kontrollerar du att SQL Connectivity-läget är inställt på **proxy**. Information om hur du växlar läge för SQL-anslutning finns i [arkitektur för Azure SQL-anslutning](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#change-azure-sql-database-connection-policy). 
+2. Om du filtrerar trafik till Azure SQL Database, SQL Data Warehouse eller SQL-hanterad instans kontrollerar du att SQL Connectivity-läget är inställt på **proxy**. Information om hur du växlar läge för SQL-anslutning finns i [Inställningar för Azure SQL-anslutning](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-settingse#change-azure-sql-database-connection-policy).
 
    > [!NOTE]
-   > SQL- *proxyläge* kan resultera i mer latens jämfört med omdirigering. Om du vill fortsätta använda omdirigeringsläge, som är standardvärdet för klienter som ansluter i Azure, kan du filtrera åtkomst med SQL [service-taggen](service-tags.md) i brand Väggs [nätverks regler](tutorial-firewall-deploy-portal.md#configure-a-network-rule).
+   > SQL- *proxyläge* kan resultera i mer latens jämfört med *omdirigering*. Om du vill fortsätta använda omdirigeringsläge, som är standardvärdet för klienter som ansluter i Azure, kan du filtrera åtkomst med SQL [service-taggen](service-tags.md) i brand Väggs [nätverks regler](tutorial-firewall-deploy-portal.md#configure-a-network-rule).
 
 3. Konfigurera en program regel med SQL FQDN för att tillåta åtkomst till en SQL-Server:
 
@@ -59,12 +59,12 @@ Program regler med SQL-FQDN är för närvarande tillgängliga i alla regioner v
 
 ## <a name="configure-using-the-azure-portal"></a>Konfigurera med hjälp av Azure Portal
 1. Distribuera en [Azure-brandvägg med Azure CLI](deploy-cli.md).
-2. Om du filtrerar trafik till Azure SQL Database, SQL Data Warehouse eller SQL-hanterad instans kontrollerar du att SQL Connectivity-läget är inställt på **proxy**. Information om hur du växlar läge för SQL-anslutning finns i [arkitektur för Azure SQL-anslutning](../sql-database/sql-database-connectivity-architecture.md#change-azure-sql-database-connection-policy). 
+2. Om du filtrerar trafik till Azure SQL Database, SQL Data Warehouse eller SQL-hanterad instans kontrollerar du att SQL Connectivity-läget är inställt på **proxy**. Information om hur du växlar läge för SQL-anslutning finns i [Inställningar för Azure SQL-anslutning](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-settingse#change-azure-sql-database-connection-policy).  
 
    > [!NOTE]
-   > SQL- *proxyläge* kan resultera i mer latens jämfört med omdirigering. Om du vill fortsätta använda omdirigeringsläge, som är standardvärdet för klienter som ansluter i Azure, kan du filtrera åtkomst med SQL [service-taggen](service-tags.md) i brand Väggs [nätverks regler](tutorial-firewall-deploy-portal.md#configure-a-network-rule).
+   > SQL- *proxyläge* kan resultera i mer latens jämfört med *omdirigering*. Om du vill fortsätta använda omdirigeringsläge, som är standardvärdet för klienter som ansluter i Azure, kan du filtrera åtkomst med SQL [service-taggen](service-tags.md) i brand Väggs [nätverks regler](tutorial-firewall-deploy-portal.md#configure-a-network-rule).
 3. Lägg till program regeln med rätt protokoll, port och SQL FQDN och välj sedan **Spara**.
-   ![program regel med SQL FQDN](media/sql-fqdn-filtering/application-rule-sql.png)
+   ![program regel med SQL-FQDN](media/sql-fqdn-filtering/application-rule-sql.png)
 4. Få åtkomst till SQL från en virtuell dator i ett VNet som filtrerar trafiken genom brand väggen. 
 5. Verifiera att [Azure Firewall-loggar](log-analytics-samples.md) visar att trafiken är tillåten.
 

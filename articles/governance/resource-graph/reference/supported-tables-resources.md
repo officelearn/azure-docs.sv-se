@@ -1,14 +1,14 @@
 ---
 title: Resource Manager-resurs typer som stöds
 description: Ange en lista över resurs typer för resurs hanteraren som stöds av Azure Resource Graph och ändrings historik.
-ms.date: 03/05/2020
+ms.date: 03/09/2020
 ms.topic: reference
-ms.openlocfilehash: 597e1c2f7e04a7861099763d809ac09978e09805
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 9844b2fe7f1cbaf069789a4083229b4a6f37f38f
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399599"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943982"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Resurs diagram tabell och referens för resurs typ i Azure
 
@@ -122,6 +122,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. Compute/virtualmachinescalesets
 - Microsoft. containerinstance/containergroups
 - Microsoft. containerregistry/register
+- Microsoft. containerregistry/register/agentpools
 - Microsoft. containerregistry/register/buildtasks
 - Microsoft. containerregistry/register/replikeringar
 - Microsoft. containerregistry/register/taskruns
@@ -152,6 +153,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. dbforpostgresql/servergroups
 - Microsoft. dbforpostgresql/servers
 - Microsoft. dbforpostgresql/serversv2
+- Microsoft. dbforpostgresql/singleservers
 - Microsoft. deploymentmanager/artifactsources
 - Microsoft. deploymentmanager/distributioner
 - Microsoft. deploymentmanager/servicetopologies
@@ -413,6 +415,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - microsoft.web/connections
 - Microsoft. Web/customapis
 - Microsoft. Web/hostingenvironments
+- Microsoft. Web/kubeenvironments
 - Microsoft. Web/Server grupper
 - microsoft.web/sites
 - Microsoft. Web/Sites/premieraddons

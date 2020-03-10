@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 02/24/2020
 ms.author: juliako
-ms.openlocfilehash: f5b02376111a3deba33cd5688330018bd7c370d8
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: afaa7545fbcbab016249e73a2247817310c5cdfc
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899222"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78934202"
 ---
 # <a name="media-services-high-availability-encoding"></a>Kodning för Media Services hög tillgänglighet 
 
@@ -42,8 +42,8 @@ Genom att följa rikt linjerna och metod tipsen som beskrivs i artikeln kan du m
     * [Microsoft. Azure. EVENTGRID SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (som stöder Media Services-händelser internt).
 
     Du kan också använda Event Grid händelser via Azure Functions.
-*    När du skapar ett [jobb](transforms-jobs-concept.md):
-    
+* När du skapar ett [jobb](transforms-jobs-concept.md):
+
     * Välj slumpmässigt ett konto i listan över konton som används för närvarande (den här listan innehåller vanligt vis båda kontona, men om problem upptäcks kan det bara innehålla ett konto). Om listan är tom kan du generera en avisering så att en operatör kan undersöka den.
     * Allmän vägledning är att du behöver en [reserverad enhet](media-reserved-units-cli-how-to.md) per [JobOutput](https://docs.microsoft.com/rest/api/media/jobs/create#joboutputasset) (om du inte använder [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) där 3 reserverade enheter per JobOutput rekommenderas).
     * Hämta antalet medie reserverade enheter (MRUs) för det valda kontot. Om det aktuella **medie reserverade enhets** antalet inte redan är vid det högsta värdet, lägger du till antalet MRUs som krävs av jobbet och uppdaterar tjänsten. Om din jobb sändnings frekvens är hög och du ofta skickar frågor till MRUs för att upptäcka att du har maximalt, använder du ett distribuerat cacheminne för värdet med en rimlig tids gräns.

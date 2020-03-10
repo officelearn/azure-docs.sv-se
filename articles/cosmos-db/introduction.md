@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: f322a240835d86697ae18c984700f22ca7b00145
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 7fee3a1e2c26bc9fa89a4766c771a3715398b1a2
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882188"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673358"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Dagens program måste alltid vara mycket responsiva och ständigt online. Instan
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Med ett klick på en knapp kan du Cosmos DB att elastiskt och oberoende skala data flöde och lagrings utrymme i valfritt antal Azure-regioner över hela världen. Du kan skala data flöde och lagrings utrymme elastiskt, och dra nytta av snabb, ensiffriga millisekunder för data åtkomst med ditt favorit-API, inklusive SQL, MongoDB, Cassandra, tables eller Gremlin. Cosmos DB tillhandahåller omfattande [service avtal](https://aka.ms/acdbsla) (service avtal) för data flöde, svars tid, tillgänglighet och konsekvens garantier, något som inte har någon annan databas tjänst.
 
-Du kan [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden.
+Du kan [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden eller använda den [Azure Cosmos DB kostnads fria nivån](optimize-dev-test.md#azure-cosmos-db-free-tier) för att få ett konto med de första 400 ru/s och 5 GB ledigt lagrings utrymme.
 
 > [!div class="nextstepaction"]
 > [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/)
@@ -48,7 +48,7 @@ Med Cosmos DB kan du skapa mycket responsiva och världsomfattande program. Med 
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Ett flertal exakt definierade konsekvensval
 
-När du skapar globalt distribuerade program i Cosmos DB behöver du inte längre göra extrema [kompromisser mellan konsekvens, tillgänglighet, svars tid och data flöde](consistency-levels-tradeoffs.md). Cosmos DBs protokollet för multi-master-replikering är omsorgsfullt utformat för att erbjuda [fem väldefinierade konsekvens val](consistency-levels.md) - *stark*, *begränsad föråldrad*, *session*, *konsekvent prefix*och *eventuell* – för en intuitiv programmerings modell med låg latens och hög tillgänglighet för ditt globalt distribuerade program.
+När du skapar globalt distribuerade program i Cosmos DB behöver du inte längre göra extrema [kompromisser mellan konsekvens, tillgänglighet, svars tid och data flöde](consistency-levels-tradeoffs.md). Cosmos DBs protokollet för multi-master-replikering är omsorgsfullt utformat för att erbjuda [fem väldefinierade konsekvens val](consistency-levels.md) - *stark*, *begränsad föråldring*, *session*, *konsekvent prefix*och *eventuell* – för en intuitiv programmerings modell med låg latens och hög tillgänglighet för ditt globalt distribuerade program.
 
 ### <a name="no-schema-or-index-management"></a>Ingen hantering av schema eller index
 
@@ -89,7 +89,7 @@ Cosmos DB erbjuder ett urval av API: er för att arbeta med dina data som lagras
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Lösningar som har nytta av Azure Cosmos DB
 
-Alla [webb-, mobil-, spel-och IoT-program](use-cases.md) som behöver hantera stora mängder data, läsningar och skrivningar i en [global skala](distribute-data-globally.md) med nästan faktiska svars tider för en mängd olika data kommer att dra nytta av Cosmos DB [garanterad hög tillgänglighet ](https://azure.microsoft.com/support/legal/sla/cosmos-db/), högt data flöde, låg latens och justerbara konsekvens. Lär dig mer om hur Azure Cosmos DB kan användas för att skapa [IoT och telematik](use-cases.md#iot-and-telematics), [handel och marknadsföring](use-cases.md#retail-and-marketing), [spel](use-cases.md#gaming) samt [webb- och mobilprogram](use-cases.md#web-and-mobile-applications).
+Alla [webb-, mobil-, spel-och IoT-program](use-cases.md) som behöver hantera stora mängder data, läsningar och skrivningar i en [global skala](distribute-data-globally.md) med nästan faktiska svars tider för en mängd olika data kommer att ha nytta av Cosmos DB [garanterad hög tillgänglighet](https://azure.microsoft.com/support/legal/sla/cosmos-db/), högt data flöde, låg latens och justerbara konsekvens. Lär dig mer om hur Azure Cosmos DB kan användas för att skapa [IoT och telematik](use-cases.md#iot-and-telematics), [handel och marknadsföring](use-cases.md#retail-and-marketing), [spel](use-cases.md#gaming) samt [webb- och mobilprogram](use-cases.md#web-and-mobile-applications).
 
 ## <a name="next-steps"></a>Nästa steg
 

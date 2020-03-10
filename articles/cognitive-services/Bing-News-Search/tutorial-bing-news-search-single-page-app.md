@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 12/12/2019
+ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e128daa82eca8142a636df0958ddca574e398713
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 801bfcf02174c5dd98d4c7231c674299ef411aff
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383123"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943122"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Självstudie: skapa en webbapp med en sida
 
@@ -39,6 +39,12 @@ I den här självstudieappen visas hur du:
 > * hanterar fel som kan uppstå.
 
 Självstudiesidan är helt självständigt. Den använder inte några externa ramverk, formatmallar eller bildfiler. Den använder endast JavaScript-språkfunktioner som stöds och fungerar med aktuella versioner av alla större webbläsare.
+
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Om du vill följa med i själv studie kursen behöver du prenumerations nycklar för Bing-sökning-API: et. Om du inte har dem kan du använda en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) och en [enkel Bing Maps-nyckel](https://www.microsoft.com/maps/create-a-bing-maps-key).
+
 
 ## <a name="app-components"></a>Appkomponenter
 Som andra enkelsidiga webbappar innehåller den här självstudiekursprogrammet tre delar:
@@ -103,7 +109,7 @@ HTML-formuläret innehåller element med följande namn:
 
 |Element|Beskrivning|
 |-|-|
-| `where` | En listruta för att välja marknad (plats och språk) som används för sökningen. |
+| `where` | En nedrullningsbar meny för att välja marknad (plats och språk) som används för sökningen. |
 | `query` | Textfältet för att ange sökvillkor. |
 | `category` | Kryssrutorna för att främja olika typer av resultat. Om du till exempel främjar hälsa, höjs rangordningen för hälsonyheter. |
 | `when` | Listruta för att valfritt begränsa sökningen till den senaste dagen, veckan eller månaden. |
@@ -271,7 +277,7 @@ function handleBingResponse() {
 
 En stor del av koden i de båda föregående funktionerna är dedikerade för felhantering. Fel kan inträffa i följande steg:
 
-|Mellanlagra|Potentiella fel|Hanterat av|
+|Fas|Potentiella fel|Hanterat av|
 |-|-|-|
 |Skapa objekt för JavaScript-begäran|Ogiltig URL|`try`/`catch` blockera|
 |Skapa begäran|Nätverksfel, avbrutna anslutningar|Händelsehanterare för `error` och `abort`|
@@ -313,7 +319,7 @@ function renderResults(items) {
     return html.join("\n\n");
 }
 ```
-API:et för nyhetssökning i Bing returnerar upp till fyra olika typer av relaterade resultat i sitt respektive toppnivåobjekt. De är:
+API för nyhetssökning i Bing returnerar upp till fyra olika typer av relaterade resultat i sitt respektive toppnivåobjekt. De är:
 
 |Relation|Beskrivning|
 |-|-|
@@ -377,7 +383,7 @@ Funktionen för nyhetsrendering:
 > [!div class="checklist"]
 > * Skapar en styckestagg och tilldelar den till klassen `news` och skickar den till html-matrisen.
 > * Beräknar miniatyrbildstorlek (bredden är högst 60 bildpunkter, höjden beräknas proportionellt).
-> * Skapar HTML `<img>`-tagg för att visa miniatyrbilden. 
+> * Skapar en HTML `<img>`-tagg för att visa miniatyrbilden. 
 > * Skapar HTML `<a>`-taggar som länkar till bilden och den sida som innehåller den.
 > * Skapar beskrivning som visar information om bilden och den plats som den finns på.
 
@@ -388,7 +394,7 @@ Svar från API:er för Bing Search kan innehålla ett `X-MSEdge-ClientID`-huvud 
 
 När `X-MSEdge-ClientID`-huvudet tillhandahålls kan Bing-API:er associera alla sökningar för en användare, vilket innebär två viktiga fördelar.
 
-Först hjälper Bing-sökmotorn till med att tillämpa tidigare kontexter på sökningarna för att hitta resultat som bättre tillfredsställer användaren. Om en användare tidigare har sökt efter termer som exempelvis relaterar till segling kan en senare sökning efter ”knopar” returnera information om knopar som används vid segling.
+Först hjälper Bing-sökmotorn till med att tillämpa den senaste kontext på sökningarna för att hitta resultat som bättre tillfredsställer användaren. Om en användare tidigare har sökt efter termer som exempelvis relaterar till segling kan en senare sökning efter ”knopar” returnera information om knopar som används vid segling.
 
 Därefter väljer Bing slumpmässigt ut användare som ska prova nya funktioner innan de blir allmänt tillgängliga. Om samma klient-ID tillhandahålls med varje begäran säkerställer det att användare som ser funktionen alltid ser den. Utan klient-ID kan användaren se en funktion som sedan försvinner, till synes slumpmässigt, i sökresultatet.
 

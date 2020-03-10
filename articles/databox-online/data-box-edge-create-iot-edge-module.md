@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: f57a0431bbdafee2d38038d0039b47a34e5454c7
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 3aa1190fb713c2fbdedcb1ce84a65d4263693827
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315821"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942557"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Utveckla en C# IoT Edge-modul för att flytta filer på data Box Edge
 
@@ -53,7 +53,7 @@ Innan du börjar ska du kontrollera att du har:
 - Följande utvecklings resurser:
 
     - [Visual Studio Code](https://code.visualstudio.com/).
-    - [C# för Visual Studio Code-tillägg (drivs av OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+    - [C# för Visual Studio Code-tillägg (drivs av OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
     - [Azure IoT Edge-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
     - [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
     - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows). Du kan behöva skapa ett konto för att ladda ned och installera program varan.
@@ -92,8 +92,8 @@ Följande steg skapar ett IoT Edge module-projekt baserat på .NET Core 2,1 SDK.
 Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
 
 1. I Visual Studio Code väljer du **visa > kommando palett** för att öppna kommando paletten vs Code.
-2. I kommandopaletten skriver och kör du kommandot **Azure: Logga in** och följer anvisningarna för att logga in på ditt Azure-konto. Om du redan är inloggad kan du hoppa över det här steget.
-3. Skriv och kör kommandot **Azure IoT Edge på kommandopaletten: New IoT Edge solution** (Ny IoT Edge-lösning). Ange följande information i kommandopaletten för att skapa din lösning:
+2. Ange och kör kommandot **Azure: Logga in** på kommandopaletten och följ anvisningarna för att logga in med ditt Azure-konto. Om du redan är inloggad kan du hoppa över det här steget.
+3. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) på kommandopaletten. Ange följande information i kommandopaletten för att skapa din lösning:
 
     1. Välj den mapp där du vill skapa lösningen.
     2. Ange ett namn för din lösning eller välj standardnamnet **EdgeSolution**.
@@ -105,9 +105,9 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
     
         ![Skapa ny lösning 2](./media/data-box-edge-create-iot-edge-module/create-new-solution-2.png)
 
-    5. Ange det behållar register som du skapade i föregående avsnitt som avbildnings lagrings plats för din första modul. Ersätt **localhost:5000** med det serverinloggningsvärde som du kopierade.
+    5. Ange det behållar register som du skapade i föregående avsnitt som avbildnings lagrings plats för din första modul. Ersätt **localhost:5000** med serverinloggningsvärdet som du kopierade.
 
-        Den slutliga strängen ser ut `<Login server name>/<Module name>`som. I det här exemplet är strängen: `mycontreg2.azurecr.io/filecopymodule`.
+        Den sista strängen ser ut som `<Login server name>/<Module name>`. I det här exemplet är strängen: `mycontreg2.azurecr.io/filecopymodule`.
 
         ![Skapa ny lösning 3](./media/data-box-edge-create-iot-edge-module/create-new-solution-3.png)
 
@@ -242,7 +242,7 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
 
 ## <a name="build-your-iot-edge-solution"></a>Skapa din IoT Edge-lösning
 
-I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i FileCopyModule för att kopiera filer från lokal resurs till moln resursen. Nu behöver du skapa lösningen som en containeravbildning och push-överföra den till ditt containerregister.
+I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i FileCopyModule för att kopiera filer från lokal resurs till moln resursen. Nu behöver du bygga lösningen som en containeravbildning och push-överföra den till ditt containerregister.
 
 1. I VSCode går du till Terminal > New Terminal för att öppna en ny Visual Studio Code-integrerad Terminal.
 2. Logga in på Docker genom att ange följande kommando i den integrerade terminalen.
@@ -270,9 +270,9 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i FileC
 
     Du kan se följande varning att du kan ignorera:
 
-    *Program. CS (77, 44): varning CS1998: Den här asynkrona metoden saknar "await"-operatorer och kommer att köras synkront. Överväg att använda operatorn "await" för att vänta på icke-blockerande API-anrop, eller "vänta aktivitet. Run (...)" för att göra CPU-kopplat arbete på en bakgrunds tråd.*
+    *Program. CS (77, 44): varning CS1998: den här asynkrona metoden saknar await-operatorer och kommer att köras synkront. Överväg att använda operatorn "await" för att vänta på icke-blockerande API-anrop, eller "vänta aktivitet. Run (...)" för att göra CPU-kopplat arbete på en bakgrunds tråd.*
 
-4. Den fullständiga adressen med tagg för containeravbildningen finns i den integrerade VS Code-terminalen. Bild adressen skapas utifrån information som finns i filen module. JSON med formatet `<repository>:<version>-<platform>`. I den här artikeln bör den se ut `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`.
+4. Den fullständiga adressen med tagg för containeravbildningen finns i den integrerade VS Code-terminalen. Bild adressen skapas utifrån information som finns i filen module. JSON med formatet `<repository>:<version>-<platform>`. I den här artikeln bör det se ut som `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`.
 
 ## <a name="next-steps"></a>Nästa steg
 

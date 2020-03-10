@@ -4,23 +4,25 @@ description: Den här artikeln hjälper dig att bättre förstå data som ingår
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/21/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 44953a3986b5c03afa9cc4668e2563c5c5cd6c46
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: ff3ed7ee65fd34ef9cd3541832f9cffc306e1aa8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560617"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245379"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
 Den här artikeln hjälper dig att bättre förstå kostnads- och användningsdata i Azure som ingår i Azure Cost Management. Den förklarar hur ofta data bearbetas, samlas in, visas och stängs. Du faktureras för Azure-användning månatligen. Även om faktureringscykler är månadsperioder varierar cykelns startdatum och slutdatum efter prenumerationstyp. Hur ofta Cost Management tar emot användningsdata varierar beroende på olika faktorer. Dessa faktorer omfattar hur lång tid det tar att bearbeta data och hur ofta Azure-tjänster genererar användning till faktureringssystemet.
 
 Cost Management omfattar all användning och alla inköp, inklusive reservationer och erbjudanden från tredje part för Enterprise-avtalskonton (EA). Microsoft-kundavtalskonton och enskilda prenumerationer med Betala per användning-priser omfattar endast användning från Azure- och Marketplace-tjänster. Support och andra kostnader ingår inte. Kostnader beräknas tills en faktura genereras och påverkar inte krediter.
+
+Om du har en ny prenumeration kan du inte använda Cost Management-funktioner direkt. Det kan ta upp till 48 timmar innan du kan använda alla Cost Management-funktioner.
 
 ## <a name="supported-microsoft-azure-offers"></a>Microsoft Azure-erbjudanden som stöds
 

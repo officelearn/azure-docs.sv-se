@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: a255d89aa4850d1249f1af9bdd0cb43b0826914f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 03/08/2020
+ms.openlocfilehash: 2d04de420f743e4fef4cff4bd2912559dae0886a
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930232"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78934185"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Mappa data flöde Välj omvandling
 
@@ -55,6 +55,11 @@ Men om du vill lägga till anpassade regler klickar du på Lägg till mappning. 
 När du väljer regelbaserade mappning instruerar du ADF att utvärdera matchnings uttrycket så att det matchar inkommande mönster regler och definierar de utgående fält namnen. Du kan lägga till valfri kombination av både fält-och regelbaserade mappningar. Fält namn genereras sedan vid körning med ADF baserat på inkommande metadata från källan. Du kan visa namnen på de genererade fälten under fel sökning och i fönstret data förhands granskning.
 
 Mer information om mönster matchning finns i [kolumn mönster dokumentationen](concepts-data-flow-column-pattern.md).
+
+### <a name="use-rule-based-mapping-to-parameterize-the-select-transformation"></a>Använd regelbaserade mappningar för att Parameterisera Välj omvandling
+Du kan Parameterisera fält mappning i SELECT-omvandlingen med hjälp av regelbaserade mappningar. Använd nyckelordet ```name``` för att kontrol lera de inkommande kolumn namnen mot en parameter. Om du till exempel har en data flödes parameter som heter ```mycolumn``` kan du skapa en enda Välj omvandlings regel som alltid mappar det kolumn namn som du anger ```mycolumn``` till ett fält namn på följande sätt:
+
+```name == $mycolumn```
 
 ## <a name="next-steps"></a>Nästa steg
 * När du har använt Välj för att byta namn på, ändra ordning och alias använder du [omvandling av mottagare](data-flow-sink.md) för att använda data i ett data lager.

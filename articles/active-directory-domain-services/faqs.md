@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 3abd9835c1cf750b926f49442f3e34e96dc9c865
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: a57826c79babded6e616548879a5ec0c223307d0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917364"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946437"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Vanliga frågor och svar
 
@@ -36,6 +36,7 @@ På den här sidan besvaras vanliga frågor om Azure Active Directory Domain Ser
 * [Kan jag lägga till domänkontrollanter till en Azure AD Domain Services hanterad domän?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
 * [Kan gäst användare som bjuds in till min katalog använda Azure AD Domain Services?](#can-guest-users-invited-to-my-directory-use-azure-ad-domain-services)
 * [Kan jag flytta en befintlig Azure AD Domain Services hanterad domän till en annan prenumeration, resurs grupp, region eller virtuellt nätverk?](#can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network)
+* [Innehåller Azure AD Domain Services alternativ för hög tillgänglighet?](#does-azure-ad-domain-services-include-high-availability-options)
 
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Kan jag skapa flera hanterade domäner för en enda Azure AD-katalog?
 Nej. Det går bara att skapa en enskild hanterad domän som hanteras av Azure AD Domain Services för en enda Azure AD-katalog.
@@ -75,6 +76,10 @@ Nej. Gäst användare som bjudits in till din Azure AD-katalog med [Azure AD B2B
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>Kan jag flytta en befintlig Azure AD Domain Services hanterad domän till en annan prenumeration, resurs grupp, region eller virtuellt nätverk?
 Nej. När du har skapat en Azure AD Domain Services hanterad domän kan du inte flytta instansen till en annan resurs grupp, ett virtuellt nätverk, en prenumeration osv. Var noga med att välja den lämpligaste prenumerationen, resurs gruppen, regionen och det virtuella nätverket när du distribuerar Azure AD DS-instansen.
 
+### <a name="does-azure-ad-domain-services-include-high-availability-options"></a>Innehåller Azure AD Domain Services alternativ för hög tillgänglighet?
+
+Ja. Varje Azure AD Domain Services hanterad domän innehåller två domänkontrollanter. Du hanterar eller ansluter inte till dessa domänkontrollanter, de är en del av den hanterade tjänsten. Om du distribuerar Azure AD Domain Services till en region som har stöd för Tillgänglighetszoner, distribueras domän kontrol Lanterna mellan zoner. I regioner som inte stöder Tillgänglighetszoner distribueras domän kontrol Lanterna över tillgänglighets uppsättningar. Du har inga konfigurations alternativ eller någon hanterings kontroll över den här distributionen. Mer information finns i [tillgänglighets alternativ för virtuella datorer i Azure](../virtual-machines/windows/availability.md).
+
 ## <a name="administration-and-operations"></a>Administration och åtgärder
 
 * [Kan jag ansluta till domänkontrollanten för min hanterade domän med hjälp av fjärr skrivbord?](#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop)
@@ -91,13 +96,13 @@ Nej. När du har skapat en Azure AD Domain Services hanterad domän kan du inte 
 Nej. Du har inte behörighet att ansluta till domänkontrollanter för den hanterade domänen med hjälp av fjärr skrivbord. Medlemmar i gruppen *AAD DC-administratörer* kan administrera den hanterade domänen med hjälp av administrations verktyg för AD, till exempel Active Directory administrations Center (ADAC) eller AD PowerShell. De här verktygen installeras med hjälp av funktionen *verktyg för fjärrserveradministration* på en Windows Server som är ansluten till den hanterade domänen. Mer information finns i [skapa en virtuell hanterings dator för att konfigurera och administrera en Azure AD Domain Services hanterad domän](tutorial-create-management-vm.md).
 
 ### <a name="ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain"></a>Jag har aktiverat Azure AD Domain Services. Vilket användar konto använder jag för att ansluta till domän datorer till den här domänen?
-Medlemmar i administratörs gruppen *AAD DC-administratörer* kan ansluta datorer till domän. Medlemmar i den här gruppen beviljas dessutom fjärr skrivbords åtkomst till datorer som har anslutits till domänen.
+Alla användar konton som ingår i den hanterade Azure AD DS-domänen kan ansluta till en virtuell dator. Medlemmar i gruppen *AAD DC-administratörer* beviljas fjärr skrivbords åtkomst till datorer som har anslutits till den hanterade domänen.
 
 ### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>Har jag domän administratörs behörighet för den hanterade domänen som tillhandahålls av Azure AD Domain Services?
 Nej. Du har inte beviljats administratörs behörighet för den hanterade domänen. Behörigheterna *domän administratör* och *företags administratör* är inte tillgängliga för dig i domänen. Medlemmar i grupperna domän administratör eller företags administratör i din lokala Active Directory beviljas inte heller domän-/företags administratörs behörighet på den hanterade domänen.
 
 ### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>Kan jag ändra grupp medlemskap med hjälp av LDAP eller andra administrations verktyg för AD i hanterade domäner?
-Nej. Det går inte att ändra grupp medlemskap på domäner som hanteras av Azure AD Domain Services. Samma gäller för användarattribut. Du kan ändra grupp medlemskap eller användarattribut antingen i Azure AD eller i din lokala domän. Ändringarna synkroniseras automatiskt till Azure AD Domain Services.
+Användare och grupper som synkroniseras från Azure Active Directory till Azure AD Domain Services kan inte ändras eftersom deras ursprungs källa är Azure Active Directory. Alla användare eller grupper som har sitt ursprung i den hanterade domänen kan ändras.
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Hur lång tid tar det innan ändringar jag gör i Azure AD-katalogen visas i min hanterade domän?
 Ändringar som görs i Azure AD-katalogen med antingen Azure AD-ANVÄNDARGRÄNSSNITTET eller PowerShell synkroniseras automatiskt till din hanterade domän. Den här synkroniseringsprocessen körs i bakgrunden. Det finns ingen definierad tids period för den här synkroniseringen att slutföra alla objekt ändringar.

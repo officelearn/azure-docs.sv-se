@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: d8302b69f1e868536eb954a650a62f41e4006b82
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d264768bf27967d1a778400ae4e9e6f2e054d746
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754535"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942979"
 ---
 # <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Projektioner i ett kunskaps lager i Azure Kognitiv sökning
 
@@ -211,3 +211,8 @@ I nästa steg ska du skapa ditt första kunskaps lager med hjälp av exempel dat
 
 > [!div class="nextstepaction"]
 > [Skapa ett kunskaps lager i rest](knowledge-store-create-rest.md).
+
+En själv studie kurs som täcker avancerade projektions koncept som segmentering, infogad form och relationer, börjar med [definiera projektioner i ett kunskaps lager](knowledge-store-projections-examples.md)
+
+> [!div class="nextstepaction"]
+> [Definiera projektioner i ett kunskaps lager](knowledge-store-projections-examples.md)

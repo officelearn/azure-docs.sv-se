@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 0af2b5f7d756060d463d2b4f3ef71bdd135710ee
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 0ff464936025a20cb6925adc7ef6eb44c2fe1f0e
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591531"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933827"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Konfigurera och hantera en pool för virtuella datorer 
 Den här artikeln visar hur du utför följande uppgifter:
@@ -102,6 +102,13 @@ Labb skaparen (instruktör/lärare) kan ansluta till en elev-VM om följande vil
 
 > [!NOTE]
 > När den virtuella datorns lärare startar den virtuella datorn och ansluter till den, påverkas inte student kvoten. 
+
+## <a name="export-list-of-virtual-machines-to-a-csv-file"></a>Exportera lista över virtuella datorer till en CSV-fil
+
+1. Växla till fliken för **poolen för virtuella datorer** .
+2. Välj **...** (ellips) i verktygsfältet och välj sedan **exportera CSV**. 
+
+    ![Exportera lista över virtuella datorer](../media/how-to-export-users-virtual-machines-csv/virtual-machines-export-csv.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Information om andra alternativ för elev användning som du (som labb ägare) kan konfigurera finns i följande artikel: [Konfigurera elev användning](how-to-configure-student-usage.md).

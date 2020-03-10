@@ -3,13 +3,13 @@ title: Använda en statisk IP-adress och DNS-etikett med belastningsutjämnaren 
 description: Lär dig hur du skapar och använder en statisk IP-adress med AKS-belastningsutjämnaren (Azure Kubernetes service).
 services: container-service
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: d5177494ecdd112342b2cd719e9305bfab97902c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 03/09/2020
+ms.openlocfilehash: 32889dbbcafd9510f8d04cb9c602d4802c6d1a1a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77593605"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943570"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Använd en statisk offentlig IP-adress och DNS-etikett med belastningsutjämnaren för Azure Kubernetes service (AKS)
 
@@ -62,12 +62,12 @@ $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicI
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>Skapa en tjänst med hjälp av den statiska IP-adressen
 
-Innan du skapar en tjänst kontrollerar du att tjänstens huvud namn som används av AKS-klustret har delegerade behörigheter till den andra resurs gruppen. Några exempel:
+Innan du skapar en tjänst kontrollerar du att tjänstens huvud namn som används av AKS-klustret har delegerade behörigheter till den andra resurs gruppen. Exempel:
 
 ```azurecli-interactive
 az role assignment create \
     --assignee <SP Client ID> \
-    --role "Contributor" \
+    --role "Network Contributor" \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
 
@@ -97,9 +97,9 @@ kubectl apply -f load-balancer-service.yaml
 
 ## <a name="apply-a-dns-label-to-the-service"></a>Använda en DNS-etikett för tjänsten
 
-Om tjänsten använder en dynamisk eller statisk offentlig IP-adress kan du använda tjänst anteckningen `service.beta.kubernetes.io/azure-dns-label-name` för att ange en offentlig DNS-etikett. Detta publicerar ett fullständigt kvalificerat domän namn för tjänsten med Azures offentliga DNS-servrar och toppnivå domänen. Anteckning svärdet måste vara unikt inom Azure-platsen, så det rekommenderas att använda en tillräckligt kvalificerad etikett.   
+Om tjänsten använder en dynamisk eller statisk offentlig IP-adress kan du använda tjänst anteckningen `service.beta.kubernetes.io/azure-dns-label-name` för att ange en offentlig DNS-etikett. Detta publicerar ett fullständigt kvalificerat domän namn för tjänsten med Azures offentliga DNS-servrar och toppnivå domänen. Anteckning svärdet måste vara unikt inom Azure-platsen, så vi rekommenderar att du använder en tillräckligt kvalificerad etikett.   
 
-Azure lägger sedan automatiskt till ett standard under nät, till exempel `<location>.cloudapp.azure.com` (där platsen är den region som du har valt) till det namn som du anger för att skapa det fullständigt kvalificerade DNS-namnet. Några exempel:
+Azure lägger sedan automatiskt till ett standard under nät, till exempel `<location>.cloudapp.azure.com` (där platsen är den region som du har valt) till det namn som du anger för att skapa det fullständigt kvalificerade DNS-namnet. Exempel:
 
 ```yaml
 apiVersion: v1

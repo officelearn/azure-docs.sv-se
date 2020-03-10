@@ -4,30 +4,26 @@ description: Lär dig hur du migrerar en StorSimple 8100-eller 8600-apparat till
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d04b38fac2b42d2d510902c7ba54ddebb8e3f410
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: d937852ace8d9bf39495f1fdd92e6edfc4452a0a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330318"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943589"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 och 8600-migrering till Azure File Sync
 
-StorSimple 8000-serien representeras av antingen 8100 eller den fysiska 8600-enheten, lokalt och deras moln tjänst komponenter. Det är möjligt att migrera data från någon av dessa apparater till en Azure File Syncs miljö. Den här artikeln innehåller de steg som krävs för att migrera till Azure File Sync.
+StorSimple 8000-serien representeras av antingen 8100 eller 8600 fysiska, lokala apparater och deras moln tjänst komponenter. Det är möjligt att migrera data från någon av dessa apparater till en Azure File Syncs miljö. Azure File Sync är standard och strategisk Azure-tjänst som StorSimple-apparater kan migreras till.
 
-## <a name="storsimple"></a>StorSimple
+StorSimple 8000-serien kommer att uppnå [livs längd](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%208000%20Series) i december 2022. Det är viktigt att börja planera migreringen så snart som möjligt. Den här artikeln innehåller de steg som krävs för att migrera till Azure File Sync. 
 
-StorSimple är en avvecklad Microsoft-produkt. Utökat stöd för den här produkten och dess moln tjänst upphör att gälla den 31 2022 december. Det är viktigt att du börjar planera för en migrering av StorSimple omedelbart.
-
-Azure File Sync är standard och strategisk Azure-tjänst som StorSimple-apparater kan migreras till.
+## <a name="azure-file-sync"></a>Azure File Sync
 
 > [!IMPORTANT]
 > Microsoft strävar efter att hjälpa kunder i sin migrering. E-postAzureFilesMigration@microsoft. com för en anpassad migreringsjobb samt hjälp vid migreringen.
-
-## <a name="azure-file-sync"></a>Azure File Sync
 
 Azure File Sync är en moln tjänst från Microsoft, baserat på två huvud komponenter:
 
@@ -247,10 +243,10 @@ Under den här migreringsprocessen monterar du flera volym kloner på den virtue
 > [!IMPORTANT]
 > För att detta ska fungera måste en register nyckel anges på servern innan Azure File Sync konfigureras.
 
-1. Skapa en ny katalog på den virtuella datorns systemen het. Azure File Sync information måste sparas där, i stället för på den monterade volymens kloner. Exempel: `“C:\syncmetadata”`
+1. Skapa en ny katalog på den virtuella datorns systemen het. Azure File Sync information måste sparas där, i stället för på den monterade volymens kloner. Exempel: `"C:\syncmetadata"`
 2. Öppna regedit och leta upp följande registrerings data fil: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
 3. Skapa en ny nyckel av typen sträng med namnet: ***MetadataRootPath***
-4. Ange den fullständiga sökvägen till den katalog som du skapade på system volymen, till exempel: `C:\syncmetadata”`
+4. Ange den fullständiga sökvägen till den katalog som du skapade på system volymen, till exempel: `C:\syncmetadata"`
 
 ### <a name="configure-azure-file-sync-on-the-azure-vm"></a>Konfigurera Azure File Sync på den virtuella Azure-datorn
 

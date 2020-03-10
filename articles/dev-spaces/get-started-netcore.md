@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett .NET Core-program i Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.openlocfilehash: e23685d410b2d663efde8c530be01adaab637bf8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 306e1c7a43ddd10faa0a537d567257fe95336c23
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252427"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942506"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Skapa ett Kubernetes dev-utrymme: Visual Studio Code och .NET Core med Azure dev Spaces
 
@@ -81,7 +81,7 @@ Ange följande Azure CLI-kommando med hjälp av den resursgrupp som innehåller 
 Avancerade funktioner som Kubernetes-felsökning är tillgängliga för .NET Core- och Node.js-utvecklare som använder VS Code.
 
 1. Installera [VS Code](https://code.visualstudio.com/Download) om du inte redan har det.
-1. Hämta och installera [vs Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) och [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) Extensions. För varje tillägg klickar du på installera på sidan Marketplace för tillägg och återigen i VS Code.
+1. Hämta och installera [vs Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) och [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Extensions. För varje tillägg klickar du på installera på sidan Marketplace för tillägg och återigen i VS Code.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Skapa en webbapp som körs i en container
 

@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
-ms.openlocfilehash: efe8c1a2726054c54934926f652e338797d4efa1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 78cd5945e394219be0551bbe97afef07f18b61f7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776552"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945475"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autentisera Azure våren Cloud med Key Vault i GitHub-åtgärder
 Key Vault är en säker plats för att lagra nycklar. Företags användare måste lagra autentiseringsuppgifter för CI/CD-miljöer i den omfattning som de styr. Nyckeln för att hämta autentiseringsuppgifter i nyckel valvet bör begränsas till resurs omfånget.  Den har enbart åtkomst till nyckel valvets omfång, inte hela Azure-omfånget. Det är som en nyckel som bara kan öppna en stark ruta, inte en huvud nyckel som kan öppna alla dörrar i en byggnad. Det är ett sätt att hämta en nyckel till en annan nyckel, vilket är användbart i ett CICD-arbetsflöde. 
@@ -32,7 +32,6 @@ Med resultat:
     "tenantId": "<GUID>",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"
@@ -69,7 +68,6 @@ Igen, resultat:
     "tenantId": "<GUID>",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"

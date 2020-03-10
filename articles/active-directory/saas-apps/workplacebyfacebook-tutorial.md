@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 03/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c58ff181ec144dcd0b1089b0e53f868f241be73f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 98706d0c9a86d53ae31d05bec48d7071f251b651
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985296"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944397"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med arbets ytan efter Facebook
 
@@ -30,9 +30,9 @@ I den här självstudien får du lära dig hur du integrerar arbets ytan i Faceb
 * Gör det möjligt för användarna att logga in automatiskt på arbets platsen av Facebook med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -90,12 +90,12 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<instancename>.facebook.com`
 
-    b. I textrutan **Identifierare (entitets-ID)** skriver du en URL med följande mönster: `https://www.facebook.com/company/<instanceID>`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://www.facebook.com/company/<instanceID>`
 
-    c. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://www.facebook.com/company/<instanceID>`
+    c. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://www.facebook.com/company/<instanceID>`
 
     > [!NOTE]
-    > De här värdena är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. På sidan autentisering på instrument panelen för företagets företags instrument panel finns de korrekta värdena för din arbets plats community, detta beskrivs senare i självstudien.
+    > De här värdena är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL, identifierare och svars-URL. På sidan autentisering på instrument panelen för företagets företags instrument panel finns de korrekta värdena för din arbets plats community, detta beskrivs senare i självstudien.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -157,6 +157,8 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
     a. Kontrol lera alternativet **enkel inloggning (SSO)** .
     
     b. Klicka på **+ Lägg till ny SSO-Provider**.
+    > [!NOTE]
+    > Se till att markera kryss rutan för lösen ords inloggning. Administratörer kan behöva det här alternativet för inloggning medan certifikat förnyelsen utförs för att sluta bli utelåst.
 
 1. Under fliken **Autentisering** väljer du **Enkel inloggning** och utför följande steg:
 
@@ -210,7 +212,7 @@ Det finns ingen åtgärd för dig i det här avsnittet. Om det inte finns någon
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Workplace by Facebook-panelen i åtkomstpanelen bör du automatiskt loggas in på Workplace by Facebook som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Workplace by Facebook-panelen i åtkomstpanelen bör du automatiskt loggas in på Workplace by Facebook som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="test-sso-for-workplace-by-facebook-mobile"></a>Testa SSO för arbets plats av Facebook (mobil)
 
@@ -238,7 +240,7 @@ När du klickar på Workplace by Facebook-panelen i åtkomstpanelen bör du auto
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
@@ -247,4 +249,3 @@ När du klickar på Workplace by Facebook-panelen i åtkomstpanelen bör du auto
 - [Prova arbets platsen efter Facebook med Azure AD](https://aad.portal.azure.com)
 
 - [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

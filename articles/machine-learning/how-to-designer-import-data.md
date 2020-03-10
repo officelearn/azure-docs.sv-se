@@ -9,12 +9,12 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: d41b0499df1a62440e8c1991e29f7963224a50d6
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 8cd49f9714746578ec701e22f9e6b0ccce772c6b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138159"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942298"
 ---
 # <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importera dina data till Azure Machine Learning designer (förhands granskning)
 
@@ -56,6 +56,8 @@ Vi rekommenderar att du använder data uppsättningar för att importera data, m
 
 Detaljerad information om hur du använder modulen importera data finns på [sidan Importera data referens](algorithm-module-reference/import-data.md).
 
+[!NOTE]
+> Om det finns många kolumner i data kan du stöta på att verifieringen misslyckades på grund av storleks begränsning i modulen importera data. Det beror på att kolumnerna utesluter maxmium-modulens parameter längd efter att den kodats. I det här fallet rekommenderar vi att du [registrerar data uppsättningen i användar gränssnittet för data uppsättningar](how-to-create-register-datasets.md#use-the-ui), vilket kan undvika felet.  
 
 ## <a name="supported-sources"></a>Källor som stöds
 
@@ -76,11 +78,11 @@ Designern stöder tabell data uppsättningar som skapats från följande källor
 
 Designern identifierar internt följande data typer:
 
-* Sträng
+* String
 * Integer
 * decimaltal
-* Boolesk
-* Date
+* Boolean
+* Datum
 
 Designern använder en intern datatyp för att skicka data mellan moduler. Du kan uttryckligen konvertera dina data till data tabell format med hjälp av modulen [konvertera till data uppsättning](algorithm-module-reference/convert-to-dataset.md) . Alla moduler som accepterar andra format än det interna formatet kommer att konvertera data tyst innan de skickas till nästa modul.
 

@@ -1,36 +1,26 @@
 ---
-title: Flytta en virtuell Linux-dator i Azure
-description: Flytta en virtuell Linux-dator till en annan Azure-prenumeration eller resurs grupp i distributions modellen för Resource Manager.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Flytta en virtuell dator med hjälp av Azure CLI
+description: Flytta en virtuell dator till en annan Azure-prenumeration eller resurs grupp med hjälp av Azure CLI.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: d635f0a5-4458-4b95-a5f8-eed4f41eb4d4
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 2ba8a8cdc324f46e25f9665cfce0aa07fc948e88
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ebcd5f166fd1876f67121787c23d23860c9fa4b6
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979030"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944588"
 ---
-# <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Flytta en virtuell Linux-dator till en annan prenumeration eller resurs grupp
-Den här artikeln vägleder dig genom hur du flyttar en virtuell Linux-dator (VM) mellan resurs grupper eller prenumerationer. Det kan vara praktiskt att flytta en virtuell dator mellan prenumerationer om du har skapat en virtuell dator i en personlig prenumeration och nu vill flytta den till företagets prenumeration.
+# <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Flytta en virtuell dator till en annan prenumeration eller resurs grupp
+Den här artikeln vägleder dig genom hur du flyttar en virtuell dator (VM) mellan resurs grupper eller prenumerationer. Det kan vara praktiskt att flytta en virtuell dator mellan prenumerationer om du har skapat en virtuell dator i en personlig prenumeration och nu vill flytta den till företagets prenumeration.
 
 > [!IMPORTANT]
->Det går inte att flytta Azure-Managed Disks just nu.
->
 >Nya resurs-ID: n skapas som en del av flytten. När den virtuella datorn har flyttats måste du uppdatera dina verktyg och skript för att använda de nya resurs-ID: na.
 >
->
+
 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>Använd Azure CLI för att flytta en virtuell dator
 

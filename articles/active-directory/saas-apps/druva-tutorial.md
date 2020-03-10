@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 03/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b23ef246561d052935642c323c2d830e21cbe7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f019d818fb5a017d184bda8d773eb0aaf0f3645a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "73570225"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944402"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med druva
 
@@ -33,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar druva med Azure Act
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -44,7 +43,8 @@ För att komma igång behöver du följande objekt:
 
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Druva stöder **SP-och IDP** -INITIERAd SSO
+* Druva stöder **IDP** INITIERAd SSO
+* När du har konfigurerat druva SSO kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
@@ -81,13 +81,15 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-1. I avsnittet **Grundläggande SAML-konfiguration** behöver användaren inte utföra några steg eftersom appen redan är förintegrerad med Azure, om du vill konfigurera programmet i **IDP**-initierat läge.
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
+1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    I rutan **Inloggnings-URL** anger du en URL: `https://login.druva.com/api/commonlogin/samlconsume`
+    a. I text rutan **identifierare (enhets-ID)** anger du sträng värde: `DCP-login`.
+    
+    b. I text rutan **svars-URL: en (intyg om mottagar tjänst)** anger du URL: en: `https://cloud.druva.com/wrsaml/consume`.
 
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 1. Druva-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
@@ -161,7 +163,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
        > [!NOTE]
        > Om du vill aktivera enkel inloggning för administratörer väljer du **Administratörer loggar in på druva Cloud via SSO-providern** och **ger Failsafe åtkomst till druva Cloud administrators (rekommenderas)** kryss rutor. Druva rekommenderar att du aktiverar **Failsafe för administratörer** så att de har åtkomst till DCP-konsolen i händelse av eventuella problem i IDP. Det gör det också möjligt för administratörer att använda både SSO-och DCP-lösenord för att komma åt DCP-konsolen.
 
-    1. Klicka på **Spara**. Detta ger åtkomst till druva Cloud Platform med SSO.
+    1. Klicka på **Save** (Spara). Detta ger åtkomst till druva Cloud Platform med SSO.
 
 ### <a name="create-druva-test-user"></a>Skapa Druva-testanvändare
 
@@ -171,7 +173,7 @@ I det här avsnittet skapas en användare som heter B. Simon i druva. Druva stö
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Druva-panelen i åtkomstpanelen bör du automatiskt loggas in på Druva som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Druva-panelen i åtkomstpanelen bör du automatiskt loggas in på Druva som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -182,3 +184,5 @@ När du klickar på Druva-panelen i åtkomstpanelen bör du automatiskt loggas i
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova druva med Azure AD](https://aad.portal.azure.com/)
+
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

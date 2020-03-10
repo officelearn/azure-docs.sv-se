@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 618d9a8d941202db05981566203bf96c02f415a5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 35d5569cb36cb538585b9d2c85a392b668e9fc34
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358317"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944490"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Skapa och hantera virtuella Windows-datorer i Azure med Java
 
@@ -130,7 +130,7 @@ Innan du startar det här steget ska du kontrol lera att du har åtkomst till et
     managementURI=https://management.core.windows.net/
     baseURL=https://management.azure.com/
     authURL=https://login.windows.net/
-    graphURL=https://graph.windows.net/
+    graphURL=https://graph.microsoft.com/
     ```
 
     Ersätt **&lt;prenumerations-id&gt;** med prenumerations-ID: **t,&lt;program-id&gt;** med Active Directory-program-ID, **&lt;autentisering-nyckel&gt;** med program nyckeln och **&lt;klient-ID&gt;med klient-ID: t** .
@@ -431,7 +431,7 @@ System.out.println("Press enter to continue...");
 input.nextLine();
 ```
 
-### <a name="add-a-data-disk-to-the-vm"></a>Lägg till en datadisk i en virtuell dator
+### <a name="add-a-data-disk-to-the-vm"></a>Lägg till en datadisk till den virtuella datorn
 
 Om du vill lägga till en datadisk till den virtuella datorn som är 2 GB i storlek, har ett LUN på 0, och en caching-typ av ReadWrite, lägger du till den här koden i try-blocket i huvud metoden:
 

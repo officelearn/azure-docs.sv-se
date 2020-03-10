@@ -1,14 +1,15 @@
 ---
 title: Självstudie – Skapa ett Azure VM-kluster med terraform och HCL
-description: Använd terraform och HCL för att skapa ett virtuellt Linux-dator kluster med en belastningsutjämnare i Azure
+description: I den här självstudien använder du terraform och HCL för att skapa ett virtuellt Linux-dator kluster med en belastningsutjämnare i Azure
+keywords: Azure DevOps terraform VM Virtual Machine Cluster
 ms.topic: tutorial
-ms.date: 10/26/2019
-ms.openlocfilehash: 39e9857ad0119c08e949bbe5f6accb07432f3469
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.date: 03/09/2020
+ms.openlocfilehash: ae1b8eac15309ff27297d9472e70d32e68acaaac
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470878"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945276"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>Självstudie: skapa ett Azure VM-kluster med terraform och HCL
 
@@ -49,6 +50,8 @@ I det här avsnittet skapar du ett huvudnamn för Azure-tjänsten och två Terra
    variable client_secret {}
   
    provider "azurerm" {
+      version = "~>1.40"
+     
       subscription_id = var.subscription_id
       tenant_id = var.tenant_id
       client_id = var.client_id
@@ -129,7 +132,6 @@ I det här avsnittet skapar du en fil som innehåller resursdefinitionerna för 
       name                          = "testConfiguration"
       subnet_id                     = azurerm_subnet.test.id
       private_ip_address_allocation = "dynamic"
-      load_balancer_backend_address_pools_ids = [azurerm_lb_backend_address_pool.test.id]
     }
    }
 

@@ -3,19 +3,19 @@ title: Förbered test data för Custom Speech Speech service
 titleSuffix: Azure Cognitive Services
 description: När du testar precisionen för Microsoft tal igenkänning eller tränar dina anpassade modeller, behöver du ljud-och text data. På den här sidan tar vi upp de typer av data, hur de används och hur de hanteras.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.author: erhopf
-ms.openlocfilehash: 6100ac6a6b01a7d0eac74b0e83539bf4e671cb89
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.date: 03/09/2020
+ms.author: dapine
+ms.openlocfilehash: 969c1450966d2754e6e8f00126da52a1e88181fc
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660417"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942692"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Förbereda data för Custom Speech
 
@@ -27,9 +27,9 @@ I den här tabellen listas godkända data typer, när varje datatyp ska använda
 
 | Datatyp | Används för testning | Rekommenderad kvantitet | Används för utbildning | Rekommenderad kvantitet |
 |-----------|-----------------|----------|-------------------|----------|
-| [Ljud](#audio-data-for-testing) | Ja<br>Används för visuell granskning | 5 + ljudfiler | Inga | Ej tillämpligt |
+| [In](#audio-data-for-testing) | Ja<br>Används för visuell granskning | 5 + ljudfiler | Nej | ej tillämpligt |
 | [Ljud + medmärkta avskrifter](#audio--human-labeled-transcript-data-for-testingtraining) | Ja<br>Används för att utvärdera noggrannhet | 0,5 – 5 timmars ljud | Ja | 1 – 1000 timmars ljud |
-| [Relaterad text](#related-text-data-for-training) | Inga | Ej tillämpligt | Ja | 1-200 MB relaterad text |
+| [Relaterad text](#related-text-data-for-training) | Nej | ej tillämpligt | Ja | 1-200 MB relaterad text |
 
 Filerna ska grupperas efter typ i en data uppsättning och laddas upp som en zip-fil. Varje data uppsättning får bara innehålla en enda datatyp.
 
@@ -55,15 +55,17 @@ Ljuddata är optimala för att testa noggrannheten hos Microsofts bas linje tal-
 
 Använd den här tabellen för att se till att ljudfilerna är korrekt formaterade för användning med Custom Speech:
 
-| Egenskap | Värde |
-|----------|-------|
-| Fil format | RIFF (WAV) |
-| Samplings frekvens | 8 000 Hz eller 16 000 Hz |
-| Kanaler | 1 (mono) |
-| Maximal längd per ljud | 2 timmar |
-| Exempel format | PCM, 16-bitars |
-| Arkiv format | .zip |
-| Maximal Arkiv storlek | 2 GB |
+| Egenskap                 | Värde                 |
+|--------------------------|-----------------------|
+| Fil format              | RIFF (WAV)            |
+| Samplings frekvens              | 8 000 Hz eller 16 000 Hz |
+| Kanaler                 | 1 (mono)              |
+| Maximal längd per ljud | 2 timmar               |
+| Exempel format            | PCM, 16-bitars           |
+| Arkiv format           | .zip                  |
+| Maximal Arkiv storlek     | 2 GB                  |
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!TIP]
 > När du överför utbildning och testar data får. zip-filens storlek inte överskrida 2 GB. Om du behöver mer data för utbildning delar du in det i flera. zip-filer och laddar upp dem separat. Senare kan du välja att träna från *flera* data uppsättningar. Du kan dock bara testa från en *enda* data uppsättning.
@@ -79,22 +81,24 @@ Använd <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX 
 
 För att mäta noggrannheten hos Microsofts tal-till-text-precision vid bearbetning av ljudfiler, måste du tillhandahålla medmärkta avskrifter (ord för ord) för jämförelse. Även om det ofta finns tids krävande avskrifter, är det nödvändigt att utvärdera precisionen och träna modellen för dina användnings fall. Kom ihåg att förbättringarna i igenkänningen bara är lika lämpliga som de data som tillhandahålls. Därför är det viktigt att endast avskrifter av hög kvalitet överförs.
 
-| Egenskap | Värde |
-|----------|-------|
-| Fil format | RIFF (WAV) |
-| Samplings frekvens | 8 000 Hz eller 16 000 Hz |
-| Kanaler | 1 (mono) |
+| Egenskap                 | Värde                               |
+|--------------------------|-------------------------------------|
+| Fil format              | RIFF (WAV)                          |
+| Samplings frekvens              | 8 000 Hz eller 16 000 Hz               |
+| Kanaler                 | 1 (mono)                            |
 | Maximal längd per ljud | 2 timmar (testning)/60 s (utbildning) |
-| Exempel format | PCM, 16-bitars |
-| Arkiv format | .zip |
-| Maximal zip-storlek | 2 GB |
+| Exempel format            | PCM, 16-bitars                         |
+| Arkiv format           | .zip                                |
+| Maximal zip-storlek         | 2 GB                                |
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!NOTE]
-> När du överför utbildning och testar data får. zip-filens storlek inte överskrida 2 GB. Uou kan bara testa från en *enda* data uppsättning, se till att ha den i rätt fil storlek.
+> När du överför utbildning och testar data får. zip-filens storlek inte överskrida 2 GB. Du kan bara testa från en *enda* data uppsättning, se till att hålla den inom lämplig fil storlek. Dessutom kan varje tränings fil inte överstiga 60 sekunder, annars kommer den att vara fel.
 
 För att lösa problem som Word-borttagning eller ersättning krävs en stor mängd data för att förbättra igenkänningen. I allmänhet rekommenderar vi att du ger ord för ord-avskrifter i ungefär 10 till 1 000 timmar av ljud. Transkriptioner för alla WAV-filer bör ingå i en enda fil med oformaterad text. Varje rad i transkriptionsfilen ska innehålla namnet på en av ljudfilerna följt av motsvarande transkription. Filnamnet och transkriptionen ska separeras med ett tabbtecken (\t).
 
-  Ett exempel:
+  Exempel:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -134,7 +138,7 @@ Använd den här tabellen för att se till att din relaterade datafil för yttra
 |----------|-------|
 | Textkodning | UTF-8 BOM |
 | antal yttrande per rad | 1 |
-| Maximal filstorlek | 200 MB |
+| Maximal filstorlek | 200 MB |
 
 Dessutom bör du ta hänsyn till följande begränsningar:
 
@@ -161,7 +165,7 @@ Det talade formuläret är den fonetiska sekvensen som har stavats ut. Det kan b
 
 Ett anpassat uttal är tillgängligt på engelska (`en-US`) och tyska (`de-DE`). I den här tabellen visas tecken som stöds efter språk:
 
-| Språk | Nationella inställningar | Karaktärer |
+| Språk | Nationell inställning | Karaktärer |
 |----------|--------|------------|
 | Svenska | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Tyska | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |

@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om migrering av Azure Migrate Server
 description: Få svar på vanliga frågor om att använda Azure Migrate Server-migrering för att migrera datorer.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 273ef746e685afcf9f3654963dd9c6bd5b855b24
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: 4d3638e930b4e12a29df4ab189ffb24ab248582b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927518"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78939210"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migrering av Azure Migrate Server: vanliga frågor
 
@@ -74,6 +74,19 @@ Nej. Azure Migrate stöder endast migrering till hanterade diskar (Standard HDD,
 ## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>Hur många virtuella datorer kan jag replikera på en gång med hjälp av en agent utan migrering?
 
 För närvarande kan du migrera 100-VM: ar per instans av vCenter Server samtidigt. Migrera i batchar med 10 virtuella datorer.
+
+## <a name="when-do-i-migrate-machines-as-physical-servers"></a>När migrerar jag datorer som fysiska servrar?
+
+Att migrera datorer genom att behandla dem som fysiska servrar är användbara i ett antal scenarier:
+
+- När du migrerar lokala fysiska servrar.
+- Om du migrerar virtuella datorer som är virtualiserade av plattformar som xen, KVM.
+- Om du av någon anledning inte kan använda standard migreringsprocessen för [Hyper-v](tutorial-migrate-hyper-v.md)eller [VMware](server-migrate-overview.md) -migrering för att migrera virtuella Hyper-v-eller VMware-datorer. Om du till exempel inte kör VMware vCenter och använder ESXi-värdar.
+- Migrera virtuella datorer som för närvarande körs i privata moln till Azure
+- Om du vill migrera virtuella datorer som körs i offentliga moln, till exempel Amazon Web Services (AWS) eller Google Cloud Platform (GCP), till Azure.
+
+## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>Behöver jag VMware vCenter för att migrera virtuella VMware-datorer?
+Om du vill [migrera virtuella VMware-datorer](server-migrate-overview.md) med hjälp av VMware agent-eller agent lös migrering måste ESXi-värdar som de virtuella datorerna finns på hanteras av vCenter Server. Om du inte har vCenter Server kan du migrera virtuella VMware-datorer genom att migrera dem som fysiska servrar. [Läs mer](migrate-support-matrix-physical-migration.md).
  
 ## <a name="next-steps"></a>Nästa steg
 

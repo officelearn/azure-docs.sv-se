@@ -2,23 +2,17 @@
 title: Distribuera resurser till klient organisationen
 description: Beskriver hur du distribuerar resurser i klient omfånget i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: d63697f3c140b5ad374607f1ecb00dad20e697de
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
-ms.translationtype: MT
+ms.date: 03/09/2020
+ms.openlocfilehash: aa72116c3e6e98293b28b2d4413fd1dafb1372d9
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899144"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942743"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Skapa resurser på klient nivå
 
-Normalt distribuerar du Azure-resurser till en resurs grupp i din Azure-prenumeration. Men du kan också skapa resurser på:
-
-* [prenumerations nivå](deploy-to-subscription.md)
-* [hanterings grupps nivå](deploy-to-management-group.md)
-* klient organisations nivå (som beskrivs i den här artikeln)
-
-Du använder distributioner på klient nivå för att vidta åtgärder som är begripliga på den nivån, till exempel tilldela [rollbaserad åtkomst kontroll](../../role-based-access-control/overview.md) eller tillämpa [principer](../../governance/policy/overview.md).
+När din organisation är vuxen kan du behöva definiera och tilldela [principer](../../governance/policy/overview.md) eller [rollbaserade åtkomst kontroller](../../role-based-access-control/overview.md) i Azure AD-klienten. Med mallar för klient organisations nivå kan du tillämpa principer och tilldela roller på global nivå.
 
 ## <a name="supported-resources"></a>Resurser som stöds
 
@@ -41,10 +35,10 @@ För mallar använder du:
 https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
 ```
 
-För parameter-filer använder du:
+Schemat för en parameter fil är detsamma för alla distributions omfång. För parameter-filer använder du:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentParameters.json#
+https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
 ## <a name="required-access"></a>Nödvändig åtkomst
@@ -181,5 +175,4 @@ För klient distributioner finns det några viktiga saker att tänka på när du
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om hur du tilldelar roller finns i [Hantera åtkomst till Azure-resurser med RBAC och Azure Resource Manager mallar](../../role-based-access-control/role-assignments-template.md).
-* Mer information om hur du skapar Azure Resource Manager-mallar finns i [Redigera mallar](template-syntax.md).
-* En lista över tillgängliga funktioner i en mall finns i [Template Functions](template-functions.md).
+* Du kan också distribuera mallar på [prenumerations nivå](deploy-to-subscription.md) eller på [hanterings grupps nivå](deploy-to-management-group.md).

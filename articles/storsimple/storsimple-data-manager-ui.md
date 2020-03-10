@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: d485a2655b569b3def6162934857b02dbe4f75ea
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 85be49ad88ac62d90235c3da6b89b0da6a11487c
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273968"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933760"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Hantera tjänsten StorSimple Data Manager i Azure Portal
 
@@ -102,9 +102,9 @@ Utför följande steg för att skapa en jobb definition.
 
    3. I underavsnittet **filter** anger du rot katalogen som innehåller dina data av intresse i _\MyRootDirectory\Data_ -format. Enhets bokstäver som t. ex. _\Data_ stöds inte. Du kan också lägga till eventuella fil filter här.
 
-   4. Data Transformations tjänsten arbetar med de data som skickas upp till Azure via ögonblicks bilder. När du kör det här jobbet kan du välja att göra en säkerhets kopia varje gång jobbet körs (för att arbeta med senaste data) eller använda den sista befintliga säkerhets kopian i molnet (om du arbetar med vissa arkiverade data).
+   4. Data Transformations tjänsten fungerar bara på den senaste ögonblicks bilden av de data som skickas upp till Azure.
 
-   5. Klicka på **OK**.
+   5. Klicka på **OK**
 
       ![Konfigurera käll data lagrings platsen 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
 
@@ -121,7 +121,7 @@ Utför följande steg för att skapa en jobb definition.
     
     1. Välj den lagrings plats som du skapade som mål i list rutan i **mål kontots namn**.
 
-    2. Välj lagrings typ som blobbar eller filer. Ange namnet på lagrings behållaren där transformerade data finns. Klicka på **OK**.
+    2. Välj lagrings typ som blobbar eller filer. Ange namnet på lagrings behållaren där transformerade data finns. Klicka på **OK**
 
         ![Konfigurera mål data lagrings platsen lagrings konto](./media/storsimple-data-manager-ui/create-job-definition-16.png)
 
@@ -133,7 +133,7 @@ Utför följande steg för att skapa en jobb definition.
 
 ### <a name="run-the-job-definition"></a>Kör jobb definitionen
 
-När du behöver flytta data från StorSimple till det lagrings konto som du har angett i jobb definitionen måste du köra det. Vid körning kan vissa parametrar anges på olika sätt. Stegen är följande:
+När du behöver flytta data från StorSimple till det lagrings konto som du har angett i jobb definitionen måste du köra det. Vid körning kan vissa parametrar anges på olika sätt. Följande steg utförs:
 
 1. Välj din StorSimple Data Manager-tjänst och gå till **hanterings > jobb definitioner**. Markera och klicka på den jobb definition som du vill köra.
      
@@ -150,6 +150,11 @@ När du behöver flytta data från StorSimple till det lagrings konto som du har
 4. Om du vill övervaka jobbet går du till **jobb** i din StorSimple Data Manager. Förutom övervakning i bladet **jobb** kan du också lyssna på lagrings kön där ett meddelande läggs till varje gång en fil flyttas från StorSimple till lagrings kontot.
 
     ![Starta jobb körning 4](./media/storsimple-data-manager-ui/start-job-run4.png)
+
+### <a name="view-logs-after-job-completion"></a>Visa loggar efter slut för ande av jobb
+
+När du har slutfört ett jobb kan du se jobbets status. Jobb status kan vara **slutförd**, **delvis lyckades** och **misslyckades**. Du kan visa listan över filer som har kopierats och filer som inte kunde kopieras. Listorna är tillgängliga i en behållare med namnet **"StorSimple-Data-Manager-joblogs"** på ditt mål lagrings konto. I den här behållaren kan du leta efter en mapp med samma namn som din jobb definition. I detta skapas en mapp för varje jobb körning som innehåller dina listor. Namnet på den här mappen är jobbets GUID, som du kan hämta från sidan jobb information. I de flesta fall visas också en länk för kopierings loggarna på själva jobb sidan.
+Det finns två uppsättningar CSV-filer som du ser i den här mappen. Alla filer som börjar med **copiedfilelist...** kommer att innehålla listan över filer som har kopierats. Alla filer som börjar med **failedfilelist...** innehåller filer som inte kunde kopieras, tillsammans med ett fel meddelande.
 
 
 ## <a name="next-steps"></a>Nästa steg

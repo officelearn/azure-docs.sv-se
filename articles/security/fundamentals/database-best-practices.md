@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 72b15d77baedae318d4503f2d481b08202730459
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 316c3ef3c5bd16b52291029924d04fc159375bc8
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927988"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943665"
 ---
 # <a name="azure-database-security-best-practices"></a>Metodtips för databassäkerhet
 Den här artikeln beskriver metod tips för databas säkerhet.
@@ -72,7 +72,7 @@ Om du använder SQL Server autentisering måste du:
 
 - Hantera de starka autentiseringsuppgifterna själv.
 - Skydda autentiseringsuppgifterna i anslutnings strängen.
-- (Möjligen) skydda de autentiseringsuppgifter som skickas via nätverket från webb servern till-databasen. Mer information finns i [så här: Anslut till SQL Server med SQL-autentisering i ASP.NET](/previous-versions/msp-n-p/ff648340(v=pandp.10))2,0.
+- (Möjligen) skydda de autentiseringsuppgifter som skickas via nätverket från webb servern till-databasen. Mer information finns i [så här gör du: Anslut till SQL Server med SQL-autentisering i ASP.NET 2,0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Azure Active Directory (AD)-autentisering*
 Azure AD-autentisering är en mekanism för att ansluta till Azure SQL Database och [SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure AD. Med Azure AD-autentisering kan du hantera identiteter för databas användare och andra Microsoft-tjänster på en central plats. Hantering av central-ID är en enda plats för att hantera databas användare och för att förenkla behörighets hanteringen.
@@ -95,7 +95,7 @@ Här är några av fördelarna:
 Konfigurations stegen innehåller följande procedurer för att konfigurera och använda Azure AD-autentisering:
 
 - Skapa och fyll i Azure AD.
-- Valfritt: Associera eller ändra Active Directory-instansen som är associerad med din Azure-prenumeration.
+- Valfritt: associera eller ändra Active Directory-instansen som är associerad med din Azure-prenumeration.
 - Skapa en Azure Active Directory administratör för Azure SQL Database eller [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 - Konfigurera klient datorerna.
 - Skapa inneslutna databas användare i databasen som har mappats till Azure AD-identiteter.
@@ -145,18 +145,18 @@ Hot skyddet går förbi identifieringen. Skydd mot databas hot innehåller:
 - Implementera säkra konfigurationer i databasen så att du kan skydda databasen.
 - Identifiera och svara på potentiella hot när de inträffar så att du snabbt kan reagera och åtgärda dem.
 
-**Bästa praxis**: Identifiera, klassificera och märk känsliga data i dina databaser.   
-**Information**: Klassificera data i din SQL-databas genom att aktivera [identifiering och klassificering av data](/azure/sql-database/sql-database-data-discovery-and-classification) i Azure SQL Database. Du kan övervaka åtkomsten till känsliga data på Azure-instrumentpanelen eller hämta rapporter.
+**Bästa praxis**: identifiera, klassificera och märk känsliga data i dina databaser.   
+**Information**: klassificera data i din SQL-databas genom att aktivera [identifiering och klassificering av data](/azure/sql-database/sql-database-data-discovery-and-classification) i Azure SQL Database. Du kan övervaka åtkomsten till känsliga data på Azure-instrumentpanelen eller hämta rapporter.
 
-**Bästa praxis**: Spåra sårbarheter i databasen så att du proaktivt kan förbättra databas säkerheten.   
-**Information**: Använd tjänsten Azure SQL Database [sårbarhets bedömning](/azure/sql-database/sql-vulnerability-assessment) som söker efter potentiella databas sårbarheter. Tjänsten använder en kunskaps bas för regler som flaggar säkerhets sårbarheter och visar avvikelser från bästa praxis, till exempel felkonfigurationer, för hög behörighet och oskyddade känsliga data.
+**Bästa praxis**: spåra sårbarheter i databasen så att du proaktivt kan förbättra databas säkerheten.   
+**Information**: använd tjänsten Azure SQL Database [sårbarhets bedömning](/azure/sql-database/sql-vulnerability-assessment) som söker efter eventuella databas sårbarheter. Tjänsten använder en kunskaps bas för regler som flaggar säkerhets sårbarheter och visar avvikelser från bästa praxis, till exempel felkonfigurationer, för hög behörighet och oskyddade känsliga data.
 
 Reglerna baseras på Microsofts bästa praxis och fokuserar på de säkerhets problem som ger största möjliga risker för din databas och dess värdefulla data. De behandlar både problem på databas nivå och säkerhets problem på server nivå, t. ex. inställningar för Server brand vägg och behörigheter på server nivå. Dessa regler motsvarar också många av de krav som ställs av myndighets myndigheter för att uppfylla sina krav på efterlevnad.
 
 **Bästa praxis**: Aktivera hot identifiering.  
-**Information**:  Aktivera Azure SQL Database [hot identifiering](/azure/sql-database/sql-database-threat-detection) för att få säkerhets aviseringar och rekommendationer om hur du undersöker och minimerar hot. Du får aviseringar om misstänkta databas aktiviteter, potentiella sårbarheter och SQL-injektering-attacker, samt avvikande databas åtkomst och fråge mönster.
+**Information**: Aktivera Azure SQL Database [hot identifiering](/azure/sql-database/sql-database-threat-detection) för att få säkerhets aviseringar och rekommendationer om hur du undersöker och minimerar hot. Du får aviseringar om misstänkta databas aktiviteter, potentiella sårbarheter och SQL-injektering-attacker, samt avvikande databas åtkomst och fråge mönster.
 
-[Avancerat skydd](/azure/sql-database/sql-advanced-threat-protection) är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. Den innehåller de tjänster som nämns ovan: Identifiering och klassificering av data, sårbarhets bedömning och hot identifiering. Det ger en enda plats för att aktivera och hantera dessa funktioner.
+[Avancerat skydd](/azure/sql-database/sql-advanced-threat-protection) är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. Den innehåller de tjänster som nämnts tidigare: identifiering och klassificering av data, sårbarhets bedömning och hot identifiering. Det ger en enda plats för att aktivera och hantera dessa funktioner.
 
 Genom att aktivera dessa funktioner kan du:
 
@@ -167,13 +167,9 @@ Genom att aktivera dessa funktioner kan du:
 
 Hot identifieringen integrerar dessutom aviseringar med Azure Security Center för en central vy över säkerhets läget för alla dina Azure-resurser.
 
-## <a name="enable-feature-restrictions"></a>Aktivera funktions begränsningar
-
-De data som finns i dina databaser kan exponeras för angripare med hjälp av angrepps vektorer som utnyttjar databas fel och fråge körnings tider. Azure SQL Database innehåller ett antal funktioner för funktions begränsning för att skydda din databas. Läs mer i [SQL Database funktions begränsningar](/azure/sql-database/sql-database-feature-restrictions).
-
 ## <a name="next-steps"></a>Nästa steg
 Se [metod tips och mönster för Azure-säkerhet](best-practices-and-patterns.md) för att få bättre säkerhets metoder att använda när du utformar, distribuerar och hanterar dina moln lösningar med hjälp av Azure.
 
 Följande resurser är tillgängliga för att ge mer allmän information om Azure-säkerhet och relaterade Microsoft-tjänster:
 * [Azure Security Team-bloggen](https://blogs.msdn.microsoft.com/azuresecurity/) – för uppdaterad information om det senaste i Azure-säkerhet
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – där säkerhets problem i Microsoft, inklusive problem med Azure, kan rapporteras eller via e-post tillsecure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – där säkerhets problem i Microsoft, inklusive problem med Azure, kan rapporteras eller via e-post till secure@microsoft.com

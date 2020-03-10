@@ -4,17 +4,17 @@ description: I den här artikeln förklaras hur partner använder Azure Cost Man
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/10/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 9f35f0ae2b310fba462a3f45038496854077da27
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: f81ec71ffe5cdf7f70e309282307a1c4bb293219
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117584"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245451"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Kom igång med Azure Cost Management för partner
 
@@ -140,18 +140,14 @@ När kostnadsprincipen är inställd på **Ja** kan prenumerationsanvändare som
 
 När principen för kostnadssynlighet är aktiverad visar alla tjänster som har prenumerationsanvändning kostnader enligt priserna för betala per användning. Reservationsanvändningen visas med noll avgifter för faktiska och periodiserade kostnader. Köp och berättiganden är inte kopplade till en specifik prenumeration. Därför visas inte inköpen i prenumerationsomfånget.
 
-Om du vill visa kostnader för kundens klientorganisation öppnar du **Cost Management + Fakturering** och väljer relevant faktureringskonto för Microsoft-partneravtal.
 
-![Välj ett faktureringskonto](./media/get-started-partners/select-billing-account.png)
+### <a name="view-customer-costs"></a>Visa kundkostnader
 
-Under **Fakturering** väljer du **Azure-prenumerationer** och väljer sedan en kund.
-
-![Välj en Azure-prenumerationskund](./media/get-started-partners/subscriptions-select-customer.png)
-
-Välj **Kostnadsanalys** och börja granska kostnaderna.
-Kostnadsanalys, budgetar och aviseringar är tillgängliga för prenumerationens och resursgruppens RBAC-omfång för priser baserade på betala per användning.
+Om du vill visa kostnader för kundklienten öppnar du **Kostnadshantering + fakturering**. Välj **Kostnadsanalys** och ändra sedan omfånget för kundklientens prenumeration för att börja granska kostnader.
 
 ![Visa kostnadsanalys som en kund ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
+
+Kostnadsanalys, budgetar och aviseringar är tillgängliga för prenumerationens och resursgruppens RBAC-omfång för priser baserade på betala per användning.
 
 Vyer för amorterad och faktisk kostnad för reserverade instanser i RBAC-omfången visar noll avgifter. Kostnader för reserverad instans visas bara i faktureringsomfång där inköpen gjordes.
 

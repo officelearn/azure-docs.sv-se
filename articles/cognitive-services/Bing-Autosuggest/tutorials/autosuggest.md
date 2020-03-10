@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: b5032d9d39e66435ca4df36081d6acb225e2327b
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 10e25338ab6960addeebcc224d0a6633df451964
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402643"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943151"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Självstudie: Hämta Sök förslag på en webb sida
 
@@ -29,7 +29,7 @@ I den här självstudiekursen lär du dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API:et Automatiska förslag i Bing. Om du inte har någon nyckel kan du [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
+Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API:et Automatiska förslag i Bing. Om du inte har ett kan du [skapa en automatiska förslag i Bing resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7) i Azure Portal. Du kan också använda en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/).
 
 ## <a name="create-a-new-web-page"></a>Skapa en ny webbsida
 

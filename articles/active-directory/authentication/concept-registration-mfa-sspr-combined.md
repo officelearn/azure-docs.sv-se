@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 03/06/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c882d286a73900f58ef06e7c51b05c7237e39a7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4cb5aca128679b21072a2a3daa503dc43a8e2885
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425350"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942893"
 ---
 # <a name="combined-security-information-registration-preview"></a>Kombinerad säkerhets informations registrering (för hands version)
 
@@ -49,15 +49,16 @@ Kombinerad registrering stöder följande autentiseringsmetoder och åtgärder:
 
 |   | Registrera dig | Ändra | Ta bort |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Ja (högst 5) | Inga | Ja |
-| Annan Authenticator-app | Ja (högst 5) | Inga | Ja |
-| Maskinvaru-token | Inga | Inga | Ja |
-| Telefon | Ja | Ja | Ja |
+| Microsoft Authenticator | Ja (högst 5) | Nej | Ja |
+| Annan Authenticator-app | Ja (högst 5) | Nej | Ja |
+| Maskinvaru-token | Nej | Nej | Ja |
+| Phone | Ja | Ja | Ja |
 | Alternativ telefon | Ja | Ja | Ja |
-| Arbetstelefon | Inga | Inga | Inga |
+| Arbetstelefon | Nej | Nej | Nej |
 | E-post | Ja | Ja | Ja |
-| Säkerhetsfrågor | Ja | Inga | Ja |
-| Applösenord | Ja | Inga | Ja |
+| Säkerhetsfrågor | Ja | Nej | Ja |
+| Applösenord | Ja | Nej | Ja |
+| FIDO2 säkerhets nycklar<br />*Endast hanterat läge från sidan [säkerhets information](https://mysignins.microsoft.com/security-info)*| Ja | Ja | Ja |
 
 > [!NOTE]
 > Applösenord är bara tillgängliga för användare som har Aktiver ATS för Multi-Factor Authentication. Applösenord är inte tillgängliga för användare som har Aktiver ATS för Multi-Factor Authentication via en princip för villkorlig åtkomst.
@@ -95,7 +96,7 @@ Här följer flera scenarier där användare kan uppmanas att registrera eller u
 
 När registreringen är aktive rad visas det minsta antal metoder som krävs för att uppfylla både Multi-Factor Authentication-och SSPR-principer, från de flesta till minst säkra.
 
-Ett exempel:
+Exempel:
 
 - En användare har Aktiver ATS för SSPR. SSPR-principen krävde två metoder för att återställa och har aktiverat mobil kod, e-post och telefon.
    - Den här användaren krävs för att registrera två metoder.

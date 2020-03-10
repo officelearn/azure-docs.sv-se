@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: bb8b23513738a6696d65bf7f06a741be2ada7a93
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 8babacfede6e13fde629492e1cd9f80af7f0e53f
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250257"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943057"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Skapa och testa en ny simulerad enhet
 
@@ -82,7 +82,7 @@ Om du vill följa den här instruktions guiden behöver du:
 
 * Visual Studio Code. Du kan [Hämta Visual Studio Code för Mac, Linux och Windows](https://code.visualstudio.com/download).
 * .NET Core. Du kan ladda ned [.net Core för Mac, Linux och Windows](https://www.microsoft.com/net/download).
-* [C# för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [C# för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * Postman. Du kan hämta [Postman för Mac, Windows eller Linux](https://www.getpostman.com/apps).
 * En [IoT-hubb som distribueras till din Azure-prenumeration](../../articles/iot-hub/iot-hub-create-through-portal.md). Du behöver IoT-hubbens anslutnings sträng för att slutföra stegen i den här hand boken. Du kan hämta anslutnings strängen från Azure Portal.
 * En Cosmos DB databas som använder SQL API och som har kon figurer ATS för [stark konsekvens](../../articles/cosmos-db/how-to-manage-database-account.md). Du behöver Cosmos DB databasens anslutnings sträng för att slutföra stegen i den här hand boken. Du kan hämta anslutnings strängen från Azure Portal.

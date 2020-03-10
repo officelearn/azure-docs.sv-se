@@ -1,18 +1,18 @@
 ---
-title: Expandera virtuella hård diskar på en virtuell Linux-dator i Azure
-description: Lär dig hur du expanderar virtuella hård diskar på en virtuell Linux-dator med Azure CLI
+title: Expandera virtuella hård diskar på en virtuell Linux-dator
+description: Lär dig hur du expanderar virtuella hård diskar på en virtuell Linux-dator med Azure CLI.
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3bd85048cf12760d5918544ed6aac803e9fe120a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1295c5276f0f342323acf8d86eaaf9f785af3e9f
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036195"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945189"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expandera virtuella hård diskar på en virtuell Linux-dator med Azure CLI
 

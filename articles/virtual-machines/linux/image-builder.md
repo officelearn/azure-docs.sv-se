@@ -6,15 +6,15 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: gwallace
-ms.openlocfilehash: 1bac04bbb67c7472de92c6da322121bafc20a560
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.subservice: imaging
+ms.openlocfilehash: 15a3b39b1466ffec87971b8f054ca916567d89d7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695438"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944945"
 ---
-# <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>Förhandsversion: Skapa en virtuell Linux-dator med Azure Image Builder
+# <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>För hands version: skapa en virtuell Linux-dator med Azure Image Builder
 
 Den här artikeln visar hur du kan skapa en anpassad Linux-avbildning med hjälp av Azure Image Builder och Azure CLI. Exemplet i den här artikeln använder tre olika [anpassningar](image-builder-json.md#properties-customize) för att anpassa avbildningen:
 
@@ -75,7 +75,7 @@ imageName=myBuilderImage
 runOutputName=aibLinux
 ```
 
-Skapa en variabel för ditt prenumerations-ID. Du kan få detta med `az account show | grep id`hjälp av.
+Skapa en variabel för ditt prenumerations-ID. Du kan få detta med `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Your subscription ID>
@@ -91,7 +91,7 @@ az group create -n $imageResourceGroup -l $location
 ## <a name="set-permissions-on-the-resource-group"></a>Ange behörigheter för resurs gruppen
 Ge avbildnings verktyget deltagare behörighet att skapa avbildningen i resurs gruppen. Utan rätt behörigheter går det inte att generera avbildningen. 
 
-`--assignee` Värdet är appens registrerings-ID för tjänsten Image Builder. 
+`--assignee`-värdet är appens registrerings-ID för tjänsten Image Builder. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -114,14 +114,14 @@ sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateLinux.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
 ```
 
-Du kan ändra det här exemplet. JSON efter behov. Du kan till exempel öka värdet för `buildTimeoutInMinutes` om du vill att ska kunna köra versioner längre. Du kan redigera filen i Cloud Shell med hjälp av en text redigerare `vi`som.
+Du kan ändra det här exemplet. JSON efter behov. Du kan till exempel öka värdet för `buildTimeoutInMinutes` så att du kan köra versioner längre. Du kan redigera filen i Cloud Shell med hjälp av en text redigerare som `vi`.
 
 ```azurecli-interactive
 vi helloImageTemplateLinux.json
 ```
 
 > [!NOTE]
-> För käll avbildningen måste du alltid [Ange en version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure)som du inte kan `latest`använda.
+> För käll avbildningen måste du alltid [Ange en version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), du kan inte använda `latest`.
 >
 > Om du lägger till eller ändrar resurs gruppen där avbildningen distribueras måste du kontrol lera att [behörigheterna har angetts för resurs gruppen](#set-permissions-on-the-resource-group).
 
@@ -140,7 +140,7 @@ az resource create \
 
 Om det är klart kommer det att returnera ett meddelande om att det är klart och skapa en avbildning för konfigurations mal len för avbildnings byggare i $imageResourceGroup. Du kan se resurs gruppen i portalen om du aktiverar Visa dolda typer.
 
-I bakgrunden skapar Image Builder en resurs grupp för mellanlagring i din prenumeration. Image Builder använder mellanlagrings resurs gruppen för avbildnings versionen. Namnet på resurs gruppen är i det här formatet: `IT_<DestinationResourceGroup>_<TemplateName>`.
+I bakgrunden skapar Image Builder en resurs grupp för mellanlagring i din prenumeration. Image Builder använder mellanlagrings resurs gruppen för avbildnings versionen. Namnet på resurs gruppen kommer att ha följande format: `IT_<DestinationResourceGroup>_<TemplateName>`.
 
 > [!IMPORTANT]
 > Ta inte bort den mellanlagrings resurs gruppen direkt. Om du tar bort bild mal len artefakt tas den mellanlagrings resurs gruppen bort automatiskt. Mer information finns i avsnittet [Rensa](#clean-up) i slutet av den här artikeln.
@@ -203,7 +203,7 @@ Du bör se att avbildningen har anpassats till ett meddelande om dygnet så snar
 *******************************************************
 ```
 
-Skriv `exit` när du är färdig för att stänga ssh-anslutningen.
+Skriv `exit` när du är färdig för att stänga SSH-anslutningen.
 
 ## <a name="check-the-source"></a>Kontrol lera källan
 

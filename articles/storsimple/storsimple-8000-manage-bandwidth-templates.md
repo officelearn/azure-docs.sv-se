@@ -1,6 +1,6 @@
 ---
-title: Hantera bandbreddsmallar för StorSimple 8000-serien | Microsoft Docs
-description: Beskriver hur du hanterar StorSimple bandbreddsmallar, där du kan styra bandbreddsanvändning.
+title: Hantera bandbredds-mallar för StorSimple 8000-serien | Microsoft Docs
+description: Beskriver hur du hanterar StorSimple för bandbredd, vilket gör att du kan kontrol lera bandbredds användningen.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,161 +15,161 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 13a3e57bb27c075fc045e87790dbe13369ed9f8e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699485"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366776"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Använda StorSimple Device Manager-tjänsten för att hantera StorSimple bandbreddsmallar
+# <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Använd tjänsten StorSimple Enhetshanteraren för att hantera mallar för StorSimple-bandbredd
 
 ## <a name="overview"></a>Översikt
 
-Bandbreddsmallar kan du konfigurera användningen av nätverksbandbredd mellan flera scheman för tid på dagen till tier data från StorSimple-enhet till molnet.
+Med hjälp av Bandwidth templates kan du konfigurera nätverks bandbredds användning över flera tids-och dags scheman för att skikta data från StorSimple-enheten till molnet.
 
-Med bandbreddsbegränsning scheman kan du:
+Med scheman för bandbredds begränsning kan du:
 
-* Definiera anpassade bandbredd beroende på arbetsbelastningen nätverk användningar.
-* Centralisera hanteringen och återanvända scheman över flera enheter på ett enkelt och smidigt sätt.
+* Ange anpassade bandbredds scheman beroende på arbets Belastningens nätverks användning.
+* Centralisera hanteringen och återanvänd scheman på flera enheter på ett enkelt och smidigt sätt.
 
 > [!NOTE]
-> Den här funktionen är tillgänglig endast för fysiska StorSimple-enheter (modeller 8100 och 8600) och inte för StorSimple Cloud Appliances (modeller 8010 och 8020).
+> Den här funktionen är endast tillgänglig för StorSimple fysiska enheter (modellerna 8100 och 8600) och inte för StorSimple-molnappar (modellerna 8010 och 8020).
 
 
-## <a name="the-bandwidth-templates-blade"></a>Bladet för mallar för bandbredd
+## <a name="the-bandwidth-templates-blade"></a>Bladet mallar för bandbredd
 
-Den **bandbreddsmallar** bladet har alla bandbreddsmallar för din tjänst i tabellformat, och innehåller följande information:
+Bladet **Bandwidth templates** har alla Bandwidth-mallar för din tjänst i tabell format och innehåller följande information:
 
-* **Namn på** – ett unikt namn som tilldelas bandbreddsmallen när den skapades.
-* **Schema** – antalet scheman som tillhör en viss bandbredd-mall.
-* **Används av** – antalet volymer med hjälp av bandbreddsmallar.
+* **Namn** – ett unikt namn som tilldelats bandbredds mal len när den skapades.
+* **Schema** – antalet scheman som ingår i en specifik bandbredds mal len.
+* **Används av** – antalet volymer som använder Bandwidth-mallarna.
 
-Du kan också hitta ytterligare information för att konfigurera bandbreddsmallar i:
+Du kan också hitta ytterligare information som hjälper dig att konfigurera Bandwidth-mallar i:
 
-* [Frågor och svar om bandbreddsmallar](#questions-and-answers-about-bandwidth-templates)
-* [Metodtips för bandbreddsmallar](#best-practices-for-bandwidth-templates)
+* [Frågor och svar om bandbredds mallar](#questions-and-answers-about-bandwidth-templates)
+* [Metod tips för mallar för bandbredd](#best-practices-for-bandwidth-templates)
 
-## <a name="add-a-bandwidth-template"></a>Lägg till en bandbreddsmall
+## <a name="add-a-bandwidth-template"></a>Lägg till en bandbredds mall
 
-Utför följande steg för att skapa en ny bandbreddsmall för.
+Utför följande steg för att skapa en ny bandbredds mall.
 
-#### <a name="to-add-a-bandwidth-template"></a>Att lägga till en bandbreddsmall
+#### <a name="to-add-a-bandwidth-template"></a>Lägga till en bandbredds mall
 
-1. Gå till StorSimple Device Manager-tjänsten, klicka på **bandbreddsmallar** och klicka sedan på **+ Lägg till bandbreddsmall**.
+1. Gå till din StorSimple Enhetshanteraren-tjänst, klicka på **mallar för bandbredd** och klicka sedan på **+ Lägg till bandbredds mal len**.
 
-    ![Klicka på + Lägg till bandbreddsmall](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp1.png)
+    ![Klicka på + Lägg till bandbredd mall](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp1.png)
 
-2. I den **Lägg till bandbreddsmall** bladet gör följande:
+2. Utför följande steg på bladet **Lägg till bandbredd** :
    
-    1. Ange ett unikt namn för bandbreddsmallen för.
-    2. Definiera ett schema för bandbredd. Skapa ett schema:
+    1. Ange ett unikt namn för bandbredds mal len.
+    2. Definiera ett schema för bandbredd. Så här skapar du ett schema:
    
-        1. Från listrutan, väljer den **dagar** i veckan schemat är konfigurerad för. Du kan välja flera dagar.        
+        1. Välj de vecko **dagar** som schemat har kon figurer ATS för i list rutan. Du kan välja flera dagar.        
         
-        2. Ange en **starttid** i _hh: mm_ format. Detta är när påbörjas schemat.
+        2. Ange en **Start tid** i formatet _hh: mm_ . Detta är när schemat ska börja.
 
-        3. Ange en **sluttid** i _hh: mm_ format. Detta är när schemat avbryts.
+        3. Ange en **slut tid** i formatet _hh: mm_ . Detta är när schemat kommer att stoppas.
       
            > [!NOTE]
-           > Överlappande scheman tillåts inte. Om start- och sluttider resulterar i ett överlappande schema, visas ett felmeddelande för detta.
+           > Överlappande scheman är inte tillåtna. Om start-och slut tiderna leder till ett överlappande schema, visas ett fel meddelande om detta.
 
-        4. Ange den **Bandbreddshastighet**. Det här är bandbredden i megabit per sekund (Mbit/s) som används av din StorSimple-enhet i åtgärder som rör molnet (överföringar och nedladdningar). Ange ett tal mellan 1 och 1 000 för det här fältet.
+        4. Ange **bandbredds frekvensen**. Detta är bandbredden i megabit per sekund (Mbit/s) som används av din StorSimple-enhet i åtgärder som involverar molnet (både uppladdning och nedladdning). Ange ett tal mellan 1 och 1 000 för det här fältet.
 
-            ![Definiera bandbredd schema](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp2.png)
+            ![Definiera schema för bandbredd](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp2.png)
          
-            Upprepa stegen ovan för att definiera flera scheman för mallen tills du är klar.
+            Upprepa stegen ovan för att definiera flera scheman för mallen tills du är färdig.
 
-        5. Klicka på **Lägg till** att börja skapa en bandbreddsmall. Mallen som du har skapat läggs till i listan över bandbreddsmallar.
+        5. Klicka på **Lägg till** för att börja skapa en bandbredds mall. Den skapade mallen läggs till i listan över bandbredds mal len.
       
 
-## <a name="edit-a-bandwidth-template"></a>Redigera en bandbreddsmall
+## <a name="edit-a-bandwidth-template"></a>Redigera en bandbredds mall
 
-Utför följande steg om du vill redigera en bandbreddsmall.
+Utför följande steg för att redigera en bandbredds mall.
 
-### <a name="to-edit-a-bandwidth-template"></a>Så här redigerar du en bandbreddsmall
+### <a name="to-edit-a-bandwidth-template"></a>Redigera en bandbredds mall
 
-1. Gå till StorSimple Device Manager-tjänsten och klicka på **bandbreddsmallar**.
-2. Välj den mall som du vill ta bort i listan över bandbreddsmallar. Högerklicka och välj snabbmenyn **ta bort**.
-3. När du uppmanas att bekräfta klickar du på **OK**. Detta bör ta bort bandbreddsmallen. 
-4. Lista över bandbredd mallar uppdateringar borttagningen.
+1. Gå till StorSimple Enhetshanteraren-tjänsten och klicka på **mallar för bandbredd**.
+2. Välj den mall som du vill ta bort i listan med mallar för bandbredd. Högerklicka och välj **ta bort**på snabb menyn.
+3. När du uppmanas att bekräfta klickar du på **OK**. Detta bör ta bort bandbredds mal len. 
+4. Listan över uppdateringar av Bandwidth-mallar som visar borttagningen.
 
 > [!NOTE]
-> Du kan inte spara dina ändringar om du redigerade schemat överlappar ett befintligt schema i den bandbreddsmallen som du ändrar.
+> Du kan inte spara dina ändringar om det redigerade schemat överlappar ett befintligt schema i bandbredds mal len som du ändrar.
 
-## <a name="delete-a-bandwidth-template"></a>Ta bort en bandbreddsmall
+## <a name="delete-a-bandwidth-template"></a>Ta bort en bandbredds mall
 
-Utför följande steg för att ta bort en bandbreddsmall.
+Utför följande steg för att ta bort en bandbredds mall.
 
-#### <a name="to-delete-a-bandwidth-template"></a>Att ta bort en bandbreddsmall
+#### <a name="to-delete-a-bandwidth-template"></a>Ta bort en bandbredds mall
 
-1. Gå till StorSimple Device Manager-tjänsten och klicka på **bandbreddsmallar**.
-2. Välj den mall som du vill ta bort i listan över bandbreddsmallar. Högerklicka och välj Ta bort på snabbmenyn.
-3. När du uppmanas att bekräfta klickar du på **OK**. Detta bör ta bort bandbreddsmallen.
-4. Lista över bandbredd mallar uppdateringar borttagningen.
+1. Gå till StorSimple Enhetshanteraren-tjänsten och klicka på **mallar för bandbredd**.
+2. Välj den mall som du vill ta bort i listan med mallar för bandbredd. Högerklicka och välj Ta bort på snabb menyn.
+3. När du uppmanas att bekräfta klickar du på **OK**. Detta bör ta bort bandbredds mal len.
+4. Listan över uppdateringar av Bandwidth-mallar som visar borttagningen.
 
-Om mallen används av alla volymer, kommer du inte att kunna ta bort den. Du kan se ett felmeddelande om att mallen är i användning. En dialogrutan med felmeddelandet visas som talar om att alla referenser till mallen bör tas bort.
+Om mallen används av en eller flera volymer, kommer du inte att kunna ta bort den. Ett fel meddelande visas som anger att mallen används. Ett fel meddelande dialog ruta visas som uppmanar dig att alla referenser till mallen ska tas bort.
 
-Du kan ta bort alla referenser till mallen genom att öppna den **Volymbehållare** sidan och ändra de volymbehållare som använder den här mallen så att de använder en annan mall eller använda en anpassad eller obegränsad bandbreddsinställning. När alla referenser har tagits bort, kan du ta bort mallen.
+Du kan ta bort alla referenser till mallen genom att öppna sidan **volym behållare** och ändra de volym behållare som använder mallen så att de använder en annan mall eller använder en anpassad eller obegränsad bandbredds inställning. När alla referenser har tagits bort kan du ta bort mallen.
 
-## <a name="use-a-default-bandwidth-template"></a>Använda en standardmall för bandbredd
+## <a name="use-a-default-bandwidth-template"></a>Använd en mall för standard bandbredd
 
-En standardmall för bandbredd tillhandahålls och används av volymbehållare som standard för att framtvinga kontrollerna för nätverksband vid åtkomst till molnet. Standardmallen fungerar också som en referens som är redo för användare som skapar sina egna mallar. Information om den här standardmallen är:
+En standardmall för bandbredd anges och används av volym behållare som standard för att genomdriva bandbredds kontroller vid åtkomst till molnet. Standard mal len fungerar också som en färdig referens för användare som skapar egna mallar. Information om den här standard mal len är:
 
-* **Namn på** – obegränsat nätter och helger
-* **Schema** – ett enda schema från måndag till fredag som gäller en bandbreddshastighet på 1 Mbit/s mellan 8: 00 och 17: 00 enhetens tid. Bandbredden som är inställd på obegränsad för resten av veckan.
+* **Namn** – obegränsade nätter och helger
+* **Schema** – ett enda schema från måndag till fredag som tillämpar en bandbredd på 1 Mbit/s mellan 8 och 5 PM-enhets tid. Bandbredden är inställd på obegränsad för resten av veckan.
 
-Standardmallen kan redigeras. Användningen av den här mallen (inklusive redigerade versionerna) spåras.
+Standard mal len kan redige ras. Användningen av den här mallen (inklusive redigerade versioner) spåras.
 
-## <a name="create-an-all-day-bandwidth-template-that-starts-at-a-specified-time"></a>Skapa en varar hela bandbreddsmallen som börjar vid en angiven tid
+## <a name="create-an-all-day-bandwidth-template-that-starts-at-a-specified-time"></a>Skapa en mall för bandbredd som startar vid en viss tidpunkt
 
-Följ den här proceduren om du vill skapa ett schema som startar vid en viss tidpunkt och kör hela dagen. I det här exemplet schemat börjar kl. 9 på morgonen och körs fram till den 9: 00 nästa morgon. Det är viktigt att notera att start- och sluttider för ett visst schema måste båda finnas på samma 24-timmars schema och kan inte omfatta flera dagar. Om du vill konfigurera bandbreddsmallar som sträcker sig över flera dagar kommer du behöva använda flera scheman (som visas i det här exemplet).
+Följ den här proceduren om du vill skapa ett schema som startar vid en angiven tidpunkt och körs hela dagen. I exemplet börjar schemat kl. 9 i morgon och körs tills kl. 9 är nästa morgon. Det är viktigt att Observera att start-och slut tiderna för ett angivet schema måste båda ingå i samma 24-timmarsformat och kan inte omfatta flera dagar. Om du behöver skapa mallar för bandbredd som sträcker sig över flera dagar måste du använda flera scheman (som visas i exemplet).
 
-#### <a name="to-create-an-all-day-bandwidth-template"></a>Skapa en varar hela bandbreddsmall
+#### <a name="to-create-an-all-day-bandwidth-template"></a>Skapa en bandbredds mal len för hela dagar
 
-1. Skapa ett schema som startar kl. 9 på morgonen och kör till midnatt.
-2. Lägg till ett annat schema. Konfigurera andra schemat på körning från midnatt fram till 9: 00 på morgonen.
-3. Spara bandbreddsmallen.
+1. Skapa ett schema som börjar kl. 9 i morgon och körs till midnatt.
+2. Lägg till ett annat schema. Konfigurera det andra schemat så att det körs från midnatt till kl. 9 i morgon.
+3. Spara bandbredds mal len.
 
-Sammansatt schema kommer sedan att starta i taget valfri och kör varar hela.
+Det sammansatta schemat startar sedan vid en tidpunkt då du väljer och kör hela dagen.
 
-## <a name="questions-and-answers-about-bandwidth-templates"></a>Frågor och svar om bandbreddsmallar
+## <a name="questions-and-answers-about-bandwidth-templates"></a>Frågor och svar om bandbredds mallar
 
-**FRÅGOR OCH**. Vad händer med bandbreddskontroller när du är mellan scheman? (Ett schema har avslutats och en annan har inte startat ännu.)
+**F**. Vad händer med bandbredds kontrollerna när du är mellan scheman? (Ett schema har avslut ATS och ett annat har ännu inte startats.)
 
-**EN**. I sådana fall kan ska inga bandbreddskontroller användas. Det innebär att enheten kan använda obegränsad bandbredd när lagringsnivåer data till molnet.
+**A**. I sådana fall används inga bandbredds kontroller. Det innebär att enheten kan använda obegränsad bandbredd när data skiktas i molnet.
 
-**FRÅGOR OCH**. Kan du ändra bandbreddsmallar på en offline-enhet?
+**F**. Kan du ändra bandbredds-mallar på en offline-enhet?
 
-**EN**. Du kommer inte att kunna ändra bandbreddsmallar på volymer behållare om motsvarande enheten är offline.
+**A**. Du kan inte ändra bandbredds mal rutorna på volym behållare om motsvarande enhet är offline.
 
-**FRÅGOR OCH**. Kan du redigera en bandbreddsmall som är associerade med en volymbehållare när tillhörande volymer är offline?
+**F**. Kan du redigera en bandbredds mal len som är kopplad till en volym behållare när de associerade volymerna är offline?
 
-**EN**. Du kan ändra en bandbreddsmall som är associerade med en volymbehållare vars volymer är offline. Observera att när volymer är offline kan inga data kommer att vara nivåindelad från enheten till molnet.
+**A**. Du kan ändra en bandbredds mal len som är associerad med en volym behållare vars volymer är offline. Observera att när volymer är offline kommer inga data att flyttas från enheten till molnet.
 
-**FRÅGOR OCH**. Kan du ta bort en standardmall?
+**F**. Kan du ta bort en standard mall?
 
-**EN**. Även om du kan ta bort en standardmall, men det är inte en bra idé att göra detta. Användningen av en standardmall, inklusive redigerade versionerna spåras. Spårning av data analyseras och under loppet av tid används för att förbättra standardmallen.
+**A**. Även om du kan ta bort en standardmall är det ingen bra idé att göra det. Användningen av en standardmall, inklusive redigerade versioner, spåras. Spårnings data analyseras och under tiden används för att förbättra standard mal len.
 
-**FRÅGOR OCH**. Hur vet du att din bandbreddsmallar behöver ändras?
+**F**. Hur avgör du om du behöver ändra dina bandbredds mallar?
 
-**EN**. En av loggar att du behöver ändra mallarna som bandbredd är när du startar ser nätverket långsammare eller strypning flera gånger under en dag. Om det händer kan du övervaka nätverk för lagring och användning genom att studera diagrammen i/o-prestanda och dataflöde i nätverket.
+**A**. Ett av de tecken du behöver för att ändra bandbredds malerna är när du börjar se att nätverket saktas ned eller strypningar flera gånger under en dag. I så fall kan du övervaka lagrings-och användnings nätverket genom att titta på diagram för I/O-prestanda och nätverks data flöde.
 
-Identifiera tid på dagen och de volymbehållare som nätverk flaskhalsen uppstår från dataflöde nätverksdata. Om detta händer när är som nivåindelade data till molnet (hämta informationen från i/o-prestanda för alla volymbehållare för enheten till molnet), måste du ändra mallarna bandbredd som är associerade med din volymbehållare.
+Identifiera den tid på dygnet och de volym behållare där nätverks Flask halsen inträffar i data flödes data. Om detta inträffar när data på nivå av molnet (hämtar den här informationen från I/O-prestanda för alla volym behållare för enhet till moln) måste du ändra de bandbredds mallar som är kopplade till dina volym behållare.
 
-När de ändrade mallarna är i användning, behöver övervaka igen efter betydande fördröjningar i nätverket. Om de fortfarande finns måste du gå tillbaka till din bandbreddsmallar.
+När de ändrade mallarna används måste du övervaka nätverket igen under en avsevärd fördröjning. Om dessa fortfarande finns måste du gå tillbaka till bandbredds-mallarna.
 
-**FRÅGOR OCH**. Vad händer om flera volymbehållare på enheten har schemalägger som överlappar varandra men olika begränsningar gäller för var och en?
+**F**. Vad händer om flera volym behållare på enheten har scheman som överlappar varandra men olika gränser gäller för var och en?
 
-**EN**. Anta att du har en enhet med 3 volymbehållare. Scheman som är associerade med de här behållarna helt överlappar varandra. För var och en av de här behållarna är gränser för bandbredd som används 5, 10, 15 Mbit/s respektive. När i/o sker på alla dessa behållare på samma gång, minst 3 bandbreddsgränserna kan tillkomma: i det här fallet 5 Mbit/s som dessa utgående i/o-begäranden dela samma kö.
+**A**. Vi antar att du har en enhet med 3 Volym behållare. De scheman som är kopplade till dessa behållare är helt överlappande. För var och en av dessa behållare är de bandbredds gränser som används 5, 10 respektive 15 Mbps. När I/O sker på alla dessa behållare på samma gång, kan minst 3 bandbredds gränser tillämpas: i det här fallet är 5 Mbit/s som dessa utgående I/O-begäranden delar samma kö.
 
-## <a name="best-practices-for-bandwidth-templates"></a>Metodtips för bandbreddsmallar
+## <a name="best-practices-for-bandwidth-templates"></a>Metod tips för mallar för bandbredd
 
-Följ dessa rekommenderade säkerhetsmetoderna för din StorSimple-enhet:
+Följ dessa rekommendationer för din StorSimple-enhet:
 
-* Konfigurera bandbreddsmallar på enheten för att aktivera variabeln begränsning av nätverkets genomflöde av enheten vid olika tidpunkter på dagen. Dessa bandbreddsmallar när det används med scheman för säkerhetskopiering kan effektivt utnyttja ytterligare nätverksbandbredd molnanvändning vid låg belastning.
-* Beräkna den faktiska bandbredd som krävs för en viss distribution baserat på storleken på distributionen och den nödvändiga återställningstiden (RTO).
+* Konfigurera bandbredds-mallar på enheten för att möjliggöra varierande begränsning av nätverks flödet av enheten vid olika tidpunkter på dagen. De här mallarna för bandbredd när de används med säkerhets kopierings scheman kan effektivt utnyttja ytterligare nätverks bandbredd för moln åtgärder under låg belastnings tider.
+* Beräkna den faktiska bandbredd som krävs för en viss distribution baserat på distributionens storlek och det nödvändiga målet för återställnings tid (RTO).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [med StorSimple Device Manager-tjänsten för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+Lär dig mer om [att använda tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
 

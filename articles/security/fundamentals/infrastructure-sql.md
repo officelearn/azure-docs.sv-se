@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: 74b0fa4643907493904e77ce333d1ec1dba01f49
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727105"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942958"
 ---
 # <a name="azure-sql-database-security-features"></a>Azure SQL Database säkerhetsfunktioner    
 Azure SQL Database tillhandahåller en Relations databas tjänst i Azure. För att skydda kunddata och tillhandahålla starka säkerhetsfunktioner som kunderna förväntar sig av en Relations databas tjänst, SQL Database ha egna uppsättningar med säkerhetsfunktioner. Dessa funktioner bygger på de kontroller som ärvs från Azure.
@@ -62,9 +62,9 @@ Eftersom infrastruktur styrenheten (FC) är den centrala Orchestrator-infrastruk
 ### <a name="vlan-isolation"></a>VLAN-isolering
 Azures produktions nätverk är logiskt åtskilda i tre primära VLAN:
 
-- Huvud-VLAN: Kopplar ihop ej betrodda kundnoder.
-- FC VLAN: Innehåller betrodda FCs-och support system.
-- Enhetens VLAN: Innehåller betrodda nätverks-och andra infrastruktur enheter.
+- Huvud-VLAN: en samman koppling av ej betrodda kundnoder.
+- FC VLAN: innehåller betrodda FCs-och support system.
+- Enhetens VLAN: innehåller betrodda nätverks-och andra infrastruktur enheter.
 
 ### <a name="packet-filtering"></a>Paket filtrering
 IPFilter och program varu brand väggarna som implementeras på rot operativ systemet och gäst operativ systemet på noderna tillämpar anslutnings begränsningar och förhindrar obehörig trafik mellan virtuella datorer.
@@ -75,7 +75,7 @@ Isolering av rot operativ systemet från de virtuella gäst datorerna och de vir
 ### <a name="types-of-rules-on-firewalls"></a>Typer av regler för brand väggar
 En regel definieras som:
 
-{Security Response Center (SRC) IP, källport, mål-IP, målport, mål protokoll, in/ut, tillstånds känslig/tillstånds lös, timeout för tillstånds känsligt flöde}.
+{Src IP, källport, mål-IP, målport, mål protokoll, in/ut, tillstånds känslig/tillstånds lös, timeout för tillstånds känsligt flöde}.
 
 Tillståndet för synkrona inaktiva Character (SYN) tillåts endast i eller ut om någon av reglerna tillåter det. För TCP använder Azure tillstånds lösa regler där principen är att endast tillåta alla icke-SYN-paket till eller från den virtuella datorn. Säkerhets lokal är att alla värdars stackar är elastiska att ignorera en icke-SYN om den inte har sett ett SYN paket tidigare. Själva TCP-protokollet är tillstånds känsligt, och i kombination med tillstånds lösa SYNbaserade regler uppnås ett övergripande beteende för en tillstånds känslig implementering.
 
@@ -104,5 +104,3 @@ Mer information om vad Microsoft gör för att skydda Azure-infrastrukturen finn
 - [Övervakning av Azure-infrastruktur](infrastructure-monitoring.md)
 - [Integritet för Azure-infrastruktur](infrastructure-integrity.md)
 - [Data skydd för Azure-kunder](protection-customer-data.md)
-
-

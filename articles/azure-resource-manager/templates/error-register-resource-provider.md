@@ -4,11 +4,11 @@ description: Beskriver hur du löser registrerings fel i Azure Resource Provider
 ms.topic: troubleshooting
 ms.date: 02/15/2019
 ms.openlocfilehash: a9182be53cc91240a62ab201efc53d674f7cf427
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484524"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390051"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Åtgärda fel för registreringen av resursprovidern
 
@@ -79,13 +79,13 @@ Hämta API-versioner som stöds för en viss typ av resurs med:
 
 ## <a name="solution-2---azure-cli"></a>Lösning 2 – Azure CLI
 
-Om du vill se om providern är registrerad, använda den `az provider list` kommando.
+Om du vill se om providern är registrerad använder du kommandot `az provider list`.
 
 ```azurecli-interactive
 az provider list
 ```
 
-Registrera en resursprovider genom att använda den `az provider register` kommandot och ange den *namnområde* att registrera.
+Registrera en resurs leverantör genom att använda kommandot `az provider register` och ange *namn området* som ska registreras.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Cdn
@@ -101,7 +101,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 Du kan se registreringsstatus och registrerar en resursproviderns namnområde via portalen.
 
-1. Från portalen, väljer **alla tjänster**.
+1. Från portalen väljer du **alla tjänster**.
 
    ![Välj alla tjänster](./media/error-register-resource-provider/select-all-services.png)
 
@@ -113,10 +113,10 @@ Du kan se registreringsstatus och registrerar en resursproviderns namnområde vi
 
    ![Välj prenumeration för att registrera resursprovidern](./media/error-register-resource-provider/select-subscription-to-register.png)
 
-1. Din prenumeration, Välj **resursprovidrar**.
+1. För din prenumeration väljer du **resurs leverantörer**.
 
    ![Välj resursprovidrar](./media/error-register-resource-provider/select-resource-provider.png)
 
-1. Titta på listan över resursprovidrar och om det behövs väljer den **registrera** länk för att registrera resursprovidern för den typ som du försöker distribuera.
+1. Titta på listan över resurs leverantörer och om det behövs väljer du länken **Registrera** för att registrera resurs leverantören av den typ som du försöker distribuera.
 
    ![Lista resursprovidrar](./media/error-register-resource-provider/list-resource-providers.png)

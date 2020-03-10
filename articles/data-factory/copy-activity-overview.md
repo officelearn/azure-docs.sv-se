@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/08/2020
 ms.author: jingwang
 ms.openlocfilehash: 0e138e954501df3cf3c3c8819d0198ad9a9288f0
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754458"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357264"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopierings aktivitet i Azure Data Factory
 
@@ -131,12 +131,12 @@ Följande mall för en kopierings aktivitet innehåller en fullständig lista ö
 | typeProperties | Ange egenskaper för att konfigurera kopierings aktiviteten. | Ja |
 | källa | Ange typ av kopierings källa och motsvarande egenskaper för att hämta data.<br/>Mer information finns i avsnittet "Kopiera aktivitets egenskaper" i den kopplings artikel som visas i [data lager och format som stöds](#supported-data-stores-and-formats). | Ja |
 | sink | Ange typ av kopierings mottagare och motsvarande egenskaper för att skriva data.<br/>Mer information finns i avsnittet "Kopiera aktivitets egenskaper" i den kopplings artikel som visas i [data lager och format som stöds](#supported-data-stores-and-formats). | Ja |
-| translator | Ange explicita kolumnmappningarna från källa till mottagare. Den här egenskapen gäller när standard kopierings beteendet inte uppfyller dina behov.<br/>Mer information finns i [schema mappning i kopierings aktivitet](copy-activity-schema-and-type-mapping.md). | Inga |
-| dataIntegrationUnits | Ange ett mått som representerar den mängd potens som [Azure integration runtime](concepts-integration-runtime.md) använder för data kopiering. Dessa enheter kallades tidigare för moln data förflyttnings enheter (DMU). <br/>Mer information finns i [data integrerings enheter](copy-activity-performance.md#data-integration-units). | Inga |
-| parallelCopies | Ange den parallellitet som du vill att kopierings aktiviteten ska använda vid inläsning av data från källan och skrivning av data till mottagaren.<br/>Mer information finns i [parallell kopiering](copy-activity-performance.md#parallel-copy). | Inga |
-| bibehålla | Ange om du vill bevara metadata/ACL: er under data kopieringen. <br/>Mer information finns i [bevara metadata](copy-activity-preserve-metadata.md). |Inga |
-| enableStaging<br/>stagingSettings | Ange om du vill mellanlagra interims data i Blob Storage i stället för att kopiera data direkt från källa till mottagare.<br/>Information om användbara scenarier och konfigurations information finns i [mellanlagrad kopia](copy-activity-performance.md#staged-copy). | Inga |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Välj hur du vill hantera inkompatibla rader när du kopierar data från källa till mottagare.<br/>Mer information finns i [fel tolerans](copy-activity-fault-tolerance.md). | Inga |
+| translator | Ange explicita kolumnmappningarna från källa till mottagare. Den här egenskapen gäller när standard kopierings beteendet inte uppfyller dina behov.<br/>Mer information finns i [schema mappning i kopierings aktivitet](copy-activity-schema-and-type-mapping.md). | Nej |
+| dataIntegrationUnits | Ange ett mått som representerar den mängd potens som [Azure integration runtime](concepts-integration-runtime.md) använder för data kopiering. Dessa enheter kallades tidigare för moln data förflyttnings enheter (DMU). <br/>Mer information finns i [data integrerings enheter](copy-activity-performance.md#data-integration-units). | Nej |
+| parallelCopies | Ange den parallellitet som du vill att kopierings aktiviteten ska använda vid inläsning av data från källan och skrivning av data till mottagaren.<br/>Mer information finns i [parallell kopiering](copy-activity-performance.md#parallel-copy). | Nej |
+| bibehålla | Ange om du vill bevara metadata/ACL: er under data kopieringen. <br/>Mer information finns i [bevara metadata](copy-activity-preserve-metadata.md). |Nej |
+| enableStaging<br/>stagingSettings | Ange om du vill mellanlagra interims data i Blob Storage i stället för att kopiera data direkt från källa till mottagare.<br/>Information om användbara scenarier och konfigurations information finns i [mellanlagrad kopia](copy-activity-performance.md#staged-copy). | Nej |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Välj hur du vill hantera inkompatibla rader när du kopierar data från källa till mottagare.<br/>Mer information finns i [fel tolerans](copy-activity-fault-tolerance.md). | Nej |
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -179,7 +179,7 @@ Information om körningen av kopierings aktiviteten och prestanda egenskaperna r
 | rowsCopied | Antal rader som kopierats till Sink (gäller inte för binär kopia). | Int64-värde (ingen enhet) |
 | rowsSkipped | Antal inkompatibla rader som hoppades över. Du kan aktivera inkompatibla rader som ska hoppas över genom att ange `enableSkipIncompatibleRow` till true. | Int64-värde (ingen enhet) |
 | copyDuration | Kopierings körningens längd. | Int32-värde, i sekunder |
-| Dataflöde | Hastighet för data överföring. | Flytt ALS nummer, i kbit/s |
+| throughput | Hastighet för data överföring. | Flytt ALS nummer, i kbit/s |
 | sourcePeakConnections | Det högsta antalet samtidiga anslutningar som upprättats till käll data lagret under kopierings aktivitets körningen. | Int32-värde (ingen enhet) |
 | sinkPeakConnections| Det högsta antalet samtidiga anslutningar som upprättats till mottagar data lagret under kopierings aktiviteten.| Int32-värde (ingen enhet) |
 | sqlDwPolyBase | Om PolyBase används när data kopieras till SQL Data Warehouse. | Boolean |

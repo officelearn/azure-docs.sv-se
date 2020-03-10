@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670516"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394400"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Windows händelse logg data källor i Azure Monitor
 Windows-händelseloggar är en av de vanligaste [data källorna](agent-data-sources.md) för att samla in data med Windows-agenter sedan många program skriver till händelse loggen i Windows.  Du kan samla in händelser från standard loggar som system och program, förutom att ange anpassade loggar som skapats av program som du behöver övervaka.
@@ -46,7 +46,7 @@ Händelse poster i Windows har en typ av **händelse** och har egenskaperna i f�
 | EventCategory |Händelsens kategori. |
 | EventData |Alla händelse data i RAW-format. |
 | EventID |Händelsens nummer. |
-| eventLevel |Händelsens allvarlighets grad i numerisk form. |
+| EventLevel |Händelsens allvarlighets grad i numerisk form. |
 | EventLevelName |Allvarlighets grad för händelsen i text form. |
 | EventLog |Namnet på händelse loggen som händelsen samlades in från. |
 | ParameterXml |Händelse parameter värden i XML-format. |

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
 ms.openlocfilehash: ec8a00460b4a750339f929eb6879ac6eb63cac8e
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705742"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396465"
 ---
 # <a name="understand-iot-hub-metrics"></a>Förstå IoT Hub mått
 
@@ -45,71 +45,71 @@ IoT Hub tillhandahåller flera mått för att ge dig en översikt över hälsan 
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|d2c.telemetry.ingress.allProtocol|Skicka försök för telemetri|Antal|Totalt|Antalet telemetri från enhet till molnet försökte skickas till din IoT-hubb|Inget|
-|d2c.telemetry.ingress.success|Skickade telemetrimeddelanden|Antal|Totalt|Antal telemetri om enhet till molnet har skickats till din IoT-hubb|Inget|
-|C2D. commands. utgående. Complete. lyckades|C2D meddelande leveranser har slutförts|Antal|Totalt|Antalet meddelande leveranser från moln till enhet har slutförts av enheten|Inget|
-|c2d.commands.egress.abandon.success|Övergivna C2D-meddelanden|Antal|Totalt|Antal meddelanden från moln till enhet som har övergivits av enheten|Inget|
-|c2d.commands.egress.reject.success|Avvisade C2D-meddelanden|Antal|Totalt|Antal meddelanden från moln till enhet som avvisats av enheten|Inget|
-|C2DMessagesExpired|C2D meddelanden har förfallit (förhands granskning)|Antal|Totalt|Antal utgångna meddelanden från moln till enhet|Inget|
-|devices.totalDevices|Totalt antal enheter (inaktuella)|Antal|Totalt|Antal enheter som har registrerats för din IoT-hubb|Inget|
-|devices.connectedDevices.allProtocol|Anslutna enheter (inaktuella) |Antal|Totalt|Antal enheter som är anslutna till din IoT-hubb|Inget|
-|d2c.telemetry.egress.success|Routning: telemetri meddelanden levereras|Antal|Totalt|Antalet gånger som meddelanden har levererats till alla slut punkter med hjälp av IoT Hub routning. Om ett meddelande dirigeras till flera slut punkter ökar det här värdet med ett för varje lyckad leverans. Om ett meddelande skickas till samma slut punkt flera gånger ökar det här värdet med ett för varje lyckad leverans.|Inget|
-|d2c.telemetry.egress.dropped|Routning: telemetri ignoreras |Antal|Totalt|Antalet gånger som meddelanden släpptes genom IoT Hub routning på grund av död slut punkter. Det här värdet räknar inte meddelanden som levereras till återställnings vägen eftersom ignorerade meddelanden inte levereras där.|Inget|
-|d2c.telemetry.egress.orphaned|Routning: telemetri-meddelanden har överblivna |Antal|Totalt|Antalet gånger som meddelanden har överblivnas av IoT Hub routning eftersom de inte matchade några routningsregler (inklusive återställnings regeln). |Inget|
-|d2c.telemetry.egress.invalid|Routning: telemetri-meddelanden är inkompatibla|Antal|Totalt|Antalet gånger IoT Hub routningen kunde inte leverera meddelanden på grund av inkompatibilitet med slut punkten. Det här värdet omfattar inte återförsök.|Inget|
-|d2c.telemetry.egress.fallback|Routning: meddelanden levererade till reserv|Antal|Totalt|Antalet gånger IoT Hub vidarebefordran av meddelanden till slut punkten som är kopplad till återställnings vägen.|Inget|
-|d2c.endpoints.egress.eventHubs|Routning: meddelanden levererade till Händelsehubben|Antal|Totalt|Antal gånger IoT Hub routning har levererat meddelanden till Event Hub-slutpunkter.|Inget|
-|d2c.endpoints.latency.eventHubs|Routning: meddelandesvarstid för händelsehubb|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelande intränger till en Event Hub-slutpunkt.|Inget|
-|d2c.endpoints.egress.serviceBusQueues|Routning: meddelanden levererade till Service Bus kö|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till Service Bus-köns slut punkter.|Inget|
-|d2c.endpoints.latency.serviceBusQueues|Routning: meddelandesvarstid för Service Bus-kö|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelanden intränger i en Service Bus Queue-slutpunkt.|Inget|
-|d2c.endpoints.egress.serviceBusTopics|Routning: meddelanden levererade till Service Bus ämnet|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till Service Bus ämnes slut punkter.|Inget|
-|d2c.endpoints.latency.serviceBusTopics|Routning: meddelande fördröjning för Service Bus ämne|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelande intränger i en Service Bus avsnitts slut punkt.|Inget|
-|d2c.endpoints.egress.builtIn.events|Routning: meddelanden som levereras till meddelanden/händelser|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till den inbyggda slut punkten (meddelanden/händelser).|Inget|
-|d2c.endpoints.latency.builtIn.events|Routning: meddelande fördröjning för meddelanden/händelser|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och telemetri intränger in i den inbyggda slut punkten (meddelanden/händelser).|Inget|
-|D2C. endpoints. utgående. Storage|Routning: meddelanden som levereras till lagring|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till lagrings slut punkter.|Inget|
-|d2c.endpoints.latency.storage|Routning: meddelande fördröjning för lagring|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelanden intränger i en lagrings slut punkt.|Inget|
-|D2C. endpoints. utgående. Storage. byte|Routning: data som levererats till minne|Byte|Totalt|Mängden data (byte) IoT Hub routning som levereras till lagrings slut punkter.|Inget|
-|d2c.endpoints.egress.storage.blobs|Routning: blobar som levererats till minne|Antal|Totalt|Antal gånger IoT Hub som levererade blobbar till lagrings slut punkter.|Inget|
+|d2c.telemetry.ingress.allProtocol|Skicka försök för telemetri|Antal|Totalt|Antalet telemetri från enhet till molnet försökte skickas till din IoT-hubb|Ingen|
+|d2c.telemetry.ingress.success|Meddelande om telemetri|Antal|Totalt|Antal telemetri om enhet till molnet har skickats till din IoT-hubb|Ingen|
+|C2D. commands. utgående. Complete. lyckades|C2D meddelande leveranser har slutförts|Antal|Totalt|Antalet meddelande leveranser från moln till enhet har slutförts av enheten|Ingen|
+|c2d.commands.egress.abandon.success|Övergivna C2D-meddelanden|Antal|Totalt|Antal meddelanden från moln till enhet som har övergivits av enheten|Ingen|
+|c2d.commands.egress.reject.success|Avvisade C2D-meddelanden|Antal|Totalt|Antal meddelanden från moln till enhet som avvisats av enheten|Ingen|
+|C2DMessagesExpired|C2D meddelanden har förfallit (förhands granskning)|Antal|Totalt|Antal utgångna meddelanden från moln till enhet|Ingen|
+|devices.totalDevices|Totalt antal enheter (inaktuella)|Antal|Totalt|Antal enheter som har registrerats för din IoT-hubb|Ingen|
+|devices.connectedDevices.allProtocol|Anslutna enheter (inaktuella) |Antal|Totalt|Antal enheter som är anslutna till din IoT-hubb|Ingen|
+|d2c.telemetry.egress.success|Routning: telemetri meddelanden levereras|Antal|Totalt|Antalet gånger som meddelanden har levererats till alla slut punkter med hjälp av IoT Hub routning. Om ett meddelande dirigeras till flera slut punkter ökar det här värdet med ett för varje lyckad leverans. Om ett meddelande skickas till samma slut punkt flera gånger ökar det här värdet med ett för varje lyckad leverans.|Ingen|
+|d2c.telemetry.egress.dropped|Routning: telemetri ignoreras |Antal|Totalt|Antalet gånger som meddelanden släpptes genom IoT Hub routning på grund av död slut punkter. Det här värdet räknar inte meddelanden som levereras till återställnings vägen eftersom ignorerade meddelanden inte levereras där.|Ingen|
+|d2c.telemetry.egress.orphaned|Routning: telemetri-meddelanden har överblivna |Antal|Totalt|Antalet gånger som meddelanden har överblivnas av IoT Hub routning eftersom de inte matchade några routningsregler (inklusive återställnings regeln). |Ingen|
+|d2c.telemetry.egress.invalid|Routning: telemetri-meddelanden är inkompatibla|Antal|Totalt|Antalet gånger IoT Hub routningen kunde inte leverera meddelanden på grund av inkompatibilitet med slut punkten. Det här värdet omfattar inte återförsök.|Ingen|
+|d2c.telemetry.egress.fallback|Routning: meddelanden levererade till reserv|Antal|Totalt|Antalet gånger IoT Hub vidarebefordran av meddelanden till slut punkten som är kopplad till återställnings vägen.|Ingen|
+|d2c.endpoints.egress.eventHubs|Routning: meddelanden levererade till Händelsehubben|Antal|Totalt|Antal gånger IoT Hub routning har levererat meddelanden till Event Hub-slutpunkter.|Ingen|
+|d2c.endpoints.latency.eventHubs|Routning: meddelande fördröjning för Event Hub|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelande intränger till en Event Hub-slutpunkt.|Ingen|
+|d2c.endpoints.egress.serviceBusQueues|Routning: meddelanden levererade till Service Bus kö|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till Service Bus-köns slut punkter.|Ingen|
+|d2c.endpoints.latency.serviceBusQueues|Routning: meddelande fördröjning för Service Bus kö|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelanden intränger i en Service Bus Queue-slutpunkt.|Ingen|
+|d2c.endpoints.egress.serviceBusTopics|Routning: meddelanden levererade till Service Bus ämnet|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till Service Bus ämnes slut punkter.|Ingen|
+|d2c.endpoints.latency.serviceBusTopics|Routning: meddelande fördröjning för Service Bus ämne|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelande intränger i en Service Bus avsnitts slut punkt.|Ingen|
+|d2c.endpoints.egress.builtIn.events|Routning: meddelanden som levereras till meddelanden/händelser|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till den inbyggda slut punkten (meddelanden/händelser).|Ingen|
+|d2c.endpoints.latency.builtIn.events|Routning: meddelande fördröjning för meddelanden/händelser|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och telemetri intränger in i den inbyggda slut punkten (meddelanden/händelser).|Ingen|
+|D2C. endpoints. utgående. Storage|Routning: meddelanden som levereras till lagring|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till lagrings slut punkter.|Ingen|
+|d2c.endpoints.latency.storage|Routning: meddelande fördröjning för lagring|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelanden intränger i en lagrings slut punkt.|Ingen|
+|D2C. endpoints. utgående. Storage. byte|Routning: data som levereras till lagring|Byte|Totalt|Mängden data (byte) IoT Hub routning som levereras till lagrings slut punkter.|Ingen|
+|d2c.endpoints.egress.storage.blobs|Routning: blobbar levererade till lagring|Antal|Totalt|Antal gånger IoT Hub som levererade blobbar till lagrings slut punkter.|Ingen|
 |EventGridDeliveries|Event Grid leveranser (för hands version)|Antal|Totalt|Antalet IoT Hub-händelser som publicerats till Event Grid. Använd resultat dimensionen för antalet lyckade och misslyckade förfrågningar. EventType-dimensionen visar typen av händelse (https://aka.ms/ioteventgrid).|ResourceID<br/>Medför<br/>Typ|
 |EventGridLatency|Event Grid svars tid (för hands version)|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) från när IoT Hub-händelsen genererades till när händelsen publicerades till Event Grid. Det här talet är ett medelvärde mellan alla händelse typer. Använd EventType-dimensionen för att se svars tiden för en speciell typ av händelse.|ResourceID<br/>Typ|
-|d2c.twin.read.success|Lyckades dubbla läsningar från enheter|Antal|Totalt|Antalet framgångs rika enhets uppinitierade dubbla läsningar.|Inget|
-|d2c.twin.read.failure|Misslyckade tvillingläsningar från enheter|Antal|Totalt|Antalet misslyckade, dubbla läsningar som initierats av enheten.|Inget|
-|d2c.twin.read.size|Svarsstorlek för tvillingläsningar från enheter|Byte|Medel|Genomsnitt, min och Max för alla lyckade, dubbla läsningar som initierats av enheten.|Inget|
-|d2c.twin.update.success|Lyckade dubbla uppdateringar från enheter|Antal|Totalt|Antalet lyckade, dubbla uppdateringar som initierats av enheten.|Inget|
-|d2c.twin.update.failure|Misslyckade tvillinguppdateringar från enheter|Antal|Totalt|Antalet misslyckade, dubbla uppdateringar som initierats av enheten.|Inget|
-|d2c.twin.update.size|Storlek på dubbla uppdateringar från enheter|Byte|Medel|Genomsnitt, min och Max storlek för alla lyckade, dubbla uppdateringar som initierats av enheten.|Inget|
-|c2d.methods.success|Direkta metod anrop|Antal|Totalt|Antalet lyckade direkta metod anrop.|Inget|
-|C2D. Methods. Failure|Misslyckade direktmetodsanrop|Antal|Totalt|Antalet misslyckade direkta metod anrop.|Inget|
-|C2D. Methods. requestSize|Begäransstorlek för direktmetodsanrop|Byte|Medel|Genomsnitt, min och Max för alla lyckade direkta metod begär Anden.|Inget|
-|C2D. Methods. responseSize|Svarsstorlek för direktmetodsanrop|Byte|Medel|Medelvärde, min och Max för alla lyckade direkta metod svar.|Inget|
-|c2d.twin.read.success|Lyckades dubbla läspaket från Server delen|Antal|Totalt|Antalet dubbla läsningar som initierats av alla lyckade.|Inget|
-|c2d.twin.read.failure|Misslyckade tvillingläsningar från serverdel|Antal|Totalt|Antalet dubbla läsningar som initierats av alla misslyckade backend-slutpunkter.|Inget|
-|c2d.twin.read.size|Svarsstorlek för tvillingläsningar från serverdel|Byte|Medel|Genomsnitt, min och Max för alla lyckade, dubbla läsningar som initieras i slut punkt.|Inget|
-|c2d.twin.update.success|Lyckade tvillinguppdateringar från serverdel|Antal|Totalt|Antalet fullständiga uppdateringar som initierats av alla lyckade backend-uppdateringar.|Inget|
-|c2d.twin.update.failure|Misslyckade tvillinguppdateringar från serverdel|Antal|Totalt|Antalet dubbla uppdateringar som initierats av alla misslyckade backend-slutpunkter.|Inget|
-|c2d.twin.update.size|Storlek på dubbla uppdateringar från Server delen|Byte|Medel|Genomsnitt, min och Max storlek för alla lyckade, dubbla uppdateringar som initieras.|Inget|
-|twinQueries. lyckades|Lyckades dubbla frågor|Antal|Totalt|Antalet lyckade dubbla frågor.|Inget|
-|twinQueries. Failure|Misslyckade tvillingfrågor|Antal|Totalt|Antalet misslyckade dubbla frågor.|Inget|
-|twinQueries.resultSize|Resultat storlek för dubbla frågor|Byte|Medel|Genomsnitt, min och Max för resultat storleken för alla lyckade dubbla frågor.|Inget|
-|jobs.createTwinUpdateJob.success|Skapandet av dubbla uppdaterings jobb lyckades|Antal|Totalt|Antalet slutförda skapandet av dubbla uppdaterings jobb.|Inget|
-|jobs.createTwinUpdateJob.failure|Misslyckat skapande av tvillinguppdateringsjobb|Antal|Totalt|Antalet misslyckade skapandet av dubbla uppdaterings jobb.|Inget|
-|jobs.createDirectMethodJob.success|Lyckade skapande av metod anrops jobb|Antal|Totalt|Antalet slutförda skapande av direkta metod anrops jobb.|Inget|
-|jobs.createDirectMethodJob.failure|Misslyckat skapande av metodanropsjobb|Antal|Totalt|Antalet misslyckade skapande av direkta anrops jobb för metoden.|Inget|
-|jobs.listJobs.success|Lyckade anrop till List jobb|Antal|Totalt|Antalet lyckade anrop till List jobb.|Inget|
-|Jobs. listJobs. Failure|Misslyckade anrop för att lista jobb|Antal|Totalt|Antalet misslyckade anrop till List jobb.|Inget|
-|Jobs. cancelJob. lyckades|Slutförda jobb avbokningar|Antal|Totalt|Antalet lyckade anrop för att avbryta ett jobb.|Inget|
-|Jobs. cancelJob. Failure|Misslyckade jobbannulleringar|Antal|Totalt|Antalet misslyckade anrop för att avbryta ett jobb.|Inget|
-|Jobs. queryJobs. lyckades|Slutförda jobb frågor|Antal|Totalt|Antalet lyckade anrop för att köra frågor mot jobb.|Inget|
-|Jobs. queryJobs. Failure|Misslyckade jobbfrågor|Antal|Totalt|Antalet misslyckade anrop till jobb för frågor.|Inget|
-|jobb. slutfört|Slutförda arbeten|Antal|Totalt|Antalet slutförda jobb.|Inget|
-|jobb. misslyckades|Misslyckade jobb|Antal|Totalt|Antalet misslyckade jobb.|Inget|
-|d2c.telemetry.ingress.sendThrottle|Antal begränsningsfel|Antal|Totalt|Antal begränsnings fel som beror på begränsning av enhetens data flöde|Inget|
-|dailyMessageQuotaUsed|Totalt antal meddelanden som används|Antal|Medel|Antal sammanlagt antal meddelanden som använts idag. Detta är ett ackumulerat värde som återställs till noll vid 00:00 UTC varje dag.|Inget|
-|deviceDataUsage|Total användning av enhets data|Byte|Totalt|Överförda byte till och från alla enheter som är anslutna till IotHub|Inget|
-|deviceDataUsageV2|Total användning av enhets data (för hands version)|Byte|Totalt|Överförda byte till och från alla enheter som är anslutna till IotHub|Inget|
-|totalDeviceCount|Totalt antal enheter (förhands granskning)|Antal|Medel|Antal enheter som har registrerats för din IoT-hubb|Inget|
-|connectedDeviceCount|Anslutna enheter (förhandsversion)|Antal|Medel|Antal enheter som är anslutna till din IoT-hubb|Inget|
-|konfigurationer|Konfigurationsmått|Antal|Totalt|Mått för konfigurations åtgärder|Inget|
+|d2c.twin.read.success|Lyckades dubbla läsningar från enheter|Antal|Totalt|Antalet framgångs rika enhets uppinitierade dubbla läsningar.|Ingen|
+|d2c.twin.read.failure|Misslyckade dubbla läsningar från enheter|Antal|Totalt|Antalet misslyckade, dubbla läsningar som initierats av enheten.|Ingen|
+|d2c.twin.read.size|Svars storlek för dubbla läsningar från enheter|Byte|Medel|Genomsnitt, min och Max för alla lyckade, dubbla läsningar som initierats av enheten.|Ingen|
+|d2c.twin.update.success|Lyckade dubbla uppdateringar från enheter|Antal|Totalt|Antalet lyckade, dubbla uppdateringar som initierats av enheten.|Ingen|
+|d2c.twin.update.failure|Misslyckade dubbla uppdateringar från enheter|Antal|Totalt|Antalet misslyckade, dubbla uppdateringar som initierats av enheten.|Ingen|
+|d2c.twin.update.size|Storlek på dubbla uppdateringar från enheter|Byte|Medel|Genomsnitt, min och Max storlek för alla lyckade, dubbla uppdateringar som initierats av enheten.|Ingen|
+|c2d.methods.success|Direkta metod anrop|Antal|Totalt|Antalet lyckade direkta metod anrop.|Ingen|
+|C2D. Methods. Failure|Misslyckade direkta metod anrop|Antal|Totalt|Antalet misslyckade direkta metod anrop.|Ingen|
+|C2D. Methods. requestSize|Begär ande storlek för direkta metod anrop|Byte|Medel|Genomsnitt, min och Max för alla lyckade direkta metod begär Anden.|Ingen|
+|C2D. Methods. responseSize|Svars storlek för direkta metod anrop|Byte|Medel|Medelvärde, min och Max för alla lyckade direkta metod svar.|Ingen|
+|c2d.twin.read.success|Lyckades dubbla läspaket från Server delen|Antal|Totalt|Antalet dubbla läsningar som initierats av alla lyckade.|Ingen|
+|c2d.twin.read.failure|Det gick inte att dubbla läsningar från Server delen|Antal|Totalt|Antalet dubbla läsningar som initierats av alla misslyckade backend-slutpunkter.|Ingen|
+|c2d.twin.read.size|Svars storlek för dubbla läsningar från Server delen|Byte|Medel|Genomsnitt, min och Max för alla lyckade, dubbla läsningar som initieras i slut punkt.|Ingen|
+|c2d.twin.update.success|Lyckades dubbla uppdateringar från Server delen|Antal|Totalt|Antalet fullständiga uppdateringar som initierats av alla lyckade backend-uppdateringar.|Ingen|
+|c2d.twin.update.failure|Misslyckade dubbla uppdateringar från Server delen|Antal|Totalt|Antalet dubbla uppdateringar som initierats av alla misslyckade backend-slutpunkter.|Ingen|
+|c2d.twin.update.size|Storlek på dubbla uppdateringar från Server delen|Byte|Medel|Genomsnitt, min och Max storlek för alla lyckade, dubbla uppdateringar som initieras.|Ingen|
+|twinQueries. lyckades|Lyckades dubbla frågor|Antal|Totalt|Antalet lyckade dubbla frågor.|Ingen|
+|twinQueries. Failure|Misslyckade dubbla frågor|Antal|Totalt|Antalet misslyckade dubbla frågor.|Ingen|
+|twinQueries.resultSize|Resultat storlek för dubbla frågor|Byte|Medel|Genomsnitt, min och Max för resultat storleken för alla lyckade dubbla frågor.|Ingen|
+|jobs.createTwinUpdateJob.success|Skapandet av dubbla uppdaterings jobb lyckades|Antal|Totalt|Antalet slutförda skapandet av dubbla uppdaterings jobb.|Ingen|
+|jobs.createTwinUpdateJob.failure|Det gick inte att skapa dubbla uppdaterings jobb|Antal|Totalt|Antalet misslyckade skapandet av dubbla uppdaterings jobb.|Ingen|
+|jobs.createDirectMethodJob.success|Lyckade skapande av metod anrops jobb|Antal|Totalt|Antalet slutförda skapande av direkta metod anrops jobb.|Ingen|
+|jobs.createDirectMethodJob.failure|Det gick inte att skapa metod anrops jobb|Antal|Totalt|Antalet misslyckade skapande av direkta anrops jobb för metoden.|Ingen|
+|jobs.listJobs.success|Lyckade anrop till List jobb|Antal|Totalt|Antalet lyckade anrop till List jobb.|Ingen|
+|Jobs. listJobs. Failure|Misslyckade anrop till List jobb|Antal|Totalt|Antalet misslyckade anrop till List jobb.|Ingen|
+|Jobs. cancelJob. lyckades|Slutförda jobb avbokningar|Antal|Totalt|Antalet lyckade anrop för att avbryta ett jobb.|Ingen|
+|Jobs. cancelJob. Failure|Misslyckade jobb-annulleringar|Antal|Totalt|Antalet misslyckade anrop för att avbryta ett jobb.|Ingen|
+|Jobs. queryJobs. lyckades|Slutförda jobb frågor|Antal|Totalt|Antalet lyckade anrop för att köra frågor mot jobb.|Ingen|
+|Jobs. queryJobs. Failure|Misslyckade jobb frågor|Antal|Totalt|Antalet misslyckade anrop till jobb för frågor.|Ingen|
+|jobb. slutfört|Slutförda jobb|Antal|Totalt|Antalet slutförda jobb.|Ingen|
+|jobb. misslyckades|Misslyckade jobb|Antal|Totalt|Antalet misslyckade jobb.|Ingen|
+|d2c.telemetry.ingress.sendThrottle|Antal begränsnings fel|Antal|Totalt|Antal begränsnings fel som beror på begränsning av enhetens data flöde|Ingen|
+|dailyMessageQuotaUsed|Totalt antal meddelanden som används|Antal|Medel|Antal sammanlagt antal meddelanden som använts idag. Detta är ett ackumulerat värde som återställs till noll vid 00:00 UTC varje dag.|Ingen|
+|deviceDataUsage|Total användning av enhets data|Byte|Totalt|Överförda byte till och från alla enheter som är anslutna till IotHub|Ingen|
+|deviceDataUsageV2|Total användning av enhets data (för hands version)|Byte|Totalt|Överförda byte till och från alla enheter som är anslutna till IotHub|Ingen|
+|totalDeviceCount|Totalt antal enheter (förhands granskning)|Antal|Medel|Antal enheter som har registrerats för din IoT-hubb|Ingen|
+|connectedDeviceCount|Anslutna enheter (förhands granskning)|Antal|Medel|Antal enheter som är anslutna till din IoT-hubb|Ingen|
+|konfigurationer|Konfigurations mått|Antal|Totalt|Mått för konfigurations åtgärder|Ingen|
 
 ## <a name="next-steps"></a>Nästa steg
 

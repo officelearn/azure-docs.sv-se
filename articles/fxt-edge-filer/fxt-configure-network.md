@@ -7,11 +7,11 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: a40ff50dcb0934cbf1ea5222675bd75948ac1d03
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551071"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397027"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>Självstudie: Konfigurera klustrets nätverks inställningar
 
@@ -64,7 +64,7 @@ Om du vill veta mer om nätverks inställningar för klustret läser du [Konfigu
 
 * Ladda upp [krypterings certifikat](#encryption-certificates) för klustret som ska användas (valfritt)
 
-### <a name="encryption-certificates"></a>Krypteringscertifikat
+### <a name="encryption-certificates"></a>Krypterings certifikat
 
 FXT Edge-kluster använder X. 509-certifikat för dessa funktioner:
 

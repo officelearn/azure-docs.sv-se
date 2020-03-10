@@ -4,11 +4,11 @@ description: I den här snabb starten följer du stegen för att aktivera resurs
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: e75152c720d94f084b43f855452e5e8ce4dc6bc8
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304133"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360261"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Snabb start: kör din första resurs diagram fråga med Azure CLI
 
@@ -16,7 +16,7 @@ Det första steget till att använda Azure Resource Graph är att kontrollera at
 
 I slutet av den här processen kommer du att ha lagt till tillägget till valfri Azure CLI-installation och kört din första Resource Graph-fråga.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -71,7 +71,7 @@ Nu när Azure CLI-tillägget har lagts till i din valda miljö är det dags att 
    > [!NOTE]
    > Om du kör den här frågan flera kommer den, precis som den första frågan, sannolikt att resultera i olika resurser vid varje begäran. Ordningen på frågekommandona är viktig. I det här exemplet kommer `order by` efter `limit`. Det begränsar först frågeresultaten och sorterar sedan dem.
 
-1. Uppdatera frågan till att först `order by` **Namn**-egenskapen och sedan sätta en `limit` för de fem främsta resultaten:
+1. Uppdatera frågan till att först `order by`**Namn**-egenskapen och sedan sätta en `limit` för de fem främsta resultaten:
 
    ```azurecli-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`

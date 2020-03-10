@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: c14376cc80373371ec5fcb8f22a00584a6b2f714
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072823"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391956"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Konfigurera din Anpassad sökning i Bing upplevelse
 
@@ -133,7 +133,7 @@ Som standard fästs webb sidor bara högst upp i Sök resultaten när en använd
 |---------------|----------------------------------------------------------------------------------|
 | börjar med | PIN-koden är en matchning om användarens frågesträng börjar med PIN-kodens frågesträng |
 | slutar med   | PIN-koden är en matchning om användarens frågesträng slutar med PIN-kodens frågesträng.  |
-| Contains    | PIN-koden är en matchning om användarens frågesträng innehåller PIN-frågesträngen.   |
+| Innehåller    | PIN-koden är en matchning om användarens frågesträng innehåller PIN-frågesträngen.   |
 
 
 Om du vill ändra PIN-kodens matchnings villkor klickar du på PIN-kodens redigerings ikon. I kolumnen **fråga matchnings villkor** klickar du på list rutan och väljer det nya villkor som du vill använda. Klicka sedan på ikonen Spara för att spara ändringen.
@@ -148,7 +148,7 @@ Om flera PIN-krav uppfyller ett matchnings villkor kommer Anpassad sökning i Bi
 
 Om du prenumererar på Anpassad sökning på lämplig nivå (se sidan med [priser](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)) läggs fliken **statistik** till i produktions instanserna. Fliken statistik visar information om hur dina anpassade slut punkter används, inklusive anrops volym, topp frågor, geografisk distribution, svars koder och säker sökning. Du kan filtrera informationen med hjälp av de angivna kontrollerna.
 
-## <a name="usage-guidelines"></a>Riktlinjer för användning
+## <a name="usage-guidelines"></a>Användnings rikt linjer
 
 - För varje anpassad Sök instans är det maximala antalet ranknings justeringar som du kan göra i **aktiva** och **blockerade** segment begränsade till 400.
 - Att lägga till en sektor i aktiva eller blockerade flikar räknas som en ranknings justering.

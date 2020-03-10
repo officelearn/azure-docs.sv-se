@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.openlocfilehash: 488664b028568b3014b9b839122705d35104861e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459569"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392528"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Självstudie: analysera samtals data med Stream Analytics och visualisera resultat i Power BI instrument panel
 
 I den här självstudien lär du dig att analysera telefonsamtalsdata med hjälp av Azure Stream Analytics. Telefonsamtals data som genereras av ett klient program innehåller vissa bedrägliga anrop, som kommer att filtreras av Stream Analyticss jobbet.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Generera exempel på telefonsamtalsdata och skicka dem till Azure Event Hubs
@@ -28,7 +28,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Testa och starta jobbet
 > * Visualisera resultat i Power BI
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar utför du följande åtgärder:
 
@@ -54,7 +54,7 @@ Använd följande steg för att skapa en händelsehubb och skickar samtalsdata t
    |Namn     | myEventHubsNS        |  Ett unikt namn för att identifiera händelsehubbens namnområde.       |
    |Prenumeration     |   \<Din prenumeration\>      |   Välj en Azure-prenumeration där du vill skapa händelsehubben.      |
    |Resursgrupp     |   MyASADemoRG      |  Välj **Skapa ny** och ange ett nytt resursgruppsnamn för ditt konto.       |
-   |Location     |   USA, västra 2      |    Plats där händelsehubbens namnområde kan distribueras.     |
+   |plats.     |   USA, västra 2      |    Plats där händelsehubbens namnområde kan distribueras.     |
 
 4. Använd standardalternativ för de återstående inställningarna och välj **Skapa**.
 
@@ -137,9 +137,9 @@ Nu nr du har en ström av anropshändelser kan du skapa ett Stream Analytics-job
    |Jobbnamn     |  ASATutorial       |   Ett unikt namn för att identifiera händelsehubbens namnområde.      |
    |Prenumeration    |  \<Din prenumeration\>   |   Välj en Azure-prenumeration där du vill skapa jobbet.       |
    |Resursgrupp   |   MyASADemoRG      |   Välj **Använd befintlig** och ange ett nytt resursgruppsnamn för ditt konto.      |
-   |Location   |    USA, västra 2     |      Plats där jobbet kan distribueras. Vi rekommenderar att du placerar jobbet och händelsehubben i samma region för bästa prestanda och så att du inte ska betala för att överföra data mellan regioner.      |
-   |Värdmiljö    | I molnet        |     Stream Analytics-jobb kan distribueras till molnet eller edge. Med molnet kan du distribuera till Azure-molnet, och med Edge kan du distribuera till en IoT Edge enhet.    |
-   |Enheter för strömning     |    1       |      Strömningsenheter representerar de bearbetningsresurser som krävs för att köra ett jobb. Standardvärdet är 1. Mer information om skalning av strömningsenheter finns i artikeln om att [förstå och justera strömningsenheter](stream-analytics-streaming-unit-consumption.md).      |
+   |plats.   |    USA, västra 2     |      Plats där jobbet kan distribueras. Vi rekommenderar att du placerar jobbet och händelsehubben i samma region för bästa prestanda och så att du inte ska betala för att överföra data mellan regioner.      |
+   |Värdmiljö    | Molnet        |     Stream Analytics-jobb kan distribueras till molnet eller edge. Med molnet kan du distribuera till Azure-molnet, och med Edge kan du distribuera till en IoT Edge enhet.    |
+   |Strömningsenheter     |    1       |      Strömningsenheter representerar de bearbetningsresurser som krävs för att köra ett jobb. Standardvärdet är inställt på 1. Mer information om skalning av strömningsenheter finns i artikeln om att [förstå och justera strömningsenheter](stream-analytics-streaming-unit-consumption.md).      |
 
 4. Använd standard alternativen för återstående inställningar, Välj **skapa**och vänta tills distributionen har slutförts.
 

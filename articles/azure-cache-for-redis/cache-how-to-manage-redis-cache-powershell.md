@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: a385d3ed7ef46389f96de72c98ffc29cebf60ec4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978827"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356394"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Hantera Azure cache för Redis med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ Det här avsnittet visar hur du utför vanliga uppgifter som att skapa, uppdater
 
 Mer information om den klassiska distributions modellen finns i [Azure Resource Manager vs. klassisk distribution: förstå distributions modeller och status för dina resurser](../azure-resource-manager/management/deployment-models.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du redan har installerat Azure PowerShell måste du ha Azure PowerShell version 1.0.0 eller senare. Du kan kontrol lera vilken version av Azure PowerShell som du har installerat med det här kommandot i Azure PowerShell kommando tolken.
 
     Get-Module Az | format-table version
@@ -120,18 +120,18 @@ Följande tabell innehåller egenskaper och beskrivningar för vanliga parametra
 | Parameter | Beskrivning | Default |
 | --- | --- | --- |
 | Namn |Namn på cacheminnet | |
-| Location |Plats för cachen | |
+| plats. |Plats för cachen | |
 | ResourceGroupName |Resurs grupp namn som cachen ska skapas i | |
-| Storlek |Storleken på cacheminnet. Giltiga värden är: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 GB, 1 GB, 2,5 GB, 6 GB, 13GB, 26GB, 53GB |1 GB |
+| Storlek |Storleken på cacheminnet. Giltiga värden är: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 GB, 1 GB, 2,5 GB, 6 GB, 13GB, 26GB, 53GB |MINNE |
 | ShardCount |Antalet Shards som ska skapas när du skapar en Premium-cache med klustrad aktive rad. Giltiga värden är: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Anger SKU för cacheminnet. Giltiga värden är: Basic, standard, Premium |Standard |
 | RedisConfiguration |Anger konfigurations inställningar för Redis. Mer information om varje inställning finns i följande [RedisConfiguration Properties](#redisconfiguration-properties) -tabell. | |
-| EnableNonSslPort |Anger om icke-SSL-porten är aktive rad. |Falskt |
+| EnableNonSslPort |Anger om icke-SSL-porten är aktive rad. |False |
 | MaxMemoryPolicy |Den här parametern är inaktuell, Använd RedisConfiguration i stället. | |
 | StaticIP |När du är värd för din cache i ett VNET, anger en unik IP-adress i under nätet för cachen. Om detta inte anges väljs en för dig från under nätet. | |
 | Undernät |När du är värd för din cache i ett VNET anger namnet på det undernät som cachen ska distribueras till. | |
 | VirtualNetwork |När du är värd för din cache i ett VNET, anger resurs-ID för det VNET som cachen ska distribueras till. | |
-| KeyType |Anger vilken åtkomst nyckel som ska återskapas när åtkomst nycklar förnyas. Giltiga värden är: primär, sekundär | |
+| keyType |Anger vilken åtkomst nyckel som ska återskapas när åtkomst nycklar förnyas. Giltiga värden är: primär, sekundär | |
 
 ### <a name="redisconfiguration-properties"></a>Egenskaper för RedisConfiguration
 | Egenskap | Beskrivning | Prisnivåer |
@@ -147,7 +147,7 @@ Följande tabell innehåller egenskaper och beskrivningar för vanliga parametra
 | set-max-intset-entries |Konfigurerar [minnes optimering](https://redis.io/topics/memory-optimization) för små mängd data typer |Standard och Premium |
 | zset-max-ziplist-entries |Konfigurerar [minnes optimering](https://redis.io/topics/memory-optimization) för små mängd data typer |Standard och Premium |
 | zset-max-ziplist-value |Konfigurerar [minnes optimering](https://redis.io/topics/memory-optimization) för små mängd data typer |Standard och Premium |
-| databases |Konfigurerar antalet databaser. Den här egenskapen kan bara konfigureras när cachen skapas. |Standard och Premium |
+| databaser |Konfigurerar antalet databaser. Den här egenskapen kan bara konfigureras när cachen skapas. |Standard och Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Så här skapar du en Azure-cache för Redis
 Nya Azure cache för Redis-instanser skapas med cmdleten [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) .

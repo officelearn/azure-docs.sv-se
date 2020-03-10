@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
 ms.openlocfilehash: 693b2fd8ac7440b67f53de0aedb9a8268a90de76
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75968873"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386603"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snabb start: skapa automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps-Visual Studio
 
@@ -26,7 +26,7 @@ I den här snabb starten skapar du samma Logic-app med Visual Studio som Azure P
 
 <a name="prerequisites"></a>
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -111,8 +111,8 @@ När du har ett Azure-resurs grupps projekt skapar du din Logic app med den **to
 
    | Inställning | Exempelvärde | Beskrivning |
    | ------- | ------------- | ----------- |
-   | Användar konto | Fabrikam <br> sophia-owen@fabrikam.com | Det konto som du använde när du loggade in i Visual Studio |
-   | **Prenumeration** | Användningsbaserad betalning <br> (sophia-owen@fabrikam.com) | Namnet på din Azure-prenumeration och det associerade kontot |
+   | Användar konto | Produkter <br> sophia-owen@fabrikam.com | Det konto som du använde när du loggade in i Visual Studio |
+   | **Prenumeration** | Betala per användning <br> (sophia-owen@fabrikam.com) | Namnet på din Azure-prenumeration och det associerade kontot |
    | **Resursgrupp** | MyLogicApp-RG <br> (USA, västra) | Azures resurs grupp och plats för att lagra och distribuera din Logic Apps resurser |
    | **Plats** | **Samma som resurs grupp** | Plats typen och en bestämd plats för att distribuera din Logic app. Plats typen är antingen en Azure-region eller en befintlig [integrerings tjänst miljö (ISE)](connect-virtual-network-vnet-isolated-environment.md). <p>I den här snabb starten ska du se till att plats typen är **region** och att platsen är inställd på **samma som resurs gruppen**. <p>**Obs!** när du har skapat ett resurs grupps projekt kan du [ändra plats typen och platsen](manage-logic-apps-with-visual-studio.md#change-location), men olika platstyp påverkar din Logic app på olika sätt. |
    ||||

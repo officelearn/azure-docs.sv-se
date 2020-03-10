@@ -8,11 +8,11 @@ ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: c4e2681121a15e0b84a11c7cf35119c3f1b69f11
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443723"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391192"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -67,7 +67,7 @@ Använd den här tabellen som en guide:
 |--|--|
 |**Blob Storage** | Azure AD & SAS |
 |**Blob Storage (hierarkiskt namn område)** | Azure AD & SAS |
-|**File Storage** | Endast SAS |
+|**Fil lagring** | Endast SAS |
 
 ### <a name="option-1-use-azure-active-directory"></a>Alternativ 1: Använd Azure Active Directory
 
@@ -247,7 +247,7 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 
 Mer information om SAS-token och hur du hämtar en finns i [använda signaturer för delad åtkomst (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
 
-## <a name="transfer-files"></a>Överföra filer
+## <a name="transfer-files"></a>Överför filer
 
 När du har autentiserat din identitet eller fått en SAS-token kan du börja överföra filer.
 

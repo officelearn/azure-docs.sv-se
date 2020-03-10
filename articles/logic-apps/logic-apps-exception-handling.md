@@ -9,11 +9,11 @@ ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
 ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906692"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358756"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hantera fel och undantag i Azure Logic Apps
 
@@ -21,7 +21,7 @@ Sättet att integrera en integrerings arkitektur på lämpligt sätt hanterar av
 
 <a name="retry-policies"></a>
 
-## <a name="retry-policies"></a>Principer för nya försök
+## <a name="retry-policies"></a>Principer för återförsök
 
 För flest grundläggande undantag och fel hantering kan du använda en *princip för återförsök* i alla åtgärder eller utlösare där stöd finns, till exempel se [http-åtgärd](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger). En princip för återförsök anger om och hur åtgärden eller utlösaren försöker att utföra en begäran när den ursprungliga tids gränsen för begäran går ut eller Miss lyckas, vilket är en begäran som resulterar i ett 408-, 429-eller 5XX-svar. Om ingen annan princip för återförsök används används standard principen.
 
@@ -32,7 +32,7 @@ Här är princip typerna för återförsök:
 | **Standard** | Den här principen skickar upp till fyra återförsök med *exponentiellt ökande* intervall, som skalas med 7,5 sekunder, men är ett tak mellan 5 och 45 sekunder. |
 | **Exponentiellt intervall**  | Den här principen väntar ett slumpmässigt intervall som väljs från ett exponentiellt växande intervall innan nästa förfrågan skickas. |
 | **Fast intervall**  | Den här principen väntar det angivna intervallet innan nästa förfrågan skickas. |
-| **Inga**  | Skicka inte begäran igen. |
+| **Alternativet**  | Skicka inte begäran igen. |
 |||
 
 Information om begränsningar för återförsök finns i [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#request-limits).
@@ -67,11 +67,11 @@ Eller så kan du manuellt ange principen för återförsök i avsnittet `inputs`
 }
 ```
 
-*Obligatoriskt*
+*Kunna*
 
 | Värde | Typ | Beskrivning |
 |-------|------|-------------|
-| <*retry-policy-type*> | String | Den princip typ för återförsök som du vill använda: `default`, `none`, `fixed`eller `exponential` |
+| <*återförsök-princip-typ*> | String | Den princip typ för återförsök som du vill använda: `default`, `none`, `fixed`eller `exponential` |
 | <*återförsöksintervall*> | String | Återförsöksintervall där värdet måste använda [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Standard intervallet för minimi intervallet är `PT5S` och det maximala intervallet är `PT1D`. När du använder exponentiell intervall princip kan du ange olika minimi-och max värden. |
 | <*försök-försök*> | Integer | Antalet återförsök som måste vara mellan 1 och 90 |
 ||||
@@ -80,7 +80,7 @@ Eller så kan du manuellt ange principen för återförsök i avsnittet `inputs`
 
 | Värde | Typ | Beskrivning |
 |-------|------|-------------|
-| <*minimum-interval*> | String | För principen för exponentiella intervall, det minsta intervallet för det slumpmässigt valda intervallet i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
+| <*lägsta-intervall*> | String | För principen för exponentiella intervall, det minsta intervallet för det slumpmässigt valda intervallet i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 | <*maximalt intervall*> | String | För principen för exponentiella intervall är det största intervallet för det slumpmässigt valda intervallet i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 ||||
 
@@ -112,7 +112,7 @@ Om du inte anger en princip för återförsök använder åtgärden standard pri
 }
 ```
 
-### <a name="none"></a>Inget
+### <a name="none"></a>Ingen
 
 Om du vill ange att åtgärden eller utlösaren inte ska försöka utföra misslyckade begär Anden, anger du <*återförsök-princip-typ*> att `none`.
 

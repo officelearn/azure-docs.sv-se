@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/24/2019
 ms.openlocfilehash: 28d0da369083d75bc175111d808828e186a366fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444141"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357161"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guiden Kopiera aktivitets prestanda och skalbarhet
 
@@ -42,7 +42,7 @@ När du har läst den här artikeln kommer du att kunna besvara följande frågo
 
 ADF erbjuder en server lös arkitektur som gör det möjligt att använda parallellitet på olika nivåer, vilket gör att utvecklare kan bygga pipeliner för att fullt ut utnyttja din nätverks bandbredd samt lagrings-IOPS och bandbredd för att maximera data flödet för data flödet i din miljö.  Det innebär att du kan beräkna det data flöde som du kan uppnå genom att mäta det minsta data flöde som erbjuds av käll data lagret, mål data lagret och nätverks bandbredden mellan källan och målet.  I tabellen nedan beräknas kopieringens varaktighet baserat på data storleken och bandbredds gränsen för din miljö. 
 
-| Data storlek/ <br/> bandbredd | 50 Mbit/s    | 100 Mbit/s  | 500 Mbps  | 1 Gbit/s   | 5 Gbit/s   | 10 Gbit/s  | 50 Gbit/s   |
+| Data storlek/ <br/> bredd | 50 Mbit/s    | 100 Mbps  | 500 Mbps  | 1 Gbit/s   | 5 Gbit/s   | 10 Gbit/s  | 50 Gbit/s   |
 | --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
 | **1 GB**                    | 2,7 min    | 1,4 min   | 0,3 min   | 0,1 min  | 0,03 min | 0,01 min | 0,0 min   |
 | **10 GB**                   | 27,3 min   | 13,7 min  | 2,7 min   | 1,3 min  | 0,3 min  | 0,1 min  | 0,03 min  |
@@ -117,7 +117,7 @@ Följ dessa steg för att justera prestandan för din Azure Data Factory-tjänst
 
    - [Parallell kopia](#parallel-copy)
    - [Dataintegrationsenheter](#data-integration-units)
-   - [Mellanlagrad kopiering](#staged-copy)
+   - [Mellanlagrad kopia](#staged-copy)
    - [Skalbarhet för integration runtime med egen värd](concepts-integration-runtime.md#self-hosted-integration-runtime)
 
 5. **Expandera konfigurationen till hela data uppsättningen.** När du är nöjd med körnings resultatet och prestandan kan du expandera definitionen och pipelinen för att hantera hela data uppsättningen.
@@ -128,7 +128,7 @@ Azure Data Factory innehåller följande funktioner för prestanda optimering:
 
 - [Parallell kopia](#parallel-copy)
 - [Dataintegrationsenheter](#data-integration-units)
-- [Mellanlagrad kopiering](#staged-copy)
+- [Mellanlagrad kopia](#staged-copy)
 
 ### <a name="data-integration-units"></a>Data integrerings enheter
 
@@ -144,7 +144,7 @@ Den tillåtna DIUs som gör att kopierings aktiviteten körs är **mellan 2 och 
 | Kopiera data till Azure SQL Database eller Azure Cosmos DB |Mellan 4 och 16 beroende på Azure SQL Database mottagarens eller Cosmos DBs nivå (antal DTU: er/ru: er) |
 | Alla andra kopierings scenarier | 4 |
 
-Om du vill åsidosätta denna standardinställning, ange ett värde för den **dataIntegrationUnits** egenskapen på följande sätt. Den *faktiska antalet DIUs* att kopieringen använder vid körning är lika med eller mindre än det konfigurerade värdet, beroende på din datamönster.
+Om du vill åsidosätta standardvärdet anger du ett värde för egenskapen **dataIntegrationUnits** enligt följande. Det *faktiska antalet DIUs* som kopierings åtgärden använder vid körningen är lika med eller mindre än det konfigurerade värdet, beroende på ditt data mönster.
 
 Du kan se DIUs som används för varje kopierings körning i kopierings aktivitetens utdata när du övervakar en aktivitets körning. Mer information finns i avsnittet [Kopiera aktivitets övervakning](copy-activity-overview.md#monitoring).
 
@@ -244,10 +244,10 @@ Konfigurera inställningen **enableStaging** i kopierings aktiviteten och ange o
 
 | Egenskap | Beskrivning | Standardvärde | Krävs |
 | --- | --- | --- | --- |
-| enableStaging |Ange om du vill kopiera data via en tiden mellanlagring store. |Falskt |Inga |
-| linkedServiceName |Ange namnet på en [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) länkad tjänst som refererar till instansen av lagring som du använder som ett tillfälligt mellanlagringsarkivet. <br/><br/> Du kan inte använda Storage med en signatur för delad åtkomst för att läsa in data i SQL Data Warehouse via PolyBase. Du kan använda den i alla andra scenarier. |Gäller inte |Ja, när **enableStaging** har angetts till TRUE |
-| Sökväg |Ange sökvägen för Blob-lagring som du vill ska innehålla den mellanlagrade data. Om du inte anger en sökväg skapar tjänsten en behållare för att lagra temporära data. <br/><br/> Ange en sökväg endast om du använder lagring med signatur för delad åtkomst, eller du kräver tillfälliga data finnas i en viss plats. |Gäller inte |Inga |
-| enableCompression |Anger om data ska komprimeras innan de kopieras till målet. Den här inställningen minskar mängden data som överförs. |Falskt |Inga |
+| enableStaging |Ange om du vill kopiera data via en tiden mellanlagring store. |False |Nej |
+| linkedServiceName |Ange namnet på en länkad [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) -tjänst som refererar till den lagrings instans som du använder som ett interimistiskt mellanlagrings lager. <br/><br/> Du kan inte använda Storage med en signatur för delad åtkomst för att läsa in data i SQL Data Warehouse via PolyBase. Du kan använda den i alla andra scenarier. |Ej tillämpligt |Ja, när **enableStaging** är inställt på True |
+| path |Ange sökvägen för Blob-lagring som du vill ska innehålla den mellanlagrade data. Om du inte anger en sökväg skapar tjänsten en behållare för att lagra temporära data. <br/><br/> Ange en sökväg endast om du använder lagring med signatur för delad åtkomst, eller du kräver tillfälliga data finnas i en viss plats. |Ej tillämpligt |Nej |
+| enableCompression |Anger om data ska komprimeras innan de kopieras till målet. Den här inställningen minskar mängden data som överförs. |False |Nej |
 
 >[!NOTE]
 > Om du använder mellanlagrad kopiering med komprimering aktive rad stöds inte tjänstens huvud namn eller MSI-autentisering för den länkade Blob-tjänsten.
@@ -304,6 +304,6 @@ Här följer prestanda övervakning och justering av referenser för några av d
 ## <a name="next-steps"></a>Nästa steg
 Se andra artiklar om kopierings aktiviteter:
 
-- [Översikt över Kopieringsaktivitet](copy-activity-overview.md)
+- [Översikt över kopierings aktivitet](copy-activity-overview.md)
 - [Använd Azure Data Factory för att migrera data från data Lake eller data lager till Azure](data-migration-guidance-overview.md)
 - [Migrera data från Amazon S3 till Azure Storage](data-migration-guidance-s3-azure-storage.md)

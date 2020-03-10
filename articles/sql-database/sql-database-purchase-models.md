@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 02/01/2020
-ms.openlocfilehash: 20c93d214195f8fe389f4982e1d8b10998c7057d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.date: 03/09/2020
+ms.openlocfilehash: 97ce402045cfd2c990b457c5d4d06888cda632d5
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192395"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945610"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Välj mellan vCore och DTU inköps modeller
 
@@ -86,6 +86,11 @@ Om du vill konvertera från den DTU-baserade inköps modellen till den vCore-bas
 - Varje 100 DTU: er på standard nivån kräver minst 1 vCore på Generell användning tjänst nivå.
 - Varje 125 DTU: er på Premium nivån kräver minst 1 vCore på Affärskritisk tjänst nivå.
 
+> [!NOTE]
+> VCore storleks rikt linjer för DTU för storleks ändring är ungefärliga och tillhandahålls för att hjälpa till med den första uppskattningen av mål databasens tjänst mål. Den optimala konfigurationen av mål databasen är arbets belastnings beroende. 
+> 
+> Att uppnå optimal pris/prestanda-kvot kan kräva att du kan dra nytta av flexibiliteten i vCore-modellen för att justera antalet virtuella kärnor, [maskin varu generering](sql-database-service-tiers-vcore.md#hardware-generations), [tjänst-](sql-database-service-tiers-vcore.md#service-tiers) och [beräknings](sql-database-service-tiers-vcore.md#compute-tiers) nivåer samt justering av andra parametrar för databas konfiguration, till exempel [Maximal grad av parallellitet](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
+
 ## <a name="dtu-based-purchasing-model"></a>DTU-baserad inköps modell
 
 En databas transaktions enhet (DTU) representerar ett blandat mått på processor, minne, läsningar och skrivningar. Den DTU-baserade inköps modellen erbjuder en uppsättning förkonfigurerade paket med beräknings resurser och inkluderat lagrings utrymme för att driva olika nivåer av program prestanda. Om du föredrar att förenkla en förkonfigurerad samling och fasta betalningar varje månad kan den DTU-baserade modellen vara lämpligare för dina behov.
@@ -102,7 +107,7 @@ De resurser som används av arbets belastningen påverkar inte resurserna som ä
 
 ![avgränsnings ruta](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-DTU: er är mest användbara för att förstå de relativa resurser som är allokerade för Azure SQL-databaser med olika beräknings storlekar och tjänst nivåer. Några exempel:
+DTU: er är mest användbara för att förstå de relativa resurser som är allokerade för Azure SQL-databaser med olika beräknings storlekar och tjänst nivåer. Exempel:
 
 - Att dubblera DTU: er genom att öka beräknings storleken för en databas, motsvarar att dubblera den uppsättning av resurser som är tillgängliga för den databasen.
 - En Premium Service Tier p11-databas med 1750 DTU: er ger beräkningskraft mer DTU-beräknings kraft än en grundläggande tjänst nivå databas med 5 DTU: er.  

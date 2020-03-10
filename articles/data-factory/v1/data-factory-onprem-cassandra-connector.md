@@ -13,11 +13,11 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 05cee60fb1f4d43d1b4ce371aa9f22650b4782da
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931813"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387607"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Flytta data från en lokal Cassandra-databas med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -34,7 +34,7 @@ Du kan kopiera data från ett lokalt Cassandra-data lager till alla mottagar dat
 ## <a name="supported-versions"></a>Versioner som stöds
 Cassandra-anslutningen har stöd för följande versioner av Cassandra: 2. x och 3. x. För att aktiviteter som körs på egen värd Integration Runtime, stöds Cassandra 3. x sedan IR version 3,7 och senare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att Azure Data Factorys tjänsten ska kunna ansluta till din lokala Cassandra-databas måste du installera en Data Management Gateway på samma dator som är värd för-databasen eller på en annan dator för att undvika att konkurrera till resurser med databasen. Data Management Gateway är en komponent som ansluter lokala data källor till moln tjänster på ett säkert och hanterat sätt. Se [Data Management Gateway](data-factory-data-management-gateway.md) artikel för information om data Management Gateway. Se avsnittet [Flytta data från en lokal plats till molnet](data-factory-move-data-between-onprem-and-cloud.md) för stegvisa instruktioner om hur du konfigurerar gatewayen en datapipeline för att flytta data.
 
 Du måste använda gatewayen för att ansluta till en Cassandra-databas även om databasen finns i molnet, till exempel på en virtuell Azure IaaS-dator. Y du kan ha en gateway på samma virtuella dator som är värd för databasen eller på en separat virtuell dator så länge gatewayen kan ansluta till databasen.
@@ -48,7 +48,7 @@ När du installerar gatewayen installeras automatiskt en Microsoft Cassandra ODB
 Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från ett lokalt Cassandra data lager med hjälp av olika verktyg/API: er.
 
 - Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
-- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -66,7 +66,7 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen Type måste anges till: **OnPremisesCassandra** |Ja |
-| värd |En eller flera IP-adresser eller värd namn för Cassandra-servrar.<br/><br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn för att ansluta till alla servrar samtidigt. |Ja |
+| host |En eller flera IP-adresser eller värd namn för Cassandra-servrar.<br/><br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn för att ansluta till alla servrar samtidigt. |Ja |
 | port |TCP-porten som Cassandra-servern använder för att lyssna efter klient anslutningar. |Nej, standardvärde: 9042 |
 | authenticationType |Basic eller Anonymous |Ja |
 | användarnamn |Ange användar namn för användar kontot. |Ja, om authenticationType har angetts till Basic. |
@@ -96,7 +96,7 @@ När källan är av typen **CassandraSource**finns följande egenskaper i avsnit
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-92 fråga eller CQL-fråga. Se [referens för CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-fråga anger du namnet på det **. tabell namn** som ska representera den tabell som du vill fråga. |Nej (om tableName och disk utrymme på data mängden har definierats). |
+| query |Använd den anpassade frågan för att läsa data. |SQL-92 fråga eller CQL-fråga. Se [referens för CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-fråga anger du namnet på det **. tabell namn** som ska representera den tabell som du vill fråga. |Nej (om tableName och disk utrymme på data mängden har definierats). |
 | consistencyLevel |Konsekvens nivån anger hur många repliker som måste svara på en Read-begäran innan data returneras till klient programmet. Cassandra kontrollerar det angivna antalet repliker för data för att uppfylla Read-begäran. |ETT, TVÅ, TRE, KVORUM, ALLA, LOCAL_QUORUM, EACH_QUORUM LOCAL_ONE. Mer information finns i [Konfigurera data konsekvens](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) . |Nej. Standardvärdet är ett. |
 
 ## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>JSON-exempel: kopiera data från Cassandra till Azure-Blob
@@ -261,21 +261,21 @@ Se [RelationalSource typ egenskaper](#copy-activity-properties) för listan öve
 ### <a name="type-mapping-for-cassandra"></a>Typ mappning för Cassandra
 | Typ av Cassandra | .NET-baserad typ |
 | --- | --- |
-| ASCII |Sträng |
+| ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLEAN |Boolesk |
-| DECIMAL |Decimal |
-| DOUBLE |Double |
+| BOOLEAN |Boolean |
+| DECIMAL |decimaltal |
+| DOUBLE |Double-värde |
 | FLOAT |Enkel |
-| INET |Sträng |
+| INET |String |
 | INT |Int32 |
-| TEXT |Sträng |
+| INFORMATION |String |
 | TIMESTAMP |DateTime |
-| TIMEUUID |GUID |
-| UUID |GUID |
-| VARCHAR |Sträng |
-| VARINT |Decimal |
+| TIMEUUID |Guid |
+| UUID |Guid |
+| VARCHAR |String |
+| VARINT |decimaltal |
 
 > [!NOTE]
 > För samlings typer (karta, uppsättning, lista osv.), se [arbeta med Cassandra-samlings typer med hjälp av virtuell tabell](#work-with-collections-using-virtual-table) avsnitt.
@@ -299,7 +299,7 @@ Du kan använda [guiden Kopiera](data-factory-data-movement-activities.md#create
 ### <a name="example"></a>Exempel
 Till exempel är följande "ExampleTable" en Cassandra-databas tabell som innehåller en heltals primär nyckel kolumn med namnet "pk_int", en text kolumn med namnet värde, en List kolumn, en kart kolumn och en Set-kolumn (med namnet "StringSet").
 
-| pk_int | Värde | Lista | Karta | StringSet |
+| pk_int | Värde | Visa lista | Karta | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"exempel värde 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"exempel värde 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |

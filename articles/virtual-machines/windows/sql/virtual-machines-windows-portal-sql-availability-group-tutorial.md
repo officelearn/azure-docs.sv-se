@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: ed5fc923c82fb0d0e4004e18159d943564c6f55e
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045820"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388767"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Självstudie: Konfigurera tillgänglighets grupp på Azure SQL Server VM manuellt
 
@@ -32,7 +32,7 @@ Diagrammet visar vad du skapar i självstudien.
 
 ![Tillgänglighetsgrupp](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Självstudien förutsätter att du har en grundläggande förståelse för SQL Server Always on-tillgänglighetsgrupper. Om du behöver mer information, se [Översikt över Always on Availability groups (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
@@ -72,7 +72,7 @@ När kraven har slutförts är det första steget att skapa ett Windows Server-r
    ![skapa kluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/40-createcluster.png)
 4. Skapa ett kluster med en nod i guiden skapa kluster genom att stega igenom sidorna med inställningarna i följande tabell:
 
-   | Sidan | Inställningar |
+   | Tvåsidig | Inställningar |
    | --- | --- |
    | Innan du börjar |Använd standardvärden |
    | Välj servrar |Skriv det första SQL Server namnet i **Ange server namn** och klicka på **Lägg till**. |
@@ -116,7 +116,7 @@ Lägg till den andra SQL Server i klustret.
 
 1. Klicka på **Next**.
 
-1. Klicka på **Slutför**.
+1. Klicka på **Finish**.
 
    Klusterhanteraren för växling vid fel visar att klustret har en ny nod och listar det i **noden noder** .
 
@@ -150,7 +150,7 @@ I det här exemplet använder Windows-klustret en fil resurs för att skapa ett 
 
    ![Ny resurs](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/50-filesharepermissions.png)
 
-1. Klicka på **OK**.
+1. Klicka på **OK**
 
 1. I **behörigheter för delad mapp**klickar du på **Slutför**. Klicka på **Slutför** igen.  
 
@@ -179,7 +179,7 @@ Ange sedan klustrets kvorum.
 
 1. Verifiera inställningarna vid **bekräftelse**. Klicka på **Next**.
 
-1. Klicka på **Slutför**.
+1. Klicka på **Finish**.
 
 Kluster kärn resurserna konfigureras med ett fil resurs vittne.
 
@@ -193,7 +193,7 @@ Aktivera sedan **AlwaysOn-tillgänglighetsgrupper** funktionen. Utför de här s
 
     ![Aktivera AlwaysOn-tillgänglighetsgrupper](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/54-enableAlwaysOn.png)
 
-4. Klicka på **Använd**. Klicka på **OK** i popup-dialogrutan.
+4. Klicka på **Verkställ**. Klicka på **OK** i popup-dialogrutan.
 
 5. Starta om SQL Server-tjänsten.
 
@@ -252,7 +252,7 @@ Repeat these steps on the second SQL Server.
 
    ![Ny resurs](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/68-backupsharepermission.png)
 
-1. Klicka på **OK**.
+1. Klicka på **OK**
 
 1. I **behörigheter för delad mapp**klickar du på **Slutför**. Klicka på **Slutför** igen.  
 
@@ -318,7 +318,7 @@ Du är nu redo att konfigurera en tillgänglighets grupp med hjälp av följande
 10. På sidan **Sammanfattning** klickar du på **Slutför**och väntar medan guiden konfigurerar den nya tillgänglighets gruppen. På sidan **förlopp** kan du klicka på **Mer information** om du vill se den detaljerade förloppet. När guiden är klar kan du kontrol lera att tillgänglighets gruppen har skapats genom att granska **resultat** sidan.
 
      ![Guiden ny AG, resultat](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/74-results.png)
-11. Avsluta guiden genom att klicka på **Stäng** .
+11. Klicka på **Stäng** för att avsluta guiden.
 
 ### <a name="check-the-availability-group"></a>Kontrol lera tillgänglighets gruppen
 
@@ -421,12 +421,12 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en backend-pool, e
    | Inställning | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | SQLAlwaysOnEndPointListener |
-   | **Klientdelens IP-adress** | Välj en adress |Använd adressen som du skapade när du skapade belastningsutjämnaren. |
+   | **IP-adress för klient del** | Välj en adress |Använd adressen som du skapade när du skapade belastningsutjämnaren. |
    | **Protokoll** | Välj TCP |TCP |
    | **Port** | Använd porten för tillgänglighets gruppens lyssnare | 1433 |
    | **Backend-port** | Det här fältet används inte när flytande IP anges för direkt Server retur | 1433 |
    | **Provtagning** |Det namn som du har angett för avsökningen | SQLAlwaysOnEndPointProbe |
-   | **Beständig session** | Nedrullningsbar listruta | **Inga** |
+   | **Beständig session** | Nedrullningsbar listruta | **Alternativet** |
    | **Timeout för inaktivitet** | Minuter för att hålla en TCP-anslutning öppen | 4 |
    | **Flytande IP (direkt Server retur)** | |Enabled |
 
@@ -462,12 +462,12 @@ WSFC-IP-adressen måste också finnas i belastningsutjämnaren.
    | Inställning | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | WSFCEndPoint |
-   | **Klientdelens IP-adress** | Välj en adress |Använd adressen som du skapade när du konfigurerade WSFC-IP-adressen. Detta skiljer sig från IP-adressen för lyssnaren |
+   | **IP-adress för klient del** | Välj en adress |Använd adressen som du skapade när du konfigurerade WSFC-IP-adressen. Detta skiljer sig från IP-adressen för lyssnaren |
    | **Protokoll** | Välj TCP |TCP |
    | **Port** | Använd porten för klustrets IP-adress. Det här är en tillgänglig port som inte används för avsöknings porten för lyssnaren. | 58888 |
    | **Backend-port** | Det här fältet används inte när flytande IP anges för direkt Server retur | 58888 |
    | **Provtagning** |Det namn som du har angett för avsökningen | WSFCEndPointProbe |
-   | **Beständig session** | Nedrullningsbar listruta | **Inga** |
+   | **Beständig session** | Nedrullningsbar listruta | **Alternativet** |
    | **Timeout för inaktivitet** | Minuter för att hålla en TCP-anslutning öppen | 4 |
    | **Flytande IP (direkt Server retur)** | |Enabled |
 

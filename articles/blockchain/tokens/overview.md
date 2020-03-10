@@ -5,11 +5,11 @@ ms.date: 11/04/2019
 ms.topic: overview
 ms.reviewer: brendal
 ms.openlocfilehash: e7c106ffee8ea06c7c0ce738aa8be0aba96a38ed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75387181"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360753"
 ---
 # <a name="what-is-azure-blockchain-tokens"></a>Vad är Azure Blockchain-token?
 
@@ -25,7 +25,7 @@ Använd Azure blockchain-token för att välja en fördefinierad token-mall elle
 
 Mer information om mallar för Azure blockchain-token finns i [mallar för Azure blockchain-token](templates.md).
 
-## <a name="management"></a>Förvaltning
+## <a name="management"></a>Hantering
 
 Azure blockchain-token tillhandahåller Azure Portal hantering och API: er för att ansluta till ett befintligt blockchain-nätverk. För närvarande kan du ansluta till [Azure blockchain-tjänsten](../service/overview.md) eller en annan Ethereum Family-blockchain.
 

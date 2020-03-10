@@ -2,14 +2,14 @@
 title: Migrera virtuella VMware-datorer med agent-baserad Azure Migrate Server-migrering
 description: Lär dig hur du kör en agent-baserad migrering av virtuella VMware-datorer med Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 03/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 49b576770d67ae9d2b98a8a0004f4219ecf0fae4
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 64873c5185660c58cd4d07d60df3d086364d6288
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057285"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945884"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrera virtuella VMware-datorer till Azure (agent-baserad)
 
@@ -156,7 +156,7 @@ Mobilitetstjänsten måste vara installerad på datorer som du vill replikera.
 
 - Azure Migrate Replication-enheten kan göra en push-installation av den här tjänsten när du aktiverar replikering för en dator, eller så kan du installera den manuellt eller använda installations verktyg.
 - I den här självstudien, installerar vi mobilitetstjänsten med push-installation.
-- För push-installation måste du förbereda ett konto som Azure Migrate Server-migrering kan använda för att få åtkomst till den virtuella datorn.
+- För push-installation måste du förbereda ett konto som Azure Migrate Server-migrering kan använda för att få åtkomst till den virtuella datorn. Det här kontot används endast för push-installation om du inte installerar mobilitets tjänsten manuellt.
 
 Förbered kontot enligt följande:
 
@@ -409,7 +409,10 @@ När du har kontrollerat att testmigreringen fungerar som förväntat kan du mig
 
 ## <a name="complete-the-migration"></a>Slutföra migreringen
 
-1. När migreringen är färdig högerklickar du på den virtuella datorn > **stoppa migreringen**. Detta stoppar replikeringen för den lokala datorn och rensar information om replikeringstillståndet för den virtuella datorn.
+1. När migreringen är färdig högerklickar du på den virtuella datorn > **stoppa migreringen**. Det här gör följande:
+    - Stoppar replikering för den lokala datorn.
+    - Tar bort datorn från antalet **replikerade servrar** i Azure Migrate: Server-migrering.
+    - Rensar statusinformation om replikering för den virtuella datorn.
 2. Installera [Azure VM-](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) eller [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) -agenten på de migrerade datorerna.
 3. Utför alla finjusteringar av appen efter migreringen som att uppdatera databasanslutningssträngar och webbserverkonfigurationer.
 4. Utför slutlig program- och migreringsacceptanstestning på det migrerade programmet som nu körs i Azure.

@@ -4,11 +4,11 @@ description: Lär dig mer om återställnings planer i Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: beb92bd62d011ef8aaf304dbb769e7694e6d7e60
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705861"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396983"
 ---
 # <a name="about-recovery-plans"></a>Om återställningsplaner
 
@@ -62,11 +62,11 @@ Med den här anpassningen på plats händer följande när du kör en redundansv
 
 Det kan vara en komplicerad uppgift att återskapa stora program. Manuella steg gör processen fel och den person som kör redundansväxlingen kanske inte är medveten om all app-erna. Du kan använda en återställnings plan för att införa order och automatisera de åtgärder som krävs i varje steg, använda Azure Automation runbooks för redundans till Azure eller skript. För uppgifter som inte kan automatiseras kan du infoga pauser för manuella åtgärder i återställnings planer. Det finns några typer av uppgifter som du kan konfigurera:
 
-* **Aktiviteter på den virtuella Azure-datorn efter redundansväxlingen**: när du växlar över till Azure måste du vanligt vis utföra åtgärder så att du kan ansluta till den virtuella datorn efter redundansväxlingen. Ett exempel: 
+* **Aktiviteter på den virtuella Azure-datorn efter redundansväxlingen**: när du växlar över till Azure måste du vanligt vis utföra åtgärder så att du kan ansluta till den virtuella datorn efter redundansväxlingen. Exempel: 
     * Skapa en offentlig IP-adress på den virtuella Azure-datorn.
     * Tilldela en nätverks säkerhets grupp till nätverkskortet på den virtuella Azure-datorn.
     * Lägg till en belastningsutjämnare i en tillgänglighets uppsättning.
-* **Aktiviteter i den virtuella datorn efter redundansväxlingen**: dessa aktiviteter omkonfigurerar vanligt vis appen som körs på datorn, så att den fortsätter att fungera korrekt i den nya miljön. Ett exempel:
+* **Aktiviteter i den virtuella datorn efter redundansväxlingen**: dessa aktiviteter omkonfigurerar vanligt vis appen som körs på datorn, så att den fortsätter att fungera korrekt i den nya miljön. Exempel:
     * Ändra databas anslutnings strängen i datorn.
     * Ändra webb Server konfigurationen eller reglerna.
 

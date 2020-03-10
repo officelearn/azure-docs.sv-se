@@ -10,11 +10,11 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.openlocfilehash: fcc2013f67c6e91182979a9bcab683894088a1d5
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110370"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397174"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Ladda upp filer från enheten till molnet med IoT Hub (Java)
 
@@ -26,7 +26,7 @@ Den här självstudien bygger på koden i [skicka meddelanden från moln till en
 
 * Använd IoT Hub fil överförings meddelanden för att utlösa bearbetning av filen i Server delen av din app.
 
-[Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-java.md) snabb start och [skicka meddelanden från molnet till enheten med IoT Hub](iot-hub-java-java-c2d.md) själv studie kursen Visa de grundläggande meddelande funktionerna från enhet till moln och meddelanden från moln till enhet i IoT Hub. I självstudien [Konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) beskrivs ett tillförlitligt sätt att lagra meddelanden från enheten till molnet i Azure Blob Storage. I vissa fall kan du dock inte enkelt mappa de data som enheterna skickar till de relativt små enhets-till-moln-meddelanden som IoT Hub accepterar. Några exempel:
+[Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-java.md) snabb start och [skicka meddelanden från molnet till enheten med IoT Hub](iot-hub-java-java-c2d.md) själv studie kursen Visa de grundläggande meddelande funktionerna från enhet till moln och meddelanden från moln till enhet i IoT Hub. I självstudien [Konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) beskrivs ett tillförlitligt sätt att lagra meddelanden från enheten till molnet i Azure Blob Storage. I vissa fall kan du dock inte enkelt mappa de data som enheterna skickar till de relativt små enhets-till-moln-meddelanden som IoT Hub accepterar. Exempel:
 
 * Stora filer som innehåller bilder
 * Videoklipp
@@ -238,7 +238,7 @@ I det här avsnittet ska du skapa en Java-konsol-app som tar emot meddelanden om
     mvn clean package -DskipTests
     ```
 
-## <a name="run-the-applications"></a>Kör programmen
+## <a name="run-the-applications"></a>Köra programmen
 
 Du är nu redo att köra programmen.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: a03bc24b689df342be40536c26149a7611fc5176
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773648"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390537"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Hantera Media Services entiteter med REST  
 
@@ -40,7 +40,7 @@ Det här avsnittet visar hur du hanterar Azure Media Services entiteter med REST
 
 När du använder entiteter i Media Services måste du ange vissa huvud fält och värden i dina HTTP-begäranden. Mer information finns i [installations programmet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Anslut till Medietjänster
+## <a name="connect-to-media-services"></a>Ansluta till Media Services
 
 Information om hur du ansluter till AMS-API: et finns i [komma åt Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -169,7 +169,7 @@ I följande exempel visas hur du tar bort en positionerare som användes för at
     Host: media.windows.net
     Content-Length: 0
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

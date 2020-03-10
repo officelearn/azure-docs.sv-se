@@ -6,11 +6,11 @@ ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
 ms.openlocfilehash: 7494f0072f27f2c9b00db7070f19dfc05627eacf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465630"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389879"
 ---
 # <a name="azure-service-fabric-support-options"></a>Support alternativ för Azure Service Fabric
 
@@ -45,7 +45,7 @@ Läs mer om:
 
 Vi har konfigurerat en GitHub-lagrings platsen för rapportering Service Fabric problem.  Vi arbetar också aktivt med att övervaka följande forum.
 
-### <a name="github-repo"></a>GitHub-lagringsplats 
+### <a name="github-repo"></a>GitHub lagrings platsen 
 
 Rapportera Azure Service Fabric problem på [Service-Fabric-problem git-lagrings platsen](https://github.com/Azure/service-fabric-issues). Den här lagrings platsen är avsedd för rapportering och spårning av problem med Azure Service Fabric och för att göra små funktions förfrågningar. **Använd inte detta för att rapportera problem med Live-webbplatser**.
 

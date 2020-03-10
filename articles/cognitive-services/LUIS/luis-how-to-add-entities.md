@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: diberry
 ms.openlocfilehash: 1f2b293acdc77e25e6b932c47d466cc28a04a2b6
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383689"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393859"
 ---
 # <a name="add-entities-to-extract-data"></a>Lägga till entiteter för att extrahera data 
 
@@ -90,7 +90,7 @@ I följande lista visas kanoniskt namn och synonymer.
 |--|--|
 |Röd|Crimson, blod, äpple, eld-motor|
 |Blå|Himmelsblå, Azure, kobolt|
-|Grön|Kelly, kalk|
+|Växt|Kelly, kalk|
 
 Använd proceduren för att skapa en lista med entiteter. När entiteten lista har skapats behöver du inte märka exempel yttranden i ett avsikts syfte. List objekt och synonymer matchas med hjälp av exakt text. 
 

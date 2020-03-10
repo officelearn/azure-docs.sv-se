@@ -13,11 +13,11 @@ ms.author: abnarain
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: 54cb06f1c77ab68818d8531b57d6eb936deda8d7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438816"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385351"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -42,7 +42,7 @@ Följande genom gång innehåller stegvisa instruktioner för hur du skapar en a
 > - Det går inte att använda en Data Management Gateway från en anpassad aktivitet för att komma åt lokala data källor. För närvarande stöder [Data Management Gateway](data-factory-data-management-gateway.md) endast aktiviteten Kopiera aktivitet och lagrad procedur i Data Factory.
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Genom gång: skapa en anpassad aktivitet
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * Visual Studio 2012/2013/2015/2017
 * Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
@@ -70,7 +70,7 @@ För självstudien skapar du ett Azure Batch-konto med en pool med virtuella dat
    5. Klicka på **OK** för att skapa poolen.
    6. Anteckna **ID** för poolen.
 
-### <a name="high-level-steps"></a>Övergripande steg
+### <a name="high-level-steps"></a>Steg på hög nivå
 Här följer två viktiga steg som du utför som en del av den här genom gången:
 
 1. Skapa en anpassad aktivitet som innehåller enkel data omvandling/bearbetnings logik.
@@ -412,7 +412,7 @@ Här är de steg du utför i det här avsnittet:
 4. Skapa en **pipeline** som använder den anpassade aktiviteten.
 
 > [!NOTE]
-> Skapa den **fil.txt** och överföra den till en blob-behållare, om du inte redan gjort det. Se anvisningarna i föregående avsnitt.
+> Skapa **filen. txt** och ladda upp den till en BLOB-behållare om du inte redan har gjort det. Se anvisningarna i föregående avsnitt.
 
 ### <a name="step-1-create-the-data-factory"></a>Steg 1: skapa data fabriken
 1. När du har loggat in på Azure Portal utför du följande steg:
@@ -433,9 +433,9 @@ Här är de steg du utför i det här avsnittet:
     ![Bladet Datafabrik](media/data-factory-use-custom-activities/data-factory-blade.png)
 
 ### <a name="step-2-create-linked-services"></a>Steg 2: Skapa länkade tjänster
-Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-datafabrik. I det här steget länkar du ditt Azure Storage konto och Azure Batch kontot till din data fabrik.
+Länkade tjänster länkar datalager eller Compute Services till en Azure-datafabrik. I det här steget länkar du ditt Azure Storage konto och Azure Batch kontot till din data fabrik.
 
-#### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst
+#### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure Storage-tjänst
 1. Klicka på panelen **författare och distribution** på bladet **Data Factory** för **CustomActivityFactory**. Du ser Data Factory Editor.
 2. Klicka på **nytt data lager** i kommando fältet och välj **Azure Storage**. Du bör se JSON-skriptet för att skapa en länkad Azure-lagringstjänst i redigeraren.
 

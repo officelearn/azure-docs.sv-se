@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: e6e7beeb4c10098f36636aad2709e03d1a1a0fea
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953650"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78939310"
 ---
-# <a name="manage-the-mobility-agent"></a>Hantera mobilitets agenten 
+# <a name="manage-the-mobility-agent"></a>Hantera mobilitetsagenten 
 
 Du konfigurerar mobilitets agenten på servern när du använder Azure Site Recovery för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure. Mobilitets agenten samordnar kommunikationen mellan den skyddade datorn, konfigurations servern/skalbar processervern och hanterar datareplikering. Den här artikeln sammanfattar vanliga uppgifter för att hantera mobilitets agenten när den har distribuerats.
 
@@ -29,7 +29,7 @@ Du konfigurerar mobilitets agenten på servern när du använder Azure Site Reco
 
      ![Fönstret replikerade objekt](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
-4. Klicka på meddelandet och i **agent uppdatering**väljer du de datorer som du vill uppgradera mobilitets tjänsten till. Klicka på **OK**.
+4. Klicka på meddelandet och i **agent uppdatering**väljer du de datorer som du vill uppgradera mobilitets tjänsten till. Klicka sedan på **OK**.
 
      ![Lista över replikerade objekt för virtuella datorer](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
@@ -37,11 +37,24 @@ Du konfigurerar mobilitets agenten på servern när du använder Azure Site Reco
 
 ## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Uppdatera mobilitets tjänsten via PowerShell-skript på Windows Server
 
+Innan du börjar kontrollerar du att konfigurations servern, skalbara process servrar och alla huvud mål servrar som ingår i distributionen uppdateras innan du uppdaterar mobilitets tjänsten på skyddade datorer.
+
 Använd följande skript för att uppgradera mobilitets tjänsten på en server via Power shell-cmdlet
 
 ```azurepowershell
 Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
 ```
+
+## <a name="update-mobility-service-manually-on-each-protected-server"></a>Uppdatera mobilitets tjänsten manuellt på varje skyddad Server
+
+1. Innan du börjar kontrollerar du att konfigurations servern, skalbara process servrar och alla huvud mål servrar som ingår i distributionen uppdateras innan du uppdaterar mobilitets tjänsten på skyddade datorer.
+
+2. [Leta upp agent installations programmet](vmware-physical-mobility-service-overview.md#locate-installer-files) baserat på serverns operativ system.
+
+>[!IMPORTANT]
+> Använd inte den här metoden om du replikerar en virtuell Azure IaaS-dator från en Azure-region till en annan. Se [vår vägledning](azure-to-azure-autoupdate.md) för information om alla tillgängliga alternativ.
+
+3. Kopiera installations filen till den skyddade datorn och kör den för att uppdatera mobilitets agenten.
 
 ## <a name="update-account-used-for-push-installation-of-mobility-service"></a>Uppdaterings konto som används för push-installation av mobilitets tjänsten
 

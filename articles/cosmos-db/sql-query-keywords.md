@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: a9de9435c0e2fb2b67733a995ff412978ea02d89
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 711e961bd5eb1607e2e6f11b0b5762423d78c0e7
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250301"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898772"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Nyckelord i Azure Cosmos DB
 Den här artikeln innehåller information om nyckelord som kan användas i Azure Cosmos DB SQL-frågor.
@@ -108,7 +108,7 @@ Frågor med en sammansatt systemfunktion och en under fråga med DISTINCT stöds
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 ```
 
-## <a name="in"></a>FÖR
+## <a name="in"></a>IN
 
 Använd nyckelordet IN för att kontrol lera om ett angivet värde matchar ett värde i en lista. Följande fråga returnerar till exempel alla familje objekt där `id` är `WakefieldFamily` eller `AndersenFamily`.
 
@@ -126,7 +126,9 @@ I följande exempel returneras alla objekt där status är något av de angivna 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 ```
 
-SQL API ger stöd för att [iterera över JSON-matriser](sql-query-object-array.md#Iteration), med en ny konstruktion som lagts till via nyckelordet i från-källan. 
+SQL API ger stöd för att [iterera över JSON-matriser](sql-query-object-array.md#Iteration), med en ny konstruktion som lagts till via nyckelordet i från-källan.
+
+Om du inkluderar din partitionsnyckel i `IN`s filtret filtreras frågan automatiskt till de relevanta partitionerna.
 
 ## <a name="top"></a>ÖVERSTA
 

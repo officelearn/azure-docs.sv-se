@@ -13,11 +13,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d2ea038c7d7212529185d77a6ba9e64deacb1c9e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927942"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387321"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Flytta data från en webb tabell källa med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -34,7 +34,7 @@ Data Factory har för närvarande endast stöd för att flytta data från en web
 > [!IMPORTANT]
 > Denna webb anslutning stöder för närvarande endast extrahering av tabell innehåll från en HTML-sida. Om du vill hämta data från en HTTP/s-slutpunkt använder du [http-anslutning](data-factory-http-connector.md) i stället.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda den här webb tabell anslutningen måste du konfigurera en egen värd Integration Runtime (aka Data Management Gateway) och konfigurera egenskapen `gatewayName` i den länkade tjänsten mottagare. Om du till exempel vill kopiera från webb tabellen till Azure Blob Storage konfigurerar du Azure Storage länkade tjänsten som följer:
 
@@ -55,7 +55,7 @@ Om du vill använda den här webb tabell anslutningen måste du konfigurera en e
 Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från ett lokalt Cassandra data lager med hjälp av olika verktyg/API: er. 
 
 - Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data. 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -101,7 +101,7 @@ Avsnittet **typeProperties** är olika för varje typ av data uppsättning och i
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ |Typ av data uppsättning. måste vara inställd på **Webtable** |Ja |
-| Sökväg |En relativ URL till den resurs som innehåller tabellen. |Nej. Om ingen sökväg anges används endast den URL som angavs i den länkade tjänst definitionen. |
+| path |En relativ URL till den resurs som innehåller tabellen. |Nej. Om ingen sökväg anges används endast den URL som angavs i den länkade tjänst definitionen. |
 | index |Indexet för tabellen i resursen. Se avsnittet [Hämta index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) för steg för att hämta index för en tabell på en HTML-sida. |Ja |
 
 **Exempel:**
@@ -298,7 +298,7 @@ Se egenskaper för Websource-typ för listan över egenskaper som stöds av Webs
    ![Dialog rutan för att komma åt webb innehåll](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
 5. Klicka på ett **tabell** objekt i trädvyn om du vill visa innehåll från tabellen och klicka sedan på knappen **Redigera** längst ned.  
 
-   ![Navigeringsdialogruta](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
+   ![Navigerings dialog ruta](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
 6. I fönstret **Frågeredigeraren** klickar du på **avancerad redigerare** knapp i verktygsfältet.
 
     ![Avancerad redigerare knapp](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)

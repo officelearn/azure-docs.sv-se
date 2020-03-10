@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/12/2020
 ms.openlocfilehash: b9d923b3272f9d8b3da39d7cdb771a766eee4eab
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561790"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361364"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Apache Hadoop kluster i HDInsight med hjälp av Azure Portal
 
@@ -110,7 +110,7 @@ På [Start sidan för klustret](#homePage)under **Inställningar** väljer du **
 |NATIONELLA|Azure-plats. En lista över Azure-platser som stöds finns i list rutan **region** på [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).|
 |SKAPAD|Det datum då klustret distribuerades.|
 |OPERATIVSYSTEM|Antingen **Windows** eller **Linux**.|
-|TYP|Hadoop, HBase, Storm, Spark.|
+|TYPE|Hadoop, HBase, Storm, Spark.|
 |Version|Se [HDInsight-versioner](hdinsight-component-versioning.md).|
 |Lägsta TLS-version|TLS-versionen.|
 |PRENUMERATION|Prenumerations namn.|
@@ -219,7 +219,7 @@ Lösen ordet har ändrats på alla noder i klustret.
 4. På sidan **skript åtgärder** väljer du **Skicka ny**.
 5. På sidan **Skicka skript åtgärd** anger du följande information:
 
-   | Fält | Värde |
+   | Field | Värde |
    | --- | --- |
    | Skript typ | Välj **anpassad** i list rutan.|
    | Namn |"Ändra SSH-lösenord" |

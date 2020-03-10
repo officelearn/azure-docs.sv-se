@@ -9,11 +9,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 741d4718b5e6140f4ddd2bb22e1a2ec830763176
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74029953"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389627"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Konfigurera haveriberedskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "74029953"
 
 Detta är den tredje självstudien i en serie. Det visar hur du konfigurerar haveri beredskap för lokala virtuella Hyper-V-datorer till Azure. I den här självstudien används virtuella Hyper-V-datorer som inte hanteras av Microsoft System Center Virtual Machine Manager (VMM).
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Väljer replikeringskälla och mål.
@@ -41,7 +41,7 @@ Detta är den tredje självstudien i en serie. Det förutsätter att du redan ha
 1. [Förbereda Azure](tutorial-prepare-azure.md)
 2. [Förbereda lokala Hyper-V](tutorial-prepare-on-premises-hyper-v.md)
 
-## <a name="select-a-replication-goal"></a>Välj ett replikeringsmål
+## <a name="select-a-replication-goal"></a>Väljer ett replikeringsmål
 
 1. I Azure Portal går du till **Recovery Services valv** och väljer valvet. Vi för beredde valvet **ContosoVMVault** i föregående självstudie.
 2. I **komma igång**väljer du **Site Recovery**och väljer sedan **Förbered infrastruktur**.
@@ -121,7 +121,7 @@ Välj och verifiera mål resurser:
 
 Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringskonton och Azure-nätverk.
 
-## <a name="set-up-a-replication-policy"></a>Konfigurerar en replikeringsprincip
+## <a name="set-up-a-replication-policy"></a>Konfigurera en replikeringsprincip
 
 1. Välj **Förbered infrastruktur** > **replikeringsinställningar** >  **+ skapa och koppla**.
 2. I **Princip för att skapa och koppla** anger du ett principnamn. Vi använder **ContosoReplicationPolicy**.

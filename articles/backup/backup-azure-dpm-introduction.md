@@ -4,11 +4,11 @@ description: I den här artikeln lär du dig att förbereda för säkerhets kopi
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 2119d46ca6102286ca879777058a49938b501ad6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753942"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381502"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Förbereda säkerhets kopiering av arbets belastningar till Azure med System Center DPM
 
@@ -97,7 +97,7 @@ Hämta autentiseringsuppgifterna genom att ladda ned valvets autentiseringsuppgi
 
 Hämta valv filen med autentiseringsuppgifter till en lokal dator på följande sätt:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Öppna det valv där du vill registrera DPM-servern.
 3. I **Inställningar**klickar du på **Egenskaper**.
 

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: diberry
 ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775137"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393781"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Förbättra LUIS-appen genom att granska slut punkts yttranden
 
@@ -46,7 +46,7 @@ Använd LUIS-portalen för att skapa rätt slut punkts fråga.
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>Korrigera yttranden genom att korrigera avsikts förutsägelser
 
-Varje uttryck har en föreslagna avsikt som visas i den **justerad avsikt** kolumn.
+Varje uttryck har en föreslagen avsikt som visas i kolumnen **justerad avsikt** .
 
 > [!div class="mx-imgBorder"]
 > [![granska slut punkten yttranden att LUIS är osäker på](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
@@ -68,4 +68,4 @@ Du inaktiverar aktiv inlärning genom att inte logga användar frågor. Detta å
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill testa hur prestanda förbättras när du lagt till etiketter föreslagna yttranden, du kan komma åt konsolen test genom att välja **testa** i den övre panelen. Anvisningar om hur du testar din app med hjälp av test-konsolen finns i [träna och testa din app](luis-interactive-test.md).
+Om du vill testa hur prestanda förbättras när du har märkt föreslagen yttranden kan du komma åt test konsolen genom att välja **test** i den övre panelen. Anvisningar om hur du testar din app med hjälp av test konsolen finns i [träna och testa din app](luis-interactive-test.md).

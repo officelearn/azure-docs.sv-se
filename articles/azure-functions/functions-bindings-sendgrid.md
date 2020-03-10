@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: e318e5f9b192b9f857a0b97d076ce4cc87cfb73d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
-ms.translationtype: MT
+ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710976"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357122"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid-bindningar
 
@@ -32,13 +32,17 @@ SendGrid-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. SendGrid](
 
 ## <a name="example"></a>Exempel
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som använder en Service Bus Queue-utlösare och en SendGrid utgående bindning.
 
 ### <a name="synchronous"></a>Synkron
 
 ```cs
+using SendGrid.Helpers.Mail;
+
+...
+
 [FunctionName("SendEmail")]
 public static void Run(
     [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
@@ -65,6 +69,10 @@ public class OutgoingEmail
 ### <a name="asynchronous"></a>Asynkron
 
 ```cs
+using SendGrid.Helpers.Mail;
+
+...
+
 [FunctionName("SendEmail")]
 public static async void Run(
  [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
@@ -92,7 +100,7 @@ public class OutgoingEmail
 
 Du kan utelämna inställningen för attributets egenskap `ApiKey` om du har API-nyckeln i en app-inställning med namnet "AzureWebJobsSendGridApiKey".
 
-# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C#Över](#tab/csharp-script)
 
 I följande exempel visas en SendGrid utgående bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen.
 
@@ -151,7 +159,7 @@ public class Message
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 I följande exempel visas en SendGrid utgående bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen.
 
@@ -193,7 +201,7 @@ module.exports = function (context, input) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 I följande exempel visas en HTTP-utlöst funktion som skickar ett e-postmeddelande med SendGrid-bindningen. Du kan ange standardvärden i bindnings konfigurationen. Till exempel konfigureras *från* -e-postadressen i *Function. JSON*. 
 
@@ -250,7 +258,7 @@ def main(req: func.HttpRequest, sendGridMessage: func.Out[str]) -> func.HttpResp
     return func.HttpResponse(f"Sent")
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 I följande exempel används `@SendGridOutput` kommentar från [Java Functions runtime library](/java/api/overview/azure/functions/runtime) för att skicka ett e-postmeddelande med SendGrid utgående bindning.
 
@@ -306,7 +314,7 @@ public class HttpTriggerSendGrid {
 
 ## <a name="attributes-and-annotations"></a>Attribut och anteckningar
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Använd attributet [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) i [ C# klass bibliotek](functions-dotnet-class-library.md).
 
@@ -324,19 +332,19 @@ public static void Run(
 
 Ett fullständigt exempel finns i [ C# exemplet](#example).
 
-# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C#Över](#tab/csharp-script)
 
 Attribut stöds inte av C# skript.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Attribut stöds inte av Java Script.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Attribut stöds inte av python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Med [SendGridOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) -anteckningen kan du konfigurera SendGrid-bindningen genom att ange konfigurations värden. Se avsnittet [exempel](#example) och [konfiguration](#configuration) för mer information.
 
@@ -346,15 +354,15 @@ Med [SendGridOutput](https://github.com/Azure/azure-functions-java-library/blob/
 
 I följande tabell visas de egenskaper för bindnings konfiguration som är tillgängliga i filen *Function. JSON* och `SendGrid` attributet/kommentaren.
 
-| *Function. JSON* -egenskap | Attribut/antecknings egenskap | Description | Valfri |
+| *Function. JSON* -egenskap | Attribut/antecknings egenskap | Beskrivning | Valfri |
 |--------------------------|-------------------------------|-------------|----------|
-| type |Saknas| måste anges till `sendGrid`.| Nej |
-| direction |Saknas| måste anges till `out`.| Nej |
-| name |Saknas| Variabel namnet som används i funktions koden för begäran eller begär ande texten. Det här värdet är `$return` när det bara finns ett retur värde. | Nej |
+| typ |Saknas| Måste anges till `sendGrid`.| Nej |
+| riktning |Saknas| Måste anges till `out`.| Nej |
+| namn |Saknas| Variabel namnet som används i funktions koden för begäran eller begär ande texten. Det här värdet är `$return` när det bara finns ett retur värde. | Nej |
 | apiKey | apiKey | Namnet på en app-inställning som innehåller din API-nyckel. Om den inte anges är standardinställnings namnet för appen *AzureWebJobsSendGridApiKey*.| Nej |
 | till| Till | Mottagarens e-postadress. | Ja |
 | from| Från | Avsändarens e-postadress. |  Ja |
-| subject| Subject | E-postmeddelandets ämne. | Ja |
+| subject| Subjekt | E-postmeddelandets ämne. | Ja |
 | text| Text | E-postinnehållet. | Ja |
 
 Valfria egenskaper kan ha standardvärden definierade i bindningen och antingen läggas till eller åsidosättas program mässigt.
@@ -381,7 +389,7 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 }
 ```  
 
-|Egenskap  |Standard | Description |
+|Egenskap  |Default | Beskrivning |
 |---------|---------|---------| 
 |from|Saknas|Avsändarens e-postadress för alla funktioner.| 
 

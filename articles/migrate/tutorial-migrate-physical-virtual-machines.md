@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du migrerar fysiska datorer till A
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.custom: MVC
-ms.openlocfilehash: 908a5915cbb7f5aeb9f641da18024d5dbf497707
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: bd55f422451df935301245eef3e9dd10f7ab55b1
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134941"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945656"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrera datorer som fysiska servrar till Azure
 
@@ -322,7 +322,10 @@ När du har kontrollerat att testmigreringen fungerar som förväntat kan du mig
 
 ## <a name="complete-the-migration"></a>Slutföra migreringen
 
-1. När migreringen är färdig högerklickar du på den virtuella datorn > **stoppa migreringen**. Detta stoppar replikeringen för den lokala datorn och rensar information om replikeringstillståndet för den virtuella datorn.
+1. När migreringen är färdig högerklickar du på den virtuella datorn > **stoppa migreringen**. Det här gör följande:
+    - Stoppar replikering för den lokala datorn.
+    - Tar bort datorn från antalet **replikerade servrar** i Azure Migrate: Server-migrering.
+    - Rensar information om replikeringstillståndet för datorn.
 2. Installera [Azure VM-](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) eller [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) -agenten på de migrerade datorerna.
 3. Utför alla finjusteringar av appen efter migreringen som att uppdatera databasanslutningssträngar och webbserverkonfigurationer.
 4. Utför slutlig program- och migreringsacceptanstestning på det migrerade programmet som nu körs i Azure.

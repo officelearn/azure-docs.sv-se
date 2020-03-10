@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 6ee339cb709a5d825b39b4accf294761c99ee41a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846282"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390362"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Tjänst begränsningar i Azure Kognitiv sökning
 
@@ -49,7 +49,7 @@ De maximala gränserna för lagring, arbets belastningar och kvantiteter av inde
 | Resurs | Kostnadsfri | Basic-&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Maximalt antal index |3 |5 eller 15 |50 |200 |200 |1 000 per partition eller 3 000 per tjänst |10 |10 |
-| Maximalt antal enkla fält per index |1 000 |100 |1 000 |1 000 |1 000 |1 000 |1 000 |1 000 |
+| Maximalt antal enkla fält per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
 | Maximalt antal komplexa samlings fält per index |40 |40 |40 |40 |40 |40 |40 |40 |
 | Maximalt antal element i alla komplexa samlingar per dokument&nbsp;<sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Maximalt djup för komplexa fält |10 |10 |10 |10 |10 |10 |10 |10 |
@@ -109,15 +109,15 @@ Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som
 
 | Resurs | Kostnads fri&nbsp;<sup>1</sup> | Grundläggande&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
-| Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Gäller inte |10 |10 |
-| Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Gäller inte |10 |10 |
-| Maximalt färdighetsuppsättningar <sup>4</sup> |3 |5 eller 15 |50 |200 |200 |Gäller inte |10 |10 |
-| Maximal indexerings belastning per anrop |10 000 dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Gäller inte |Obegränsat |Obegränsat |
+| Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Ej tillämpligt |10 |10 |
+| Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Ej tillämpligt |10 |10 |
+| Maximalt färdighetsuppsättningar <sup>4</sup> |3 |5 eller 15 |50 |200 |200 |Ej tillämpligt |10 |10 |
+| Maximal indexerings belastning per anrop |10 000 dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Ej tillämpligt |Obegränsad |Obegränsad |
 | Lägsta schema | 5 minuter |5 minuter |5 minuter |5 minuter |5 minuter |5 minuter |5 minuter | 5 minuter |
-| Maximal kör tid <sup>5</sup> | 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Gäller inte  |24 timmar |24 timmar |
-| Maximal kör tid för kognitiv sökning färdighetsuppsättningar eller BLOB-indexering med bild analys <sup>5</sup> | 3-10 minuter |2 timmar |2 timmar |2 timmar |2 timmar |Gäller inte  |2 timmar |2 timmar |
-| BLOB-indexerare: maximal BLOB-storlek, MB |16 |16 |128 |256 |256 |Gäller inte  |256 |256 |
-| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32,000 |64,000 |4&nbsp;miljon |8&nbsp;miljon |16&nbsp;miljon |Gäller inte |4&nbsp;miljon |4&nbsp;miljon |
+| Maximal kör tid <sup>5</sup> | 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Ej tillämpligt  |24 timmar |24 timmar |
+| Maximal kör tid för kognitiv sökning färdighetsuppsättningar eller BLOB-indexering med bild analys <sup>5</sup> | 3-10 minuter |2 timmar |2 timmar |2 timmar |2 timmar |Ej tillämpligt  |2 timmar |2 timmar |
+| BLOB-indexerare: maximal BLOB-storlek, MB |16 |16 |128 |256 |256 |Ej tillämpligt  |256 |256 |
+| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32,000 |64,000 |4&nbsp;miljon |8&nbsp;miljon |16&nbsp;miljon |Ej tillämpligt |4&nbsp;miljon |4&nbsp;miljon |
 
 <sup>1</sup> kostnads fria tjänster har indexeraren maximal körnings tid på 3 minuter för BLOB-källor och 1 minut för alla andra data källor. För AI-indexering som anropar Cognitive Services är kostnads fria tjänster begränsade till 20 kostnads fria transaktioner per dag, där en transaktion definieras som ett dokument som passerar genom anriknings pipelinen.
 

@@ -10,11 +10,11 @@ ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: c2d1e8b4975be0657983192df00cc434da00a6f7
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197733"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397199"
 ---
 # <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
 
@@ -28,9 +28,9 @@ I den här instruktions artikeln lär du dig att skapa ett lagrings konto med hj
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Ingen.
+Inga.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -67,15 +67,15 @@ Du kan även installera och använda Azure CLI lokalt. Den här instruktions art
 
 # <a name="template"></a>[Mall](#tab/template)
 
-Ingen.
+Inga.
 
 ---
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -97,7 +97,7 @@ az login
 
 # <a name="template"></a>[Mall](#tab/template)
 
-Saknas
+Ej tillämpligt
 
 ---
 
@@ -109,7 +109,7 @@ Varje lagringskonto måste tillhöra en Azure-resursgrupp. En resursgrupp är en
 
 Ett **v2-lagringskonto för generell användning** ger åtkomst till alla Azure Storage-tjänster: blobar, filer, köer, tabeller och diskar. De steg som beskrivs här skapar ett allmänt-syfte v2-lagrings konto, men stegen för att skapa en typ av lagrings konto liknar varandra.
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -236,7 +236,7 @@ Mer information om tillgängliga replikeringsalternativ finns i [Storage replica
 
 Om du tar bort ett lagrings konto raderas hela kontot, inklusive alla data i kontot, och det går inte att ångra.
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Navigera till lagrings kontot i [Azure Portal](https://portal.azure.com).
 1. Klicka på **Ta bort**.
@@ -288,7 +288,7 @@ Alternativt kan du ta bort resurs gruppen, vilket innebär att lagrings kontot o
 
 I den här instruktions artikeln har du skapat ett standard lagrings konto för generell användning v2. Om du vill lära dig hur du laddar upp och laddar ned blobar till och från ditt lagrings konto fortsätter du till något av snabb starterna för Blob Storage.
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 > [!div class="nextstepaction"]
 > [Arbeta med blobar med Azure-portalen](../blobs/storage-quickstart-blobs-portal.md)

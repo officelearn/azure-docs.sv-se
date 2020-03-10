@@ -15,13 +15,13 @@ ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
 ms.openlocfilehash: f58bb534728660b85f7d16910dde7a37914fd571
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933949"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387820"
 ---
-# <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Hög tillgänglighet och haveriberedskap för SQL Server på Azure Virtual Machines
+# <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Hög tillgänglighet och haveri beredskap för SQL Server i Azure Virtual Machines
 
 Microsoft Azure Virtual Machines (VM) med SQL Server kan minska kostnaderna för en databas lösning för hög tillgänglighet och haveri beredskap (HADR). De flesta SQL Server HADR-lösningar stöds i Azure Virtual Machines, både i Azure och som hybrid lösningar. I en Azure-lösning körs hela HADR-systemet i Azure. I en hybrid konfiguration körs en del av lösningen i Azure och den andra delen körs lokalt i din organisation. Med flexibiliteten i Azure-miljön kan du flytta helt eller delvis till Azure för att uppfylla budget-och HADR krav för dina SQL Server databas system.
 
@@ -47,7 +47,7 @@ Det är möjligt att kombinera teknikerna tillsammans för att implementera en S
 
 Du kan ha en lösning med hög tillgänglighet för SQL Server på en databas nivå med Always on-tillgänglighets grupper – som kallas tillgänglighets grupper. Du kan också skapa en lösning för hög tillgänglighet på en instans nivå med Always on Cluster instances-instanser för redundanskluster. För ytterligare redundans kan du skapa redundans på båda nivåerna genom att skapa tillgänglighets grupper för kluster instanser för växling vid fel. 
 
-| Teknik | Exempel arkitekturer |
+| Teknologi | Exempel arkitekturer |
 | --- | --- |
 | **Tillgänglighets grupper** |Tillgänglighets repliker som körs i virtuella Azure-datorer i samma region ger hög tillgänglighet.  Du måste konfigurera en virtuell domänkontrollant, eftersom Windows-redundanskluster kräver en Active Directory-domän.<br/><br/> För högre redundans och tillgänglighet kan virtuella Azure-datorer distribueras i olika [tillgänglighets zoner](../../../availability-zones/az-overview.md) enligt beskrivningen i [tillgänglighets gruppens översikt](virtual-machines-windows-portal-sql-availability-group-overview.md). Om de virtuella datorerna i en tillgänglighets grupp har distribuerats i tillgänglighets zoner använder du SQL Server en [standard belastnings utjämning](../../../load-balancer/load-balancer-standard-overview.md) för lyssnare som dokumenteras i dessa artiklar – [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) & [Azure snabb starts mallar](virtual-machines-windows-sql-availability-group-quickstart-template.md).<br/> ![tillgänglighets grupper](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-ha-always-on.png)<br/>Mer information finns i [Konfigurera tillgänglighets grupper i Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). |
 | **Instanser av kluster för växling vid fel** |Instanser av redundanskluster (FCI), som kräver delad lagring, kan skapas på fyra olika sätt.<br/><br/>1. ett redundanskluster med två noder som körs i virtuella Azure-datorer med bifogad lagring med hjälp av [Windows Server 2016 Lagringsdirigering \(S2D-\)](virtual-machines-windows-portal-sql-create-failover-cluster.md) för att tillhandahålla en PROGRAMVARUBASERAD virtuell San-Server.<br/><br/> 2. ett redundanskluster med två noder som körs i virtuella Azure-datorer med [Premium-filresurs](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md). Premium-filresurser är SSD-omständigt-begränsade fil resurser med låg latens som stöds fullt ut för användning med kluster instansen för växling vid fel.<br/><br/>3. ett redundanskluster med två noder som körs i virtuella Azure-datorer med lagrings utrymme som stöds av en kluster lösning från tredje part. För ett särskilt exempel som använder SIOS DataKeeper, se [hög tillgänglighet för en fil resurs med hjälp av redundanskluster och program vara från tredje part SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>4. ett redundanskluster med två noder som körs i virtuella Azure-datorer med fjärran sluten iSCSI-mål med delad block lagring via ExpressRoute. NetApp Private Storage (NPS) visar till exempel ett iSCSI-mål via ExpressRoute med Equinix till virtuella Azure-datorer.<br/><br/>För delade lösningar från tredje part och lösningar för datareplikering bör du kontakta leverantören för eventuella problem som rör åtkomst till data vid redundans.<br/><br/>|
@@ -55,7 +55,7 @@ Du kan ha en lösning med hög tillgänglighet för SQL Server på en databas ni
 ## <a name="azure-only-disaster-recovery-solutions"></a>Endast Azure: katastrof återställnings lösningar
 Du kan ha en katastrof återställnings lösning för dina SQL Server databaser i Azure med hjälp av tillgänglighets grupper, databas spegling eller säkerhets kopiering och återställning med Storage-blobbar.
 
-| Teknik | Exempel arkitekturer |
+| Teknologi | Exempel arkitekturer |
 | --- | --- |
 | **Tillgänglighets grupper** |Tillgänglighets repliker som körs över flera data Center i virtuella Azure-datorer för haveri beredskap. Denna lösning för flera regioner skyddar mot slutförd plats störning. <br/> ![tillgänglighets grupper](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-dr-alwayson.png)<br/>I en region bör alla repliker finnas inom samma moln tjänst och samma VNet. Eftersom varje region har ett separat VNet, kräver de här lösningarna VNet till VNet-anslutning. Mer information finns i [Konfigurera en VNet-till-VNET-anslutning med hjälp av Azure Portal](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Detaljerade anvisningar finns i [Konfigurera en SQL Server tillgänglighets grupp på Azure Virtual Machines i olika regioner](virtual-machines-windows-portal-sql-availability-group-dr.md).|
 | **Databas spegling** |Huvud servrar och spegling och servrar som körs i olika data Center för haveri beredskap. Du måste distribuera med hjälp av Server certifikat. SQL Server databas spegling stöds inte för SQL Server 2008 eller SQL Server 2008 R2 på en virtuell Azure-dator. <br/>![Databas spegling](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-dr-dbmirroring.png) |
@@ -66,7 +66,7 @@ Du kan ha en katastrof återställnings lösning för dina SQL Server databaser 
 ## <a name="hybrid-it-disaster-recovery-solutions"></a>Hybrid IT: lösningar för katastrof återställning
 Du kan ha en katastrof återställnings lösning för SQL Server databaser i en hybrid IT-miljö med tillgänglighets grupper, databas spegling, logg överföring och säkerhets kopiering och återställning med Azure blogg lagring.
 
-| Teknik | Exempel arkitekturer |
+| Teknologi | Exempel arkitekturer |
 | --- | --- |
 | **Tillgänglighets grupper** |Vissa tillgänglighets repliker som körs i virtuella Azure-datorer och andra repliker som körs lokalt för haveri beredskap mellan platser. Produktions platsen kan vara antingen lokalt eller i ett Azure-datacenter.<br/>![Tillgänglighets grupper](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-alwayson.png)<br/>Eftersom alla tillgänglighets repliker måste finnas i samma redundanskluster måste klustret omfatta båda nätverken (ett redundanskluster med flera undernät). Den här konfigurationen kräver en VPN-anslutning mellan Azure och det lokala nätverket.<br/><br/>För lyckad haveri beredskap för dina databaser bör du också installera en replik-domänkontrollant på webbplatsen för haveri beredskap.<br/><br/>Det går att använda guiden Lägg till replik i SSMS för att lägga till en Azure-replik till en befintlig Always on-tillgänglighetsgruppen. Mer information finns i Självstudier: utöka din Always on Availability-grupp till Azure. |
 | **Databas spegling** |En partner som körs i en virtuell Azure-dator och den andra som körs lokalt för haveri beredskap mellan platser med hjälp av Server certifikat. Partners behöver inte vara i samma Active Directory domän och ingen VPN-anslutning krävs.<br/>![databas spegling](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-dbmirroring.png)<br/>Ett annat scenario för databas spegling omfattar en partner som körs i en virtuell Azure-dator och den andra som körs lokalt i samma Active Directory domän för haveri beredskap mellan platser. Det krävs en [VPN-anslutning mellan det virtuella Azure-nätverket och det lokala nätverket](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) .<br/><br/>För lyckad haveri beredskap för dina databaser bör du också installera en replik-domänkontrollant på webbplatsen för haveri beredskap. SQL Server databas spegling stöds inte för SQL Server 2008 eller SQL Server 2008 R2 på en virtuell Azure-dator. |
@@ -156,7 +156,7 @@ För att få bästa möjliga prestanda från SQL Server som körs på en virtuel
 
 Andra avsnitt om att köra SQL Server i virtuella Azure-datorer finns [SQL Server på Azure-Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-### <a name="other-resources"></a>Övriga resurser
+### <a name="other-resources"></a>Andra resurser
 * [Installera en ny Active Directory skog i Azure](../../../active-directory/active-directory-new-forest-virtual-machine.md)
 * [Skapa redundanskluster för tillgänglighets grupper i Azure VM](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 

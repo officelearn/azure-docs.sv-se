@@ -9,11 +9,11 @@ ms.date: 05/20/2018
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 2685b9b519eaac453726f4923c46f1604cbd4681
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197835"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384228"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets
 > [!div class="op_single_selector"]

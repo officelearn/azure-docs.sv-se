@@ -11,11 +11,11 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 12/09/2019
 ms.openlocfilehash: 4149e90e07bbcd03a0df41060b42b8902b89e774
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541886"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396180"
 ---
 # <a name="data-access-in-azure-machine-learning"></a>Data åtkomst i Azure Machine Learning
 
@@ -28,7 +28,7 @@ När du är redo att använda data i din lagring rekommenderar vi att du
 3. Använd den data uppsättningen i dator inlärnings experimentet genom att antingen 
     1. Montera den på ditt Experiments beräknings mål för modell träning
 
-        **OR** 
+        **ELLER** 
 
     1. Använda det direkt i Azure Machine Learning lösningar som automatiserad dator inlärning (automatiserad ML) experiment körningar, maskin inlärnings pipeliner och [Azure Machine Learning designer](concept-designer.md).
 4. Skapa data uppsättnings Övervakare för data uppsättningen för modell utdata för att identifiera data drift. 
@@ -54,9 +54,9 @@ Azure Storage-tjänster som stöds och som kan registreras som data lager:
 + Azure Data Lake
 + Azure Data Lake Gen2
 + Azure SQL Database
-+ Azure-databas för PostgreSQL
++ Azure Database for PostgreSQL
 + Databricks-filsystem
-+ Azure-databas för MySQL
++ Azure Database for MySQL
 
 ### <a name="datasets"></a>Datauppsättningar
 

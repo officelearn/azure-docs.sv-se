@@ -10,11 +10,11 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
 ms.openlocfilehash: e53fb46b7c13e1feb0cc24663fb0782b4de06f2b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78198039"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380046"
 ---
 # <a name="vcore-model-overview"></a>Översikt över modell för virtuell kärna
 
@@ -143,7 +143,7 @@ På fliken **grundläggande** väljer du länken **Konfigurera databas** i avsni
   
 **Ändra maskin varu genereringen för en befintlig hanterad instans**
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 På sidan hanterad instans väljer du **pris nivå** länk placerad under avsnittet Inställningar
 

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 11/06/2019
+ms.date: 03/06/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5257d9f94f6304c2a8dbea3f1648a71d0ba65e94
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 127a0a2b7f7573db91df9347169e90de3e14c4c9
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064758"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932807"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,13 +25,13 @@ I den här artikeln får du lära dig hur du hanterar åtkomst till en Azure Mac
 
 ## <a name="default-roles"></a>Standard roller
 
-En Azure Machine Learning-arbetsyta är en Azure-resurs. Precis som andra Azure-resurser, och när en ny Azure Machine Learning arbets yta skapas, levereras den med tre standard roller. Du kan lägga till användare i arbets ytan och tilldela dem till någon av dessa inbyggda roller.
+En Azure Machine Learning-arbetsyta är en Azure-resurs. När en ny Azure Machine Learning-arbetsyta skapas levereras den med tre standardroller precis som andra Azure-resurser. Du kan lägga till användare i arbets ytan och tilldela dem till någon av dessa inbyggda roller.
 
 | Roll | Åtkomstnivå |
 | --- | --- |
-| **Läsare** | Skrivskyddade åtgärder på arbets ytan. Läsarna kan visa och Visa till gångar i en arbets yta, men kan inte skapa eller uppdatera dessa till gångar. |
-| **Deltagare** | Visa, skapa, redigera eller ta bort (om det är tillämpligt) till gångar i en arbets yta. Deltagare kan till exempel skapa ett experiment, skapa eller ansluta ett beräknings kluster, skicka in en körning och distribuera en webb tjänst. |
-| **Ägare** | Fullständig åtkomst till arbets ytan, inklusive möjligheten att visa, skapa, redigera eller ta bort (om tillämpligt) till gångar i en arbets yta. Dessutom kan du ändra roll tilldelningar. |
+| **Läsare** | Skrivskyddade åtgärder på arbetsytan. Läsare kan lista och visa tillgångar på en arbetsyta men kan inte skapa eller uppdatera dessa tillgångar. |
+| **Deltagare** | Visa, skapa, redigera eller ta bort (om det är tillämpligt) tillgångar på en arbetsyta. Deltagare kan till exempel skapa ett experiment, skapa eller ansluta ett beräkningskluster, skicka in en körning och distribuera en webbtjänst. |
+| **Ägare** | Fullständig åtkomst till arbetsytan, inklusive möjligheten att visa, skapa, redigera eller ta bort (om det är tillämpligt) tillgångar på en arbetsyta. Dessutom kan du ändra rolltilldelningar. |
 
 > [!IMPORTANT]
 > Roll åtkomsten kan begränsas till flera nivåer i Azure. Till exempel kanske någon med ägar åtkomst till en arbets yta saknar ägar åtkomst till den resurs grupp som innehåller arbets ytan. Mer information finns i [hur RBAC fungerar](/azure/role-based-access-control/overview#how-rbac-works).
@@ -40,12 +40,12 @@ Mer information om de inbyggda rollerna finns i [inbyggda roller för Azure](/az
 
 ## <a name="manage-workspace-access"></a>Hantera åtkomst till arbets ytan
 
-Om du är ägare till en arbets yta kan du lägga till och ta bort roller för arbets ytan. Du kan också tilldela roller till användare. Använd följande länkar för att identifiera hur du hanterar åtkomst:
-- [Azure Portal användar gränssnitt](/azure/role-based-access-control/role-assignments-portal)
+Om du är ägare till en arbetsyta kan du lägga till och ta bort roller för arbetsytan. Du kan även tilldela roller till användare. Använd följande länkar för att ta reda på hur du hanterar åtkomst:
+- [Användargränssnittet i Azure-portalen](/azure/role-based-access-control/role-assignments-portal)
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
 - [REST API](/azure/role-based-access-control/role-assignments-rest)
-- [Azure Resource Manager mallar](/azure/role-based-access-control/role-assignments-template)
+- [Azure Resource Manager-mallar](/azure/role-based-access-control/role-assignments-template)
 
 Om du har installerat [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md)kan du också använda ett CLI-kommando för att tilldela roller till användare.
 
@@ -173,4 +173,4 @@ Du måste ha behörighet som prenumerations nivå för att utföra en kvot relat
 - [Översikt över företags säkerhet](concept-enterprise-security.md)
 - [Köra experiment och härledning/Poäng i ett virtuellt nätverk på ett säkert sätt](how-to-enable-virtual-network.md)
 - [Självstudie: träna modeller](tutorial-train-models-with-aml.md)
-- [Åtgärder för resurs leverantör](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)
+- [Åtgärder för resursprovider](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

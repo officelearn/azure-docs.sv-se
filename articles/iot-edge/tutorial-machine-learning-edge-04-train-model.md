@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: a5c754373ba9437c631e62acbb5d6d246db4c862
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650766"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397126"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Självstudie: träna och distribuera en Azure Machine Learning modell
 
@@ -155,7 +155,7 @@ Kontrol lera att antecknings böckerna har slutförts genom att kontrol lera att
 
 1. Kontrol lera att följande filer har skapats:
 
-    | Fil | Description |
+    | Fil | Beskrivning |
     | --- | --- |
     | ./aml_config/.azureml/config.JSON | Konfigurations fil som används för att skapa Azure Machine Learning-arbetsyta. |
     | ./aml_config/model_config. JSON | Konfigurations fil som vi behöver för att distribuera modellen i **turbofanDemo** Machine Learning-arbetsytan i Azure. |

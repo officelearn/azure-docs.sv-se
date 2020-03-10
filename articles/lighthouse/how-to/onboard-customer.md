@@ -1,14 +1,14 @@
 ---
 title: Registrera en kund för Azure-delegerad resurshantering
 description: Lär dig att publicera en kund till Azure-delegerad resurs hantering, så att deras resurser kan nås och hanteras via din egen klient.
-ms.date: 01/20/2020
+ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 33cf880098e174c2c230a3d78e125ad8df7d894a
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 7cf0ff1d64603215a9607f5a25ebc4077f9fa9da
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649797"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925258"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Registrera en kund för Azure-delegerad resurshantering
 
@@ -22,9 +22,6 @@ Om du vill spåra din påverkan på kund engagemang och få erkännande, associe
 > Kunder kan också registreras när de köper ett erbjudande för hanterade tjänster (offentligt eller privat) som du har publicerat på Azure Marketplace. Mer information finns i [publicera Managed Services-erbjudanden på Azure Marketplace](publish-managed-services-offers.md). Du kan också använda onboarding-processen som beskrivs här tillsammans med ett erbjudande som publicerats på Azure Marketplace.
 
 Onboarding-processen kräver att åtgärder tas från både tjänst leverantörens klient organisation och kundens klient organisation. Alla dessa steg beskrivs i den här artikeln.
-
-> [!IMPORTANT]
-> För närvarande kan du inte publicera en prenumeration (eller resurs grupp i en prenumeration) för Azure-delegerad resurs hantering om prenumerationen använder Azure Databricks. Om en prenumeration har registrerats för onboarding med **Microsoft. ManagedServices** Resource Provider kan du inte heller skapa en Databricks-arbetsyta för den prenumerationen just nu.
 
 ## <a name="gather-tenant-and-subscription-details"></a>Samla in klient-och prenumerations information
 
@@ -41,7 +38,7 @@ Om du inte redan har dessa ID-värden kan du hämta dem på något av följande 
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Du kan se ditt klient-ID genom att hovra över ditt konto namn längst upp till höger i Azure Portal, eller genom att välja **Växla katalog**. Om du vill välja och kopiera ditt klient-ID söker du efter "Azure Active Directory" i portalen och väljer sedan **Egenskaper** och kopierar värdet som visas i fältet **katalog-ID** . Om du vill hitta ID: t för en prenumeration i kund klienten söker du efter "prenumerationer" och väljer sedan lämpligt prenumerations-ID.
+Du kan se ditt klient-ID genom att hovra över ditt konto namn längst upp till höger i Azure Portal, eller genom att välja **Växla katalog**. Om du vill välja och kopiera ditt klient-ID söker du efter "Azure Active Directory" i portalen och väljer sedan **Egenskaper** och kopierar värdet som visas i fältet **katalog-ID** . Om du vill hitta ID för en prenumeration i kundens klientorganisation söker du efter ”Prenumerationer” och väljer sedan lämpligt prenumerations-ID.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -98,7 +95,7 @@ För att kunna definiera auktoriseringar måste du känna till ID-värdena för 
 az ad group list --query "[?displayName == '<yourGroupName>'].objectId" --output tsv
 
 # To retrieve the objectId for an Azure AD user
-az ad user show --upn-or-object-id "<yourUPN>" –-query "objectId" --output tsv
+az ad user show --id "<yourUPN>" --query "objectId" --output tsv
 
 # To retrieve the objectId for an SPN
 az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output tsv
@@ -111,9 +108,9 @@ az role definition list --name "<roleName>" | grep name
 
 ## <a name="create-an-azure-resource-manager-template"></a>Skapa en Azure Resource Manager-mall
 
-För att publicera kunden måste du skapa en [Azure Resource Manager](../../azure-resource-manager/index.yml) mall för ditt erbjudande med följande information. Värdena för **mspOfferName** och **mspOfferDescription** visas för kunden när du visar erbjudande information på [sidan tjänst leverantörer](view-manage-service-providers.md) i Azure Portal.
+För att registrera kunden behöver du skapa en [Azure Resource Manager](../../azure-resource-manager/index.yml)-mall för ditt erbjudande med följande information. Värdena för **mspOfferName** och **mspOfferDescription** visas för kunden när du visar erbjudande information på [sidan tjänst leverantörer](view-manage-service-providers.md) i Azure Portal.
 
-|Fält  |Definition  |
+|Field  |Definition  |
 |---------|---------|
 |**mspOfferName**     |Ett namn som beskriver den här definitionen. Det här värdet visas för kunden som titeln på erbjudandet.         |
 |**mspOfferDescription**     |En kort beskrivning av ditt erbjudande (till exempel "contoso VM Management-erbjudande").      |

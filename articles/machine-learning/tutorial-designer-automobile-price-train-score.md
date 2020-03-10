@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 01/30/2020
-ms.openlocfilehash: 972f0aa1f6d05c3cc65c62c0991fad87ab4676c4
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 03/04/2020
+ms.openlocfilehash: ed3667ada834437e81ffdcb9161c2a726fe6a6dc
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623618"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933307"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Självstudie: förutsäga Automobile-priset med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -262,16 +262,16 @@ Använd modulen **utvärdera modell** för att utvärdera hur bra din modell bev
 
 Nu när din pipeline är all konfiguration kan du skicka en pipeline-körning för att träna din Machine Learning-modell. Du kan skicka en pipeline-körning när som helst medan du skapar pipelines i designern. Du kan göra detta för att kontrol lera ditt arbete när du går och kontrol lera att dina pipeline-funktioner fungerar som förväntat.
 
-1. Välj **Kör**längst upp på arbets ytan.
+1. Välj **Skicka**på arbets ytans överkant.
 
-1. I dialog rutan **Konfigurera pipeline-körning** väljer du **+ nytt experiment** för **experimentet**.
+1. I dialog rutan **Konfigurera pipeline-körning** väljer du **Skapa ny**.
 
     > [!NOTE]
     > Experiment grupp liknande pipeliner körs tillsammans. Om du kör en pipeline flera gånger kan du välja samma experiment för efterföljande körningar.
 
-    1. Ange ett beskrivande namn för **experimentets namn**.
+    1. Ange ett beskrivande namn på **nytt experiment namn**.
 
-    1. Välj **Kör**.
+    1. Välj **Skicka**.
     
     Du kan visa körnings status och information överst till höger på arbets ytan.
 

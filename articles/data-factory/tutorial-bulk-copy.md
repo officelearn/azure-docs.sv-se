@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: 4ab467c0dc5014ec6c8a543fe7e8ecc136dfa02d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439511"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388696"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 
@@ -30,7 +30,7 @@ Sett på en hög nivå ingår följande steg i självstudierna:
 > * Skapa datauppsättningar för Azure SQL Database och Azure SQL Data Warehouse.
 > * Skapa en pipeline för sökning av de tabeller som ska kopieras och en annan pipeline för den faktiska kopieringsåtgärden. 
 > * Starta en pipelinekörning.
-> * Övervaka pipelinen och aktivitetskörningarna.
+> * Övervaka pipelinen och aktivitetskörningar.
 
 I den här kursen används Azure PowerShell. Läs mer om att använda andra verktyg/SDK:er för att skapa en datafabrik i [Snabbstarter](quickstart-create-data-factory-dot-net.md). 
 
@@ -44,7 +44,7 @@ I det här scenariot har vi ett antal tabeller i Azure SQL Database som vi vill 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -71,7 +71,7 @@ Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Dat
 
 1. Klicka på **Alla tjänster** till vänster och klicka på **SQL-servrar**.
 2. Välj din server och klicka på **Brandvägg** under **INSTÄLLNINGAR**.
-3. På sidan **Brandväggsinställningar** klickar du på **På** för **Tillåt åtkomst till Azure-tjänster**.
+3. På sidan **Brandväggsinställningar** väljer du **På** för **Tillåt åtkomst till Azure-tjänster**.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
@@ -92,7 +92,7 @@ Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Dat
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"
     ```
-2. Kör cmdleten **set-AzDataFactoryV2** för att skapa en data fabrik. Ersätt platshållare med egna värden innan kommandot körs. 
+2. Kör cmdleten **set-AzDataFactoryV2** för att skapa en data fabrik. Ersätt platshållarna med egna värden innan du kör kommandot. 
 
     ```powershell
     $resourceGroupName = "<your resource group to create the factory>"
@@ -102,13 +102,13 @@ Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Dat
 
     Observera följande punkter:
 
-    * Namnet på Azure Data Factory måste vara globalt unikt. Om du får följande felmeddelande ändrar du namnet och försöker igen.
+    * Namnet på Azure Data Factory måste vara globalt unikt. Om du har fått följande felmeddelande ändrar du namnet och försöker igen.
 
         ```
         The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
         ```
 
-    * När du ska skapa Data Factory-instanser måste du vara deltagare/administratör för Azure-prenumerationen.
+    * Om du vill skapa Data Factory-instanser måste du vara deltagare/administratör för Azure-prenumerationen.
     * Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
@@ -192,7 +192,7 @@ I den här självstudien använder du Azure Blob Storage som ett mellanlagringsu
 1. Skapa en JSON-fil med namnet **AzureStorageLinkedService.json** i mappen **C:\ADFv2TutorialBulkCopy** med följande innehåll:
 
     > [!IMPORTANT]
-    > Ersätt &lt;accountName&gt; och &lt;accountKey&gt; med namnet och nyckeln för ditt Azure Storage-konto innan du sparar filen.
+    > Ersätt &lt;accountName&gt; och &lt;accountKey&gt; med namnet och nyckeln för ditt Azure-lagringskonto innan du sparar filen.
 
     ```json
     {
@@ -574,7 +574,7 @@ Den här pipelinen utför två steg:
 3. Anslut till Azure SQL Data Warehouse-mottagaren och bekräfta att data har kopierats från Azure SQL Database.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen har du fått: 
+I den här självstudiekursen fick du: 
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.
@@ -582,8 +582,8 @@ I den här självstudiekursen har du fått:
 > * Skapa datauppsättningar för Azure SQL Database och Azure SQL Data Warehouse.
 > * Skapa en pipeline för sökning av de tabeller som ska kopieras och en annan pipeline för den faktiska kopieringsåtgärden. 
 > * Starta en pipelinekörning.
-> * Övervaka pipelinen och aktivitetskörningarna.
+> * Övervaka pipelinen och aktivitetskörningar.
 
 Fortsätt till följande självstudiekurs om du vill lära dig att kopiera data stegvis från en källa till ett mål:
 > [!div class="nextstepaction"]
->[Kopiera data stegvis](tutorial-incremental-copy-powershell.md)
+>[Kopiera data inkrementellt](tutorial-incremental-copy-powershell.md)

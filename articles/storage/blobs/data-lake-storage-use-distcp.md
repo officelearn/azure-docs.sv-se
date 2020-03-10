@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 3c09a95309e001def306698bbba4f6d0a1a2804d
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543665"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388165"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Använd DistCp för att kopiera data mellan Azure Storage blobbar och Azure Data Lake Storage Gen2
 
@@ -71,9 +71,9 @@ Eftersom DistCpens lägsta granularitet är en enda fil, är det största antale
 
 Här är några riktlinjer som du kan använda.
 
-* **Steg 1: Fastställa det totala tillgängliga minnet för den sammanställda app-** kön för garn – det första steget är att avgöra vilket minne som är tillgängligt för den "standard" garn app Queue. Den här informationen finns i Ambari-portalen som är kopplad till klustret. Navigera till garn och Visa fliken configs om du vill se vilket garn minne som är tillgängligt för app-kön ' default '. Detta är den totala mängden tillgängligt minne för ditt DistCp-jobb (som faktiskt är ett MapReduce-jobb).
+* **Steg 1: Bestäm det totala mängden minne som är tillgängligt för den "standard" garn app Queue** – det första steget är att avgöra vilket minne som är tillgängligt för den "standard" garn app Queue. Den här informationen finns i Ambari-portalen som är kopplad till klustret. Navigera till garn och Visa fliken configs om du vill se vilket garn minne som är tillgängligt för app-kön ' default '. Detta är den totala mängden tillgängligt minne för ditt DistCp-jobb (som faktiskt är ett MapReduce-jobb).
 
-* **Steg 2: Beräkna antalet mappningar** – värdet för **m** är lika med kvoten av det totala garn minnet delat med garn behållarens storlek. Information om garn behållarens storlek finns även tillgänglig i Ambari-portalen. Navigera till garn och Visa fliken configs. GARN behållarens storlek visas i det här fönstret. Ekvationen för att nå antalet Mapper (**m**) är
+* **Steg 2: beräkna antalet mappningar** – värdet för **m** är lika med kvoten av det totala garn minnet delat med garn behållarens storlek. Information om garn behållarens storlek finns även tillgänglig i Ambari-portalen. Navigera till garn och Visa fliken configs. GARN behållarens storlek visas i det här fönstret. Ekvationen för att nå antalet Mapper (**m**) är
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 
@@ -81,11 +81,11 @@ Här är några riktlinjer som du kan använda.
 
 Vi antar att du har ett 4x D14v2s-kluster och du försöker överföra 10 TB data från 10 olika mappar. Var och en av mapparna innehåller olika mängder data och fil storlekarna i varje mapp skiljer sig åt.
 
-* **Totalt garn minne**: Från Ambari-portalen fastställer du att garn minnet är 96 GB för en D14-nod. Därför är det totala garn minnet för fyra noder i klustret: 
+* **Totalt garn minne**: från Ambari-portalen fastställer du att garn minnet är 96 GB för en D14-nod. Därför är det totala garn minnet för fyra noder i klustret: 
 
         YARN memory = 4 * 96GB = 384GB
 
-* **Antal mappningar**: Från Ambari-portalen fastställer du att storleken på garn behållare är 3 072 MB för en D14-klusternod. Så, antalet mappningar är:
+* **Antal mappningar**: från Ambari-portalen fastställer du att garn behållarens storlek är 3 072 MB för en D14-klusternod. Så, antalet mappningar är:
 
         m = (4 nodes * 96GB) / 3072MB = 128 mappers
 

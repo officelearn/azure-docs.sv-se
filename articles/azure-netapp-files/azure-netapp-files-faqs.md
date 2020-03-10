@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 03/06/2020
 ms.author: b-juche
-ms.openlocfilehash: aaa7e5e65ced2a9899bef5a811ee74be42a8548f
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: b76edb2d0db806d8ff4935d2b093fee3c2bb34d7
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048817"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78926008"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor och svar om Azure NetApp Files
 
@@ -148,6 +148,11 @@ Azure NetApp Files stöder Windows Server 2008r2SP1-2019-versioner av Active Dir
 ### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>Varför visar det tillgängliga utrymmet på min SMB-klient inte den etablerade storleken?
 
 Den volym storlek som rapporteras av SMB-klienten är den maximala storlek som Azure NetApp Files volymen kan växa till. Storleken på Azure NetApp Files volymen som det visas på SMB-klienten reflekterar inte volymens kvot eller storlek. Du kan få Azure NetApp Files volym storlek eller kvot genom Azure Portal eller API: et.
+<!--
+### Does Azure NetApp Files support LDAP signing? 
+
+Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
+--> 
 
 ## <a name="capacity-management-faqs"></a>Vanliga frågor och svar om kapacitets hantering
 

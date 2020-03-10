@@ -8,11 +8,11 @@ ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: 812cd0293f9627b7438e9870d8985e71dae1d147
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813421"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395038"
 ---
 # <a name="troubleshoot-the-process-server"></a>Felsöka processervern
 
@@ -45,27 +45,27 @@ Det första steget i fel sökning är att kontrol lera process serverns hälso t
 
 ![Felsöka process Server hälsa](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-process-server-health.png)
 
-## <a name="step-1-troubleshoot-process-server-health-alerts"></a>Steg 1: Felsöka hälso aviseringar för processerver
+## <a name="step-1-troubleshoot-process-server-health-alerts"></a>Steg 1: Felsök process serverns hälso aviseringar
 
 Processervern genererar ett antal hälso aviseringar. De här aviseringarna och rekommenderade åtgärder sammanfattas i följande tabell.
 
 **Aviserings typ** | **Fels** | **Felsöka**
 --- | --- | --- 
-![Felfri][green] | Inga  | Processervern är ansluten och felfritt.
-![Varning][yellow] | De angivna tjänsterna körs inte. | 1. Kontrol lera att tjänsterna körs.<br/> 2. Om tjänsterna körs som förväntat följer du anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).
-![Varning][yellow]  | PROCESSOR användning > 80% under de senaste 15 minuterna. | 1. Lägg inte till nya datorer.<br/>2. Kontrol lera att antalet virtuella datorer som använder processervern anpassas till [definierade gränser](site-recovery-plan-capacity-vmware.md#capacity-considerations)och Överväg att konfigurera [ytterligare en processerver](vmware-azure-set-up-process-server-scale.md).<br/>3. Följ anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).
-![Kritiskt][red] |  PROCESSOR användning > 95% under de senaste 15 minuterna. | 1. Lägg inte till nya datorer.<br/>2. Kontrol lera att antalet virtuella datorer som använder processervern anpassas till [definierade gränser](site-recovery-plan-capacity-vmware.md#capacity-considerations)och Överväg att konfigurera [ytterligare en processerver](vmware-azure-set-up-process-server-scale.md).<br/>3. Följ anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).<br/> 4. Om problemet kvarstår kör du [distributions planeraren](https://aka.ms/asr-v2a-deployment-planner) för VMware/fysisk server-replikering.
-![Varning][yellow] | Minnes användning > 80% under de senaste 15 minuterna. |  1. Lägg inte till nya datorer.<br/>2. Kontrol lera att antalet virtuella datorer som använder processervern anpassas till [definierade gränser](site-recovery-plan-capacity-vmware.md#capacity-considerations)och Överväg att konfigurera [ytterligare en processerver](vmware-azure-set-up-process-server-scale.md).<br/>3. Följ eventuella instruktioner som är associerade med varningen.<br/> 4. Om problemet kvarstår följer du anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).
-![Kritiskt][red] | Minnes användning > 95% under de senaste 15 minuterna. | 1. Lägg inte till nya datorer och fundera på att skapa en [ytterligare processerver](vmware-azure-set-up-process-server-scale.md).<br/> 2. Följ eventuella instruktioner som är associerade med varningen.<br/> 3. 4. Om problemet kvarstår följer du anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).<br/> 4. Om problemet kvarstår kör du [distributions planeraren](https://aka.ms/asr-v2a-deployment-planner) för VMware/fysisk server Replication-problem.
-![Varning][yellow] | Ledigt utrymme i cache-mappen < 30% under de senaste 15 minuterna. | 1. Lägg inte till nya datorer och Överväg att konfigurera en [ytterligare processerver](vmware-azure-set-up-process-server-scale.md).<br/>2. Kontrol lera att antalet virtuella datorer som använder processervern överensstämmer med [rikt linjerna](site-recovery-plan-capacity-vmware.md#capacity-considerations).<br/> 3. Följ anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).
-![Kritiskt][red] |  Ledigt utrymme < 25% under de senaste 15 minuterna | 1. Följ anvisningarna som är kopplade till varningen för det här problemet.<br/> 2. 3. Följ anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).<br/> 3. Om problemet kvarstår kör du [distributions planeraren](https://aka.ms/asr-v2a-deployment-planner) för VMware/fysisk server-replikering.
-![Kritiskt][red] | Inget pulsslag från processervern i 15 minuter eller mer. Tmansvs-tjänsten kommunicerar inte med konfigurations servern. | 1) kontrol lera att processervern är igång.<br/> 2. Kontrol lera att tmassvc körs på processervern.<br/> 3. Följ anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).
+![Felfri][green] | Ingen  | Processervern är ansluten och felfritt.
+![Varning][yellow] | De angivna tjänsterna körs inte. | 1. kontrol lera att tjänsterna körs.<br/> 2. om tjänsterna körs som förväntat följer du anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).
+![Varning][yellow]  | PROCESSOR användning > 80% under de senaste 15 minuterna. | 1. Lägg inte till nya datorer.<br/>2. kontrol lera att antalet virtuella datorer som använder processervern motsvarar [definierade gränser](site-recovery-plan-capacity-vmware.md#capacity-considerations)och Överväg att konfigurera [ytterligare en processerver](vmware-azure-set-up-process-server-scale.md).<br/>3. Följ instruktionerna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).
+![Kritisk][red] |  PROCESSOR användning > 95% under de senaste 15 minuterna. | 1. Lägg inte till nya datorer.<br/>2. kontrol lera att antalet virtuella datorer som använder processervern motsvarar [definierade gränser](site-recovery-plan-capacity-vmware.md#capacity-considerations)och Överväg att konfigurera [ytterligare en processerver](vmware-azure-set-up-process-server-scale.md).<br/>3. Följ instruktionerna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).<br/> 4. om problemet kvarstår kör du [distributions planeraren](https://aka.ms/asr-v2a-deployment-planner) för VMware/fysisk server-replikering.
+![Varning][yellow] | Minnes användning > 80% under de senaste 15 minuterna. |  1. Lägg inte till nya datorer.<br/>2. kontrol lera att antalet virtuella datorer som använder processervern motsvarar [definierade gränser](site-recovery-plan-capacity-vmware.md#capacity-considerations)och Överväg att konfigurera [ytterligare en processerver](vmware-azure-set-up-process-server-scale.md).<br/>3. Följ eventuella instruktioner som är associerade med varningen.<br/> 4. om problemet kvarstår följer du anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).
+![Kritisk][red] | Minnes användning > 95% under de senaste 15 minuterna. | 1. Lägg inte till nya datorer och fundera över att skapa en [ytterligare processerver](vmware-azure-set-up-process-server-scale.md).<br/> 2. Följ eventuella instruktioner som är associerade med varningen.<br/> 3. 4. Om problemet kvarstår följer du anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).<br/> 4. om problemet kvarstår kör du [distributions planeraren](https://aka.ms/asr-v2a-deployment-planner) för replikering av VMware/fysisk server.
+![Varning][yellow] | Ledigt utrymme i cache-mappen < 30% under de senaste 15 minuterna. | 1. Lägg inte till nya datorer och Överväg att konfigurera en [ytterligare processerver](vmware-azure-set-up-process-server-scale.md).<br/>2. kontrol lera att antalet virtuella datorer som använder processervern överensstämmer med [rikt linjerna](site-recovery-plan-capacity-vmware.md#capacity-considerations).<br/> 3. Följ instruktionerna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).
+![Kritisk][red] |  Ledigt utrymme < 25% under de senaste 15 minuterna | 1. Följ instruktionerna som är kopplade till varningen för det här problemet.<br/> 2. 3. Följ anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).<br/> 3. om problemet kvarstår kör du [distributions planeraren](https://aka.ms/asr-v2a-deployment-planner) för VMware/fysisk server-replikering.
+![Kritisk][red] | Inget pulsslag från processervern i 15 minuter eller mer. Tmansvs-tjänsten kommunicerar inte med konfigurations servern. | 1) kontrol lera att processervern är igång.<br/> 2. kontrol lera att tmassvc körs på processervern.<br/> 3. Följ instruktionerna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).
 
 
 ![Tabell nyckel](./media/vmware-physical-azure-troubleshoot-process-server/table-key.png)
 
 
-## <a name="step-2-check-process-server-services"></a>Steg 2: Kontrol lera process Server tjänster
+## <a name="step-2-check-process-server-services"></a>Steg 2: kontrol lera process Server tjänster
 
 Tjänster som ska köras på processervern sammanfattas i följande tabell. Det finns mindre skillnader i tjänsterna, beroende på hur processervern distribueras. 
 
@@ -78,14 +78,14 @@ För alla tjänster utom Microsoft Azure Recovery Services agent (obengine) kont
 **Processerver distribuerad i Azure för återställning efter fel** | ProcessServer; ProcessServerMonitor; cxprocessserver InMage PushInstall; Logg uppladdnings tjänst (LogUpload)
 
 
-## <a name="step-3-check-the-process-server-heartbeat"></a>Steg 3: Kontrol lera process serverns pulsslag
+## <a name="step-3-check-the-process-server-heartbeat"></a>Steg 3: kontrol lera pulsslag för processervern
 
 Om det inte finns något pulsslag från processervern (felkod 806) gör du följande:
 
 1. Kontrol lera att den virtuella datorns process Server är igång.
 2. Kontrol lera om det finns fel i loggarna.
 
-    C:\ProgramData\ASR\home\svsystems\eventmanager *.log  C\ProgramData\ASR\home\svsystems\monitor_protection*.log
+    C:\ProgramData\ASR\home\svsystems\eventmanager *. log c\programdata\asr\home\svsystems\ monitor_protection*. log
 
 ## <a name="check-connectivity-and-replication"></a>Kontrol lera anslutningen och replikeringen
 
@@ -94,15 +94,15 @@ Om det inte finns något pulsslag från processervern (felkod 806) gör du följ
 ![Felsöka anslutningar och replikering](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
 
 
-## <a name="step-4-verify-time-sync-on-source-machine"></a>Steg 4: Verifiera tidssynkronisering på käll datorn
+## <a name="step-4-verify-time-sync-on-source-machine"></a>Steg 4: verifiera tidssynkronisering på käll datorn
 
 Se till att system datum/-tiden för den replikerade datorn är synkroniserad. [Läs mer](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
 
-## <a name="step-5-check-anti-virus-software-on-source-machine"></a>Steg 5: Kontrol lera antivirus program på käll datorn
+## <a name="step-5-check-anti-virus-software-on-source-machine"></a>Steg 5: kontrol lera antivirus program på käll datorn
 
 Kontrol lera att inget antivirus program på den replikerade datorn blockerar Site Recovery. Om du behöver utesluta Site Recovery från antivirus program kan du läsa [den här artikeln](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program).
 
-## <a name="step-6-check-connectivity-from-source-machine"></a>Steg 6: Kontrol lera anslutningen från käll datorn
+## <a name="step-6-check-connectivity-from-source-machine"></a>Steg 6: kontrol lera anslutningen från käll datorn
 
 
 1. Installera [Telnet-klienten](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx) på käll datorn om du behöver. Använd inte ping.
@@ -119,7 +119,7 @@ Kontrol lera att inget antivirus program på den replikerade datorn blockerar Si
 **Misslyckade** | Du kan inte ansluta | Kontrol lera att den inkommande port 9443 är tillåten på processervern. Om du till exempel har ett perimeternätverk eller ett skärmat undernät. Kontrol lera anslutningen igen.
 **Delvis genomförd** | Du kan ansluta, men käll datorn rapporterar att processervern inte kan nås. | Fortsätt med nästa fel söknings procedur.
 
-## <a name="step-7-troubleshoot-an-unreachable-process-server"></a>Steg 7: Felsöka en processerver som inte kan kontaktas
+## <a name="step-7-troubleshoot-an-unreachable-process-server"></a>Steg 7: Felsök en processerver som inte kan kontaktas
 
 Om processervern inte går att komma åt från käll datorn visas fel 78186. Om det här problemet inte åtgärdas leder det till att både programkonsekventa och kraschbaserade återställnings punkter inte genereras som förväntat.
 
@@ -138,7 +138,7 @@ Om Telnet lyckas, men käll datorn rapporterar att processervern inte går att n
 
 Dessutom kan du köra verktyget cxpsclient för att kontrol lera slut punkt till slut punkt-anslutningen.
 
-1. Kör verktyget enligt följande:
+1. Kör verktyget så här:
 
     ```
     <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
@@ -162,7 +162,7 @@ Problem med data överföringar som blockeras från käll datorer till process t
 
 
 
-## <a name="step-8-check-whether-the-process-server-is-pushing-data"></a>Steg 8: Kontrol lera om processervern skickar data
+## <a name="step-8-check-whether-the-process-server-is-pushing-data"></a>Steg 8: kontrol lera om processervern skickar data
 
 Kontrol lera om processervern aktivt skickar data till Azure.
 
@@ -174,7 +174,7 @@ Kontrol lera om processervern aktivt skickar data till Azure.
 
   Om cbengine. exe inte skickar en stor mängd data, slutför du stegen i följande avsnitt.
 
-## <a name="step-9-check-the-process-server-connection-to-azure-blob-storage"></a>Steg 9: Kontrol lera Server anslutningen till Azure Blob Storage
+## <a name="step-9-check-the-process-server-connection-to-azure-blob-storage"></a>Steg 9: kontrol lera anslutningen till processervern i Azure Blob Storage
 
 1. I resursövervakare väljer du **cbengine. exe**.
 2. Under **TCP-anslutningar**kontrollerar du om det finns en anslutning från processervern till Azure Storage.
@@ -190,8 +190,8 @@ Om det inte finns någon anslutning från processervern till Azure Blob Storage-
 
     - cxprocessserver
     - InMage Scout VX agent – Sentinel/utpost
-    - Microsoft Azure Recovery Services-agent
-    - Microsoft Azure Site Recovery-tjänsten
+    - Microsoft Azure Recovery Services agent
+    - Microsoft Azure Site Recovery tjänst
     - tmansvc
 
 3. Starta eller starta om alla tjänster som inte körs.
@@ -211,7 +211,7 @@ Om det inte finns någon anslutning från processervern till Azure Blob Storage-
 5. På kommando raden på processervern använder du Telnet för att pinga din offentliga Azure-IP-adress.
 6. Om du inte kan ansluta, Följ nästa procedur.
 
-## <a name="step-11-check-process-server-firewall-settings"></a>Steg 11: Kontrol lera inställningar för process Server-brandvägg. 
+## <a name="step-11-check-process-server-firewall-settings"></a>Steg 11: kontrol lera brand Väggs inställningarna för process Server. 
 
 Kontrol lera om den IP-adressbaserade brand väggen på processervern blockerar åtkomsten.
 
@@ -228,18 +228,18 @@ Kontrol lera om den IP-adressbaserade brand väggen på processervern blockerar 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
 
-## <a name="step-12-verify-process-server-proxy-settings"></a>Steg 12: Verifiera proxyinställningar för processerver 
+## <a name="step-12-verify-process-server-proxy-settings"></a>Steg 12: Verifiera inställningar för processerver 
 
-1. Om du använder en proxyserver måste du kontrol lera att namnet på proxyservern har matchats av DNS-servern. Kontrol lera värdet som du angav när du konfigurerade konfigurations servern i register nyckeln **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure site Recovery\ProxySettings**.
+1. Om du använder en proxyserver måste du kontrol lera att namnet på proxyservern har matchats av DNS-servern. Kontrol lera värdet som du angav när du konfigurerade konfigurations servern i register nyckeln **HKEY_LOCAL_MACHINE \Software\microsoft\azure site Recovery\ProxySettings**.
 2. Se till att samma inställningar används av den Azure Site Recovery agenten för att skicka data.
 
     a) Sök efter **Microsoft Azure Backup**.
 
-    b) öppna **Microsoft Azure Backup**och välj Egenskaper för **Åtgärds** > **ändring**.
+    b) öppna **Microsoft Azure Backup**och välj **åtgärd** > **ändra egenskaper**.
 
     c) på fliken **proxykonfiguration** ska adressen vara samma som den proxyadress som visas i register inställningarna. Om inte, ändra den till samma adress.
 
-## <a name="step-13-check-bandwidth"></a>Steg 13: Kontrol lera bandbredd
+## <a name="step-13-check-bandwidth"></a>Steg 13: kontrol lera bandbredd
 
 Öka bandbredden mellan processervern och Azure och kontrol lera sedan om problemet fortfarande uppstår.
 

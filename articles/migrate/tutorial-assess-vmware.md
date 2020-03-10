@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: hamusa
 ms.openlocfilehash: 7f161afe13bad8c548806d4b4ceb9372dc511cc3
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289449"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388994"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Utvärdera virtuella VMware-datorer med hjälp av Azure Migrate Server bedömning
 
@@ -20,7 +20,7 @@ Den här artikeln visar hur du kan utvärdera lokala virtuella VMware-datorer (V
 
 [Azure Migrate](migrate-services-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate verktyg och oberoende program varu leverantörer (ISV) från Microsoft-partner.
 
-Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella VMware-datorer till Azure. I den här guiden får du lära dig hur man:
+Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella VMware-datorer till Azure. I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
 > * Konfigurera en Azure Migrate-apparat som körs lokalt för att utvärdera de virtuella datorerna.
@@ -33,7 +33,7 @@ Den här självstudien är den andra i en serie som visar hur du bedömer och mi
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [Slutför den första självstudien](tutorial-prepare-vmware.md) i den här serien. Om du inte gör det fungerar inte instruktionerna i den här självstudien.
 

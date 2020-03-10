@@ -11,11 +11,11 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 2399849b87e44c5cb70d2db987ae18d8d2d9c552
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77564048"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357197"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integrerings körning i Azure Data Factory  
 **Integration runtime** är den beräknings infrastruktur som används av Azure Data Factory för att tillhandahålla olika funktioner för data integrering i olika nätverks miljöer. Det finns tre typer av integrerings körningar som erbjuds av Data Factory:
@@ -186,9 +186,9 @@ Azure-SSIS integration runtime är ett fullständigt hanterat kluster av virtuel
 | Status | Beskrivning |
 | ------ | ----------- | 
 | Startar | Den här noden förbereds. |
-| Tillgänglig | Den här noden är redo att distribuera/köra SSIS-paket. |
+| Tillgängligt | Den här noden är redo att distribuera/köra SSIS-paket. |
 | Återanvänder | Den här noden repareras/startas om. |
-| Ej tillgänglig | Den här noden är inte klar för att distribuera/köra SSIS-paket och har åtgärds bara fel/problem som du kan lösa. |
+| Inte tillgänglig | Den här noden är inte klar för att distribuera/köra SSIS-paket och har åtgärds bara fel/problem som du kan lösa. |
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>Status (övergripande Azure-SSIS integration Runtime)
 

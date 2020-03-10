@@ -8,11 +8,11 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 10/29/2019
 ms.openlocfilehash: 6319d2d72df69cc9633bd2b2ff8e777c2a48966a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982542"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386557"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Hantera Logic Apps med Visual Studio
 
@@ -23,7 +23,7 @@ ms.locfileid: "75982542"
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -63,7 +63,7 @@ I Visual Studio kan du hitta alla Logic Apps som är associerade med din Azure-p
 
 1. Öppna Visual Studio. I menyn **Visa** väljer du **Cloud Explorer**.
 
-1. Välj **konto hantering**i Cloud Explorer. Välj den Azure-prenumeration som är associerad med dina Logi Kap par och välj sedan **Använd**. Ett exempel:
+1. Välj **konto hantering**i Cloud Explorer. Välj den Azure-prenumeration som är associerad med dina Logi Kap par och välj sedan **Använd**. Exempel:
 
    ![Välj "konto hantering"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -226,7 +226,7 @@ Om du vill kontrol lera statusen och diagnostisera problem med att Logic App kö
 
    ![Öppna körnings historiken för din Logic app](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
 
-1. Om du vill visa information om en speciell körning dubbelklickar du på en körning. Ett exempel:
+1. Om du vill visa information om en speciell körning dubbelklickar du på en körning. Exempel:
 
    ![Visa information om en speciell körning](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
@@ -259,7 +259,7 @@ För att ta bort din Logic app från Azure Portal, i Cloud Explorer, öppnar du 
 > [!NOTE]
 > När du tar bort en logikapp instantieras inga nya körningar. Alla pågående och väntande körningar avbryts. Om du har flera tusen körningar kan det ta relativt lång tid att avbryta dem. 
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 När du öppnar ditt Logic Apps-projekt i Logic Apps designer kanske du inte får möjlighet att välja din Azure-prenumeration. I stället öppnas din Logic-app med en Azure-prenumeration som inte är den som du vill använda. Detta beror på att när du har öppnat en Logic Apps. JSON-fil cachelagrar Visual Studio den första valda prenumerationen för framtida användning. Försök med något av följande steg för att lösa problemet:
 

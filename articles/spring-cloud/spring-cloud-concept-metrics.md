@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
 ms.openlocfilehash: bb23afff2b4b449897d8e420934d038938d20205
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500335"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389573"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Förstå mått för Azure våren Cloud
 

@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 4789ef1e0e09df521f8cab539d972e9e669e0a58
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450167"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395525"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Säkerhetskopiera en virtuell Azure-dator med hjälp av Azure Backup via REST API
 
@@ -44,7 +44,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |204 inget innehåll     |         |  OK utan innehåll som returneras      |
-|202 accepterad     |         |     Godkänd    |
+|202 accepterad     |         |     Accepted    |
 
 ##### <a name="example-responses"></a>Exempel svar
 
@@ -211,7 +211,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
-|202 accepterad     |         |     Godkänd    |
+|202 accepterad     |         |     Accepted    |
 
 ##### <a name="example-responses"></a>Exempel svar
 
@@ -321,7 +321,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
-|202 accepterad     |         |     Godkänd    |
+|202 accepterad     |         |     Accepted    |
 
 #### <a name="example-responses-3"></a>Exempel svar
 
@@ -442,7 +442,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |204 noåll     |         |  NoContent       |
-|202 accepterad     |         |     Godkänd    |
+|202 accepterad     |         |     Accepted    |
 
 > [!IMPORTANT]
 > För att skydda mot oavsiktliga borttagnings scenarier finns det en [funktion för mjuk borttagning](use-restapi-update-vault-properties.md#soft-delete-state) som är tillgänglig för Recovery Services-valvet. Om det mjuka borttagnings läget för valvet är inställt på aktive rad tas inte data bort direkt i borttagnings åtgärden. Den sparas i 14 dagar och rensas sedan permanent. Kunden debiteras inte för lagring under den här perioden på 14 dagar. Om du vill ångra borttagnings åtgärden läser du [avsnittet ångra-ta bort](#undo-the-stop-protection-and-delete-data).

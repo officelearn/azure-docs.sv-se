@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
 ms.openlocfilehash: 208a302a0702a5c4de4d194c9e72f562aaf758c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75482301"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392735"
 ---
 # <a name="manage-users"></a>Hantera användare
 
 Azure FarmBeats innehåller användar hantering för personer som är en del av din Azure Active Directory-instans (Azure AD). Du kan lägga till användare till din Azure FarmBeats-instans för att få åtkomst till API: erna, Visa de genererade kartorna och få åtkomst till sensor telemetri från Server gruppen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure FarmBeats-installation krävs. Mer information finns i [Installera Azure-FarmBeats](install-azure-farmbeats.md).
 - E-ID för de användare som du vill lägga till eller ta bort från din Azure FarmBeats-instans.
@@ -67,7 +67,7 @@ Ta bort användare från Azure FarmBeats-systemet:
 
 Gör följande för att lägga till användare i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Längst upp till höger väljer du ditt konto och växlar sedan till Azure AD-klienten som är associerad med FarmBeats.
 3. Välj **Azure Active Directory** > **användare**.
 

@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: diberry
 ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772483"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393716"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Snabb start: Distribuera en app i LUIS-portalen
 
@@ -23,7 +23,7 @@ När din LUIS-app är redo att returnera uttryck förutsägelser till ett klient
 
 I den här snabb starten lär du dig att distribuera ett program. Du skapar en förutsägelse slut punkt resurs, tilldelar resursen till appen, tränar appen och publicerar appen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skaffa en [Azure-prenumeration](https://azure.microsoft.com/free).
 * Slutför den [föregående Portal snabb](get-started-portal-build-app.md) starten eller [Ladda ned och importera appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
@@ -67,7 +67,7 @@ Varje gång du skapar en ny resurs för LUIS måste du tilldela resursen till LU
 
     ![Om du vill lägga till LUIS förutsägelse resurs väljer du Lägg till förutsägelse resurs](./media/get-started-portal-deploy-app/azure-resources-add-prediction-resource.png)
 
-1. Välj klient, prenumeration och resurs namn. Välj **Tilldela resurs**.
+1. Välj klient, prenumeration och resurs namn. Välj **tilldela resurs**.
 
    ![Tilldela en resurs till din app](./media/get-started-portal-deploy-app/assign-resource.png)
 

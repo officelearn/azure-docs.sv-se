@@ -9,11 +9,11 @@ author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
 ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76771521"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395645"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Tabell design guide för Azure Table Storage: skalbara och genomförda tabeller
 
@@ -43,7 +43,7 @@ I följande exempel visar en enkel tabelldesign för att lagra anställda och av
 <th></th>
 </tr>
 <tr>
-<td>Marketing</td>
+<td>Marknadsföring</td>
 <td>00001</td>
 <td>2014-08-22T00:50:32Z</td>
 <td>
@@ -63,7 +63,7 @@ I följande exempel visar en enkel tabelldesign för att lagra anställda och av
 </table>
 </tr>
 <tr>
-<td>Marketing</td>
+<td>Marknadsföring</td>
 <td>00002</td>
 <td>2014-08-22T00:50:34Z</td>
 <td>
@@ -83,7 +83,7 @@ I följande exempel visar en enkel tabelldesign för att lagra anställda och av
 </table>
 </tr>
 <tr>
-<td>Marketing</td>
+<td>Marknadsföring</td>
 <td>Avdelning</td>
 <td>2014-08-22T00:50:30Z</td>
 <td>
@@ -93,7 +93,7 @@ I följande exempel visar en enkel tabelldesign för att lagra anställda och av
 <th>EmployeeCount</th>
 </tr>
 <tr>
-<td>Marketing</td>
+<td>Marknadsföring</td>
 <td>153</td>
 </tr>
 </table>
@@ -159,26 +159,26 @@ Följande tabell innehåller några av de viktigaste värdena som du bör känna
 Mer information finns i [förstå Table service data modell](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
 
 ### <a name="cost-considerations"></a>Kostnadsöverväganden
-Table Storage är relativt billigt, men du bör inkludera kostnads uppskattningar för både kapacitets användning och antalet transaktioner som en del av din utvärdering av en lösning som använder Table Storage. I många fall är det dock ett giltigt tillvägagångs sätt att lagra denormaliserade eller duplicerade data för att förbättra din lösnings prestanda eller skalbarhet. Mer information om priser finns i [Azure Storage-priser](https://azure.microsoft.com/pricing/details/storage/).  
+Table Storage är relativt billigt, men du bör inkludera kostnads uppskattningar för både kapacitets användning och antalet transaktioner som en del av din utvärdering av en lösning som använder Table Storage. I många fall är det dock ett giltigt tillvägagångs sätt att lagra denormaliserade eller duplicerade data för att förbättra din lösnings prestanda eller skalbarhet. Mer information om priser finns i [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/).  
 
 ## <a name="guidelines-for-table-design"></a>Riktlinjer för tabelldesign
 Listorna sammanfattar några av de viktigaste rikt linjerna som du bör tänka på när du skapar tabeller. I den här guiden hittar du mer information senare. Dessa rikt linjer skiljer sig från rikt linjerna som du vanligt vis följer för Relations databas design.  
 
 Designa din tabell lagring så att den blir *mer* effektiv:
 
-* **Design för frågor i Läs-aktiverat program.** När du skapar tabeller bör du tänka på frågorna (särskilt svars känsliga) som du kör innan du funderar på hur du ska uppdatera dina entiteter. Detta innebär vanligtvis en effektiv och högpresterande lösning.  
+* **Design för frågor i Läs-tung-program.** När du skapar tabeller bör du tänka på frågorna (särskilt svars känsliga) som du kör innan du funderar på hur du ska uppdatera dina entiteter. Detta innebär vanligtvis en effektiv och högpresterande lösning.  
 * **Ange både `PartitionKey` och `RowKey` i dina frågor.** *Punkt frågor* som dessa är de mest effektiva tabell lagrings frågorna.  
-* **Överväg att lagra dubbletter av entiteter.** Table Storage är billigt, så Överväg att lagra samma entitet flera gånger (med olika nycklar) för att aktivera mer effektiva frågor.  
-* **Överväg att avnormalisera data.** Table Storage är billigt, så Överväg att avnormalisera dina data. Till exempel lagra sammanfattning entiteter så att frågor för aggregerade data bara behöver åtkomst till en enda entitet.  
-* **Använd sammansatt nyckelvärden.** De enda nycklar du har är `PartitionKey` och `RowKey`. Till exempel använda sammansatt nyckelvärden för att aktivera alternativa knappade åtkomstsökvägar entiteter.  
-* **Använd fråga projektion.** Du kan minska mängden data som du överför över nätverket med hjälp av frågor som väljer enbart de fält som du behöver.  
+* **Överväg att lagra kopior av entiteter.** Table Storage är billigt, så Överväg att lagra samma entitet flera gånger (med olika nycklar) för att aktivera mer effektiva frågor.  
+* **Överväg att avnormalisera dina data.** Table Storage är billigt, så Överväg att avnormalisera dina data. Till exempel lagra sammanfattning entiteter så att frågor för aggregerade data bara behöver åtkomst till en enda entitet.  
+* **Använd sammansatta nyckel värden.** De enda nycklar du har är `PartitionKey` och `RowKey`. Till exempel använda sammansatt nyckelvärden för att aktivera alternativa knappade åtkomstsökvägar entiteter.  
+* **Använd frågans projektion.** Du kan minska mängden data som du överför över nätverket med hjälp av frågor som väljer enbart de fält som du behöver.  
 
 Designa din tabell lagring så att den blir *Skriv* effektiv:  
 
 * **Skapa inte varma partitioner.** Välj nycklar som gör det möjligt att sprida dina förfrågningar över flera partitioner vid någon tidpunkt.  
-* **Undvik trafiktoppar.** Distribuera trafiken under en rimlig tids period och Undvik toppar i trafiken.
-* **Inte nödvändigtvis att skapa en separat tabell för varje typ av entiteten.** När du behöver atomiska transaktioner över entitetstyper kan lagra du dessa flera typer av enheter i samma partition i samma tabell.
-* **Överväg att det maximala dataflöde som du måste uppnå.** Du måste vara medveten om skalbarhets målen för Table Storage och se till att designen inte gör att du överskrider den.  
+* **Undvik toppar i trafik.** Distribuera trafiken under en rimlig tids period och Undvik toppar i trafiken.
+* **Skapa inte nödvändigt vis en separat tabell för varje typ av entitet.** När du behöver atomiska transaktioner över entitetstyper kan lagra du dessa flera typer av enheter i samma partition i samma tabell.
+* **Ta hänsyn till det maximala data flöde som du måste uppnå.** Du måste vara medveten om skalbarhets målen för Table Storage och se till att designen inte gör att du överskrider den.  
 
 Senare i den här hand boken får du exempel på hur du kan lägga till alla dessa principer i praktiken.  
 
@@ -193,7 +193,7 @@ En bra utgångs punkt så att du kan läsa data effektivt är att fråga "vilka 
 ### <a name="how-your-choice-of-partitionkey-and-rowkey-affects-query-performance"></a>Hur du väljer `PartitionKey` och `RowKey` påverkar frågans prestanda
 I följande exempel förutsätter vi att tabell lagring lagrar anställdas entiteter med följande struktur (de flesta av exemplen tar inte med `Timestamp`-egenskapen för tydlighetens skull):  
 
-| kolumn namn | Datatyp |
+| Kolumn namn | Datatyp |
 | --- | --- |
 | `PartitionKey` (avdelnings namn) |String |
 | `RowKey` (medarbetar-ID) |String |
@@ -216,7 +216,7 @@ Exempel på kod på klient sidan som använder lagrings klient biblioteket för 
 
 * [Köra en punkt fråga med hjälp av lagrings klient biblioteket](#run-a-point-query-by-using-the-storage-client-library)
 * [Hämta flera entiteter med hjälp av LINQ](#retrieve-multiple-entities-by-using-linq)
-* [Projektion för serversidan](#server-side-projection)  
+* [Projektion på Server Sidan](#server-side-projection)  
 
 Exempel på klientsidan kod som kan hantera flera enhetstyper lagras i samma tabell finns:  
 
@@ -322,7 +322,7 @@ En annan metod är att avnormalisera dina data och endast lagra anställdas enhe
 
 ![Bild av entiteten personal][2]
 
-Mer information finns i den [Denormalisering mönstret](#denormalization-pattern) senare i den här guiden.  
+Mer information finns i avsnittet om [avnormaliserings mönster](#denormalization-pattern) senare i den här hand boken.  
 
 I följande tabell sammanfattas både för-och nack delar med var och en av metoderna för att lagra personal-och avdelnings enheter som har en en-till-många-relation. Du bör också fundera över hur ofta du förväntar dig att utföra olika åtgärder. Det kan vara acceptabelt att ha en design som innehåller en dyr åtgärd om den här åtgärden bara sker sällan.  
 
@@ -382,7 +382,7 @@ I följande tabell sammanfattas både för-och nack delar med var och en av meto
 Hur du väljer bland dessa alternativ och vilka av-och nack delar som är mest signifikanta beror på dina specifika program scenarier. Till exempel hur ofta ändrar du avdelnings enheter? Behöver alla dina anställda frågor ytterligare avdelnings information? Hur nära är du på skalbarhets gränserna för dina partitioner eller ditt lagrings konto?  
 
 ### <a name="one-to-one-relationships"></a>Motsvarighet
-Domän modeller kan innehålla en-till-en-relationer mellan entiteter. Om du behöver implementera en en-till-en-relation i Table Storage måste du också välja hur du länkar de två relaterade entiteterna när du behöver hämta dem. Den här länken kan antingen vara implicit, baserat på en konvention i nyckel värden eller explicit, genom att lagra en länk i form av `PartitionKey` och `RowKey` värden i varje entitet till den relaterade entiteten. En diskussion om huruvida du ska lagra relaterade entiteter i samma partition, finns i avsnittet [en-till-många-relationer](#one-to-many-relationships).  
+Domän modeller kan innehålla en-till-en-relationer mellan entiteter. Om du behöver implementera en en-till-en-relation i Table Storage måste du också välja hur du länkar de två relaterade entiteterna när du behöver hämta dem. Den här länken kan antingen vara implicit, baserat på en konvention i nyckel värden eller explicit, genom att lagra en länk i form av `PartitionKey` och `RowKey` värden i varje entitet till den relaterade entiteten. En beskrivning av huruvida du bör lagra relaterade entiteter i samma partition finns i avsnittet [en-till-många-relationer](#one-to-many-relationships).  
 
 Det finns också implementerings överväganden som kan leda till att du implementerar en-till-en-relationer i Table Storage:  
 
@@ -430,7 +430,7 @@ För att undvika avsaknad av sekundära index kan du lagra flera kopior av varje
 Följande två filter villkor (en sökning efter anställnings-ID och en sökning efter e-postadress) anger båda punkt frågorna:  
 
 * $filter = (PartitionKey eq ”försäljning”) och (RowKey eq 'empid_000223 ”)  
-* $filter = (PartitionKey eq ”försäljning”) och (RowKey eq 'email_jonesj@contoso.com”)  
+* $filter = (PartitionKey EQ Sales) och (RowKey EQemail_jonesj@contoso.com)  
 
 Om du frågar efter ett intervall med anställdas entiteter kan du ange ett intervall som sorteras i anställnings-ID-ordning, eller ett intervall som sorteras i e-postadressen. Fråga efter entiteter med lämpligt prefix i `RowKey`.  
 
@@ -465,7 +465,7 @@ Men se till att du inte överskrider gränserna för skalbarhet när du utför e
 #### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
 Följande mönster och riktlinjer kan vara relevanta när du implementerar det här mönstret:  
 
-* [Mönster för kommunikation mellan sekundära Partitionsindex](#inter-partition-secondary-index-pattern)
+* [Sekundärt index mönster mellan partitioner](#inter-partition-secondary-index-pattern)
 * [Sammansatt nyckel mönster](#compound-key-pattern)
 * [Enhets grupp transaktioner](#entity-group-transactions)
 * [Arbeta med heterogena entitetstyper](#work-with-heterogeneous-entity-types)
@@ -490,7 +490,7 @@ För att undvika avsaknad av sekundära index kan du lagra flera kopior av varje
 Följande två filter villkor (en sökning efter anställnings-ID och en sökning efter e-postadress) anger båda punkt frågorna:  
 
 * $filter = (PartitionKey eq ' empid_Sales ”) och (RowKey eq '000223”)
-* $filter = (PartitionKey eq ' email_Sales ”) och (RowKey eq 'jonesj@contoso.com”)  
+* $filter = (PartitionKey EQ email_Sales) och (RowKey EQjonesj@contoso.com)  
 
 Om du frågar efter ett intervall med anställdas entiteter kan du ange ett intervall som sorteras i anställnings-ID-ordning, eller ett intervall som sorteras i e-postadressen. Fråga efter entiteter med lämpligt prefix i `RowKey`.  
 
@@ -502,7 +502,7 @@ Observera att filter syntaxen som används i föregående exempel är från tabe
 #### <a name="issues-and-considerations"></a>Problem och överväganden
 Tänk på följande när du bestämmer hur du ska implementera mönstret:  
 
-* Du kan behålla dina dubbla entiteter konsekvent med varandra med hjälp av den [konsekvent transaktioner mönstret](#eventually-consistent-transactions-pattern) att underhålla de primära och sekundära index entiteterna.  
+* Du kan se till att dina dubbla entiteter försätts i enlighet med varandra genom att använda mönstret för senare [transaktioner](#eventually-consistent-transactions-pattern) för att underhålla de primära och sekundära index enheterna.  
 * Table Storage är relativt billigt att använda, så kostnads belastningen för lagring av dubblettdata bör inte vara en stor angelägenhet. Du kan dock alltid utvärdera kostnaden för din design baserat på dina förväntade lagrings krav och bara lägga till dubbla entiteter som stöder de frågor som klient programmet ska köra.  
 * Värdet som används för `RowKey` måste vara unikt för varje entitet. Överväg att använda sammansatt nyckelvärden.  
 * Utfyllnad av numeriska värden i `RowKey` (till exempel anställnings-ID 000223) möjliggör korrekt sortering och filtrering baserat på övre och nedre gränser.  
@@ -523,8 +523,8 @@ Använd det här mönstret om du vill undvika att överskrida gränserna för sk
 #### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
 Följande mönster och riktlinjer kan vara relevanta när du implementerar det här mönstret:  
 
-* [Konsekvent transaktioner mönster](#eventually-consistent-transactions-pattern)  
-* [Mönster för Intra-partition sekundärt index](#intra-partition-secondary-index-pattern)  
+* [Mönster för eventuellt konsekventa transaktioner](#eventually-consistent-transactions-pattern)  
+* [Sekundärt index mönster för sekundär partition](#intra-partition-secondary-index-pattern)  
 * [Sammansatt nyckel mönster](#compound-key-pattern)  
 * [Enhets grupp transaktioner](#entity-group-transactions)  
 * [Arbeta med heterogena entitetstyper](#work-with-heterogeneous-entity-types)  
@@ -549,7 +549,7 @@ Men du kan inte använda en EGT för att utföra dessa två åtgärder. För att
 
 ![Diagrammet för slutlig konsekvens][12]
 
-En klient initierar Arkiv åtgärden genom att placera ett meddelande i en Azure-kö (i det här exemplet för att arkivera medarbetar #456). En arbetsroll söker i kön för nya meddelanden. När den hittar en läser meddelandet och lämnar en dold kopia för kön. Arbetsrollen bredvid hämtar en kopia av entiteten från den **aktuella** tabellen, infogar en kopia i den **Arkiv** tabellen och tar sedan bort ursprungligt från den **aktuella** tabell. Slutligen, om det finns några fel från föregående steg, arbetsrollen tar bort dolda meddelandet från kön.  
+En klient initierar Arkiv åtgärden genom att placera ett meddelande i en Azure-kö (i det här exemplet för att arkivera medarbetar #456). En arbetsroll söker i kön för nya meddelanden. När den hittar en läser meddelandet och lämnar en dold kopia för kön. Arbets rollen hämtar sedan en kopia av entiteten från den **aktuella** tabellen, infogar en kopia i tabellen **Arkiv** och tar sedan bort originalet från den **aktuella** tabellen. Slutligen, om det finns några fel från föregående steg, arbetsrollen tar bort dolda meddelandet från kön.  
 
 I det här exemplet infogar steg 4 i diagrammet medarbetaren i **Arkiv** tabellen. Den kan lägga till medarbetaren i en BLOB i blob-lagring eller en fil i ett fil system.  
 
@@ -574,7 +574,7 @@ Använd det här mönstret när du vill att garantera konsekvens mellan entitete
 Följande mönster och riktlinjer kan vara relevanta när du implementerar det här mönstret:  
 
 * [Enhets grupp transaktioner](#entity-group-transactions)  
-* [Sammanfoga eller ersätta](#merge-or-replace)  
+* [Sammanfoga eller Ersätt](#merge-or-replace)  
 
 > [!NOTE]
 > Om transaktions isolering är viktigt för din lösning bör du överväga att designa om tabellerna så att du kan använda EGTs.  
@@ -650,7 +650,7 @@ Använd det här mönstret när du vill leta upp en uppsättning entiteter som a
 Följande mönster och riktlinjer kan vara relevanta när du implementerar det här mönstret:  
 
 * [Sammansatt nyckel mönster](#compound-key-pattern)  
-* [Konsekvent transaktioner mönster](#eventually-consistent-transactions-pattern)  
+* [Mönster för eventuellt konsekventa transaktioner](#eventually-consistent-transactions-pattern)  
 * [Enhets grupp transaktioner](#entity-group-transactions)  
 * [Arbeta med heterogena entitetstyper](#work-with-heterogeneous-entity-types)  
 
@@ -663,7 +663,7 @@ I en Relations databas normaliserar du vanligt vis data för att ta bort dubblet
 ![Bild av avdelnings enhet och entitet för anställd][16]
 
 #### <a name="solution"></a>Lösning
-I stället för att lagra data i två separata entiteter, avnormalisera data och behålla en kopia av chefens information i entiteten avdelning. Ett exempel:  
+I stället för att lagra data i två separata entiteter, avnormalisera data och behålla en kopia av chefens information i entiteten avdelning. Exempel:  
 
 ![Bild av avnormaliserad och kombinerad avdelnings enhet][17]
 
@@ -727,7 +727,7 @@ Följande mönster och riktlinjer kan vara relevanta när du implementerar det h
 
 * [Enhets grupp transaktioner](#entity-group-transactions)  
 * [Arbeta med heterogena entitetstyper](#work-with-heterogeneous-entity-types)  
-* [Konsekvent transaktioner mönster](#eventually-consistent-transactions-pattern)  
+* [Mönster för eventuellt konsekventa transaktioner](#eventually-consistent-transactions-pattern)  
 
 ### <a name="log-tail-pattern"></a>Mönster för log tail
 Hämta de *n* entiteter som senast har lagts till i en partition med hjälp av ett `RowKey` värde som sorterar i omvänd datum-och tids ordning.  
@@ -765,7 +765,7 @@ Använd det här mönstret när du behöver åtkomst till entiteter i omvänd da
 #### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
 Följande mönster och riktlinjer kan vara relevanta när du implementerar det här mönstret:  
 
-* [Lägg till åtkomstgruppen / lägga till ett mönster](#prepend-append-anti-pattern)  
+* [Lägga/Lägg till anti-mönster](#prepend-append-anti-pattern)  
 * [Hämta entiteter](#retrieve-entities)  
 
 ### <a name="high-volume-delete-pattern"></a>Mönster för hög volym delete
@@ -830,7 +830,7 @@ Använd det här mönstret när du vill uppdatera och hämta en serie som är as
 Följande mönster och riktlinjer kan vara relevanta när du implementerar det här mönstret:  
 
 * [Mönster för stora entiteter](#large-entities-pattern)  
-* [Sammanfoga eller ersätta](#merge-or-replace)  
+* [Sammanfoga eller Ersätt](#merge-or-replace)  
 * [Eventuellt konsekventa transaktions mönster](#eventually-consistent-transactions-pattern) (om du lagrar data serien i en BLOB)  
 
 ### <a name="wide-entities-pattern"></a>Mönster för många entiteter
@@ -858,7 +858,7 @@ Använd det här mönstret när du behöver lagra entiteter vars storlek eller a
 Följande mönster och riktlinjer kan vara relevanta när du implementerar det här mönstret:  
 
 * [Enhets grupp transaktioner](#entity-group-transactions)
-* [Sammanfoga eller ersätta](#merge-or-replace)
+* [Sammanfoga eller Ersätt](#merge-or-replace)
 
 ### <a name="large-entities-pattern"></a>Mönster för stora entiteter
 Använd Blob Storage för att lagra stora egenskaps värden.  
@@ -883,8 +883,8 @@ Använd det här mönstret när du behöver lagra entiteter vars storlek översk
 #### <a name="related-patterns-and-guidance"></a>Relaterade mönster och vägledningar
 Följande mönster och riktlinjer kan vara relevanta när du implementerar det här mönstret:  
 
-* [Konsekvent transaktioner mönster](#eventually-consistent-transactions-pattern)  
-* [Mönster för många entiteter](#wide-entities-pattern)
+* [Mönster för eventuellt konsekventa transaktioner](#eventually-consistent-transactions-pattern)  
+* [Mönster för breda entiteter](#wide-entities-pattern)
 
 <a name="prepend-append-anti-pattern"></a>
 
@@ -916,7 +916,7 @@ Undvik lägga/Lägg till anti-mönstret när din volym av transaktioner sannolik
 Följande mönster och riktlinjer kan vara relevanta när du implementerar det här mönstret:  
 
 * [Sammansatt nyckel mönster](#compound-key-pattern)  
-* [Mönster för log tail](#log-tail-pattern)  
+* [Logg änden-mönster](#log-tail-pattern)  
 * [Ändra entiteter](#modify-entities)  
 
 ### <a name="log-data-anti-pattern"></a>Logga ett datamönster
@@ -959,7 +959,7 @@ Tänk på följande när du bestämmer hur du lagrar loggdata:
 Det här avsnittet beskrivs några saker att ha i åtanke när du implementerar de mönster som beskrivs i föregående avsnitt. De flesta av det här avsnittet använder exempel som skrivits i C# och som använder Storage-klientbibliotek (version 4.3.0 då skrivs).  
 
 ### <a name="retrieve-entities"></a>Hämta entiteter
-Enligt beskrivningen i avsnittet [Design för att fråga](#design-for-querying), mest effektivt fråga är en punkt-fråga. I vissa fall kan du dock behöva hämta flera entiteter. I det här avsnittet beskrivs några vanliga metoder för att hämta entiteter med hjälp av lagrings klient biblioteket.  
+Som det beskrivs i avsnittet [design för frågor](#design-for-querying), är den mest effektiva frågan en punkt fråga. I vissa fall kan du dock behöva hämta flera entiteter. I det här avsnittet beskrivs några vanliga metoder för att hämta entiteter med hjälp av lagrings klient biblioteket.  
 
 #### <a name="run-a-point-query-by-using-the-storage-client-library"></a>Köra en punkt fråga med hjälp av lagrings klient biblioteket
 Det enklaste sättet att köra en punkt fråga är att använda åtgärden **Hämta** tabell. Som du ser i följande C# kodfragment hämtar den här åtgärden en entitet med en `PartitionKey` med värdet "Sales" och en `RowKey` med värdet "212":  

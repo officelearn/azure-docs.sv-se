@@ -16,11 +16,11 @@ ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
 ms.openlocfilehash: 27bdf82d4515678e28eadf07fe325860fe5df063
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015438"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392965"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Använda flera indatafiler och komponent egenskaper med Premium-kodare
 ## <a name="overview"></a>Översikt
@@ -31,7 +31,7 @@ Det finns scenarier där du kan behöva anpassa komponent egenskaper, ange Clip 
 * Lägga till en logo typ bild i indata-videon medan videon kodas.
 * Kodning av flera språk.
 
-För att låta **Media Encoder Premium Workflow** veta att du ändrar vissa egenskaper i arbets flödet när du skapar uppgiften eller skickar flera indatafiler måste du använda en konfigurations sträng som innehåller **setRuntimeProperties** och/eller  **transcodeSource**. Det här avsnittet beskriver hur du använder dem.
+För att låta **Media Encoder Premium Workflow** veta att du ändrar vissa egenskaper i arbets flödet när du skapar uppgiften eller skickar flera indatafiler, måste du använda en konfigurations sträng som innehåller **setRuntimeProperties** och/eller **transcodeSource**. Det här avsnittet beskriver hur du använder dem.
 
 ## <a name="configuration-string-syntax"></a>Syntax för konfigurations sträng
 Konfigurations strängen som ska anges i encoding-aktiviteten använder ett XML-dokument som ser ut så här:
@@ -97,7 +97,7 @@ Exempel:
 ```
 
 ### <a name="property-with-an-xml-value"></a>Egenskap med ett XML-värde
-Ange en egenskap som förväntar sig ett XML-värde genom att kapsla `<![CDATA[ and ]]>`in med.
+Om du vill ange en egenskap som förväntar sig ett XML-värde kapslar du in med hjälp av `<![CDATA[ and ]]>`.
 
 Exempel:
 
@@ -131,7 +131,7 @@ Exempel:
 ```
 
 > [!NOTE]
-> Se till att du inte anger någon vagn retur strax `<![CDATA[`efter.
+> Se till att du inte anger någon vagn retur strax efter `<![CDATA[`.
 
 ### <a name="propertypath-value"></a>propertyPath-värde
 I föregående exempel var propertyPath "/Media File in/filename" eller "/inactiveTimeout" eller "clipListXml".
@@ -269,7 +269,7 @@ Med ytterligare ram-korrekt trimning:
   </transcodeRequest>
 ```
 
-## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Exempel 1: Täcka in en bild ovanpå videon
+## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Exempel 1: lägga till en bild ovanpå videon
 
 ### <a name="presentation"></a>Presentation
 Överväg ett exempel där du vill täcka in en logo typ bild i indata-videon medan videon kodas. I det här exemplet heter ininspelnings videon "Microsoft_HoloLens_Possibilities_816p24. mp4" och logo typen kallas "logo. png". Du bör utföra följande steg:
@@ -299,7 +299,7 @@ I exemplet ovan skickas namnet på video filen till indatafilen för medie filen
 ### <a name="step-by-step-workflow-creation"></a>Steg för steg skapa arbets flöde
 Här följer stegen för att skapa ett arbets flöde som tar två filer som indata: en video och en bild. Bilden överläggs ovanpå videon.
 
-Öppna **arbetsflödesdesigner** och välj **Arkiv** > **nytt** > **Omkoda skiss**.
+Öppna **arbetsflödesdesigner** och välj **fil** > **ny arbets yta** > **Omkoda skiss**.
 
 Det nya arbets flödet visar tre element:
 
@@ -352,13 +352,13 @@ Om du vill ändra logo typens position på videon (till exempel kanske du vill p
 *Överläggets position*
 
 Om du vill koda video strömmen till H. 264 lägger du till komponenterna AVC video encoder och AAC Encoder till design ytan. Anslut PIN-märkena.
-Konfigurera AAC-kodaren och välj ljud formats konvertering/för inställning: 2.0 (L, R).
+Konfigurera AAC-kodaren och välj ljud formats konvertering/för inställning: 2,0 (L, R).
 
 ![Ljud-och video kodare](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 
 *Ljud-och video kodare*
 
-Lägg nu till **ISO MPEG-4-multiplexorn** och **fil** utmatnings komponenter och Anslut de PIN-koder som visas.
+Lägg nu till **ISO MPEG-4-multiplexorn** och **fil utmatnings** komponenter och Anslut de PIN-koder som visas.
 
 ![MP4-multiplexor och filutdata](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture16_mp4output.png)
 
@@ -429,7 +429,7 @@ När jobbet är klart visar MP4-filen i utmatnings till gången överlägget!
 
 Du kan hämta exempel arbets flödet från [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
 
-## <a name="example-2--multiple-audio-language-encoding"></a>Exempel 2: Flera språk kodning för ljud
+## <a name="example-2--multiple-audio-language-encoding"></a>Exempel 2: flera språk kodning för ljud
 
 Ett exempel på ett arbets flöde för kodning av flera språk är tillgängligt i [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
 
@@ -466,7 +466,7 @@ Följ dessa steg om du vill koda:
 
 * Den kodade till gången innehåller flera språk ljud spår och dessa spår bör vara valbara i Azure Media Player.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 * [Vi presenterar Premium encoding i Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Så här använder du Premium encoding i Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Kodning av innehåll på begäran med Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)
@@ -474,7 +474,7 @@ Följ dessa steg om du vill koda:
 * [Exempel på arbetsflödesmallar](https://github.com/Azure/azure-media-services-samples)
 * [Azure Media Services Explorer-verktyg](https://aka.ms/amse)
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

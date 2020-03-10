@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.openlocfilehash: 69c7edb08693937aad5a658e0b22b00cd2a81647
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464587"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391426"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Värd modell för Azure Service Fabric
 Den här artikeln innehåller en översikt över program värd modeller som tillhandahålls av Azure Service Fabric och beskriver skillnaderna mellan den **delade processen** och **exklusiva process** modeller. Den beskriver hur ett distribuerat program ser ut på en Service Fabric-nod och förhållandet mellan repliker (eller instanser) av tjänsten och Service-Host-processen.

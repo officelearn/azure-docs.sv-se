@@ -4,11 +4,11 @@ description: I den här artikeln lär du dig hur du förbereder din miljö för 
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: dd506668f9d75523ff7494bccb2979bf0785990d
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617617"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392081"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -92,7 +92,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
 ### <a name="downloading-the-software-package"></a>Laddar ned programpaketet
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Om du redan har ett Recovery Services-valv öppet går du vidare till steg 3. Om du inte har ett Recovery Services-valv öppet, men är i Azure Portal klickar du på **Bläddra**i huvud menyn.
 
    * I listan över resurser skriver du **Recovery Services**.

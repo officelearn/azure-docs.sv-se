@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 3e3f45c1802d501e2320930c35073ec89ff38124
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 0050112dc7d9d2fa20da612691f1ff0927df93fb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662356"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385325"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Anpassade mått i Azure Monitor
 
@@ -56,7 +56,7 @@ Den här egenskapen registrerar vilken Azure-region som den resurs som du skicka
 ### <a name="timestamp"></a>Tidsstämpel
 Varje data punkt som skickas till Azure Monitor måste markeras med en tidsstämpel. Den här tidsstämpeln fångar in det datum/tid-värde som Metric-värdet mäts eller samlas in. Azure Monitor accepterar mått data med tidsstämplar så långt som 20 minuter under de senaste och 5 minuterna i framtiden. Tidsstämpeln måste anges i formatet ISO 8601.
 
-### <a name="namespace"></a>Namnrymd
+### <a name="namespace"></a>Namnområde
 Namn områden är ett sätt att kategorisera eller gruppera likartade mått tillsammans. Genom att använda namn rymder kan du isolera olika grupper av mått som kan samla in olika insikter eller prestanda indikatorer. Du kan till exempel ha ett namn område med namnet **contosomemorymetrics** som spårar minnes användnings mått som innehåller en profil för din app. Ett annat namn område med namnet **contosoapptransaction** kan spåra alla mått för användar transaktioner i programmet.
 
 ### <a name="name"></a>Namn
@@ -156,13 +156,17 @@ Det finns inget behov av att fördefiniera ett anpassat mått i Azure Monitor in
 
 ## <a name="using-custom-metrics"></a>Använda anpassade mått
 När anpassade mått har skickats till Azure Monitor kan du bläddra igenom dem via Azure Portal och fråga dem via Azure Monitor REST-API: er. Du kan också skapa aviseringar på dem för att meddela dig när vissa villkor uppfylls.
+
+> [!NOTE]
+> Du måste vara en läsare eller deltagar roll för att visa anpassade mått.
+
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Bläddra bland dina anpassade mått via Azure Portal
-1.  Gå till [Azure-portalen](https://portal.azure.com).
-2.  Välj fönstret **övervaka** .
-3.  Välj **Mått**.
-4.  Välj en resurs som du har skickat anpassade mått mot.
-5.  Välj namn området mått för ditt anpassade mått.
-6.  Välj det anpassade måttet.
+1.    Gå till [Azure-portalen](https://portal.azure.com).
+2.    Välj fönstret **övervaka** .
+3.    Välj **Mått**.
+4.    Välj en resurs som du har skickat anpassade mått mot.
+5.    Välj namn området mått för ditt anpassade mått.
+6.    Välj det anpassade måttet.
 
 ## <a name="supported-regions"></a>Regioner som stöds
 Under den offentliga för hands versionen är möjligheten att publicera anpassade mått bara tillgänglig i en delmängd av Azure-regioner. Den här begränsningen innebär att mått endast kan publiceras för resurser i någon av de regioner som stöds. I följande tabell visas en lista över Azure-regioner som stöds för anpassade mått. Den listar även motsvarande slut punkter som Mät värden för resurser i dessa regioner ska publiceras på:
@@ -210,6 +214,6 @@ Använd anpassade mått från olika tjänster:
  - [Skalnings uppsättning för virtuell dator](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Azure Virtual Machines (klassisk)](collect-custom-metrics-guestos-vm-classic.md)
  - [Virtuell Linux-dator med hjälp av teleympkvistar-agenten](collect-custom-metrics-linux-telegraf.md)
- - [REST-API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
+ - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
  - [Klassisk Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  

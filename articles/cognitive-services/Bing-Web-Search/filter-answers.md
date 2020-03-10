@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111411"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381806"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrera svaren som Sök svaret innehåller  
 
@@ -111,7 +111,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 > [!NOTE]
 > Beroende på frågan, om du använder operatorn för `site:` fråga, finns det risk för att svaret kan innehålla innehåll som är olämpligt för barn oberoende av [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) -inställningen. Du bör endast använda `site:` om du är medveten om innehållet på webbplatsen och ditt scenario tillåter möjligheten att det förekommer innehåll som är olämpligt för barn.
 
-### <a name="freshness"></a>Uppdateringsbarhet
+### <a name="freshness"></a>Färskhet
 
 Om du vill begränsa webb svars resultatet till webb sidor som Bing identifierade under en viss period, ställer du in Frågeparametern för [uppdatering](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) till något av följande Skift läges okänsliga värden:
 

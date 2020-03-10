@@ -6,11 +6,11 @@ ms.topic: quickstart
 ms.date: 08/30/2019
 ms.custom: seodec18
 ms.openlocfilehash: 285e4cc1f38dd2adb5934e49d87b43e09d74ce11
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672116"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382592"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Skapa en ASP.NET Core-webbapp i Azure
 
@@ -24,7 +24,7 @@ Den här snabbstarten visar hur du distribuerar din första ASP.NET Core-webbapp
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien installerar du <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> med arbets belastningen **ASP.net och webb utveckling** .
 
@@ -86,7 +86,7 @@ Skapa en ASP.NET Core-webbapp genom att följa dessa steg:
    | Inställning | Föreslaget värde | Beskrivning |
    |-|-|-|
    |App Service-plan| myAppServicePlan | Namnet på App Service-planen. |
-   | Plats | Europa, västra | Datacenter som är värd för webbappen. |
+   | plats. | Europa, västra | Datacenter som är värd för webbappen. |
    | Storlek | Kostnadsfri | [Prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avgör tillgängliga värdfunktioner. |
 
    ![Skapa apptjänstplan](./media/app-service-web-get-started-dotnet/app-service-plan-vs2019.png)

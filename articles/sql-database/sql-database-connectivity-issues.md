@@ -14,11 +14,11 @@ ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
 ms.openlocfilehash: d2b56e259f551f7655936c975a7a864a27a1df79
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027808"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379926"
 ---
 # <a name="troubleshooting-transient-connection-errors-to-sql-database"></a>Felsöka tillfälliga anslutnings fel till SQL Database
 
@@ -90,7 +90,7 @@ Om du vill testa logiken för omprövning måste du simulera eller orsaka ett fe
 
 Ett sätt som du kan testa din logik för omprövning är att koppla bort klient datorn från nätverket medan programmet körs. Felet är:
 
-- **SqlException.Number** = 11001
+- **SqlException. Number** = 11001
 - Meddelande: "ingen sådan värd är känd"
 
 Som en del av det första försöket att ansluta igen kan du återansluta klient datorn till nätverket och sedan försöka ansluta.
@@ -108,7 +108,7 @@ För att göra det här testet praktiskt kan du koppla bort datorn från nätver
 
 Ditt program kan stava fel på användar namnet före det första anslutnings försöket. Felet är:
 
-- **SqlException.Number** = 18456
+- **SqlException. Number** = 18456
 - Meddelande: "inloggningen misslyckades för användaren" WRONG_MyUserName "."
 
 Som en del av det första försöket med nya försök kan programmet korrigera fel stavningen och sedan försöka ansluta.
@@ -187,7 +187,7 @@ Normalt måste du se till att endast port 1433 är öppen för utgående kommuni
 
 Om ditt klient program till exempel finns på en Windows-dator kan du använda Windows-brandväggen på värden för att öppna port 1433.
 
-1. Öppna Kontrollpanelen.
+1. Öppna kontroll panelen.
 2. Välj **alla objekt på kontroll panelen** > **Windows-brandväggen** > **avancerade inställningar** > **utgående regler** > **åtgärder** > **ny regel**.
 
 Om ditt klient program finns på en virtuell Azure-dator (VM) läser du [portarna utöver 1433 för ADO.NET 4,5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).

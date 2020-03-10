@@ -10,11 +10,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928117"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387511"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Flytta data från MongoDB med hjälp av Azure Data Factory
 
@@ -30,7 +30,7 @@ Den här artikeln förklarar hur du använder kopierings aktiviteten i Azure Dat
 
 Du kan kopiera data från ett lokalt MongoDB-data lager till alla mottagar data lager som stöds. En lista över data lager som stöds som mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Data Factory har för närvarande endast stöd för att flytta data från ett MongoDB data lager till andra data lager, men inte för att flytta data från andra data lager till ett MongoDB-datalager.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att Azure Data Factorys tjänsten ska kunna ansluta till din lokala MongoDB-databas måste du installera följande komponenter:
 
 - De MongoDB-versioner som stöds är: 2,4, 2,6, 3,0, 3,2, 3,4 och 3,6.
@@ -46,7 +46,7 @@ Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från ett 
 
 Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -72,7 +72,7 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 | authSource |Namnet på MongoDB-databasen som du vill använda för att kontrol lera autentiseringsuppgifterna för autentisering. |Valfritt (om grundläggande autentisering används). standard: använder administratörs kontot och den databas som anges med egenskapen databaseName. |
 | Databas |Namnet på MongoDB-databasen som du vill komma åt. |Ja |
 | gatewayName |Namnet på den gateway som har åtkomst till data lagret. |Ja |
-| encryptedCredential |Autentiseringsuppgifterna har krypterats av gateway. |Valfritt |
+| encryptedCredential |Autentiseringsuppgifterna har krypterats av gateway. |Valfri |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar alla typer av data uppsättningar (Azure SQL, Azure Blob, Azure Table osv.).
@@ -92,7 +92,7 @@ När källan är av typen **MongoDbSource** finns följande egenskaper i avsnitt
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-92-frågesträng. Exempel: Välj * från tabellen tabell. |Nej (om **samlings** - **dataset** har angetts) |
+| query |Använd den anpassade frågan för att läsa data. |SQL-92-frågesträng. Exempel: Välj * från tabellen tabell. |Nej (om **samlings** - **dataset** har angetts) |
 
 
 
@@ -292,15 +292,15 @@ När du flyttar data till MongoDB används följande mappningar från MongoDB-ty
 
 | Typ av MongoDB | .NET Framework typ |
 | --- | --- |
-| Binary |Byte[] |
-| Boolesk |Boolesk |
+| Binär |Byte[] |
+| Boolean |Boolean |
 | Datum |DateTime |
-| NumberDouble |Double |
+| NumberDouble |Double-värde |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Sträng |
-| Sträng |Sträng |
-| UUID |GUID |
+| ObjectID |String |
+| String |String |
+| UUID |Guid |
 | Objekt |Förnormaliserad till att förenkla kolumner med "_" som kapslad avgränsare |
 
 > [!NOTE]
@@ -321,16 +321,16 @@ Du kan använda [guiden Kopiera](data-factory-data-movement-activities.md#create
 ### <a name="example"></a>Exempel
 Till exempel är "ExampleTable" nedan en MongoDB-tabell med en kolumn med en matris med objekt i varje cell – fakturor och en kolumn med en matris av skalära typer – klassificeringar.
 
-| _id | Kund namn | Fakturor | Servicenivå | Klassificeringar |
+| _id | Kund namn | Fakturor | Servicenivå | Drivande |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id: "123", item: "toaster", Price: "456", Discount: "0,2"}, {invoice_id: "124", item: "ugn", pris: "1235", rabatt: "0,2"}] |Silver |[5,6] |
+| 1111 |Pia |[{invoice_id: "123", item: "toaster", Price: "456", Discount: "0,2"}, {invoice_id: "124", item: "ugn", pris: "1235", rabatt: "0,2"}] |Silver |[5,6] |
 | 2222 |XYZ |[{invoice_id: "135", item: "kyl skåp", Price: "12543", Discount: "0,0"}] |Guld |[1,2] |
 
 Driv rutinen skulle generera flera virtuella tabeller som representerar den här enskilda tabellen. Den första virtuella tabellen är bas tabellen med namnet "ExampleTable", som visas nedan. Bas tabellen innehåller alla data i den ursprungliga tabellen, men data från matriserna har utelämnats och expanderats i de virtuella tabellerna.
 
 | _id | Kund namn | Servicenivå |
 | --- | --- | --- |
-| 1111 |ABC |Silver |
+| 1111 |Pia |Silver |
 | 2222 |XYZ |Guld |
 
 Följande tabeller visar de virtuella tabeller som representerar de ursprungliga matriserna i exemplet. Tabellerna innehåller följande:
@@ -345,7 +345,7 @@ Tabell ExampleTable_Invoices:
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |toaster |456 |0.2 |
 | 1111 |1 |124 |ugnen |1235 |0.2 |
-| 2222 |0 |135 |kyl skåp |12543 |0.0 |
+| 2222 |0 |135 |kyl skåp |12543 |0,0 |
 
 Tabell ExampleTable_Ratings:
 

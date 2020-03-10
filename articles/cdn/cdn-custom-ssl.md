@@ -16,11 +16,11 @@ ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: f1af388d1f8b9542d196a53cc6c143f9b48e6d5a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75361678"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394858"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Azure CDN-domän
 
@@ -36,7 +36,7 @@ Några viktiga attribut i den anpassade HTTPS-funktionen är:
 
 - Komplett certifikathantering finns tillgänglig: All anskaffning och hantering av certifikat hanteras åt dig. Certifikaten etableras automatiskt och förnyas innan de upphör att gälla, vilket tar bort risken för avbrott i tjänsten på grund av ett certifikat upphör att gälla.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > - Aktivera HTTPS-protokollet på din anpassade domän.
 > - Använda ett CDN-hanterat certifikat 
@@ -44,7 +44,7 @@ I den här guiden får du lära dig hur man:
 > - Verifiera domänen
 > - Inaktivera HTTPS-protokollet på din anpassade domän.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
@@ -62,7 +62,7 @@ Dessutom måste du associera en anpassad Azure CDN-domän på CDN-slutpunkten. M
 Om du vill aktivera protokollet HTTPS för säker leverans av innehåll i en anpassad Azure CDN-domän måste du använda ett SSL-certifikat. Du kan välja att använda ett certifikat som hanteras av Azure CDN eller använda ett eget certifikat.
 
 
-# <a name="option-1-default-enable-https-with-a-cdn-managed-certificatetaboption-1-default-enable-https-with-a-cdn-managed-certificate"></a>[Alternativ 1 (standard): Aktivera HTTPS med ett CDN-hanterat certifikat](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
+# <a name="option-1-default-enable-https-with-a-cdn-managed-certificate"></a>[Alternativ 1 (standard): Aktivera HTTPS med ett CDN-hanterat certifikat](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
 
 När du använder ett CDN-hanterat certifikat kan du aktivera HTTPS med några få klick. Azure CDN hanterar alla certifikathanteringsuppgifter, till exempel anskaffning och förnyelse. När du har aktiverat funktionen startar processen omedelbart. Om den anpassade domänen redan har mappats till CDN-slutpunkten, krävs ingen ytterligare åtgärd. Azure CDN behandlar stegen och slutför din begäran automatiskt. Men om din anpassade domän mappas någon annanstans, måste du använda e-post för att verifiera att du äger domänen.
 
@@ -93,7 +93,7 @@ Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 7. Fortsätt och [verifiera domänen](#validate-the-domain).
 
 
-# <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[Alternativ 2: Aktivera HTTPS med ditt eget certifikat](#tab/option-2-enable-https-with-your-own-certificate)
+# <a name="option-2-enable-https-with-your-own-certificate"></a>[Alternativ 2: Aktivera HTTPS med ditt eget certifikat](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
 > Det här alternativet är endast tillgängligt med **Azure CDN från Microsoft** och **Azure CDN från Verizon** -profiler. 
@@ -292,7 +292,7 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 | 2 Avetablering av certifikat | Tar bort certifikat |
 | 3 Slutfört | Certifikatet har tagits bort |
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 1. *Vem är certifikatleverantör och vilken typ av certifikat används?*
 

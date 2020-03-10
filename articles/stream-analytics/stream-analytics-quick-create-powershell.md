@@ -7,12 +7,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 8fb4d50a4ba56efd9087a829c7d54c3010fc671e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5fd38a781a58da530ad805bbeee352858eb33b41
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431517"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78893031"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Snabb start: skapa ett Stream Analytics jobb med Azure PowerShell
 
@@ -28,7 +28,7 @@ Exempeljobbet läser strömmande data från en IoT Hub-enhet. Indata genereras a
 
 * Den här snabbstarten kräver Azure PowerShell-modulen. Hitta versionen som är installerad på den lokala datorn genom att köra `Get-Module -ListAvailable Az`. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
 
-* Vissa IoT-hubbåtgärder stöds inte av Azure PowerShell och måste slutföras med hjälp av Azure CLI version 2.0.24 eller senare och IoT-tillägget för Azure CLI. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och använd `az extension add --name azure-cli-iot-ext` för att installera IoT-tillägget.
+* Vissa IoT Hub åtgärder stöds inte av Azure PowerShell och måste slutföras med hjälp av Azure CLI version 2.0.70 eller senare och IoT-tillägget för Azure CLI. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och använd `az extension add --name azure-iot` för att installera IoT-tillägget.
 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
@@ -322,7 +322,7 @@ Start-AzStreamAnalyticsJob `
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömmande enheter som används av jobbet. Om du planerar att använda jobbet i framtiden kan du låta bli att ta bort det och stoppa det just nu. Om du inte planerar att fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten genom att köra följande cmdlet:
+Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömningsenheter som förbrukas av jobbet. Om du planerar att använda jobbet i framtiden kan du låta bli att ta bort det och stoppa det just nu. Om du inte planerar att fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten genom att köra följande cmdlet:
 
 ```powershell
 Remove-AzResourceGroup `

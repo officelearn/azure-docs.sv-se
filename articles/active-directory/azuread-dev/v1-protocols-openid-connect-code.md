@@ -18,11 +18,11 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: fc108b9f49bc88c722ac2462ee82e27b6c6de5c9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163946"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377801"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Ge åtkomst till webb program med hjälp av OpenID Connect och Azure Active Directory
 
@@ -35,7 +35,7 @@ OpenID Connect är vår rekommendation om du skapar ett webb program som finns p
 ## <a name="register-your-application-with-your-ad-tenant"></a>Registrera ditt program med din AD-klient
 Registrera först ditt program med din Azure Active Directory (Azure AD)-klient. Det ger dig en program-ID för ditt program och låter det ta emot tokens.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
    
 1. Välj din Azure AD-klient genom att välja ditt konto i det övre högra hörnet på sidan, följt av att välja **växel katalog** navigering och sedan välja lämplig klient. 
    - Hoppa över det här steget om du bara har en Azure AD-klient under ditt konto, eller om du redan har valt rätt Azure AD-klient.

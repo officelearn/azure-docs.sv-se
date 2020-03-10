@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 32a453678fe3702fcb4b77f0b04a8ed5c889ef59
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197631"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386071"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Kom igång med Key Vault certifikat
 I följande scenarier beskrivs flera av de primära användningarna av Key Vaults hanterings tjänst för certifikat, inklusive de ytterligare steg som krävs för att skapa ditt första certifikat i ditt nyckel valv.

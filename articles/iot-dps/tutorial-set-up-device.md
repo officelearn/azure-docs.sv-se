@@ -10,11 +10,11 @@ services: iot-dps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 6ff732888e416fcd51216070b3b30ed37b79e92c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434570"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393966"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Självstudie: Konfigurera en enhet för etablering med hjälp av Azure-IoT Hub Device Provisioning Service
 
@@ -29,12 +29,12 @@ Den här självstudien förutsätter att du redan har skapat din instans för en
 
 I den här kursen används [lagringsplatsen för Azure IoT SDK:er och bibliotek för C](https://github.com/Azure/azure-iot-sdk-c), som innehåller klient-SDK:t för enhetsetableringstjänsten för C. Detta SDK har för närvarande stöd för TPM och X.509 för enheter som körs på Windows- eller Ubuntu-implementeringar. Den här självstudien baseras på användning av en Windows-utvecklingsprogram, som även förutsätter grundläggande kunskaper i Visual Studio. 
 
-Om du inte är bekant med processen för automatisk etablering ska du läsa [Auto-provisioning concepts](concepts-auto-provisioning.md) (Begrepp inom automatisk etablering) innan du fortsätter. 
+Om du inte är bekant med processen för automatisk etablering ska du läsa avsnittet om [begrepp inom automatisk etablering](concepts-auto-provisioning.md) innan du fortsätter. 
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande förutsättningar gäller för en Windows-utvecklings miljö. För Linux eller macOS, se lämpligt avsnitt i [förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) i SDK-dokumentationen.
 
@@ -202,8 +202,8 @@ Du kanske också behöver förfina klientregistreringsprogrammet för enhetsetab
 
 I det här läget kanske enhetsetablerings- och IoT-hubbtjänsterna körs i portalen. Om du vill avbryta enhetsetableringsinstallationen och/eller vänta med att slutföra den här kursserien rekommenderar vi att du stänger av dem för att undvika onödiga kostnader.
 
-1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din Device Provisioning-tjänst. Klicka på **Ta bort** överst på bladet **Alla resurser**.  
-1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din IoT-hubb. Klicka på **Ta bort** överst på bladet **Alla resurser**.  
+1. I den vänstra menyn i Azure-portalen klickar du på **Alla resurser** och väljer sedan Device Provisioning-tjänsten. Längst upp på bladet **Alla resurser** klickar du på **Ta bort**.  
+1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din IoT-hubb. Längst upp på bladet **Alla resurser** klickar du på **Ta bort**.  
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen lärde du dig att:

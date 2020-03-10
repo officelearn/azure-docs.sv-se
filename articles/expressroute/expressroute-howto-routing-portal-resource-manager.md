@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: mialdrid
 ms.openlocfilehash: 18d2db18e9880028c60b4b545c3628f4a9cb4703
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436957"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361721"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Skapa och ändra peering för en ExpressRoute-krets
 
 Den här artikeln hjälper dig att skapa och hantera konfiguration av routning för en Azure Resource Manager (ARM) ExpressRoute-krets med hjälp av Azure Portal. Du kan också kontrollera status, uppdatera eller ta bort och Avetablerar peerings för en ExpressRoute-krets. Om du vill använda en annan metod för att arbeta med din krets väljer du en artikel i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
 > * [Offentlig peering](about-public-peering.md)
-> * [Video - privat peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Video - Microsoft-peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
+> * [Video-privat peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Video – Microsoft-peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (klassisk)](expressroute-howto-routing-classic.md)
 > 
 
-Du kan konfigurera privat peering och Microsoft-peering för en ExpressRoute-krets (offentlig Azure-peering är inaktuell för nya kretsar). Peering kan konfigureras i vilken ordning du väljer. Dock måste du se till att du slutför konfigurationen av en peering i taget. Läs mer om routning domäner och peerings [ExpressRoute-routningsdomäner](expressroute-circuit-peerings.md). Information om offentlig peering finns i [ExpressRoute offentlig peering](about-public-peering.md).
+Du kan konfigurera privat peering och Microsoft-peering för en ExpressRoute-krets (offentlig Azure-peering är inaktuell för nya kretsar). Peering kan konfigureras i vilken ordning du väljer. Dock måste du se till att du slutför konfigurationen av en peering i taget. Mer information om routningsdomäner och peering-domäner finns i [ExpressRoute](expressroute-circuit-peerings.md). Information om offentlig peering finns i [ExpressRoute offentlig peering](about-public-peering.md).
 
 ## <a name="configuration-prerequisites"></a>Förutsättningar för konfiguration
 
@@ -48,7 +48,7 @@ Dessa anvisningar gäller endast för kretsar som skapats med tjänstleverantör
 Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Microsofts peeringskonfiguration för en ExpressRoute-krets.
 
 > [!IMPORTANT]
-> Microsoft-peering av ExpressRoute-kretsar som konfigurerades före den 1 augusti 2017 kommer att ha alla service-prefix som annonseras via Microsoft-peering, även om flödesfilter inte har definierats. Microsoft-peering av ExpressRoute-kretsar som är konfigurerade på eller efter den 1 augusti 2017 har inte alla prefix annonseras förrän ett flödesfilter är kopplad till kretsen. Mer information finns i [konfigurera ett flödesfilter för Microsoft-peering](how-to-routefilter-powershell.md).
+> Microsoft-peering av ExpressRoute-kretsar som konfigurerades före den 1 augusti 2017 kommer att ha alla service-prefix som annonseras via Microsoft-peering, även om flödesfilter inte har definierats. Microsoft-peering av ExpressRoute-kretsar som är konfigurerade på eller efter den 1 augusti 2017 har inte alla prefix annonseras förrän ett flödesfilter är kopplad till kretsen. Mer information finns i [Konfigurera ett flödes filter för Microsoft-peering](how-to-routefilter-powershell.md).
 > 
 > 
 
@@ -72,9 +72,9 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Microso
    * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID. För både primära och sekundära länkar måste du använda samma VLAN-ID.
    * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal.
    * Annonserade prefix: Du måste ange en lista över alla prefix som du planerar att annonsera i BGP-sessionen. Endast offentliga IP-adressprefix accepteras. Om du planerar att skicka en uppsättning prefix, kan du skicka en kommaavgränsad lista. Dessa prefix måste vara registrerade åt dig i ett RIR/IR.
-   * **Valfritt –** kund-ASN: Om du har reklamprefix som inte är registrerade på peeringens AS number, du kan ange det AS-nummer som de är registrerade.
+   * **Valfritt-** Kund-ASN: om du annonserar prefix som inte har registrerats för peering som ett nummer kan du ange det AS-nummer som de är registrerade för.
    * Routningens registernamn: Du kan ange den RIR/IR mot vilken AS-numret och prefixet är registrerade.
-   * **Valfritt –** en MD5-hash om du väljer att använda en.
+   * **Valfritt-** En MD5-hash om du väljer att använda en.
 3. Du kan välja den peering som du vill konfigurera, som visas i följande exempel. Välj Microsofts peering-rad.
 
    [![Välj Microsoft-peering-raden](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m.png "Välj Microsoft-peering-raden")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m-lightbox.png#lightbox)
@@ -96,12 +96,12 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Microso
 
    ![Peering-status: konfigurerad](./media/expressroute-howto-routing-portal-resource-manager/configured-m.png "Peering-status: konfigurerad")]
 
-### <a name="getmsft"></a>Så här visar du Microsofts peering-information
+### <a name="getmsft"></a>Visa Microsofts peering-information
 
 Du kan visa egenskaperna för Microsoft-peering genom att välja raden för peer koppling.
 
 [![Visa egenskaper för Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png "Visa egenskaper")](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m-lightbox.png#lightbox)
-### <a name="updatemsft"></a>Att uppdatera konfigurationen för Microsoft-peering
+### <a name="updatemsft"></a>Så här uppdaterar du Microsofts peering-konfiguration
 
 Du kan välja raden för peering som du vill ändra och sedan ändra peering-egenskaperna och spara dina ändringar.
 
@@ -113,7 +113,7 @@ Du kan ta bort peering-konfigurationen genom att klicka på ikonen Ta bort, som 
 
 ![Ta bort peer koppling](./media/expressroute-howto-routing-portal-resource-manager/delete-peering-m.png)
 
-## <a name="private"></a>Azures privata peering
+## <a name="private"></a>Azure privat peering
 
 Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures privata peeringskonfiguration för en ExpressRoute-krets.
 
@@ -138,7 +138,7 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
    * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID. För både primära och sekundära länkar måste du använda samma VLAN-ID.
    * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal. Du kan använda ett privat AS-nummer för denna peering förutom numret från 65515 till 65520.
    * Du måste annonsera vägarna från din lokala Edge-router till Azure via BGP när du konfigurerar den privata peeringen.
-   * **Valfritt –** en MD5-hash om du väljer att använda en.
+   * **Valfritt-** En MD5-hash om du väljer att använda en.
 3. Välj den Azure-privata peering-raden som visas i följande exempel:
 
    [![Välj den privata peering-raden](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png "Välj den privata peering-raden")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p-lightbox.png#lightbox)
@@ -149,19 +149,19 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
 
    ![Sparad privat peering](./media/expressroute-howto-routing-portal-resource-manager/save-p.png)
 
-### <a name="getprivate"></a>Så här visar du Azures privata peering-information
+### <a name="getprivate"></a>Så här visar du information om Azure privat peering
 
 Du kan visa egenskaperna för Azures privata peering genom att välja den peeringen.
 
 [![Visa egenskaper för privata peering](./media/expressroute-howto-routing-portal-resource-manager/view-p.png "Visa egenskaper för privata peering")](./media/expressroute-howto-routing-portal-resource-manager/view-p-lightbox.png#lightbox)
 
-### <a name="updateprivate"></a>Att uppdatera konfigurationen av Azures privata peering
+### <a name="updateprivate"></a>Så här uppdaterar du Azures konfiguration för privat peering
 
 Du kan välja raden för peering och ändra peering-egenskaperna. Spara ändringarna efter uppdateringen.
 
 ![Uppdatera privat peering](./media/expressroute-howto-routing-portal-resource-manager/update-peering-p.png)
 
-### <a name="deleteprivate"></a>Att ta bort Azures privata peering
+### <a name="deleteprivate"></a>Ta bort privat Azure-peering
 
 Du kan ta bort peering-konfigurationen genom att välja ikonen Ta bort enligt följande bild:
 
@@ -175,7 +175,7 @@ Du kan ta bort peering-konfigurationen genom att välja ikonen Ta bort enligt f�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nästa steg [länka ett virtuellt nätverk till en ExpressRoute-krets](expressroute-howto-linkvnet-portal-resource-manager.md)
+Nästa steg, [Länka ett VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-portal-resource-manager.md)
 * Mer information om ExpressRoute-arbetsflöden finns i [ExpressRoute-arbetsflöden](expressroute-workflows.md).
 * Mer information om krets-peering finns i [ExpressRoute-kretsar och routningsdomäner](expressroute-circuit-peerings.md).
 * Mer information om hur du arbetar med virtuella nätverk finns i [Översikt över virtuella nätverk](../virtual-network/virtual-networks-overview.md).

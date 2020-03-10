@@ -13,11 +13,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75fdc59b9110c3bfc29fe52be917a7d6e6636b8a
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963214"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376274"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: versions historik
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -27,7 +27,7 @@ Den här artikeln är utformad för att hjälpa dig att hålla koll på de versi
 
 Den här tabellen är en lista över närliggande ämnen:
 
-Ämne |  Information
+Avsnitt |  Detaljer
 --------- | --------- |
 Steg för att uppgradera från Azure AD Connect | Olika metoder för att [Uppgradera från en tidigare version till den senaste versionen av](how-to-upgrade-previous-version.md) Azure AD Connect.
 Nödvändiga behörigheter | För behörigheter som krävs för att tillämpa en uppdatering, se [konton och behörigheter](reference-connect-accounts-permissions.md#upgrade).
@@ -496,7 +496,7 @@ Lås åtkomst till AD DS-kontot genom att implementera följande behörighets ä
 *   Ta bort alla ACE: er för det angivna objektet, förutom åtkomst till sig själv. Vi vill behålla standard behörigheterna när det kommer till dig själv.
 *   Tilldela följande behörigheter:
 
-Typ     | Namn                          | Åtkomst               | Gäller för
+Typ     | Namn                          | Access               | Gäller för
 ---------|-------------------------------|----------------------|--------------|
 Tillåt    | SYSTEM                        | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Företags administratörer             | Fullständig behörighet         | Det här objektet  |
@@ -836,12 +836,12 @@ CBool(
     |CertSubject|CertIssuer|CertKeyAlgorithm|
     |CertSubjectNameDN|CertIssuerOid|CertNameInfo|
     |CertSubjectNameOid|CertIssuerDN|IsCert|
-    |CertFriendlyName|CertThumbprint|CertExtensionOids|
+    |CertFriendlyName|certThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Välj|
     |CertKeyAlgorithmParams|CertHashString|Var|
-    |||Med|
+    |||With|
 
 * Följande schema ändringar har införts så att kunderna kan skapa anpassade regler för att flöda sAMAccountName, domainNetBios och domainFQDN för grupp objekt, samt distinguishedName för användar objekt:
 
@@ -1074,7 +1074,7 @@ Lanserad: november 2016
 * Ett problem har åtgärd ATS där Join-regler inte utvärderas på nytt när ett objekt i kopplings utrymmet samtidigt blir utanför räckvidden för en kopplings regel och blir inom räckvidden för en annan. Detta kan inträffa om du har två eller fler kopplings regler vars kopplings villkor är ömsesidigt uteslutande.
 * Ett problem har åtgärd ATS där regler för inkommande synkronisering (från Azure AD), som inte innehåller kopplings regler, inte bearbetas om de har lägre prioritets värden än de som innehåller kopplings regler.
 
-**Förbättringar:**
+**Bättre**
 
 * Stöd har lagts till för att installera Azure AD Connect på Windows Server 2016 standard eller högre.
 * Stöd har lagts till för att använda SQL Server 2016 som fjärrdatabas för Azure AD Connect.
@@ -1093,7 +1093,7 @@ Lanserad: augusti 2016
 * Guiden för Azure AD Connect visar inte konfigurationen av den faktiska lösen ords synkroniseringen och tillbakaskrivning av lösen ord när servern är i mellanlagrings läge. De visas alltid som inaktiverade.
 * Konfigurations ändringar av Lösenordssynkronisering och tillbakaskrivning av lösen ord sparas inte av Azure AD Connect guiden när servern är i mellanlagrings läge.
 
-**Förbättringar:**
+**Bättre**
 
 * Uppdaterade cmdleten Start-ADSyncSyncCycle för att ange om det går att starta en ny Sync-cykel eller inte.
 * Cmdlet: en stop-ADSyncSyncCycle har lagts till för att avsluta synkroniseringen och åtgärden, som pågår för närvarande.
@@ -1301,7 +1301,7 @@ Lanserad: april 2015
 ## <a name="104850222"></a>1.0.485.0222
 Lanserad: februari 2015
 
-**Förbättringar:**
+**Bättre**
 
 * Bättre import prestanda.
 

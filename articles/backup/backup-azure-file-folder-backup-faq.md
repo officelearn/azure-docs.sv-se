@@ -3,12 +3,12 @@ title: Säkerhetskopiera filer och mappar – vanliga frågor
 description: Behandlar vanliga frågor om säkerhets kopiering av filer och mappar med Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 7b80932d49038bb42fa93f71b3ac0194c2869489
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: adcbf5c3b404de46634423f8f59c4798d44bebe0
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425076"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673094"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Vanliga frågor om säkerhets kopiering av filer och mappar
 
@@ -149,7 +149,7 @@ Cache-mappen och VHD för metadata har inte de nödvändiga attributen för Azur
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>Finns det något sätt att justera mängden bandbredd som används för säkerhets kopiering?
 
-Ja, du kan använda alternativet **ändra egenskaper** i mars-agenten för att justera bandbredden och tids inställningen. [Läs mer](backup-configure-vault.md#enable-network-throttling).
+Ja, du kan använda alternativet **ändra egenskaper** i mars-agenten för att justera bandbredden och tids inställningen. [Läs mer](backup-windows-with-mars-agent.md#enable-network-throttling).
 
 ## <a name="restore"></a>Återställ
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bdea51c6cb53222f31a07906785a94073a0293a1
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 80cf0d101a29de7fca9d4dd36e188a500d35e290
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226798"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933040"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Hantering av enkel inloggning i Azure Active Directory B2C
 
@@ -138,7 +138,7 @@ Den här providern används för att hantera Azure AD B2C SAML-sessioner mellan 
 
 När du använder providern för att lagra B2C SAML-sessionen måste `RegisterServiceProviders` anges till `true`. Utloggningen av SAML-sessionen kräver att `SessionIndex` och `NameID` har slutförts.
 
-Följande `SM-Saml-idp` teknisk profil används av den [tekniska profilen för SAML-utfärdaren](connect-with-saml-service-providers.md)
+Följande `SM-Saml-idp` teknisk profil används av den [tekniska profilen för SAML-utfärdaren](saml-issuer-technical-profile.md)
 
 ```XML
 <TechnicalProfile Id="SM-Saml-sp">

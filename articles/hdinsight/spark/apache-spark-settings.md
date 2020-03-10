@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.openlocfilehash: 48f19e5da8c7703cc597518246c2f62ebce3ae17
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003192"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397101"
 ---
 # <a name="configure-apache-spark-settings"></a>Konfigurera Apache Spark-inställningar
 
@@ -37,8 +37,8 @@ När du skapar ett nytt kluster finns det flera Spark-versioner att välja mella
 
 Apache Spark har tre platser för system konfiguration:
 
-* Spark-egenskaperna styr de flesta program parametrarna och kan anges med hjälp `SparkConf` av ett objekt, eller genom Java system egenskaper.
-* Miljövariabler kan användas för att ange inställningar per dator, till exempel IP-adress, via `conf/spark-env.sh` skriptet på varje nod.
+* Spark-egenskaperna styr de flesta program parametrarna och kan ställas in med hjälp av ett `SparkConf` objekt, eller genom Java system egenskaper.
+* Miljövariabler kan användas för att ange inställningar per dator, till exempel IP-adress, via `conf/spark-env.sh`-skriptet på varje nod.
 * Loggning kan konfigureras via `log4j.properties`.
 
 När du väljer en viss version av Spark innehåller klustret standard konfigurations inställningarna.  Du kan ändra standard konfigurations värden för Spark genom att använda en anpassad Spark-konfigurationsfil.  Ett exempel visas nedan.
@@ -61,7 +61,7 @@ Verifiera de aktuella konfigurations inställningarna för HDInsight-klustret in
 
 Apache Ambari Web UI visas med en instrument panel med användnings mått för nyckel kluster resurser.  Ambari-instrumentpanelen visar Apache Spark konfiguration och andra tjänster som du har installerat. På instrument panelen finns fliken **konfigurations historik** där du kan visa konfigurations information för alla installerade tjänster, inklusive Spark.
 
-Om du vill se konfigurations värden för Apache Spark väljer du **konfigurations historik**och väljer sedan **Spark2**.  Välj fliken **konfigurationer** och välj `Spark` sedan länken (eller `Spark2`, beroende på din version) i tjänst listan.  Du ser en lista över konfigurations värden för klustret:
+Om du vill se konfigurations värden för Apache Spark väljer du **konfigurations historik**och väljer sedan **Spark2**.  Välj fliken **konfigurationer** och välj sedan länken `Spark` (eller `Spark2`, beroende på din version) i tjänst listan.  Du ser en lista över konfigurations värden för klustret:
 
 ![Spark-konfigurationer](./media/apache-spark-settings/spark-configurations.png)
 
@@ -86,7 +86,7 @@ Följande diagram visar viktiga Spark-objekt: driv rutins programmet och dess ti
 
 Spark-jobb använder arbets resurser, särskilt minne, så det är vanligt att justera Spark-konfigurationsinställningar för körning av arbetsnoder.
 
-Tre nyckel parametrar som ofta justeras för att justera Spark-konfigurationer för att förbättra `spark.executor.instances`program `spark.executor.cores`kraven är `spark.executor.memory`, och. En utförar är en process som startas för ett Spark-program. En utförar körs på Worker-noden och ansvarar för aktiviteterna för programmet. För varje kluster beräknas standard antalet körningar och utförar storlekarna utifrån antalet arbetsnoder och storleken på arbetsnoden. De lagras i `spark-defaults.conf` kluster huvudnoderna.  Du kan redigera dessa värden i ett kluster som körs genom att välja länken **anpassad Spark-standard** i Ambari-webbgränssnittet.  När du har gjort ändringar uppmanas du att ange användar gränssnittet för att **starta om** alla berörda tjänster.
+Tre nyckel parametrar som ofta justeras för att justera Spark-konfigurationer för att förbättra program kraven är `spark.executor.instances`, `spark.executor.cores`och `spark.executor.memory`. En utförar är en process som startas för ett Spark-program. En utförar körs på Worker-noden och ansvarar för aktiviteterna för programmet. För varje kluster beräknas standard antalet körningar och utförar storlekarna utifrån antalet arbetsnoder och storleken på arbetsnoden. De lagras i `spark-defaults.conf` på kluster Head-noderna.  Du kan redigera dessa värden i ett kluster som körs genom att välja länken **anpassad Spark-standard** i Ambari-webbgränssnittet.  När du har gjort ändringar uppmanas du att ange användar gränssnittet för att **starta om** alla berörda tjänster.
 
 > [!NOTE]  
 > Dessa tre konfigurations parametrar kan konfigureras på kluster nivå (för alla program som körs i klustret) och också anges för varje enskilt program.
@@ -99,9 +99,9 @@ Du kan också använda Ambari-REST API för att program mässigt verifiera HDIns
 
 Beroende på din Spark-arbetsbelastning kan du bestämma att en icke-standardmässig Spark-konfiguration ger mer optimerade Spark-jobbkörningar.  Du bör utföra prestandatestning med exempelarbetsbelastningar för att validera eventuella icke-standardmässiga klusterkonfigurationer.  Några av de vanliga parametrar som du kan överväga att justera är:
 
-* `--num-executors`anger antalet körningar.
-* `--executor-cores`anger antalet kärnor för varje utförar. Vi rekommenderar att du använder mellanstora körningar, eftersom andra processer också använder en del av det tillgängliga minnet.
-* `--executor-memory`styr minnes storleken (Heap-storlek) för varje utförar på [Apache HADOOP garn](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), och du måste lämna lite minne för att utföra omkostnader.
+* `--num-executors` anger antalet körningar.
+* `--executor-cores` anger antalet kärnor för varje utförar. Vi rekommenderar att du använder mellanstora körningar, eftersom andra processer också använder en del av det tillgängliga minnet.
+* `--executor-memory` styr minnes storleken (heap-storleken) för varje utförar på [Apache HADOOP garn](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)och du måste lämna lite minne för att utföra omkostnader.
 
 Här är ett exempel på två arbetsnoder med olika konfigurations värden:
 
@@ -109,10 +109,10 @@ Här är ett exempel på två arbetsnoder med olika konfigurations värden:
 
 I följande lista visas minnes parametrarna för utförar i Key Spark.
 
-* `spark.executor.memory`definierar den totala mängden minne som är tillgängligt för en utförar.
-* `spark.storage.memoryFraction`(standard ~ 60%) definierar mängden minne som är tillgängligt för lagring av beständiga RDD.
-* `spark.shuffle.memoryFraction`(standard ~ 20%) definierar mängden minne som är reserverat för blandad.
-* `spark.storage.unrollFraction`och `spark.storage.safetyFraction` (totalt ~ 30% av det totala minnet) – dessa värden används internt av Spark och bör inte ändras.
+* `spark.executor.memory` definierar den totala mängden minne som är tillgängligt för en utförar.
+* `spark.storage.memoryFraction` (standard ~ 60%) definierar mängden minne som är tillgängligt för lagring av beständiga RDD.
+* `spark.shuffle.memoryFraction` (standard ~ 20%) definierar mängden minne som är reserverat för blandad.
+* `spark.storage.unrollFraction` och `spark.storage.safetyFraction` (totalt ~ 30% av det totala minnet) – dessa värden används internt av Spark och bör inte ändras.
 
 GARN styr den maximala mängd minne som används av behållarna på varje spark-nod. Följande diagram visar relationer per nod mellan garn konfigurations objekt och Spark-objekt.
 
@@ -128,10 +128,10 @@ Spark-kluster i HDInsight innehåller ett antal komponenter som standard. Var oc
 * [Jupyter](https://jupyter.org/) och [Apache Zeppelin](https://zeppelin.apache.org/) Notebooks – interaktivt webbläsarbaserat användar gränssnitt för att interagera med ditt Spark-kluster.
 * ODBC-drivrutin – ansluter Spark-kluster i HDInsight till Business Intelligence (BI) verktyg som Microsoft Power BI och Tableau.
 
-För program som körs i Jupyter Notebook använder `%%configure` du kommandot för att göra konfigurations ändringar inifrån själva antecknings boken. Dessa konfigurations ändringar kommer att tillämpas på Spark-jobben som körs från din antecknings bok instans. Du bör göra sådana ändringar i början av programmet innan du kör den första kod cellen. Den ändrade konfigurationen tillämpas på livy-sessionen när den skapas.
+För program som körs i Jupyter Notebook använder du kommandot `%%configure` för att göra konfigurations ändringar inifrån själva antecknings boken. Dessa konfigurations ändringar kommer att tillämpas på Spark-jobben som körs från din antecknings bok instans. Du bör göra sådana ändringar i början av programmet innan du kör den första kod cellen. Den ändrade konfigurationen tillämpas på livy-sessionen när den skapas.
 
 > [!NOTE]  
-> Om du vill ändra konfigurationen i ett senare skede i programmet använder du `-f` parametern (Force). Men all förloppet i programmet går förlorad.
+> Om du vill ändra konfigurationen i ett senare skede i programmet använder du parametern `-f` (Force). Men all förloppet i programmet går förlorad.
 
 Koden nedan visar hur du ändrar konfigurationen för ett program som körs i en Jupyter Notebook.
 

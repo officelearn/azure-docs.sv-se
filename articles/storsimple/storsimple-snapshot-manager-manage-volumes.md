@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: twooley
 ms.openlocfilehash: f09d4dd46a50f1794e51342a939b8919c5c523ef
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931620"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365932"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Använd StorSimple Snapshot Manager för att visa och hantera volymer
 ## <a name="overview"></a>Översikt
@@ -130,7 +130,7 @@ Använd följande procedur för att skanna om de volymer som är anslutna till S
 ## <a name="configure-and-back-up-a-basic-volume"></a>Konfigurera och säkerhetskopiera en enkel volym
 Använd följande procedur för att konfigurera en säkerhets kopia av en standard volym och starta sedan en säkerhets kopiering direkt eller skapa en princip för schemalagda säkerhets kopieringar.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar:
 
 * Kontrol lera att StorSimple-enheten och värddatorn är korrekt konfigurerade. Mer information finns i [distribuera din lokala StorSimple-enhet](storsimple-deployment-walkthrough-u2.md).
@@ -149,7 +149,7 @@ Innan du börjar:
 8. Högerklicka på volym gruppens namn.
    
    * För att starta ett interaktivt säkerhets kopierings jobb (på begäran) klickar du på **gör säkerhets kopiering**. 
-   * Om du vill schemalägga en automatisk säkerhets kopiering klickar du på **skapa säkerhets kopierings princip**. På sidan **Allmänt** väljer du en volym grupp i listan. Ange schema information på sidan **schema** . Klicka på **OK**när du är klar. 
+   * Om du vill schemalägga en automatisk säkerhets kopiering klickar du på **skapa säkerhets kopierings princip**. På sidan **Allmänt** väljer du en volym grupp i listan. Ange schema information på sidan **schema** . Klicka på **OK**när du är färdig. 
 9. För att bekräfta att säkerhets kopierings jobbet har startat expanderar du noden **jobb** i fönstret **omfattning** och klickar sedan på noden som **körs** . Listan över jobb som körs för tillfället visas i **resultat** fönstret. 
 
 ## <a name="configure-and-back-up-a-dynamic-mirrored-volume"></a>Konfigurera och säkerhetskopiera en dynamisk speglad volym
@@ -158,7 +158,7 @@ Utför följande steg för att konfigurera säkerhets kopiering av en dynamisk s
 * Steg 1: Använd disk hantering för att skapa en dynamisk speglad volym. 
 * Steg 2: Använd StorSimple Snapshot Manager för att konfigurera säkerhets kopiering.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar:
 
 * Kontrol lera att StorSimple-enheten och värddatorn är korrekt konfigurerade. Mer information finns i [distribuera din lokala StorSimple-enhet](storsimple-8000-deployment-walkthrough-u2.md).
@@ -202,7 +202,7 @@ Använd följande procedur för att konfigurera en dynamisk speglad volym och se
 6. Högerklicka på volym gruppens namn. 
    
    * För att starta ett interaktivt säkerhets kopierings jobb (på begäran) klickar du på **gör säkerhets kopiering**. 
-   * Om du vill schemalägga en automatisk säkerhets kopiering klickar du på **skapa säkerhets kopierings princip**. På sidan **Allmänt** väljer du volym gruppen i listan. Ange schema information på sidan **schema** . Klicka på **OK**när du är klar. 
+   * Om du vill schemalägga en automatisk säkerhets kopiering klickar du på **skapa säkerhets kopierings princip**. På sidan **Allmänt** väljer du volym gruppen i listan. Ange schema information på sidan **schema** . Klicka på **OK**när du är färdig. 
 7. Du kan övervaka säkerhets kopierings jobbet när det körs. I fönstret **omfattning** expanderar du noden **jobb** och klickar sedan på **Kör**. jobb informationen visas i **resultat** fönstret. När säkerhets kopierings jobbet är klart överförs informationen till de **senaste 24** timmarna jobb listan. 
 
 ## <a name="next-steps"></a>Nästa steg

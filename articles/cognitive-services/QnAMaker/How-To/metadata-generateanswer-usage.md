@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: e84a6c93ad8757b302670af202f9d4b407f3ef57
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 6a8cbabfd4e47c50d2c2e6f4a23c50a931e645a0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945307"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389316"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Få ett svar med GenerateAnswer-API och metadata
 
@@ -64,7 +64,7 @@ Du anropar GenerateAnswer med en HTTP POST-begäran. Exempel kod som visar hur d
 POST-begäran använder:
 
 * Obligatoriska [URI-parametrar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
-* Obligatorisk [huvud egenskap](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer), `Authorization`, för säkerhet
+* Obligatorisk huvud egenskap, `Authorization`, för säkerhet
 * Egenskaper för nödvändig [brödtext](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto).
 
 GenerateAnswer-URL: en har följande format:
@@ -245,7 +245,7 @@ Du kan söka igenom det publicerade KB, använda `isTest=false`eller i test-KB m
 
 ## <a name="common-http-errors"></a>Vanliga HTTP-fel
 
-|Programmera|Förklaring|
+|Kod|Förklaring|
 |:--|--|
 |2xx|Lyckades|
 |400|begärans-parametrarna är felaktiga vilket innebär att de obligatoriska parametrarna är saknas, är för stor eller har en felaktig|

@@ -8,11 +8,11 @@ ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 70d0246debc532260d287104bacea2f15c1b94d2
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277284"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384898"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Fjärrans luta till din StorSimple 8000-serie enhet
 
@@ -189,7 +189,7 @@ Var och en av de föregående procedurerna beskrivs nedan.
 3. Välj **Place all certificates in the following store** (Placera alla certifikat i följande lagringsplats) och klicka sedan på **Bläddra**. Gå till rotcertifikatarkivet på fjärrvärden och klicka på **Nästa**.
    
     ![Guiden Importera certifikat 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
-4. Klicka på **Slutför**. Ett meddelande visas där det står att importen lyckades.
+4. Klicka på **Finish**. Ett meddelande visas där det står att importen lyckades.
    
     ![Guiden Importera certifikat 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
 
@@ -229,7 +229,7 @@ Utför följande procedur på den dator som du vill göra till en fjärran slute
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
     För parametern-ComputerName i cmdleten anger du <*serie numret för mål enheten*>. Det här serie numret har mappats till IP-adressen för DATA 0 i värd filen på fjärrvärden. till exempel **SHX0991003G44MT** som visas i följande bild.
-5. Typ:
+5. Ange:
    
      `Enter-PSSession $session`
 6. Du kommer att behöva vänta några minuter och sedan ansluts du till din enhet via HTTPS via SSL. Du ser ett meddelande som anger att du är ansluten till din enhet.

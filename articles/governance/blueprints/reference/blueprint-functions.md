@@ -4,11 +4,11 @@ description: Beskriver de funktioner som är tillgängliga för användning med 
 ms.date: 12/09/2019
 ms.topic: reference
 ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970898"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386246"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funktioner för användning med Azure-ritningar
 
@@ -16,7 +16,7 @@ Azure-ritningar tillhandahåller funktioner som gör en skiss definition mer dyn
 
 Följande funktioner stöds:
 
-- [artifacts](#artifacts)
+- [artefakter](#artifacts)
 - [concat](#concat)
 - [parameters](#parameters)
 - [resourceGroup](#resourcegroup)
@@ -109,11 +109,11 @@ Några exempel på hämtning av data från _myTemplateArtifact_ -exemplet är:
 | Uttryck | Typ | Värde |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Matris | \["First", "andra"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Sträng | "first" |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | Sträng | "my string value" |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "my string value" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Objekt | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | Sträng | "my value" |
-|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | Sant |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "my value" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
 
@@ -132,7 +132,7 @@ Kombinerar flera sträng värden och returnerar den sammanfogade strängen.
 
 En sträng med sammanfogade värden.
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
 Funktionen Azure Blueprint skiljer sig från funktionen Azure Resource Manager mall i så att den bara fungerar med strängar.
 
@@ -156,7 +156,7 @@ Returnerar ett skiss parameter värde. Det angivna parameter namnet måste defin
 
 Värdet för den angivna ritnings-eller skiss artefakt parametern.
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
 Funktionen Azure Blueprint skiljer sig från funktionen Azure Resource Manager mall i så att den bara fungerar med skiss parametrar.
 
@@ -216,7 +216,7 @@ Det returnerade objektet är i följande format:
 }
 ```
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
 Funktionen Azure Blueprint skiljer sig från Azure Resource Manager Template-funktionen. Det går inte att använda funktionen `resourceGroup()` i en artefakt på prenumerations nivå eller skiss definitionen. Den kan bara användas i skiss artefakter som ingår i en resurs grupps artefakt.
 

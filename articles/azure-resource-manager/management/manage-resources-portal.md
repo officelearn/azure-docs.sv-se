@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 00d260a74807774d5bf226c3ec00a6b84f93b8d1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75478804"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360019"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Hantera Azure-resurser med hjälp av Azure Portal
 
@@ -33,7 +33,7 @@ Azure-resurser organiseras av Azure-tjänster och resurs grupper. Följande proc
 
 Så här öppnar du en resurs med tjänst typen:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. I det vänstra fönstret väljer du Azure-tjänsten. I det här fallet **lagrings konton**.  Om tjänsten inte visas i listan väljer du **alla tjänster**och väljer sedan tjänst typen.
 
     ![öppna Azure-resursen i portalen](./media/manage-resources-portal/manage-azure-resources-portal-open-service.png)
@@ -48,7 +48,7 @@ Så här öppnar du en resurs med tjänst typen:
 
 Så här öppnar du en resurs per resurs grupp:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. I det vänstra fönstret väljer du **resurs grupper** för att Visa resursen i gruppen.
 3. Välj den resurs som du vill öppna. 
 

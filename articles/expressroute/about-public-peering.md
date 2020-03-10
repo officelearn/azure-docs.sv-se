@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: cherylmc
 ms.openlocfilehash: bae44f67a485546ba29148a114d88df198f7c3e6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483094"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361696"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Skapa och hantera ExpressRoute offentlig peering
 
 > [!div class="op_single_selector"]
 > * [Artikel – offentlig peering](about-public-peering.md)
-> * [Video - offentlig peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Video – offentlig peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [Artikel – Microsoft-peering](expressroute-circuit-peerings.md#microsoftpeering)
 >
 
@@ -28,7 +28,7 @@ Den här artikeln hjälper dig att skapa och hantera konfiguration av offentlig 
 >Offentlig peering är föråldrad. Du kan inte skapa offentlig peering på nya ExpressRoute-kretsar. Om du har en ny ExpressRoute-krets använder du i stället [Microsoft-peering](expressroute-circuit-peerings.md#microsoftpeering) för dina Azure-tjänster.
 >
 
-## <a name="connectivity"></a>Anslutningsmöjlighet
+## <a name="connectivity"></a>Anslutning
 
 Anslutningen initieras alltid från ditt WAN-nätverk till Microsoft Azure-tjänster. Microsoft Azure-tjänster kommer inte att kunna initiera anslutningar till nätverket via den här routningsdomän. Om din ExpressRoute-krets är aktive rad för offentlig Azure-peering, kan du komma åt de [offentliga IP-adressintervall som används i Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) över kretsen.
 
@@ -55,7 +55,7 @@ I det här avsnittet visas de tjänster som är tillgängliga via offentlig peer
 
 Om du vill verifiera tillgänglighet för en speciell tjänst kan du kontrol lera dokumentationen för tjänsten för att se om det finns ett reserverat intervall publicerat för tjänsten. Sedan kan du leta upp IP-intervallen för mål tjänsten och jämföra med de intervall som anges i [Azure IP-intervall och service Tags – XML-fil för offentliga moln](https://www.microsoft.com/download/details.aspx?id=56519). Du kan också öppna ett support ärende för tjänsten i fråga för att klargöra.
 
-## <a name="compare"></a>Peering jämförelse
+## <a name="compare"></a>Jämförelse av peering
 
 [!INCLUDE [peering comparison](../../includes/expressroute-peering-comparison.md)]
 
@@ -65,7 +65,7 @@ Om du vill verifiera tillgänglighet för en speciell tjänst kan du kontrol ler
 
 ## <a name="custom-route-filters"></a>Anpassade väg filter
 
-Du kan definiera anpassade vägfilter i nätverket för att använda de vägar som du behöver. Referera till den [routning](expressroute-routing.md) för detaljerad information om routningskonfiguration.
+Du kan definiera anpassade vägfilter i nätverket för att använda de vägar som du behöver. På sidan [routning](expressroute-routing.md) hittar du detaljerad information om konfiguration av routning.
 
 ## <a name="powershell"></a>Azure PowerShell steg
 
@@ -135,7 +135,7 @@ Eftersom offentlig peering är inaktuell kan du inte konfigurera offentlig peeri
    > 
    >
 
-### <a name="getpublic"></a>Att hämta Azures offentliga peering-information
+### <a name="getpublic"></a>Så här hämtar du information om offentliga Azure-peering
 
 Du kan få information om konfigurationen med följande cmdlet:
 
@@ -145,7 +145,7 @@ Du kan få information om konfigurationen med följande cmdlet:
   Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
   ```
 
-### <a name="updatepublic"></a>Att uppdatera konfigurationen av Azures offentliga peering
+### <a name="updatepublic"></a>Så här uppdaterar du Azures offentliga peering-konfiguration
 
 Du kan uppdatera någon del av konfigurationen med följande exempel. I det här exemplet uppdateras VLAN-ID för kretsen från 200 till 600.
 
@@ -155,7 +155,7 @@ Set-AzExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -ExpressRoute
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="deletepublic"></a>Att ta bort Azures offentliga peering
+### <a name="deletepublic"></a>Ta bort offentlig Azure-peering
 
 Du kan ta bort peering-konfigurationen genom att köra följande exempel:
 
@@ -212,7 +212,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    * Ett /30 undernät för den sekundära länken. Detta måste vara ett giltigt offentligt IPv4-prefix.
    * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID.
    * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal.
-   * **Valfritt –** en MD5-hash om du väljer att använda en.
+   * **Valfritt-** En MD5-hash om du väljer att använda en.
 
    Kör följande exempel för att konfigurera Azures offentliga peering för din krets:
 
@@ -229,7 +229,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    > [!IMPORTANT]
    > Kontrollera att du anger AS-talet som peering-ASN, inte kund-ASN.
 
-### <a name="getpublic"></a>Så här visar du Azures offentliga peering-information
+### <a name="getpublic"></a>Så här visar du information om offentliga Azure-peering
 
 Du kan få information om konfigurationen med följande exempel:
 
@@ -264,7 +264,7 @@ Utdata ser ut ungefär så här:
 }
 ```
 
-### <a name="updatepublic"></a>Att uppdatera konfigurationen av Azures offentliga peering
+### <a name="updatepublic"></a>Så här uppdaterar du Azures offentliga peering-konfiguration
 
 Du kan uppdatera någon del av konfigurationen med följande exempel. I det här exemplet uppdateras VLAN-ID för kretsen från 200 till 600.
 
@@ -272,7 +272,7 @@ Du kan uppdatera någon del av konfigurationen med följande exempel. I det här
 az network express-route peering update --vlan-id 600 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
 ```
 
-### <a name="deletepublic"></a>Att ta bort Azures offentliga peering
+### <a name="deletepublic"></a>Ta bort offentlig Azure-peering
 
 Du kan ta bort peering-konfigurationen genom att köra följande exempel:
 
@@ -284,15 +284,15 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 
 Om du vill konfigurera peering använder du de PowerShell-eller CLI-steg som finns i den här artikeln. Om du vill hantera en peering kan du använda avsnitten nedan. De här stegen ser ut ungefär så här när du hanterar en [Microsoft-peering i portalen](expressroute-howto-routing-portal-resource-manager.md#msft).
 
-### <a name="get"></a>Så här visar du Azures offentliga peering-information
+### <a name="get"></a>Så här visar du information om offentliga Azure-peering
 
 Visa egenskaperna för Azures offentliga peering genom att välja peering i portalen.
 
-### <a name="update"></a>Att uppdatera konfigurationen av Azures offentliga peering
+### <a name="update"></a>Så här uppdaterar du Azures offentliga peering-konfiguration
 
 Välj raden för peering och ändra sedan peering-egenskaperna.
 
-### <a name="delete"></a>Att ta bort Azures offentliga peering
+### <a name="delete"></a>Ta bort offentlig Azure-peering
 
 Ta bort peering-konfigurationen genom att välja ikonen Ta bort.
 

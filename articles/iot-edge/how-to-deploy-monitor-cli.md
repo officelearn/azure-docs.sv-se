@@ -9,12 +9,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fffe1ebda0103b3ed2cd8f76642ecb2967d23069
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 9152b38a0155b610f39f7de239bcc377ad96be5d
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510302"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78893100"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuera och övervaka IoT Edge-moduler i stor skala med Azure CLI
 
@@ -26,10 +26,10 @@ I den här artikeln kan du ställa in Azure CLI och IoT-tillägget. Du lär dig 
 
 ## <a name="cli-prerequisites"></a>CLI-krav
 
-* En [IoT-hubb](../iot-hub/iot-hub-create-using-cli.md) i Azure-prenumerationen.
-* [IoT Edge-enheter](how-to-register-device.md#prerequisites-for-the-azure-cli) med IoT Edge-körningen installerad.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Azure CLI-version måste minst vara 2.0.24 eller senare. Validera med `az --version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack.
-* Den [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
+* En [IoT-hubb](../iot-hub/iot-hub-create-using-cli.md) i din Azure-prenumeration.
+* [IoT Edge enheter](how-to-register-device.md#prerequisites-for-the-azure-cli) med IoT Edge Runtime installerat.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Som minst måste din Azure CLI-version vara 2.0.70 eller högre. Validera med `az --version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack.
+* [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Konfigurera ett manifest för distribution
 
@@ -148,7 +148,7 @@ Här är ett grundläggande distributions manifest med lager med en modul som ex
 }
 ```
 
-I föregående exempel visades en lager distributions inställning som `properties.desired` för en modul. Om den här skiktade distributionen är riktad mot en enhet där samma modul redan tillämpades, skulle den skriva över alla befintliga önskade egenskaper. För att kunna uppdatera, i stället för att skriva över, önskade egenskaper, kan du definiera ett nytt underavsnitt. Ett exempel:
+I föregående exempel visades en lager distributions inställning som `properties.desired` för en modul. Om den här skiktade distributionen är riktad mot en enhet där samma modul redan tillämpades, skulle den skriva över alla befintliga önskade egenskaper. För att kunna uppdatera, i stället för att skriva över, önskade egenskaper, kan du definiera ett nytt underavsnitt. Exempel:
 
 ```json
 "SimulatedTEmperatureSensor": {
@@ -163,7 +163,7 @@ Mer information om hur du konfigurerar modul dubbla i lager distributioner finns
 
 ## <a name="identify-devices-using-tags"></a>Identifiera enheter med hjälp av taggar
 
-Innan du kan skapa en distribution måste ha för att kunna ange vilka enheter som du vill påverka. Azure IoT Edge identifierar enheter med hjälp av **taggar** i enhetstvillingen. Varje enhet kan ha flera taggar som du definierar på ett sätt som passar din lösning. Om du hanterar en campus av smarta byggnader kan du lägga till följande taggar till en enhet:
+Innan du kan skapa en distribution måste ha för att kunna ange vilka enheter som du vill påverka. Azure IoT Edge identifierar enheter med hjälp av **taggar** i enheten med dubbla. Varje enhet kan ha flera taggar som du definierar på ett sätt som passar din lösning. Om du hanterar en campus av smarta byggnader kan du lägga till följande taggar till en enhet:
 
 ```json
 "tags":{
@@ -176,7 +176,7 @@ Innan du kan skapa en distribution måste ha för att kunna ange vilka enheter s
 }
 ```
 
-Mer information om enhetstvillingar och taggar finns i [förstå och använda enhetstvillingar i IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
+Mer information om enhets sammanflätade och taggar finns i [förstå och använda enhets uppIoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 ## <a name="create-a-deployment"></a>Skapa en distribution
 
@@ -193,11 +193,11 @@ Använd samma kommando med flaggan `--layered` för att skapa en lager deploymet
 Kommandot för att skapa distribution tar följande parametrar:
 
 * **--skiktad** – en valfri flagga för att identifiera distributionen som en lager distribution.
-* **– id för distributionstyp** -namnet på distributionen som skapas i IoT hub. Ge distributionen ett unikt namn som är upp till 128 gemener. Undvika blanksteg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`. Obligatorisk parameter.
-* **--innehåll** -filsökväg till distributionen manifest JSON. Obligatorisk parameter.
-* **--hubbnamn** -namnet på IoT-hubben distributionen kommer att skapas. Hubben måste finnas i den aktuella prenumerationen. Ändra den aktuella prenumerationen med kommandot `az account set -s [subscription name]`.
-* **--etiketter** – lägga till etiketter för att spåra dina distributioner. Etiketter är namn/värde-par som beskriver distributionen. Etiketter tar JSON-formatering för namn och värden. Till exempel, `{"HostPlatform":"Linux", "Version:"3.0.1"}`
-* **--Målvillkor** -ange ett Målvillkor som bestämmer vilka enheter som ska användas med den här distributionen. Villkoret baseras på enhetens dubbla taggar eller enhets egenskaper med dubbla rapporter och ska överensstämma med uttrycks formatet. Till exempel `tags.environment='test' and properties.reported.devicemodel='4000x'`.
+* **--Deployment-ID** – namnet på den distribution som ska skapas i IoT Hub. Ge distributionen ett unikt namn som är upp till 128 gemener. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`. Obligatorisk parameter.
+* **--innehålls** -sökväg till distributions manifest-JSON. Obligatorisk parameter.
+* **--hubb-Name** -namnet på den IoT-hubb som distributionen ska skapas i. Hubben måste finnas i den aktuella prenumerationen. Ändra den aktuella prenumerationen med kommandot `az account set -s [subscription name]`.
+* **--Etiketter** – Lägg till etiketter som hjälper dig att spåra dina distributioner. Etiketter är namn/värde-par som beskriver distributionen. Etiketter tar JSON-formatering för namn och värden. Till exempel, `{"HostPlatform":"Linux", "Version:"3.0.1"}`
+* **--mål villkor** – ange ett mål villkor för att avgöra vilka enheter som ska vara mål för distributionen. Villkoret baseras på enhetens dubbla taggar eller enhets egenskaper med dubbla rapporter och ska överensstämma med uttrycks formatet. Till exempel `tags.environment='test' and properties.reported.devicemodel='4000x'`.
 * **--prioritet** -ett positivt heltal. I händelse av att två eller fler distributioner är inriktade på samma enhet, gäller distribution med det högsta numeriska värdet för prioritet.
 * **--mått** – skapa mått som frågar edgeHub-rapporterade egenskaper för att spåra statusen för en distribution. Måtten tar JSON-inmatade eller en fil Sök väg. Till exempel `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`.
 
@@ -211,13 +211,13 @@ az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name
 
 Kommandot Deployment show tar följande parametrar:
 
-* **– id för distributionstyp** -namnet på distributionen som finns i IoT hub. Obligatorisk parameter.
-* **--hubbnamn** -namnet på IoT hub där distributionen finns. Hubben måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`
+* **--Deployment-ID** – namnet på den distribution som finns i IoT Hub. Obligatorisk parameter.
+* **--hubb-Name** -namnet på den IoT-hubb som distributionen finns i. Hubben måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`
 
 Kontrollera distributionen i kommandofönstret. Egenskapen **mått** visar ett antal för varje mått som utvärderas av varje hubb:
 
-* **targetedCount** -ett system-mått som anger antalet enhetstvillingar i IoT Hub som matchar villkoret målobjekt.
-* **appliedCount** -ett system mått anger hur många enheter som har haft distributionens innehåll som tillämpas på deras modultvillingar i IoT Hub.
+* **targetedCount** – ett system mått som anger antalet enheter i IoT Hub som matchar mål villkoret.
+* **appliedCount** – ett system mått anger det antal enheter som har haft det distributions innehåll som tillämpas på deras modul är dubbla i IoT Hub.
 * **reportedSuccessfulCount** – ett enhets mått som anger antalet IoT Edge enheter i distributions rapporten som lyckas från IoT Edge klient körning.
 * **reportedFailedCount** – ett enhets mått som anger antalet IoT Edge enheter i distributions rapporterings felen från IoT Edge klient körningen.
 
@@ -229,9 +229,9 @@ az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [
 
 Kommandot Deployment show-Metric använder följande parametrar:
 
-* **– id för distributionstyp** -namnet på distributionen som finns i IoT hub.
+* **--Deployment-ID** – namnet på den distribution som finns i IoT Hub.
 * **--Metric-ID** – namnet på det mått som du vill se listan över enhets-ID: n för, till exempel `reportedFailedCount`.
-* **--hubbnamn** -namnet på IoT hub där distributionen finns. Hubben måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`.
+* **--hubb-Name** -namnet på den IoT-hubb som distributionen finns i. Hubben måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`.
 
 ## <a name="modify-a-deployment"></a>Ändra en distribution
 
@@ -253,10 +253,10 @@ az iot edge deployment update --deployment-id [deployment id] --hub-name [hub na
 
 Kommandot för distributions uppdatering tar följande parametrar:
 
-* **– id för distributionstyp** -namnet på distributionen som finns i IoT hub.
-* **--hubbnamn** -namnet på IoT hub där distributionen finns. Hubben måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`
-* **--Ange** – uppdaterar en egenskap i distributionen. Du kan uppdatera följande egenskaper:
-  * targetCondition - exempel `targetCondition=tags.location.state='Oregon'`
+* **--Deployment-ID** – namnet på den distribution som finns i IoT Hub.
+* **--hubb-Name** -namnet på den IoT-hubb som distributionen finns i. Hubben måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`
+* **--Ange** – uppdatera en egenskap i distributionen. Du kan uppdatera följande egenskaper:
+  * targetCondition – till exempel `targetCondition=tags.location.state='Oregon'`
   * etiketter
   * prioritet
 * **--Lägg** till en ny egenskap för distributionen, inklusive mål villkor eller etiketter.
@@ -274,8 +274,8 @@ az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub na
 
 Kommandot för att ta bort distribution tar följande parametrar:
 
-* **– id för distributionstyp** -namnet på distributionen som finns i IoT hub.
-* **--hubbnamn** -namnet på IoT hub där distributionen finns. Hubben måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`
+* **--Deployment-ID** – namnet på den distribution som finns i IoT Hub.
+* **--hubb-Name** -namnet på den IoT-hubb som distributionen finns i. Hubben måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,41 +1,52 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Windows Virtual Desktop
+summary: Leverera en virtuell datorupplevelse och fjärrappar till valfri enhet. Sammanför Microsoft 365 och Azure för att ge användarna den enda Windows 10-upplevelsen med flera sessioner – med utomordentlig skala och minskade IT-kostnader.
 metadata:
-  title: Dokumentation om Windows Virtual Desktop | Microsoft Docs
+  title: Dokumentation om Windows Virtual Desktop
   description: Windows Virtual Desktop för Azure är en Windows 10 Enterprise-upplevelse för flera användare som är virtualiserad i molnet.
-  author: Heidilohr
-  manager: lizross
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page
-  ms.date: 02/20/2019
+  manager: lizross
+  author: Heidilohr
   ms.author: helohr
-abstract:
-  description: Leverera en virtuell datorupplevelse och fjärrappar till valfri enhet. Sammanför Microsoft 365 och Azure för att ge användarna den enda Windows 10-upplevelsen med flera sessioner – med utomordentlig skala och minskade IT-kostnader.
-sections:
-  - title: Översikt
-    items:
-      - type: paragraph
-        text: 'Läs mer om Windows Virtual Desktop och hur den används. Med hjälp av självstudier, instruktioner, referensinnehåll och mer får du lära dig att konfigurera värdpooler och klientorganisationer samt tilldela roller till användare i din Windows Virtual Desktop-miljö.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/virtual-desktop/overview">Vad är Windows Virtual Desktop?</a>
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: Lär dig hur du installerar och konfigurerar Windows Virtual Desktop och hur du ansluter till klienten när du är klar.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Skapa en klientorganisation i Windows Virtual Desktop</a>
-          - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Skapa en värdpool med Azure Marketplace</a>
-          - html: <a href="/azure/virtual-desktop/manage-app-groups">Hantera appgrupper för Windows Virtual Desktop</a>
-          - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell</a>
-  - title: Referens
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>
+  ms.date: 03/06/2020
+  ms.openlocfilehash: f37b0cd68c62813dd4c642d9e45a20a91d08c31c
+  ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 03/07/2020
+  ms.locfileid: "78898660"
+landingContent:
+- title: Om Windows Virtual Desktop
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Windows Virtual Desktop?
+      url: overview.md
+- title: Kom igång
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skapa en klientorganisation i Windows Virtual Desktop
+      url: tenant-setup-azure-active-directory.md
+    - text: Skapa en värdpool med Azure Marketplace
+      url: create-host-pools-azure-marketplace.md
+    - text: Hantera appgrupper för Windows Virtual Desktop
+      url: manage-app-groups.md
+    - text: Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell
+      url: create-service-principal-role-powershell.md
+- title: Ansluta till Windows Virtual Desktop
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Klient för Windows-skrivbordet
+      url: connect-windows-7-and-10.md
+    - text: Webbklient
+      url: connect-web.md
+    - text: Android-klient
+      url: connect-android.md
+    - text: macOS-klient
+      url: connect-macos.md
+    - text: iOS-klient
+      url: connect-ios.md

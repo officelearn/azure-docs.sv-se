@@ -89,7 +89,7 @@
       href: relational-nosql.md
     - name: Global distribution
       items:
-        - name: Översikt
+        - name: Översikt över global distribution
           displayName: 'replication, replicate, geo distribution'
           href: distribute-data-globally.md
         - name: Konsekvensnivåer
@@ -118,7 +118,7 @@
           href: globally-distributed-transactional-analytical-storage.md
     - name: Partitionering
       items:
-        - name: Översikt
+        - name: Översikt över partitionering
           href: partitioning-overview.md
         - name: Partitionering och horisontell skalning
           href: partition-data.md
@@ -461,7 +461,7 @@
           href: modeling-data.md
         - name: Indexering
           items:
-            - name: Översikt
+            - name: Indexeringsöversikt
               displayName: 'range, spatial'
               href: index-overview.md
             - name: Indexeringsprinciper
@@ -476,7 +476,7 @@
           href: database-transactions-optimistic-concurrency.md
     - name: Ändringsfeed
       items:
-        - name: Översikt
+        - name: Översikt över ändringsflöde
           href: change-feed.md
         - name: Läsning av ändringsflöde
           href: read-change-feed.md
@@ -530,7 +530,7 @@
           href: cosmos-db-reserved-capacity.md
     - name: Säkerhet
       items:
-        - name: Översikt
+        - name: Säkerhetsöversikt
           href: database-security.md
         - name: Datakryptering
           href: database-encryption-at-rest.md
@@ -564,12 +564,12 @@
   items:
     - name: Cassandra-API
       items:
-        - name: Introduktion
-          href: cassandra-introduction.md
-        - name: Protokollstöd för Wire
-          href: cassandra-support.md
-        - name: Elastisk skalning
-          href: manage-scale-cassandra.md
+        - name: Översikt
+          items:
+            - name: Vad är API för Apache Cassandra i Cosmos DB?
+              href: cassandra-introduction.md
+            - name: Protokollstöd för Wire
+              href: cassandra-support.md
         - name: Snabbstarter
           items:
             - name: .NET
@@ -591,6 +591,10 @@
             - name: 4 – Migrera data
               displayName: import
               href: cassandra-import-data.md
+        - name: Begrepp
+          items:
+            - name: Elastisk skalning
+              href: manage-scale-cassandra.md
         - name: Anvisningar
           items:
             - name: Ändringsfeed
@@ -628,12 +632,14 @@
               href: cli-samples-cassandra.md
     - name: MongoDB-API
       items:
-        - name: Introduktion
-          href: mongodb-introduction.md
-        - name: Protokollstöd för Wire (3.2)
-          href: mongodb-feature-support.md
-        - name: Protokollstöd för Wire (3.6)
-          href: mongodb-feature-support-36.md
+        - name: Översikt
+          items:
+            - name: Vad är MongoDB API i Cosmos DB?
+              href: mongodb-introduction.md
+            - name: Protokollstöd för Wire (3.2)
+              href: mongodb-feature-support.md
+            - name: Protokollstöd för Wire (3.6)
+              href: mongodb-feature-support-36.md
         - name: Snabbstarter
           items:
             - name: .NET
@@ -719,10 +725,12 @@
     - name: Gremlin-API
       displayName: 'graph, graph database'
       items:
-        - name: Introduktion
-          href: graph-introduction.md
-        - name: Protokollstöd för Wire
-          href: gremlin-support.md
+        - name: Översikt
+          items:
+            - name: Vad är Germlin API i Cosmos DB?
+              href: graph-introduction.md
+            - name: Protokollstöd för Wire
+              href: gremlin-support.md
         - name: Snabbstarter
           items:
             - name: Gremlin-konsol
@@ -778,8 +786,10 @@
               href: cli-samples-gremlin.md
     - name: Tabell-API
       items:
-        - name: Introduktion
-          href: table-introduction.md
+        - name: Översikt
+          items:
+            - name: Vad är Tabell-API i Cosmos DB?
+              href: table-introduction.md
         - name: Snabbstarter
           items:
             - name: .NET
@@ -849,10 +859,14 @@
               href: /rest/api/storageservices/table-service-rest-api
     - name: Etcd-API
       items:
-        - name: Introduktion
-          href: etcd-api-introduction.md
-        - name: Azure Kubernetes med Azure Cosmos DB
-          href: bootstrap-kubernetes-cluster.md
+        - name: Översikt
+          items:
+            - name: Vad är Etcd API i Cosmos DB?
+              href: etcd-api-introduction.md
+        - name: Anvisningar
+          items:
+            - name: Azure Kubernetes med Azure Cosmos DB
+              href: bootstrap-kubernetes-cluster.md
 - name: Anvisningar
   items:
     - name: Arbeta med ett Azure Cosmos-konto

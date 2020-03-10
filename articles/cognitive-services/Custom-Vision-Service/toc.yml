@@ -57,6 +57,8 @@
       href: test-your-model.md
     - name: Förbättra din klassificerare
       href: getting-started-improving-your-classifier.md
+    - name: Välj en domän
+      href: select-domain.md
     - name: 'Använd förutsägelse-API:t'
       href: use-prediction-api.md
     - name: Använda Smart Labeler

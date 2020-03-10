@@ -145,10 +145,6 @@
             - name: Utdata
               displayName: 'iteration,copy'
               href: copy-outputs.md
-        - name: Resurser på prenumerationsnivå
-          href: deploy-to-subscription.md
-        - name: Nivåresurser för hanteringsgrupp
-          href: deploy-to-management-group.md
     - name: Använd redigeringsverktyg
       items:
         - name: VS Code
@@ -182,7 +178,15 @@
           href: rollback-on-error.md
         - name: Säker mall med SAS-token
           href: secure-template-with-sas-token.md
-        - name: Distribuera till flera resursgrupper eller prenumerationer
+    - name: Omfångsdistributioner
+      items:
+        - name: Prenumeration
+          href: deploy-to-subscription.md
+        - name: Hanteringsgrupp
+          href: deploy-to-management-group.md
+        - name: Klientorganisation
+          href: deploy-to-tenant.md
+        - name: Flera resursgrupper eller prenumerationer
           href: cross-resource-group-deployment.md
     - name: Ange parametrar
       items:

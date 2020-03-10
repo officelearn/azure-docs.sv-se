@@ -4,11 +4,11 @@ description: Övervaka webb- och arbetsroller effektivt med Application Insights
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.openlocfilehash: ce794a7bd18635fddfa30056ab2d675dc138097d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655845"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362237"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
 [Application Insights][start] kan övervaka [Azure Cloud Service-appar](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, haverier och användning genom att kombinera data från Application Insights sdk: er med [Azure-diagnostik](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data från moln tjänsterna. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
@@ -90,7 +90,7 @@ Om du har valt att använda en separat Application Insights-resurs för varje ve
 
 ![Konfigurera Application Insights](./media/cloudservices/configure-azure-diagnostics.png)
 
-Detta innebär att du kan lägga till Application Insights Instrumentation-nycklar i filerna med namnet *ServiceConfiguration.\*. cscfg*. Här är [exempel koden](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
+Detta innebär att du kan lägga till Application Insights Instrumentation-nycklar i filerna med namnet *ServiceConfiguration\*. cscfg*. Här är [exempel koden](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
 
 Om du vill variera graden av diagnostikinformation som skickas till Application Insights kan du göra det [genom att redigera *. cscfg* -filerna direkt](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 

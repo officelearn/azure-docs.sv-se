@@ -1,5 +1,5 @@
-- name: Docker-dokumentation
-  href: index.md
+- name: Dokumentation om Docker
+  href: index.yml
 - name: Snabbstart
   expanded: true
   items:

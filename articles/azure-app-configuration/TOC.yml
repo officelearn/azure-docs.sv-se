@@ -42,6 +42,8 @@
       href: enable-dynamic-configuration-dotnet.md
     - name: Aktivera dynamisk konfiguration i Azure Functions
       href: enable-dynamic-configuration-azure-functions-csharp.md
+    - name: Aktivera dynamisk konfiguration i Spring Boot
+      href: enable-dynamic-configuration-java-spring-app.md
     - name: Använda funktionsflaggor i en .NET Core-app
       href: use-feature-flags-dotnet-core.md
     - name: Använda funktionsflaggor i en Spring Boot-app

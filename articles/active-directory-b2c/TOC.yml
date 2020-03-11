@@ -329,6 +329,8 @@
                       href: restful-technical-profile.md
                     - name: SAML
                       href: saml-technical-profile.md
+                    - name: SAML-tokenutfärdare
+                      href: saml-issuer-technical-profile.md
                     - name: Självkontrollerad
                       href: self-asserted-technical-profile.md
                     - name: Session för enkel inloggning

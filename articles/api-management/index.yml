@@ -1,56 +1,71 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om API Management
+summary: Lär dig hur du använder API Management för att publicera API:er till externa, partner och anställda utvecklare säkert och i större skala. Visar hur du kan skapa och hantera moderna API-gatewayer för befintliga serverdeltjänster som finns var som helst.
 metadata:
-  title: 'Dokumentation om Azure API Management – självstudier, API-referens | Microsoft Docs'
-  description: 'Lär dig hur du använder API Management för att publicera API:er till externa, partner och anställda utvecklare säkert och i större skala. Självstudier, API-referenser och annan dokumentation visar hur du skapar och hanterar moderna API-gatewayer för befintliga serverdelstjänster var som helst.'
+  title: Dokumentation om API Management
+  description: Lär dig hur du använder API Management för att publicera API:er till externa, partner och anställda utvecklare säkert och i större skala. Visar hur du kan skapa och hantera moderna API-gatewayer för befintliga serverdeltjänster som finns var som helst.
   services: api-management
-  author: georgewallace
-  manager: gwallace
   ms.service: api-management
   ms.topic: landing-page
-  ms.date: 11/15/2017
+  author: georgewallace
   ms.author: gwallace
-abstract:
-  description: 'Lär dig hur du använder API Management för att publicera API:er till externa, partner och anställda utvecklare säkert och i större skala. Självstudier, API-referenser och annan dokumentation visar hur du skapar och hanterar moderna API-gatewayer för befintliga serverdelstjänster var som helst.'
-sections:
-  - title: Snabbstarter på fem minuter
-    items:
-      - type: paragraph
-        text: Skapa en API Management-instans.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
-            text: Skapa en instans – portalen
-            href: /azure/api-management/get-started-create-service-instance
-          - image:
-              src: 'https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg'
-            text: Skapa en instans – PowerShell
-            href: /azure/api-management/powershell-create-service-instance
-  - title: Stegvisa självstudier
-    items:
-      - type: paragraph
-        text: Lär dig hur du hanterar API Management.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/api-management/import-and-publish">Importera och publicera ditt första API</a>
-          - html: <a href="/azure/api-management/api-management-howto-add-products">Skapa och publicera en produkt</a>
-          - html: <a href="/azure/api-management/mock-api-responses">Fingera API-svar</a>
-          - html: <a href="/azure/api-management/transform-api">Transformera och skydda ditt API</a>
-          - html: '<a href="/azure/api-management/api-management-howto-use-azure-monitor">Övervaka publicerade API: er</a>'
-          - html: '<a href="/azure/api-management/api-management-howto-api-inspector">Felsöka API: er med hjälp av spårning av förfrågningar</a>'
-          - html: <a href="/azure/api-management/api-management-get-started-revise-api">Använda revideringar för att göra ändringar på ett säkert sätt</a>
-          - html: <a href="/azure/api-management/api-management-get-started-publish-versions">Publicera flera versioner av ditt API</a>
-          - html: <a href="/azure/api-management/api-management-customize-styles">Anpassa stilen på utvecklingsportalens sidor</a>
-  - title: Exempel
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/api-management/policy-samples">Princip</a>
-          - html: <a href="/azure/api-management/powershell-samples">Azure PowerShell</a>
-          - html: '<a href="https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration">Referensarkitektur</a>'
+  ms.date: 03/08/2020
+  ms.openlocfilehash: 2ed84dfdfcabafe7222b8cb64a853ed04e2335a2
+  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 03/09/2020
+  ms.locfileid: "78944167"
+landingContent:
+- title: Om API Management
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är API Management?
+      url: api-management-key-concepts.md
+    - text: Tillgänglighet för funktioner
+      url: api-management-features.md
+- title: Skapa en instans
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure Portal
+      url: get-started-create-service-instance.md
+    - text: Azure PowerShell
+      url: powershell-create-service-instance.md
+- title: Hantera API Management
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 1. Importera och publicera ditt första API
+      url: import-and-publish.md
+    - text: 2. Skapa och publicera en produkt
+      url: api-management-howto-add-products.md
+    - text: 3. Simulera API-svar
+      url: mock-api-responses.md
+    - text: 4. Transformera och skydda ditt API
+      url: transform-api.md
+    - text: 5. Övervaka publicerade API:er
+      url: api-management-howto-use-azure-monitor.md
+    - text: 6. Felsöka API:er med hjälp av spårning av förfrågningar
+      url: api-management-howto-api-inspector.md
+    - text: 7. Använd revideringar för att göra bakåtkompatibla ändringar på ett säkert sätt
+      url: api-management-get-started-revise-api.md
+    - text: 8. Publicera flera versioner av ditt API
+      url: api-management-get-started-publish-versions.md
+    - text: 9. Anpassa stilen på utvecklarportalens sidor
+      url: api-management-customize-styles.md
+- title: Exempel
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Princip
+      url: policy-samples.md
+    - text: Azure PowerShell
+      url: powershell-samples.md
+- title: Arkitektur
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: Grundläggande Enterprise-integration
+      url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration

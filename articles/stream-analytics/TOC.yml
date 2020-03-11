@@ -23,7 +23,7 @@
       href: stream-analytics-manage-job.md
     - name: 2 – Köra Azure Functions
       href: stream-analytics-with-azure-functions.md
-    - name: 3 – Köra Javascript UDF
+    - name: 3 – Köra JavaScript UDF
       href: stream-analytics-javascript-user-defined-functions.md
     - name: 4 – Distribuera med CI/CD i Azure Pipelines
       href: stream-analytics-tools-visual-studio-cicd-vsts.md
@@ -223,6 +223,9 @@
       href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Stream Analytics-frågespråk
   items:
+    - name: Översikt över Stream Analytics-frågespråk
+      href: /stream-analytics-query/stream-analytics-query-language-reference
+      maintainContext: true
     - name: Inbyggda funktioner
       items:
         - name: Översikt över inbyggda funktioner

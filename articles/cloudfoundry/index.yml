@@ -1,0 +1,52 @@
+### YamlMime:Landing
+title: Dokumentation om Cloud Foundry på Azure
+summary: Cloud Foundry är en plattform som en tjänst (PaaS) med öppen källkod som finns för att skapa, distribuera och använda 12-faktorsprogram som utvecklats i olika språk och ramverk.
+metadata:
+  title: Dokumentation om Cloud Foundry på Azure
+  description: Cloud Foundry är en plattform som en tjänst (PaaS) med öppen källkod som finns för att skapa, distribuera och använda 12-faktorsprogram som utvecklats i olika språk och ramverk.
+  services: multiple
+  ms.service: multiple
+  ms.devlang: devops
+  ms.topic: landing-page
+  author: georgewallace
+  ms.author: gwallace
+  ms.date: 03/08/2020
+  ms.openlocfilehash: 5c2ad3d9e471c339223ad21092b89e6aee64995d
+  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 03/09/2020
+  ms.locfileid: "78943160"
+landingContent:
+- title: Om Cloud Foundry på Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Översikt över Cloud Foundry på Azure
+      url: ../virtual-machines/linux/cloudfoundry-get-started.md
+- title: Kom igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Distribuera Cloud Foundry på Azure
+      url: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
+  - linkListType: how-to-guide
+    links:
+    - text: Distribuera din första app
+      url: ../virtual-machines/linux/cloudfoundry-deploy-your-first-app.md
+- title: Resurser
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Pivotal Cloud Foundry på Azure
+      url: https://pivotal.io/partners/microsoft
+    - text: Integrera Cloud Foundry med Azure
+      url: how-cloud-foundry-integrates-with-azure.md
+    - text: Installera Cloud Foundry på Azure
+      url: https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html
+    - text: Azure DevOps-pluginprogram för Cloud Foundry
+      url: https://github.com/Microsoft/vsts-cloudfoundry
+    - text: Microsoft Log Analytics Nozzle för Cloud Foundry
+      url: https://github.com/Azure/oms-log-analytics-firehose-nozzle
+    - text: Läs mer om Cloud Foundry
+      url: https://docs.cloudfoundry.org/

@@ -45,10 +45,6 @@
           href: how-to-automatic-language-detection.md
         - name: Använda komprimerade ljudindataformat
           href: how-to-use-codec-compressed-audio-input-streams.md
-        - name: Använda komprimerade ljudindataformat (iOS)
-          href: how-to-use-codec-compressed-audio-input-streams-ios.md
-        - name: Använda komprimerade ljudindataformat (Android)
-          href: how-to-use-codec-compressed-audio-input-streams-android.md
     - name: Anpassning
       items:
         - name: Förbereda data
@@ -63,6 +59,10 @@
           href: how-to-custom-speech-deploy-model.md
         - name: Skapa transkriptioner med mänsklig etikett
           href: how-to-custom-speech-human-labeled-transcriptions.md
+        - name: Riktlinjer för anpassad namngivning av nyckelord
+          href: speech-devices-sdk-kws-guidelines.md
+        - name: Anpassad nyckelordsidentifiering
+          href: speech-devices-sdk-create-kws.md
     - name: Referens
       items:
         - name: 'API:er för Speech SDK'
@@ -156,10 +156,6 @@
               href: how-to-custom-voice-create-voice.md
             - name: Spela in röstexempel
               href: record-custom-voice-samples.md
-            - name: Riktlinjer för anpassad namngivning av nyckelord
-              href: speech-devices-sdk-kws-guidelines.md
-            - name: Anpassad nyckelordsidentifiering
-              href: speech-devices-sdk-create-kws.md
         - name: Skapa ljudinnehåll
           items:
             - name: Skapa ljudinnehåll
@@ -413,6 +409,12 @@
           items:
             - name: Vanliga frågor och svar om röstassistenter
               href: faq-voice-assistants.md
+    - name: Anpassade nyckelord
+      items:
+        - name: Riktlinjer för anpassad namngivning av nyckelord
+          href: speech-devices-sdk-kws-guidelines.md
+        - name: Anpassad nyckelordsidentifiering
+          href: speech-devices-sdk-create-kws.md
 - name: Värd
   expanded: false
   items:
@@ -445,8 +447,6 @@
           href: ship-application.md
     - name: Snabbstart
       items:
-        - name: Skapa ett projekt
-          href: quickstarts/create-project.md
         - name: Konfigurera Speech SDK
           href: quickstarts/setup-platform.md
           displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'

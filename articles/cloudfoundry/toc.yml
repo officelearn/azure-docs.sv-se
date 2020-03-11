@@ -1,5 +1,5 @@
-- name: Cloud Foundry-dokumentation
-  href: index.md
+- name: Dokumentation om Cloud Foundry
+  href: index.yml
 - name: Snabbstarter
   expanded: true
   items:

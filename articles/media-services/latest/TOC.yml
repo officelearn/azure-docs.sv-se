@@ -7,6 +7,11 @@
     - name: Nyheter i Media Services
       displayName: release notes
       href: release-notes.md
+- name: Snabbstarter
+  items:
+    - name: Livehändelse med portal och Wirecast
+      displayName: 'live, event, portal, wirecast'
+      href: live-events-wirecast-quickstart.md
 - name: Självstudier
   expanded: true
   items:
@@ -189,10 +194,10 @@
     - name: Hög tillgänglighet
       items:
         - name: Kodning
-          displayName: 'failover, bcdr'
+          displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
         - name: Strömning
-          displayName: 'failover, bcdr'
+          displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-streaming.md
     - name: Vägledning för migrering från v2 till v3
       href: migrate-from-v2-to-v3.md

@@ -213,6 +213,8 @@
               items:
                 - name: JavaScript för klientsidan
                   href: app/javascript.md
+                - name: Källkarta för JavaScript
+                  href: app/source-map-support.md
             - name: Sammanfattning av Application Insights-API
               displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
               href: app/api-custom-events-metrics.md
@@ -1005,6 +1007,8 @@
               href: platform/alerts-activity-log.md
             - name: Migrera hanteringshändelser till aktivitetsloggaviseringar
               href: platform/migrate-management-alerts.md
+            - name: Webhook-schema
+              href: platform/activity-log-alerts-webhook.md
         - name: Service Health-aviseringar i aktivitetsloggen
           items:
             - name: Visa aviseringar
@@ -1023,8 +1027,6 @@
               href: platform/alerts-common-schema-definitions.md
             - name: Integrera det gemensamma aviseringsschemat med Logic Apps
               href: platform/alerts-common-schema-integrations.md
-            - name: Webhook-schema
-              href: platform/activity-log-alerts-webhook.md
             - name: Beteende för SMS-aviseringar
               href: platform/alerts-sms-behavior.md
             - name: Begränsning av aviseringsfrekvens

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: e4fc3555d7d880dcbd4f76d8f507300e98c237db
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 5f481ebf219eea8ae31e9802144bbf771a24e8b8
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718365"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081785"
 ---
 # <a name="limits-and-quotas"></a>Begränsningar och kvoter
 
@@ -25,9 +25,9 @@ Antalet utbildnings bilder per projekt och taggar per projekt förväntas öka m
 
 ||**F0**|**S0**|
 |-----|-----|-----|
-|samarbetsprojekt|2|100|
+|Projekt|2|100|
 |Utbildnings bilder per projekt |5 000|100 000|
-|Förutsägelser/månad|10 000 |Obegränsat|
+|Förutsägelser/månad|10 000 |Unlimited|
 |Taggar/projekt|50|500|
 |Iterationer |10|10|
 |Minsta antal märkta bilder per tagg, klassificering (50 + rekommenderas) |5|5|
@@ -42,8 +42,8 @@ Antalet utbildnings bilder per projekt och taggar per projekt förväntas öka m
 |Maximal bild höjd/bredd i bild punkter|obegränsat|obegränsat|
 |Maximal bild storlek (uppladdning av inlärnings avbildning) |6 MB|6 MB|
 |Maximal bild storlek (förutsägelse)|4 MB|4 MB|
-|Bild för högsta antal regioner per objekts avkänning|200|200|
-|Bild av Max Taggar per klassificering|30|30|
+|Bild för högsta antal regioner per objekts avkänning|300|300|
+|Bild av Max Taggar per klassificering|100|100|
 
 > [!NOTE]
 > Bilder som är mindre än 256 bild punkter godkänns, men skalas upp.

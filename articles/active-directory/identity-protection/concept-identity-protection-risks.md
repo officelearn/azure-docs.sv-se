@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9815ff08296b38c39e732c08619042659504462
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 775ff6b3ba003bed22ccd5a42cb4da005c4dbb69
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78893127"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082187"
 ---
 # <a name="what-is-risk"></a>Vad är risk?
 
@@ -30,13 +30,13 @@ Identitets skydd ger organisationer till gång till kraftfulla resurser för att
 
 Det finns två typer av risk **användare** och **inloggning** och två typer av identifiering eller beräkning i **real tid** och **offline**.
 
-### <a name="user-risk"></a>Användar risk '
+### <a name="user-risk"></a>Användar risk
 
 En användar risk representerar sannolikheten att en specifik identitet eller ett konto har komprometterats. 
 
 Dessa risker beräknas offline med Microsofts interna och externa hot informations källor, inklusive säkerhets forskare, lag verk ställande personal, säkerhets team på Microsoft och andra betrodda källor.
-''
-| Identifiering av risker | Descript'on |
+
+| Identifiering av risker | Beskrivning |
 | --- | --- |
 | Läckta autentiseringsuppgifter | Den här typen av risk identifiering anger att användarens giltiga autentiseringsuppgifter har läckts. När cyberbrottslingar kompromettera giltiga lösen ord för legitima användare delar de ofta dessa autentiseringsuppgifter. Den här delningen görs vanligt vis genom att publicera offentligt på den mörka webbplatsen, klistra in webbplatser eller genom handel och sälja autentiseringsuppgifterna på den svarta marknaden. När tjänsten Microsoft läcker autentiseringsuppgifter hämtar användarautentiseringsuppgifter från den mörka webben, klistra in webbplatser eller andra källor, kontrol leras de mot Azure AD-användares aktuella giltiga autentiseringsuppgifter för att hitta giltiga matchningar. |
 | Azure AD Threat Intelligence | Den här typen av risk identifiering indikerar användar aktivitet som är ovanlig för den aktuella användaren eller som är konsekvent med kända angrepps mönster baserade på Microsofts interna och externa hot informations källor. |
@@ -68,4 +68,4 @@ Dessa risker kan beräknas i real tid eller beräknas offline med hjälp av Micr
 
 - [Principer som är tillgängliga för att minimera risker](concept-identity-protection-policies.md)
 
-- [Säkerhets översikt](concept-identity-protection-security-overview.md) ""'
+- [Säkerhetsöversikt](concept-identity-protection-security-overview.md)

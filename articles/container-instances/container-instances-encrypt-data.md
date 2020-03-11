@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: 41c7fc7380ca2b58326c4a35a3b5fdab1c64c4a3
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544325"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080368"
 ---
 # <a name="encrypt-deployment-data"></a>Kryptera distributionsdata
 
@@ -41,6 +41,10 @@ Resten av dokumentet beskriver de steg som krävs för att kryptera dina ACI-dis
 
 Det första steget är att se till att din [Azure-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) har ett huvud namn för tjänsten som tilldelas för att bevilja behörighet till tjänsten Azure Container instances. 
 
+> [!IMPORTANT]
+> Innan du kan köra följande kommando och skapa ett huvud namn för tjänsten, bekräftar du att du har behörighet att skapa tjänstens huvud namn i din klient organisation.
+>
+
 Följande CLI-kommando konfigurerar ACI SP i Azure-miljön:
 
 ```azurecli-interactive
@@ -48,6 +52,10 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 ```
 
 Utdata från att köra det här kommandot ska visa ett huvud namn för tjänsten som har kon figurer ATS med "displayName": "Azure Container instance service".
+
+Om du inte kan skapa tjänstens huvud namn:
+* bekräfta att du har behörighet att göra det i din klient organisation
+* kontrol lera om det redan finns ett tjänst huvud namn i din klient organisation för distribution till ACI. Du kan göra det genom att köra `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` och använda tjänstens huvud namn i stället
 
 ### <a name="create-a-key-vault-resource"></a>Skapa en Key Vault resurs
 

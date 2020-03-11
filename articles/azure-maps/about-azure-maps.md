@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b375ea8fdebd876bdc7ecf157a4cebd5e614dfd0
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 411ffb9c05b0f6b4d8b7d37a11d0838c8734ec5e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443757"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79079799"
 ---
 # <a name="what-is-azure-maps"></a>Vad är Azure Maps?
 
@@ -170,6 +170,8 @@ Azure Maps erbjuder också en praktisk [JavaScript-mappning](https://docs.micros
 Att komma åt Azure Maps-tjänsterna är en fråga om att gå till [Azure Portal](https://portal.azure.com) och skapa ett Azure Maps-konto.
 
 I Azure Maps används ett schema för nyckelbaserad autentisering. Ditt konto har två nycklar som redan har skapats för dig, Använd båda nycklarna. Börja integrera de här plats funktionerna i programmet och gör förfrågningar till de Azure Maps tjänsterna.
+
+Obs! Azure Maps delar kundens adress/plats frågor ("frågor") med tredje part i TomTom för att mappa funktionalitet. Frågor är inte länkade till någon kund eller slutanvändare när de delas med TomTom och kan inte användas för att identifiera individer. Microsoft håller på att lägga till TomTom i listan över online tjänster. Observera att mobilitets-och väder tjänster som inkluderar integrering med Moovit och AccuWeather för närvarande finns i för [hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="supported-regions"></a>Regioner som stöds
 

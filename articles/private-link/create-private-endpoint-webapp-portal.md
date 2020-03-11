@@ -8,12 +8,12 @@ ms.date: 03/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: f19e4e34b2ec8cebc9e1841f277f26fba941bb89
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: bb78536326885e043279de1ff77e6e8efcd95193
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673673"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037155"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Anslut privat till en webbapp med hjälp av Azures privata slut punkt (för hands version)
 
@@ -73,6 +73,9 @@ Behåll standardinställningarna.
 ## <a name="create-your-web-app-and-private-endpoint"></a>Skapa din webbapp och privat slut punkt
 
 I det här avsnittet ska du skapa en privat webbapp med en privat slut punkt till den.
+
+> [!Note]
+>Den privata slut punkts funktionen är bara tillgänglig för Premium v2 och isolerad med extern ASE SKU
 
 ### <a name="web-app"></a>Webbapp
 

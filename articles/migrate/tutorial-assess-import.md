@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 060399952545c903fec8ecf08d99e438883c9fd1
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 91b9c71e7c735fca08f71ca37ed28734c8d634a1
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902543"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79079858"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Utvärdera servrar med hjälp av importerade data
 
@@ -32,7 +32,7 @@ Tänk på följande punkter:
 - Du kan ladda upp Server information till Server utvärdering flera gånger med hjälp av CSV.
 - Att samla in programinformation är användbart när du ska utvärdera din lokala miljö för migrering. Server utvärderingen utför dock för närvarande inte utvärdering på program nivå eller tar program i beaktande när en utvärdering skapas.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
 > * Fyll i en CSV-fil med Server information.
@@ -103,46 +103,46 @@ Samla in Server data och Lägg till dem i CSV-filen.
 
 I följande tabell sammanfattas fil fälten som ska fyllas i:
 
-**Fält namn** | **Erforderlig** | **Detaljer**
+**Fältnamn** | **Erforderlig** | **Detaljer**
 --- | --- | ---
 **Servernamn** | Ja | Vi rekommenderar att du anger det fullständigt kvalificerade domän namnet (FQDN).
-**IP-adress** | Inga | Server adress.
+**IP-adress** | Nej | Server adress.
 **Kärnor** | Ja | Antal processor kärnor som har allokerats till servern.
-**Minne** | Ja | Totalt RAM-minne, i MB, allokeras till servern.
-**OS-namn** | Ja | Serveroperativ system.
-**Operativsystemversion** | Inga | Serverns operativ system version.
-**Antal diskar** | Inga | Behövs inte om enskilda disk uppgifter anges.
-**Disk 1-storlek**  | Inga | Maximal disk storlek i GB.<br/>Du kan lägga till information om fler diskar genom [att lägga till kolumner](#add-multiple-disks) i mallen. Du kan lägga till upp till åtta diskar.
-**Disk 1, Läs OPS** | Inga | Disk läsnings åtgärder per sekund.
-**Disk 1 Skriv OPS** | Inga | Disk skrivnings åtgärder per sekund.
-**Disk 1 Läs data flöde** | Inga | Data läses från disken per sekund, i MB per sekund.
-**Disk 1 Skriv data flöde** | Inga | Data som skrivs till disk per sekund, i MB per sekund.
-**Procent andel CPU-användning** | Inga | Procent andel CPU som används.
-**Procent andel minnes användning** | Inga | Procent andelen RAM-minne som används.
-**Totalt antal diskar Read OPS** | Inga | Disk läsnings åtgärder per sekund.
-**Skriv Ops totalt antal diskar** | Inga | Disk-Skriv åtgärder per sekund.
-**Totalt antal diskar läsnings data flöde** | Inga | Data läses från disken, i MB per sekund.
-**Totalt antal diskar Skriv data flöde** | Inga | Data som skrivs till disk, i MB per sekund.
-**Nätverk i data flöde** | Inga | Data som tagits emot av servern, i MB per sekund.
-**Nätverks utflöde** | Inga | Data som överförs av servern, i MB per sekund.
-**Typ av inbyggd program vara** | Inga | Serverns inbyggda program vara. Värdena kan vara "BIOS" eller "UEFI".
-**Servertyp** | Inga | Värdena kan vara fysiska eller virtuella.
-**Hypervisor** | Inga | Hypervisor som datorn körs på. <br/> Värdena kan vara "VMware", "Hyper-V", "xen", "AWS", "GCP" eller "other".
-**Versions nummer för hypervisor** | Inga | Hypervisor-version.
-**ID för virtuell dator** | Inga | VM-ID. Detta är **InstanceUUid** -värdet för en virtuell VMware vCenter-dator eller **Hyper-v VM-ID** för Hyper-v.
-**Virtual Machine Manager-ID** | Inga | Detta är **InstanceUUid** -värdet för VMware vCenter. Det behövs inte för Hyper-V.
-**MAC-adress**| Inga | Serverns MAC-adress.
-**BIOS-ID** | Inga | Serverns BIOS-ID.
-**ID för anpassad server** | Inga | Lokalt, unikt server-ID lokalt. <br/> Användbart för att spåra den importerade servern med hjälp av lokalt ID.
-**Namn på program 1** | Inga | Namnet på den arbets belastning som körs på servern.<br/>Du kan lägga till information för fler appar genom [att lägga till kolumner](#add-multiple-applications) i mallen. Du kan lägga till upp till fem program.
-**Program 1-typ** | Inga | Typ av arbets belastning som körs på servern
-**Program 1-version** | Inga | Den version av arbets belastningen som körs på servern.
-**Licens förfallo datum för program 1** | Inga | Licens förfallo tid för arbets belastningen (om tillämpligt).
-**Affär senhet** | Inga | Affär senhet som servern tillhör.
-**Företags ägare** | Inga | Ägare av affär senhet.
-**Affärs program namn** | Inga | Namnet på programmet som appen tillhör.
-**Plats** | Inga | Data Center där-servern finns.
-**Serverns inställnings datum** | Inga | Inställnings datum för den fysiska servern eller den underliggande fysiska servern för den virtuella servern.
+**Minnesoptimerade** | Ja | Totalt RAM-minne, i MB, allokeras till servern.
+**OS-namn** | Ja | Serveroperativ system. <br/> Operativ system namn som matchar eller innehåller namnen [i listan känns](#supported-operating-system-names) igen av utvärderingen.
+**Operativsystemversion** | Nej | Serverns operativ system version.
+**Antal diskar** | Nej | Behövs inte om enskilda disk uppgifter anges.
+**Disk 1-storlek**  | Nej | Maximal disk storlek i GB.<br/>Du kan lägga till information om fler diskar genom [att lägga till kolumner](#add-multiple-disks) i mallen. Du kan lägga till upp till åtta diskar.
+**Disk 1, Läs OPS** | Nej | Disk läsnings åtgärder per sekund.
+**Disk 1 Skriv OPS** | Nej | Disk skrivnings åtgärder per sekund.
+**Disk 1 Läs data flöde** | Nej | Data läses från disken per sekund, i MB per sekund.
+**Disk 1 Skriv data flöde** | Nej | Data som skrivs till disk per sekund, i MB per sekund.
+**Procent andel CPU-användning** | Nej | Procent andel CPU som används.
+**Procent andel minnes användning** | Nej | Procent andelen RAM-minne som används.
+**Totalt antal diskar Read OPS** | Nej | Disk läsnings åtgärder per sekund.
+**Skriv Ops totalt antal diskar** | Nej | Disk-Skriv åtgärder per sekund.
+**Totalt antal diskar läsnings data flöde** | Nej | Data läses från disken, i MB per sekund.
+**Totalt antal diskar Skriv data flöde** | Nej | Data som skrivs till disk, i MB per sekund.
+**Nätverk i data flöde** | Nej | Data som tagits emot av servern, i MB per sekund.
+**Nätverks utflöde** | Nej | Data som överförs av servern, i MB per sekund.
+**Typ av inbyggd program vara** | Nej | Serverns inbyggda program vara. Värdena kan vara "BIOS" eller "UEFI".
+**Servertyp** | Nej | Värdena kan vara fysiska eller virtuella.
+**Hypervisor** | Nej | Hypervisor som datorn körs på. <br/> Värdena kan vara "VMware", "Hyper-V", "xen", "AWS", "GCP" eller "other".
+**Versions nummer för hypervisor** | Nej | Hypervisor-version.
+**ID för virtuell dator** | Nej | VM-ID. Detta är **InstanceUUid** -värdet för en virtuell VMware vCenter-dator eller **Hyper-v VM-ID** för Hyper-v.
+**Virtual Machine Manager-ID** | Nej | Detta är **InstanceUUid** -värdet för VMware vCenter. Det behövs inte för Hyper-V.
+**MAC-adress**| Nej | Serverns MAC-adress.
+**BIOS-ID** | Nej | Serverns BIOS-ID.
+**ID för anpassad server** | Nej | Lokalt, unikt server-ID lokalt. <br/> Användbart för att spåra den importerade servern med hjälp av lokalt ID.
+**Namn på program 1** | Nej | Namnet på den arbets belastning som körs på servern.<br/>Du kan lägga till information för fler appar genom [att lägga till kolumner](#add-multiple-applications) i mallen. Du kan lägga till upp till fem program.
+**Program 1-typ** | Nej | Typ av arbets belastning som körs på servern
+**Program 1-version** | Nej | Den version av arbets belastningen som körs på servern.
+**Licens förfallo datum för program 1** | Nej | Licens förfallo tid för arbets belastningen (om tillämpligt).
+**Affär senhet** | Nej | Affär senhet som servern tillhör.
+**Företags ägare** | Nej | Ägare av affär senhet.
+**Affärs program namn** | Nej | Namnet på programmet som appen tillhör.
+**Plats** | Nej | Data Center där-servern finns.
+**Serverns inställnings datum** | Nej | Inställnings datum för den fysiska servern eller den underliggande fysiska servern för den virtuella servern.
 
 ### <a name="add-operating-systems"></a>Lägg till operativ system
 
@@ -433,7 +433,7 @@ I den här vyn visas den beräknade beräknings-och lagrings kostnaden för virt
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här kursen har du:
+I den här kursen får du:
 
 > [!div class="checklist"]
 > * Importerade servrar till Azure Migrate: Server utvärdering med hjälp av CSV.

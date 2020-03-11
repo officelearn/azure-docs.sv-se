@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: 6e05dc2136211bcd15a9f0583358b05ccbf96f5a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 65033f9b6599d690b1097b4b78aa01148a40fc39
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383168"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037510"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installera och kör Textanalys-containrar
 
@@ -24,7 +24,10 @@ Med behållare kan du köra API: er för text analys i din egen miljö och passa
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+> [!IMPORTANT]
+> Det kostnads fria kontot är begränsat till 5 000 transaktioner per månad och bara <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">pris nivåerna <span class="docon docon-navigate-external x-hidden-focus"></span> </a> **kostnads fri** och **standard** är giltiga för behållare. Mer information om avgifter för transaktions begär Anden finns i [data begränsningar](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill köra någon av de Textanalys behållarna måste du ha värd datorn och behållar miljöerna.
 
@@ -48,15 +51,15 @@ Du måste uppfylla följande krav innan du kan använda textanalys behållare:
 
 I följande tabell beskrivs de minsta och rekommenderade CPU-kärnorna minst 2,6 GHz (gigahertz) eller snabbare, och minne i gigabyte (GB), att tilldela för varje behållare för textanalys.
 
-# <a name="key-phrase-extractiontabkeyphrase"></a>[Extrahering av diskussionsämne](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extrahering av diskussionsämne](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
 
-# <a name="language-detectiontablanguage"></a>[Språkidentifiering](#tab/language)
+# <a name="language-detection"></a>[Språkidentifiering](#tab/language)
 
 [!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
 
-# <a name="sentiment-analysistabsentiment"></a>[Attitydanalys](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[Attitydanalys](#tab/sentiment)
 
 [!INCLUDE [sentiment-analysis-container-requirements](../includes/sentiment-analysis-container-requirements.md)]
 
@@ -71,15 +74,15 @@ Core och minne motsvarar `--cpus` och `--memory` inställningar som används som
 
 Behållar avbildningar för Textanalys finns tillgängliga på Microsoft Container Registry.
 
-# <a name="key-phrase-extractiontabkeyphrase"></a>[Extrahering av diskussionsämne](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extrahering av diskussionsämne](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-container-repository](../includes/key-phrase-extraction-container-repository.md)]
 
-# <a name="language-detectiontablanguage"></a>[Språkidentifiering](#tab/language)
+# <a name="language-detection"></a>[Språkidentifiering](#tab/language)
 
 [!INCLUDE [language-detection-container-repository](../includes/language-detection-container-repository.md)]
 
-# <a name="sentiment-analysistabsentiment"></a>[Attitydanalys](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[Attitydanalys](#tab/sentiment)
 
 [!INCLUDE [sentiment-analysis-container-repository](../includes/sentiment-analysis-container-repository.md)]
 
@@ -89,15 +92,15 @@ Behållar avbildningar för Textanalys finns tillgängliga på Microsoft Contain
 
 ### <a name="docker-pull-for-the-text-analytics-containers"></a>Docker-hämtning för Textanalys behållare
 
-# <a name="key-phrase-extractiontabkeyphrase"></a>[Extrahering av diskussionsämne](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extrahering av diskussionsämne](#tab/keyphrase)
 
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-# <a name="language-detectiontablanguage"></a>[Språkidentifiering](#tab/language)
+# <a name="language-detection"></a>[Språkidentifiering](#tab/language)
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
-# <a name="sentiment-analysistabsentiment"></a>[Attitydanalys](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[Attitydanalys](#tab/sentiment)
 
 [!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
@@ -116,15 +119,15 @@ Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandl
 
 [Exempel](../text-analytics-resource-container-config.md#example-docker-run-commands) på kommandot `docker run` är tillgängliga.
 
-# <a name="key-phrase-extractiontabkeyphrase"></a>[Extrahering av diskussionsämne](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extrahering av diskussionsämne](#tab/keyphrase)
 
 [!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-# <a name="language-detectiontablanguage"></a>[Språkidentifiering](#tab/language)
+# <a name="language-detection"></a>[Språkidentifiering](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
-# <a name="sentiment-analysistabsentiment"></a>[Attitydanalys](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[Attitydanalys](#tab/sentiment)
 
 [!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
 
@@ -169,7 +172,7 @@ Mer information om dessa alternativ finns i [Configure containers](../text-analy
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln beskrivs begrepp och arbetsflöde för att ladda ned, installera och textanalys-behållare som körs. Sammanfattningsvis:
+I den här artikeln beskrivs begrepp och arbetsflöde för att ladda ned, installera och textanalys-behållare som körs. Sammanfattning:
 
 * Textanalys tillhandahåller tre Linux-behållare för Docker, som kapslar in olika funktioner:
    * *Extrahering av diskussionsämne*

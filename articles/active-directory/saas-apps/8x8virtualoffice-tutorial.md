@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f49c2b445af9acb0761d01b731250e068cb96a36
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 9c598222978a1c831be6f5e9db9eb87b2d6b6b96
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562333"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968655"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med 8x8
 
@@ -30,7 +30,7 @@ I den här självstudien får du lära dig hur du integrerar 8x8 med Azure Activ
 * Gör det möjligt för användarna att logga in automatiskt till 8x8 med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -86,20 +86,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    a. I text rutan **identifierare** anger du en URL med något av följande mönster:
+    a. I textrutan **Identifierare** skriver du in en URL: `https://sso.8x8.com/saml2`
 
-    |||
-    |-|-|
-    | `https://sso.8x8.com/saml2`|
-    | `https://sso.8x8pilot.com/saml2`|
-
-    b. I text rutan **svars-URL** skriver du en URL med något av följande mönster:
-
-    |||
-    |-|-|
-    | `https://sso.8x8.com/saml2`|
-    | `https://sso.8x8pilot.com/saml2`|
-
+    b. I textrutan **Svars-URL** skriver du en URL: `https://sso.8x8.com/saml2`
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator. Du kommer att använda certifikatet senare i självstudien i avsnittet **Konfigurera 8X8 SSO** .
 
@@ -151,9 +140,15 @@ Nästa del av själv studie kursen beror på vilken typ av prenumeration du har 
 
 1. Klicka på **identitets hantering**på Start sidan.
 
+    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure1.png)
+
 1. Kontrol lera **enkel inloggning (SSO)** och välj **Microsoft Azure AD**.
 
+    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure2.png)
+
 1. Kopiera de tre URL: erna och signerings certifikatet från sidan **Konfigurera enkel inloggning med SAML** i Azure AD till avsnittet **Microsoft Azure AD SAML-inställningar** i 8x8 Configuration Manager.
+
+    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure3.png)
 
     a. Kopiera **inloggnings-URL** till **IDP-inloggnings webb adress**.
 
@@ -171,15 +166,27 @@ Nästa del av själv studie kursen beror på vilken typ av prenumeration du har 
 
 1. Välj **Virtual Office Account Mgr** (Kontohanteraren i Virtual Office) i programfönstret.
 
+    ![Konfigurera på programsidan](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
+
 1. Välj **Business** (Företag) som kontotyp för hantering och klicka på **Sign In** (Logga in).
+
+    ![Konfigurera på programsidan](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
 1. Klicka på fliken **ACCOUNTS** (KONTON) i menylistan.
 
+    ![Konfigurera på programsidan](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
+
 1. Klicka på **Single Sign On** (Enkel inloggning) i listan över konton.
+
+    ![Konfigurera på programsidan](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
 1. Välj autentiseringsmetoden **Single Sign On** (Enkel inloggning) och klicka på **SAML**.
 
+    ![Konfigurera på programsidan](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
+
 1. Utför följande steg i avsnittet **SAML Single Sign on** (Enkel inloggning med SAML):
+
+    ![Konfigurera på programsidan](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
 
     a. I textrutan **Sign In URL** (Inloggnings-URL) klistrar du in **inloggnings-URL-värdet** som du har kopierat från Azure-portalen.
 
@@ -205,7 +212,7 @@ När du klickar på panelen 8x8 på åtkomst panelen, bör du loggas in automati
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

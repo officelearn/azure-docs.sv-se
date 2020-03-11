@@ -8,31 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 03/09/2020
 ms.author: dapine
-ms.openlocfilehash: 34b4664ec13f7ba1871433e37d86170b2207a17a
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: dd5a531e4a979cba9c2a766c7774762a0427ad02
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816569"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037316"
 ---
 # <a name="configure-speech-service-containers"></a>Konfigurera tal tjänst behållare
 
 Tal behållare gör det möjligt för kunder att bygga en tal program arkitektur som är optimerad för att dra nytta av både robusta moln funktioner och Edge-plats. De fyra tal behållarna vi stöder nu, **tal-till-text**, **anpassat tal till text**, **text till tal**och **anpassad text till tal**.
 
-**Tal** behållarens körnings miljö konfigureras med hjälp av kommando argumenten `docker run`. Den här behållaren har flera inställningar som krävs, tillsammans med några valfria inställningar. Flera [exempel](#example-docker-run-commands) kommandots är tillgängliga. De behållar-/regionsspecifika inställningarna är fakturerings inställningarna.
+**Tal** behållarens körnings miljö konfigureras med hjälp av kommando argumenten `docker run`. Den här behållaren har flera inställningar som krävs, tillsammans med några valfria inställningar. Det finns flera [exempel](#example-docker-run-commands) på kommandot. De behållar-/regionsspecifika inställningarna är fakturerings inställningarna.
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> Den [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), och [ `Eula` ](#eula-setting) inställningar används tillsammans, och du måste ange giltiga värden för alla tre av dem, annars din behållare startar inte. Läs mer om att använda dessa konfigurationsinställningar för att skapa en instans av en behållare, [fakturering](speech-container-howto.md#billing).
+> Inställningarna [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting)och [`Eula`](#eula-setting) används tillsammans och du måste ange giltiga värden för alla tre. annars startar inte behållaren. Mer information om hur du använder dessa konfigurations inställningar för att instansiera en behållare finns i [fakturering](speech-container-howto.md#billing).
 
 ## <a name="apikey-configuration-setting"></a>ApiKey konfigurationsinställning
 
-Den `ApiKey` inställningen anger du Azure-resurs-nyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _tal_ resurs som angetts för [`Billing`](#billing-configuration-setting) konfigurations inställningen.
+Inställningen `ApiKey` anger den Azure-resurs nyckel som används för att spåra fakturerings information för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _tal_ resurs som angetts för [`Billing`](#billing-configuration-setting) konfigurations inställningen.
 
 Du hittar den här inställningen på följande plats:
 
@@ -52,7 +52,7 @@ Du hittar den här inställningen på följande plats:
 
 | Krävs | Namn | Datatyp | Beskrivning |
 | -------- | ---- | --------- | ----------- |
-| Ja | `Billing` | Sträng | URI för fakturerings slut punkt. Mer information om hur du skaffar fakturerings-URI: n finns i [samla in obligatoriska parametrar](speech-container-howto.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
+| Ja | `Billing` | String | URI för fakturerings slut punkt. Mer information om hur du skaffar fakturerings-URI: n finns i [samla in obligatoriska parametrar](speech-container-howto.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Licensvillkor för inställningen
 
@@ -72,16 +72,16 @@ Du hittar den här inställningen på följande plats:
 
 ## <a name="mount-settings"></a>Monteringsinställningar
 
-Använd bindning monterar för att läsa och skriva data till och från behållaren. Du kan ange en monteringspunkt som indata eller utdata mount genom att ange den `--mount` alternativet i den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando.
+Använd bindning monterar för att läsa och skriva data till och från behållaren. Du kan ange en inmatnings montering eller utmatnings montering genom att ange alternativet `--mount` i kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) .
 
 Standard tal behållarna använder inte indata eller utdata monteras för att lagra utbildning eller tjänst data. Anpassade tal behållare är dock beroende av volym monteringar.
 
-Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kan den [värddatorn](speech-container-howto.md#the-host-computer)'s montera platsen är kanske inte tillgänglig på grund av en konflikt mellan behörigheter som används av docker-tjänstkontot och värden montera plats behörigheter.
+Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kanske [värd datorns](speech-container-howto.md#the-host-computer)monterings plats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värd monterings platsens behörigheter.
 
-| Valfritt | Namn | Datatyp | Beskrivning |
+| Valfri | Namn | Datatyp | Beskrivning |
 | -------- | ---- | --------- | ----------- |
-| Inte tillåten | `Input` | Sträng | Standard tal behållare använder inte detta. Anpassade tal behållare använder [volym monteringar](#volume-mount-settings).                                                                                    |
-| Valfritt | `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output` |
+| Inte tillåten | `Input` | String | Standard tal behållare använder inte detta. Anpassade tal behållare använder [volym monteringar](#volume-mount-settings).                                                                                    |
+| Valfri | `Output` | String | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>Volym monterings inställningar
 
@@ -108,7 +108,7 @@ Det här kommandot monterar värd datorn _C:\input_ -katalogen till behållar _/
 
 ## <a name="example-docker-run-commands"></a>Exempel docker-kommandon
 
-I följande exempel används konfigurationsinställningarna som illustrerar hur du skriver och använda `docker run` kommandon. När du kör, behållaren fortsätter att köras tills du [stoppa](speech-container-howto.md#stop-the-container) den.
+I följande exempel används konfigurations inställningarna för att illustrera hur du skriver och använder `docker run`-kommandon. När den körs fortsätter behållaren att köras tills du [stoppar](speech-container-howto.md#stop-the-container) den.
 
 - **Rad fortsättnings bokstav**: Docker-kommandona i följande avsnitt använder omvänt snedstreck `\`, som ett fortsättnings streck. Ersätta eller ta bort detta baserat på din värdoperativsystemet.
 - **Argument ordning**: Ändra inte ordningen på argumenten om du inte är bekant med Docker-behållare.
@@ -123,14 +123,14 @@ Ersätt {_argument_name_} med dina egna värden:
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren. Mer information finns i [fakturering](#billing-configuration-setting).
+> Alternativen `Eula`, `Billing`och `ApiKey` måste anges för att köra behållaren. annars startar inte behållaren. Mer information finns i [fakturering](#billing-configuration-setting).
 > ApiKey-värdet är **nyckeln** på sidan med resurs nycklar för Azure-tal.
 
 ## <a name="speech-container-docker-examples"></a>Exempel på tal container Docker
 
 Följande Docker-exempel är för tal behållaren.
 
-## <a name="speech-to-texttabstt"></a>[Tal till text](#tab/stt)
+## <a name="speech-to-text"></a>[Tal till text](#tab/stt)
 
 ### <a name="basic-example-for-speech-to-text"></a>Basic-exempel för tal till text
 
@@ -153,7 +153,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="custom-speech-to-texttabcstt"></a>[Custom Speech till text](#tab/cstt)
+## <a name="custom-speech-to-text"></a>[Custom Speech till text](#tab/cstt)
 
 ### <a name="basic-example-for-custom-speech-to-text"></a>Basic-exempel för Custom Speech-till-text
 
@@ -180,7 +180,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="text-to-speechtabtss"></a>[Text till tal](#tab/tss)
+## <a name="text-to-speech"></a>[Text till tal](#tab/tss)
 
 ### <a name="basic-example-for-text-to-speech"></a>Basic-exempel för text till tal
 
@@ -203,7 +203,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="custom-text-to-speechtabctts"></a>[Anpassad text till tal](#tab/ctts)
+## <a name="custom-text-to-speech"></a>[Anpassad text till tal](#tab/ctts)
 
 ### <a name="basic-example-for-custom-text-to-speech"></a>Basic-exempel för anpassad text till tal
 

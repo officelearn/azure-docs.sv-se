@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om identifiering, utvärdering och beroende anal
 description: Få svar på vanliga frågor om identifiering, utvärdering och beroende analys i Azure Migrate.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 7733213f78452b3f35b835eec847ec837138b8e5
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: e46d1e6ee1dd404e6e040eb394e89dd86a3d4d8e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78932786"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082565"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Identifiering, utvärdering och beroende analys – vanliga frågor
 
@@ -68,6 +68,12 @@ När du skapar en utvärdering i Azure, beroende på prestanda varaktighet och p
 Om du till exempel ställer in varaktigheten på en dag och percentilvärdet till 95 percentil, sorterar Azure Migrate de 15 minuters exempel punkter som skickats av insamlaren för den senaste dagen i stigande ordning. Den plockar 95 percentilvärdet som effektiv användning.
 
 Genom att använda 95 percentil-värdet ser du till att avvikande värden ignoreras. Mät värden kan inkluderas om din Azure Migrate använder 99 percentilen. Om du vill välja högsta användnings nivå för perioden utan saknade avvikande värden, ställer du in Azure Migrate att använda 99-percentilen.
+
+## <a name="how-are-import-based-assessments-different-from-assessments-with-discovery-source-as-appliance"></a>Hur skiljer sig de importbaserade utvärderingarna från utvärderingar med identifierings källa som apparat?
+
+Import-baserade utvärderingar är skapade med datorer som importeras till Azure Migrate med hjälp av en CSV-fil. Endast fyra fält är obligatoriska för import: Server namn, kärnor, minne och operativ system. Här är några saker att tänka på: 
+ - Beredskaps kriterierna är mindre strikta i import-baserade utvärderingar i Start typs parametern. Om start typen inte anges förutsätts att datorn har BIOS-starttyp och att datorn inte är markerad som **villkorligt klar**. I utvärderingar med identifierings källa som apparat markeras beredskapen som **villkorligt redo** om start typen saknas. Den här skillnaden i beredskaps beräkningen är att användare kanske inte har all information på datorerna i det tidiga skedet vid planering av migrering när importbaserade utvärderingar görs. 
+ - De prestandabaserade import utvärderingarna använder det användnings värde som användaren har angett för beräkningar med rätt storlek. Eftersom användning svärdet tillhandahålls av användaren inaktive ras alternativen **prestanda historik** och **percentil** i utvärderings egenskaperna. I utvärderingar med identifierings källa som apparat plockas det valda percentilvärdet från de prestanda data som samlas in av produkten.
 
 ## <a name="what-is-dependency-visualization"></a>Vad är beroende visualisering?
 

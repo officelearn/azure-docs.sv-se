@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 390655e3caab89425fe3c8623928c584f8bd3324
-ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
+ms.openlocfilehash: aeccd604a4dae3b2ca83f5b599d9a6857acee34a
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78933174"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037172"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Självstudie: Distribuera en maskin inlärnings modell med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -123,4 +123,4 @@ När distributionen är klar kan du testa slut punkten för Real tid genom att g
 I den här självstudien har du lärt dig viktiga steg i hur du skapar, distribuerar och använder en maskin inlärnings modell i designern. Mer information om hur du kan använda designern för att lösa andra typer av problem finns i våra andra exempel pipelines.
 
 > [!div class="nextstepaction"]
-> [Exempel på kredit risk klassificering](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+> [Designer-exempel](samples-designer.md)

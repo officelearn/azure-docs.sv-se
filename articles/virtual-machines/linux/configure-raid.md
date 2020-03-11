@@ -1,26 +1,18 @@
 ---
-title: Konfigurera programvaru-RAID på en virtuell dator som kör Linux
+title: Konfigurera programvaru-RAID på en virtuell Linux-dator
 description: Lär dig hur du använder mdadm för att konfigurera RAID i Linux i Azure.
-services: virtual-machines-linux
-documentationcenter: na
 author: rickstercdn
-manager: gwallace
-editor: tysonn
-tag: azure-service-management,azure-resource-manager
-ms.assetid: f3cb2786-bda6-4d2c-9aaf-2db80f490feb
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: f59e4b9ee85803ab5635e72b3607e82e958d9696
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 122abda51b907491b322908c3c2c689bc1723e87
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380608"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968111"
 ---
 # <a name="configure-software-raid-on-linux"></a>Konfigurera programvaru-RAID på Linux
 Det är ett vanligt scenario att använda programvaru-RAID på virtuella Linux-datorer i Azure för att presentera flera anslutna data diskar som en enda RAID-enhet. Detta kan användas för att förbättra prestanda och möjliggöra bättre data flöde jämfört med att bara använda en enda disk.

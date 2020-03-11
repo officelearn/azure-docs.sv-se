@@ -3,12 +3,12 @@ title: Stöd för VMware-utvärdering i Azure Migrate
 description: Läs mer om stöd för VMware-utvärdering i Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 19ed506228bac425ad05edee1586740e6c33f69e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: b887508fb8e422bd83aa9d13e42085d7a6bd2283
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362184"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080400"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Support mat ris för VMware-utvärdering 
 
@@ -43,6 +43,7 @@ Förutom att identifiera datorer kan Azure Migrate: Server utvärdering kan iden
 **autentiseringsuppgifter för vCenter** | Ett vCenter Server konto med skrivskyddad åtkomst och behörigheter som har Aktiver ATS för Virtual Machines > gäst åtgärder.
 **Autentiseringsuppgifter för virtuell dator** | För närvarande har stöd för att använda en autentiseringsuppgift för alla Windows-servrar och en autentiseringsuppgift för alla Linux-servrar.<br/><br/> Du skapar ett gäst användar konto för virtuella Windows-datorer och ett vanligt/vanligt användar konto (icke-sudo åtkomst) för alla virtuella Linux-datorer.
 **VMware-verktyg** | VMware-verktyg måste installeras och köras på de virtuella datorer som du vill identifiera. <br/> Om din version av VMware Tools är mellan 9,10-10.2.0, se till att du uppgraderar den till bortom 10.2.0.
+**PowerShell** | Virtuella datorer måste ha PowerShell version 2,0 eller senare
 **Port åtkomst** | På ESXi-värdar som kör virtuella datorer som du vill identifiera måste Azure Migrate-installationen kunna ansluta till TCP-port 443.
 **Begränsningar** | För app-Discovery kan du identifiera upp till 10000 per apparat. 
 
@@ -100,6 +101,7 @@ Detta alternativ förhandsvisas just nu. [Läs mer](how-to-create-group-machine-
 **Linux-konto** | Visualiseringen behöver ett användar konto med rot behörighet.<br/><br/> Alternativt behöver användar kontot dessa behörigheter för/bin/netstat-och/bin/ls-filer: CAP_DAC_READ_SEARCH och CAP_SYS_PTRACE.
 **VM-agenter** | Ingen agent krävs på de virtuella datorerna.
 **VMware-verktyg** | VMware-verktyg måste installeras och köras på de virtuella datorer som du vill analysera. <br/> Om din version av VMware Tools är mellan 9,10-10.2.0, se till att du uppgraderar den till bortom 10.2.0.
+**PowerShell** | Virtuella datorer måste ha PowerShell version 2,0 eller senare
 **autentiseringsuppgifter för vCenter** | Ett vCenter Server konto med skrivskyddad åtkomst och behörigheter som har Aktiver ATS för Virtual Machines > gäst åtgärder.
 **Port åtkomst** | På ESXi-värdar som kör virtuella datorer som du vill analysera måste Azure Migrate-installationen kunna ansluta till TCP-port 443.
 

@@ -6,18 +6,18 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 7fee3a1e2c26bc9fa89a4766c771a3715398b1a2
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 2a09d5af013e804f33327855fb7b9f2104bc225c
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673358"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082320"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
 Dagens program måste alltid vara mycket responsiva och ständigt online. Instanser av dessa program måste distribueras i datacenter som ligger nära användarna för att uppnå kort svarstid och hög tillgänglighet. Programmen behöver kunna svara i realtid på stora förändringar av användningen vid hög belastning, lagra ständigt ökande datavolymer och göra dessa data tillgängliga för användare på millisekunder.
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Med ett klick på en knapp kan du Cosmos DB att elastiskt och oberoende skala data flöde och lagrings utrymme i valfritt antal Azure-regioner över hela världen. Du kan skala data flöde och lagrings utrymme elastiskt, och dra nytta av snabb, ensiffriga millisekunder för data åtkomst med ditt favorit-API, inklusive SQL, MongoDB, Cassandra, tables eller Gremlin. Cosmos DB tillhandahåller omfattande [service avtal](https://aka.ms/acdbsla) (service avtal) för data flöde, svars tid, tillgänglighet och konsekvens garantier, något som inte har någon annan databas tjänst.
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Med ett klick på en knapp kan du Cosmos DB att elastiskt och oberoende skala data flöde och lagrings utrymme i valfritt antal Azure-regioner över hela världen. Du kan skala data flöde och lagrings utrymme elastiskt, och dra nytta av snabb, ensiffriga millisekunder för data åtkomst med ditt favorit-API, inklusive: SQL, MongoDB, Cassandra, tables eller Gremlin. Cosmos DB tillhandahåller omfattande [service avtal](https://aka.ms/acdbsla) (service avtal) för data flöde, svars tid, tillgänglighet och konsekvens garantier, något som inte har någon annan databas tjänst.
 
 Du kan [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden eller använda den [Azure Cosmos DB kostnads fria nivån](optimize-dev-test.md#azure-cosmos-db-free-tier) för att få ett konto med de första 400 ru/s och 5 GB ledigt lagrings utrymme.
 

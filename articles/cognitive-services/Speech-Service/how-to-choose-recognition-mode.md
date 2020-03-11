@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 03/10/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 51bf005bdad4197120fed96894ac1cdd150738ee
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: d997cb592d9d648998f2b44d9f61f465f05faeb0
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75935231"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79079830"
 ---
 # <a name="choose-a-speech-recognition-mode"></a>Välj ett tal igenkännings läge
 
@@ -33,7 +33,7 @@ I slutet av en känd uttryck slutar tjänsten att bearbeta ljudet från denna be
 Mer information om hur du använder funktionen `RecognizeOnceAsync` finns i [.net Speech SDK-dokument](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechRecognizer_RecognizeOnceAsync).
 
 ```csharp
-var result = await recognizer.RecognizeOnceAsync().ConfigureAwait(false);
+var result = await recognizer.RecognizeOnceAsync();
 ```
 
 ::: zone-end
@@ -72,7 +72,7 @@ Ytterligare språk finns i [referens dokument för tal-SDK](speech-to-text.md#sp
 
 ## <a name="continuous"></a>Kontinuerlig igenkänning
 
-Om du behöver tids krävande igenkännings igenkänning använder du Start-och motsvarande stopp-funktioner för kontinuerlig igenkänning. Start funktionen startar och fortsätter att bearbeta alla yttranden tills du anropar funktionen Stop eller tills den är för lång tid i tystnaden. När du använder det kontinuerliga läget måste du registrera dig för de olika händelser som ska utlösas vid instansen. Till exempel utlöses händelsen "erkänd" när tal igenkänning sker. Du måste ha en händelse hanterare på plats för att kunna hantera igenkänning. En gräns på 10 minuter av den totala tal igenkännings tiden per session tillämpas av tal tjänsten.
+Om du behöver tids krävande igenkännings igenkänning använder du Start-och motsvarande stopp-funktioner för kontinuerlig igenkänning. Start funktionen startar och fortsätter att bearbeta alla yttranden tills du anropar funktionen Stop eller tills den är för lång tid i tystnaden. När du använder det kontinuerliga läget måste du registrera dig för de olika händelser som ska utlösas vid instansen. Till exempel utlöses händelsen "erkänd" när tal igenkänning sker. Du måste ha en händelse hanterare på plats för att kunna hantera igenkänning.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -88,10 +88,10 @@ recognizer.Recognized += (s, e) =>
 };
 
 // Start continuous speech recognition
-await recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
+await recognizer.StartContinuousRecognitionAsync();
 
 // Stop continuous speech recognition
-await recognizer.StopContinuousRecognitionAsync().ConfigureAwait(false);
+await recognizer.StopContinuousRecognitionAsync();
 ```
 
 ::: zone-end

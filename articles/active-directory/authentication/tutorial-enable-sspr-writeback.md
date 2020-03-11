@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d383acae83f0f42f9c16fcb5d4ea7efbdf2b5f8
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: ccc64fb8dd8bd8abc198d9bfc9d643ef618188ea
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493979"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967794"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Självstudie: Aktivera Azure Active Directory självbetjäning för återställning av lösen ord till en lokal miljö
 
@@ -42,6 +42,7 @@ För att slutföra den här självstudien behöver du följande resurser och beh
     * Om det behövs [Slutför du den föregående själv studie kursen för att aktivera Azure AD SSPR](tutorial-enable-sspr.md).
 * En befintlig lokal AD DS-miljö som kon figurer ATS med en aktuell version av Azure AD Connect.
     * Konfigurera vid behov Azure AD Connect med hjälp av inställningarna för [Express](../hybrid/how-to-connect-install-express.md) eller [anpassad](../hybrid/how-to-connect-install-custom.md) .
+    * Om du vill använda tillbakaskrivning av lösen ord måste domän kontrol Lanterna vara Windows Server 2008 R2 eller senare.
 
 ## <a name="configure-account-permissions-for-azure-ad-connect"></a>Konfigurera konto behörigheter för Azure AD Connect
 

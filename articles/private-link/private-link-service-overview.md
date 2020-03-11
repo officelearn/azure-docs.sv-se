@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 97515b308323452e88cf6fd8a517c1f169c9ba6f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 2cc6c577abdb3698ef6aca1f1f04d239f09d119c
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587421"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082973"
 ---
 # <a name="what-is-azure-private-link-service"></a>Vad är Azure Private Link service?
 
@@ -104,7 +104,7 @@ Den här informationen kodas med en anpassad Vector-Vector (Type-Length-Value) e
 
 Anpassad TLV-information:
 
-|Fält |Längd (oktetter)  |Beskrivning  |
+|Field |Längd (oktetter)  |Beskrivning  |
 |---------|---------|----------|
 |Typ  |1        |PP2_TYPE_AZURE (0xEE)|
 |Längd  |2      |Värdets längd|
@@ -112,7 +112,7 @@ Anpassad TLV-information:
 |  |4        |UINT32 (4 byte) som representerar LINKID för den privata slut punkten. Kodat i little endian format.|
 
  > [!NOTE]
- > Tjänste leverantören ansvarar för att se till att tjänsten bakom standard belastningsutjämnaren är konfigurerad för att parsa proxy-protokollets huvud enligt [specifikationen](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) när proxy-protokollet är aktiverat i Private Link service. Begäran Miss fungerar om inställningen proxy-protokoll är aktive rad i tjänsten för privata länkar och tjänsten inte har kon figurer ATS för att parsa huvudet. Det går inte heller att utföra begäran om tjänsten förväntar sig ett protokoll huvud för proxy medan inställningen inte är aktive rad i den privata länk tjänsten. När proxy Protocol-inställningen är aktive rad inkluderas även protokollets huvud i HTTP/TCP-hälsosökningar från värd till Server delens virtuella datorer, även om det inte kommer att finnas någon klient information i huvudet. 
+ > Tjänste leverantören ansvarar för att se till att tjänsten bakom standard belastningsutjämnaren är konfigurerad för att parsa proxy-protokollets huvud enligt [specifikationen](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) när proxy-protokollet är aktiverat i Private Link service. Begäran Miss fungerar om inställningen proxy-protokoll är aktive rad i tjänsten för privata länkar men tjänst leverantörens tjänst inte har kon figurer ATS för att parsa huvudet. På samma sätt går det inte att utföra begäran om tjänst leverantörens tjänst förväntar sig ett proxy Protocol-huvud medan inställningen inte är aktive rad i den privata länk tjänsten. När proxy Protocol-inställningen är aktive rad inkluderas även protokollets huvud i HTTP/TCP-hälsosökningar från värd till Server delens virtuella datorer, även om det inte kommer att finnas någon klient information i huvudet. 
 
 ## <a name="limitations"></a>Begränsningar
 

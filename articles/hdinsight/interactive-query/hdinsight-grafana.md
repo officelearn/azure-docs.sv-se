@@ -7,24 +7,24 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/27/2019
-ms.openlocfilehash: 6027978b50ca72de5d18ff474b36814e22a94e85
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: cd515bfd1dc57e78a041ed96686e1ba692bf6d3f
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552227"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082871"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Åtkomst till Grafana i Azure HDInsight
 
 [Grafana](https://grafana.com/) är ett populärt diagram och instrument panels verktyg med öppen källkod. Grafana är funktionen Rich; Det innebär inte bara att användare kan skapa anpassningsbara och shareable-instrumentpaneler, men den erbjuder även mallbaserade och skriptbaserade instrument paneler, LDAP-integration, flera data källor med mera.
 
-För närvarande stöds Grafana i Azure HDInsight med kluster typerna HBase, Kafka och interaktiv fråga. Det finns inte stöd för kluster med Enterprise Security Pack aktiverat.
+För närvarande stöds Grafana i Azure HDInsight med kluster typerna Spark, HBase, Kafka och interaktiv fråga. Det finns inte stöd för kluster med Enterprise Security Pack aktiverat.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-an-apache-hadoop-cluster"></a>Skapa ett Apache Hadoop-kluster
 
-Se [skapa Apache Hadoop kluster med hjälp av Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md). För **kluster typ**väljer du **Kafka**, **HBase**eller **interaktiv fråga**.
+Se [skapa Apache Hadoop kluster med hjälp av Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md). För **kluster typ**väljer du **Spark**, **Kafka**, **HBase**eller **interaktiv fråga**.
 
 ## <a name="access-the-grafana-dashboard"></a>Öppna Grafana-instrumentpanelen
 
@@ -40,7 +40,7 @@ Se [skapa Apache Hadoop kluster med hjälp av Azure Portal](../hdinsight-hadoop-
 
 Om du inte kommer att fortsätta att använda det här programmet, tar du bort det kluster som du skapade med följande steg:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. I rutan **Sök** längst upp skriver du **HDInsight**.
 

@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 27d65c7e6bbc0af20d01d91f1472433f3e7142a9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 1cac52dcee91e57a22b6d18595b067de888aba73
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365444"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081894"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL Database-granskning
 
@@ -255,12 +255,6 @@ I produktion är det troligt att du uppdaterar dina lagrings nycklar med jämna 
 - Azure SQL Database granskning är optimerad för tillgänglighets & prestanda. Vid mycket hög aktivitet Azure SQL Database tillåta åtgärder att fortsätta och kanske inte registrera vissa granskade händelser.
 
 - Information om hur du konfigurerar oåterkallelig granskning på lagrings kontot finns i [Tillåt skyddade tillägg av bifogade blobbar](../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes). Observera att behållar namnet för granskning är **sqldbauditlogs**.
-
-    > [!IMPORTANT]
-    > Inställningen Tillåt att skyddade bifogade blobbar skrivs under tidsbaserad kvarhållning är för närvarande tillgänglig och endast synlig i följande regioner:
-    > - USA, östra
-    > - USA, södra centrala
-    > - USA, västra 2
 
 
 ## <a id="subheading-7"></a>Hantera Azure-SQL Server och databas granskning med Azure PowerShell

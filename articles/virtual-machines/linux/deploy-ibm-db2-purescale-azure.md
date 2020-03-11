@@ -1,25 +1,17 @@
 ---
 title: Distribuera IBM DB2 pureScale på Azure
 description: Lär dig hur du distribuerar en exempel arkitektur som används nyligen för att migrera ett företag från dess IBM DB2-miljö som körs på z/OS till IBM DB2 pureScale på Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: njray
-manager: edprice
-editor: edprice
-tags: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: c4db27b938934aafa350866991ff174cbdbed0ac
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 98e912894a4d93a057a2f6a2153d0690deaed250
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291557"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968899"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuera IBM DB2 pureScale på Azure
 
@@ -27,7 +19,7 @@ Den här artikeln beskriver hur du distribuerar en [exempel arkitektur](ibm-db2-
 
 För att följa stegen som används för migreringen, se installations skripten i [DB2onAzure](https://aka.ms/db2onazure) -lagringsplatsen på GitHub. Dessa skript baseras på arkitekturen för en typisk OLTP-arbetsbelastning (Online Transaction Processing) i medel stora mängder.
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 Om du vill distribuera den här arkitekturen laddar du ned och kör deploy.sh-skriptet som finns i [DB2onAzure](https://aka.ms/db2onazure) -lagringsplatsen på GitHub.
 

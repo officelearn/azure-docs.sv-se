@@ -1,31 +1,23 @@
 ---
-title: Skapa och ladda upp en OpenBSD VM-avbildning till Azure
+title: Skapa och ladda upp en OpenBSD-avbildning
 description: Lär dig hur du skapar och laddar upp en virtuell hård disk (VHD) som innehåller operativ systemet OpenBSD för att skapa en virtuell Azure-dator via Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
 author: thomas1206
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 1ef30f32-61c1-4ba8-9542-801d7b18e9bf
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 809216aadb77f014b7fb461ba8439070c5e23d43
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: d4ecc539d71933c4aecc9124b903c57cb72838de
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291897"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969487"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Skapa och ladda upp en OpenBSD disk avbildning till Azure
 Den här artikeln visar hur du skapar och laddar upp en virtuell hård disk (VHD) som innehåller operativ systemet OpenBSD. När du har laddat upp det kan du använda det som en egen avbildning för att skapa en virtuell dator (VM) i Azure via Azure CLI.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har följande objekt:
 
 * **En Azure-prenumeration** – om du inte har något konto kan du skapa ett på bara några minuter. Om du har en MSDN-prenumeration kan du se [månatlig Azure-kredit för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Annars kan du lära dig hur du [skapar ett kostnads fritt utvärderings konto](https://azure.microsoft.com/pricing/free-trial/).  
@@ -67,7 +59,7 @@ På den virtuella datorn där du installerade operativ systemet OpenBSD 6,1, som
     ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
     ```
 
-6. Den senaste versionen av Azure-agenten kan alltid hittas på [GitHub](https://github.com/Azure/WALinuxAgent/releases). Så här installerar du agenten:
+6. Den senaste versionen av Azure-agenten kan alltid hittas på [GitHub](https://github.com/Azure/WALinuxAgent/releases). Installera agenten på följande sätt:
 
     ```sh
     git clone https://github.com/Azure/WALinuxAgent 

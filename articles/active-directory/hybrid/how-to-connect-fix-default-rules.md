@@ -1,6 +1,6 @@
 ---
-title: Hur du åtgärdar ändrade standardregler – Azure AD Connect | Microsoft Docs
-description: Lär dig hur du åtgärdar ändrade standardregler som medföljer Azure AD Connect.
+title: Så här åtgärdar du ändrade standard regler – Azure AD Connect | Microsoft Docs
+description: Lär dig hur du åtgärdar ändrade standard regler som medföljer Azure AD Connect.
 services: active-directory
 author: billmath
 manager: daveba
@@ -13,182 +13,182 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2f0956b44d6df64fb73e5eee7844574237d8755
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4626e0149028a140d143fb8d0969a03b732201fa
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067638"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79036983"
 ---
-# <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Åtgärda ändrade standardregler i Azure AD Connect
+# <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Korrigera ändrade standard regler i Azure AD Connect
 
-Azure Active Directory (Azure AD) Connect använder standardregler för synkronisering.  Tyvärr gäller dessa regler inte universellt för alla organisationer. Baserat på dina krav kan behöva du ändra dem. Den här artikeln beskrivs två exempel på de vanligaste anpassningarna och förklarar det korrekta sättet att uppnå dessa anpassningar.
+Azure Active Directory (Azure AD) Connect använder standard regler för synkronisering.  Dessa regler gäller tyvärr inte universellt för alla organisationer. Utifrån dina krav kan du behöva ändra dem. I den här artikeln beskrivs två exempel på de vanligaste anpassningarna och en beskrivning av det korrekta sättet att uppnå dessa anpassningar.
 
 >[!NOTE] 
-> Ändra befintlig standardregler för att uppnå en nödvändig anpassning stöds inte. Om du gör detta blir den förhindrar att uppdatera de här reglerna till den senaste versionen i framtida versioner. Du kommer inte felkorrigeringar som du behöver, eller nya funktioner. Det här dokumentet beskriver hur du uppnå samma resultat utan att ändra de befintliga standardreglerna. 
+> Det finns inte stöd för att ändra befintliga standard regler för att uppnå nödvändig anpassning. Om du gör det förhindrar den att du uppdaterar dessa regler till den senaste versionen i framtida versioner. Du får inte de fel korrigeringar du behöver eller nya funktioner. I det här dokumentet beskrivs hur du uppnår samma resultat utan att ändra de befintliga standard reglerna. 
 
-## <a name="how-to-identify-modified-default-rules"></a>Så här identifierar du ändrade standardregler
-Från och med version 1.3.7.0 av Azure AD Connect, är det enkelt att identifiera ändrade Standardregeln. Gå till **appar på skrivbordet**, och välj **Synchronization Rules Editor**.
+## <a name="how-to-identify-modified-default-rules"></a>Så här identifierar du ändrade standard regler
+Från och med version 1.3.7.0 av Azure AD Connect är det enkelt att identifiera den ändrade standard regeln. Gå till **appar på Skriv bordet**och välj **Redigeraren för regler för synkronisering**.
 
-![Azure AD Connect med Synchronization Rules Editor markerat](media/how-to-connect-fix-default-rules/default1.png)
+![Azure AD Connect, med redigeraren för regler för synkronisering](media/how-to-connect-fix-default-rules/default1.png)
 
-I redigeraren visas alla ändrade standardregler med en varningsikon framför namnet.
+I redigeraren visas eventuella ändrade standard regler med en varnings ikon framför namnet.
 
 ![Varningsikon](media/how-to-connect-fix-default-rules/default2.png)
 
- En inaktiverad regel med samma namn bredvid den visas också (detta är standard Standardregeln).
+ En inaktive rad regel med samma namn bredvid den visas också (standard regeln är standard).
 
-![Synchronization Rules Editor som visar standard Standardregeln och ändrade standardregel](media/how-to-connect-fix-default-rules/default2a.png)
+![Redigerare för Synkroniseringsregel, som visar standard standard regel och ändrad standard regel](media/how-to-connect-fix-default-rules/default2a.png)
 
 ## <a name="common-customizations"></a>Vanliga anpassningar
-Följande är vanliga anpassningar till standardreglerna:
+Följande är vanliga anpassningar av standard reglerna:
 
-- Ändra attributflöde
-- Ändra Omfångsfilter
-- Ändra kopplingsvillkoret
+- Ändra attributets flöde
+- Ändra omfångs filter
+- Ändra kopplings villkor
 
 Innan du ändrar några regler:
 
-- Inaktivera sync scheduler. Scheduler körs var 30: e minut som standard. Kontrollera att den inte startar när du gör ändringar och felsöka din nya regler. För att tillfälligt inaktivera scheduler, starta PowerShell och kör `Set-ADSyncScheduler -SyncCycleEnabled $false`.
- ![PowerShell-kommandon för att inaktivera sync scheduler](media/how-to-connect-fix-default-rules/default3.png)
+- Inaktivera synkroniseringsschemat. Scheduler körs var 30: e minut som standard. Kontrol lera att det inte startar när du gör ändringar och felsöka dina nya regler. För att tillfälligt inaktivera Scheduler, starta PowerShell och köra `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+ ![PowerShell-kommandon för att inaktivera synkroniseringsschemat](media/how-to-connect-fix-default-rules/default3.png)
 
-- Ändringen av Omfångsfilter kan leda till borttagning av objekt i målkatalogen. Var försiktig innan du gör några ändringar i omfånget för objekt. Vi rekommenderar att du gör ändringar i en mellanlagringsserver innan du gör ändringar på den aktiva servern.
-- Kör en förhandsversion på ett enda objekt, som vi nämnde i den [Validera Synkroniseringsregel](#validate-sync-rule) avsnittet när du lägger till en ny regel.
-- Kör en fullständig synkronisering när du lägger till en ny regel eller ändra eventuella anpassade synkroniseringsregel. Den här synkroniseringen gäller nya regler för alla objekt.
+- Filtret ändra i omfånget kan resultera i att objekt i mål katalogen tas bort. Var försiktig innan du gör några ändringar i objektets omfattning. Vi rekommenderar att du gör ändringar i en fristående server innan du gör ändringar på den aktiva servern.
+- Kör en förhands granskning på ett enskilt objekt, enligt vad som anges i avsnittet [Verifiera Synkroniseringsregel](#validate-sync-rule) , efter att du lagt till en ny regel.
+- Kör en fullständig synkronisering när du har lagt till en ny regel eller ändrat en anpassad Synkroniseringsregel. Den här synkroniseringen tillämpar nya regler på alla objekt.
 
-## <a name="change-attribute-flow"></a>Ändra attributflöde
-Det finns tre olika scenarier för att ändra attributflödet:
+## <a name="change-attribute-flow"></a>Ändra attributets flöde
+Det finns tre olika scenarier för att ändra attributet Flow:
 - Lägger till ett nytt attribut.
-- Åsidosätta värdet för ett befintligt attribut.
-- Välja att inte synkronisera ett befintligt attribut.
+- Åsidosätter värdet för ett befintligt attribut.
+- Väljer att inte synkronisera ett befintligt attribut.
 
-Du kan göra detta utan att ändra standard standardregler.
+Du kan göra detta utan att ändra standard standard reglerna.
 
 ### <a name="add-a-new-attribute"></a>Lägg till ett nytt attribut
-Om du upptäcker att ett attribut inte flödar från källkatalogen till målkatalogen, använda den [Azure AD Connect-synkronisering: Katalogtillägg](how-to-connect-sync-feature-directory-extensions.md) att åtgärda detta.
+Om du upptäcker att ett attribut inte flödar från käll katalogen till mål katalogen använder du [Azure AD Connect Sync: Katalog tillägg](how-to-connect-sync-feature-directory-extensions.md) för att åtgärda detta.
 
-Om tilläggen inte fungerar kan du försöka lägga till två nya Synkroniseringsregler som beskrivs i följande avsnitt.
+Om tilläggen inte fungerar för dig kan du försöka lägga till två nya regler för synkronisering som beskrivs i följande avsnitt.
 
 
 #### <a name="add-an-inbound-sync-rule"></a>Lägg till en regel för inkommande synkronisering
-En regel för inkommande synkronisering innebär källan för attributet är en anslutarplats och målet är metaversum. Till exempel om du vill att ett nytt attribut som flödar från den lokala Active Directory till Azure Active Directory, skapa en ny regel för inkommande synkronisering. Starta den **Synchronization Rules Editor**väljer **inkommande** som riktning och välj **Lägg till ny regel**. 
+En regel för inkommande synkronisering innebär att källan för attributet är ett anslutnings utrymme och att målet är metaversum. Om du till exempel vill ha ett nytt attributarkiv från lokala Active Directory till Azure Active Directory skapar du en ny regel för inkommande synkronisering. Starta **Redigeraren för regler för synkronisering**, Välj **inkommande** som riktning och välj **Lägg till ny regel**. 
 
- ! Synkronisering regler Editor](media/how-to-connect-fix-default-rules/default3a.png)
+ ![Redigerare för regler för synkronisering](media/how-to-connect-fix-default-rules/default3a.png)
 
-Följ dina egna namngivningskonvention för att nämna regeln. Här kan vi använda **anpassad i från AD - användare**. Det innebär att regeln är en anpassad regel och är en regel för inkommande från Active Directory-anslutarplatsen till metaversum.   
+Namnge regeln genom att följa din egen namngivnings konvention. Här använder vi **Anpassad i från AD-användare**. Det innebär att regeln är en anpassad regel och är en regel för inkommande trafik från Active Directory kopplings utrymme till metaversum.   
 
  ![Skapa regel för inkommande synkronisering](media/how-to-connect-fix-default-rules/default3b.png)
 
-Ange en egen beskrivning av regeln, så att det är enkelt att framtida underhåll av regeln. Beskrivningen kan till exempel baseras på målet med regeln är och varför det behövs.
+Ange en egen beskrivning av regeln, så att framtida underhåll av regeln är enkelt. Beskrivningen kan till exempel baseras på vad målet med regeln är och varför det behövs.
 
-Gör dina val den **anslutna System**, **anslutna System objekttyp**, och **typ av Metaversumobjekt** fält.
+Gör dina val för fälten **ansluten system**, **ansluten system objekt typ**och **metaversum objekt typ** .
 
-Ange prioritetsvärde mellan 0 och 99 (Ju lägre nummer, desto högre prioritet). För den **taggen**, **aktivera Lösenordssynkronisering**, och **inaktiverad** fält, använder du standardinställningarna.
+Ange prioritet svärdet från 0 till 99 (ju lägre siffra, desto högre prioritet). För **taggen**aktiverar du **synkronisering av lösen ord**och **inaktiverade** fält, använder standard alternativen.
 
-Behåll **Scoping filter** tom. Det innebär att regeln gäller för alla objekt som är anslutna mellan de anslutna System i Active Directory och metaversum.
+Behåll **omfångs filter** tomt. Det innebär att regeln gäller för alla objekt som är anslutna mellan Active Directory anslutna systemet och metaversum.
 
-Behåll **ansluta regler** tom. Det innebär att den här regeln använder kopplingsvillkor som definierats i standard Standardregeln. Det här är en annan anledning inte att inaktivera eller ta bort Standardregeln för standard. Om det finns inga kopplingsvillkoret, attributflöde inte 
+Behåll **kopplings regler** tomma. Det innebär att regeln använder det kopplings villkor som definierats i standard standard regeln. Detta är ett annat skäl till att inte inaktivera eller ta bort standard standard regeln. Om det inte finns något kopplings villkor flödar inte attributet. 
 
-Lägg till lämpliga transformationer för dina attribut. Du kan tilldela en konstant, göra en konstant värde flöde till Målattributet. Du kan använda direkt mappning mellan käll- eller attribut. Eller så kan du använda ett uttryck för attributet. Här följer olika [uttryck](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) du kan använda.
+Lägg till lämpliga omvandlingar för attributet. Du kan tilldela en konstant för att göra ett konstant värde flöde till målattributet. Du kan använda direkt mappning mellan käll-eller mål-attributet. Du kan också använda ett uttryck för attributet. Här är olika [uttrycks funktioner](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) som du kan använda.
 
-#### <a name="add-an-outbound-sync-rule"></a>Lägg till en utgående synkroniseringsregel
-Om du vill länka attributet till målkatalogen, måste du skapa en utgående regel. Det innebär att källan är metaversum och målet är det anslutna systemet. Om du vill skapa en utgående regel, starta den **Synchronization Rules Editor**, ändra den **riktning** till **utgående**, och välj **Lägg till ny regel**. 
+#### <a name="add-an-outbound-sync-rule"></a>Lägg till en regel för utgående synkronisering
+Om du vill länka attributet till mål katalogen måste du skapa en utgående regel. Det innebär att källan är metaversum och att målet är det anslutna systemet. Om du vill skapa en utgående regel startar du **Redigeraren för regler för synkronisering**, ändrar **riktningen** till **utgående**och väljer **Lägg till ny regel**. 
 
-![Synchronization Rules Editor](media/how-to-connect-fix-default-rules/default3c.png)
+![Redigerare för regler för synkronisering](media/how-to-connect-fix-default-rules/default3c.png)
 
-Som du kan använda din egen namngivningskonvention för att namnge regeln med den inkommande regeln. Välj den **anslutna System** som Azure AD-klient och välj det anslutna systemet objekt som du vill ange attribut-värde. Ange prioritet mellan 0 och 99. 
+Precis som med regeln för inkommande trafik kan du använda en egen namngivnings konvention för att ge regeln ett namn. Välj det **anslutna systemet** som Azure AD-klient och välj det anslutna system objekt som du vill ange attributvärdet till. Ange prioriteten från 0 till 99. 
 
 ![Skapa regel för utgående synkronisering](media/how-to-connect-fix-default-rules/default3d.png)
 
-Behåll **Scoping filter** och **ansluta regler** tom. Fyll i transformeringen som konstant, direkt eller uttryck. 
+Behåll **omfångs filter** och **Anslut till regler** tomma. Fyll i omvandlingen som konstant, direkt eller uttryck. 
 
-Nu vet du hur du gör ett nytt attribut för ett användarflöde objekt från Active Directory i Azure Active Directory. Du kan använda de här stegen för att mappa attribut från objekt källa och mål. Mer information finns i [skapar anpassade Synkroniseringsregler](how-to-connect-create-custom-sync-rule.md) och [förberedelser för att etablera användare](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
+Nu vet du hur du gör ett nytt attribut för ett användar objekt flöde från Active Directory till Azure Active Directory. Du kan använda de här stegen för att mappa alla attribut från alla objekt till källa och mål. Mer information finns i [skapa anpassade regler för synkronisering](how-to-connect-create-custom-sync-rule.md) och [förbereda för att etablera användare](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
 
-### <a name="override-the-value-of-an-existing-attribute"></a>Tillgång till ett befintligt attribut
-Du kanske vill åsidosätta värdet för ett attribut som har redan mappats. Till exempel om du alltid vill använda ett null-värde till ett attribut i Azure AD skapa bara en inkommande regel. Gör det konstanta värdet `AuthoritativeNull`, flöde till Målattributet. 
+### <a name="override-the-value-of-an-existing-attribute"></a>Åsidosätt värdet för ett befintligt attribut
+Du kanske vill åsidosätta värdet för ett attribut som redan har mappats. Om du till exempel alltid vill ange ett null-värde för ett attribut i Azure AD skapar du bara en regel för inkommande trafik. Gör det konstanta värdet `AuthoritativeNull`, flöda till målattributet. 
 
 >[!NOTE] 
-> Använd `AuthoritativeNull` i stället för `Null` i det här fallet. Detta är eftersom den icke-nullvärde ersätter null-värde, även om den har lägre prioritet (ett högre antal värde i regeln). `AuthoritativeNull`, å andra sidan inte ersättas med ett icke-null-värde med andra regler. 
+> Använd `AuthoritativeNull` i stället för `Null` i det här fallet. Detta beror på att värdet som inte är null ersätter null-värdet, även om det har lägre prioritet (ett högre värde i regeln). `AuthoritativeNull`, å andra sidan, ersätts inte med ett värde som inte är null av andra regler. 
 
 ### <a name="dont-sync-existing-attribute"></a>Synkronisera inte befintligt attribut
-Om du vill undanta ett attribut från att synkronisera använda attributfiltrering-funktionen i Azure AD Connect. Starta **Azure AD Connect** skrivbordsikonen och välj sedan **anpassa synkroniseringsalternativ**.
+Om du vill undanta ett attribut från synkronisering använder du funktionen Filtrera attribut som finns i Azure AD Connect. Starta **Azure AD Connect** från Skriv bords ikonen och välj sedan **Anpassa alternativ för synkronisering**.
 
-![Alternativ för ytterligare uppgifter för Azure AD Connect](media/how-to-connect-fix-default-rules/default4.png)
+![Azure AD Connect alternativ för ytterligare aktiviteter](media/how-to-connect-fix-default-rules/default4.png)
 
- Se till att **Azure AD-app och attributfiltrering** är markerat och välj **nästa**.
+ Kontrol lera att **Azure AD-App-och-Attribute-filtrering** är markerat och välj **Nästa**.
 
-![Valfria funktioner i Azure AD Connect](media/how-to-connect-fix-default-rules/default5.png)
+![Azure AD Connect valfria funktioner](media/how-to-connect-fix-default-rules/default5.png)
 
-Avmarkera de attribut som du vill undanta från att synkronisera.
+Ta bort de attribut som du vill undanta från synkroniseringen.
 
-![Azure AD Connect-attribut](media/how-to-connect-fix-default-rules/default6a.png)
+![Azure AD Connect attribut](media/how-to-connect-fix-default-rules/default6a.png)
 
-## <a name="change-scoping-filter"></a>Ändra Omfångsfilter
-Azure AD-synkronisering hand tar om de flesta av objekten. Du kan minska omfånget för objekt och minska antalet objekt som ska exporteras, utan att ändra standard standardregler för synkronisering. 
+## <a name="change-scoping-filter"></a>Ändra omfångs filter
+Azure AD Sync tar hand om de flesta av objekten. Du kan minska objektets omfattning och minska antalet objekt som ska exporteras, utan att ändra standard reglerna för synkronisering. 
 
 Använd någon av följande metoder för att minska omfånget för de objekt som du synkroniserar:
 
-- cloudFiltered attribut
-- Organisationsenhet filtrering
+- cloudFiltered-attribut
+- Organisations enhets filtrering
 
-Om du minska omfånget för de användare som synkroniseras stoppas lösenord hash-synkronisering även för filtrerat ut användare. Om objekten redan synkroniserar när du minska omfånget, tas filtrerat ut objekt bort från målkatalogen. Se till att du mycket noggrant begränsa därför.
+Om du minskar omfånget för de användare som synkroniseras stoppas även lösen ordets hash-synkronisering för de filtrerade användarna. Om objekten redan synkroniseras tas de filtrerade objekten bort från mål katalogen när du har minskat omfattningen. Därför bör du se till att du omfånget är mycket noggrant.
 
 >[!IMPORTANT] 
-> Öka omfånget för objekt som konfigurerats av Azure AD Connect rekommenderas inte. Det gör det svårt för Microsoft-supporten att förstå anpassningarna. Om du måste öka omfånget för objekt, redigera den befintliga regeln, klona den och inaktivera den ursprungliga regeln. 
+> Det rekommenderas inte att utöka omfånget för objekt som kon figurer ATS av Azure AD Connect. Det gör det svårt för Microsoft Support-teamet att förstå anpassningarna. Om du måste öka objektets omfång, redigerar du den befintliga regeln, klonar den och inaktiverar den ursprungliga regeln. 
 
-### <a name="cloudfiltered-attribute"></a>cloudFiltered attribut
-Du kan inte ange det här attributet i Active Directory. Ange värdet för det här attributet genom att lägga till en ny inkommande regel. Du kan sedan använda **omvandling** och **uttryck** du ställer in det här attributet i metaversum. I följande exempel visar att du inte vill synkronisera alla användare vars avdelningsnamn börjar med **HRD** (skiftlägesokänsligt):
+### <a name="cloudfiltered-attribute"></a>cloudFiltered-attribut
+Du kan inte ange det här attributet i Active Directory. Ange värdet för det här attributet genom att lägga till en ny regel för inkommande trafik. Du kan sedan använda **transformering** och **uttryck** för att ange det här attributet i metaversum. I följande exempel visas att du inte vill synkronisera alla användare vars avdelnings namn börjar med **HRD** (inte Skift läges känsligt):
 
 `cloudFiltered <= IIF(Left(LCase([department]), 3) = "hrd", True, NULL)`
 
-Vi först konverteras avdelningen från källa (Active Directory) till gemener. Sedan använder den `Left` funktion, som vi tog bara de första tre tecknen och jämfört med den med `hrd`. Om den matchade värdet `True`, annars `NULL`. I Ange värdet till null, skriva någon annan regel med lägre prioritet (ett högre antal värde) till den med ett annat villkor. Kör förhandsversionen av ett objekt för att verifiera synkroniseringsregel, enligt den [verifiera synkroniseringsregel](#validate-sync-rule) avsnittet.
+Vi konverterade först avdelningen från källan (Active Directory) till gemener. Med hjälp av funktionen `Left` tog vi bara de första tre tecknen och jämför det med `hrd`. Om den matchas anges värdet till `True`, annars `NULL`. Vid inställning av värdet till null, kan en annan regel med lägre prioritet (ett högre värde) skriva till den med ett annat villkor. Kör förhands granskning på ett objekt för att validera synkroniseringsregeln, enligt vad som anges i avsnittet [Verifiera synkroniseringsstatus](#validate-sync-rule) .
 
-![Skapa inkommande synkronisering regelalternativ](media/how-to-connect-fix-default-rules/default7a.png)
+![Skapa regel alternativ för inkommande synkronisering](media/how-to-connect-fix-default-rules/default7a.png)
 
-### <a name="organizational-unit-filtering"></a>Organisationsenhet filtrering
-Du kan skapa en eller flera organisationsenheter (OU) och flytta objekt som du inte vill synkronisera till de här organisationsenheterna. Konfigurera sedan den Organisationsenhet som filtrering i Azure AD Connect. Starta **Azure AD Connect** skrivbordsikonen och välj följande alternativ. Du kan också konfigurera OU-filtrering vid tidpunkten för installationen av Azure AD Connect. 
+### <a name="organizational-unit-filtering"></a>Organisations enhets filtrering
+Du kan skapa en eller flera organisationsenheter (OU) och flytta de objekt som du inte vill synkronisera till dessa organisationsenheter. Konfigurera sedan ORGANISATIONSENHETs filtrering i Azure AD Connect. Starta **Azure AD Connect** från Skriv bords ikonen och välj följande alternativ. Du kan också konfigurera ORGANISATIONSENHETs filtrering vid tidpunkten för installationen av Azure AD Connect. 
 
-![Azure AD Connect ytterligare uppgifter](media/how-to-connect-fix-default-rules/default8.png)
+![Azure AD Connect ytterligare aktiviteter](media/how-to-connect-fix-default-rules/default8.png)
 
-Följ anvisningarna i guiden och avmarkera de organisationsenheter som du inte vill synkronisera.
+Följ guiden och rensa de organisationsenheter som du inte vill synkronisera.
 
-![Azure AD Connect domän och Organisationsenhet filtreringsalternativ](media/how-to-connect-fix-default-rules/default9.png)
+![Azure AD Connect alternativ för domän-och OU-filtrering](media/how-to-connect-fix-default-rules/default9.png)
 
-## <a name="change-join-condition"></a>Ändra kopplingsvillkoret
-Använd standard kopplingsvillkor som konfigurerats av Azure AD Connect. Ändra standard kopplingsvillkor gör det svårt för Microsoft-supporten att förstå anpassningarna och stöd för produkten.
+## <a name="change-join-condition"></a>Ändra kopplings villkor
+Använd standard kraven för anslutning som kon figurer ATS av Azure AD Connect. Om du ändrar standard villkoren för anslutning blir det svårt för Microsoft-support att förstå anpassningarna och stödja produkten.
 
-## <a name="validate-sync-rule"></a>Verifiera synkroniseringsregel
-Du kan verifiera den nyligen tillagda synkroniseringsregel med hjälp av funktionen preview utan att köra fullständig synkroniseringscykel. I Azure AD Connect, väljer **synkroniseringstjänsten**.
+## <a name="validate-sync-rule"></a>Verifiera Synkroniseringsregel
+Du kan validera den nyligen tillagda synkroniseringsregeln med hjälp av funktionen för förhands granskning utan att köra den fullständiga synkroniseringen. I Azure AD Connect väljer du **synkroniseringstjänst**.
 
-![Azure AD Connect med synkroniseringstjänsten markerat](media/how-to-connect-fix-default-rules/default10.png)
+![Azure AD Connect med markerad synkroniseringstjänst](media/how-to-connect-fix-default-rules/default10.png)
 
-Välj **Metaversumsökning**. Välj omfångsobjektet som **person**väljer **Lägg till sats**, och nämner sökvillkoren. Välj sedan **Search**, och dubbelklicka på objektet i sökresultaten. Se till att dina data i Azure AD Connect är uppdaterad för objektet, genom att köra import och synkronisering på skogen innan du kör det här steget.
+Välj **metaversum-sökning**. Välj scope-objektet som **person**, Välj **Lägg till sats**och ange Sök kriterierna. Välj sedan **Sök**och dubbelklicka på objektet i Sök resultatet. Se till att dina data i Azure AD Connect är uppdaterade för det objektet genom att köra import och synkronisering i skogen innan du kör det här steget.
 
 ![Synchronization Service Manager](media/how-to-connect-fix-default-rules/default11.png)
 
-På **Metaversumobjektegenskaperna**väljer **Anslutningsappar**, markerar du objektet i motsvarande connector (skog) och välj **egenskaper...** .
+På **metaversum objekt egenskaper**väljer du **kopplingar**, väljer objektet i motsvarande koppling (skog) och väljer **Egenskaper.** ...
 
-![Egenskaper för Metaversumobjekt](media/how-to-connect-fix-default-rules/default12.png)
+![Egenskaper för metaversumobjekt](media/how-to-connect-fix-default-rules/default12.png)
 
-Välj **förhandsversion...**
+Välj för **hands version...**
 
-![Objektegenskaper för utrymme](media/how-to-connect-fix-default-rules/default13a.png)
+![Objektegenskaper för anslutarplats](media/how-to-connect-fix-default-rules/default13a.png)
 
-Välj i förhandsgranskningsfönstret **Generera förhandsgranskning** och **Import av attributflöde** i den vänstra rutan.
+I förhands gransknings fönstret väljer du **generera förhands granskning** och **Importera attributarkiv** i det vänstra fönstret.
 
 ![Förhandsversion](media/how-to-connect-fix-default-rules/default14.png)
  
-Här, Lägg märke till att nyligen tillagda regeln körs för objektet, och har ställt in den `cloudFiltered` attributet till true.
+Lägg märke till att den nyligen tillagda regeln körs på objektet och har ange `cloudFiltered` attributet till true.
 
 ![Förhandsversion](media/how-to-connect-fix-default-rules/default15a.png)
  
-Om du vill jämföra ändrade regeln med Standardregeln exportera båda reglerna separat, som textfiler. De här reglerna exporteras som en PowerShell-skriptfil. Du kan jämföra dem med ett fil på en jämförelse-verktyg (till exempel windiff) kan se ändringarna. 
+Om du vill jämföra den ändrade regeln med standard regeln exporterar du båda reglerna separat som textfiler. Dessa regler exporteras som en PowerShell-skriptfil. Du kan jämföra dem med hjälp av valfritt verktyg för fil jämförelse (till exempel Windiff) för att se ändringarna. 
  
-Observera att i regeln ändrade den `msExchMailboxGuid` attributet ändras till den **uttryck** typ, i stället för **direkt**. Dessutom ändra värdet till **NULL** och **ExecuteOnce** alternativet. Du kan ignorera urskiljas och prioritet skillnader. 
+Observera att attributet `msExchMailboxGuid` i den ändrade regeln ändras till **uttrycks** typen, i stället för **direkt**. Värdet ändras också till **Null** och alternativet **ExecuteOnce** . Du kan ignorera identifierade skillnader och prioriteter. 
 
-![Windiff verktyget utdata](media/how-to-connect-fix-default-rules/default17.png)
+![utdata för Windiff-verktyget](media/how-to-connect-fix-default-rules/default17.png)
  
-Ta bort den ändrade regeln och aktivera Standardregeln för att åtgärda dina regler för att ändra dem till standardinställningar. Se till att du inte förlorar anpassning som du försöker uppnå. När du är klar, köra **fullständig synkronisering**.
+Om du vill åtgärda reglerna för att ändra tillbaka till standardinställningarna tar du bort den ändrade regeln och aktiverar standard regeln. Se till att du inte förlorar den anpassning som du försöker uppnå. När du är klar kan du köra **fullständig synkronisering**.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Maskinvara och krav](how-to-connect-install-prerequisites.md) 

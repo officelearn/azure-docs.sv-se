@@ -3,13 +3,13 @@ title: Använda flera noder i Azure Kubernetes service (AKS)
 description: Lär dig hur du skapar och hanterar flera Node-pooler för ett kluster i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 02/14/2020
-ms.openlocfilehash: 3e0890a0e8600526da2047cabc0b50af8177ea37
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.openlocfilehash: cf127cc75377c3ca3a18cdeaedbc1d450d6c3826
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374511"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082161"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera Node-pooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -33,8 +33,8 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som st�
 * AKS-klustret måste använda standard-SKU: n för att använda flera noder, och funktionen stöds inte med Basic SKU-belastningsutjämnare.
 * AKS-klustret måste använda skalnings uppsättningar för virtuella datorer för noderna.
 * Namnet på en Node-pool får bara innehålla gemena alfanumeriska tecken och måste börja med en gemen bokstav. För Linux-nodkonfigurationer måste längden vara mellan 1 och 12 tecken, och längden måste vara mellan 1 och 6 tecken för Windows-noder.
-* Alla noder i pooler måste finnas i samma VNet och undernät.
-* När du skapar flera noder i klustrets skapande tid måste alla Kubernetes-versioner som används av Node-pooler matcha versions uppsättningen för kontroll planet. Detta kan uppdateras efter att klustret har etablerats med hjälp av åtgärder per nod.
+* Alla noder i pooler måste finnas i samma virtuella nätverk och undernät.
+* När du skapar flera noder i klustrets skapande tid måste alla Kubernetes-versioner som används av Node-pooler matcha versions uppsättningen för kontroll planet. Den här versionen kan uppdateras efter att klustret har etablerats med hjälp av åtgärder per nod.
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
@@ -195,11 +195,11 @@ Ett AKS-kluster har två kluster resurs objekt med associerade Kubernetes-versio
 
 Ett kontroll plan mappar till en eller flera Node-pooler. Beteendet för en uppgraderings åtgärd beror på vilket Azure CLI-kommando som används.
 
-Att uppgradera ett AKS kontroll plan kräver att du använder `az aks upgrade`. Detta uppgraderar kontroll Plans versionen och alla noder i klustret. 
+Att uppgradera ett AKS kontroll plan kräver att du använder `az aks upgrade`. Det här kommandot uppgraderar kontroll Plans versionen och alla noder i klustret.
 
 Om du utfärdar `az aks upgrade` kommandot med `--control-plane-only`-flaggan uppgraderas bara kluster kontroll planet. Ingen av de associerade noderna i klustret har ändrats.
 
-Du måste använda `az aks nodepool upgrade`för att uppgradera enskilda noder. Detta uppgraderar bara målnoden med den angivna Kubernetes-versionen
+Du måste använda `az aks nodepool upgrade`för att uppgradera enskilda noder. Det här kommandot uppgraderar bara målnoden med den angivna Kubernetes-versionen
 
 ### <a name="validation-rules-for-upgrades"></a>Verifierings regler för uppgraderingar
 
@@ -212,7 +212,7 @@ Giltiga Kubernetes-uppgraderingar för ett klusters kontroll plan och nodkonfigu
 
 * Regler för att skicka en uppgraderings åtgärd:
    * Du kan inte nedgradera kontroll planet eller en Kubernetes-version för Node-poolen.
-   * Om en Kubernetes version av en nod inte anges, beror beteendet på vilken klient som används. Deklaration i Resource Manager-mallar återgår till den befintliga version som definierats för Node-poolen om den används, om ingen är inställd på kontroll Plans versionen används för att gå vidare.
+   * Om en Kubernetes version av en nod inte anges, beror beteendet på vilken klient som används. Deklaration i Resource Manager-mallar går tillbaka till den befintliga versionen som definierats för Node-poolen om den används, om ingen är inställd på kontroll Plans versionen används för att gå vidare.
    * Du kan antingen uppgradera eller skala ett kontroll plan eller en Node-pool vid en viss tidpunkt, du kan inte skicka flera åtgärder på ett enda kontroll plan eller en resurs för en resurspool samtidigt.
 
 ## <a name="scale-a-node-pool-manually"></a>Skala en adresspool manuellt
@@ -449,12 +449,50 @@ Events:
 
 Endast poddar som har den här bismaken tillämpad kan schemaläggas på noder i *gpunodepool*. Andra pod skulle schemaläggas i *nodepool1* Node-pool. Om du skapar ytterligare noder kan du använda ytterligare utsmakar och tolererar för att begränsa vilka poddar som kan schemaläggas för dessa resurs resurser.
 
-## <a name="specify-a-tag-for-a-node-pool"></a>Ange en tagg för en Node-pool
+## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Ange en smak, etikett eller tagg för en Node-pool
 
-Du kan använda en Azure-tagg för resurspooler i ditt AKS-kluster. Taggar som tillämpas på en Node-pool tillämpas på varje nod i Node-poolen och bevaras genom uppgraderingar. Taggar används också för nya noder som läggs till i en Node-pool vid skalnings åtgärder. Att lägga till en tagg kan hjälpa till med uppgifter som princip spårning eller kostnads uppskattning.
+När du skapar en Node-pool kan du lägga till utsmaker, etiketter eller taggar i den Node-poolen. När du lägger till en utsmak, etikett eller tagg, får alla noder i den noden även denna smak, etikett eller tagg.
+
+Om du vill skapa en Node-pool med en-bismak använder du [AZ AKS nodepool Add][az-aks-nodepool-add]. Ange namnet *taintnp* och använd parametern `--node-taints` för att ange *SKU = GPU: noschema* för den här bismaken.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name taintnp \
+    --node-count 1 \
+    --node-taints sku=gpu:NoSchedule \
+    --no-wait
+```
+
+I följande exempel utdata från kommandot [AZ AKS nodepool List][az-aks-nodepool-list] visas att *taintnp* *skapar* noder med angivna *nokvarhållning*:
+
+```console
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+
+[
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "taintnp",
+    "orchestratorVersion": "1.15.7",
+    ...
+    "provisioningState": "Creating",
+    ...
+    "nodeTaints":  {
+      "sku": "gpu:NoSchedule"
+    },
+    ...
+  },
+ ...
+]
+```
+
+Informationen om bismaken visas i Kubernetes för hantering av schema regler för noder.
 
 > [!IMPORTANT]
-> Om du vill använda taggar för Node-pooler behöver du *AKS-Preview CLI-* tillägget 0.4.29 eller högre. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
+> Om du vill använda etiketter och taggar för adresspool måste du ha *AKS-Preview CLI-* tillägg version 0.4.35 eller högre. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
 > 
 > ```azurecli-interactive
 > # Install the aks-preview extension
@@ -464,7 +502,51 @@ Du kan använda en Azure-tagg för resurspooler i ditt AKS-kluster. Taggar som t
 > az extension update --name aks-preview
 > ```
 
-Skapa en Node-pool med hjälp av [AZ AKS Node pool Add][az-aks-nodepool-add]. Ange namnet *tagnodepool* och använd parametern `--tag` för att ange *avd = IT* och *CostCenter = 9999* för taggar.
+Du kan också lägga till etiketter i en Node-pool när du skapar en resurspool. Etiketter som ställts in i Node-poolen läggs till i varje nod i Node-poolen. Dessa [etiketter visas i Kubernetes][kubernetes-labels] för hantering av schema regler för noder.
+
+Om du vill skapa en Node-pool med en etikett använder du [AZ AKS nodepool Add][az-aks-nodepool-add]. Ange namnet *labelnp* och använd parametern `--labels` för att ange *avd = IT* och *CostCenter = 9999* för etiketter.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name labelnp \
+    --node-count 1 \
+    --labels dept=IT costcenter=9999 \
+    --no-wait
+```
+
+> [!NOTE]
+> Det går bara att ange etiketten för Node-pooler när en resurspool skapas. Etiketter måste också vara ett nyckel/värde-par och ha en [giltig syntax][kubernetes-label-syntax].
+
+I följande exempel utdata från kommandot [AZ AKS nodepool List][az-aks-nodepool-list] visas att *labelnp* *skapar* noder med angivet *nodeLabels*:
+
+```console
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+
+[
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "labelnp",
+    "orchestratorVersion": "1.15.7",
+    ...
+    "provisioningState": "Creating",
+    ...
+    "nodeLabels":  {
+      "dept": "IT",
+      "costcenter": "9999"
+    },
+    ...
+  },
+ ...
+]
+```
+
+Du kan använda en Azure-tagg för resurspooler i ditt AKS-kluster. Taggar som tillämpas på en Node-pool tillämpas på varje nod i Node-poolen och bevaras genom uppgraderingar. Taggar används också för nya noder som läggs till i en Node-pool vid skalnings åtgärder. Att lägga till en tagg kan hjälpa till med uppgifter som princip spårning eller kostnads uppskattning.
+
+Skapa en Node-pool med hjälp av [AZ AKS nodepool Add][az-aks-nodepool-add]. Ange namnet *tagnodepool* och använd parametern `--tag` för att ange *avd = IT* och *CostCenter = 9999* för taggar.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -617,13 +699,13 @@ Det kan ta några minuter att uppdatera ditt AKS-kluster beroende på de instäl
 > [!WARNING]
 > Under förhands granskningen av att tilldela en offentlig IP-adress per nod kan den inte användas med *standard load BALANCER SKU i AKS* på grund av eventuella regler för belastnings utjämning i konflikt med VM-etablering. Till följd av den här begränsningen stöds inte Windows agent-pooler med den här förhands gransknings funktionen. I för hands versionen måste du använda *Basic load BALANCER SKU* om du behöver tilldela en offentlig IP-adress per nod.
 
-AKS-noder kräver inte sina egna offentliga IP-adresser för kommunikation. Vissa scenarier kan dock kräva att noder i en Node-pool har sina egna offentliga IP-adresser. Ett exempel är spel, där en konsol behöver upprätta en direkt anslutning till en virtuell dator i molnet för att minimera hopp. Detta kan uppnås genom att registrera dig för en separat förhands gransknings funktion, offentlig IP-adress (för hands version).
+AKS-noder kräver inte sina egna offentliga IP-adresser för kommunikation. Vissa scenarier kan dock kräva att noder i en Node-pool har sina egna offentliga IP-adresser. Ett exempel är spel, där en konsol behöver upprätta en direkt anslutning till en virtuell dator i molnet för att minimera hopp. Det här scenariot kan uppnås genom registrering för en separat förhands gransknings funktion, offentlig IP-adress (för hands version).
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-När registreringen är klar distribuerar du en Azure Resource Manager-mall enligt samma instruktioner som [ovan](#manage-node-pools-using-a-resource-manager-template) och lägger till egenskapen booleskt värde `enableNodePublicIP` till agentPoolProfiles. Ange värdet som `true` som standard anges det som `false` om inget värde anges. Detta är endast en egenskap för att skapa en tid och kräver en lägsta API-version på 2019-06-01. Detta kan användas för både Linux-och Windows-adresspooler.
+När registreringen är klar distribuerar du en Azure Resource Manager-mall enligt samma instruktioner som [ovan](#manage-node-pools-using-a-resource-manager-template) och lägger till egenskapen booleskt värde `enableNodePublicIP` till agentPoolProfiles. Ange värdet som `true` som standard anges det som `false` om inget värde anges. Den här egenskapen är endast en Create-Time-egenskap och kräver en lägsta API-version på 2019-06-01. Detta kan användas för både Linux-och Windows-adresspooler.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -652,6 +734,8 @@ Information om hur du skapar och använder Windows Server container Node-pooler 
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubernetes-labels]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+[kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 
 <!-- INTERNAL LINKS -->
 [aks-windows]: windows-container-cli.md

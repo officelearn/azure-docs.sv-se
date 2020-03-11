@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: daf38baf9daff5fd192091be977a996c9bd5cfc2
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: fde48d63bd343fbed1f82e60819131ffb043a795
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539869"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967639"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Skydda SPA-backend med OAuth 2,0, Azure Active Directory B2C och Azure API Management
 
 Det här scenariot visar hur du konfigurerar Azure API Management-instansen för att skydda ett API.
-Vi använder OpenID Connect-protokollet med Azure AD B2C, tillsammans med API Management för att skydda en Azure Functions Server del med EasyAuth.
+Vi använder OAuth 2,0-protokollet med Azure AD B2C, tillsammans med API Management för att skydda en Azure Functions Server del med EasyAuth.
 
 ## <a name="aims"></a>Syftar
 Vi ska se hur API Management kan användas i ett förenklat scenario med Azure Functions och Azure AD B2C. Du kommer att skapa en JavaScript-app (JS) som anropar en API, som loggar in användare med Azure AD B2C. Sedan använder du API Management validera-JWT-principinställningar för att skydda Server dels-API: et.
@@ -66,11 +66,11 @@ Här är en snabb översikt över stegen:
    * Klient dels klienten.
    * Server delens funktions-API.
    * Valfritt API Management Developer-portalen (om du inte kör Azure API Management på förbruknings nivån längre fram i det här scenariot senare).
-1. Ange WebApp/webb-API och Tillåt implicit flöde till Ja
+1. Ange WebApp/webb-API för alla 3 program och ange alternativet Tillåt implicit flöde till Ja endast för klient dels klienten.
 1. Nu anger du app-ID-URI: n och väljer något unikt och relevant för den tjänst som skapas.
 1. Använd plats hållare för svars-URL: er för tillfället, till exempel https://localhost, uppdaterar vi dessa URL: er senare.
 1. Klicka på Skapa och upprepa sedan steg 2-5 för var och en av de tre apparna ovan, och registrera AppID URI, namn och program-ID för senare användning för alla tre apparna.
-1. Öppna Server dels-API: et från listan över program och välj fliken *nycklar* (under Allmänt) och klicka sedan på generera nyckel för att generera en auth-nyckel
+1. Öppna programmet API Management Developer-portalen i listan med program och välj fliken *nycklar* (under Allmänt) och klicka sedan på generera nyckel för att generera en auth-nyckel
 1. När du klickar på Spara registrerar du nyckeln på ett säkert sätt för senare användning – Observera att den här platsen är den enda chansen att visa och kopiera den här nyckeln.
 1. Klicka nu på fliken *publicerade områden* (under API-åtkomst)
 1. Skapa och namnge ett omfång för funktions-API: et och registrera omfattningen och det fullständiga värdet för omfattning och klicka sedan på Spara.
@@ -85,7 +85,7 @@ Här är en snabb översikt över stegen:
 1. Välj sedan "Användarflöden (principer)" och klicka på "nytt användar flöde"
 1. Välj användar flödes typen "Registrera dig och logga in"
 1. Ge principen ett namn och registrera den för senare.
-1. Under Identity providers, kontrol lera sedan användar-ID-registreringen och klicka på OK. 
+1. Klicka sedan på "identitets leverantörer" och kontrol lera sedan "användar-ID-registrering" (det kan säga e-postregistrering) och klicka på OK. 
 1. Under "användarattribut och anspråk" klickar du på "Visa fler..." Välj sedan de anspråks alternativ som du vill att användarna ska ange och ha returnerat i token. Kontrol lera minst visnings namn och e-postadress för att samla in och returnera och klicka på OK och sedan på Skapa.
 1. Välj den princip som du skapade i listan och klicka sedan på knappen Kör användar flöde.
 1. Den här åtgärden öppnar bladet kör användar flöde, väljer klient delens program och registrerar sedan adressen för b2clogin.com-domänen som visas under List rutan för "Välj domän".
@@ -98,6 +98,7 @@ Här är en snabb översikt över stegen:
    > Om du vill kan du klicka på knappen "kör användar flöde" (för att gå igenom registrerings-eller inloggnings processen) och få en känsla för vad den gör i praktiken, men omdirigeringen fungerar inte eftersom appen ännu inte har distribuerats.
 
 ## <a name="build-the-function-api"></a>Bygg funktions-API: et
+1. Växla tillbaka till Azure AD-standardklienten i Azure Portal så att vi kan konfigurera objekt i din prenumeration igen 
 1. Gå till bladet Function apps i Azure Portal, öppna din tomma Function-app och skapa sedan en ny i-Portals webhook + API-funktion via snabb starten.
 1. Klistra in exempel koden nedan i Run. CSX över den befintliga koden som visas.
 
@@ -156,15 +157,16 @@ Här är en snabb översikt över stegen:
 1. Välj sedan fliken "plattforms funktioner" och välj "autentisering/auktorisering".
 1. Aktivera funktionen för App Service autentisering.
 1. Under "autentiseringsproviders" väljer du "Azure Active Directory" och väljer Avancerat från växeln hanterings läge.
-1. Klistra in backend API: s program-ID (från Azure AD B2C till rutan klient-ID)
+1. Klistra in API: t för Server delens funktions-API (från Azure AD B2C i rutan klient-ID)
 1. Klistra in den välkända konfigurations slut punkten med öppen ID från registrerings-eller inloggnings principen i rutan utfärdar-URL (vi har spelat in den här konfigurationen tidigare).
-1. Lägg till de tre (eller två om du använder API Management förbruknings modell) program-ID: n som du registrerade tidigare för Azure AD B2C-program i de tillåtna token-mottagarna, anger den här inställningen EasyAuth vilka AUD-anspråks värden som tillåts i token som tas emot.
-1. Välj OK och klicka sedan på Spara.
+1. Välj OK.
+1. Ange den åtgärd som ska vidtas när förfrågan inte är autentiserad till "logga in med Azure Active Directory" och klicka sedan på Spara.
 
    > [!NOTE]
-   > Nu distribueras funktions-API: et och ska returnera 401 eller 403 fel för obehöriga begär Anden och bör returnera data när en giltig begäran visas.
-   > Men vi har fortfarande ingen IP-säkerhet, om du har en giltig nyckel kan du anropa detta från var som helst – vi vill tvinga alla förfrågningar att komma via API Management.
-   > Om du använder API Management förbruknings nivån kan du också inte utföra den här låsningen av VIP eftersom det inte finns någon dedikerad statisk IP-adress för den nivån. du måste förlita dig på metoden för att låsa API-anropen via den delade hemliga funktions nyckeln så steg 11-14 är inte möjliga.
+   > Nu distribueras funktions-API: et och ska resultera i 401 svar om rätt nyckel inte anges och ska returnera data när en giltig begäran visas.
+   > Du har lagt till ytterligare skydd mot djupgående säkerhet i EasyAuth genom att konfigurera alternativet "logga in med Azure AD" för att hantera oautentiserade begär Anden. Tänk på att detta ändrar beteendet för obehöriga begär Anden mellan backend-Funktionsapp och klient delens SPA som EasyAuth utfärdar en 302-omdirigering till AAD i stället för en 401 som inte har auktoriserats, korrigerar vi detta genom att använda API Management senare.
+   > Vi har fortfarande ingen IP-säkerhet tillämpad, om du har en giltig nyckel-och OAuth2-token, kan vem som helst anropa detta från var som helst, så vi vill tvinga alla förfrågningar att komma via API Management.
+   > Om du använder API Management förbruknings nivån kan du inte utföra den här låsningen av VIP eftersom det inte finns någon dedikerad statisk IP-adress för den nivån, du måste förlita dig på metoden för att låsa API-anropen via den delade hemliga funktions nyckeln så steg 11-13 är inte möjliga.
 
 1. Stäng bladet "autentisering/auktorisering" 
 1. Välj nätverk och välj sedan åtkomst begränsningar
@@ -172,13 +174,13 @@ Här är en snabb översikt över stegen:
 1. Om du vill fortsätta att interagera med funktions portalen och utföra de valfria stegen nedan, bör du lägga till din egen offentliga IP-adress eller CIDR-intervall här.
 1. När det finns en Tillåt-post i listan lägger Azure till en implicit neka-regel för att blockera alla andra adresser. 
 
-Du måste lägga till CIDR-formaterade block med adresser i panelen IP-begränsningar. När du behöver lägga till en enskild adress, till exempel API Management VIP, måste du lägga till den i formatet xx. xx. xx. xx/32.
+Du måste lägga till CIDR-formaterade block med adresser i panelen IP-begränsningar. När du behöver lägga till en enskild adress, till exempel API Management VIP, måste du lägga till den i formatet xx. xx. xx. xx.
 
    > [!NOTE]
    > Nu ska funktions-API: et inte kunna anropas från någon annan stans än via API Management eller din adress.
-
+   
 ## <a name="import-the-function-app-definition"></a>Importera Function-appens definition
-1. Öppna bladet API Management Portal och välj API Management-instansen.
+1. Öppna *bladet API Management*och öppna sedan *instansen*.
 1. Välj bladet API: er från API Management avsnittet i din instans.
 1. I fönstret Lägg till ett nytt API väljer du Funktionsapp och väljer sedan fullständig längst upp i popup-fönstret.
 1. Klicka på Bläddra, Välj den app som du är värd för API: et i och klicka på Välj.
@@ -186,13 +188,13 @@ Du måste lägga till CIDR-formaterade block med adresser i panelen IP-begränsn
 1. Se till att du spelar in bas-URL: en för senare användning och klicka sedan på Skapa.
 
 ## <a name="configure-oauth2-for-api-management"></a>Konfigurera OAuth2 för API Management
-1. Växla tillbaka till Azure AD-standardklienten i Azure Portal så att vi kan konfigurera objekt i prenumerationen igen och öppna *bladet API Management*och öppna sedan *instansen*.
+
 1. Välj sedan det OAuth 2,0-bladet på fliken säkerhet och klicka på Lägg till
 1. Ange värden för *visnings namn* och *Beskrivning* för den tillagda OAuth-slutpunkten (dessa värden visas i nästa steg som en OAuth2-slutpunkt).
 1. Du kan ange valfritt värde i URL: en för klient registrerings sidan eftersom det här värdet inte används.
-1. Kontrol lera godkännande typen för *implicit autentisering* och avmarkera eventuellt typen av auktoriseringskod.
+1. Kontrol lera den *implicita typen av autentiserings* beviljande och lämna godkännande typen checked.
 1. Flytta till fälten för *auktorisering* och *token* -slutpunkt och ange de värden som du hämtade från det välkända XML-dokumentet för konfiguration tidigare.
-1. Rulla nedåt och fyll i *ytterligare en Body-parameter* med namnet "Resource" med funktions-API-klient-ID: t från Azure AD B2C app-registreringen
+1. Rulla nedåt och fyll i *ytterligare en Body-parameter* med namnet Resource med Server del FUNKTIONENS API-klientcertifikat från Azure AD B2C app-registreringen
 1. Välj klientens autentiseringsuppgifter, ange klient-ID: t till appens app-ID för Developer-konsolen – hoppa över det här steget om du använder förbruknings API Managements modellen.
 1. Ange klient hemligheten till nyckeln du registrerade tidigare – hoppa över det här steget om du använder förbruknings API Managements modellen.
 1. Slutligen kan du registrera redirect_uri av auth Code-tilldelningen från API Management för senare användning.
@@ -242,7 +244,6 @@ Du måste lägga till CIDR-formaterade block med adresser i panelen IP-begränsn
    ```
 1. Redigera URL: en för OpenID-config så att den matchar den välkända Azure AD B2C slut punkten för registrerings-eller inloggnings principen.
 1. Redigera anspråks värdet så att det matchar det giltiga program-ID: t, även kallat klient-ID för Server dels-API-programmet och spara.
-1. Välj API-åtgärd under alla API: er
 
    > [!NOTE]
    > Nu kan API Management svara på frågor över olika ursprung till JS SPA-appar, och den utför begränsning, hastighets begränsning och för validering av JWT auth-token som skickas innan begäran skickas till funktions-API: et.

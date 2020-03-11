@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: b366262ce7849658eb84444d873956c25ab38804
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: af7bfe74d8df177650cea76a9bed7b0d7311f87e
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78244667"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969004"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Direktsänd strömning med Azure Media Services v3
 
@@ -33,7 +33,7 @@ Med Azure Media Services kan du leverera Live-händelser till dina kunder i Azur
 Den här artikeln ger en översikt och vägledning för Live streaming med Media Services och länkar till andra relevanta artiklar.
  
 > [!NOTE]
-> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](media-services-apis-overview.md#sdks).
+> Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 [Live-händelser](live-events-outputs-concept.md), Visa v3- [till gångar](assets-concept.md), hämta information om åtkomst till API: er. För alla andra hanterings uppgifter (t. ex. transformationer och jobb) använder du [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
 ## <a name="dynamic-packaging"></a>Dynamisk paketering
 
@@ -125,5 +125,6 @@ Kolla in [Azure Media Services community](media-services-community.md) -artikeln
 
 ## <a name="next-steps"></a>Nästa steg
 
+* [Snabb start för direkt uppspelning] (live-events-wirecast-quickstart.md (
 * [Själv studie kurs om Live-direktuppspelning](stream-live-tutorial-with-api.md)
 * [Vägledning för migrering för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md)

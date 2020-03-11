@@ -3,12 +3,12 @@ title: Använda Azure dev Spaces-plugin-programmet för Jenkins med Azure Kubern
 description: Lär dig hur du använder plugin-programmet för Azure dev Spaces i en pipeline för kontinuerlig integrering.
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: 7b23893eb331f55ff41992a2ca660e79f44a609a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 281565cec5ee947781ab8ee9f62a00e01f9ababb
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250890"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037022"
 ---
 # <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>Självstudie: använda Azure dev Spaces-plugin-programmet för Jenkins med Azure Kubernetes-tjänsten 
 
@@ -265,7 +265,7 @@ Jenkins pipeline-konfiguration och Jenkinsfile definierar stegen i CI-pipeline. 
 
 ![Jenkins pipeline-flöde](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
 
-1. Hämta en ändrad version av *mywebapi* -projektet från https://github.com/azure-devops/mywebapi. Det här projektet innehåller flera filer som behövs för att skapa en pipeline, inklusive *Jenkinsfile*-, *Dockerfiles*-och Helm-diagrammet.
+1. Hämta en ändrad version av *mywebapi* -projektet från [https://github.com/azure-devops/mywebapi](https://github.com/azure-devops/mywebapi). Det här projektet innehåller flera filer som behövs för att skapa en pipeline, inklusive *Jenkinsfile*-, *Dockerfiles*-och Helm-diagrammet.
 
 2. Logga in på Jenkins. Välj **Lägg till objekt**i menyn till vänster.
 

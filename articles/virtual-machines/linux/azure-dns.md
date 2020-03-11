@@ -1,24 +1,17 @@
 ---
-title: Alternativ för DNS-namnmatchning för virtuella Linux-datorer i Azure
+title: Alternativ för DNS-namnmatchning för virtuella Linux-datorer
 description: Namn matchnings scenarier för virtuella Linux-datorer i Azure IaaS, inklusive tillhandahållna DNS-tjänster, hybrid extern DNS och att ta med din egen DNS-server.
-services: virtual-machines
-documentationcenter: na
 author: RicksterCDN
-manager: gwallace
-editor: tysonn
-ms.assetid: 787a1e04-cebf-4122-a1b4-1fcf0a2bbf5f
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 16dc7d16b3e8f2a4c95e93f9b85c74027291ce19
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3d5ecaf67dcff182c7dace474b7bda45cdfd5c58
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084029"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969323"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Alternativ för DNS-namnmatchning för virtuella Linux-datorer i Azure
 Azure tillhandahåller DNS-namnmatchning som standard för alla virtuella datorer som finns i ett enda virtuellt nätverk. Du kan implementera din egen lösning för DNS-namnmatchning genom att konfigurera dina egna DNS-tjänster på dina virtuella datorer som Azure-värdar. Följande scenarier bör hjälpa dig att välja den som fungerar för din situation.
@@ -30,7 +23,7 @@ Vilken typ av namn matchning du använder beror på hur dina virtuella datorer o
 
 I följande tabell visas scenarier och motsvarande namn matchnings lösningar:
 
-| **Scenario** | **Lösning** | **Suffix** |
+| **Scenario** | **Lösning** | **Huvudnamnssuffix** |
 | --- | --- | --- |
 | Namn matchning mellan roll instanser eller virtuella datorer i samma virtuella nätverk |Namn matchning som Azure tillhandahåller |värdnamn eller fullständigt kvalificerat domän namn (FQDN) |
 | Namn matchning mellan roll instanser eller virtuella datorer i olika virtuella nätverk |Kundhanterade DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-using-your-own-dns-server). |Endast FQDN |
@@ -86,7 +79,7 @@ Flera olika DNS-dnsmasq, till exempel, är tillgängliga. Här följer stegen f�
 5. Starta om nätverks tjänsten ("Service Network restart") för att ställa in cachen som den lokala DNS-matcharen
 
 > [!NOTE]
-> : Paketet "dnsmasq" är bara ett av de många DNS-cacheminnen som är tillgängliga för Linux. Innan du använder den kontrollerar du lämpligheten för dina behov och att ingen annan cache har installerats.
+> : Dnsmasq-paketet är bara ett av de många DNS-cacheminnen som är tillgängliga för Linux. Innan du använder den kontrollerar du lämpligheten för dina behov och att ingen annan cache har installerats.
 >
 >
 
@@ -112,7 +105,7 @@ Filen matcha. conf genereras automatiskt och bör inte redige ras. De specifika 
 2. Kör netconfig Update för att uppdatera.
 
 **CentOS av falsk Wave-programvara (tidigare OpenLogic)** (använder NetworkManager)
-1. Lägg till "RES_OPTIONS =" timeout: 1 försök: 5 "" till "/etc/sysconfig/Network".
+1. Lägg till timeout för RES_OPTIONS =: 1 försök: 5 till/etc/sysconfig/Network.
 2. Kör "Network-restart" för att uppdatera.
 
 ## <a name="name-resolution-using-your-own-dns-server"></a>Namn matchning med hjälp av en egen DNS-Server
@@ -126,7 +119,7 @@ DNS-vidarebefordring möjliggör även DNS-matchning mellan virtuella nätverk o
 
 När du använder namn matchning som Azure tillhandahåller, tillhandahålls det interna DNS-suffixet till varje virtuell dator med hjälp av DHCP. När du använder din egen lösning för namn matchning levereras inte det här suffixet till virtuella datorer eftersom suffixet stör andra DNS-arkitekturer. Om du vill referera till datorer efter FQDN eller konfigurera suffixet på dina virtuella datorer kan du använda PowerShell eller API för att fastställa suffixet:
 
-* För virtuella nätverk som hanteras av Azure Resource Manager är suffixet tillgängligt via [nätverks gränssnitts kortets](https://msdn.microsoft.com/library/azure/mt163668.aspx) resurs. Du kan också köra `azure network public-ip show <resource group> <pip name>` kommandot för att visa information om din offentliga IP-adress, som innehåller det fullständiga domän namnet för nätverkskortet.
+* För virtuella nätverk som hanteras av Azure Resource Manager är suffixet tillgängligt via [nätverks gränssnitts kortets](https://msdn.microsoft.com/library/azure/mt163668.aspx) resurs. Du kan också köra kommandot `azure network public-ip show <resource group> <pip name>` för att visa information om din offentliga IP-adress, som innehåller det fullständiga domän namnet för NÄTVERKSKORTet.
 
 Om du inte uppfyller dina behov när du vidarebefordrar frågor till Azure måste du ange en egen DNS-lösning.  DNS-lösningen måste:
 

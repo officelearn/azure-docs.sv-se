@@ -9,12 +9,12 @@ ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.date: 03/03/2020
-ms.openlocfilehash: 7c5087a15210dff7c2a51aa5af38b8f7c26e28cc
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 943e23aa9d83df33bbe636ce7aee62e6e5a2950e
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673468"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037309"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-designer-preview"></a>Använd exempel data uppsättningarna i Azure Machine Learning designer (förhands granskning)
 
@@ -44,4 +44,4 @@ Exempel data uppsättningarna är tillgängliga under **data uppsättningar**-**
 
 * Lär dig grunderna för förutsägelse analys och maskin inlärning med [Självstudier: förutsäga bil pris med designern](tutorial-designer-automobile-price-train-score.md)
 
-* Använd modulen [Importera data](./algorithm-module-reference/import-data.md) för att importera exempel data uppsättningar
+* Lär dig hur du ändrar befintliga [Designer-exempel](samples-designer.md) för att anpassa dem efter dina behov.

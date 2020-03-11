@@ -16,18 +16,18 @@ ms.date: 11/01/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a78a69301ab2ae637531f8643d9d57a8b44b563f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 99de022b7259b33baab3aa825673a8f85e932bff
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608935"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968748"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Granska åtkomst till ett Access-paket i hantering av Azure AD-rättigheter
 
 Hantering av Azure AD-rättigheten fören klar hur företag hanterar åtkomst till grupper, program och SharePoint-webbplatser. Den här artikeln beskriver hur du utför åtkomst granskningar för andra användare som är tilldelade till ett Access-paket som en angiven granskare.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill granska användarnas aktiva åtkomst paket tilldelningar måste du uppfylla kraven för att få åtkomst granskning:
 - Azure AD Premium P2
@@ -47,7 +47,7 @@ Använd följande steg för att hitta och öppna åtkomst granskningen:
 
 1. Klicka på länken **Granska användar åtkomst** för att öppna åtkomst granskningen. 
 
-1. Om du inte har e-postmeddelandet kan du hitta dina väntande åtkomst granskningar genom att navigera direkt till https://myaccess.microsoft.com.
+1. Om du inte har e-postmeddelandet kan du hitta dina väntande åtkomst granskningar genom att navigera direkt till https://myaccess.microsoft.com.  (För amerikanska myndigheter använder du `https://myaccess.microsoft.us` i stället.)
 
 1. Klicka på **åtkomst granskningar** i det vänstra navigerings fältet för att se en lista över väntande åtkomst granskningar som har tilldelats dig.
     

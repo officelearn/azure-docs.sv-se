@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: bb3a18af89b0baa532309ac76905aa5550af98e5
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 817ff90c10a29d7db7037d89f3c3d51e7f997175
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78398222"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037181"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Skapa Azure Machine Learning data uppsättningar
 
@@ -33,8 +33,7 @@ Med Azure Machine Learning data uppsättningar kan du:
 * Dela data och samar beta med andra användare.
 
 ## <a name="prerequisites"></a>Förutsättningar
-
-Om du vill skapa och arbeta med data uppsättningar behöver du:
+För att skapa och arbeta med data uppsättningar behöver du:
 
 * En Azure-prenumeration. Om du inte har ett konto kan du skapa ett kostnads fritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -44,6 +43,16 @@ Om du vill skapa och arbeta med data uppsättningar behöver du:
 
 > [!NOTE]
 > Vissa data uppsättnings klasser är beroende av [azureml-nu-](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) paketet. För Linux-användare stöds dessa klasser endast för följande distributioner: Red Hat Enterprise Linux, Ubuntu, Fedora och CentOS.
+
+## <a name="compute-size-guidance"></a>Vägledning för beräknings storlek
+
+När du skapar en data uppsättning granskar du beräknings bearbetnings kraften och storleken på dina data i minnet. Storleken på dina data i lagringen är inte samma som storleken på data i en dataframe. Till exempel kan data i CSV-filer utökas upp till 10X i en dataframe, så en CSV-fil på 1 GB kan bli 10 GB i en dataframe. 
+
+Huvud faktorn är hur stor data uppsättningen är i minnet, d.v.s. som en dataframe. Vi rekommenderar att din beräknings storlek och bearbetnings kraft innehåller 2x storleken på RAM-minne. Så om din dataframe är 10 GB, vill du ha ett beräknings mål med 20 + GB RAM-minne för att säkerställa att dataframe kan passa i minnet och bearbetas. Om dina data är komprimerade kan de utökas ytterligare. 20 GB relativt sparse-data som lagras i ett komprimerat Parquet-format kan expanderas till ~ 800 GB i minnet. Eftersom Parquet-filer lagrar data i ett kolumn format, om du bara behöver hälften av kolumnerna, behöver du bara läsa in ~ 400 GB i minnet.
+ 
+Om du använder Pandas finns det ingen anledning att ha fler än 1 vCPU eftersom det är allt som kommer att användas. Du kan enkelt parallellisera till många virtuella processorer på en enda Azure Machine Learning beräknings instans/nod via MODIR och dask/Ray och skala ut till ett stort kluster om det behövs, genom att helt enkelt ändra `import pandas as pd` till `import modin.pandas as pd`. 
+ 
+Om du inte kan få tillräckligt med data för data kan du välja mellan två alternativ: Använd ett ramverk som Spark eller dask för att utföra bearbetningen av data "slut på minne", d.v.s. dataframe läses in i RAM-partitionen efter partition och bearbetning, med det slutliga resultatet som samlas in Erik i slutet. Om detta är för långsamt kan Spark-eller dask göra att du kan skala ut till ett kluster som fortfarande kan användas interaktivt. 
 
 ## <a name="dataset-types"></a>Data uppsättnings typer
 
@@ -57,9 +66,9 @@ Mer information om kommande API-ändringar finns i [meddelande om API-ändring a
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
 
-Genom att skapa en data uppsättning skapar du en referens till data käll platsen, tillsammans med en kopia av dess metadata. Eftersom data behålls på den befintliga platsen debiteras du ingen extra lagrings kostnad. Du kan skapa både `TabularDataset`-och `FileDataset` data uppsättningar med hjälp av python SDK eller https://ml.azure.com.
+Genom att skapa en data uppsättning skapar du en referens till data käll platsen, tillsammans med en kopia av dess metadata. Eftersom data behålls på den befintliga platsen debiteras du ingen extra lagrings kostnad. Du kan skapa både `TabularDataset`-och `FileDataset` data uppsättningar genom att använda python SDK eller https://ml.azure.com.
 
-För att data ska kunna nås av Azure Machine Learning måste data uppsättningar skapas från sökvägar i [Azure-datalager](how-to-access-data.md) eller offentliga webb adresser.
+För att data ska kunna nås av Azure Machine Learning måste data uppsättningar skapas från sökvägar i [Azure-datalager](how-to-access-data.md) eller offentliga webb adresser. 
 
 ### <a name="use-the-sdk"></a>Använd SDK: n
 
@@ -70,7 +79,6 @@ Skapa data uppsättningar från ett [Azure-datalager](how-to-access-data.md) med
 2. Skapa data uppsättningen genom att referera till sökvägar i data lagret.
 > [!Note]
 > Du kan skapa en data uppsättning från flera sökvägar i flera data lager. Det finns ingen hård gräns för antalet filer eller data storlekar som du kan skapa en data uppsättning från. För varje data Sök väg skickas dock några begär anden till lagrings tjänsten för att kontrol lera om det pekar på en fil eller mapp. Den här omkostnaderna kan leda till försämrade prestanda eller problem. En data uppsättning som refererar till en mapp med 1000 filer inuti betraktas som en referens till en data Sök väg. Vi rekommenderar att du skapar en data uppsättning som refererar mindre än 100 sökvägar i data lager för optimala prestanda.
-
 
 #### <a name="create-a-tabulardataset"></a>Skapa en TabularDataset
 

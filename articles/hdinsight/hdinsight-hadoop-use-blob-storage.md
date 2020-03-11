@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: f496f6c06d36f817b0a933bdc68d5c53f308e3f2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e62f6f8df51c6acf4e2ad8e28e431d264c2c99e8
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192633"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037249"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
 
@@ -25,11 +25,11 @@ I den här artikeln får du lära dig hur Azure Storage fungerar med HDInsight-k
 > [!IMPORTANT]  
 > Lagrings konto typen **BlobStorage** kan bara användas som sekundär lagring för HDInsight-kluster.
 
-| Typ av lagrings konto | Tjänster som stöds | Prestanda nivåer som stöds | Åtkomst nivåer som stöds |
-|----------------------|--------------------|-----------------------------|------------------------|
-| StorageV2 (generell användning v2)  | Blob     | Standard                    | Frekvent, låg frekvent, Arkiv\*   |
-| Lagring (generell användning v1)   | Blob     | Standard                    | Saknas                    |
-| BlobStorage                    | Blob     | Standard                    | Frekvent, låg frekvent, Arkiv\*   |
+| Typ av lagrings konto | Tjänster som stöds | Prestanda nivåer som stöds |Prestanda nivåer stöds inte| Åtkomst nivåer som stöds |
+|----------------------|--------------------|-----------------------------|---|------------------------|
+| StorageV2 (generell användning v2)  | Blob     | Standard                    |Premium| Frekvent, låg frekvent, Arkiv\*   |
+| Lagring (generell användning v1)   | Blob     | Standard                    |Premium| Ej tillämpligt                    |
+| BlobStorage                    | Blob     | Standard                    |Premium| Frekvent, låg frekvent, Arkiv\*   |
 
 Vi rekommenderar inte att du använder standard-BLOB-behållaren för lagring av affärs data. Ta bort standardcontainern efter varje användning för att minska lagringskostnaden. Standard behållaren innehåller program-och system loggar. Se till att hämta loggarna innan du tar bort containern.
 

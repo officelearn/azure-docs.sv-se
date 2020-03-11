@@ -138,7 +138,7 @@
       displayName: best practice
     - name: Överväganden för lagring
       href: storage-considerations.md
-      displayName: 'encryption, keys'
+      displayName: 'encryption, keys, mount, files'
     - name: Functions-proxyservrar
       href: functions-proxies.md
     - name: Nätverksalternativ

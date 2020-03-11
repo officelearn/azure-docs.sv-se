@@ -11,12 +11,12 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 01/15/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: ff366468c994d8ba151dd476a5bcccc52bb7309f
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 313ba2c02fd65a967ab1969b6f99893de9a3bdb4
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122854"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037352"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Kör batch-härledning på stora mängder data med hjälp av Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,9 +32,9 @@ I den här artikeln får du lära dig följande uppgifter:
 > * Skapa en [pipeline för maskin inlärning](concept-ml-pipelines.md) för att registrera en förtränad bild klassificerings modell baserad på [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) -datauppsättningen. 
 > * Använd modellen för att köra batch-härledning på exempel avbildningar som är tillgängliga i ditt Azure Blob Storage-konto. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+* Om du inte har en Azure-prenumeration kan du skapa ett kostnads fritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
 * För en guidad snabb start slutför du [installations självstudien](tutorial-1st-experiment-sdk-setup.md) om du inte redan har en Azure Machine Learning arbets yta eller en virtuell dator. 
 
@@ -85,7 +85,7 @@ Nu måste du konfigurera indata och utdata, inklusive:
 - Den katalog som innehåller etiketterna.
 - Katalogen för utdata.
 
-`Dataset` är en klass för att utforska, transformera och hantera data i Azure Machine Learning. Den här klassen har två typer: `TabularDataset` och `FileDataset`. I det här exemplet ska du använda `FileDataset` som indata för pipeline-steget för batch-härledning. 
+[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) är en klass för att utforska, transformera och hantera data i Azure Machine Learning. Den här klassen har två typer: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) och [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py). I det här exemplet ska du använda `FileDataset` som indata för pipeline-steget för batch-härledning. 
 
 > [!NOTE] 
 > `FileDataset` stöd i batch-härledning är begränsat till Azure Blob Storage för tillfället. 
@@ -94,7 +94,7 @@ Du kan också referera till andra data uppsättningar i ditt anpassade härledni
 
 Mer information om Azure Machine Learning data uppsättningar finns i [skapa och komma åt data uppsättningar (för hands version)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
-`PipelineData` objekt används för att överföra mellanliggande data mellan pipeline-steg. I det här exemplet använder du den för utgångs-och utgångs störningar.
+[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) objekt används för att överföra mellanliggande data mellan pipeline-steg. I det här exemplet använder du den för utgångs-och utgångs störningar.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -190,7 +190,7 @@ Skriptet *måste innehålla* två funktioner:
 - `init()`: Använd den här funktionen för eventuell kostsam eller vanlig förberedelse för senare härledning. Använd till exempel den för att läsa in modellen i ett globalt objekt. Den här funktionen kommer endast att anropas en gång i början av processen.
 -  `run(mini_batch)`: funktionen kommer att köras för varje `mini_batch`-instans.
     -  `mini_batch`: parallellt körnings steg anropar Run-metoden och skickar antingen en list-eller Pandas-DataFrame som ett argument till metoden. Varje post i min_batch blir en fil Sök väg om indata är en FileDataset, en Pandas DataFrame om indata är en TabularDataset.
-    -  `response`: Run ()-metoden ska returnera en Pandas-DataFrame eller en matris. För append_row output_action läggs dessa returnerade element till i den gemensamma utdatafilen. För summary_only ignoreras innehållet i elementen. För alla utdata-åtgärder anger varje returnerat utdata en lyckad körning av indata-element i mini-batch för indata. Användaren bör se till att tillräckligt med data ingår i kör resultat för att mappa indata till kör resultat. Körning av utdata skrivs i utdatafilen och är inte garanterat i ordning. användaren bör använda viss nyckel i utdata för att mappa den till indata.
+    -  `response`: Run ()-metoden ska returnera en Pandas-DataFrame eller en matris. För append_row output_action läggs dessa returnerade element till i den gemensamma utdatafilen. För summary_only ignoreras innehållet i elementen. För alla utdata-åtgärder anger varje returnerat utdata en lyckad körning av indata-element i mini-batch för indata. Se till att tillräckligt med data ingår i kör resultat för att mappa indata till kör resultat. Kör utdata skrivs i utdatafilen och är inte garanterat i ordning, du bör använda vissa nycklar i utdata för att mappa den till indata.
 
 ```python
 # Snippets from a sample script.
@@ -331,7 +331,7 @@ parallelrun_step = ParallelRunStep(
 
 ### <a name="run-the-pipeline"></a>Köra en pipeline
 
-Kör nu pipelinen. Skapa först ett `Pipeline`-objekt med hjälp av din arbets ytans referens och det steg för pipeline som du skapade. Parametern `steps` är en matris med steg. I det här fallet finns det bara ett steg för batch-poäng. Placera stegen i den här matrisen för att bygga pipeliner som har flera steg.
+Kör nu pipelinen. Skapa först ett [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) -objekt med hjälp av din arbets ytans referens och det steg för pipeline som du skapade. Parametern `steps` är en matris med steg. I det här fallet finns det bara ett steg för batch-poäng. Placera stegen i den här matrisen för att bygga pipeliner som har flera steg.
 
 Använd sedan `Experiment.submit()`-funktionen för att skicka pipelinen för körning.
 

@@ -1,7 +1,7 @@
 ---
-title: Skapa ditt första automatiserade ML-experiment
+title: Skapa automatiserade ML-klassificerings modeller
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du tränar och distribuerar en klassificerings modell med automatisk maskin inlärning i Azure Machine Learning Studio.
+description: Lär dig hur du tränar & att distribuera klassificerings modeller med Azure Machine Learning s automatiserade maskin inlärnings gränssnitt (automatiserad ML).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 02/04/2020
-ms.openlocfilehash: 70fcdb1c22664a0bd3091fea88c8e23e3d1b81e5
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 84d539f35919293522f05abdeabeca936138c140
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048290"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081632"
 ---
-# <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Självstudie: skapa din första klassificerings modell med automatiserad maskin inlärning
+# <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Självstudie: skapa en klassificerings modell med automatiserad ML i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-I den här självstudien får du lära dig hur du skapar ditt första automatiserade maskin inlärnings experiment genom Azure Machine Learning Studio utan att skriva en enda rad kod. I det här exemplet skapas en klassificerings modell för att förutsäga om en klient kommer att prenumerera på en fast term insättning med ett finansiellt institut.
+I den här självstudien får du lära dig hur du skapar en grundläggande klassificerings modell utan att skriva en enda rad kod med hjälp av Azure Machine Learnings automatiserade Machine Learning-gränssnittet. Den här klassificerings modellen förutsäger om en klient kommer att prenumerera på en fast term insättning med ett finansiellt institut.
 
 Med automatisk maskin inlärning kan du automatisera tids krävande uppgifter. Automatisk maskin inlärning itererar snabbt över många kombinationer av algoritmer och egenskaper för att hjälpa dig att hitta den bästa modellen utifrån ett lyckat mått på hur du väljer.
 
@@ -34,7 +34,7 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLFree).
 
 * Ladda ned data filen [**bankmarketing_train. csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) . **Y** -kolumnen visar om en kund prenumererar på en fast term insättning, som senare identifieras som mål kolumn för förutsägelser i den här självstudien. 
 
@@ -42,7 +42,7 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 
 En Azure Machine Learning arbets yta är en grundläggande resurs i molnet som du använder för att experimentera, träna och distribuera maskin inlärnings modeller. Den binder din Azure-prenumeration och resurs grupp till ett enkelt förbrukat objekt i tjänsten. 
 
-Du skapar en arbets yta via Azure Machine Learning Studio, en webbaserad konsol för att hantera dina Azure-resurser.
+Du skapar en arbets yta via Azure Portal, en webbaserad konsol för att hantera dina Azure-resurser.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
@@ -51,9 +51,9 @@ Du skapar en arbets yta via Azure Machine Learning Studio, en webbaserad konsol 
 
 ## <a name="create-and-run-the-experiment"></a>Skapa och kör experimentet
 
-Du har slutfört följande experiment med att ställa in och köra steg i Azure Machine Learning Studio, ett konsoliderat gränssnitt som innehåller maskin inlärnings verktyg för att utföra data vetenskaps scenarier för utbildnings nivåer för data vetenskap. Studio stöds inte i Internet Explorer-webbläsare.
+Du har slutfört följande experiment konfiguration och kör steg via Azure Machine Learning på https://ml.azure.com, ett konsoliderat webb gränssnitt som innehåller maskin inlärnings verktyg för att utföra data vetenskaps scenarier för utbildnings nivåer för data vetenskap. Det här gränssnittet stöds inte i Internet Explorer-webbläsare.
 
-1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com).
+1. Logga in på Azure Machine Learning på https://ml.azure.com.
 
 1. Välj din prenumeration och arbets ytan du skapade.
 
@@ -63,13 +63,13 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
 
    Eftersom det här är ditt första automatiserade ML-experiment ser du en tom lista och länkar till dokumentationen.
 
-   ![Azure Machine Learning-studio](./media/tutorial-first-experiment-automated-ml/get-started.png)
+   ![Sidan Kom igång](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
 1. Välj **ny automatisk ml-körning**. 
 
 1. Skapa en ny data uppsättning genom att välja **från lokala filer** från List rutan **+ skapa data uppsättning** . 
 
-    1. Ge din data uppsättning ett namn i formuläret **grundläggande information** och ange en valfri beskrivning. Automatisk ML i Azure Machine Learning Studio stöder för närvarande endast tabell data uppsättningar, så data uppsättnings typen ska vara standard i tabell.
+    1. Ge din data uppsättning ett namn i formuläret **grundläggande information** och ange en valfri beskrivning. Det automatiserade ML-gränssnittet stöder för närvarande endast TabularDatasets, så data uppsättnings typen ska vara standard i *tabell*.
 
     1. Välj **Nästa** längst ned till vänster
 
@@ -163,9 +163,9 @@ Följande navigerar i flikarna **modell information** och **visualiseringar** f�
 
 ![Kör upprepnings information](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 
-## <a name="deploy-the-model"></a>Distribuera modellen
+## <a name="deploy-the-best-model"></a>Distribuera den bästa modellen
 
-Med automatisk maskin inlärning i Azure Machine Learning Studio kan du distribuera den bästa modellen som en webb tjänst med några få steg. Distribution är integreringen av modellen så att den kan förutsäga nya data och identifiera potentiella områden i affärs möjligheten. 
+Med det automatiserade Machine Learning-gränssnittet kan du distribuera den bästa modellen som en webb tjänst med några få steg. Distribution är integreringen av modellen så att den kan förutsäga nya data och identifiera potentiella områden i affärs möjligheten. 
 
 För det här experimentet innebär distribution till en webb tjänst att finans Institutet nu har en iterativ och skalbar webb lösning för att identifiera potentiella fasta, långsiktiga kunder. 
 
@@ -201,29 +201,29 @@ Distributions filer är större än data-och experiment-filer, så att de kostar
 
 ### <a name="delete-the-deployment-instance"></a>Ta bort distributions instansen
 
-Ta bara bort distributions instansen från Azure Machine Learning Studio om du vill behålla resurs gruppen och arbets ytan för andra självstudier och utforskningar. 
+Ta bara bort distributions instansen från Azure Machine Learning på https://ml.azure.com/, om du vill behålla resurs gruppen och arbets ytan för andra självstudier och utforskningar. 
 
-1. Gå till [Azure Machine Learning Studio](https://ml.azure.com/). Gå till arbets ytan och välj **slut punkter**i fönstret **till** vänster. 
+1. Gå till Azure Machine Learning på https://ml.azure.com/. Gå till arbets ytan och välj **slut punkter**i fönstret **till** vänster. 
 
 1. Välj den distribution som du vill ta bort och välj **ta bort**. 
 
 1. Välj **Fortsätt**.
 
-### <a name="delete-the-resource-group"></a>Ta bort resurs gruppen
+### <a name="delete-the-resource-group"></a>Ta bort resursgruppen
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här automatiska självstudien för maskin inlärning använde du Azure Machine Learning Studio för att skapa och distribuera en klassificerings modell. Se de här artiklarna för mer information och nästa steg:
+I den här automatiska självstudien om Machine Learning använde du Azure Machine Learning s automatiserade ML-gränssnitt för att skapa och distribuera en klassificerings modell. Se de här artiklarna för mer information och nästa steg:
 
 > [!div class="nextstepaction"]
 > [Använda en webb tjänst](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
-+ Läs mer om [funktionalisering](how-to-create-portal-experiments.md#featurization).
-+ Läs mer om [data profilering](how-to-create-portal-experiments.md#profile).
 + Lär dig mer om [Automatisk maskin inlärning](concept-automated-ml.md).
-+ Mer information om klassificerings mått och diagram finns i artikeln [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md#classification) .
++ Mer information om klassificerings mått och diagram finns i artikeln [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md#classification) . + Läs mer om [funktionalisering](how-to-create-portal-experiments.md#featurization).
++ Läs mer om [data profilering](how-to-create-portal-experiments.md#profile).
+
 
 >[!NOTE]
 > Den här data uppsättningen för bank marknadsföring görs tillgänglig i [CCO-licensen för Creative Commons (: offentlig domän)](https://creativecommons.org/publicdomain/zero/1.0/). Alla rättigheter i det enskilda innehållet i databasen licensieras enligt [licensen för databas innehåll](https://creativecommons.org/publicdomain/zero/1.0/) och är tillgängliga på [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Den här data uppsättningen var ursprungligen tillgänglig i den [Machine Learning databasen](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>

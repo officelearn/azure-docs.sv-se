@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: d39ac40e8e29c7ff90e2accc3a519449571c1d58
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.date: 03/10/2020
+ms.openlocfilehash: 2e12952c04373fe47eaebb24b61a4fc563121185
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917415"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037123"
 ---
 # <a name="execute-r-script"></a>Köra R-skript
 
@@ -67,11 +67,43 @@ azureml_main <- function(dataframe1, dataframe2){
  > [!NOTE]
   > Kontrol lera att paketet redan finns innan du installerar det för att undvika upprepad installation. Som `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")` i ovanstående exempel kod. Upprepade installationer kan orsaka timeout för webb tjänst begär Anden.     
 
+## <a name="upload-files"></a>Överföra filer
+**Execute R-skriptet** stöder överföring av filer med hjälp av Azure Machine Learning R SDK.
+
+I följande exempel visas hur du överför en avbildnings fil i **skriptet kör R**:
+```R
+
+# R version: 3.5.1
+# The script MUST contain a function named azureml_main
+# which is the entry point for this module.
+
+# The entry point function can contain up to two input arguments:
+#   Param<dataframe1>: a R DataFrame
+#   Param<dataframe2>: a R DataFrame
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+
+  # Generate a jpeg graph
+  img_file_name <- "rect.jpg"
+  jpeg(file=img_file_name)
+  example(rect)
+  dev.off()
+
+  upload_files_to_run(names = list(file.path("graphic", img_file_name)), paths=list(img_file_name))
+
+
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
+När pipelinen har skickats kan du förhandsgranska bilden i den högra panelen i modulen ![överförd bild](media/module/upload-image-in-r-script.png)
+
 ## <a name="how-to-configure-execute-r-script"></a>Så här konfigurerar du kör R-skript
 
 **Skriptet kör R-skript** innehåller exempel kod som du kan använda som utgångs punkt. Konfigurera modulen **Kör R-skript** genom att ange en uppsättning indata och kod att köra.
 
-![R-modul](media/module/execute-r-script.png)
+![R-modul](media/module/upload-image-in-r-script.png)
 
 Data uppsättningar som lagras i designern konverteras automatiskt till en R data-ram när de läses in med den här modulen.
 

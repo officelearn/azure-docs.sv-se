@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 106f83e4c8fdf33ac8752e5942dbb22a2df78693
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f2703994d3fe8765662e6a0205d63cef9327e17a
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840510"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080196"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Inlärnings kunskap för bild analys
 
@@ -35,14 +35,14 @@ Parametrar är Skift läges känsliga.
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
 | defaultLanguageCode   |  En sträng som anger det språk som ska returneras. Tjänsten returnerar igenkännings resultat på ett angivet språk. Om den här parametern inte anges är standardvärdet "en". <br/><br/>Språk som stöds: <br/>*en* – engelska (standard) <br/> *es* – spanska <br/> *Ja* – japanska <br/> *PT* -portugisiska <br/> *zh* – förenklad kinesiska|
-| visualFeatures |  En sträng mat ris som anger vilka visuella funktions typer som ska returneras. Giltiga typer av visuella funktioner är:  <ul><li>*vuxen* – identifierar om bilden är pornografiskt (visar nakenhet eller en kön Act) eller är fullständig (visar extrema våld eller blod). Sexuellt innehåll (aka vågat-innehåll) identifieras också.</li><li>*varumärken* – identifierar olika varumärken inom en avbildning, inklusive den ungefärliga platsen. Den visuella funktionen *varumärken* är endast tillgänglig på engelska.</li><li> *Kategorier* – kategoriserar bild innehåll enligt en taxonomi som definierats i Cognitive Services [visuellt innehåll-dokumentationen](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy). </li><li> *färg* – bestämmer dekor färg, dominerande färg och om en bild är svart & vit.</li><li>*Beskrivning* – beskriver bild innehållet med en hel mening i språk som stöds.</li><li>*ansikten* – identifierar om det finns ansikten. Om det finns genererar koordinater, kön och ålder.</li><li>  *imageType* – identifierar om bilden är ClipArt eller en linje ritning.</li><li>  *objekt* – identifierar olika objekt i en bild, inklusive den ungefärliga platsen. Den visuella *objekt* funktionen är endast tillgänglig på engelska.</li><li> *taggar* – Taggar avbildningen med en detaljerad lista över ord relaterade till bild innehållet.</li></ul> Namn på visuella funktioner är Skift läges känsliga.|
+| visualFeatures |  En sträng mat ris som anger vilka visuella funktions typer som ska returneras. Giltiga typer av visuella funktioner är:  <ul><li>*vuxen* – identifierar om bilden är pornografiskt (visar nakenhet eller en kön Act) eller är fullständig (visar extrema våld eller blod). Sexuellt innehåll (aka vågat-innehåll) identifieras också.</li><li>*varumärken* – identifierar olika varumärken inom en avbildning, inklusive den ungefärliga platsen. Den visuella funktionen *varumärken* är endast tillgänglig på engelska.</li><li> *Kategorier* – kategoriserar bild innehåll enligt en taxonomi som definierats i Cognitive Services [visuellt innehåll-dokumentationen](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy). </li><li>*Beskrivning* – beskriver bild innehållet med en hel mening i språk som stöds.</li><li>*ansikten* – identifierar om det finns ansikten. Om det finns genererar koordinater, kön och ålder.</li><li> *objekt* – identifierar olika objekt i en bild, inklusive den ungefärliga platsen. Den visuella *objekt* funktionen är endast tillgänglig på engelska.</li><li> *taggar* – Taggar avbildningen med en detaljerad lista över ord relaterade till bild innehållet.</li></ul> Namn på visuella funktioner är Skift läges känsliga. Observera att de visuella funktionerna *färg* och *imageType* har föråldrats, men den här funktionen kan fortfarande nås via en [anpassad färdighet](https://go.microsoft.com/fwlink/?linkid=2121117).|
 | details   | En sträng mat ris som visar vilken datorspecifik information som ska returneras. Giltiga typer av visuella funktioner är: <ul><li>*kändisar* – identifierar kändisar om det identifierats i avbildningen.</li><li>*landmärken* – identifierar landmärken om de upptäcks i bilden. </li></ul> |
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
 
 | Inmatat namn      | Beskrivning                                          |
 |---------------|------------------------------------------------------|
-| mallar         | Komplex typ. För närvarande fungerar det bara med fältet "/Document/normalized_images" som skapas av Azure Blob-indexeraren när ```imageAction``` har ett annat värde än ```none```. Se [exemplet](#sample-output) för mer information.|
+| image         | Komplex typ. För närvarande fungerar det bara med fältet "/Document/normalized_images" som skapas av Azure Blob-indexeraren när ```imageAction``` har ett annat värde än ```none```. Se [exemplet](#sample-output) för mer information.|
 
 
 
@@ -470,20 +470,6 @@ Du kan definiera mappningar för utdatakolumner till lågnivå egenskaper, till 
             ]
           }
         ],
-        "color": {
-          "dominantColorForeground": "Brown",
-          "dominantColorBackground": "Brown",
-          "dominantColors": [
-            "Brown",
-            "Black"
-          ],
-          "accentColor": "873B59",
-          "isBwImg": false
-        },
-        "imageType": {
-          "clipArtType": 0,
-          "lineDrawingType": 0
-        },
         "objects": [
           {
             "rectangle": {
@@ -543,7 +529,7 @@ Om du får det fel som liknar `"One or more skills are invalid. Details: Error i
             ]
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 + [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)

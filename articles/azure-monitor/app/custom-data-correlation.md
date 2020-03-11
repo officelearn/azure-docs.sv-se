@@ -1,17 +1,17 @@
 ---
 title: Azure Application Insights | Microsoft Docs
-description: ''
+description: Korrelera data från Application Insights till andra data uppsättningar, till exempel data anriknings-eller uppslags tabeller, icke-Application Insights data källor och anpassade data.
 ms.topic: conceptual
 author: eternovsky
 ms.author: evternov
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 75c5bd5bd6a7ded8679c30446a45809a1ea4406a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 121e4699bd6a72f6865d3a6ffdef58c1b3806047
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672012"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082769"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Korrelera Application Insights data med anpassade data källor
 

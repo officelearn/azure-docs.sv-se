@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 8208bbf4d196091a6fe4cd962ddc7373d303e125
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 78a6e7fa8d030185f537136a3a2124d8bc59d808
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312438"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037631"
 ---
-# <a name="what-is-azure-machine-learning-designer"></a>Vad är Azure Machine Learning designer? 
+# <a name="what-is-azure-machine-learning-designer-preview"></a>Vad är Azure Machine Learning designer (för hands version)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Med Azure Machine Learning Designer kan du visuellt ansluta [data uppsättningar](#datasets) och [moduler](#module) på en interaktiv arbets yta för att skapa maskin inlärnings modeller. Information om hur du kommer igång med design verktyget finns i [Självstudier: förutsäga Automobile-priset med designern](tutorial-designer-automobile-price-train-score.md)
@@ -116,7 +116,7 @@ Designern skapar samma [PublishedPipeline](https://docs.microsoft.com/python/api
 
 ## <a name="moving-from-the-visual-interface-to-the-designer"></a>Flytta från det visuella gränssnittet till designern
 
-Visual Interface (för hands version) har uppdaterats och är nu Azure Machine Learning designer. Designern har återskapats för att använda en pipeline-baserad server del som helt kan integreras med de andra funktionerna i Azure Machine Learning. 
+Visual Interface (för hands version) har uppdaterats och är nu Azure Machine Learning designer (för hands version). Designern har återskapats för att använda en pipeline-baserad server del som helt kan integreras med de andra funktionerna i Azure Machine Learning. 
 
 Som ett resultat av dessa uppdateringar har vissa begrepp och villkor för det visuella gränssnittet ändrats eller bytt namn. Se tabellen nedan för de viktigaste koncept ändringarna. 
 
@@ -135,13 +135,5 @@ Du kan konvertera befintliga experiment och webb tjänster för visuella gränss
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig grunderna för förutsägelse analys och maskin inlärning med [Självstudier: förutsäga bil pris med designern](tutorial-designer-automobile-price-train-score.md)
-* Använd ett av exemplen och ändra till Suite-behoven:
-
-- [Exempel 1 – regression: förutsäga ett bils pris](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Exempel 2-regression: jämför algoritmer för bil förutsägelse av bilar](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Exempel 3 – klassificering med funktions val: inkomst förutsägelse](how-to-designer-sample-classification-predict-income.md)
-- [Exempel 4 – klassificering: förutsägelse kredit risk (kostnads känsligt)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Exempel 5 – klassificering: förutsägelse omsättning](how-to-designer-sample-classification-churn.md)
-- [Exempel 6 – klassificering: förutsäga flyg fördröjningar](how-to-designer-sample-classification-flight-delay.md)
-- [Exempel 7 – text klassificering: Wikipedia SP 500-datauppsättning](how-to-designer-sample-text-classification.md)
+* Lär dig hur du ändrar befintliga [Designer-exempel](samples-designer.md) för att anpassa dem efter dina behov.
 

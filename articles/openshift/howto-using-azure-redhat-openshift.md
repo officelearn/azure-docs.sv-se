@@ -7,17 +7,20 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
-ms.openlocfilehash: 81f8edb42be1f73692062d36440890ef5a1e7c9a
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 3c336a1fbfb9f991ff824e8deafe84f3d899771d
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899313"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082837"
 ---
 # <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Skapa, komma åt och hantera ett Azure Red Hat OpenShift 4,3-kluster
 
 > [!IMPORTANT]
-> Azure Red Hat OpenShift (ARO) 4,3 erbjuds i för hands versionen. För hands versions funktionerna är självbetjäning och tillhandahålls och är tillgängliga och omfattas inte av service nivå avtalet (SLA) och begränsad garanti. Därför är funktionerna inte avsedda att användas för produktion.
+> Observera att Azure Red Hat OpenShift 4,3 är för närvarande endast tillgängligt i privat för hands version i USA, östra. Godkännande av privat för hands version är endast efter inbjudan. Var noga med att registrera din prenumeration innan du försöker aktivera den här funktionen: [Azure Red Hat OpenShift, privat för hands registrering](https://aka.ms/aro-preview-register)
+
+> [!NOTE]
+> För hands versions funktionerna är självbetjäning och tillhandahålls och är tillgängliga och omfattas inte av service nivå avtalet (SLA) och begränsad garanti. Därför är funktionerna inte avsedda att användas för produktion.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

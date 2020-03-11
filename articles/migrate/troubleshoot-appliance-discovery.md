@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 37da62a4eb0f934133d6486872ba319138299614
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 3e25f55d82ba146f9076e38faf1e399c5228d947
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048690"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080401"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Felsöka Azure Migrate-installationen och identifieringen
 
@@ -150,6 +150,7 @@ Vanliga fel för identifiering av appar sammanfattas i tabellen.
 10004: "Det gick inte att identifiera installerade program för < Windows/Linux >-datorer." |  Autentiseringsuppgifter för åtkomst till < Windows/Linux > datorer som inte tillhandahölls i installationen.| Lägg till en autentiseringsuppgift till den installation som har åtkomst till < Windows/Linux >-datorer.
 10005: det gick inte att komma åt den lokala servern. | Autentiseringsuppgifterna för åtkomsten kan vara fel. | Uppdatera autentiseringsuppgifterna för installationen se till att du har åtkomst till den relevanta datorn med dem. 
 10006: det gick inte att komma åt den lokala servern. | Detta kan inträffa om datorns operativ system inte är Windows eller Linux.|  Använd endast app Discovery för Windows/Linux.
+10007: "Det gick inte att bearbeta hämtade metadata" | Det uppstod ett internt fel vid försök att deserialisera JSON | Kontakta Microsoft Support för en lösning
 9000/9001/9002: "Det gick inte att identifiera de program som är installerade på servern". | VMware-verktyg kanske inte har installerats eller är skadade. | Installera/installera om VMware-verktyg på den aktuella datorn och kontrol lera att den körs.
 9003: det gick inte att identifiera de program som är installerade på servern. | Detta kan inträffa om datorns operativ system inte är Windows eller Linux. | Använd endast app Discovery för Windows/Linux.
 9004: "Det gick inte att identifiera de program som är installerade på servern". | Detta kan inträffa om den virtuella datorn är avstängd. | För identifiering kontrollerar du att den virtuella datorn finns på.
@@ -158,9 +159,21 @@ Vanliga fel för identifiering av appar sammanfattas i tabellen.
 9008: "Det gick inte att hämta de program som har installerats på servern". | Kan vara ett internt fel.  | TF problemet löses inte inom 24 timmar, kontakta supporten.
 9009: "Det gick inte att hämta de program som har installerats på servern". | Kan inträffa om inställningarna för Windows User Account Control (UAC) på servern är restriktiva och förhindra identifiering av installerade program. | Sök efter "User Account Control"-inställningar på servern och konfigurera UAC-inställningen på servern till en av de lägre två nivåerna.
 9010: "Det gick inte att hämta de program som har installerats på servern". | Kan vara ett internt fel.  | TF problemet löses inte inom 24 timmar, kontakta supporten.
+9011: "Det gick inte att hitta filen som ska laddas ned från gästen på den virtuella gäst datorn" | Problemet kan uppstå på grund av ett internt fel. | Problemet bör automatiskt lösas på 24 timmar. Om problemet kvarstår kontaktar du Microsoft Support.
+9012: innehållet i resultat filen är tomt. | Problemet kan uppstå på grund av ett internt fel. | Problemet bör automatiskt lösas på 24 timmar. Om problemet kvarstår kontaktar du Microsoft Support.
+9013: "en ny tillfällig profil skapas för varje inloggning till den virtuella VMware-datorn" | En ny tillfällig profil skapas för varje inloggning i den virtuella datorn | Se till att det användar namn som anges i gäst-VM-autentiseringsuppgifterna är i UPN-format.
+9015: "det går inte att ansluta till virtuella VMware-datorer på grund av otillräcklig behörighet på vCenter" | Gäst drifts rollen är inte aktive rad på vCenter-användarkontot | Se till att rollen gäst åtgärder är aktive rad på vCenter-användarkontot.
+9016: "det går inte att ansluta till virtuella VMware-datorer eftersom gäst åtgärds agenten saknar data" | VMware-verktygen har inte installerats korrekt eller är inte aktuella. | Se till att VMware-verktygen är korrekt installerade och aktuella.
+9017: "Det gick inte att hitta filen med identifierade metadata på den virtuella datorn." | Problemet kan uppstå på grund av ett internt fel. | Kontakta Microsoft Support för att få en lösning.
+9018: PowerShell är inte installerat på de virtuella gäst datorerna. | PowerShell är inte tillgängligt på den virtuella gäst datorn. | Installera PowerShell på den virtuella gäst datorn.
+9019: "Det gick inte att identifiera på grund av problem med den virtuella gäst datorn" | Det gick inte att utföra VMware-gästen på den virtuella datorn. | Se till att autentiseringsuppgifterna för den virtuella datorn är giltiga och att användar namnet som angavs i autentiseringsuppgifterna för gäst-VM är i UPN-format.
+9020: "behörighet för att skapa fil nekas". | Rollen som är associerad med användaren eller grup principen begränsar användaren för att skapa filen i mappen | Kontrol lera att den angivna gäst användaren har behörigheten Skapa för filen i mappen. Se **meddelanden** i Server utvärderingen för mappens namn.
+9021: "fil skapande behörighet nekas i Temp-sökvägen för temp." | VMware-verktygets version på den virtuella datorn stöds inte | Uppgradera VMware-verktygets version över 10.2.0.
+9022: det går inte att få åtkomst till WMI-objekt. | Rollen som är associerad med användaren eller grup principen begränsar användaren för att få åtkomst till WMI-objektet. | Kontakta Microsoft Support.
+9023: "systemroots miljö variabel värde är tomt". | Okänd | Kontakta Microsoft Support.
+9024: "TEMP-Miljövariabelns värde är tomt". | Okänd | Kontakta Microsoft Support.
+9025: PowerShell är skadat i de virtuella gäst datorerna. | Okänd | Installera om PowerShell på den virtuella gäst datorn och kontrol lera om PowerShell kan köras på den virtuella gäst datorn.
 8084: "Det gick inte att identifiera program på grund av VMware-fel: <Exception from VMware>" | Azure Migrates enheten använder VMware API: er för att identifiera program. Det här problemet kan inträffa om ett undantags fel uppstår i vCenter Server vid försök att identifiera program. Fel meddelandet från VMware visas i fel meddelandet som visas i portalen. | Sök efter meddelandet i VMware- [dokumentationen](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)och följ stegen för att åtgärda problemet. Kontakta Microsoft-supporten om du inte kan åtgärda det.
-9012: "Det gick inte att identifiera de program som är installerade på servern" | Problemet kan uppstå på grund av ett internt fel.  | Kontakta supporten om problemet inte löses inom 24 timmar.
-9013: "Det gick inte att identifiera de program som är installerade på servern" | En ny tillfällig profil skapas varje gången som loggar in på den virtuella datorn.  | Se till att ingen tillfällig profil har skapats för den angivna gäst användaren.
 
 
 

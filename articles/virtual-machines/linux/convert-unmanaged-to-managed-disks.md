@@ -1,18 +1,18 @@
 ---
 title: Konvertera en virtuell Linux-dator från ohanterade diskar till hanterade diskar
-description: Så här konverterar du en virtuell Linux-dator från ohanterade diskar till hanterade diskar med hjälp av Azure CLI i distributions modellen för Resource Manager
+description: Så här konverterar du en virtuell Linux-dator från ohanterade diskar till hanterade diskar med hjälp av Azure CLI.
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 24024bc66e10937f1ae2fdc5130ffcd8c76c1763
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2774dcbd5fc5b01627b965c2c02d870412c8bf77
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430995"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969699"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konvertera en virtuell Linux-dator från ohanterade diskar till hanterade diskar
 
@@ -94,7 +94,7 @@ Alla virtuella datorer i tillgänglighets uppsättningen måste frigöras innan 
 
 Du kan också konvertera ohanterade diskar till hanterade diskar med hjälp av Azure Portal.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj den virtuella datorn i listan över virtuella datorer i portalen.
 3. I bladet för den virtuella datorn väljer du **diskar** på menyn.
 4. Överst på bladet **diskar** väljer **du migrera till Managed disks**.

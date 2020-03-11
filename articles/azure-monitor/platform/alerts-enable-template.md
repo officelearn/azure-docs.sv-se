@@ -4,23 +4,22 @@ description: Lär dig hur du använder en Resource Manager-mall för att skapa e
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 4/27/2018
+ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: c25886308b4f9560b336982b87bd4b38b306bcb2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 4f840d3771c2520e239d8ff3416722429f9502f3
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668051"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037229"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Skapa en klassisk måttavisering med en Resource Manager-mall
-Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) för att konfigurera Azure Metric-aviseringar. På så sätt kan du automatiskt konfigurera aviseringar för dina resurser när de skapas för att säkerställa att alla resurser övervakas korrekt.
-
-> [!NOTE]
+> [!WARNING]
 > 
-> I den här artikeln beskrivs hur du skapar **klassiska mått varningar** med Resource Manager-mallar. Om du letar efter att skapa [nya mått aviseringar](../../azure-monitor/platform/alerts-metric-near-real-time.md) med hjälp av mallar, innehåller [den här artikeln](alerts-metric-create-templates.md) information.
+> I den här artikeln beskrivs hur du skapar **klassiska mått varningar** med Resource Manager-mallar. De klassiska aviseringarna drogs tillbaka i augusti 2019 och ställdes in så att de var helt inaktuella i juni 2020. Du kan inte skapa nya klassiska offentliga aviseringar Azure. Vissa regionala versioner av Azure kan fortfarande ha alternativet, men vi föreslår att du i stället skapar [nya mått aviseringar](../../azure-monitor/platform/alerts-metric-near-real-time.md) med hjälp av mallar om det är möjligt. [Den här artikeln](alerts-metric-create-templates.md) innehåller information.
 >
 
+Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) för att konfigurera klassiska Azure-Metric-aviseringar. På så sätt kan du automatiskt konfigurera aviseringar för dina resurser när de skapas för att säkerställa att alla resurser övervakas korrekt.
 
 De grundläggande stegen är följande:
 

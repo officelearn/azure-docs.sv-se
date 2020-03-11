@@ -6,12 +6,12 @@ manager: sridmad
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: chrpap
-ms.openlocfilehash: d8ee2327f65332d32038806f2d2416cac190875b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 330b455a61c45ccdb59e5aef8162fd1b04859a00
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661984"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969408"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Så här tar du bort en Service Fabric Node-typ
 Den här artikeln beskriver hur du skalar ett Azure Service Fabric-kluster genom att ta bort en befintlig nodtyp från ett kluster. Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en nod. Skalnings uppsättningar för virtuella datorer är en Azure Compute-resurs som du använder för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster har [kon figurer ATS som en separat skalnings uppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. När du har skapat ett Service Fabric-kluster kan du skala ett kluster vågrätt genom att ta bort en nodtyp (skalnings uppsättning för virtuell dator) och alla dess noder.  Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.  När klustret skalas, skalas programmen automatiskt.
@@ -31,7 +31,7 @@ Service Fabric "dirigerar" underliggande ändringar och uppdateringar så att in
 
 När du tar bort en nodtyp som är brons går alla noder i nodtypen omedelbart ned. Service Fabric sväller inte alla de virtuella datorerna för skalnings uppsättningar i brons-noder, och därför går alla virtuella datorer omedelbart ned Om du hade något tillstånd för dessa noder försvinner data. Även om du har tillstånds lösa kan alla noder i Service Fabric delta i ringen, vilket innebär att hela nätverket kan gå förlorat, vilket kan göra själva klustret.
 
-## <a name="remove-a-non-primary-node-type"></a>Ta bort en icke-primär nodtyp
+## <a name="remove-a-node-type"></a>Ta bort en nodtyp
 
 1. Följ dessa krav innan du startar processen.
 
@@ -122,7 +122,7 @@ När du tar bort en nodtyp som är brons går alla noder i nodtypen omedelbart n
     - Leta upp den Azure Resource Manager-mall som används för distribution.
     - Hitta avsnittet som är relaterat till nodtypen i avsnittet Service Fabric.
     - Ta bort avsnittet som motsvarar nodtypen.
-    - För de silver och högre tåliga klustren uppdaterar du kluster resursen i mallen och konfigurerar hälso principer för att ignorera infrastruktur:/System program hälsa genom att lägga till `applicationDeltaHealthPolicies` enligt ovan. Principen nedan bör ignorera befintliga fel men inte tillåta nya hälso fel. 
+    - Uppdatera kluster resursen i mallen och konfigurera hälso principer för att ignorera infrastruktur resurser:/System program hälsa genom att lägga till `applicationDeltaHealthPolicies` under kluster resurs `properties` enligt nedan. Principen nedan bör ignorera befintliga fel men inte tillåta nya hälso fel. 
  
  
      ```json
@@ -158,7 +158,7 @@ När du tar bort en nodtyp som är brons går alla noder i nodtypen omedelbart n
     },
     ```
 
-    Distribuera den ändrade Azure Resource Manager-mallen. \* * Detta steg tar en stund, vanligt vis upp till två timmar. Den här uppgraderingen ändrar inställningarna till InfrastructureService, vilket innebär att en omstart av noden krävs. I det här fallet ignoreras `forceRestart`. 
+    - Distribuera den ändrade Azure Resource Manager-mallen. \* * Detta steg tar en stund, vanligt vis upp till två timmar. Den här uppgraderingen ändrar inställningarna till InfrastructureService, vilket innebär att en omstart av noden krävs. I det här fallet ignoreras `forceRestart`. 
     Parametern `upgradeReplicaSetCheckTimeout` anger den längsta tid som Service Fabric väntar på att en partition ska vara i ett säkert tillstånd, om den inte redan är i säkert tillstånd. När säkerhets kontrollerna har godkänts för alla partitioner på en nod fortsätter Service Fabric med uppgraderingen på noden.
     Värdet för parametern `upgradeTimeout` kan minskas till 6 timmar, men för maximal säkerhet 12 timmar bör användas.
 

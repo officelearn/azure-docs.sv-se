@@ -1,6 +1,6 @@
 ---
-title: Anslut privat till en webbapp och skydda data exfiltrering med Azures privata slut punkt
-description: Anslut privat till en webbapp och skydda data exfiltrering med Azures privata slut punkt
+title: Anslut privat till en webbapp med hjälp av privat Azure-slutpunkt
+description: Anslut privat till en webbapp med hjälp av privat Azure-slutpunkt
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
@@ -8,24 +8,23 @@ ms.date: 03/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: aa1fd341e60a71ad1ffbb535120e63db5a8bfd0b
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 893a7a2c7483fccc3bbc7bd198929f65917457b3
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851235"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79036951"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Använda privata slut punkter för Azure Web App (för hands version)
 
-Du kan använda privat slut punkt för din Azure-webbapp för att tillåta klienter som finns i ditt privata nätverk att på ett säkert sätt få åtkomst till appen via privat länk. Den privata slut punkten använder en IP-adress från ditt Azure VNet-adressutrymme. Nätverks trafiken mellan klienten i ditt privata nätverk och webbappen passerar över VNet och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet. Med privat slut punkt kan du inaktivera utgående nätverks flöden från under nätet med NSG och eliminera risken för data läckage.
+Du kan använda privat slut punkt för din Azure-webbapp för att tillåta klienter som finns i ditt privata nätverk att på ett säkert sätt få åtkomst till appen via privat länk. Den privata slut punkten använder en IP-adress från ditt Azure VNet-adressutrymme. Nätverks trafiken mellan klienten i ditt privata nätverk och webbappen passerar över VNet och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet.
 
 Med hjälp av privat slut punkt för din webbapp kan du:
 
 - Skydda din webbapp genom att konfigurera tjänstens slut punkt, vilket eliminerar offentlig exponering
-- Öka säkerheten för VNet genom att göra det möjligt att blockera data exfiltrering från VNet
 - Anslut säkert till en webbapp från lokala nätverk som ansluter till VNet med en VPN-eller ExpressRoute-peering.
 
-Om du bara behöver en säker anslutning mellan ditt VNet och din webbapp är tjänst slut punkten den enklaste lösningen. Om du behöver skydda mot data exfiltrering eller dirigera åtkomst från en lokal plats är den privata slut punkten lösningen.
+Om du bara behöver en säker anslutning mellan ditt VNet och din webbapp är tjänst slut punkten den enklaste lösningen. Om du också behöver komma åt webbappen från en lokal plats via en Azure-Gateway är det en privat, privat slut punkt som är lösningen.  
 
 Mer information om [tjänst slut punkt][serviceendpoint]
 
@@ -36,20 +35,24 @@ När du skapar en privat slut punkt för din webbapp ger den en säker anslutnin
 Anslutningen mellan den privata slut punkten och webb programmet använder en säker [privat länk][privatelink]. Privat slut punkt används endast för inkommande flöden till din webbapp. Utgående flöden använder inte den här privata slut punkten, men du kan mata in utgående flöden till nätverket i ett annat undernät med [funktionen för VNet-integrering][vnetintegrationfeature].
 
 Under nätet där du ansluter den privata slut punkten kan ha andra resurser, du behöver inte ett dedikerat tomt undernät.
+Du kan distribuera privat slut punkt i en annan region än webbappen. 
+
 > [!Note]
 >Funktionen för VNet-integrering kan inte använda samma undernät än privat slut punkt, detta är en begränsning för funktionen för VNet-integrering
 
 Från säkerhets perspektivet:
 
 - När du aktiverar tjänstens slut punkt för din webbapp inaktiverar du all offentlig åtkomst
-- Du kan aktivera flera privata slut punkter i andra virtuella nätverk och undernät
+- Du kan aktivera flera privata slut punkter i andra virtuella nätverk och undernät, inklusive virtuella nätverk i andra regioner
+- IP-adressen för det privata slut punkts NÄTVERKSKORTet måste vara dynamisk, men den är densamma tills du tar bort den privata slut punkten
 - NÄTVERKSKORTet för den privata slut punkten kan inte ha en associerad NSG
-- Under nätet som är värd för den privata slut punkten kan ha en NSG associerad, men du måste inaktivera principerna för nätverks principer för den privata slut punkten i [den här artikeln] [disablesecuritype]. Därför kan du inte filtrera efter NSG åtkomst till din privata slut punkt.
+- Under nätet som är värd för den privata slut punkten kan ha en NSG associerad, men du måste inaktivera principerna för nätverks principer för den privata slut punkten i [den här artikeln][disablesecuritype]. Därför går det inte att filtrera efter NSG åtkomst till din privata slut punkt
 - När du aktiverar privat slut punkt till din webbapp utvärderas inte konfigurationen av [åtkomst begränsningar][accessrestrictions] för webbappen.
+- Du kan minska risken för data exfiltrering från VNet genom att ta bort alla NSG-regler där målet är tagga Internet eller Azure-tjänster. Men om du lägger till en webb App Service-slutpunkt i ditt undernät, kan du komma åt alla webbappar som finns i samma stämpel och exponeras för Internet.
 
-Privat slut punkt för Web App är tillgänglig för nivån standard, PremiumV2 och isolerad med en extern ASE.
+Privat slut punkt för Web App är tillgänglig för nivå PremiumV2 och isolerad med en extern ASE.
 
-I webbappens webb-http-loggar kommer vi att upptäcka att vi är medvetna om klientens käll-IP. Vi implementerade TCP-proxy-protokollet, som vidarebefordrar till webbappens klient-IP. Mer information finns i [den här artikeln][tcpproxy].
+I webb-http-loggfilerna för din webbapp hittar du klientens käll-IP. Vi implementerade TCP-proxy-protokollet, som vidarebefordrar till webbappens klientens IP-egenskap. Mer information finns i [den här artikeln][tcpproxy].
 
 ![Global översikt][1]
 

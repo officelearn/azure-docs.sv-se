@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09a720be10b09e11adc8acdc8ab26a06870311b0
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 0716c2d4475bb538c06b9a591521fbdcfc0c80e4
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78893309"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968238"
 ---
 # <a name="conditional-access-grant"></a>Villkorlig åtkomst: bevilja
 
@@ -67,7 +67,7 @@ Organisationer kan välja att använda enhets identiteten som en del av den vill
 
 Organisationer kan kräva att ett åtkomst försök till de valda molnappar måste göras från en godkänd klient app. Dessa godkända klient program har stöd för [Intune App Protection-principer](/intune/app-protection-policy) oberoende av alla lösningar för hantering av mobila enheter (MDM).
 
-Den här inställningen gäller för följande klient program:
+Den här inställningen gäller för följande iOS-och Android-appar:
 
 - Microsoft Azure Information Protection
 - Microsoft-bokningar
@@ -80,6 +80,7 @@ Den här inställningen gäller för följande klient program:
 - Microsoft fakturering
 - Microsoft Kaizala
 - Startprogram för Microsoft
+- Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook

@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 11/08/2019
+ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 97d8d49b958293e3b51937cafc0874beb4f5ff4a
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 678af1855baf52efa727444236de8a1724a7d0b0
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942239"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79078474"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Träna modeller med Azure Machine Learning med hjälp av uppskattning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,18 +27,18 @@ För att under lätta djup inlärnings modellen är Azure Machine Learning pytho
 
 ## <a name="train-with-an-estimator"></a>Träna med en kostnadsuppskattning
 
-När du har skapat din [arbetsytan](concept-workspace.md) och Ställ in din [utvecklingsmiljö](how-to-configure-environment.md), träna en modell i Azure Machine Learning omfattar följande steg:  
+När du har skapat din [arbets yta](concept-workspace.md) och konfigurerat [utvecklings miljön](how-to-configure-environment.md)kan du träna en modell i Azure Machine Learning följande steg:  
 1. Skapa ett [fjärran slutet beräknings mål](how-to-set-up-training-targets.md) (Observera att du även kan använda lokal dator som beräknings mål)
 2. Ladda upp dina [utbildnings data](how-to-access-data.md) till data lagret (valfritt)
-3. Skapa din [inlärningsskript](tutorial-train-models-with-aml.md#create-a-training-script)
-4. Skapa en `Estimator` objekt
+3. Skapa ett [utbildnings skript](tutorial-train-models-with-aml.md#create-a-training-script)
+4. Skapa ett `Estimator`-objekt
 5. Skicka uppskattningen till ett experiment objekt under arbets ytan
 
-Den här artikeln handlar om steg 4 – 5. Steg 1 – 3, finns i den [träna en modellsjälvstudie](tutorial-train-models-with-aml.md) ett exempel.
+Den här artikeln handlar om steg 4 – 5. Steg 1-3 finns i [självstudierna träna en modell](tutorial-train-models-with-aml.md) för ett exempel.
 
 ### <a name="single-node-training"></a>Nod-utbildning
 
-Använd en `Estimator` för en nod utbildning som körs på fjärranslutna beräkning i Azure för en scikit-Läs modellen. Du bör redan har skapat din [beräkningsmålet](how-to-set-up-training-targets.md#amlcompute) objekt `compute_target` och din [datalager](how-to-access-data.md) objektet `ds`.
+Använd en `Estimator` för en utbildning med en nod som körs på fjärrberäkning i Azure för en scikit-modell. Du bör redan ha skapat ditt [Compute Target](how-to-set-up-training-targets.md#amlcompute) -objekt `compute_target` och ditt [FileDataset](how-to-create-register-datasets.md) -objekt `ds`.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -56,19 +56,19 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
                    conda_packages=['scikit-learn'])
 ```
 
-Det här kodfragmentet anger följande parametrar till den `Estimator` konstruktor.
+Det här kodfragmentet anger följande parametrar för `Estimator` konstruktorn.
 
 Parameter | Beskrivning
 --|--
 `source_directory`| Lokal katalog som innehåller hela din kod som behövs för utbildningsjobbet. Den här mappen kopieras från den lokala datorn till fjärrdatorn.
 `script_params`| Ord lista som anger de kommando rads argument som ska skickas till ditt utbildnings skript `entry_script`, i form av `<command-line argument, value>` par. Om du vill ange en utförlig flagga i `script_params`använder du `<command-line argument, "">`.
 `compute_target`| Fjärrberäknings mål som ditt utbildnings skript ska köras på, i det här fallet ett Azure Machine Learning Compute-kluster ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)). (Observera även om AmlCompute-kluster är det vanligaste målet, är det också möjligt att välja andra beräknings mål typer, till exempel virtuella Azure-datorer eller till och med lokal dator.)
-`entry_script`| FilePath (relativt till den `source_directory`) för utbildning-skriptet som ska köras på den fjärranslutna databearbetning. Den här filen och eventuella ytterligare filer som den är beroende av bör finnas i den här mappen.
+`entry_script`| Sökväg (i förhållande till `source_directory`) för det utbildnings skript som ska köras på fjärrdatorn. Den här filen och eventuella ytterligare filer som den är beroende av bör finnas i den här mappen.
 `conda_packages`| Lista över Python-paket installeras via conda som krävs för dina utbildningsskript.  
 
 Konstruktorn har en annan parameter med namnet `pip_packages` som du använder för alla pip-paket som behövs.
 
-Nu när du har skapat din `Estimator` objekt, skicka utbildningsjobbet som ska köras på den fjärranslutna beräkningen med ett anrop till den `submit` fungerar på din [Experiment](concept-azure-machine-learning-architecture.md#experiments) objektet `experiment`. 
+Nu när du har skapat `Estimator`-objektet skickar du det utbildnings jobb som ska köras på fjärrdatorn med ett anrop till funktionen `submit` i [experiment](concept-azure-machine-learning-architecture.md#experiments) -objektet `experiment`. 
 
 ```Python
 run = experiment.submit(sk_est)
@@ -76,23 +76,23 @@ print(run.get_portal_url())
 ```
 
 > [!IMPORTANT]
-> **Specialmappar** två mappar *matar ut* och *loggar*, ta emot särskild behandling av Azure Machine Learning. Vid träning, när du skriver filer till mappar för *matar ut* och *loggar* som är i förhållande till rotkatalogen (`./outputs` och `./logs`respektive), filerna kommer automatiskt ladda upp till din körningshistoriken så att du har åtkomst till dem när din körning är klar.
+> **Särskilda mappar** Två mappar, *utdata* och *loggar*, tar emot särskild behandling av Azure Machine Learning. När du skriver filer till mappar med namnet *utdata* och *loggar* som är relativa till rot katalogen (`./outputs` respektive `./logs`) i utbildningen överförs filerna automatiskt till din körnings historik så att du har åtkomst till dem när körningen är färdig.
 >
-> Skapa artefakter vid träning (till exempel modellfiler kontrollpunkter, filer eller ritade bilder) skriva dem till den `./outputs` mapp.
+> Om du vill skapa artefakter under träning (till exempel modell filer, kontroll punkter, datafiler eller ritade bilder) skriver du dessa till mappen `./outputs`.
 >
-> På samma sätt kan du skriva loggar från din utbildning som körs till mappen `./logs`. Använda Azure Machine Learning [TensorBoard integrering](https://aka.ms/aml-notebook-tb) se till att du skriver TensorBoard loggarna till den här mappen. När din körning pågår, kommer du att kunna starta TensorBoard och strömma dessa loggar.  Senare, kan du också återställa loggarna från någon av dina tidigare körningar.
+> På samma sätt kan du skriva loggar från din utbildning som körs till mappen `./logs`. Om du vill använda Azure Machine Learning [TensorBoard-integrering](https://aka.ms/aml-notebook-tb) kontrollerar du att du skriver dina TensorBoard-loggar till den här mappen. När din körning pågår, kommer du att kunna starta TensorBoard och strömma dessa loggar.  Senare, kan du också återställa loggarna från någon av dina tidigare körningar.
 >
-> Till exempel för att hämta en fil som skrivs till den *matar ut* mappen till den lokala datorn efter remote utbildning kör: `run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
+> Till exempel för att ladda ned en fil som skrivits till mappen *utdata* till din lokala dator efter att din Fjärrutbildning har körts: `run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
 
 ### <a name="distributed-training-and-custom-docker-images"></a>Distribuerad utbildning och anpassad Docker-avbildningar
 
-Det finns två ytterligare scenarier som du kan utföra med den `Estimator`:
+Det finns två ytterligare utbildnings scenarier som du kan utföra med `Estimator`:
 * Med en anpassad dockeravbildning
 * Distribuerad utbildning i ett kluster med flera noder
 
 Följande kod visar hur du utför distribuerad utbildning för en keras-modell. I stället för att använda standard Azure Machine Learning avbildningar anges dessutom en anpassad Docker-avbildning från Docker Hub `continuumio/miniconda` för utbildning.
 
-Du bör redan har skapat din [beräkningsmålet](how-to-set-up-training-targets.md#amlcompute) objektet `compute_target`. Du skapar kostnadsuppskattning på följande sätt:
+Du bör redan ha skapat ditt [Compute Target](how-to-set-up-training-targets.md#amlcompute) -objekt `compute_target`. Du skapar kostnadsuppskattning på följande sätt:
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -108,13 +108,13 @@ estimator = Estimator(source_directory='./my-keras-proj',
                       custom_docker_image='continuumio/miniconda')
 ```
 
-Koden ovan visar följande nya parametrar till den `Estimator` konstruktorn:
+Koden ovan visar följande nya parametrar för `Estimator`-konstruktorn:
 
 Parameter | Beskrivning | Default
 --|--|--
 `custom_docker_image`| Namnet på avbildningen som du vill använda. Ange endast-avbildningarna i offentliga docker-databaser (i det här fallet Docker Hub). Använd konstruktorns `environment_definition` parameter i stället om du vill använda en avbildning från en privat Docker-lagringsplats. [Se exempel](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| Antalet noder som ska användas för utbildning-jobbet. | `1`
-`process_count_per_node`| Antal processer (eller ”anställda”) för att köra på varje nod. I sådana fall kan du använda den `2` GPU: er tillgängliga på varje nod.| `1`
+`process_count_per_node`| Antal processer (eller ”anställda”) för att köra på varje nod. I det här fallet använder du `2` GPU: er som är tillgängliga på varje nod.| `1`
 `distributed_training`| [MPIConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) -objekt för att starta distribuerad utbildning med MPI-backend.  | `None`
 
 
@@ -140,10 +140,10 @@ När du startar en utbildning som kör där käll katalogen är en lokal git-lag
 
 ## <a name="examples"></a>Exempel
 För en bärbar dator som visar grunderna i ett uppskattnings mönster, se:
-* [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
+* [How-to-use-azureml/Training-with-djupgående-Learning/How-to-use – uppskattning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
 För en bärbar dator som tränar en scikit-modell med hjälp av en uppskattning kan du läsa:
-* [självstudier/img-klassificering – del 1 – training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [Självstudier/img-Classification-part1-Training. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 För antecknings böcker i utbildnings modeller med hjälp av detaljerade uppskattningar för djup inlärnings ramverk, se:
 
@@ -153,9 +153,9 @@ För antecknings böcker i utbildnings modeller med hjälp av detaljerade uppska
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Spåra kör mått vid träning](how-to-track-experiments.md)
-* [Skapa PyTorch-modeller](how-to-train-pytorch.md)
-* [Skapa TensorFlow-modeller](how-to-train-tensorflow.md)
-* [Justering av hyperparametrar](how-to-tune-hyperparameters.md)
-* [Distribuera en tränad modell](how-to-deploy-and-where.md)
+* [Spåra körnings mått under träning](how-to-track-experiments.md)
+* [Träna PyTorch-modeller](how-to-train-pytorch.md)
+* [Träna TensorFlow-modeller](how-to-train-tensorflow.md)
+* [Justera disponeringsparametrarna](how-to-tune-hyperparameters.md)
+* [Distribuera en utbildad modell](how-to-deploy-and-where.md)
 * [Skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md)

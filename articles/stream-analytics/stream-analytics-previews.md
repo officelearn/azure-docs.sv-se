@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 2/1/2020
-ms.openlocfilehash: aaff56ba1de69485d1c3b93bc7ed95ce1a3cbd88
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.date: 3/9/2020
+ms.openlocfilehash: 3e99263f6bf472c256e1747b8567249bbd62a445
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983557"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969620"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics-förhandsversionsfunktioner
 
@@ -33,13 +33,6 @@ Utvecklare kan dra nytta av kraften i Azure Stream Analytics att bearbeta data i
 
 Utvecklare som skapar Stream Analytics moduler i molnet eller på IoT Edge kan skriva eller återanvända anpassade C# funktioner och anropa dem direkt i frågan via [användardefinierade funktioner](stream-analytics-edge-csharp-udf-methods.md).
 
-### <a name="managed-identity-authentication-with-power-bi"></a>Hanterad identitets autentisering med Power BI
-
-Azure Stream Analytics erbjuder fullständigt stöd för hanterad identitets baserad autentisering med Power BI för en dynamisk instrument panels upplevelse.
-
-### <a name="anomaly-detection"></a>Avvikelseidentifiering
-
-Azure Stream Analytics Machine Learning-modeller har stöd för *insamling* och *DIP* -identifiering förutom dubbelriktad, långsam positiv och låg negativ tendens identifiering. Mer information finns [i avvikelse identifiering i Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
 
 ### <a name="debug-query-steps-in-visual-studio"></a>Felsöka fråge steg i Visual Studio
 
@@ -56,17 +49,17 @@ Azure Stream Analytics-jobb kan skapas i Visual Studio Code. Se kursen för att 
 
 ### <a name="integration-with-azure-machine-learning"></a>Integrering med Azure Machine Learning
 
-Du kan skala Stream Analytics-jobb med Machine Learning (ML)-funktioner. Läs mer om hur du kan använda ML-funktioner i ditt Stream Analytics-jobb [skala ditt Stream Analytics-jobb med Azure Machine Learning-funktioner](stream-analytics-scale-with-machine-learning-functions.md). Kolla in ett verkligt scenario med [utföra attitydanalyser genom att använda Azure Stream Analytics och Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
+Du kan skala Stream Analytics-jobb med Machine Learning (ML)-funktioner. Om du vill veta mer om hur du kan använda ML-funktioner i Stream Analytics-jobbet kan du gå [till skala ditt Stream Analytics-jobb med Azure Machine Learning funktioner](stream-analytics-scale-with-machine-learning-functions.md). Ta en titt på ett verkligt scenario med att [utföra sentiment-analys med hjälp av Azure Stream Analytics och Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
 
 
 ### <a name="live-data-testing-in-visual-studio"></a>Live data testning i Visual Studio
 
-Visual Studio tools för Azure Stream Analytics förbättra lokal testning funktionen som gör att du kan testa frågor mot live händelseströmmar från molnkällor, till exempel Händelsehubb eller IoT hub. Lär dig hur du [testa realtidsdata lokalt med hjälp av Azure Stream Analytics-verktyg för Visual Studio](stream-analytics-live-data-local-testing.md).
+Visual Studio tools för Azure Stream Analytics förbättra lokal testning funktionen som gör att du kan testa frågor mot live händelseströmmar från molnkällor, till exempel Händelsehubb eller IoT hub. Lär dig hur du [testar Live data lokalt med hjälp av Azure Stream Analytics verktyg för Visual Studio](stream-analytics-live-data-local-testing.md).
 
 
 ### <a name="net-user-defined-functions-on-iot-edge"></a>.NET-funktioner på IoT Edge
 
-Du kan köra .NET Standard kod med .NET standard användardefinierade funktioner, som en del av din pipeline för dataströmning. Du kan skapa enkla C# klasserna eller Importera projekt och bibliotek. Fullständig skapar och felsöker upplevelsen stöds i Visual Studio. För mer information, besök [utveckla .NET Standard användardefinierade funktioner för Azure Stream Analytics Edge-jobb](stream-analytics-edge-csharp-udf-methods.md).
+Du kan köra .NET Standard kod med .NET standard användardefinierade funktioner, som en del av din pipeline för dataströmning. Du kan skapa enkla C# klasserna eller Importera projekt och bibliotek. Fullständig skapar och felsöker upplevelsen stöds i Visual Studio. Mer information finns [i utveckla .net standard-användardefinierade funktioner för Azure Stream Analytics Edge-jobb](stream-analytics-edge-csharp-udf-methods.md).
 
 ## <a name="other-previews"></a>Andra för hands versionerna
 

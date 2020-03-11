@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 60ff8769192191ba112008e7baee23740147dfe9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: bd9e916d1e50d9d5bc0717a1d283b3dcf5d383c9
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367027"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037017"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Självstudie: Azure Active Directory integrering med SharePoint lokalt
 
@@ -271,7 +271,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 10. Konfigurera AzureCP på den lokala SharePoint-gruppen eller en annan lösning för anspråks leverantörer.  I det här exemplet använder vi AzureCP.
 
     > [!NOTE]
-    > Observera att AzureCP inte är en Microsoft-produkt eller som stöds av Microsofts tekniska support. Hämta, installera och konfigurera AzureCP i den lokala SharePoint-servergruppen per https://yvand.github.io/AzureCP/ 
+    > Observera att AzureCP inte är en Microsoft-produkt eller som stöds av Microsofts tekniska support. Hämta, installera och konfigurera AzureCP i den lokala SharePoint-servergruppen per [https://yvand.github.io/AzureCP/](https://yvand.github.io/AzureCP/) 
 
 11. **Bevilja åtkomst till Azure Active Directory säkerhets grupp i den lokala SharePoint-gruppen** :-grupperna måste beviljas åtkomst till programmet i SharePoint lokalt.  Använd följande steg för att ange åtkomst behörighet till webb programmet.
 

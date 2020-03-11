@@ -1,19 +1,19 @@
 ---
 title: Ändra en skalnings uppsättning för virtuella Azure-datorer
 description: 'Lär dig hur du ändrar och uppdaterar en skalnings uppsättning för en virtuell Azure-dator med REST-API: erna, Azure PowerShell och Azure CLI'
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 02/14/2018
-ms.author: manayar
-ms.openlocfilehash: 49327ff0c3aeab25de02fc67c049f24597215d45
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.author: mimckitt
+ms.openlocfilehash: af5998a4207521d49ea4fd7956256aa6c880e6e9
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390464"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081982"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Ändra en skalnings uppsättning för virtuell dator
 
@@ -311,7 +311,7 @@ Om du vill uppdatera befintliga virtuella datorer måste du göra en "manuell up
 >[!NOTE]
 > Service Fabric kluster kan bara använda *automatiskt* läge, men uppdateringen hanteras på olika sätt. Mer information finns i [Service Fabric program uppgraderingar](../service-fabric/service-fabric-application-upgrade.md).
 
-Det finns en typ av ändring i globala skalnings uppsättnings egenskaper som inte följer uppgraderings principen. Ändringar av skalnings uppsättningens OS-profil (till exempel Admin-användarnamn och-lösen ord) kan bara ändras i API version *2017-12-01* eller senare. Dessa ändringar gäller bara för virtuella datorer som skapats efter ändringen i skalnings uppsättnings modellen. Om du vill att befintliga virtuella datorer ska vara uppdaterade måste du göra en avbildning av varje befintlig virtuell dator. Du kan göra om avbildningen via:
+Det finns en typ av ändring i globala skalnings uppsättnings egenskaper som inte följer uppgraderings principen. Ändringar av profilen för skalnings uppsättningens operativ system och data diskar (till exempel Admin-användarnamn och-lösen ord) kan bara ändras i API version *2017-12-01* eller senare. Dessa ändringar gäller bara för virtuella datorer som skapats efter ändringen i skalnings uppsättnings modellen. Om du vill att befintliga virtuella datorer ska vara uppdaterade måste du göra en avbildning av varje befintlig virtuell dator. Du kan göra om avbildningen via:
 
 - REST API med [Compute/virtualmachinescalesets/Reimage](/rest/api/compute/virtualmachinescalesets/reimage) enligt följande:
 

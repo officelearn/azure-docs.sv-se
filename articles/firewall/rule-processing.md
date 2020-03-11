@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 03/10/2020
 ms.author: victorh
-ms.openlocfilehash: 69c0c13c7027707cdadb2f1f1de9cc1655c9c625
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: d3f8e52b4582c9467ae3ec61ee984771b801fe4f
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396048"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082607"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Regelbearbetningslogik för Azure Firewall
 Du kan konfigurera NAT-regler, nätverks regler och program regler på Azure-brandväggen. Reglerna bearbetas enligt regel typen. 
@@ -90,6 +90,10 @@ SSH-trafik nekas eftersom en högre *prioritet blockerar* nätverks regel samlin
 **Medför**
 
 SSH-anslutningar nekas eftersom en nätverks regel samling med högre prioritet blockerar den. Regel bearbetningen stoppas nu.
+
+## <a name="rule-changes"></a>Regel ändringar
+
+Om du ändrar en regel för att neka tidigare tillåten trafik, släpps alla relevanta befintliga sessioner.
 
 ## <a name="next-steps"></a>Nästa steg
 

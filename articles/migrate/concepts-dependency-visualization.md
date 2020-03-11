@@ -3,12 +3,12 @@ title: Beroendevisualisering i Azure Migrate
 description: Innehåller en översikt över bedömnings beräkningar i Server Assessment service i Azure Migrate
 ms.topic: conceptual
 ms.date: 02/24/2020
-ms.openlocfilehash: f24656d02e19f422ff26e6b06d1631a9128dff43
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: fd069ed98fa34fd6f281c98a061925f96c7bb2cd
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362209"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081964"
 ---
 # <a name="dependency-visualization"></a>Visualisering av beroenden
 
@@ -55,7 +55,7 @@ Det finns två alternativ för att distribuera beroende visualisering:
 **Operativsystem som stöds** | Granska de [operativ system](migrate-support-matrix-vmware.md#agentless-dependency-visualization) som stöds för övervakning utan agent.
 **Virtuella datorer** | **VMware-verktyg**: VMware-verktyg måste installeras och köras på de virtuella datorer som du vill analysera.<br/><br/> **Konto**: på Azure Migrate-enheten måste du lägga till ett användar konto som kan användas för att komma åt virtuella datorer för analys.<br/><br/> **Virtuella Windows-datorer**: användar kontot måste vara lokalt eller ha en domän administratör på datorn.<br/><br/> **Virtuella Linux-datorer**: rot privilegiet krävs för kontot. Alternativt måste användar kontot ha dessa två funktioner på/bin/netstat-och/bin/ls-filer: CAP_DAC_READ_SEARCH och CAP_SYS_PTRACE. | [Lär dig mer om](migrate-appliance.md) Azure Migrate-enheten.
 **VMware** | **vCenter**: installationen behöver ett vCenter Server konto med skrivskyddad åtkomst och behörigheter som är aktiverade för Virtual Machines > gäst åtgärder.<br/><br/> **ESXi-värdar**: på ESXi-värdar som kör virtuella datorer som du vill analysera måste Azure Migrate-installationen kunna ansluta till TCP-port 443.
-**Insamlade data** |  Beroende visualisering för agenter fungerar genom att samla in TCP-anslutningsfel från datorer som den är aktive rad för. När beroende identifiering startar samlar enheten in dessa data från datorer genom att avsöka var femte minut:<br/> – TCP-anslutningar.<br/> – Namn på processer som har aktiva anslutningar.<br/> – Namn på installerade program som kör processen med aktiva anslutningar.<br/> – Antalet anslutningar som har identifierats vid varje avsöknings intervall.
+**Insamlade data** |  Analytiska beroende analyser fungerar genom att samla in TCP-anslutningsfel från datorer där den är aktive rad. När beroende identifiering har Aktiver ATS samlar enheten in TCP-anslutningsfel var femte minut från virtuella gäst datorer. Dessa data samlas in från virtuella gäst datorer via vCenter Server med vSphere-API: er. Insamlade data bearbetas på enheten för att härleda beroende information och skickas till Azure Migrate var 6: e timme. Följande data samlas in från varje dator: <br/> – Namn på processer som har aktiva anslutningar.<br/> – Namn på program som kör processen med aktiva anslutningar.<br/> -Mål port på de aktiva anslutningarna.
 
 
 ## <a name="next-steps"></a>Nästa steg

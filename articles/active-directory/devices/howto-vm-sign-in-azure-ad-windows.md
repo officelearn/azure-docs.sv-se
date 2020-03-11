@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8fe33f78b96dbfe780c94fbddfc5c8821148279
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: ffb0f7cdb320d009eb1549efabac60d7710b9b0e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672596"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080092"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -152,6 +152,7 @@ Nu när du har skapat den virtuella datorn måste du konfigurera en Azure RBAC-p
 
 > [!NOTE]
 > Om du vill att en användare ska kunna logga in på den virtuella datorn via RDP måste du tilldela antingen rollen Administratörs inloggning för virtuell dator eller användar inloggning för virtuell dator. En Azure-användare med rollen ägare eller deltagare som har tilldelats en virtuell dator har inte automatiskt behörighet att logga in på den virtuella datorn via RDP. Detta är att tillhandahålla granskad åtskillnad mellan den uppsättning personer som kontrollerar virtuella datorer och den uppsättning personer som kan komma åt virtuella datorer.
+
 Det finns flera sätt att konfigurera roll tilldelningar för virtuella datorer:
 
 - Använda Azure AD Portal-upplevelsen
@@ -194,7 +195,7 @@ Mer information om hur du använder RBAC för att hantera åtkomst till dina Azu
 - [Hantera åtkomst till Azure-resurser med RBAC och Azure CLI](/azure/role-based-access-control/role-assignments-cli)
 - [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure-portalen](/azure/role-based-access-control/role-assignments-portal)
 - [Hantera åtkomst till Azure-resurser med RBAC och Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
-'
+
 ## <a name="using-conditional-access"></a>Använda villkorlig åtkomst
 
 Du kan tillämpa principer för villkorlig åtkomst, till exempel Multi-Factor Authentication eller användar inloggnings risker innan du auktoriserar åtkomsten till virtuella Windows-datorer i Azure som är aktiverade med Azure AD-inloggning. Om du vill tillämpa principen för villkorlig åtkomst måste du välja "Azure Windows VM-inloggning" i appen molnappar eller åtgärder tilldelning och sedan använda inloggnings risker som ett villkor och/eller kräva multifaktorautentisering som en bevilja åtkomst kontroll. 
@@ -363,4 +364,5 @@ Om du inte har distribuerat Windows Hello för företag och om det inte är ett 
 Dela din feedback om den här för hands versions funktionen eller rapportera problem med hjälp av den i [Azure AD feedback-forumet](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure Active Directory finns [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
+
+Mer information om Azure Active Directory finns i [Vad är Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)

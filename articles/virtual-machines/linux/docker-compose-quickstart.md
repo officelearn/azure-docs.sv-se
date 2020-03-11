@@ -1,26 +1,17 @@
 ---
-title: Använd Docker Compose på en virtuell Linux-dator i Azure
-description: Installera och använda Docker och skapa virtuella Linux-datorer med Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
+title: Använda Docker Compose
+description: Installera och använda Docker och skapa virtuella Linux-datorer med Azure CLI.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 02ab8cf9-318d-4a28-9d0c-4a31dccc2a84
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 02/14/2019
 ms.author: cynthn
-ms.openlocfilehash: 4f2f12e0124743ad31e083cf4ece83bcb608bce0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 434a3ef8c9bc1738252d59a5dca5bec16d85e45e
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036275"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970312"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Kom igång med Docker och skapa för att definiera och köra ett program med flera behållare i Azure
 Med [Skriv](https://github.com/docker/compose), använder du en enkel textfil för att definiera ett program som består av flera Docker-behållare. Sedan kan du sätta upp ditt program i ett enda kommando som gör allt för att distribuera din definierade miljö. I den här artikeln visas till exempel hur du snabbt konfigurerar en WordPress-blogg med en backend-MariaDB SQL-databas på en Ubuntu VM. Du kan också använda komponera för att ställa in mer komplexa program.

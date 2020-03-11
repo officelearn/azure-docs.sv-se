@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d8cdb32e04f9ba1274291430ac230107f3150c6
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 9859c884f6a1e22a1ac2bd21106ef51ead23fa41
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298385"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080073"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv app Protection-princip och en godkänd klient app för åtkomst till Cloud App med villkorlig åtkomst
 
@@ -30,6 +30,9 @@ Den här artikeln visar två scenarier för att konfigurera principer för villk
 I den villkorliga åtkomsten känner de här klient programmen till att skyddas med en skydds princip för appar. Mer information om skydds principer för appar finns i artikeln, [Översikt över app Protection-principer](/intune/apps/app-protection-policy)
 
 En lista över tillgängliga klient program finns i [krav på skydds princip för appar](concept-conditional-access-grant.md).
+
+> [!NOTE]
+>    Or-satsen används i principen för att göra det möjligt för användare att använda appar som har stöd för antingen **Kräv skydds princip** för appar eller **Kräv godkända kontroller för klient programs** tilldelning. Mer information om vilka appar som stöder **Kräv skydds kontroll för program skydds principen** finns i [krav på skydds princip](concept-conditional-access-grant.md)för appar.
 
 ## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Scenario 1: Office 365-appar kräver godkända appar med skydds principer för appar
 
@@ -56,7 +59,7 @@ Organisationer måste utföra följande steg för att kräva att ett godkänt kl
 1. Under **åtkomst kontroller** > **bevilja**väljer du följande alternativ:
    - **Kräv godkänd klient app**
    - **Kräv app Protection-princip (förhands granskning)**
-   - **Kräv alla markerade kontroller**
+   - **Kräv en av de valda kontrollerna**
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa och aktivera din princip.
 
@@ -75,7 +78,7 @@ Konfigurera följande komponenter för principen för villkorlig åtkomst i det 
    1. **Klient program (för hands version)** :
       1. **Konfigurera** till **Ja**.
       1. Välj **mobilappar och skriv bords klienter** och **Exchange ActiveSync-klienter**.
-1. Under **åtkomst kontroller** > **bevilja**, väljer du **bevilja åtkomst**, **kräver godkänd klient app**och väljer **Välj**.
+1. Under **åtkomst kontroller** > **bevilja**, väljer du **bevilja åtkomst**, **kräver app Protection-princip**och väljer **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa och aktivera din princip.
 
@@ -108,7 +111,7 @@ Organisationer måste utföra följande tre steg för att kräva att en godkänd
 1. Under **åtkomst kontroller** > **bevilja**väljer du följande alternativ:
    - **Kräv godkänd klient app**
    - **Kräv app Protection-princip (förhands granskning)**
-   - **Kräv alla markerade kontroller**
+   - **Kräv en av de valda kontrollerna**
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa och aktivera din princip.
 
@@ -125,7 +128,7 @@ Organisationer måste utföra följande tre steg för att kräva att en godkänd
    1. **Klient program (för hands version)** :
       1. **Konfigurera** till **Ja**.
       1. Välj **mobilappar och skriv bords klienter** och **Exchange ActiveSync-klienter**.
-1. Under **åtkomst kontroller** > **bevilja**, väljer du **bevilja åtkomst**, **kräver godkänd klient app**och väljer **Välj**.
+1. Under **åtkomst kontroller** > **bevilja**, väljer du **bevilja åtkomst**, **kräver app Protection-princip**och väljer **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa och aktivera din princip.
 

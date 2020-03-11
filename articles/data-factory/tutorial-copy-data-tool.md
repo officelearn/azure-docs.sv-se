@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från Azure Blob Storage till SQL med Kopiera data-verktyget
-description: Skapa en Azure-datafabrik och kopiera sedan data från Azure Blob Storage till en SQL-databas.
+description: Skapa en Azure Data Factory och Använd sedan Kopiera data-verktyget för att kopiera data från Azure Blob Storage till en SQL Database.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,21 +11,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 09/11/2018
-ms.openlocfilehash: 6335fce717772e268f711c2e6e5050fa8c17d573
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 03/03/2020
+ms.openlocfilehash: 52ed43277eef84de826d2f4fa41ba860211a1531
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977342"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969894"
 ---
-# <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Kopiera data från Azure Blob Storage till en SQL-databas med verktyget för att kopiera data
+# <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Kopiera data från Azure Blob Storage till en SQL Database med hjälp av Kopiera data-verktyget
 
 > [!div class="op_single_selector" title1="Välj den version av tjänsten Data Factory som du använder:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Aktuell version](tutorial-copy-data-tool.md)
 
-I den här självstudien skapar du en datafabrik i Azure Portal. Sedan använder du verktyget Kopiera data för att skapa en pipeline som kopierar data från Azure Blob Storage till en SQL-databas.
+I den här självstudien skapar du en datafabrik i Azure Portal. Sedan använder du verktyget Kopiera data för att skapa en pipeline som kopierar data från Azure Blob Storage till en SQL Database.
 
 > [!NOTE]
 > Om du inte har använt Azure Data Factory tidigare kan du läsa [Introduktion till Azure Data Factory](introduction.md).
@@ -34,23 +34,24 @@ I den här självstudien får du göra följande:
 > [!div class="checklist"]
 > * Skapa en datafabrik.
 > * Använd verktyget Kopiera data för att skapa en pipeline.
-> * Övervaka pipelinen och aktivitetskörningarna.
+> * Övervaka pipelinen och aktivitetskörningar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* **Azure-lagringskonto**: Använd Blob Storage som datalager för _källan_. Om du inte har något Azure-lagringskonto finns det anvisningar i [Skapa ett lagringskonto](../storage/common/storage-account-create.md).
-* **Azure SQL Database**: Använd en SQL-databas som datalager för _kanalmottagaren_. Om du inte har någon SQL-databas kan du läsa instruktionerna i [Skapa en SQL-databas](../sql-database/sql-database-get-started-portal.md).
+* **Azure Storage konto**: Använd Blob Storage som _käll_ data lager. Om du inte har ett Azure Storage konto kan du läsa instruktionerna i [skapa ett lagrings konto](../storage/common/storage-account-create.md).
+* **Azure SQL Database**: använd en SQL Database som data lager för _mottagare_ . Om du inte har en SQL Database kan du läsa anvisningarna i [skapa en SQL Database](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Skapa en blob och en SQL-tabell
 
-Förbered din Blob Storage och SQL-databas för självstudien genom att utföra följande steg.
+Förbered din Blob Storage och dina SQL Database för självstudien genom att utföra dessa steg.
 
 #### <a name="create-a-source-blob"></a>Skapa en källblob
 
 1. Starta **Anteckningar**. Kopiera följande text och spara den i en fil med namnet **inputEmp.txt** på din disk:
 
     ```
+    FirstName|LastName
     John|Doe
     Jane|Doe
     ```
@@ -59,7 +60,7 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
 
 #### <a name="create-a-sink-sql-table"></a>Skapa en SQL-mottagartabell
 
-1. Använd följande SQL-skript för att skapa en tabell med namnet **dbo.emp** i din SQL-databas:
+1. Använd följande SQL-skript för att skapa en tabell med namnet **dbo. EMP** i SQL Database:
 
     ```sql
     CREATE TABLE dbo.emp
@@ -73,7 +74,7 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Ge Azure-tjänster åtkomst till SQL Server. Kontrollera att inställningen **Tillåt åtkomst till Azure-tjänster** är aktiverad för servern som kör SQL Database. Med den här inställningen kan Data Factory skriva data till din databasinstans. Om du vill kontrol lera och aktivera den här inställningen går du till Azure SQL Server > Översikt > Ange server brand vägg > inställningen **Tillåt åtkomst till Azure-tjänster** är **på**.
+2. Ge Azure-tjänsterna åtkomst till SQL Server. Kontrol lera att inställningen **Tillåt att Azure-tjänster och resurser får åtkomst till den här servern** är aktive rad för den server som kör SQL Database. Med den här inställningen kan Data Factory skriva data till din databasinstans. Om du vill kontrol lera och aktivera den här inställningen går du till Azure SQL Server > säkerhets > brand väggar och virtuella nätverk > anger alternativet **Tillåt att Azure-tjänster och resurser får åtkomst till det här server** alternativet för **på**.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
@@ -94,7 +95,7 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
 
     b. Välj **Skapa ny** och ange namnet på en resursgrupp.
     
-    Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/management/overview.md).
+    Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).
 
 1. För **version** väljer du **V2**.
 1. Under **plats** väljer du en plats för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (t.ex. Azure Storage och SQL Database) och beräkningarna (t.ex. Azure HDInsight) som används i datafabriken kan finnas på andra platser och i andra regioner.
@@ -111,6 +112,7 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
 
     ![Panel för verktyget Kopiera data](./media/doc-common-process/get-started-page.png)
 1. På sidan **Egenskaper** under **Aktivitetsnamn**, anger du **CopyFromBlobToSqlPipeline**. Välj sedan **Nästa**. Med användargränssnittet för Data Factory skapas en pipeline med angivet aktivitetsnamn.
+    ![Skapa en pipeline](./media/tutorial-copy-data-tool/create-pipeline.png)
 
 1. Gör följande på sidan **Källdatalager**:
 
@@ -118,7 +120,7 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
 
     b. Välj **Azure Blob Storage** från galleriet och välj sedan **Fortsätt**.
 
-    c. På sidan **New Linked Service** (Ny länkad tjänst), väljer du ditt lagringskonto i listan **Lagringskontonamn** och sedan **Avsluta**.
+    c. På sidan **ny länkad tjänst** väljer du din Azure-prenumeration och väljer ditt lagrings konto i listan **lagrings konto namn** . Testa anslutning och välj sedan **skapa**.
 
     d. Välj den nyligen skapade länkade tjänsten som källa och klicka sedan på **Nästa**.
 
@@ -130,7 +132,7 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
 
     b. Klicka på **Nästa** för att gå vidare till nästa steg.
 
-1. Sidan med **filformatinställningar** visas. Observera att verktyget automatiskt identifierar kolumn- och radavgränsare. Välj **Nästa**. Du kan också förhandsgranska data och visa schemat för indata på den här sidan.
+1. På sidan **fil formats inställningar** aktiverar du kryss rutan för *första raden som rubrik*. Observera att verktyget automatiskt identifierar kolumn-och rad avgränsare. Välj **Nästa**. Du kan också förhandsgranska data och Visa schemat för indata på den här sidan.
 
     ![Filformatinställningar](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 1. Gör följande på sidan **Måldatalager**:
@@ -139,41 +141,46 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
 
     b. Välj **Azure SQL Database** från galleriet och välj sedan **Fortsätt**.
 
-    c. På sidan **New Linked Service** (Ny länkad tjänst) väljer du ditt servernamn och databasnamn från listrutan och anger användarnamn och lösenord. Välj sedan **Avsluta**.
+    c. På sidan **ny länkad tjänst** väljer du Server namnet och databas namnet i list rutan. Ange användar namn och lösen ord och välj sedan **skapa**.
 
     ![Konfigurera Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
 
     d. Välj den nyligen skapade länkade tjänsten som mottagare och klicka sedan på **Nästa**.
 
-    ![Välj mottagare för länkade tjänster](./media/tutorial-copy-data-tool/select-sink-linked-service.png)
-
 1. På sidan **Tabellmappning** väljer du tabellen **[dbo].[emp]** och sedan **Nästa**.
 
-1. Observera att den första och andra kolumnen är mappade till kolumnerna **FirstName** och **LastName** för tabellen **emp** på sidan **Schemamappning**. Välj **Nästa**.
+1. På sidan **kolumn mappning** ser du att den andra och de tredje kolumnerna i indatafilen mappas till kolumnerna **FirstName** och **LastName** för tabellen **EMP** . Ändra mappningen för att kontrol lera att det inte finns något fel och välj sedan **Nästa**.
 
-    ![Sidan för schemamappning](./media/tutorial-copy-data-tool/schema-mapping.png)
+    ![Kolumn mappnings sida](./media/tutorial-copy-data-tool/column-mapping.png)
+
 1. Sidan **Settings** (Inställningar) visas. Välj **Nästa**.
 1. Granska inställningarna på sidan **Sammanfattning** och klicka på **Nästa**.
 1. Välj **Övervaka** på sidan **Distribution** för att övervaka pipelinen (aktiviteten).
-1. Observera att fliken **Övervaka** till vänster väljs automatiskt. I kolumnen **Åtgärder** finns länkar som visar information om aktivitetskörningen och för att köra pipelinen igen. Om du vill uppdatera listan väljer du **Uppdatera**.
+ 
+    ![Övervaka pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
 
-1. Om du vill se aktivitetskörningar som är associerade med pipelinekörningen, väljer du länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Om du vill se mer information om kopieringsåtgärden väljer du länken för **detaljer** (glasögonikonen) i kolumnen **Actions** (Åtgärder). Om du vill gå tillbaka till vyn pipeline-körningar väljer du länken **pipeline-körningar** överst. Välj **Uppdatera** för att uppdatera vyn.
+1. På sidan pipeliner körs väljer du **Uppdatera** för att uppdatera listan. Klicka på länken under **pipeline-namn** om du vill visa aktivitets körnings information eller kör pipelinen igen. 
+    ![pipeline-körning](./media/tutorial-copy-data-tool/pipeline-run.png)
+
+1. På sidan aktivitets körningar väljer du länken **information** (glasögon ikonen) under kolumnen **aktivitets namn** för mer information om kopierings åtgärden. Om du vill gå tillbaka till vyn pipeline-körningar väljer du länken **alla pipeline-körningar** på menyn för dynamiska länkar. Välj **Uppdatera** för att uppdatera vyn.
 
     ![Övervaka aktivitetskörningar](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
 
-1. Kontrollera att datan infogas i tabellen **emp** i din SQL-databas.
+1. Kontrol lera att data infogas i tabellen **dbo. EMP** i din SQL Database.
 
 
 1. Klicka på fliken **Författare** till vänster för att växla till redigeringsläget. Du kan uppdatera de länkade tjänster, datauppsättningar och pipeliner som skapats med verktyget med hjälp av redigeraren. Mer information om hur du redigerar dessa entiteter i användargränssnittet för Data Factory finns i [Azure Portal-versionen av den här självstudiekursen](tutorial-copy-data-portal.md).
 
+    ![Fliken Välj författare](./media/tutorial-copy-data-tool/author-tab.png)
+
 ## <a name="next-steps"></a>Nästa steg
-Pipelinen i det här exemplet kopierar data från Blob Storage till en SQL-databas. Du har lärt dig att:
+Pipelinen i det här exemplet kopierar data från Blob Storage till en SQL Database. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.
 > * Använd verktyget Kopiera data för att skapa en pipeline.
-> * Övervaka pipelinen och aktivitetskörningarna.
+> * Övervaka pipelinen och aktivitetskörningar.
 
 Fortsätt till nästa självstudie om du vill lära dig att kopiera data från en lokal plats till molnet:
 

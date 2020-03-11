@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 8e170c27923d2bb091c4121e350809b85e4c48a5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f56717c086f005b1155988e2041ff2e717e047f2
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452105"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081700"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Balansera Service Fabric-klustret
 Service Fabric Cluster Resource Manager stöder dynamiska inläsnings ändringar, som reagerar på tillägg eller borttagning av noder eller tjänster. Det korrigerar också automatiskt begränsnings överträdelser och proaktivt balanserar klustret igen. Men hur ofta är dessa åtgärder vidtagna och vad utlöser dem?
@@ -205,6 +205,7 @@ Kluster resurs hanteraren tar automatiskt reda på vilka tjänster som är relat
 * Mått är hur Service Fabric Cluster Resource Manager hanterar förbrukning och kapacitet i klustret. Mer information om mått och hur du konfigurerar dem finns i [den här artikeln](service-fabric-cluster-resource-manager-metrics.md)
 * Rörelse kostnaden är ett sätt att signalera till kluster resurs hanteraren att vissa tjänster är dyrare att flytta än andra. Mer information om rörelse kostnad finns i [den här artikeln](service-fabric-cluster-resource-manager-movement-cost.md)
 * Kluster resurs hanteraren har flera begränsningar som du kan konfigurera för att sakta ned omsättningen i klustret. De är normalt inte nödvändiga, men om du behöver dem kan du lära dig mer om dem [här](service-fabric-cluster-resource-manager-advanced-throttling.md)
+* Kluster resurs hanteraren kan identifiera och hantera del klustring (en situation som ibland uppstår när du använder placerings begränsningar och utjämning). Information om hur del klustring kan påverka balanseringen och hur du kan hantera det finns [här](service-fabric-cluster-resource-manager-subclustering.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

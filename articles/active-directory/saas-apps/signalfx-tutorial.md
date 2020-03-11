@@ -11,90 +11,90 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/10/2019
+ms.date: 02/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea81f0046d7f73d845ed49325a3d621e6b7735e7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc8ba01ea8a443c4f8a3a8e7b911dcc605ee61ea
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443269"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967692"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SignalFx
 
 I den här självstudien får du lära dig hur du integrerar SignalFx med Azure Active Directory (Azure AD). När du integrerar SignalFx med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till SignalFx.
-* Gör det möjligt för användarna att logga in automatiskt till SignalFx med sina Azure AD-konton.
-* Hantera dina konton på en central plats – Azure Portal.
+* Kontroll från Azure AD som har åtkomst till SignalFx;
+* Gör det möjligt för användarna att logga in automatiskt till SignalFx med sina Azure AD-konton. särskilt
+* Hantera dina konton på en plats (Azure Portal).
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att komma igång behöver du följande objekt:
+Innan du börjar behöver du:
 
-* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* SignalFx för enkel inloggning (SSO) aktive rad.
+* En Azure AD-prenumeration
+    * Om du inte har någon prenumeration kan du skaffa ett [kostnads fritt konto här](https://azure.microsoft.com/free/).
+* SignalFx för enkel inloggning (SSO) med aktiverade prenumerationer
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
+I den här självstudien kommer du att konfigurera och testa Azure AD SSO i en test miljö.
 
 * SignalFx stöder **IDP** INITIERAd SSO
 * SignalFx stöder **just-in-Time** User-etablering
+* När du har konfigurerat SignalFx kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-signalfx-from-the-gallery"></a>Lägga till SignalFx från galleriet
+## <a name="step-1-add-the-signalfx-application-in-azure"></a>Steg 1: Lägg till SignalFx-programmet i Azure
 
-Om du vill konfigurera integreringen av SignalFx i Azure AD måste du lägga till SignalFx från galleriet i listan över hanterade SaaS-appar.
+Använd de här anvisningarna för att lägga till SignalFx-programmet i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet** , skriver du **SignalFx** i sökrutan.
-1. Välj **SignalFx** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. I navigerings fönstret på den vänstra sidan väljer du **Azure Active Directory**.
+1. Välj **företags program**och välj sedan **alla program**.
+1. Välj **Nytt program**.
+1. I avsnittet **Lägg till från galleriet** i sökrutan anger du och väljer **SignalFx**.
+    * Du kan behöva vänta några minuter för att programmet ska läggas till i din klient organisation.
+1. Lämna Azure Portal öppen och öppna sedan en ny webb-flik.    
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-signalfx"></a>Konfigurera och testa enkel inloggning med Azure AD för SignalFx
+## <a name="step-2-begin-signalfx-sso-configuration"></a>Steg 2: starta SignalFx SSO-konfiguration
 
-Konfigurera och testa Azure AD SSO med SignalFx med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i SignalFx.
+Använd de här anvisningarna för att starta konfigurations processen för SignalFx SSO.
 
-Om du vill konfigurera och testa Azure AD SSO med SignalFx, slutför du följande Bygg stenar:
+1. Öppna och logga in på SignalFx-ANVÄNDARGRÄNSSNITTET på den nyligen öppnade fliken. 
+1. Klicka på **integration**i den översta menyn. 
+1. I Sök fältet, ange och välj **Azure Active Directory**.
+1. Klicka på **Skapa ny integrering**.
+1. I **namn**anger du ett lätt igenkännbart namn som användarna kan förstå.
+1. Markera **Visa på inloggnings sidan**.
+    * Den här funktionen visar en anpassad knapp på inloggnings sidan som användarna kan klicka på. 
+    * Den information som du angav i **namn** visas på knappen. Därför anger du ett **namn** som användarna kommer att känna igen. 
+    * Det här alternativet fungerar bara om du använder en anpassad under domän för SignalFx-programmet, till exempel **yourcompanyname.signalfx.com**. Kontakta SignalFx-supporten om du vill hämta en anpassad under domän. 
+1. Kopiera **integrations-ID: t**. Du kommer att behöva den här informationen i ett senare steg. 
+1. Lämna SignalFx-ANVÄNDARGRÄNSSNITTET öppet. 
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-1. **[Konfigurera SIGNALFX SSO](#configure-signalfx-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    * **[Skapa SignalFx test User](#create-signalfx-test-user)** -om du vill ha en motsvarighet till B. Simon i SignalFx som är länkad till Azure AD-representation av användare.
-1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
+## <a name="step-3-configure-azure-ad-sso"></a>Steg 3: Konfigurera Azure AD SSO
 
-## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
+Använd de här instruktionerna för att aktivera Azure AD SSO i Azure Portal.
 
-Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
-
-1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **SignalFx** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. Gå tillbaka till [Azure Portal](https://portal.azure.com/)och leta upp avsnittet **Hantera** på sidan **SignalFx** application integration och välj sedan **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på Penn ikonen (redigera) för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På sidan **Konfigurera enkel inloggning med SAML** anger du värdena för följande fält:
+1. På sidan **Konfigurera enkel inloggning med SAML** fyller du i följande fält: 
 
-    a. I textrutan **Identifierare** skriver du in en URL: `https://api.signalfx.com/v1/saml/metadata`
+    a. I **identifierare**anger du följande URL `https://api.<realm>.signalfx.com/v1/saml/metadata` och ersätter `<realm>` med din SignalFx-sfär. 
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://api.signalfx.com/v1/saml/acs/<integration ID>`
+    b. I **svars-URL**anger du följande URL `https://api.<realm>.signalfx.com/v1/saml/acs/<integration ID>` och ersätter `<realm>` med din SignalFx-sfär, samt `<integration ID>` med det **integrations-ID** som du kopierade tidigare från SignalFx-användargränssnittet.
 
-    > [!NOTE]
-    > Föregående värde är inte ett reellt värde. Du uppdaterar värdet med den faktiska svars-URL: en som beskrivs senare i självstudien.
-
-1. SignalFx-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
-
-    ![mallar](common/default-attributes.png)
-
-1. Utöver ovan förväntar sig SignalFx-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
+1. SignalFx-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. 
+    
+1. Granska och verifiera att följande anspråk mappar till de källattribut som är ifyllda i Active Directory. 
 
     | Namn |  Källattribut|
     | ------------------- | -------------------- |
@@ -103,93 +103,82 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     | PersonImmutableID       | user.userprincipalname    |
     | User.LastName       | user.surname    |
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
+    > [!NOTE]
+    > Den här processen kräver att din Active Directory har kon figurer ATS med minst en verifierad anpassad domän, samt har åtkomst till e-postkontona i den här domänen. Kontakta SignalFx-supporten om du är osäker eller behöver hjälp med den här konfigurationen.  
+
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **certifikat (base64)** och väljer sedan **Hämta**. Hämta certifikatet och spara det på din dator. Kopiera sedan URL-värdet för **app Federation-Metadata** ; du behöver den här informationen i ett senare steg i SignalFx-ANVÄNDARGRÄNSSNITTET. 
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. I avsnittet **Konfigurera SignalFx** kopierar du lämpliga URL: er baserat på ditt krav.
+1. Kopiera värdet för **Azure AD-identifieraren** i avsnittet **Konfigurera SignalFx** . Du behöver den här informationen i ett senare steg i SignalFx-ANVÄNDARGRÄNSSNITTET. 
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+## <a name="step-4-create-an-azure-ad-test-user"></a>Steg 4: skapa en Azure AD-test användare
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+Använd de här anvisningarna för att skapa en test användare i Azure Portal som kallas **B. Simon**.
 
-I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
-
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **Ny användare** överst på skärmen.
-1. I **användar** egenskaperna följer du de här stegen:
-   1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
-   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+1. I Azure Portal i navigerings fönstret till vänster väljer du **Azure Active Directory**och väljer sedan **användare**. Välj sedan **alla användare**.
+1. Välj **ny användare**längst upp på sidan.
+1. I **användar** egenskaperna:
+   1. I **användar namn**anger du `username@companydomain.extension`, till exempel `b.simon@contoso.com`.
+   1. I **namn**anger du `B.Simon`.
+   1. Markera **Visa lösen ord**och kopiera sedan det visade värdet i **lösen ord**. Du behöver den här informationen i senare steg för att kunna testa den här integrationen. 
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+## <a name="step-5-assign-the-azure-ad-test-user"></a>Steg 5: tilldela Azure AD-test användare
 
-I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till SignalFx.
+Använd de här instruktionerna för att göra det möjligt för test användaren att använda enkel inloggning med Azure för SignalFx.
 
 1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
 1. I listan program väljer du **SignalFx**.
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer sedan **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+1. Välj **Lägg till användare**och välj sedan **användare och grupper**i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I dialog rutan **användare och grupper** , i listan **användare** , väljer du **B. Simon**och klickar sedan på **Välj**längst ned på sidan.
+1. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på **Välj** längst ned på sidan.
+1. Klicka på **tilldela**i dialog rutan **Lägg till tilldelning** .
 
-## <a name="configure-signalfx-sso"></a>Konfigurera SignalFx SSO
+## <a name="step-6-complete-the-signalfx-sso-configuration"></a>Steg 6: Slutför SignalFx SSO-konfigurationen 
 
-1. Logga in på din SignalFx företags webbplats som administratör.
+1. Öppna föregående flik och gå tillbaka till SignalFx-ANVÄNDARGRÄNSSNITTET för att visa den aktuella Azure Active Directory integrations sidan. 
+1. Bredvid **certifikat (base64)** klickar du på **överför fil**och letar sedan upp den **base64-kodade certifikat** filen som du tidigare laddade ned från Azure Portal.
+1. Bredvid **Azure AD-identifieraren**klistrar du in värdet för **Azure AD-identifieraren** som du kopierade tidigare från Azure Portal. 
+1. Bredvid **URL för federationsmetadata**klistrar du in URL-värdet för **app Federation-Metadata** som du kopierade tidigare från Azure Portal. 
+1. Klicka på **Save** (Spara).
 
-1. I SignalFx klickar du på **integreringarna** överst för att öppna sidan integrations.
+## <a name="step-7-test-sso"></a>Steg 7: testa SSO
 
-    ![SignalFx-integrering](./media/signalfx-tutorial/tutorial_signalfx_intg.png)
+Läs följande information om hur du testar SSO, samt förväntningar för att logga in på SignalFx för första gången. 
 
-1. Klicka på panelen **Azure Active Directory** under avsnittet **inloggnings tjänster** .
+### <a name="test-logins"></a>Testa inloggningar
 
-    ![SignalFx SAML](./media/signalfx-tutorial/tutorial_signalfx_saml.png)
+* För att testa inloggningen bör du använda ett privat/Incognito-fönster, eller så kan du logga ut från Azure Portal. Om inte, kommer cookies för den användare som har konfigurerat programmet att störa och förhindra en lyckad inloggning med test användaren.
 
-1. Klicka på **ny integrering** och under fliken **Installera** utför du följande steg:
+* När en ny test användare loggar in för första gången tvingar Azure dig att ändra lösen ordet. När detta inträffar slutförs inte inloggnings processen för SSO. test användaren dirigeras till Azure Portal. För att felsöka ska test användaren ändra sitt lösen ord och navigera till SignalFx-inloggnings sidan eller till åtkomst panelen och försöka igen.
+    * När du klickar på panelen SignalFx på åtkomst panelen, ska du loggas in automatiskt på SignalFx. 
+        * I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
-    ![SignalFx samlintgpage](./media/signalfx-tutorial/tutorial_signalfx_azure.png)
+* SignalFx-programmet kan nås från åtkomst panelen eller via en anpassad inloggnings sida som tilldelats organisationen. Test användaren bör testa integreringen med början från någon av dessa platser.
+    * Test användaren kan använda de autentiseringsuppgifter som skapades tidigare i den här processen för **b.simon@contoso.com** .
 
-    a. I text rutan **namn** anger du ett nytt integrations namn, t. ex. **OurOrgName SAML SSO**.
+### <a name="first-time-logins"></a>Inloggningar i första gången
 
-    b. Kopiera värdet för **integrations-ID** och Lägg till i **svars-URL: en** i stället för `<integration ID>` i text rutan **svars-URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
+* När en användare loggar in i SignalFx från SAML SSO för första gången, får användaren ett SignalFx-e-postmeddelande med en länk. Användaren måste klicka på länken för att autentiseringen ska kunna användas. Den här e-postverifieringen sker bara för användare i första gången. 
 
-    c. Klicka på **överför fil** för att ladda upp **Base64-kodat certifikat** som hämtats från Azure Portal i text rutan **certifikat** .
-
-    d. I text rutan **utfärdar-URL** klistrar du in värdet för **Azure AD-identifierare**, som du har kopierat från Azure Portal.
-
-    e. I text rutan **metadata-URL** klistrar du in **inloggnings-URL: en** som du har kopierat från Azure Portal.
-
-    f. Klicka på **Spara**.
-
-### <a name="create-signalfx-test-user"></a>Skapa SignalFx test användare
-
-Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i SignalFx. SignalFx stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare skapas vid ett försök att komma åt SignalFx om den inte redan finns.
-
-När en användare loggar in på SignalFx från SAML SSO för första gången, skickar [SignalFx support-teamet](mailto:kmazzola@signalfx.com) ett e-postmeddelande som innehåller en länk som de måste klicka på för att autentisera. Detta sker bara första gången användaren loggar in. efterföljande inloggnings försök kräver ingen e-postvalidering.
-
-> [!Note]
-> Kontakta [SignalFx support team](mailto:kmazzola@signalfx.com) om du behöver skapa en användare manuellt
-
-## <a name="test-sso"></a>Testa SSO
-
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
-
-När du klickar på panelen SignalFx på åtkomst panelen, bör du loggas in automatiskt på den SignalFx som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* SignalFx stöder **just-in-Time** -användare, vilket innebär att om en användare inte finns i SignalFx, kommer användarens konto att skapas vid det första inloggnings försöket.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Prova SignalFx med Azure AD](https://aad.portal.azure.com/)

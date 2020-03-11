@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a49c69b0f96add61501d9e2c5fc00ba564eba2a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 4b1ccde2f1f92237978ab4e68acaa26393bbb9d8
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376537"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968064"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Begär åtkomst till ett Access-paket i Azure AD-hantering av rättigheter
 
@@ -35,7 +35,7 @@ Det första steget är att logga in på min åtkomst portal där du kan begära 
 
 **Nödvändig roll:** Begär Ande
 
-1. Sök efter ett e-postmeddelande eller ett meddelande från projektet eller Business Manager som du arbetar med. E-postmeddelandet ska innehålla en länk till åtkomst paketet som du behöver åtkomst till. Länken börjar med `myaccess`, innehåller ett katalog tips och slutar med ett Access-paket-ID.
+1. Sök efter ett e-postmeddelande eller ett meddelande från projektet eller Business Manager som du arbetar med. E-postmeddelandet ska innehålla en länk till åtkomst paketet som du behöver åtkomst till. Länken börjar med `myaccess`, innehåller ett katalog tips och slutar med ett Access-paket-ID.  (För amerikanska myndigheter kan domänen vara `https://myaccess.microsoft.us` i stället.)
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 

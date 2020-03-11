@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 68b144a838f0c6e65f3e399f610644315d109fde
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 05a155584f0cb69191883cb82b3db0af435ccc12
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903484"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970099"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Ange och hantera oföränderlighets-principer för Blob Storage
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du ställer in och hanterar oföränderlighets-princ
 
 ## <a name="set-retention-policies-and-legal-holds"></a>Ange bevarande principer och juridiska undantag
 
-### <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Skapa en ny container eller välj en befintlig container för lagring av de blobbar som ska behållas i det oföränderliga tillståndet. Behållaren måste vara i ett General-Purpose v2-eller Blob Storage-konto.
 
@@ -59,11 +59,11 @@ Den här artikeln visar hur du ställer in och hanterar oföränderlighets-princ
 
 9. Ta bort en juridisk spärr genom att ta bort den använda taggen för juridiskt bevarande.
 
-### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Funktionen ingår i följande kommando grupper: `az storage container immutability-policy` och `az storage container legal-hold`. Kör `-h` på dem för att se kommandona.
 
-### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -116,10 +116,10 @@ Remove-AzRmStorageContainerLegalHold -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -Name $container -Tag <tag3>
 ```
 
-Skapa eller uppdatera oföränderlighets-principer:
+Skapa eller uppdatera tidsbaserade oföränderlighets-principer:
 
 ```powershell
-# Create an immutablity policy
+# Create a time-based immutablity policy
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10
 ```
@@ -168,17 +168,23 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 ## <a name="enabling-allow-protected-append-blobs-writes"></a>Aktivera Tillåt att skyddade bifogade blobbar skrivs
 
-För tillfället kan du bara komma åt `allowProtectedAppendWrites` inställningen för tidsbaserade bevarande principer via den här [Portal länken](https://aka.ms/immutableappendblobs). 
-
-> [!IMPORTANT] 
->  Inställningen Tillåt att skyddade bifogade blobbar skrivs under tidsbaserad kvarhållning är för närvarande tillgänglig och endast synlig i följande regioner:
-> - USA, östra
-> - USA, södra centrala
-> - USA, västra 2
->
-> Mer information finns i [Tillåt skyddade bifogade BLOB-skrivningar](storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 ![Tillåt ytterligare append-skrivningar](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Funktionen ingår i följande kommando grupper: `az storage container immutability-policy` och `az storage container legal-hold`. Kör `-h` på dem för att se kommandona.
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```powershell
+# Create an immutablity policy with appends allowed
+Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
+    -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10 -AllowProtectedAppendWrite $true
+```
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,17 +6,20 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
-ms.openlocfilehash: 1a372ef12ef7b0afb06ed3c540daaee5e38c3374
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: a784fc070400995c56d16a3bc264d589bcb1f64e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899170"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082854"
 ---
 # <a name="azure-monitor-integration-for-azure-red-hat-openshift-43"></a>Azure Monitor-integrering för Azure Red Hat OpenShift 4,3
 
-> [!IMPORTANT]
-> Azure Red Hat OpenShift 4,3 erbjuds i för hands versionen. För hands versions funktionerna är självbetjäning och tillhandahålls och är tillgängliga och omfattas inte av service nivå avtalet (SLA) och begränsad garanti. Därför är funktionerna inte avsedda att användas för produktion. 
+> [!IMPORTANT] 
+> Observera att Azure Red Hat OpenShift 4,3 är för närvarande endast tillgängligt i privat för hands version i USA, östra. Godkännande av privat för hands version är endast efter inbjudan. Var noga med att registrera din prenumeration innan du försöker aktivera den här funktionen: [Azure Red Hat OpenShift, privat för hands registrering](https://aka.ms/aro-preview-register)
+
+> [!NOTE]
+> För hands versions funktionerna är självbetjäning och tillhandahålls och är tillgängliga och omfattas inte av service nivå avtalet (SLA) och begränsad garanti. Därför är funktionerna inte avsedda att användas för produktion.
 
 Den här artikeln beskriver hur du aktiverar den privata förhands granskningen av Azure Monitor för behållare för OpenShift 4,3-kluster som finns på lokal eller i valfri moln miljö. Samma instruktioner gäller även för att aktivera övervakning av Azure Red Hat OpenShift (ARO) 4,3-kluster.  
 

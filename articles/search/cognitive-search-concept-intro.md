@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 14c120af69a94331586f9264a12f5d2333a5d87d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0a4dd3247a9931de3ae2c699bdf7800407695c86
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586758"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080218"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introduktion till AI i Azure Kognitiv sökning
 
@@ -21,7 +21,7 @@ AI-anrikning är en funktion i Azure Kognitiv sökning indexering som används f
 
 + Kunskaper om **bearbetning av naturligt språk** inkluderar [enhets igenkänning](cognitive-search-skill-entity-recognition.md), [språk identifiering](cognitive-search-skill-language-detection.md), [extrahering av nyckel fraser](cognitive-search-skill-keyphrases.md), text manipulation, [sentiment identifiering](cognitive-search-skill-sentiment.md)och [identifiering av PII](cognitive-search-skill-pii-detection.md). Med dessa kunskaper kan ostrukturerad text utgå från nya formulär som är mappade som sökbara och filter bara fält i ett index.
 
-+ **Bild bearbetnings** kunskaper omfattar [optisk tecken läsning (OCR)](cognitive-search-skill-ocr.md) och identifiering av [visuella funktioner](cognitive-search-skill-image-analysis.md), till exempel ansikts igenkänning, bild tolkning, bild igenkänning (berömda-användare och landmärken) eller attribut som färger eller bild orientering. Du kan skapa text representationer av bild innehåll, sökbar med alla fråge funktioner i Azure Kognitiv sökning.
++ **Bild bearbetnings** kunskaper omfattar [optisk tecken läsning (OCR)](cognitive-search-skill-ocr.md) och identifiering av [visuella funktioner](cognitive-search-skill-image-analysis.md), till exempel ansikts igenkänning, bild tolkning, bild igenkänning (berömda-användare och landmärken) eller attribut som bild orientering. Du kan skapa text representationer av bild innehåll, sökbar med alla fråge funktioner i Azure Kognitiv sökning.
 
 ![Pipeline-diagram för anrikning](./media/cognitive-search-intro/cogsearch-architecture.png "Översikt över anriknings pipeline")
 

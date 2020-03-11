@@ -16,12 +16,12 @@ ms.date: 11/01/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89a346f48856ea33ae5e27e3537f53dfa1ca3ae3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 45da1170705bab1206a98c59e02c7616c25ce502
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608818"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967760"
 ---
 # <a name="self-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Själv granskning av ett Access-paket i hantering av Azure AD-rättigheter
 
@@ -37,7 +37,7 @@ Om du vill göra en åtkomst granskning måste du först öppna åtkomst granskn
 
 1. Klicka på länken **Granska åtkomst** .
 
-1. Du kan också gå direkt till https://myaccess.microsoft.com för att hitta dina väntande åtkomst granskningar om du inte får ett e-postmeddelande.
+1. Du kan också gå direkt till https://myaccess.microsoft.com för att hitta dina väntande åtkomst granskningar om du inte får ett e-postmeddelande.  (För amerikanska myndigheter använder du `https://myaccess.microsoft.us` i stället.)
 
 1. Klicka på **åtkomst granskningar** i det vänstra navigerings fältet för att se en lista över väntande åtkomst granskningar som har tilldelats dig.
 

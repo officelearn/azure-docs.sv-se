@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4c0b0c6ec68c818f107c7e3e3241e4acc0edb7
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: d00a8b84477226b68913f95c5121bbbdfc2eb09d
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78671727"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082278"
 ---
-# <a name="enable-on-premises-azure-active-password-protection"></a>Aktivera lokalt Azure Active Password Protection
+# <a name="enable-on-premises-azure-active-directory-password-protection"></a>Aktivera lokalt Azure Active Directory lösen ords skydd
 
 Användare skapar ofta lösen ord som använder vanliga lokala ord som skolan, idrotts lag eller berömda person. Dessa lösen ord är lätta att gissa sig till och är svaga mot ordbaserade attacker. För att kunna använda starka lösen ord i din organisation har Azure Active Directory (Azure AD) lösen ords skydd en lista med globala och anpassade lösen ord. En begäran om lösen ords ändring Miss lyckas om det finns en matchning i dessa förbjudna lösen ords listor.
 

@@ -1,7 +1,7 @@
 ---
-title: Bygg & distribuera automatiserade ML-modeller
+title: Använda autoML för att skapa modeller & distribuera
 titleSuffix: Azure Machine Learning
-description: Skapa, hantera och distribuera automatiserade maskin inlärnings experiment i Azure Machine Learning Studio.
+description: Skapa, granska och distribuera automatiserade maskin inlärnings modeller med Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,30 +10,32 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 02/04/2020
-ms.openlocfilehash: a2bf15c8778a6ff549284b1053cf0978d182b802
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.openlocfilehash: 706b67216d1037440fd1641d9bc82deee2c43109
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78354934"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79078447"
 ---
-# <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Skapa, utforska och distribuera automatiserade maskin inlärnings experiment med Azure Machine Learning Studio
+# <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Skapa, granska och distribuera automatiserade maskin inlärnings modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
- I den här artikeln får du lära dig hur du skapar, utforskar och distribuerar automatiserade maskin inlärnings experiment i Azure Machine Learning Studio utan en enda rad kod. Automatisk maskin inlärning automatiserar processen med att välja den bästa algoritmen som ska användas för dina data, så att du snabbt kan skapa en maskin inlärnings modell. [Lär dig mer om automatisk maskin inlärning](concept-automated-ml.md).
+I den här artikeln får du lära dig hur du skapar, utforskar och distribuerar automatiserade maskin inlärnings modeller utan en enda kodrad i Azure Machine Learning Studio-gränssnittet. Automatisk maskin inlärning är en process där den bästa Machine Learning-algoritmen som används för dina aktuella data väljs åt dig. Med den här processen kan du snabbt skapa maskin inlärnings modeller. [Lär dig mer om automatisk maskin inlärning](concept-automated-ml.md).
+ 
+För ett slut punkt till slut punkts exempel kan du prova [självstudien för att skapa en klassificerings modell med Azure Machine Learning s automatiserade ml-gränssnitt](tutorial-first-experiment-automated-ml.md). 
 
- Om du föredrar en mer kod baserad upplevelse kan du också [Konfigurera dina automatiserade maskin inlärnings experiment i python](how-to-configure-auto-train.md) med [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+[Konfigurera automatiserade maskin inlärnings experiment](how-to-configure-auto-train.md) med Azure Machine Learning SDK för en python-kod baserad upplevelse.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnads fritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * En Azure Machine Learning arbets yta med en typ av **Enterprise-utgåva**. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).  Information om hur du uppgraderar en befintlig arbets yta till Enterprise Edition finns i [Uppgradera till Enterprise Edition](how-to-manage-workspace.md#upgrade).
 
 ## <a name="get-started"></a>Kom igång
 
-1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com). 
+1. Logga in på Azure Machine Learning på https://ml.azure.com. 
 
 1. Välj din prenumeration och arbets yta. 
 
@@ -184,8 +186,8 @@ Guardrail|Status|Villkors&nbsp;för&nbsp;-utlösare
 ---|---|---
 &nbsp;värden som saknas&nbsp;Imputation |**Parametrarna** <br> <br> **Fastsatt**|    Inget saknat värde i någon av de inmatade&nbsp;kolumnerna <br> <br> Vissa kolumner saknar värden
 Korsvalidering|**Möjligt**|Om ingen explicit verifierings uppsättning anges
-Hög&nbsp;kardinalitet&nbsp;funktion&nbsp;identifiering|  **Parametrarna** <br> <br>**Möjligt**|   Inga funktioner för hög kardinalitet upptäcktes <br><br> Inmatade kolumner med hög kardinalitet upptäcktes
-Identifiering av klass balans |**Parametrarna** <br><br><br>**Aviserad** |Klasser är balanserade i tränings data; En data mängd betraktas som balanserade om varje klass har god representation i data uppsättningen, mätt enligt antal och samplings förhållandet <br> <br> Klasser i tränings data är obalanserade
+Hög&nbsp;kardinalitet&nbsp;funktion&nbsp;identifiering|    **Parametrarna** <br> <br>**Möjligt**|    Inga funktioner för hög kardinalitet upptäcktes <br><br> Inmatade kolumner med hög kardinalitet upptäcktes
+Identifiering av klass balans    |**Parametrarna** <br><br><br>**Aviserad** |Klasser är balanserade i tränings data; En data mängd betraktas som balanserade om varje klass har god representation i data uppsättningen, mätt enligt antal och samplings förhållandet <br> <br> Klasser i tränings data är obalanserade
 Data konsekvens för Time-serien|**Parametrarna** <br><br><br><br> **Fastsatt** |<br> Det valda {horisont-, fördröjnings-, rullande Window}-värdet har analyser ATS och inga potentiella minnes problem har identifierats. <br> <br>De valda värdena för {Horisont, fördröjning, rullande fönster} analyserades och kan orsaka att experimentet får slut på minne. Fördröjningen eller rullnings fönstret har inaktiverats.
 
 ## <a name="run-experiment-and-view-results"></a>Kör experimentet och visa resultaten
@@ -240,7 +242,6 @@ Nu har du en fungerande webb tjänst för att generera förutsägelser! Du kan t
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Testa självstudien från slut punkt till slut punkt [för att skapa ditt första automatiserade ml-experiment med Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md). 
-* [Lär dig mer om automatisk maskin inlärning](concept-automated-ml.md) och Azure Machine Learning.
-* [Förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md).
 * [Lär dig hur du använder en webb tjänst](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).
+* [Förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md).
+* [Lär dig mer om automatisk maskin inlärning](concept-automated-ml.md) och Azure Machine Learning.

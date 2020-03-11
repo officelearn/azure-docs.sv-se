@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f7a6c5872c5e2b7e1b47b40e32ddb047641e8b2e
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: a621165210702e075f15fb61bd615e157f997fe1
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944213"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79078867"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en Azure Active Directory teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -64,13 +64,13 @@ Om du vill läsa, uppdatera eller ta bort ett befintligt användar konto är ind
 
 Om du vill skapa ett nytt användar konto är indata-anspråk en nyckel som unikt identifierar ett lokalt eller federerat konto. Till exempel lokalt konto: **signInNames. EmailAddress**eller **signInNames. username**. För ett federerat konto: **alternativeSecurityId**.
 
-InputClaimsTransformations-elementet kan innehålla en samling ingångs anspråk för omvandlings element som används för att ändra det inloggade anspråket eller skapa ett nytt.
+[InputClaimsTransformations](technicalprofiles.md#inputclaimstransformations) -elementet kan innehålla en samling ingångs anspråk för omvandlings element som används för att ändra det inloggade anspråket eller skapa ett nytt.
 
 ## <a name="outputclaims"></a>OutputClaims
 
 **OutputClaims** -elementet innehåller en lista över anspråk som returneras av den tekniska Azure AD-profilen. Du kan behöva mappa namnet på det anspråk som definierats i principen till det namn som definierats i Azure Active Directory. Du kan också inkludera anspråk som inte returneras av Azure Active Directory, förutsatt att du anger attributet `DefaultValue`.
 
-**OutputClaimsTransformations** -elementet kan innehålla en samling av **OutputClaimsTransformation** -element som används för att ändra de utgående anspråken eller skapa nya.
+[OutputClaimsTransformations](technicalprofiles.md#outputclaimstransformations) -elementet kan innehålla en samling av **OutputClaimsTransformation** -element som används för att ändra de utgående anspråken eller skapa nya.
 
 Till exempel skapar den tekniska profilen **AAD-UserWriteUsingLogonEmail** ett lokalt konto och returnerar följande anspråk:
 
@@ -92,7 +92,7 @@ Till exempel skapar den tekniska profilen **AAD-UserWriteUsingLogonEmail** ett l
 
 ## <a name="persistedclaims"></a>PersistedClaims
 
-**PersistedClaims** -elementet innehåller alla värden som ska sparas av Azure AD med möjlig mappnings information mellan en anspråks typ som redan har definierats i ClaimsSchema-avsnittet i principen och namnet på Azure AD-attributnamnet.
+**PersistedClaims** -elementet innehåller alla värden som ska sparas av Azure AD med möjlig mappnings information mellan en anspråks typ som redan har definierats i [ClaimsSchema](claimsschema.md) -avsnittet i principen och namnet på Azure AD-attributnamnet.
 
 Den tekniska profilen **AAD-UserWriteUsingLogonEmail** , som skapar ett nytt lokalt konto, behåller följande anspråk:
 
@@ -123,9 +123,7 @@ Namnet på anspråket är namnet på Azure AD-attributet om inte attributet **Pa
 
 ### <a name="read"></a>Läsa
 
-**Läs** åtgärden läser data om ett enda användar konto. Om du vill läsa användar data måste du ange en nyckel som ett indata-anspråk, till exempel **ObjectID**, **userPrincipalName**, **signInNames** (alla typer, användar namn och e-postbaserat konto) eller **alternativeSecurityId**.
-
-Följande tekniska profil läser data om ett användar konto med hjälp av användarens objectId:
+**Läs** åtgärden läser data om ett enda användar konto. Följande tekniska profil läser data om ett användar konto med hjälp av användarens objectId:
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingObjectId">
@@ -155,9 +153,7 @@ Följande tekniska profil läser data om ett användar konto med hjälp av anvä
 
 ### <a name="write"></a>Skriva
 
-**Skriv** åtgärden skapar eller uppdaterar ett enskilt användar konto. Om du vill skriva ett användar konto måste du ange en nyckel som ett indata-anspråk, till exempel **ObjectID**, **userPrincipalName**, **signInNames. EmailAddress**eller **alternativeSecurityId**.
-
-Följande tekniska profil skapar ett nytt socialt konto:
+**Skriv** åtgärden skapar eller uppdaterar ett enskilt användar konto. Följande tekniska profil skapar ett nytt socialt konto:
 
 ```XML
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
@@ -197,9 +193,7 @@ Följande tekniska profil skapar ett nytt socialt konto:
 
 ### <a name="deleteclaims"></a>DeleteClaims
 
-**DeleteClaims** -åtgärden rensar informationen från en angiven lista över anspråk. Om du vill ta bort information från anspråk måste du ange en nyckel som ett indata-anspråk, till exempel **ObjectID**, **userPrincipalName**, **signInNames. EmailAddress** eller **alternativeSecurityId**.
-
-Följande tekniska profil tar bort anspråk:
+**DeleteClaims** -åtgärden rensar informationen från en angiven lista över anspråk. Följande tekniska profil tar bort anspråk:
 
 ```XML
 <TechnicalProfile Id="AAD-DeleteClaimsUsingObjectId">
@@ -220,9 +214,7 @@ Följande tekniska profil tar bort anspråk:
 
 ### <a name="deleteclaimsprincipal"></a>DeleteClaimsPrincipal
 
-Åtgärden **DeleteClaimsPrincipal** tar bort ett enskilt användar konto från katalogen. Om du vill ta bort ett användar konto måste du ange en nyckel som ett indata-anspråk, till exempel **ObjectID**, **userPrincipalName**, **signInNames. EmailAddress** eller **alternativeSecurityId**.
-
-Följande tekniska profil tar bort ett användar konto från katalogen med hjälp av User Principal Name:
+Åtgärden **DeleteClaimsPrincipal** tar bort ett enskilt användar konto från katalogen. Följande tekniska profil tar bort ett användar konto från katalogen med hjälp av User Principal Name:
 
 ```XML
 <TechnicalProfile Id="AAD-DeleteUserUsingObjectId">
@@ -257,12 +249,26 @@ Följande tekniska profil tar bort ett socialt användar konto med **alternative
 | --------- | -------- | ----------- |
 | Åtgärd | Ja | Åtgärden som ska utföras. Möjliga värden: `Read`, `Write`, `DeleteClaims`eller `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Nej | Generera ett fel om objektet användare inte finns i katalogen. Möjliga värden: `true` eller `false`. |
-| UserMessageIfClaimsPrincipalDoesNotExist | Nej | Om ett fel ska höjas (se beskrivningen av RaiseErrorIfClaimsPrincipalDoesNotExist) anger du det meddelande som ska visas för användaren om användar objekt inte finns. Värdet kan [lokaliseras](localization.md).|
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Nej | Generera ett fel om det redan finns ett användar objekt. Möjliga värden: `true` eller `false`.|
-| UserMessageIfClaimsPrincipalAlreadyExists | Nej | Om ett fel ska höjas (se RaiseErrorIfClaimsPrincipalAlreadyExists-Attribute Description) anger du det meddelande som ska visas för användaren om användar objekt redan finns. Värdet kan [lokaliseras](localization.md).|
 | ApplicationObjectId | Nej | Programobjekts-ID för tilläggets attribut. Värde: ObjectId för ett program. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](custom-policy-custom-attributes.md). |
 | ClientId | Nej | Klient identifieraren för åtkomst till klienten som en tredje part. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](custom-policy-custom-attributes.md) |
 | IncludeClaimResolvingInClaimsHandling  | Nej | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true`eller `false` (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true`. |
+
+### <a name="error-messages"></a>Felmeddelanden
+ 
+Följande inställningar kan användas för att konfigurera fel meddelandet som visas vid fel. Metadata bör konfigureras i den [självkontrollerade](self-asserted-technical-profile.md) tekniska profilen. Fel meddelandena kan [lokaliseras](localization.md).
+
+| Attribut | Krävs | Beskrivning |
+| --------- | -------- | ----------- |
+| UserMessageIfClaimsPrincipalAlreadyExists | Nej | Om ett fel ska höjas (se RaiseErrorIfClaimsPrincipalAlreadyExists-Attribute Description) anger du det meddelande som ska visas för användaren om användar objekt redan finns. |
+| UserMessageIfClaimsPrincipalDoesNotExist | Nej | Om ett fel ska höjas (se beskrivningen av RaiseErrorIfClaimsPrincipalDoesNotExist) anger du det meddelande som ska visas för användaren om användar objekt inte finns. |
+
+
+## <a name="next-steps"></a>Nästa steg
+
+Se följande artikel, till exempel om du använder teknisk profil för Azure AD:
+
+- [Lägg till anspråk och anpassa användarindata med anpassade principer i Azure Active Directory B2C](custom-policy-configure-user-input.md)
 
 
 

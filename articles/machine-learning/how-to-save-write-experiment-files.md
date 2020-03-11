@@ -11,13 +11,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 197e93946a52303f312912e4ebd2487f8c1360b2
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 03/10/2020
+ms.openlocfilehash: 12a38b08fd429280f34b4eb02d4b72187b622261
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536738"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79078408"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Var du ska spara och skriva filer för Azure Machine Learning experiment
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,7 +30,7 @@ När du startar utbildning körs på ett [beräknings mål](how-to-set-up-traini
 
 Innan du kan påbörja ett experiment på ett beräknings mål eller på den lokala datorn måste du se till att de nödvändiga filerna är tillgängliga för det beräknings målet, till exempel beroende filer och datafiler som din kod måste köra.
 
-Azure Machine Learning kör utbildnings skript genom att kopiera hela mappen Script till mål beräknings kontexten och sedan ta en ögonblicks bild. Lagringsgränsen för experimentögonblicksbilder är 300 MB och/eller 2 000 filer.
+Azure Machine Learning kör utbildnings skript genom att kopiera hela mappen Script till mål beräknings kontexten och sedan ta en ögonblicks bild. Lagrings gränsen för ögonblicks bilder av experiment är 300 MB och/eller 2000 filer.
 
 Därför rekommenderar vi följande:
 

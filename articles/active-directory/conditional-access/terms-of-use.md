@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d92c3e51aae70c66dcf9b7ca6dfd631650ace574
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 1dbd1d96cda88d500e16fff885dae03ebfa230f0
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561756"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79079895"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory användnings villkor
 
@@ -94,8 +94,8 @@ När du har slutfört användnings villkoren använder du följande procedur fö
 
    | Upphörandet startar den | Frequency | Resultat |
    | --- | --- | --- |
-   | Dagens datum  | Varje månad | Från och med idag måste användarna godkänna användnings villkoren och sedan acceptera igen varje månad. |
-   | Datum i framtiden  | Varje månad | Från och med idag måste användarna godkänna användnings villkoren. När det framtida datumet infaller medgivanden upphör att gälla och sedan måste användarna måste godkänna varje månad.  |
+   | Dagens datum  | Månadsvis | Från och med idag måste användarna godkänna användnings villkoren och sedan acceptera igen varje månad. |
+   | Datum i framtiden  | Månadsvis | Från och med idag måste användarna godkänna användnings villkoren. När det framtida datumet infaller medgivanden upphör att gälla och sedan måste användarna måste godkänna varje månad.  |
 
    Om du t. ex. ställer in sista giltighets datum till **1 januari** och frekvens till **månatlig**, så kan det uppstå förfallo datum för två användare:
 
@@ -253,7 +253,7 @@ Inställningen **Kräv att användare samtycker till varje enhets** inställning
 Här är en lista över plattformar som stöds och programvara.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Andra |
+> |  | iOS | Android | Windows 10 | Annat |
 > | --- | --- | --- | --- | --- |
 > | **Inbyggd app** | Ja | Ja | Ja |  |
 > | **Microsoft Edge** | Ja | Ja | Ja |  |
@@ -277,7 +277,11 @@ Om en användare använder Windows 10 och Microsoft Edge får de ett meddelande 
 
 Om de använder Chrome uppmanas de att installera [tillägg för Windows 10-konton](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
-### <a name="join-an-android-device"></a>Anslut till en Android-enhet
+### <a name="register-an-ios-device"></a>Registrera en iOS-enhet
+
+Om en användare använder en iOS-enhet uppmanas de att installera [Microsoft Authenticator-appen](https://apps.apple.com/us/app/microsoft-authenticator/id983156458).
+
+### <a name="register-an-android-device"></a>Registrera en Android-enhet
 
 Om en användare använder en Android-enhet uppmanas de att installera [Microsoft Authenticator-appen](https://play.google.com/store/apps/details?id=com.azure.authenticator).
 

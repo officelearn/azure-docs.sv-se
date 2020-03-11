@@ -3,19 +3,20 @@ title: Skapa och kryptera en virtuell Linux-dator med Azure PowerShell
 description: I den här snabb starten får du lära dig hur du använder Azure PowerShell för att skapa och kryptera en virtuell Linux-dator
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.openlocfilehash: 14cdd1e15212141e8c631b589c9c470bbdfe38a9
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a2cb8919ac0752c42f22e064d6201c7120fbc9b6
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829909"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970537"
 ---
-# <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>Snabbstart: Skapa och kryptera en virtuell Linux-dator i Azure med Azure PowerShell
+# <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>Snabb start: skapa och kryptera en virtuell Linux-dator i Azure med Azure PowerShell
 
-Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här snabb starten visar hur du använder modulen Azure PowerShell för att skapa en virtuell Linux-dator (VM), skapar en Key Vault för lagringen av krypterings nycklar och krypterar den virtuella datorn. I den här snabb starten används Ubuntu 16,04 LTS Marketplace-avbildningen från kanoniskt och en VM-Standard_D2S_V3 storlek. 
+Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här snabb starten visar hur du använder modulen Azure PowerShell för att skapa en virtuell Linux-dator (VM), skapar en Key Vault för lagringen av krypterings nycklar och krypterar den virtuella datorn. I den här snabb starten används Ubuntu 16,04 LTS Marketplace-avbildningen från kanoniskt format och en VM Standard_D2S_V3 storlek. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

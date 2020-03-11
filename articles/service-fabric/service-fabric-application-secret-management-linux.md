@@ -5,12 +5,12 @@ author: shsha
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: shsha
-ms.openlocfilehash: 350718e4ce890fcbfaa7f2b10cc4c47dfac4da90
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: b8e0a19e3f654fc561e7c7e26c6a2da463e24d5f
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614714"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969039"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-linux-clusters"></a>Konfigurera ett krypterings certifikat och kryptera hemligheter på Linux-kluster
 Den här artikeln visar hur du konfigurerar ett krypterings certifikat och använder det för att kryptera hemligheter på Linux-kluster. Information om Windows-kluster finns i [Konfigurera ett krypterings certifikat och kryptera hemligheter i Windows-kluster][secret-management-windows-specific-link].
@@ -36,7 +36,7 @@ Följande kodfragment kan användas för att kryptera en hemlighet. Det här kod
 
 ```console
 user@linux:$ echo "Hello World!" > plaintext.txt
-user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt -o plaintext_UTF-16.txt
+user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt | tr -d '\n' > plaintext_UTF-16.txt
 user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform der TestCert.pem | base64 > encrypted.txt
 ```
 Den resulterande Base-64-kodade sträng utmatningen till krypterad. txt innehåller både den hemliga chiffertexten och information om det certifikat som användes för att kryptera det. Du kan verifiera dess giltighet genom att dekryptera den med OpenSSL.

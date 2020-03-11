@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: 54a2aac3db47d60f02a45adae9aaa6077d675a43
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: bfbaa03469ee04ff900a215aadd8c814efcba761
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716906"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037524"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Använda Docker Compose för att distribuera flera containrar
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du distribuerar flera Azure Cognitive Services-behå
 
 > [Docker Compose](https://docs.docker.com/compose/) är ett verktyg för att definiera och köra Docker-program med flera behållare. I skapa, använder du en YAML-fil för att konfigurera programmets tjänster. Sedan skapar du och startar alla tjänster från konfigurationen genom att köra ett enda kommando.
 
-Det kan vara användbart att dirigera flera behållar avbildningar på en dator med en enda värddator. I den här artikeln ska vi samla ihop Identifiera text-och formulär igenkännings behållarna.
+Det kan vara användbart att dirigera flera behållar avbildningar på en dator med en enda värddator. I den här artikeln ska vi samla samman behållarna för läsning och formulär igenkänning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -70,11 +70,11 @@ services:
       - "5010:5000"
 
   ocr:
-    image: "containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text"
+    image: "containerpreview.azurecr.io/microsoft/cognitive-services-read"
     environment:
       eula: accept
-      apikey: # < Your recognize text API key >
-      billing: # < Your recognize text billing URL >
+      apikey: # < Your computer vision API key >
+      billing: # < Your computer vision billing URL >
     ports:
       - "5021:5000"
 ```
@@ -87,9 +87,9 @@ services:
 Med en Docker-fil kan du hantera alla faser i en definierad tjänst livs cykel: starta, stoppa och återskapa tjänster; Visa tjänst status; och logg strömning. Öppna ett kommando rads gränssnitt från projekt katalogen (där Docker-Compos. yaml-filen finns).
 
 > [!NOTE]
-> Undvik fel genom att kontrol lera att värddatorn delar enheter med Docker-motorn på rätt sätt. Om E:\publicpreview till exempel används som en katalog i filen Docker-Compos. yaml delar du enhet E med Docker.
+> Undvik fel genom att kontrol lera att värddatorn delar enheter med Docker-motorn på rätt sätt. Om *E:\publicpreview* till exempel används som en katalog i filen *Docker-Compos. yaml* delar du enhet **E** med Docker.
 
-Kör följande kommando från kommando rads gränssnittet för att starta (eller starta om) alla de tjänster som definierats i filen Docker-Compos. yaml:
+Kör följande kommando från kommando rads gränssnittet för att starta (eller starta om) alla de tjänster som definierats i filen *Docker-Compos. yaml* :
 
 ```console
 docker-compose up
@@ -113,8 +113,8 @@ fd93b5f95865: Pull complete
 ef41dcbc5857: Pull complete
 4d05c86a4178: Pull complete
 34e811d37201: Pull complete
-Pulling ocr (containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:)...
-latest: Pulling from microsoft/cognitive-services-recognize-text
+Pulling ocr (containerpreview.azurecr.io/microsoft/cognitive-services-read:)...
+latest: Pulling from microsoft/cognitive-services-read
 f476d66f5408: Already exists
 8882c27f669e: Already exists
 d9af21273955: Already exists
@@ -167,18 +167,12 @@ Här är några exempel på utdata:
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
 2ce533f88e80        containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer   latest
-4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text    latest
+4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-read              latest
 ```
 
-### <a name="test-the-recognize-text-container"></a>Testa Identifiera text container
+### <a name="test-containers"></a>Test behållare
 
-Öppna en webbläsare på värddatorn och gå till **localhost** genom att använda den angivna porten från Docker-Compos. yaml-filen, till exempel http://localhost:5021/swagger/index.html. Du kan använda funktionen "prova" i API för att testa Identifiera text slut punkten.
-
-![Identifiera text behållare](media/recognize-text-swagger-page.png)
-
-### <a name="test-the-form-recognizer-container"></a>Testa formulärets tolknings behållare
-
-Öppna en webbläsare på värddatorn och gå till **localhost** genom att använda den angivna porten från Docker-Compos. yaml-filen, till exempel http://localhost:5010/swagger/index.html. Du kan använda funktionen "Testa funktionen" i API: et för att testa formulär tolkens slut punkt.
+Öppna en webbläsare på värddatorn och gå till **localhost** genom att använda den angivna porten från *Docker-Compos. yaml* -filen, till exempel http://localhost:5021/swagger/index.html. Du kan till exempel använda funktionen **testa IT** i API: et för att testa formulär tolkens slut punkt. Båda behållarna Swagger Pages bör vara tillgängliga och testable.
 
 ![Formulär igenkännings behållare](media/form-recognizer-swagger-page.png)
 

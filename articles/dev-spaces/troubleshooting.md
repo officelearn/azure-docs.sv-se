@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Lär dig hur du felsöker och löser vanliga problem när du aktiverar och använder Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 0cf8eb7b07622a989bc78637b1601ba68b9b5f6f
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: fdb0d8afa55f87ae61213b189e9e24ec63bfcfb8
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251113"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945773"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Fel sökning av Azure dev Spaces
 
@@ -292,7 +292,7 @@ Försök att hämta och installera den senaste versionen av Azure dev Spaces CLI
 
 Du kanske ser det här felet när du kör fel söknings programmet Visual Studio Code. Du kanske inte har VS Code-tillägget C# installerat på din utvecklings dator. C# Tillägget innehåller stöd för fel sökning av .net Core (CoreCLR).
 
-Lös problemet genom att installera [vs Code-tillägget för C# ](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+Lös problemet genom att installera [vs Code-tillägget för C# ](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 
 ### <a name="error-configured-debug-type-coreclr-is-not-supported"></a>Fel "konfigurerad fel söknings typ" coreclr "stöds inte"
 

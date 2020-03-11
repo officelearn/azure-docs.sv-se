@@ -1,37 +1,55 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Tjänsten Azure Red Hat OpenShift
+### YamlMime:Landing
+title: Dokumentation om Azure Red Hat OpenShift
+summary: Azure Red Hat OpenShift tillhandahåller Kubernetes-kluster för enskilda klienter med hög tillgänglighet i Azure, med stöd från Red Hat och Microsoft.
 metadata:
-  title: 'Dokumentation om tjänsten Azure Red Hat OpenShift – självstudier, API-referens'
-  meta.description: Microsoft Azure Red Hat OpenShift allows you to quickly deploy a production ready Red Hat OpenShift cluster in Azure. Learn how to use Azure Red Hat OpenShift with these tutorials and how-to guides.
-  services: container-service
-  author: tylermsft
+  title: Dokumentation om Azure Red Hat OpenShift
+  description: Med Microsoft Azure Red Hat OpenShift kan du snabbt distribuera ett produktionsklart Red Hat OpenShift-kluster i Azure. Lär dig att använda Azure Red Hat OpenShift med hjälp av dessa självstudier och instruktionsguider.
   ms.service: container-service
+  services: container-service
   ms.topic: landing-page
-  ms.date: 05-06-2019
-  ms.author: twhitney
-abstract:
-  description: 'Azure Red Hat OpenShift tillhandahåller Kubernetes-kluster för enskilda klienter med hög tillgänglighet i Azure, med stöd från Red Hat och Microsoft.'
-sections:
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: Lär dig mer om att skapa och hantera ett Azure Red Hat OpenShift-kluster.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/openshift/tutorial-create-cluster">Skapa ett Azure Red Hat OpenShift-kluster</a>
-          - html: <a href="/azure/openshift/tutorial-scale-cluster">Skala ett Azure Red Hat OpenShift-kluster</a>
-          - html: <a href="/azure/openshift/tutorial-delete-cluster">Ta bort ett Azure Red Hat OpenShift-kluster</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/cli/azure/openshift">Azure CLI</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/openshift">REST-API</a></p>
-          - title: Red Hat-dokumentation
-            html: '<p><a href="https://docs.openshift.com/aro/welcome/index.html">Red Hat OpenShift-dokumentation</a></p>'
+  author: jimzim
+  ms.author: jzim
+  ms.date: 03/06/2020
+  ms.openlocfilehash: ec40ff9af0b2c09db32e40536009cd0db684f030
+  ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 03/10/2020
+  ms.locfileid: "79037049"
+landingContent:
+- title: Om Azure Red Hat OpenShift
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Red Hat OpenShift?
+      url: intro-openshift.md
+- title: Kom igång
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skapa ett Azure Red Hat OpenShift-kluster
+      url: tutorial-create-cluster.md
+    - text: Skala ett Azure Red Hat OpenShift-kluster
+      url: tutorial-scale-cluster.md
+    - text: Ta bort ett Azure Red Hat OpenShift-kluster
+      url: tutorial-delete-cluster.md
+- title: Konfigurera
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera Azure Red Hat OpenShift-utvecklingsmiljön
+      url: howto-setup-environment.md
+    - text: Skapa en Azure AD-klientorganisation
+      url: howto-create-tenant.md
+    - text: Skapa ett Azure AD-appobjekt och en användare
+      url: howto-aad-app-configuration.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: /cli/azure/openshift
+    - text: REST-API
+      url: /rest/api/openshift
+    - text: Red Hat OpenShift-dokumentation
+      url: https://docs.openshift.com/aro/welcome/index.html

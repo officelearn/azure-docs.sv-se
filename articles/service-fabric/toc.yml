@@ -206,7 +206,7 @@
           items:
             - name: Exempel på Reliable Services-program och tjänstmanifest
               href: service-fabric-manifest-example-reliable-services-app.md
-            - name: Exempel på program med flera behållare och tjänstmanifest
+            - name: Exempel på program med flera container och tjänstmanifest
               href: service-fabric-manifest-example-container-app.md
         - name: Värdmodell
           href: service-fabric-hosting-model.md
@@ -316,6 +316,8 @@
               href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
             - name: Balansera ett kluster
               href: service-fabric-cluster-resource-manager-balancing.md
+            - name: Underklustring
+              href: service-fabric-cluster-resource-manager-subclustering.md
             - name: Begränsning
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: Tjänstflöde
@@ -358,7 +360,7 @@
       href: concepts-managed-identity.md
     - name: Konfigurera autentiseringsuppgifter för containerlagringsplats
       href: configure-container-repository-credentials.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Ställt in din utvecklingsmiljö
       items:

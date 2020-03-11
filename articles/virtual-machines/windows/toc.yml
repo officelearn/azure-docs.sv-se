@@ -337,7 +337,8 @@
               href: spot-portal.md
             - name: PowerShell
               href: spot-powershell.md
-            - name: Mall
+            - name: ARM-mall
+              displayName: Azure Resource Manager
               href: ../linux/spot-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Felkoder
               href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
@@ -349,16 +350,17 @@
               href: create-vm-specialized-portal.md
             - name: PowerShell
               href: create-vm-specialized.md
-        - name: 'Använda en mall med C#'
+        - name: 'Använda ARM-mall med C#'
           href: csharp-template.md
+          displayName: Azure Resource Manager
         - name: Skapa en virtuell dator med Chef
           href: ../../chef/chef-automation.md
         - name: Använda Java
           href: java.md
         - name: Använda Python
           href: python.md
-        - name: Använda en mall
-          displayName: 'Azure Resource Manager template, ARM'
+        - name: Använda ARM-mall
+          displayName: Azure Resource Manager template
           href: ps-template.md
         - name: Ansluta till en virtuell dator
           href: connect-logon.md
@@ -473,7 +475,8 @@
           href: change-drive-letter.md
         - name: Ändra tillgänglighetsuppsättning
           href: change-availability-set.md
-        - name: Ladda ned mall
+        - name: Exportera ARM-mall
+          displayName: Azure Resource Manager
           href: download-template.md
         - name: Virtuell Azure-datoragent
           href: ../extensions/agent-windows.md
@@ -543,7 +546,8 @@
               href: image-builder-gallery-update-image-version.md
             - name: Lagra skript
               href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Mallreferens
+            - name: Referens för ARM-mall
+              displayName: Azure Resource Manager
               href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Felsöka
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
@@ -620,7 +624,8 @@
               href: attach-managed-disk-portal.md
         - name: Koppla från en disk
           href: detach-disk.md
-        - name: Distribuera diskar med mall
+        - name: Distribuera diskar med ARM-mall
+          displayName: Azure Resource Manager
           href: using-managed-disks-template-deployments.md
         - name: Aktivera delade diskar
           href: disks-shared-enable.md
@@ -690,6 +695,7 @@
         - name: PowerShell
           href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
         - name: Azure Resource Manager-mall
+          displayName: ARM
           href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
         - name: REST
           href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/windows/context/windows-vm-context
@@ -743,7 +749,8 @@
       href: /azure/templates/microsoft.compute/allversions
 - name: Resurser
   items:
-    - name: Skapa mallar
+    - name: Skapa ARM-mallar
+      displayName: Azure Resource Manager
       href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Utveckla dina färdigheter med Microsoft Learn
       href: /learn/browse/?products=azure-virtual-machines

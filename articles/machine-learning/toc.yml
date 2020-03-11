@@ -79,6 +79,8 @@
       href: sample-designer-datasets.md
     - name: MLOps-exempel från slutpunkt till slutpunkt
       href: 'https://github.com/microsoft/MLOps'
+    - name: Designer-pipelines
+      href: samples-designer.md
 - name: Begrepp
   items:
     - name: Arbetsyta
@@ -216,30 +218,6 @@
           href: how-to-cicd-data-ingestion.md
     - name: Inlärningsmodeller
       items:
-        - name: Använda designern
-          displayName: sample designer experiments
-          items:
-            - name: Förutsäga pris
-              displayName: 'regression, studio'
-              href: how-to-designer-sample-regression-automobile-price-basic.md
-            - name: Förutsäga pris (avancerat)
-              displayName: 'regression, studio'
-              href: how-to-designer-sample-regression-automobile-price-compare-algorithms.md
-            - name: Förutse inkomst
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-predict-income.md
-            - name: Förutsäga kreditrisk (avancerat)
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-credit-risk-cost-sensitive.md
-            - name: Förutsäga omsättning
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-churn.md
-            - name: Förutse flygförseningar
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-flight-delay.md
-            - name: Textklassificering
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-text-classification.md
         - name: Använda uppskattningar för ML
           items:
             - name: Skapa uppskattningar i utbildning

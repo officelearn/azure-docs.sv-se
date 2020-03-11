@@ -44,6 +44,8 @@
       href: functions-openapi-definition.md
     - name: Ansluta till ett virtuellt nätverk
       href: functions-create-vnet.md
+    - name: Upprätta åtkomst till privat plats
+      href: functions-create-private-site-access.md
     - name: Ändra storlek på avbildning med Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Skapa en webbapp utan server

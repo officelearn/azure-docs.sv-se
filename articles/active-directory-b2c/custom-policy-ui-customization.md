@@ -12,11 +12,11 @@ ms.date: 02/13/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8e07d3e1815c1b47b9d37c08e8fac5359b71fe7c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189044"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374838"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa ditt programs användar gränssnitt med hjälp av en anpassad princip i Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started
 
 Om du vill konfigurera UI-anpassning kopierar du **ContentDefinition** och dess underordnade element från bas filen till tilläggs filen.
 
-1. Öppna bas filen för din princip. Till exempel <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em>. Den här bas filen är en av de principfiler som ingår i den anpassade principens start paket, som du borde ha skaffat i förutsättningen, [Kom igång med anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Öppna bas filen för din princip. Till exempel <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em> . Den här bas filen är en av de principfiler som ingår i den anpassade principens start paket, som du borde ha skaffat i förutsättningen, [Kom igång med anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 1. Sök efter och kopiera hela innehållet i **ContentDefinitions** -elementet.
 1. Öppna tilläggs filen. Till exempel *TrustFrameworkExtensions. XML*. Sök efter **BuildingBlocks** -elementet. Om elementet inte finns lägger du till det.
 1. Klistra in hela innehållet i **ContentDefinitions** -elementet som du kopierade som ett underordnat objekt till **BuildingBlocks** -elementet.

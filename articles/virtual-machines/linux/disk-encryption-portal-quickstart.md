@@ -3,15 +3,16 @@ title: Skapa och kryptera en virtuell Linux-dator med Azure Portal
 description: I den här snabb starten får du lära dig hur du använder Azure Portal för att skapa och kryptera en virtuell Linux-dator
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 20802cf9f9934a85e00bce41b6bbe21a6ff95579
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9f09f28dc63e7f061946a66beb59bd4c62be70aa
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772303"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970564"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Snabb start: skapa och kryptera en virtuell dator med Azure Portal
 
@@ -21,7 +22,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 

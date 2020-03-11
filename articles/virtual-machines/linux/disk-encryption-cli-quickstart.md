@@ -3,15 +3,16 @@ title: Skapa och kryptera en virtuell Linux-dator med Azure CLI
 description: I den här snabb starten får du lära dig hur du använder Azure CLI för att skapa och kryptera en virtuell Linux-dator
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.openlocfilehash: f6883e627644f9bea68ddce401162d269509c67e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 14b6f07ead59f3d86b80489460956dd37fb7378b
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750110"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970701"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>Snabb start: skapa och kryptera en virtuell Linux-dator med Azure CLI
 
@@ -19,7 +20,7 @@ Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.30 eller senare i den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.30 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

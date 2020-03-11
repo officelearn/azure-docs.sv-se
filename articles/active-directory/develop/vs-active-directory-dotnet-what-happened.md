@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 0f426e7a87204acd4be6529f7dd11a954f23491a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: ac38adba4ca0d978dd48a546bed1b1faf4fe40fe
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159479"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79036960"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Vad hände med mitt MVC-projekt (Visual Studio Azure Active Directory Connected service)?
 
@@ -24,13 +24,13 @@ ms.locfileid: "77159479"
 > - [Komma igång](vs-active-directory-dotnet-getting-started.md)
 > - [Vad hände](vs-active-directory-dotnet-what-happened.md)
 
-Den här artikeln beskriver de exakta ändringar som gjorts i ASP.NET MVC-projekt när du lägger till den [Azure Active Directory anslutna tjänsten med Visual Studio](vs-active-directory-add-connected-service.md).
+Den här artikeln beskriver de exakta ändringar som gjorts i ett ASP.NET MVC-projekt när du lägger till den [Azure Active Directory anslutna tjänsten med Visual Studio](vs-active-directory-add-connected-service.md).
 
 Information om hur du arbetar med den anslutna tjänsten finns i [komma igång](vs-active-directory-dotnet-getting-started.md).
 
 ## <a name="added-references"></a>Tillagda referenser
 
-Påverkar projekt filen *. NET-referenser) och `packages.config` (NuGet-referenser).
+Påverkar projekt filen (*. NET-referenser) och `packages.config` (NuGet-referenser).
 
 | Typ | Referens |
 | --- | --- |

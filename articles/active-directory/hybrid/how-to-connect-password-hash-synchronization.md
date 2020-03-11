@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3f7d7c9af807120457b119e0be047c7a342b961
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: f6451507eb5a25f432c73468d0da0db1838c8c9a
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378461"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081993"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering
 Den här artikeln innehåller information du behöver för att synkronisera dina lösenord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory (Azure AD)-instans.
@@ -124,6 +124,7 @@ Varningar: om det finns synkroniserade konton som måste ha lösen ord som inte 
 
 > [!NOTE]
 > Den här funktionen finns nu i offentlig för hands version.
+> PowerShell-kommandot Set-MsolPasswordPolicy fungerar inte på federerade domäner. 
 
 #### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Offentlig för hands version av synkronisering av temporära lösen ord och "tvinga lösen ords ändring vid nästa inloggning"
 

@@ -1,26 +1,17 @@
 ---
 title: Skapa en Linux-miljö med Azure CLI
 description: Skapa lagring, en virtuell Linux-dator, ett virtuellt nätverk och ett undernät, en belastningsutjämnare, ett nätverkskort, en offentlig IP-adress och en nätverks säkerhets grupp, allt från grunden med hjälp av Azure CLI.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 56b476c431ed8b41f04b1a1c11c730e5260ade8d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7ee4674f5e7c04709256459c3417a1379a65aedc
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036536"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969551"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Skapa en komplett virtuell Linux-dator med Azure CLI
 Om du snabbt vill skapa en virtuell dator i Azure kan du använda ett enda Azure CLI-kommando som använder standardvärden för att skapa nödvändiga resurser. Resurser som ett virtuellt nätverk, en offentlig IP-adress och regler för nätverks säkerhets grupper skapas automatiskt. Om du vill ha mer kontroll över din miljö i produktions användningen kan du skapa resurserna i förväg och sedan lägga till dina virtuella datorer i dem. Den här artikeln vägleder dig genom hur du skapar en virtuell dator och var och en av de stödda resurserna en i taget.

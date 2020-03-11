@@ -1,20 +1,19 @@
 ---
-title: Ladda upp en virtuell hård disk till Azure med Azure CLI
+title: Ladda upp en virtuell hård disk med Azure CLI
 description: Lär dig hur du laddar upp en virtuell hård disk till en Azure-hanterad disk och kopierar en hanterad disk mellan regioner med hjälp av Azure CLI via direkt uppladdning.
-services: virtual-machines-linux,storage
+services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
 ms.date: 09/20/2019
 ms.topic: article
-ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
+ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 51c3933b5ee585c96ad81fe04d379b6771ae81e3
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 2a5bfec08546d6cf00b1e04017b3879db8f016ee
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457604"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970346"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Ladda upp en virtuell hård disk till Azure med Azure CLI
 

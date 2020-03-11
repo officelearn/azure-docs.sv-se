@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: b8b5de910195b14c279fe395cc35c12768536728
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 55dbcc15afb12c03c98fb8d6e4e7f4acb269f620
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365439"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967837"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Lagra affärs kritiska BLOB-data med oföränderlig lagring
 
@@ -68,7 +68,7 @@ En upplåst tidsbaserad bevarande princip rekommenderas endast för funktions te
 Följande begränsningar gäller för bevarande principer:
 
 - För ett lagrings konto är det maximala antalet behållare med låsta tidsbaserade, oföränderliga principer som är 10 000.
-- Det minsta kvarhållningsintervallet är en dag. Det maximala värdet är 146 000 dagar (400 år).
+- Det minsta kvarhållningsintervallet är 1 dag. Det maximala värdet är 146 000 dagar (400 år).
 - För en behållare är det maximala antalet redigeringar som utökar ett kvarhållningsintervall för låsta tidsbaserade, oföränderliga principer 5.
 - För en behållare behålls högst sju tidsbaserade tidsbaserade logg gransknings loggar för en låst princip.
 
@@ -84,15 +84,7 @@ Anta till exempel att en användare skapar en tidsbaserad bevarande princip med 
 
 Vid låsning av tidsbaserade tidsbaserade bevarande principer kan `allowProtectedAppendWrites` inställningen aktive ras och inaktive ras när som helst. När tidsbaserad bevarande princip är låst går det inte att ändra `allowProtectedAppendWrites`s inställningen.
 
-Principer för juridiskt bevarande kan inte aktivera `allowProtectedAppendWrites` och tillåter inte att nya block läggs till för att lägga till blobbar. Om ett juridiskt undantag används för en tidsbaserad bevarande princip med `allowProtectedAppendWrites` aktive rad, Miss *AppendBlock* API: et tills det juridiska undantaget lyfts upp.
-
-> [!IMPORTANT] 
-> Inställningen Tillåt att skyddade bifogade blobbar skrivs under tidsbaserad kvarhållning är för närvarande tillgänglig i följande regioner:
-> - USA, östra
-> - USA, södra centrala
-> - USA, västra 2
->
-> För närvarande rekommenderar vi starkt att du inte aktiverar `allowProtectedAppendWrites` i andra regioner än de som anges, eftersom det kan orsaka tillfälliga fel och påverka efterlevnaden av bifogade blobbar. Mer information om hur du ställer in och låser tidsbaserade bevarande principer finns i [Aktivera Tillåt skyddade bifogade BLOB-skrivningar](storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes).
+Principer för juridiskt bevarande kan inte aktivera `allowProtectedAppendWrites` och alla juridiska undantag kommer att upphäver egenskapen "allowProtectedAppendWrites". Om ett juridiskt undantag används för en tidsbaserad bevarande princip med `allowProtectedAppendWrites` aktive rad, Miss *AppendBlock* API: et tills det juridiska undantaget lyfts upp.
 
 ## <a name="legal-holds"></a>Bevarande av juridiska skäl
 
@@ -140,7 +132,7 @@ Nej, du kan använda oföränderligt lagrings utrymme med befintliga eller nylig
 
 **Kan jag använda både en juridisk princip för kvarhållning och tidsbaserad lagring?**
 
-Ja, en behållare kan ha både ett juridiskt undantag och en tidsbaserad bevarande princip på samma gång. Alla blobbar i den behållaren förblir i tillståndet oföränderliga tills alla juridiska undantag har rensats, även om deras gällande kvarhållningsperiod har upphört att gälla. En BLOB förblir i ett oföränderligt tillstånd tills den gällande kvarhållningsperioden upphör att gälla, även om alla juridiska undantag har rensats.
+Ja, en behållare kan ha både ett juridiskt undantag och en tidsbaserad bevarande princip på samma gång; inställningen "allowProtectedAppendWrites" kommer dock inte att gälla förrän det juridiska undantaget har rensats. Alla blobbar i den behållaren förblir i tillståndet oföränderliga tills alla juridiska undantag har rensats, även om deras gällande kvarhållningsperiod har upphört att gälla. En BLOB förblir i ett oföränderligt tillstånd tills den gällande kvarhållningsperioden upphör att gälla, även om alla juridiska undantag har rensats. 
 
 **Finns det bara juridiska undantags principer för rättsliga förfaranden eller andra användnings scenarier?**
 
@@ -164,7 +156,7 @@ Ja, du kan använda kommandot Set BLOB Tier för att flytta data mellan BLOB-niv
 
 **Vad händer om jag inte betalat och mitt kvarhållningsintervall inte har gått ut?**
 
-Vid utebliven betalning tillämpas normala data bevarande principer enligt vad som anges i avtals villkoren i avtalet med Microsoft.
+Vid utebliven betalning tillämpas normala data bevarande principer enligt vad som anges i avtals villkoren i avtalet med Microsoft. Allmän information finns i [Data Management på Microsoft](https://www.microsoft.com/en-us/trust-center/privacy/data-management). 
 
 **Finns det en utvärderingsversion eller en respitperiod för att bara testa funktionen?**
 

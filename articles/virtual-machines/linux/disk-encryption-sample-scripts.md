@@ -2,17 +2,18 @@
 title: Azure Disk Encryption exempel skript
 description: Den här artikeln är bilagan till Microsoft Azure disk kryptering för virtuella Linux-datorer.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ad0e3bbba729436c3a07f44d989a40f5349dfb3e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c98da4b41da183f56d80fad1e8c01706d1cfcf23
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326353"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970515"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption exempel skript 
 
@@ -44,13 +45,13 @@ I följande tabell visas vilka parametrar som kan användas i PowerShell-skripte
 
 |Parameter|Beskrivning|Erforderlig?|
 |------|------|------|
-|$resourceGroupName| Namnet på resursgruppen som Nyckelvalvet tillhör.  En ny resursgrupp med det här namnet kommer att skapas om det inte finns.| Sant|
-|$keyVaultName|Namnet på Nyckelvalvet där krypteringsnycklarna nycklar är placeras. Ett nytt valv med det här namnet kommer att skapas om det inte finns.| Sant|
-|$location|Platsen för Nyckelvalvet. Kontrollera att Nyckelvalvet och virtuella datorer som ska krypteras finns på samma plats. Hämta en innehållsplatslista med `Get-AzLocation`.|Sant|
-|$subscriptionId|Identifierare för Azure-prenumeration som ska användas.  Du kan hämta ditt prenumerations-ID med `Get-AzSubscription`.|Sant|
-|$aadAppName|Namnet på Azure AD-programmet som ska användas för att skriva hemligheter KeyVault. Om det inte redan finns ett program med det namnet skapas ett nytt. Om den här appen finns redan, ange du aadClientSecret parameter till skriptet.|Falskt|
-|$aadClientSecret|Klienthemlighet för Azure AD-programmet som du skapade tidigare.|Falskt|
-|$keyEncryptionKeyName|Namnet på valfri nyckelkrypteringsnyckel i KeyVault. En ny nyckel med det här namnet kommer att skapas om det inte finns.|Falskt|
+|$resourceGroupName| Namnet på resursgruppen som Nyckelvalvet tillhör.  En ny resursgrupp med det här namnet kommer att skapas om det inte finns.| True|
+|$keyVaultName|Namnet på Nyckelvalvet där krypteringsnycklarna nycklar är placeras. Ett nytt valv med det här namnet kommer att skapas om det inte finns.| True|
+|$location|Platsen för Nyckelvalvet. Kontrollera att Nyckelvalvet och virtuella datorer som ska krypteras finns på samma plats. Hämta en innehållsplatslista med `Get-AzLocation`.|True|
+|$subscriptionId|Identifierare för Azure-prenumeration som ska användas.  Du kan hämta ditt prenumerations-ID med `Get-AzSubscription`.|True|
+|$aadAppName|Namnet på Azure AD-programmet som ska användas för att skriva hemligheter KeyVault. Om det inte redan finns ett program med det namnet skapas ett nytt. Om den här appen finns redan, ange du aadClientSecret parameter till skriptet.|False|
+|$aadClientSecret|Klienthemlighet för Azure AD-programmet som du skapade tidigare.|False|
+|$keyEncryptionKeyName|Namnet på valfri nyckelkrypteringsnyckel i KeyVault. En ny nyckel med det här namnet kommer att skapas om det inte finns.|False|
 
 
 ### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Kryptera eller dekryptera virtuella datorer utan en Azure AD-app

@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 76fab93543310252bb9003029573f9d3f1ff62b6
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 0c279118df3a9205e82f8444b261922c688578da
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835003"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969088"
 ---
 # <a name="use-net-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Använd .NET för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2 (för hands version)
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du använder .NET för att skapa och hantera katalog
 
 [Paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake) | [exempel](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake) | [API-referens](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake) | [gen1 till Gen2-mappning](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md) | [ge feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!div class="checklist"]
 > * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -41,6 +41,7 @@ Lägg sedan till dessa med-instruktioner överst i din kod fil.
 ```csharp
 using Azure.Storage.Files.DataLake;
 using Azure.Storage.Files.DataLake.Models;
+using Azure.Storage;
 using System.IO;
 using Azure;
 ```
@@ -302,7 +303,7 @@ public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient
 }
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [API-referens dokumentation](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake)
 * [Paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake)

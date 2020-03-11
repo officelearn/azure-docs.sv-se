@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: 0e3246f9da202b54cc0d1285795c25cfafb678d8
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 08a4330f4a786deca8ddb2f1c6803b29152e7f50
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207038"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080135"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Importera HSM-skyddade nycklar till Key Vault (förhandsversion)
 
@@ -58,9 +58,11 @@ I följande tabell visas förutsättningar för att använda BYOK i Azure Key Va
 
 ## <a name="supported-hsms"></a>HSM: er som stöds
 
-|HSM-leverantörens namn|HSM-modeller som stöds|Mer information|
-|---|---|---|
-|Thales|SafeNet Luna HSM 7-serien med inbyggd program vara version 7,3 eller senare| [SafeNet Luna BYOK-verktyg och dokumentation](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
+|Leverantörs namn|Typ av leverantör|HSM-modeller som stöds|Mer information|
+|---|---|---|---|
+|Thales|Tillverkare|SafeNet Luna HSM 7-serien med inbyggd program vara version 7,3 eller senare| [SafeNet Luna BYOK-verktyg och dokumentation](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
+|Fortanix|HSM som en tjänst|SDKMS (Self-försvarande Key Management Service)|[Exportera SDKMS-nycklar till moln leverantörer för BYOK-Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
+
 
 > [!NOTE]
 > Om du vill importera HSM-skyddade nycklar från hjälp programmet nCipher nshield maskinvarusäkerhetsmodul-serien med HSM: er använder du den [äldre BYOK-proceduren](hsm-protected-keys-legacy.md).

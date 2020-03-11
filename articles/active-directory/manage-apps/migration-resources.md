@@ -1,6 +1,6 @@
 ---
 title: Resurser för att migrera appar till Azure Active Directory | Microsoft Docs
-description: Resurser som hjälper dig att migrera programåtkomst och autentisering till Azure Active Directory (AD Azure).
+description: Resurser som hjälper dig att migrera program åtkomst och autentisering till Azure Active Directory (Azure AD).
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -8,30 +8,30 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/19/2018
+ms.date: 02/29/2020
 ms.author: mimart
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b39704b25c26998e16ca8080c4e44dd1adf6965c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b30469858a5dd83f7f5f707f74466302b3000510
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108220"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968733"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Resurser för att migrera program till Azure Active Directory
 
-Resurser som hjälper dig att migrera programåtkomst och autentisering till Azure Active Directory (AD Azure). Den här korta undersökningen (https://aka.ms/AppsMigrationFeedback) att ge feedback om din upplevelse migrera appar till Azure AD (inklusive blockeringar för migrering behöver du för verktyg / hjälp eller skäl för att bevara den lokala IDP: N). 
+Resurser som hjälper dig att migrera program åtkomst och autentisering till Azure Active Directory (Azure AD). Ta den här korta undersökningen (https://aka.ms/AppsMigrationFeedback) för att ge feedback om hur du migrerar appar till Azure AD (inklusive Blocker för migrering, behov av verktyg, vägledning eller orsaker till att du behåller din lokala IDP). 
 
-| Resource  | Beskrivning  |
+| Resurs  | Beskrivning  |
 |:-----------|:-------------|
-|[Migrera dina appar till Azure AD](https://aka.ms/migrateapps/whitepaper) | Detta white paper visar fördelarna med migreringen och beskriver hur du planerar för migrering i fyra faser som tydligt beskrivs: identifiering, klassificering, migrering och kontinuerlig hantering. Du får guidas genom hur du tycker om processen och dela upp ditt projekt i lätt att förstå delar. Är länkar till viktiga resurser som hjälper dig på vägen i hela dokumentet. |
-|[Lösningsguiden: Migrera appar från Active Directory Federation Services (AD FS) i Azure AD](https://aka.ms/migrateapps/adfssolutionguide) | Den här lösningsguiden vägleder dig genom de samma fyra stegen för planering och körning av ett programprojekt migrering som beskrivs på en högre nivå i faktabladet migrering. I den här guiden får du lära dig hur du använder dessa faser för den specifika mål för att flytta ett program från Azure Directory Federation Services (AD FS) till Azure AD.|
-| [Verktyget: Beredskap för Active Directory Federation Services Migreringsskriptet](https://aka.ms/migrateapps/adfstools) | Det här är ett skript du kan köra på din lokala Active Directory Federation Services (AD FS) server att fastställa beredskap för migrering till Azure AD-appar.|
-| [Distributionsplan: Migrera från AD FS till lösenordets hash-synkronisering](https://aka.ms/ADFSTOPHSDPDownload) | Med synkronisering av lösenordshash synkroniseras hash-värden för användarlösenord från lokala Active Directory till Azure AD. På så sätt kan Azure AD för att autentisera användare utan att interagera med lokala Active Directory.| 
-| [Distributionsplan: Migrera från AD FS till direktautentisering](https://aka.ms/ADFSTOPTADPDownload)|Azure AD-direktautentisering hjälper användare att logga in på både lokala och molnbaserade program genom att använda samma lösenord. Den här funktionen ger användarna en bättre upplevelse eftersom de har mindre komma ihåg ett lösenord. Det minskar också IT-kostnaderna för supportavdelningen eftersom användarna är mindre troligt att glömma logga in när de bara behöver komma ihåg ett lösenord. När användare loggar in med Azure AD verifierar den här funktionen användarnas lösenord direkt mot din lokala Active Directory.|
-| [Distributionsplan: Aktivera enkel inloggning till en SaaS-app med Azure AD](https://aka.ms/SSODPDownload) | Enkel inloggning (SSO) kan du komma åt alla appar och resurser du behöver för att göra affärer, när du loggar in bara en gång, med ett enda användarkonto. Till exempel när en användare har loggat in kan användaren flytta från Microsoft Office till SalesForce och Box utan autentiseras en gång (t.ex, att skriva ett lösenord). 
-| [Distributionsplan: Utökning av appar till Azure AD med Application Proxy](https://aka.ms/AppProxyDPDownload)| Tilldela åtkomst från medarbetare bärbara datorer och andra enheter till lokala program har traditionellt inneburit virtuella privata nätverk (VPN) eller demilitariserad zoner (DMZ-miljöer). De här lösningarna är inte bara komplexa och svåra att skydda, utan de är även dyra att konfigurera och hantera. Azure AD-programproxyn gör det enklare att åtkomst till lokala program. |
-| [Planer för distribution](../fundamentals/active-directory-deployment-plans.md) | Hitta fler distribution planer för att distribuera funktioner som multifaktorautentisering, villkorlig åtkomst, användaretablering, sömlös SSO, lösenordsåterställning via självbetjäning och mer! |
+|[Migrera dina appar till Azure AD](https://aka.ms/migrateapps/whitepaper) | Den här white paper visar fördelarna med migreringen och beskriver hur du planerar migreringen i fyra tydliga steg: identifiering, klassificering, migrering och kontinuerlig hantering. Du kommer att vägleda dig genom processen och dela upp ditt projekt i lätt att förbruka delar. I hela dokumentet finns länkar till viktiga resurser som hjälper dig längs vägen. |
+|[Lösnings guide: Migrera appar från Active Directory Federation Services (AD FS) (AD FS) till Azure AD](https://aka.ms/migrateapps/adfssolutionguide) | Den här lösnings guiden vägleder dig genom samma fyra faser i planering och körning av ett programmigrerings projekt som beskrivs på en högre nivå i dokumentationen för migreringen. I den här guiden får du lära dig hur du tillämpar dessa faser på det specifika målet med att flytta ett program från Azure Directory federerade tjänster (AD FS) till Azure AD.|
+| [Verktyg: skript för Active Directory Federation Services (AD FS) migration readiness](https://aka.ms/migrateapps/adfstools) | Det här är ett skript som du kan köra på din lokala Active Directory Federation Services (AD FS)-Server (AD FS) för att fastställa om apparnas beredskap ska migreras till Azure AD.|
+| [Distributions plan: Migrera från AD FS till hash-synkronisering av lösen ord](https://aka.ms/ADFSTOPHSDPDownload) | Med hash-synkronisering av lösen ord synkroniseras hashar av användar lösen ord från lokala Active Directory till Azure AD. Detta gör att Azure AD kan autentisera användare utan att interagera med den lokala Active Directory.| 
+| [Distributions plan: Migrera från AD FS till direktautentisering](https://aka.ms/ADFSTOPTADPDownload)|Med Azure AD-direktautentisering kan användarna logga in i både lokala och molnbaserade program genom att använda samma lösen ord. Den här funktionen ger användarna en bättre upplevelse eftersom de har ett mindre lösen ord att komma ihåg. Det minskar också kostnaderna för IT-supportavdelningen eftersom användarna är mindre sannolika att glömma att logga in när de bara behöver komma ihåg ett lösen ord. När användare loggar in med Azure AD verifierar den här funktionen användarnas lösenord direkt mot din lokala Active Directory.|
+| [Distributions plan: aktivera enkel inloggning till en SaaS-app med Azure AD](https://aka.ms/SSODPDownload) | Enkel inloggning (SSO) hjälper dig att komma åt alla appar och resurser du behöver för att göra affärer, samtidigt som du bara loggar in en gång, med ett enda användar konto. Efter att en användare har loggat in kan användaren till exempel flytta från Microsoft Office till SalesForce, till Box utan autentisering (till exempel skriva ett lösen ord) en andra gång. 
+| [Distributions plan: utöka appar till Azure AD med Application Proxy](https://aka.ms/AppProxyDPDownload)| Att ge åtkomst från anställdas bärbara datorer och andra enheter till lokala program har traditionellt involverade virtuella privata nätverk (VPN) eller demilitariserad zoner (DMZs). De här lösningarna är inte bara komplexa och svåra att skydda, utan de är även dyra att konfigurera och hantera. Azure AD-programproxy gör det lättare att komma åt lokala program. |
+| [Distributions planer](../fundamentals/active-directory-deployment-plans.md) | Hitta fler distributions planer för att distribuera funktioner som Multi-Factor Authentication, villkorlig åtkomst, användar etablering, sömlös SSO, självbetjäning för återställning av lösen ord och mycket mer! |
 
 

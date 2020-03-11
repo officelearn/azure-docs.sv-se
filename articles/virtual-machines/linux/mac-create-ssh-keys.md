@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 9faa47e615217d62eade50a0c181dfda9ec9cd0a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
-ms.translationtype: HT
+ms.openlocfilehash: af18a32143ebc9db7be923b09de106b79022321f
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944784"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969041"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Snabb steg: skapa och använda ett offentligt privat privat nyckel par för virtuella Linux-datorer i Azure
 
@@ -65,7 +65,7 @@ ssh-rsa AAAAB3NzaC1yc2EAABADAQABAAACAQC1/KanayNr+Q7ogR5mKnGpKWRBQU7F3Jjhn7utdf7Z
 
 Om du kopierar och klistrar in innehållet i den offentliga nyckel filen som ska användas i Azure Portal eller en Resource Manager-mall ser du till att du inte kopierar något avslutande blank steg. Om du vill kopiera en offentlig nyckel i macOS kan du skicka den offentliga nyckel filen till `pbcopy`. På samma sätt i Linux kan du skicka vidare den offentliga nyckel filen till program som `xclip`.
 
-Den offentliga nyckeln som du placerar på din virtuella Linux-dator i Azure lagras som standard i ~/.ssh/id_rsa. pub, om du inte har angett en annan plats när du skapade nyckel paret. Om du vill använda [Azure CLI 2,0](/cli/azure) för att skapa en virtuell dator med en befintlig offentlig nyckel anger du värdet och eventuellt platsen för den offentliga nyckeln med hjälp av kommandot [AZ VM create](/cli/azure/vm#az-vm-create) med alternativet `--ssh-key-value`. I följande kommando ersätter du *VMName*, *RGname*och *keyFile* med dina egna värden:
+Den offentliga nyckeln som du placerar på din virtuella Linux-dator i Azure lagras som standard i ~/.ssh/id_rsa. pub, om du inte har angett en annan plats när du skapade nyckel paret. Om du vill använda [Azure CLI 2,0](/cli/azure) för att skapa en virtuell dator med en befintlig offentlig nyckel anger du värdet och eventuellt platsen för den offentliga nyckeln med hjälp av kommandot [AZ VM create](/cli/azure/vm#az-vm-create) med alternativet `--ssh-key-values`. I följande kommando ersätter du *VMName*, *RGname*och *keyFile* med dina egna värden:
 
 ```azurecli
 az vm create --name VMname --resource-group RGname --ssh-key-values mysshkey.pub

@@ -12,20 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/23/2020
+ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: dac5f75216a8addcaa65407d945a06363e4cbf9d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: d408a862c18038f64b816bb54fc235d1b9d84179
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359511"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968030"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamisk paketering i Media Services v3
 
 Microsoft Azure Media Services kan användas för att koda många fil format för medie källan. Den skickar dem via olika strömnings protokoll, med eller utan innehålls skydd, för att komma åt alla större enheter (t. ex. iOS-och Android-enheter). Dessa klienter förstår olika protokoll. Till exempel kräver iOS att strömmar levereras i HTTP Live Streaming-format (HLS) och Android-enheter stöder HLS samt MPEG-streck.
 
 I Media Services representerar en [strömmande slut punkt](streaming-endpoint-concept.md) en dynamisk (just-in-Time)-paketering och ursprungs tjänst som kan leverera Live och innehåll på begäran direkt till en app i klient spelaren. Det använder ett av de vanliga protokollen för strömmande media som anges i följande avsnitt. Dynamisk paketering är en funktion som finns som standard på alla slutpunkter för direktuppspelning (Standard eller Premium).
+
+> [!NOTE]
+> Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 [Live-händelser](live-events-outputs-concept.md), Visa v3- [till gångar](assets-concept.md), hämta information om åtkomst till API: er. För alla andra hanterings uppgifter (t. ex. transformationer och jobb) använder du [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
 ## <a name="a-iddelivery-protocolsto-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>att förbereda dina källfiler för leverans
 
@@ -302,7 +305,4 @@ Du kan öppna ett support ärende genom att gå till [nytt support ärende](http
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!NOTE]
-> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](media-services-apis-overview.md#sdks).
-
-Lär dig att [Ladda upp, koda och strömma videor](stream-files-tutorial-with-api.md).
+[Ladda upp, koda och strömma videor](stream-files-tutorial-with-api.md)

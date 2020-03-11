@@ -1,26 +1,18 @@
 ---
 title: Komma igång med Cloud Foundry på Microsoft Azure
 description: Kör OSS eller pivotal Cloud Foundry på Microsoft Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: seanmck
-manager: gwallace
-editor: ''
-tags: ''
-keywords: ''
-ms.assetid: 2a15ffbf-9f86-41e4-b75b-eb44c1a2a7ab
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 447550d2f6bca570869c9fa93724e4dbaba02132
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ba0b4a636d8f785f1c169e4066c9cf6d25ba81db
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036808"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970056"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry på Azure
 
@@ -36,7 +28,7 @@ Du kan distribuera OSS Cloud Foundry på Azure genom att först distribuera en B
 
 Microsoft tillhandahåller bästa möjliga support för OSS CF genom följande community-kanaler:
 
-- #<a name="bosh-azure-cpi-channel-on-cloud-foundry-slackhttpsslackcloudfoundryorg"></a>Bosh – Azure-CPI-kanal på [Cloud Foundry slack](https://slack.cloudfoundry.org/)
+- #<a name="bosh-azure-cpi-channel-on-cloud-foundry-slack"></a>Bosh – Azure-CPI-kanal på [Cloud Foundry slack](https://slack.cloudfoundry.org/)
 - [CF-Bosh e-postlista](https://lists.cloudfoundry.org/pipermail/cf-bosh)
 - GitHub problem för [CPI](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/issues) och [Service Broker](https://github.com/Azure/meta-azure-service-broker/issues)
 

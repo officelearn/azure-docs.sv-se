@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 03/09/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee0dd0cd83ab27dd728a7572b6fcd69c40bb1b00
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 5a82c69575e82a7cf397955f08c3f114e449ba6b
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848756"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968779"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
@@ -28,13 +28,13 @@ Microsoft rekommenderar starkt att administratörer låter användare välja fle
 
 |Autentiseringsmetod|Användning|
 | --- | --- |
-| Lösenord | MFA och SSPR |
+| lösenord | MFA och SSPR |
 | Säkerhetsfrågor | Endast SSPR |
 | E-postadress | Endast SSPR |
 | Microsoft Authenticator-appen | MFA och SSPR |
 | OATH-token för maskin vara | Offentlig för hands version för MFA och SSPR |
 | SMS | MFA och SSPR |
-| Röstsamtal | MFA och SSPR |
+| Röst samtal | MFA och SSPR |
 | Applösenord | MFA i vissa fall |
 
 ![Autentiseringsmetoder som används på inloggnings skärmen](media/concept-authentication-methods/overview-login.png)
@@ -44,7 +44,7 @@ Microsoft rekommenderar starkt att administratörer låter användare välja fle
 | OATH-maskinvaru-token för MFA och SSPR är offentliga för hands versions funktioner i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versionerna|
 |     |
 
-## <a name="password"></a>Lösenord
+## <a name="password"></a>lösenord
 
 Ditt Azure AD-lösenord betraktas som en autentiseringsmetod. Det är en metod som **inte kan inaktive ras**.
 
@@ -146,7 +146,7 @@ Om du aktiverar användningen av både meddelanden via mobilappen och verifierin
 
 ### <a name="verification-code-from-mobile-app"></a>Verifierings kod från mobilapp
 
-Microsoft Authenticator app eller andra appar från tredje part kan användas som en programvarubaserad token för att generera en OATH-verifierings kod. När du har angett ditt användar namn och lösen ord anger du koden från appen till inloggnings skärmen. Verifieringskoden utgör en andra form av autentisering.
+Microsoft Authenticator app eller andra appar från tredje part kan användas som en programvarubaserad token för att generera en OATH-verifierings kod. När du har angett ditt användar namn och lösen ord anger du koden från appen till inloggnings skärmen. Verifierings koden innehåller en andra form av autentisering.
 
 > [!WARNING]
 > För lösen ords återställning via självbetjäning när endast en metod krävs för att återställa verifierings koden är det enda alternativet som användarna kan använda för att **säkerställa den högsta säkerhets nivån**.
@@ -156,25 +156,25 @@ Användare kan ha en kombination av upp till fem OATH-token eller Authenticator-
 
 ## <a name="oath-hardware-tokens-public-preview"></a>OATH-token för maskin vara (offentlig för hands version)
 
-OATH är en öppen standard som anger hur eng ång slö sen ord (eng ång slö sen ord) genereras. Azure AD har stöd för användning av OATH-TOTP mobilapp SHA-1-token i den 30-sekunders-eller 60-andra sorten. Kunder kan köpa dessa token från den valda leverantören. Hemliga nycklar är begränsade till 128 tecken, som kanske inte är kompatibla med alla tokens. De hemliga nycklarna måste kodas i Base32.
+OATH är en öppen standard som anger hur eng ång slö sen ord (eng ång slö sen ord) genereras. Azure AD har stöd för användning av OATH-TOTP mobilapp SHA-1-token i den 30-sekunders-eller 60-andra sorten. Kunder kan köpa dessa token från den valda leverantören. Hemliga nycklar är begränsade till 128 tecken, som kanske inte är kompatibla med alla tokens. Den hemliga nyckeln får bara innehålla tecknen *a-z* eller *a-z* och siffror *1-7*och måste kodas i Base32.
 
-![Laddar upp OATH-token till bladet MFA-Server OATH-token](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
+![Laddar upp OATH-token till bladet MFA OATH-token](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
 OATH-token för OATH-enheter stöds som en del av en offentlig för hands version. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versionerna
 
-När token har hämtats måste de överföras i ett fil format med kommaavgränsade värden (CSV), inklusive UPN, serie nummer, hemlig nyckel, tidsintervall, tillverkare och modell som exemplet nedan visar.
+När token har erhållits måste de överföras i ett fil format med kommaavgränsade värden (CSV), inklusive UPN, serie nummer, hemlig nyckel, tidsintervall, tillverkare och modell som visas i följande exempel:
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
-Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
+Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 ```
 
 > [!NOTE]
-> Se till att du inkluderar rubrik raden i CSV-filen enligt ovan.
+> Se till att du inkluderar rubrik raden i CSV-filen.
 
-När den är korrekt formaterad som en CSV-fil kan en administratör logga in på Azure Portal och navigera till **Azure Active Directory**, **MFA-Server**, **Oath-token**och ladda upp den resulterande CSV-filen.
+När den är korrekt formaterad som en CSV-fil kan en administratör logga in på Azure Portal, navigera till **Azure Active Directory** > **säkerhet** > **MFA** > **Oath-token**och ladda upp den resulterande CSV-filen.
 
-Beroende på storleken på CSV-filen kan det ta några minuter att bearbeta. Klicka på knappen **Uppdatera** för att hämta aktuell status. Om det finns några fel i filen, har du möjlighet att ladda ned en CSV-fil som visar eventuella fel som du kan lösa.
+Beroende på storleken på CSV-filen kan det ta några minuter att bearbeta. Klicka på knappen **Uppdatera** för att hämta aktuell status. Om det finns några fel i filen, har du möjlighet att ladda ned en CSV-fil som visar eventuella fel som du kan lösa. Fält namnen i den hämtade CSV-filen skiljer sig från den överförda versionen.
 
 När eventuella fel har åtgärd ATS kan administratören aktivera varje nyckel genom att klicka på **Aktivera** för att aktivera token och ange det eng ång slö sen ord som visas i token.
 

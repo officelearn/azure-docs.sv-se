@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.openlocfilehash: edeafb5730f06dac22fd9919ca42ea388d5fd0f6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77915630"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371112"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table Storage-bindningar för Azure Functions
 
@@ -556,8 +556,8 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure Portal.|
-|**riktning** | Saknas | måste anges till `in`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure Portal. |
+|**typ** | Saknas | Måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure Portal.|
+|**riktning** | Saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure Portal. |
 |**Namn** | Saknas | Namnet på variabeln som representerar tabellen eller entiteten i funktions koden. | 
 |**tableName** | **TableName** | Namnet på tabellen.| 
 |**partitionKey** | **PartitionKey** |Valfri. Partitionsnyckel för den tabell entitet som ska läsas. I avsnittet [användning](#input---usage) finns information om hur du använder den här egenskapen.| 
@@ -943,8 +943,8 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure Portal.|
-|**riktning** | Saknas | måste anges till `out`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure Portal. |
+|**typ** | Saknas | Måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure Portal.|
+|**riktning** | Saknas | Måste anges till `out`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure Portal. |
 |**Namn** | Saknas | Variabel namnet som används i funktions koden som representerar tabellen eller entiteten. Ange till `$return` för att referera till funktionens retur värde.| 
 |**tableName** |**TableName** | Namnet på tabellen.| 
 |**partitionKey** |**PartitionKey** | Partitionsnyckel för den tabell entitet som ska skrivas. I [avsnittet användning](#output---usage) finns information om hur du använder den här egenskapen.| 

@@ -7,13 +7,13 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.openlocfilehash: 4b80004a3d818e66cc2fb61f3d611bbe3e3ded92
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
-ms.translationtype: MT
+ms.date: 02/01/2020
+ms.openlocfilehash: 51e58de92f111c8854add613a299f2b8ccec0503
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807042"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358577"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Förstå och Använd enheten dubbla i IoT Hub
 
@@ -245,11 +245,15 @@ SDK: er för [Azure IoT-enheter](iot-hub-devguide-sdks.md) gör det enkelt att a
 
 Taggar, önskade egenskaper och rapporterade egenskaper är JSON-objekt med följande begränsningar:
 
-* Alla nycklar i JSON-objekt är UTF-8-kodade, SKIFT läges känsliga och upp till 1 KB långt. Tillåtna tecken utesluter UNICODE-kontrolltecken (segment C0 och C1) och `.`, `$`och SP.
+* **Nycklar**: alla nycklar i JSON-objekt är UTF-8-kodade, SKIFT läges känsliga och upp till 1 KB. Tillåtna tecken utesluter UNICODE-kontrolltecken (segment C0 och C1) och `.`, `$`och SP.
 
-* Alla värden i JSON-objekt kan vara av följande JSON-typer: Boolean, Number, String, Object. Matriser är inte tillåtna. Det maximala värdet för heltal är 4503599627370495 och det lägsta värdet för heltal är-4503599627370496.
+* **Värden**: alla värden i JSON-objekt kan vara av följande JSON-typer: Boolean, Number, String, Object. Matriser är inte tillåtna.
 
-* Alla JSON-objekt i taggar, önskade och rapporterade egenskaper kan ha ett maximalt djup på 10. Till exempel är följande objekt giltigt:
+    * Heltal kan ha ett lägsta värde på-4503599627370496 och ett högsta värde på 4503599627370495.
+
+    * Sträng värden är UTF-8-kodade och kan ha en maximal längd på 4 KB.
+
+* **Djup**: det maximala djupet för JSON-objekt i taggar, önskade egenskaper och rapporterade egenskaper är 10. Till exempel är följande objekt giltigt:
 
    ```json
    {
@@ -281,15 +285,23 @@ Taggar, önskade egenskaper och rapporterade egenskaper är JSON-objekt med föl
    }
    ```
 
-* Alla sträng värden kan vara högst 4 KB långa.
-
 ## <a name="device-twin-size"></a>Enhetens dubbla storlek
 
-IoT Hub tillämpar storleks gränsen på 8 KB på värdet för `tags`, och en storlek på 32 KB som är begränsad till värdet för `properties/desired` och `properties/reported`. Dessa summor är exklusivt för skrivskyddade element.
+IoT Hub tillämpar storleks gränsen på 8 KB på värdet för `tags`, och en storlek på 32 KB som är begränsad till värdet för `properties/desired` och `properties/reported`. Dessa summor är exklusivt för skrivskyddade element som `$etag`, `$version`och `$metadata/$lastUpdated`.
 
-Storleken beräknas genom att räkna alla tecken, förutom UNICODE-kontrolltecken (segmenten C0 och C1) och blank steg utanför String-konstanter.
+Den dubbla storleken beräknas på följande sätt:
 
-IoT Hub avvisar alla åtgärder som skulle öka storleken på dokumenten över gränsen.
+* För varje egenskap i JSON-dokumentet IoT Hub ackumulerade beräkningar och lägger till längden på egenskapens nyckel och värde.
+
+* Egenskaps nycklar betraktas som UTF8-kodade strängar.
+
+* Enkla egenskaps värden betraktas som UTF8-kodade strängar, numeriska värden (8 byte) eller booleska värden (4 byte).
+
+* Storleken på UTF8-kodade strängar beräknas genom att räkna alla tecken, förutom UNICODE-kontrolltecken (segmenten C0 och C1).
+
+* Komplexa egenskaps värden (kapslade objekt) beräknas baserat på den sammanlagda storleken på de egenskaps nycklar och egenskaps värden som de innehåller.
+
+IoT Hub avvisar alla åtgärder som skulle öka storleken på `tags`, `properties/desired`eller `properties/reported` dokument över gränsen.
 
 ## <a name="device-twin-metadata"></a>Enhetens dubbla metadata
 

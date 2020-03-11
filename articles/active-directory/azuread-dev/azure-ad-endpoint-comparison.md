@@ -12,14 +12,14 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
-ms.openlocfilehash: 56a5221504a3905855fa5dc713707f34ae357aea
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: MT
+ms.openlocfilehash: d910a76397a40a14d960b59f60561cbee470f5c4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165142"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357224"
 ---
-# <a name="why-update-to-microsoft-identity-platform-v20"></a>Varför ska du uppdatera till Microsoft Identity Platform (v 2.0)?
+# <a name="why-update-to-microsoft-identity-platform-v20"></a>Varför uppdatera till Microsoft-identitetsplattformen (v2.0)?
 
 När du utvecklar ett nytt program är det viktigt att känna till skillnaderna mellan Microsoft Identity Platform (v 2.0) och Azure Active Directory (v 1.0) slut punkter. Den här artikeln beskriver de viktigaste skillnaderna mellan slut punkterna och några befintliga begränsningar för Microsoft Identity Platform.
 
@@ -34,7 +34,7 @@ När du utvecklar ett nytt program är det viktigt att känna till skillnaderna 
 * Med Microsoft Identity Platform-slutpunkten kan du logga in med arbets-och skol konton från Azure AD och personliga Microsoft-konton (MSA), till exempel hotmail.com, outlook.com och msn.com.
 * Båda slut punkterna accepterar också inloggnings program för *[gäst användare](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* i en Azure AD-katalog för program som kon figurer ATS som *[en enskild klient](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* eller för program *med flera klienter* som kon figurer ATS för att peka på den klient-/regionsspecifika slut punkten (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-Med slut punkten för Microsoft Identity Platform kan du skriva appar som accepterar inloggningar från personliga Microsoft-konton och arbets-och skol konton. Det ger dig möjlighet att skriva appens fullständigt konto-oberoende. Om din app till exempel anropar [Microsoft Graph](https://graph.microsoft.io), kommer vissa ytterligare funktioner och data att vara tillgängliga för arbets konton, till exempel SharePoint-webbplatser eller katalog data. Men för många åtgärder, till exempel [läsning av en användares e-post](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_messages), kan samma kod komma åt e-postmeddelandet för både personliga konton och arbets-och skol konton.
+Med slut punkten för Microsoft Identity Platform kan du skriva appar som accepterar inloggningar från personliga Microsoft-konton och arbets-och skol konton. Det ger dig möjlighet att skriva appens fullständigt konto-oberoende. Om din app till exempel anropar [Microsoft Graph](https://graph.microsoft.io), kommer vissa ytterligare funktioner och data att vara tillgängliga för arbets konton, till exempel SharePoint-webbplatser eller katalog data. Men för många åtgärder, till exempel [läsning av en användares e-post](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0), kan samma kod komma åt e-postmeddelandet för både personliga konton och arbets-och skol konton.
 
 För Microsoft Identity Platform-slutpunkten kan du använda Microsoft Authentication Library (MSAL) för att få till gång till konsument-, utbildnings-och företags världar. Azure AD v 1.0-slutpunkten accepterar bara inloggningar från arbets-och skol konton.
 
@@ -70,7 +70,7 @@ För den v 1.0-slutpunkten kan en OAuth 2,0-auktorisera begäran till Azure AD h
 ```text
 GET https://login.microsoftonline.com/common/oauth2/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&resource=https://graph.windows.net/
+&resource=https://graph.microsoft.com/
 ...
 ```
 
@@ -81,7 +81,7 @@ För program som använder Microsoft Identity Platform-slutpunkten ser samma OAu
 ```text
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&scope=https://graph.windows.net/directory.read%20https://graph.windows.net/directory.write
+&scope=https://graph.microsoft.com/directory.read%20https://graph.microsoft.com/directory.write
 ...
 ```
 

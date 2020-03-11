@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 03/04/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8c2bbd3aff8c2c10864fb2fa8937c9159ecd3606
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: aeb6971d37601367e62b8f883ccbc576e9534cdb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972453"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357569"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introduktion till Azure Blob storage
 
@@ -23,13 +23,13 @@ ms.locfileid: "75972453"
 
 I blobblagringen finns tre typer av resurser:
 
-- **Lagringskontot**. 
+- **Lagrings kontot**
 - En **container** på lagringskontot
-- En **blobb** i en container 
+- En **blobb** i en container
 
 Följande diagram visar relationen mellan de här resurserna.
 
-![relation mellan konto-blob och container resurs](./media/storage-blob-introduction/blob1.png)
+![relation mellan konto-blob och container resurs](./media/storage-blobs-introduction/blob1.png)
 
 ### <a name="storage-accounts"></a>Lagringskonton
 
@@ -43,20 +43,20 @@ http://mystorageaccount.blob.core.windows.net
 
 Om du vill skapa ett lagringskonto kan du läsa mer i [Skapa ett lagringskonto](../common/storage-account-create.md). Mer information om lagringskonton finns i [Översikt över Azure-lagringskonton](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Containrar
 
 I en container finns en uppsättning med blobbar, ungefär som i en katalog i ett filsystem. Ett lagringskonto kan omfatta ett obegränsat antal containrar, och varje container kan lagra ett obegränsat antal blobar. 
 
   > [!NOTE]
   > Containerns namn får endast innehålla gemener. Mer information om namngivning av containrar finns i [Ge namn och referera till containrar, blobbar och metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 
-### <a name="blobs"></a>Blobbar
+### <a name="blobs"></a>Blobar
  
 Azure Storage har stöd för tre typer av blobbar:
 
-* I **blockblobbar** lagras text och binära data, upp till ungefär 4,7 TB. Blockblobbar består av datablock som kan hanteras individuellt.
-* **Bilageblobbar** består av block, precis som blockblobbarna, men de är optimerade för bilageåtgärder. Tilläggsblobbar passar utmärkt för åtgärder som att logga data från virtuella datorer.
-* I **sidblobbar** lagras filer med slumpmässig åtkomst med en storlek på upp till 8 TB. Page blobbar lagrar filer för virtuella hård diskar (VHD) och fungerar som diskar för virtuella Azure-datorer. Mer information om sidblobar finns [översikten av Azure-sidblobar](storage-blob-pageblob-overview.md)
+- I **blockblobbar** lagras text och binära data, upp till ungefär 4,7 TB. Blockblobbar består av datablock som kan hanteras individuellt.
+- **Bilageblobbar** består av block, precis som blockblobbarna, men de är optimerade för bilageåtgärder. Tilläggsblobbar passar utmärkt för åtgärder som att logga data från virtuella datorer.
+- I **sidblobbar** lagras filer med slumpmässig åtkomst med en storlek på upp till 8 TB. Page blobbar lagrar filer för virtuella hård diskar (VHD) och fungerar som diskar för virtuella Azure-datorer. Mer information om sidblobar finns [översikten av Azure-sidblobar](storage-blob-pageblob-overview.md)
 
 Mer information om de olika typerna av blobbar finns i [Förstå blockblobbar, sidblobbar och bilageblobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
@@ -73,5 +73,5 @@ Det finns flera olika lösningar för att migrera befintliga data till blobblagr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [skapar ett lagringskonto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Skapa ett lagringskonto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Skalbarhets-och prestanda mål för Blob Storage](scalability-targets.md)

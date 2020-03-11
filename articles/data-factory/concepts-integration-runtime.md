@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/28/2020
 ms.openlocfilehash: 194bc7983019a616d534a4146f86fff59f9719dc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990529"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358438"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att ge olika nätverksmiljöer integrationsfunktioner:
@@ -40,7 +40,7 @@ I följande tabell beskrivs funktioner och nätverksstöd för varje Integration
 
 IR-typ | Offentligt nätverk | Privat nätverk
 ------- | -------------- | ---------------
-Azure | Data Flow<br/>Dataförflyttning<br/>Aktivitetssändning | &nbsp;
+Azure | Dataflöde<br/>Dataförflyttning<br/>Aktivitetssändning | &nbsp;
 Egen värd | Dataförflyttning<br/>Aktivitetssändning | Dataförflyttning<br/>Aktivitetssändning
 Azure-SSIS | Körning av SSIS-paket | Körning av SSIS-paket
 
@@ -48,7 +48,7 @@ Följande diagram visar hur olika IR-körningar kan användas i kombination för
 
 ![Olika typer av Integration Runtime](media/concepts-integration-runtime/different-integration-runtimes.png)
 
-## <a name="azure-integration-runtime"></a>Azure integration runtime
+## <a name="azure-integration-runtime"></a>Azure Integration Runtime
 En Azure Integration Runtime kan:
 
 - Köra data flöden i Azure 
@@ -70,7 +70,7 @@ Information om hur du skapar och konfigurerar Azure IR finns i How to create and
 > [!NOTE] 
 > Azure integration Runtime har egenskaper som är relaterade till data Flow runtime, som definierar den underliggande beräknings infrastrukturen som ska användas för att köra data flöden. 
 
-## <a name="self-hosted-integration-runtime"></a>Lokalt installerad integrationskörning
+## <a name="self-hosted-integration-runtime"></a>Integration Runtime med egen värd
 En IR med egen värd kan:
 
 - Köra kopieringsaktivitet mellan molndatalager och ett datalager i privat nätverk.

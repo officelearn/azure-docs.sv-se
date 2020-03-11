@@ -9,11 +9,11 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 0303f09e5e704a18576bf50d1f00007f7f86f320
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075375"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373046"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regel grupper och regler för brand vägg för webb program brand vägg
 
@@ -94,7 +94,7 @@ Datoriserade boknings 2.2.9 innehåller 10 regel grupper, vilket visas i följan
 
 Följande regel grupper och regler är tillgängliga när du använder brand väggen för webbaserade program på Application Gateway.
 
-# <a name="owasp-31tabowasp31"></a>[OWASP 3,1](#tab/owasp31)
+# <a name="owasp-31"></a>[OWASP 3,1](#tab/owasp31)
 
 ## <a name="owasp31"></a>Regel uppsättningar
 
@@ -340,7 +340,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |944130|Misstänkta Java-klasser|
 |944200|Utnyttjande av Java-deserialisering Apache Commons|
 
-# <a name="owasp-30tabowasp30"></a>[OWASP 3.0](#tab/owasp30)
+# <a name="owasp-30"></a>[OWASP 3,0](#tab/owasp30)
 
 ## <a name="owasp30"></a>Regel uppsättningar
 
@@ -540,7 +540,7 @@ Följande regel grupper och regler är tillgängliga när du använder brand vä
 |943110|Möjlig sessions bindnings attack = SessionID-parameter namn med referent på annan domän|
 |943120|Möjlig sessions bindnings attack = SessionID-parameter namn utan referent|
 
-# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
+# <a name="owasp-229"></a>[OWASP 2.2.9](#tab/owasp2)
 
 ## <a name="owasp229"></a>Regel uppsättningar
 

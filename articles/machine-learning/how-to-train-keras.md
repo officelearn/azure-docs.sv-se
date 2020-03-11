@@ -12,11 +12,11 @@ ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: ba7976d602412037578d0a324916718b2d515aac
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771793"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355507"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Träna och registrera en keras klassificerings modell med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Oavsett om du utvecklar en keras-modell från grunden eller om du har en befintl
 
 I den [konceptuella artikeln](concept-deep-learning-vs-machine-learning.md) finns information om skillnaderna mellan maskin inlärning och djup inlärning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kör den här koden i någon av följande miljöer:
 
@@ -212,7 +212,7 @@ I den här artikeln har du tränat och registrerat en keras-modell på Azure Mac
 
 > [!div class="nextstepaction"]
 > [Hur och var modeller ska distribueras](how-to-deploy-and-where.md)
-* [Spåra kör mått vid träning](how-to-track-experiments.md)
-* [Justering av hyperparametrar](how-to-tune-hyperparameters.md)
-* [Distribuera en tränad modell](how-to-deploy-and-where.md)
+* [Spåra körnings mått under träning](how-to-track-experiments.md)
+* [Justera disponeringsparametrarna](how-to-tune-hyperparameters.md)
+* [Distribuera en utbildad modell](how-to-deploy-and-where.md)
 * [Referens arkitektur för distribuerad djup inlärnings utbildning i Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

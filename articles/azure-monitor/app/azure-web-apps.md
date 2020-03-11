@@ -4,11 +4,11 @@ description: Övervakning av program prestanda för Azure App Services. Diagramm
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 03d332af182f8f40ede634fbd563f7b064751f32
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655826"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367715"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service prestanda
 
@@ -35,7 +35,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 
 ## <a name="enable-agent-based-monitoring"></a>Aktivera agent-baserad övervakning
 
-# <a name="net"></a>[NET](#tab/net)
+# <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
 > Kombinationen av APPINSIGHTS_JAVASCRIPT_ENABLED och urlCompression stöds inte. Mer information finns i förklaringen i [fel söknings avsnittet](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
@@ -108,7 +108,7 @@ Python App Service-baserade webb program stöder för närvarande inte automatis
 
 ## <a name="enable-client-side-monitoring"></a>Aktivera övervakning på klientsidan
 
-# <a name="net"></a>[NET](#tab/net)
+# <a name="net"></a>[.NET](#tab/net)
 
 Övervakning på klient sidan är valbar för ASP.NET. Aktivera övervakning på klient sidan:
 

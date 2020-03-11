@@ -4,18 +4,18 @@ description: I den här artikeln får du lära dig hur du felsöker fel som påt
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 1b82d43a58a25dc1c475180a4780106220e1ceeb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 8e29061becd9eb82dd04f3ed0db787542b29cbc7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597328"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363866"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
 
 Du kan felsöka fel som uppstår när du använder Azure Backup med informationen i listan nedan:
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Säkerhetskopiering
 
 Det här avsnittet beskriver felet vid säkerhets kopiering av virtuella Azure-datorer.
 
@@ -125,7 +125,7 @@ Om du ser behörigheter i **MachineKeys** -katalogen som skiljer sig från stand
    * Läs behörigheter
 2. Ta bort alla certifikat som har **utfärdats till** är den klassiska distributions modellen eller **Windows Azure CRP Certificate Generator**:
 
-   * [Öppna certifikat på en lokal dator konsol](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
+   * [Öppna certifikat på en lokal dator konsol](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
    * Under **personliga** > **certifikat**, ta bort alla certifikat som har **utfärdats till** är den klassiska distributions modellen eller **Windows Azure CRP Certificate Generator**.
 3. Utlös ett jobb för säkerhets kopiering av virtuella datorer.
 

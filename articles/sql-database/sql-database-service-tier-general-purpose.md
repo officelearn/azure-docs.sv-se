@@ -12,11 +12,11 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/07/2019
 ms.openlocfilehash: 7c57755ae63f8af5a2a4faa4764bc6a9597e8c2d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819216"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380081"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Tjänst nivå för generell användning – Azure SQL Database
 
@@ -26,7 +26,7 @@ ms.locfileid: "73819216"
 Azure SQL Database baseras på SQL Server databas motor arkitektur som är anpassad för moln miljön för att säkerställa 99,99% tillgänglighet även i händelse av infrastruktur haverier. Det finns tre tjänst nivåer som används i Azure SQL Database, var och en med olika arkitektur modeller. Dessa tjänst nivåer är:
 
 - Generellt syfte
-- Affärskritisk
+- Verksamhets kritisk
 - Hyperskala
 
 Arkitektur modellen för tjänst nivån General-Purpose baseras på en separation av data bearbetning och lagring. Den här arkitektur modellen är beroende av hög tillgänglighet och tillförlitlighet för Azure Blob Storage som transparent replikerar databasfiler och garanterar ingen data förlust om det uppstår ett underliggande infrastruktur haveri.

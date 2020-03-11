@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Användar inloggning | Microsoft Docs'
+title: 'Azure AD Connect: användar inloggning | Microsoft Docs'
 description: Azure AD Connect användar inloggning för anpassade inställningar.
 services: active-directory
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dbcc05093d801261493745c61dc5f68878d338b0
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607666"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376283"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Alternativ för Azure AD Connect användar inloggning
 Med Azure Active Directory (Azure AD) Connect kan användarna logga in i både molnet och lokala resurser med samma lösen ord. I den här artikeln beskrivs viktiga begrepp för varje identitets modell som hjälper dig att välja den identitet som du vill använda för att logga in på Azure AD.
@@ -112,23 +112,23 @@ Mer information finns i kompatibilitetslistan för [Azure AD från tredje part](
 ### <a name="understanding-user-principal-name"></a>Förstå User Principal Name
 I Active Directory är standardsuffixet för User Principal Name (UPN) DNS-namnet för den domän där användar kontot skapades. I de flesta fall är detta domän namnet som är registrerat som företags domänen på Internet. Du kan dock lägga till fler UPN-suffix genom att använda Active Directory domäner och förtroenden.
 
-Användarens UPN har formatet username@domain. Till exempel för en Active Directory domän med namnet "contoso.com" kan en användare med namnet John ha UPN-"john@contoso.com". Användarens UPN baseras på RFC 822. Även om UPN och e-post delar samma format, kan värdet för UPN för en användare eller inte vara detsamma som användarens e-postadress.
+Användarens UPN har formatet username@domain. Till exempel för en Active Directory domän med namnet "contoso.com" kan en användare med namnet John ha UPN "john@contoso.com". Användarens UPN baseras på RFC 822. Även om UPN och e-post delar samma format, kan värdet för UPN för en användare eller inte vara detsamma som användarens e-postadress.
 
 ### <a name="user-principal-name-in-azure-ad"></a>Användarens huvud namn i Azure AD
 I guiden Azure AD Connect används attributet userPrincipalName eller så kan du ange attributet (i en anpassad installation) som ska användas från lokalt som User Principal Name i Azure AD. Detta är det värde som används för att logga in på Azure AD. Om värdet för userPrincipalName-attributet inte motsvarar en verifierad domän i Azure AD, ersätter Azure AD det med ett default. onmicrosoft.com-värde.
 
 Alla kataloger i Azure Active Directory har ett inbyggt domän namn, med formatet contoso.onmicrosoft.com, som gör att du kan komma igång med Azure eller andra Microsoft-tjänster. Du kan förbättra och förenkla inloggnings upplevelsen genom att använda anpassade domäner. Information om anpassade domän namn i Azure AD och hur du verifierar en domän finns i [lägga till ett anpassat domän namn till Azure Active Directory](../fundamentals/add-custom-domain.md).
 
-## <a name="azure-ad-sign-in-configuration"></a>Konfiguration av Azure AD-inloggning
+## <a name="azure-ad-sign-in-configuration"></a>Inloggningskonfiguration för Azure AD
 ### <a name="azure-ad-sign-in-configuration-with-azure-ad-connect"></a>Inloggnings konfiguration för Azure AD med Azure AD Connect
 Inloggnings upplevelsen i Azure AD beror på om Azure AD kan matcha User Principal Name suffix för en användare som synkroniseras till en av de anpassade domänerna som verifieras i Azure AD-katalogen. Azure AD Connect ger hjälp när du konfigurerar inloggnings inställningar för Azure AD, så att användarens inloggnings upplevelse i molnet liknar den lokala upplevelsen.
 
 Azure AD Connect listar de UPN-suffix som har definierats för domänerna och försöker matcha dem med en anpassad domän i Azure AD. Sedan hjälper det dig med lämplig åtgärd som måste vidtas.
 Inloggnings sidan för Azure AD visar de UPN-suffix som har definierats för lokala Active Directory och visar motsvarande status för varje suffix. Status värden kan vara något av följande:
 
-| Tillstånd | Beskrivning | Åtgärd krävs |
+| Status | Beskrivning | Åtgärd krävs |
 |:--- |:--- |:--- |
-| Verifierad |Azure AD Connect hittade en matchande verifierad domän i Azure AD. Alla användare för den här domänen kan logga in med sina lokala autentiseringsuppgifter. |Ingen åtgärd krävs. |
+| Kontrol |Azure AD Connect hittade en matchande verifierad domän i Azure AD. Alla användare för den här domänen kan logga in med sina lokala autentiseringsuppgifter. |Ingen åtgärd krävs. |
 | Inte verifierad |Azure AD Connect hittade en matchande anpassad domän i Azure AD, men den har inte verifierats. UPN-suffixet för användare av den här domänen kommer att ändras till default. onmicrosoft.com-suffixet efter synkronisering om domänen inte har verifierats. | [Verifiera den anpassade domänen i Azure AD.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
 | Inte tillagt |Azure AD Connect gick inte att hitta en anpassad domän som motsvarar UPN-suffixet. UPN-suffixet för användare av den här domänen kommer att ändras till default. onmicrosoft.com-suffixet om domänen inte har lagts till och verifierats i Azure. | [Lägg till och verifiera en anpassad domän som motsvarar UPN-suffixet.](../fundamentals/add-custom-domain.md) |
 
@@ -155,27 +155,27 @@ För följande information antar vi att vi är intresserade av UPN-suffixet cont
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Snabb inställningar/Password-hash-synkronisering
 
-| Tillstånd | Inverkan på användarens inloggnings upplevelse i Azure |
+| Status | Inverkan på användarens inloggnings upplevelse i Azure |
 |:---:|:--- |
-| Inte tillagt |I det här fallet har ingen anpassad domän för contoso.com lagts till i Azure AD-katalogen. Användare som har UPN lokalt med suffixet @contoso.com kan inte använda sina lokala UPN för att logga in på Azure. De måste i stället använda ett nytt UPN som tillhandahålls av Azure AD genom att lägga till suffixet för standard Azure AD-katalogen. Om du till exempel synkroniserar användare till Azure AD-katalogen azurecontoso.onmicrosoft.com får den lokala användaren user@contoso.com ett UPN för. user@azurecontoso.onmicrosoft.com |
+| Inte tillagt |I det här fallet har ingen anpassad domän för contoso.com lagts till i Azure AD-katalogen. Användare som har UPN lokalt med suffix @contoso.com kan inte använda sina lokala UPN för att logga in på Azure. De måste i stället använda ett nytt UPN som tillhandahålls av Azure AD genom att lägga till suffixet för standard Azure AD-katalogen. Om du till exempel synkroniserar användare till Azure AD-katalogen azurecontoso.onmicrosoft.com får den lokala användar user@contoso.com ett UPN-user@azurecontoso.onmicrosoft.com. |
 | Inte verifierad |I det här fallet har vi en anpassad domän-contoso.com som har lagts till i Azure AD-katalogen. Men det har inte verifierats ännu. Om du går vidare med att synkronisera användare utan att verifiera domänen, tilldelas användarna ett nytt UPN av Azure AD, precis som i scenariot "inte tillagt". |
-| Verifierad |I det här fallet har vi en anpassad domän-contoso.com som redan har lagts till och verifierats i Azure AD som UPN-suffix. Användarna kan använda sina lokala User Principal Name, till exempel user@contoso.comför att logga in på Azure när de har synkroniserats till Azure AD. |
+| Kontrol |I det här fallet har vi en anpassad domän-contoso.com som redan har lagts till och verifierats i Azure AD som UPN-suffix. Användarna kan använda sina lokala User Principal Name, till exempel user@contoso.com, för att logga in på Azure när de har synkroniserats till Azure AD. |
 
 ###### <a name="ad-fs-federation"></a>AD FS Federation
 Du kan inte skapa en federation med default. onmicrosoft.com-domänen i Azure AD eller en overifierad anpassad domän i Azure AD. Om du använder guiden Azure AD Connect och väljer en overifierad domän för att skapa en federation med, uppmanas Azure AD Connect att ange de nödvändiga posterna som ska skapas där din DNS är värd för domänen. Mer information finns i [Verifiera att Azure AD-domänen har valts för Federation](how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation).
 
 Om du valde Federations alternativet för användar inloggning **med AD FS**måste du ha en anpassad domän för att kunna fortsätta skapa en federation i Azure AD. För vår diskussion innebär det att vi bör ha en anpassad domän contoso.com som lagts till i Azure AD-katalogen.
 
-| Tillstånd | Inverkan på användarens inloggnings upplevelse i Azure |
+| Status | Inverkan på användarens inloggnings upplevelse i Azure |
 |:---:|:--- |
-| Inte tillagt |I det här fallet gick det Azure AD Connect inte att hitta någon matchande anpassad domän för UPN-suffixet contoso.com i Azure AD-katalogen. Du måste lägga till en anpassad domän contoso.com om du vill att användarna ska logga in med hjälp av AD FS med sitt lokala UPN (t user@contoso.com. ex.). |
+| Inte tillagt |I det här fallet gick det Azure AD Connect inte att hitta någon matchande anpassad domän för UPN-suffixet contoso.com i Azure AD-katalogen. Du måste lägga till en anpassad domän contoso.com om du vill att användarna ska logga in med hjälp av AD FS med sitt lokala UPN (t. ex. user@contoso.com). |
 | Inte verifierad |I det här fallet visas Azure AD Connect med lämplig information om hur du kan verifiera din domän i ett senare skede. |
-| Verifierad |I det här fallet kan du fortsätta med konfigurationen utan någon ytterligare åtgärd. |
+| Kontrol |I det här fallet kan du fortsätta med konfigurationen utan någon ytterligare åtgärd. |
 
 ## <a name="changing-the-user-sign-in-method"></a>Ändra användar inloggnings metod
 Du kan ändra användar inloggnings metoden från Federation, Password-hash-synkronisering eller direktautentisering genom att använda de uppgifter som är tillgängliga i Azure AD Connect efter den inledande konfigurationen av Azure AD Connect med guiden. Kör guiden Azure AD Connect igen så visas en lista över uppgifter som du kan utföra. Välj **ändra användar inloggning** i listan med uppgifter.
 
-![Ändra användarinloggning](./media/plan-connect-user-signin/changeusersignin.png)
+![Ändra användar inloggning](./media/plan-connect-user-signin/changeusersignin.png)
 
 På nästa sida uppmanas du att ange autentiseringsuppgifterna för Azure AD.
 

@@ -1,6 +1,6 @@
 ---
-title: Distributions planer – Azure Active Directory | Microsoft Docs
-description: Fullständig vägledning om hur du distribuerar många Azure Active Directory-funktioner.
+title: Distribution - planer i Azure Active Directory | Microsoft Docs
+description: Slutpunkt till slutpunkt vägledning om hur du distribuerar många funktioner i Azure Active Directory.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -13,11 +13,11 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 17e6708225262349d56c6e261895882e9c31677f
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558532"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378270"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory-distributionsplaner
 Letar du efter slut punkt till slut punkt om hur du distribuerar Azure Active Directory (Azure AD)-funktioner? Distributions planer för Azure AD vägleder dig genom affärs värde, planerings överväganden och operativa procedurer som krävs för att distribuera vanliga funktioner i Azure AD.
@@ -59,24 +59,24 @@ Att utöka distributionen till större grupper av användare bör utföras genom
 
 ## <a name="deploy-authentication"></a>Distribuera autentisering
 
-| Kapacitet | Beskrivning|
+| Funktion | Beskrivning|
 | -| -|
-| [Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)| Azure Multi-Factor Authentication (MFA) är Microsofts verifieringslösning i två steg. Med hjälp av godkända autentiseringsmetoder bidrar Azure MFA till att skydda åtkomsten till dina data och program samtidigt som du kan uppfylla behovet av en enkel inloggnings process. |
+| [Multifaktorautentisering](https://aka.ms/deploymentplans/mfa)| Azure Multi-Factor Authentication (MFA) är Microsofts verifieringslösning i två steg. Med hjälp av godkända autentiseringsmetoder bidrar Azure MFA till att skydda åtkomsten till dina data och program samtidigt som du kan uppfylla behovet av en enkel inloggnings process. |
 | [Villkorlig åtkomst](https://aka.ms/deploymentplans/ca)| Med villkorlig åtkomst kan du implementera automatiska åtkomst kontroll beslut för vilka som kan komma åt dina molnappar, baserat på villkor. |
 | [Självåterställning av lösenord](https://aka.ms/deploymentplans/sspr)| Lösen ords återställning via självbetjäning hjälper dina användare att återställa sina lösen ord utan att administratören behöver göra det, när och var de behöver. |
 | [Lösen ords lös](https://aka.ms/deploymentplans/passwordless) | Implementera lösenordsbaserad autentisering med hjälp av Microsoft Authenticator-appen eller FIDO2 säkerhets nycklar i din organisation |
 
 ## <a name="deploy-application-management"></a>Distribuera program hantering
 
-| Kapacitet | Beskrivning|
+| Funktion | Beskrivning|
 | -| - |
 | [Enkel inloggning](https://aka.ms/deploymentplans/sso)| Enkel inloggning hjälper dina användare att komma åt de appar och resurser som de behöver för att göra affärer medan de bara loggar in en gång. När de har loggat in kan de gå från Microsoft Office till SalesForce till Box till interna program utan att behöva ange autentiseringsuppgifterna en andra gång. |
-| [Åtkomst panel](https://aka.ms/deploymentplans/accesspanel)| Erbjud dina användare en enkel hubb för att upptäcka och komma åt alla sina program. Gör det möjligt för dem att bli mer produktiva med självbetjänings funktioner, t. ex. att begära åtkomst till appar och grupper eller att hantera åtkomst till resurser för andras räkning. |
+| [Åtkomst panel](https://aka.ms/deploymentplans/accesspanel)| Ger användarna en enkel hubb för att upptäcka och komma åt sina program. Gör det möjligt för dem att bli mer produktiva med självbetjänings funktioner, t. ex. att begära åtkomst till appar och grupper eller att hantera åtkomst till resurser för andras räkning. |
 
 
 ## <a name="deploy-hybrid-scenarios"></a>Distribuera hybrid scenarier
 
-| Kapacitet | Beskrivning|
+| Funktion | Beskrivning|
 | -| -|
 | [ADFS till hash-synkronisering av lösenord](https://aka.ms/deploymentplans/adfs2phs)| Med hash-synkronisering av lösen ord synkroniseras hashar av användar lösen ord från lokala Active Directory till Azure AD, vilket gör att Azure AD kan autentisera användare utan interaktion med den lokala Active Directory |
 | [ADFS till Pass Through Authentication](https://aka.ms/deploymentplans/adfs2pta) (Passeringsautentisering)| Med Azure AD-direktautentisering kan användarna logga in i både lokala och molnbaserade program med samma lösen ord. Den här funktionen ger användarna en bättre upplevelse – ett mindre lösen ord att komma ihåg – och minskar kostnaderna för IT-supportavdelningen eftersom det är mindre troligt att de glömmer att logga in. När användare loggar in med Azure AD verifierar den här funktionen användarnas lösenord direkt mot din lokala Active Directory. |
@@ -85,14 +85,14 @@ Att utöka distributionen till större grupper av användare bör utföras genom
 
 ## <a name="deploy-user-provisioning"></a>Distribuera användar etablering
 
-| Kapacitet | Beskrivning|
+| Funktion | Beskrivning|
 | -| -|
 | [Användaretablering](https://aka.ms/deploymentplans/userprovisioning)| Azure AD hjälper dig att automatisera skapande, underhåll och borttagning av användaridentiteter i molnprogram (SaaS), till exempel Dropbox, Salesforce, ServiceNow och mer. |
 | [Molnets användar etablering för HR](https://aka.ms/deploymentplans/cloudhr)| Cloud HR User etablering till Active Directory skapar en grund för pågående identitets styrning och förbättrar kvaliteten på affärs processer som förlitar sig på auktoritativa identitets data. Med hjälp av den här funktionen med din moln produkt i molnet, t. ex. workday eller SuccessFactors, kan du sömlöst hantera identitets livs cykeln för anställda och eventualtillgångar genom att konfigurera regler som mappar antecknings processer – överskrivna processer (till exempel ny anställning, avsluta, Överföring) till etablerings åtgärder (till exempel skapa, aktivera, inaktivera) |
 
 ## <a name="deploy-governance-and-reporting"></a>Distribuera styrning och rapportering
 
-| Kapacitet | Beskrivning|
+| Funktion | Beskrivning|
 | -| -|
 | [Privileged Identity Management](https://aka.ms/deploymentplans/pim)| Azure AD Privileged Identity Management (PIM) hjälper dig att hantera privilegierade administrativa roller i Azure AD, Azure-resurser och andra Microsoft Online Services. PIM innehåller lösningar som just-in-Time-åtkomst, begär godkännande arbets flöden och fullständigt integrerade åtkomst granskningar, så att du kan identifiera, upptäcka och förhindra illvilliga aktiviteter för privilegierade roller i real tid. |
 | [Rapportering och övervakning](https://aka.ms/deploymentplans/reporting)| Utformningen av din Azure AD-rapportering och övervaknings lösning är beroende av dina juridiska, säkerhets-och drift krav samt din befintliga miljö och befintliga processer. Den här artikeln visar de olika design alternativen och vägleder dig till rätt distributions strategi. |

@@ -3,19 +3,19 @@ title: Snabbstart – Utforska Azure-kostnader med kostnadsanalys | Microsoft Do
 description: Den här snabbstarten hjälper dig att använda kostnadsanalys för att utforska och analysera dina Azure-organisationskostnader.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/11/2020
+ms.date: 03/02/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 82cd596f08136f6d9b327fc83122c0f32d8f9914
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 002caa15b7054ab806018a733b32a1b2555e1aea
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649304"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384194"
 ---
-# <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabbstart: Utforska och analysera kostnader med kostnadsanalys
+# <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabb start: utforska och analysera kostnader med kostnads analys
 
 För att kunna kontrollera och optimera dina Azure-kostnader på rätt sätt behöver du förstå var kostnaderna har sitt ursprung i organisationen. Det är även bra att veta hur mycket pengar dina tjänster kostar och vilka miljöer och system de stödjer. Insyn i hela spektrumet av kostnader är mycket viktigt för kunna förstå organisationens utgiftsmönster. Du kan använda utgiftsmönster för att tillämpa kostnadskontrollmekanismer, till exempel budgetar.
 
@@ -28,11 +28,13 @@ I den här snabbstarten lär du dig att:
 - Ladda ned kostnadsanalysdata
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kostnadsanalys stöder en mängd olika typer av Azure-konton. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Om du vill visa kostnadsdata behöver du minst läsbehörighet för ditt Azure-konto.
 
 Mer information om hur du får åtkomst till Azure Cost Management finns i [Tilldela åtkomst till data](../../cost-management/assign-access-acm-data.md).
+
+Om du har en ny prenumeration kan du inte använda Cost Management funktioner direkt. Det kan ta upp till 48 timmar innan du kan använda alla Cost Management-funktioner.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -46,17 +48,17 @@ Det omfång som du väljer används i hela Cost Management för att ge datakonso
 
 Den initiala kostnadsanalysvyn innehåller följande områden.
 
-**Vy över ackumulerade kostnader**: Representerar konfigurationen för den fördefinierade vyn för kostnadsanalys. Varje vy innehåller inställningar för datumintervall, kornighet, gruppera efter och filter. Standardvyn visar ackumulerade kostnader för den aktuella faktureringsperioden, men du kan ändra till andra inbyggda vyer. Mer information finns i [Anpassa kostnadsvyer](#customize-cost-views).
+**Ackumulerad kostnadsallokering**: representerar konfigurationen för den fördefinierade vyn för kostnads analys. Varje vy innehåller inställningar för datumintervall, kornighet, gruppera efter och filter. Standardvyn visar ackumulerade kostnader för den aktuella faktureringsperioden, men du kan ändra till andra inbyggda vyer. Mer information finns i [Anpassa kostnadsvyer](#customize-cost-views).
 
-**Faktisk kostnad**: Visar den totala förbruknings- och inköpskostnaden för den aktuella månaden, allteftersom de påförs och visas på fakturan.
+**Verklig kostnad**: visar den totala förbrukningen och inköps kostnaden för den aktuella månaden, allteftersom de påförs och visas på fakturan.
 
-**Prognos**: Visar de totala prognostiserade kostnaderna för den tidsperiod som du väljer.
+**Prognos**: visar den totala beräknade kostnaden för den tids period som du väljer.
 
-**Budget**: Visar den planerade utgiftsgränsen för det valda omfånget, om en sådan är tillgänglig.
+**Budget**: visar den planerade utgifts gränsen för det valda omfånget, om det är tillgängligt.
 
-**Ackumulerad kornighet**: Visar totalsumman för dagliga kostnader från början av faktureringsperioden. När du har [skapat en budget](tutorial-acm-create-budgets.md) för ditt faktureringskonto eller din prenumeration kan du snabbt se din utgiftstrend jämfört med budgeten. Hovra över ett datum om du vill visa den ackumulerade kostnaden för den dagen.
+**Ackumulerad granularitet**: visar total summan för dagliga kostnader, från början av fakturerings perioden. När du har [skapat en budget](tutorial-acm-create-budgets.md) för ditt faktureringskonto eller din prenumeration kan du snabbt se din utgiftstrend jämfört med budgeten. Hovra över ett datum om du vill visa den ackumulerade kostnaden för den dagen.
 
-**Pivotdiagram (ringdiagram)** : Visar dynamiska pivoter som delar upp den totala kostnaden enligt en gemensam uppsättning standardegenskaper. De visar de största till minsta kostnaderna för den aktuella månaden. Du kan ändra pivotdiagram när som helst genom att välja en annan pivot. Kostnaderna kategoriseras efter tjänst (mätarkategori), plats (region) och underordnat omfång som standard. Exempel: registreringskonton är under faktureringskonton, resursgrupper är under prenumerationer och resurser är under resursgrupper.
+**Pivot-diagram (Ring diagram)** : ge dynamiska Pivot-scheman och dela upp den totala kostnaden med en gemensam uppsättning standard egenskaper. De visar de största till minsta kostnaderna för den aktuella månaden. Du kan ändra pivotdiagram när som helst genom att välja en annan pivot. Kostnaderna kategoriseras efter tjänst (mätarkategori), plats (region) och underordnat omfång som standard. Exempel: registreringskonton är under faktureringskonton, resursgrupper är under prenumerationer och resurser är under resursgrupper.
 
 ![Startvyn för kostnadsanalys på Azure Portal](./media/quick-acm-cost-analysis/cost-analysis-01.png)
 
@@ -106,7 +108,7 @@ Normalt kan du förvänta dig att se data eller meddelanden för förbrukade res
 
 **Gruppera efter** vanliga egenskaper för att dela upp kostnader och identifiera de flesta deltagarna. Om du till exempel grupperar efter resurstaggar väljer du den taggnyckel som du vill gruppera efter. Kostnaderna visas uppdelade efter varje taggvärde, med ett extra segment för resurser som inte har den taggen tillämpad.
 
-De flesta [Azure-resurser stöder taggning](../../azure-resource-manager/management/tag-support.md). Vissa taggar är emellertid inte tillgängliga inom Cost Management (kostnadshantering) och fakturering. Dessutom stöds inte resursgrupptaggar. Stöd för taggar gäller för användning som rapporterats *efter* taggen tillämpades på resursen. Taggar tillämpas inte retroaktivt för insamlade kostnader.
+De flesta [Azure-resurser stöder taggning](../../azure-resource-manager/management/tag-support.md). Vissa taggar är emellertid inte tillgängliga inom Cost Management (kostnadshantering) och fakturering. Dessutom stöds inte resursgrupptaggar. Stödet för taggar gäller användning som rapporterats *efter* att taggen tillämpades på resursen. Taggar tillämpas inte retroaktivt på samlade kostnader.
 
 Titta på videon [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) (Så här granskar du taggprinciper med Azure Cost Management) för att lära dig mer om att använda Azures taggprincip för att förbättra synligheten för kostnadsdata.
 

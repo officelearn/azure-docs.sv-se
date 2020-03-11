@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: a97bee27b74aa211b4d4d56547726555edefa87a
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539407"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379700"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Lägga till språk analys verktyg i sträng fält i ett Azure Kognitiv sökning-index
 
@@ -71,7 +71,7 @@ Mer information om index egenskaper finns i [create index &#40;Azure kognitiv s�
 |Bulgariska|bg.microsoft|BG. Lucene|  
 |Katalanska|ca.microsoft|ca. Lucene|  
 |Kinesiska, förenklad|zh-Hans.microsoft|zh-Hans.lucene|  
-|Kinesiska, traditionell|zh-Hant.microsoft|zh-Hant. Lucene|  
+|Traditionell kinesisk|zh-Hant.microsoft|zh-Hant. Lucene|  
 |Kroatiska|hr.microsoft||  
 |Tjeckiska|cs.microsoft|CS. Lucene|  
 |Danska|da.microsoft|da. Lucene|  
@@ -115,7 +115,7 @@ Mer information om index egenskaper finns i [create index &#40;Azure kognitiv s�
 |Svenska|sv.microsoft|sv.lucene|  
 |Tamilska|ta.microsoft||  
 |Telugu|te.microsoft||  
-|Thai|th.microsoft|th. Lucene|  
+|Thailändska|th.microsoft|th. Lucene|  
 |Turkiska|tr.microsoft|TR. Lucene|  
 |Ukrainska|uk.microsoft||  
 |Urdu|ur.microsoft||  

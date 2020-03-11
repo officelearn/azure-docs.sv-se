@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 1/21/2020
 ms.author: raynew
 ms.openlocfilehash: b7ace4f470a4e054be5d7f5945fc3e9c4f7d0810
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444255"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363189"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -174,7 +174,7 @@ Gäst-/Server nätverk flera nätverkskort | Ja.
 
 **Komponent** | **Stöds**
 --- | ---
-Azure-ExpressRoute | Ja
+Azure ExpressRoute | Ja
 ILB | Ja
 ELB | Ja
 Azure Traffic Manager | Ja

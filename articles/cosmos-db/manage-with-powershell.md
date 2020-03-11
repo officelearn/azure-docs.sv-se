@@ -8,15 +8,15 @@ ms.date: 10/23/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ms.openlocfilehash: 978f37d08275de704dd01c0251dde42665fca552
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882108"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364510"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Hantera Azure Cosmos DB SQL API-resurser med hjälp av PowerShell
 
-I följande guide beskrivs hur du använder PowerShell för att skripta och automatisera hanteringen av Azure Cosmos DB resurser, inklusive konto, databas, behållare och data flöde. Hantering av Azure Cosmos DB hanteras via AzResource-cmdleten direkt till Azure Cosmos DB Resource Provider. Om du vill visa alla egenskaper som kan hanteras med PowerShell för Azure Cosmos DB Resource Provider, se [Azure Cosmos DB Resource Provider-schema](/azure/templates/microsoft.documentdb/allversions)
+I följande guide beskrivs hur du använder PowerShell för att skripta och automatisera hanteringen av Azure Cosmos DB-resurser, som konto, databas, container och dataflöde. Hanteringen av Azure Cosmos DB sköts via cmdleten AzResource direkt till Azure Cosmos DB-resursprovidern. Om du vill visa alla egenskaper som kan hanteras med PowerShell för Azure Cosmos DB Resource Provider, se [Azure Cosmos DB Resource Provider-schema](/azure/templates/microsoft.documentdb/allversions)
 
 För plattforms oberoende hantering av Azure Cosmos DB kan du använda [Azure CLI](manage-with-cli.md), [REST API][rp-rest-api]eller [Azure Portal](create-sql-api-dotnet.md#create-account).
 
@@ -27,7 +27,7 @@ För plattforms oberoende hantering av Azure Cosmos DB kan du använda [Azure CL
 Följ anvisningarna i [så här installerar och konfigurerar du Azure PowerShell][powershell-install-configure] för att installera och logga in på ditt Azure-konto i PowerShell.
 
 * Om du vill köra följande kommandon utan att användaren behöver bekräfta det lägger du till flaggan `-Force` i kommandot.
-* Alla följande kommandon är synkrona.
+* Följande kommandon är synkrona.
 
 ## <a name="azure-cosmos-accounts"></a>Azure Cosmos-konton
 
@@ -243,7 +243,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="list-keys"></a>Lista konto nycklar
 
-När du skapar ett Azure Cosmos DB-konto genererar tjänsten två huvud åtkomst nycklar som kan användas för autentisering när Azure Cosmos DB kontot nås. Genom att tillhandahålla två åtkomst nycklar kan du Azure Cosmos DB återskapa nycklarna utan avbrott till ditt Azure Cosmos DB-konto. Skrivskyddade nycklar för att autentisera skrivskyddade åtgärder är också tillgängliga. Det finns två Läs-och skriv nycklar (primära och sekundära) och två skrivskyddade nycklar (primära och sekundära).
+När du skapar ett Azure Cosmos DB-konto, genererar två master åtkomstnycklar som kan användas för autentisering när Azure Cosmos DB-kontot används i tjänsten. Genom att tillhandahålla två åtkomstnycklar för kan Azure Cosmos DB du återskapa nycklarna utan avbrott på ditt Azure Cosmos DB-konto. Det finns också skrivskyddade nycklar för att autentisera skrivskyddade åtgärder. Det finns två skrivskyddade nycklar (primära och sekundära) och två skrivskyddade nycklar (primär eller sekundär).
 
 ```azurepowershell-interactive
 # List keys for an Azure Cosmos Account
@@ -261,7 +261,7 @@ Write-Host "SecondaryKey =" $keys.secondaryMasterKey
 
 ### <a id="list-connection-strings"></a>Lista anslutnings strängar
 
-För MongoDB-konton kan anslutnings strängen för att ansluta din MongoDB-app till databas kontot hämtas med hjälp av följande kommando.
+För MongoDB-konton, kan anslutningssträngen för att ansluta din MongoDB-app till databaskontot hämtas med hjälp av följande kommando.
 
 ```azurepowershell-interactive
 # List connection strings for an Azure Cosmos Account

@@ -17,12 +17,12 @@ ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 74da5b84fafd7f7c60d07fc90b05c051c1fa2a3e
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 9b4479436077dbad8cf2fb4dc40954194c138981
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164401"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377683"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory kod exempel (v 1.0-slut punkt)
 
@@ -54,7 +54,7 @@ Det här exemplet visar hur du skriver ett program med en enda sida som skyddas 
 
 I följande exempel visas webb program som signerar användare. Några av dessa program anropar också Microsoft Graph eller ditt eget webb-API i namnet på den inloggade användaren.
 
- Plattform | Endast tecken i användare | Anrop Microsoft Graph eller AAD-Graf| Anropar en annan ASP.NET eller ASP.NET Core 2,0 webb-API
+ Plattform | Endast tecken i användare | Anrop Microsoft Graph | Anropar en annan ASP.NET eller ASP.NET Core 2,0 webb-API
  -------- | ------------------- | --------------------- | -------------------------
 ![Den här bilden visar ASP.NET-logotypen](media/sample-v2-code/logo-netcore.png)</p>ASP.NET Core 2.0 | [dotNet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-WebAPI-multiinnehavare-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) </p>(AAD-diagram) | [dotNet-webapp-WebAPI-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
 ![Den här bilden visar ASP.NET-logotypen](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 |  </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotNet-webapp-WebAPI-OAuth2-UserIdentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotNet-webapp-flera innehavare – openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (AAD-diagram) |
@@ -125,10 +125,6 @@ Exempel och självstudier som demonstrerar olika användnings mönster för Micr
 
 ## <a name="see-also"></a>Se även
 
-[Guide för Azure Active Directory utvecklare](v1-overview.md)
-
-[Azure Active Directory autentiseringsscheman](active-directory-authentication-libraries.md)
-
-[Koncept och referens för Azure AD-Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx)
-
-[Hjälp program bibliotek för Azure AD Graph API](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
+- [Guide för Azure Active Directory utvecklare](v1-overview.md)
+- [Azure Active Directory autentiseringsscheman](active-directory-authentication-libraries.md)
+- [Microsoft Graph API-konceptuell och referens](https://docs.microsoft.com/graph/use-the-api)

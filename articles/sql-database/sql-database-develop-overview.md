@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.openlocfilehash: 26aa9948a44727ff4c8092eb5131b1c054bf5442
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082442"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357651"
 ---
 # <a name="sql-database-application-development-overview"></a>Översikt över SQL Database program utveckling
 
@@ -52,7 +52,7 @@ Azure SQL Database är en moln tjänst där du kan vänta på tillfälliga fel s
 
 Mer information om hur du förbereder för planerade underhålls händelser på din Azure SQL-databas finns i [Planera för underhålls händelser i Azure i Azure SQL Database](sql-database-planned-maintenance.md).
 
-## <a name="network-considerations"></a>Nätverks överväganden
+## <a name="network-considerations"></a>Nätverksöverväganden
 
 - På den dator som är värd för ditt klientprogram, ska du se till att brandväggen tillåter utgående TCP-kommunikation på port 1433.  Mer information: [Konfigurera en Azure SQL Database brand vägg](sql-database-configure-firewall-settings.md).
 - Om klient programmet ansluter till SQL Database medan klienten körs på en virtuell dator i Azure måste du öppna vissa port intervall på den virtuella datorn. Mer information: [portar utöver 1433 för ADO.NET 4,5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/14/2019
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230575"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355901"
 ---
 # <a name="manage-your-function-app"></a>Hantera din Function-app 
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver hur du konfigurerar och hanterar dina Function-appar
 > [!TIP]  
 > Många konfigurations alternativ kan också hanteras med hjälp av [Azure CLI]. 
 
-## <a name="get-started-in-the-azure-portal"></a>Kom igång i Azure-portalen
+## <a name="get-started-in-the-azure-portal"></a>Kom igång i Azure Portal
 
 Börja genom att gå till [Azure Portal] och logga in på ditt Azure-konto. I sökfältet längst upp i portalen skriver du namnet på din funktionsapp. Välj den sedan i listan. När du har valt appen funktion visas följande sida:
 

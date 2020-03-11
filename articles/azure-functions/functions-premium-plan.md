@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 19c136c7f312d800b76aa60f2cab6e8da992591c
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 1d9f148351e4ce12d6f6bcd699cdd74e94ba09ef
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161575"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358107"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions Premium-plan
 
@@ -65,7 +65,7 @@ Ytterligare beräknings instanser läggs automatiskt till för din app med samma
 
 ### <a name="longer-run-duration"></a>Varaktighet för längre körning
 
-Azure Functions i en förbruknings plan är begränsad till 10 minuter för en enda körning.  I Premium-planen är varaktigheten för körningen standardvärdet 30 minuter för att förhindra överkörningar. Du kan dock [ändra Host. JSON-konfigurationen](./functions-host-json.md#functiontimeout) för att göra 60 minuter för program för Premium-plan.
+Azure Functions i en förbruknings plan är begränsad till 10 minuter för en enda körning.  I Premium-planen är varaktigheten för körningen standardvärdet 30 minuter för att förhindra överkörningar. Du kan dock [ändra Host. JSON-konfigurationen](./functions-host-json.md#functiontimeout) för att göra detta obundet för appar för Premium plan (garanterat 60 minuter).
 
 ## <a name="plan-and-sku-settings"></a>Planera och SKU-inställningar
 

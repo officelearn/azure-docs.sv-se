@@ -13,11 +13,11 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931921"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356311"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Flytta data med hjälp av kopierings aktivitet
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -77,7 +77,7 @@ Kopieringsaktiviteten i Data Factory kopierar data från källans datalager till
 ### <a name="supported-file-formats"></a>Filformat som stöds
 Du kan använda kopierings aktiviteten för att **Kopiera filer som är** mellan två filbaserade data lager. du kan hoppa över [avsnittet format](data-factory-create-datasets.md) i både indata och utdata-datauppsättnings definitioner. Data kopieras effektivt utan serialisering/deserialisering.
 
-Kopierings aktiviteten läser också från och skriver till filer i angivna format: **text, JSON, Avro, Orc och Parquet**, och komprimerings **-codec gzip, deflate, BZip2 och ZipDeflate** stöds. Se [stöds format och komprimering](data-factory-supported-file-and-compression-formats.md) med information.
+Kopierings aktiviteten läser också från och skriver till filer i angivna format: **text, JSON, Avro, Orc och Parquet**, och komprimerings **-codec gzip, deflate, BZip2 och ZipDeflate** stöds. Se [fil-och komprimerings format som stöds](data-factory-supported-file-and-compression-formats.md) med information.
 
 Du kan exempelvis göra följande kopieringsaktiviteter:
 
@@ -87,7 +87,7 @@ Du kan exempelvis göra följande kopieringsaktiviteter:
 * Kopiera data i GZip-komprimerade textfiler (CSV)-format från Azure Blob och skriva till Azure SQL Database.
 
 ## <a name="global"></a>Globalt tillgänglig data förflyttning
-Azure Data Factory är endast tillgängligt i regionerna västra USA, östra USA och norra Europa. Tjänsten som har behörighet att kopiera aktiviteter är dock tillgänglig globalt i följande regioner och geografiska områden. Globalt tillgänglig topologin säkerställer effektiv dataförflyttning som vanligtvis undviker interregionala hopp. Se [tjänster efter region](https://azure.microsoft.com/regions/#services) för tillgänglighet för Data Factory och dataförflyttning i en region.
+Azure Data Factory är endast tillgängligt i regionerna västra USA, östra USA och norra Europa. Tjänsten som har behörighet att kopiera aktiviteter är dock tillgänglig globalt i följande regioner och geografiska områden. Globalt tillgänglig topologin säkerställer effektiv dataförflyttning som vanligtvis undviker interregionala hopp. Se [tjänster efter region](https://azure.microsoft.com/regions/#services) för att få till gång till Data Factory och data förflyttning i en region.
 
 ### <a name="copy-data-between-cloud-data-stores"></a>Kopiera data mellan moln data lager
 När både käll-och mottagar data lager finns i molnet använder Data Factory en tjänst distribution i den region som ligger närmast mottagaren i samma geografiska område för att flytta data. Se tabellen nedan för mappning:
@@ -191,10 +191,10 @@ Schemat som definieras i data uppsättningen för utdata avgör när aktiviteten
 Du kan ange fler än en indata-datauppsättning för kopiering av aktivitet. De används för att verifiera beroenden innan aktiviteten körs. Men endast data från den första data uppsättningen kopieras till mål data uppsättningen. Mer information finns i [schemaläggning och körning](data-factory-scheduling-and-execution.md).  
 
 ## <a name="performance-and-tuning"></a>Prestanda- och justering
-Se den [Kopieringsaktiviteten prestanda- och Justeringsguiden](data-factory-copy-activity-performance.md), som beskriver viktiga faktorer som påverkar prestandan för dataflytt (Kopieringsaktivitet) i Azure Data Factory. Den visar en lista över de observerade prestandan under interna tester och beskriver olika sätt att optimera prestandan för Kopieringsaktiviteten.
+Se [prestanda-och justerings guiden för kopierings aktivitet](data-factory-copy-activity-performance.md), som beskriver viktiga faktorer som påverkar prestandan för data flytten (kopierings aktiviteten) i Azure Data Factory. Den visar en lista över de observerade prestandan under interna tester och beskriver olika sätt att optimera prestandan för Kopieringsaktiviteten.
 
 ## <a name="fault-tolerance"></a>Feltolerans
-Som standard slutar kopierings aktiviteten att kopiera data och returnera fel när de stöter på inkompatibla data mellan källa och mottagare. även om du uttryckligen kan konfigurera för att hoppa över och logga de inkompatibla raderna och bara kopiera dessa kompatibla data så att kopieringen är klar. Se den [Kopieringsaktiviteten feltolerans](data-factory-copy-activity-fault-tolerance.md) på mer information.
+Som standard slutar kopierings aktiviteten att kopiera data och returnera fel när de stöter på inkompatibla data mellan källa och mottagare. även om du uttryckligen kan konfigurera för att hoppa över och logga de inkompatibla raderna och bara kopiera dessa kompatibla data så att kopieringen är klar. Mer information finns i [fel toleransen för kopierings aktiviteten](data-factory-copy-activity-fault-tolerance.md) .
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden
 Se [säkerhets aspekter](data-factory-data-movement-security-considerations.md), som beskriver säkerhets infrastruktur som tjänster för data flyttning i Azure Data Factory använda för att skydda dina data.

@@ -5,11 +5,11 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 2/14/2018
 ms.openlocfilehash: 9f039f71954998ef561d1efd1e559318740c86ab
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659309"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373401"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Snabb starts exempel för Azure Monitor PowerShell
 Den här artikeln visar exempel på PowerShell-kommandon som hjälper dig att komma åt Azure Monitor-funktioner.

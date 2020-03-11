@@ -9,11 +9,11 @@ ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978474"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360941"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export-systemkrav
 
@@ -21,7 +21,7 @@ Den här artikeln beskriver viktiga för din Azure Import/Export-tjänst. Vi rek
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-Förbereda hårddiskar med verktyget WAImportExport följande **64-bitars operativsystem som stöder BitLocker-diskkryptering** stöds.
+För att förbereda hård diskarna med WAImportExport-verktyget stöds följande **64-bitars operativ system som stöder BitLocker-diskkryptering** .
 
 
 |Plattform |Version |
@@ -45,12 +45,12 @@ Azure Import/Export-tjänsten stöder följande typer av lagringskonton:
 - Blob Storage-konton
 - Generell användning v1-lagrings konton (både klassiska eller Azure Resource Manager distributioner),
 
-Mer information om lagringskonton finns i [Azure storage-konton översikt](storage-account-overview.md).
+Mer information om lagrings konton finns i [Översikt över Azure Storage-konton](storage-account-overview.md).
 
-Varje jobb kan användas för att överföra data till eller från endast en storage-konto. Med andra ord kan inte en enda import/export-jobbet omfatta över flera lagringskonton. Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-account-create.md).
+Varje jobb kan användas för att överföra data till eller från endast en storage-konto. Med andra ord kan inte en enda import/export-jobbet omfatta över flera lagringskonton. Information om hur du skapar ett nytt lagrings konto finns i [så här skapar du ett lagrings konto](storage-account-create.md).
 
 > [!IMPORTANT]
-> Azure Import Export-tjänsten stöder inte storage-konton där den [tjänstslutpunkter i virtuella nätverk](../../virtual-network/virtual-network-service-endpoints-overview.md) funktionen har aktiverats. 
+> Azure import export-tjänsten stöder inte lagrings konton där funktionen för [Virtual Network tjänst slut punkter](../../virtual-network/virtual-network-service-endpoints-overview.md) har Aktiver ATS. 
 
 ## <a name="supported-storage-types"></a>Lagringstyper som stöds
 
@@ -95,4 +95,4 @@ När förbereda hårddiskar och kopiera data med hjälp av verktyget WAImportExp
 
 * [Konfigurera verktyget WAImportExport](storage-import-export-tool-how-to.md)
 * [Överföra data med kommandoradsverktyget AzCopy](storage-use-azcopy.md)
-* [Exempel på Azure Import Export REST API](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
+* [Exempel på Azure import-export REST API](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

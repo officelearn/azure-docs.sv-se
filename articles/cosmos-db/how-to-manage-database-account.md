@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 61670d757611bd0c1dd11c389282b18edb3d7fa1
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873683"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356542"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Hantera ett Azure Cosmos-konto
 
-Artikeln beskriver hur du hanterar olika uppgifter i ett Azure Cosmos-konto med hjälp av Azure-portalen, Azure PowerShell, Azure CLI och Azure Resource Manager-mallar.
+Den här artikeln beskriver hur du hanterar olika uppgifter i ett Azure Cosmos-konto med hjälp av Azure-portalen, Azure PowerShell, Azure CLI och Azure Resource Manager-mallar.
 
 ## <a name="create-an-account"></a>Skapa ett konto
 
@@ -51,9 +51,9 @@ Den här Azure Resource Manager-mallen skapar ett Azure Cosmos-konto för SQL-AP
 
    ![Lägga till eller ta bort regionsmenyn](./media/how-to-manage-database-account/add-region.png)
 
-I ett enda regions skrivnings läge kan du inte ta bort Skriv regionen. Du måste redundansväxla till en annan region innan du kan ta bort den aktuella Skriv regionen.
+I skrivläge för en enstaka region kan du inte ta bort skrivregionen. Du måste redundansväxla till en annan region innan du kan ta bort den aktuella skrivregionen.
 
-I ett Skriv läge med flera regioner kan du lägga till eller ta bort regioner om du har minst en region.
+I skrivläge för flera regioner kan du lägga till eller ta bort vilka regioner som helst förutsatt att du har minst en region.
 
 ### <a id="add-remove-regions-via-cli"></a>Azure CLI
 

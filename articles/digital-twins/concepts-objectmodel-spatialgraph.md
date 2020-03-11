@@ -1,6 +1,6 @@
 ---
 title: Förstå objekt modeller och rums information Graph – Azure Digitals flätade | Microsoft Docs
-description: Använd Azure Digital Twins för att skapa relationer mellan personer, platser och enheter
+description: Använd Azure Digitals sammanflätade för att modellera relationer mellan människor, platser och enheter
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,11 +9,11 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/30/2019
 ms.openlocfilehash: cafec321e7c40e27d8de731feda1103451271507
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562603"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382262"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Förstå digitala objekt modeller och spatial Intelligence-diagram
 

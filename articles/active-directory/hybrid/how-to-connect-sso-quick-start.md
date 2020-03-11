@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888676"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376152"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: snabb start
 
@@ -115,7 +115,7 @@ Som standard beräknar webbläsaren automatiskt rätt zon, antingen Internet ell
 
 Det finns två sätt att ändra användares intranät zon inställningar:
 
-| Alternativ | Administrativa överväganden | Användarens upplevelse |
+| Alternativ | Administrativa överväganden | Användar upplevelse |
 | --- | --- | --- |
 | Grup princip | Admin låser redigerings inställningarna för zonen Intranät | Användare kan inte ändra sina egna inställningar |
 | Grup princip inställningar |  Admin tillåter redigering av inställningar för zonen Intranät | Användare kan ändra sina egna inställningar |
@@ -140,7 +140,7 @@ Det finns två sätt att ändra användares intranät zon inställningar:
    > Om du vill förhindra att vissa användare använder sömlös SSO (t. ex. om dessa användare loggar in på delade kiosker) anger du de föregående värdena till **4**. Den här åtgärden lägger till Azure AD-URL: en i den begränsade zonen och Miss lyckas sömlös SSO hela tiden.
    >
 
-5. Välj **OK** och sedan **OK** igen.
+5. Välj **OK**och välj sedan **OK** igen.
 
     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso7.png)
 

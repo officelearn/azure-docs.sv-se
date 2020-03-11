@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Funktioner i förhandsversion | Microsoft Docs'
-description: Det här avsnittet beskrivs i mer detalj som finns i förhandsversion i Azure AD Connect.
+title: 'Azure AD Connect: funktioner i förhands granskning | Microsoft Docs'
+description: I det här avsnittet beskrivs mer detaljer som är i för hands version i Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,28 +17,28 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b7def733a80aea1be77825bb9069217f5f43e003
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347812"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376079"
 ---
-# <a name="more-details-about-features-in-preview"></a>Mer information om funktioner i förhandsversion
-Det här avsnittet beskriver hur du använder funktioner för närvarande i förhandsversion.
+# <a name="more-details-about-features-in-preview"></a>Mer information om funktioner i förhands granskning
+I det här avsnittet beskrivs hur du använder funktioner som för hands version.
 
 ## <a name="group-writeback"></a>Tillbakaskrivning av grupp
-Alternativet för tillbakaskrivning av grupp i valfria funktioner kan du tillbakaskrivning av **Office 365-grupper** i en skog med Exchange installerad. Det här är en grupp som alltid lärt dig i molnet. Om du har Exchange lokalt, kan sedan du skriva tillbaka grupperna till den lokala så att användare med en lokal Exchange-postlåda kan skicka och ta emot e-postmeddelanden från dessa grupper.
+Alternativet för tillbakaskrivning av grupp i valfria funktioner gör att du kan ångra **Office 365-grupper** till en skog med Exchange installerat. Det här är en grupp som alltid är hanterad i molnet. Om du har Exchange lokalt kan du skriva tillbaka de här grupperna till lokalt så att användare med en lokal Exchange-postlåda kan skicka och ta emot e-post från dessa grupper.
 
-Mer information om Office 365-grupper och hur de används finns [här](https://aka.ms/O365g).
+Mer information om Office 365-grupper och hur du kan använda dem finns [här](https://aka.ms/O365g).
 
-En Office 365-grupp representeras som en distributionsgrupp i lokala AD DS. Den lokala Exchange-servern måste vara i Exchange 2013 cumulative update 8 (släpptes i mars 2015) eller Exchange 2016 för att identifiera den här nya grupptypen.
+En Office 365-grupp representeras som en distributions grupp i en lokal AD DS. Din lokala Exchange Server måste finnas i Exchange 2013 Cumulative Update 8 (lanseras i mars 2015) eller Exchange 2016 för att identifiera den nya grupp typen.
 
-**Anteckningar i förhandsversionen**
+**Anteckningar under för hands versionen**
 
-* Attributet adressboken fylls inte för närvarande i förhandsversionen. Utan det här attributet visas inte i gruppen i den globala Adresslistan. Det enklaste sättet att fylla i det här attributet är att använda Exchange PowerShell-cmdleten `update-recipient`.
-* Endast skogar med Exchange-schemat är ogiltigt mål för grupper. Tillbakaskrivning av grupp är inte möjligt att aktivera om ingen Exchange har identifierats.
-* Endast sammanhållna Exchange-organisation distributioner stöds för närvarande. Om du har mer än ett Exchange organisation lokalt, måste en lokal GALSync lösning för dessa grupper visas i dina andra skogar.
-* Funktionen för tillbakaskrivning av grupp hanteras inte säkerhetsgrupper eller distributionsgrupper.
+* Adress bokens attribut är för närvarande inte ifyllt i förhands granskningen. Utan det här attributet visas inte gruppen i GAL. Det enklaste sättet att fylla i det här attributet är att använda Exchange PowerShell-cmdleten `update-recipient`.
+* Endast skogar med Exchange-schemat är giltiga mål för grupper. Om inget utbyte upptäcktes går det inte att aktivera gruppen tillbakaskrivning.
+* Det finns för närvarande stöd för distribution av en Exchange-organisation med endast en skog. Om du har mer än en Exchange-organisation lokalt behöver du en lokal GALSync-lösning för att dessa grupper ska visas i dina andra skogar.
+* Funktionen för tillbakaskrivning av grupp hanterar inte säkerhets grupper eller distributions grupper.
 
 > [!NOTE]
 > En prenumeration på Azure AD Premium krävs för tillbakaskrivning av grupp.
@@ -47,11 +47,11 @@ En Office 365-grupp representeras som en distributionsgrupp i lokala AD DS. Den 
 
 ## <a name="user-writeback"></a>Tillbakaskrivning av användare
 > [!IMPORTANT]
-> Förhandsversionsfunktionen för tillbakaskrivning av användare har tagits bort i augusti 2015-uppdateringen till Azure AD Connect. Om du har aktiverat det, bör du inaktivera den här funktionen.
+> Funktionen för förhands granskning av användare togs bort från uppdateringen augusti 2015 till Azure AD Connect. Om du har aktiverat den, bör du inaktivera den här funktionen.
 >
 >
 
 ## <a name="next-steps"></a>Nästa steg
-Fortsätta din [anpassad installation av Azure AD Connect](how-to-connect-install-custom.md).
+Fortsätt med din [anpassade installation av Azure AD Connect](how-to-connect-install-custom.md).
 
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

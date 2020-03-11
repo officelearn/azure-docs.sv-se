@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 1fceda6fcbb6e8db1fa8afbc5181315bd0c98940
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
-ms.translationtype: MT
+ms.openlocfilehash: 35cea2e6df311d2f4071686c21c8e4c36477abc1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512988"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370594"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid händelse schema
 
@@ -83,16 +83,16 @@ Till exempel är schemat som publicerats för en Azure Blob Storage-händelse:
 
 Alla händelser har samma följande toppnivå data:
 
-| Egenskap | Typ | Beskrivning |
-| -------- | ---- | ----------- |
-| ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
-| subject | sträng | Utgivardefinierad sökväg till händelseobjektet. |
-| eventType | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
-| eventTime | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
-| id | sträng | Unikt ID för händelsen. |
-| data | objekt | Händelse data som är speciella för resurs leverantören. |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | sträng | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| Egenskap | Typ | Krävs | Beskrivning |
+| -------- | ---- | -------- | ----------- |
+| ämne | sträng | Nej, men om det ingår måste det matcha Event Grid avsnittet Azure Resource Manager ID exakt. Om den inte ingår stämplas Event Grid in på händelsen. | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
+| subject | sträng | Ja | Publisher-definierad sökväg till händelsens ämne. |
+| eventType | sträng | Ja | En av de registrerade händelse typerna för den här händelse källan. |
+| eventTime | sträng | Ja | Tiden då händelsen genereras baserat på providerns UTC-tid. |
+| id | sträng | Ja | Unikt ID för händelsen. |
+| data | objekt | Nej | Händelse data som är speciella för resurs leverantören. |
+| dataVersion | sträng | Nej, men kommer att stämplas med ett tomt värde. | Data objektets schema version. Utgivaren definierar schema versionen. |
+| metadataVersion | sträng | Krävs inte, men om det ingår måste den matcha Event Grid schema `metadataVersion` exakt (för närvarande endast `1`). Om den inte ingår stämplas Event Grid in på händelsen. | Schema versionen för händelsens metadata. Event Grid definierar schemat för de högsta nivå egenskaperna. Event Grid ger det här värdet. |
 
 Information om egenskaperna i data-objektet finns i händelse källan:
 
@@ -104,7 +104,7 @@ Information om egenskaperna i data-objektet finns i händelse källan:
 * [Media Services](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [Resurs grupper (hanterings åtgärder)](event-schema-resource-groups.md)
 * [Service Bus](event-schema-service-bus.md)
-* [Azure SignalR](event-schema-azure-signalr.md)
+* [Azure-SignalR](event-schema-azure-signalr.md)
 * [Azure Machine Learning](event-schema-machine-learning.md)
 
 För anpassade ämnen bestämmer händelse utgivaren dataobjektet. Data på den översta nivån ska ha samma fält som standard resurs definierade händelser.

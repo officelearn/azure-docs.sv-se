@@ -16,11 +16,11 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c2d93099f0f76f173cc7e77ab7f24f27d1560835
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516784"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365643"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuera virtuell StorSimple-matris – Ställ in som fil server via Azure Portal
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -31,13 +31,13 @@ ms.locfileid: "68516784"
 
 Den här artikeln beskriver hur du utför den första installationen, registrerar StorSimple-filservern, slutför enhets konfigurationen och skapar och ansluter till SMB-resurser. Det här är den sista artikeln i serien med distributions kurser som krävs för att fullständigt distribuera den virtuella matrisen som en fil server eller en iSCSI-server.
 
-Installations-och konfigurations processen kan ta cirka 10 minuter att slutföra. Informationen i den här artikeln gäller endast distributionen av den virtuella StorSimple-matrisen. För distribution av enheter med StorSimple 8000-serien går du till: [Distribuera din StorSimple 8000-serie enhet som kör uppdatering 2](storsimple-deployment-walkthrough-u2.md).
+Installations-och konfigurations processen kan ta cirka 10 minuter att slutföra. Informationen i den här artikeln gäller endast distributionen av den virtuella StorSimple-matrisen. För distributionen av StorSimple 8000-serie enheter går du till: [distribuera din StorSimple 8000-serie enhet som kör uppdatering 2](storsimple-deployment-walkthrough-u2.md).
 
 ## <a name="setup-prerequisites"></a>Installations krav
 Innan du konfigurerar och konfigurerar din virtuella StorSimple-matris måste du kontrol lera att:
 
 * Du har etablerat en virtuell matris och anslutit till den enligt beskrivningen i [etablera en virtuell StorSimple-matris i Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) eller [etablera en StorSimple virtuell matris i VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
-* Du har tjänst registrerings nyckeln från StorSimple Enhetshanteraren-tjänsten som du skapade för att hantera StorSimple-virtuella matriser. Mer information finns i [steg 2: Hämta tjänst registrerings nyckeln](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) för virtuell StorSimple-matris.
+* Du har tjänst registrerings nyckeln från StorSimple Enhetshanteraren-tjänsten som du skapade för att hantera StorSimple-virtuella matriser. Mer information finns i [steg 2: Hämta tjänst registrerings nyckeln](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) för StorSimple Virtual Array.
 * Om det här är den andra eller efterföljande virtuella matris som du registrerar med en befintlig StorSimple-Enhetshanteraren tjänst bör du ha krypterings nyckeln för tjänst data. Den här nyckeln genererades när den första enheten har registrerats med den här tjänsten. Om du har förlorat den här nyckeln läser du [Hämta krypterings nyckeln för tjänst data](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) för din virtuella StorSimple-matris.
 
 ## <a name="step-by-step-setup"></a>Steg för steg-konfiguration
@@ -52,10 +52,10 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
    Använd anslutnings-URL: en som anges i föregående steg. Du ser ett fel som indikerar att det är problem med webbplatsens säkerhetscertifikat. Klicka på **Fortsätt till den här webb sidan**.
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image2.png)
-2. Logga in på webb gränssnittet för den virtuella matrisen som **StorSimpleAdmin**. Ange enhetens administratörs lösen ord som du ändrade i steg 3: Starta den virtuella matrisen i [etablera en virtuell StorSimple-matris i Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) eller i [etablera en StorSimple virtuell matris i VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
+2. Logga in på webb gränssnittet för den virtuella matrisen som **StorSimpleAdmin**. Ange det lösen ord för enhets administratör som du ändrade i steg 3: starta den virtuella matrisen i [etablera en virtuell StorSimple-matris i Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) eller i [etablera en StorSimple virtuell matris i VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image3.png)
-3. Du kommer till **Start** sidan. Den här sidan beskriver de olika inställningar som krävs för att konfigurera och registrera den virtuella matrisen med tjänsten StorSimple Enhetshanteraren. **Nätverks inställningarna**, webbproxy- **inställningarna**och **tids inställningarna** är valfria. De enda nödvändiga inställningarna är **enhets inställningar** och **moln inställningar**.
+3. Du kommer till **Start** sidan. Den här sidan beskriver de olika inställningar som krävs för att konfigurera och registrera den virtuella matrisen med tjänsten StorSimple Enhetshanteraren. **Nätverks inställningarna**, **webbproxy-inställningarna**och **tids inställningarna** är valfria. De enda nödvändiga inställningarna är **enhets inställningar** och **moln inställningar**.
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image4.png)
 4. På sidan **nätverks inställningar** under **nätverks gränssnitt**kommer data 0 att konfigureras automatiskt åt dig. Varje nätverks gränssnitt anges som standard för att hämta IP-adresser automatiskt (DHCP). Därför tilldelas en IP-adress, ett undernät och en gateway automatiskt (för både IPv4 och IPv6).
@@ -70,7 +70,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
 6. På sidan **enhets inställningar** :
    
    1. Tilldela enheten ett unikt **namn** . Namnet kan innehålla 1-15 tecken och får innehålla bokstäver, siffror och bindestreck.
-   2. Klicka på ikonen ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) **fil Server** för den **typ** av enhet som du skapar. Med en fil Server kan du skapa delade mappar.
+   2. Klicka på ikonen för **fil servern** ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) för den **typ** av enhet som du skapar. Med en fil Server kan du skapa delade mappar.
    3. Eftersom enheten är en fil server måste du ansluta enheten till en domän. Ange ett **domän namn**.
    4. Klicka på **Verkställ**.
 7. En dialog ruta visas. Ange autentiseringsuppgifterna för domänen i det angivna formatet. Klicka på kryss ikonen. Domänautentiseringsuppgifter verifieras. Ett fel meddelande visas om autentiseringsuppgifterna är felaktiga.
@@ -90,7 +90,7 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
    
    På **webbproxy-** sidan:
    
-   1. Ange webbproxy- **URL** i det här formatet *:&lt;http://Host-IP Address eller&gt;FQDN:P ort nummer*. Observera att HTTPS-URL: er inte stöds.
+   1. Ange **webbproxy-URL** i det här formatet: *http://&lt;host-IP-adress eller FQDN&gt;:P ort nummer*. Observera att HTTPS-URL: er inte stöds.
    2. Ange **autentisering** som **Basic** eller **none**.
    3. Om du använder autentisering måste du också ange ett **användar namn** och **lösen ord**.
    4. Klicka på **Verkställ**. Detta validerar och tillämpar de konfigurerade webbproxyinställningarna.
@@ -106,8 +106,8 @@ Använd följande steg-för-steg-instruktioner för att konfigurera och konfigur
     4. Klicka på **Verkställ**. Detta validerar och tillämpar de konfigurerade tids inställningarna.
 11. Konfigurera moln inställningarna för enheten. I det här steget ska du slutföra konfigurationen av den lokala enheten och sedan registrera enheten med StorSimple Enhetshanteraren-tjänsten.
     
-    1. Ange den **tjänst registrerings nyckel** som du fick i [steg 2: Hämta tjänst registrerings nyckeln](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) för virtuell StorSimple-matris.
-    2. Om det här är din första enhet som du registrerar med tjänsten visas krypterings nyckeln för **tjänst data**. Kopiera den här nyckeln och spara den på säker plats. Den här nyckeln krävs med tjänst registrerings nyckeln för att registrera ytterligare enheter med StorSimple Enhetshanteraren-tjänsten. 
+    1. Ange **tjänst registrerings nyckeln** som du fick i [steg 2: Hämta tjänst registrerings nyckeln](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) för StorSimple Virtual Array.
+    2. Om det här är din första enhet som du registrerar med tjänsten visas **krypterings nyckeln för tjänst data**. Kopiera den här nyckeln och spara den på säker plats. Den här nyckeln krävs med tjänst registrerings nyckeln för att registrera ytterligare enheter med StorSimple Enhetshanteraren-tjänsten. 
        
        Om detta inte är den första enheten som du registrerar med tjänsten måste du ange krypterings nyckeln för tjänst data. Mer information finns i Hämta [krypterings nyckeln för tjänst data](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) i det lokala webb gränssnittet.
     3. Klicka på **Registrera**. Då startas enheten om. Du kan behöva vänta i 2-3 minuter innan enheten har registrerats. När enheten har startats om kommer du till inloggnings sidan.
@@ -169,7 +169,7 @@ Utför följande steg i [Azure Portal](https://portal.azure.com/) för att slutf
    
    Du kan fortsätta att lägga till en resurs.
 
-## <a name="step-3-add-a-share"></a>Steg 3: Lägga till en resurs
+## <a name="step-3-add-a-share"></a>Steg 3: Lägg till en resurs
 Skapa en resurs genom att utföra stegen nedan på [Azure-portalen](https://portal.azure.com/).
 
 #### <a name="to-create-a-share"></a>Skapa en resurs
@@ -185,7 +185,7 @@ Skapa en resurs genom att utföra stegen nedan på [Azure-portalen](https://port
    3. En **typ** för resursen. Typen kan vara på **nivå** av eller **lokalt fäst**, med nivån standard. För arbets belastningar som kräver lokala garantier, låg fördröjning och högre prestanda väljer du en **lokalt fäst** resurs. För alla andra data väljer du en **nivå** resurs.
       En lokalt fäst resurs är tjockt etablerad och säkerställer att de primära data på resursen förblir lokala för enheten och inte spiller i molnet. En nivå resurs på den andra handen är tunt etablerad. När du skapar en nivå resurs har 10% av utrymmet tillhandahållits på den lokala nivån och 90% av utrymmet är etablerad i molnet. Om du till exempel har allokerat en 1 TB-volym skulle 100 GB finnas i det lokala utrymmet och 900 GB används i molnet när data nivåerna. Detta innebär i sin tur att om du tar bort allt lokalt utrymme på enheten kan du inte etablera en nivå resurs.
    
-   4. I fältet **ange fullständiga standard behörigheter till** tilldelar du behörigheterna till användaren eller gruppen som har åtkomst till den här resursen. Ange namnet på användaren eller användar gruppen i *John\@contoso.com* -format. Vi rekommenderar att du använder en användar grupp (i stället för en enskild användare) för att tillåta administratörs behörighet att få åtkomst till dessa resurser. När du har tilldelat behörigheterna här kan du sedan använda Utforskaren till att ändra dessa behörigheter.
+   4. I fältet **ange fullständiga standard behörigheter till** tilldelar du behörigheterna till användaren eller gruppen som har åtkomst till den här resursen. Ange namnet på användaren eller användar gruppen i *john\@contoso.com* -format. Vi rekommenderar att du använder en användar grupp (i stället för en enskild användare) för att tillåta administratörs behörighet att få åtkomst till dessa resurser. När du har tilldelat behörigheterna här kan du sedan använda Utforskaren till att ändra dessa behörigheter.
    
    5. Klicka på **Lägg till** för att skapa resursen. 
     
@@ -199,11 +199,11 @@ Skapa en resurs genom att utföra stegen nedan på [Azure-portalen](https://port
    
       ![Lägga till en resurs](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
-## <a name="step-4-connect-to-the-share"></a>Steg 4: Ansluta till resursen
+## <a name="step-4-connect-to-the-share"></a>Steg 4: Anslut till resursen
 Du måste nu ansluta till en eller flera resurser som du skapade i föregående steg. Utför de här stegen på Windows Server-värden som är ansluten till din virtuella StorSimple-matris.
 
 #### <a name="to-connect-to-the-share"></a>Så här ansluter du till resursen
-1. Tryck ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) på + R. I fönstret kör anger du *&#92; &#92; &lt;fil Server namnet&gt;* som sökväg, ersätter *fil Server namnet* med det enhets namn som du tilldelade till fil servern. Klicka på **OK**.
+1. Tryck på ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R. I fönstret kör anger du  *&#92; &#92;&lt;fil Server namnet&gt;* som sökväg, ersätter *fil Server namnet* med det enhets namn som du har tilldelat till fil servern. Klicka på **OK**
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
 2. Då öppnas Utforskaren. Du bör nu kunna se de resurser du har skapat som mappar. Välj och dubbelklicka på en resurs (mapp) för att visa innehållet.

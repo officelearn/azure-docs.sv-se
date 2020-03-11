@@ -15,15 +15,15 @@ ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 894fa2f3cda798a409db3ee8e9761c1702baf955
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035224"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372538"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Linux-dator i Azure Portal
 
-Det går att skapa virtuella Azure-datorer via Azure Portal. Azure Portal är ett webbläsarbaserat användar gränssnitt för att skapa Azure-resurser. Den här snabb starten visar hur du använder Azure Portal för att distribuera en virtuell Linux-dator (VM) som kör Ubuntu 18,04 LTS. För att se hur den virtuella datorn fungerar i praktiken använder du sedan SSH för att ansluta till den virtuella datorn och installerar NGINX-webbservern.
+Det går att skapa virtuella datorer (VM) via Azure Portal. Azure Portal är ett webbläsarbaserat användar gränssnitt för att skapa Azure-resurser. Den här snabb starten visar hur du använder Azure Portal för att distribuera en virtuell Linux-dator (VM) som kör Ubuntu 18,04 LTS. För att se hur den virtuella datorn fungerar i praktiken använder du sedan SSH för att ansluta till den virtuella datorn och installerar NGINX-webbservern.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -34,7 +34,7 @@ Du behöver ett SSH-nyckelpar för att slutföra den här snabbstarten. Om du re
 Öppna bash-gränssnittet och använd [ssh-keygen](https://www.ssh.com/ssh/keygen/) för att skapa ett SSH-nyckelpar. Om du inte har något bash-gränssnitt på den lokala datorn kan du använda [Azure Cloud Shell](https://shell.azure.com/bash).
 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. I menyn längst upp på sidan väljer du `>_` ikonen för att öppna Cloud Shell.
 1. Se till att CloudShell säger **bash** i det övre vänstra hörnet. Om det står i PowerShell använder du List rutan för att välja **bash** och väljer **Bekräfta** för att ändra till bash-gränssnittet.
 1. Skriv `ssh-keygen -t rsa -b 2048` för att skapa SSH-nyckeln. 

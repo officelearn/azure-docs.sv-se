@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 1/23/2020
 ms.author: sutalasi
 ms.openlocfilehash: aeab1960b065538635fdd63c43d779287f8cd9ee
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759831"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363133"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Om nätverk i haveri beredskap för virtuella Azure-datorer
 
@@ -60,7 +60,7 @@ Om du använder en NSG för att kontrol lera utgående anslutningar måste dessa
 - Alla IP-adressintervall som motsvarar lagrings kontona i käll regionen
     - Skapa en NSG-regel för [lagrings tjänst](../virtual-network/security-overview.md#service-tags) som är baserad på käll regionen.
     - Tillåt dessa adresser så att data kan skrivas till cache-lagrings kontot från den virtuella datorn.
-- Skapa en [Azure Active Directory (AAD) tjänsttagg](../virtual-network/security-overview.md#service-tags) baserat NSG-regel för att tillåta åtkomst till alla IP-adresser för AAD
+- Skapa Azure Active Directory en NSG-baserad [(AAD) service tag](../virtual-network/security-overview.md#service-tags) -regel för att tillåta åtkomst till alla IP-adresser som motsvarar AAD
 - Skapa en EventsHub service tag-baserad NSG-regel för mål regionen, vilket ger åtkomst till Site Recovery övervakning.
 - Skapa en AzureSiteRecovery service tag-baserad NSG-regel för att tillåta åtkomst till Site Recovery tjänst i vilken region som helst.
 - Vi rekommenderar att du skapar de nödvändiga NSG-reglerna på en test-NSG och kontrollerar att det inte finns några problem innan du skapar reglerna på en produktions NSG.
@@ -115,7 +115,7 @@ Du kan skapa en nätverks tjänst slut punkt i ditt virtuella nätverk för "lag
 >[!NOTE]
 >Begränsa inte åtkomst till virtuella nätverk till dina lagrings konton som används för ASR. Du bör tillåta åtkomst från alla nätverk
 
-### <a name="forced-tunneling"></a>Forcerade tunnlar
+### <a name="forced-tunneling"></a>Tvingad tunneltrafik
 
 Du kan åsidosätta Azures standard system väg för adressprefixet 0.0.0.0/0 med en [anpassad väg och dirigera](../virtual-network/virtual-networks-udr-overview.md#custom-routes) VM-trafik till en lokal virtuell nätverks installation (NVA), men den här konfigurationen rekommenderas inte för Site Recovery replikering. Om du använder anpassade vägar bör du [skapa en tjänst slut punkt för virtuellt nätverk](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) i ditt virtuella nätverk för "lagring", så att replikeringstrafiken inte lämnar Azure-gränser.
 

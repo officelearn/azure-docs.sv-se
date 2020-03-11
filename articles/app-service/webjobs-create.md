@@ -1,5 +1,5 @@
 ---
-title: Kör bakgrundsuppgifter med WebJobs
+title: Kör bakgrunds aktiviteter med WebJobs
 description: Lär dig hur du använder WebJobs för att köra bakgrunds aktiviteter i Azure App Service. Välj bland en mängd olika skript format och kör dem med CRON-uttryck.
 author: ggailey777
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
@@ -9,11 +9,11 @@ ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 ms.openlocfilehash: 4c568c95a5dbc1799a765c95a2b224de53dfbe9f
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684197"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374190"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Kör bakgrunds aktiviteter med WebJobs i Azure App Service
 
@@ -118,7 +118,7 @@ when making changes in one don't forget the other two.
    | **Namn** | myTriggeredWebJob | Ett namn som är unikt inom en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken förutom "-" och "_".|
    | **Fil uppladdning** | ConsoleApp. zip | En *zip* -fil som innehåller din körbara fil eller skript fil samt alla stödfiler som behövs för att köra programmet eller skriptet. Den körbara filen eller skript fil typerna som stöds finns i avsnittet [filtyper som stöds](#acceptablefiles) . |
    | **Typ** | Utlöses | [Webb jobbs typerna](#webjob-types) beskrivs tidigare i den här artikeln. |
-   | **Utlösare** | Manuellt | |
+   | **Utlösare** | Manuell | |
 
 4. Klicka på **OK**
 

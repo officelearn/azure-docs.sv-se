@@ -4,11 +4,11 @@ description: Referens dokumentation för Azure Functions Host. JSON-fil med v1-k
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.openlocfilehash: 2b00e2343e0959e07b195e2e98c6719a1893b8c8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769616"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356823"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Host. JSON-referens för Azure Functions 1. x
 
@@ -140,7 +140,7 @@ Konfigurations inställningar för [Azure Cosmos DB utlösare och bindningar](fu
 |---------|---------|---------|
 |GatewayMode|Gateway|Anslutnings läget som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten. Alternativen är `Direct` och `Gateway`|
 |Protokoll|Https|Anslutnings protokollet som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten.  Läs [här om du vill ha en förklaring av båda lägena](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|Ej tillämpligt|Lease-prefix som ska användas för alla funktioner i en app.|
+|leasePrefix|Saknas|Lease-prefix som ska användas för alla funktioner i en app.|
 
 ## <a name="durabletask"></a>durableTask
 
@@ -152,7 +152,7 @@ Konfigurations inställningar för [Event Hub-utlösare och bindningar](function
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>functions
+## <a name="functions"></a>funktionen
 
 En lista med funktioner som jobb värden kör. En tom matris innebär att köra alla-funktioner. Endast avsedd att användas när du [Kör lokalt](functions-run-local.md). I Function-appar i Azure bör du i stället följa stegen i [så här inaktiverar du funktioner i Azure Functions](disable-function.md) för att inaktivera vissa funktioner i stället för att använda den här inställningen.
 
@@ -190,7 +190,7 @@ Konfigurations inställningar för [övervakaren av värd hälsa](https://github
 
 |Egenskap  |Default | Beskrivning |
 |---------|---------|---------| 
-|enabled|sant|Anger om funktionen är aktive rad. | 
+|enabled|true|Anger om funktionen är aktive rad. | 
 |healthCheckInterval|10 sekunder|Tidsintervallet mellan de regelbundna hälso kontrollerna i bakgrunden. | 
 |healthCheckWindow|2 minuter|Ett glidande tids fönster som används tillsammans med `healthCheckThreshold`-inställningen.| 
 |healthCheckThreshold|6|Maximalt antal gånger som hälso kontrollen kan återställas innan en återkallning av en värd initieras.| 
@@ -251,9 +251,9 @@ Styr filtrering av loggar som skrivits av ett [ILogger-objekt](functions-monitor
 
 |Egenskap  |Default | Beskrivning |
 |---------|---------|---------| 
-|categoryFilter|Ej tillämpligt|Anger filtrering efter kategori| 
+|categoryFilter|Saknas|Anger filtrering efter kategori| 
 |defaultLevel|Information|För alla kategorier som inte anges i `categoryLevels` matrisen skickar du loggar på denna nivå och ovanför för att Application Insights.| 
-|categoryLevels|Ej tillämpligt|En matris med kategorier som anger den minsta logg nivå som ska skickas till Application Insights för varje kategori. Den kategori som anges här styr alla kategorier som börjar med samma värde och värden som är längre prioriterade. I föregående exempel *Host. JSON* -fil är alla kategorier som börjar med "Host. aggregator"-logg på `Information` nivå. Alla andra kategorier som börjar med "värd", till exempel "Host. utförar", loggar på `Error` nivå.| 
+|categoryLevels|Saknas|En matris med kategorier som anger den minsta logg nivå som ska skickas till Application Insights för varje kategori. Den kategori som anges här styr alla kategorier som börjar med samma värde och värden som är längre prioriterade. I föregående exempel *Host. JSON* -fil är alla kategorier som börjar med "Host. aggregator"-logg på `Information` nivå. Alla andra kategorier som börjar med "värd", till exempel "Host. utförar", loggar på `Error` nivå.| 
 
 ## <a name="queues"></a>kön
 
@@ -292,7 +292,7 @@ Konfigurations inställning för [SendGrind utgående bindning](functions-bindin
 
 |Egenskap  |Default | Beskrivning |
 |---------|---------|---------| 
-|från|Ej tillämpligt|Avsändarens e-postadress för alla funktioner.| 
+|from|Saknas|Avsändarens e-postadress för alla funktioner.| 
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -310,8 +310,8 @@ Konfigurations inställning för [Service Bus utlösare och bindningar](function
 
 |Egenskap  |Default | Beskrivning |
 |---------|---------|---------| 
-|maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till återanrop som meddelandet pump ska starta. Som standard bearbetar funktionskörningen flera meddelanden samtidigt. För att dirigera körning för att bearbeta en enskild kö eller ett ämne meddelande i taget, ange `maxConcurrentCalls` till 1. | 
-|prefetchCount|Ej tillämpligt|Standard PrefetchCount som ska användas av den underliggande MessageReceiver.| 
+|maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till återanrop som meddelandet pump ska starta. Som standard bearbetar funktionskörningen flera meddelanden samtidigt. Ange `maxConcurrentCalls` till 1 om du vill att körningen bara ska bearbeta en enskild kö eller ett ämne i taget. | 
+|prefetchCount|Saknas|Standard PrefetchCount som ska användas av den underliggande MessageReceiver.| 
 |autoRenewTimeout|00:05:00|Maximal varaktighet inom vilken meddelandelåset förnyas automatiskt.| 
 
 ## <a name="singleton"></a>Singleton
@@ -336,11 +336,11 @@ Konfigurations inställningar för beteendet singleton lock. Mer information fin
 |listenerLockPeriod|00:01:00|Den period som lyssnarens lås tas för.| 
 |listenerLockRecoveryPollingInterval|00:01:00|Det tidsintervall som används för återställning av lyssnar lås om det inte gick att hämta ett lyssnar lås vid start.| 
 |lockAcquisitionTimeout|00:01:00|Den maximala tid som körningen kommer att försöka hämta ett lås.| 
-|lockAcquisitionPollingInterval|Ej tillämpligt|Intervallet mellan lås försök.| 
+|lockAcquisitionPollingInterval|Saknas|Intervallet mellan lås försök.| 
 
 ## <a name="tracing"></a>spåra
 
-*Version 1.x*
+*Version 1. x*
 
 Konfigurations inställningar för loggar som du skapar med hjälp av ett `TraceWriter`-objekt. Se [ C# loggning](functions-reference-csharp.md#logging) och [Node. js-loggning](functions-reference-node.md#writing-trace-output-to-the-console).
 

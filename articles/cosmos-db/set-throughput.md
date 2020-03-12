@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 31ad7a9d1108adc9071812454419252a813cb93e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: e7a64776cba00a6840af70cecad5bf9c02b3f38e
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364538"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129194"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Etablera dataflöde på containrar och databaser
 
@@ -87,11 +87,11 @@ Du kan kombinera de två modellerna. Etablering av data flöde på både databas
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Uppdatera data flödet för en databas eller en behållare
 
-När du har skapat en Azure Cosmos-behållare eller en databas kan du uppdatera det etablerade data flödet. Det finns ingen gräns för maximalt tillhandahållet data flöde som du kan konfigurera i databasen eller behållaren. Det lägsta allokerade data flödet beror på följande faktorer: 
+När du har skapat en Azure Cosmos-behållare eller en databas kan du uppdatera det etablerade data flödet. Det finns ingen gräns för maximalt tillhandahållet data flöde som du kan konfigurera i databasen eller behållaren. Det [lägsta allokerade data flödet](concepts-limits.md#storage-and-throughput) beror på följande faktorer: 
 
 * Maximal data storlek som du någonsin lagrat i behållaren
 * Det maximala data flöde som du någonsin etablerar på behållaren
-* Det maximala antalet Azure Cosmos-behållare som du någonsin skapar i en databas med delat data flöde. 
+* Det aktuella antalet Azure Cosmos-behållare som du har i en databas med delat data flöde. 
 
 Du kan hämta det lägsta data flödet för en behållare eller en databas program mässigt genom att använda SDK: erna eller Visa värdet i Azure Portal. När du använder .NET SDK kan du skala det tillhandahållna data flöde svärdet med metoden [DocumentClient. ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) . När du använder Java SDK kan du använda metoden [RequestOptions. setOfferThroughput](sql-api-java-samples.md#offer-examples) för att skala det tillhandahållna data flöde svärdet. 
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: cf2aa9bc1234f8bc92829b107d1a788b75d56a6b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 144c59c8bc24e8e10584702ec6cd48f7aa8c15c1
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384684"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128791"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Självstudie: ansluta, konfigurera och aktivera Azure Data Box Edge 
 
@@ -101,6 +101,11 @@ På instrument panelen visas de olika inställningar som krävs för att konfigu
    c. Om du använder autentisering anger du ett användar namn och lösen ord.
 
    d. Om du vill validera och tillämpa de konfigurerade webbproxyinställningarna väljer du **tillämpa inställningar**.
+   
+   > [!NOTE]
+   > PAC-filer (Proxy-Auto config) stöds inte. En PAC-fil definierar hur webbläsare och andra användar agenter automatiskt kan välja rätt proxyserver (åtkomst metod) för att hämta en viss URL.
+   > Proxyservrar som försöker avlyssna och läsa all trafik (och sedan signera om allting med sin egen certifiering) är inte kompatibelt eftersom proxyns certifikat inte är betrott.
+   > Vanligt vis fungerar transparenta proxyservrar bra med Azure Data Box Edge.
 
 4. Valfritt I det vänstra fönstret väljer du **tids inställningar**och konfigurerar sedan tids zonen och de primära och sekundära NTP-servrarna för enheten.  
     NTP-servrar krävs eftersom din enhet måste synkronisera tid så att den kan autentiseras med dina moln tjänst leverantörer.

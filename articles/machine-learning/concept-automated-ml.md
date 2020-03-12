@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 02/28/2020
-ms.openlocfilehash: 9739c0a6b66099a2bebb1d42922d8653a92e650b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 501158ffa8d05bc34dd39c21680012b1f3308def
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396409"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127193"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
@@ -95,9 +95,9 @@ I varje automatiserad maskin inlärnings experiment skalas dina data automatiskt
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>Avancerad för bearbetning: valfria funktionalisering
 
-Ytterligare avancerade för bearbetnings-och funktionalisering är också tillgängliga, till exempel data guardrails, kodning och transformeringar. [Läs mer om vad funktionalisering ingår](how-to-create-portal-experiments.md#featurization). Aktivera den här inställningen med:
+Ytterligare avancerade för bearbetnings-och funktionalisering är också tillgängliga, till exempel data guardrails, kodning och transformeringar. [Läs mer om vad funktionalisering ingår](how-to-use-automated-ml-for-ml-models.md#featurization). Aktivera den här inställningen med:
 
-+ Azure Machine Learning Studio: aktivera **Automatisk funktionalisering** i avsnittet **Visa ytterligare konfiguration** [med de här stegen](how-to-create-portal-experiments.md#create-and-run-experiment).
++ Azure Machine Learning Studio: aktivera **Automatisk funktionalisering** i avsnittet **Visa ytterligare konfiguration** [med de här stegen](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
 + Python SDK: Ange `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` för [`AutoMLConfig`-klassen](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
@@ -153,7 +153,7 @@ Modell **C** är ett tydligt Skift läge vid överanpassning. inlärnings precis
 
 ## <a name="classification--regression"></a>Klassificering & regression
 
-Klassificering och regression är de vanligaste typerna av Machine Learning-uppgifter. Båda är typer av övervakad utbildning där modeller lär sig använda tränings data och tillämpar dem på nya data. Azure Machine Learning erbjuder featurizations specifikt för dessa uppgifter, till exempel djup neurala Network text featurizers för klassificering. Läs mer om [funktionalisering-alternativ](how-to-create-portal-experiments.md#featurization). 
+Klassificering och regression är de vanligaste typerna av Machine Learning-uppgifter. Båda är typer av övervakad utbildning där modeller lär sig använda tränings data och tillämpar dem på nya data. Azure Machine Learning erbjuder featurizations specifikt för dessa uppgifter, till exempel djup neurala Network text featurizers för klassificering. Läs mer om [funktionalisering-alternativ](how-to-use-automated-ml-for-ml-models.md#featurization). 
 
 Det huvudsakliga målet med klassificerings modeller är att förutsäga vilka kategorier nya data kommer att ingå i baserat på inlärnings data. Vanliga klassificerings exempel är bedrägeri identifiering, hand SKRIFTS igenkänning och objekt identifiering.  Läs mer och se ett exempel på [klassificering med automatiserad maskin inlärning](tutorial-train-models-with-aml.md).
 
@@ -286,7 +286,7 @@ Se exempel och lär dig hur du skapar modeller med hjälp av automatisk maskin i
 + Följ [själv studie kursen: träna en Regressions modell automatiskt med Azure Machine Learning](tutorial-auto-train-models.md)
 
 + Konfigurera inställningarna för automatiskt utbildnings experiment:
-  + [Använd de här stegen](how-to-create-portal-experiments.md)i Azure Machine Learning Studio.
+  + [Använd de här stegen](how-to-use-automated-ml-for-ml-models.md)i Azure Machine Learning Studio.
   + [Använd de här stegen](how-to-configure-auto-train.md)med python SDK.
 
 + Lär dig hur du automatiskt tränar använda Time Series-data med hjälp av [de här stegen](how-to-auto-train-forecast.md).

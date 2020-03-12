@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 6c7112b6b5944042036fd3e7af6ec6f6dfbde0c0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 795acd67a8d4a9f8b8b7d78799a92134f249cf8d
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358721"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126884"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Pris modell för Azure Logic Apps
 
@@ -64,7 +64,7 @@ En [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-
 
   Mer information om gränser för integrations konton finns [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Du kan lära dig mer om [integrations konto nivåer och deras pris modell](#integration-accounts) senare i det här avsnittet.
 
-Om du väljer Premium ISE-SKU: n har bas enheten fast kapacitet. Om du behöver mer data flöde kan du [lägga till fler skalnings enheter](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), antingen under skapandet eller efteråt. Developer ISE-SKU: n har inte möjlighet att lägga till fler skalnings enheter. Logi Kap par som körs i en ISE ådrar sig inga kostnader för datakvarhållning.
+Om du väljer Premium ISE-SKU: n har bas enheten fast kapacitet. Om du behöver mer data flöde kan du [lägga till fler skalnings enheter](../logic-apps/ise-manage-integration-service-environment.md#add-capacity), antingen under skapandet eller efteråt. Developer ISE-SKU: n har inte möjlighet att lägga till fler skalnings enheter. Logi Kap par som körs i en ISE ådrar sig inga kostnader för datakvarhållning.
 
 Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pricing/details/logic-apps).
 

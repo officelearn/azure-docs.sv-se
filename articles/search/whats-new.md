@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/03/2020
-ms.openlocfilehash: 27dae07328af125c25512ab9f1eb81d0f4eda99b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.openlocfilehash: 3150eed063413d0665adfc104a603f9f2b5755c3
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396348"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129179"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -26,6 +26,10 @@ Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan f
 Azure Search har nu bytt namn till **Azure kognitiv sökning** för att återspegla den utökade (ännu valfria) användningen av kognitiva kunskaper och AI-bearbetning i kärn åtgärder. API-versioner, NuGet-paket, namnrymder och slut punkter är oförändrade. Nya och befintliga Sök lösningar påverkas inte av tjänst namns ändringen.
 
 ## <a name="feature-announcements"></a>Funktions aviseringar
+
+### <a name="march-2020"></a>Mars 2020
+
++ Ny stabil [hanterings REST API (2020-03-13)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) är nu tillgängligt. 
 
 ### <a name="february-2020"></a>Februari 2020
 

@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: 886d17098259ddbb78698a3c1280f797e370c714
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 86dbcee7150adacd0e961dbe07cf66ad117d2041
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597146"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129451"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexerings principer i Azure Cosmos DB
 
 I Azure Cosmos DB har varje behållare en indexerings princip som avgör hur behållarens objekt ska indexeras. Standard indexerings principen för nyskapade behållare indexerar varje egenskap för varje objekt, som framtvingar intervall index för valfri sträng eller siffra, och rums index för valfritt interjson-objekt av typen Point. På så sätt kan du få höga prestanda för frågor utan att behöva tänka på indexering och index hantering.
 
-I vissa fall kanske du vill åsidosätta det automatiska beteendet så att det passar dina behov bättre. Du kan anpassa en behållares indexerings princip genom att ställa in dess *indexerings läge*och ta med eller undanta *egenskaps Sök vägar*.
+I vissa fall kan det vara bra att åsidosätta det här automatiska beteendet så att det passar dina behov bättre. Du kan anpassa en behållares indexerings princip genom att ställa in dess *indexerings läge*och ta med eller undanta *egenskaps Sök vägar*.
 
 > [!NOTE]
 > Metoden för att uppdatera indexerings principer som beskrivs i den här artikeln gäller endast Azure Cosmos DB s SQL-API (Core).
@@ -34,12 +34,12 @@ Azure Cosmos DB stöder två indexerings lägen:
 
 Indexerings principen är som standard inställd på `automatic`. Den uppnås genom att ange `automatic`-egenskapen i indexerings principen som ska `true`s. Genom att ange den här egenskapen till `true` kan Azure-CosmosDB automatiskt indexera dokument när de skrivs.
 
-## <a name="including-and-excluding-property-paths"></a>Inklusive och exklusive egenskaps Sök vägar
+## <a id="include-exclude-paths"></a>Inklusive och exklusive egenskaps Sök vägar
 
 En anpassad indexerings princip kan ange egenskaps Sök vägar som uttryckligen tas med eller undantas från indexering. Genom att optimera antalet sökvägar som indexeras kan du minska mängden lagrings utrymme som används av din behållare och förbättra svars tiden för Skriv åtgärder. Dessa sökvägar definieras enligt [metoden som beskrivs i avsnittet indexerings översikt](index-overview.md#from-trees-to-property-paths) med följande tillägg:
 
 - en sökväg som leder till ett skalärt värde (sträng eller siffra) slutar med `/?`
-- element från en matris adresseras samman genom `/[]` notation (i stället för `/0` `/1` osv.)
+- element från en matris adresseras samman genom `/[]` notation (i stället för `/0``/1` osv.)
 - jokertecken `/*` kan användas för att matcha alla element under noden
 
 Ta samma exempel igen:
@@ -60,7 +60,7 @@ Ta samma exempel igen:
 
 - `headquarters`ens `employees` sökväg är `/headquarters/employees/?`
 
-- `locations` `country` sökväg `/locations/[]/country/?`
+- `locations``country` sökväg `/locations/[]/country/?`
 
 - sökvägen till något under `headquarters` är `/headquarters/*`
 
@@ -73,9 +73,9 @@ En indexerings princip måste innehålla rot Sök vägen `/*` antingen som en in
 - Inkludera rot Sök vägen för att selektivt exkludera sökvägar som inte behöver indexeras. Detta är den rekommenderade metoden eftersom Azure Cosmos DB indexera alla nya egenskaper som kan läggas till i din modell proaktivt.
 - Undanta rot Sök vägen för att selektivt inkludera sökvägar som behöver indexeras.
 
-- För sökvägar med vanliga tecken som innehåller alfanumeriska tecken och _ (under streck) behöver du inte undanta Sök vägs strängen runt dubbla citat tecken (till exempel "/Path/?"). För sökvägar med andra specialtecken måste du undanta Sök vägs strängen runt dubbla citat tecken (till exempel "/\"path-ABC \"/?"). Om du förväntar dig specialtecken i sökvägen kan du kringgå alla säkerhets vägar. Det spelar ingen roll om du avvisar alla sökvägar och bara de som innehåller specialtecken.
+- För sökvägar med vanliga tecken som innehåller alfanumeriska tecken och _ (under streck) behöver du inte undanta Sök vägs strängen runt dubbla citat tecken (till exempel "/Path/?"). För sökvägar med andra specialtecken måste du undanta Sök vägs strängen runt dubbla citat tecken (till exempel "/\"Path-ABC\"/?"). Om du förväntar dig specialtecken i sökvägen kan du kringgå alla säkerhets vägar. Det spelar ingen roll om du avvisar alla sökvägar och bara de som innehåller specialtecken.
 
-- System egenskapen "etag" undantas från indexering som standard, om inte etag läggs till i den inkluderade sökvägen för indexering.
+- System egenskapen _etag undantas från indexering som standard, om inte etag läggs till i den inkluderade sökvägen för indexering.
 
 När du inkluderar och exkluderar sökvägar kan du stöta på följande attribut:
 
@@ -157,7 +157,7 @@ SELECT * FROM c WHERE c.name = "John" AND c.age = 18
 
 Den här frågan är mer effektiv, tar mindre tid och använder färre RU-objekt, om det går att använda ett sammansatt index på (namn ASC, ålder ASC).
 
-Frågor med intervall filter kan också optimeras med ett sammansatt index. Frågan kan dock bara ha ett enda intervall filter. Intervall filter är `>`, `<`, `<=`, `>=` och `!=`. Range-filtret bör definieras sist i det sammansatta indexet.
+Frågor med intervall filter kan också optimeras med ett sammansatt index. Frågan kan dock bara ha ett enda intervall filter. Intervall filter är `>`, `<`, `<=`, `>=`och `!=`. Range-filtret bör definieras sist i det sammansatta indexet.
 
 Tänk på följande fråga med både likhets-och intervall filter:
 
@@ -171,7 +171,7 @@ Följande överväganden används när du skapar sammansatta index för frågor 
 
 - Egenskaperna i frågans filter ska matcha dem i sammansatt index. Om en egenskap finns i det sammansatta indexet men inte ingår i frågan som ett filter, används inte det sammansatta indexet i frågan.
 - Om en fråga har ytterligare egenskaper i filtret som inte har definierats i ett sammansatt index, kommer en kombination av sammansatta och intervall index att användas för att utvärdera frågan. Detta kräver färre RU: s än uteslutande med intervall index.
-- Om en egenskap har ett intervall filter (`>`, `<`, `<=`, `>=` eller `!=`), ska den här egenskapen definieras sist i det sammansatta indexet. Om en fråga har fler än ett intervall filter, används inte det sammansatta indexet.
+- Om en egenskap har ett intervall filter (`>`, `<`, `<=`, `>=`eller `!=`), ska den här egenskapen definieras sist i det sammansatta indexet. Om en fråga har fler än ett intervall filter, används inte det sammansatta indexet.
 - När du skapar ett sammansatt index för att optimera frågor med flera filter, kommer `ORDER` av det sammansatta indexet inte påverka resultatet. Den här egenskapen är valfri.
 - Om du inte definierar ett sammansatt index för en fråga med filter på flera egenskaper kommer frågan fortfarande att lyckas. RU-kostnaden för frågan kan dock minskas med ett sammansatt index.
 
@@ -244,7 +244,7 @@ Om den nya indexerings principens läge är inställt på konsekvent, kan ingen 
 
 ## <a name="indexing-policies-and-ttl"></a>Indexerings principer och TTL
 
-[TTL-funktionen (Time-to-Live)](time-to-live.md) kräver att indexeringen är aktiv på den behållare som den är påslagen. Det innebär att:
+[TTL-funktionen (Time-to-Live)](time-to-live.md) kräver att indexeringen är aktiv på den behållare som den är påslagen. Detta innebär att:
 
 - Det går inte att aktivera TTL på en behållare där indexerings läget är inställt på ingen,
 - Det går inte att ställa in indexerings läget på none i en behållare där TTL har Aktiver ATS.

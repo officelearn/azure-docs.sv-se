@@ -5,17 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 1d91813e0f39207bcf7768de89600a6bdee0fc53
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/11/2020
+ms.openlocfilehash: f48106be67763c093a183be01098cab74391752e
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358899"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126998"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Hantera integrerings tjänst miljön (ISE) i Azure Logic Apps
 
-Följ stegen i det här avsnittet för att kontrol lera nätverks hälsan för [integrerings tjänst miljön (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) och hantera Logi Kap par, anslutningar, integrations konton och anslutningar som finns i din ISE. Information om hur du lägger till dessa artefakter i ISE finns i [lägga till artefakter i integrerings tjänst miljön](../logic-apps/add-artifacts-integration-service-environment-ise.md).
+Den här artikeln visar hur du utför hanterings uppgifter för [integrerings tjänst miljön (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), till exempel:
+
+* Hantera resurser som Logi Kap par, anslutningar, integrations konton och anslutningar i din ISE.
+* Kontrol lera nätverkets hälso tillstånd för ISE.
+* Lägg till kapacitet, starta om ISE eller ta bort din ISE genom att följa stegen i det här avsnittet. Information om hur du lägger till dessa artefakter i ISE finns i [lägga till artefakter i integrerings tjänst miljön](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
 ## <a name="view-your-ise"></a>Visa din ISE
 
@@ -97,6 +101,83 @@ Du kan visa och hantera de anpassade anslutnings program som du har distribuerat
 
 1. Om du vill ta bort integrations konton från din ISE när de inte längre behövs väljer du dessa integrations konton och väljer sedan **ta bort**.
 
+<a name="add-capacity"></a>
+
+## <a name="add-ise-capacity"></a>Lägg till ISE-kapacitet
+
+Premium ISE-bas enheten har fast kapacitet, så om du behöver mer data flöde kan du lägga till fler skalnings enheter, antingen under skapandet eller efteråt. Developer SKU: n inkluderar inte möjligheten att lägga till skalnings enheter.
+
+1. Gå till din ISE i [Azure Portal](https://portal.azure.com).
+
+1. Om du vill granska användnings-och prestanda mått för din ISE väljer du **Översikt**på din ISE-meny.
+
+   ![Visa användning för ISE](./media/ise-manage-integration-service-environment/integration-service-environment-usage.png)
+
+1. Under **Inställningar**väljer du **skala ut**. I fönstret **Konfigurera** väljer du bland följande alternativ:
+
+   * [**Manuell skalning**](#manual-scale): skala baserat på antalet bearbetnings enheter som du vill använda.
+   * [**Anpassad autoskalning**](#custom-autoscale): skala baserat på prestanda mått genom att välja bland olika kriterier och ange tröskelvärdena för att uppfylla villkoren.
+
+   ![Välj den skalnings typ som du vill använda](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
+
+<a name="manual-scale"></a>
+
+### <a name="manual-scale"></a>Manuell skalning
+
+1. När du har valt **manuell skalning**, för **ytterligare kapacitet**väljer du det antal skalnings enheter som du vill använda.
+
+   ![Välj den skalnings typ som du vill använda](./media/ise-manage-integration-service-environment/select-manual-scale-out-units.png)
+
+1. När du är klar väljer du **Spara**.
+
+<a name="custom-autoscale"></a>
+
+### <a name="custom-autoscale"></a>Anpassad autoskalning
+
+1. När du har valt **anpassad autoskalning**anger du ett namn för inställningen i **autoskalning inställnings namn**och du kan också välja den Azure-resurs grupp där inställningen tillhör.
+
+   ![Ange namnet på inställningen för autoskalning och Välj resurs grupp](./media/ise-manage-integration-service-environment/select-custom-autoscale.png)
+
+1. För **standard** villkoret väljer du antingen **skala baserat på ett mått** eller **skala till ett angivet instans antal**.
+
+   * Om du väljer instans-baserad anger du antalet för bearbetnings enheterna, vilket är ett värde mellan 0 och 10.
+
+   * Följ dessa steg om du väljer Metric-baserad:
+
+     1. I avsnittet **regler** väljer du **Lägg till en regel**.
+
+     1. I fönstret **skalnings regel** ställer du in kriterier och åtgärder som ska vidtas när regeln utlöses.
+
+     1. Ange följande värden för **instans gränser**:
+
+        * **Minimum**: minsta antal bearbetnings enheter som ska användas
+        * **Max**: det högsta antalet bearbetnings enheter som ska användas
+        * **Standard**: om några problem inträffar när du läser resurs måtten och den aktuella kapaciteten är lägre än standard kapaciteten skalas automatisk skalning till standard antalet bearbetnings enheter. Men om den aktuella kapaciteten överstiger standard kapaciteten skalas inte autoskalning i.
+
+1. Om du vill lägga till ett annat villkor väljer du **Lägg till skalnings villkor**.
+
+1. Spara ändringarna när du är klar med inställningarna för autoskalning.
+
+<a name="restart-ISE"></a>
+
+## <a name="restart-ise"></a>Starta om ISE
+
+Om du ändrar inställningarna för DNS-servern eller DNS-servern måste du starta om ISE så att ISE kan hämta ändringarna. Om du startar om en Premium-SKU ISE uppstår avbrott på grund av redundans och komponenter som startar om en i taget under återvinningen. Men en utvecklare av websku ISE upplever avbrott eftersom det inte finns någon redundans. Mer information finns i [ISE SKU: er](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
+
+1. Gå till din ISE i [Azure Portal](https://portal.azure.com).
+
+1. På menyn ISE väljer du **Översikt**. I översikts verktygsfältet **startar du om**.
+
+   ![Starta om integrerings tjänst miljön](./media/connect-virtual-network-vnet-isolated-environment/restart-integration-service-environment.png)
+
+<a name="delete-ise"></a>
+
+## <a name="delete-ise"></a>Ta bort ISE
+
+Innan du tar bort en ISE som du inte längre behöver eller en Azure-resurs grupp som innehåller en ISE kontrollerar du att du inte har några principer eller lås på den Azure-resurs grupp som innehåller resurserna eller på ditt virtuella Azure-nätverk eftersom dessa objekt kan blockera borttagning.
+
+När du har tagit bort din ISE kan du behöva vänta upp till 9 timmar innan du försöker ta bort ditt virtuella Azure-nätverk eller undernät.
+
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [ansluter till virtuella Azure-nätverk från isolerade Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Lägga till resurser i integrerings tjänst miljöer](../logic-apps/add-artifacts-integration-service-environment-ise.md)

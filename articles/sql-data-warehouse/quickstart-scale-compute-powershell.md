@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skala beräkning – PowerShell '
-description: Skala beräkning i SQL-poolen i PowerShell. Skala ut beräkning för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna.
+title: Skala beräkning för Synapse SQL-pool (Azure PowerShell)
+description: Du kan skala beräkning för Synapse SQL-pool (informations lager) med hjälp av Azure PowerShell.
 services: sql-data-warehouse
 author: Antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5952f17c83b778e8713488b5c53c9f210c84a146
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 2b8aef37e9e7a3022ffc799bba80e8944330b8f1
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390499"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129624"
 ---
-# <a name="quickstart-scale-compute-in-in-azure-synapse-analytics-sql-pool-using-azure-powershell"></a>Snabb start: skala beräkning i Azure Synapse Analytics SQL-poolen med hjälp av Azure PowerShell
+# <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Snabb start: skala beräkning för Synapse SQL-pool med Azure PowerShell
 
-Skala beräkning i SQL-pool med Azure PowerShell. [Skala ut beräkning](sql-data-warehouse-manage-compute-overview.md) för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna.
+Du kan skala beräkning för Synapse SQL-pool (informations lager) med hjälp av Azure PowerShell. [Skala ut beräkning](sql-data-warehouse-manage-compute-overview.md) för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 

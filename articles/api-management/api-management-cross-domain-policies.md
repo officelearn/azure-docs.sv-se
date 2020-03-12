@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: db64a2f64c592a62f621355047a7bc9844d66457
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: b72abf4e208c57987375a105865046f194460058
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375077"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126537"
 ---
 # <a name="api-management-cross-domain-policies"></a>Korsdomänprinciper för API Management
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -127,7 +127,7 @@ I det här exemplet visas hur du stöder för-flygnings begär Anden, t. ex. de 
 |CORS|Rot element.|Ja|Ej tillämpligt|
 |tillåtna-ursprung|Innehåller `origin` element som beskriver tillåtna ursprung för frågor mellan domäner. `allowed-origins` kan innehålla antingen ett enda `origin`-element som anger `*` för att tillåta ursprung eller ett eller flera `origin`-element som innehåller en URI.|Ja|Ej tillämpligt|
 |ursprung|Värdet kan vara antingen `*` för att tillåta alla ursprung eller en URI som anger ett enskilt ursprung. URI: n måste innehålla ett schema, en värd och en port.|Ja|Om porten utelämnas i en URI används port 80 för HTTP och port 443 för HTTPS.|
-|tillåtna metoder|Det här elementet krävs om andra metoder än GET eller POST tillåts. Innehåller `method` element som anger de HTTP-verb som stöds.|Nej|Om det här avsnittet inte finns stöds GET och POST.|
+|tillåtna metoder|Det här elementet krävs om andra metoder än GET eller POST tillåts. Innehåller `method` element som anger de HTTP-verb som stöds. Värdet `*` anger alla metoder.|Nej|Om det här avsnittet inte finns stöds GET och POST.|
 |metod|Anger ett HTTP-verb.|Minst ett `method`-element krävs om avsnittet `allowed-methods` finns.|Ej tillämpligt|
 |tillåtna – rubriker|Det här elementet innehåller `header` element som anger namn på de huvuden som kan tas med i begäran.|Nej|Ej tillämpligt|
 |exponera – rubriker|Det här elementet innehåller `header` element som anger namn på de huvuden som ska vara tillgängliga för klienten.|Nej|Ej tillämpligt|

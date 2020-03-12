@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera SAP HANA databaser i virtuella Azure-d
 description: I den här självstudien lär du dig att säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 6273b4d5745b3c13b48622cde842c0222a47c5d4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 435668dedc7efa33fd5fbfeea8671f05d070a385
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382459"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129531"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Självstudie: säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator
 
@@ -96,7 +96,23 @@ Att köra skriptet för för registrering utför följande funktioner:
 
 * Den installerar eller uppdaterar alla nödvändiga paket som krävs av Azure Backup agenten på din distribution.
 * Den utför utgående nätverks anslutnings kontroller med Azure Backup servrar och beroende tjänster som Azure Active Directory och Azure Storage.
-* Den loggar in i HANA-systemet med hjälp av användar nyckeln som anges som en del av [förutsättningarna](#prerequisites). Den här nyckeln används för att skapa en säkerhets kopierings användare (AZUREWLBACKUPHANAUSER) i HANA-systemet och kan tas bort när skriptet för för registrering har körts. Med den här säkerhets kopierings användaren (AZUREWLBACKUPHANAUSER) kan säkerhets kopierings agenten upptäcka, säkerhetskopiera och återställa databaser i ditt HANA-system.
+* Den loggar in i HANA-systemet med hjälp av användar nyckeln som anges som en del av [förutsättningarna](#prerequisites). Användar nyckeln används för att skapa en säkerhets kopierings användare (AZUREWLBACKUPHANAUSER) i HANA-systemet och användar nyckeln kan tas bort när skriptet för för registrering har körts.
+* AZUREWLBACKUPHANAUSER har tilldelats följande obligatoriska roller och behörigheter:
+  * DATABAS administratör: om du vill skapa nya databaser under återställningen.
+  * Katalog läsning: för att läsa säkerhets kopierings katalogen.
+  * SAP_INTERNAL_HANA_SUPPORT: för att få åtkomst till några privata tabeller.
+* Skriptet lägger till en nyckel till **hdbuserstore** för AZUREWLBACKUPHANAUSER för Hana-plugin-programmet för att hantera alla åtgärder (databas frågor, återställnings åtgärder, konfigurera och köra säkerhets kopiering).
+
+Bekräfta att nyckeln skapas genom att köra kommandot HDBSQL på datorn HANA med SIDADM-autentiseringsuppgifter:
+
+```hdbsql
+hdbuserstore list
+```
+
+Kommandots utdata ska Visa nyckeln {SID} {DBNAME}, där användaren visas som AZUREWLBACKUPHANAUSER.
+
+>[!NOTE]
+> Se till att du har en unik uppsättning SSFS-filer under `/usr/sap/{SID}/home/.hdb/`. Det får bara finnas en mapp i den här sökvägen.
 
 ## <a name="create-a-recovery-service-vault"></a>Skapa ett Recovery Service-valv
 

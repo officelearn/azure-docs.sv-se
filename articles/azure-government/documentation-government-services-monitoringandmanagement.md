@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: azure-government
 ms.date: 12/11/2019
 ms.author: gsacavdm
-ms.openlocfilehash: b6f395964c286aca1bc8a1c190edeea00ba6e15c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 38eb44e6355ddcb5ac78f5d8bb2008ea5a0f0cdf
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362265"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127943"
 ---
 # <a name="azure-government-monitoring--management"></a>Azure Government Övervakning och hantering
 Den här artikeln beskriver skillnaderna och överväganden för övervakning och hantering av tjänster i Azure Governments miljön.
@@ -179,6 +179,9 @@ De resurser som för närvarande stöds i den andra generationens aviserings upp
 - Microsoft.Web/sites
 - Microsoft.Web/sites/slots
 
+> [!NOTE]
+> Det finns **för närvarande inte stöd**för att skapa mått för flera resurs mått för Virtual Machines. Den här artikeln kommer att uppdateras så snart den här funktionen blir tillgänglig.
+
 Du kan fortfarande använda [klassiska aviseringar](../azure-monitor/platform/alerts-classic.overview.md) för resurser som ännu inte är tillgängliga i den andra generationen aviseringar. 
 
 När du använder PowerShell/ARM/rest-anrop för att skapa mått aviseringar måste du ange "plats" för mått aviseringen till "USGov Virginia" eller "USGov Iowa". Ett exempel på inställningen är nedan:
@@ -190,6 +193,7 @@ Add-AzMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup
 ```
 
 Mer information om hur du använder PowerShell finns i [offentlig dokumentation](../azure-monitor/platform/powershell-quickstart-samples.md).
+
 
 ## <a name="application-insights"></a>Application Insights
 

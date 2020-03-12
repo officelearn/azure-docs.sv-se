@@ -15,23 +15,25 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: ffbac18b3172dd0cd3d430bae5060be0a8d1bb21
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: b432f381bae79d783663130d06dbf874f00a9994
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082193"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128635"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Vägledning för migrering för att flytta från Media Services v2 till v3
 
 >Bli informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och klistra in URL: en: `https://docs.microsoft.com/api/search/rss?search=%22Migrate+from+Azure+Media+Services+v2+to+v3%22&locale=en-us` i din RSS-feeds läsare.
 
-Den här artikeln beskriver ändringar som introducerades i Azure Media Services v3, Visar skillnader mellan två versioner och ger vägledning om migrering.
+Den här artikeln innehåller en vägledning för migrering från Media Services v2 till v3.
 
 Om du har en video tjänst som utvecklats idag ovanpå de [äldre Media Services v2-API: erna](../previous/media-services-overview.md)bör du läsa följande rikt linjer och överväganden innan du migrerar till v3-API: erna. Det finns många fördelar och nya funktioner i v3-API: et som förbättrar utvecklings upplevelsen och funktionerna i Media Services. Som du ser i avsnittet [kända problem](#known-issues) i den här artikeln finns det också vissa begränsningar på grund av ändringar mellan API-versionerna. Den här sidan kommer att behållas när Media Servicess teamet gör fortsatta förbättringar av v3-API: erna och åtgärdar luckorna mellan versionerna. 
 
-> [!NOTE]
-> Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 [Live-händelser](live-events-outputs-concept.md), Visa (inte hantera) v3- [till gångar](assets-concept.md), få information om åtkomst till API: er. Mer information finns i [vanliga frågor och svar](frequently-asked-questions.md#can-i-use-the-azure-portal-to-manage-v3-resources). 
+## <a name="prerequisites"></a>Förutsättningar
+
+* Granska [Media Services v2 vs. v3](media-services-v2-vs-v3.md)
+* [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="benefits-of-media-services-v3"></a>Fördelar med Media Services v3
   
@@ -57,78 +59,6 @@ Om du har en video tjänst som utvecklats idag ovanpå de [äldre Media Services
 * RTMPs säker inmatning.<br/>När du skapar en Live-händelse får du 4 inmatnings-URL: er. De 4 inmatnings-URL: erna är nästan identiska, har samma strömnings-token (AppId), men endast port nummer delen är annorlunda. Två av URL: erna är primära och säkerhets kopiering för RTMP.   
 * Du har rollbaserad åtkomst kontroll (RBAC) över dina entiteter. 
 
-## <a name="changes-from-v2"></a>Ändringar från v2
-
-* För till gångar som skapats med v3 stöder Media Services endast [lagrings kryptering Azure Storage på Server sidan](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
-    * Du kan använda v3-API: er med till gångar som skapats med v2-API: er med [lagrings kryptering](../previous/media-services-rest-storage-encryption.md) (AES 256) som tillhandahålls av Media Services.
-    * Du kan inte skapa nya till gångar med äldre AES 256- [lagrings kryptering](../previous/media-services-rest-storage-encryption.md) med hjälp av v3-API: er.
-* [Till gångens](assets-concept.md)egenskaper i v3 skiljer sig åt från v2, se [hur egenskaper mappas](assets-concept.md#map-v3-asset-properties-to-v2).
-* V3 SDK: er är nu frikopplade från Storage SDK, vilket ger dig mer kontroll över vilken version av Storage SDK som du vill använda och undviker versions problem. 
-* I v3-API: erna är alla kodnings bit hastigheter i bitar per sekund. Detta skiljer sig från inställningarna för v2-Media Encoder Standard. Bit hastigheten i v2 skulle till exempel anges som 128 (kbps), men i v3 skulle den bli 128000 (bitar/sekund). 
-* Entiteterna AssetFiles, AccessPolicies och IngestManifests finns inte i v3.
-* Egenskapen IAsset. ParentAssets finns inte i v3.
-* ContentKeys är inte längre en entitet, det är nu en egenskap för den strömmande lokaliseraren.
-* Event Grid-support ersätter NotificationEndpoints.
-* Följande entiteter har bytt namn
-    * Jobbets utdata ersätter uppgift och ingår nu i ett jobb.
-    * Streaming Locator ersätter Locator.
-    * Live Event ersätter kanal.<br/>Faktureringen av Live-händelser baseras på Live Channel-mätare. Mer information finns i [fakturering](live-event-states-billing.md) och [priser](https://azure.microsoft.com/pricing/details/media-services/).
-    * Live output ersätter program.
-* Liveutdata startar när de skapas och avbryts när de tas bort. Program fungerade annorlunda i v2-API: er, de var igång när de har skapats.
-* Om du vill hämta information om ett jobb måste du känna till Transformations namnet som jobbet skapades under. 
-* I v2 skapas filer för XML- [indata](../previous/media-services-input-metadata-schema.md) och [utdata](../previous/media-services-output-metadata-schema.md) som genereras som ett resultat av ett kodnings jobb. I v3 har metadata-formatet ändrats från XML till JSON. 
-* I Media Services v2 kan du ange initierings vektor (IV). Det går inte att ange FairPlay IV i Media Services v3. Även om det inte påverkar kunder som använder Media Services för både paketering och licens leverans, kan det vara ett problem när du använder ett DRM-system från tredje part för att leverera FairPlay-licenser (hybrid läge). I så fall är det viktigt att veta att FairPlay IV härleds från CBCS-nyckel-ID: t och kan hämtas med följande formel:
-
-    ```
-    string cbcsIV =  Convert.ToBase64String(HexStringToByteArray(cbcsGuid.ToString().Replace("-", string.Empty)));
-    ```
-
-    med
-
-    ``` 
-    public static byte[] HexStringToByteArray(string hex)
-    {
-        return Enumerable.Range(0, hex.Length)
-            .Where(x => x % 2 == 0)
-            .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
-            .ToArray();
-    }
-    ```
-
-    Mer information finns i [Azure Functions C# koden för Media Services v3 i hybrid läge för både Live-och VOD-åtgärder](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/LiveAndVodDRMOperationsV3).
- 
-> [!NOTE]
-> Granska de namngivnings konventioner som tillämpas på [Media Services v3-resurser](media-services-apis-overview.md#naming-conventions). Granska också [namngivning av blobbar](assets-concept.md#naming).
-
-## <a name="feature-gaps-with-respect-to-v2-apis"></a>Funktions luckor med avseende på v2-API: er
-
-V3-API: et har följande funktions luckor i relation till v2-API: et. Att stänga luckorna är pågående arbete.
-
-* [Premium-kodaren](../previous/media-services-premium-workflow-encoder-formats.md) och de äldre [Media Analytics-processorerna](../previous/media-services-analytics-overview.md) (Azure Media Services indexerare 2 för hands version, ansikts bortredigering osv.) är inte tillgängliga via v3.<br/>Kunder som vill migrera från Media Indexer 1 eller 2 för hands versionen kan omedelbart använda AudioAnalyzer-förvalet i v3-API: et.  Den här nya för inställningen innehåller fler funktioner än den äldre Media Indexer 1 eller 2. 
-* Många av de [avancerade funktionerna i Media Encoder Standard i v2](../previous/media-services-advanced-encoding-with-mes.md) API: er är för närvarande inte tillgängliga i v3, till exempel:
-  
-    * Häftning av till gångar
-    * Överlägg
-    * Beskärning
-    * Miniatyr sprit
-    * Infoga ett tyst ljud spår när indata inte har något ljud
-    * Infoga ett video spår när inmatningen saknar video
-* Live-händelser med omkodning stöder för närvarande inte mellanliggande infogning och infogning av AD-markörer via API-anrop. 
-
-> [!NOTE]
-> Skriv bok märke till den här artikeln och fortsätt att söka efter uppdateringar.
- 
-## <a name="code-differences"></a>Kod skillnader
-
-I följande tabell visas kod skillnaderna mellan v2 och v3 för vanliga scenarier.
-
-|Scenario|V2-API|V3-API|
-|---|---|---|
-|Skapa en till gång och ladda upp en fil |[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
-|Skicka ett jobb|[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Visar hur du först skapar en transformering och sedan skickar ett jobb.|
-|Publicera en till gång med AES-kryptering |1. skapa ContentKeyAuthorizationPolicyOption<br/>2. skapa ContentKeyAuthorizationPolicy<br/>3. skapa AssetDeliveryPolicy<br/>4. Skapa till gång och ladda upp innehåll eller skicka jobb och Använd utgående till gång<br/>5. associera AssetDeliveryPolicy med till gång<br/>6. skapa ContentKey<br/>7. bifoga ContentKey till till gång<br/>8. skapa Access policy<br/>9. skapa lokaliserare<br/><br/>[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. skapa en princip för innehålls nyckel<br/>2. Skapa till gång<br/>3. Ladda upp innehåll eller använd till gång som JobOutput<br/>4. skapa strömmande Locator<br/><br/>[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
-|Hämta jobb information och hantera jobb |[Hantera jobb med v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Hantera jobb med v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
-
 ## <a name="known-issues"></a>Kända problem
 
 *  För närvarande kan du använda [Azure Portal](https://portal.azure.com/) för att:
@@ -153,5 +83,4 @@ Kolla in [Azure Media Services community](media-services-community.md) -artikeln
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill se hur lätt det är att börja koda och strömma videofiler, kolla in [Strömma filer](stream-files-dotnet-quickstart.md). 
-
+[Självstudie: koda en fjärrfil baserat på URL och strömma videon – .NET](stream-files-dotnet-quickstart.md)

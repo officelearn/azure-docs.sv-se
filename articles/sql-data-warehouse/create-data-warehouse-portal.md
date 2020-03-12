@@ -1,6 +1,6 @@
 ---
-title: Skapa och fråga ett informations lager (Azure Portal)
-description: Skapa och fråga en Azure Synapse Analytics SQL-pool med hjälp av Azure Portal
+title: Skapa och fråga en Synapse SQL-pool (Azure Portal)
+description: Skapa och fråga en Synapse SQL-pool med hjälp av Azure Portal
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 7a3dbe5d74dc1e88d0615937b8c6e6d2a77b64a7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 6966932e95ff538de4b2f9be1ac06516311a0919
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381104"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128727"
 ---
-# <a name="quickstart-create-and-query-an-azure-synapse-analytics-sql-pool-using-the-azure-portal"></a>Snabb start: skapa och fråga en Azure Synapse Analytics SQL-pool med hjälp av Azure Portal
+# <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Snabb start: skapa och fråga en Synapse SQL-pool med hjälp av Azure Portal
 
-Skapa snabbt och fråga ett informations lager genom att tillhandahålla SQL-poolen i Azure Synapse Analytics (tidigare SQL DW) med hjälp av Azure Portal.
+Skapa och fråga snabbt en Synapse SQL-pool (data lager) i Azure Synapse Analytics (tidigare SQL DW) med hjälp av Azure Portal.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -39,7 +39,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 Informations lager skapas med SQL-pool i Azure Synapse Analytics. En SQL-pool skapas med en definierad uppsättning [beräknings resurser](memory-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/management/overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-servers.md).
 
-Följ de här stegen för att skapa ett informations lager som innehåller **AdventureWorksDW** exempel data.
+Följ dessa steg om du vill skapa en SQL-pool som innehåller **AdventureWorksDW** -exempel data.
 
 1. Välj **skapa en resurs** i det övre vänstra hörnet av Azure Portal.
 
@@ -55,7 +55,7 @@ Följ de här stegen för att skapa ett informations lager som innehåller **Adv
    | :------ | :-------------- | :---------- |
    | **Prenumeration** | Din prenumeration | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
    | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
-   | **Data lager namn** | Globalt unikt namn (ett exempel är *mySampleDataWarehouse*) | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). Observera att ett informationslager är en typ av databas. |
+   | **SQL-poolnamn** | Globalt unikt namn (ett exempel är *mySampleDataWarehouse*) | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). Obs! en SQL-pool är en typ av databas. |
    | **Server** | Valfritt globalt unikt namn | Välj befintlig server eller skapa ett nytt Server namn och välj **Skapa ny**. Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
 
    ![skapa grundläggande information om informations lagret](media/create-data-warehouse-portal/create-sql-pool-basics.png)
@@ -66,7 +66,7 @@ Följ de här stegen för att skapa ett informations lager som innehåller **Adv
 
    Mer information om prestanda nivåer finns i [Hantera beräkning i Azure SQL Data Warehouse](sql-data-warehouse-manage-compute-overview.md).
 
-5. Nu när du har slutfört fliken grundläggande i formuläret för Azure Synapse Analytics väljer du **Granska + skapa** och sedan **skapa** för att skapa data lagret i SQL-poolen. Etableringen tar några minuter.
+5. Nu när du har slutfört fliken grundläggande i formuläret för Azure Synapse Analytics väljer du **Granska + skapa** och sedan **skapa** för att skapa SQL-poolen. Etableringen tar några minuter.
 
    ![Välj granska + skapa](media/create-data-warehouse-portal/create-sql-pool-review-create.png)
 
@@ -105,7 +105,7 @@ Azure Synapse-tjänsten skapar en brand vägg på server nivå. Den här brand v
 
 8. Välj **OK** och stäng sedan sidan **brand Väggs inställningar** .
 
-Nu kan du ansluta till SQL-servern och dess informationslager med den här IP-adress. Anslutningen fungerar från SQL Server Management Studio eller något annat verktyg du väljer. När du ansluter kan du använda ServerAdmin-kontot som du skapade tidigare.
+Nu kan du ansluta till SQL-servern och dess SQL-pooler med hjälp av den här IP-adressen. Anslutningen fungerar från SQL Server Management Studio eller något annat verktyg du väljer. När du ansluter kan du använda ServerAdmin-kontot som du skapade tidigare.
 
 > [!IMPORTANT]
 > Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Välj **av** på den här sidan och välj sedan **Spara** för att inaktivera brand väggen för alla Azure-tjänster.
@@ -116,7 +116,7 @@ Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Por
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
-2. Välj **Azure Synapse Analytics** på menyn till vänster och välj ditt informations lager på **Azure Synapse Analytics** -sidan.
+2. Välj **Azure Synapse Analytics** på menyn till vänster och välj sedan på **Azure Synapse Analytics** -sidan.
 
 3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet sqlpoolservername.database.windows.net.
 
@@ -174,21 +174,21 @@ SQL Data Warehouse använder T-SQL som frågespråk. Använd följande steg om d
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du debiteras för data lager enheter och data som lagras i data lagret. Dessa beräknings- och lagringsresurser debiteras separat.
+Du debiteras för data lager enheter och data som lagras i SQL-poolen. Dessa beräknings- och lagringsresurser debiteras separat.
 
-- Om du vill behålla data i lagringsutrymmet kan du pausa beräkningarna när du inte använder informationslagret. Genom att pausa beräkning debiteras du bara för data lagring. Du kan återuppta beräkningen när du är redo att arbeta med data.
+- Om du vill behålla data i lagrings utrymmet kan du pausa beräkningen när du inte använder SQL-poolen. Genom att pausa beräkning debiteras du bara för data lagring. Du kan återuppta beräkningen när du är redo att arbeta med data.
 
-- Om du vill undvika framtida avgifter kan du ta bort informationslagret.
+- Om du vill ta bort framtida avgifter kan du ta bort SQL-poolen.
 
 Följ dessa steg för att rensa resurser som du inte längre behöver.
 
-1. Logga in på [Azure Portal](https://portal.azure.com)och välj på informations lagret.
+1. Logga in på [Azure Portal](https://portal.azure.com)och välj din SQL-pool.
 
    ![Rensa resurser](media/create-data-warehouse-portal/clean-up-resources.png)
 
-2. Om du vill pausa beräkningen väljer du knappen **pausa** . När data lagret har pausats visas en knappen **Fortsätt** . Om du vill återuppta beräkningen väljer du **återuppta**.
+2. Om du vill pausa beräkningen väljer du knappen **pausa** . När SQL-poolen har pausats visas en knappen **Fortsätt** . Om du vill återuppta beräkningen väljer du **återuppta**.
 
-3. Om du vill ta bort data lagret så att du inte debiteras för beräkning eller lagring väljer du **ta bort**.
+3. Om du vill ta bort SQL-poolen så att du inte debiteras för beräkning eller lagring väljer du **ta bort**.
 
 4. Om du vill ta bort den SQL-Server som du har skapat väljer du **sqlpoolservername.Database.Windows.net** i föregående bild och väljer sedan **ta bort**. Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
 
@@ -196,7 +196,4 @@ Följ dessa steg för att rensa resurser som du inte längre behöver.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du skapat ett informations lager, skapat en brand Väggs regel, anslutit till ditt data lager och kört några frågor. Om du vill veta mer om Azure SQL Data Warehouse kan fortsätta med självstudiekursen om att läsa in data.
-
-> [!div class="nextstepaction"]
-> [Läs in data i en SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+Om du vill veta mer om att läsa in data i SQL-poolen fortsätter du till artikeln [Läs in data i SQL-poolen](load-data-from-azure-blob-storage-using-polybase.md) . 

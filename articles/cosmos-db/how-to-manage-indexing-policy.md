@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: 171542c89b900eb8bf282156c79303a1deb5a5f7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 58a1ee13afa76b152723cb71d4037f9c31cc8d4e
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364521"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129011"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Hantera indexerings principer i Azure Cosmos DB
 
@@ -19,7 +19,7 @@ I Azure Cosmos DB indexeras data efter [indexerings principer](index-policy.md) 
 
 ## <a name="indexing-policy-examples"></a>Indexerings princip exempel
 
-Här följer några exempel på indexerings principer som visas i deras JSON-format, vilket är hur de exponeras på Azure Portal. Samma parametrar kan ställas in via Azure CLI eller SDK.
+Här följer några exempel på indexerings principer som visas i [deras JSON-format](index-policy.md#include-exclude-paths), vilket är hur de exponeras på Azure Portal. Samma parametrar kan ställas in via Azure CLI eller SDK.
 
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Opt-out-princip för att selektivt utesluta vissa egenskaps Sök vägar
 
@@ -153,7 +153,7 @@ Den här indexerings principen motsvarar den som anges nedan och som manuellt st
     ],
     "excludedPaths": [
         {
-            "path": "/\"_etag\"/?"
+            "path": "/_etag/?"
         }
     ],
     "spatialIndexes": [

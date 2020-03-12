@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 02/27/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 388f1cf0231d0a7eae7b059656186b067f537d2e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 025ea1e23b3587d333ecfcda27f80fcedad66ed5
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355290"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096176"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -182,8 +182,6 @@ Om du vill distribuera modellen som en tjänst behöver du följande komponenter
     >   Ett alternativ som kan fungera för ditt scenario är [batch-förutsägelse](how-to-use-parallel-run-step.md), vilket ger åtkomst till data lager under poängsättningen.
 
 * **Konfiguration av härledning**. Konfiguration av härlednings miljö anger miljö konfigurationen, start skriptet och andra komponenter som behövs för att köra modellen som en tjänst.
-
-När du har de nödvändiga komponenterna kan du profilera tjänsten som skapas på grund av distributionen av din modell för att förstå processor-och minnes kraven.
 
 ### <a id="script"></a>1. definiera ditt post skript och beroenden
 
@@ -522,82 +520,6 @@ I det här exemplet anger konfigurationen följande inställningar:
 
 Information om hur du använder en anpassad Docker-avbildning med en konfigurations konfiguration finns i [distribuera en modell med hjälp av en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md).
 
-### <a id="profilemodel"></a>3. profilera din modell för att fastställa resursutnyttjande
-
-När du har registrerat din modell och för berett de andra komponenterna som krävs för distributionen kan du fastställa den processor och det minne som den distribuerade tjänsten kommer att behöva. Profilering testar tjänsten som kör din modell och returnerar information som processor användning, minnes användning och svars fördröjning. Den innehåller också en rekommendation för CPU och minne baserat på resursanvändningen.
-
-För att du ska kunna profilera din modell behöver du:
-* En registrerad modell.
-* En konfigurations konfiguration som baseras på definitionen av ditt Start skript och en härlednings miljö.
-* En tabell data uppsättning med en kolumn, där varje rad innehåller en sträng som representerar exempel begär ande data.
-
-> [!IMPORTANT]
-> Nu stöder vi bara profilering av tjänster som förväntar sig att deras begär ande data ska vara en sträng, till exempel: sträng serialiserad JSON, text, sträng serialiserad bild osv. Innehållet för varje rad i data uppsättningen (sträng) placeras i bröd texten i HTTP-begäran och skickas till tjänsten som kapslar in modellen för poängsättning.
-
-Nedan visas ett exempel på hur du kan skapa en indata-datauppsättning för att profilera en tjänst som förväntar sig att dess inkommande begär ande data ska innehålla serialiserad JSON. I det här fallet skapade vi en data uppsättning baserade 100 instanser av samma data innehåll för begäran. I verkliga scenarier rekommenderar vi att du använder större data uppsättningar som innehåller olika indata, särskilt om din resursanvändning/beteende för modellen är indata beroende.
-
-```python
-import json
-from azureml.core import Datastore
-from azureml.core.dataset import Dataset
-from azureml.data import dataset_type_definitions
-
-input_json = {'data': [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-                       [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
-# create a string that can be utf-8 encoded and
-# put in the body of the request
-serialized_input_json = json.dumps(input_json)
-dataset_content = []
-for i in range(100):
-    dataset_content.append(serialized_input_json)
-dataset_content = '\n'.join(dataset_content)
-file_name = 'sample_request_data.txt'
-f = open(file_name, 'w')
-f.write(dataset_content)
-f.close()
-
-# upload the txt file created above to the Datastore and create a dataset from it
-data_store = Datastore.get_default(ws)
-data_store.upload_files(['./' + file_name], target_path='sample_request_data')
-datastore_path = [(data_store, 'sample_request_data' +'/' + file_name)]
-sample_request_data = Dataset.Tabular.from_delimited_files(
-    datastore_path, separator='\n',
-    infer_column_types=True,
-    header=dataset_type_definitions.PromoteHeadersBehavior.NO_HEADERS)
-sample_request_data = sample_request_data.register(workspace=ws,
-                                                   name='sample_request_data',
-                                                   create_new_version=True)
-```
-
-När du har data uppsättningen som innehåller exempel på begär ande data, skapar du en konfigurations konfiguration. Konfigurationen av konfigurationen baseras på score.py och miljö definitionen. Följande exempel visar hur du skapar en konfiguration för konfiguration och körning av en konfigurations profil:
-
-```python
-from azureml.core.model import InferenceConfig, Model
-from azureml.core.dataset import Dataset
-
-
-model = Model(ws, id=model_id)
-inference_config = InferenceConfig(entry_script='path-to-score.py',
-                                   environment=myenv)
-input_dataset = Dataset.get_by_name(workspace=ws, name='sample_request_data')
-profile = Model.profile(ws,
-            'unique_name',
-            [model],
-            inference_config,
-            input_dataset=input_dataset)
-
-profile.wait_for_completion(True)
-
-# see the result
-details = profile.get_details()
-```
-
-Följande kommando visar hur du profilerar en modell med hjälp av CLI:
-
-```azurecli-interactive
-az ml model profile -g <resource-group-name> -w <workspace-name> --inference-config-file <path-to-inf-config.json> -m <model-id> --idi <input-dataset-id> -n <unique-name>
-```
-
 ## <a name="deploy-to-target"></a>Distribuera till mål
 
 Distributionen använder distributions konfigurationen för konfigurations konfiguration för att distribuera modellerna. Distributions processen är liknande oavsett beräknings målet. Distribution till AKS är något annorlunda eftersom du måste ange en referens till AKS-klustret.
@@ -670,7 +592,7 @@ I följande tabell beskrivs de olika tjänst tillstånden:
 | Webservice-tillstånd | Beskrivning | Slutligt tillstånd?
 | ----- | ----- | ----- |
 | Övergår | Tjänsten håller på att distribueras. | Nej |
-| Skadad | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | Nej |
+| Ohälsosamt | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | Nej |
 | Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | Nej |
 | Misslyckades | Det gick inte att distribuera tjänsten på grund av ett fel eller en krasch. | Ja |
 | Felfri | Tjänsten är felfri och slut punkten är tillgänglig. | Ja |

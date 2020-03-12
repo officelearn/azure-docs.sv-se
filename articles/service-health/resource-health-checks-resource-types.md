@@ -3,12 +3,12 @@ title: Resurs typer som stöds genom Azure Resource Health | Microsoft Docs
 description: Resurs typer som stöds via Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: ec194287e8a8e06d3bb14c4b202cc2f11063d1dd
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 3ba7b308c0c7671df8a652194830cb910cb89acc
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78925749"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129380"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resurs typer och hälso kontroller i Azure Resource Health
 Nedan visas en fullständig lista över alla kontroller som utförs via resurs hälsa efter resurs typer.
@@ -188,6 +188,11 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 |Utförda kontroller|
 |---|
 |<ul><li>Har kunder som har genererat en användare genererat Service Bus fel?</li><li>Beror det på att det finns en ökning av de tillfälliga felen på grund av ett Service Bus namn områdes uppgradering?</li></ul>|
+
+## <a name="microsoftservicefabricclusters"></a>Microsoft.ServiceFabric/clusters
+|Utförda kontroller|
+|---|
+|<ul><li>Är Service Fabric klustret igång?</li><li>Kan Service Fabric klustret hanteras via Azure Resource Manager?</li></ul>|
 
 ## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft. SQL/managedInstances/-databaser
 |Utförda kontroller|

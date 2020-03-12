@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: ee8dec821e8cbb4657323c167a463b94b7935ab1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 0a2ace3f73379cff0b9289a8cebb10cb7930348d
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397334"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129534"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API 
 
@@ -145,6 +145,8 @@ Azure Cosmos DB stöder följande databaskommandon på alla Cassandra API-konton
 
 * SKAPA ett disk utrymme (replikeringsinställningarna för det här kommandot ignoreras)
 * CREATE TABLE 
+* Skapa INDEX (utan att ange index namn och fullständiga låsta index stöds inte ännu)
+* TILLÅT FILTRERING
 * ALTER TABLE 
 * USE 
 * INSERT 

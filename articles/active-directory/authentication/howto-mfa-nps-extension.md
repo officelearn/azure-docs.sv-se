@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43f355f22774477466d2965cef02adcc4ec4f497
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: b3cd858653d54ae622758d218bb887d94bceb697
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378111"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086374"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -250,9 +250,9 @@ Du kan välja att skapa den här nyckeln och ange den som falsk när dina använ
 
 ### <a name="nps-extension-health-check-script"></a>Skript för hälso kontroll av NPS-tillägg
 
-Följande skript är tillgängligt i TechNet-galleriet för att utföra grundläggande hälso kontrolls steg när du felsöker NPS-tillägget.
+Följande skript är tillgängligt för att utföra grundläggande hälso kontrolls steg när du felsöker NPS-tillägget.
 
-[MFA_NPS_Troubleshooter. ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+[MFA_NPS_Troubleshooter. ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ---
 
@@ -334,6 +334,8 @@ Vi rekommenderar att äldre och svagare chiffersviter inaktive ras eller tas bor
 Ytterligare fel söknings vägledning och möjliga lösningar finns i artikeln [åtgärda fel meddelanden från NPS-tillägget för Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
 ## <a name="next-steps"></a>Nästa steg
+
+- [Översikt och konfiguration av nätverks princip server i Windows Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
 
 - Konfigurera alternativa ID: n för inloggning eller konfigurera en undantags lista för IP-adresser som inte utför tvåstegsverifiering i [avancerade konfigurations alternativ för NPS-tillägget för Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md)
 

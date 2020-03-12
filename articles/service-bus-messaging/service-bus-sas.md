@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
 ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
-ms.translationtype: MT
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121751"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117162"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus åtkomst kontroll med signaturer för delad åtkomst
 
@@ -269,7 +269,7 @@ Följande tabell visar de åtkomst behörigheter som krävs för olika åtgärde
 | Räkna upp privata principer |Hantera |Alla namn områdes adresser |
 | Börja lyssna på ett namn område |Lyssna |Alla namn områdes adresser |
 | Skicka meddelanden till en lyssnare i ett namn område |Skicka |Alla namn områdes adresser |
-| **Kö** | | |
+| **Köjobb** | | |
 | Skapa en kö |Hantera |Alla namn områdes adresser |
 | Ta bort en kö |Hantera |En giltig Queue-adress |
 | Räkna upp köer |Hantera |/$Resources/Queues |
@@ -300,14 +300,14 @@ Följande tabell visar de åtkomst behörigheter som krävs för olika åtgärde
 | Obeställbara meddelanden kön ett meddelande |Lyssna |../myTopic/subscriptions/mySubscription |
 | Hämta det tillstånd som är associerat med en ämnes session |Lyssna |../myTopic/subscriptions/mySubscription |
 | Ange det tillstånd som är associerat med en ämnes session |Lyssna |../myTopic/subscriptions/mySubscription |
-| **Regler** | | |
+| **Uttryck** | | |
 | Skapa en regel |Hantera |../myTopic/subscriptions/mySubscription |
 | Ta bort en regel |Hantera |../myTopic/subscriptions/mySubscription |
 | Räkna upp regler |Hantera eller lyssna |../myTopic/subscriptions/mySubscription/rules
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande ämnen kan du lära dig mer om Service Bus-meddelanden.
+I följande avsnitt kan du lära dig mer om Service Bus-meddelanden.
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
 * [Använd Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)

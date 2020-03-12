@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 12/03/2019
-ms.openlocfilehash: 750d08f3667317e9e1e396cff50884101d7ff55d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 3/11/2020
+ms.openlocfilehash: 5c36dbfbe63314ef97edfa3dfbaae34667db002d
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359820"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129442"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database utan Server
 
@@ -148,6 +148,10 @@ Om en server lös databas har pausats kommer den första inloggningen att återu
 ### <a name="latency"></a>Svarstid
 
 Svars tiden för autoresume och autopausning av en server lös databas är i regel 1 minut för att autoaktivera och 1-10 minuter att pausa.
+
+### <a name="customer-managed-transparent-data-encryption-byok"></a>Kund hanterad transparent data kryptering (BYOK)
+
+Om du använder [kundhanterad transparent data kryptering](transparent-data-encryption-byok-azure-sql.md) (BYOK) och den server lösa databasen automatiskt pausas när nyckel borttagningen eller återkallning sker, så förblir databasen i läget för automatisk paus.  I det här fallet fortsätter databasen när den återupptas nästa gång, tills dess status över gångar är inte tillgänglig efter cirka 10 minuter eller mindre.  När databasen blir otillgänglig är återställnings processen densamma som för etablerade beräknings databaser.  Om databasen utan server är online när nyckel borttagningen eller återkallning sker, blir databasen också otillgänglig efter cirka 10 minuter eller mindre på samma sätt som med etablerade beräknings databaser.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Onboarding in in på Server lös beräknings nivå
 

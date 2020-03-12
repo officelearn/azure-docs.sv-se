@@ -10,12 +10,12 @@ ms.date: 02/25/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6b36694c2fe1bf264c876944b054d39371db616c
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 7ae5f59a1bd96362d5466b2f6363185ba168d942
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78674275"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130073"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -61,7 +61,7 @@ Följande tabell visar vilka typer av lagrings konton som stöder ZRS i vilka re
 
 |    Storage Account-typ    |    Regioner som stöds    |    Tjänster som stöds    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-|    Allmänt-syfte v2<sup>1</sup>    | Sydostasien<br /> Nordeuropa<br />  Västeuropa<br /> Frankrike, centrala<br /> Japan, östra<br /> Storbritannien, södra<br /> USA, centrala<br /> USA, Östra<br /> USA, östra 2<br /> USA, västra 2    |    Blockblobar<br /> Page blobbar<sup>2</sup><br /> Fil resurser (standard)<br /> Tabeller<br /> Köer<br /> |
+|    Allmänt-syfte v2<sup>1</sup>    | Sydostasien<br /> Australien, östra<br /> Nordeuropa<br />  Västeuropa<br /> Frankrike, centrala<br /> Japan, östra<br /> Sydafrika, norra<br /> Storbritannien, södra<br /> USA, centrala<br /> USA, Östra<br /> USA, östra 2<br /> USA, västra 2    |    Blockblobar<br /> Page blobbar<sup>2</sup><br /> Fil resurser (standard)<br /> Tabeller<br /> Köer<br /> |
 |    BlockBlobStorage<sup>1</sup>    | Västeuropa<br /> USA, Östra    |    Blockera endast blobbar    |
 |    FileStorage    | Västeuropa<br /> USA, Östra    |    Endast Azure Files    |
 
@@ -109,10 +109,12 @@ GZRS och RA-GZRS är för närvarande tillgängliga för förhands granskning i 
 - Sydostasien
 - Nordeuropa
 - Västeuropa
+- Japan, östra
 - Storbritannien, södra
 - USA, Östra
 - USA, östra 2
 - USA, centrala
+- USA, västra 2
 
 Microsoft fortsätter att aktivera GZRS och RA-GZRS i ytterligare Azure-regioner. På sidan [uppdateringar för Azure-tjänsten](https://azure.microsoft.com/updates/) regelbundet hittar du information om regioner som stöds.
 

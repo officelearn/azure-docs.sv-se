@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 02/28/2020
-ms.openlocfilehash: 4912b07c60ecc8a2db65d3b8ffb339cf83909396
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/12/2020
+ms.openlocfilehash: 418be090e7ff78ec0089c115c9884ffeffdda871
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359054"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126879"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurations information för Azure Logic Apps
 
@@ -288,14 +288,17 @@ Om du har flera tusen körningar kan det ta relativt lång tid att avbryta dem.
 
 <a name="configuration"></a>
 
-## <a name="firewall-configuration-ip-addresses"></a>Brand Väggs konfiguration: IP-adresser
+## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Brand Väggs konfiguration: IP-adresser och service märken
 
-De IP-adresser som Azure Logic Apps använder för inkommande och utgående samtal beror på den region där din Logic app finns. *Alla* Logic-appar som finns i samma region använder samma IP-adressintervall.
+De IP-adresser som Azure Logic Apps använder för inkommande och utgående samtal beror på den region där din Logic app finns. *Alla* Logic Apps i samma region använder samma IP-adressintervall. Vissa [automatiserade](https://docs.microsoft.com/power-automate/getting-started) kommunikationer, till exempel **http-** och **http + openapi** -begäranden, går direkt genom Azure Logic Apps tjänsten och kommer från de IP-adresser som visas här. Mer information om IP-adresser som används av Power automatisering finns i [gränser och konfiguration i energi spar läge](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
 
-> [!NOTE]
-> Vissa automatiserade kommunikationer, till exempel **http-** och **http + openapi** -begäranden, går direkt genom Azure Logic Apps tjänsten och kommer från de IP-adresser som visas här. Mer information om IP-adresser som används av Power automatisering finns i [gränser och konfiguration i energi spar läge](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
+> [!TIP]
+> För att minska komplexiteten när du skapar säkerhets regler kan du välja att använda [tjänst Taggar](../virtual-network/service-tags-overview.md)istället för att ange Logic Apps IP-adresser för varje region, som beskrivs senare i det här avsnittet. Dessa taggar fungerar i de regioner där Logic Appss tjänsten är tillgänglig:
+>
+> * **LogicAppsManagement**: representerar de inkommande IP-adressprefix för Logic Appss tjänsten.
+> * **LogicApps**: representerar de utgående IP-adressprefix för Logic Appss tjänsten.
 
-* För att stödja anrop som dina Logi Kap par direkt gör med [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)och andra HTTP-förfrågningar, ställer du in brand väggen med *alla* [inkommande](#inbound) *och* [utgående](#outbound) IP-adresser som används av den Logic Apps tjänsten, baserat på de regioner där dina Logi Kap par finns. De här adresserna visas under de **inkommande** och **utgående** rubrikerna i det här avsnittet och sorteras efter region.
+* För att stödja anrop som dina Logi Kap par direkt gör med [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)och andra HTTP-förfrågningar, ställer du in brand väggen med alla [inkommande](#inbound) *och* [utgående](#outbound) IP-adresser som används av den Logic Apps tjänsten, baserat på de regioner där dina Logi Kap par finns. De här adresserna visas under de **inkommande** och **utgående** rubrikerna i det här avsnittet och sorteras efter region.
 
 * För att stödja anrop som [Microsoft-hanterade anslutningar](../connectors/apis-list.md) gör ställer du in brand väggen med alla [utgående](#outbound) IP-adresser som används av de här anslutningarna, baserat på de regioner där dina Logic Apps finns. De här adresserna visas under den **utgående** rubriken i det här avsnittet och sorteras efter region.
 
@@ -307,15 +310,18 @@ De IP-adresser som Azure Logic Apps använder för inkommande och utgående samt
 
 * För anpassade anslutningar, [Azure Government](../azure-government/documentation-government-overview.md)och [Azure Kina 21Vianet](https://docs.microsoft.com/azure/china/)är fasta eller reserverade IP-adresser inte tillgängliga.
 
-> [!IMPORTANT]
-> Om du har brand Väggs konfigurationer som du ställer in före den 1 september 2018 kontrollerar du att de stämmer överens med de aktuella IP-adresserna i listorna för de regioner där dina Logic Apps finns.
-
 <a name="inbound"></a>
 
-### <a name="inbound-ip-addresses---logic-apps-service-only"></a>Inkommande IP-adresser-endast Logic Apps tjänst
+### <a name="inbound-ip-addresses"></a>Inkommande IP-adresser
 
-| Region | IP-adress |
-|--------|----|
+I det här avsnittet visas endast inkommande IP-adresser för den Azure Logic Apps tjänsten. För att minska komplexiteten när du skapar säkerhets regler kan du också använda [service tag](../virtual-network/service-tags-overview.md)- **LogicAppsManagement**i stället för att ange inkommande Logic Apps IP-adressprefix för varje region. Den här taggen fungerar i de regioner där Logic Appss tjänsten är tillgänglig. Om du har Azure Government, se [Azure Government-inkommande IP-adresser](#azure-government-inbound).
+
+<a name="multi-tenant-inbound"></a>
+
+#### <a name="multi-tenant-azure---inbound-ip-addresses"></a>Azure-inkommande IP-adresser för flera innehavare
+
+| Region för flera innehavare | IP-adress |
+|---------------------|----|
 | Australien, östra | 13.75.153.66, 104.210.89.222, 104.210.89.244, 52.187.231.161 |
 | Australien, sydöstra | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28 |
 | Brasilien, södra | 191.235.86.199, 191.235.95.229, 191.235.94.220, 191.234.166.198 |
@@ -348,21 +354,39 @@ De IP-adresser som Azure Logic Apps använder för inkommande och utgående samt
 | USA, västra 2 | 13.66.224.169, 52.183.30.10, 52.183.39.67, 13.66.128.68 |
 |||
 
+<a name="azure-government-inbound"></a>
+
+#### <a name="azure-government---inbound-ip-addresses"></a>Azure Government-inkommande IP-adresser
+
+| Azure Government Region | IP-adress |
+|-------------------------|----|
+| US Gov, Arizona | 52.244.67.164, 52.244.67.64, 52.244.66.82 |
+| US Gov, Texas | 52.238.119.104, 52.238.112.96, 52.238.119.145 |
+| US Gov, Virginia | 52.227.159.157, 52.227.152.90, 23.97.4.36 |
+| USA DoD, centrala | 52.182.49.204, 52.182.52.106 |
+|||
+
 <a name="outbound"></a>
 
-### <a name="outbound-ip-addresses---logic-apps-service--managed-connectors"></a>Utgående IP-adresser – Logic Apps tjänst & hanterade anslutningar
+### <a name="outbound-ip-addresses"></a>Utgående IP-adresser
+
+I det här avsnittet visas de utgående IP-adresserna för Azure Logic Apps tjänsten och hanterade anslutningar. För att minska komplexiteten när du skapar säkerhets regler kan du också använda [service tag](../virtual-network/service-tags-overview.md)- **LogicApps**i stället för att ange utgående Logic Apps IP-adressprefix för varje region. Den här taggen fungerar i de regioner där Logic Appss tjänsten är tillgänglig. Använd IP-adresserna för hanterade anslutningar. Om du har Azure Government, se [Azure Government utgående IP-adresser](#azure-government-outbound).
+
+<a name="multi-tenant-outbound"></a>
+
+#### <a name="multi-tenant-azure---outbound-ip-addresses"></a>Azure-utgående IP-adresser för flera innehavare
 
 | Region | Logic Apps IP | IP för hanterade anslutningar |
 |--------|---------------|-----------------------|
 | Australien, östra | 13.75.149.4, 104.210.91.55, 104.210.90.241, 52.187.227.245, 52.187.226.96, 52.187.231.184, 52.187.229.130, 52.187.226.139 | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213, 52.237.214.72 |
 | Australien, sydöstra | 13.73.114.207, 13.77.3.139, 13.70.159.205, 52.189.222.77, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75 | 13.70.136.174, 13.77.50.240 - 13.77.50.255, 40.127.80.34, 52.255.48.202 |
 | Brasilien, södra | 191.235.82.221, 191.235.91.7, 191.234.182.26, 191.237.255.116, 191.234.161.168, 191.234.162.178, 191.234.161.28, 191.234.162.131 | 104.41.59.51, 191.232.38.129, 191.233.203.192 - 191.233.203.207, 191.232.191.157 |
-| Kanada, centrala | 52.233.29.92, 52.228.39.241, 52.228.39.244, 40.85.250.135, 40.85.250.212, 13.71.186.1, 40.85.252.47, 13.71.184.150 | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.228.33.76, 52.228.34.13, 52.228.42.205, 52.233.26.83, 52.233.31.197, 52.237.24.126, 52.237.32.212 |
-| Kanada, östra | 52.232.128.155, 52.229.120.45, 52.229.126.25, 40.86.203.228, 40.86.228.93, 40.86.216.241, 40.86.226.149, 40.86.217.241 | 40.69.106.240 - 40.69.106.255, 52.229.120.52, 52.229.120.131, 52.229.120.178, 52.229.123.98, 52.229.126.202, 52.242.35.152, 52.242.30.112 |
+| Kanada, centrala | 52.233.29.92, 52.228.39.241, 52.228.39.244, 40.85.250.135, 40.85.250.212, 13.71.186.1, 40.85.252.47, 13.71.184.150 | 13.71.170.208 - 13.71.170.223, 52.228.33.76, 52.228.34.13, 52.228.42.205, 52.233.31.197, 52.237.24.126, 52.237.32.212 |
+| Kanada, östra | 52.232.128.155, 52.229.120.45, 52.229.126.25, 40.86.203.228, 40.86.228.93, 40.86.216.241, 40.86.226.149, 40.86.217.241 | 40.69.106.240 - 40.69.106.255, 52.229.120.52, 52.229.120.178, 52.229.123.98, 52.229.126.202, 52.242.35.152, 52.242.30.112 |
 | Indien, centrala | 52.172.154.168, 52.172.186.159, 52.172.185.79, 104.211.101.108, 104.211.102.62, 104.211.90.169, 104.211.90.162, 104.211.74.145 | 52.172.211.12, 104.211.81.192 - 104.211.81.207, 104.211.98.164, 52.172.212.129 |
 | USA, centrala | 13.67.236.125, 104.208.25.27, 40.122.170.198, 40.113.218.230, 23.100.86.139, 23.100.87.24, 23.100.87.56, 23.100.82.16 | 13.89.171.80 - 13.89.171.95, 40.122.49.51, 52.173.245.164, 52.173.241.27 |
 | Asien, östra | 13.75.94.173, 40.83.127.19, 52.175.33.254, 40.83.73.39, 65.52.175.34, 40.83.77.208, 40.83.100.69, 40.83.75.165 | 13.75.36.64 - 13.75.36.79, 23.99.116.181, 52.175.23.169, 13.75.110.131 |
-| USA, östra | 13.92.98.111, 40.121.91.41, 40.114.82.191, 23.101.139.153, 23.100.29.190, 23.101.136.201, 104.45.153.81, 23.101.132.208 | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52, 40.114.40.132, 40.71.249.139 |
+| USA, östra | 13.92.98.111, 40.121.91.41, 40.114.82.191, 23.101.139.153, 23.100.29.190, 23.101.136.201, 104.45.153.81, 23.101.132.208 | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 40.114.40.132, 40.71.249.139 |
 | USA, östra 2 | 40.84.30.147, 104.208.155.200, 104.208.158.174, 104.208.140.40, 40.70.131.151, 40.70.29.214, 40.70.26.154, 40.70.27.236 | 40.70.146.208 - 40.70.146.223, 52.232.188.154, 104.208.233.100, 104.209.247.23, 52.225.129.144 |
 | Frankrike, centrala | 52.143.164.80, 52.143.164.15, 40.89.186.30, 20.188.39.105, 40.89.191.161, 40.89.188.169, 40.89.186.28, 40.89.190.104 | 40.79.130.208 - 40.79.130.223, 40.89.135.2, 40.89.186.239 |
 | Frankrike, södra | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 40.79.178.240 - 40.79.178.255, 52.136.133.184, 52.136.142.154 |
@@ -379,11 +403,23 @@ De IP-adresser som Azure Logic Apps använder för inkommande och utgående samt
 | Sydostasien | 13.76.133.155, 52.163.228.93, 52.163.230.166, 13.76.4.194, 13.67.110.109, 13.67.91.135, 13.76.5.96, 13.67.107.128 | 13.67.8.240 - 13.67.8.255, 13.76.231.68, 52.187.68.19, 52.187.115.69 |
 | Storbritannien, södra | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24 | 51.140.80.51, 51.140.148.0 - 51.140.148.15, 51.140.61.124, 51.140.74.150 |
 | Storbritannien, västra | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.124.13, 51.141.52.185 |
-| USA, västra centrala | 52.161.27.190, 52.161.18.218, 52.161.9.108, 13.78.151.161, 13.78.137.179, 13.78.148.140, 13.78.129.20, 13.78.141.75 | 13.71.195.32 - 13.71.195.47, 52.161.24.128, 52.161.26.212, 52.161.27.108, 52.161.29.35, 52.161.30.5, 52.161.102.22, 13.78.132.82, 52.161.101.204 |
+| USA, västra centrala | 52.161.27.190, 52.161.18.218, 52.161.9.108, 13.78.151.161, 13.78.137.179, 13.78.148.140, 13.78.129.20, 13.78.141.75 | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 13.78.132.82, 52.161.101.204 |
 | Europa, västra | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126 | 13.69.64.208 - 13.69.64.223, 40.115.50.13, 52.174.88.118, 40.91.208.65, 52.166.78.89 |
 | Indien, västra | 104.211.164.80, 104.211.162.205, 104.211.164.136, 104.211.158.127, 104.211.156.153, 104.211.158.123, 104.211.154.59, 104.211.154.7 | 104.211.146.224 - 104.211.146.239, 104.211.161.203, 104.211.189.218, 104.211.189.124 |
 | USA, västra | 52.160.92.112, 40.118.244.241, 40.118.241.243, 157.56.162.53, 157.56.167.147, 104.42.49.145, 40.83.164.80, 104.42.38.32 | 40.112.243.160 - 40.112.243.175, 104.40.51.248, 104.42.122.49, 40.112.195.87, 13.93.148.62 |
-| USA, västra 2 | 13.66.210.167, 52.183.30.169, 52.183.29.132, 13.66.210.167, 13.66.201.169, 13.77.149.159, 52.175.198.132, 13.66.246.219 | 13.66.140.128 - 13.66.140.143, 13.66.218.78, 13.66.219.14, 13.66.220.135, 13.66.221.19, 13.66.225.219, 52.183.78.157, 52.191.164.250 |
+| USA, västra 2 | 13.66.210.167, 52.183.30.169, 52.183.29.132, 13.66.210.167, 13.66.201.169, 13.77.149.159, 52.175.198.132, 13.66.246.219 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 52.191.164.250 |
+||||
+
+<a name="azure-government-outbound"></a>
+
+#### <a name="azure-government---outbound-ip-addresses"></a>Azure Government utgående IP-adresser
+
+| Region | Logic Apps IP | IP för hanterade anslutningar |
+|--------|---------------|-----------------------|
+| US Gov, Arizona | 52.244.67.143, 52.244.65.66, 52.244.65.190 | 52.127.2.160 - 52.127.2.175, 52.244.69.0, 52.244.64.91 |
+| US Gov, Texas | 52.238.114.217, 52.238.115.245, 52.238.117.119 | 52.127.34.160 - 52.127.34.175, 40.112.40.25, 52.238.161.225 |
+| US Gov, Virginia | 13.72.54.205, 52.227.138.30, 52.227.152.44 | 52.127.42.128 - 52.127.42.143, 52.227.143.61, 52.227.162.91 |
+| USA DoD, centrala | 52.182.48.215, 52.182.92.143 | 52.127.58.160 - 52.127.58.175, 52.182.54.8, 52.182.48.136 |
 ||||
 
 ## <a name="next-steps"></a>Nästa steg

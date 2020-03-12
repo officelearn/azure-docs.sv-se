@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2019
+ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: a6a1371553ccd9b810ba4649af448fb8847d0ed8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 1d8a42a4ec106418b481ac705d3ce1b33f58a312
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380719"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086521"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Säkerhets rekommendationer – en referens guide
 
@@ -25,7 +25,10 @@ Den här artikeln innehåller de rekommendationer som du kan se i Azure Security
 
 Information om hur du svarar på dessa rekommendationer finns i [åtgärda rekommendationer i Azure Security Center](security-center-remediate-recommendations.md).
 
-Dina säkra Poäng baseras på hur många Security Center rekommendationer som du har begränsat. För att prioritera rekommendationerna för att lösa det första, bör du tänka igenom allvarlighets graden för var och en.
+Dina säkra Poäng baseras på antalet Security Center rekommendationer som du har slutfört. För att bestämma vilka rekommendationer som ska lösas först kan du titta på allvarlighets graden för var och en av de potentiella effekterna på dina säkra poäng.
+
+>[!TIP]
+> Om beskrivningen i rekommendationen säger "ingen relaterad princip" är det vanligt vis på grund av att rekommendationen är beroende av en annan rekommendation och *dess* princip. Rekommendationen "slut punkts skydd bör därför inte åtgärdas...", förlitar sig på rekommendationen som kontrollerar om en Endpoint Protection-lösning är till och med *installerad* ("Endpoint Protection-lösning ska installeras..."). Den *underliggande rekommendationen har en* princip. Att begränsa principerna till enbart den grundläggande rekommendationen fören klar princip hanteringen.
 
 ## <a name="recs-network"></a>Nätverks rekommendationer
 
@@ -106,7 +109,7 @@ Dina säkra Poäng baseras på hur många Security Center rekommendationer som d
 |**Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning**|Virtuella datorer som distribueras en 3 part lösning för sårbarhetsbedömning som kontinuerligt utvärderas mot program- och OS-säkerhetsproblem. När sådana sårbarheter finns finns dessa mer information som en del av rekommendationen.<br>(Relaterad princip: sårbarheter bör åtgärdas av en lösning för sårbarhets bedömning)|Hög|N|Dator|
 |**Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas**|Åtgärda sårbarheter i Säkerhetskonfiguration på dina datorer för att skydda dem från attacker.<br>(Relaterad princip: sårbarheter i säkerhets konfigurationen på dina datorer bör åtgärdas)|Låg|N|Dator|
 |**Säkerhets risker i behållar säkerhetskonfigurationer bör åtgärdas**|Åtgärda sårbarheter i säkerhetskonfigurationen på datorer med Docker installerat för att skydda dem mot angrepp.<br>(Relaterad princip: sårbarheter i säkerhets konfigurationerna för behållaren bör åtgärdas)|Hög|N|Dator|
-|**Problem med slut punkts skydd bör lösas på dina datorer**|Lös övervakningsproblem agenten på dina datorer genom att följa anvisningarna i guiden för felsökning för fullständig Security Center-skydd.<br>(Ingen relaterad princip beroende på "Installera Endpoint Protection-lösning på dina datorer")|Medel|N|Dator|
+|**Problem med slut punkts skydd bör lösas på dina datorer**|Lös övervakningsproblem agenten på dina datorer genom att följa anvisningarna i guiden för felsökning för fullständig Security Center-skydd.<br>(Den här rekommendationen beror på rekommendationen "Installera Endpoint Protection-lösning på dina datorer" och dess princip)|Medel|N|Dator|
 ||||||
 
 

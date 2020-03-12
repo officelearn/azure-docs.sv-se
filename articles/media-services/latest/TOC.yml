@@ -206,11 +206,15 @@
   items:
     - name: Kom igång
       items:
+        - name: Skapa ett konto – portalen
+          href: create-account-portal.md
         - name: Skapa ett konto – CLI
           href: create-account-cli-how-to.md
           displayName: storage
         - name: Återställa kontoautentiseringsuppgifter – CLI
           href: cli-reset-account-credentials.md
+        - name: 'Åtkomst till API:er – portalen'
+          href: access-api-portal.md
         - name: 'Åtkomst till API:er – CLI'
           href: access-api-cli-how-to.md
         - name: Skala mediereserverade enheter – CLI

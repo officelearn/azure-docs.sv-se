@@ -10,6 +10,8 @@
   items:
     - name: Konfigurera Azure RHEL VM-tillgänglighetsgrupp med STONITH
       href: sql-server-linux-rhel-ha-stonith-tutorial.md
+    - name: Konfigurera tillgänglighetsgruppslyssnare för SQL Server på virtuella RHEL-datorer i Azure
+      href: sql-server-linux-rhel-ha-listener-tutorial.md
 - name: Referens
   items:
     - name: Azure CLI

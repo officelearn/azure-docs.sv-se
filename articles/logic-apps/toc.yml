@@ -105,8 +105,10 @@
           href: logic-apps-diagnosing-failures.md
     - name: Få åtkomst till Azure Virtual Networks
       items:
-        - name: Ansluta till virtuella nätverk med integreringstjänstmiljöer
+        - name: Skapa integreringstjänstmiljö – Azure Portal
           href: connect-virtual-network-vnet-isolated-environment.md
+        - name: Skapa integreringstjänstmiljö – REST-API
+          href: create-integration-service-environment-rest-api.md
         - name: Konfigurera åtkomst för flera integreringstjänstmiljöer
           href: connect-virtual-network-vnet-set-up-single-ip-address.md
         - name: Lägga till resurser i integreringstjänstmiljöer

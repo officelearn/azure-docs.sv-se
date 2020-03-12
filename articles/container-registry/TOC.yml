@@ -181,6 +181,8 @@
               href: container-registry-tasks-authentication-key-vault.md
         - name: Skapa en avbildning med Buildpacks (förhandsversion)
           href: container-registry-tasks-pack-build.md
+        - name: Visa aktivitetsloggar
+          href: container-registry-tasks-logs.md
 - name: Referens
   expanded: false
   items:

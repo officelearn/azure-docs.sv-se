@@ -9,6 +9,8 @@
       href: generate-soil-moisture-map-in-azure-farmbeats.md
     - name: Mata in historiska telemetridata
       href: ingest-historical-telemetry-data-in-azure-farmbeats.md
+    - name: Fråga inmatade telemetridata
+      href: query-telemetry-data-from-azure-farmbeats.md
 - name: Begrepp
   items:
     - name: Integreringsmönster

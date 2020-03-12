@@ -479,6 +479,8 @@
           href: control-flow-webhook-activity.md
     - name: Dataflödesomvandlingar
       items:
+        - name: Transformeringsöversikt
+          href: data-flow-transformation-overview.md
         - name: Aggregera
           href: data-flow-aggregate.md
         - name: Ändra rad

@@ -1,37 +1,41 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Team Data Science Process
+summary: Lär dig hur du använder Team Data Science Process – en flexibel, iterativ datavetenskapsmetod för prediktiva analyslösningar och intelligenta program.
 metadata:
   title: Dokumentation om Team Data Science Process
-  description: 'Lär dig hur du använder Team Data Science Process – en flexibel, iterativ datavetenskapsmetod för att leverera prediktiva analyslösningar och intelligenta program effektivt. TDSP hjälper till att förbättra samarbete mellan grupper och inlärning. Du får de bästa metodtipsen och strukturerna från Microsoft och andra i branschen, vilket underlättar implementeringen av datavetenskapsinitiativ. Målet är att hjälpa företag att dra nytta av sina analysprogram fullt ut.'
-  services: machine-learning
-  author: marktab
+  description: Lär dig hur du använder Team Data Science Process – en flexibel, iterativ datavetenskapsmetod för prediktiva analyslösningar och intelligenta program.
   ms.service: machine-learning
   ms.subservice: team-data-science-process
   ms.topic: landing-page
-  ms.date: 01/10/2020
+  author: marktab
   ms.author: marktab
-abstract:
-  description: 'Team Data Science Process är en flexibel, iterativ datavetenskapsmetod för att leverera prediktiva analyslösningar och intelligenta program effektivt. TDSP hjälper till att förbättra samarbete mellan grupper och inlärning. Du får de bästa metodtipsen och strukturerna från Microsoft och andra i branschen, vilket underlättar implementeringen av datavetenskapsinitiativ. Målet är att hjälpa företag att dra nytta av sina analysprogram fullt ut.'
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Läs mer om TDSP (Team Data Science Process):'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="overview">Översikt</a>
-          - html: <a href="lifecycle">Livscykel</a>
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du använder TDSP (Team Data Science Process) i olika scenarier:'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="walkthroughs-spark">Spark med PySpark och Scala</a>
-          - html: <a href="walkthroughs-hdinsight-hadoop">Hive med HDInsight Hadoop</a>
-          - html: <a href="walkthroughs-azure-data-lake">U-SQL med Azure Data Lake</a>
-          - html: '<a href="walkthroughs-sql-server">R, Python och T-SQL med SQLServer</a>'
-          - html: <a href="walkthroughs-sql-data-warehouse">T-SQL och Python med SQL DW</a>
+  ms.date: 03/10/2020
+  ms.openlocfilehash: 5090cbcf6c177b99f4932eb77647520c3602a832
+  ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 03/11/2020
+  ms.locfileid: "79087381"
+landingContent:
+- title: Läs mer om processen
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är TDSP (Team Data Science Process)?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Bearbeta livscykel
+      url: lifecycle.md
+    - text: Förståelse för verksamheten
+      url: lifecycle-business-understanding.md
+    - text: Datainsamling
+      url: lifecycle-data.md
+- title: Planera & utveckla ett projekt
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Projektplanering
+      url: team-data-science-process-project-templates.md
+    - text: Smidig utveckling
+      url: agile-development.md

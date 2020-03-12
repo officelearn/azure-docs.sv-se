@@ -7,13 +7,13 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
-ms.date: 01/27/2020
-ms.openlocfilehash: 0eaff1685cea88d352f1a22f382b7af2ed0ed6cb
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.date: 02/27/2020
+ms.openlocfilehash: 40c91f67231fb6a9d01191ee5215eae8d4dc045b
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252237"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096694"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Självstudie: Konfigurera tillgänglighets grupper för SQL Server på virtuella RHEL-datorer i Azure 
 
@@ -360,8 +360,8 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  3. Klicka på [ **Appregistreringar**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Klicka på **ny registrering**
  5. Ange ett **namn** som `<resourceGroupName>-app`, Välj **konton endast i den här organisations katalogen**
- 6. Välj program typ **webb**, ange en inloggnings-URL (till exempel http://localhost) och klicka på Lägg till. Inloggnings-URL: en används inte och kan vara vilken giltig URL
- 7. Välj **certifikat och hemligheter**och klicka sedan på **ny klient hemlighet**
+ 6. Välj program typ **webb**, ange en inloggnings-URL (till exempel http://localhost) och klicka på Lägg till. Inloggnings-URL: en används inte och kan vara en giltig URL. När du är färdig klickar du på **Registrera**
+ 7. Välj **certifikat och hemligheter** för din nya app-registrering och klicka sedan på **ny klient hemlighet**
  8. Ange en beskrivning för en ny nyckel (klient hemlighet), Välj **aldrig upphör att gälla** och klicka på **Lägg till**
  9. Skriv ned värdet för hemligheten. Den används som lösen ord för tjänstens huvud namn
 10. Välj **Översikt**. Anteckna programmets ID. Den används som användar namn (inloggnings-ID i stegen nedan) för tjänstens huvud namn
@@ -569,12 +569,14 @@ Vi stöder för närvarande inte AD-autentisering till AG-slutpunkten. Därför 
 ```sql
 CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
 GO
+
 BACKUP CERTIFICATE dbm_certificate
    TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
    WITH PRIVATE KEY (
            FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
            ENCRYPTION BY PASSWORD = '<Private_Key_Password>'
        );
+GO
 ```
 
 Avsluta SQL-sessionen genom att köra kommandot `exit` och återgå tillbaka till SSH-sessionen.
@@ -623,6 +625,7 @@ Avsluta SQL-sessionen genom att köra kommandot `exit` och återgå tillbaka til
         FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
         DECRYPTION BY PASSWORD = '<Private_Key_Password>'
                 );
+    GO
     ```
 
 ### <a name="create-the-database-mirroring-endpoints-on-all-replicas"></a>Skapa slut punkter för databas spegling på alla repliker
@@ -640,6 +643,7 @@ ENCRYPTION = REQUIRED ALGORITHM AES
 GO
 
 ALTER ENDPOINT [Hadr_endpoint] STATE = STARTED;
+GO
 ```
 
 ### <a name="create-the-availability-group"></a>Skapa tillgänglighets gruppen
@@ -677,6 +681,7 @@ CREATE AVAILABILITY GROUP [ag1]
 GO
 
 ALTER AVAILABILITY GROUP [ag1] GRANT CREATE ANY DATABASE;
+GO
 ```
 
 ### <a name="create-a-sql-server-login-for-pacemaker"></a>Skapa en SQL Server inloggning för pacemaker
@@ -688,9 +693,12 @@ Skapa en SQL-inloggning för pacemaker på alla SQL-servrar. Följande Transact-
 ```sql
 USE [master]
 GO
+
 CREATE LOGIN [pacemakerLogin] with PASSWORD= N'<password>';
 GO
+
 ALTER SERVER ROLE [sysadmin] ADD MEMBER [pacemakerLogin];
+GO
 ```
 
 På alla SQL-servrar sparar du de autentiseringsuppgifter som används för SQL Server inloggningen. 
@@ -733,6 +741,7 @@ På alla SQL-servrar sparar du de autentiseringsuppgifter som används för SQL 
     GO
 
     ALTER AVAILABILITY GROUP [ag1] GRANT CREATE ANY DATABASE;
+    GO
     ```
 
 1. Kör följande Transact-SQL-skript på den primära repliken och varje sekundär repliker:
@@ -742,6 +751,7 @@ På alla SQL-servrar sparar du de autentiseringsuppgifter som används för SQL 
     GO
     
     GRANT VIEW SERVER STATE TO pacemakerLogin;
+    GO
     ```
 
 1. När de sekundära replikerna har anslutits kan du se dem i SSMS Object Explorer genom att expandera noden **Always on** -noden med hög tillgänglighet:
@@ -766,6 +776,7 @@ BACKUP DATABASE [db1] -- backs up the database to disk
 GO
 
 ALTER AVAILABILITY GROUP [ag1] ADD DATABASE [db1]; -- adds the database db1 to the AG
+GO
 ```
 
 ### <a name="verify-that-the-database-is-created-on-the-secondary-servers"></a>Kontrol lera att databasen har skapats på de sekundära servrarna
@@ -805,7 +816,6 @@ Vi kommer att följa guiden för att [skapa tillgänglighets grupps resurserna i
     Master/Slave Set: ag_cluster-master [ag_cluster]
     Masters: [ <VM1> ]
     Slaves: [ <VM2> <VM3> ]
-    virtualip      (ocf::heartbeat:IPaddr2):       Started <VM1>
     ```
 
 ### <a name="create-a-virtual-ip-resource"></a>Skapa en virtuell IP-resurs
@@ -946,7 +956,6 @@ För att säkerställa att konfigurationen har lyckats kommer vi att testa en re
          Masters: [ <VM2> ]
          Slaves: [ <VM1> <VM3> ]
     virtualip      (ocf::heartbeat:IPaddr2):       Started <VM2>
-     
     ```
 
 ## <a name="test-fencing"></a>Test staket
@@ -975,7 +984,7 @@ Mer information om hur du testar en stängsel-enhet finns i följande [Red Hat](
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du måste först skapa och konfigurera en belastningsutjämnare för att kunna använda en lyssnare för tillgänglighets grupper för dina SQL-servrar som du skapade i Azure.
+Du måste skapa och konfigurera en belastningsutjämnare för att kunna använda en lyssnare för tillgänglighets grupper för dina SQL-servrar.
 
 > [!div class="nextstepaction"]
-> [Skapa och konfigurera belastningsutjämnaren i Azure Portal](../../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md#create-and-configure-the-load-balancer-in-the-azure-portal)
+> [Självstudie: Konfigurera tillgänglighets grupps lyssnare för SQL Server på virtuella RHEL-datorer i Azure](sql-server-linux-rhel-ha-listener-tutorial.md)

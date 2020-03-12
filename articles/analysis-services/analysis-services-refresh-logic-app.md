@@ -6,12 +6,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: a44aa5b355bea675f5d99761d97b8876a9b2a7d7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 78bc629598c0635b7760285d0507b7a85a4ab551
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572347"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127045"
 ---
 # <a name="refresh-with-logic-apps"></a>Uppdatera med Logic Apps
 
@@ -26,9 +26,9 @@ Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth
 ## <a name="design-the-logic-app"></a>Utforma Logic app
 
 > [!IMPORTANT]
-> I följande exempel förutsätter vi att Azure Analysis Services brand väggen är inaktive rad.  Om brand väggen är aktive rad måste den offentliga IP-adressen för den begär ande initieraren vara vit listas i Azure Analysis Services brand väggen. Om du vill veta mer om Logic app IP-intervall per region, se [gränser och konfigurations information för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses).
+> I följande exempel förutsätter vi att Azure Analysis Services brand väggen är inaktive rad. Om brand väggen är aktive rad måste den offentliga IP-adressen för den begär ande initieraren vara vit listas i Azure Analysis Services brand väggen. Mer information om Azure Logic Apps IP-adressintervall per region finns i [gränser och konfigurations information för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#configuration).
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 
 #### <a name="create-a-service-principal-spn"></a>Skapa ett huvud namn för tjänsten (SPN)
 
@@ -64,13 +64,13 @@ Konfigurera HTTP-aktiviteten enligt följande:
 
 |Egenskap  |Värde  |
 |---------|---------|
-|**Metod**     |EFTER         |
+|**Metod**     |POST         |
 |**URI**     | https://*Your Server region*/servers/*AAS Server Name*/Models/*ditt databas namn*/refreshes <br /> <br /> Till exempel: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes|
 |**Headers**     |   Innehålls typ, Application/JSON <br /> <br />  ![Rubriker](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Brödtext**     |   Mer information om hur du skapar begär ande texten finns i [asynkron uppdatering med REST API-post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**Autentisering**     |Active Directory OAuth         |
 |**Innehav**     |Fyll i din Azure Active Directory TenantId         |
-|**Filmen**     |https://*., Azure. Windows. net         |
+|**Filmen**     |https://*.asazure.windows.net         |
 |**Klient-ID**     |Ange tjänstens huvud namn ClientID         |
 |**Autentiseringstyp**     |Hemlighet         |
 |**Hemlighet**     |Ange hemligheten för tjänstens huvud namn         |

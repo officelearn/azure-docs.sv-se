@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 77f526470204204ef2a801575bb4e8d7e364ffed
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 6130c934f9a718baab840dae714222e4153bfcf6
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260164"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126355"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Ta bort TLS 1,0 och 1,1 från användning med Azure cache för Redis
 
@@ -19,7 +19,7 @@ Det finns en företagsomfattande push-överföring mot exklusiv användning av T
 
 Som en del av den här ansträngningen gör vi följande ändringar i Azure cache för Redis:
 
-* **Fas 1:** Vi konfigurerar den lägsta standard TLS-versionen till 1,2 för nyskapade cache-instanser.  Befintliga instanser av cachen uppdateras inte just nu.  Du får [ändra den lägsta TLS-versionen](cache-configure.md#access-ports) tillbaka till 1,0 eller 1,1 för bakåtkompatibilitet, om det behövs.  Den här ändringen kan göras via Azure Portal eller andra hanterings-API: er.
+* **Fas 1:** Vi konfigurerar den lägsta standard TLS-versionen till 1,2 för nyskapade cache-instanser. (Det här användes för att vara TLS 1,0.) Befintliga instanser av cachen uppdateras inte just nu. Du får [ändra den lägsta TLS-versionen](cache-configure.md#access-ports) tillbaka till 1,0 eller 1,1 för bakåtkompatibilitet, om det behövs. Den här ändringen kan göras via Azure Portal eller andra hanterings-API: er.
 * **Fas 2:** Vi slutar stödja TLS-versionerna 1,0 och 1,1. Efter den här ändringen måste ditt program använda TLS 1,2 eller senare för att kommunicera med din cache.
 
 Som en del av den här ändringen kommer vi dessutom att ta bort stöd för äldre, osäkra chiffer-paket.  Våra chiffer-paket som stöds är begränsade till följande när cachen är konfigurerad med en lägsta TLS-version på 1,2.
@@ -31,11 +31,11 @@ Den här artikeln innehåller allmänna råd om hur du identifierar beroenden f�
 
 Datumen när ändringarna börjar gälla:
 
-| I molnet               | Start datum för fas 1 | Start datum för fas 2 |
+| Molnet               | Start datum för fas 1 | Start datum för fas 2 |
 |---------------------|--------------------|--------------------|
 | Azure (global)      |  13 januari 2020  | 31 mars 2020     |
 | Azure Government    |  13 mars 2020    | 11 maj 2020       |
-| Azure Germany       |  13 mars 2020    | 11 maj 2020       |
+| Azure Tyskland       |  13 mars 2020    | 11 maj 2020       |
 | Azure Kina         |  13 mars 2020    | 11 maj 2020       |
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>Kontrol lera om programmet redan är kompatibelt
@@ -87,21 +87,27 @@ Node Redis och IORedis använder TLS 1,2 som standard.
 
 ### <a name="php"></a>PHP
 
-Predis på PHP 7 fungerar inte eftersom PHP 7 endast stöder TLS 1,0. På PHP-7.2.1 eller tidigare använder Predis TLS 1,0 eller 1,1 som standard. Du kan ange TLS 1,2 när du skapar klient instansen:
+#### <a name="predis"></a>Predis
+ 
+* Tidigare versioner än PHP 7: Predis stöder endast TLS 1,0. Dessa versioner fungerar inte med TLS 1,2; Du måste uppgradera för att kunna använda TLS 1,2.
+ 
+* PHP 7,0 till PHP-7.2.1: Predis använder endast TLS 1,0 eller 1,1 som standard. Du kan använda följande lösning för att använda TLS 1,2. Ange TLS 1,2 när du skapar klient instansen:
 
-``` PHP
-$redis=newPredis\Client([
-    'scheme'=>'tls',
-    'host'=>'host',
-    'port'=>6380,
-    'password'=>'password',
-    'ssl'=>[
-        'crypto_type'=>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT,
-    ],
-]);
-```
+  ``` PHP
+  $redis=newPredis\Client([
+      'scheme'=>'tls',
+      'host'=>'host',
+      'port'=>6380,
+      'password'=>'password',
+      'ssl'=>[
+          'crypto_type'=>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT,
+      ],
+  ]);
+  ```
 
-I PHP 7,3 eller senare använder Predis den senaste TLS-versionen.
+* PHP 7,3 och senare versioner: Predis använder den senaste TLS-versionen.
+
+#### <a name="phpredis"></a>PhpRedis
 
 PhpRedis stöder inte TLS i valfri PHP-version.
 

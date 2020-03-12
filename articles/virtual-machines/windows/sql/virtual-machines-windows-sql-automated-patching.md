@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b48ccede9ca3330d356fa75d4df34789e31eb916
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 292f3e8819f6f9f4b2989423814e02dfcfb4bfdb
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350750"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127677"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Automatisk uppdatering av SQL Server i Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
@@ -30,11 +30,11 @@ ms.locfileid: "75350750"
 Automatiserad uppdatering upprättar en underhålls period för en virtuell Azure-dator som kör SQL Server. Automatiska uppdateringar kan endast installeras under den här underhållsperioden. För SQL Server säkerställer den här begränsningen att systemuppdateringar och eventuella tillhörande omstarter sker på bästa möjliga tid för databasen. 
 
 > [!IMPORTANT]
-> Endast Windows-och SQL Server-uppdateringar som marker ATS som **viktiga** installeras. Andra SQL Server-uppdateringar, till exempel kumulativa uppdateringar, måste installeras manuellt. 
+> Endast Windows-och SQL Server-uppdateringar som marker ATS som **viktiga** eller **kritiska** är installerade. Andra SQL Server uppdateringar, till exempel Service Pack och ackumulerade uppdateringar som inte är markerade som **viktiga** eller **kritiska** , måste installeras manuellt. 
 
 Automatisk uppdatering är beroende av [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill använda automatisk uppdatering bör du tänka på följande:
 
 **Operativ system**:
@@ -72,7 +72,7 @@ I följande tabell beskrivs de alternativ som kan konfigureras för automatisk u
 | **Underhålls schema** |Varje dag, måndag, tisdag, onsdag, torsdag, fredag, lördag, söndag |Schemat för att ladda ned och installera Windows-, SQL Server-och Microsoft-uppdateringar för den virtuella datorn. |
 | **Start timme för underhåll** |0-24 |Den lokala Start tiden för att uppdatera den virtuella datorn. |
 | **Underhålls periodens varaktighet** |30-180 |Antalet minuter som tillåts att slutföra nedladdningen och installationen av uppdateringar. |
-| **Uppdaterings kategori** |Viktig | Den kategori av Windows-uppdateringar som ska laddas ned och installeras.|
+| **Uppdaterings kategori** |Viktigt | Den kategori av Windows-uppdateringar som ska laddas ned och installeras.|
 
 ## <a name="configuration-in-the-portal"></a>Konfiguration i portalen
 Du kan använda Azure Portal för att konfigurera automatisk uppdatering under etableringen eller för befintliga virtuella datorer.

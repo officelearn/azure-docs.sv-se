@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 04/26/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6cad3b3b01a98462e37a4b4b96ba02a1b61a5f62
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 30301832381bdc7b5f001eec2c449c571f9fd671
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025936"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086217"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuera program till Compute-noder med batch-programpaket
 
@@ -42,7 +42,7 @@ I Azure Batch refererar ett *program* till en uppsättning versioner av binärfi
 
 ![Diagram över program och programpaket på hög nivå][1]
 
-### <a name="applications"></a>Appar
+### <a name="applications"></a>Program
 Ett program i batch innehåller ett eller flera programpaket och anger konfigurations alternativ för programmet. Ett program kan till exempel ange standard versionen för programpaket som ska installeras på Compute-noder och om dess paket kan uppdateras eller tas bort.
 
 ### <a name="application-packages"></a>Programpaket
@@ -90,13 +90,11 @@ Batch-tjänsten använder det associerade lagrings kontot för att lagra dina pr
 
 Vi rekommenderar att du skapar ett lagrings konto som är *specifikt* för användning med ditt batch-konto och väljer det här. När du har skapat ett lagrings konto kan du sedan länka det till ditt batch-konto med hjälp av fönstret **lagrings konto** .
 
-> [!NOTE] 
-> För närvarande kan du inte använda programpaket med ett Azure Storage-konto som är konfigurerat med [brand Väggs regler](../storage/common/storage-network-security.md).
-> 
+> [!IMPORTANT] 
+> - För närvarande kan du inte använda programpaket med ett Azure Storage-konto som är konfigurerat med [brand Väggs regler](../storage/common/storage-network-security.md).
+> - Ett Azure Storage konto med **hierarkiskt namn område** inställt på **aktive rad** kan inte användas för programpaket.
 
 Batch-tjänsten använder Azure Storage för att lagra dina programpaket som block-blobbar. Du [debiteras som normal][storage_pricing] för block-BLOB-data och storleken på varje paket får inte överskrida den största blockets BLOB-storlek. Mer information finns i [Azure Storage skalbarhets-och prestanda mål för lagrings konton](../storage/blobs/scalability-targets.md). Se till att du tar hänsyn till storlek och antal för dina programpaket och ta regelbundet bort inaktuella paket för att minimera kostnaderna.
-> 
-> 
 
 ### <a name="view-current-applications"></a>Visa aktuella program
 Om du vill visa programmen i batch-kontot klickar du på meny alternativet **program** på den vänstra menyn när du visar ditt **Batch-konto**.
@@ -110,7 +108,7 @@ När du väljer det här meny alternativet öppnas fönstret **program** :
 I det här fönstret visas ID: t för varje program i ditt konto och följande egenskaper:
 
 * **Paket**: antalet versioner som är associerade med det här programmet.
-* **Standard version**: program versionen som installeras om du inte anger en version när du anger programmet för en pool. Den här inställningen är valfri.
+* **Standard version**: program versionen som installeras om du inte anger en version när du anger programmet för en pool. Denna inställning är ett tillval.
 * **Tillåt uppdateringar**: det värde som anger om paket uppdateringar, borttagningar och tillägg är tillåtna. Om detta är inställt på **Nej**, inaktive ras paket uppdateringar och borttagningar för programmet. Det går bara att lägga till nya programpaket versioner. Standardinställningen är **Ja**.
 
 Om du vill se fil strukturen för programpaketet på din Compute-nod går du till ditt batch-konto i portalen. Gå till **pooler**på ditt batch-konto. Välj den pool som innehåller de Compute-noder som du är intresse rad av.
@@ -260,7 +258,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-På Linux-noder är formatet något annorlunda. Punkter (.), bindestreck (-) och nummer tecken (#) förenklas till under streck i miljö variabeln. Observera också att fallet med program-ID: t bevaras. Ett exempel:
+På Linux-noder är formatet något annorlunda. Punkter (.), bindestreck (-) och nummer tecken (#) förenklas till under streck i miljö variabeln. Observera också att fallet med program-ID: t bevaras. Exempel:
 
 ```
 Linux:

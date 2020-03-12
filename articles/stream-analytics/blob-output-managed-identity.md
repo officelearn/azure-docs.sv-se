@@ -5,17 +5,17 @@ author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/12/2019
-ms.openlocfilehash: 1854a99cac3ead386f38c1c7fe27a56b672f365c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 03/11/2020
+ms.openlocfilehash: 13f48a9e0bc3ed8f8c4d5f1b7da4b6c03f54cdf8
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664304"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129968"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>Använd hanterad identitet för att autentisera ditt Azure Stream Analytics jobb till Azure Blob Storage utdata (för hands version)
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Använd hanterad identitet för att autentisera ditt Azure Stream Analytics jobb till Azure Blob Storage utdata
 
-[Hanterad identitets autentisering](../active-directory/managed-identities-azure-resources/overview.md) för utdata till Azure Blob Storage är tillgängligt för Azure Stream Analytics som en för hands version. Detta ger Stream Analytics-jobb direkt åtkomst till ett lagrings konto i stället för att använda en anslutnings sträng. Förutom förbättrad säkerhet kan du också använda den här funktionen för att skriva data till ett lagrings konto i en Virtual Network (VNET) i Azure.
+Med [hanterad identitets autentisering](../active-directory/managed-identities-azure-resources/overview.md) för utdata till Azure Blob storage får Stream Analytics-jobb direkt åtkomst till ett lagrings konto i stället för att använda en anslutnings sträng. Förutom förbättrad säkerhet kan du också använda den här funktionen för att skriva data till ett lagrings konto i en Virtual Network (VNET) i Azure.
 
 Den här artikeln visar hur du aktiverar hanterad identitet för BLOB-utdata för ett Stream Analytics jobb via Azure Portal och via en Azure Resource Manager-distribution.
 

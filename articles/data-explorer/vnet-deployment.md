@@ -1,5 +1,5 @@
 ---
-title: Distribuera Azure Datautforskaren till din Virtual Network (förhands granskning)
+title: Distribuera Azure Datautforskaren till din Virtual Network
 description: Lär dig hur du distribuerar Azure Datautforskaren till din Virtual Network
 author: basaba
 ms.author: basaba
@@ -7,14 +7,14 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: e845b44c51b7611cd3f23f8b33e6576aced2d6ca
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 5a2731e26ba4f371177cf2ae649f0695f27e6304
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851447"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096764"
 ---
-# <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Distribuera Azure Datautforskaren till din Virtual Network (förhands granskning)
+# <a name="deploy-azure-data-explorer-into-your-virtual-network"></a>Distribuera Azure Datautforskaren till din Virtual Network
 
 I den här artikeln förklaras de resurser som finns när du distribuerar ett Azure Datautforskaren-kluster till en anpassad Azure-Virtual Network. Den här informationen hjälper dig att distribuera ett kluster till ett undernät i din Virtual Network (VNet). Mer information om virtuella Azure-nätverk finns i [Vad är azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 
@@ -25,9 +25,6 @@ Azure Datautforskaren stöder distribution av ett kluster till ett undernät i V
 * Tillämpa regler för [nätverks säkerhets grupper](/azure/virtual-network/security-overview) (NSG) på Azure datautforskaren Cluster-trafiken.
 * Anslut ditt lokala nätverk till Azure Datautforskaren klustrets undernät.
 * Skydda dina data anslutnings källor ([händelsehubben](/azure/event-hubs/event-hubs-about) och [Event Grid](/azure/event-grid/overview)) med [tjänst slut punkter](/azure/virtual-network/virtual-network-service-endpoints-overview).
-
-> [!NOTE]
-> Virtual Network integrering och distribution är i förhands gransknings läge. Öppna ett [support ärende](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)om du vill aktivera den här funktionen.
 
 ## <a name="access-your-azure-data-explorer-cluster-in-your-vnet"></a>Få åtkomst till ditt Azure Datautforskaren-kluster i ditt VNet
 

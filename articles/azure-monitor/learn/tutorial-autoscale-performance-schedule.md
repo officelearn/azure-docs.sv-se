@@ -22,7 +22,7 @@ Med autoskalningsinställningar kan du lägga till/ta bort instanser av tjänste
 I den här självstudien kommer du att: 
 > [!div class="checklist"]
 > * Skapa en webbapp i och en App Service-plan
-> * konfigurera autoskalningsregler för ut- och inskalning baserat på antalet förfrågningar som en webbapp tar emot
+> * Konfigurera autoskalningsregler för inskalning och utskalning baserat på antalet förfrågningar som en webbapp tar emot
 > * utlösa en utskalningsåtgärd och se antalet förekomster öka
 > * utlösa en inskalningsåtgärd och se antalet förekomster minska
 > * Rensa dina resurser
@@ -174,7 +174,7 @@ Inskalningsvillkoret i inställningen löses ut om webbappen tar emot färre än
 I den här kursen har du:  
 > [!div class="checklist"]
 > * skapat en webbapp och en App Service-plan
-> * konfigurerat autoskalningsregler för ut- och inskalning baserat på antalet förfrågningar som en webbapp tar emot
+> * Konfigurerade autoskalningsregler för inskalning och utskalning baserat på antalet förfrågningar som en webbapp tar emot
 > * löst ut en utskalningsåtgärd och sett antalet förekomster öka
 > * löst ut en inskalningsåtgärd och sett antalet förekomster minska
 > * rensat dina resurser.

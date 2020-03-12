@@ -1,6 +1,6 @@
 ---
 title: 'Azure Portal: fråga med Frågeredigeraren'
-description: Lär dig hur du ansluter till SQL Database i Azure Portal med hjälp av SQL-frågeredigeraren. Kör sedan Transact-SQL-uttryck (T-SQL) för att skicka frågor och redigera data.
+description: Lär dig hur du ansluter till SQL Database i Azure Portal med hjälp av SQL-frågeredigeraren. Kör sedan Transact-SQL-uttryck (T-SQL) för att söka i och redigera data.
 keywords: connect to sql database,azure portal, portal, query editor
 services: sql-database
 ms.service: sql-database
@@ -12,18 +12,18 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 10/24/2019
-ms.openlocfilehash: 3990d7ec63c312d38168fe76269e1a920f1a6817
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b3ccc2a5343cf02127990dca80a1300959fa06a3
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827119"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087184"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Snabb start: Använd Azure Portal SQL-Frågeredigeraren för att ansluta och fråga efter data
 
 SQL-frågeredigeraren är ett webbläsarverktyg på Azure-portalen som ger ett enkelt sätt att köra SQL-frågor på Azure SQL Database eller Azure SQL Data Warehouse. I den här snabbstarten kommer du att använda frågeredigeraren för att ansluta till en SQL-databas och sedan köra Transact-SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -107,7 +107,7 @@ Genom att konfigurera en Azure Active Directory (Azure AD)-administratör kan du
 
 Kör följande [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-instruktion för att lägga till en ny produkt i tabellen `SalesLT.Product`.
 
-1. Ersätt den tidigare frågan med denna.
+1. Ersätt den föregående frågan med denna.
 
     ```sql
     INSERT INTO [SalesLT].[Product]
@@ -137,7 +137,7 @@ Kör följande [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transa
 
 Kör följande [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-instruktion för att ändra din nya produkt.
 
-1. Ersätt den tidigare frågan med denna.
+1. Ersätt den föregående frågan med denna.
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -167,6 +167,8 @@ Det finns några saker du behöver veta när du arbetar med frågeredigeraren.
 
 * Frågeredigeraren använder portarna 443 och 1443 för att kommunicera.  Kontrol lera att du har aktiverat utgående HTTPS-trafik på dessa portar. Du måste också lägga till din utgående IP-adress till serverns tillåtna brand Väggs regler för att få åtkomst till dina databaser och informations lager.
 
+* Frågeredigeraren fungerar med en privat länk utan att behöva lägga till klientens IP-adress i SQL Database brand väggen
+
 * Om du trycker på F5 uppdateras frågeredigerarens sida och frågan som bearbetas går förlorad.
 
 * Frågeredigeraren stöder inte anslutning till databasen `master`.
@@ -176,6 +178,8 @@ Det finns några saker du behöver veta när du arbetar med frågeredigeraren.
 * Frågeredigeraren stöder endast cylindriska projektioner för geografidatatyper.
 
 * Det finns inte stöd för IntelliSense för databastabeller och vyer. Men redigeraren har stöd för automatisk komplettering av namn som redan har skrivits.
+
+
 
 
 ## <a name="next-steps"></a>Nästa steg

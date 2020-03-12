@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 9f4831fd60038a2265990c0774106a5ea2f98a5a
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: f3edbc4fc48abd9c7df92aedcdea50dd77a0fd4b
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672101"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086277"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en automatisk formel för skalning av Compute-noder i en batch-pool
 
@@ -128,7 +128,7 @@ Du kan hämta värdet för de här tjänstedefinierade variablerna för att gör
 | $NetworkInBytes |Antalet inkommande byte. |
 | $NetworkOutBytes |Antalet utgående byte. |
 | $SampleNodeCount |Antalet Compute-noder. |
-| $ActiveTasks |Antalet uppgifter som är redo att utföra, men som ännu inte körs. Antalet $ActiveTasks omfattar alla aktiviteter som är i det aktiva läget och vars beroenden har uppfyllts. Aktiviteter som är i det aktiva läget men vars beroenden inte har uppfyllts utesluts från $ActiveTasks antalet.|
+| $ActiveTasks |Antalet uppgifter som är redo att utföra, men som ännu inte körs. Antalet $ActiveTasks omfattar alla aktiviteter som är i det aktiva läget och vars beroenden har uppfyllts. Aktiviteter som är i det aktiva läget men vars beroenden inte har uppfyllts utesluts från $ActiveTasks antalet. För en aktivitet med flera instanser kommer $ActiveTasks att inkludera antalet instanser som har angetts för aktiviteten.|
 | $RunningTasks |Antalet uppgifter i ett körnings tillstånd. |
 | $PendingTasks |Summan av $ActiveTasks och $RunningTasks. |
 | $SucceededTasks |Antalet uppgifter som har slutförts. |

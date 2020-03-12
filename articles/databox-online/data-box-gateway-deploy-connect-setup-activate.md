@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 33333f8df1e4809a330815e34074d1bca556cd14
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: c2a0dde496d6af66387210ca9b2ebf9cb4bdae7f
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561841"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087936"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Självstudie: ansluta, konfigurera, aktivera Azure Data Box Gateway
 
-## <a name="introduction"></a>Inledning
+## <a name="introduction"></a>Introduktion
 
 I den här självstudien beskrivs hur du ansluter till, konfigurerar och aktiverar din Data Box Gateway-enhet med hjälp av det lokala webb gränssnittet. 
 
@@ -92,6 +92,11 @@ På instrument panelen visas de olika inställningar som krävs för att konfigu
    2. Under **autentisering**väljer du **ingen** eller **NTLM**.
    3. Om du använder autentisering anger du ett **användar namn** och **lösen ord**.
    4. Om du vill validera och tillämpa de konfigurerade webbproxyinställningarna väljer du **tillämpa**.
+
+   > [!NOTE]
+   > PAC-filer (Proxy-Auto config) stöds inte. En PAC-fil definierar hur webbläsare och andra användar agenter automatiskt kan välja rätt proxyserver (åtkomst metod) för att hämta en viss URL.
+   > Proxyservrar som försöker avlyssna och läsa all trafik (och sedan signera om allting med sin egen certifiering) är inte kompatibelt eftersom proxyns certifikat inte är betrott.
+   > Vanligt vis fungerar transparenta proxyservrar bra med Azure Data Box Gateway.
 
 4. Valfritt I det vänstra fönstret väljer du **tids inställningar**och konfigurerar sedan tids zonen och de primära och sekundära NTP-servrarna för enheten. 
 

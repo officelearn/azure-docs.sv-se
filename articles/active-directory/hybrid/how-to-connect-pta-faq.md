@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 03/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cfa5e2117b2d6fce525e66b25ec44f696d7d450
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: dd923a47c49bfa7a6ab16e822a80c8e7f4f9a3e0
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484425"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096052"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory direktautentisering: vanliga frågor och svar
 
@@ -44,7 +44,7 @@ Nej. Direkt autentisering är bara tillgängligt i den globala instansen av Azur
 Ja. Alla funktioner för villkorlig åtkomst, inklusive Azure Multi-Factor Authentication, fungerar med direktautentisering.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Stöder direkt autentisering "alternativ-ID" som användar namn, i stället för "userPrincipalName"?
-I begränsad utsträckning stöder direktautentisering autentisering ett alternativt ID som användar namn när det konfigureras i Azure AD Connect. Som en förutsättning måste Azure AD Connect synkronisera attributet lokalt Active Directory `UserPrincipalName` till Azure AD. Detta gör att `UserPrincipalName` på den lokala AD-miljön och Azure AD blir identiska. Om du vill använda ett annat attribut för att synkronisera från lokal AD som UPN till Azure AD måste du antingen använda Password hash Sync eller AD FS. Mer information finns i [anpassad installation av Azure AD Connect](how-to-connect-install-custom.md). Alla Office 365-program stöder inte `Alternate ID`. Läs det specifika programmets dokumentations stöd.
+Inloggning med ett icke-UPN-värde, till exempel ett alternativt e-postmeddelande, testas för närvarande i privat för hands version för både direktautentisering (PTA) och PHS (Password hash Sync).
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Fungerar hash-synkronisering av lösen ord som reserv för direktautentisering?
 

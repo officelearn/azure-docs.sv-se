@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 2d1e6e484fd704669951bd37b17356fd3689cc91
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 8b63233aa2b20862e4654c89f1a6dd5d00c78940
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485190"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096097"
 ---
 # <a name="metrics-for-application-gateway"></a>Mått för Application Gateway
 
@@ -125,10 +125,6 @@ För Application Gateway är följande mått tillgängliga:
 
    Antal lyckade förfrågningar som Application Gateway har betjänat. Antalet begär Anden kan filtreras ytterligare för att visa antal per/specifika Server dels pool – http-inställnings kombination.
 
-- **Regler för matchad brand vägg för webbaserade program**
-
-- **Aktiverade regler för brand vägg för webbaserade program**
-
 ### <a name="backend-metrics"></a>Server dels mått
 
 För Application Gateway är följande mått tillgängliga:
@@ -180,9 +176,9 @@ För Application Gateway är följande mått tillgängliga:
 
   Antal lyckade förfrågningar som Application Gateway har betjänat. Antalet begär Anden kan filtreras ytterligare för att visa antal per/specifika Server dels pool – http-inställnings kombination.
 
-- **Regler för matchad brand vägg för webbaserade program**
-
-- **Aktiverade regler för brand vägg för webbaserade program**
+- **Antal blockerade förfrågningar för webb program brand vägg**
+- **Webb program brand vägg för blockerade begär Anden**
+- **Brand vägg för total regel distribution i webb program**
 
 ### <a name="backend-metrics"></a>Server dels mått
 

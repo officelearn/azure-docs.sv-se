@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8d67d1d318bf823145a57d2e55774695d151996
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f4f086b7c2f24cfe5d3fe74c25f6f5690b090800
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425304"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086388"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Lös fel meddelanden från NPS-tillägget för Azure Multi-Factor Authentication
 
@@ -98,7 +98,7 @@ Om dina användare har [problem med tvåstegsverifiering](../user-help/multi-fac
 
 ### <a name="health-check-script"></a>Skript för hälso kontroll
 
-[Skript för Azure MFA-tillägget för Azure MFA](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb) är tillgängligt i TechNet-galleriet för att utföra en grundläggande hälso kontroll vid fel sökning av NPS-tillägget. Kör skriptet och välj alternativ 3.
+[Azure MFA-skriptet för hälso kontroll i Azure MFA](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) utför en grundläggande hälso kontroll vid fel sökning av NPS-tillägget. Kör skriptet och välj alternativ 3.
 
 ### <a name="contact-microsoft-support"></a>Kontakta Microsoft-supporten
 

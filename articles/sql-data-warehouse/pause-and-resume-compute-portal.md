@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: pausa & återuppta beräkning-Azure Portal '
+title: Pausa och återuppta beräkning i Synapse SQL-poolen via Azure Portal
 description: Använd Azure Portal för att pausa beräkning för SQL-poolen för att spara kostnader. Återuppta beräkning när du är redo att använda data lagret.
 services: sql-data-warehouse
 author: kevinvngo
@@ -11,22 +11,20 @@ ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 49684e6844c2d9f58e9b750b12991428218e4426
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 3a131c1ebbf2a69f1c738cbc3421635406500d3c
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78200662"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130363"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-azure-synapse-analytics-sql-pool-in-the-azure-portal"></a>Snabb start: pausa och återuppta beräkning i Azure Synapse Analytics SQL-poolen i Azure Portal
+# <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-via-the-azure-portal"></a>Snabb start: pausa och återuppta beräkning i Synapse SQL-pool via Azure Portal
 
-Använd Azure Portal för att pausa beräkning för SQL-poolen för att spara kostnader. [Återuppta beräkning](sql-data-warehouse-manage-compute-overview.md) när du är redo att använda data lagret.
-
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Du kan använda Azure Portal för att pausa och återuppta beräknings resurserna för Synapse SQL-poolen (data lagret). Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -34,11 +32,13 @@ Använd [skapa och Anslut – portalen](create-data-warehouse-portal.md) för at
 
 ## <a name="pause-compute"></a>Pausa beräkning
 
-För att spara kostnader kan du pausa och återuppta beräknings resurser på begäran. Om du till exempel inte använder databasen under natten och på helger, kan du pausa den under dessa tider och återuppta den under dagen. Du debiteras inte för beräknings resurser när databasen har pausats. Men du kommer att fortsätta att debiteras för lagring. 
+För att minska kostnaderna kan du pausa och återuppta beräknings resurser på begäran. Om du till exempel inte använder databasen under natten och på helger, kan du pausa den under dessa tider och återuppta den under dagen. 
+>[!NOTE]
+>Du debiteras inte för beräknings resurser när databasen har pausats. Men du kommer att fortsätta att debiteras för lagring. 
 
-Följ dessa steg om du vill pausa en SQL-pool.
+Följ dessa steg om du vill pausa en SQL-pool:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på **Azure Synapse Analytics (tidigare SQL DW)** på den vänstra navigerings sidan i Azure Portal.
 2. Välj **mySampleDataWarehouse** på sidan **Azure Synapse Analytics (tidigare SQL DW)** för att öppna SQL-poolen. 
 3. Meddelande **status** är **online**på sidan **mySampleDataWarehouse** .
@@ -80,7 +80,7 @@ Följ de här stegen för att återuppta SQL-poolen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du debiteras för data lager enheter och de data som lagras i ditt informations lager. Dessa beräknings- och lagringsresurser debiteras separat. 
+Du debiteras för data lager enheter och de data som lagras i SQL-poolen. Dessa beräknings- och lagringsresurser debiteras separat. 
 
 - Om du vill behålla data i lagringen ska du pausa beräkningen.
 - Om du vill ta bort framtida avgifter kan du ta bort SQL-poolen. 
@@ -95,14 +95,15 @@ Följ dessa steg för att rensa resurser enligt dina önskemål.
 
 2. Om du vill ta bort SQL-poolen så att du inte debiteras för beräkning eller lagring klickar du på **ta bort**.
 
-3. Om du vill ta bort den SQL-Server som du har skapat klickar du på **sqlpoolservername.Database.Windows.net**och sedan på **ta bort**.  Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
+3. Om du vill ta bort den SQL-Server som du har skapat klickar du på **sqlpoolservername.Database.Windows.net**och sedan på **ta bort**.  
 
-4. Om du vill ta bort resursgruppen klickar du på **myResourceGroup** och sedan på **Ta bort resursgrupp**.
+   > [!CAUTION]
+   > Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
+
+5. Om du vill ta bort resursgruppen klickar du på **myResourceGroup** och sedan på **Ta bort resursgrupp**.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har nu pausat och återupptagit beräkningen för SQL-poolen. För nästa steg fortsätter du till självstudien för att läsa in data.
+Du har nu pausat och återupptagit beräkningen för SQL-poolen. Fortsätt till nästa artikel om du vill lära dig mer om hur du [läser in data i SQL-poolen](load-data-from-azure-blob-storage-using-polybase.md). Mer information om hur du hanterar Compute-funktioner finns i artikeln [hantera beräknings översikt](sql-data-warehouse-manage-compute-overview.md) . 
 
-> [!div class="nextstepaction"]
-> [Läs in data i SQL-pool](load-data-from-azure-blob-storage-using-polybase.md)

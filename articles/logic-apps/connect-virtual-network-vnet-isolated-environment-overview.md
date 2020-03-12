@@ -5,23 +5,26 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 03/05/2020
-ms.openlocfilehash: a0330ae8e69691f431756e6ea9a3027e1ac07b1c
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.date: 03/12/2020
+ms.openlocfilehash: 9d5e0c088fe773f16e1fc57f292ca812906aa09c
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303383"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127244"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)
 
-Ibland behöver dina Logic Apps-och integrations konton åtkomst till skyddade resurser, till exempel virtuella datorer och andra system eller tjänster, som finns i ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du vill konfigurera den här åtkomsten kan du [skapa en *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). En ISE är en isolerad instans av den Logic Apps tjänst som använder dedikerade resurser och körs separat från den "globala" Multi-Tenant Logic Apps-tjänsten.
+Ibland behöver dina Logi Kap par åtkomst till skyddade resurser, till exempel virtuella datorer (VM) och andra system eller tjänster som finns i ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du vill konfigurera den här åtkomsten kan du [skapa en *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). En ISE är en isolerad instans av den Logic Apps tjänst som använder dedikerade resurser och körs separat från den "globala" Multi-Tenant Logic Apps-tjänsten.
 
 Genom att köra Logi Kap par i en egen separat isolerad instans kan du minska den påverkan som andra Azure-klienter kan ha på dina appars prestanda, även kallade ["bruset](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)"-påverkan. En ISE tillhandahåller även följande fördelar:
 
 * Dina egna statiska IP-adresser, som är åtskilda från de statiska IP-adresser som delas av logi Kap par i tjänsten för flera innehavare. Du kan också konfigurera en enskild offentlig, statisk och förutsägbar utgående IP-adress för att kommunicera med mål systemen. På så sätt behöver du inte konfigurera ytterligare brand Väggs öppningar på dessa mål system för varje ISE.
 
 * Ökade gränser för körnings tid, lagrings kvarhållning, data flöde, timeout för HTTP-begäran och svar, meddelande storlekar och anpassade anslutnings begär Anden. Mer information finns i [gränser och konfiguration för Azure Logic Apps](logic-apps-limits-and-config.md).
+
+> [!NOTE]
+> Vissa virtuella Azure-nätverk använder privata slut punkter ([Azures privata länk](../private-link/private-link-overview.md)) för att ge åtkomst till Azure PaaS-tjänster, till exempel Azure Storage, Azure Cosmos DB eller Azure SQL Database, partner tjänster eller kund tjänster som finns i Azure. Om dina Logi Kap par behöver åtkomst till virtuella nätverk som använder privata slut punkter, måste du skapa, distribuera och köra dessa Logic Apps i en ISE.
 
 När du skapar en ISE *injicerar* Azure eller distribuerar detta ISE till ditt virtuella Azure-nätverk. Du kan sedan använda denna ISE som plats för de Logic Apps och integrations konton som behöver åtkomst.
 
@@ -42,7 +45,7 @@ Du kan fortfarande även använda kopplingar som inte har **Core** -eller **ISE*
 > [!IMPORTANT]
 > Logi Kap par, inbyggda utlösare, inbyggda åtgärder och anslutningar som körs i din ISE använder en pris sättnings plan som skiljer sig från den förbruknings pris planen. Mer information finns i [Logic Apps pris modell](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pris information finns i [Logic Apps prissättning](../logic-apps/logic-apps-pricing.md).
 
-I den här översikten beskrivs mer information om hur en ISE ger dina Logi Kap par och integrations konton direkt åtkomst till ditt virtuella Azure-nätverk och Jämför skillnaderna mellan en ISE och tjänsten för flera innehavare Logic Apps.
+I den här översikten beskrivs mer information om hur en ISE ger din Logi Kap par åtkomst till ditt virtuella Azure-nätverk och Jämför skillnaderna mellan en ISE och Logic Apps tjänsten för flera innehavare.
 
 <a name="difference"></a>
 
@@ -51,8 +54,6 @@ I den här översikten beskrivs mer information om hur en ISE ger dina Logi Kap 
 När du skapar och kör Logi Kap par i en ISE får du samma användar upplevelse och liknande funktioner som Logic Apps tjänsten för flera innehavare. Du kan använda alla inbyggda utlösare, åtgärder och hanterade anslutningar som är tillgängliga i Logic Apps tjänsten för flera innehavare. Vissa hanterade anslutningar erbjuder ytterligare ISE-versioner. Skillnaden mellan ISE-kopplingar och icke-ISE-anslutningar finns i där de körs och de etiketter som de har i Logic Apps designer när du arbetar i en ISE.
 
 ![Kopplingar med och utan etiketter i en ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-trigger-actions-integration-service-environment.png)
-
-
 
 * Inbyggda utlösare och åtgärder visar **Core** -etiketten. De körs alltid i samma ISE som din Logic app. Hanterade anslutningar som visar **ISE** -etiketten körs också i samma ISE som din Logic app.
 
@@ -129,8 +130,6 @@ Du kan använda integrations konton med Logic Apps i en integrerings tjänst mil
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Ansluta till virtuella Azure-nätverk från isolerade Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
-* [Lägga till artefakter i integrerings tjänst miljöer](../logic-apps/add-artifacts-integration-service-environment-ise.md)
-* [Hantera integrerings tjänst miljöer](../logic-apps/ise-manage-integration-service-environment.md)
+* [Ansluta till virtuella Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 * Läs mer om [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 * Lär dig mer om [Virtual Network-integrering för Azure-tjänster](../virtual-network/virtual-network-for-azure-services.md)

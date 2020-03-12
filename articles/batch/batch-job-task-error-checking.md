@@ -5,14 +5,14 @@ services: batch
 author: mscurrell
 ms.service: batch
 ms.topic: article
-ms.date: 12/01/2019
+ms.date: 03/10/2019
 ms.author: markscu
-ms.openlocfilehash: c4e36d76bf85b9715a817dbeb7c690aa77f8d978
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4ace0de6d252680eb64990277b9478adf752f54d
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852190"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087017"
 ---
 # <a name="job-and-task-error-checking"></a>Fel kontroll av jobb och aktivitet
 
@@ -56,7 +56,7 @@ Om en jobb publicerings uppgift har angetts för ett jobb körs en instans av jo
 - Alla instanser av jobb publicerings aktiviteten som körs kan hämtas från jobbet med hjälp av [aktivitets status för förberedelse och publicering](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus)av API-lista. Precis som med alla uppgifter finns det [körnings information](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) som är tillgänglig med egenskaper som `failureInfo`, `exitCode`och `result`.
 - Om en eller flera jobb lanserings aktiviteter Miss Miss kan jobbet fortfarande avslutas och flyttas till ett `completed` tillstånd.
 
-## <a name="tasks"></a>Uppgifter
+## <a name="tasks"></a>Aktiviteter
 
 Jobb aktiviteter kan inte utföras av flera orsaker:
 
@@ -72,6 +72,17 @@ I samtliga fall måste följande egenskaper kontrol leras för fel och informati
 Effekten av aktivitets haverier på jobbet och eventuella aktivitets beroenden måste beaktas.  Egenskapen [exitConditions](https://docs.microsoft.com/rest/api/batchservice/task/add#exitconditions) kan anges för en uppgift för att konfigurera en åtgärd för beroenden och för jobbet.
 - För-beroenden kontrollerar [DependencyAction](https://docs.microsoft.com/rest/api/batchservice/task/add#dependencyaction) om aktiviteterna som är beroende av den misslyckade aktiviteten är blockerade eller körs.
 - För jobbet styr [JobAction](https://docs.microsoft.com/rest/api/batchservice/task/add#jobaction) om den misslyckade aktiviteten leder till jobbet som inaktive ras, avslutas eller lämnas oförändrat.
+
+### <a name="task-command-line-failures"></a>Åtgärds kommando rads problem
+
+När aktivitetens kommando rad körs skrivs utdata till `stderr.txt` och `stdout.txt`. Dessutom kan programmet skriva till programspecifika loggfiler.
+
+Om noden pool där en aktivitet har körts fortfarande finns, kan loggfilerna hämtas och visas. Till exempel visar Azure Portal listor och kan visa loggfiler för en aktivitet eller en pool-nod. Flera API: er tillåter också att aktivitetsvyer visas och hämtas, till exempel [Hämta från uppgift](https://docs.microsoft.com/rest/api/batchservice/file/getfromtask).
+
+Eftersom pooler och pooler ofta är tillfälliga, och noderna läggs till och tas bort kontinuerligt, rekommenderar vi att loggfilerna är bestående. Med [Uppgiftsutdata](https://docs.microsoft.com/azure/batch/batch-task-output-files) kan du enkelt spara loggfiler till Azure Storage.
+
+### <a name="output-file-failures"></a>Utdatafel
+Vid varje fil uppladdning skriver batch två loggfiler till Compute-noden, `fileuploadout.txt` och `fileuploaderr.txt`. Du kan kontrol lera loggfilerna för att lära dig mer om ett speciellt haveri. I de fall där fil överföringen aldrig har gjorts, till exempel eftersom själva uppgiften inte kunde köras, finns inte dessa loggfiler.  
 
 ## <a name="next-steps"></a>Nästa steg
 

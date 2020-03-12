@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 9407ad09a9b30e11cbf1e3f3debb357df46e316d
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: c12a6efd608625b93b1a084de3ceb790a8773eee
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399453"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129806"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
@@ -22,9 +22,99 @@ I den här artikeln får du lära dig mer om Azure Machine Learning-versioner.  
 
 Se [listan över kända problem](resource-known-issues.md) för att lära dig om kända buggar och lösningar.
 
+## <a name="2020-03-11"></a>2020-03-11
+
+### <a name="azure-machine-learning-sdk-for-python-v115"></a>Azure Machine Learning SDK för python v-1.1.5
+
++ **Funktions utfasning**
+  + **Python 2,7**
+    + Senaste versionen som stöd för python 2,7
+
++ **Bryta ändringar**
+  + **Semantisk versions hantering 2.0.0**
+    + Från och med version 1,1 Azure ML python SDK antar 2.0.0 för semantisk versions hantering. [Läs mer här](https://semver.org/) Alla efterföljande versioner kommer att följa det nya numreringsschema och det semantiska versions kontraktet. 
+
++ **Fel korrigeringar och förbättringar**
+  + **Azure-CLI-ml**
+    + Ändra slut punktens CLI-kommando namn från "AZ ml Endpoint AKS" till "AZ ml Endpoint Real" för konsekvens.
+    + uppdatera CLI-Installationsinstruktioner för stabil och experimentell gren CLI
+    + En enskild instans profilering har åtgärd ATS för att skapa en rekommendation och gjorts tillgänglig i Core SDK.
+  + **azureml-automl-Core**
+    + Aktive rad i batch-lägets härledning (tar flera rader en gång) för automl ONNX-modeller
+    + Förbättrad identifiering av frekvenser för data uppsättningar, data som saknas eller innehåller oregelbundna data punkter
+    + Har lagt till möjligheten att ta bort data punkter som inte uppfyller den dominerande frekvensen.
+    + Har ändrat inmataren för att ta en lista med alternativ för att tillämpa Imputation-alternativen för motsvarande kolumner.
+    + Fel loggningen har förbättrats.
+  + **azureml-automl-runtime**
+    + Åtgärda problemet med det fel som har utlösts om kornig het som inte fanns i inlärnings uppsättningen visades i test uppsättningen
+    + Y_querys kravet har tagits bort under poängsättning i prognos tjänsten
+    + Har åtgärdat problemet med prognoser när data uppsättningen innehåller korta kärnor med långa tids luckor.
+    + Löst problemet när den automatiska Max horisonten är aktive rad och datum kolumnen innehåller datum i form av strängar. Rätt konvertering och fel meddelanden lades till för när det inte går att konvertera till datum
+    + Använda inbyggd NumPy och SciPy för serialisering och deserialisering av mellanliggande data för FileCacheStore (används för lokala AutoML-körningar)
+    + Ett fel har åtgärd ATS där underordnade körningar kunde fastna i körnings tillstånd.
+    + Ökad hastighet på funktionalisering.
+    + Fast frekvens kontrollen under poängsättningen kräver nu inte prognos uppgifterna strikt frekvens mellan tåg och test uppsättning.
+    + Har ändrat inmataren för att ta en lista med alternativ för att tillämpa Imputation-alternativen för motsvarande kolumner.
+    + Fasta fel relaterade till val av slacktid.
+    + Fast det oklassificerade fel som har Aktiver ATS i data uppsättningarna, med kärnor med den enskilda raden
+    + Löst problemet med frekvens identifieringens långsammahet.
+    + Åtgärdar en bugg i AutoML-undantags hanteringen som orsakade att det faktiska skälet till att träningen inte har bytts ut av en AttributeError.
+  + **azureml-cli-common**
+    + En enskild instans profilering har åtgärd ATS för att skapa en rekommendation och gjorts tillgänglig i Core SDK.
+  + **azureml-contrib-Mir**
+    + Lägger till funktioner i MirWebservice-klassen för att hämta åtkomsttoken
+    + Använd token auth för MirWebservice som standard under MirWebservice. Run () endast anrops uppdatering om anropet Miss lyckas
+    + Mir WebService-distributionen kräver nu korrekt SKU: er [Standard_DS2_v2, Standard_F16, Standard_A2_v2] i stället för [Ds2v2, A2v2 och F16].
+  + **azureml-contrib-pipeline – steg**
+    + Valfri parameter side_inputs lagts till i ParallelRunStep. Den här parametern kan användas för att montera en mapp på behållaren. Typer som stöds för närvarande är DataReference och PipelineData.
+    + Parametrar som skickas i ParallelRunConfig kan skrivas över genom att skicka pipeline-parametrar nu. Nya pipeline-parametrar som stöds aml_mini_batch_size, aml_error_threshold, aml_logging_level, aml_run_invocation_timeout (aml_node_count och aml_process_count_per_node ingår redan i den tidigare versionen).
+  + **azureml – kärna**
+    + Distribuerade AzureML-webbtjänster kommer nu att användas som standard för att `INFO` loggning. Detta kan styras genom att ange `AZUREML_LOG_LEVEL`-miljövariabeln i den distribuerade tjänsten.
+    + Python SDK använder identifierings tjänsten för att använda "API"-slut punkten i stället för "pipeliner".
+    + Växla till de nya vägarna i alla SDK-anrop
+    + Ändrar routning av anrop till ModelManagementService till en ny enhetlig struktur
+      + Uppdaterings metoden för arbets ytan har gjorts offentligt tillgänglig.
+      + Image_build_compute parameter har lagts till i uppdaterings metoden för arbets ytan så att användaren kan uppdatera beräkningarna för avbildnings versionen
+    +  Utfasnings meddelanden har lagts till i det gamla profilerings flödet. Fast profilering av processor-och minnes gränser
+    + Lade till RSection som en del av miljön för att köra R-jobb
+    +  Verifiering har lagts till `Dataset.mount` för att generera ett fel när data källans källa inte kan nås eller inte innehåller några data.
+    + Lade till `--grant-workspace-msi-access` som en ytterligare parameter för data lagrets CLI för registrering av Azure Blob-behållare som gör att du kan registrera BLOB-behållare som ligger bakom ett virtuellt nätverk
+    + En enskild instans profilering har åtgärd ATS för att skapa en rekommendation och gjorts tillgänglig i Core SDK.
+    + Korrigerade problemet i aks.py _deploy
+    + Validerar integriteten för modeller som överförs för att undvika tyst lagrings problem.
+    + Användaren kan nu ange ett värde för auth-nyckeln när nycklar för webtjänster återskapas.
+    + Åtgärdat fel där versaler inte kan användas som data uppsättnings namn
+  + **azureml – standardvärden**
+    + `azureml-dataprep` kommer nu att installeras som en del av `azureml-defaults`. Det krävs inte längre att installera nu [säkring] manuellt på beräknings mål för att montera data uppsättningar.
+  + **azureml – tolka**
+    + Uppdaterade azureml-tolkning till tolkning – community 0,6. *
+    + Uppdaterad azureml-tolkning till är beroende av 0.5.0 för tolka-community
+    + azureml-undantag har lagts till i azureml-tolka
+    + fast DeepScoringExplainer-serialisering för keras-modeller
+  + **azureml – mlflow**
+    + Lägg till stöd för suveräna moln till azureml. mlflow
+  + **azureml – pipeline – kärna**
+    + I pipeline för batch-Poäng för batch används nu ParallelRunStep
+    + Ett fel har åtgärd ATS där PythonScriptStep resultat kan återanvändas felaktigt trots att argument listan ändrades
+    + Har lagt till möjligheten att ange kolumner typ när du anropar parse_ * metoder på `PipelineOutputFileDataset`
+  + **azureml-pipeline – steg**
+    + Flyttade `AutoMLStep` till `azureml-pipeline-steps`-paketet. Föråldrade `AutoMLStep` inom `azureml-train-automl-runtime`.
+    + Exempel på dokumentation som lagts till för data uppsättning som PythonScriptStep-indata
+  + **azureml – tensorboard**
+    + uppdaterade azureml-tensorboard för att stödja tensorflow 2,0
+    + Visa rätt port nummer när du använder en anpassad Tensorboard-port på en beräknings instans
+  + **azureml-träna-automl-client**
+    + Ett problem har åtgärd ATS där vissa paket kan installeras vid felaktiga versioner av fjärrkörningar.
+    + fast FeaturizationConfig åsidosätter problem som filtrerar anpassad funktionalisering-konfiguration.
+  + **azureml-träna-automl-runtime**
+    + Åtgärdade problemet med frekvens identifiering i fjärrkörningar
+    + Flyttade `AutoMLStep` i `azureml-pipeline-steps`-paketet. Föråldrade `AutoMLStep` inom `azureml-train-automl-runtime`.
+  + **azureml-träna-Core**
+    + Stöd för PyTorch version 1,4 i PyTorch-uppskattningen
+  
 ## <a name="2020-03-02"></a>2020-03-02
 
-### <a name="azure-machine-learning-sdk-for-python-v112rc0"></a>Azure Machine Learning SDK för python v 1.1.2 RC0
+### <a name="azure-machine-learning-sdk-for-python-v112rc0-pre-release"></a>Azure Machine Learning SDK för python v 1.1.2 RC0 (för hands version)
 
 + **Fel korrigeringar och förbättringar**
   + **azureml-automl-Core**
@@ -62,7 +152,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
 
 ## <a name="2020-02-18"></a>2020-02-18
 
-### <a name="azure-machine-learning-sdk-for-python-v111rc0"></a>Azure Machine Learning SDK för python v 1.1.1 RC0
+### <a name="azure-machine-learning-sdk-for-python-v111rc0-pre-release"></a>Azure Machine Learning SDK för python v 1.1.1 RC0 (för hands version)
 
 + **Fel korrigeringar och förbättringar**
   + **Azure-CLI-ml**
@@ -101,7 +191,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
   
 ## <a name="2020-02-04"></a>2020-02-04
 
-### <a name="azure-machine-learning-sdk-for-python-v110rc0"></a>Azure Machine Learning SDK för python v 1.1.0 RC0
+### <a name="azure-machine-learning-sdk-for-python-v110rc0-pre-release"></a>Azure Machine Learning SDK för python v 1.1.0 RC0 (för hands version)
 
 + **Bryta ändringar**
   + **Semantisk versions hantering 2.0.0**

@@ -1,26 +1,19 @@
 ---
 title: 'Förutsägelse slut punkt ändringar i v3-API: et'
-titleSuffix: Azure Cognitive Services
 description: 'Slut punkten v3-API: er för fråga förutsägelse har ändrats. Använd den här guiden för att lära dig hur du migrerar till API: er för version 3-slutpunkt.'
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 03/11/2020
 ms.author: diberry
-ms.openlocfilehash: 8756d8e60e7612c1610e07b0567465e3a0ea8884
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9a8e8cb331dd11eebaddbcbf8f603c1148415aef
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531504"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117383"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Förutsägelse slut punkt ändringar för v3
 
-Slut punkten v3-API: er för fråga förutsägelse har ändrats. Använd den här guiden för att lära dig hur du migrerar till API: er för version 3-slutpunkt. 
+Slut punkten v3-API: er för fråga förutsägelse har ändrats. Använd den här guiden för att lära dig hur du migrerar till API: er för version 3-slutpunkt.
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
@@ -42,9 +35,9 @@ Förutsägelse slut punkts [förfrågan](#request-changes) och- [svaret](#respon
 
 ## <a name="v3-changes-from-preview-to-ga"></a>V3 ändras från för hands version till GA
 
-V3 gjorde följande ändringar som en del av över gången till GA: 
+V3 gjorde följande ändringar som en del av över gången till GA:
 
-* Följande fördefinierade entiteter har olika JSON-svar: 
+* Följande fördefinierade entiteter har olika JSON-svar:
     * [OrdinalV1](luis-reference-prebuilt-ordinal.md)
     * [GeographyV2](luis-reference-prebuilt-geographyv2.md)
     * [DatetimeV2](luis-reference-prebuilt-datetimev2.md)
@@ -59,23 +52,26 @@ V3 gjorde följande ändringar som en del av över gången till GA:
 
 ## <a name="suggested-adoption-strategy"></a>Föreslagen införande strategi
 
-Om du använder bot Framework, Stavningskontroll i Bing v7, eller om du vill migrera din LUIS app-redigering, fortsätter du att använda v2-slutpunkten. 
+Om du använder bot Framework, Stavningskontroll i Bing v7, eller om du vill migrera din LUIS app-redigering, fortsätter du att använda v2-slutpunkten.
 
-Om du vet att ingen av dina klient program eller-integrationer (bot Framework och Stavningskontroll i Bing v7) påverkas och du är van att migrera LUIS-appens redigering och din förutsägelse slut punkt på samma gång börjar du med att använda v3 förutsägelse slut punkten. Slut punkten för version v2-förutsägelse är fortfarande tillgänglig och är en lämplig strategi för att återställa. 
+Om du vet att ingen av dina klient program eller-integrationer (bot Framework och Stavningskontroll i Bing v7) påverkas och du är van att migrera LUIS-appens redigering och din förutsägelse slut punkt på samma gång börjar du med att använda v3 förutsägelse slut punkten. Slut punkten för version v2-förutsägelse är fortfarande tillgänglig och är en lämplig strategi för att återställa.
+
 
 ## <a name="not-supported"></a>Stöds inte
 
-* API för stavningskontroll i Bing stöds inte i v3 förutsägelse slut punkt – Fortsätt att använda v2 API förutsägelse slut punkt för stavnings korrigeringar
+### <a name="bing-spell-check"></a>Stavningskontroll i Bing
+
+Detta API stöds inte i v3 förutsägelse slut punkt – Fortsätt att använda v2 API förutsägelse slut punkt för stavnings korrigeringar. Om du behöver stavnings korrigering när du använder v3 API, måste klient programmet anropa [stavningskontroll i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview) API och ändra texten till rätt stavning, innan texten skickas till Luis-API: et.
 
 ## <a name="bot-framework-and-azure-bot-service-client-applications"></a>Bot Framework och Azure Bot Service klient program
 
-Fortsätt att använda v2 API förutsägelse-slutpunkten tills V 4.7 i bot Framework har släppts. 
+Fortsätt att använda v2 API förutsägelse-slutpunkten tills V 4.7 i bot Framework har släppts.
 
-## <a name="v2-api-deprecation"></a>V2 API-utfasning 
+## <a name="v2-api-deprecation"></a>V2 API-utfasning
 
-API: et förutsägelser är inte längre i minst 9 månader efter för hands versionen av v3, den 8 juni 2020. 
+API: et förutsägelser är inte längre i minst 9 månader efter för hands versionen av v3, den 8 juni 2020.
 
-## <a name="endpoint-url-changes"></a>Slut punkts-URL-ändringar 
+## <a name="endpoint-url-changes"></a>Slut punkts-URL-ändringar
 
 ### <a name="changes-by-slot-name-and-version-name"></a>Ändringar efter plats namn och versions namn
 
@@ -95,7 +91,7 @@ Om du vill fråga efter version måste du först [publicera via API](https://wes
 |`production`|
 |`staging`|
 
-## <a name="request-changes"></a>Begära ändringar 
+## <a name="request-changes"></a>Begära ändringar
 
 ### <a name="query-string-changes"></a>Ändra frågesträngar
 
@@ -103,7 +99,7 @@ V3-API: et har olika parametrar för frågesträng.
 
 |PARAM-namn|Typ|Version|Default|Syfte|
 |--|--|--|--|--|
-|`log`|boolean|V2 & V3|false|Lagra fråga i logg filen. Standardvärdet är false.| 
+|`log`|boolean|V2 & V3|false|Lagra fråga i logg filen. Standardvärdet är false.|
 |`query`|sträng|Endast v3|Ingen standard – det krävs i GET-begäran|**I v2**är uttryck som ska förutsägas i `q`-parametern. <br><br>**I v3**skickas funktionerna i `query`-parametern.|
 |`show-all-intents`|boolean|Endast v3|false|Returnera alla avsikter med motsvarande Poäng i objektet **förutsägelse. avsikter** . Avsikter returneras som objekt i ett överordnat `intents`-objekt. Detta ger program mässig åtkomst utan att behöva hitta avsikten i en matris: `prediction.intents.give`. I v2 returnerades dessa i en matris. |
 |`verbose`|boolean|V2 & V3|false|**I v2**returnerades alla förväntade avsikter när värdet är true. Om du behöver alla förutsägande syften använder du v3-param för `show-all-intents`.<br><br>**I v3**innehåller den här parametern endast information om entitetens metadata för entitet förutsägelse.  |
@@ -137,7 +133,7 @@ V3-API: et har olika parametrar för frågesträng.
 
 ## <a name="response-changes"></a>Svars ändringar
 
-JSON-svaret har ändrats för att ge bättre programmerings åtkomst till de data som används oftast. 
+JSON-svaret har ändrats för att ge bättre programmerings åtkomst till de data som används oftast.
 
 ### <a name="top-level-json-changes"></a>JSON-ändringar på högsta nivån
 
@@ -162,7 +158,7 @@ De största JSON-egenskaperna för v3 är:
     "query": "this is your utterance you want predicted",
     "prediction":{
         "topIntent": "intent-name-1",
-        "intents": {}, 
+        "intents": {},
         "entities":{}
     }
 }
@@ -180,13 +176,13 @@ const score = intents[topIntentName];
 * Ta bort skillnaden mellan den ursprungliga uttryck, `query`och returnerade förutsägelse `prediction`.
 * Enklare programmerings åtkomst till förväntade data. I stället för att räkna upp genom en matris i v2 kan du komma åt värden efter **namn** för både avsikter och entiteter. För förväntade enhets roller returneras roll namnet eftersom det är unikt i hela appen.
 * Data typer, om de fastställs, är uppfyllda. Numeriska värden returneras inte längre som strängar.
-* Skillnaden mellan den första prioriterade förutsägelse informationen och ytterligare metadata som returneras i `$instance`-objektet. 
+* Skillnaden mellan den första prioriterade förutsägelse informationen och ytterligare metadata som returneras i `$instance`-objektet.
 
 ### <a name="entity-response-changes"></a>Enhets svars ändringar
 
 #### <a name="marking-placement-of-entities-in-utterances"></a>Markera placering av entiteter i yttranden
 
-**I v2**har en entitet marker ATS i en uttryck med `startIndex` och `endIndex`. 
+**I v2**har en entitet marker ATS i en uttryck med `startIndex` och `endIndex`.
 
 **I v3**markeras entiteten med `startIndex` och `entityLength`.
 
@@ -196,13 +192,13 @@ Om du behöver entitetens metadata måste frågesträngen använda `verbose=true
 
 #### <a name="each-predicted-entity-is-represented-as-an-array"></a>Varje förväntad entitet representeras som en matris
 
-`prediction.entities.<entity-name>`-objektet innehåller en matris eftersom varje entitet kan förutsägas mer än en gång i uttryck. 
+`prediction.entities.<entity-name>`-objektet innehåller en matris eftersom varje entitet kan förutsägas mer än en gång i uttryck.
 
 <a name="prebuilt-entities-with-new-json"></a>
 
 #### <a name="prebuilt-entity-changes"></a>Förbyggda enhets ändringar
 
-Objektet v3-svar innehåller ändringar av fördefinierade entiteter. Granska [vissa förbyggda entiteter](luis-reference-prebuilt-entities.md) för mer information. 
+Objektet v3-svar innehåller ändringar av fördefinierade entiteter. Granska [vissa förbyggda entiteter](luis-reference-prebuilt-entities.md) för mer information.
 
 #### <a name="list-entity-prediction-changes"></a>Visa lista över enhets förutsägelse ändringar
 
@@ -216,7 +212,7 @@ JSON för en List enhets förutsägelse har ändrats till att vara en matris med
     ]
 }
 ```
-Varje inre matris motsvarar text inuti uttryck. Det inre objektet är en matris eftersom samma text kan visas i fler än en under lista i en List-entitet. 
+Varje inre matris motsvarar text inuti uttryck. Det inre objektet är en matris eftersom samma text kan visas i fler än en under lista i en List-entitet.
 
 När du mappar mellan `entities` objekt till `$instance`-objektet bevaras objekt ordningen för List entiteten förutsägelser.
 
@@ -226,7 +222,7 @@ const predictedCanonicalForm = entities.my_list_entity[item];
 const associatedMetadata = entities.$instance.my_list_entity[item];
 ```
 
-#### <a name="entity-role-name-instead-of-entity-name"></a>Enhets roll namn i stället för entitetsnamnet 
+#### <a name="entity-role-name-instead-of-entity-name"></a>Enhets roll namn i stället för entitetsnamnet
 
 I v2 returnerade `entities` mat ris alla förväntade entiteter med entitetsnamnet det unika ID: n. I v3, om entiteten använder roller och förutsägelsen för en Entity-roll, är den primära identifieraren roll namnet. Detta är möjligt eftersom entiteternas roll namn måste vara unika i hela appen, inklusive andra modell namn (avsikt, entitet).
 
@@ -289,11 +285,11 @@ I v3 är samma resultat med `verbose`-flaggan för att returnera metadata för e
 
 Externa entiteter ger din LUIS-app möjlighet att identifiera och märka enheter under körning, som kan användas som funktioner till befintliga entiteter. På så sätt kan du använda egna separata och anpassade enhets Extraherare innan du skickar frågor till din förutsägelse slut punkt. Eftersom detta görs på slut punkten för frågans förutsägelse behöver du inte träna och publicera din modell.
 
-Klient programmet tillhandahåller sin egen enhets-Extractor genom att hantera enhets matchning och fastställa platsen i uttryck för den matchade entiteten och sedan skicka den informationen med begäran. 
+Klient programmet tillhandahåller sin egen enhets-Extractor genom att hantera enhets matchning och fastställa platsen i uttryck för den matchade entiteten och sedan skicka den informationen med begäran.
 
 Externa entiteter är mekanismen för att utöka valfri entitetstyp medan de fortfarande används som signaler till andra modeller som roller, sammansatt och andra.
 
-Detta är användbart för en entitet som bara är tillgänglig vid körning av frågans förutsägelse. Exempel på den här typen av data ändrar ständigt data eller specifika per användare. Du kan utöka en LUIS kontakt-entitet med extern information från en användares kontakt lista. 
+Detta är användbart för en entitet som bara är tillgänglig vid körning av frågans förutsägelse. Exempel på den här typen av data ändrar ständigt data eller specifika per användare. Du kan utöka en LUIS kontakt-entitet med extern information från en användares kontakt lista.
 
 ### <a name="entity-already-exists-in-app"></a>Enheten finns redan i appen
 
@@ -321,7 +317,7 @@ Begäran från chatt-roboten till LUIS kan skicka information i INLÄGGs texten 
     ]
 ```
 
-I förutsägelse svaret ingår den externa entiteten, med alla andra förväntade entiteter, eftersom den definieras i begäran.  
+I förutsägelse svaret ingår den externa entiteten, med alla andra förväntade entiteter, eftersom den definieras i begäran.
 
 ### <a name="second-turn-in-conversation"></a>Andra aktivering i konversation
 
@@ -345,11 +341,11 @@ I föregående uttryck använder uttryck `him` som en referens till `Hazem`. Cha
     ]
 ```
 
-I förutsägelse svaret ingår den externa entiteten, med alla andra förväntade entiteter, eftersom den definieras i begäran.  
+I förutsägelse svaret ingår den externa entiteten, med alla andra förväntade entiteter, eftersom den definieras i begäran.
 
 ### <a name="override-existing-model-predictions"></a>Åsidosätt befintliga modell förutsägelser
 
-Egenskapen `preferExternalEntities` alternativ anger att om användaren skickar en extern entitet som överlappar med en förväntad entitet med samma namn, väljer LUIS den enhet som har skickats eller entiteten som finns i modellen. 
+Egenskapen `preferExternalEntities` alternativ anger att om användaren skickar en extern entitet som överlappar med en förväntad entitet med samma namn, väljer LUIS den enhet som har skickats eller entiteten som finns i modellen.
 
 Anta till exempel frågan `today I'm free`. LUIS identifierar `today` som en datetimeV2 med följande svar:
 
@@ -380,7 +376,7 @@ Om användaren skickar den externa entiteten:
 }
 ```
 
-Om `preferExternalEntities` är inställt på `false`, returnerar LUIS ett svar som om den externa entiteten inte skickades. 
+Om `preferExternalEntities` är inställt på `false`, returnerar LUIS ett svar som om den externa entiteten inte skickades.
 
 ```JSON
 "datetimeV2": [
@@ -408,24 +404,24 @@ Om `preferExternalEntities` är inställt på `true`, returnerar LUIS ett svar, 
 
 
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
-Den _valfria_ `resolution`-egenskapen returneras i förutsägelse svaret, så att du kan skicka de metadata som är associerade med den externa entiteten och sedan ta emot den igen i svaret. 
+Den _valfria_ `resolution`-egenskapen returneras i förutsägelse svaret, så att du kan skicka de metadata som är associerade med den externa entiteten och sedan ta emot den igen i svaret.
 
-Det primära syftet är att utöka fördefinierade entiteter, men den är inte begränsad till den typen av enhet. 
+Det primära syftet är att utöka fördefinierade entiteter, men den är inte begränsad till den typen av enhet.
 
 Egenskapen `resolution` kan vara ett tal, en sträng, ett objekt eller en matris:
 
 * "Dallas"
 * {"text": "värde"}
-* 12345 
+* 12345
 * ["a", "b", "c"]
 
 
 
 ## <a name="dynamic-lists-passed-in-at-prediction-time"></a>Dynamiska listor som har överförts vid förutsägelse tiden
 
-Med dynamiska listor kan du utöka en befintlig utbildad och publicerad List-entitet, redan i LUIS-appen. 
+Med dynamiska listor kan du utöka en befintlig utbildad och publicerad List-entitet, redan i LUIS-appen.
 
 Använd den här funktionen när du behöver ändra listan med enhets värden. Med den här funktionen kan du utöka en entitet som redan har tränats och publicerats:
 
@@ -463,12 +459,12 @@ Skicka i följande JSON-brödtext för att lägga till en ny under lista med syn
 }
 ```
 
-Förutsägelse-svaret innehåller List entitet, med alla andra förväntade entiteter, eftersom den definieras i begäran. 
+Förutsägelse-svaret innehåller List entitet, med alla andra förväntade entiteter, eftersom den definieras i begäran.
 
-## <a name="deprecation"></a>Utfasning 
+## <a name="deprecation"></a>Utfasning
 
-V2-API: t är inte inaktuellt i minst 9 månader efter för hands versionen av v3. 
+V2-API: t är inte inaktuellt i minst 9 månader efter för hands versionen av v3.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd v3 API-dokumentationen för att uppdatera befintliga REST-anrop till LUIS [slut punkts](https://aka.ms/luis-api-v3) -API: er. 
+Använd v3 API-dokumentationen för att uppdatera befintliga REST-anrop till LUIS [slut punkts](https://aka.ms/luis-api-v3) -API: er.

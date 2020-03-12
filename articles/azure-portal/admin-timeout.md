@@ -9,12 +9,12 @@ ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 950580048f0496fd8436901938a5b6768c61bab6
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: e27135d09da7060f2a948e37f6026fe66fbef5b3
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132083"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096605"
 ---
 # <a name="set-directory-level-inactivity-timeout"></a>Ange tids gräns för inaktivitet på katalog nivå
 
@@ -24,7 +24,7 @@ Inställningen tids gräns för inaktivitet hjälper till att skydda dina resurs
 
 Om du är global administratör och vill framtvinga en tids gräns för inaktivitet för alla användare av Azure Portal följer du dessa steg:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Inställningar** från det globala sidhuvudet.
 3. Välj länk texten **Konfigurera timeout för katalog nivå**.
 
@@ -43,7 +43,7 @@ Om du vill bekräfta att tids gränsen för inaktivitet har angetts korrekt väl
 Inställningen börjar gälla för nya sessioner. Den gäller inte omedelbart för användare som redan är inloggade.
 
 > [!NOTE]
-> Om en administratör har konfigurerat en timeout-inställning på katalog nivå kan användare åsidosätta principen och ange sina egna inaktiva inloggnings tider. Användaren måste dock välja ett tidsintervall som är mindre än det som anges på katalog nivå.
+> Om en global administratör har konfigurerat en timeout-inställning på katalog nivå kan användarna åsidosätta principen och ange sina egna inaktiva inloggnings tider. Användaren måste dock välja ett tidsintervall som är mindre än det som anges på katalog nivå av den globala administratören.
 >
 
 ## <a name="next-steps"></a>Nästa steg

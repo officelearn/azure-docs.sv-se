@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: ec6664e7c55057c29c5b741203b326ce460c6e91
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 635b12cc2ffc4d318eaaa74fffc17e4ce4d58c0b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701237"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129962"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Självstudie: Bygg en daemon för flera innehavare som använder slut punkten för Microsoft Identity Platform
 
@@ -39,7 +39,8 @@ Appen skapas som ett ASP.NET MVC-program. Den använder OWIN OpenID Connect-mell
 
 "Daemon"-komponenten i det här exemplet är en API-styrenhet `SyncController.cs`. När styrenheten anropas, hämtas en lista med användare i kundens Azure Active Directory-klient (Azure AD) från Microsoft Graph. `SyncController.cs` utlöses av ett AJAX-anrop i webb programmet. Det använder [Microsoft Authentication Library (MSAL) för .net](msal-overview.md) för att hämta en åtkomsttoken för Microsoft Graph.
 
-Ett enklare konsol program för konsol programmet finns i [snabb start för .net Core daemon](quickstart-v2-netcore-daemon.md).
+>[!NOTE]
+> Om du är nybörjare på Microsoft Identity Platform rekommenderar vi att du börjar med snabb starten för [.net Core daemon](quickstart-v2-netcore-daemon.md).
 
 ## <a name="scenario"></a>Scenario
 
@@ -49,7 +50,7 @@ Eftersom appen är en app för flera klienter för Microsoft Business-kunder må
 
 Mer information om de begrepp som används i det här exemplet finns i [protokoll dokumentationen för klientens autentiseringsuppgifter för identitets Plattformens slut punkt](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill köra exemplet i den här snabb starten behöver du:
 
@@ -154,7 +155,7 @@ Rengör lösningen, återskapa lösningen, kör UserSync-programmet och logga se
 
 När du loggar in ber appen först dig om behörighet att logga in och läsa din användar profil. Detta medgivande tillåter appen att se till att du är företags användare.
 
-![Användargodkännande](./media/tutorial-v2-aspnet-daemon-webapp/firstconsent.png)
+![Användar medgivande](./media/tutorial-v2-aspnet-daemon-webapp/firstconsent.png)
 
 Appen försöker sedan synkronisera en lista med användare från Azure AD-klienten via Microsoft Graph. Om den inte gör det uppmanas du (klient administratören) att ansluta din klient till appen.
 
@@ -216,7 +217,7 @@ Det här projektet har Web App-och Web API-projekt. För att distribuera dem til
 ### <a name="create-and-publish-dotnet-web-daemon-v2-to-an-azure-website"></a>Skapa och publicera dotNet-Web-daemon-v2 till en Azure-webbplats
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Välj **Skapa en resurs** i det övre vänstra hörnet.
+1. I det övre vänstra hörnet väljer du **skapa en resurs**.
 1. Välj **webb** **program**för webb > och ge din webbplats ett namn. Du kan till exempel ge den namnet **dotNet-Web-daemon-v2-contoso.azurewebsites.net**.
 1. Välj information för **prenumeration**, **resurs grupp**och **App Service-plan och plats**. **OS** är **Windows**och **publicera** är **kod**.
 1. Välj **skapa** och vänta tills App Service har skapats.
@@ -268,7 +269,7 @@ Mer information finns i följande konceptuella dokumentation:
 - [Förstå medgivande i Azure AD-program](application-consent-experience.md)
 - [Logga in Azure Active Directory användare med program mönstret flera innehavare](howto-convert-app-to-be-multi-tenant.md)
 - [Förstå användar-och administratörs medgivande](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
-- [Objekt för program och tjänstens huvudnamn i Azure Active Directory](app-objects-and-service-principals.md)
+- [Program-och tjänst huvud objekt i Azure Active Directory](app-objects-and-service-principals.md)
 - [Snabb start: registrera ett program med Microsoft Identity Platform](quickstart-register-app.md)
 - [Snabb start: Konfigurera ett klient program för åtkomst till webb-API: er](quickstart-configure-app-access-web-apis.md)
 - [Hämta en token för ett program med flöden för klient referenser](msal-client-applications.md)

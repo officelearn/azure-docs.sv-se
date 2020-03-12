@@ -6,16 +6,18 @@ author: yunjchoi
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 11b469425a80d588462e0332c973260cc3b56992
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 03bb7b786280dfcbb64190adac51b8d001d59c18
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596189"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126606"
 ---
-# <a name="azure-kubernetes-service-aks-diagnostics-overview"></a>Översikt över Azure Kubernetes service (AKS)-diagnostik
+# <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Översikt över Azure Kubernetes service Diagnostics (för hands version)
 
 Fel sökning av problem med Azure Kubernetes service (AKS) är en viktig del av att underhålla klustret, särskilt om klustret kör verksamhets kritiska arbets belastningar. AKS-diagnostik är en intelligent, själv diagnos upplevelse som hjälper dig att identifiera och lösa problem i klustret. AKS-diagnostik är molnbaserad och du kan använda den utan extra konfigurations-eller fakturerings kostnader.
+
+Den här funktionen är nu i offentlig för hands version.
 
 ## <a name="open-aks-diagnostics"></a>Öppna AKS-diagnostik
 

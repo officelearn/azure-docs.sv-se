@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 71a02e47db288890d1392f5423da0ef817ecd690
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6b1c671d2079c7d8ab59e9afe981ccef3f58ef27
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303128"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086886"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Data inmatning i Azure Machine Learning
 
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig om för-och nack delar med följande data 
 
 Data inmatning är den process i vilken ostrukturerade data extraheras från en eller flera källor och sedan förbereds för utbildning av maskin inlärnings modeller. Det är också tids krävande, särskilt om du gör det manuellt, och om du har stora mängder data från flera källor. Att automatisera den här ansträngningen frigör resurser och ser till att dina modeller använder de senaste och aktuella data.
 
-Vi rekommenderar att du börjar med att utvärdera med Azure Data Factory (ADF), eftersom det är specifikt utformat för att extrahera, läsa in och transformera data. Om du inte uppfyller dina krav med hjälp av ADF kan du använda python SDK för att utveckla en anpassad kod lösning, eller använda ADF och python SDK tillsammans för att skapa ett sammanfattande arbets flöde för data inmatning som uppfyller dina behov.
+Azure Data Factory (ADF) är särskilt utformat för att extrahera, läsa in och transformera data, men med python SDK kan du utveckla en anpassad kod för grundläggande uppgifter. Om inget är det du behöver kan du även använda ADF och python SDK för att skapa ett sammanfattande arbets flöde för data inmatning som uppfyller dina behov. 
 
 ## <a name="use-azure-data-factory"></a>Använda Azure Data Factory
 
@@ -52,6 +52,8 @@ De här stegen och följande diagram illustrerar Azure Data Factory data inmatni
 
 
     ![ADF-datainmatning](media/concept-data-ingestion/data-ingest-option-one.svg)
+    
+Lär dig hur du skapar en pipeline för data inmatning för Machine Learning med [Azure Data Factory](how-to-data-ingest-adf.md).
 
 ## <a name="use-the-python-sdk"></a>Använda python SDK 
 

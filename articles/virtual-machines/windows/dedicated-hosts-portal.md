@@ -1,23 +1,18 @@
 ---
-title: Distribuera Azure-dedikerade värdar med hjälp av Azure Portal
-description: Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure Portal.
-services: virtual-machines-windows
+title: Distribuera Azure-dedikerade värdar med portalen
+description: Distribuera virtuella datorer till dedikerade värdar med hjälp av portalen.
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/26/2019
+ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: aa19c343e003bf1cd55e3d12b18e595113a7189e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: b6f5e155b76535c4d9e0080983d5f54cec3adb01
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833920"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086939"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Distribuera virtuella datorer till dedikerade värdar med hjälp av portalen
 
@@ -40,6 +35,25 @@ Den här artikeln vägleder dig genom hur du skapar en dedikerad Azure- [värd](
 1. Låt de återstående standardinställningarna vara och välj sedan knappen **Granska + skapa** längst ned på sidan.
 1. När du ser meddelandet att valideringen har slutförts väljer du **skapa**.
 
+## <a name="add-an-existing-vm"></a>Lägg till en befintlig virtuell dator 
+
+Du kan lägga till en virtuell dator som avslutas till en dedikerad värd, men den virtuella datorn måste först vara Stop\Deallocated. Innan du flyttar en virtuell dator till en dedikerad värd kontrollerar du att VM-konfigurationen stöds:
+
+- Storleken på den virtuella datorn måste vara i samma storleks familj som den dedikerade värden. Om din dedikerade värd till exempel är DSv3, kan storleken på den virtuella datorn vara Standard_D4s_v3, men det gick inte att Standard_A4_v2. 
+- Den virtuella datorn måste finnas i samma region som den dedikerade värden.
+- Den virtuella datorn kan inte ingå i en närhets placerings grupp. Ta bort den virtuella datorn från närhets placerings gruppen innan du flyttar den till en dedikerad värd. Mer information finns i [flytta en virtuell dator från en närhets placerings grupp](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- Den virtuella datorn får inte finnas i en tillgänglighets uppsättning.
+- Om den virtuella datorn finns i en tillgänglighets zon måste den vara samma tillgänglighets zon som värd gruppen. Inställningarna för tillgänglighets zonen för den virtuella datorn och värd gruppen måste matcha.
+
+Flytta den virtuella datorn till en dedikerad värd med hjälp av [portalen](https://portal.azure.com).
+
+1. Öppna sidan för den virtuella datorn.
+1. Välj **stoppa** för att stop\deallocate den virtuella datorn.
+1. Välj **konfiguration** på den vänstra menyn.
+1. Välj en värd grupp och en värd från List menyerna.
+1. När du är färdig väljer du **Spara** längst upp på sidan.
+1. När den virtuella datorn har lagts till i värden väljer du **Översikt** på den vänstra menyn.
+1. Längst upp på sidan väljer du **Starta** för att starta om den virtuella datorn.
 
 ## <a name="next-steps"></a>Nästa steg
 

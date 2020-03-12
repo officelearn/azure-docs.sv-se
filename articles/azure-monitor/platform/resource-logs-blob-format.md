@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b90b6f8eabbda229fbed4dcef6a5d863ea721faf
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 001dfbc78c0027249143e933684523d47af383d1
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659143"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096775"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Förbered för format ändring till Azure Monitor plattforms loggar arkiverade på ett lagrings konto
 
 > [!WARNING]
-> Om du skickar [Azures resurs loggar eller mått till ett lagrings konto med hjälp av diagnostikinställningar](resource-logs-collect-storage.md) eller [aktivitets loggar till ett lagrings konto med hjälp av logg profiler](activity-log-export.md), ändrades formatet för data i lagrings kontot till JSON-linjer på nov. 1 2018. Anvisningarna nedan beskriver effekten och hur du uppdaterar ditt verktyg för att hantera det nya formatet.
+> Om du skickar [Azures resurs loggar eller mått till ett lagrings konto med hjälp av diagnostikinställningar](resource-logs-collect-storage.md) eller [aktivitets loggar till ett lagrings konto med hjälp av logg profiler](resource-logs-collect-storage.md), ändrades formatet för data i lagrings kontot till JSON-linjer på nov. 1 2018. Anvisningarna nedan beskriver effekten och hur du uppdaterar ditt verktyg för att hantera det nya formatet.
 >
 
 ## <a name="what-changed"></a>Vad som ändrats

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4a62026ecec2317173361f166adcc3a7981f6d1c
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 68473ff5a3faddd36bd4299dfdc882f679acd068
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701186"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129896"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Anropa Microsoft Graph-API från ett Universell Windows-plattform program (XAML)
 
@@ -32,6 +32,9 @@ I slutet av den här guiden anropar programmet ett skyddat API med hjälp av per
 
 >[!NOTE]
 > Den här guiden kräver att Visual Studio med Universell Windows-plattform-utveckling installerat. Se [Hämta inställningar](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) för instruktioner för att hämta och konfigurera Visual Studio för att utveckla universell Windows-plattform appar.
+
+>[!NOTE]
+> Om du är nybörjare på Microsoft Identity Platform rekommenderar vi att du börjar med [anropet Microsoft Graph-API från en universell Windows-plattform (UWP) snabb start](quickstart-v2-uwp.md).
 
 ## <a name="how-this-guide-works"></a>Så här fungerar den här guiden
 
@@ -45,7 +48,7 @@ I den här guiden används följande NuGet-paket:
 
 |Bibliotek|Beskrivning|
 |---|---|
-|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsofts autentiseringsbibliotek|
+|[Microsoft. Identity. client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsofts autentiseringsbibliotek|
 
 ## <a name="set-up-your-project"></a>Konfigurera projektet
 
@@ -344,7 +347,7 @@ Lägg till följande nya metod i *mainpage.XAML.cs*:
 Nu måste du registrera ditt program:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Välj **Azure Active Directory** > **appregistreringar**.
+1. Välj **Azure Active Directory** > **Appregistreringar**.
 1. Välj **ny registrering**. Ange ett meningsfullt program namn som ska visas för användarna av appen, till exempel *UWP-app-Calling-MSGraph*.
 1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog och personliga Microsoft-konton (t. ex. Skype, Xbox)** och väljer sedan **Registrera** för att fortsätta.
 1. På sidan Översikt hittar du **ID-värdet för programmet (klienten)** och kopierar det. Gå tillbaka till Visual Studio, öppna *mainpage.XAML.cs*och Ersätt värdet för `ClientId` med det här värdet.
@@ -385,7 +388,7 @@ Om du vill testa programmet väljer du F5 för att köra projektet i Visual Stud
 
 När du är redo att testa väljer du **anropa Microsoft Graph API**. Använd sedan ett organisations konto i Azure AD eller en Microsoft-konto, till exempel live.com eller outlook.com, för att logga in. Första gången en användare kör detta, visar programmet ett fönster där användaren uppmanas att logga in.
 
-### <a name="consent"></a>givit
+### <a name="consent"></a>Givit
 
 Första gången du loggar in på ditt program visas en godkännande skärm som liknar följande. Välj **Ja** om du uttryckligen vill ge åtkomst:
 
@@ -415,7 +418,7 @@ Om du vill komma åt användarens kalendrar i ett programs kontext lägger du ti
 
 ## <a name="known-issues"></a>Kända problem
 
-### <a name="issue-1"></a>Problem 1
+### <a name="issue-1"></a>Ärende 1
 
 Du får ett av följande fel meddelanden när du loggar in på ditt program på en federerad Azure AD-domän:
 
@@ -427,7 +430,7 @@ Orsak: företags-och certifikat funktioner är inte aktiverade.
 
 Lösning: Följ stegen i [Aktivera integrerad autentisering på federerade domäner (valfritt)](#enable-integrated-authentication-on-federated-domains-optional).
 
-### <a name="issue-2"></a>Problem 2
+### <a name="issue-2"></a>Ärende 2
 
 Du aktiverar [integrerad autentisering på federerade domäner](#enable-integrated-authentication-on-federated-domains-optional) och försöker använda Windows Hello på en Windows 10-dator för att logga in i en miljö med Multi-Factor Authentication konfigurerad. Listan över certifikat visas. Men om du väljer att använda din PIN-kod visas inte PIN-fönstret.
 

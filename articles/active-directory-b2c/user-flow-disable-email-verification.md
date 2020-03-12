@@ -8,21 +8,19 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c598664ef721103740716ad6215ddaea53bc635f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 369b4e13baa344a71a51b358ef810d1a66b4b6ae
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183082"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126743"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-in-azure-active-directory-b2c"></a>Inaktivera e-postverifiering under kund registrering i Azure Active Directory B2C
 
-Som standard verifierar Azure Active Directory B2C (Azure AD B2C) din kunds e-postadress för lokala konton (konton för användare som registrerar sig för e-postadress eller användar namn). Azure AD B2C garanterar giltiga e-postadresser genom att kräva att kunderna verifierar dem under registrerings processen. Det förhindrar också att skadliga aktörer använder automatiserade processer för att generera bedrägliga konton i dina program.
-
-Vissa programutvecklare föredrar att hoppa över e-postverifiering under registrerings processen och får i stället kunder att verifiera sin e-postadress senare. Azure AD B2C kan konfigureras för att inaktivera e-postverifiering för att stödja detta. Detta skapar en smidigare registrerings process och ger utvecklare flexibiliteten att särskilja kunder som har verifierat sin e-postadress från kunder som inte har det.
+[!INCLUDE [disable email verification intro](../../includes/active-directory-b2c-disable-email-verification.md)]
 
 Följ de här stegen för att inaktivera e-postverifiering:
 
@@ -37,5 +35,7 @@ Följ de här stegen för att inaktivera e-postverifiering:
 1. I list rutan **kräver verifiering** väljer du **Nej**.
 1. Välj **Spara**. E-postverifiering är nu inaktiverat för det här användar flödet.
 
-> [!WARNING]
-> Att inaktivera e-postverifiering i registrerings processen kan leda till skräp post. Om du inaktiverar standard Azure AD B2C e-postverifieringen från e-post, rekommenderar vi att du implementerar ett system för ersättnings verifiering.
+## <a name="next-steps"></a>Nästa steg
+
+- Lär dig hur du [anpassar användar gränssnittet i Azure Active Directory B2C](customize-ui-overview.md)
+

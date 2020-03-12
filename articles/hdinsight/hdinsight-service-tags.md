@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/05/2019
-ms.openlocfilehash: 24ecf90c2ffc88415afbf84f54af3efa7d5f4a39
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/10/2020
+ms.openlocfilehash: a72753d5553e79a8ed28c3afcc7e54af6c2d230c
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435454"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117231"
 ---
 # <a name="network-security-group-nsg-service-tags-for-azure-hdinsight"></a>Service tag gen för nätverks säkerhets gruppen (NSG) för Azure HDInsight
 
@@ -40,7 +40,7 @@ Det enklaste sättet att börja använda service märken med ditt HDInsight-klus
 
 1. I list rutan **käll tjänst tag** väljer du **HDInsight**.
 
-    ![Lägg till service tag-Azure Portal](./media/hdinisght-service-tags/azure-portal-add-service-tag.png)
+    ![Lägg till service tag-Azure Portal](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 
 Den här taggen innehåller IP-adresserna för hälso-och hanterings tjänster för alla regioner där HDInsight är tillgängligt, och säkerställer att klustret kan kommunicera med nödvändiga hälso-och hanterings tjänster oavsett var de skapas.
 
@@ -54,7 +54,7 @@ Om du vill ta reda på vilka service märken som ska läggas till för din regio
 
 Om du föredrar service tag-alternativet två, och klustret finns i någon av de regioner som anges i den här tabellen, behöver du bara lägga till en enda regional service-tagg i nätverks säkerhets gruppen.
 
-| Land | Region | Service tag |
+| Land/region | Region | Service tag |
 | ---- | ---- | ---- |
 | Australien | Australien, östra | HDInsight. AustraliaEast |
 | &nbsp; | Australien, sydöstra | HDInsight. AustraliaSoutheast |
@@ -76,6 +76,7 @@ Om du föredrar service tag-alternativet två, och klustret finns i någon av de
 | Azure Government | USDoD Central   | HDInsight. USDoDCentral |
 | &nbsp; | USGov Texas | HDInsight. USGovTexas |
 | &nbsp; | UsDoD, öst | HDInsight. USDoDEast |
+| &nbsp; | USGov Arizona | HDInsight. USGovArizona |
 
 ### <a name="use-multiple-regional-service-tags"></a>Använda flera regionala tjänst etiketter
 
@@ -93,7 +94,7 @@ Om klustret till exempel skapas i `East US 2` region, måste du lägga till föl
 - `HDInsight.WestUS`
 - `HDInsight.EastUS`
 
-| Land | Region | Service tag |
+| Land/region | Region | Service tag |
 | ---- | ---- | ---- |
 | USA | USA, östra 2 | HDInsight. EastUS2 |
 | &nbsp; | USA, centrala | HDInsight. centrala |

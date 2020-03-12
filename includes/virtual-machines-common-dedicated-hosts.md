@@ -5,20 +5,19 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3369dc7cde7082659df556e008adb5e45b4c011c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 2daaf9bbdf90029f0aad4333ab94e2d1d1d3d7ff
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246211"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128876"
 ---
 ## <a name="limitations"></a>Begränsningar
 
 - Skalnings uppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
-- Följande VM-serien stöds: DSv3, ESv3 och Fsv2. 
 
 ## <a name="benefits"></a>Fördelar 
 
@@ -101,17 +100,15 @@ Mer information finns i pris information för [Azure-dedikerad värd](https://ak
 
 Du kan också spara pengar med en [reserverad instans av Azure-dedikerade värdar](../articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md).
  
-## <a name="vm-families-and-hardware-generations"></a>VM-familjer och maskin varu generationer
+## <a name="sizes-and-hardware-generations"></a>Storlekar och maskin varu generationer
 
-En SKU definieras för en värd och den representerar den virtuella datorns storleks serie och typ. Du kan blanda flera virtuella datorer av olika storlekar inom en enda värd så länge de är i samma storleks serie. Typen är den maskin varu generation som för närvarande är tillgänglig i regionen.
+En SKU definieras för en värd och den representerar den virtuella datorns storleks serie och typ. Du kan blanda flera virtuella datorer av olika storlekar inom en enda värd så länge de är i samma storleks serie. 
 
-Olika `types` för samma VM-serie kommer från olika CPU-leverantörer och har olika processor generationer och antalet kärnor.
+*Typen* är maskin varu generationen. Olika maskin varu typer för samma VM-serie kommer från olika CPU-leverantörer och har olika processor generationer och antalet kärnor. 
 
-Mer information hittar du på [prissättnings sidan](https://aka.ms/ADHPricing) för värden.
+Storlekarna och maskin varu typerna varierar beroende på region. Mer information hittar du på [prissättnings sidan](https://aka.ms/ADHPricing) för värden.
 
-Dedikerade värdar stöder följande värd SKU\types: DSv3_Type1 och ESv3_Type1
 
- 
 ## <a name="host-life-cycle"></a>Värd livs cykel
 
 

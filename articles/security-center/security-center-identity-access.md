@@ -11,92 +11,55 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2019
+ms.date: 03/06/2020
 ms.author: memildin
-ms.openlocfilehash: 6b262baddd10c9d0dff4b196b733972b97d99872
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 183b81134b2fe72a539cc6460a05d828342aafbb
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552992"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086474"
 ---
-# <a name="monitor-identity-and-access-preview"></a>Övervaka identitet och åtkomst (för hands version)
+# <a name="monitor-identity-and-access"></a>Övervaka identitet och åtkomst
+
+> [!TIP]
+> Från mars 2020 ingår Azure Security Centers identitets-och åtkomst rekommendationer i alla prenumerationer på den kostnads fria pris nivån. Om du har prenumerationer på den kostnads fria nivån kommer deras säkra poäng att påverkas eftersom de inte tidigare har utvärderats för identitets-och åtkomst säkerhet. 
+
 När Security Center identifierar potentiella säkerhets risker skapar den rekommendationer som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna för att skärp och skydda dina resurser.
 
-I den här artikeln beskrivs sidan **identitets-och åtkomst** i avsnittet resurs säkerhet i Azure Security Center.
+Säkerhetsperimetern har utvecklats från en nätverks gräns till en identitets perimeter. Säkerheten blir mindre säker på skyddet av ditt nätverk och mer om att skydda dina data, samt att hantera säkerheten för dina appar och användare. Nuförtiden, då mer data och fler appar flyttas till molnet, blir identiteten den nya perimetern.
 
-En fullständig lista över rekommendationer som du kan se på den här sidan finns i [rekommendationer för identitet och åtkomst](recommendations-reference.md#recs-identity).
+Genom att övervaka identitetsaktiviteter kan du vidta proaktiva åtgärder innan en incident inträffar eller reaktiva åtgärder för att stoppa ett angreppsförsök. Exempel på rekommendationer som du kan se i avsnittet **identitets-och åtkomst** resurs säkerhet i Azure Security Center:
 
-> [!NOTE]
-> Övervakning av identitet och åtkomst är i för hands version och endast tillgängligt på standard nivån för Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
->
+- MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
+- Högst 3 ägare bör anges för din prenumeration
+- Föråldrade konton bör tas bort från din prenumeration
+- Externa konton med Läs behörighet bör tas bort från din prenumeration
 
-Identiteten bör vara kontroll planet för ditt företag och skydda identiteter bör vara din högsta prioritet. Säkerhetsperimetern har utvecklats från en nätverks gräns till en identitets perimeter. Säkerheten blir mindre säker på skyddet av ditt nätverk och mer om att skydda dina data, samt att hantera säkerheten för dina appar och användare. Nuförtiden, då mer data och fler appar flyttas till molnet, blir identiteten den nya perimetern.
-
-Genom att övervaka identitetsaktiviteter kan du vidta proaktiva åtgärder innan en incident inträffar eller reaktiva åtgärder för att stoppa ett angreppsförsök. Instrument panelen för identitets & åtkomst ger dig rekommendationer som:
-
-- Aktivera MFA för privilegierade konton för prenumerationen
-- Ta bort externa konton med skrivbehörigheter från prenumerationen
-- Ta bort externa privilegierade konton från prenumerationen
+En fullständig lista över de rekommendationer som du kan se här finns i [identitets-och åtkomst rekommendationer](recommendations-reference.md#recs-identity).
 
 > [!NOTE]
 > Om din prenumeration har fler än 600 konton kan Security Center inte köra identitets rekommendationerna mot din prenumeration. Rekommendationer som inte körs visas under "otillgängliga utvärderingar" nedan.
 Security Center kan inte köra identitets rekommendationer mot en CSP-partners (Cloud Solution Provider) administratörs agenter.
 >
 
-## <a name="monitor-identity-and-access"></a>Övervaka identitet och åtkomst
 
-Öppna listan med identifierade identitets-och åtkomst problem genom att välja **identitets & åtkomst** från Security Center sid panelen (under **resurser**) eller från översikts sidan. 
+Alla rekommendationer för identitet och åtkomst finns i två säkerhets kontroller på sidan **rekommendationer** :
 
-Under **identitets & åtkomst**finns det två flikar:
+- Hantera åtkomst och behörigheter 
+- Aktivera MFA
 
-- **Översikt**: rekommendationer som identifieras av Security Center.
-- **Prenumerationer**: lista över prenumerationer och aktuella säkerhets status för varje.
+![De två säkerhets kontrollerna med rekommendationerna för identitet och åtkomst](media/security-center-identity-access/two-security-controls-for-identity-and-access.png)
 
-[![identitets & åtkomst](./media/security-center-identity-access/identity-dashboard.png)](./media/security-center-identity-access/identity-dashboard.png#lightbox)
 
-### <a name="overview-section"></a>Avsnittet Översikt
-Under **Översikt**finns det en lista över rekommendationer. Den första kolumnen visar rekommendationen. Den andra kolumnen visar det totala antalet prenumerationer som påverkas av den här rekommendationen. Den tredje kolumnen visar problemets allvarlighets grad.
+## <a name="enable-multi-factor-authentication-mfa"></a>Aktivera Multi-Factor Authentication (MFA)
 
-1. Välj en rekommendation. Fönstret rekommendationer öppnas och visar:
+För att aktivera MFA krävs [Azure Active Directory (AD) klient behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
 
-   - Beskrivning av rekommendationen
-   - Lista över felaktiga och felfria prenumerationer
-   - Lista över resurser som inte har genomsökts på grund av en misslyckad utvärdering eller på grund av att resursen är under en prenumeration som körs på den kostnads fria nivån och inte utvärderas
+- Om du har en Premium-version av AD aktiverar du MFA med hjälp av [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 
-    [fönstret ![rekommendationer](./media/security-center-identity-access/select-subscription.png)](./media/security-center-identity-access/select-subscription.png#lightbox)
+- Användare av den kostnads fria versionen av AD kan aktivera **säkerhets inställningar** i Azure Active Directory enligt beskrivningen i [AD-dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) , men Security Center rekommendationer för att aktivera MFA kommer fortfarande att visas.
 
-1. Välj en prenumeration i listan om du vill ha mer information.
-
-### <a name="subscriptions-section"></a>Avsnittet prenumerationer
-Det finns en lista över prenumerationer under **prenumerationer**. Den första kolumnen visar prenumerationerna. Den andra kolumnen visar det totala antalet rekommendationer för varje prenumeration. Den tredje kolumnen visar allvarlighets graden för problemen.
-
-[fliken ![prenumerationer](./media/security-center-identity-access/subscriptions.png)](./media/security-center-identity-access/subscriptions.png#lightbox)
-
-1. Välj en prenumeration. En sammanfattningsvy öppnas med tre flikar:
-
-   - **Rekommendationer**: baserat på har utförts av Security Center som misslyckades.
-   - **Skickas utvärderingar**: lista över har utförts av Security Center som skickas.
-   - **Ej tillgängliga utvärderingar**: lista över utvärderingar som inte kunde köras på grund av ett fel eller på grund av att prenumerationen har fler än 600 konton.
-
-   Under **rekommendationer** är en lista över rekommendationer för den valda prenumerationen och allvarlighets graden för varje rekommendation.
-
-   [![rekommendationer för Select-prenumeration](./media/security-center-identity-access/recommendations.png)](./media/security-center-identity-access/recommendations.png#lightbox)
-
-1. Välj en rekommendation för en beskrivning av rekommendationen, en lista över felaktiga och felfria prenumerationer och en lista över ej genomsökta resurser.
-
-   [![Beskrivning av rekommendation](./media/security-center-identity-access/designate.png)](./media/security-center-identity-access/designate.png#lightbox)
-
-   Under **skickas utvärderingar** är en lista över skickade utvärderingar.  Allvarlighetsgraden för de här utvärderingar är alltid grönt.
-
-   [utvärderingar som ![godkänts](./media/security-center-identity-access/passed-assessments.png)](./media/security-center-identity-access/passed-assessments.png#lightbox)
-
-1. Välj en godkänd utvärdering i listan för en beskrivning av utvärderingen och en lista över felfria prenumerationer. Det finns en flik för felaktiga prenumerationer som visar alla misslyckade prenumerationer.
-
-   [utvärderingar som ![godkänts](./media/security-center-identity-access/remove.png)](./media/security-center-identity-access/remove.png#lightbox)
-
-> [!NOTE]
-> Om du har skapat en princip för villkorlig åtkomst som kräver MFA men har angett undantag, anser den Security Center MFA rekommendations utvärderingen att principen inte är kompatibel, eftersom det gör att vissa användare kan logga in på Azure utan MFA.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om rekommendationer som gäller för andra typer av Azure-resurser finns i följande artiklar:

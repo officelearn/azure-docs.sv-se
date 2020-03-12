@@ -1,0 +1,118 @@
+---
+title: Fråga för insamlade telemetridata
+description: I den här artikeln beskrivs hur du frågar efter insamlade telemetridata.
+author: sunasing
+ms.topic: article
+ms.date: 03/11/2020
+ms.author: sunasing
+ms.openlocfilehash: 2786519bfc54b39c986ba57c78d9d6409a596351
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129793"
+---
+# <a name="query-ingested-telemetry-data"></a>Fråga för insamlade telemetridata
+
+I den här artikeln beskrivs hur du frågar efter inmatade sensor data från Azure FarmBeats.
+
+Att mata in data från Sakernas Internet-resurser (IoT) som enheter och sensorer är ett vanligt scenario i FarmBeats. Du skapar metadata för enheter och sensorer och matar sedan in historiska data till FarmBeats i kanoniskt format. När sensor data är tillgängliga på FarmBeats-datahubben kan vi fråga samma för att generera användbara insikter eller skapa modeller.
+
+## <a name="before-you-begin"></a>Innan du börjar
+
+Innan du fortsätter med den här artikeln måste du kontrol lera att du har installerat FarmBeats och inmatade sensorer för telemetri från IoT-enheter till FarmBeats.
+Om du vill mata in information om sensor telemetri kan du besöka Hämta [historiska telemetridata](ingest-historical-telemetry-data-in-azure-farmbeats.md)
+
+Innan du fortsätter bör du också kontrol lera att du är bekant med FarmBeats REST API: er eftersom du kommer att fråga inmatad telemetri med API: er. Mer information om FarmBeats-API: er finns i [FARMBEATS REST-API: er](rest-api-in-azure-farmbeats.md). **Se till att du kan göra API-begäranden till din FarmBeats data Hub-slutpunkt**
+
+## <a name="query-ingested-sensor-telemetry-data"></a>Fråga inmatade sensorer för telemetri
+
+Det finns två sätt att komma åt och fråga telemetridata från FarmBeats: API och Time Series Insights (TSD). 
+
+### <a name="query-using-rest-api"></a>Fråga med REST API
+
+Följ stegen nedan för att fråga efter inmatade sensorer för telemetri med hjälp av FarmBeats REST API: er:
+
+1. Identifiera den sensor som du är intresse rad av. Du kan göra detta genom att göra en GET-begäran på/sensor-API: et. Notera **ID** och **sensorModelId** för det intresserade sensor objektet.
+
+2. Gör ett GET/{ID} på/SensorModel-API: et för **sensorModelId** som anges i steg 1. Sensor modellen har alla metadata och information om den inmatade Telemetrin från sensorn. Till exempel "sensor mått" i objektet "sensor modell" har information om vilka mått är sensorn som skickar och i vilka typer och enheter. Exempel:
+
+```json
+{
+    "name": "moist_soil_last <name of the sensor measure - this is what we will receive as part of the queried telemetry data>",
+    "dataType": "Double <Data Type - eg. Double>",
+    "type": "SoilMoisture <Type of measure eg. temperature, soil moisture etc.>",
+    "unit": "Percentage <Unit of measure eg. Celsius, Percentage etc.>",
+    "aggregationType": "None <either of None, Average, Maximum, Minimum, StandardDeviation>",
+    "description": "<Description of the measure>"
+}
+```
+Anteckna svaret från GET/{ID}-anropet för sensor modellen.
+
+3. Gör ett anrop i/Telemetry-API: et med följande indata-nyttolast
+
+```json
+{
+  "sensorId": "<id of the sensor as noted in step 1>",
+  "searchSpan": {
+    "from": "<desired start timestamp in ISO 8601 format; default is UTC>",
+    "to": "<desired end timestamp in ISO 8601 format; default is UTC>"
+  },
+  "filter": {
+    "tsx": "string"
+  },
+  "projectedProperties": [
+    {
+      "additionalProp1": "string",
+      "additionalProp2": "string",
+      "additionalProp3": "string"
+    }
+  ]
+}
+```
+4. Svaret från/Telemetry-API: et ser ut ungefär så här:
+
+```json
+{
+  "timestamps": [
+    "2020-XX-XXT07:30:00Z",
+    "2020-XX-XXT07:45:00Z"
+  ],
+  "properties": [
+    {
+      "values": [
+        "<id of the sensor>",
+        "<id of the sensor>"
+      ],
+      "name": "Id",
+      "type": "String"
+    },
+    {
+      "values": [
+        2.1,
+        2.2
+      ],
+      "name": "moist_soil_last <name of the SensorMeasure as defined in the SensorModel object>",
+      "type": "Double <Data Type of the value - eg. Double>"
+    }
+  ]
+}
+```
+I ovanstående exempel svar ger den eftersökta sensorn för data för två tidsstämplar tillsammans med mått namnet ("moist_soil_last") och värden för den rapporterade Telemetrin i de två tidsstämplarna. Du måste referera till den associerade sensor modellen (enligt beskrivningen i steg 2) för att tolka typen och enheten för de rapporterade värdena.
+
+### <a name="query-using-azure-time-series-insights-tsi"></a>Fråga med Azure Time Series Insights (TSD)
+
+FarmBeats utnyttjar [Azure Time Series Insights (TSD)](https://azure.microsoft.com/services/time-series-insights/) för att mata in, lagra, fråga och visualisera data på sakernas internet (IoT)-data som är mycket sammanhangsbaserade och optimerade för tids serier.
+
+Telemetridata tas emot på en EventHub och sedan bearbetas och skickas till en TSD-miljö i FarmBeats-resurs gruppen. Data kan sedan direkt frågas från TSD. Mer information finns i [TSD-dokumentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer)
+
+Följ stegen nedan för att visualisera data i TSD
+
+1. Gå till Azure Portal – > FarmBeats DataHub Resource Group-> Klicka på Time Series Insights miljö (TSD-xxxx)-> principer för data åtkomst. Lägg till användare med läsare eller deltagar åtkomst.
+2. Gå till sidan Översikt i Time Series Insights Environment (TSD-xxxx) och klicka på URL: en för Time Series Insights Explorer. Du kommer nu att kunna visualisera den inmatade Telemetrin.
+
+Förutom att lagra, fråga och visualisering av telemetri kan TSD också integreras med en Power BI instrument panel. Mer information [här]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)
+
+## <a name="next-steps"></a>Nästa steg
+
+Du har nu frågat sensor data från din Azure FarmBeats-instans. Nu kan du lära dig hur du [genererar kartor](generate-maps-in-azure-farmbeats.md#generate-maps) för dina grupper.

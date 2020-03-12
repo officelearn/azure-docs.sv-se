@@ -7,16 +7,16 @@ manager: marktab
 editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
-ms.topic: article
+ms.topic: overview
 ms.date: 1/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e9d98f03b2c97245517e3fbb6d7dc7624cfb724d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 10d6e562301e089700940ac5dfb212bcc4e09653
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721395"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79088082"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Vad är TDSP (Team Data Science Process)?
 
@@ -58,7 +58,7 @@ De mål, uppgifter och dokumentations artefakter för varje steg i livs cykeln i
 
 - Lösningsarkitekt
 - Projektledare
-- Dataexpert
+- Data Scientist
 - Projektledare 
 
 Följande diagram ger en rutnätsvy för aktiviteter (i blått) och artefakter (i grönt) som är associerade med varje steg i livscykeln (på den horisontala axeln) för dessa roller (på den vertikala axeln). 
@@ -99,7 +99,7 @@ Här är ett exempel på ett team som arbetar med flera projekt och dela olika m
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Verktyg och hjälpmedel för projektkörning av
 
-Introduktion till processer i de flesta organisationer är en utmaning. Verktyg som finns att implementera data science process och livscykelhantering hjälp lägre hinder gällande och öka antagandet konsekvens. TDSP ger en inledande uppsättning verktyg och skript för att ge implementering av TDSP i ett team. Det hjälper också att automatisera vissa av de vanliga uppgifterna i livscykeln för datavetenskap, till exempel datagranskning och modellering av baslinjen. Det finns en väldefinierad struktur som anges för enskilda användare kan bidra med delade verktyg och hjälpmedel i sina team delade lagringsplatsen. Dessa resurser kan sedan användas av andra projekt inom gruppen eller organisationen. TDSP planerar också att aktivera bidrag av verktyg och hjälpmedel för hela communityn. TDSP-verktygen kan klonas från [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
+Introduktion till processer i de flesta organisationer är en utmaning. Verktyg som finns att implementera data science process och livscykelhantering hjälp lägre hinder gällande och öka antagandet konsekvens. TDSP ger en inledande uppsättning verktyg och skript för att ge implementering av TDSP i ett team. Det hjälper också att automatisera vissa av de vanliga uppgifterna i livscykeln för datavetenskap, till exempel datagranskning och modellering av baslinjen. Det finns en väldefinierad struktur som ger enskilda personer möjlighet att bidra med delade verktyg och verktyg till sitt Teams delade kod lagrings plats. Dessa resurser kan sedan användas av andra projekt inom gruppen eller organisationen. TDSP planerar också att aktivera bidrag av verktyg och hjälpmedel för hela communityn. TDSP-verktygen kan klonas från [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
 
 
 ## <a name="next-steps"></a>Nästa steg

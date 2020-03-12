@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 03/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5386cace7191be60534f0d2fbf4a85b592d1ecdd
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 762f62fa0901672c447da42f416e5b003e7419b2
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151636"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127307"
 ---
 # <a name="about-p2s-vpn-client-profiles"></a>Om P2S VPN-klientinställningar
 
@@ -33,7 +33,7 @@ $PROFILE.VpnProfileSASUrl
 Extrahera zip-filen. Filen innehåller följande mappar:
 
 * AzureVPN
-* Generisk
+* Allmänna
 * OpenVPN (om du har aktiverat inställningarna OpenVPN och Azure AD-autentisering på gatewayen. Se [skapa en klient](openvpn-azure-ad-tenant.md).)
 
 ## <a name="3-retrieve-information"></a>3. Hämta information
@@ -60,7 +60,7 @@ När du lägger till en anslutning använder du den information som du samlade i
 
 ## <a name="folder-contents"></a>Mappinnehåll
 
-* **Mappen OpenVPN** innehåller den *OVPN* -profil som måste ändras för att inkludera nyckeln och certifikatet. Mer information finns i [konfigurera OpenVPN-klienter för Azure VPN gateway](vpn-gateway-howto-openvpn-clients.md#windows).
+* **Mappen OpenVPN** innehåller den *OVPN* -profil som måste ändras för att inkludera nyckeln och certifikatet. Mer information finns i [konfigurera OpenVPN-klienter för Azure VPN gateway](vpn-gateway-howto-openvpn-clients.md#windows). Den här mappen kommer inte att finnas i zip-filen om Azure AD-autentisering har valts på VPN-gatewayen. I stället kommer azurevpnconfig. XML att finnas i mappen AzureVPN.
 
 * Den **allmänna mappen** innehåller det offentliga Server certifikatet och filen VpnSettings. xml. Filen VpnSettings. xml innehåller information som krävs för att konfigurera en allmän klient.
 

@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7529cfbd0ab75d0113e5cea666bc04aa1b15d30b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 76e34736238273f2af3fccae0ac2b5ed0ff491f0
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157728"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128341"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Initiera en redundans för lagrings konto (för hands version)
 
@@ -31,7 +31,6 @@ Den här artikeln visar hur du startar en konto redundansväxling för ditt lagr
 
 Innan du kan utföra en redundansväxling på ditt lagrings konto måste du kontrol lera att du har utfört följande steg:
 
-- Registrera dig för för hands versionen av konto redundansväxling. Information om hur du registrerar finns i [om förhands granskningen](storage-disaster-recovery-guidance.md#about-the-preview).
 - Kontrol lera att ditt lagrings konto har kon figurer ATS för att använda antingen Geo-redundant lagring (GRS) eller Geo-redundant lagring med Läs behörighet (RA-GRS). Mer information om Geo-redundant lagring finns [Azure Storage redundans](storage-redundancy.md).
 
 ## <a name="important-implications-of-account-failover"></a>Viktiga följder vid redundansväxling av konto
@@ -44,7 +43,7 @@ Efter redundansväxlingen konverteras lagrings konto typen automatiskt till loka
 
 När du har aktiverat GRS för ditt lagrings konto börjar Microsoft replikera data i ditt konto till den nya sekundära regionen. Replikerings tiden beror på mängden data som replikeras.  
 
-## <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+## <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Följ dessa steg om du vill starta en redundansväxling av ett konto från Azure Portal:
 
@@ -60,7 +59,7 @@ Följ dessa steg om du vill starta en redundansväxling av ett konto från Azure
 
     ![Skärm bild som visar bekräftelse dialog ruta för redundans av konto](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
-## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Om du vill använda PowerShell för att initiera en redundansväxling av ett konto måste du först installera 6.0.1 Preview-modulen. Följ de här stegen för att installera modulen:
 
@@ -97,7 +96,7 @@ Kör följande kommando för att starta en redundansväxling av ett konto från 
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Kör följande kommandon om du vill använda Azure CLI för att initiera en konto växling vid fel:
 

@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 50eb88373b05d979d7f4b67b317e98c2a944459b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: e33f52d5c1f9c06a5acbae5c66b051ca82ef14c0
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701338"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126639"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Lägga till inloggning till Microsoft i en ASP.NET-webbapp
 
@@ -30,6 +30,9 @@ Den här guiden visar hur du implementerar inloggning till Microsoft via en ASP.
 När du har slutfört den här guiden kommer ditt program att kunna godkänna inloggningar av personliga konton från outlook.com och live.com. Dessutom kommer arbets-och skol konton från alla företag eller organisationer som är integrerade med Microsoft Identity Platform att kunna logga in i din app.
 
 > Den här guiden kräver Microsoft Visual Studio 2019.  Saknas det?  [Ladda ned Visual Studio 2019 gratis](https://www.visualstudio.com/downloads/).
+
+>[!NOTE]
+> Om du är nybörjare på Microsoft Identity Platform rekommenderar vi att du börjar med att [lägga till Microsoft Identity Platform-inloggning i en ASP.NET-webbapp](quickstart-v2-aspnet-webapp.md).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Hur exempel appen som genereras av den här hand boken fungerar
 
@@ -429,8 +432,8 @@ När du bläddrar till vyn kontrollant bör du se en tabell som innehåller grun
 |---|---|---|
 |**Namn** |Användarens fullständiga namn | Användarens förnamn och efternamn
 |**Användarnamn** |användar<span>@domain.com</span> | Det användar namn som används för att identifiera användaren|
-|**Ämne** |Ämne |En sträng som unikt identifierar användaren på webben|
-|**Klient-ID** |GUID | Ett **GUID** som unikt representerar användarens Azure AD-organisation|
+|**Ämne** |Subjekt |En sträng som unikt identifierar användaren på webben|
+|**Klient-ID** |Guid | Ett **GUID** som unikt representerar användarens Azure AD-organisation|
 
 Dessutom bör du se en tabell över alla anspråk som finns i autentiseringsbegäran. Mer information finns i [listan över anspråk som finns i en ID-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 

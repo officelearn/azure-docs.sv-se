@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: helohr
-ms.openlocfilehash: 354ee312099902372863ce2ea636d2f9f9943d5c
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+manager: lizross
+ms.openlocfilehash: 37c3e57fd96a0161564b23ce18d01573d0dd73f9
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566431"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127892"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandera en befintlig adresspool med nya värdbaserade sessioner
 
@@ -45,7 +46,7 @@ Om du redan har skapat en adresspool och en session som är värd för en virtue
 
 Så här distribuerar du om Azure Resource Manager-mallen för att expandera en adresspool:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Från Sök fältet överst i Azure Portal söker du efter **resurs grupper** och väljer objektet under **tjänster**.
 3. Sök efter och välj den resurs grupp som du skapade när du gjorde poolen för värdar.
 4. I panelen på vänster sida av webbläsaren väljer du **distributioner**.
@@ -76,13 +77,13 @@ Följ anvisningarna i [skapa en adresspool med hjälp av Azure Marketplace](./cr
 
 Alla värden i det här avsnittet ska matcha det du angav när du först skapade värddatorn och de virtuella datorerna i sessionen, förutom användare som är *Standard användare*:
 
-1.  För *prenumeration*väljer du den prenumeration där du först skapade värd-poolen.
-2.  För *resurs grupp*väljer du samma resurs grupp där de befintliga virtuella datorerna för anslutningspoolen värdar finns.
-3.  För *region*väljer du samma region där de befintliga virtuella datorerna för anslutningspoolen värd för värdar finns.
-4.  För *Hostpool-namn*anger du namnet på den befintliga poolen.
-5.  För *Skriv bords typ*väljer du den Skriv bords typ som matchar den befintliga poolen.
-6.  För *standard Skriv bords användare*anger du en kommaavgränsad lista över alla ytterligare användare som du vill logga in på de virtuella Windows-klienterna och får åtkomst till en stationär dator när Azure Marketplace-erbjudandet har slutförts. Om du till exempel vill tilldela user3@contoso.com och user4@contoso.com åtkomst anger du user3@contoso.comuser4@contoso.com.
-7.  Välj **Nästa: Konfigurera virtuell dator**.
+1.    För *prenumeration*väljer du den prenumeration där du först skapade värd-poolen.
+2.    För *resurs grupp*väljer du samma resurs grupp där de befintliga virtuella datorerna för anslutningspoolen värdar finns.
+3.    För *region*väljer du samma region där de befintliga virtuella datorerna för anslutningspoolen värd för värdar finns.
+4.    För *Hostpool-namn*anger du namnet på den befintliga poolen.
+5.    För *Skriv bords typ*väljer du den Skriv bords typ som matchar den befintliga poolen.
+6.    För *standard Skriv bords användare*anger du en kommaavgränsad lista över alla ytterligare användare som du vill logga in på de virtuella Windows-klienterna och får åtkomst till en stationär dator när Azure Marketplace-erbjudandet har slutförts. Om du till exempel vill tilldela user3@contoso.com och user4@contoso.com åtkomst anger du user3@contoso.comuser4@contoso.com.
+7.    Välj **Nästa: Konfigurera virtuell dator**.
 
 >[!NOTE]
 >Förutom för *Standard användare av Skriv bordet*måste alla fält matcha exakt vad som har kon figurer ATS i den befintliga poolen. Om det finns ett matchnings fel som leder till en ny adresspool.

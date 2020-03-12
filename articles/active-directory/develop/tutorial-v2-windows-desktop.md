@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1864b4867b8e1367a2397c5ed2ed9a77001dadb4
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 422251da25ae0ef911eb723bb0342a84fe99559c
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701203"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129920"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Anropa API: et för Microsoft Graph från en Windows Desktop-app
 
@@ -30,6 +30,9 @@ När du har slutfört guiden kommer programmet att kunna anropa ett skyddat API 
 
 > [!NOTE]
 > Guiden kräver Visual Studio 2015 uppdatering 3, Visual Studio 2017 eller Visual Studio 2019. Har du inte någon av dessa versioner? [Ladda ned Visual Studio 2019 gratis](https://www.visualstudio.com/downloads/).
+
+>[!NOTE]
+> Om du är nybörjare på Microsoft Identity Platform rekommenderar vi att du börjar med att [Hämta en token och anropar Microsoft Graph API från en Windows-app](quickstart-v2-windows-desktop.md).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Hur exempel appen som genereras av den här hand boken fungerar
 
@@ -51,7 +54,7 @@ I den här guiden används följande NuGet-paket:
 
 |Bibliotek|Beskrivning|
 |---|---|
-|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library (MSAL.NET)|
+|[Microsoft. Identity. client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library (MSAL.NET)|
 
 ## <a name="set-up-your-project"></a>Konfigurera projektet
 
@@ -257,7 +260,7 @@ I det här avsnittet använder du MSAL för att hämta en token för Microsoft G
 <!--start-collapse-->
 ### <a name="more-information"></a>Mer information
 
-#### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
+#### <a name="get-a-user-token-interactively"></a>Hämta en token interaktivt
 
 När du anropar `AcquireTokenInteractive`-metoden visas ett fönster där användarna kan logga in. Program kräver vanligt vis att användare loggar in interaktivt första gången de behöver åtkomst till en skyddad resurs. De kan också behöva logga in när en tyst åtgärd för att hämta en token Miss lyckas (till exempel när en användares lösen ord har upphört att gälla).
 

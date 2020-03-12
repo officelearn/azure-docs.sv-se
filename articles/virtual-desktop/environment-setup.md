@@ -7,18 +7,19 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 23bf9be8e3e5f1c52546faa9ed5171c140eba59a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+manager: lizross
+ms.openlocfilehash: 33d058f028b7032f296ffcf82f0e5fe2c993e6fb
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676627"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127915"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Windows Virtual Desktop-miljö
 
 Windows Virtual Desktop är en tjänst som ger användare enkel och säker åtkomst till sina virtualiserade skriv bord och RemoteApp-datorer. I det här avsnittet får du veta mer om den allmänna strukturen i Windows Virtual Desktop-miljön.
 
-## <a name="tenants"></a>klienter
+## <a name="tenants"></a>Klientorganisationer
 
 Windows Virtual Desktop-klienten är det primära gränssnittet för att hantera din Windows-miljö för virtuella datorer. Varje Windows-klient för virtuella skriv bord måste vara kopplad till Azure Active Directory som innehåller de användare som ska logga in på miljön. Från Windows-klienten för virtuella skriv bord kan du börja skapa värdar för att köra användarnas arbets belastningar.
 

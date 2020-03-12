@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: d167a157935c6d51c025d2fbb11586343a2ef3f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6f62771d707d1aebccbfaf809dee7d0dedf5fefa
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453509"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096129"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Självstudie: Balansera intern trafikbelastning med en grundläggande lastbalanserare i Azure-portalen
 
@@ -95,11 +95,11 @@ Skapa en grundläggande intern lastbalanserare med hjälp av portalen. Det namn 
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **USA, östra 2**.                                        |
-    | Typ          | Välj **intern**.                                        |
+    | Typ          | Välj **Intern**.                                        |
     | SKU           | Välj **Grundläggande**.                          |
     | Virtuellt nätverk           | Välj *MyVNet*.                          |    
     | Tilldelning av IP-adress              | Välj **Statisk**.   |
-    | Privat IP-adress|Ange en adress i adress utrymmet för ditt virtuella nätverk och undernät, till exempel *10.3.0.7*.  |
+    | Privat IP-adress|Skriv en adress som är i adressrymden för ditt virtuella nätverk och undernät, till exempel *10.3.0.7*.  |
 
 3. På fliken **Granska + skapa** klickar du på **Skapa**. 
    
@@ -121,10 +121,10 @@ Lastbalanseraren använder en serverdelsadresspool för att distribuera trafik t
 1. På sidan **Lägg till serverdelspool** skriver eller väljer du följande värden:
    
    - **Namn**: Skriv *MyBackendPool*.
-   - **Associerad med**: I listrutan väljer du **Tillgänglighetsuppsättning**.
-   - **Tillgänglighetsuppsättning**: Välj **MyAvailabilitySet**.
+   - **Kopplad till**: listruta och välj **virtuell dator**.
    
-1. Välj **Lägg till en IP-konfiguration för målnätverk**. 
+   
+1. Välj **virtuell dator**. 
    1. Lägg till **MyVM1** och **MyVM2** till serverdelspoolen.
    2. När du har lagt till varje dator öppnar du listrutan och väljer dess **Nätverks-IP-konfiguration**. 
    

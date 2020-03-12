@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/1/2019
+ms.date: 03/05/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6da9aed857524e9b71aad4dfc99f1d2e54306dc9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 72c18e48c27942c7bea47931ec79a31af941064e
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272882"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126647"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Lägg till Google som en identitets leverantör för B2B-gäst användare
 
@@ -39,7 +39,7 @@ Om gäst användaren ser ett fel meddelande om att huvudet är för långt, kan 
 
 Team stöder fullständigt Google gäst användare på alla enheter. Google-användare kan logga in till Teams från en gemensam slut punkt som `https://teams.microsoft.com`.
 
-Vanliga slut punkter för andra program kanske inte stöder Google-användare. Google gäst användare måste logga in med en länk som innehåller din klient information. Följande är exempel:
+Vanliga slut punkter för andra program kanske inte stöder Google-användare. Google gäst användare måste logga in med en länk som innehåller din klient information. Följande är exempel på detta:
   * `https://myapps.microsoft.com/?tenantid=<your tenant id>`
   * `https://portal.azure.com/<your tenant id>`
   * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
@@ -55,25 +55,24 @@ Börja med att skapa ett nytt projekt i Google Developer-konsolen för att hämt
    
    ![Skärm bild som visar en ny projekt sida för Google](media/google-federation/google-new-project.png)
 
-3. Se till att det nya projektet är markerat i menyn projekt. Öppna sedan menyn längst upp till vänster och välj **API: er & Services** > **autentiseringsuppgifter**.
+3. Se till att det nya projektet är markerat i menyn projekt. Under **API: er & tjänster**väljer du sedan **OAuth-medgivande skärmen**.
 
-   ![Skärm bild som visar alternativet Google API-autentiseringsuppgifter](media/google-federation/google-api.png)
- 
-4. Välj fliken **OAuth-medgivande** och ange ett **program namn**. (Lämna övriga inställningar.)
+4. Välj **extern**och välj sedan **skapa**. 
+5. Ange ett **program namn**på **skärmen OAuth-medgivande**. (Lämna övriga inställningar.)
 
    ![Skärm bild som visar skärm alternativet Google OAuth-medgivande](media/google-federation/google-oauth-consent-screen.png)
 
-5. Bläddra till avsnittet **godkända domäner** och ange microsoftonline.com.
+6. Bläddra till avsnittet **godkända domäner** och ange microsoftonline.com.
 
    ![Skärm bild som visar avsnittet godkända domäner](media/google-federation/google-oauth-authorized-domains.png)
 
-6. Välj **Spara**.
+7. Välj **Spara**.
 
-7. Välj fliken **autentiseringsuppgifter** . På menyn **skapa autentiseringsuppgifter** väljer du **OAuth-klient-ID**.
+8. Välj **autentiseringsuppgifter**. På menyn **skapa autentiseringsuppgifter** väljer du **OAuth-klient-ID**.
 
    ![Skärm bild som visar alternativet Google API: er skapa autentiseringsuppgifter](media/google-federation/google-api-credentials.png)
 
-8. Under **program typ**väljer du **webb program**och under **auktoriserade omdirigerings-URI: er**anger du följande URI: er:
+9. Under **program typ**väljer du **webb program**och under **auktoriserade omdirigerings-URI: er**anger du följande URI: er:
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(där `<directory id>` är katalog-ID)
    
@@ -82,7 +81,7 @@ Börja med att skapa ett nytt projekt i Google Developer-konsolen för att hämt
 
    ![Skärm bild som visar avsnittet behöriga omdirigerings-URI: er](media/google-federation/google-create-oauth-client-id.png)
 
-9. Välj **Skapa**. Kopiera klient-ID och klient hemlighet som du ska använda när du lägger till identitets leverantören i Azure AD-portalen.
+10. Välj **Skapa**. Kopiera klient-ID och klient hemlighet som du ska använda när du lägger till identitets leverantören i Azure AD-portalen.
 
    ![Skärm bild som visar OAuth-klient-ID och klient hemlighet](media/google-federation/google-auth-client-id-secret.png)
 

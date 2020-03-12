@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: a07a5a5956d8ea295d269d81ed264177bc8805f2
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 47870410741cf96e289014fab5a9c2eab26759b1
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424991"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096413"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Mata in blobbar i Azure Datautforskaren genom att prenumerera på Event Grid meddelanden
 
@@ -118,7 +118,7 @@ Anslut nu till Event Grid från Azure Datautforskaren så att data som flödar t
      **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | Tabell | *TestTable* | Tabellen som du skapade i **TestDatabase**. |
-    | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV och TXT. Komprimerings alternativ som stöds: zip och GZip |
+    | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, Multiline JSON, PSV, SOH, SCSV, TSV, RAW och TXT. Komprimerings alternativ som stöds: zip och GZip |
     | Kolumnmappning | *TestMapping* | Den mappning som du skapade i **TestDatabase**, som mappar inkommande JSON-data till kolumnnamnen och datatyperna i **TestTable**.|
     | | |
     
@@ -150,13 +150,32 @@ Spara data i en fil och ladda upp den med det här skriptet:
     az storage container create --name $container_name
 
     echo "Uploading the file..."
-    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name
+    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name --metadata "rawSizeBytes=1024"
 
     echo "Listing the blobs..."
     az storage blob list --container-name $container_name --output table
 
     echo "Done"
 ```
+
+> [!NOTE]
+> För att uppnå bästa möjliga inmatnings prestanda *måste den* okomprimerade bloben som skickas för inmatningen förmedlas. Eftersom Event Grid-meddelanden bara innehåller grundläggande information, måste storleks informationen förmedlas uttryckligen. Du kan ange information om okomprimerad storlek genom att ange egenskapen `rawSizeBytes` i BLOB-metadata med den *okomprimerade* data storleken i byte.
+
+### <a name="ingestion-properties"></a>Inmatnings egenskaper
+
+Du kan ange inmatnings [egenskaperna](https://docs.microsoft.com/azure/kusto/management/data-ingestion/#ingestion-properties) för BLOB-inmatningen via BLOB-metadata.
+
+Dessa egenskaper kan anges:
+
+|**Egenskap** | **Egenskaps Beskrivning**|
+|---|---|
+| `rawSizeBytes` | Storlek på rå data (okomprimerad). För Avro/ORC/Parquet är detta storleken innan format-Specific Compression används.|
+| `kustoTable` |  Namnet på den befintliga mål tabellen. Åsidosätter `Table` som angetts på bladet `Data Connection`. |
+| `kustoDataFormat` |  Data format. Åsidosätter `Data format` som angetts på bladet `Data Connection`. |
+| `kustoIngestionMappingReference` |  Namnet på den befintliga inmatnings mappningen som ska användas. Åsidosätter `Column mapping` som angetts på bladet `Data Connection`.|
+| `kustoIgnoreFirstRecord` | Om värdet är `true`ignorerar Kusto den första raden i blobben. Använd i tabell format data (CSV, TSV eller liknande) för att ignorera huvuden. |
+| `kustoExtentTags` | Sträng som representerar [taggar](/azure/kusto/management/extents-overview#extent-tagging) som ska bifogas i den resulterande omfattningen. |
+| `kustoCreationTime` |  Åsidosätter [$IngestionTime](/azure/kusto/query/ingestiontimefunction?pivots=azuredataexplorer) för blobben, formaterade som en ISO 8601-sträng. Används för Autofyll. |
 
 > [!NOTE]
 > Azure Datautforskaren tar inte bort blobar efter inmatning.

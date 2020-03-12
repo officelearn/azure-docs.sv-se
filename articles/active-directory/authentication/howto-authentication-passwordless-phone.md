@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 736a543a6f28697dd4f1ddf85317e97a87b86e78
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 7c684d6f1fbd8128ae020b6fd29da928b286aa18
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227069"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126697"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Aktivera lösen ords utan lösen ord med Microsoft Authenticator-appen (förhands granskning)
 
@@ -62,7 +62,7 @@ Registrerings funktioner för metoder för lösen ords kryptering förlitar sig 
 1. I **Microsoft Authenticator**väljer du **Aktivera telefonin loggning** från List menyn konto
 1. Följ instruktionerna i appen för att slutföra registreringen för inloggning med lösen ord. 
 
-Organisationer kan peka sina användare till artikeln [Logga in med din telefon, inte ditt lösen ord](../user-help/microsoft-authenticator-app-phone-signin-faq.md) för ytterligare hjälp att konfigurera i Microsoft Authenticator-appen och aktivera telefonin loggning.
+Organisationer kan peka sina användare till artikeln [Logga in med din telefon, inte ditt lösen ord](../user-help/microsoft-authenticator-app-phone-signin-faq.md) för ytterligare hjälp att konfigurera i Microsoft Authenticator-appen och aktivera telefonin loggning. För att kunna tillämpa de här inställningarna kan du behöva logga ut och logga in på klienten igen. 
 
 ## <a name="sign-in-with-passwordless-credential"></a>Logga in med autentiseringsuppgifter för lösen ord
 

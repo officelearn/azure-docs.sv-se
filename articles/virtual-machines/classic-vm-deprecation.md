@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 9f3fd59fa040ab46a5fc4ef8272a17cba4c631b8
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 764567bffd2a08ebb5beb17e3063998848b3f110
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77925779"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127335"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrera dina IaaS-resurser till Azure Resource Manager den 1 mars 2023 
 
@@ -23,7 +23,7 @@ I 2014 lanserade vi IaaS på Azure Resource Manager och har ökat funktionerna n
 
 Idag, cirka 90% av de virtuella IaaS-datorerna använder Azure Resource Manager. Om du använder IaaS-resurser via Azure Service Manager (ASM) börjar du planera migreringen nu och slutför den 1 mars 2023 för att dra nytta av [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/).
 
-Klassiska virtuella datorer kommer att följa den [moderna livs cykel principen](https://support.microsoft.com/help/30881/modern-lifecycle-policy) för utfasning.
+Klassiska virtuella datorer kommer att följa den [moderna livs cykel policyn](https://support.microsoft.com/help/30881/modern-lifecycle-policy) för pensionering.
 
 ## <a name="how-does-this-affect-me"></a>Hur påverkar detta mig? 
 
@@ -31,7 +31,7 @@ Klassiska virtuella datorer kommer att följa den [moderna livs cykel principen]
 2) Den 1 mars 2023 kommer kunder inte längre att kunna starta IaaS virtuella datorer med Azure Service Manager och alla som fortfarande körs eller allokeras stoppas och frigörs. 
 2) Den 1 mars 2023 kommer prenumerationer som inte har migrerats till Azure Resource Manager att informeras om tids linjer för borttagning av eventuella återstående klassiska virtuella datorer.  
 
-Följande Azure-tjänster och-funktioner påverkas **inte** av den här indragningen: 
+Följande Azure-tjänster och -funktioner kommer **INTE** påverkas av detta tillbakadragande: 
 - Cloud Services 
 - Lagrings konton som **inte** används av klassiska virtuella datorer 
 - Virtuella nätverk (virtuella nätverk) som **inte** används av klassiska virtuella datorer. 

@@ -9,12 +9,12 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 68b7dfbf61f5d353f394bfbc034e00fddd262cd1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 68ad9cc47d68f7bc3ae952f7e458781cdc1c4ab2
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344014"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129765"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Träna modeller med Azure Machine Learning
 
@@ -69,7 +69,7 @@ Definiera iterationer, inställningar för funktionalisering och andra inställn
 * [Exempel: Jupyter Notebook exempel för automatisk maskin inlärning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 * [Gör så här: Konfigurera automatiserade ML-experiment i python](how-to-configure-auto-train.md)
 * [Gör så här: autoträna en tids serie prognos modell](how-to-auto-train-forecast.md)
-* [Så här: skapa, utforska och distribuera automatiserade Machine Learning-experiment med [Azure Machine Learning Studio](how-to-create-portal-experiments.md)
+* [Gör så här: skapa, utforska och distribuera automatiserade maskin inlärnings experiment med Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md)
 
 ### <a name="estimators"></a>Kostnadsberäknare
 

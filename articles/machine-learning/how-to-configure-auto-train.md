@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: c3ea40ed02fd6b585cfdc9c30fe59bd4e247395c
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 6f49529b0599f36ae4a26939bbbe171a45a1a53a
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79081836"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127211"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ Konfigurationsalternativ är tillgängliga i automatiserade machine learning:
 * Utforska mått i modellen
 * Registrera och distribuera modellen
 
-Om du föredrar en ingen kod upplevelse kan du också [skapa dina automatiserade maskin inlärnings experiment i Azure Machine Learning Studio](how-to-create-portal-experiments.md).
+Om du föredrar en ingen kod upplevelse kan du också [skapa dina automatiserade maskin inlärnings experiment i Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
 
 ## <a name="select-your-experiment-type"></a>Väljer du typen av experimentet
 
@@ -174,7 +174,7 @@ Några exempel är:
 
 De tre olika `task` parameter värden (den tredje aktivitets typen är `forecasting`och använder en liknande algoritm som `regression` aktiviteter) för att fastställa listan över modeller som ska användas. Använd parametrarna `whitelist` eller `blacklist` för att ytterligare ändra iterationer med tillgängliga modeller som ska tas med eller undantas. Listan över modeller som stöds finns i SupportedModels- [klassen](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) för ([klassificering](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification), [Prognosticering](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)och [regression](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression)).
 
-För automatisk ML-tjänsten krävs att `experiment_timeout_minutes` anges till en minimal tids gräns på 15 minuter för att hjälpa till att undvika experiment timeout-fel.
+Med automatisk ML-validerings tjänst krävs att `experiment_timeout_minutes` anges till en minimi tids gräns på 15 minuter för att undvika experiment tids gränser.
 
 ### <a name="primary-metric"></a>Primär mått
 Det primära måttet avgör vilket mått som ska användas vid modell träning för optimering. Tillgängliga mått som du kan välja bestäms av den aktivitets typ som du väljer och följande tabell visar giltiga primära mått för varje aktivitets typ.
@@ -191,7 +191,7 @@ Lär dig mer om de olika definitionerna av dessa mått i [förstå automatiserad
 
 ### <a name="data-featurization"></a>Data funktionalisering
 
-I varje automatiserad maskin inlärnings experiment [skalas dina data automatiskt och normaliseras](concept-automated-ml.md#preprocess) för att hjälpa *vissa* algoritmer som är känsliga för funktioner som är i olika skalor.  Du kan dock också aktivera ytterligare funktionalisering, t. ex. saknade värden Imputation, encoding och transformationer. [Läs mer om vad funktionalisering ingår](how-to-create-portal-experiments.md#featurization).
+I varje automatiserad maskin inlärnings experiment [skalas dina data automatiskt och normaliseras](concept-automated-ml.md#preprocess) för att hjälpa *vissa* algoritmer som är känsliga för funktioner som är i olika skalor.  Du kan dock också aktivera ytterligare funktionalisering, t. ex. saknade värden Imputation, encoding och transformationer. [Läs mer om vad funktionalisering ingår](how-to-use-automated-ml-for-ml-models.md#featurization).
 
 När du konfigurerar experimenten kan du aktivera den avancerade inställningen `featurization`. I följande tabell visas de accepterade inställningarna för funktionalisering i [klassen`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
@@ -199,7 +199,7 @@ När du konfigurerar experimenten kan du aktivera den avancerade inställningen 
 | ------------- | ------------- |
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Anger att det anpassade funktionalisering-steget ska användas. [Lär dig hur du anpassar funktionalisering](how-to-configure-auto-train.md#customize-feature-engineering).|
 |`"featurization": 'off'`| Anger att funktionalisering-steget inte ska göras automatiskt.|
-|`"featurization": 'auto'`| Anger att [data guardrails och funktionalisering-steg](how-to-create-portal-experiments.md#advanced-featurization-options) utförs automatiskt när en del av förbearbetningen.|
+|`"featurization": 'auto'`| Anger att [data guardrails och funktionalisering-steg](how-to-use-automated-ml-for-ml-models.md#advanced-featurization-options) utförs automatiskt när en del av förbearbetningen.|
 
 > [!NOTE]
 > Automatiserade funktionalisering-steg för Machine Learning (funktions normalisering, hantering av data som saknas, konvertering av text till tal osv.) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma funktionalisering-steg som tillämpades under träningen på dina indata automatiskt.

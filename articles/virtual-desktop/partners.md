@@ -5,14 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/10/2020
 ms.author: helohr
-ms.openlocfilehash: f75e404e37ff45eb7d9f540cf6acba71fa83349f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+manager: lizross
+ms.openlocfilehash: e10908a3ce0ad372ab7d05fda9a15481d0efc5a8
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201789"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127572"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
@@ -159,7 +160,7 @@ Som certifierad integrations partner bidrar Liquit till att påskynda över gån
 
 Login VSI är en Windows Virtual Desktop-leverantör med mervärdes tjänster och Microsoft-partner som levererar program vara för program prestanda testning i Windows-miljöer för virtuella skriv bord. Kunder som flyttar sina lokala företags tjänster till Windows Virtual Desktop använder inloggning VSI Enterprise Edition för att utvärdera och upprätthålla optimala prestanda, skalbarhet och tillgänglighet för Windows 10 Enterprise multi-session, Windows 10 Enterprise och Windows 7 har Aktiver ATS med affärs kritiska program.
 
-- [Gå till partner webbplatsen](https://www.loginvsi.com).
+- [Gå till partner webbplatsen](https://www.loginvsi.com/use-cases-initiatives/windows-virtual-desktop).
 
 ## <a name="nerdio"></a>Nerdio
 
@@ -253,6 +254,16 @@ Tricerat erbjuder en överlägsen utskrifts hanterings lösning för virtuella W
 Med Tricerat är utskriften sömlös i Windows Virtual Desktop och senare. Tricerat-programvaran gör det möjligt för administratörer att enkelt ansluta lokala skrivare till molnet, vilket utökar utskrifts hantering i företags miljö från traditionella miljöer till nya, moderna arbets ytor.
 
 - [Gå till partner webbplatsen](https://www.tricerat.com/microsoft-printing).
+
+## <a name="vast-limits"></a>stora gränser
+
+![typ av omfattande gränser](./media/partners/vast-limits.png)
+
+stora gränser, uberAgent-företaget, ger insyn i distributioner av virtuella Windows-datorer. Det skapar program vara för företags IT eftersom det vet hur IT-proffs ser och vilka verktyg de behöver. Dess produkter hjälper IT-tekniker att bli mer effektiva genom att ge dem exakt vad de behöver för att utföra sina jobb. inte mer, inte mindre.
+
+uberAgent är en övervaknings-och analys produkt som är avsedd för slut användar bearbetning som inte bara samlar in data – den ger kunderna den information som är viktig för dem. uberAgent har sina egna mått, täcker viktiga aspekter av användar upplevelse, program prestanda och slut punkts säkerhet, vilket ger dig allt du behöver veta om dina virtuella Windows-datorer utan att påverka systemets användar täthet. uberAgent fören klar fel sökning, hjälper till med storleks ändring och ger omfattande information som är viktig för informations säkerhet.
+
+- [Gå till partner webbplatsen](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop)
 
 ## <a name="workspot"></a>Workspot
 

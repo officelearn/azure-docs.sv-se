@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 06/21/2019
+ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: c9da29ad288811bbed225fd906f2a7eb1fd9edf7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a2619293bf3641cdca370ff528a87ae879460a3b
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977734"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086791"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Vanliga frågor och svar om Media Services v3
 
@@ -28,9 +28,13 @@ Den här artikeln ger svar på Azure Media Services (AMS) v3 vanliga frågor och
 
 Se [rollbaserad åtkomst kontroll (RBAC) för Media Services-konton](rbac-overview.md).
 
+### <a name="how-do-you-stream-to-apple-ios-devices"></a>Hur strömmar du till Apple iOS-enheter?
+
+Kontrol lera att du har "(format = M3U8-AAPL)" i slutet av din sökväg (efter "/manifest"-delen av URL: en) för att meddela att den strömmande ursprungs servern returnerar HLS innehåll för användning på Apple iOS-enheter (mer information finns i [leverera innehåll](dynamic-packaging-overview.md)).
+
 ### <a name="how-do-i-configure-media-reserved-units"></a>Hur gör jag för att konfigurerar du reserverade enheter?
 
-För ljudanalys- och videoanalysjobb som utlöses av Media Services v3 eller Video Indexer rekommenderar vi starkt att du etablerar ditt konto med 10 S3-MRU:er. Om du behöver fler än 10 S3 MRUs kan öppna en stöd biljett med den [Azure-portalen](https://portal.azure.com/).
+För ljudanalys- och videoanalysjobb som utlöses av Media Services v3 eller Video Indexer rekommenderar vi starkt att du etablerar ditt konto med 10 S3-MRU:er. Om du behöver fler än 10 S3-MRUs öppnar du ett support ärende med hjälp av [Azure Portal](https://portal.azure.com/).
 
 Mer information finns i [skala medie bearbetning med CLI](media-reserved-units-cli-how-to.md).
 
@@ -38,13 +42,17 @@ Mer information finns i [skala medie bearbetning med CLI](media-reserved-units-c
 
 Använd [transformeringar](https://docs.microsoft.com/rest/api/media/transforms) för att konfigurera vanliga aktiviteter för kodning eller analys av videor. Varje **transformering** beskriver ett recept, eller ett arbets flöde för uppgifter för bearbetning av video-eller ljudfiler. Ett [jobb](https://docs.microsoft.com/rest/api/media/jobs) är den faktiska begäran om Media Services att tillämpa **transformeringen** på ett angivet video-eller ljud innehåll. När transformeringen har skapats kan du skicka jobb med Media Services-API: er eller någon av de publicerade SDK: erna. Mer information finns i [Transformeringar och jobb](transforms-jobs-concept.md).
 
+### <a name="i-uploaded-encoded-and-published-a-video-what-would-be-the-reason-the-video-does-not-play-when-i-try-to-stream-it"></a>Jag har laddat upp, kodat och publicerat en video. Vad skulle vara orsaken till att videon inte spelas upp när jag försöker strömma den?
+
+En av de vanligaste orsakerna är att du inte har den slut punkt för direkt uppspelning som du försöker spela upp i körnings läge.
+
 ### <a name="how-does-pagination-work"></a>Hur fungerar sid brytning?
 
 När du använder sid brytning bör du alltid använda nästa länk för att räkna upp samlingen och inte är beroende av en viss sid storlek. Mer information och exempel finns i [filtrering, sortering, växling](entities-overview.md).
 
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Vilka funktioner är inte tillgängliga än i Azure Media Services v3?
 
-Mer information finns i [funktions luckor med avseende på v2-API: er](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
+Mer information finns i [funktions luckor med avseende på v2-API: er](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
 
 ### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Vad är processen att flytta ett Media Services konto mellan prenumerationer?  
 
@@ -76,11 +84,11 @@ Mer information finns i [skydda ditt innehåll med hjälp av Media Services dyna
 
 ### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>Hur och var du vill hämta JWT-token innan det att begäran licens eller nyckel?
 
-1. För produktion måste du ha en säker token-tjänst (STS) (webb tjänst) som utfärdar JWT-token vid en HTTPS-begäran. För testning kan du använda koden som visas i **GetTokenAsync** metod som definieras i [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
-2. Player behöver du göra en begäran när en användare autentiseras till STS för sådana en token och tilldela den som värde för token. Du kan använda den [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/).
+1. För produktion måste du ha en säker token-tjänst (STS) (webb tjänst) som utfärdar JWT-token vid en HTTPS-begäran. För test kan du använda koden som visas i **GetTokenAsync** -metoden som definierats i [program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+2. Player behöver du göra en begäran när en användare autentiseras till STS för sådana en token och tilldela den som värde för token. Du kan använda [Azure Media Player-API: et](https://amp.azure.net/libs/amp/latest/docs/).
 
-* Ett exempel för att köra STS, med symmetriska och asymmetrisk nyckel finns i [ https://aka.ms/jwt ](https://aka.ms/jwt). 
-* Ett exempel på en spelare baserat på Azure Media Player med hjälp av sådana JWT-token finns i [ https://aka.ms/amtest ](https://aka.ms/amtest) (expandera ”player_settings”-länk om du vill se token indata).
+* Ett exempel på att köra STS, med antingen symmetrisk och asymmetrisk nyckel, finns [https://aka.ms/jwt](https://aka.ms/jwt). 
+* Ett exempel på en spelare som baseras på Azure Media Player som använder sådan JWT-token finns i [https://aka.ms/amtest](https://aka.ms/amtest) (expandera "player_settings"-länken för att Visa token-inflödet).
 
 ### <a name="how-do-you-authorize-requests-to-stream-videos-with-aes-encryption"></a>Hur du för att godkänna begäranden att strömma videor med AES-kryptering?
 
@@ -90,9 +98,9 @@ I STS, beroende på användar profil, lägger du till olika anspråk (till exemp
 
 Använd Azure Media Services-API: er för att konfigurera licens-/nyckel leverans och kryptera dina till gångar (som visas i [det här exemplet](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
-Mer information finns här:
+Mer information finns i:
 
-- [Översikt över innehållsskydd](content-protection-overview.md)
+- [Content Protection-översikt](content-protection-overview.md)
 - [Utforma multi-DRM-innehållsskyddssystem med åtkomstkontroll](design-multi-drm-system-with-access-control.md)
 
 ### <a name="http-or-https"></a>HTTP eller HTTPS?
@@ -126,13 +134,19 @@ Ofta kunder har investerat i en licens-servergrupp i sina egna Datacenter eller 
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Kan jag använda Azure Portal för att hantera v3-resurser?
 
-För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](media-services-apis-overview.md#sdks).
+För närvarande kan du använda [Azure Portal](https://portal.azure.com/) för att:
+
+* Hantera Media Services v3 [Live-händelser](live-events-outputs-concept.md), 
+* Visa (inte hantera) v3- [till gångar](assets-concept.md), 
+* [Hämta information om att komma åt API: er](access-api-portal.md). 
+
+För alla andra hanterings uppgifter (t. ex. [transformationer och jobb](transforms-jobs-concept.md) och [innehålls skydd](content-protection-overview.md)) använder du [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Finns det ett AssetFile-koncept i v3?
 
 AssetFiles har tagits bort från AMS-API: et för att separera Media Services från SDK-beroendet för lagring. Nu är lagring, inte Media Services, den information som tillhör lagringen. 
 
-Mer information finns i [migrera till Media Services v3](migrate-from-v2-to-v3.md).
+Mer information finns i [migrera till Media Services v3](media-services-v2-vs-v3.md).
 
 ### <a name="where-did-client-side-storage-encryption-go"></a>Var finns lagrings kryptering på klient Sidan?
 

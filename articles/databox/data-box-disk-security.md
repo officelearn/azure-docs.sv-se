@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 5db65ab6f1c96ff816252ecaba2170adf358001c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 59cce6d89bc863ad489a8ed37c7f284d3085c775
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606562"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117291"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Säkerhet och dataskydd i Azure Data Box Disk
 
@@ -34,7 +34,7 @@ Följande diagram visar hur data flödar genom Azure Data Box Disk-lösningen fr
 
 ## <a name="security-features"></a>Säkerhetsfunktioner
 
-Data Box Disk är en säker lösning för dataskydd som garanterar att endast behöriga entiteter kan visa, ändra eller ta bort dina data. Säkerhetsfunktionerna i den här lösningen omfattar disken och den associerade tjänsten, och skyddar de data som lagras på disken och i tjänsten. 
+Data Box Disk är en säker lösning för dataskydd som garanterar att endast behöriga entiteter kan visa, ändra eller ta bort dina data. Säkerhetsfunktionerna i den här lösningen omfattar disken och den associerade tjänsten, och skyddar de data som lagras på disken och i tjänsten.
 
 ### <a name="data-box-disk-protection"></a>Data Box Disk-skydd
 
@@ -48,7 +48,7 @@ Data Box Disk-enheter skyddas med följande funktioner:
 
 Data som flödar in och ut från Data Box Disk skyddas med hjälp av följande funktioner:
 
-- BitLocker-kryptering av data under hela processen. 
+- BitLocker-kryptering av data under hela processen.
 - Data raderas från disken när dataöverföringen till Azure är klar. Dataraderingen följer NIST 800-88r1-standarder.
 
 ### <a name="data-box-service-protection"></a>Skydd av Data Box-tjänsten
@@ -56,10 +56,9 @@ Data som flödar in och ut från Data Box Disk skyddas med hjälp av följande f
 Data Box-tjänsten skyddas med hjälp av följande funktioner.
 
 - Åtkomst till Data Box Disk-tjänsten kräver att din organisation har en Azure-prenumeration som omfattar Data Box Disk. Prenumerationen styr vilka funktioner du kan komma åt på Azure Portal.
-- Eftersom Data Box-tjänsten finns i Azure skyddas den med hjälp av säkerhetsfunktionerna i Azure. Läs mer om säkerhetsfunktionerna i Microsoft Azure på [Microsoft Azure Säkerhetscenter](https://www.microsoft.com/TrustCenter/Security/default.aspx). 
+- Eftersom Data Box-tjänsten finns i Azure skyddas den med hjälp av säkerhetsfunktionerna i Azure. Läs mer om säkerhetsfunktionerna i Microsoft Azure på [Microsoft Azure Säkerhetscenter](https://www.microsoft.com/TrustCenter/Security/default.aspx).
 - Data Box Disk lagrar disknyckeln som används för att låsa upp disken i tjänsten. 
-- Data Box Disk-tjänsten lagrar orderinformationen och orderstatusen i tjänsten. Den här informationen tas bort när ordern tas bort. 
-
+- Data Box Disk-tjänsten lagrar orderinformationen och orderstatusen i tjänsten. Den här informationen tas bort när ordern tas bort.
 
 ## <a name="managing-personal-data"></a>Hantera personliga data
 

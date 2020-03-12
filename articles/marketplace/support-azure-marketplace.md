@@ -7,14 +7,14 @@ manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 7/25/2019
+ms.date: 3/11/2020
 ms.author: evansma
-ms.openlocfilehash: 40d466bd4e5959453f8c3042c4b14f6c3ef605bf
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 80911ce7858308302b1736328b6c7954c0e05a86
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933465"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79095520"
 ---
 # <a name="support-for-the-marketplace"></a>Support för Marketplace  
 Här är en lista över support alternativ för Marketplace.  
@@ -23,13 +23,13 @@ Dessutom kan du få många av dina frågor besvarade på [Marketplace-kanalen f�
 
 ## <a name="onboarding"></a>Publicering
 
-Öppna ett ärende med Microsoft [Marketplace Publisher-stöd](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) för problem med att registrera och komma igång, eller med Microsoft [partner support](https://partner.microsoft.com/support) om du har frågor om Microsoft Partner Network.
+Öppna ett ärende med Microsoft [Marketplace Publisher-stöd](https://aka.ms/marketplacepublishersupport) för problem med onboarding och komma igång.
 
 ## <a name="partner-center-or-cloud-partner-portal"></a>Partner Center eller Cloud Partner Portal  
 
 | Support kanal | Beskrivning | Tillgänglighet |  
 |:--- |:--- |:--- |  
-| Om du behöver hjälp kan du gå till sidan Skapa en incident som finns på [Marketplace-support](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Stöd för partner Center eller Cloud Partner Portal. | Support tillhandahålls mellan 06:00-. 18:00 PST. |  
+| Om du behöver hjälp kan du gå till sidan Skapa en incident som finns på [Marketplace-support](https://aka.ms/marketplacepublishersupport)</li> </ul> | Stöd för partner Center eller Cloud Partner Portal. | Support tillhandahålls 24x5. |  
 
 ## <a name="technical"></a>Teknisk  
 

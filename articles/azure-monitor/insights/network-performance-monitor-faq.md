@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 0ef50dfd4d9c6eb0066e54b76167b9934fbb9cf0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 443e4b44633e949dd9bd55df1ec7d18ca93d6e04
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654441"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096224"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor om Övervakare av nätverksprestanda-lösning
 
@@ -183,7 +183,7 @@ Ett hopp kan inte svara på en traceroute i ett eller flera av följande scenari
 * Nätverks enheterna tillåter inte ICMP_TTL_EXCEEDED trafik.
 * En brand vägg blockerar ICMP_TTL_EXCEEDED svaret från nätverks enheten.
 
-När någon av slut punkterna är i Azure visar traceroute identifierade hopp som Azure ndrastructure inte avslöjar identitet till traceroute. 
+När någon av slut punkterna är i Azure visar traceroute identifierade hopp eftersom Azure-infrastrukturen inte avslöjar identiteten för traceroute. 
 
 ### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>Jag får aviseringar om fel test, men jag ser inte de höga värdena i NPM förlust och svars tid. Hur gör jag för att kontrollerar du vad som är ohälsosamt?
 NPM genererar en avisering om slut punkt till slut punkt mellan källa och mål korsar tröskelvärdet för valfri sökväg mellan dem. Vissa nätverk har flera vägar som ansluter samma källa och mål. NPM genererar en avisering. sökvägen är felaktig. Förlusten och svars tiden som visas i graferna är det genomsnittliga värdet för alla sökvägar, och därför kanske det inte visar exakt värdet för en enskild sökväg. För att förstå var tröskelvärdet har brutits, kan du leta efter kolumnen "undertyp" i aviseringen. Om problemet orsakas av en sökväg, kommer under typens värde att NetworkPath (för test av prestanda övervakare), EndpointPath (för övervakning av tjänst anslutnings övervakare) och ExpressRoutePath (för ExpressRotue övervaknings test). 

@@ -1,20 +1,15 @@
 ---
 title: Snabb start – distribuera Docker-behållare till container instance – Portal
 description: I den här snabb starten använder du Azure Portal för att snabbt distribuera en container-webbapp som körs i en isolerad Azure Container instance
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: quickstart
-ms.date: 04/17/2019
-ms.author: danlep
+ms.date: 03/09/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e0c5ba57c7664a64c1b11bed215f419f31630d39
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 7a872e955db46b76d3b12f8ffc38d4a8e497ea63
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533532"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79088000"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Snabb start: Distribuera en behållar instans i Azure med hjälp av Azure Portal
 
@@ -40,15 +35,16 @@ På sidan **grundläggande** anger du följande värden i text rutorna **resurs 
 
 * Resursgrupp: **Skapa ny** > `myresourcegroup`
 * Containernamn: `mycontainer`
-* Containeravbildning: `mcr.microsoft.com/azuredocs/aci-helloworld`
+* Avbildnings Källa: **snabb starts avbildningar**
+* Behållar avbildning: `mcr.microsoft.com/azuredocs/aci-helloworld` (Linux)
 
 ![Konfigurera grundläggande inställningar för en ny containerinstans i Azure Portal][aci-portal-03]
 
-I den här snabb starten använder du standard inställningen för **avbildnings typ** **offentlig** för att distribuera den offentliga Microsoft `aci-helloworld`-avbildningen. Den här Linux-avbildningen paketerar en liten webbapp som skrivits i Node. js och som hanterar en statisk HTML-sida.
+I den här snabb starten använder du standardinställningar för att distribuera den offentliga Microsoft `aci-helloworld`-avbildningen. Det här exemplet på Linux-avbildningar är en liten webbapp skriven i Node. js som hanterar en statisk HTML-sida. Du kan också ta med dina egna behållar avbildningar lagrade i Azure Container Registry, Docker Hub eller andra register.
 
-På sidan **nätverk** anger du en **DNS-** benämning på din behållare. Namnet måste vara unikt inom den Azure-region där du skapar behållar instansen. Din container kan nås offentligt på `<dns-name-label>.<region>.azurecontainer.io`. Om du får felmeddelandet ”DNS name label not available” (DNS-namnetikett inte tillgänglig) kan du prova en annan DNS-namnetikett.
+På sidan **nätverk** anger du en **DNS-** benämning på din behållare. Namnet måste vara unikt inom den Azure-region där du skapar behållar instansen. Din container kan nås offentligt på `<dns-name-label>.<region>.azurecontainer.io`. Om du får felmeddelandet ”DNS-namnetiketten är inte tillgänglig” provar du med en annan DNS-namnetikett.
 
-![Konfigurera en ny containerinstans i Azure Portal][aci-portal-04]
+![Konfigurera nätverks inställningar för en ny behållar instans i Azure Portal][aci-portal-04]
 
 Lämna de andra inställningarna till standardinställningarna och välj sedan **Granska + skapa**.
 
@@ -56,9 +52,9 @@ När verifieringen är klar visas en sammanfattning av containerinställningarna
 
 ![Sammanfattning av inställningar för en ny containerinstans i Azure Portal][aci-portal-05]
 
-När distributionen inleds visas ett meddelande som indikerar att distributionen pågår. Ett nytt meddelande visas när containergruppen har distribuerats.
+När distributionen startar visas ett meddelande som anger att distributionen pågår. Ett nytt meddelande visas när containergruppen har distribuerats.
 
-Öppna översikten för behållar gruppen genom att gå till **resurs grupper** > myresourcegroup ** > ** behållaren. Anteckna den **FQDN** (fullständigt kvalificerade domännamn) på containerinstansen samt dess **Status**.
+Öppna översikten för behållar gruppen genom att gå till **resurs grupper** > myresourcegroup ** > ** behållaren. **myresourcegroup** Anteckna den **FQDN** (fullständigt kvalificerade domännamn) på containerinstansen samt dess **Status**.
 
 ![Översikt över gruppcontainer i Azure-portalen][aci-portal-06]
 

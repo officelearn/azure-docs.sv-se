@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: c96caf7a90f35913bcba04a00553ad1df2689999
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: dbf3531f84d218543b0ab1fb2199a66bdbde2926
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514433"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117249"
 ---
 ::: zone target = "docs"
 
@@ -100,7 +100,7 @@ Koppla in enheten med hjälp av följande steg.
 
 Koppla in den ena av enhetens noder genom att följa stegen nedan.
 
-1. Använd en CAT 6 RJ-45-nätverkskabel (blå kabel i bilden) för att ansluta värddatorn till 1 Gbit/s-hanteringsporten.
+1. Använd en CAT 6 RJ-45-nätverkskabel (kabeln överst till höger i bilden som är ansluten till uttaget som är märkt MGMT) för att ansluta värddatorn till 1 Gbit/s-hanteringsporten.
 2. Använd en QSFP+-kabel (fiber eller koppar) för att ansluta minst ett 40 Gbit/s-nätverksgränssnitt (helst över 1 Gbit/s) för data. Om du använder en 10 Gbit/s-växel använder du en SFP+-kabel med en QSFP+ till SFP+-adapter (QSA-adaptern) för att ansluta 40 Gbit/s-nätverksgränssnittet för data.
 
     ![Inkopplade Data Box Heavy-portar](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)

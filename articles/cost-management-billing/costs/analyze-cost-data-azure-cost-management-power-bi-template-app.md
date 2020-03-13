@@ -4,16 +4,16 @@ description: Den här artikeln beskriver hur du installerar och använder Azure 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/05/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 4a50ce5c386f1b928e9f767891840c84534938a9
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: bc676910a05dbec97ae05578399029f85f71e1ef
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169700"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399654"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analysera kostnader med Azure Cost Management Power BI-appen för Enterprise-avtal (EA)
 
@@ -43,7 +43,7 @@ Så här installerar du appen:
   ![Kom igång med din nya app – Anslut](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
 9. I dialogrutan som visas anger du ditt EA-registreringsnummer för **BillingProfileIdOrEnrollmentNumber**. Ange hur många månaders data som ska hämtas. Lämna **Omfång**-standardvärdet som **Registreringsnummer** och välj **Nästa**.  
   ![Ange EA-registreringsinformation](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
-10. I nästa dialogruta görs en anslutning till Azure för att hämta de data som krävs för rekommendationer för reserverad instans. Lämna standardvärdena som de är och välj **Logga in**.  
+10. I nästa dialogruta görs en anslutning till Azure för att hämta de data som krävs för rekommendationer för reserverad instans. *Lämna standardvärdena som de är* och välj **Logga in**.  
   ![Ansluta till Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. I det sista installationssteget görs en anslutning till din EA-registrering och ett [företagsadministratörskonto](../manage/understand-ea-roles.md) krävs. Välj **Logga in** för att autentisera med din EA-registrering. Det här steget startar också en datauppdateringsåtgärd i Power BI.  
   ![Ansluta till EA-registrering](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
@@ -124,6 +124,50 @@ Mer information om hur du använder rapporten finns i avsnittet [VM RI-täckning
 **RI purchases** (RI-inköp) – rapporten visar RI-inköp under den angivna perioden.
 
 **Prisdokument** – rapporten innehåller en detaljerad prislista som är specifik för ett faktureringskonto eller en EA-registrering.
+
+## <a name="troubleshoot-problems"></a>Felsöka problem
+
+Följande felsökningsinformation kan hjälpa dig om du har problem med Power BI-appen.
+
+### <a name="budgetamount-error"></a>BudgetAmount-fel
+
+Du kan få ett felmeddelande som säger:
+
+```
+Something went wrong
+There was an error when processing the data in the dataset.
+Please try again later or contact support. If you contact support, please provide these details.
+Data source error: The 'budgetAmount' column does not exist in the rowset. Table: Budgets.
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här felet orsakas av ett fel i underliggande metadata. Problemet uppstår eftersom det inte finns någon tillgänglig budget i **Cost Management > Budget** i Microsoft Azure-portalen. En felkorrigering håller på att distribueras till Power BI Desktop och Power BI-tjänsten. 
+
+#### <a name="solution"></a>Lösning
+
+- Tills felet har åtgärdats kan du kringgå problemet genom att lägga till en testbudget i Microsoft Azure-portalen på faktureringskonto-/EA-registreringsnivån. Testbudgeten avblockerar anslutningen till Power BI. Mer information om hur du skapar en budget finns i [Självstudie: Skapa och hantera Azure-budgetar](tutorial-acm-create-budgets.md).
+
+
+### <a name="invalid-credentials-for-azureblob-error"></a>Ogiltiga autentiseringsuppgifter för AzureBlob-fel
+
+Du kan få ett felmeddelande som säger:
+
+```
+Failed to update data source credentials: The credentials provided for the AzureBlobs source are invalid.
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här felet uppstår om du ändrar autentiseringsmetoden för blob-anslutningen AutoFitComboMeter.
+
+#### <a name="solution"></a>Lösning
+
+1. Ansluta till data.
+1. När du har angett din EA-registrering och antalet månader bör du se till att du inte ändrar standardvärdet **Anonym** som autentiseringsmetod och **Ingen** som inställning för sekretessnivå.  
+  ![Ansluta till Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
+1. På nästa sida anger du **OAuth2** som autentiseringsmetod och **Ingen** som sekretessnivå. Sedan loggar du in för att autentisera med din registrering. Det här steget startar också en datauppdatering i Power BI.
+
 
 ## <a name="data-reference"></a>Datareferens
 

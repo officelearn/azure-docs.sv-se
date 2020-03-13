@@ -10,20 +10,37 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/12/2020
+ms.date: 03/06/2020
 ms.author: jaserano
-ms.openlocfilehash: 199d32efef256fe3b56dbcf0a5d3ac6351f2d0b3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: cd9d17eb365937035919b7e712a4b5824f747bda
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200922"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942591"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Felsöka betalningsproblem med Azure
 
 Ett problem eller fel kan uppstå när du försöker uppdatera kontot för betalningsinformation i antingen Microsoft Azure-portalen eller Azure-kontocentret.
 
 För att lösa problemet väljer du det ämne som närmast liknar ditt fel.
+
+## <a name="my-credit-card-was-declined-when-i-tried-to-sign-up-for-azure"></a>Mitt kreditkort avvisades när jag försökte registrera mig i Azure
+
+Information om hur du felsöker problem med ett avvisat kort finns i artikeln [Felsök ett avvisat kort vid Azure-registrering](troubleshoot-declined-card.md).
+
+## <a name="unable-to-see-subscriptions-under-my-account-to-update-the-payment-method"></a>Det går inte att visa prenumerationer i mitt konto för uppdatering av betalningsmetoden
+
+Du kanske använder ett e-post-ID som skiljer sig från det som används för prenumerationerna.
+
+Information om hur du felsöker det här problemet finns i [Inloggningsfelet Inga prenumerationer hittades för Azure-portalen eller Azure-kontocenter](no-subscriptions-found.md).
+
+## <a name="unable-to-use-a-virtual-or-prepaid-credit-or-debit-card-as-a-payment-method"></a>Det går inte att använda ett virtuellt kort, ett förbetald kreditkort eller ett betalkort som betalningsmetod.
+
+*   Virtuella och förbetalda kreditkort kan inte användas som betalningsmedel för Azure-prenumerationer.
+*   Betalkort kan inte användas som betalningsmedel för Azure-prenumerationer.
+
+Mer information finns i [Felsöka ett avvisat kort vid Azure-registrering](troubleshoot-declined-card.md).
 
 ## <a name="unable-to-remove-a-credit-card-from-a-saved-billing-payment-method"></a>Det går inte att ta bort ett kreditkort från en sparad betalningsmetod för fakturering
 
@@ -33,19 +50,11 @@ Om ett befintligt kort måste tas bort måste antingen ett nytt kort läggas til
 
 ## <a name="unable-to-delete-an-old-payment-method-after-adding-a-new-payment-method"></a>Det går inte att ta bort en gammal betalningsmetod efter att en ny betalningsmetod har lagts till
 
-Det nya betalningsmedlet är kanske inte kopplat till prenumerationen. Information om hur du associerar betalningsmedlet med prenumerationen finns i artikeln om hur du [lägger till, uppdaterar eller tar bort ett kredit- eller debetkort för Azure](change-credit-card.md).
-
-Information om hur du felsöker problem med ett avvisat kort finns i artikeln om hur du [felsöker ett avvisat kort vid Azure-registrering](troubleshoot-declined-card.md).
+Det nya betalningsmedlet är kanske inte kopplat till prenumerationen. Information om hur du associerar betalningsmedlet med prenumerationen finns i artikeln om hur du [lägger till, uppdaterar eller tar bort ett kreditkort för Azure](change-credit-card.md).
 
 ## <a name="unable-to-delete-a-payment-method-because-of-cannot-delete-payment-method-error"></a>Det går inte att ta bort en betalningsmetod på grund av felet *Det går inte att ta bort betalningsmetoden*
 
 Detta inträffar på grund av ett utestående saldo. Åtgärda eventuella utestående saldon innan du tar bort betalningsmetoden.
-
-## <a name="unable-to-see-subscriptions-under-my-account-to-update-the-payment-method"></a>Det går inte att visa prenumerationer i mitt konto för uppdatering av betalningsmetoden
-
-Du kanske använder ett e-post-ID som skiljer sig från det som används för prenumerationerna.
-
-Information om hur du felsöker det här problemet finns i [Inloggningsfelet Inga prenumerationer hittades för Azure-portalen eller Azure-kontocenter](no-subscriptions-found.md).
 
 ## <a name="unable-to-make-payment-for-a-subscription"></a>Det går inte att betala för en prenumeration
 

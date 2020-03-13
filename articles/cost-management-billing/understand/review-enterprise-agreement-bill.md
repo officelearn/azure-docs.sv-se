@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 03/03/2020
+ms.date: 03/06/2020
 ms.author: banders
-ms.openlocfilehash: ca1064ce3414f4a796110c022125b68c0674e0d6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 5de6baf81f67ef6bee43b54e7aa0d62088c15be9
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78270185"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898641"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Förstå fakturan för ditt Azure Enterprise-avtal
 
@@ -118,7 +118,7 @@ I följande tabell visas de termer och beskrivningar som finns på fakturan och 
 
 Det här avsnittet gäller endast om du är i Australien, Japan eller Singapore.
 
-Jämför din totala Azure Marketplace-summa i **Rapporter** > **Användningssammanfattning** i Enterprise-portalen med din Marketplace-faktura. Marketplace-fakturan avser enbart Azure Marketplace-köp och -användning. Belopp i **Användningssammanfattning** inkluderar inte skatt.
+Jämför din totala Azure Marketplace-summa i **Rapporter** > **Användningssammanfattning** i Enterprise-portalen med din Marketplace-faktura. Marketplace-fakturan avser enbart Azure Marketplace-köp och -användning. Beloppen på **förbrukningsöversikten** innehåller redan en skatt som fastställs av utgivaren.
 
 Logga in på [Enterprise-portalen](https://ea.azure.com) och välj sedan **Rapporter**. I flikens övre högra hörn växlar du vyn från **M** till **C** och matchar perioden på fakturan.  
 

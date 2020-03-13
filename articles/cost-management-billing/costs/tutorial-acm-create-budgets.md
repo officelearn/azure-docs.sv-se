@@ -4,17 +4,17 @@ description: Den här självstudien hjälper dig att planera och ta hänsyn till
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 03/11/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f5943e37267a79ad342fbd9afe0256a4ca7182e6
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: b81236fd63d9289f797056cf7aaceb7d826511af
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251228"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128348"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudier: Skapa och hantera Azure-budgetar
 
@@ -54,7 +54,7 @@ Mer information om hur du tilldelar åtkomst till Cost Management-data finns i [
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-- Logga in på Azure Portal på https://portal.azure.com.
+- Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Skapa en budget i Azure-portalen
 
@@ -164,7 +164,7 @@ New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -Star
 ```
 ## <a name="create-a-budget-with-an-azure-resource-manager-template"></a>Skapa en budget med en Azure Resource Manager-mall
 
-Du kan skapa en budget med hjälp av en Azure Resource Manager-mall. Mallen hjälper dig att skapa en budget under en resursgrupp. Mallen är endast avsedd för Enterprise-avtalskunder.
+Du kan skapa en budget med hjälp av en Azure Resource Manager-mall. Mallen hjälper dig att skapa en budget under en resursgrupp. 
 
 Logga in på Azure-portalen och öppna mallen genom att välja följande bild:
 

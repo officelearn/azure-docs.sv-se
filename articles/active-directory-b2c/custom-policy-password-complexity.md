@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2de1130e28b5071913e4cf3632c3fe4407597a98
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
-ms.translationtype: MT
+ms.openlocfilehash: af6a7611381cbf7a251e65969d156f4c40d71843
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189148"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126767"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera lösen ords komplexitet med anpassade principer i Azure Active Directory B2C
 
@@ -26,103 +26,126 @@ I Azure Active Directory B2C (Azure AD B2C) kan du konfigurera komplexitets krav
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Slutför stegen i [Kom igång med anpassade principer i Active Directory B2C](custom-policy-get-started.md).
+Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
+
 
 ## <a name="add-the-elements"></a>Lägg till elementen
 
-1. Kopiera filen *SignUpOrSignIn. XML* som du laddade ned med start paketet och ge den namnet *SingUpOrSignInPasswordComplexity. XML*.
-2. Öppna filen *SingUpOrSignInPasswordComplexity. XML* och ändra **PolicyId** och **PublicPolicyUri** till ett nytt princip namn. Till exempel *B2C_1A_signup_signin_password_complexity*.
-3. Lägg till följande **claimType** -element med identifierare för `newPassword` och `reenterPassword`:
+Om du vill konfigurera lösen ords komplexiteten åsidosätter du `newPassword` och `reenterPassword` [anspråks typer](claimsschema.md) med en referens till [predikat valideringar](predicates.md#predicatevalidations). PredicateValidations-elementet grupperar en uppsättning predikat som utgör en verifiering av användarindata som kan tillämpas på en anspråks typ. Öppna tilläggs filen för principen. Till exempel <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>  .
+
+1. Sök efter [BuildingBlocks](buildingblocks.md) -elementet. Om elementet inte finns lägger du till det.
+1. Leta upp [ClaimsSchema](claimsschema.md) -elementet. Om elementet inte finns lägger du till det.
+1. Lägg till `newPassword` och `reenterPassword` anspråk till **ClaimsSchema** -elementet.
 
     ```XML
-    <ClaimsSchema>
-      <ClaimType Id="newPassword">
-        <InputValidationReference Id="PasswordValidation" />
-      </ClaimType>
-      <ClaimType Id="reenterPassword">
-        <InputValidationReference Id="PasswordValidation" />
-      </ClaimType>
-    </ClaimsSchema>
+    <ClaimType Id="newPassword">
+      <PredicateValidationReference Id="CustomPassword" />
+    </ClaimType>
+    <ClaimType Id="reenterPassword">
+      <PredicateValidationReference Id="CustomPassword" />
+    </ClaimType>
     ```
 
-4. [Predikat](predicates.md) har metod typer för `IsLengthRange` eller `MatchesRegex`. `MatchesRegex` typen används för att matcha ett reguljärt uttryck. `IsLengthRange` typen tar en minsta och högsta sträng längd. Lägg till ett **predikat** -element i **BuildingBlocks** -elementet om det inte finns med följande **predikat** element:
+1. [Predikat](predicates.md) definierar en grundläggande verifiering för att kontrol lera värdet för en anspråks typ och returnerar true eller false. Verifieringen görs med hjälp av ett angivet metod element och en uppsättning parametrar som är relevanta för metoden. Lägg till följande predikat i **BuildingBlocks** -elementet, omedelbart efter stängningen av `</ClaimsSchema>`-elementet:
 
     ```XML
     <Predicates>
-      <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
+      <Predicate Id="LengthRange" Method="IsLengthRange">
+        <UserHelpText>The password must be between 6 and 64 characters.</UserHelpText>
         <Parameters>
-          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
+          <Parameter Id="Minimum">6</Parameter>
+          <Parameter Id="Maximum">64</Parameter>
         </Parameters>
       </Predicate>
-      <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">
+      <Predicate Id="Lowercase" Method="IncludesCharacters">
+        <UserHelpText>a lowercase letter</UserHelpText>
         <Parameters>
-          <Parameter Id="Minimum">8</Parameter>
-          <Parameter Id="Maximum">16</Parameter>
+          <Parameter Id="CharacterSet">a-z</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="Uppercase" Method="IncludesCharacters">
+        <UserHelpText>an uppercase letter</UserHelpText>
+        <Parameters>
+          <Parameter Id="CharacterSet">A-Z</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="Number" Method="IncludesCharacters">
+        <UserHelpText>a digit</UserHelpText>
+        <Parameters>
+          <Parameter Id="CharacterSet">0-9</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="Symbol" Method="IncludesCharacters">
+        <UserHelpText>a symbol</UserHelpText>
+        <Parameters>
+          <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
         </Parameters>
       </Predicate>
     </Predicates>
     ```
 
-5. Varje **InputValidation** -element konstrueras med hjälp av definierade **predikat** -element. Med det här elementet kan du utföra booleska agg regeringar som liknar `and` och `or`. Lägg till ett **InputValidations** -element i **BuildingBlocks** -elementet om det inte finns med följande **InputValidation** -element:
+1. Lägg till följande predikat verifieringar i **BuildingBlocks** -elementet, omedelbart efter stängningen av `</Predicates>`-elementet:
 
     ```XML
-    <InputValidations>
-      <InputValidation Id="PasswordValidation">
-        <PredicateReferences Id="LengthGroup" MatchAtLeast="1">
-          <PredicateReference Id="Length" />
-        </PredicateReferences>
-        <PredicateReferences Id="3of4" MatchAtLeast="3" HelpText="You must have at least 3 of the following character classes:">
-          <PredicateReference Id="Lowercase" />
-          <PredicateReference Id="Uppercase" />
-          <PredicateReference Id="Number" />
-          <PredicateReference Id="Symbol" />
-        </PredicateReferences>
-      </InputValidation>
-    </InputValidations>
+    <PredicateValidations>
+      <PredicateValidation Id="CustomPassword">
+        <PredicateGroups>
+          <PredicateGroup Id="LengthGroup">
+            <PredicateReferences MatchAtLeast="1">
+              <PredicateReference Id="LengthRange" />
+            </PredicateReferences>
+          </PredicateGroup>
+          <PredicateGroup Id="CharacterClasses">
+            <UserHelpText>The password must have at least 3 of the following:</UserHelpText>
+            <PredicateReferences MatchAtLeast="3">
+              <PredicateReference Id="Lowercase" />
+              <PredicateReference Id="Uppercase" />
+              <PredicateReference Id="Number" />
+              <PredicateReference Id="Symbol" />
+            </PredicateReferences>
+          </PredicateGroup>
+        </PredicateGroups>
+      </PredicateValidation>
+    </PredicateValidations>
     ```
 
-6. Kontrol lera att den tekniska profilen **PolicyProfile** innehåller följande element:
+1. Följande tekniska profiler är [Active Directory tekniska profiler](active-directory-technical-profile.md)som läser och skriver data till Azure Active Directory. Åsidosätt dessa tekniska profiler i tilläggs filen. Använd `PersistedClaims` för att inaktivera principen för starkt lösen ord. Hitta **ClaimsProviders** -elementet.  Lägg till följande anspråks leverantörer enligt följande:
 
     ```XML
-    <RelyingParty>
-      <DefaultUserJourney ReferenceId="SignUpOrSignIn"/>
-      <TechnicalProfile Id="PolicyProfile">
-        <DisplayName>PolicyProfile</DisplayName>
-        <Protocol Name="OpenIdConnect"/>
-        <InputClaims>
-          <InputClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
-        </InputClaims>
-        <OutputClaims>
-          <OutputClaim ClaimTypeReferenceId="displayName"/>
-          <OutputClaim ClaimTypeReferenceId="givenName"/>
-          <OutputClaim ClaimTypeReferenceId="surname"/>
-          <OutputClaim ClaimTypeReferenceId="email"/>
-          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-        </OutputClaims>
-        <SubjectNamingInfo ClaimType="sub"/>
-      </TechnicalProfile>
-    </RelyingParty>
+    <ClaimsProvider>
+      <DisplayName>Azure Active Directory</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
+          <PersistedClaims>
+            <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
+          </PersistedClaims>
+        </TechnicalProfile>
+        <TechnicalProfile Id="AAD-UserWritePasswordUsingObjectId">
+          <PersistedClaims>
+            <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
+          </PersistedClaims>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
     ```
 
-7. Spara princip filen.
+1. Spara princip filen.
 
 ## <a name="test-your-policy"></a>Testa principen
 
-När du testar dina program i Azure AD B2C kan det vara praktiskt att ha Azure AD B2C-token som returneras till `https://jwt.ms` för att kunna granska anspråk i det.
-
 ### <a name="upload-the-files"></a>Ladda upp filerna
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **ramverk för identitets upplevelse**.
 5. På sidan anpassade principer klickar du på **Ladda upp princip**.
-6. Välj **Skriv över principen om den finns**och Sök sedan efter och välj *SingUpOrSignInPasswordComplexity. XML-* filen.
+6. Välj **Skriv över principen om den finns**och Sök sedan efter och välj *TrustFrameworkExtensions. XML-* filen.
 7. Klicka på **Överför**.
 
 ### <a name="run-the-policy"></a>Kör principen
 
-1. Öppna den princip som du har ändrat. Till exempel *B2C_1A_signup_signin_password_complexity*.
+1. Öppna registrerings-eller inloggnings principen. Till exempel *B2C_1A_signup_signin*.
 2. För **program**väljer du ditt program som du har registrerat tidigare. Om du vill se token ska **svars-URL:** en Visa `https://jwt.ms`.
 3. Klicka på **Kör nu**.
 4. Välj **Registrera dig nu**, ange en e-postadress och ange ett nytt lösen ord. Vägledning ges om lösen ords begränsningar. Ange användar informationen och klicka sedan på **skapa**. Du bör se innehållet i den token som returnerades.
@@ -130,5 +153,4 @@ När du testar dina program i Azure AD B2C kan det vara praktiskt att ha Azure A
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig hur du [konfigurerar ändring av lösen ord med anpassade principer i Azure Active Directory B2C](custom-policy-password-change.md).
-
-
+- - Lär dig mer om [predikat](predicates.md) och [PredicateValidations](predicates.md#predicatevalidations) -elementen i IEF-referensen.

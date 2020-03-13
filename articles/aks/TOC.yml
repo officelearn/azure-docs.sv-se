@@ -117,18 +117,12 @@
   items:
     - name: Klusteråtgärder
       items:
-        - name: Skapa ett AKS-kluster
-          href: '/cli/azure/aks#az-aks-create'
-          maintainContext: true
         - name: Skala ett AKS-kluster
           href: scale-cluster.md
         - name: Uppgradera ett AKS-kluster
           href: upgrade-cluster.md
         - name: Bearbeta OS-noduppdateringar
           href: node-updates-kured.md
-        - name: Ta bort ett AKS-kluster
-          href: '/cli/azure/aks#az-aks-delete'
-          maintainContext: true
         - name: Integrera ACR med ett AKS-kluster
           href: cluster-container-registry-integration.md
         - name: Skapa virtuella noder
